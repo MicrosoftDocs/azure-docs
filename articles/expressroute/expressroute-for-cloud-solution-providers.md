@@ -60,7 +60,7 @@ The choices between these two options are based on your customer’s needs and y
 
 * **Azure role-based access control (Azure RBAC)** – Azure RBAC is based on Microsoft Entra ID.  For more information on Azure RBAC, see [here](/azure/role-based-access-control/role-assignments-portal).
 * **Networking** – Covers the various articles of networking in Microsoft Azure.
-* **Microsoft Entra ID** – Microsoft Entra ID provides the identity management for Microsoft Azure and third-party SaaS applications. For more information about Microsoft Entra ID, see [What is Microsoft Entra ID?](../active-directory/fundamentals/whatis.md).  
+* **Microsoft Entra ID** – Microsoft Entra ID provides the identity management for Microsoft Azure and third-party SaaS applications. For more information about Microsoft Entra ID, see [What is Microsoft Entra ID?](../active-directory/fundamentals/whatis.md)  
 
 ## Network speeds
 ExpressRoute supports network speeds from 50 Mb/s to 10 Gb/s. This allows customers to purchase the amount of network bandwidth needed for their unique environment.

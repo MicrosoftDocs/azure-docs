@@ -10,7 +10,7 @@ ms.custom: references_regions
 # Customer intent: As a cloud administrator, I want to understand about Azure NetApp Files cache volumes and the benefits of using Azure NetApp Files cache volumes. 
 ---
 
-# Understand Azure NetApp Files cache volumes (preview)
+# Understand Azure NetApp Files cache volumes
 
 Azure NetApp Files cache volumes enable you to create a cloud-based cache of your external NetApp ONTAP and Cloud Volumes ONTAP storage volumes in Azure. Caching active ("hot") data closer to users and cloud applications improves data access speeds and throughput over WAN connections. This results in cost-effective, low-latency remote access to important files. In practical terms, you can burst on-premises datasets to Azure with near-local performance—ideal for running computational workloads in Azure on your on-premises data or enabling globally distributed teams to collaborate without lengthy file transfer delays.  
 
@@ -76,8 +76,11 @@ Cache volumes are supported in the following regions:
 * Israel Central
 * Italy North
 * Japan East
+* Japan West
 * Korea Central
 * Korea South
+* Malaysia West
+* New Zealand North
 * North Central US
 * North Europe
 * Norway East
@@ -101,9 +104,9 @@ Cache volumes are supported in the following regions:
 * West US 2
 * West US 3
 
-
 ## Next steps
 
+- [Requirements and considerations for cache volumes](cache-requirements.md)
 - [Configure a cache volume for Azure NetApp Files](configure-cache-volumes.md)
 
 For more details, visit Configure a cache volume for Azure NetApp Files. 

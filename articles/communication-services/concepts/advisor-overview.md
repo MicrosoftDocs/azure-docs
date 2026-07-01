@@ -2,12 +2,12 @@
 title: Use Azure Advisor for Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about Azure Advisor offerings for Azure Communication Services.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 10/10/2022
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.service: azure-communication-services
 ms.subservice: data
 ---

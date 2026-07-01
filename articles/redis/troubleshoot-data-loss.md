@@ -2,7 +2,7 @@
 title: Troubleshoot data loss in Azure Managed Redis
 description: Learn how to resolve data-loss problems with Azure Managed Redis, such as partial loss of keys, key expiration, or complete loss of keys.
 ms.date: 05/18/2025
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.custom:
   - ignite-2024
   - build-2025

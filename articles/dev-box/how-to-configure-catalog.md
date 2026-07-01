@@ -53,13 +53,13 @@ To enable the use of image definitions in the project:
  
     :::image type="content" source="media/how-to-configure-catalog/project-overview.png" alt-text="Screenshot showing the Overview page for a project with Catalogs highlighted." lightbox="media/how-to-configure-catalog/project-overview.png":::
   
-1. On the **Catalogs** page, select **Catalog item permissions**.
+1. On the **Catalogs** page, select **Sync settings**.
  
-    :::image type="content" source="media/how-to-configure-catalog/project-catalog-item-permissions.png" alt-text="Screenshot showing the Catalogs pane with Catalog item permissions highlighted." lightbox="media/how-to-configure-catalog/project-catalog-item-permissions.png":::
+    :::image type="content" source="media/how-to-configure-catalog/project-catalogs-sync-settings.png" alt-text="Screenshot showing the Catalogs pane with Sync settings highlighted." lightbox="media/how-to-configure-catalog/project-catalogs-sync-settings.png":::
  
-1. In the **Catalog item settings** pane, select **Azure deployment image definitions** to enable the use of image definitions at the project level.
+1. In the **Sync settings** pane, select **Image definitions** to enable the use of image definitions at the project level.
  
-    :::image type="content" source="media/how-to-configure-catalog/project-enable-environment-definitions.png" alt-text="Screenshot showing the Catalog item settings pane with Azure deployment image definitions selected." lightbox="media/how-to-configure-catalog/project-enable-environment-definitions.png":::
+    :::image type="content" source="media/how-to-configure-catalog/project-catalogs-sync-settings-pane.png" alt-text="Screenshot showing the Sync settings pane with Image definitions selected." lightbox="media/how-to-configure-catalog/project-catalogs-sync-settings-pane.png":::
  
 Now, you can add a catalog to the project. 
 

@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.author: mbender
-ms.date: 05/08/2024
+ms.date: 01/28/2026
 ms.custom:
   - subject-armqs
   - mode-arm
@@ -57,7 +57,7 @@ To find more templates that are related to Azure Load Balancer, see [Azure Quick
 
 ## Deploy the template
 
-In this step, you deploy the template using Azure PowerShell with the `[New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment)` command. 
+In this step, you deploy the template using Azure PowerShell with the [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) command. 
 
 1. Select **Try it** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure.
 

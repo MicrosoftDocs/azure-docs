@@ -2,7 +2,7 @@
 title: Associate Azure Batch accounts with network security perimeter
 description: Learn how to associate an Azure Batch account with network security perimeter
 ms.topic: how-to
-ms.date: 3/17/2025
+ms.date: 06/16/2026
 ms.custom: references_regions
 # Customer intent: As a network administrator, I want to associate my Azure Batch account with a network security perimeter, so that I can ensure secure communication and access controls between my PaaS resources.
 ---
@@ -35,7 +35,7 @@ Network security perimeter provides several methods to enable Batch to interact 
 Batch users can also use the network security perimeter to secure inbound traffic, not just the outbound traffic scenarios with Azure Storage and Azure Key Vault.
 
 > [!NOTE]
-> Network security perimeters do not regulate nodes within Batch pools. To ensure network isolation for the pool, you may still need to create a **nodeManagement** private endpoint for [the Batch pool without public ip addresses](./simplified-node-communication-pool-no-public-ip.md).
+> Network security perimeters don't regulate nodes within Batch pools. To ensure network isolation for the pool, you might still need to create a **nodeManagement** private endpoint for [the Batch pool without public IP addresses](./simplified-node-communication-pool-no-public-ip.md).
 > To enable a node to access Azure Storage and other PaaS resources associated with a network security perimeter, ensure that relevant access rules are added to the target PaaS resource's profile. These access rules grant the node the necessary permissions to visit.
 
 ## Configure network security perimeter for Azure Batch account

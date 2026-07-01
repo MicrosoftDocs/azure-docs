@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 11/21/2025
 ms.author: cshoe
 zone_pivot_groups: container-apps-jobs-self-hosted-ci-cd

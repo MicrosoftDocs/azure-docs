@@ -7,8 +7,8 @@ ms.date: 11/17/2025
 ms.topic: overview
 ms.custom: devx-track-azurepowershell, devx-track-python
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 # Manage variables in Azure Automation
 

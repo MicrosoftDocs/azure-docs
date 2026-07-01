@@ -99,6 +99,9 @@ You can view activity Log events in Azure portal and other supported clients. He
 jq -r '"ResourceName\tResourceId\tPolicyDefinitionDisplayName", (.[] as $event | ($event.Policies | fromjson[] | "\($event.ResourceId | split("/") | last)\t\($event.ResourceId)\t\(.policyDefinitionDisplayName)"))' | \
 column -t -s $'\t'`
 
+  > [!NOTE]
+  > Audit events are seen only in Activity Logs with the Policy compliance list showing always 0 resources. This policy identifies non-compliant requests, not resources, which is why the resource compliance list is empty. 
+
 ## Enforcement Mode
 Discover deny events in your activity log when this policy assignment is applied in enforcement mode. Each deny event represents a resource create, update or delete that was attempted by a user who did not authenticate with MFA.
 

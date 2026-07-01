@@ -29,7 +29,7 @@ highlightedContent:
       url: reservations/save-compute-costs-reservations.md
     - title: What are savings plans?
       itemType: overview
-      url: savings-plan/savings-plan-compute-overview.md
+      url: savings-plan/savings-plan-overview.md
     - title: What's new
       itemType: whats-new
       url: https://azure.microsoft.com/blog/product/cost-management/
@@ -41,7 +41,7 @@ highlightedContent:
       url: costs/understand-work-scopes.md
     - title: What is FinOps?
       itemType: concept
-      url: /cloud-computing/finops/overview-finops
+      url: /cloud-computing/finops/overview
 
 productDirectory:
   title: Cost Management

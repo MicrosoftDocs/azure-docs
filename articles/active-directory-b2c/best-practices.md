@@ -6,7 +6,7 @@ description: Recommendations and best practices to consider when working with Az
 author: kengaderdus
 ms.author: kengaderdus
 manager: mwongerapz
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: concept-article
 ms.date: 10/07/2024
@@ -18,6 +18,8 @@ ms.subservice: b2c
 ---
 
 # Recommendations and best practices for Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-identity-protection-retirement](../../includes/active-directory-b2c-identity-protection-retirement.md)]
+
 [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 The following best practices and recommendations cover some of the primary aspects of integrating Azure Active Directory (Azure AD) B2C into existing or new application environments.

@@ -15,7 +15,7 @@ items:
   - name: Pricing
     href: pricing.md
   - name: Reliability
-    href: ../reliability/reliability-storage-discovery.md?toc=/azure/storage-discovery/toc.json
+    href: /azure/reliability/reliability-storage-discovery?toc=/azure/storage-discovery/toc.json
 - name: Tutorials
   items:
   - name: Deploy Storage Discovery and access insights
@@ -32,6 +32,8 @@ items:
     items:
     - name: Get Started on Storage Discovery reports
       href: get-started-reports.md
+    - name: Understand egress insights
+      href: egress-insights.md
     - name: Access your insights through Azure Copilot
       href: /azure/copilot/discover-storage-estate-insights?toc=/azure/storage-discovery/toc.json
   - name: Manage

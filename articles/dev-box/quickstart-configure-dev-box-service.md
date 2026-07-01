@@ -13,6 +13,8 @@ ms.date: 09/23/2025
 
 # Quickstart: Configure Microsoft Dev Box 
 
+[!INCLUDE [note-windows-365-announcement](includes/note-windows-365-announcement.md)]
+
 In this quickstart, you set up all the resources in Microsoft Dev Box to enable development teams to self-service their dev boxes. Learn how to create and configure a dev center, select an image for your dev boxes, and create a dev box pool. After you complete this quickstart, developers can use the developer portal to create and connect to a dev box.
 
 A dev box is a daily cloud-based workstation for the developer. It's a virtual machine (VM) preconfigured with the tools and resources the developer needs for a project.
@@ -35,7 +37,7 @@ To complete this quickstart, you need:
 |-------------|---------|
 | **Azure account** | An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin. |
 | **Permissions** | Owner or Contributor role on an Azure subscription or resource group. |
-| **User licenses** | Each user needs a license for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Intune, and Microsoft Entra ID P1. These licenses are included in:<br>- Microsoft 365 E3, Microsoft 365 E5<br>- Microsoft 365 A3, Microsoft 365 A5<br>- Microsoft 365 Business Premium<br>- Microsoft 365 F3*<br>- Microsoft 365 Education Student Use Benefit<br>**Microsoft 365 F3 doesn't include a Windows Enterprise license, but it does include limited Microsoft Entra ID and Intune capabilities* |
+| **User licenses** | Each user needs a license for Windows 11 Enterprise or Windows 10 Enterprise, Microsoft Intune, and Microsoft Entra ID P1. These licenses are included in:<br>- Microsoft 365 E3, Microsoft 365 E5<br>- Microsoft 365 A3, Microsoft 365 A5<br>- Microsoft 365 Business Premium<br>- Microsoft 365 F3*<br>- Microsoft 365 Education Student Use Benefit<br>**Microsoft 365 F3 doesn't include a Windows Enterprise license, but it does include limited Microsoft Entra ID and Intune capabilities*<br><br>To assign licenses to users, see [Assign Microsoft 365 licenses to users](/microsoft-365/admin/manage/assign-licenses-to-users). |
 | **Device management** | Microsoft Intune. Your organization must use Microsoft Intune for device management.  |
 | **Identity** | Microsoft Entra ID. Your organization must use Microsoft Entra ID for identity and access management. |
 | **Resource provider** | Register the *Microsoft.DevCenter* resource provider. For more information, see [Register resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1). |
@@ -77,7 +79,7 @@ To create and set up a project in a dev box:
    | Setting | Value |
    |---|---|
    | **User customizations** | Select to enable users to customize their dev boxes on creation. |
-   | **Dev box limits** | Ensure the checkbox is cleared to let developers create an unlimited number of dev boxes. </br>Select **Enable** to limit the number of dev boxes per developer, and enter the maximum number a developer can create. </br> To learn more about dev box limits, see [Tutorial: Control costs by setting dev box limits on a project](./tutorial-dev-box-limits.md). |
+   | **Dev box limits** | Ensure the checkbox is cleared to let developers create an unlimited number of dev boxes. </br>Select **Enable** to limit the number of dev boxes per developer, and enter the maximum number a developer can create. </br>To learn more about dev box limits, see [Tutorial: Control costs by setting dev box limits on a project](./tutorial-dev-box-limits.md). |
   
    :::image type="content" source="./media/quickstart-configure-dev-box-service/dev-box-project-create-settings.png" alt-text="Screenshot that shows the Dev box settings tab on the pane for creating a dev box project." lightbox="./media/quickstart-configure-dev-box-service/dev-box-project-create-settings.png":::
 
@@ -111,13 +113,13 @@ Choose from four image options for your dev box pool. For greater customization,
 
 | Type | Description | When to use |
 |------|-------------|-------------|
-| **Image definition** | YAML-based customization files that define a base image and apply team-specific customizations. Can be built into reusable images. | For team-specific environments with automated software installation and configuration. Best for standardized team setups. |
+| **Image definition** | YAML-based customization files that define a base image and apply team-specific customizations. Can be built into reusable images. | For team-specific environments, with automated software installation and configuration. Best for standardized team setups. |
 | **Custom image** | Your organization's custom images stored in Azure Compute Gallery. | For organization-specific configurations. Allows independent selection of compute size and storage. |
 | **Marketplace image** | Preconfigured images available from Azure Marketplace, such as Windows 11 Enterprise or Visual Studio images. | For standard configurations with common development tools. Offers flexibility to select compute size and storage independently. |
 | **Dev box definition** | Legacy option that bundles a base image with a fixed VM size and storage configuration. | For backward compatibility with existing configurations. Consider migrating to marketplace or custom images for more flexibility. |
 
 - **Azure Compute Gallery** is a service for managing and sharing custom images across your organization. Learn more at [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md).
-- **Marketplace images** are preconfigured VM images available from the Azure Marketplace. They include common operating systems and development tools.
+- **Marketplace images** are preconfigured VM images available from Azure Marketplace. They include common operating systems and development tools.
 
 
 [!INCLUDE [create-dev-box-pool](includes/create-dev-box-pool.md)]

@@ -4,7 +4,7 @@ description: Learn how to handle large messages in workflows with chunking and w
 services: logic-apps
 ms.suite: integration
 ms.topic: how-to
-ms.date: 09/16/2025
+ms.date: 03/15/2026
 #Customer intent: As an integration developer who works with Azure Logic Apps, I need to understand when and how to use chunking to support large messages.
 ---
 
@@ -100,6 +100,13 @@ To reference the data, in the chunking action, use the expression `body('Compose
     "type": "ApiConnection"
 },
 ```
+> [!NOTE]
+>
+> When an action has chunking enabled, the action's outputs contain only the `body` property. Other output properties such as `statusCode` and `headers` are unavailable.
+>
+> If you use tracked properties that reference unavailable properties, for example, `@action()['outputs']['statusCode']` or `@action()['outputs']['headers']`, the action fails with the error message, `TrackedPropertiesEvaluationFailed`. This error happens even when the underlying operation, such as a file download, successfully completes. 
+>
+> To avoid this error, remove any references to unavailable properties from tracked properties in actions that use chunking to process large messages.
 
 <a name="set-up-chunking"></a>
 
@@ -109,7 +116,7 @@ In generic HTTP scenarios, you can split up large content downloads and uploads 
 
 If an external endpoint is set up to chunk downloads or uploads, the HTTP actions in your workflow automatically chunk large messages. Otherwise, you must set up chunking support on the endpoint. If you don't own or control the endpoint, you might not be able to set up chunking.
 
-If an HTTP action doesn't already have chunking enabled, you must set up chunking through the action's `runTimeConfiguration` property. You can set up this property in the action definition by using the code view editor, as described later, or in the workflow designer as described here:
+If an HTTP action doesn't already have chunking enabled, you must set up chunking through the action's `runtimeConfiguration` property. You can set up this property in the action definition by using the code view editor, as described later, or in the workflow designer as described here:
 
 1. On the designer, select the HTTP action to open the action information pane, and then select **Settings**.
 
@@ -207,7 +214,7 @@ The following steps describe the detailed process that Azure Logic Apps uses for
    | **Range** | String | Yes | The byte range for content received by the endpoint, for example: `bytes=0-1023` |
    | **x-ms-chunk-size** | Integer | No | The suggested chunk size in bytes |
 
-For example, the following action definition shows an HTTP POST request for uploading chunked content to an endpoint. In the action's `runTimeConfiguration` property, the `contentTransfer` property sets `transferMode` to `chunked`:
+For example, the following action definition shows an HTTP POST request for uploading chunked content to an endpoint. In the action's `runtimeConfiguration` property, the `contentTransfer` property sets `transferMode` to `chunked`:
 
 ```json
 "postAction": {

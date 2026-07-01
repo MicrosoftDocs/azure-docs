@@ -15,6 +15,8 @@ ms.custom:
 
 # Pause and resume dedicated SQL pools with Synapse Pipelines
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Pause and resume for dedicated SQL pools can be automated using Synapse Pipelines in Azure Synapse Analytics. Pause and resume can be used to save costs for a dedicated SQL pool. This solution can easily be included in an existing data orchestration process. 
 
 The following steps will guide you through setting up automated pause and resume.

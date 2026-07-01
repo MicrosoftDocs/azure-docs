@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with X accounts in your applications using Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 07/20/2022
 ms.author: godonnell
@@ -32,7 +32,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create an application
 
-To enable sign-in for users with an X account in Azure AD B2C, you need to create an X application. If you don't already have an X account, you can sign up at [`https://x.com/signup`](https://x.com/signup). You also need to [Apply for a developer account](https://developer.x.com/). For more information, see [Apply for access](https://developer.x.com/en/apply-for-access).
+To enable sign-in for users with an X account in Azure AD B2C, you need to create an X application. If you don't already have an X account, you can sign up at [`https://x.com/signup`](https://x.com/signup). You also need to [Apply for a developer account](https://developer.x.com/). For more information, see [Apply for access](https://developer.x.com/en/portal/products).
 
 ::: zone pivot="b2c-custom-policy"
 1. Sign in to the [X Developer Portal](https://developer.x.com/portal/projects-and-apps) with your X account credentials.

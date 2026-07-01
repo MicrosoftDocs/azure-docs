@@ -70,6 +70,7 @@ You can create custom feature filters that turn on features based on specific cr
 1. To implement the feature filter in your application, see the instructions that are appropriate for your language or platform:
 
    - [ASP.NET Core](./howto-feature-filters-aspnet-core.md)
+   - [Spring Boot](./how-to-feature-filters-spring-boot.md)
    - [Node.js](./howto-feature-filters-javascript.md)
    - [Python](./howto-feature-filters-python.md)
    - [Go Gin](./howto-feature-filters-go.md)

@@ -7,7 +7,7 @@ ms.service: azure-container-apps
 ms.custom:
   - devx-track-azurecli
   - build-2025
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/02/2025
 ms.author: cshoe
 ---

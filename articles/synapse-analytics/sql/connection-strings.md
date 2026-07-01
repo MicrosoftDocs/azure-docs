@@ -6,12 +6,14 @@ ms.author: stefanazaric
 ms.service: azure-synapse-analytics
 ms.topic: overview 
 ms.subservice: sql
-ms.date: 09/23/2024
+ms.date: 02/04/2026
 ms.reviewer:  stefanazaric
 ms.custom: devx-track-csharp
 ---
 
 # Connection strings for Synapse SQL
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 You can connect to Synapse SQL with several different application libraries such as, [ADO.NET](/dotnet/framework/data/adonet/), [ODBC](/sql/connect/odbc/windows/microsoft-odbc-driver-for-sql-server-on-windows), [PHP](/sql/connect/php/overview-of-the-php-sql-driver?f=255&MSPPError=-2147217396), and [JDBC](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server). Below are some examples of connections strings for each library. 
 
@@ -57,7 +59,7 @@ jdbc:sqlserver://yourserver.sql.azuresynapse.net:1433;database=yourdatabase;user
 
 ## Recommendations
 
-For executing **serverless SQL pool** queries, recommended tools are [Azure Data Studio](get-started-azure-data-studio.md) and Azure Synapse Studio.
+For executing **serverless SQL pool** queries, the recommended tool is Azure Synapse Studio.
 
 ## Related content
 

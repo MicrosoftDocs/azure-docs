@@ -5,7 +5,7 @@ services: storage, app-service-web
 author: cephalin
 ms.service: azure-app-service
 ms.topic: tutorial
-ms.date: 07/31/2023
+ms.date: 04/02/2026
 ms.author: cephalin
 ms.devlang: javascript
 # ms.devlang: javascript, azurecli
@@ -18,7 +18,10 @@ ms.custom: azureday1, devx-track-azurecli, devx-track-azurepowershell, subject-r
 [!INCLUDE [tutorial-content-above-code](./includes/tutorial-dotnet-storage-managed-identity/introduction.md)]
 
 ## Access Blob Storage
-The `DefaultAzureCredential` class from [@azure/identity](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md) package is used to get a token credential for your code to authorize requests to Azure Storage. The `BlobServiceClient` class from [@azure/storage-blob](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) package is used to upload a new blob to storage. Create an instance of the `DefaultAzureCredential` class, which uses the managed identity to fetch tokens and attach them to the blob service client. The following code example gets the authenticated token credential and uses it to create a service client object, which uploads a new blob.
+
+The `DefaultAzureCredential` class from [@azure/identity](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md) package is used to get a token credential for your code to authorize requests to Azure Storage. The `BlobServiceClient` class from [@azure/storage-blob](https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/storage/storage-blob) package is used to upload a new blob to storage. Create an instance of the `DefaultAzureCredential` class, which uses the managed identity to fetch tokens and attach them to the blob service client.
+
+The following code example gets the authenticated token credential and uses it to create a service client object, which uploads a new blob.
 
 ## JavaScript example
 

@@ -22,7 +22,7 @@ This how-to guide shows how to create an example automated workflow that waits f
 - The **Request** trigger, which creates a callable endpoint that can handle inbound requests from any caller.
 - The **Office 365 Outlook** connector, which provides an action to send email.
 
-When you finish, your workflow looks like the following high level example:
+When you finish, your workflow looks like the following high-level example:
 
 :::image type="content" source="media/create-single-tenant-workflows-azure-portal/overview.png" alt-text="Screenshot shows Azure portal, example Standard workflow with Request trigger and Office 365 Outlook action." lightbox="media/create-single-tenant-workflows-azure-portal/overview.png":::
 
@@ -456,7 +456,7 @@ By default, your Standard logic app authenticates access to your Azure Storage a
 
    For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal) and [Understand role assignments](../role-based-access-control/role-assignments.md).
 
-1. [Follow these steps to add the user-assigned managed identity to your Standard logic app resource](authenticate-with-managed-identity.md?tabs=standard#add-user-assigned-identity-to-logic-app-in-the-azure-portal).
+1. [Follow these steps to add the user-assigned managed identity to your Standard logic app resource](authenticate-with-managed-identity.md?tabs=standard#add-user-identity-portal).
 
 1. If your Standard logic app uses the hosting option named **Workflow Service Plan**, enable runtime scale monitoring:
 

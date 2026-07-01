@@ -1,9 +1,8 @@
 ---
 title: Secure access credentials with Linked Services in Apache Spark for Azure Synapse Analytics
 description: This article provides concepts on how to securely integrate Apache Spark for Azure Synapse Analytics with other services using linked services and token library
-author: vijaysr
-ms.author: vijaysr
-ms.reviewer: shravan
+author: joannapea 
+ms.author: joanpo
 ms.date: 06/24/2024
 ms.service: azure-synapse-analytics
 ms.subservice: spark
@@ -469,7 +468,7 @@ Console.WriteLine(connectionString);
 While Azure Synapse Analytics supports various linked service connections (from pipelines and other Azure products), not all of them are supported from the Spark runtime. Here is the list of supported linked services:
 
  - Azure Blob Storage
- - Azure AI services
+ - Foundry Tools
  - Azure Cosmos DB
  - Azure Data Explorer
  - Azure Database for MySQL

@@ -260,5 +260,5 @@ az group delete \
 
 ## Related content
 
-- For more information about Virtual Network, see [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview).
-- For more information about Virtual Network encryption, see [What is Azure Virtual Network encryption?](virtual-network-encryption-overview.md).
+- For more information about Virtual Network, see [What is Azure Virtual Network?](/azure/virtual-network/virtual-networks-overview)
+- For more information about Virtual Network encryption, see [What is Azure Virtual Network encryption?](virtual-network-encryption-overview.md)

@@ -4,7 +4,7 @@ description:  This article discusses how to use Azure Active Directory B2C to si
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 10/11/2024
@@ -160,7 +160,7 @@ const msalConfig = {
       clientId: "<your-MyApp-application-ID>", // This is the ONLY mandatory field; everything else is optional.
       authority: b2cPolicies.authorities.signUpSignIn.authority, // Choose sign-up/sign-in user-flow as your default.
       knownAuthorities: [b2cPolicies.authorityDomain], // You must identify your tenant's domain as a known authority.
-      redirectUri: "http://localhost:6420", // You must register this URI on Azure Portal/App Registration. Defaults to "window.location.href".
+      redirectUri: "http://localhost:6420", // You must register this URI on Azure portal/App Registration. Defaults to "window.location.href".
     },
     cache: {
       cacheLocation: "sessionStorage",  

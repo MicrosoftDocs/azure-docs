@@ -2,7 +2,7 @@
 title: Name resolution in App Service
 description: Overview of how name resolution (DNS) works for your app in Azure App Service.
 author: seligj95
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-azurecli
 ms.date: 09/02/2025
 ms.author: jordanselig

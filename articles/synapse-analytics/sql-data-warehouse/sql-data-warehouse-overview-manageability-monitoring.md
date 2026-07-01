@@ -6,10 +6,12 @@ ms.author: ajagadish
 ms.date: 08/27/2018
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: overview
 ---
 
 # Manageability and monitoring with dedicated SQL pool in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Synapse SQL allows you to provision a data warehouse via dedicated SQL pool. The articles that follow will help you to manage and monitor your data warehouse. You'll also learn ways to optimize the data warehouse's usage and performance.
 

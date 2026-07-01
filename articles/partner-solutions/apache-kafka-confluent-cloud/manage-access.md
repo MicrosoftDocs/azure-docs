@@ -2,6 +2,8 @@
 title: Use Confluent Access Management in the Azure Portal
 titlesuffix: partner-solutions
 description: Learn how to use Confluent access management in the Azure portal to add, delete, and manage users and user permissions in a Confluent organization.
+ms.author: praveenrajap
+author: praveenrajap
 ms.service: partner-services
 subservice: confluent
 ms.topic: how-to

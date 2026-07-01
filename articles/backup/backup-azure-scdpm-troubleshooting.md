@@ -2,7 +2,7 @@
 title: Troubleshoot System Center Data Protection Manager
 description: In this article, discover solutions for issues that you might encounter while using System Center Data Protection Manager.
 ms.topic: troubleshooting
-ms.date: 01/31/2025
+ms.date: 01/08/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -11,11 +11,11 @@ ms.author: v-mallicka
 
 # Troubleshoot System Center Data Protection Manager
 
-This article describes solutions for issues that you might encounter while using Data Protection Manager.
+This article describes solutions for issues that you might encounter while using Data Protection Manager (DPM).
 
 For the latest release notes for System Center Data Protection Manager, see the [System Center documentation](/system-center/dpm/dpm-release-notes). You can learn more about support for Data Protection Manager in [this matrix](/system-center/dpm/dpm-protection-matrix).
 
-## Common errors
+## Common errors for DPM
 
 This section lists the common errors and the recommended actions to resolve them.
 

@@ -32,7 +32,7 @@ var channelRegistrationId = new Guid("<your channel registration ID GUID>");
 
 ### Set recipient list
 
-You need to supply an active phone number associated with a WhatsApp account. This WhatsApp account receives the template, text, and media messages sent in this quickstart.
+You need to supply an active phone number associated with a WhatsApp account, or a business-scoped user ID (BSUID). This WhatsApp account receives the template, text, and media messages sent in this quickstart.
 
 For this example, you can use your personal phone number.   
 
@@ -41,18 +41,29 @@ The recipient phone number can't be the business phone number (Sender ID) associ
 The phone number must include the country code. For more information about phone number formatting, see WhatsApp documentation for [Phone Number Formats](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/phone-numbers#phone-number-formats).
 
 > [!NOTE]
-> Only one phone number is currently supported in the recipient list.
+> Only one phone number or BSUID is currently supported in the recipient list.
 
 Create the recipient list like this:
 ```csharp
-var recipientList = new List<string> { "<to WhatsApp phone number>" };
+var recipientList = new List<string> { "<to WhatsApp phone number or BSUID>" };
 ```
 
-Example:
+Example using a phone number:
 ```csharp
 // Example only
 var recipientList = new List<string> { "+14255550199" };
 ```
+
+Example using a BSUID:
+```csharp
+// Example only
+var recipientList = new List<string> { "US.13491208655302741918" };
+```
+
+> [!NOTE]
+> Sending messages to BSUIDs will be available starting in June 2026. Until then, use phone numbers as recipients.
+
+For more information about BSUIDs, see [WhatsApp usernames and BSUIDs](../../../../concepts/advanced-messaging/whatsapp/whatsapp-username-support-overview.md).
 
 ### Start sending messages between a business and a WhatsApp user
 

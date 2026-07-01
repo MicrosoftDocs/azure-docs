@@ -2,7 +2,7 @@
 title: Provision a pool with Auto OS Upgrade
 description: Learn how to create a Batch pool with Auto OS Upgrade so that customers can have control over their OS upgrade strategy to ensure safe, workload-aware OS upgrade deployments.
 ms.topic: how-to
-ms.date: 12/20/2024
+ms.date: 05/19/2026
 ms.custom: 
 # Customer intent: "As a cloud administrator, I want to provision an Azure Batch pool with Auto OS Upgrade enabled, so that I can ensure secure, workload-aware operating system upgrades with minimal disruption to running tasks."
 ---
@@ -116,17 +116,14 @@ Request Body
 ```
 
 ### SDK (C#)
-The following code snippet shows an example of how to use the [Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) client library to create a pool of Auto OS Upgrade via C# codes. For more details about Batch .NET, view the [reference documentation](/dotnet/api/microsoft.azure.batch).
+The following code snippet shows an example of how to use the [Azure.ResourceManager.Batch](https://www.nuget.org/packages/Azure.ResourceManager.Batch/) client library to create a pool of Auto OS Upgrade via C# codes. For more details about Azure.ResourceManager.Batch, view the [reference documentation](/dotnet/api/azure.resourcemanager.batch).
 
 ```csharp
 public async Task CreateUpgradePolicyPool()
 {
      // Authenticate
-     var clientId = Environment.GetEnvironmentVariable("CLIENT_ID");
-     var clientSecret = Environment.GetEnvironmentVariable("CLIENT_SECRET");
-     var tenantId = Environment.GetEnvironmentVariable("TENANT_ID");
      var subscriptionId = Environment.GetEnvironmentVariable("SUBSCRIPTION_ID");
-     ClientSecretCredential credential = new ClientSecretCredential(tenantId, clientId, clientSecret);
+     DefaultAzureCredential credential = new DefaultAzureCredential();
      ArmClient client = new ArmClient(credential, subscriptionId);
  
      // Get an existing Batch account

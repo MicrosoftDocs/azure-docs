@@ -66,6 +66,8 @@ landingContent:
             url: tutorial-seismic-ddms-sdutil.md
           - text: Seismic DDMS tutorial
             url: tutorial-seismic-ddms.md
+          - text: Change tier for seismic workloads
+            url: tutorial-seismic-change-tier.md
           - text: Wellbore DDMS tutorial
             url: tutorial-wellbore-ddms.md
           - text: Well delivery DDMS tutorial
@@ -86,14 +88,12 @@ landingContent:
             url: how-to-convert-segy-to-zgy.md
           - text: How to Upload large files using file service
             url: how-to-upload-large-files-using-file-service.md
-          - text: How to enable External Data Sources (EDS)
-            url: how-to-enable-external-data-sources.md
-          - text: How to register External Data Sources (EDS)
-            url: how-to-register-external-data-sources.md
+          - text: How to enable External Data Services (EDS)
+            url: how-to-enable-external-data-services.md
+          - text: How to register External Data Services (EDS)
+            url: how-to-register-external-data-services.md
           - text: How to enable legal tags restricted COO (Country of Origin)
             url: how-to-enable-legal-tags-restricted-country-of-origin.md
-          - text: How to enable Reservoir DDMS
-            url: how-to-enable-reservoir-ddms.md
   - title: Administration
     linkLists:
       - linkListType: how-to-guide
@@ -112,6 +112,8 @@ landingContent:
             url: how-to-deploy-gcz.md
           - text: How to deploy OSDU Admin UI
             url: how-to-deploy-osdu-admin-ui.md
+          - text: How to manage upgrade settings
+            url: how-to-manage-upgrade-settings.md
       - linkListType: concept
         links:
           - text: Entitlement concepts

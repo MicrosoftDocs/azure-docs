@@ -1,12 +1,12 @@
 ---
 title: Introduction to file APIs in Azure Synapse Analytics
 description: This tutorial describes how to use the file mount and file unmount APIs in Azure Synapse Analytics, for both Azure Data Lake Storage Gen2 and Azure Blob Storage.
-author: JeneZhang 
+author: pimorano 
 ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 07/27/2022
-ms.author: jingzh
+ms.author: pimorano
 ms.custom:
   - subject-rbac-steps
   - sfi-image-nochange
@@ -102,7 +102,7 @@ mssparkutils.fs.mount(
 
 In addition to mounting through a linked service, `mssparkutils` supports explicitly passing an account key or [shared access signature (SAS)](/samples/azure-samples/storage-dotnet-sas-getting-started/storage-dotnet-sas-getting-started/) token as a parameter to mount the target. 
 
-For security reasons, we recommend that you store account keys or SAS tokens in Azure Key Vault (as the following example screenshot shows). You can then retrieve them by using the `mssparkutil.credentials.getSecret` API. For more information, see [Manage storage account keys with Key Vault and the Azure CLI (legacy)](/azure/key-vault/secrets/overview-storage-keys).
+For security reasons, we recommend using managed identities and Microsoft Entra authentication instead of account keys or SAS tokens when possible. If you must use account keys, store them in Azure Key Vault (as the following example screenshot shows). You can then retrieve them by using the `mssparkutil.credentials.getSecret` API. For more information, see [Authorize access to data in Azure Storage](/azure/storage/common/authorize-data-access).
 
 ![Screenshot that shows a secret stored in a key vault.](./media/synapse-file-mount-api/key-vaults.png)
  

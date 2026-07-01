@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - cache-lookup-value | Microsoft Docs
 description: Reference for the cache-lookup-value policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 07/23/2024
-ms.author: danlep
 ---
 
 # Get value from cache
@@ -37,7 +35,7 @@ Use the `cache-lookup-value` policy to perform cache lookup by key and return a 
 
 | Attribute         | Description                                            | Required | Default |
 |---|--|--|--|
-| caching-type | Choose between the following values of the attribute:<br />- `internal` to use the [built-in API Management cache](api-management-howto-cache.md),<br />- `external` to use the external cache as described in [Use an external Azure Cache for Redis in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise.<br/><br/>Policy expressions aren't allowed. | No       | `prefer-external` |
+| caching-type | Choose between the following values of the attribute:<br />- `internal` to use the [built-in API Management cache](api-management-howto-cache.md),<br />- `external` to use the external cache as described in [Use an external Redis-compatible cache in Azure API Management](api-management-howto-cache-external.md),<br />- `prefer-external` to use external cache if configured or internal cache otherwise.<br/><br/>Policy expressions aren't allowed. | No       | `prefer-external` |
 | default-value    | A value that will be assigned to the variable if the cache key lookup resulted in a miss. If this attribute is not specified, `null` is assigned. Policy expressions are allowed.                                                                                                                                                                                                          | No       | `null`            |
 | key              | Cache key value to use in the lookup. Policy expressions are allowed.                                                                                                                                                                                                                                                                                                                      | Yes      | N/A               |
 | variable-name    | Name of the [context variable](api-management-policy-expressions.md#ContextVariables) the looked up value will be assigned to, if lookup is successful. If lookup results in a miss, the variable will not be set. Policy expressions aren't allowed.                                      | Yes      | N/A               |

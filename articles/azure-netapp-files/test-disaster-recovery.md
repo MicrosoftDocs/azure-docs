@@ -49,7 +49,7 @@ Given the uniqueness of each application architecture, there's no specific workf
 
 ## Next steps
 
-* [How Azure NetApp Files snapshots work](snapshots-introduction.md)
+* [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md)
 * [Cross-region replication of Azure NetApp Files volumes](replication.md)
 * [Requirements and considerations for using cross-region replication](replication-requirements.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)

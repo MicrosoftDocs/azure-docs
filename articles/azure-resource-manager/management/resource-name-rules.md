@@ -1,8 +1,8 @@
-﻿---
+---
 title: Naming rules and restrictions for Azure resources
 description: Learn the rules and restrictions for naming Azure resources.
 ms.topic: article
-ms.date: 08/04/2025
+ms.date: 02/27/2026
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -214,7 +214,7 @@ In the following tables, the term alphanumeric refers to:
 > | cloudservices | resource group | 1-15 <br><br>See note below. | Can't use spaces, control characters, or these characters:<br> `~ ! @ # $ % ^ & * ( ) = + _ [ ] { } \ | ; : . ' " , < > / ?`<br><br>Can't start with underscore. Can't end with period or hyphen. |
 > | diskEncryptionSets | resource group | 1-80 | Alphanumerics, underscores, and hyphens |
 > | disks | resource group | 1-80 | Alphanumerics, underscores, and hyphens |
-> | galleries | resource group | 1-80 | Alphanumerics and periods<br><br>Start and end with alphanumeric. |
+> | galleries | resource group | 1-80 | Alphanumerics, underscores, and periods<br><br>Start and end with alphanumeric. |
 > | galleries / applications | gallery | 1-80 | Alphanumerics, hyphens, and periods<br><br>Start and end with alphanumeric. |
 > | galleries / applications/versions | application | 32-bit integer | Numbers and periods<br/>(Each segment is converted to an int32. So each segment has a max value of 2,147,483,647.) |
 > | galleries / images | gallery | 1-80 | Alphanumerics, underscores, hyphens, and periods<br><br>Start and end with alphanumeric. |
@@ -643,7 +643,7 @@ In the following tables, the term alphanumeric refers to:
 > | netAppAccounts / shareNames | NetApp account | 1-64 | Alphanumerics and hyphens. <br><br>Start with alphanumeric.<br><br>Underscores aren't supported. |
 > | netAppAccounts / snapshots | NetApp account | 1-255 | Alphanumerics, underscores, and hyphens <br><br> Start with alphanumeric. |
 > | netAppAccounts / snapshotPolicies | NetApp account | 1-64 | Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric. |
-> | netAppAccounts / volumes | NetApp account | 1-64 | Alphanumerics and hyphens <br><br> Start with alphanumeric. <br><br> Volume can't be named `bin` or `default`. |
+> | netAppAccounts / volumes | NetApp account | 1-64 | Alphanumerics, underscores, and hyphens <br><br> Start with alphanumeric. <br><br> Volume can't be named `bin` or `default`. |
 > | netAppAccounts / buckets | NetApp account |13-64 |  Alphanumerics and hyphens <br><br> Start with alphanumeric. <br><br> Volume can't be named `bin` or `default`. |
 > | netAppAccounts / volumeGroups | NetApp account | 3-64 | Alphanumerics, underscores, and hyphens<br><br>Start with alphanumeric. |
 

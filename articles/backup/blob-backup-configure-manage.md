@@ -2,7 +2,7 @@
 title: Configure and manage backup for Azure Blobs using Azure Backup
 description: Learn how to configure and manage operational and vaulted backups for Azure Blobs.
 ms.topic: how-to
-ms.date: 11/25/2025
+ms.date: 01/30/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -162,7 +162,7 @@ You can use [Resiliency](../resiliency/resiliency-overview.md) as your single bl
 - You can initiate restores using the **Restore** button and track restores using **Jobs**. For more information on performing restores, see [Restore Azure Blobs](blob-restore.md?tabs=vaulted-backup).
 - Analyze your backup usage using Backup reports.
 
-    :::image type="content" source="./media/blob-backup-configure-manage/manage-azure-blob-backup.png" alt-text="Screenshot shows the Azure Business  Continuity Center console to manage the Azure Blob backups." lightbox="./media/blob-backup-configure-manage/manage-azure-blob-backup.png":::
+    :::image type="content" source="./media/blob-backup-configure-manage/manage-azure-blob-backup.png" alt-text="Screenshot shows the Resiliency console to manage the Azure Blob backups." lightbox="./media/blob-backup-configure-manage/manage-azure-blob-backup.png":::
 
 For more information, see [Overview of Resiliency](../resiliency/resiliency-overview.md).
 
@@ -171,7 +171,7 @@ For more information, see [Overview of Resiliency](../resiliency/resiliency-over
 You can stop operational backup for your storage account according to your requirement.
 
 >[!NOTE]
->When you remove backups, Azure Backup automatically deletes the **object replication policy** from the source. If custom locks exist, remove the policy manually. If you stop protection, it disconnects only the storage account from the Backup vault and tools (such as Backup center). This action doesn't disable blob point-in-time restore, versioning, or change feed settings.
+>When you remove backups, Azure Backup automatically deletes the **object replication policy** from the source. If custom locks exist, remove the policy manually. If you stop protection, it disconnects only the storage account from the Backup vault and tools (such as Resiliency). This action doesn't disable blob point-in-time restore, versioning, or change feed settings.
 
 To stop backup for a storage account, follow these steps:
 

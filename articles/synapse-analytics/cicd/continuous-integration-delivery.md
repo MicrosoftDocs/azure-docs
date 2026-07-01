@@ -253,6 +253,11 @@ You can choose the operation types based on the use case. Following part is an e
 > In CI/CD scenarios, the integration runtime type in different environments must be the same. For example, if you have a self-hosted integration runtime in the development environment, the same integration runtime must be self-hosted in other environments, such as in test and production. Similarly, if you're sharing integration runtimes across multiple stages, the integration runtimes must be linked and self-hosted in all environments, such as in development, test, and production.
 >           
 > Currently, the DevOps Service Connection with **Workload Identity Federation (WIF)** is not supported in Synapse Workspace deployment extension. Switch to secret mode to make the connection successful.
+> 
+> For secure, secretless alternatives that fully support Workload Identity Federation (WIF), use the [AzureCLI@2](/azure/devops/pipelines/tasks/reference/azure-cli-v2) or [PowerShell](/azure/devops/pipelines/tasks/reference/powershell-v2)
+> pipeline tasks with a federated service connection, as described in [Connect to Azure using Workload Identity Federation](/azure/devops/pipelines/library/connect-to-azure?view=azure-devops).
+>
+> These tasks support secretless authentication and can execute Synapse deployment commands (`az synapse pipeline create`, `az synapse artifact publish`) while maintaining the same deployment flow.
 
 ### Create a release for deployment
 

@@ -1,8 +1,18 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/managed-grafana/high-availability.md",
+            "redirect_url": "/azure/reliability/reliability-managed-grafana?toc=/azure/managed-grafana/toc.json&bc=/azure/managed-grafana/breadcrumb/toc.json",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/managed-grafana/how-to-sync-teams-with-aad-groups.md",
             "redirect_url": "/azure/managed-grafana/how-to-sync-teams-with-azure-ad-groups",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/managed-grafana/how-to-upgrade-grafana-11.md",
+            "redirect_url": "/azure/managed-grafana/how-to-upgrade-grafana-12",
             "redirect_document_id": false
         }
     ]

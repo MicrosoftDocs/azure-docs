@@ -4,7 +4,7 @@ description: An overview of Data Wrangling in Azure Data Factory
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/15/2024
 ---
 

@@ -1,24 +1,26 @@
 ---
-title: B2B enterprise integration workflows
-description: Learn about building automated B2B workflows for enterprise integration by using Azure Logic Apps and Enterprise Integration Pack.
+title: B2B Enterprise Integration Workflows
+description: Learn about automated B2B workflows for enterprise integration in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: overview
-ms.date: 02/19/2025
+ms.update-cycle: 365-days
+ms.date: 03/10/2026
+# Customer intent: As a B2B enterprise integration developer, I want to learn about building B2B workflows in Azure Logic Apps.
 ---
 
-# B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack
+# B2B enterprise integration workflows with Azure Logic Apps
 
-For business-to-business (B2B) solutions and seamless communication between organizations, you can build automated, scalable, enterprise integration workflows by using Azure Logic Apps with the Enterprise Integration Pack (EIP).
+For business-to-business (B2B) solutions and seamless communication between organizations, you can build automated, scalable, enterprise integration workflows by using Azure Logic Apps, which includes the Enterprise Integration Pack (EIP).
 
 ## What is the Enterprise Integration Pack?
 
 If you're familiar with Microsoft BizTalk Server, the EIP follows similar concepts and makes B2B capabilities easy to use. However, one major difference is that the EIP is architecturally based on *integration accounts*. These accounts are cloud-based containers in Azure that simplify how you store, manage, and use B2B artifacts for B2B communication, including trading partners, agreements, maps, schemas, certificates, and so on.
 
-With these artifacts, you can build B2B workflows and integration solutions that include cloud services, such as Azure, Microsoft, and other software-as-service (SaaS) apps, on-premises systems, and custom apps by using Azure Logic Apps and choosing from [hundreds of connectors](/connectors/connector-reference/connector-reference-logicapps-connectors). For example, you can create and run custom code from your workflows using the built-in and Azure Functions connectors. You can also use [enterprise integration connectors](../connectors/managed.md#enterprise-connectors) that support the following industry standards:
+With these artifacts, you can build B2B workflows and integration solutions that include cloud services, such as Azure, Microsoft, and other software-as-service (SaaS) apps, on-premises systems, and custom apps by using Azure Logic Apps and choosing from [1,400+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors). For example, you can create and run custom code from your workflows using the built-in and Azure Functions connectors. You can also use [enterprise integration connectors](../connectors/managed.md#enterprise-connectors) that support the following industry standards:
 
 * Electronic Data Interchange (EDI)
 * Enterprise Application Integration (EAI)
@@ -27,13 +29,13 @@ Although organizations use different protocols and formats for B2B communication
 
 ## What do I need to get started?
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+* An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An [integration account](logic-apps-enterprise-integration-create-integration-account.md) to store the B2B artifacts that you define and want to use.
 
 * B2B artifacts, such as [trading partners](logic-apps-enterprise-integration-partners.md), [agreements](logic-apps-enterprise-integration-agreements.md), [maps](logic-apps-enterprise-integration-maps.md), [schemas](logic-apps-enterprise-integration-schemas.md), [certificates](logic-apps-enterprise-integration-certificates.md), and so on.
 
-* To create maps and schemas, you can use Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsenterpriseintegrationtools). The extension is currently unavailable for Visual Studio 2022.
+* To create maps and schemas, you can use Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsenterpriseintegrationtools). The extension is currently unavailable for Visual Studio 2022 and later.
 
    > [!NOTE]
    > Don't install this extension alongside the BizTalk Server extension. Having both extensions might 
@@ -74,7 +76,7 @@ The following diagram shows the high-level steps to start building B2B logic app
 
 To try this [sample](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.logic/logic-app-as2-send-receive), which deploys logic apps that send and receive AS2 messages through Azure, select **Deploy to Azure**. Before you run the sample, make sure that you manually update **FabrikamSales-AS2Send** logic app workflow so that the **HTTP** action's **URI** property uses the URI that's dynamically generated for the **Request** trigger in the **Contoso-AS2Receive** logic app.
 
-## Next steps
+## Related content
 
 * [Create trading partners](logic-apps-enterprise-integration-partners.md)
 * [Create agreements](logic-apps-enterprise-integration-agreements.md)

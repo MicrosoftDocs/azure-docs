@@ -2,12 +2,12 @@
 title: 'Virtual WAN: Microsoft Entra tenant for different user groups: Microsoft Entra authentication'
 description: Set up a Microsoft Entra tenant for P2S OpenVPN authentication, and create and register multiple apps in Microsoft Entra ID to allow different access for different users and groups.
 services: virtual-wan
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 04/24/2023
-ms.author: cherylmc
+ms.author: duau
 ms.custom:
   - devx-track-azurepowershell
   - sfi-image-nochange

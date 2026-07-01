@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.subservice: azure-mqtt-broker
 ms.topic: reference
-ms.date: 10/22/2024
+ms.date: 02/26/2026
 
 # CustomerIntent: As an operator, I want to understand what MQTT specifications are supported by MQTT broker so that I can configure my MQTT client to connect to MQTT broker.
 ms.service: azure-iot-operations
@@ -13,7 +13,7 @@ ms.service: azure-iot-operations
 
 # MQTT feature support in MQTT broker
 
-MQTT broker currently supports the following MQTT features and control packets.
+The MQTT broker currently supports the following MQTT features and control packets.
 
 | Feature or control packet | MQTT v3.1.1 | MQTT v5 |
 |---|:---:|:---:|

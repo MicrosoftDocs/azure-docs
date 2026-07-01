@@ -1,6 +1,6 @@
 ---
-title: Manage resources for Oracle Database@Azure
-description: Manage resources for Oracle Database@Azure
+title: Manage resources for Oracle AI Database@Azure
+description: Manage resources for Oracle AI Database@Azure
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 6/07/2024
 ms.custom: engagement-fy23
 ms.author: jacobjaygbay
-# Customer intent: "As a database administrator managing Oracle Database resources on Azure, I want to access and utilize management functions for my databases, so that I can efficiently provision, monitor, and allocate resources while ensuring optimal performance and scalability."
+# Customer intent: "As a database administrator managing Oracle AI Database resources on Azure, I want to access and utilize management functions for my databases, so that I can efficiently provision, monitor, and allocate resources while ensuring optimal performance and scalability."
 ---
-# Manage resources for Oracle Database@Azure
+# Manage resources for Oracle AI Database@Azure
 
 After you provision an OracleDB@Azure resource, for example an Oracle Exadata Infrastructure or an Oracle Exadata VM Cluster, you can use the Microsoft Azure blade for a limited set of management functions. That limited set of management functions is described in this document.
 
@@ -20,7 +20,7 @@ The following management functions are available for all resources from the Micr
 
 * **Access the resource blade**.
    1. From the Microsoft Azure portal, select OracleDB@Azure application.
-   1. From the left menu, select the resource type. For example, select **Oracle Exadata Database@Azure** or **Oracle Autonomous Database@Azure**.
+   1. From the left menu, select the resource type. For example, select **Oracle Exadata Database@Azure** or **Oracle Autonomous AI Database@Azure**.
    1. If the blade lists and manages several resources, select the resource type at the top of the blade. For example, the **Oracle Exadata Database@Azure** blade accesses both Oracle Exadata Infrastructure and Oracle Exadata VM Cluster resources.
 * **List and see the status for all the resources of the same type.**
    1. Follow the steps to access the resource blade.
@@ -38,19 +38,19 @@ The following management functions are available for all resources from the Micr
   1. Follow the steps to access the resource blade.
   1. You can remove a single or multiple resources from the blade by selecting the checkbox on the left side of the table. Once you have selected the resource(s) to remove, you can then select the **Delete** icon at the top of the blade.
   1. You can also remove a single resource by selecting the link to the resource from the **Name** field in the table. From the resource's detail page, select the **Delete** icon at the top of the blade.
-## Manage resource allocation for Oracle Autonomous Database Serverless instances
+## Manage resource allocation for Oracle Autonomous AI Database Serverless instances
 
-The following management functions are available for Oracle Autonomous Database Serverless instances from the Microsoft Azure blade for that resource.
+The following management functions are available for Oracle Autonomous AI Database Serverless instances from the Microsoft Azure blade for that resource.
 
 > [!NOTE]
-> You can only change the resource allocation settings for Oracle Autonomous Database Serverless instances using these steps. This does not apply to any other resource type.
+> You can only change the resource allocation settings for Oracle Autonomous AI Database Serverless instances using these steps. This does not apply to any other resource type.
 
-Follow the following steps to access the Oracle Autonomous Database@Azure blade.
+Follow the following steps to access the Oracle Autonomous AI Database@Azure blade.
 
 1. Select the link to the resource from the **Name** field in the table.
    1. From the resource's overview page, select the **Setting** link left-menu, and then the **Resource allocation** link.
    1. Select the **Manage** button at the top of the Resource allocation page.
-   1. From the **Manage resource allocation** window, you can set the **ECPU count** from 2 to 512. The **Compute auto scaling** checkbox allows you to enable your Oracle Autonomous Database to scale its computing allocation automatically up to 512. The **Storage** is a slider UI that allows setting the Storage allocation from 1 TB to 384 TB. The **Storage auto scaling** checkbox allows you to enable your Oracle Autonomous Database to scale its storage allocation automatically up to 384 TB.
+   1. From the **Manage resource allocation** window, you can set the **ECPU count** from 2 to 512. The **Compute auto scaling** checkbox allows you to enable your Oracle Autonomous AI Database to scale its computing allocation automatically up to 512. The **Storage** is a slider UI that allows setting the Storage allocation from 1 TB to 384 TB. The **Storage auto scaling** checkbox allows you to enable your Oracle Autonomous AI Database to scale its storage allocation automatically up to 384 TB.
    1. After you have set or reviewed the fields, select the **Apply** or **Cancel** button as appropriate.
 
 * **Use the OCI console for complete management of the resource.**

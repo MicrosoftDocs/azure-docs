@@ -1,12 +1,11 @@
 ---
-title: IP Groups in Azure Firewall 
+title: IP Groups in Azure Firewall
 description: IP groups allow you to group and manage IP addresses for Azure Firewall rules.
-services: firewall
 author: duau
+ms.author: duau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 02/10/2025
-ms.author: duau
+ms.date: 03/28/2026
 ms.custom:
   - devx-track-azurepowershell
   - sfi-image-nochange
@@ -15,16 +14,16 @@ ms.custom:
 
 # IP Groups in Azure Firewall
 
-IP Groups allow you to group and manage IP addresses for Azure Firewall rules in the following ways:
+IP Groups make it easy to group and manage IP addresses for Azure Firewall rules. Use IP Groups in the following ways:
 
 - As a source address in DNAT rules
 - As a source or destination address in network rules
 - As a source address in application rules
 
 
-An IP Group can have a single IP address, multiple IP addresses, one or more IP address ranges or addresses and ranges in combination.
+An IP Group can include a single IP address, multiple IP addresses, one or more IP address ranges, or a combination of addresses and ranges.
 
-IP Groups can be reused in Azure Firewall DNAT, network, and application rules for multiple firewalls across regions and subscriptions in Azure. Group names must be unique. You can configure an IP Group in the Azure portal, Azure CLI, or REST API. A sample template is provided to help you get started.
+You can use IP Groups in Azure Firewall DNAT, network, and application rules for multiple firewalls across regions and subscriptions in Azure. Group names must be unique. You can configure an IP Group in the Azure portal, Azure CLI, or REST API. A sample template is provided to help you get started.
 
 ## Sample format
 
@@ -36,51 +35,51 @@ The following IPv4 address format examples are valid to use in IP Groups:
 
 ## Create an IP Group
 
-An IP Group can be created using the Azure portal, Azure CLI, or REST API. For more information, see [Create an IP Group](create-ip-group.md).
+Create an IP Group by using the Azure portal, Azure CLI, or REST API. For more information, see [Create an IP Group](create-ip-group.md).
 
 ## Browse IP Groups
-1. In the Azure portal search bar, type **IP Groups** and select it. You can see the list of the IP Groups, or you can select **Add** to create a new IP Group.
+1. In the Azure portal search bar, type `IP Groups` and select it. You can see the list of IP Groups, or you can select **Add** to create a new IP Group.
 1. Select an IP Group to open the overview page. You can edit, add, or delete IP addresses or IP Groups.
 
 
 ## Manage an IP Group
 
-You can see all the IP addresses in the IP Group and the rules or resources that are associated with it. To delete an IP Group, you must first dissociate the IP Group from the resource that is using it.
+You can see all the IP addresses in the IP Group and the rules or resources that are associated with it. To delete an IP Group, you must first dissociate the IP Group from the resource that uses it.
 
-1. To view or edit the IP addresses, select **IP Addresses** under **Settings** on the left pane.
-1. To add a single or multiple IP address(es), select **Add IP Addresses**. This opens the **Drag or Browse** page for an upload, or you can enter the address manually.
-1.    Selecting the ellipses (**…**) to the right to edit or delete IP addresses. To edit or delete multiple IP addresses, select the boxes and select **Edit** or **Delete** at the top.
-1. Finally, can export the file in the CSV file format.
+1. To view or edit the IP addresses, select **IP Addresses** under **Settings** in the left pane.
+1. To add single or multiple IP addresses, select **Add IP Addresses**. This action opens the **Drag or Browse** page for an upload, or you can enter the address manually.
+1. Select the ellipses (**…**) to the right to edit or delete IP addresses. To edit or delete multiple IP addresses, select the check boxes and select **Edit** or **Delete** at the top.
+1. Finally, you can export the file in the CSV file format.
 
 > [!NOTE]
-> If you delete all the IP addresses in an IP Group while it is still in use in a rule, that rule is skipped.
+> If you delete all the IP addresses in an IP Group but the IP Group is still in use in a rule, that rule is skipped.
 
 
 ## Use an IP Group
 
-You can now select **IP Group** as a **Source type** or **Destination type** for the IP address(es) when you create Azure Firewall DNAT, application, or network rules.
+Select **IP Group** as a **Source type** or **Destination type** for the IP addresses when you create Azure Firewall DNAT, application, or network rules.
 
 ## Parallel IP Group updates
 
-You can now update multiple IP Groups in parallel at the same time. This is particularly useful for environments requiring faster changes at scale, especially when making those changes using a dev ops approach (templates, ARM, CLI, and Azure PowerShell).
+You can update multiple IP Groups in parallel at the same time. This feature is particularly useful for environments that require faster changes at scale, especially when you make those changes by using a dev ops approach (templates, ARM, CLI, and Azure PowerShell).
 
-With this support, you can perform the following:
+By using this feature, you can:
 
-- **Update 20 IP Groups at a time:** Perform simultaneous updates up to 20 IP Groups in one operation, referenced by firewall policy or classic firewall. 
-- **Update Azure Firewall and IP Groups together:** You can update IP Groups simultaneously with the firewall or with firewall policies. 
-- **Improved efficiency:** Parallel IP Group updates now run twice as fast. 
+- **Update 20 IP Groups at a time:** Perform simultaneous updates for up to 20 IP Groups in one operation, referenced by firewall policy or classic firewall.
+- **Update Azure Firewall and IP Groups together:** Update IP Groups simultaneously with the firewall or with firewall policies.
+- **Improved efficiency:** Parallel IP Group updates now run twice as fast.
 - **Receive new and improved error messages:**
 
    |Error message  |Description  |Recommended action|
    |---------|---------|---------|
-   |**In failed state (skipping update)**  |Azure Firewall or Firewall Policy is in a failed state. Updates cannot proceed until the resource is healthy. |Review previous operations and correct any misconfigurations to ensure the resource is healthy.|
+   |**In failed state (skipping update)**  |Azure Firewall or Firewall Policy is in a failed state. Updates can't proceed until the resource is healthy. |Review previous operations and correct any misconfigurations to ensure the resource is healthy.|
    | **Backend server could not update Firewall at this time** | The backend server was unable to successfully process the request.| Create a support request.|
    | **Error occurred during FW update** | The error is related to the underlying backend servers.| Retry the operation or create a support request if the issue persists.|
-   | **Internal server error** | An unexpected backend error has occurred. | Retry the operation or create a support request.|
-  
-Additionally, note the following status updates:
-- **One or more IP Group failure:** If one IP Group update (out of 20 parallel updates) fails, the provisioning state changes to "Failed" while the remaining IP Groups will continue to update and succeed.
-- **Status update:** If an IP Group update fails, and if the firewall remains healthy, its state will still show as "Succeeded." To verify, check the status on the IP Group resource itself. 
+   | **Internal server error** | An unexpected backend error occurred. | Retry the operation or create a support request.|
+
+Also, note the following status updates:
+- **One or more IP Group failure:** If one IP Group update (out of 20 parallel updates) fails, the provisioning state changes to "Failed" while the remaining IP Groups continue to update and succeed.
+- **Status update:** If an IP Group update fails, and if the firewall remains healthy, its state still shows as "Succeeded." To verify, check the status on the IP Group resource itself.
 
 ## Region availability
 
@@ -88,11 +87,11 @@ IP Groups are available in all public cloud regions.
 
 ## IP address limits
 
-For IP Group limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits)
+For IP Group limits, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-firewall-limits).
 
 ## Related Azure PowerShell cmdlets
 
-The following Azure PowerShell cmdlets can be used to create and manage IP Groups:
+Use the following Azure PowerShell cmdlets to create and manage IP Groups:
 
 - [New-AzIpGroup](/powershell/module/az.network/new-azipgroup)
 - [Remove-AzIPGroup](/powershell/module/az.network/remove-azipgroup)

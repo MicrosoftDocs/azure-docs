@@ -4,7 +4,7 @@ metadata:
   description: Answers to common questions about the security feature - soft delete.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 01/31/2025
+  ms.date: 01/12/2026
   author: AbhishekMallick-MS
   ms.author: v-mallicka
 
@@ -33,7 +33,7 @@ sections:
       - question: |
           Can I perform a restore operation when my data is in soft delete state?
         answer: |
-          No, you need to undelete the soft deleted resource in order to restore. The undelete operation will bring the resource back into the **Stop protection with retain data state** where you can restore to any point in time. Garbage collector remains paused in this state.
+          No, you need to undelete the soft deleted resource in order to restore. The undelete-operation will bring the resource back into the **Stop protection with retain data state** where you can restore to any point in time. Garbage collector remains paused in this state.
 
       - question: |
           Will my snapshots follow the same lifecycle as my recovery points in the vault?
@@ -43,7 +43,7 @@ sections:
       - question: |
           How can I trigger the scheduled backups again for a soft-deleted resource?
         answer: |
-          Undelete followed by a resume operation will protect the resource again. The resume operation associates a backup policy to trigger the scheduled backups with the selected retention period. Also, the garbage collector runs as soon as the resume operation completes. If you wish to perform a restore from a recovery point that's past its expiration date, you're advised to do it before triggering the resume operation.
+          Undelete followed by a resume operation will protect the resource again. The resume-operation associates a backup policy to trigger the scheduled backups with the selected retention period. Also, the garbage collector runs as soon as the resume-operation completes. If you wish to perform a restore from a recovery point that's past its expiration date, you're advised to do it before triggering the resume-operation.
 
       - question: |
           Can I delete my vault if there are soft-deleted items in the vault?
@@ -53,7 +53,7 @@ sections:
       - question: |
           Can I delete the data earlier than the 14 days soft-delete period after deletion?
         answer: |
-          No. You can't force-delete the soft-deleted items. They're automatically deleted after 14 days. This security feature is enabled to safeguard the backed-up data from accidental or malicious deletes.  You should wait for 14 days before performing any other action on the item.  Soft-deleted items won't be charged.  If you need to reprotect the items marked for soft-delete within 14 days in a new vault, then contact Microsoft support.
+          No. You can't force-delete the soft-deleted items. They're automatically deleted after 14 days. This security feature is enabled to safeguard the backed-up data from accidental or malicious deletes. You should wait for 14 days before performing any other action on the item. Soft-deleted items won't be charged.  If you need to reprotect the items marked for soft-delete within 14 days in a new vault, then contact Microsoft support.
 
       - question: |
           Can soft delete operations be performed in PowerShell or CLI?
@@ -63,4 +63,5 @@ sections:
 additionalContent: |
 
   ## Next steps
-  [Manage the soft delete features in Azure Backup](backup-azure-security-feature-cloud.md).
+  - [Manage the soft delete features in Azure Backup](backup-azure-security-feature-cloud.md).
+  - [About enhanced soft delete for Azure Backup](backup-azure-enhanced-soft-delete-about.md).

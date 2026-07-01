@@ -1,6 +1,8 @@
 ---
 title: Manage an NGINXaaS Resource Through the Azure portal
 description: Learn about managing your NGINXaaS instance on the Azure portal, including configuring managed identities, adding certificates, and sending metrics to Azure Monitor.
+author: BNandiniMSFT
+ms.author: bnandini
 ms.topic: how-to
 ms.date: 05/12/2025
 #customer intent: As an NGInX administrator, I want to manage my NGINXaaS instance by using the Azure portal.

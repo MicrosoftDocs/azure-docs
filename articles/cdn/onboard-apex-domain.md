@@ -7,7 +7,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 02/28/2026
 # Customer intent: As a domain owner, I want to onboard my root or apex domain to an existing CDN endpoint, so that I can ensure proper DNS configuration and HTTPS support for my web applications.
 ---
 

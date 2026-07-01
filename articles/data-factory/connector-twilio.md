@@ -5,7 +5,7 @@ description: Learn how to transform data in Twilio (Preview) by using Data Facto
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: synapse
 ms.date: 01/05/2024
 ---

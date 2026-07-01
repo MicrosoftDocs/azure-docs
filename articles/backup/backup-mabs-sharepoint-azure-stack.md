@@ -3,6 +3,7 @@ title: Back up a SharePoint farm on Azure Stack using Microsoft Azure Backup Ser
 description: Learn how to back up and restore SharePoint data using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
 ms.date: 03/25/2025
+ms.update-cycle: 1095-days
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS

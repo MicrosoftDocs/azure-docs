@@ -52,6 +52,17 @@ This article explains how to add multiple IP addresses to a virtual machine usin
 
   *Figure: Diagram of network configuration resources created in this How-to article.*
 
+> [!IMPORTANT]
+> Avoid breaking connectivity when adding IP addresses  
+> When adding additional IP configurations to a VM, you **do not need to convert the existing (primary) private IP address from Dynamic to Static**.  
+> 
+> Changing the primary IP allocation type can disrupt RDP/SSH connectivity and may require recovery steps such as adding a temporary IP address. This is unnecessary when your goal is only to add secondary IP addresses.
+>
+> Recommended approach:
+> - Leave the primary private IP configuration unchanged.
+> - Add new **secondary IP configurations** (static or dynamic) directly to the NIC.
+> - Only change the primary IP to Static if a fixed primary address is explicitly required and you understand the impact.
+
 ## Add public and private IP address to a VM
 
 You can add a private and public IP address to an Azure network interface by completing the following steps.
@@ -68,9 +79,9 @@ You can add a private and public IP address to an Azure network interface by com
 
     :::image type="content" source="./media/virtual-network-multiple-ip-addresses-portal/select-nic.png" alt-text="Screenshot of myVM networking and network interface selection.":::
 
-6. In **IP Configurations** To add a private and public IP address to the virtual machine, select **+ Add**.
+6. In **IP configurations**, select **+ Add** to create a new secondary IP configuration.
 
-8. In **Add IP configuration**, enter or select the following information.
+7. In **Add IP configuration**, enter or select the following information.
 
     | Setting | Value |
     | ------- | ----- |
@@ -81,13 +92,15 @@ You can add a private and public IP address to an Azure network interface by com
     | **Public IP address** | Select **Associate public IP address** |
     | Public IP address | Select **Create a public IP address**. </br> Enter **public-ip-02** in **Name**. </br> Select **Standard** in **SKU**. </br> Select **OK**. |
 
-9. Select **OK**.
+8. Select **OK**.
 
-> [!NOTE]
-> When adding a static IP address, you must specify an unused, valid address on the subnet the NIC is connected to.
+> [!NOTE] 
+> When adding a static IP address, specify an unused and valid address in the subnet.  
+> This applies only to the **new secondary IP configuration**. The primary IP configuration does not need to be changed.
 
 > [!IMPORTANT]
-> After you change the IP address configuration, you must restart the VM for the changes to take effect in the VM.
+> Restarting the VM is required for the operating system to recognize newly added IP addresses.  
+> Adding secondary IP configurations does **not** require changing the primary IP allocation and does not inherently break existing connectivity.
 
 ## Add private IP address to a VM
 
@@ -121,10 +134,12 @@ You can add a private IP address to a virtual machine by completing the followin
 9. Select **OK**.
 
 > [!NOTE]
-> When adding a static IP address, you must specify an unused, valid address on the subnet the NIC is connected to.
+> When adding a static IP address, specify an unused and valid address in the subnet.  
+> This applies only to the **new secondary IP configuration**. The primary IP configuration does not need to be changed.
 
-> [!IMPORTANT]
-> After you change the IP address configuration, you must restart the VM for the changes to take effect in the VM.
+> [!IMPORTANT] 
+> Restarting the VM is required for the operating system to recognize newly added IP addresses.  
+> Adding secondary IP configurations does **not** require changing the primary IP allocation and does not inherently break existing connectivity.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
 

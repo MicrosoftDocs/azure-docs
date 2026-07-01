@@ -3,11 +3,11 @@ title: Load testing for Azure App Service
 titleSuffix: Azure Load Testing
 description: 'Learn how to use Azure Load Testing with apps hosted on Azure App Service. Run load tests, use environment variables, and gain insights with server metrics and diagnostics.'
 services: load-testing
-ms.service: azure-load-testing
-ms.author: ninallam
-author: ninallam
+ms.service: azure-app-testing
+ms.author: nandinim
+author: nandinimurali
 ms.date: 06/30/2023
-ms.topic: conceptual
+ms.topic: concept-article
 
 ---
 

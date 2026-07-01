@@ -76,7 +76,7 @@ Monitoring, auditing, and logging are critical for maintaining security and comp
     - **Function:** Azure NetApp Files offers metrics on allocated storage, actual storage usage, volume I/OPS, and latency. These metrics help you understand usage patterns and volume performance. For more information, see [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md).
 	- **Use case:** Metrics are essential for performance tuning and capacity planning, allowing you to optimize your storage resources effectively.
 - **Azure Service Health:**
-    - **Function:** Azure Service Health keeps you informed about the health of your Azure services, providing a personalized view of the status of your environment. For more information, see [Service Health portal classic experience overview](/azure/service-health/service-health-overview).
+    - **Function:** Azure Service Health keeps you informed about the health of your Azure services, providing a personalized view of the status of your environment. For more information, see [Service Health portal classic experience overview](/azure/service-health/overview).
     - **Use case:** Azure Service Health helps you stay updated on planned maintenance and health advisories, ensuring minimal disruption to your operations.
 - **Audit logging:**
     - **Scope:** The control plane logs all PUT, POST, and DELETE API operations against Azure NetApp Files. These logs include actions such as creating snapshots, modifying volumes, and deleting resources. For more information, see [Are Azure activity logs supported in Azure NetApp Files?](faq-security.md#are-azure-activity-logs-supported-on-azure-netapp-files)

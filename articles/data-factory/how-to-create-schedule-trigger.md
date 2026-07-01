@@ -6,7 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: whhender
 ms.subservice: orchestration
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/13/2025
 ms.custom: devx-track-python, devx-track-azurepowershell, synapse, devx-track-azurecli, devx-track-arm-template, devx-track-dotnet
 ---

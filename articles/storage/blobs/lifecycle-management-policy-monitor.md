@@ -7,7 +7,7 @@ author: normesta
 ms.author: normesta
 ms.date: 06/13/2025
 ms.service: azure-blob-storage
-ms.topic: conceptual 
+ms.topic: concept-article 
 
 # Customer intent: As a storage administrator, I want to monitor the execution of lifecycle management policies, so that I can quickly identify and resolve any operational issues affecting blob storage management.
 ---

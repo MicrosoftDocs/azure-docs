@@ -6,13 +6,13 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 03/26/2025
+ms.date: 04/24/2026
 ms.custom: sfi-image-nochange
 
 #Customer intent: As a website owner, I want to add a custom domain to my Azure Front Door configuration so that my users can use my custom domain to access my content.
 ---
 
-# Configure HTTPS on an Azure Front Door custom domain using the Azure portal
+# Configure HTTPS on an Azure Front Door custom domain
 
 Azure Front Door enables secure Transport Layer Security (TLS) delivery to your applications by default when you use your own custom domains. To learn more about custom domains, including how custom domains work with HTTPS, see [Domains in Azure Front Door](../domain.md).
 
@@ -26,11 +26,11 @@ Azure Front Door supports Azure-managed certificates and customer-managed certif
 
 ## Azure Front Door-managed certificates for non-Azure prevalidated domains
 
-If you have your own domain, and the domain isn't already associated with [another Azure service that prevalidates domains for Azure Front Door](../domain.md#domain-validation), follow these steps:
+If you have your own domain and the domain isn't already associated with [another Azure service that prevalidates domains for Azure Front Door](../domain.md#domain-validation), follow these steps:
 
 1. Under **Settings**, select **Domains** for your Azure Front Door profile. Then select **+ Add** to add a new domain.
 
-1. On the **Add a domain** pane, enter or select the following information. Then select **Add** to onboard the custom domain.
+1. On **Add a domain**, enter or select the following information. Then select **Add** to onboard the custom domain.
 
     | Setting | Value |
     |--|--|
@@ -42,15 +42,15 @@ If you have your own domain, and the domain isn't already associated with [anoth
 
 1. Validate and associate the custom domain to an endpoint by following the steps to enable a [custom domain](how-to-add-custom-domain.md).
 
-1. After the custom domain is successfully associated with an endpoint, Azure Front Door generates a certificate and deploys it. This process might take from several minutes to an hour to finish.
+1. After you associate the custom domain with an endpoint, Azure Front Door generates a certificate and deploys it. This process might take several minutes to an hour.
 
 ## Azure-managed certificates for Azure prevalidated domains
 
-If you have your own domain, and the domain is associated with [another Azure service that prevalidates domains for Azure Front Door](../domain.md#domain-validation), follow these steps:
+If you have your own domain and associate it with [another Azure service that prevalidates domains for Azure Front Door](../domain.md#domain-validation), follow these steps:
 
 1. Under **Settings**, select **Domains** for your Azure Front Door profile. Then select **+ Add** to add a new domain.
 
-1. On the **Add a domain** pane, enter or select the following information. Then select **Add** to onboard the custom domain.
+1. On **Add a domain**, enter or select the following information. Then select **Add** to onboard the custom domain.
 
     :::image type="content" source="../media/pre-validated-custom-domain.png" alt-text="Screenshot that shows the Add a domain pane with a prevalidated domain.":::
 
@@ -72,9 +72,9 @@ You can also choose to use your own TLS certificate. Your TLS certificate must m
 
 Create a separate Azure Key Vault instance in which you store your Azure Front Door TLS certificates. For more information, see [Create a Key Vault instance](/azure/key-vault/general/quick-create-portal). If you already have a certificate, you can upload it to your new Key Vault instance. Otherwise, you can create a new certificate through Key Vault from one of the certificate authority (CA) partners.
 
-There are currently two ways to authenticate Azure Front Door to access your Key Vault:
+Currently, two methods authenticate Azure Front Door to access your Key Vault:
 
-- **Managed identity**: Azure Front Door uses a managed identity to authenticate to your Key Vault. This method is recommended because it's more secure and doesn't require you to manage credentials. For more information, see [Use managed identities in Azure Front Door](../managed-identity.md). Skip to [Select the certificate for Azure Front Door to deploy](#select-the-certificate-for-azure-front-door-to-deploy) if you're using this method.
+- **Managed identity**: Azure Front Door uses a managed identity to authenticate to your Key Vault. Use this method because it's more secure and doesn't require you to manage credentials. For more information, see [Use managed identities in Azure Front Door](../managed-identity.md). If you're using this method, see [Select the certificate for Azure Front Door to deploy](#select-the-certificate-for-azure-front-door-to-deploy).
 - **App registration**: Azure Front Door uses an app registration to authenticate to your Key Vault. This method is being deprecated and will be retired in the future. For more information, see [Use app registration in Azure Front Door](#register-azure-front-door).
 
 > [!WARNING]

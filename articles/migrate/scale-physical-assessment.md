@@ -5,6 +5,7 @@ ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.topic: how-to
 ms.date: 02/06/2025
+ms.update-cycle: 1095-days
 # Customer intent: As an IT administrator, I want to assess large numbers of physical servers for migration to the cloud, so that I can effectively plan and execute the migration process with minimal disruption to operations.
 ---
 

@@ -5,14 +5,15 @@ description: Learn how to transform data in Zendesk (Preview) by using Data Fact
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.date: 01/05/2024
+ms.topic: how-to
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ms.custom:
   - synapse
   - sfi-image-nochange
 ---
 
-#  Transform data in Zendesk (Preview) using Azure Data Factory or Synapse Analytics
+# Transform data in Zendesk (Preview) using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

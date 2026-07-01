@@ -4,7 +4,7 @@ description: Describes basic security infrastructure that data movement services
 ms.author: susabat
 author: ssabat
 ms.subservice: security
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/13/2025
 ---
 

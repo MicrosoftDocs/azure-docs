@@ -12,6 +12,8 @@ ms.author: stefanazaric
 
 # Query folders and multiple files  
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you learn how to write a query using serverless SQL pool in Azure Synapse Analytics.
 
 Serverless SQL pool supports reading multiple files or folders by using wildcards, which are similar to the wildcards used in Windows. However, greater flexibility is present since multiple wildcards are allowed.

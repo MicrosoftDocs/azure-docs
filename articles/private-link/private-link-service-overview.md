@@ -2,11 +2,11 @@
 title: What is Azure Private Link service?
 description: Learn about Azure Private Link service.
 services: private-link
-author: AbdullahBell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 10/15/2024
-ms.author: abell
+ms.date: 03/30/2026
+ms.author: allensu
 ms.custom: sfi-image-nochange
 # Customer intent: "As a service provider, I want to configure an Azure Private Link Service for my application behind a standard load balancer, so that I can enable secure private access for consumers from their virtual networks."
 ---
@@ -15,7 +15,7 @@ ms.custom: sfi-image-nochange
 
 Azure Private Link service is the reference to your own service that is powered by Azure Private Link. Your service that is running behind [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md) can be enabled for Private Link access so that consumers to your service can access it privately from their own VNets. Your customers can create a private endpoint inside their virtual network and map it to this service. This article explains concepts related to the service provider side. 
 
-:::image type="content" source="./media/private-link-service-overview/private-link-service-workflow.png" alt-text="Diagram of Azure private link service." lightbox="media/private-link-service-overview/private-link-service-workflow-expanded.png":::
+:::image type="content" source="./media/private-link-service-overview/private-link-service-workflow.svg" alt-text="Diagram of Azure private link service." lightbox="media/private-link-service-overview/private-link-service-workflow.svg":::
 
 *Figure: Azure Private Link Service.*
 

@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 11/17/2025
+ms.date: 02/04/2026
 ms.author: mbender
 ms.custom: sfi-image-nochange
 # Customer intent: "As a network engineer, I want to configure the Azure Application Gateway TCP/TLS proxy for SQL Server, so that I can efficiently manage non-HTTP workloads and ensure proper connectivity for database operations."
@@ -26,6 +26,16 @@ To try out the layer 4 features of Azure Application Gateway, this article shows
 
     - Add a SQL server to the backend pool
 - Connect to the application gateway using a SQL client
+
+> [!Important]
+> When using a Layer 4 gateway to proxy database services that rely on Tabular Data Stream (TDS) and Transport Layer Security (TLS), the following limitations apply:
+>
+> **Strict server name validation**
+> The backend SQL service validates the server name provided by the client during connection establishment. If the client-requested server name does not exactly match the backend server identity expected by the service, the connection is rejected.
+>
+> **TLS termination depends on protocol order**
+> TLS termination at the gateway is only feasible when TLS negotiation occurs before the TDS session begins. If the database protocol starts with TDS before TLS negotiation, TLS termination at the Layer 4
+> gateway is not supported. In these scenarios, you may use gateway as TCP passthrough by using only TCP protocol settings.
 
 ## Create a SQL server
 

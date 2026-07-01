@@ -1,5 +1,5 @@
 ---
-title: Use Azure Migrate in Usupported Regions
+title: Use Azure Migrate in Unsupported Regions
 description: Describes and lists the regions that Azure Migrate doesn't support
 author: habibaum
 ms.author: v-uhabiba
@@ -8,7 +8,7 @@ ms.service: azure-migrate
 ms.topic: troubleshooting
 ms.date: 09/08/2025
 ms.custom: reference_regions
-
+ms.update-cycle: 1825-days
 # Customer intent: "As a cloud architect, I want to understand how to use Azure Migrate in unsupported regions, so that I can successfully plan and execute migrations from on-premises environments to new Azure regions that are not yet equipped with the necessary migration services."
 ---
 

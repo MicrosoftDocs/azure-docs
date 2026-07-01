@@ -1,11 +1,9 @@
 ---
 title: Add Caching to Improve Performance in Azure API Management
 description: Learn how to improve the latency, bandwidth consumption, and web service load for API Management service calls.
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 09/11/2025
-ms.author: danlep
 ms.custom: sfi-image-nochange
 
 #customer intent: As an API developer, I want to use caching so that I can improve performance in API Management.
@@ -37,7 +35,7 @@ In this article you:
 
 
 > [!NOTE]
-> Internal caching isn't available in the **Consumption** tier of Azure API Management. You can [use an external Azure Cache for Redis](api-management-howto-cache-external.md) instead. You can also configure an external cache in other API Management service tiers.
+> Internal caching isn't available in the **Consumption** tier of Azure API Management. You can [use an external Redis-compatible cache](api-management-howto-cache-external.md) instead. You can also configure an external cache in other API Management service tiers.
 > 
 
 ## Prerequisites

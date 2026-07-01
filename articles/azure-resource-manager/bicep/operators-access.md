@@ -3,7 +3,7 @@ title: Bicep accessor operators
 description: Describes Bicep resource access operator and property access operator.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 05/20/2025
+ms.date: 12/22/2025
 ---
 
 # Bicep accessor operators

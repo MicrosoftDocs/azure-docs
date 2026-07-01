@@ -15,7 +15,7 @@ ms.custom:
 
 **Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
-Managed identities provided by Microsoft Entra ID enables your Azure Front Door Standard/Premium instance to securely access other Microsoft Entra protected resources, such as Azure Blob Storage, without the need to manage credentials. For more information, see [What is  managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
+Managed identities provided by Microsoft Entra ID enables your Azure Front Door Standard/Premium instance to securely access other Microsoft Entra protected resources, such as Azure Blob Storage, without the need to manage credentials. For more information, see [What is  managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview)
 
 After you enable managed identity for Azure Front Door and granting the managed identity necessary permissions to your origin, Front Door will use the managed identity to obtain an access token from Microsoft Entra ID for accessing the specified resource. After successfully obtaining the token, Front Door will set the value of the token in the Authorization header using the Bearer scheme and then forward the request to the origin. Front Door caches the token until it expires. 
 
@@ -74,6 +74,11 @@ Managed identities are specific to the Microsoft Entra tenant where your Azure s
 > * the forwarding protocol is set to 'HTTPS Only' under route settings.
 > * the forwarding protocol is set to 'HTTPS Only' in case you are using a 'Route configuration override' action in rulesets.
 
+> [!Warning]
+> From here onwards, if you are using origin authentication between Front Door and Storage, the sequence of steps for enabling origin authentication are very important and cause issues if the appropriate sequence is not followed.
+> * If you are using a storage account with public anonymous access enabled, follow the below steps in the exact sequence - 'Associating the identity to an origin group' followed by 'Providing access at the origin resource'. Once all steps are complete, you can disable public anonymous access to only allow access to your storage account from Front Door.
+> * If you are using a storage account with public anonymous access disabled, you have to follow a different sequence. First do the steps for 'Providing access at the origin resource' followed by 'Associating the identity to an origin group'. Start sending traffic via Front Door to the storage account only after completing all the steps in the aforementioned sequence.
+
 1.	Navigate to your existing Azure Front Door profile and open origin groups.
 2.	Select an existing origin group which has origins already configured.
 3.	Scroll down to the **Authentication** section.
@@ -116,3 +121,4 @@ Managed identities are specific to the Microsoft Entra tenant where your Azure s
 * It is recommended that you use different managed identities for origin authentication and for AFD to Azure Key Vault authentication.
 * For best practices while using managed identities, refer to [Managed identity best practice recommendations](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations).
 * For best practices while assigning RBAC role for Azure storage account, refer to [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md)
+* When origin authentication is enabled on an origin group, Front Door includes the access token in the Authorization header for health probes probing the origins within the origin group, not just for end-user traffic requests.

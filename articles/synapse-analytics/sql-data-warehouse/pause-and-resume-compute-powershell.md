@@ -16,6 +16,8 @@ ms.custom:
 
 # Quickstart: Pause and resume compute in dedicated SQL pool (formerly SQL DW) with Azure PowerShell
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 You can use Azure PowerShell to pause and resume dedicated SQL pool (formerly SQL DW) compute resources.
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 

@@ -16,7 +16,7 @@ ms.custom: sfi-image-nochange
 
 ExpressRoute Direct gives you the ability to directly connect to Microsoft's global network through peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct Connect](expressroute-erdirect-about.md).
 
-This article shows you how to create ExpressRoute Direct using the Azure Portal, PowerShell and Azure CLI.
+This article shows you how to create ExpressRoute Direct using the Azure portal, PowerShell and Azure CLI.
 
 ## Before you begin
 

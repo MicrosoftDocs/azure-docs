@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" fill="none">
+  <!-- Background -->
+  <rect width="800" height="320" fill="#ffffff"/>
+  
+  <!-- Left section: Data Sources -->
+  <rect x="20" y="40" width="200" height="240" rx="12" fill="#f0f7ff" stroke="#0078d4" stroke-width="1.5"/>
+  <text x="120" y="70" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="600" fill="#0078d4">Data Sources</text>
+  
+  <rect x="40" y="90" width="160" height="40" rx="6" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="120" y="115" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#333">Azure Resources</text>
+  
+  <rect x="40" y="140" width="160" height="40" rx="6" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="120" y="165" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#333">Built-in Connectors</text>
+  
+  <rect x="40" y="190" width="160" height="40" rx="6" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="120" y="215" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#333">MCP Integrations</text>
+  
+  <rect x="40" y="240" width="160" height="30" rx="6" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="120" y="260" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#333">Your Knowledge</text>
+  
+  <!-- Arrows from left to center -->
+  <path d="M 220 160 L 280 160" stroke="#0078d4" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <!-- Center section: SRE Agent -->
+  <rect x="290" y="80" width="220" height="160" rx="12" fill="#fff4e5" stroke="#f57c00" stroke-width="1.5"/>
+  <text x="400" y="115" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="16" font-weight="600" fill="#f57c00">SRE Agent</text>
+  
+  <rect x="310" y="135" width="180" height="35" rx="6" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="400" y="158" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#333">Reasoning + Actions</text>
+  
+  <rect x="310" y="180" width="180" height="35" rx="6" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="400" y="203" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#333">Subagents + Skills</text>
+  
+  <!-- Arrows from center to right -->
+  <path d="M 510 160 L 570 160" stroke="#388e3c" stroke-width="2" marker-end="url(#arrow-green)"/>
+  
+  <!-- Right section: Outcomes -->
+  <rect x="580" y="40" width="200" height="240" rx="12" fill="#e8f5e9" stroke="#388e3c" stroke-width="1.5"/>
+  <text x="680" y="70" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="600" fill="#388e3c">Outcomes</text>
+  
+  <rect x="600" y="95" width="160" height="40" rx="6" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="680" y="120" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#333">Investigate</text>
+  
+  <rect x="600" y="145" width="160" height="40" rx="6" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="680" y="170" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#333">Automate</text>
+  
+  <rect x="600" y="195" width="160" height="40" rx="6" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="680" y="220" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#333">Remediate</text>
+  
+  <rect x="600" y="245" width="160" height="30" rx="6" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="680" y="265" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" fill="#333">Notify</text>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#0078d4"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#388e3c"/>
+    </marker>
+  </defs>
+</svg>

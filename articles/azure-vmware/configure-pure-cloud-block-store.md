@@ -5,7 +5,7 @@ ms.topic: how-to
 author: jjaygbay1 
 ms.author: jacobjaygbay
 ms.service: azure-vmware
-ms.date: 3/06/2024
+ms.date: 2/12/2026
 # Customer intent: "As a cloud architect, I want to configure Pure Cloud Block Store for Azure VMware Solution, so that I can efficiently manage external block storage and support the migration of on-premises workloads to Azure."
 --- 
 
@@ -13,11 +13,11 @@ ms.date: 3/06/2024
 
 ## Pure Cloud Block Store for Azure VMware Solution
 
-Pure Cloud Block Store, offered by Pure Storage, is one of the partner block storage solutions supported by Azure VMware Solution. It helps bridge the gap by allowing customers to provision external block storage as needed to make full use of an Azure VMware Solution deployment without the need to scale out compute resources, while helping customers migrate their on-premises workloads to Azure. Pure Cloud Block Store is a 100% software-delivered product running entirely on native Azure infrastructure that brings all the relevant Purity features and capabilities to Azure. 
+Pure Cloud Block Store, offered by Pure Storage, is one of the partner block storage solutions supported by Azure VMware Solution. It helps bridge the gap by allowing customers to configure external block storage as needed to make full use of an Azure VMware Solution deployment without the need to scale out compute resources, while helping customers migrate their on-premises workloads to Azure. Pure Cloud Block Store is a 100% software-delivered product running entirely on native Azure infrastructure that brings all the relevant Purity features and capabilities to Azure. 
 
 ## Onboarding and support
 
-Pure Storage manages onboarding of Pure Cloud Block Store for Azure VMware Solution. As Pure Cloud Block Store (CBS) is a customer deployed and managed solution, reach out to Pure Storage for Customer Support.
+Pure Storage manages the onboarding of Pure Cloud Block Store for Azure VMware Solution. As Pure Cloud Block Store (CBS) is a customer deployed and managed solution, reach out to Pure Storage for Customer Support.
 
 For more information, see the following resources: 
 

@@ -2,7 +2,7 @@
 title: Details of the policy definition structure aliases
 description: Describes how policy definition aliases are used to establish conventions for Azure resources in your organization.
 ms.date: 03/04/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Azure Policy definition structure aliases

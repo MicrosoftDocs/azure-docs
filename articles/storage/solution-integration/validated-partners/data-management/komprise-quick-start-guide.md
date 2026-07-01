@@ -161,7 +161,7 @@ The Komprise Grid is deployed in a virtual environment (Hyper-V, VMware, KVM) fo
 
 1. Open the Azure portal and search for storage accounts
 
-    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-portal-search.png" alt-text="Screenshot of the Azure Portal Search Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-portal-search.png":::
+    :::image type="content" source="./media/komprise-quick-start-guide-v2/screenshot-portal-search.png" alt-text="Screenshot of the Azure portal Search Dialog" lightbox="./media/komprise-quick-start-guide-v2/screenshot-portal-search.png":::
 
     You can also click on the default Storage accounts icon
 

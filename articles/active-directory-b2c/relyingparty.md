@@ -5,7 +5,7 @@ description: Specify the RelyingParty element of a custom policy in Azure AD B2C
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 04/17/2025

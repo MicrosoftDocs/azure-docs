@@ -3,7 +3,7 @@ title: Hyper-V disaster recovery architecture in Azure Site Recovery
 description: This article provides an overview of components and architecture used when deploying disaster recovery for on-premises Hyper-V VMs (without VMM) to Azure with the Azure Site Recovery service.
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 11/14/2019
+ms.date: 02/27/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 # Customer intent: As a system administrator, I want to deploy disaster recovery for on-premises Hyper-V virtual machines to Azure, so that I can ensure business continuity and minimize downtime in case of failures.
@@ -86,8 +86,9 @@ If you're using a URL-based firewall proxy to control outbound connectivity, all
         ![Screenshot of the jobs list in the Jobs tab.](media/hyper-v-azure-architecture/image1.png)
         ![Screenshot of the Enable protection screen with more details.](media/hyper-v-azure-architecture/image2.png)
 
-
 ### Initial data replication
+
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 1. When initial replication is triggered, a [Hyper-V virtual machine snapshot](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560637(v=ws.10)) snapshot is taken.
 2. Virtual hard disks on the virtual machine are replicated one by one, until they're all copied to Azure. This might take a while, depending on the virtual machine size, and network bandwidth. [Learn how](https://support.microsoft.com/kb/3056159) to increase network bandwidth.

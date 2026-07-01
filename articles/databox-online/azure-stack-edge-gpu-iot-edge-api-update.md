@@ -2,12 +2,12 @@
 title: Azure Stack Edge January 2021 update impact | Microsoft Docs
 description: This article describes the impact of IoT Edge role management on Azure Stack Edge devices after you install the January 2021 update.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: overview
 ms.date: 10/26/2020
-ms.author: alkohli
+ms.author: sipastak
 ms.custom: sfi-ropc-nochange
 #Customer intent: As an IT admin, I need to understand what Azure Stack Edge Pro is and how it works so I can use it to process and transform data before sending it to Azure.
 ---

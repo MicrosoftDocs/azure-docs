@@ -2,9 +2,9 @@
 title: Register and connect an IoT device
 titleSuffix: Azure IoT Hub
 description: How to create, manage, and delete Azure IoT devices and how to retrieve the device connection string.
-author: SoniaLopezBravo
+author: sethmanheim
 
-ms.author: sonialopez
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 05/20/2025

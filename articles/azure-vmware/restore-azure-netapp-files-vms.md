@@ -4,7 +4,7 @@ description: Learn how to restore virtual machines from a cloud backup to the vC
 ms.topic: how-to
 ms.author: anfdocs
 ms.service: azure-vmware
-ms.date: 12/03/2024
+ms.date: 03/25/2026
 ms.custom: engagement-fy23
 # Customer intent: "As a virtual machine administrator, I want to restore VMs and their disks from cloud backups, so that I can recover lost or damaged VMs efficiently and maintain my systems' integrity."
 ---
@@ -24,17 +24,17 @@ This article covers how to:
 When you restore a VM, you can overwrite the existing content with the backup copy that you select or you can restore a deleted VM from a backup copy. 
 You can restore VMs to the following locations:
 * Restore to original location
-    * To the original datastore mounted on the original ESXi host (this overwrites the original VM)    
+    * To the original datastore mounted on the original ESXi host (this action overwrites the original VM)    
 * Restore to alternate location
-* To a different datastore mounted on the original ESXi host
-* To the original datastore mounted on a different ESXi host that is managed by the same vCenter
-* To a different datastore mounted on a different ESXi host that is managed by the same vCenter
+    * To a different datastore mounted on the original ESXi host
+    * To the original datastore mounted on a different ESXi host managed by the same vCenter
+    * To a different datastore mounted on a different ESXi host managed by the same vCenter
 
 ## Prerequisites to restore VMs
 
 * A backup must exist: you need to create a backup of the VM using the Cloud Backup for Virtual Machines before you can restore the VM.
->[!NOTE]
->Restore operations cannot finish successfully if there are snapshots of the VM that were performed by software other than the Cloud Backup for Virtual Machines.
+    >[!NOTE]
+    >Restore operations can't finish successfully if there are snapshots of the VM performed by software other than the Cloud Backup for Virtual Machines.
 * The VM must not be in transit: the VM that you want to restore must not be in a state of vMotion or Storage vMotion.
 * High Availability (HA) configuration errors: ensure there are no HA configuration errors displayed on the vCenter ESXi Host Summary screen before restoring backups to a different location.
 
@@ -50,7 +50,7 @@ You can restore VMs to the following locations:
 1.	In the left navigation, right-click a Virtual Machine, then select **NetApp Cloud Backup**. In the drop-down list, select **Restore** to initiate the wizard.
 1.	In the Restore wizard, on the **Select Backup** page, select the backup snapshot copy that you want to restore.
     > [!NOTE]
-    > You can search for a specific backup name or a partial backup name, or you can filter the backup list by selecting the filter icon and then choosing a date and time range, selecting whether you want backups that contain VMware snapshots, whether you want mounted backups, and the location. Select **OK** to return to the wizard.
+    > You can search for a specific backup name or partial backup name, or you can filter the backup list by selecting the filter icon and then choosing a date and time range. Then select if you want backups that contain VMware snapshots, mounted backups, and the location. Select **OK** to return to the wizard.
 1. On the **Select Scope** page, select **Entire Virtual Machine** in the **Restore scope** field, then select **Restore location**, and then enter the destination ESXi information where the backup should be mounted.
 1. When you restore partial backups, the restore operation skips the Select Scope page.
 1. Enable **Restart VM** checkbox if you want the VM to be powered on after the restore operation.
@@ -99,8 +99,8 @@ You can restore existing VMDKs or deleted or detached VMDKs from either a primar
 
 ### Considerations for restoring VMDKs
 
-* If the VMDK is deleted or detached from the VM, then the restore operation attaches the VMDK to the VM.
-* Attach and restore operations connect VMDKs using the default SCSI controller. VMDKs that are attached to a VM with an NVME controller are backed up, but for attach and restore operations they're connected back using a SCSI controller.
+* When the VMDK gets deleted or detached from the VM, the restore operation attaches the VMDK to the VM.
+* Attach and restore operations connect VMDKs using the default small computer system interface (SCSI) controller. VMDKs that are attached to a VM with an NVME controller are backed up, but for attach and restore operations they're connected back using a SCSI controller.
 
 ### Restore VMDKs
 
@@ -124,8 +124,8 @@ You can use the maintenance console to restore a specific backup of the MySQL da
 1. From the Application Configuration menu, enter option **6 MySQL backup and restore**.
 1. From the MySQL Backup and Restore Configuration menu, enter option **2 List MySQL backups**. Make note of the backup you want to restore.
 1. From the MySQL Backup and Restore Configuration menu, enter option **3 Restore MySQL backup**.
-1. At the prompt “Restore using the most recent backup,” enter **N**.
-1. At the prompt “Backup to restore from,” enter the backup name, and then select **Enter**.
+1. At the prompt 'Restore using the most recent backup', enter **N**.
+1. At the prompt 'Backup to restore from', enter the backup name, then select **Enter**.
     The selected backup MySQL database gets restored to its original location.
 
 If you need to change the MySQL database backup configuration, you can modify:

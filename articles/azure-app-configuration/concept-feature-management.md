@@ -82,6 +82,9 @@ To start using feature flags with Azure App Configuration, continue to the follo
 > [ASP.NET Core](./quickstart-feature-flag-aspnet-core.md)
 
 > [!div class="nextstepaction"]
+> [Aspire](./quickstart-feature-flag-aspire.md)
+
+> [!div class="nextstepaction"]
 > [.NET/.NET Framework](./quickstart-feature-flag-dotnet.md)
 
 > [!div class="nextstepaction"]

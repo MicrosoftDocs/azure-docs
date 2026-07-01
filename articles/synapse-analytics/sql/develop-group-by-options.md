@@ -6,11 +6,13 @@ ms.author: fipopovi
 ms.date: 04/15/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 
 # GROUP BY options in Synapse SQL
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Synapse SQL allows for developing solutions by implementing different GROUP BY options. 
 

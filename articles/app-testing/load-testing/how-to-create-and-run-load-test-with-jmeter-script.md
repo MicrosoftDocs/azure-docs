@@ -3,11 +3,11 @@ title: Create a JMeter-based load test
 titleSuffix: Azure Load Testing
 description: 'Learn how to load test a website by using an existing Apache JMeter script and Azure Load Testing.'
 services: load-testing
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-author: ninallam
-ms.author: ninallam
+author: nandinimurali
+ms.author: nandinim
 ms.date: 10/23/2023
 adobe-target: true
 ---

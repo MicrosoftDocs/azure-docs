@@ -77,7 +77,7 @@ These two policies specify the maximum number of VMs and VMs using premium disks
 1. On the **Virtual machines per lab** page, under **Limit the number of virtual machines**, select **On** or **Off** to enable or disable the policy.
 1. If you select **On**, under **What is the limit**, enter the maximum number of VMs that can be created in the lab.
 1. Under **Limit the number of virtual machines using premium OS disks**, select **On** or **Off** to enable or disable the policy.
-1. If you selected **On**, enter the maximum number of VMs in the lab that can use premium SSDs.
+1. If you selected **On**, enter the maximum number of VMs in the lab that can use Premium SSDs.
 1. Select **Save**.
 
 :::image type="content" source="./media/devtest-lab-set-lab-policy/max-vms-per-lab.png" alt-text="Screenshot showing VMs per lab.":::

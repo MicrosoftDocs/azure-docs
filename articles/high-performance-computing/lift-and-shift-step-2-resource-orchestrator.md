@@ -1,16 +1,20 @@
 ---
-title: "Resource orchestration"
-description: Learn how to configure resource orchestration during a migration of high performance computing architecture.
+title: Deploy Azure CycleCloud for HPC resource orchestration
+description: Install and configure Azure CycleCloud to provision and manage HPC compute nodes, schedulers, and storage on demand.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 04/10/2025
+ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
 # Customer intent: As a cloud architect, I want to configure resource orchestration for high-performance computing migrations, so that I can effectively provision and manage computational resources in the cloud while ensuring job execution efficiency and compliance with performance requirements.
 ---
 
-# Resource orchestration
+# Deploy Azure CycleCloud for HPC resource orchestration
 
 Typically, resources in an on-premises environment are fully available for usage. When you migrate to the cloud, resources need to be provisioned (that is, set-up and configured). This requirement is a core difference between on-premises and cloud environments. Resource orchestrator's provisions the compute nodes and other components (for example, storage and network), **on demand**, to allow the execution of user jobs. In the context of a lift and shift architecture, this component would:
 

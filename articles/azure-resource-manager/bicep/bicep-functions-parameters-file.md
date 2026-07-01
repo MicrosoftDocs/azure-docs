@@ -2,7 +2,7 @@
 title: Bicep functions for Bicep parameters files 
 description: Learn about the functions that can be used in Bicep parameters files.
 ms.topic: reference
-ms.date: 09/17/2025
+ms.date: 06/26/2026
 ms.custom: devx-track-bicep
 ---
 
@@ -147,7 +147,7 @@ For more information, see [Environment.SetEnvironmentVariable Method](/dotnet/ap
 The following examples show how to retrieve the values of environment variables:
 
 ```bicep
-use './main.bicep'
+using './main.bicep'
 
 param adminPassword = readEnvironmentVariable('admin_password')
 param boolfromEnvironmentVariables = bool(readEnvironmentVariable('boolVariableName','false'))

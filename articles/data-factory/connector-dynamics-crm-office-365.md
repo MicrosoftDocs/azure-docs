@@ -18,6 +18,10 @@ ms.custom:
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 This article outlines how to use a copy activity in Azure Data Factory or Synapse pipelines to copy data from and to Dynamics 365 (Microsoft Dataverse) or Dynamics CRM, and use a data flow to transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM. To learn more, read the [Azure Data Factory](introduction.md) and the [Azure Synapse Analytics](..\synapse-analytics\overview-what-is.md) introduction articles.
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Dynamics CRM connector documentation](/fabric/data-factory/connector-dynamics-crm-overview).
+
+
 ## Supported capabilities
 
 This connector is supported for the following activities:

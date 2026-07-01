@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: overview
-ms.date: 11/15/2024
+ms.date: 05/04/2026
 
 # Customer intent: As an IT admin, I want to learn about Front Door and what I can use it for.
 ---
@@ -14,14 +14,9 @@ ms.date: 11/15/2024
 
 **Applies to:** :heavy_check_mark: Front Door (classic)
 
-> [!IMPORTANT]
-> - Starting August 15, 2025, Azure Front Door (classic) will no longer support new domain onboarding. Migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) to create new domains or profiles and avoid service disruption. [Learn more](https://azure.microsoft.com/updates?id=498522)
-> - Starting August 15, 2025, Azure Front Door (classic) will [no longer support Managed certificates](/azure/security/fundamentals/managed-tls-changes). To avoid service disruption, either [switch to Bring Your Own Certificate (BYOC)](/azure/frontdoor/front-door-custom-domain-https?tabs=powershell) or migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) by August 15, 2025. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026.  [Learn more](https://azure.microsoft.com/updates?id=498522)
-> - Azure Front Door (classic) will be retired on March 31, 2027. To avoid service disruption, ⁠[migrate to ⁠AFD Standard or Premium](/azure/frontdoor/tier-migration). ⁠[Learn more](https://azure.microsoft.com/updates?id=azure-front-door-classic-will-be-retired-on-31-march-2027).
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
-
-
-Azure Front Door (classic) is a global, scalable entry-point that uses the Microsoft global edge network to deliver fast, secure, and highly scalable web applications. It enables you to transform your global consumer and enterprise applications into robust, high-performing, and personalized modern applications that reach a global audience through Azure.
+Azure Front Door (classic) is a global, scalable entry point that uses the Microsoft global edge network to deliver fast, secure, and highly scalable web applications. It enables you to transform your global consumer and enterprise applications into robust, high-performing, and personalized modern applications that reach a global audience through Azure.
 
 :::image type="content" source="./media/front-door-overview/front-door-visual-diagram.png" alt-text="Diagram of Azure Front Door (classic) routing user traffic to endpoints.":::
 
@@ -33,11 +28,11 @@ Front Door (classic) operates at Layer 7 (HTTP/HTTPS layer) using anycast protoc
 > * For application layer load balancing within a region, consider [Application Gateway](../application-gateway/overview.md).
 > * For network layer load balancing, consider [Load Balancer](../load-balancer/load-balancer-overview.md).
 > 
-> Combining these solutions may benefit your end-to-end scenarios. For a comparison of Azure load-balancing options, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
+> Combining these solutions might benefit your end-to-end scenarios. For a comparison of Azure load-balancing options, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## Why use Azure Front Door (classic)?
 
-Azure Front Door (classic) allows you to build, operate, and scale dynamic web applications and static content efficiently. It optimizes global web traffic routing for top-tier end-user performance and reliability through quick global failover. Key features include:
+Azure Front Door (classic) helps you efficiently build, operate, and scale dynamic web applications and static content. It optimizes global web traffic routing for top-tier end-user performance and reliability through quick global failover. Key features include:
 
 * Accelerated application performance using **[split TCP](front-door-traffic-acceleration.md?pivots=front-door-classic#connect-to-the-front-door-edge-location-split-tcp)** and **[anycast protocol](front-door-traffic-acceleration.md?pivots=front-door-classic#select-the-front-door-edge-location-for-the-request-anycast)**.
 * Intelligent **[health probe](front-door-health-probes.md)** monitoring for backend resources.
@@ -53,13 +48,10 @@ Azure Front Door (classic) allows you to build, operate, and scale dynamic web a
 
 ## Pricing
 
-For pricing details, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). For service level agreements, see [SLA for Azure Front Door](https://azure.microsoft.com/support/legal/sla/frontdoor/v1_0/).
+For pricing details, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). For service level agreements, see [SLA for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
-## What's new?
+## Next step
 
-Subscribe to the RSS feed and view the latest Azure Front Door feature updates on the [Azure Updates](https://azure.microsoft.com/updates?filters=%5B%22Azure+Front+Door%22%5D) page.
+> [!div class="nextstepaction"]
+> [Azure Front Door (classic) to Standard/Premium tier migration](tier-migration.md)
 
-## Next steps
-
-- Learn how to [create a Front Door (classic)](quickstart-create-front-door.md).
-- Learn about [how Front Door (classic) works](front-door-routing-architecture.md?pivots=front-door-classic).

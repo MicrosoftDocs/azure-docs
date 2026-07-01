@@ -8,7 +8,7 @@ manager: chpalm
 
 services: azure-communication-services
 ms.date: 06/20/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: calling
 ---

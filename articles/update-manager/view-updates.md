@@ -7,6 +7,7 @@ ms.topic: how-to
 author: habibaum
 ms.author: v-uhabiba
 ms.custom: sfi-image-nochange
+ms.update-cycle: 1095-days
 # Customer intent: "As an IT administrator, I want to assess update compliance for all my virtual machines using a centralized tool, so that I can ensure they are up-to-date and secure."
 ---
 

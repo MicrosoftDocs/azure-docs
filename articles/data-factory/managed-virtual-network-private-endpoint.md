@@ -4,7 +4,7 @@ description: Learn about managed virtual network and managed private endpoints i
 ms.author: lle
 author: lrtoyou1223
 ms.subservice: integration-runtime
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/13/2025
 ms.custom:
   - references_regions

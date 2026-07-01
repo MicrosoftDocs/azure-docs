@@ -1,23 +1,23 @@
 ---
 title: Monitor Azure Firewall
 description: You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
-ms.date: 04/15/2025
-ms.custom: horz-monitor
-ms.topic: concept-article
 author: duongau
 ms.author: duau
 ms.service: azure-firewall
+ms.topic: concept-article
+ms.date: 03/28/2026
+ms.custom: horz-monitor
 # Customer intent: As a network administrator, I want to access Azure Firewall logs and metrics so that I can monitor traffic, analyze performance, and ensure compliance with security protocols effectively.
 ---
 # Monitor Azure Firewall
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
-You can use Azure Firewall logs and metrics to monitor your traffic and operations within the firewall. These logs and metrics serve several essential purposes, including:
+Use Azure Firewall logs and metrics to monitor your traffic and operations within the firewall. These logs and metrics serve several essential purposes, including:
 
-- **Traffic Analysis**: Use logs to examine and analyze the traffic passing through the firewall. This analysis includes examining permitted and denied traffic, inspecting source and destination IP addresses, URLs, port numbers, protocols, and more. These insights are essential for understanding traffic patterns, identifying potential security threats, and troubleshooting connectivity issues.  
+- **Traffic Analysis**: Use logs to examine and analyze the traffic passing through the firewall. This analysis includes examining permitted and denied traffic, inspecting source and destination IP addresses, URLs, port numbers, protocols, and more. These insights are essential for understanding traffic patterns, identifying potential security threats, and troubleshooting connectivity issues.
 
-- **Performance and Health Metrics**: Azure Firewall metrics provide performance and health metrics, such as data processed, throughput, rule hit count, and latency. Monitor these metrics to assess the overall health of your firewall, identify performance bottlenecks, and detect any anomalies.  
+- **Performance and Health Metrics**: Azure Firewall metrics provide performance and health metrics, such as data processed, throughput, rule hit count, and latency. Monitor these metrics to assess the overall health of your firewall, identify performance bottlenecks, and detect any anomalies.
 
 - **Audit Trail**: Activity logs enable auditing of operations related to firewall resources, capturing actions like creating, updating, or deleting firewall rules and policies. Reviewing activity logs helps maintain a historical record of configuration changes and ensures compliance with security and auditing requirements.
 
@@ -35,7 +35,7 @@ For a list of available metrics for Azure Firewall, see [Azure Firewall monitori
 
 For the available resource log categories, their associated Log Analytics tables, and the log schemas for Azure Firewall, see [Azure Firewall monitoring data reference](monitor-firewall-reference.md#resource-logs).
 
-[Azure Firewall Workbook](firewall-workbook.md) provides a flexible canvas for Azure Firewall data analysis. You can use it to create rich visual reports within the Azure portal. You can tap into multiple Firewalls deployed across Azure, and combine them into unified interactive experiences.
+[Azure Firewall Workbook](firewall-workbook.md) provides a flexible canvas for Azure Firewall data analysis. Use it to create rich visual reports within the Azure portal. You can tap into multiple firewalls deployed across Azure and combine them into unified interactive experiences.
 
 You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data-visualization tool.
 
@@ -44,25 +44,25 @@ You can also connect to your storage account and retrieve the JSON log entries f
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
-## Change tracking (Preview)  
+## Change tracking (Preview) 
 
-Azure Resource Graph (ARG) is an Azure service designed to provide efficient and performant resource exploration at scale.  Azure Resource Graph (ARG) provides change analysis data for various management and troubleshooting scenarios. Users can find when changes were detected on an Azure Resource Manager (ARM) property, view property change details and query changes at scale across their subscription, management group, or tenant.  
+Azure Resource Graph (ARG) is an Azure service designed to provide efficient and performant resource exploration at scale. Azure Resource Graph (ARG) provides change analysis data for various management and troubleshooting scenarios. You can find when changes were detected on an Azure Resource Manager (ARM) property, view property change details, and query changes at scale across your subscription, management group, or tenant. 
 
-ARG change analysis recently added support for RuleCollectionGroups. You can now track changes to Azure Firewall Rule Collection Groups using an Azure Resource Graph query from the Azure portal ResourceGraphExplorer page using a query like this:  
+ARG change analysis supports RuleCollectionGroups. You can track changes to Azure Firewall Rule Collection Groups using an Azure Resource Graph query from the Azure portal ResourceGraphExplorer page using a query like this:
 
-:::image type="content" source="media/monitor-firewall/query.png" alt-text="Screenshot of the Azure Resource Graph query to track changes to Azure Firewall Rule Collection Groups.":::
+:::image type="content" source="media/monitor-firewall/query.png" alt-text="Screenshot of the Azure Resource Graph query to track changes to Azure Firewall Rule Collection Groups." lightbox="media/monitor-firewall/query.png":::
 
-Below is a sample change output.  
+The following image shows a sample change output.
 
-:::image type="content" source="media/monitor-firewall/output.png" alt-text="Screenshot of the output that depicts the change to Azure Firewall Rule Collection Groups.":::
+:::image type="content" source="media/monitor-firewall/output.png" alt-text="Screenshot of the output that depicts the change to Azure Firewall Rule Collection Groups." lightbox="media/monitor-firewall/output.png":::
 
-This capability can help you track changes made to your firewall rules helping ensure accountability for a sensitive resource like a firewall.
+This capability can help you track changes made to your firewall rules, which helps ensure accountability for a sensitive resource like a firewall.
 
 For comprehensive tracking of rule set changes with detailed queries and examples, see [Track rule set changes](rule-set-change-tracking.md).
 
 ## Structured Azure Firewall logs
 
-Structured logs are a type of log data that are organized in a specific format. They use a predefined schema to structure log data in a way that makes it easy to search, filter, and analyze. Unlike unstructured logs, which consist of free-form text, structured logs have a consistent format that machines can parse and analyze.
+Structured logs are a type of log data that's organized in a specific format. They use a predefined schema to structure log data in a way that makes it easy to search, filter, and analyze. Unlike unstructured logs, which consist of free-form text, structured logs have a consistent format that machines can parse and analyze.
 
 Azure Firewall's structured logs provide a more detailed view of firewall events. They include information such as source and destination IP addresses, protocols, port numbers, and action taken by the firewall. They also include more metadata, such as the time of the event and the name of the Azure Firewall instance.
 
@@ -74,22 +74,27 @@ Currently, the following diagnostic log categories are available for Azure Firew
 
 These log categories use [Azure diagnostics mode](/azure/azure-monitor/essentials/resource-logs#azure-diagnostics-mode). In this mode, all data from any diagnostic setting is collected in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table.
 
-With structured logs, you're able to choose to use [Resource Specific Tables](/azure/azure-monitor/essentials/resource-logs#resource-specific) instead of the existing [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. In case both sets of logs are required, at least two diagnostic settings need to be created per firewall.
+By using structured logs, you can choose to use [Resource Specific Tables](/azure/azure-monitor/essentials/resource-logs#resource-specific) instead of the existing [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. If you need both sets of logs, you need to create at least two diagnostic settings per firewall.
 
 ### Resource specific mode
 
 In **Resource specific** mode, individual tables in the selected workspace are created for each category selected in the diagnostic setting. This method is recommended since it:
+Capitalize: "
 
-- might reduce overall logging costs by up to 80%.
-- makes it much easier to work with the data in log queries.
-- makes it easier to discover schemas and their structure.
-- improves performance across both ingestion latency and query times.
-- allows you to grant Azure RBAC rights on a specific table.
+- Might reduce overall logging co"sts by up to 80%.
+Capitalize: "
+- Makes it much easier to work wi"th the data in log queries.
+Capitalize: "
+- Makes it easier to discover sch"emas and their structure.
+Capitalize: "
+- Improves performance across bot"h ingestion latency and query times.
+Capitalize: "
+- Allows you to grant Azure RBAC "rights on a specific table.
 
-New resource specific tables are now available in Diagnostic setting that allows you to utilize the following categories:
+New resource specific tables are available in Diagnostic setting that allows you to utilize the following categories:
 
 - [Network rule log](/azure/azure-monitor/reference/tables/azfwnetworkrule) - Contains all Network Rule log data. Each match between data plane and network rule creates a log entry with the data plane packet and the matched rule's attributes.
-- [NAT rule log](/azure/azure-monitor/reference/tables/azfwnatrule) - Contains all DNAT (Destination Network Address Translation) events log data. Each match between data plane and DNAT rule creates a log entry with the data plane packet and the matched rule's attributes. As a note, the AZFWNATRule table logs only when a DNAT rule match occurs. If there's no match, no log is generated. 
+- [NAT rule log](/azure/azure-monitor/reference/tables/azfwnatrule) - Contains all DNAT (Destination Network Address Translation) events log data. Each match between data plane and DNAT rule creates a log entry with the data plane packet and the matched rule's attributes. As a note, the AZFWNATRule table logs only when a DNAT rule match occurs. If there's no match, no log is generated.
 - [Application rule log](/azure/azure-monitor/reference/tables/azfwapplicationrule) - Contains all Application rule log data. Each match between data plane and Application rule creates a log entry with the data plane packet and the matched rule's attributes.
 - [Threat Intelligence log](/azure/azure-monitor/reference/tables/azfwthreatintel) - Contains all Threat Intelligence events.
 - [IDPS log](/azure/azure-monitor/reference/tables/azfwidpssignature) - Contains all data plane packets that were matched with one or more IDPS signatures.
@@ -109,43 +114,44 @@ All resource specific tables now support the *Basic* table plan, which can reduc
 
 ### Enable structured logs
 
-To enable Azure Firewall structured logs, you must first configure a Log Analytics workspace in your Azure subscription. This workspace is used to store the structured logs generated by Azure Firewall.
+To enable Azure Firewall structured logs, first configure a Log Analytics workspace in your Azure subscription. This workspace stores the structured logs generated by Azure Firewall.
 
-Once you configure the Log Analytics workspace, you can enable structured logs in Azure Firewall by navigating to the Firewall's **Diagnostic settings** page in the Azure portal. From there, you must select the **Resource specific** destination table and select the type of events you want to log.
+After you configure the Log Analytics workspace, enable structured logs in Azure Firewall by going to the Firewall's **Diagnostic settings** page in the Azure portal. From there, select the **Resource specific** destination table and choose the types of events you want to log.
 
 > [!NOTE]
-> * To enable Azure Firewall Fat Flow Log (Top flow log), you need to configure it through Azure PowerShell. For more information, see [Top flows log](monitor-firewall-reference.md#top-flows).
+> - To enable Azure Firewall Fat Flow Log (Top flow log), you need to configure it through Azure PowerShell. For more information, see [Top flows log](monitor-firewall-reference.md#top-flows).
+> - After enabling Azure Firewall structured logs, it can take up to 30 minutes for logs to begin populating. If you're migrating from legacy Azure Diagnostics logs to the structured format, keep the original Diagnostics configuration in place alongside the new setup. This approach helps you confirm successful log delivery under the new configuration before removing the legacy setting.
 
-:::image type="content" source="media/firewall-structured-logs/diagnostics-setting-resource-specific.png" alt-text="Screenshot of Diagnostics settings page.":::
+:::image type="content" source="media/firewall-structured-logs/diagnostics-setting-resource-specific.png" alt-text="Screenshot showing Azure Firewall Diagnostics settings page." lightbox="media/firewall-structured-logs/diagnostics-setting-resource-specific.png":::
 
 
 ### Structured log queries
 
-A list of predefined queries is available in the Azure portal. This list has a predefined KQL (Kusto Query Language) log query for each category and joined query showing the entire Azure firewall logging events in single view.
+The Azure portal provides a list of predefined queries. This list has a predefined KQL (Kusto Query Language) log query for each category and a joined query that shows the entire Azure firewall logging events in a single view.
 
 :::image type="content" source="media/firewall-structured-logs/firewall-queries.png" alt-text="Screenshot showing Azure Firewall queries." lightbox="media/firewall-structured-logs/firewall-queries.png" :::
 
 ### Azure Firewall Workbook
 
-[Azure Firewall Workbook](firewall-workbook.md) provides a flexible canvas for Azure Firewall data analysis. You can use it to create rich visual reports within the Azure portal. You can tap into multiple firewalls deployed across Azure and combine them into unified interactive experiences.
+[Azure Firewall Workbook](firewall-workbook.md) provides a flexible canvas for Azure Firewall data analysis. Use it to create rich visual reports within the Azure portal. You can tap into multiple firewalls deployed across Azure and combine them into unified interactive experiences.
 
 To deploy the new workbook that uses Azure Firewall Structured Logs, see [Azure Monitor Workbook for Azure Firewall](https://github.com/Azure/Azure-Network-Security/tree/master/Azure%20Firewall/Workbook%20-%20Azure%20Firewall%20Monitor%20Workbook).
 
 ## Legacy Azure Diagnostics logs
 
-Legacy Azure Diagnostic logs are the original Azure Firewall log queries that output log data in an unstructured or free-form text format. The Azure Firewall legacy log categories use [Azure diagnostics mode](/azure/azure-monitor/essentials/resource-logs#azure-diagnostics-mode), collecting entire data in the [AzureDiagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics). In case both Structured and Diagnostic logs are required, at least two diagnostic settings need to be created per firewall.
+Legacy Azure Diagnostic logs are the original Azure Firewall log queries that output log data in an unstructured or free-form text format. The Azure Firewall legacy log categories use [Azure diagnostics mode](/azure/azure-monitor/essentials/resource-logs#azure-diagnostics-mode) to collect all data in the [AzureDiagnostics table](/azure/azure-monitor/reference/tables/azurediagnostics). If you need both structured and diagnostic logs, you need to create at least two diagnostic settings for each firewall.
 
-The following log categories are supported in Diagnostic logs:
+Diagnostic logs support the following log categories:
 
 - Azure Firewall application rule
 - Azure Firewall network rule
 - Azure Firewall DNS proxy
 
-To learn how to enable the diagnostic logging using the Azure portal, see [Enable structured logs](#enable-structured-logs).
+To learn how to enable diagnostic logging by using the Azure portal, see [Enable structured logs](#enable-structured-logs).
 
 ### Application rule log
 
-The Application rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you enable it for each Azure Firewall. Each new connection that matches one of your configured application rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following examples:
+You can save the application rule log to a storage account, stream it to Event Hubs, and send it to Azure Monitor logs. Each new connection that matches one of your configured application rules results in a log for the accepted or denied connection. The data is logged in JSON format, as shown in the following examples:
 
    ```console
    Category: application rule logs.
@@ -180,7 +186,7 @@ The Application rule log is saved to a storage account, streamed to Event hubs a
 
 ### Network rule log
 
-The Network rule log is saved to a storage account, streamed to Event hubs and/or sent to Azure Monitor logs only if you enable it for each Azure Firewall. Each new connection that matches one of your configured network rules results in a log for the accepted/denied connection. The data is logged in JSON format, as shown in the following example:
+You can save the network rule log to a storage account, stream it to Event Hubs, and send it to Azure Monitor logs. Each new connection that matches one of your configured network rules results in a log for the accepted or denied connection. The data is logged in JSON format, as shown in the following example:
 
    ```console
    Category: network rule logs.
@@ -204,7 +210,7 @@ The Network rule log is saved to a storage account, streamed to Event hubs and/o
 
 ### DNS proxy log
 
-The DNS proxy log is saved to a storage account, streamed to Event hubs, and/or sent to Azure Monitor logs only if you enable it for each Azure Firewall. This log tracks DNS messages to a DNS server configured using DNS proxy. The data is logged in JSON format, as shown in the following examples:
+You can save the DNS proxy log to a storage account, stream it to Event Hubs, and send it to Azure Monitor logs only if you enable it for each Azure Firewall. This log tracks DNS messages to a DNS server configured by using DNS proxy. The data is logged in JSON format, as shown in the following examples:
 
    ```console
    Category: DNS proxy logs.
@@ -257,22 +263,22 @@ The DNS proxy log is saved to a storage account, streamed to Event hubs, and/or 
 
 ## Alert on Azure Firewall metrics
 
-Metrics provide critical signals to track your resource health. So, it’s important to monitor metrics for your resource and watch out for any anomalies. But what if the Azure Firewall metrics stop flowing? It could indicate a potential configuration issue or something more ominous like an outage. Missing metrics can happen because of publishing default routes that block Azure Firewall from uploading metrics, or the number of healthy instances going down to zero. In this section, you learn how to configure metrics to a log analytics workspace and to alert on missing metrics.
+Metrics provide critical signals to track your resource health. So, it’s important to monitor metrics for your resource and watch out for any anomalies. But what if the Azure Firewall metrics stop flowing? It could indicate a potential configuration issue or something more ominous like an outage. Missing metrics can happen because of publishing default routes that block Azure Firewall from uploading metrics, or the number of healthy instances going down to zero. In this section, you learn how to configure metrics to a Log Analytics workspace and how to alert on missing metrics.
 
-### Configure metrics to a log analytics workspace
+### Configure metrics to a Log Analytics workspace
 
-The first step is to configure metrics availability to the log analytics workspace using diagnostics settings in the firewall.
+First, configure metrics availability to the Log Analytics workspace by using diagnostic settings in the firewall.
 
- To configure diagnostic settings as shown in the following screenshot, browse to the Azure Firewall resource page. This pushes firewall metrics to the configured workspace.
+To configure diagnostic settings as shown in the following screenshot, browse to the Azure Firewall resource page. This action pushes firewall metrics to the configured workspace.
 
 > [!NOTE]
-> The diagnostics settings for metrics must be a separate configuration than logs. Firewall logs can be configured to use Azure Diagnostics or Resource Specific. However, Firewall metrics must always use Azure Diagnostics.
+> You must configure diagnostic settings for metrics separately from logs. You can configure firewall logs to use either Azure Diagnostics or Resource Specific. However, firewall metrics must always use Azure Diagnostics.
 
-:::image type="content" source="media/logs-and-metrics/firewall-diagnostic-setting.png" alt-text="Screenshot of Azure Firewall diagnostic setting.":::
+:::image type="content" source="media/logs-and-metrics/firewall-diagnostic-setting.png" alt-text="Screenshot of Azure Firewall diagnostic setting." lightbox="media/logs-and-metrics/firewall-diagnostic-setting.png":::
 
 ### Create alert to track receiving firewall metrics without any failures
 
-Browse to the workspace configured in the metrics diagnostics settings. Check if metrics are available using the following query:
+Browse to the workspace you configured in the metrics diagnostics settings. Check if metrics are available by using the following query:
 
 ```kusto
 AzureMetrics
@@ -281,9 +287,9 @@ AzureMetrics
 | where TimeGenerated > ago(30m)
 ```
 
-Next, create an alert for missing metrics over a time period of 60 minutes. To set up new alerts on missing metrics, browse to the Alert page in the log analytics workspace.
+Next, create an alert for missing metrics over a time period of 60 minutes. To set up new alerts on missing metrics, browse to the Alert page in the Log Analytics workspace.
 
-:::image type="content" source="media/logs-and-metrics/edit-alert-rule.png" alt-text="Screenshot showing the Edit alert rule page.":::
+:::image type="content" source="media/logs-and-metrics/edit-alert-rule.png" alt-text="Screenshot showing the Edit alert rule page." lightbox="media/logs-and-metrics/edit-alert-rule.png":::
 
 ### Azure Firewall alert rules
 
@@ -293,5 +299,5 @@ You can set alerts for any metric, log entry, or activity log entry listed in th
 
 ## Related content
 
-- See [Azure Firewall monitoring data reference](monitor-firewall-reference.md) for a reference of the metrics, logs, and other important values created for Azure Firewall.
-- See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
+- For a reference of the metrics, logs, and other important values created for Azure Firewall, see [Azure Firewall monitoring data reference](monitor-firewall-reference.md).
+- For general details on monitoring Azure resources, see [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource).

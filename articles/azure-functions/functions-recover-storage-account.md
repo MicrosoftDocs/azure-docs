@@ -68,7 +68,7 @@ To verify the quota in the [Azure portal](https://portal.azure.com), select **Pl
 
 > "The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame."
 
-To resolve this issue, remove or increase the daily quota, and then restart your app. Otherwise, the execution of your app is blocked until the next day.
+To resolve this issue, reset the quota to zero or increase the daily quota, and then restart your app. Otherwise, the execution of your app is blocked until the next day.
 
 ## App is behind a firewall
 

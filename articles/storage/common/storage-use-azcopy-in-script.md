@@ -41,7 +41,7 @@ Copy the following AzCopy command to a text editor. Update the parameter values 
 azcopy sync "/mnt/myfiles" "https://mystorageaccount.blob.core.windows.net/mycontainer" --recursive=true
 ```
 
-You can create a cron job by using the [Crontab](http://crontab.org/) command. The following example creates a cron job and specifies the cron expression `*/5 * * * *`  which indicates that the shell script `script.sh` should run every five minutes.
+You can create a cron job by using the [crontab](https://www.w3schools.com/bash/bash_cron.php) command. The following example creates a cron job and specifies the cron expression `*/5 * * * *`  which indicates that the shell script `script.sh` should run every five minutes.
 
 ```bash
 crontab -e

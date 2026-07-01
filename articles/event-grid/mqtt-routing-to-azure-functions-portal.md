@@ -156,7 +156,7 @@ In this section, configure routing for the Event Grid namespace so that the mess
 
 Send test MQTT messages to the namespace and confirm that the function receives them.
 
-Follow instructions from [Publish and subscribe using MQTTX app](mqtt-publish-and-subscribe-portal.md#publishsubscribe-using-mqttx-app) to send a few test messages to the Event Grid namespace.
+Follow instructions from [Publish and subscribe using MQTTX app](mqtt-publish-and-subscribe-portal.md#publish-and-subscribe-by-using-mqttx-app) to send a few test messages to the Event Grid namespace.
 
 Here's the flow of the events or messages:
 

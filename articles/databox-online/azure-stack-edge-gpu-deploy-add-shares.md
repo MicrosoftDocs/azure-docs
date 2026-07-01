@@ -2,12 +2,12 @@
 title: Tutorial to transfer data to shares with Azure Stack Edge Pro GPU | Microsoft Docs
 description: Learn how to add and connect to shares on Azure Stack Edge Pro GPU device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 02/04/2025
-ms.author: alkohli
+ms.author: sipastak
 ms.custom: sfi-image-nochange
 # Customer intent: As an IT admin, I need to understand how to add and connect to shares on Azure Stack Edge Pro so I can use it to transfer data to Azure.
 ---

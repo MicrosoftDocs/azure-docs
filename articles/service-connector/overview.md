@@ -41,14 +41,13 @@ Once a service connection is created, developers can validate and check the heal
 Compute services:
 
 * Azure App Service
-* Azure Container Apps — [Service Connector support scheduled for retirement](https://github.com/microsoft/azure-container-apps/issues/1566)
 * Azure Functions
 * Azure Kubernetes Service (AKS)
 * Azure Spring Apps — [service scheduled for retirement](/azure/spring-apps/basic-standard/retirement-announcement)
 
 Target services:
 
-* Azure AI services
+* Foundry Tools
 * Azure App Configuration
 * Azure Cache for Redis (Basic, Standard, Premium and Enterprise tiers)
 * Azure Cosmos DB (NoSQL, MongoDB, Gremlin, Cassandra, Table)
@@ -56,6 +55,7 @@ Target services:
 * Azure Database for PostgreSQL
 * Azure Event Hubs
 * Azure Key Vault
+* Azure Managed Redis
 * Azure Service Bus
 * Azure SQL Database
 * Azure SignalR Service
@@ -87,5 +87,3 @@ Finally, you can also use Azure SDKs and API calls to interact with Service Conn
 - [Quickstart: Service Connector in Azure App Service](./quickstart-portal-app-service-connection.md)
 - [Quickstart: Service Connector in Azure Functions](./quickstart-portal-functions-connection.md)
 - [Quickstart: Service Connector in Azure Spring Cloud](./quickstart-portal-spring-cloud-connection.md)
-- [Quickstart: Service Connector in Azure Container Apps](./quickstart-portal-container-apps.md)
-- [Learn about Service Connector concepts](./concept-service-connector-internals.md)

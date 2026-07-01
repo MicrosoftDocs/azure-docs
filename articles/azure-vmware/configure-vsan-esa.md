@@ -9,13 +9,13 @@ author:      jkpravinkumar # GitHub alias
 ms.author:   pjeyakumar # Microsoft alias
 ms.service: azure-vmware
 ms.topic: how-to
-ms.date:     05/12/2025
+ms.date:     04/13/2026
 # Customer intent: As a cloud administrator, I want to configure VMware vSAN ESA features such as TRIM/UNMAP and data-in-transit encryption, so that I can optimize storage efficiency and enhance data security in my Azure VMware environment.
 ---
 
 # Configure VMware vSAN ESA
 
-VMware [vSAN](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-803-release-notes.html) ESA (Express Storage Architecture) offers enhanced capabilities that are configured by default with each Azure VMware Solution deployment. Each cluster uses its own high-performance vSAN ESA datastore. The following table shows the Azure VMware Solution host types that support vSAN ESA as the default architecture type, along with the configurations per cluster:
+VMware [vSAN](https://techdocs.broadcom.com/us/en/vmware-cis/vsan/vsan/8-0/release-notes/vmware-vsan-803-release-notes.html) ESA (Express Storage Architecture) offers enhanced capabilities that are configured by default with each Azure VMware Solution deployment. Each cluster uses its own high-performance vSAN ESA datastore. The following table shows the Azure VMware Solution host types that support vSAN ESA as the default architecture type and the configurations per cluster:
 
 | **Field** | **Value** |
 | --- | --- |
@@ -66,9 +66,9 @@ The following table shows the list of vSAN features available in Azure VMware So
 Guest Trim/Unmap is enabled by default and can't be disabled for cluster with vSAN ESA. Run command `Set-AVSVSANClusterUNMAPTRIM` isn't applicable for vSAN ESA based clusters.
 
 > [!NOTE]
-> vSAN TRIM/UNMAP is enabled by default on vSAN ESA based clusters. To disable UNMAP at the VM level, the following lists additional requirements are needed for it to function as intended.
->- All VMs in vSAN ESA clusters are set by default to use UNMAP inherited from the cluster level. UNMAP can be disabled using the disk.scsiUnmapAllowed flag with a value of 'false' at the virtual machine level, should you wish to disable this behavior on a per-VM basis. VMX file changes require a reboot to take effect.
->- The guest operating system must be able to identify the virtual disk as thin.
+> vSAN TRIM/UNMAP is enabled by default on vSAN ESA based clusters. To disable UNMAP at the virtual machine (VM) level, the following lists other requirements needed for it to function as intended.
+>- All VMs in vSAN ESA clusters are set by default to use UNMAP inherited from the cluster level. UNMAP can be disabled using the disk.scsiUnmapAllowed flag with a value of *false* at the virtual machine level, should you wish to disable this behavior on a per-VM basis. VMX file changes require a reboot to take effect.
+>- The guest operating system must be able to identify the virtual disk as *thin*.
 
 ## Set VMware vSAN space efficiency
 
@@ -76,7 +76,7 @@ In vSAN ESA (Express Storage Architecture), space efficiency is enabled through 
 
 ## Set VMware vSAN Data-In-Transit Encryption
 
-Run the `Set-vSANDataInTransitEncryption` cmdlet to enable or disable data-in-transit encryption for all clusters or specified clusters of an SDDC.
+Run the `Set-vSANDataInTransitEncryption` cmdlet to enable or disable data-in-transit encryption for all clusters or specified clusters of a software-defined data center (SDDC).
 
 > [!NOTE]
 > Changing this setting impacts performance. See [VMware KB](https://blogs.vmware.com/virtualblocks/2021/08/12/storageminute-vsan-data-encryption-performance/).
@@ -92,10 +92,10 @@ Run the `Set-vSANDataInTransitEncryption` cmdlet to enable or disable data-in-
    | **Cluster Name** | Name of the cluster. Leave blank if necessary to enable for whole SDDC else enter comma separated list of names. |
    | **Enable**| Specify True/False to Enable/Disable the feature.|
    
-1. Check Notifications to see the progress.
+1. Check **Notifications** for progress.
 
 >[!NOTE]
->You can also use the `Get-vSANDataInTransitEncryptionStatus` command to check for the current status or status after performing the `Set-vSANDataInTransitEncryptionStatus` operation and verify the cluster's current encryption state.
+>You can use the `Get-vSANDataInTransitEncryptionStatus` command to check for the current status or status after performing the `Set-vSANDataInTransitEncryptionStatus` operation and verify the cluster's current encryption state.
 
 ## Next steps
 
@@ -103,5 +103,5 @@ Now that you learned how to configure VMware vSAN, learn more about:
 
 - [How to configure storage policies](/azure/azure-vmware/configure-storage-policy) - Create and configure storage policies for your Azure VMware Solution virtual machines.
 
-- [How to configure external identity for vCenter Server](/azure/azure-vmware/configure-identity-source-vcenter) - vCenter Server has a built-in local user called cloudadmin and assigned to the CloudAdmin role. The local cloudadmin user is used to set up users in Active Directory (AD). With the Run command feature, you can configure Active Directory over LDAP or LDAPS for vCenter Server as an external identity source.
+- [How to configure external identity for vCenter Server](/azure/azure-vmware/configure-identity-source-vcenter) - vCenter Server has a built-in local user called cloudadmin that is assigned to the CloudAdmin role. The local cloudadmin user is used to set up users in Active Directory (AD). With the Run command feature, you can configure Active Directory over LDAP or LDAPS for vCenter Server as an external identity source.
 

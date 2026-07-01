@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 08/28/2025
+ms.date: 03/03/2026
 ms.author: anfdocs
 # Customer intent: "As a data administrator, I want to assess the data protection and disaster recovery options available in Azure NetApp Files, so that I can choose the most effective solutions to ensure data integrity and availability for my organization's needs."
 ---
@@ -28,17 +28,18 @@ The foundation of data protection solutions including volume restores and clones
 - Restore a snapshot to new volume (clone) in seconds to test or develop with current data  
 - Application-consistent snapshots with [AzAcSnap integration](azacsnap-introduction.md) and third party backup tools 
 
-To learn more, see [How Azure NetApp Files Snapshots work](snapshots-introduction.md) and [Ways to restore data from snapshots](snapshots-introduction.md#ways-to-restore-data-from-snapshots). To create a Snapshot policy, see [Manage Snapshot policies in Azure NetApp Files](snapshots-manage-policy.md). 
+To learn more, see [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md) and [Ways to restore data from snapshots](snapshots-introduction.md#ways-to-restore-data-from-snapshots). To create a Snapshot policy, see [Manage Snapshot policies in Azure NetApp Files](snapshots-manage-policy.md). 
 
 ## Backups
 
-Azure NetApp Files supports a fully managed backup solution for long-term recovery, archive, and compliance. Backups can be restored to new volumes in the same region as the backup. Backups created by Azure NetApp Files are stored in Azure storage, independent of volume snapshots that are available for near-term recovery or cloning.   
+Azure NetApp Files supports a fully managed backup solution for long-term retention, archive, and compliance. Azure NetApp Files backup is based on [snapshots](snapshots-introduction.md) for fast and space-efficient data protection. Backups can be restored to new volumes in the same region as the backup, or, if the file and pathnames are known, individual files or folders can be restored to the original or a new location in the same volume. Backups created by Azure NetApp Files are stored in Azure storage, independent of volume snapshots that are available for near-term recovery or cloning.   
 
 ### Benefits 
 
 - Increased productivity, reliably integrated service that is easy to manage and can be set once 
-- Application-consistent backups with [AzAcSnap integration](azacsnap-introduction.md)
+- Application-consistent backups with [AzAcSnap integration](azacsnap-introduction.md), or third-party tools (i.e. NetApp [SnapCenter](https://www.netapp.com/snapcenter/), [Commvault](https://documentation.commvault.com/2023e/software/azure_netapp_files.html)). 
 - Retain daily, weekly, monthly backups for extended periods of time on cost-efficient cloud storage without media management 
+- Uses a single or multiple backup vaults for reporting and billing purposes
 
 To learn more, see [How snapshots can be vaulted for long-term retention and cost savings](snapshots-introduction.md#how-snapshots-can-be-vaulted-for-long-term-retention-and-cost-savings). To get started with backups, see [Configure policy-based backups for Azure NetApp Files](backup-configure-policy-based.md).  
 
@@ -78,8 +79,8 @@ Choosing the best data protection option for your Azure NetApp Files deployment 
 | Use case | In-region solution | Cross-region solution | 
 | --- | --- | --- | 
 | Ad hoc backup | On-demand snapshots | - | 
-| Application consistent data protection | AzAcSnap | - | 
-| Data corruption and ransomware protection | Scheduled snapshots | Cross-region replication | 
+| Application consistent data protection | AzAcSnap, [SnapCenter](https://docs.netapp.com/us-en/snapcenter/get-started/concept_snapcenter_overview.html) | - | 
+| Data corruption and ransomware protection | Advanced ransomware protection | Cross-region replication | 
 | Disaster recovery | - | Cross-region replication |
 Fast data recovery (whole volume) | Revert volume from snapshot | Revert volume from snapshot | 
 | Feed current production data to test or development environment | Restore snapshot to new volume (clone) | Restore snapshot to new volume (clone) |
@@ -93,11 +94,12 @@ Fast data recovery (whole volume) | Revert volume from snapshot | Revert volume 
 
 ## Next steps
 
-* [How Azure NetApp Files snapshots work](snapshots-introduction.md)
+* [Understand Azure NetApp Files snapshot-based data protection](snapshots-introduction.md)
 * [Understand Azure NetApp Files backup](backup-introduction.md)
 * [Understand Azure NetApp Files replication](replication.md)
-* [Reliability in Azure NetApp Flies](../reliability/reliability-netapp-files.md)
+* [Reliability in Azure NetApp Files](/azure/reliability/reliability-netapp-files)
 * [What is Azure Application Consistent Snapshot tool](azacsnap-introduction.md)
 * [Restore individual files using single-file snapshot restore](snapshots-restore-file-single.md)
 * [Restore a snapshot to a new volume](snapshots-restore-new-volume.md)
 * [Restore a volume using snapshot revert](snapshots-revert-volume.md)
+* [Understand advanced ransomware protection](advanced-ransomware-protection.md) 

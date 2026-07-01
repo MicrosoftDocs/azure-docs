@@ -3,7 +3,7 @@ title: Configure Container Create Options for Azure IoT Edge Modules
 description: Configure IoT Edge modules with Docker-compatible create options for tasks like port mapping, memory limits, and GPU optimization.
 author: sethmanheim
 ms.author: sethm
-ms.date: 05/09/2025
+ms.date: 03/05/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -19,7 +19,7 @@ ms.custom:
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-The **createOptions** parameter in the deployment manifest lets you configure the module containers at runtime. This parameter expands your control over the modules and lets you perform tasks like restricting the module's access to the host device's resources or configuring networking.
+Use the `createOptions` parameter in the deployment manifest to configure the module containers at runtime. By using this parameter, you can restrict the module's access to the host device's resources or configure networking.
 
 IoT Edge modules run as Docker-compatible containers on your IoT Edge device. Docker offers many options for creating containers, and those options also apply to IoT Edge modules. For more information, see [Docker container create options](https://docs.docker.com/reference/cli/docker/container/create/).
 
@@ -51,7 +51,7 @@ The IoT Edge deployment manifest accepts create options formatted as JSON. For e
 }
 ```
 
-This edgeHub example uses the **HostConfig.PortBindings** parameter to map exposed ports on the container to a port on the host device.
+This **edgeHub** example uses the `HostConfig.PortBindings` parameter to map exposed ports on the container to a port on the host device.
 
 If you use the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) extension for Visual Studio or Visual Studio Code, write the create options in JSON format in the **deployment.template.json** file. Then, when you use the extension to build the IoT Edge solution or generate the deployment manifest, it stringifies the JSON in the format that the IoT Edge runtime expects. For example:
 
@@ -60,11 +60,11 @@ If you use the [Azure IoT Edge](https://marketplace.visualstudio.com/items?itemN
 ```
 
 > [!IMPORTANT]
-> The Azure IoT Edge Visual Studio Code extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639). The *iotedgedev* tool is the recommended tool for developing IoT Edge modules.
+> The Azure IoT Edge Visual Studio Code extension is in [maintenance mode](https://github.com/microsoft/vscode-azure-iot-edge/issues/639). The **iotedgedev** tool is the recommended tool for developing IoT Edge modules.
 
-Use the `docker inspect` command to write create options. Run the module locally using `docker run <container name>` as part of your development process. Once you have the module working the way you want it, run `docker inspect <container name>`. This command outputs the module details in JSON format. Find the parameters you configured and copy the JSON. For example:
+Use the `docker inspect` command to write create options. Run the module locally by using `docker run <container name>` as part of your development process. Once you have the module working the way you want, run `docker inspect <container name>`. This command outputs the module details in JSON format. Find the parameters you configured and copy the JSON. For example:
 
-:::image type="content" source="./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png" alt-text="Screenshot of the results of the `docker inspect edgeHub` command." lightbox="./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png":::
+:::image type="content" source="./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png" alt-text="Screenshot of the results of the Docker inspect edgeHub command." lightbox="./media/how-to-use-create-options/docker-inspect-edgehub-inline-and-expanded.png":::
 
 ## Common scenarios
 
@@ -77,14 +77,14 @@ Container create options support various scenarios. Here are the most common one
 
 ### Map host port to module port
 
-If your module needs to communicate with a service outside of the IoT Edge solution, and isn't using message routing to do so, then you need to map a host port to a module port.
+If your module needs to communicate with a service outside of the IoT Edge solution and isn't using message routing to do so, map a host port to a module port.
 
->[!TIP]
->Port mapping isn't required for module-to-module communication on the same device. If module A needs to query an API hosted on module B, it can do so without any port mapping. Module B needs to expose a port in its dockerfile. For example, `EXPOSE 8080`. Then, module A can query the API using module B's name. For example, `http://ModuleB:8080/api`.
+> [!TIP]
+> Port mapping isn't required for module-to-module communication on the same device. If module A needs to query an API hosted on module B, it can do so without any port mapping. Module B needs to expose a port in its dockerfile. For example, it exposes `EXPOSE 8080`. Then, module A can query the API using module B's name; for example, `http://ModuleB:8080/api`.
 
-First, ensure that a port inside the module is exposed to listen for connections. You can do this using an [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) instruction in the dockerfile. For example, `EXPOSE 8080`. The expose instruction defaults to TCP protocol if not specified, or you can specify UDP.
+First, ensure that a port inside the module is exposed to listen for connections. You can do this using an [EXPOSE](https://docs.docker.com/engine/reference/builder/#expose) instruction in the dockerfile; for example, `EXPOSE 8080`. The expose instruction defaults to the TCP protocol if you don't specify a protocol, or you can specify UDP.
 
-Then, use the **PortBindings** setting in the **HostConfig** group of the [Docker container create options](https://docs.docker.com/reference/cli/docker/container/create/) to map the exposed port in the module to a port on the host device. For example, if you exposed port 8080 inside the module and want to map that to port 80 of the host device, the create options in the template.json file would look like the following example:
+Then, use the `PortBindings` setting in the `HostConfig` group of the [Docker container create options](https://docs.docker.com/reference/cli/docker/container/create/) to map the exposed port in the module to a port on the host device. For example, if you exposed port 8080 inside the module and want to map that port to port 80 on the host device, the create options in the template.json file would look like the following example:
 
 ```json
 "createOptions": {
@@ -108,13 +108,13 @@ When stringified for the deployment manifest, the configuration looks like this:
 
 ### Restrict module memory and CPU usage
 
-Declare how much of the host resources a module can use. This control ensures that one module doesn't consume too much memory or CPU, preventing other processes from running on the device. You can manage these settings with [Docker container create options](https://docs.docker.com/reference/cli/docker/container/create/) in the **HostConfig** group, including:
+Declare how much of the host resources a module can use. This control ensures that one module doesn't consume too much memory or CPU, preventing other processes from running on the device. You can manage these settings using the [Docker container create options](https://docs.docker.com/reference/cli/docker/container/create/) in the `HostConfig` group, including:
 
 * **Memory**: Memory limit in bytes. For example, 268435456 bytes = 256 MB.
 * **MemorySwap**: Total memory limit (memory + swap). For example, 536870912 bytes = 512 MB.
 * **NanoCpus**: CPU quota in units of 10<sup>-9</sup> (1 billionth) CPUs. For example, 250000000 nanocpus = 0.25 CPU.
 
-In the template.json format, these values would look like the following example:
+In the **template.json** format, these values look like the following example:
 
 ```json
 "createOptions": {
@@ -126,21 +126,21 @@ In the template.json format, these values would look like the following example:
 }
 ```
 
-Once stringified for the final deployment manifest, these values would look like the following example:
+Once stringified for the final deployment manifest, these values look like the following example:
 
 ```json
-"createOptions":"{\"HostConfig\":{\"Memory\":268435456,\"MemorySwap\":536870912,\"CpuPeriod\":25000}}"
+"createOptions":"{\"HostConfig\":{\"Memory\":268435456,\"MemorySwap\":536870912,\"NanoCpus\":250000000}}"
 ```
 
 ### GPU-optimize an IoT Edge module
 
-If you're running your IoT Edge module on a GPU-optimized virtual machine, you can enable an IoT Edge module to connect to your GPU as well. To do this with an existing module, add some specifications to your `createOptions`:
+If you run your IoT Edge module on a GPU-optimized virtual machine, you can enable an IoT Edge module to connect to your GPU as well. To do this connection using an existing module, add some specifications to your `createOptions`:
 
 ```json
 {"HostConfig": {"DeviceRequests": [{"Count": -1,"Capabilities": [["gpu"]]}]}}
 ```
 
-Confirm these settings by using the Docker inspect command to view the new setting in a JSON printout.
+Confirm these settings by using the Docker `inspect` command to view the new setting in a JSON printout:
 
 ```bash
 sudo docker inspect <YOUR-MODULE-NAME>

@@ -6,6 +6,7 @@ ms.author: v-uhabiba
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 09/19/2024
+ms.update-cycle: 365-days
 ms.custom:
   - devx-track-java
   - devx-track-javaee

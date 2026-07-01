@@ -9,7 +9,7 @@ summary: >-
 metadata:
   title: Azure Machine Configuration documentation
   description: Landing page for the new Azure Machine Configuration service (formerly called Azure Policy Guest Configuration)
-  ms.service: machine-configuration
+  ms.service: azure-machine-configuration
   ms.topic: landing-page
   author: michaeltlombardi
   ms.author: mlombardi
@@ -21,7 +21,7 @@ landingContent:
       - linkListType: overview
         links:
           - text: What is Azure Machine Configuration?
-            url: ./overview.md
+            url: ./overview/01-overview-concepts.md
           - text: What's new in machine configuration
             url: ./whats-new/overview.yml
 

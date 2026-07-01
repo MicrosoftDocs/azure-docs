@@ -3,8 +3,8 @@ title: Run Hive queries in Entra ID enabled Azure HDInsight cluster using .NET S
 description: Learn how to run Hive queries in Entra ID enabled Azure HDInsight cluster using .NET SDK
 ms.service: azure-hdinsight
 ms.topic: how-to
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 08/21/2025
 ---

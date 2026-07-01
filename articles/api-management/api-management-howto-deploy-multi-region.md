@@ -2,11 +2,9 @@
 title: Deploy an Azure API Management Instance to Multiple Azure Regions
 titleSuffix: Azure API Management
 description: Learn how to deploy a Premium tier Azure API Management instance to multiple Azure regions to improve API gateway availability.
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 09/19/2025
-ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
 
@@ -35,7 +33,7 @@ When adding a region, you configure:
 
 ## Prerequisites
 
-* Thoroughly understand all [requirements and considerations for enabling multi-region deployment in API Management](../reliability/reliability-api-management.md).
+* Thoroughly understand all [requirements and considerations for enabling multi-region deployment in API Management](/azure/reliability/reliability-api-management).
 
 * If you haven't created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). Select the Premium service tier.
 
@@ -188,7 +186,7 @@ This section provides considerations for multi-region deployments when the API M
 
 ## Related content
 
-* Learn more about [reliability in API Management](../reliability/reliability-api-management.md)
+* Learn more about [reliability in API Management](/azure/reliability/reliability-api-management)
 
 * Learn more about enabling [availability zone support](enable-availability-zone-support.md) for an API Management instance.
     

@@ -299,4 +299,4 @@ kubectl logs -l app=mq-event-driven-dapr -n azure-iot-operations -c daprd
 
 ## Next steps
 
-* [Bridge MQTT data between MQTT broker and Azure Event Grid](../connect-to-cloud/tutorial-connect-event-grid.md)
+* [Bridge MQTT data between MQTT broker and Azure Event Grid](../get-started-end-to-end-sample/quickstart-configure.md)

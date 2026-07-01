@@ -2,10 +2,10 @@
 title: Tutorial - Sign and Make Requests to the Communication Services SMS API with Postman
 titleSuffix: An Azure Communication Services tutorial
 description: Learn how to sign and make requests for Azure Communication Services with Postman to send an SMS message.
-author: tophpalmer
+author: sundiraman
 services: azure-communication-services
 
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 06/30/2021
 ms.topic: tutorial
 ms.service: azure-communication-services

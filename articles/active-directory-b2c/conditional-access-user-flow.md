@@ -2,7 +2,7 @@
 title: Add Conditional Access to a user flow in Azure AD B2C
 description: Learn how to add Conditional Access to Azure AD B2C user flows. Configure MFA settings and policies to enforce and remediate risky sign-ins.
 
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.subservice: b2c
 ms.topic: overview
 ms.date: 06/12/2025
@@ -20,6 +20,8 @@ ms.custom:
 ---
 
 # Add Conditional Access to user flows in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-identity-protection-retirement](../../includes/active-directory-b2c-identity-protection-retirement.md)]
+
 [!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]

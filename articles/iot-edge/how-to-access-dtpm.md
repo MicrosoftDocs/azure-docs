@@ -3,7 +3,7 @@ title: dTPM access for Azure IoT Edge for Linux on Windows
 description: Learn about how to configure access the dTPM on your  Azure IoT Edge for Linux on Windows virtual machine.
 author: sethmanheim
 ms.author: sethm
-ms.date: 06/05/2025
+ms.date: 04/01/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
@@ -47,7 +47,7 @@ Follow these steps to create a sample executable to access a TPM index from the 
 
 1. Fill in the **Project Name**, **Location**, and **Solution Name** fields, and then select **Next**.
 
-1. Choose a target framework. The latest .NET 6.0 LTS version is preferred. After you choose a target framework, select **Create**. Visual Studio creates a new console app solution.
+1. Choose a target framework. The latest .NET LTS version is preferred (currently .NET 8.0). After you choose a target framework, select **Create**. Visual Studio creates a new console app solution.
 
 1. In **Solution Explorer**, right-click the project name and select **Manage NuGet Packages**.
 
@@ -121,14 +121,14 @@ Once the executable file and dependency files are created, you need to copy the 
     chmod +x TPMRead
     ```
 
-1. To solve an [ICU globalization issue](https://github.com/dotnet/core/issues/2186#issuecomment-472629489), run the following command. For example, if your project name is *TPMTest* run:
+1. To solve an [ICU globalization issue](https://github.com/dotnet/core/issues/2186#issuecomment-472629489), run the following command. For example, if your project name is *TPMRead* run:
     ```bash
-     sed -i '/"configProperties": /a \\t"System.Globalization.Invariant\": true,' TPMTest.runtimeconfig.json
+     sed -i '/"configProperties": /a \\t"System.Globalization.Invariant\": true,' TPMRead.runtimeconfig.json
     ```
 
-1. The last step is to run the executable file. For example, if your project name is *TPMTest*, run the following command:
+1. The last step is to run the executable file. For example, if your project name is *TPMRead*, run the following command:
     ```bash
-    ./TPMTest
+    ./TPMRead
     ```
     You should see an output similar to the following.
 

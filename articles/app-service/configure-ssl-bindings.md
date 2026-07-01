@@ -5,7 +5,7 @@ keywords: TLS/SSL certificate, secure domain, HTTPS, Azure App Service, domain s
 tags: buy-ssl-certificates
 
 ms.topic: how-to
-ms.date: 02/14/2025
+ms.date: 04/15/2026
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
@@ -20,7 +20,7 @@ ms.custom:
 
 This article shows you how to provide security for the [custom domain](app-service-web-tutorial-custom-domain.md) in your [Azure App Service app](./index.yml) or [function app](../azure-functions/index.yml) by creating a certificate binding. When you're finished, you can access your App Service app at the `https://` endpoint for your custom Domain Name System (DNS) name. An example is `https://www.contoso.com`.
 
-![Screenshot that shows a web app with a custom TLS/SSL certificate.](./media/configure-ssl-bindings/app-with-custom-ssl.png)
+:::image type="content" source="media/configure-ssl-bindings/app-with-custom-ssl.png" alt-text="Screenshot that shows a web app with a custom TLS/SSL certificate.":::
 
 ## Prerequisites
 
@@ -31,15 +31,15 @@ This article shows you how to provide security for the [custom domain](app-servi
 
 ## Add the binding
 
-In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>:
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. On the left pane, select **App Services** > *\<app-name>*.
+1. Select your App Service app.
 
-1. On the left pane of your app, select **Custom domains**.
+1. Under **Settings** on the sidebar menu, select **Custom domains**.
 
 1. Next to the custom domain, select **Add binding**.
 
-    :::image type="content" source="media/configure-ssl-bindings/secure-domain-launch.png" alt-text="Screenshot that shows how to open the Add TLS/SSL Binding dialog." lightbox="media/configure-ssl-bindings/secure-domain-launch.png":::
+    :::image type="content" source="media/configure-ssl-bindings/secure-domain-launch.png" alt-text="Screenshot that shows how to open the Add Binding dialog." lightbox="media/configure-ssl-bindings/secure-domain-launch.png":::
 
 1. If your app already has a certificate for the selected custom domain, you can select it in **Certificate**. If not, you must add a certificate by using one of the selections in **Source**:
 
@@ -79,7 +79,7 @@ There are potentially two changes that you need to make:
 
 Browse to `https://<your.custom.domain>` in various browsers to verify that your app appears.
 
-:::image type="content" source="./media/configure-ssl-bindings/app-with-custom-ssl.png" alt-text="Screenshot that shows an example of browsing to your custom domain. The contoso.com URL is highlighted.":::
+:::image type="content" source="./media/configure-ssl-bindings/app-with-custom-ssl.png" alt-text="Screenshot that shows an example of browsing to your custom domain. The URL is highlighted.":::
 
 Your application code can inspect the protocol via the `x-appservice-proto` header. The header has a value of `http` or `https`.
 
@@ -121,7 +121,7 @@ Language-specific configuration guides, such as the [Linux Node.js configuration
 
 #### Azure CLI
 
-[Bind a custom TLS/SSL certificate to a web app](scripts/cli-configure-ssl-certificate.md)
+For an Azure CLI script that shows how to bind a custom TLS/SSL certificate to a web app, see [this example on GitHub](scripts/cli-configure-ssl-certificate.md).
 
 #### PowerShell
 

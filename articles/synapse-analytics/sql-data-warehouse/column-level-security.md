@@ -6,9 +6,11 @@ ms.author: ajagadish
 ms.date: 09/19/2023
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ---
 # Column-level security
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Column-Level security allows customers to control access to table columns based on the user's execution context or group membership.
 

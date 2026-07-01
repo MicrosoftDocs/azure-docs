@@ -95,7 +95,9 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 > When creating an application gateway resource through the Azure portal, the default option for **HTTP2** is set as enabled. You can choose **Disabled** during creation, and re-enabled HTTP2 support using the Azure portal by selecting **Enabled** under **HTTP2** in **Application gateway > Configuration**.
 >
 > In instances where HTTP2 isn't supported by a client, HTTP1.1 will be used. Enabling HTTP2 doesn't disable HTTP1.1; it allows support for both.
->
+
+> [!NOTE]
+> Application Gateway only supports HTTP/2 over TLS (HTTPS listeners). HTTP/2 Cleartext (h2c) protocol upgrade attempts from HTTP/1.1 are not supported and will result in a 403 Forbidden error. Clients attempting h2c upgrades should use native HTTP/2 connections over HTTPS or remain on HTTP/1.1.
 
 ### WebSocket support
 

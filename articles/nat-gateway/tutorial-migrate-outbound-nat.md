@@ -21,6 +21,12 @@ You learn how to change your outbound connectivity from load balancer outbound r
 
 Azure NAT Gateway is the recommended method for outbound connectivity. A NAT gateway is a fully managed and highly resilient Network Address Translation (NAT) service. A NAT gateway doesn't have the same limitations of Source Network Address Translation (SNAT) port exhaustion as default outbound access. A NAT gateway replaces the need for outbound rules in a load balancer for outbound connectivity.
 
+> [!NOTE]
+> For default outbound access replacement, StandardV2 NAT Gateway is deployed in the tutorial to ensure that you are using the zone-redundant version of NAT gateway (Standard SKU NAT Gateway is zonal). See [StandardV2 NAT Gateway](/azure/nat-gateway/nat-overview#standardv2-nat-gateway) for more details and see [known limitations](/azure/nat-gateway/nat-overview#key-limitations-of-standardv2-nat-gateway) for details on unsupported scenarios.
+
+> [!NOTE]
+> For the Load balancer outbound rule replacement, Standard SKU NAT Gateway is deployed in this tutorial and the frontend IP of the Load balancer is moved to the Standard NAT Gateway. StandardV2 NAT Gateway can be used to replace Load balancer outbound rules but can't be used with the Load balancer frontend IP. StandardV2 NAT Gateway requires new creation of a StandardV2 SKU public IP.
+
 For more information about Azure NAT Gateway, see [What is Azure NAT Gateway?](nat-overview.md)
 
 In this tutorial, you learn how to:
@@ -79,8 +85,7 @@ In this section, you learn how to change your outbound connectivity method from 
    | Region | Select a region. This example uses **East US 2**. |
    | Name | Enter **public-ip-nat**. |
    | IP version | Select **IPv4**. |
-   | SKU | Select **Standard**. |
-   | Availability zone | Select **Zone-redundant**. |
+   | SKU | Select **StandardV2**. |
    | Tier | Select **Regional**. |
 
 1. Select **Review + create** and then select **Create**.
@@ -99,7 +104,7 @@ In this section, you learn how to change your outbound connectivity method from 
     | **Instance details** |  |
     | NAT gateway name | Enter **nat-gateway**. |
     | Region | Select your region. This example uses **East US 2**. |
-    | SKU | Select **Standard**. |
+    | SKU | Select **StandardV2**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
 
 1. Select **Next**.

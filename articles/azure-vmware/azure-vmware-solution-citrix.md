@@ -3,7 +3,7 @@ title: Deploy Citrix on Azure VMware Solution
 description: Learn how to deploy VMware Citrix on Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 11/27/2023
+ms.date: 3/04/2026
 ms.custom: engagement-fy23
 # Customer intent: "As an IT administrator, I want to deploy Citrix Virtual Apps and Desktops on Azure VMware Solution, so that I can leverage cloud infrastructure for provisioning my Virtual Delivery Agent workloads and ensure seamless migration or hybrid operation with existing on-premises environments."
 ---
@@ -29,7 +29,7 @@ Citrix Virtual Apps and Desktop service supports Azure VMware Solution. Azure VM
 
     A. Yes. You’re free to migrate, operate a hybrid environment, or deploy a standalone directly into Azure VMware Solution.
 
-- Q. Does Azure VMware Solution support both PVS and MCS?
+- Q. Does Azure VMware Solution support both Citrix Provisioning (PVS) and Machine Creation Services (MCS)?
 
     A. Yes.
 
@@ -51,4 +51,4 @@ Citrix Virtual Apps and Desktop service supports Azure VMware Solution. Azure VM
 
 - Q. How do I purchase Citrix Virtual Apps and Desktops service to use Azure VMware Solution?
     
-    A. You can purchase Citrix offerings via your Citrix partner or directly from the Azure Marketplace.
+    A. You can purchase Citrix offerings via your Citrix partner or directly from Azure Marketplace.

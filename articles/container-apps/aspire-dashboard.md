@@ -109,7 +109,7 @@ Refer to the following items if you have issues enabling your dashboard:
     This issue occurs because security group permissions do not propagate to the Container App Environment. To solve this problem, make sure you explicitly give yourself a *Contributor* or *Owner* role on your Container Apps environment. This can be done through the following steps:
   
     - **Navigate to the Resource:**
-        - Open the Azure Portal and search for your container app environment.
+        - Open the Azure portal and search for your container app environment.
     - **Access the Access Control (IAM) Blade:**
         - Click on _Access Control (IAM)_ for the container app environment.
     - **Verify Existing Role Assignments:**

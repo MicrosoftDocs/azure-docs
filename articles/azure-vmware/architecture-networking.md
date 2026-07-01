@@ -3,7 +3,7 @@ title: Architecture - Network interconnectivity
 description: Learn about key concepts and use cases of networking and interconnectivity in Azure VMware Solution.
 ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 1/27/2026
 ms.custom: engagement-fy23
 # Customer intent: As a cloud architect, I want to understand the networking and interconnectivity options available in Azure VMware Solution, so that I can effectively configure and manage private cloud environments and ensure seamless connectivity between on-premises and cloud resources.
 ---
@@ -24,7 +24,7 @@ This article explains key networking and interconnectivity concepts, including r
 
 The use cases for Azure VMware Solution private clouds include:
 
-- New VMware vSphere VM workloads in the cloud
+- New VMware vSphere virtual machine (VM) workloads in the cloud
 - VM workload bursting to the cloud (on-premises to Azure VMware Solution only)
 - VM workload migration to the cloud (on-premises to Azure VMware Solution only)
 - Disaster recovery (Azure VMware Solution to Azure VMware Solution or on-premises to Azure VMware Solution)
@@ -44,7 +44,7 @@ The following diagram illustrates the basic network interconnectivity establishe
 - Inbound access to workloads running in the private cloud.
 
 > [!IMPORTANT]
-> When connecting **production** Azure VMware Solution private clouds to an Azure virtual network, use an ExpressRoute virtual network gateway with the Ultra Performance Gateway SKU and enable FastPath to achieve 10Gbps connectivity. For less critical environments, use the Standard or High Performance Gateway SKUs for slower network performance.
+> When connecting **production** Azure VMware Solution private clouds to an Azure virtual network, use an ExpressRoute virtual network gateway with the Ultra Performance Gateway SKU and enable FastPath to achieve 10 Gbps connectivity. For less critical environments, use the Standard or High Performance Gateway SKUs for slower network performance.
 
 > [!NOTE]
 > If you need to connect more than four Azure VMware Solution private clouds in the same Azure region to the same Azure virtual network, use [AVS Interconnect](connect-multiple-private-clouds-same-region.md) to aggregate private cloud connectivity within the Azure region.
@@ -53,7 +53,7 @@ The following diagram illustrates the basic network interconnectivity establishe
 
 ## On-premises interconnectivity
 
-In the fully interconnected scenario, you can access the Azure VMware Solution from your Azure virtual network(s) and on-premises. This implementation extends the basic implementation described in the previous section. An ExpressRoute circuit is required to connect from on-premises to your Azure VMware Solution private cloud in Azure.
+In the fully interconnected scenario, you can access the Azure VMware Solution from your Azure virtual networks and on-premises. This implementation extends the basic implementation described in the previous section. An ExpressRoute circuit is required to connect from on-premises to your Azure VMware Solution private cloud in Azure.
 
 The following diagram shows the on-premises to private cloud interconnectivity, which enables the following use cases:
 
@@ -65,7 +65,7 @@ The following diagram shows the on-premises to private cloud interconnectivity, 
 For full interconnectivity to your private cloud, enable ExpressRoute Global Reach and then request an authorization key and private peering ID for Global Reach in the Azure portal. Use the authorization key and peering ID to establish Global Reach between an ExpressRoute circuit in your subscription and the ExpressRoute circuit for your private cloud. Once linked, the two ExpressRoute circuits route network traffic between your on-premises environments and your private cloud. For more information on the procedures, see the [tutorial for creating an ExpressRoute Global Reach peering to a private cloud](tutorial-expressroute-global-reach-private-cloud.md).
 
 > [!IMPORTANT]
-> Don't advertise bogon routes over ExpressRoute from on-premises or your Azure VNet. Examples of bogon routes include 0.0.0.0/5 or 192.0.0.0/3.
+> Don't advertise bogus address routes (bogon routes) over ExpressRoute from on-premises or your Azure virtual network. Examples of bogon routes include 0.0.0.0/5 or 192.0.0.0/3.
 
 ## Route advertisement guidelines to Azure VMware Solution
 
@@ -90,7 +90,7 @@ Now that you understand Azure VMware Solution network and interconnectivity conc
 
 - [Azure VMware Solution storage concepts](architecture-storage.md)
 - [Azure VMware Solution identity concepts](architecture-identity.md)
-- [Enabling the Azure VMware Solution resource provider](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
+- [Enable the Azure VMware Solution resource provider](deploy-azure-vmware-solution.md#register-the-microsoftavs-resource-provider)
 
 <!-- LINKS - external -->
 [enable Global Reach]: ../expressroute/expressroute-howto-set-global-reach.md

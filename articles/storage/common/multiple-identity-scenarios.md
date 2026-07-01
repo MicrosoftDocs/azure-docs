@@ -669,7 +669,7 @@ To configure this setup in your code, ensure your application registers separate
 1. In your project, install the required packages. The Azure Identity library provides `DefaultAzureCredential`.
 
     ```bash
-    pip install azure-identity azure-storage-blob azure-cosmos pyodbc
+    pip install azure-identity azure-storage-blob azure-cosmos mssql-python
     ```
     
 1. Add the following to your code:
@@ -678,7 +678,8 @@ To configure this setup in your code, ensure your application registers separate
     from azure.cosmos import CosmosClient
     from azure.identity import DefaultAzureCredential
     from azure.storage.blob import BlobServiceClient
-    import os, pyodbc, struct
+    from mssql_python import connect
+    import os
     
     # Create a DefaultAzureCredential instance that configures the underlying
     # ManagedIdentityCredential to use a user-assigned managed identity.
@@ -698,23 +699,21 @@ To configure this setup in your code, ensure your application registers separate
         credential=credential_storage
     )
     
-    # Create a DefaultAzureCredential instance that configures the underlying
-    # ManagedIdentityCredential to use a user-assigned managed identity.
+    # Create an Azure Cosmos DB client
+    # Note: For Cosmos DB, we still need DefaultAzureCredential
     credential_databases = DefaultAzureCredential(
         managed_identity_client_id=os.environ['Managed_Identity_Client_ID_Databases']
     )
 
-    # Create an Azure Cosmos DB client
     cosmos_client = CosmosClient(
         os.environ['COSMOS_ENDPOINT'],
         credential=credential_databases
     )
 
-    # Connect to Azure SQL
-    token_bytes = credential_databases.get_token("https://database.windows.net/.default").token.encode("UTF-16-LE")
-    token_struct = struct.pack(f'<I{len(token_bytes)}s', len(token_bytes), token_bytes)
-    SQL_COPT_SS_ACCESS_TOKEN = 1256  # This connection option is defined by microsoft in msodbcsql.h
-    conn = pyodbc.connect(connection_string, attrs_before={SQL_COPT_SS_ACCESS_TOKEN: token_struct})
+    # Connect to Azure SQL using mssql-python with managed identity
+    # The driver handles authentication internally when using ActiveDirectoryMSI
+    connection_string = f"Server=<your-server>.database.windows.net;Database=<your-database>;UID={os.environ['Managed_Identity_Client_ID_Databases']};Authentication=ActiveDirectoryMSI;Encrypt=yes;"
+    conn = connect(connection_string)
     ```
 
 ---

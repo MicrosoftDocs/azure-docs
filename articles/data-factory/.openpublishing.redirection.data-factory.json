@@ -991,6 +991,101 @@
             "redirect_document_id": false
           },
           {
+            "source_path_from_root": "/articles/data-factory/pricing-concepts.md",
+            "redirect_url": "/azure/data-factory/plan-manage-costs",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/pricing-examples-s3-to-blob.md",
+            "redirect_url": "/azure/data-factory/plan-manage-costs",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/pricing-examples-copy-transform-azure-databricks.md",
+            "redirect_url": "/azure/data-factory/plan-manage-costs",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/pricing-examples-copy-transform-dynamic-parameters.md",
+            "redirect_url": "/azure/data-factory/plan-manage-costs",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/pricing-examples-ssis-on-azure-ssis-integration-runtime.md",
+            "redirect_url": "/azure/data-factory/plan-manage-costs",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/pricing-examples-mapping-data-flow-debug-workday.md",
+            "redirect_url": "/azure/data-factory/plan-manage-costs",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/pricing-examples-transform-mapping-data-flows.md",
+            "redirect_url": "/azure/data-factory/plan-manage-costs",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/pricing-examples-data-integration-managed-vnet.md",
+            "redirect_url": "/azure/data-factory/plan-manage-costs",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/pricing-examples-get-delta-data-from-sap-ecc.md",
+            "redirect_url": "/azure/data-factory/plan-manage-costs",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/tutorial-transform-data-hive-virtual-network-portal.md",
+            "redirect_url": "/azure/data-factory/",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/scenario-dataflow-process-data-aml-models.md",
+            "redirect_url": "/azure/data-factory/",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/quota-increase.md",
+            "redirect_url": "/azure/data-factory/",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/compute-optimized-data-flow-retire.md",
+            "redirect_url": "/azure/data-factory/",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/tutorial-transform-data-hive-virtual-network.md",
+            "redirect_url": "/azure/data-factory/",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/update-machine-learning-models.md",
+            "redirect_url": "/azure/data-factory/",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/solution-template-synapse-notebook.md",
+            "redirect_url": "/azure/data-factory/",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/load-azure-data-lake-store.md",
+            "redirect_url": "/azure/data-factory/",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/supported-file-formats-and-compression-codecs-legacy.md",
+            "redirect_url": "/azure/data-factory/",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/data-factory/transform-data-using-machine-learning.md",
+            "redirect_url": "/azure/data-factory/",
+            "redirect_document_id": false
+          },
+          {
             "source_path_from_root": "/articles/data-factory/v1/data-factory-repeatable-copy.md",
             "redirect_url": "/azure/data-factory/",
             "redirect_document_id": false

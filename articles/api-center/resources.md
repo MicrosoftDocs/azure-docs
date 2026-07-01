@@ -1,12 +1,12 @@
 ---
 title: Azure API Center - Code Samples and Labs
 description: Find code samples, reference implementations, labs, and deployment templates to create, populate, and govern your Azure API center.
-author: dlepow
+
  
 ms.service: azure-api-center
 ms.topic: concept-article
 ms.date: 09/25/2025
-ms.author: danlep 
+ 
 ---
 
 # Samples, labs, and templates for Azure API Center

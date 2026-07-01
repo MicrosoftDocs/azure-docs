@@ -1,0 +1,11 @@
+- name: Azure
+  tocHref: /azure
+  topicHref: /azure/index
+  items:
+  - name: NAT Gateway
+    tocHref: /azure/nat-gateway/
+    topicHref: /azure/nat-gateway/index
+    items:
+    - name: NAT Gateway
+      tocHref: /azure/reliability/
+      topicHref: /azure/nat-gateway/index/

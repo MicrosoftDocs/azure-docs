@@ -28,8 +28,8 @@ Application Gateway for Containers offers two predefined security policies. You 
 
 The following table shows the list of cipher suites and minimum protocol version support for each predefined policy. The ordering of the cipher suites determines the priority order during TLS negotiation. To know the exact ordering of the cipher suites for these predefined policies.
 
-| Predefined policy names | 2023-06  | 2023-06-S |
-| ---------- | ---------- | ---------- |
+| Predefined policy names | 2023-06 | 2023-06-S |
+| --- | --- | --- |
 | **Minimum protocol version** | TLS 1.2 | TLS 1.2 |
 | **Enabled protocol versions** | TLS 1.2, TLS 1.3 | TLS 1.2, TLS 1.3 |
 | TLS_AES_256_GCM_SHA384 | &check; | &check; |

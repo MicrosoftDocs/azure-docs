@@ -5,7 +5,7 @@ author: kevinguo-ed
 ms.author: kevinguo
 ms.service: azure-web-pubsub
 ms.custom: devx-track-dotnet
-ms.topic: conceptual 
+ms.topic: concept-article
 ms.date: 07/17/2023
 ---
 

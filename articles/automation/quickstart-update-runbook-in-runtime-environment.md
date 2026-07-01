@@ -6,8 +6,8 @@ services: automation
 ms.date: 06/27/2025
 ms.topic: quickstart
 ms.custom: references_regions
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Update runbook from PowerShell 7.1 to PowerShell 7.4
@@ -63,3 +63,4 @@ To update Runtime environment of runbook, follow these steps:
 ## Next steps
 
 - See [Manage Runtime environment](manage-runtime-environment.md) to view the various operations through portal and REST API.
+- For information on runtime version support and its impact on runbooks, see [Language runtime support and retirement policy for Azure Automation](automation-runtime-retirement-policy.md).

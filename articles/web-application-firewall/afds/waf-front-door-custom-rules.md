@@ -1,21 +1,24 @@
 ---
-title: Web application firewall custom rule for Azure Front Door
+title: WAF Custom Rule for Azure Front Door
 description: Learn how to use web application firewall (WAF) custom rules to protect your web applications from malicious attacks.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: concept-article
-ms.date: 05/31/2024
+ms.date: 02/25/2026
+
 # Customer intent: "As a security administrator, I want to configure custom rules for a web application firewall, so that I can protect my web applications from various types of malicious attacks and control access based on defined conditions."
 ---
 
 # Custom rules for Azure Web Application Firewall on Azure Front Door
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 Azure Web Application Firewall on Azure Front Door allows you to control access to your web applications based on the conditions you define. A custom web application firewall (WAF) rule consists of a priority number, rule type, match conditions, and an action.
 
 There are two types of custom rules: match rules and rate limit rules. A match rule controls access based on a set of matching conditions. A rate limit rule controls access based on matching conditions and the rates of incoming requests. You can disable a custom rule to prevent it from being evaluated but still keep the configuration.
 
-For more information on rate limiting, see [What is rate limiting for Azure Front Door?](waf-front-door-rate-limit.md).
+For more information on rate limiting, see [What is rate limiting for Azure Front Door?](waf-front-door-rate-limit.md)
 
 ## Priority, action types, and match conditions
 
@@ -36,7 +39,7 @@ You can control access with a custom WAF rule that defines a priority number, a 
 
 - **Match condition**
 
-  Defines a match variable, an operator, and a match value. Each rule can contain multiple match conditions. A match condition might be based on geo-location, client IP addresses (CIDR), size, or string match. String match can be against a list of match variables.
+  Defines a match variable, an operator, and a match value. Each rule can contain multiple match conditions. A match condition might be based on geo-location, client IP addresses (CIDR), size, AS Number, Client Fingerprint, Service Tag, or string match. String match can be against a list of match variables.
   - **Match variable**
     - RequestMethod
     - QueryString
@@ -230,7 +233,8 @@ Here's an example JSON description of the custom rule:
 
 Custom rules can be duplicated within a given policy. When duplicating a rule, you need to specify a unique name for the rule and a unique priority value. Additionally, custom rules can be copied from one Azure Front Door WAF policy to another as long as the policies are both in the same subscription. When copying a rule from one policy to another, you need to select the Azure Front Door WAF policy you wish to copy the rule into. Once you select the WAF policy you need to give the rule a unique name, and assign a priority rank.
 
-## Next steps
-- [Configure a WAF policy by using Azure PowerShell](waf-front-door-custom-rules-powershell.md).
-- Learn about [Azure Web Application Firewall on Azure Front Door](afds-overview.md).
-- Learn how to [create an Azure Front Door instance](../../frontdoor/quickstart-create-front-door.md).
+## Related content
+
+- [Configure a WAF policy by using Azure PowerShell](waf-front-door-custom-rules-powershell.md)
+- [Azure Web Application Firewall on Azure Front Door](afds-overview.md)
+- [Create an Azure Front Door instance](../../frontdoor/quickstart-create-front-door.md)

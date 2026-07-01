@@ -11,6 +11,8 @@ ms.topic: concept-article
 
 # Design tables using Synapse SQL pool
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article explains key concepts for designing tables with dedicated SQL pool and serverless SQL pool in Azure Synapse Analytics.
 
 - [Serverless SQL pool](on-demand-workspace-overview.md) is a query service that operates over the data in your data lake. It doesn't have local storage for data ingestion.

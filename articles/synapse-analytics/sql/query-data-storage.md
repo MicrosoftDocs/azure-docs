@@ -13,6 +13,8 @@ ms.author: stefanazaric
 
 # Query storage files using serverless SQL pool
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Serverless SQL pool allows you to query data in your data lake. It offers a Transact-SQL (T-SQL) query surface area that accommodates semi-structured and unstructured data queries. For querying, the following T-SQL aspects are supported:
 
 - Full [SELECT](/sql/t-sql/queries/select-transact-sql?view=azure-sqldw-latest&preserve-view=true) surface area, including most [SQL functions and operators](overview-features.md).

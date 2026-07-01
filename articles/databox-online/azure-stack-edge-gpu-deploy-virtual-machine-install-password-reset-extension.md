@@ -2,12 +2,12 @@
 title: Install the password reset extension on VMs for your Azure Stack Edge Pro GPU device
 description: Describes how to install the password reset extension on virtual machines (VMs) on an Azure Stack Edge Pro GPU device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 04/14/2022
-ms.author: alkohli
+ms.author: sipastak
 ms.custom:
   - devx-track-azurepowershell
   - sfi-image-nochange

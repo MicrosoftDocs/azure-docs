@@ -6,10 +6,12 @@ ms.author: ajagadish
 ms.date: 08/20/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: quickstart
 ms.custom: sfi-image-nochange
 ---
 # Striim Azure Synapse Analytics Marketplace Offering Install Guide
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This quickstart assumes that you already have a preexisting instance of Azure Synapse Analytics.
 

@@ -13,8 +13,8 @@ ms.author: jstrom
 
 This article helps you set up an example application that uses resources from the Gateway API. The article provides steps to:
 
-- Create a [`Gateway`](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
-- Create an [`HTTPRoute`](https://gateway-api.sigs.k8s.io/api-types/httproute) resource that references a back-end service.
+- Create a [`Gateway`](https://gateway-api.sigs.k8s.io/docs/concepts/api-overview/#gateway) resource with one HTTPS listener.
+- Create an [`HTTPRoute`](https://gateway-api.sigs.k8s.io/reference/api-types/httproute/) resource that references a back-end service.
 - Create a `WebApplicationFirewallPolicy` resource that references an `HTTPRoute` resource.
 
 ## Background
@@ -25,11 +25,11 @@ Application Gateway for Containers uses Azure Web Application Firewall to block 
 
 ## Prerequisites
 
-- If you're following the bring-your-own (BYO) deployment strategy, ensure that you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
+- If you're following the bring-your-own (BYO) deployment strategy, ensure that you set up your Application Gateway for Containers resources and ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)).
 
 - If you're following the Application Load Balancer (ALB) managed deployment strategy, ensure that you:
 
-  - Provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
+  - Provisioned your ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)).
   - Provisioned the Application Gateway for Containers resources via the [`ApplicationLoadBalancer` custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 
 - Apply the following `deployment.yaml` file on your cluster to create a sample web application that demonstrates the header rewrite:

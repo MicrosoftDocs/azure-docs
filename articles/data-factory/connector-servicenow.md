@@ -5,8 +5,8 @@ description: Learn how to copy data from ServiceNow V2 to supported sink data st
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.date: 08/11/2025
+ms.topic: how-to
+ms.date: 12/18/2025
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -17,6 +17,10 @@ ms.custom:
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from ServiceNow. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric ServiceNow connector documentation](/fabric/data-factory/connector-servicenow-overview).
+
 
 > [!IMPORTANT]
 > The ServiceNow V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the ServiceNow connector](#upgrade-your-servicenow-linked-service) from V1 to V2.
@@ -157,7 +161,7 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 | operators | The operator value. For more information about operators, see *Operators available for choice fields containing strings* section in this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).| Yes when the expression type is Unary or Binary |
 | operands | List of expressions on which operator is applied.| Yes when the expression type is Unary or Binary |
 | | | |
-| pageSize | The number of documents per page of the query result. | No<br/>(the default is **300**) |
+| pageSize | The number of documents per page of the query result. It is recommended to set the page size between 5,000 and 10,000 to enable multi-threaded reads. | No<br/>(the default is **300**) |
 
 **Example:**
 
@@ -267,7 +271,7 @@ Here is an example of the source JSON using the expression parameter:
 
 > [!NOTE]
 > The column `sys_tags` and its derived columns cannot be obtained due to ServiceNow API limitations.
-    
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).

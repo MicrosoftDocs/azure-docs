@@ -4,7 +4,7 @@ description: Learn how to configure connections to Azure DevOps in another tenan
 ms.subservice: ci-cd
 author: kromerm
 ms.author: makromer
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/29/2025
 ---
 

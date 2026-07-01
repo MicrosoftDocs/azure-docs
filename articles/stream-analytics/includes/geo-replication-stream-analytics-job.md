@@ -3,7 +3,7 @@ title: Stream Analytics job with Event Hubs Geo-replication
 description: This article has important notes about the behavior of Azure Stream Analytics jobs that process events from Azure Event Hubs. 
 author: spelluru
 ms.topic: include
-ms.date: 08/08/2024
+ms.date: 04/29/2026
 ms.author: spelluru
 ---
 
@@ -16,4 +16,4 @@ Azure Stream Analytics, as **producer** with an event hub an output, might obser
 
 Azure Stream Analytics, as **consumer** with Event Hubs as Input, might observe watermark delay on the job during failover duration and might skip data or find duplicate data after failover is complete. 
 
-Due to these caveats, we recommend that you restart the Stream Analytics job with appropriate start time right after Event Hubs failover is complete. Also, since Event Hubs Geo-replication feature is in public preview, we don't recommend using this pattern for production Stream Analytics jobs at this point. The current Stream Analytics behavior will improve before the Event Hubs Geo-replication feature is generally available and can be used in Stream Analytics production jobs.
+Due to these caveats, restart the Stream Analytics job with appropriate start time right after Event Hubs failover is complete. Also, since Event Hubs Geo-replication feature is in public preview, don't use this pattern for production Stream Analytics jobs at this point. The current Stream Analytics behavior will improve before the Event Hubs Geo-replication feature is generally available and can be used in Stream Analytics production jobs.

@@ -14,7 +14,7 @@ When you create classic VNets in the Azure portal, the name that you view is not
 
 In the following steps, you will connect to your Azure account and download and view the network configuration file to obtain the values that are required for your connections.
 
-1. Download and install the latest version of the Azure Service Management (SM) PowerShell cmdlets. Most people have the Resource Manager modules installed locally, but do not have Service Management modules. Service Management modules are legacy and must be installed separately. For more information, see [Install Service Management cmdlets](/powershell/azure/servicemanagement/install-azure-ps).
+1. Download and install the latest version of the Azure Service Management (SM) PowerShell cmdlets. Most people have the Resource Manager modules installed locally, but do not have Service Management modules. Service Management modules are legacy and must be installed separately. For more information, see [Install Service Management cmdlets](https://www.powershellgallery.com/packages/Azure/).
 
 1. Open your PowerShell console with elevated rights and connect to your account. Use the following examples to help you connect. You must run these commands locally using the PowerShell Service Management module. Connect to your account. Use the following example to help you connect:
 

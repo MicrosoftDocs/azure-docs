@@ -6,18 +6,18 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/16/2025
+ms.date: 02/12/2026
 
 ---
 
 # Detect and respond to ransomware attacks
 
-Ransomware incidents typically present with distinct warning signs that security teams can identify. Unlike other malware types, ransomware usually produces highly evident indicators that require minimal investigation before declaring an incident. These high-confidence triggers stand in contrast to more subtle threats that would demand extensive analysis before escalation. When ransomware strikes, the evidence is often unmistakable.
-
-In general, such infections are obvious from basic system behavior, the absence of key system or user files, and the demand for ransom. In such cases, the analyst should consider whether to immediately declare and escalate the incident, including taking any automated actions to mitigate the attack.
+This article provides Azure-specific guidance for detecting and responding to ransomware attacks.
 
 > [!TIP]
-> For comprehensive ransomware detection and response guidance across all Microsoft platforms and services, see [Protect your organization against ransomware and extortion](/security/ransomware/protect-against-ransomware). This article focuses specifically on Azure-based detection and response capabilities.
+> This article focuses on Azure-specific detection and response. For comprehensive guidance, see [Protect your organization against ransomware and extortion](/security/ransomware/protect-against-ransomware).
+
+Ransomware incidents typically present with distinct warning signs that security teams can identify. Unlike other malware types, ransomware usually produces highly evident indicators that require minimal investigation before declaring an incident. These high-confidence triggers stand in contrast to more subtle threats that would demand extensive analysis before escalation. When ransomware strikes, the evidence is often unmistakable.
 
 ## Detecting ransomware attacks
 
@@ -81,8 +81,6 @@ Our Rapid Ransomware Recovery services are treated as "Confidential" for the dur
 ## What's next
 
 For comprehensive ransomware protection guidance across all Microsoft platforms and services, see [Protect your organization against ransomware and extortion](/security/ransomware/protect-against-ransomware).
-
-See the white paper: [Azure defenses for ransomware attack whitepaper](https://azure.microsoft.com/resources/azure-defenses-for-ransomware-attack).
 
 Other Azure ransomware articles:
 

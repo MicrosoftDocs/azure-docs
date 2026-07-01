@@ -6,6 +6,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 08/21/2025
 ms.topic: overview
+ms.update-cycle: 1095-days
 # Customer intent: "As a cloud administrator, I want to access Azure Update Manager operation logs via Azure Resource Graph, so that I can analyze and visualize update assessments and installations for effective reporting and maintenance management."
 ---
 

@@ -6,7 +6,7 @@ ms.author: ajagadish
 ms.date: 03/27/2019
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.custom:
   - azure-synapse
   - devx-track-csharp
@@ -15,6 +15,8 @@ ms.custom:
 ---
 
 # Troubleshooting connectivity issues in dedicated SQL pool (formerly SQL DW)
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This article lists common troubleshooting techniques around connecting to your dedicated SQL pool database (formerly SQL DW).
 
@@ -40,11 +42,11 @@ If you see that your service is paused or scaling, check to see it isn't during 
 
 ![Overview Maintenance Schedule](./media/sql-data-warehouse-troubleshoot-connectivity/overview-maintance-schedule.png)
 
-Otherwise, check with your IT administrator to verify that this maintenance isn't a scheduled event. To resume the dedicated SQL pool (formerly SQL DW) instance, follow [these steps](pause-and-resume-compute-portal.md).
+Otherwise, check with your IT administrator to verify that this maintenance isn't a scheduled event. To resume the dedicated SQL pool (formerly SQL DW) instance, see [Quickstart: Pause and resume compute in dedicated SQL pool via the Azure portal](pause-and-resume-compute-portal.md).
 
 ## Check your firewall settings
 
-The dedicated SQL pool (formerly SQL DW) database communicates over port 1433.  If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. In that case, you can't connect to your [logical server](/azure/azure-sql/database/logical-servers) unless your IT department opens port 1433. For more information, see [firewall configurations](/azure/azure-sql/database/firewall-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json#create-and-manage-ip-firewall-rules).
+The dedicated SQL pool (formerly SQL DW) database communicates over port 1433.  If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. In that case, you can't connect to your [logical server](../sql/logical-servers.md) unless your IT department opens port 1433. For more information, see [firewall configurations](../security/synapse-workspace-ip-firewall.md).
 
 ## Check your VNet/Service Endpoint settings
 

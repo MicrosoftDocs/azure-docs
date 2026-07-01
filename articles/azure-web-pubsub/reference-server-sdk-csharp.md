@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.custom: devx-track-dotnet
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/11/2021
 ---
 

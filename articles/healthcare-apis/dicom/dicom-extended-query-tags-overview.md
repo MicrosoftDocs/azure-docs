@@ -4,7 +4,7 @@ description: In this article, you'll learn the concepts of Extended Query Tags.
 author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 07/15/2025
 ms.author: buchvarun
 ---

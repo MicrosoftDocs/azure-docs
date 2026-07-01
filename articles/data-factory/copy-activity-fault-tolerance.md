@@ -5,7 +5,7 @@ description: Learn about how to add fault tolerance to copy activity in Azure Da
 author: dearandyxu
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/26/2024
 ms.author: yexu
 ---

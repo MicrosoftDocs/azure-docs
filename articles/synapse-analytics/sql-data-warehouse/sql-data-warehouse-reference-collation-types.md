@@ -7,12 +7,14 @@ ms.reviewer:  kecona
 ms.date: 01/22/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - azure-synapse
 ---
 
 # Database collation support for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 You can change the default database collation from the Azure portal when you create a new dedicated SQL pool (formerly SQL DW). This capability makes it even easier to create a new database using one of the 3800 supported database collations.
 

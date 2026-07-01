@@ -2,11 +2,13 @@
 title: Azure Cloud Services (extended support) Definition Schema (csdef File) | Microsoft Docs
 description: Information related to the definition schema (csdef) for Cloud Services (extended support)
 ms.topic: concept-article
-ms.service: azure-virtual-machines
+ms.service: azure-cloud-services-classic
 ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
+ms.update-cycle: 1095-days
+ms.custom: cloud-services-extended-support
 # Customer intent: As a cloud service developer, I want to understand the Azure service definition schema (csdef file) so that I can configure roles, endpoints, and settings for my application deployment effectively.
 ---
 

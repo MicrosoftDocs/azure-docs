@@ -1,11 +1,11 @@
 ---
 title: Migrate Bing Maps Data Source Management and Query API to Azure Maps API
 titleSuffix: Microsoft Azure Maps
-description: Learn how to Migrate the Bing Maps Data Source Management and Query API to the appropriate Azure Maps API.
+description: Learn how to migrate the Bing Maps Data Source Management and Query API to the appropriate Azure Maps API.
 author: farazgis
 ms.author: fsiddiqui
 ms.date: 05/15/2024
-ms.topic: how-to
+ms.topic: upgrade-and-migration-article
 ms.service: azure-maps
 ms.subservice: spatial
 ---
@@ -49,7 +49,7 @@ To load and present your data on a map, you need to build a service layer (an AP
 
 If you need a locator solution, such as a store locator, job searching by location or finding a house to buy or rent, we have a store locator starter project that uses Azure Maps and Azure Cosmos DB to get you started quickly. The [Azure Maps Store Locator] provides an impressive range of capabilities to enhance your location-based services:
 
-- **Store Locator Backend**: Offers REST APIs and a ‘Store Locator Web Control’.
+- **Store Locator Backend**: Offers REST APIs and a 'Store Locator Web Control'.
 - **Robust Autocomplete Search**: Enables searching for store names, addresses, points of interest (POI), or zip codes.
 - **High Location Capacity**: Supports over 10,000 locations.
 - **Proximity Insights**: Displays nearby stores and their respective distances.

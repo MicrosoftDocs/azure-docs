@@ -1,12 +1,12 @@
 ---
-title: Access control lists in Azure Data Lake Storage
+title: Access Control Lists in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Understand how POSIX-like ACLs access control lists work in Azure Data Lake Storage.
 author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: concept-article
-ms.date: 12/03/2024
+ms.date: 05/18/2026
 ms.author: normesta
 ms.reviewer: jamesbak
 ms.devlang: python
@@ -16,16 +16,16 @@ ms.custom: engagement-fy23
 
 # Access control lists (ACLs) in Azure Data Lake Storage
 
-Azure Data Lake Storage implements an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). This article describes access control lists in Data Lake Storage. To learn about how to incorporate Azure RBAC together with ACLs, and how system evaluates them to make authorization decisions, see [Access control model in Azure Data Lake Storage](data-lake-storage-access-control-model.md).
+Azure Data Lake Storage implements an access control model that supports both Azure role-based access control (Azure RBAC) and POSIX-like access control lists (ACLs). This article describes access control lists in Data Lake Storage. To learn about how to incorporate Azure RBAC together with ACLs, and how the system evaluates them to make authorization decisions, see [Access control model in Azure Data Lake Storage](data-lake-storage-access-control-model.md).
 
 <a id="access-control-lists-on-files-and-directories"></a>
 
 ## About ACLs
 
-You can associate a [security principal](../../role-based-access-control/overview.md#security-principal) with an access level for files and directories. Each association is captured as an entry in an *access control list (ACL)*. Each file and directory in your storage account has an access control list. When a security principal attempts an operation on a file or directory, an ACL check determines whether that security principal (user, group, service principal, or managed identity) has the correct permission level to perform the operation.
+You can associate a [security principal](../../role-based-access-control/overview.md#security-principal) with an access level for files and directories. Each association is an entry in an *access control list (ACL)*. Each file and directory in your storage account has an access control list. When a security principal attempts an operation on a file or directory, an ACL check determines whether that security principal (user, group, service principal, or managed identity) has the correct permission level to perform the operation.
 
 > [!NOTE]
-> ACLs apply only to security principals in the same tenant. ACLs don't apply to users who use Shared Key authorization because no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed. The same is true for shared access signature (SAS) tokens except when a user delegated SAS token is used. In that case, Azure Storage performs a POSIX ACL check against the object ID before it authorizes the operation as long as the optional parameter suoid is used. To learn more, see [Construct a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas#construct-a-user-delegation-sas).
+> ACLs apply only to security principals in the same tenant. ACLs don't apply to users who use Shared Key authorization because no identity is associated with the caller and therefore security principal permission-based authorization can't be performed. The same rule applies to shared access signature (SAS) tokens except when a user delegated SAS token is used. In that case, Azure Storage performs a POSIX ACL check against the object ID before it authorizes the operation as long as the optional parameter suoid is used. To learn more, see [Construct a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas#construct-a-user-delegation-sas).
 
 <a id="set-access-control-lists"></a>
 
@@ -46,7 +46,7 @@ To set file and directory level permissions, see any of the following articles:
 |REST API |[Path - Update](/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
-> If the security principal is a *service* principal, it's important to use the object ID of the service principal and not the object ID of the related app registration. To get the object ID of the service principal open the Azure CLI, and then use this command: `az ad sp show --id <Your App ID> --query objectId`. Make sure to replace the `<Your App ID>` placeholder with the App ID of your app registration. The service principal is treated as a named user. You'll add this ID to the ACL as you would any named user. Named users are described later in this article.
+> If the security principal is a *service* principal, use the object ID of the service principal and not the object ID of the related app registration. To get the object ID of the service principal, open the Azure CLI, and then use this command: `az ad sp show --id <Your App ID> --query objectId`. Replace the `<Your App ID>` placeholder with the App ID of your app registration. The service principal is treated as a named user. Add this ID to the ACL as you would any named user. Named users are described later in this article.
 
 ## Types of ACLs
 
@@ -54,29 +54,29 @@ There are two kinds of access control lists: *access ACLs* and *default ACLs*.
 
 Access ACLs control access to an object. Files and directories both have access ACLs.
 
-Default ACLs are templates of ACLs associated with a directory that determine the access ACLs for any child items that are created under that directory. Files do not have default ACLs.
+Default ACLs are templates of ACLs associated with a directory that determine the access ACLs for any child items that are created under that directory. Files don't have default ACLs.
 
 Both access ACLs and default ACLs have the same structure.
 
 > [!NOTE]
-> Changing the default ACL on a parent does not affect the access ACL or default ACL of child items that already exist.
+> Changing the default ACL on a parent doesn't affect the access ACL or default ACL of child items that already exist.
 
 ## Levels of permission
 
-The permissions on directories and files in a container, are **Read**, **Write**, and **Execute**, and they can be used on files and directories as shown in the following table:
+The permissions on directories and files in a container are **Read**, **Write**, and **Execute**. You can use these permissions on files and directories as shown in the following table:
 
 |            |    File     |   Directory |
 |------------|-------------|----------|
 | **Read (R)** | Can read the contents of a file | Requires **Read** and **Execute** to list the contents of the directory |
 | **Write (W)** | Can write or append to a file | Requires **Write** and **Execute** to create child items in a directory |
-| **Execute (X)** | Does not mean anything in the context of Data Lake Storage | Required to traverse the child items of a directory |
+| **Execute (X)** | Doesn't mean anything in the context of Data Lake Storage | Required to traverse the child items of a directory |
 
 > [!NOTE]
-> If you are granting permissions by using only ACLs (no Azure RBAC), then to grant a security principal read or write access to a file, you'll need to give the security principal **Execute** permissions to the root folder of the container, and to each folder in the hierarchy of folders that lead to the file.
+> If you grant permissions by using only ACLs (no Azure RBAC), to grant a security principal read or write access to a file, you need to give the security principal **Execute** permissions to the root folder of the container, and to each folder in the hierarchy of folders that lead to the file.
 
 ### Short forms for permissions
 
-**RWX** is used to indicate **Read + Write + Execute**. A more condensed numeric form exists in which **Read=4**, **Write=2**, and **Execute=1**, the sum of which represents the permissions. Following are some examples.
+Use **RWX** to show **Read + Write + Execute** permissions. There's also a numeric form where **Read=4**, **Write=2**, and **Execute=1**. Add these numbers to show the permissions. Here are some examples:
 
 | Numeric form | Short form |      What it means     |
 |--------------|------------|------------------------|
@@ -91,12 +91,12 @@ In the POSIX-style model that's used by Data Lake Storage, permissions for an it
 
 ## Common scenarios related to ACL permissions
 
-The following table shows you the ACL entries required to enable a security principal to perform the operations listed in the **Operation** column.
+The following table shows the ACL entries required to enable a security principal to perform the operations listed in the **Operation** column.
 
 This table shows a column that represents each level of a fictitious directory hierarchy. There's a column for the root directory of the container (`/`), a subdirectory named **Oregon**, a subdirectory of the Oregon directory named **Portland**, and a text file in the Portland directory named **Data.txt**.
 
 > [!IMPORTANT]
-> This table assumes that you are using **only** ACLs without any Azure role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC, ABAC, and ACLs](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-abac-and-acls).
+> This table assumes that you're using **only** ACLs without any Azure role assignments. To see a similar table that combines Azure RBAC together with ACLs, see [Permissions table: Combining Azure RBAC, ABAC, and ACLs](data-lake-storage-access-control-model.md#permissions-table-combining-azure-rbac-abac-and-acls).
 
 | Operation                | /     | Oregon/ | Portland/ | Data.txt |
 |--------------------------|-------|---------|-----------|----------|
@@ -110,12 +110,12 @@ This table shows a column that represents each level of a fictitious directory h
 | List /Oregon/            | `--X` | `R-X`   | `---`     | `---`    |
 | List /Oregon/Portland/   | `--X` | `--X`   | `R-X`     | `---`    |
 
-### Deleting files and directories
+### Delete files and directories
 
-As shown in the previous table, write permissions on the file are not required to delete it as long as the directory permissions are set properly. However, to delete a directory and all of its contents, the parent directory must have Write + Execute permissions. The directory to be deleted, and every directory within it, requires Read + Write + Execute permissions.
+As shown in the previous table, you don't need write permissions on the file to delete it as long as the directory permissions are set properly. However, to delete a directory and all of its contents, the parent directory must have Write + Execute permissions. The directory to be deleted, and every directory within it, requires Read + Write + Execute permissions.
 
 > [!NOTE]
-> The root directory "/" can never be deleted.
+> You can never delete the root directory "/".
 
 ## Users and identities
 
@@ -135,56 +135,56 @@ The identities of users and groups are Microsoft Entra identities. So unless oth
 
 A super-user has the most rights of all the users. A super-user:
 
-- Has RWX Permissions to **all** files and folders.
+- Has RWX permissions to **all** files and folders.
 
 - Can change the permissions on any file or folder.
 
 - Can change the owning user or owning group of any file or folder.
 
-If a container, file, or directory is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to `$superuser`.
+If you create a container, file, or directory by using Shared Key, an Account SAS, or a Service SAS, the owner and owning group are set to `$superuser`.
 
 ### The owning user
 
-The user who created the item is automatically the owning user of the item. An owning user can:
+The user who creates the item is automatically the owning user of the item. An owning user can:
 
-- Change the permissions of a file that is owned.
-- Change the owning group of a file that is owned, as long as the owning user is also a member of the target group.
+- Change the permissions of a file that they own.
+- Change the owning group of a file that they own, as long as the owning user is also a member of the target group.
 
 > [!NOTE]
-> The owning user *cannot* change the owning user of a file or directory. Only super-users can change the owning user of a file or directory.
+> The owning user *can't* change the owning user of a file or directory. Only super-users can change the owning user of a file or directory.
 
 ### The owning group
 
-In the POSIX ACLs, every user is associated with a *primary group*. For example, user "Alice" might belong to the "finance" group. Alice might also belong to multiple groups, but one group is always designated as their primary group. In POSIX, when Alice creates a file, the owning group of that file is set to her primary group, which in this case is "finance." The owning group otherwise behaves similarly to assigned permissions for other users/groups.
+In the POSIX ACLs, every user is associated with a *primary group*. For example, user "Alice" might belong to the "finance" group. Alice might also belong to multiple groups, but one group is always designated as their primary group. In POSIX, when Alice creates a file, the owning group of that file is set to her primary group, which in this case is "finance." The owning group otherwise behaves similarly to assigned permissions for other users and groups.
 
 #### Assigning the owning group for a new file or directory
 
-- **Case 1:** The root directory `/`. This directory is created when a Data Lake Storage container is created. In this case, the owning group is set to the user who created the container if it was done using OAuth. If the container is created using Shared Key, an Account SAS, or a Service SAS, then the owner and owning group are set to `$superuser`.
+- **Case 1:** The root directory `/`. This directory is created when a Data Lake Storage container is created. In this case, the owning group is set to the user who created the container if they use OAuth. If the user creates the container by using Shared Key, an Account SAS, or a Service SAS, the owner and owning group are set to `$superuser`.
 - **Case 2 (every other case):** When a new item is created, the owning group is copied from the parent directory.
 
 #### Changing the owning group
 
 The owning group can be changed by:
 
-- Any super-users.
+- Any super-user.
 - The owning user, if the owning user is also a member of the target group.
 
 > [!NOTE]
-> The owning group cannot change the ACLs of a file or directory. While the owning group is set to the user who created the account in the case of the root directory, **Case 1** above, a single user account isn't valid for providing permissions via the owning group. You can assign this permission to a valid user group if applicable.
+> The owning group can't change the ACLs of a file or directory. While the owning group is set to the user who created the account in the case of the root directory, **Case 1** earlier, a single user account isn't valid for providing permissions via the owning group. You can assign this permission to a valid user group if applicable.
 
 ## How permissions are evaluated
 
-Identities are evaluated in the following order:
+The system evaluates identities in the following order:
 
 1. Superuser
 2. Owning user
-3. Named user, service principal or managed identity
-4. Owning group or named group
-5. All other users
+1. Named user, service principal, or managed identity
+1. Owning group or named group
+1. All other users
 
-If more than one of these identities applies to a security principal, then the permission level associated with the first identity is granted. For example, if a security principal is both the owning user and a named user, then the permission level associated with the owning user applies. 
+If more than one of these identities applies to a security principal, the system grants the permission level associated with the first identity. For example, if a security principal is both the owning user and a named user, the permission level associated with the owning user applies. 
 
-Named groups are all considered together. If a security principal is a member of more than one named group, then the system evaluates each group until the desired permission is granted. If none of the named groups provide the desired permission, then the system moves on to evaluate a request against the permission associated with all other users.
+The system considers all named groups together. If a security principal is a member of more than one named group, the system evaluates each group until it finds the desired permission. If none of the named groups provide the desired permission, the system moves on to evaluate a request against the permission associated with all other users.
 
 The following pseudocode represents the access check algorithm for storage accounts. This algorithm shows the order in which identities are evaluated.
 
@@ -230,15 +230,15 @@ def access_check( user, desired_perms, path ) :
 
 ### The mask
 
-The mask applies only to the ACL entry of a named user, named group, and the owning group. The mask specifies which of the permissions in the ACL entry are used to authorize access.  These applied permissions are called the _effective_ permissions of the ACL entry. All other permissions in the ACL entry are ignored. By using the mask, you can establish an upper limit on permission levels.
+The mask applies only to the ACL entry of a named user, named group, and the owning group. The mask specifies which of the permissions in the ACL entry are used to authorize access. These applied permissions are called the _effective_ permissions of the ACL entry. The system ignores all other permissions in the ACL entry. By using the mask, you can establish an upper limit on permission levels.
 
-The mask may be specified on a per-call basis. This allows different consuming systems, such as clusters, to have different effective masks for their file operations. If a mask is specified on a given request, it completely overrides the default mask.
+You can specify the mask on a per-call basis. This flexibility allows different consuming systems, such as clusters, to have different effective masks for their file operations. If you specify a mask on a given request, it completely overrides the default mask.
 
 ### The sticky bit
 
-The sticky bit is a more advanced feature of a POSIX container. In the context of Data Lake Storage, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a directory,  a child item can only be deleted or renamed by the child item's owning user, the directory's owner, or the Superuser ($superuser).
+The sticky bit is a more advanced feature of a POSIX container. In the context of Data Lake Storage, it's unlikely that you need the sticky bit. In summary, if you enable the sticky bit on a directory, only the child item's owning user, the directory's owner, or the Superuser ($superuser) can delete or rename a child item.
 
-The sticky bit isn't shown in the Azure portal. To learn more about the sticky bit and how to set it, see [What is the sticky bit Data Lake Storage?](/troubleshoot/azure/azure-storage/blobs/authentication/adls-gen2-sticky-bit-403-access-denied#what-is-the-sticky-bit-in-adls-gen2).
+The Azure portal doesn't show the sticky bit. To learn more about the sticky bit and how to set it, see [What is the sticky bit Data Lake Storage?](/troubleshoot/azure/azure-storage/blobs/authentication/adls-gen2-sticky-bit-403-access-denied#what-is-the-sticky-bit-in-adls-gen2)
 
 ## Default permissions of the root directory
 
@@ -250,22 +250,22 @@ For a new Data Lake Storage container, the access ACL of the root directory ("/"
 |Owning group|`r-x`|`r--`|
 |Other|`---`|`---`|
 
-Files do not receive the X bit as it is irrelevant to files in a store-only system.
+Files don't receive the X bit as it's irrelevant to files in a store-only system.
 
 ## Default permissions on new files and directories
 
-When a new file or directory is created under an existing directory, the default ACL on the parent directory determines:
+When you create a new file or directory under an existing directory, the default ACL on the parent directory determines:
 
 - A child directory's default ACL and access ACL.
-- A child file's access ACL (files do not have a default ACL).
+- A child file's access ACL (files don't have a default ACL).
 
 ### umask
 
-When creating a default ACL, the umask is applied to the access ACL to determine the initial permissions of a default ACL. If a default ACL is defined on the parent directory, the umask is effectively ignored and the default ACL of the parent directory is used to define these initial values instead.  
+When you create a default ACL, the system applies the umask to the access ACL to determine the initial permissions for the default ACL. If you define a default ACL on the parent directory, the system ignores the umask and uses the default ACL of the parent directory to set the initial values.  
 
 The umask is a 9-bit value on parent directories that contains an RWX value for **owning user**, **owning group**, and **other**.
 
-The umask for Azure Data Lake Storage a constant value that is set to 007. This value translates to:
+The umask for Azure Data Lake Storage is a constant value set to 007. This value translates to:
 
 | umask component     | Numeric form | Short form | Meaning |
 |---------------------|--------------|------------|---------|
@@ -277,9 +277,9 @@ The umask for Azure Data Lake Storage a constant value that is set to 007. This 
 
 ### Do I have to enable support for ACLs?
 
-No. Access control via ACLs is enabled for a storage account as long as the Hierarchical Namespace (HNS) feature is turned ON.
+No. As long as the Hierarchical Namespace (HNS) feature is turned on, access control via ACLs is enabled for a storage account.
 
-If HNS is turned OFF, the Azure RBAC authorization rules still apply.
+If HNS is turned off, the Azure RBAC authorization rules still apply.
 
 ### What is the best way to apply ACLs?
 
@@ -297,27 +297,27 @@ The following table provides a summary view of the limits to consider while usin
 
 ### Does Data Lake Storage support inheritance of Azure RBAC?
 
-Azure role assignments do inherit. Assignments flow from subscription, resource group, and storage account resources down to the container resource.
+Azure role assignments inherit. Assignments flow from subscription, resource group, and storage account resources down to the container resource.
 
 ### Does Data Lake Storage support inheritance of ACLs?
 
-Default ACLs can be used to set ACLs for new child subdirectories and files created under the parent directory. To update ACLs for existing child items, you will need to add, update, or remove ACLs recursively for the desired directory hierarchy. For guidance, see the [How to set ACLs](#set-access-control-lists) section of this article.
+Default ACLs can be used to set ACLs for new child subdirectories and files created under the parent directory. To update ACLs for existing child items, you need to add, update, or remove ACLs recursively for the desired directory hierarchy. For guidance, see the [How to set ACLs](#set-access-control-lists) section of this article.
 
 ### Which permissions are required to recursively delete a directory and its contents?
 
-- The caller has 'super-user' permissions,
+- The caller has super-user permissions,
 
 Or
 
-- The parent directory must have Write + Execute permissions.
-- The directory to be deleted, and every directory within it, requires Read + Write + Execute permissions.
+- The parent directory has Write and Execute permissions.
+- The directory to be deleted, and every directory within it, requires Read, Write, and Execute permissions.
 
 > [!NOTE]
-> You do not need Write permissions to delete files in directories. Also, the root directory "/" can never be deleted.
+> You don't need Write permissions to delete files in directories. Also, the root directory "/" can never be deleted.
 
 ### Who is the owner of a file or directory?
 
-The creator of a file or directory becomes the owner. In the case of the root directory, this is the identity of the user who created the container.
+The creator of a file or directory becomes the owner. In the case of the root directory, this identity is the user who created the container.
 
 ### Which group is set as the owning group of a file or directory at creation?
 

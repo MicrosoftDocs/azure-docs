@@ -3,7 +3,7 @@ title: Session log in a Copy activity
 description: Learn how to enable session log in a Copy activity in Azure Data Factory.
 author: dearandyxu
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/05/2024
 ms.author: yexu
 ms.custom: sfi-image-nochange

@@ -7,7 +7,7 @@ ms.service: azure-lab-services
 author: RoseHJM
 ms.author: rosemalcolm
 ms.date: 04/24/2023
-ms.topic: conceptual
+ms.topic: best-practice
 ---
 
 # Recommended approaches for creating custom images for Azure Lab Services labs

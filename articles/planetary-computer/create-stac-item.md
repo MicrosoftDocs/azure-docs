@@ -1,15 +1,15 @@
 ---
 title: Creating STAC Items in Microsoft Planetary Computer Pro
 description: Learn how to create A STAC Item for a geospatial data asset for use with Microsoft Planetary Computer Pro. 
-author: prasadko
-ms.author: prasadkomma
+author: nelsontam-afk
+ms.author: nelsontam
 ms.service: planetary-computer-pro
 ms.topic: how-to
 ms.date: 04/08/2025
 
 ms.custom:
   - build-2025
-# customer intent: As a GeoCatalog user, I want to create a SpatioTemporal Asset Catalog (STAC) Item to describe my geospatial data asset so that I can upload that asset to an Microsoft Planetary Computer Pro GeoCatalog.
+# customer intent: As a GeoCatalog user, I want to create a SpatioTemporal Asset Catalog (STAC) Item to describe my geospatial data asset so that I can upload that asset to a Microsoft Planetary Computer Pro GeoCatalog.
 ---
 
 # Create a SpatioTemporal Asset Catalog (STAC) item

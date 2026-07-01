@@ -1,24 +1,24 @@
 ---
 title: Generate Schemas for SAP Artifacts via Workflows
-description: Create a workflow to generate schemas for SAP artifacts by using Azure Logic Apps.
-ms.service: azure-logic-apps
+description: Create workflows that generate schemas for SAP artifacts by using Azure Logic Apps.
 services: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: daviburg
 ms.author: daviburg
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 04/15/2025
+ms.update-cycle: 365-days
+ms.date: 03/11/2026
 ms.custom: sfi-image-nochange
-
-#customer intent: As a developer, I want to create a workflow that can generate schemas for SAP artifacts by using Azure Logic Apps.
+#customer intent: As an integration developer who works with SAP and Azure Logic Apps, I want to create a workflow that generates schemas for SAP artifacts.
 ---
 
-# Generate schemas for SAP artifacts by using workflows in Azure Logic Apps
+# Create workflows to generate schemas for SAP artifacts by using Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../../includes/logic-apps-sku-consumption-standard.md)]
 
-This how-to guide shows how to create an example logic app workflow that generates schemas for SAP artifacts. The workflow starts with a **Request** trigger that can receive HTTP POST requests from your SAP server. The workflow then generates schemas for the specified IDoc and BAPI by using the SAP action named **Generate schemas** that sends a request to your SAP server. To send this request, you can use either the generic SAP managed connector action named **Send message to SAP**, or you can use the specific SAP managed or built-in action named **[BAPI] Call method in SAP**. This SAP action returns an [XML schema](#sample-xml-schemas) without the contents or data in the XML document itself. The workflow then uploads the schemas returned by the response to an integration account by using an Azure Resource Manager connector operation.
+This guide shows how to create an example logic app workflow that generates schemas for SAP artifacts. The workflow starts with a **Request** trigger that can receive HTTP POST requests from your SAP server. The workflow then generates schemas for the specified IDoc and BAPI by using the SAP action named **Generate schemas** that sends a request to your SAP server. To send this request, you can use either the generic SAP managed connector action named **Send message to SAP**, or you can use the specific SAP managed or built-in action named **[BAPI] Call method in SAP**. This SAP action returns an [XML schema](#sample-xml-schemas) without the contents or data in the XML document itself. The workflow then uploads the schemas returned by the response to an integration account by using an Azure Resource Manager connector operation.
 
 Schemas contain the following parts:
 
@@ -30,6 +30,8 @@ Schemas contain the following parts:
 Both Standard and Consumption logic app workflows offer the SAP *managed* connector, which is hosted and run in multitenant Azure. Standard workflows also offer the SAP *built-in* connector, which is hosted and run in single-tenant Azure Logic Apps. For more information, see [Connector technical reference](sap.md#connector-technical-reference).
 
 ## Prerequisites
+
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Before you start, make sure to [review and meet the SAP connector requirements](sap.md#prerequisites) for your specific scenario.
 
@@ -57,7 +59,7 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
 
 1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app resource and blank workflow in the designer.
 
-1. In the designer, follow [these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
+1. In the designer, follow [these general steps to find and add the Request built-in trigger named **When an HTTP request is received**](../create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
    :::image type="content" source="./media/sap-generate-schemas-for-artifacts/add-request-trigger-consumption.png" alt-text="Screenshot shows the Request trigger for a Consumption workflow." lightbox="./media/sap-generate-schemas-for-artifacts/add-request-trigger-consumption.png":::
 
@@ -71,7 +73,7 @@ Based on whether you have a Consumption or Standard workflow, follow the corresp
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource and blank workflow in the designer.
 
-1. In the designer, follow [these general steps to find and add the Request built-in trigger named **When a HTTP request is received**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
+1. In the designer, follow [these general steps to find and add the Request built-in trigger named **When an HTTP request is received**](../create-workflow-with-trigger-or-action.md?tabs=standard#add-trigger).
 
    :::image type="content" source="./media/sap-generate-schemas-for-artifacts/add-request-trigger-standard.png" border="false" alt-text="Screenshot shows the Request trigger for a Standard workflow." lightbox="./media/sap-generate-schemas-for-artifacts/add-request-trigger-standard.png":::
 

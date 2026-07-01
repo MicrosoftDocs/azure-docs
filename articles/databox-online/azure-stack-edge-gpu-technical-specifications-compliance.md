@@ -2,12 +2,12 @@
 title: Microsoft Azure Stack Edge Pro with GPU technical specifications and compliance| Microsoft Docs
 description: Learn about the technical specifications and compliance for your Azure Stack Edge Pro device with GPU
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/12/2023
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Technical specifications and compliance for Azure Stack Edge Pro with GPU 

@@ -257,8 +257,6 @@
       href: ../iot-edge/index.yml
     - name: Azure Maps
       href: ../azure-maps/index.yml
-    - name: Time Series Insights
-      href: ../time-series-insights/index.yml
   - name: Azure IoT SDKs
     items:
     - name: IoT Service SDKs

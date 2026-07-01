@@ -7,6 +7,7 @@ ms.custom:
   - build-2025
 ms.topic: quickstart
 ms.date: 06/17/2025
+ms.update-cycle: 1095-days
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -149,7 +150,7 @@ resource roleAssignmentReader 'Microsoft.Authorization/roleAssignments@2022-04-0
   }
 }
 
-@description('Step 5: Create Backup Instance for PostgreSQL)
+@description('Step 5: Create Backup Instance for PostgreSQL')
 resource backupInstance 'Microsoft.DataProtection/backupVaults/backupInstances@2023-01-01' = {
   name: 'PostgreSQLBackupInstance'
   location: region

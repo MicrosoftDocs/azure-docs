@@ -565,6 +565,16 @@ Access restriction to the public endpoint is done using the storage account fire
 > [!NOTE]
 > The **Allow Azure services on the trusted services list to access this storage account** exception must be selected on your storage account to allow trusted first party Microsoft services such as Azure File Sync to access the storage account. To learn more, see [Grant access to trusted Azure services](../common/storage-network-security.md#grant-access-to-trusted-azure-services).
 
+> [!IMPORTANT]
+> **Azure File Sync has a known limitation with network security perimeters (NSP).**
+> Storage Sync Services can't be placed inside a perimeter, and full perimeter integration isn't supported.
+>
+> To connect a Storage Sync Service to a storage account protected by an NSP:
+> 1. Configure the Storage Sync Service to use [Managed Identities](file-sync-managed-identities.md).
+> 2. Create an NSP inbound profile rule that allowlists the subscription hosting the Storage Sync Service.
+>
+> Storage Sync Services must remain outside the perimeter for sync to function correctly.
+
 #### Grant access to trusted Azure services and disable access to the storage account public endpoint
 
 When access to the public endpoint is disabled, the storage account can still be accessed through its private endpoints. Otherwise valid requests to the storage account's public endpoint will be rejected.

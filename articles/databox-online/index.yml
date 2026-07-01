@@ -8,8 +8,8 @@ metadata:
   description: Azure Stack Edge Documentation for high-performance over-the-network data transfer to Azure.
   ms.service: azure-stack-edge
   ms.topic: landing-page
-  author: alkohli
-  ms.author: alkohli
+  author: ronmiab
+  ms.author: robess
   ms.date: 06/10/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -102,7 +102,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: GPU module via Marketplace
-            url: azure-stack-edge-gpu-deploy-sample-module-marketplace.md
+            url: azure-stack-edge-gpu-deploy-sample-module.md
           - text: VMs via Azure portal
             url: azure-stack-edge-gpu-deploy-virtual-machine-portal.md 
           - text: VMs via Templates

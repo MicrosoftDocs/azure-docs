@@ -16,11 +16,11 @@ There are two types of layers available in an Azure Maps Power BI visual. The fi
 
 :::row:::
     :::column span="":::
-        **Bubble layer**
+        **Marker layer**
 
-        Renders points as scaled circles on the map.
+        Renders icons or svg images on the map.
 
-        ![Bubble layer on map](media/power-bi-visual/bubble-layer-thumb.png)
+        ![Marker layer on map](media/power-bi-visual/marker-layer/marker-layer-thumb.png)
     :::column-end:::
     :::column span="":::
         **3D column layer**
@@ -80,7 +80,7 @@ These layers can also be positioned relative to other layers in the map. When mu
 
 ## General layer settings
 
-The general layer section of the **Format** pane are common settings that apply to the layers that are connected to the Power BI dataset in the **Fields** pane (Bubble layer, 3D column layer).
+The general layer section of the **Format** pane are common settings that apply to the layers that are connected to the Power BI dataset in the **Fields** pane (Marker layer, 3D column layer).
 
 | Setting        | Description                            |
 |----------------|----------------------------------------|
@@ -94,7 +94,7 @@ In the Azure Maps visual, certain layers are fixed, meaning they're set at a pre
 
 :::image type="content" source="media/power-bi-visual/layer-position.png" alt-text="a screenshot showing the layer position drop-down list.":::
 
-Within each Layer position, the order of layers remains consistent. For instance, the 3D bar chart layer always appears above the bubble layer due to its higher layer order, regardless of whether they're placed in "Below Labels" or "Above Labels."
+Within each Layer position, the order of layers remains consistent. For instance, the 3D bar chart layer always appears above the marker layer due to its higher layer order, regardless of whether they're placed in "Below Labels" or "Above Labels."
 
 ## Layer order
 
@@ -105,7 +105,7 @@ The following table outlines the layer order from top to bottom along with their
 | Category Labels      | 1           | Fixed         |  The Category Labels is fixed as the top-most layer. You can consider this layer as "fixed" at the highest position. |
 | Selection Tools      | 2           | Fixed         |The Selection tool layer is fixed as the second-highest layer, overlaying all other map layers. "Fixed" means it remains in the second level.|
 | 3D Bar chart Layer   | 3           | Adjustable    |                                                       |
-| Pie chart Layer<br>Bubble Layer<br>Cluster Bubble Layer<br>Path Layer | 4 | Adjustable | These layers share the same "Layer position" as the bubble layer, and their relative order within this group remains fixed. |
+| Pie chart Layer<br>Marker Layer<br>Cluster Bubbles<br>Path Layer | 4 | Adjustable | These layers share the same "Layer position" as the marker layer, and their relative order within this group remains fixed. |
 | Heat Map Layer       | 5           | Adjustable    |                                                       |
 | Reference Layer      | 6           | Fixed         |The Reference Layer is fixed at "Below labels".   |
 | Filled Map Layer     | 7           | Adjustable    |                                                       |
@@ -117,7 +117,7 @@ The following table outlines the layer order from top to bottom along with their
 Change how your data is displayed on the map:
 
 > [!div class="nextstepaction"]
-> [Add a bubble layer](power-bi-visual-add-bubble-layer.md)
+> [Add a marker layer](power-bi-visual-add-marker-layer.md)
 
 > [!div class="nextstepaction"]
 > [Add a 3D column layer](power-bi-visual-add-3d-column-layer.md)
@@ -132,5 +132,3 @@ Add more context to the map:
 
 > [!div class="nextstepaction"]
 > [Show real-time traffic](power-bi-visual-show-real-time-traffic.md)
-
- [Add a bubble layer]: power-bi-visual-add-bubble-layer.md

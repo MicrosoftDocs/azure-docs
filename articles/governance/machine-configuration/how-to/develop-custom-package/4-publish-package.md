@@ -116,7 +116,7 @@ $contentUri = New-AzStorageBlobSASToken @tokenParams
 
 
 <!-- Reference link definitions -->
-[01]: ../../overview.md
+[01]: ../../overview/01-overview-concepts.md
 [02]: /azure/storage/common/storage-sas-overview
 [03]: /azure/storage/common/storage-network-security#grant-access-from-a-virtual-network
 [04]: /azure/storage/common/storage-configure-connection-string#configure-a-connection-string-for-an-azure-storage-account

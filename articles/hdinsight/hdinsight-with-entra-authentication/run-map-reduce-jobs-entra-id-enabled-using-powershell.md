@@ -3,8 +3,8 @@ title: Run MapReduce jobs with Apache Hadoop on Entra enabled HDInsight using Po
 description: Learn how to run MapReduce jobs with Apache Hadoop on Entra enabled HDInsight using PowerShell
 ms.service: azure-hdinsight
 ms.topic: how-to
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 03/19/2025
 ---

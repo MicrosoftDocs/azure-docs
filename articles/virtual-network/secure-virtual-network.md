@@ -4,7 +4,7 @@ description: Learn how to secure Azure Virtual Network with best practices for n
 author: asudbring
 ms.author: allensu
 ms.service: azure-virtual-network
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: horz-security
 ms.date: 06/18/2025
 ai-usage: ai-assisted

@@ -6,10 +6,12 @@ ms.author: ajagadish
 ms.date: 04/30/2019
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Get started with Transparent Data Encryption (TDE)
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 > [!div class="op_single_selector"]
 >

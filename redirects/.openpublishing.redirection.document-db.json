@@ -467,11 +467,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/documentdb/index.md",
-      "redirect_url": "/azure/cosmos-db/mongodb/vcore",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/documentdb/sql-query-operators.md",
       "redirect_url": "sql-query-logical-operators",
       "redirect_document_id": false

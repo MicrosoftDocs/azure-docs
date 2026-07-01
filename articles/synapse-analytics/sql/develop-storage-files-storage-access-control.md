@@ -13,6 +13,8 @@ ms.custom: devx-track-azurepowershell
 
 # Control storage account access for serverless SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 A serverless SQL pool query reads files directly from Azure Storage. Permissions to access the files on Azure storage are controlled at two levels:
 - **Storage level** - User should have permission to access underlying storage files. Your storage administrator should allow Microsoft Entra principal to read/write files, or generate shared access signature (SAS) key that will be used to access storage.
 - **SQL service level** - User should have granted permission to read data using [external table](develop-tables-external-tables.md) or to execute the `OPENROWSET` function. Read more about [the required permissions in this section](develop-storage-files-overview.md#permissions).

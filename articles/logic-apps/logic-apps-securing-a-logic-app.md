@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, rarayudu, azla
 ms.topic: how-to
-ms.date: 11/15/2024
+ms.date: 06/26/2026
+ms.update-cycle: 1095-days
 ms.custom:
   - sfi-image-nochange
   - sfi-ropc-nochange
@@ -293,7 +294,7 @@ Before using these settings to help you secure this data, review these considera
 
   ![Secured outputs as inputs and downstream impact on most actions](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
 
-  The Compose, Parse JSON, and Response actions has only the **Secure Inputs** setting. When turned on, the setting also hides these actions' outputs. If these actions explicitly use the upstream secured outputs as inputs, Azure Logic Apps hides these actions' inputs and outputs, but *doesn't enable* these actions' **Secure Inputs** setting. If a downstream action explicitly uses the hidden outputs from the Compose, Parse JSON, or Response actions as inputs, Azure Logic Apps *doesn't hide this downstream action's inputs or outputs*.
+  The **Compose**, **Parse JSON**, and **Response** actions have only the **Secure Inputs** setting. When turned on, the setting also hides these actions' outputs. If these actions explicitly use the upstream secured outputs as inputs, Azure Logic Apps hides these actions' inputs and outputs, but *doesn't enable* these actions' **Secure Inputs** setting. If a downstream action explicitly uses the hidden outputs from the **Compose**, **Parse JSON**, or **Response** actions as inputs, Azure Logic Apps *doesn't hide this downstream action's inputs or outputs*.
 
   ![Secured outputs as inputs with downstream impact on specific actions](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
 
@@ -303,10 +304,9 @@ Before using these settings to help you secure this data, review these considera
 
   ![Secured inputs and downstream impact on most actions](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
 
-  If the Compose, Parse JSON, and Response actions explicitly use the visible outputs from the trigger or action that has the secured inputs, Azure Logic Apps hides these actions' inputs and outputs, but *doesn't enable* these action's **Secure Inputs** setting. If a downstream action explicitly uses the hidden outputs from the Compose, Parse JSON, or Response actions as inputs, Azure Logic Apps *doesn't hide this downstream action's inputs or outputs*.
+  If the **Compose**, **Parse JSON**, and **Response** actions explicitly use the visible outputs from the trigger or action that has the secured inputs, Azure Logic Apps hides these actions' inputs and outputs, but *doesn't enable* these action's **Secure Inputs** setting. If a downstream action explicitly uses the hidden outputs from the **Compose**, **Parse JSON**, or **Response** actions as inputs, Azure Logic Apps *doesn't hide this downstream action's inputs or outputs*.
 
   ![Secured inputs and downstream impact on specific actions](./media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
-
 #### Secure inputs and outputs in the designer
 
 1. In the [Azure portal](https://portal.azure.com), open your logic app workflow in the designer.
@@ -674,7 +674,7 @@ In a Consumption workflow that starts with a request-based trigger, you can auth
 
 When your logic app workflow receives an inbound request that includes an OAuth access token, Azure Logic Apps compares the token's claims against the claims specified by each authorization policy. If a match exists between the token's claims and all the claims in at least one policy, authorization succeeds for the inbound request. The token can have more claims than the number specified by the authorization policy.
 
-In a Standard workflow that starts with the **Request** trigger (but not a webhook trigger), you can use the Azure Functions provision for authenticating inbound calls sent to the endpoint created by the **Request** trigger by using a managed identity. This provision is also known as "**Easy Auth**". For more information, see [Trigger workflows in Standard logic apps with Easy Auth](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/trigger-workflows-in-standard-logic-apps-with-easy-auth/ba-p/3207378).
+In a Standard workflow that starts with the **Request** trigger (but not a webhook trigger), you can use the Azure Functions provision for authenticating inbound calls sent to the endpoint created by the **Request** trigger by using a managed identity. This provision is also known as "**Easy Auth**". For more information, see [Trigger workflows in Standard logic apps with Easy Auth](https://techcommunity.microsoft.com/blog/integrationsonazureblog/trigger-workflows-in-standard-logic-apps-with-easy-auth/3207378).
 
 <a name="considerations-before-you-enable-azure-ad-oauth"></a>
 
@@ -735,17 +735,17 @@ In a Standard workflow that starts with the **Request** trigger (but not a webho
 
 <a name="enable-oauth-only-option"></a>
 
-#### Enable OAuth 2.0 with Microsoft Entra ID as the only option to call a request endpoint (Consumption only)
+#### Enable OAuth 2.0 with Microsoft Entra ID as the only option to call a request endpoint
 
 For request-based endpoints, you can restrict authorization to use only [OAuth 2.0 with Microsoft Entra ID](/entra/architecture/auth-oauth2). This option works even if you also [disable shared access signature (SAS) authentication](#disable-sas).
 
-1. For your Consumption workflow, set up your **Request** trigger or **HTTP Webhook** trigger with the capability to check the OAuth access token by [following the steps to include the 'Authorization' header in the Request or HTTP webhook trigger outputs](#include-auth-header).
+1. For your workflow, set up your **Request** trigger or **HTTP Webhook** trigger with the capability to check the OAuth access token by [following the steps to include the 'Authorization' header in the Request or HTTP webhook trigger outputs](#include-auth-header).
 
    > [!NOTE]
    >
    > This step makes the `Authorization` header visible in the workflow's run history and in the trigger's outputs.
 
-1. In the [Azure portal](https://portal.azure.com), open your Consumption workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your workflow in the designer.
 
 1. On the designer, select the trigger. On the information pane that opens, select **Settings**.
 
@@ -782,7 +782,7 @@ To add an authorization policy to your Consumption logic app, follow the steps f
 
 #### [Portal](#tab/azure-portal)
 
-1. In the [Azure portal](https://portal.microsoft.com), open your Consumption logic app and workflow in the designer.
+1. In the [Azure portal](https://portal.azure.com), open your Consumption logic app and workflow in the designer.
 
 1. On the logic app menu, under **Settings**, select **Authorization**.
 
@@ -798,7 +798,7 @@ To add an authorization policy to your Consumption logic app, follow the steps f
    |----------|----------|------|-------------|
    | **Policy name** | Yes | String | The name that you want to use for the authorization policy |
    | **Policy type** | Yes | String | Either **AAD** for bearer type tokens or **AADPOP** for Proof-of-Possession type tokens. |
-   | **Claims** | Yes | String | A key-value pair that specifies the claim type and value that the workflow's Request trigger expects in the access token presented by each inbound call to the trigger. You can add any standard claim you want by selecting **Add standard claim**. To add a claim that's specific to a PoP token, select **Add custom claim**. <br><br>Available standard claim types: <br><br>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token identifier) <br><br>Requirements: <br><br>- At a minimum, the **Claims** list must include the **Issuer** claim, which has a value that starts with **`https://sts.windows.net/`** or **`https://login.microsoftonline.com/`** as the Microsoft Entra issuer ID. <br><br>- Each claim must be a single string value, not an array of values. For example, you can have a claim with **Role** as the type and **Developer** as the value. You can't have a claim that has **Role** as the type and the values set to **Developer** and **Program Manager**. <br><br>- The claim value is limited to a [maximum number of characters](logic-apps-limits-and-config.md#authentication-limits). <br><br>For more information about these claim types, review [Claims in Microsoft Entra security tokens](/entra/identity-platform/security-tokens#json-web-tokens-and-claims). You can also specify your own claim type and value. |
+   | **Claims** | Yes | String | A key-value pair that specifies the claim type and value that the workflow's Request trigger expects in the access token presented by each inbound call to the trigger. You can add any standard claim you want by selecting **Add standard claim**. To add a claim that's specific to a PoP token, select **Add custom claim**. <br><br>Available standard claim types: <br><br>- **Issuer** <br>- **Audience** <br>- **Subject** <br>- **JWT ID** (JSON Web Token identifier) <br><br>Requirements: <br><br>- At a minimum, the **Claims** list must include the following claim types: <br><br>-- **Issuer**: Set the value to start with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Microsoft Entra issuer ID. <br>-- **Audience**: The value is set to the expected audience for your logic app resource. <br><br>- Each claim must be a single string value, not an array of values. For example, you can have a claim with **Role** as the type and **Developer** as the value. You can't have a claim that has **Role** as the type and the values set to **Developer** and **Program Manager**. <br><br>- The claim value is limited to a [maximum number of characters](logic-apps-limits-and-config.md#authentication-limits). <br><br>You can also specify your own claim type and value. For more information about these claim types, see [Claims in Microsoft Entra security tokens](/entra/identity-platform/security-tokens#json-web-tokens-and-claims). |
 
    The following example shows the information for a PoP token:
 
@@ -832,7 +832,13 @@ In your ARM template, define an authorization policy following these steps and s
 
 1. Provide a name for authorization policy, set the policy type to `AAD`, and include a `claims` array where you specify one or more claim types.
 
-   At a minimum, the `claims` array must include the Issuer claim type where you set the claim's `name` property to `iss` and set the `value` to start with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Microsoft Entra issuer ID. For more information about these claim types, see [Claims in Microsoft Entra security tokens](/entra/identity-platform/security-tokens#json-web-tokens-and-claims). You can also specify your own claim type and value.
+   At a minimum, the `claims` array must include the following claim types:
+
+   - **Issuer**: Set the claim's `name` property to `iss`. Set the `value` to start with `https://sts.windows.net/` or `https://login.microsoftonline.com/` as the Microsoft Entra issuer ID.
+   
+   - **Audience**: Set the claim's `name` property to `aud`. Set the `value` to the expected audience for your logic app resource.
+   
+   You can also specify your own claim type and value. For more information about these claim types, see [Claims in Microsoft Entra security tokens](/entra/identity-platform/security-tokens#json-web-tokens-and-claims).
 
 1. To include the `Authorization` header from the access token in the request-based trigger outputs, see [Include 'Authorization' header in request trigger outputs](#include-auth-header).
 
@@ -960,13 +966,13 @@ For more information about security when you use an SAS key, see the following s
 
 <a name="disable-sas"></a>
 
-### Disable shared access signature (SAS) authentication (Consumption only)
+### Disable shared access signature (SAS) authentication
 
 By default, a request-based trigger has SAS authentication enabled. The trigger's endpoint URL includes an SAS, starting with the query parameters, **`sp-<permissions>sv-<SAS-version>sig=<signature>`**, for example:
 
 **`https://{domain}:443/workflows/XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX/triggers/When_a_HTTP_request_is_received/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2FWhen_a_HTTP_request_is_received%2Frun&sv=1.0&sig=ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ`**
 
-If your Consumption workflow starts with the **Request** trigger, and you want to use [OAuth with Microsoft Entra ID](#enable-oauth), you can disable SAS authentication to avoid errors and problems running your workflow. You also add a security layer by removing the dependency on secrets, which reduces the risk in having secrets logged or leaked.
+If your workflow starts with the **Request** trigger, and you want to use [OAuth with Microsoft Entra ID](#enable-oauth), you can disable SAS authentication to avoid errors and problems running your workflow. You also add a security layer by removing the dependency on secrets, which reduces the risk in having secrets logged or leaked.
 
 This option works even if you also [enable OAuth 2.0 with Microsoft Entra ID as the only option to call a request-based endpoint](#enable-oauth-only-option). For Standard workflows, you can use other authentication types without disabling SAS.
 
@@ -1379,7 +1385,7 @@ In your ARM template, specify the allowed inbound IP address ranges in your logi
 
 ## Access for outbound calls to other services and systems
 
-Based on the target endpoint's capability, outbound calls sent by the [HTTP trigger or HTTP action](../connectors/connectors-native-http.md), support encryption and are secured with [Transport Layer Security (TLS) 1.0, 1.1, or 1.2](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL). Azure Logic Apps negotiates with the target endpoint over using the highest possible version that's supported. For example, if the target endpoint supports 1.2, the HTTP trigger or action uses 1.2 first. Otherwise, the connector uses the next highest supported version.
+Based on the target endpoint's capability, outbound calls sent by the [HTTP trigger or HTTP action](../connectors/connectors-native-http.md), support encryption and are secured with [Transport Layer Security (TLS) 1.0, 1.1, 1.2, or 1.3](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL). Azure Logic Apps negotiates with the target endpoint over using the highest possible version that's supported. For example, if the target endpoint supports 1.3, the HTTP trigger or action uses 1.3 first. Otherwise, the connector uses the next highest supported version.
 
 This list includes information about TLS/SSL self-signed certificates:
 

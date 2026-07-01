@@ -17,7 +17,7 @@ In this section, you create a function app in the Flex Consumption plan along wi
     |--|--|
     |**Select subscription**| Select the Azure subscription to use. The prompt doesn't appear when you have only one subscription visible under **Resources**. |
     |**Enter a new function app name**| Enter a globally unique name that's valid in a URL path. The name you enter is validated to make sure that it's unique in Azure Functions. |
-    |**Select a location for new resources**| Select an Azure region. For better performance, select a [region](https://azure.microsoft.com/regions/) near you. Only regions supported by Flex Consumption plans are displayed. |
+    |**Select a location for new resources**| Select an Azure region. For better performance, select a [region](https://azure.microsoft.com/explore/global-infrastructure/geographies/) near you. Only regions supported by Flex Consumption plans are displayed. |
     |**Select a runtime stack**| Select the language version you currently run locally. |
     | **Select resource authentication type** | Select **Managed identity**, which is the most secure option for connecting to the [default host storage account](../articles/azure-functions/storage-considerations.md#storage-account-guidance). |
 

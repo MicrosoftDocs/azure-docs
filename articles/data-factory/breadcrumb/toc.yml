@@ -4,4 +4,11 @@
   items:
   - name: Azure Data Factory
     tocHref: /azure/machine-learning/
-    topicHref: /azure/data-factory/index
+    topicHref: /azure/data-factory/
+- name: Azure
+  tocHref: /fabric/
+  topicHref: /azure/index
+  items:
+    - name: Data Factory
+      tocHref: /fabric/data-factory
+      topicHref: /azure/data-factory/index

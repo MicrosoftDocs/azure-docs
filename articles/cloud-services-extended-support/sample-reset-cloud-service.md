@@ -2,12 +2,13 @@
 title: Azure PowerShell samples - Reset Azure Cloud Services (extended support)
 description: Sample scripts for resetting an Azure Cloud Service (extended support) deployment
 ms.topic: sample
-ms.service: azure-virtual-machines
+ms.service: azure-cloud-services-classic
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
-ms.custom: devx-track-azurepowershell
+ms.update-cycle: 365-days
+ms.custom: devx-track-azurepowershell, cloud-services-extended-support
 # Customer intent: As a cloud administrator, I want PowerShell scripts for resetting Azure Cloud Service deployments so that I can efficiently manage and recover service instances.
 ---
 # Reset an Azure Cloud Service (extended support) 

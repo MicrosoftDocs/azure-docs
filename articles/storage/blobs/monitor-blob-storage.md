@@ -31,6 +31,9 @@ For a list of available metrics for Azure Blob Storage, see [Azure Blob Storage 
 <a name="collection-and-routing"></a>
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Blob Storage, see [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md#resource-logs).
+
+[!INCLUDE [storage-logs-correlation-id](includes/storage-logs-correlation-id.md)]
+
 > [!NOTE]
 > Data Lake Storage doesn't appear as a storage type because Data Lake Storage is a set of capabilities available to Blob storage.
 

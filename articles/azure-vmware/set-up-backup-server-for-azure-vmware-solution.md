@@ -3,7 +3,7 @@ title: Set up Azure Backup Server for Azure VMware Solution
 description: Set up your Azure VMware Solution environment to back up virtual machines using Azure Backup Server.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/29/2024
+ms.date: 3/27/2026
 ms.custom: engagement-fy23
 # Customer intent: "As a system administrator, I want to set up Azure Backup Server for Azure VMware Solution, so that I can ensure reliable backup and recovery of virtual machines to support my organization’s business continuity and disaster recovery strategy."
 ---
@@ -39,7 +39,7 @@ This article helps you prepare your Azure VMware Solution environment to back up
 
 ## Limitations
 
-- If you're using *Azure Backup Server V3*, then you must install [Update Rollup 2](https://support.microsoft.com/topic/update-rollup-2-for-microsoft-azure-backup-server-v3-350de164-0ae4-459a-8acf-7777dbb7fd73). New installations from the Azure portal now use *Azure Backup Server V4* that supports vSphere, version *6.5* to *8.0*.
+- When using *Azure Backup Server V3*, you must install [Update Rollup 2](https://support.microsoft.com/topic/update-rollup-2-for-microsoft-azure-backup-server-v3-350de164-0ae4-459a-8acf-7777dbb7fd73). New installations from the Azure portal now use *Azure Backup Server V4* that supports vSphere, version *6.5* to *8.0*.
 - You can't back up user snapshots before the first Azure Backup Server backup. After Azure Backup Server finishes the first backup, then you can back up user snapshots.
 - Update Rollup 2 for Azure Backup Server v3 must be installed.
 - Azure Backup Server can't protect VMware vSphere VMs with pass-through disks and physical raw device mappings (pRDMs).
@@ -69,9 +69,9 @@ Ensure that you [configure networking for your VMware private cloud in Azure](tu
 
 ### Determine the size of the VM
 
-Use the [MABS Capacity Planner](https://www.microsoft.com/en-us/download/details.aspx?id=54301) to determine the correct VM size. Based on your inputs, the capacity planner gives you the required memory size and CPU core count. Use this information to choose the appropriate Azure VM size. The capacity planner also provides total disk size required for the VM along with the required disk IOPS. We recommend using a standard SSD disk for the VM. By pooling more than one SSD, you can achieve the required IOPS.
+Use the [MABS Capacity Planner](https://www.microsoft.com/en-us/download/details.aspx?id=54301) to determine the correct VM size. Based on your inputs, the capacity planner gives you the required memory size and CPU core count. Use this information to choose the appropriate Azure VM size. The capacity planner also provides total disk size required for the VM along with the required disk IOPS. We recommend using a Standard SSD for the VM. By pooling more than one SSD, you can achieve the required IOPS.
 
-Follow the instructions in the [Create your first Windows VM in the Azure portal](/azure/virtual-machines/windows/quick-create-portal) tutorial.  You created the VM in the virtual network that you created in the previous step. Start with a gallery image of Windows Server 2019 Datacenter to run the Azure Backup Server. 
+Follow the instructions in the [Create your first Windows VM in the Azure portal](/azure/virtual-machines/windows/quick-create-portal) tutorial. You created the VM in the virtual network that you created in the previous step. Start with a gallery image of Windows Server 2019 Datacenter to run the Azure Backup Server. 
 
 > [!NOTE]
 > Azure Backup Server is designed to run on a dedicated, single-purpose server. You can't install Azure Backup Server on a computer that:
@@ -100,7 +100,7 @@ To learn how to attach a new managed data disk to an existing Azure VM, see [Att
 Storing backup data in Azure reduces backup infrastructure on the Azure Backup Server VM. For operational recovery (backup), Azure Backup Server stores backup data on Azure disks attached to the VM. After the disks and storage space are attached to the VM, Azure Backup Server manages the storage for you. The amount of storage depends on the number and size of disks attached to each Azure VM. Each size of the Azure VM has a maximum number of disks that can be attached. For example, A2 is four disks, A3 is eight disks, and A4 is 16 disks. Again, the size and number of disks determine the total backup storage pool capacity.
 
 > [!IMPORTANT]
-> You should *not* retain operational recovery data on Azure Backup Server-attached disks for more than five days. If data is more than five days old, store it in a Recovery Services vault.
+> The recommendation is to *not* retain operational recovery data on Azure Backup Server-attached disks for more than five days. If data is more than five days old, store it in a Recovery Services vault.
 
 To store backup data in Azure, create or use a Recovery Services vault. When you prepare to back up the Azure Backup Server workload, you [configure the Recovery Services vault](#create-a-recovery-services-vault). Once configured, each time an online backup job runs, a recovery point gets created in the vault. Each Recovery Services vault holds up to 9,999 recovery points. Depending on the number of recovery points created and how long kept, you can keep backup data for many years. For example, you could create monthly recovery points and keep them for five years.
 
@@ -154,7 +154,7 @@ A Recovery Services vault is a storage entity that stores the recovery points cr
 The storage replication option lets you choose between geo-redundant storage (the default) and locally redundant storage. Geo-redundant storage copies the data in your storage account to a secondary region, making your data durable. Locally redundant storage is a cheaper option that isn't as durable. To learn more about geo-redundant and locally redundant storage options, see [Azure Storage redundancy](../storage/common/storage-redundancy.md).
 
 > [!IMPORTANT]
-> Changing the setting of **Storage replication type Locally-redundant/Geo-redundant** for a Recovery Services vault must be done before you configure backups in the vault. After you configure backups, the option to modify it is disabled, and you can't change the storage replication type.
+> Changing the setting of **Storage replication type Locally-redundant/Geo-redundant** for a Recovery Services vault must be done before you configure backups in the vault. After you configure backups, the option to modify gets disabled, and you can't change the storage replication type.
 
 1. From **Recovery Services vaults**, select the new vault. 
 
@@ -232,7 +232,7 @@ If you downloaded the software package to a different server, copy the files to 
 1. Once extracted, select the option to **Execute setup.exe**, then select **Finish**.
 
 > [!TIP]
->- You can also locate the setup.exe file from the folder where you extracted the software package.
+>- You can locate the setup.exe file from the folder where you extracted the software package.
 >- To use your own SQL Server instance, ensure that you're using the supported SQL Server versions - SQL Server 2022 and 2019.
 
 ### Install the software package
@@ -287,7 +287,7 @@ If you downloaded the software package to a different server, copy the files to 
 1. Provide a location for installing Microsoft Azure Backup Server files, and select **Next**.
 
    > [!NOTE]
-   > The scratch location is required for backup to Azure. Ensure the scratch location is at least 5% of the data planned for backing up to the cloud. For disk protection, separate disks need configuring after the installation finishes. For more information about storage pools, see [Configure storage pools and disk storage](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
+   > The scratch location is required for backup to Azure. Ensure the scratch location is at least 5% of the data planned for backing up to the cloud. For disk protection, separate disks need to be configured after the installation finishes. For more information about storage pools, see [Configure storage pools and disk storage](/previous-versions/system-center/system-center-2012-r2/hh758075(v=sc.12)).
 
    :::image type="content" source="../backup/media/backup-azure-microsoft-azure-backup/space-screen.png" alt-text="Screenshot showing the SQL Server settings.":::
 
@@ -323,7 +323,7 @@ If you downloaded the software package to a different server, copy the files to 
 
 ### Install Update Rollup 2 for Microsoft Azure Backup Server (MABS) version 3
 
-Installing the Update Rollup 2 for Microsoft Azure Backup Server (MABS) version 3 is mandatory for protecting the workloads.  You can find the bug fixes and installation instructions in the [knowledge base article](https://support.microsoft.com/help/5004579/).
+Installing the Update Rollup 2 for Microsoft Azure Backup Server (MABS) version 3 is mandatory for protecting the workloads. You can find the bug fixes and installation instructions in the [knowledge base article](https://support.microsoft.com/help/5004579/).
 
 ## Add storage to Azure Backup Server
 

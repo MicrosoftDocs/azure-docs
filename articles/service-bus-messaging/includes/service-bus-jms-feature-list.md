@@ -1,11 +1,11 @@
 ---
 title: include file
 description: include file
-author: axisc
+author: spelluru
+ms.author: spelluru
 ms.service: azure-service-bus
 ms.topic: include
 ms.date: 09/28/2021
-ms.author: aschhab
 ms.custom: "include file"
 ---
 

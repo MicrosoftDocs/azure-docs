@@ -7,6 +7,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 02/03/2025
 ms.topic: overview
+ms.update-cycle: 1095-days
 # Customer intent: As an IT administrator who manages diverse server environments, I want to use Azure Update Manager to monitor and automate software updates so that I can ensure compliance and enhance the security of my Windows and Linux machines across Azure and on-premises environments.
 ---
 
@@ -66,7 +67,7 @@ Here are some of the benefits of Update Manager:
   - Available in most [Azure VMs and Azure Arc regions](https://aka.ms/aum-supported-regions).
 
 - Works with Azure roles and identity:
-  - Granular access control at the per-resource level instead of access control at the level of the Azure Automation account and Log Analytics workspace.
+  - Granular access control at per-resource level instead of access control at the level of the Azure Automation account and Log Analytics workspace.
   - Azure Resource Manager-based operations. Update Manager allows [role-based access control](../role-based-access-control/overview.md) and roles based on Resource Manager in Azure.
   - Enhanced flexibility:
     - Take immediate action by either [installing updates immediately](https://aka.ms/on-demand-patching) or [scheduling them for a later date](https://aka.ms/umc-scheduled-patching).

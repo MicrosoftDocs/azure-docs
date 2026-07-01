@@ -52,7 +52,7 @@ Create an Azure Front Door profile by following the instructions described in [Q
 
 Create a sample match condition that selects requests not coming from "US" by using [New-AzFrontDoorWafMatchConditionObject](/powershell/module/az.frontdoor/new-azfrontdoorwafmatchconditionobject) on parameters when you create a match condition.
 
-Two-letter country or region codes to country or region mapping are provided in [What is geo-filtering on a domain for Azure Front Door?](waf-front-door-geo-filtering.md).
+Two-letter country or region codes to country or region mapping are provided in [What is geo-filtering on a domain for Azure Front Door?](waf-front-door-geo-filtering.md)
 
 ```azurepowershell-interactive
 $nonUSGeoMatchCondition = New-AzFrontDoorWafMatchConditionObject `

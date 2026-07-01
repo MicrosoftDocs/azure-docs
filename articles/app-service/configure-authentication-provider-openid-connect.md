@@ -32,7 +32,7 @@ When you register your app, you need to collect a *client ID* and a *client secr
 > - The client secret value is an important security credential. Don't share this secret with anyone or distribute it within a client application.
 > - Your app must provide the client secret if you want users to acquire access tokens using the interactive authorization code flow. If you don't want to acquire access tokens, you don't need to use a secret.
 
-You also need the provider's OIDC metadata. This metadata is often exposed in a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig) that you can get at the path formed by appending `/.well-known/openid-configuration` to the provider's issuer URL.
+You also need the provider's OIDC metadata. This metadata is often exposed in a [configuration metadata document](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig) that you can get at the path formed by appending `/.well-known/openid-configuration` to the provider's issuer URL. The metadata includes `mtls_endpoint_aliases` as part of [Mutual-TLS Client Authentication](https://datatracker.ietf.org/doc/html/rfc8705).
 
 If you can't access a configuration metadata document, get the following values separately:
 

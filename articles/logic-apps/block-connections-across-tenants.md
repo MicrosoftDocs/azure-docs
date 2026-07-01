@@ -1,12 +1,13 @@
 ---
-title: Block access to and from other tenants
-description: Block connections between your tenant and other Microsoft Entra tenants in Azure Logic Apps.
+title: Block Shared Connection Access Across Tenants
+description: Block access through shared workflow connections between your Microsoft Entra tenant and other tenants by using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 03/27/2025
-# Customer intent: As a developer, I want to prevent access to and from other Microsoft Entra tenants.
+ms.update-cycle: 1095-days
+ms.date: 03/10/2026
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to prevent access through shared workflow connections between my Microsoft Entra tenant and other tenants.
 ---
 
 # Block connections to and from other tenants in Azure Logic Apps

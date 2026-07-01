@@ -9,7 +9,7 @@ ms.service: azure-app-configuration
 ms.devlang: python
 ms.custom: devx-track-python
 ms.topic: tutorial
-ms.date: 12/11/2025
+ms.date: 06/03/2026
 #Customer intent: I want to learn how to use Azure App Configuration Python client library.
 ---
 
@@ -94,6 +94,9 @@ size = appConfig["font"]["size"]
 color = appConfig["font"]["color"]
 ```
 
+> [!NOTE]
+> Starting with version *2.2.0* of `azure-appconfiguration-provider`, the configuration provider allows comments, as defined in ([JSONC](https://jsonc.org/)), in key-values with an `application/json` content type.
+
 ### Load specific key-values using selectors
 
 By default, the `load` method loads all configurations with no label from the configuration store. You can configure the behavior of the `load` method through the optional parameter of `selects`, which is a list of `SettingSelector`s.
@@ -113,6 +116,21 @@ config = load(endpoint=endpoint, credential=DefaultAzureCredential(), selects=se
 > [!NOTE]
 > Key-values are loaded in the order in which the selectors are listed. If multiple selectors retrieve key-values with the same key, the value from the last one overrides any previously loaded value.
 
+#### Tag filters
+
+The tag filters parameter selects key-values with specific tags. A key-value is only loaded if it has all of the tags and corresponding values specified in the filters.
+
+```python
+from azure.appconfiguration.provider import load, SettingSelector
+from azure.identity import DefaultAzureCredential
+tag_filters = [{"env": "prod"}, {"region": "us"}]
+selects = [SettingSelector(key_filter="*", label_filter="*", tag_filters=tag_filters)]
+config = load(endpoint=endpoint, credential=DefaultAzureCredential(), selects=selects)
+```
+
+> [!NOTE]
+> The characters asterisk (`*`), comma (`,`), and backslash (`\`) are reserved and must be escaped with a backslash when used in a tag filter.
+
 ### Load configuration from snapshots
 
 You can load configuration settings from [snapshots](./concept-snapshots.md) by using the `snapshot_name` parameter in `SettingSelector`. When you specify a snapshot name, all configuration settings from that snapshot are loaded. The `snapshot_name` parameter can't be used with `key_filter`, `label_filter`, or `tag_filters`.
@@ -129,6 +147,15 @@ config = load(endpoint=endpoint, credential=DefaultAzureCredential(), selects=sn
 > Snapshot support is available if you use version **2.3.0** or later of the `azure-appconfiguration-provider` package.
 > Only snapshots created with composition type `Key` can be loaded using the configuration provider.
 
+#### Snapshot reference
+
+A snapshot reference is a configuration setting that references a snapshot in the same App Configuration store. When loaded, the provider resolves it and adds all key-values from that snapshot. Using snapshot references enables switching between snapshots at runtime, unlike adding a snapshot selector, which requires code changes and/or restarts to switch to a new snapshot.
+
+For more information about creating a snapshot reference, go to [snapshot reference concept](./concept-snapshot-references.md).
+
+> [!NOTE]
+> To use snapshot references, use version **2.4.0** or later of the `azure-appconfiguration-provider` package.
+
 ### Trimming keys
 
 You can trim the prefix off of keys by providing a list of trimmed key prefixes to the `load` function, via the `trim_prefixes` parameter.
@@ -142,14 +169,82 @@ config = load(endpoint=endpoint, credential=DefaultAzureCredential(), trim_prefi
 print(config["message"])  # Access the key "message" instead of "/application/message"
 ```
 
+### Configuration setting mapping
+
+The `configuration_mapper` parameter allows you to transform configuration settings before they're processed and added to the provider. The mapper function receives each `ConfigurationSetting` object and can modify it in-place.
+
+```python
+from azure.appconfiguration.provider import load
+from azure.identity import DefaultAzureCredential
+
+def my_mapper(setting):
+    if setting.key == "message":
+        setting.value = "transformed value"
+
+config = load(endpoint=endpoint, credential=DefaultAzureCredential(), configuration_mapper=my_mapper)
+```
+
+The mapper function is called for each configuration setting loaded from the store, allowing you to:
+
+- Modify setting values before they're added
+- Transform or decrypt values
+- Perform custom processing based on the setting key, label, or content type
+
+> [!NOTE]
+> The mapper is invoked before key trimming is applied. Use the original key when checking conditions in your mapper function.
+
+For async operations, provide an async mapper function:
+
+```python
+from azure.appconfiguration.provider.aio import load
+from azure.identity.aio import DefaultAzureCredential
+
+async def my_async_mapper(setting):
+    if setting.key == "secret_message":
+        setting.value = await decrypt_value(setting.value)
+
+config = await load(endpoint=endpoint, credential=DefaultAzureCredential(), configuration_mapper=my_async_mapper)
+```
+
 ## Configuration refresh
 
-The provider can be configured to pull the latest settings from the App Configuration store without having to restart the application. You can use the `refresh_on` parameter to enable this behavior. The `refresh_on` parameter is a `List[WatchKey]`, which specifies the one or more key/labels to watch for changes. The loaded configuration is updated when any change of selected key-values is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refresh_interval` parameter.
+The provider can be configured to pull the latest settings from the App Configuration store without having to restart the application. To refresh settings, ensure that `refresh_enabled` is set to `True` and call the `refresh` method on the `AzureAppConfigurationProvider` instance returned by the `load` method.
+
+```python
+from azure.appconfiguration.provider import load
+from azure.identity import DefaultAzureCredential
+
+config = load(
+    endpoint=endpoint,
+    credential=DefaultAzureCredential(),
+    refresh_enabled=True
+)
+
+# Later in your code, when application activity occurs
+config.refresh()
+```
+
+By default, a refresh interval of 30 seconds is used, but you can override it with the `refresh_interval` parameter. The provider monitors all loaded key-values for changes.
+
+```python
+config = load(
+    endpoint=endpoint,
+    credential=DefaultAzureCredential(),
+    refresh_enabled=True,
+    refresh_interval=60
+)
+```
+
+This design prevents unnecessary requests to App Configuration when your application is idle. You should include the `refresh` call where your application activity occurs. This process is known as **activity-driven configuration refresh**. For example, you can call `refresh` when processing an incoming request or inside an iteration where you perform a complex task.
+
+Even if the refresh call fails for any reason, your application continues to use the cached configuration. Another attempt is made when the configured refresh interval has passed and the refresh call is triggered by your application activity. Calling `refresh` is a no-op before the configured refresh interval elapses, so its performance impact is minimal even if it's called frequently.
+
+### Custom refresh callback
 
 The `on_refresh_success` callback is called only if a change is detected and no error happens. The `on_refresh_error` callback is called when a refresh fails.
 
 ```python
-from azure.appconfiguration.provider import load, WatchKey
+from azure.appconfiguration.provider import load
 from azure.identity import DefaultAzureCredential
 
 def my_callback_on_success():
@@ -163,20 +258,29 @@ def my_callback_on_fail(error):
 config = load(
     endpoint=endpoint,
     credential=DefaultAzureCredential(),
-    refresh_on=[WatchKey("Sentinel")],
-    refresh_interval=60,
+    refresh_enabled=True,
     on_refresh_success=my_callback_on_success,
     on_refresh_error=my_callback_on_fail
 )
 ```
 
-Setting up `refresh_on` alone doesn't automatically refresh the configuration. You need to call the `refresh` method on `AzureAppConfigurationProvider` instance returned by the `load` method to trigger a refresh. 
+### Refresh when specific keys are changed
+
+You can use the `refresh_on` parameter to configure the provider to monitor specific watch keys for changes instead of monitoring all loaded key-values. The `refresh_on` parameter is a `List[WatchKey]`, which specifies the one or more key/labels to watch for changes. When a change is detected in any of the watched keys, all configuration values are refreshed.
 
 ```python
-config.refresh()
+from azure.appconfiguration.provider import load, WatchKey
+from azure.identity import DefaultAzureCredential
+
+config = load(
+    endpoint=endpoint,
+    credential=DefaultAzureCredential(),
+    refresh_on=[WatchKey("Sentinel")]
+)
 ```
 
-This design prevents unnecessary requests to App Configuration when your application is idle. You should include the `refresh` call where your application activity occurs. This process is known as **activity-driven configuration refresh**. For example, you can call `refresh` when processing an incoming request or inside an iteration where you perform a complex task. If the refresh fails, an error is thrown, unless a `on_refresh_error` is provided. The `refresh` method is a no-op if the refresh interval has not elapsed. In addition, only one refresh check can happen at a time, returning as a no-op if a refresh is already in progress.
+> [!NOTE]
+> When `refresh_on` is set, `refresh_enabled` defaults to `True` automatically. You can set `refresh_enabled` to `False` to disable refresh even when `refresh_on` is configured.
 
 ## Feature flag
 
@@ -224,6 +328,16 @@ print(f"Beta is: {feature_manager.is_enabled("Beta")}")
 ```
 
 For more information about how to use the Python feature management library, go to the [feature flag quickstart](./quickstart-feature-flag-python.md).
+
+### Feature flag telemetry
+
+When feature flag telemetry is enabled, the Azure App Configuration provider injects additional properties to feature flag telemetry data. These properties provide more context about the feature flag and its evaluation:
+
+- **AllocationID**: A unique identifier representing the state of the feature flag's allocation.
+- **ETag**: The current ETag for the feature flag.
+- **FeatureFlagReference**: A reference to the feature flag in the format of `<AppConfigurationEndpoint>kv/<FeatureFlagKey>`. When a label is present, the reference includes it as a query parameter: `<AppConfigurationEndpoint>kv/<FeatureFlagKey>?label=<FeatureFlagLabel>`.
+
+The full schema can be found in the [App Configuration Feature Evaluation Event schema definition](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureEvaluationEvent/AppConfigurationFeatureEvaluationEvent.v1.0.0.schema.json). For more information about how to use the feature flag telemetry, go to the [enable telemetry for feature flags](./howto-telemetry.md) walkthrough.
 
 ### Feature flag refresh
 
@@ -291,6 +405,47 @@ def secret_resolver(uri):
     return "From Secret Resolver"
 
 config = load(endpoint=endpoint, credential=DefaultAzureCredential(), secret_resolver=secret_resolver)
+```
+
+
+### Key Vault secret refresh
+
+Azure App Configuration enables you to configure secret refresh intervals independently of your configuration refresh cycle. This is crucial for security because while the Key Vault reference URI in App Configuration remains unchanged, the underlying secret in Key Vault might be rotated as part of your security practices.
+
+To ensure your application always uses the most current secret values, configure the `secret_refresh_interval` key word in `load`. This forces the provider to retrieve fresh secret values from Key Vault when:
+
+- Your application calls `refresh`
+- The configured refresh interval for the secret has elapsed
+
+This mechanism works even when no changes are detected in your App Configuration store, ensuring your application stays in sync with rotated secrets.
+
+```python
+from azure.appconfiguration.provider import load
+from azure.identity import DefaultAzureCredential
+
+config = load(
+    endpoint=endpoint,
+    credential=DefaultAzureCredential(),
+    keyvault_credential=DefaultAzureCredential(),
+    secret_refresh_interval=7200  # 2 hours
+)
+```
+
+## Startup retry
+
+Configuration loading is a critical path operation during application startup. To ensure reliability, the Azure App Configuration provider implements a robust retry mechanism during the initial configuration load. This helps protect your application from transient network issues that might otherwise prevent successful startup.
+
+You can customize this behavior by setting the `startup_timeout` parameter, which specifies the amount of time in seconds allowed to load data from Azure App Configuration on startup. The default value is 100 seconds.
+
+```python
+from azure.appconfiguration.provider import load
+from azure.identity import DefaultAzureCredential
+
+config = load(
+    endpoint=endpoint,
+    credential=DefaultAzureCredential(),
+    startup_timeout=300
+)
 ```
 
 ## Geo-replication

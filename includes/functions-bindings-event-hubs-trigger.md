@@ -32,6 +32,8 @@ This article supports both programming models.
 
 ::: zone-end
 
+For a complete end-to-end example of using the Event Hubs trigger, see [Process real-time events by using Azure Functions](../articles/azure-functions/scenario-real-time-events-processing.md).
+
 ## Example
 
 ::: zone pivot="programming-language-csharp"
@@ -361,6 +363,39 @@ public class EventHubReceiver {
 
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+
+The following example shows an Event Hubs trigger function that logs incoming event messages:
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	"github.com/azure/azure-functions-golang-worker/sdk/bindings"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.EventHub("eventHubTrigger", processEvent,
+		sdk.WithEventHubName("myeventhub"),
+		sdk.WithConnection("EventHubConnection"),
+	)
+	worker.Start(app)
+}
+
+func processEvent(ctx context.Context, event bindings.EventHubMessage) error {
+	log.Printf("Event Hub trigger processed a message: %s", event.Body)
+	return nil
+}
+```
+
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
@@ -473,6 +508,7 @@ The following table explains the trigger configuration properties that you set i
 |**consumerGroup** |An optional property that sets the [consumer group](../articles/event-hubs/event-hubs-features.md#event-consumers) used to subscribe to events in the hub. If omitted, the `$Default` consumer group is used. |
 |**cardinality** | Set to `many` in order to enable batching. If omitted or set to `one`, a single message is passed to the function.|
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Event Hubs. See [Connections](#connections).|
+|**dataType** | An optional property that sets the type of the trigger input. Choose `string` or `binary` if the input is not valid JSON. | 
 
 # [Functions 1.x](#tab/functionsv1)
 

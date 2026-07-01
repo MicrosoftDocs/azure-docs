@@ -76,6 +76,8 @@ Unlocked time-based retention policies allow the **allowProtectedAppendWrites** 
 
 - For a container, a maximum of 10 legal hold policy audit logs are retained for the policy's duration.
 
+- Recursive deletes for directories are blocked when there is a container immutability policy in place. To delete a directory, ensure that it is empty first and then delete without the recursive flag.
+
 ## Next steps
 
 - [Data protection overview](data-protection-overview.md)

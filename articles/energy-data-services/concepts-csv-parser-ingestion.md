@@ -4,7 +4,7 @@ description: Learn how to use CSV parser ingestion.
 author: bharathim
 ms.author: bselvaraj
 ms.service: azure-data-manager-energy
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/10/2023
 ms.custom: template-concept
 ---

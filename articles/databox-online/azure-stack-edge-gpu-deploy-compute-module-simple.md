@@ -2,12 +2,12 @@
 title: Use an IoT Edge module to deploy compute workload on Azure Stack Edge Pro with GPU | Microsoft Docs
 description: Learn how to run a compute workload using a pre-created IoT Edge module on your Azure Stack Edge Pro GPU device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 10/19/2022
-ms.author: alkohli
+ms.author: sipastak
 ms.custom: sfi-image-nochange
 # Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---

@@ -1,12 +1,10 @@
 ---
 title: Deploy a Self-Hosted Gateway to Azure Container Apps - Azure API Management
 description: Learn how to deploy a self-hosted gateway component of Azure API Management to an Azure Container Apps environment.
-author: dlepow
 ms.service: azure-api-management
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 10/07/2025
-ms.author: danlep
 ---
 
 # Deploy an Azure API Management self-hosted gateway to Azure Container Apps
@@ -265,5 +263,5 @@ Azure Container Apps distributes requests linearly across each available and hea
 
 ## Related content
 
-* [Connected microservices with Azure Container Apps](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/connected-microservices-with-azure-container-apps/ba-p/3072158)
+* [Connected microservices with Azure Container Apps](https://techcommunity.microsoft.com/blog/appsonazureblog/connected-microservices-with-azure-container-apps/3072158)
 * [Azure API Management's Self-Hosted Gateway on Azure Container Apps](https://github.com/tomkerkhove/azure-apim-on-container-apps)

@@ -40,7 +40,7 @@ Google deprecated the Firebase Cloud Messaging (FCM) legacy API in July 2024. Th
 
 1. Update the payload template. If you're not using templates, you can skip this step.
 
-   See the [FCM REST reference](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages) for the FCM v1 payload structure. For information about migrating from the FCM legacy payload to the FCM v1 payload, see [Update the payload of send requests](https://firebase.google.com/docs/cloud-messaging/migrate-v1#update-the-payload-of-send-requests).
+   See the [FCM REST reference](https://firebase.google.com/docs/reference/fcm/rest/v1/projects.messages) for the FCM v1 payload structure.
 
    For example, if you're using registrations:
 

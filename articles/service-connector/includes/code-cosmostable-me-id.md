@@ -1,10 +1,9 @@
 ---
-author: wchigit
 description: managed identity, code sample
 ms.service: service-connector
 ms.topic: include
-ms.date: 12/04/2023
-ms.author: wchi
+ms.date: 06/17/2026
+ms.reviewer: wchi
 ---
 
 ### [.NET](#tab/dotnet)
@@ -14,7 +13,7 @@ ms.author: wchi
     dotnet add package Azure.Data.Tables
     dotnet add package Azure.Identity
     ```
-1. Get an access token for the managed identity or service principal using client library [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Use the access token and `AZURE_COSMOS_LISTCONNECTIONSTRINGURL` to get the connection string. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Table. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get an access token for the managed identity or service principal using [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Use the access token and `AZURE_COSMOS_LISTCONNECTIONSTRINGURL` to get the connection string and connect to Azure Cosmos DB for Table. In the code below, uncomment the section for your authentication type:
     ```csharp
     using System;
     using System.Security.Authentication;
@@ -76,7 +75,7 @@ ms.author: wchi
         <version>1.1.5</version>
     </dependency>
     ```
-1. Get an access token for the managed identity or service principal using `azure-identity`. Use the access token and `AZURE_COSMOS_LISTCONNECTIONSTRINGURL` to get the connection string. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Table. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get an access token for the managed identity or service principal using `azure-identity`. Use the access token and `AZURE_COSMOS_LISTCONNECTIONSTRINGURL` to get the connection string and connect to Azure Cosmos DB for Table. In the code below, uncomment the section for your authentication type:
     ```java
     import com.azure.data.tables.TableClient;
     import com.azure.data.tables.TableClientBuilder;
@@ -140,7 +139,7 @@ ms.author: wchi
     pip install azure-data-tables
     pip install azure-identity
     ```
-1. Get an access token for the managed identity or service principal using `azure-identity`. Use the access token and `AZURE_COSMOS_LISTCONNECTIONSTRINGURL` to get the connection string. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Table. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get an access token for the managed identity or service principal using `azure-identity`. Use the access token and `AZURE_COSMOS_LISTCONNECTIONSTRINGURL` to get the connection string and connect to Azure Cosmos DB for Table. In the code below, uncomment the section for your authentication type:
     ```python
     import os
     from azure.data.tables import TableServiceClient
@@ -182,7 +181,7 @@ ms.author: wchi
     go get github.com/Azure/azure-sdk-for-go/sdk/data/aztables
     go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
     ```
-1. In code, get the access token using `@azidentity`, then use it to acquire the connection string. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Table. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. In code, get an access token using `azidentity`, then use it to get the connection string. Get connection information from environment variables added by Service Connector and connect to Azure Cosmos DB for Table. In the code below, uncomment the section for your authentication type:
     ```go
     import (
         "fmt"
@@ -247,12 +246,12 @@ ms.author: wchi
     ```
 
 ### [NodeJS](#tab/nodejs)
-1. Install dependencies
+1. Install dependencies.
    ```bash
    npm install @azure/data-tables
    npm install --save @azure/identity
    ```
-1. In code, get the access token using `@azure/identity`, then use it to acquire the connection string. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Table. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. In code, get the access token using `@azure/identity`, then use it to get the connection string. Get connection information from environment variables added by Service Connector and connect to Azure Cosmos DB for Table. In the code below, uncomment the section for your authentication type:
     ```javascript
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
     const { TableClient } = require("@azure/data-tables");

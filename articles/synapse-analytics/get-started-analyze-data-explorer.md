@@ -3,9 +3,8 @@ title: 'Quickstart: Get started analyzing with Data Explorer pools (Preview)'
 description: In this quickstart, you learn to analyze data with Data Explorer.
 ms.topic: quickstart
 ms.date: 12/20/2024
-author: shsagir
-ms.author: shsagir
-ms.reviewer: shsagir
+author: spelluru
+ms.author: spelluru
 ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
 ms.custom: mode-other

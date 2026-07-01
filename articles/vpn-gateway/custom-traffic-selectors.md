@@ -2,11 +2,11 @@
 title: About custom traffic selectors
 description: Learn about custom traffic selectors for VPN Gateway.
 titleSuffix: Azure VPN Gateway
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/25/2025
-ms.author: cherylmc
+ms.author: duau
 ---
 # Custom traffic selectors for VPN Gateway
 
@@ -74,8 +74,6 @@ You can define traffic selectors by using the `trafficSelectorPolicies` attribut
    $trafficSelectorPolicy = New-AzIpsecTrafficSelectorPolicy -LocalAddressRange ("10.30.0.4/32") -RemoteAddressRange ("10.50.0.0/24")
    New-AzVirtualNetworkGatewayConnection -ResourceGroupName $rgname -name $vnetConnectionName -location $location -VirtualNetworkGateway1 $vnetGateway -LocalNetworkGateway2 $localnetGateway -ConnectionType IPsec -RoutingWeight 3 -SharedKey $sharedKey -UsePolicyBasedTrafficSelectors $true -TrafficSelectorPolicy ($trafficSelectorPolicy) 
    ```
-
-1. Once the connection object is created, you can pull the Get-Gateway / refresh ASC and pull the RAW DATA URI (Get-Gateway output) to see the changes.
 
 ## Next steps
 

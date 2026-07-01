@@ -5,7 +5,7 @@ author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: tutorial
-ms.date: 03/14/2023
+ms.date: 04/01/2026
 ms.devlang: javascript
 ms.custom: azureday1, devx-track-js, AppServiceConnectivity
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph by using managed identities.
@@ -17,18 +17,20 @@ ms.custom: azureday1, devx-track-js, AppServiceConnectivity
 
 ## Call Microsoft Graph with Node.js
 
-Your web app now has the required permissions and also adds Microsoft Graph's client ID to the login parameters.
+Your web app now has the required permissions. It also adds Microsoft Graph's client ID to the sign-in parameters.
 
 The `DefaultAzureCredential` class from [@azure/identity](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md) package is used to get a token credential for your code to authorize requests to Azure Storage. Create an instance of the `DefaultAzureCredential` class, which uses the managed identity to fetch tokens and attach them to the service client. The following code example gets the authenticated token credential and uses it to create a service client object, which gets the users in the group.
 
 > [!NOTE]
 > The [@azure/identity](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md) package isn't required in your web app for basic authentication/authorization or to authenticate requests with Microsoft Graph. It's possible to [securely call downstream APIs](tutorial-auth-aad.md#call-api-securely-from-server-code) with only the App Service authentication/authorization module enabled.
 > 
-> However, the App Service authentication/authorization is designed for more basic authentication scenarios. For more complex scenarios (handling custom claims, for example), you need the [@azure/identity](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md) package. There's a little more setup and configuration work in the beginning, but the `@azure/identity` package can run alongside the App Service authentication/authorization module. Later, when your web app needs to handle more complex scenarios, you can disable the App Service authentication/authorization module and `@azure/identity` will already be a part of your app.
+> However, the App Service authentication/authorization is designed for more basic authentication scenarios. For more complex scenarios, such as handling custom claims, you need the [@azure/identity](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md) package.
+
+There's more setup and configuration work in the beginning, but the `@azure/identity` package can run alongside the App Service authentication/authorization module. Later, when your web app needs to handle more complex scenarios, you can disable the App Service authentication/authorization module because the `@azure/identity` package is already a part of your app.
 
 ### Install client library packages
 
-Install the [@azure/identity](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md) and the [@microsoft/microsoft-graph-client](https://www.npmjs.com/package/@microsoft/microsoft-graph-client?activeTab=readme) packages in your project with npm.
+Install the [@azure/identity](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/README.md) and the [@microsoft/microsoft-graph-client](https://www.npmjs.com/package/@microsoft/microsoft-graph-client?activeTab=readme) packages in your project with `npm`.
 
 ```bash
 npm install @azure/identity @microsoft/microsoft-graph-client
@@ -84,7 +86,7 @@ exports.getUsersPage = async(req, res, next) => {
 }
 ```
 
-The previous code relies on the following getAuthenticatedClient function to return Microsoft Graph client.
+The preceding code relies on the following `getAuthenticatedClient` function to return Microsoft Graph client.
 
 ```javascript
 // utils/graphHelper.js

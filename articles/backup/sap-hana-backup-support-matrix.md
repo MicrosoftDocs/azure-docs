@@ -2,7 +2,7 @@
 title: SAP HANA Backup support matrix
 description: In this article, learn about the supported scenarios and limitations when you use Azure Backup to back up SAP HANA databases on Azure VMs.
 ms.topic: reference
-ms.date: 12/11/2025
+ms.date: 02/16/2026
 ms.custom: references_regions 
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -12,7 +12,8 @@ ms.author: v-mallicka
 
 # Support matrix for backup of SAP HANA databases on Azure VMs
 
-Azure Backup supports the backup of SAP HANA databases to Azure. This article summarizes the scenarios supported and limitations present when you use Azure Backup to back up SAP HANA databases on Azure VMs.
+Azure Backup supports the backup of SAP HANA databases to Azure. This article summarizes the scenarios supported and limitations present when you use Azure Backup to back up SAP HANA databases on Azure VMs. For common questions, see the [frequently asked questions](sap-hana-faq-backup-azure-vm.yml).
+
 
 > [!IMPORTANT]
 > Linux distributions listed below shouldn't be in an End-of-Life (EOL) state by their vendors. Make sure it is a current, active and supported release.

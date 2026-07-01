@@ -1,27 +1,31 @@
 ---
-title: Test rulesets with Microsoft Rules Composer
-description: Learn how to test rulesets by using the Microsoft Rules Composer along with output examples for rules testing.
+title: Test Rulesets with Microsoft Rules Composer
+description: Test rulesets by using the Microsoft Rules Composer along with output examples for rules testing.
+services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 01/27/2025
-
-#CustomerIntent: As a developer, I want to learn how to test rulesets with the Microsoft Rules Composer.
+ms.date: 03/10/2026
+ms.date-cycle: 1095-days
 ms.custom:
   - build-2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to test rulesets with the Microsoft Rules Composer.
 ---
 
 # Test rulesets using the Microsoft Rules Composer
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
+This guide shows how to test rulesets by using the Microsoft Rules Composer and includes output examples for rule testing.
 
-As you build your ruleset so that you can integrate business logic with your Standard workflows, test your ruleset incrementally or before you use the rules in your application. That way, you can check that the rules work the way that you expect along the way, or you can find and fix problems sooner when your rules are less complex and easier to troubleshoot.
+## Why test rulesets incrementally?
 
-If you wait to test your rules all at the same time or when you're all done, and your rules are long or complex, you might get more errors or problems than you thought, which might take longer to resolve or prove difficult to troubleshoot.
+As you build a ruleset to integrate business logic with your Standard logic app workflows, test your ruleset incrementally, or at least before you use the rules in your application. That way, you can confirm that each rule works the way you expect, or find and fix problems sooner when your rules are less complex and easier to troubleshoot.
+
+If you wait to test all your rules at the same time, especially when your rules are long or complex, you might get more errors than expected, which takes longer to resolve and proves harder to debug.
 
 ## Prerequisites
 
@@ -63,7 +67,7 @@ If you wait to test your rules all at the same time or when you're all done, and
    |------|------------------|
    | Clear all text from the Output window. | **Clear All** |
    | Copy the selected text in the Output window to the clipboard. | **Copy** |
-   | Select all the text in the Output window. | **Select All** |
+   | Select all text in the Output window. | **Select All** |
    | Save the text contained in the Output window to a specified file. | **Save to File** |
 
 <a name="ruleset-test-trace-output"></a>

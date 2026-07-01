@@ -3,7 +3,7 @@ author: cephalin
 ms.author: cephalin
 ms.service: azure-app-service
 ms.topic: include
-ms.date: 01/21/2022
+ms.date: 04/02/2026
 ms.custom: azureday1
 #Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph by using managed identities.
 ---
@@ -14,9 +14,9 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 >
-> * Create a system-assigned managed identity.
-> * Create a storage account and Blob Storage container.
-> * Access storage from a web app by using managed identities.
+> - Create a system-assigned managed identity.
+> - Create a storage account and Blob Storage container.
+> - Access storage from a web app by using managed identities.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Isolate back-end communication with Virtual Network integration](../../tutorial-networking-isolate-vnet.md)

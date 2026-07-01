@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Create an Azure Front Door using Terraform'
 description: This quickstart describes how to create an Azure Front Door using Terraform.
-author: johndowns
-ms.author: jodowns
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: quickstart
 ms.date: 08/11/2023

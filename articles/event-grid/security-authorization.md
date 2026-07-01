@@ -1,22 +1,26 @@
 ---
-title: Azure Event Grid security and authentication
-description: This article describes how you can authorize access to Azure Event Grid resources using role-based access control roles. 
+title: Event Grid Access Control with Azure RBAC
+description: Azure Event Grid security controls access to resources using Azure RBAC built-in and custom roles. Learn how to configure role-based permissions for Event Grid operations.
+#customer intent: As an IT admin, I want to understand how to control access to Azure Event Grid resources using role-based access control so that I can ensure only authorized users can perform management operations.
 ms.topic: concept-article
-ms.date: 12/16/2024
+ms.date: 03/26/2026
+author: spelluru
+ms.author: spelluru
+ms.reviewer: spelluru
 # Customer intent: I want to know how to secure access to Azure Event Grid resources. 
 ---
 
 # Authorizing access to Event Grid resources
-Azure Event Grid allows you to control the level of access given to different users to do various **management operations** such as list event subscriptions, create new ones, and generate keys. Event Grid uses Azure role-based access control (Azure RBAC).
+Azure Event Grid enables you to control the level of access different users have for various **management operations** such as listing event subscriptions, creating new ones, and generating keys. Event Grid uses Azure role-based access control (Azure RBAC).
 
 ## Operation types
-For a list of operation supported by Azure Event Grid, run the following Azure CLI command: 
+To see a list of operations supported by Azure Event Grid, run the following Azure CLI command: 
 
 ```azurecli-interactive
 az provider operation show --namespace Microsoft.EventGrid
 ```
 
-The following operations return potentially secret information, which gets filtered out of normal read operations. We recommend that you restrict access to these operations. 
+The following operations return potentially secret information, which gets filtered out of normal read operations. Restrict access to these operations. 
 
 * Microsoft.EventGrid/eventSubscriptions/getFullUrl/action
 * Microsoft.EventGrid/topics/listKeys/action
@@ -48,9 +52,9 @@ The **Event Grid Contributor** role allows you to create and manage Event Grid r
 
 If you need to specify permissions that are different than the built-in roles, create custom roles.
 
-The following are sample Event Grid role definitions that allow users to take different actions. These custom roles are different from the built-in roles because they grant broader access than just event subscriptions.
+The following sample Event Grid role definitions grant users different permissions. These custom roles differ from the built-in roles because they grant broader access than just event subscriptions.
 
-**EventGridReadOnlyRole.json**: Only allow read-only operations.
+- **EventGridReadOnlyRole.json**: Grants only read-only operations.
 
 ```json
 {
@@ -69,7 +73,7 @@ The following are sample Event Grid role definitions that allow users to take di
 }
 ```
 
-**EventGridNoDeleteListKeysRole.json**: Allow restricted post actions but disallow delete actions.
+- **EventGridNoDeleteListKeysRole.json**: Grants restricted post actions but disallows delete actions.
 
 ```json
 {
@@ -92,7 +96,7 @@ The following are sample Event Grid role definitions that allow users to take di
 }
 ```
 
-**EventGridContributorRole.json**: Allows all Event Grid actions.
+- **EventGridContributorRole.json**: Grants all Event Grid actions.
 
 ```json
 {
@@ -120,15 +124,15 @@ You can create custom roles with [PowerShell](../role-based-access-control/custo
 
 ### Encryption at rest
 
-All events or data written to disk by the Event Grid service is encrypted by a Microsoft-managed key ensuring that it's encrypted at rest. Additionally, the maximum period of time that events or data retained is 24 hours in adherence with the [Event Grid retry policy](delivery-and-retry.md). Event Grid will automatically delete all events or data after 24 hours, or the event time-to-live, whichever is less.
+The Event Grid service encrypts all events or data written to disk by using a Microsoft-managed key, ensuring that it's encrypted at rest. Additionally, the maximum period of time that events or data are retained is 24 hours in adherence with the [Event Grid retry policy](delivery-and-retry.md). Event Grid automatically deletes all events or data after 24 hours, or the event time-to-live, whichever is less.
 
 ## Permissions for event subscriptions
-If you're using an event handler that isn't a WebHook (such as an event hub or queue storage), you need write access to that resource. This permissions check prevents an unauthorized user from sending events to your resource.
+If you use an event handler that isn't a WebHook (such as an event hub or queue storage), you need write access to that resource. This permissions check prevents an unauthorized user from sending events to your resource.
 
 You must have the **Microsoft.EventGrid/EventSubscriptions/Write** permission on the resource that is the event source. You need this permission because you're writing a new subscription at the scope of the resource. The required resource differs based on whether you're subscribing to a system topic or custom topic. Both types are described in this section.
 
 ### System topics (Azure service publishers)
-For system topics, if you aren't the owner or contributor of the source resource, you need permission to write a new event subscription at the scope of the resource publishing the event. The format of the resource is:
+For system topics, if you're not the owner or contributor of the source resource, you need permission to write a new event subscription at the scope of the resource that publishes the event. The format of the resource is:
 `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/{resource-provider}/{resource-type}/{resource-name}`
 
 For example, to subscribe to an event on a storage account named **myacct**, you need the Microsoft.EventGrid/EventSubscriptions/Write permission on:
@@ -145,4 +149,4 @@ For example, to subscribe to a custom topic named **mytopic**, you need the Micr
 
 ## Related content
 
-* For an introduction to Event Grid, see [About Event Grid](overview.md)
+* For an introduction to Event Grid, see [About Event Grid](overview.md).

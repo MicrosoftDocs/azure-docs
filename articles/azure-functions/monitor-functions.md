@@ -1,9 +1,9 @@
 ---
 title: Monitor Azure Functions
 description: Start here to learn how to monitor Azure Functions.
-ms.date: 03/08/2024
+ms.date: 05/21/2026
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-functions
 ---
 
@@ -42,6 +42,13 @@ Azure Functions integrates with Azure Monitor Logs to monitor functions. For det
 
 For the available resource log categories, their associated Log Analytics tables, and the logs schemas for Azure Functions, see [Azure Functions monitoring data reference](monitor-functions-reference.md#resource-logs).
 
+>[!IMPORTANT]
+>Application Insights processes telemetry in batches. When a batch payload is too large or contains unescaped special characters, log entries might be dropped. To help prevent data loss:
+>
+>+ Limit individual log messages to 10,000 characters, especially when you log large XML or JSON payloads.
+>+ Escape special characters in log data.
+>+ Summarize or truncate large payloads before you log them.
+
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
 ## Other logs
@@ -51,6 +58,12 @@ Azure Functions also offers the ability to collect more than Azure Monitor resou
 [!INCLUDE [horz-monitor-analyze-data](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-analyze-data.md)]
 
 [!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
+
+### View built-in Grafana dashboards
+
+Azure Functions provides Dashboards with Grafana in the Azure portal for a prebuilt view of a function app's health and performance. From your function app, under **Monitoring**, select **Dashboards with Grafana** to open a dashboard scoped to the current app. The dashboard brings together OpenTelemetry semantic convention metrics and Application Insights telemetry, including health checks, invocation count and success rate, execution duration, exceptions, error and warning logs, HTTP response codes, startup errors, and system resource signals such as CPU, memory, thread pool queue length, thread count, and active HTTP requests.
+
+You can use the prebuilt dashboard as-is, or save a copy that you can customize and share. This experience uses Azure Monitor dashboards with Grafana and doesn't require you to deploy a separate Azure Managed Grafana instance. For more information, see [Use Azure Monitor dashboards with Grafana](/azure/azure-monitor/visualize/visualize-use-grafana-dashboards).
 
 ### Analyze metrics for Azure Functions
 

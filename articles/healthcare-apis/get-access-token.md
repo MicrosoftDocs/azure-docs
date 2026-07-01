@@ -1,26 +1,26 @@
 ---
 title: Get an access token to use the FHIR service or the DICOM service
-description: Learn how to get an access token for the FHIR service or the DICOM service.
+description: Learn how to get an access token to access the FHIR service or the DICOM service using Azure CLI or Powershell.
 services: healthcare-apis
 author: chachachachami
 ms.service: azure-health-data-services
 ms.topic: how-to
-ms.date: 06/02/2025
+ms.date: 03/31/2026
 ms.author: chrupa
+ms.reviewer: v-catheribun
 ms.custom: devx-track-azurepowershell, devx-track-azurecli 
 ms.devlang: azurecli
 ---
 
 # Get an access token by using Azure CLI or Azure PowerShell
 
-To use the FHIR&reg; service or the DICOM&reg; service, you need an access token that verifies your identity and permissions to the server. You can obtain an access token using [PowerShell](/powershell/scripting/overview) or the [Azure Command-Line Interface (CLI)](/cli/azure/what-is-azure-cli), which are tools for creating and managing Azure resources.
+To use the FHIR&reg; service or the DICOM&reg; service, you need an access token that verifies your identity and permissions to the service. You can get an access token by using [PowerShell](/powershell/scripting/overview) or the [Azure Command-Line Interface (CLI)](/cli/azure/what-is-azure-cli). These tools help you create and manage Azure resources.
 
-Keep in mind that to access the FHIR service or the DICOM service, users and applications must be granted permissions through [role assignments](configure-azure-rbac.md) from Azure portal, or by using [scripts](configure-azure-rbac-using-scripts.md). 
+Manage the permissions for users and applications to access FHIR or the DICOM services through [role assignments](configure-azure-rbac.md) from the Azure portal or by using [scripts](configure-azure-rbac-using-scripts.md). 
 
----
 ## Get an access token for the FHIR service
 
-The FHIR service uses a specific `resource`  or `Audience` with URI equal to the URI of the FHIR server `https://<workspacename-fhirservicename>.fhir.azurehealthcareapis.com`. Obtain a token and store it in a variable (named `$token`) with the following command:
+The FHIR service uses a specific `--resource` or `-resourceUrl` with a URI equal to the URI of the FHIR service audience (`https://<workspacename-fhirservicename>.fhir.azurehealthcareapis.com`) to get a token. The following example gets a token and uses it to get a list of patients. To run the example, you need at least the FHIR Data Reader role assignment. Replace the `<placeholder>` with the service URL for your FHIR service.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -38,13 +38,14 @@ Invoke-WebRequest -Method GET -Headers $headers -Uri 'https://<workspacename-fhi
 ```
 
 ---
+
 ## Get an access token for the DICOM service
 
-The DICOM service uses the same `resource` or `Audience` with URI equal to `https://dicom.healthcareapis.azure.com` to obtain an access token. Obtain a token and store it in a variable (named `$token`) with the following command:
+The following example gets an access token for the DICOM service.  The `--resource` or `-resourceUrl` is the DICOM service audience (`https://dicom.healthcareapis.azure.com`). The token is then used to get the service logs. To run the example, you need at least the DICOM Data Reader role assignment. Replace the `<placeholder>` with the service URL for your DICOM service.
 
 ### [Azure CLI](#tab/azure-cli)
 
-```Azure CLICopy
+```azurecli-interactive
 token=$(az account get-access-token --resource=https://dicom.healthcareapis.azure.com --query accessToken --output tsv)
 curl -X GET --header "Authorization: Bearer $token"  https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com/v<version of REST API>/changefeed
 ```
@@ -58,10 +59,10 @@ Invoke-WebRequest -Method GET -Headers $headers -Uri 'https://<workspacename-dic
 ```
 
 ---
-## Next steps
 
-[Access the FHIR service by using REST client](./fhir/using-rest-client.md)
+## Related content
 
-[Access the DICOM service by using cURL](dicom/dicomweb-standard-apis-curl.md)
+- [Access the FHIR service by using REST client](./fhir/using-rest-client.md)
+- [Access the DICOM service by using cURL](dicom/dicomweb-standard-apis-curl.md)
 
 [!INCLUDE [FHIR and DICOM trademark statement](./includes/healthcare-apis-fhir-dicom-trademark.md)]

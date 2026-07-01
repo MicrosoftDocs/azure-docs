@@ -1,8 +1,8 @@
 ---
 title: Check if Data Cube Assets Can Be Visualized on Microsoft Planetary Computer Pro
 description: Learn how to check if geospatial assets can be visualized by Microsoft Planetary Computer Pro's tiler. 
-author: tanyamarton
-ms.author: tanyamarton
+author: beharris
+ms.author: brentharris
 ms.service: planetary-computer-pro
 ms.topic: how-to
 ms.date: 04/09/2025

@@ -6,7 +6,7 @@ ms.reviewer: zainzaigham
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 08/13/2025
+ms.date: 01/07/2026
 ms.author: zainzaigham
 ms.custom:
 - build-2025
@@ -52,6 +52,8 @@ Although the Microsoft Entra ID Free subscription is free, we require a credit c
 ### Cancellation not available
 
 You can't cancel Microsoft Entra ID Free. You must have it to access your billing account and manage it. You can, however, cancel and then delete Azure subscriptions. For more information, see [Cancel your Azure subscription](cancel-azure-subscription.md).
+
+Note: If you create additional Entra tenants and one of those tenants is deleted through the Azure portal, the associated subscription may still appear as active. This is a known gap and will be rectified.
 
 ### Upgrade from Free to paid services not available
 

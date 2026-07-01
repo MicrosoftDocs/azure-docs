@@ -142,14 +142,14 @@ rsync -avz --progress --stats --delete <GlusterFS_Source>/ <AzureFiles_Destinati
 
 1. Select the appropriate protocol. In most cases, you'll want to use SMB for Windows workloads and NFS for Linux workloads.
 
-1. Select HDD or SSD, and size your Azure file shares appropriately:
-   - Standard (HDD): Up to 100 TiB
-   - Premium (SSD): Up to 100 TiB with higher performance
+1. Select HDD (standard) or SSD (premium), and size your Azure file shares appropriately:
+   - HDD: Up to 256 TiB (provisioned v2) or 100 TiB (pay-as-you-go)
+   - SSD: Up to 256 TiB (provisioned v2) or 100 TiB (provisioned v1)
 
 ### Step 2: Prepare Azure environment
 
 1. [Create a storage account](../common/storage-account-create.md) in the appropriate Azure region.
-   - Choose the right performance tier (Standard or Premium) based on your needs. Premium is required for NFS file shares.
+   - Choose the right media tier (HDD or SSD) based on your needs. SSD is required for NFS file shares.
 
 1. Configure networking. See [Azure Files networking considerations](storage-files-networking-overview.md).
    - SMB: Configure firewall and private endpoints as needed. See [Configure Azure Storage firewalls](../common/storage-network-security.md) and [Configure network endpoints for accessing Azure file shares](storage-files-networking-endpoints.md).
@@ -240,7 +240,7 @@ Follow these recommendations to optimize performance when migrating from Gluster
 
 ### Optimize NFS performance
 
-- Always use Premium (SSD) file shares for NFS workloads (required).
+- Always use SSD file shares for NFS workloads (required).
 - Provision sufficient capacity based on your [throughput requirements](understand-performance.md).
 - Optimize client-side settings like read/write buffer sizes.
 - Use nconnect, a client-side mount option that allows you to use multiple TCP connections between the client and your NFS file share. We recommend the optimal setting of `nconnect=4`.

@@ -2,7 +2,7 @@
 title: Azure Disk Backup support matrix
 description: Provides a summary of support settings and limitations Azure Disk Backup.
 ms.topic: reference
-ms.date: 08/25/2025
+ms.date: 02/13/2026
 ms.custom: references_regions, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -14,13 +14,15 @@ ms.author: v-mallicka
 
 You can use [Azure Backup](./backup-overview.md) to protect Azure Disks. This article summarizes region availability, supported scenarios, and limitations.
 
+For common questions, see the [frequently asked questions](disk-backup-faq.yml).
+
 ## Supported regions
 
 Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 
 ## Limitations
 
-- Azure Disk Backup is supported for Azure Managed Disks (Standard HDD, Standard SSD and Premium SSD, Premium SSD v2 disks, and Ultra-disks), including shared disks (Shared premium SSDs). Unmanaged disks aren't supported. 
+- Azure Disk Backup is supported for Azure managed disks (Standard HDD, Standard SSD and Premium SSD, Premium SSD v2 disks, and Ultra Disks), including shared disks (Shared Premium SSDs). Unmanaged disks aren't supported. 
 
   >[!Note]
   >- For Azure Disks belonging to Standard HDD, Standard SSD, and Premium SSD SKUs, you can define the backup schedule with *Hourly* frequency (of 1, 2, 4, 6, 8, or 12 hours) and *Daily* frequency. 
@@ -35,7 +37,7 @@ Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 
 - Currently, the Original-Location Recovery (OLR) option to restore by replacing existing source disks from where the backups were taken isn't supported. You can restore from recovery point to create a new disk either in the same resource group as that of the source disk from where the backups were taken or in any other resource group. This is known as Alternate-Location Recovery (ALR).
 
-- Azure Backup for Managed Disks uses incremental snapshots, which are limited to 500 snapshots per disk. To allow you to take on-demand backup aside from scheduled backups, Backup policy limits the total backups to 420. Learn more about [incremental snapshot](/azure/virtual-machines/disks-incremental-snapshots#restrictions) for managed disks.
+- Azure Backup for managed disks uses incremental snapshots, which are limited to 500 snapshots per disk. To allow you to take on-demand backup aside from scheduled backups, Backup policy limits the total backups to 420. Learn more about [incremental snapshot](/azure/virtual-machines/disks-incremental-snapshots#restrictions) for managed disks.
 
 - You can either set a maximum retention limit of 1 year or 450 disk snapshots, whichever reaches first. For example, if you have opted for a backup frequency of 12 hours, then you can retain each recovery point for maximum 225 days as the snapshot limit will be breached beyond that. 
 
@@ -80,10 +82,10 @@ Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 
 ## Next steps
 
-[Back up Azure Managed Disks](backup-managed-disks.md).
+[Back up Azure managed disks](backup-managed-disks.md).
 
 ## Related content
 
-- [Create a Backup policy for Azure Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md).
-- [Configure backup for Azure Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-backup-disks.md).
-- [Restore Azure Managed Disk using REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).
+- [Create a Backup policy for Azure managed disk using REST API](backup-azure-dataprotection-use-rest-api-create-update-disk-policy.md).
+- [Configure backup for Azure managed disk using REST API](backup-azure-dataprotection-use-rest-api-backup-disks.md).
+- [Restore Azure managed disk using REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).

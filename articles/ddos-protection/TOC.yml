@@ -59,6 +59,8 @@
       href: ../load-balancer/tutorial-protect-load-balancer-ddos.md?toc=/azure/ddos-protection/TOC.json
 - name: Secure
   items:
+    - name: Secure DDoS Protection deployment
+      href: secure-ddos-protection.md
     - name: DDoS Protection on Front Door
       href: ../frontdoor/front-door-ddos.md?toc=/azure/ddos-protection/TOC.json
     - name: Defend against API Management DDoS attacks
@@ -80,7 +82,7 @@
     - name: Fundamental best practices
       href: fundamental-best-practices.md
     - name: Reliability
-      href: ../reliability/reliability-ddos.md?toc=/azure/ddos-protection/TOC.json
+      href: /azure/reliability/reliability-ddos?toc=/azure/ddos-protection/TOC.json
     - name: Reference architectures
       href: ddos-protection-reference-architectures.md
     - name: Types of attacks

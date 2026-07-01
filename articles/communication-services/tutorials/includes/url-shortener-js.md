@@ -1,10 +1,10 @@
 ---
 title: include file
 description: include file
-author: tophpalmer
+author: sundiraman
 manager: shahen
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 03/29/2023
 ms.topic: include
 ms.service: azure-communication-services

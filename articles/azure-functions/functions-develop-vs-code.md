@@ -6,7 +6,7 @@ ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.date: 11/02/2025
 
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ms.custom:
   - devdivchpfy22
   - vscode-azure-extension-update-complete
@@ -97,7 +97,7 @@ You also need these prerequisites to [run and debug your functions locally](#run
 + The [PowerShell extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell). 
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
-+ [Python](https://www.python.org/downloads/), one of the [supported versions](functions-reference-python.md#python-version).
++ [Python](https://www.python.org/downloads/), one of the [supported versions](functions-reference-python.md#supported-python-versions).
 
 + [Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python) for Visual Studio Code.
 
@@ -336,7 +336,7 @@ You can't use the [quick create](functions-develop-vs-code.md?tabs=quick-create#
    | **Select a location for new resources** | Select a location in a [region](https://azure.microsoft.com/regions/) near you or near other services that your functions access. If you chose an existing resource group, that location is used and you don't see this prompt. |
    | **Select a runtime stack**| Select the language version you currently run locally. |
    | **Select an instance size** | Select **512** or a larger size. You can always [change the instance size](./flex-consumption-how-to.md#configure-instance-memory) at a later time. |
-   | **Enter the maximum instance count** | Select the default value of **100**, which limits the total scale-out of your app. You can also choose a different value between 40 and 1,000.  |
+   | **Enter the maximum instance count** | Select the default value of **100**, which limits the total scale-out of your app. You can also choose a different value between 1 and 1,000.  |
    | **Select a resource group**  | Select **Create new resource group** and accept the default or enter another name for the new group that's unique in your subscription.| 
    | **Select resource authentication type** | Select **Managed identity** so that your app connects to remote resources by using Microsoft Entra ID authentication instead of using shared secrets (connection strings and keys), which are less secure. |
    | **Select a user assigned identity** | Select **Create new user-assigned identity**. | 
@@ -613,6 +613,7 @@ By default, all C# projects are created as [C# compiled class library projects](
 
 After you complete these steps, calls made to the underlying Core Tools include the `--csx` option, which generates and publishes C# script (.csx) project files. When you specify this default language, all projects that you create default to C# script projects. You're not prompted to choose a project language when a default is set. To create projects in other languages, you must change this setting or remove it from the user settings.json file. After you remove this setting, you're again prompted to choose your language when you create a project.
 ::: zone-end
+
 
 ## Command palette reference
 

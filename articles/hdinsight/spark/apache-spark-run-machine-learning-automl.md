@@ -26,7 +26,7 @@ You can use Zeppelin notebooks to use AutoML as well.
 
 ## Authentication for workspace
 
-Workspace creation and experiment submission require an authentication token. This token can be generated using an [Microsoft Entra application](../../active-directory/develop/app-objects-and-service-principals.md). An [Microsoft Entra user](/azure/developer/python/sdk/authentication-overview) can also be used to generate the required authentication token, if multifactor authentication isn't enabled on the account.  
+Workspace creation and experiment submission require an authentication token. This token can be generated using a [Microsoft Entra application](../../active-directory/develop/app-objects-and-service-principals.md). A [Microsoft Entra user](/azure/developer/python/sdk/authentication-overview) can also be used to generate the required authentication token, if multifactor authentication isn't enabled on the account.  
 
 The following code snippet creates an authentication token using an **Microsoft Entra application**.
 

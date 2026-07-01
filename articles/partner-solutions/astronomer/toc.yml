@@ -7,6 +7,9 @@ items:
     href: overview.md
   - name: Astro resources and developer tools
     href: tools.md  
+  - name: FAQ
+    href: faq.yml
+
 - name: Quickstarts
   expanded: true
   items:

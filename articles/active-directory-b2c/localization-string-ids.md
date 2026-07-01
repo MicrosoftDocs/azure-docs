@@ -5,7 +5,7 @@ description: Specify the IDs for a content definition with an ID of api.signupor
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 02/24/2024
@@ -531,7 +531,7 @@ The following IDs are used for [RESTful service technical profile](restful-techn
 
 ## Microsoft Entra multifactor authentication error messages
 
-The following IDs are used for an [Microsoft Entra ID multifactor authentication technical profile](multi-factor-auth-technical-profile.md) error message:
+The following IDs are used for a [Microsoft Entra ID multifactor authentication technical profile](multi-factor-auth-technical-profile.md) error message:
 
 | ID | Default value |
 | --- | ------------- |

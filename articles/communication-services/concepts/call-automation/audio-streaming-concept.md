@@ -2,11 +2,11 @@
 title: Audio streaming overview
 titleSuffix: An Azure Communication Services concept document
 description: Conceptual information about using Audio Streaming APIs with Call Automation.
-author: Alvin
+author: henikaraa
 ms.service: azure-communication-services
 ms.topic: overview
 ms.date: 11/24/2024
-ms.author: alvinhan
+ms.author: henikaraa
 ms.custom: public_prview
 ---
 

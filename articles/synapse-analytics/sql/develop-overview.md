@@ -6,10 +6,13 @@ ms.author: fipopovi
 ms.date: 03/23/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: conceptual
+ms.topic: hub-page
 ---
 
 # Design decisions and coding techniques for Synapse SQL features in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you'll find a list of resources for dedicated SQL pool and serverless SQL pool functions of Synapse SQL. The recommended articles are split up into two sections: Key design decisions and development and coding techniques.
 
 The goal of these articles is to help you develop the optimal technical approach for the Synapse SQL components within Azure Synapse Analytics.

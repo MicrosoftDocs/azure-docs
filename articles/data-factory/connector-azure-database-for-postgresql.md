@@ -5,8 +5,8 @@ description: Learn how to copy and transform data in Azure Database for PostgreS
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.date: 08/05/2025
+ms.topic: how-to
+ms.date: 02/09/2026
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -19,6 +19,10 @@ ms.custom:
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from and to Azure Database for PostgreSQL. And, how to use Data Flow to transform data in Azure Database for PostgreSQL. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Azure Database for PostgreSQL connector documentation](/fabric/data-factory/connector-azure-database-for-postgresql-overview).
+
+
 > [!IMPORTANT]
 > The Azure Database for PostgreSQL version 2.0 provides improved native Azure Database for PostgreSQL support. If you're using the Azure Database for PostgreSQL version 1.0 in your solution, you're recommended to [upgrade your Azure Database for PostgreSQL connector](#upgrade-the-azure-database-for-postgresql-connector) at your earliest convenience.
 
@@ -30,10 +34,10 @@ This Azure Database for PostgreSQL connector is supported for the following capa
 
 | Supported capabilities | IR | Managed private endpoint | Connector supported versions |
 |---------| --------| --------|
-|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |1.0 & 2.0 |
-|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |✓ |1.0 & 2.0 |
-|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|✓ |1.0 & 2.0 |
-|[Script activity](transform-data-using-script.md)|&#9312; &#9313;|✓ |2.0 |
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;| |1.0 & 2.0 |
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; | |1.0 & 2.0 |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;| |1.0 & 2.0 |
+|[Script activity](transform-data-using-script.md)|&#9312; &#9313;| |2.0 |
 
 *&#9312; Azure integration runtime &#9313; Self-hosted integration runtime*
 
@@ -91,7 +95,7 @@ The following properties are supported for the Azure Database for PostgreSQL lin
 | server | Specifies the host name and optionally port on which Azure Database for PostgreSQL is running. | Yes |
 | port |The TCP port of the Azure Database for PostgreSQL server. The default value is `5432`. |No |
 | database| The name of the Azure Database for PostgreSQL database to connect to. |Yes |
-| sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection fails.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Require**: The connection fails if the server doesn't support SSL.<br/>- **Verify-ca**: The connection fails if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify-full**: The connection fails if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disable (0) / Allow (1) / Prefer (2) **(Default)** / Require (3) / Verify-ca (4) / Verify-full (5) | No |
+| sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disabled**: SSL is disabled. If the server requires SSL, the connection fails.<br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections.<br/>- **Preferred**: Prefer SSL connections if the server allows them, but allow connections without SSL.<br/>- **Required**: The connection fails if the server doesn't support SSL.<br/>- **Verify_ca**: The connection fails if the server doesn't support SSL. Also verifies server certificate.<br/>- **Verify_full**: The connection fails if the server doesn't support SSL. Also verifies server certificate with host's name. <br/>Options: Disabled (0) / Allow (1) / Preferred (2) **(Default)** / Required (3) / Verify_ca (4) / Verify_full (5) | No |
 | connectVia | This property represents the [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Azure Integration Runtime or Self-hosted Integration Runtime (if your data store is located in private network). If not specified, it uses the default Azure Integration Runtime.|No|
 | ***Additional connection properties:*** |  |  |
 | schema | Sets the schema search path. | No |
@@ -617,9 +621,6 @@ Best practices to load data with partition option:
 ## Mapping data flow properties
 
 When transforming data in mapping data flow, you can read and write to tables from Azure Database for PostgreSQL. For more information, see the [source transformation](data-flow-source.md) and [sink transformation](data-flow-sink.md) in mapping data flows. You can choose to use an Azure Database for PostgreSQL dataset or an [inline dataset](data-flow-source.md#inline-datasets) as source and sink type.
-
-> [!NOTE]
-> Currently, only basic authentication is supported for both V1 and V2 versions of the Azure Database for PostgreSQL connector in Mapping Data Flows.
 
 ### Source transformation
 

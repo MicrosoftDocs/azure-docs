@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Drawing Tools Module. 
 author: sinnypan
 ms.author: sipa
-ms.date: 12/15/2025
+ms.date: 12/17/2025
 ms.topic: reference
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -14,7 +14,17 @@ ms.subservice: web-sdk
 
 This document contains information about new features and other changes to the Azure Maps Drawing Tools Module.
 
-## [2.0.0] (CDN: December 15, 2025, npm: TBD)
+## [2.1.0] (CDN: June 29, 2026, npm: TBD)
+
+### Other changes
+
+- Added support for `azure-maps-control@^4.0.0-preview.1`, in addition to the existing v2 and v3 ranges.
+
+### Security fixes
+
+- Updated vulnerable transitive development dependencies, including `brace-expansion`, `serialize-javascript`, and `lodash`.
+
+## [2.0.0] (CDN: December 15, 2025, npm: December 17, 2025)
 
 ### Breaking Changes
 
@@ -62,6 +72,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[2.0.0]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/2.0.0
 [1.0.5]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.5
 [1.0.4]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.4
 [1.0.3]: https://www.npmjs.com/package/azure-maps-drawing-tools/v/1.0.3

@@ -28,4 +28,4 @@ You need to create a role assignment that provides access to the storage account
 
 [blob receipts]: ../articles/azure-functions/functions-bindings-storage-blob-trigger.md#blob-receipts
 
-[Durable Functions extension configuration]: ../articles/azure-functions/durable/durable-functions-bindings.md#host-json
+[Durable Functions extension configuration]: ../articles/azure-functions/durable-functions/durable-functions-host-json-settings.md

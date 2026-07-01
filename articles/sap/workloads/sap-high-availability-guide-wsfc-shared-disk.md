@@ -9,7 +9,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 06/19/2024
+ms.date: 03/07/2026
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
 # Customer intent: As an Azure administrator, I want to configure a Windows failover cluster for an SAP ASCS/SCS instance with shared disks, so that I can ensure high availability and reliability of SAP services in the cloud environment.
@@ -39,8 +39,8 @@ The Azure cloud platform doesn't offer the option to configure virtual IP addres
 
 The Azure Load Balancer service provides an *internal load balancer* for Azure. With the internal load balancer, clients reach the cluster over the cluster's virtual IP address.
 
-Deploy the internal load balancer in the resource group that contains the cluster nodes. Then, configure all necessary port-forwarding rules by using the probe ports of the internal load balancer. Clients can connect via the virtual host name. The DNS server resolves the cluster IP address, and the internal load balancer handles port forwarding to the active node of the cluster.  
- 
+Deploy the internal load balancer in the resource group that contains the cluster nodes. Then, configure all necessary port-forwarding rules by using the probe ports of the internal load balancer. Clients can connect via the virtual host name. The DNS server resolves the cluster IP address, and the internal load balancer handles port forwarding to the active node of the cluster.
+
 ![Diagram of a Windows Server Failover Clustering configuration in Azure without a shared disk.][sap-ha-guide-figure-1001]
 
 ### SAP ASCS/SCS HA with cluster shared disks
@@ -68,13 +68,13 @@ In a high-availability setting, you cluster SAP ASCS/SCS instances. You use clus
 With an Enqueue Replication Server 1 (ERS1) architecture:
 
 - The same ASCS/SCS virtual host name is used to access the SAP message server and enqueue server processes, in addition to the SAP global host files via the *sapmnt* file share.
-- The same cluster shared disk (drive S) is shared between them.  
+- The same cluster shared disk (drive S) is shared between them.
 
 With Enqueue Replication Server 2 (ERS2) architecture:
 
 - The same ASCS/SCS virtual host name is used to access the SAP message server process, in addition to the SAP global host files via the *sapmnt* file share.
 - The same cluster shared disk (drive S) is shared between them.
-- There's a separate ERS virtual host name to access the enqueue server process.  
+- There's a separate ERS virtual host name to access the enqueue server process.
 
 ![Diagram of an SAP ASCS/SCS high-availability architecture with a shared disk.][sap-ha-guide-figure-8003]
 
@@ -86,7 +86,7 @@ Shared disks are supported with an ERS1 architecture, where the ERS1 instance:
 - Uses a `localhost` name.
 - Is deployed on local disks on each of the cluster nodes.
 
-Shared disks are also supported with an ERS2 architecture, where the ERS2 instance:  
+Shared disks are also supported with an ERS2 architecture, where the ERS2 instance:
 
 - Is clustered.
 - Uses a dedicated virtual or network host name.
@@ -102,11 +102,11 @@ There are two options for shared disks in a Windows failover cluster in Azure:
 - Use [Azure shared disks](/azure/virtual-machines/disks-shared) to attach Azure managed disks to multiple VMs simultaneously.
 - Use [SIOS DataKeeper Cluster Edition](https://us.sios.com/products/sios-datakeeper/) to create a mirrored storage that simulates cluster shared storage.
 
-When you're selecting the technology for shared disks, keep in mind the following considerations about Azure shared disks for SAP workloads:
+When you select a technology for shared disks, keep in mind the following considerations about Azure shared disks for SAP workloads:
 
 - Use of Azure shared disks with [Azure Premium SSD](/azure/virtual-machines/disks-types#premium-ssds) disks is supported for SAP deployment in availability sets and availability zones.
-- [Azure Ultra Disk Storage disks](/azure/virtual-machines/disks-types#ultra-disks) and [Azure Standard SSD disks](/azure/virtual-machines/disks-types#standard-ssds) are not supported as Azure shared disks for SAP workloads.
-- Be sure to provision Azure Premium SSD disks with a minimum disk size, as specified in [Premium SSD ranges](/azure/virtual-machines/disks-shared#disk-sizes), to be able to attach to the required number of VMs simultaneously. You typically need two VMs for SAP ASCS Windows failover clusters.
+- [Ultra Disks](/azure/virtual-machines/disks-types#ultra-disks) and [Azure Standard SSDs](/azure/virtual-machines/disks-types#standard-ssds) are not supported as Azure shared disks for SAP workloads.
+- Be sure to provision Azure Premium SSDs with a minimum disk size, as specified in [Premium SSD ranges](/azure/virtual-machines/disks-shared#disk-sizes), to be able to attach to the required number of VMs simultaneously. You typically need two VMs for SAP ASCS Windows failover clusters.
 
 Keep in mind the following considerations about SIOS:
 
@@ -121,11 +121,15 @@ You can implement SAP ASCS/SCS HA with [Azure shared disks](/azure/virtual-machi
 
 #### Prerequisites and limitations
 
-Currently, you can use Azure Premium SSD disks as Azure shared disks for the SAP ASCS/SCS instance. The following limitations are currently in place:
 
-- [Azure Ultra Disk Storage disks](/azure/virtual-machines/disks-types#ultra-disks) and [Standard SSD disks](/azure/virtual-machines/disks-types#standard-ssds) are not supported as Azure shared disks for SAP workloads.
-- [Azure Shared disks](/azure/virtual-machines/disks-shared) with [Premium SSD disks](/azure/virtual-machines/disks-types#premium-ssds) are supported for SAP deployment in availability sets and availability zones.
-- Azure shared disks with Premium SSD disks come with two storage options:
+
+
+You can use Azure Premium SSD disks as Azure shared disks for the SAP ASCS/SCS instance. Consider the following limitations:
+
+
+- [Ultra Disks](/azure/virtual-machines/disks-types#ultra-disks) and [Standard SSDs](/azure/virtual-machines/disks-types#standard-ssds) are not supported as Azure shared disks for SAP workloads.
+- [Azure Shared disks](/azure/virtual-machines/disks-shared) with [Premium SSDs](/azure/virtual-machines/disks-types#premium-ssds) are supported for SAP deployment in availability sets and availability zones.
+- Azure shared disks with Premium SSDs come with two storage options:
   - Locally redundant storage (LRS) for Premium SSD shared disks (`skuName` value of `Premium_LRS`) is supported with deployment in availability sets.
   - Zone-redundant storage (ZRS) for Premium SSD shared disks (`skuName` value of `Premium_ZRS`) is supported with deployment in availability zones.
 - The Azure shared disk value [maxShares](/azure/virtual-machines/disks-shared-enable?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. For an SAP ASCS/SCS instance, you typically configure two nodes in WSFC. You then set the value for `maxShares` to `2`.
@@ -133,7 +137,7 @@ Currently, you can use Azure Premium SSD disks as Azure shared disks for the SAP
   - If you're using PPGs for an SAP system deployed in a region, all virtual machines that share a disk must be part of the same PPG.
   - If you're using PPGs for an SAP system deployed across zones, as described in [Proximity placement groups with zonal deployments](proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach `Premium_ZRS` storage to virtual machines that share a disk.
 
-For more information, review the [Limitations](/azure/virtual-machines/disks-shared#limitations) section of the documentation for Azure shared disks.
+For more information, see the [Limitations](/azure/virtual-machines/disks-shared#limitations) section of the documentation for Azure shared disks.
 
 #### Important considerations for Premium SSD shared disks
 
@@ -230,6 +234,6 @@ For information about other configurations, see the following resources:
 [sap-ha-guide-figure-8003]:./media/virtual-machines-shared-sap-high-availability-guide/8003.png
 
 [optional-smb]:high-availability-guide-windows-netapp-files-smb.md#5121771a-7618-4f36-ae14-ccf9ee5f2031 (Optional configuration for SAP Application Servers on WSFC nodes using Server Message Block in Azure NetApp Files)
-[optional-fileshare]:sap-high-availability-guide-wsfc-file-share.md#86cb3ee0-2091-4b74-be77-64c2e6424f50 (Optional configuration for SAP Application Servers on WSFC nodes using Windows Scale-Out File Server)
+[optional-fileshare]:sap-high-availability-guide-wsfc-file-share.md#sap-application-servers-on-windows-server-failover-cluster-nodes-using-windows-sofs (Optional configuration for SAP Application Servers on WSFC nodes using Windows Scale-Out File Server)
 [optional-smb-sql]:high-availability-guide-windows-netapp-files-smb.md#01541cf2-0a03-48e3-971e-e03575fa7b4f (Optional configuration for SAP ASCS/SCS on SQL Server Always On nodes using Server Message Block in Azure NetApp Files)
-[optional-fileshare-sql]:sap-high-availability-guide-wsfc-file-share.md#db335e0d-09b4-416b-b240-afa18505f503 (Optional configuration for SAP ASCS/SCS on SQL Server Always On nodes using Windows Scale-Out File Server)
+[optional-fileshare-sql]:sap-high-availability-guide-wsfc-file-share.md#sap-ascsscs-on-sql-server-always-on-nodes-using-windows-sofs (Optional configuration for SAP ASCS/SCS on SQL Server Always On nodes using Windows Scale-Out File Server)

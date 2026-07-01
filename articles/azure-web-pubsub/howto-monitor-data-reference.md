@@ -5,7 +5,7 @@ author: wanlwanl
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ms.date: 05/15/2023
-ms.author: wanl
+ms.author: jixin
 ---
 
 # Monitoring Azure Web PubSub data reference

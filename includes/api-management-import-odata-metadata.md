@@ -9,10 +9,12 @@ ms.author: danlep
 ---
 ## Import OData metadata
 
-1. In the left menu, select **APIs** > **APIs**, and then select **+ Add API**.
-1. Under **Create from definition**, select **OData**:
+1. In the sidebar menu, select **APIs** > **APIs**, and then select **+ Add API**.
 
-    :::image type="content" source="media/api-management-import-odata-from-metadata/odata-api.png" alt-text="Screenshot of creating an API from an OData description in the portal." :::
+1. Under **Create from definition**, select the **OData** tile:
+
+    :::image type="content" source="media/api-management-import-odata-from-metadata/odata-api.png" alt-text="Screenshot of the OData tile in the portal." :::
+
 1. Enter API settings. You can update your settings later by going to the **Settings** tab of the API. 
 
     1. In **OData specification**, enter a URL for an OData metadata endpoint. This value is typically the URL to the service root, appended with `/$metadata`. Alternatively, select a local OData XML file to import.
@@ -28,8 +30,8 @@ ms.author: danlep
 
 You can access an editor in the portal to view your API's OData schema. If the API changes, you can also update the schema in API Management from a file or an OData service endpoint.
 
-1. In the [portal](https://portal.azure.com), navigate to your API Management instance.
-1. In the left menu, select **APIs**, and then select your OData API.
+1. In the sidebar menu, **APIs** > **APIs**, and then select your OData API.
+
 1. On the **Entity sets and functions** tab, select the ellipsis (**...**) next to an entity set or function, and then select **Edit**.
 
     :::image type="content" source="media/api-management-import-odata-from-metadata/edit-schema.png" alt-text="Screenshot that shows the location of the Edit command." lightbox="media/api-management-import-odata-from-metadata/edit-schema.png":::
@@ -40,7 +42,8 @@ You can access an editor in the portal to view your API's OData schema. If the A
 
 ## Test your OData API
 
-1. In the left menu, select **APIs**, and then select your OData API.
+1. In the sidebar menu, **APIs** > **APIs**, and then select your OData API.
+
 1. On the **Entity sets and functions** tab, select the ellipsis (**...**) next to an entity set or function, and then select **Test**.
 
     :::image type="content" source="media/api-management-import-odata-from-metadata/test-entity.png" alt-text="Screenshot that shows the Test command." lightbox="media/api-management-import-odata-from-metadata/test-entity.png":::

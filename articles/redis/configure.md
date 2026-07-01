@@ -2,7 +2,7 @@
 title: How to configure Azure Managed Redis
 description: Understand the default Redis configuration for Azure Managed Redis and learn how to configure your Azure Managed Redis instances.
 ms.date: 05/18/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - engagement-fy23
   - ignite-2024

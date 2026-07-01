@@ -5,7 +5,7 @@ ms.subservice: ci-cd
 author: kromerm
 ms.author: makromer
 ms.reviewer: whhender
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/29/2025
 ms.custom: sfi-ropc-nochange
 ---
@@ -174,6 +174,12 @@ Here's an explanation of how the preceding template is constructed, broken down 
 * Linked services are unique. Because linked services and datasets have a wide range of types, you can provide type-specific customization. In this example, for all linked services of type `AzureDataLakeStore`, a specific template is applied. For all others (via `*`), a different template is applied.
 * The `connectionString` property is parameterized as a `securestring` value. It won't have a default value. It has a shortened parameter name that's suffixed with `connectionString`.
 * The property `secretAccessKey` happens to be an `AzureKeyVaultSecret` (for example, in an Amazon S3 linked service). It's automatically parameterized as an Azure Key Vault secret and fetched from the configured key vault. You can also parameterize the key vault itself.
+
+> [!WARNING]
+> The `encryptedCredential` property in linked service definitions is encrypted using the source factory's encryption key and is **not transferable between factories**. If your source-controlled linked service JSON files contain `encryptedCredential`, deployment to any other factory will fail or produce non-functional linked services.
+> Before committing linked service definitions to source control, remove the `encryptedCredential` property entirely. Use one of the following portable alternatives instead:
+> - **Azure Key Vault reference** — store the secret in Key Vault and reference it using `AzureKeyVaultSecret` in the linked service definition.
+> - **Managed Identity (MSI)** — where the target service supports it, switch the authentication type to `ManagedServiceIdentity` to eliminate credential management entirely. Both approaches work across environments without modification and are the recommended patterns for CI/CD pipelines.
 
 ### Datasets
 

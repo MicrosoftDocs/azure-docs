@@ -6,7 +6,7 @@ description: Custom policy reference for Microsoft Entra ID SSPR technical profi
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024
@@ -64,7 +64,7 @@ The **InputClaimsTransformations** element may contain a collection of **InputCl
 
 ### Output claims
 
-The Microsoft Entra SSPR protocol provider does not return any **OutputClaims**, thus there is no need to specify output claims. You can, however, include claims that aren't returned by the Microsoft Entra SSPR protocol provider as long as you set the `DefaultValue` attribute.
+The Microsoft Entra SSPR protocol provider does not return any **OutputClaims**, thus, there is no need to specify output claims. You can, however, include claims that aren't returned by the Microsoft Entra SSPR protocol provider as long as you set the `DefaultValue` attribute.
 
 The **OutputClaimsTransformations** element may contain a collection of **OutputClaimsTransformation** elements that are used to modify the output claims or generate new ones.
 

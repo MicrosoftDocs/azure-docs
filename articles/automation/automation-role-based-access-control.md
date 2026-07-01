@@ -8,8 +8,8 @@ ms.topic: how-to
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
 #Customer intent: As an administrator, I want to understand permissions so that I use the least necessary set of permissions.
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Manage role permissions and security in Azure Automation
@@ -77,7 +77,7 @@ An Automation Contributor can manage all resources in the Automation account exc
 
 |**Actions**  |**Description**  |
 |---------|---------|
-|[Microsoft.Automation](../role-based-access-control/resource-provider-operations.md#microsoftautomation)/automationAccounts/* | Create and manage resources of all types.|
+|[Microsoft.Automation](../role-based-access-control/permissions/management-and-governance.md#microsoftautomation)/automationAccounts/* | Create and manage resources of all types.|
 |Microsoft.Authorization/*/read|Read roles and role assignments.|
 |Microsoft.Resources/deployments/*|Create and manage resource group deployments.|
 |Microsoft.Resources/subscriptions/resourceGroups/read|Read resource group deployments.|
@@ -125,7 +125,7 @@ The following table shows the permissions granted for the role:
 |Microsoft.Resources/deployments/*      |Create and manage resource group deployments.         |
 |Microsoft.Insights/alertRules/*      | Create and manage alert rules.        |
 |Microsoft.Support/* |Create and manage support tickets.|
-|[Microsoft.ResourceHealth](../role-based-access-control/resource-provider-operations.md#microsoftresourcehealth)/availabilityStatuses/read| Gets the availability statuses for all resources in the specified scope.|
+|[Microsoft.ResourceHealth](../role-based-access-control/permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read| Gets the availability statuses for all resources in the specified scope.|
 
 ### Automation Job Operator
 

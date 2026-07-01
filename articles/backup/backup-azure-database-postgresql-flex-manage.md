@@ -2,7 +2,7 @@
 title: Manage backups of Azure Database for PostgreSQL - Flexible Server using Azure portal
 description: Learn about managing backup for the Azure PostgreSQL - Flexible servers from the Azure portal.
 ms.topic: how-to
-ms.date: 03/18/2025
+ms.date: 02/27/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.service: azure-backup
@@ -35,13 +35,13 @@ You can change the associated policy with a backup instance.
 
 The Azure Backup service creates a job for scheduled backups or if you trigger on-demand backup operation for tracking. To view the backup job status:
 
-1. Go to the **Azure Business Continuity Center** and select **Protected Items** under **Protection Inventory**.
+1. Go to the **Resiliency** and select **Protected items** under **Protection Inventory**.
 
-   The **Protected Items** blade shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select on the protected item and open it.
+   The **Protected items** pane shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select the protected item and open it.
 
    :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the jobs dashboard." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
 
-1. Now select on the **Associated Items** to open up the dashboard for the backup instance. Here you can see the backup jobs for the last seven days. 
+1. Now select the **Associated Items** to open up the dashboard for the backup instance. Here you can see the backup jobs for the last seven days. 
 
 1. To view the status of the backup operation, select **View all** to show ongoing and past jobs of this backup instance.
 
@@ -55,21 +55,17 @@ The Azure Backup service creates a job for scheduled backups or if you trigger o
 
 After you trigger the restore operation, the backup service creates a job for tracking. Azure Backup displays notifications about the job in the portal. To view the restore job progress:
 
-1. Go to the **Azure Business Continuity Center** and select **Protected Items** under **Protection Inventory**.
+1. Go to the **Resiliency** and select **Protected items** under **Protection Inventory**.
 
-   The **Protected Items** blade shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select on the protected item and open it.
+   The **Protected items** pane shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select the protected item and open it.
 
    :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the jobs dashboard." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
 
-1. Now select on the **Associated Items** to open up the dashboard for the backup instance. Here you can see the backup jobs for the last seven days. 
+1. Now select the **Associated Items** to open up the dashboard for the backup instance. Here you can see the backup jobs for the last seven days. 
 
 1. To view the status of the restore operation, select **View all** to show ongoing and past jobs of this backup instance.
 
-    ![Screenshot shows how to select View all.](./media/restore-managed-disks/view-all.png)
-
 1. Review the list of backup and restore jobs and their status. Select a job from the list of jobs to view job details.
-
-    ![Screenshot shows the list of jobs.](./media/restore-managed-disks/list-of-jobs.png)
 
 ## Manage operations using the Azure portal
 
@@ -107,13 +103,13 @@ There are three ways by which you can stop protecting an Azure Disk:
 
 #### Stop Protection and Retain Data
 
-1. Go to the **Azure Business Continuity Center** and select **Protected Items** under **Protection Inventory**.
+1. Go to the **Resiliency** and select **Protected items** under **Protection Inventory**.
 
-   The **Protected Items** blade shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select on the protected item and open it.
+   The **Protected items** pane shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select the protected item and open it.
 
    :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the jobs dashboard." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
 
-1. Now select on the **Associated Items** to open up the dashboard for the backup instance. 
+1. Now select the **Associated Items** to open up the dashboard for the backup instance. 
 
 1. Select **Stop Backup**.
 
@@ -136,13 +132,13 @@ There are three ways by which you can stop protecting an Azure Disk:
 
 #### Stop Protection and Delete Data
 
-1. Go to the **Azure Business Continuity Center** and select **Protected Items** under **Protection Inventory**.
+1. Go to the **Resiliency** and select **Protected items** under **Protection Inventory**.
 
-   The **Protected Items** blade shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select on the protected item and open it.
+   The **Protected items** pane shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select the protected item and open it.
 
    :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the jobs dashboard." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
 
-1. Now select on the **Associated Items** to open up the dashboard for the backup instance. 
+1. Now select the **Associated Items** to open up the dashboard for the backup instance. 
 
 1. Select **Stop Backup**.
 
@@ -167,13 +163,13 @@ If you have selected the **Stop Protection and Retain data** option, you can res
 
 Use the following steps:
 
-1. Go to the **Azure Business Continuity Center** and select **Protected Items** under **Protection Inventory**.
+1. Go to the **Resiliency** and select **Protected items** under **Protection Inventory**.
 
-   The **Protected Items** blade shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select on the protected item and open it.
+   The **Protected items** pane shows all the backup instances created across the subscriptions. Use the filters to access the backup instance you would like to take a look at. Select the protected item and open it.
 
    :::image type="content" source="./media/backup-managed-disks/jobs-dashboard.png" alt-text="Screenshot shows the jobs dashboard." lightbox="./media/backup-managed-disks/jobs-dashboard.png":::
 
-1. Now select on the **Associated Items** to open up the dashboard for the backup instance. 
+1. Now select the **Associated Items** to open up the dashboard for the backup instance. 
 
 1. Select **Resume Backup**.
 

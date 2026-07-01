@@ -76,13 +76,17 @@ When a blob in the source account is deleted, the current version of the blob be
 
 Object replication doesn't support blob snapshots. Any snapshots on a blob in the source account aren't replicated to the destination account.
 
-## Blob index tags
+### Blob index tags
 
-Object replication doesn't copy the source blob's index tags to the destination blob.
+Object replication now supports copying index tags from source blobs to destination blobs. You can configure this capability as part of a new or existing replication rule. For more information, see [Configure object replication](object-replication-configure.md#configure-blob-index-tags-replication-preview).
+
+> [!IMPORTANT]
+> Tag replication is currently in PREVIEW.
+> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ### Blob tiering
 
-Object replication is supported when the source and destination accounts are in any online tier (hot, cool, or cold). The source and destination accounts might be in different tiers. However, object replication fails if a blob in either the source or destination account is moved to the archive tier. For more information on blob tiers, see [Access tiers for blob data](access-tiers-overview.md).
+Object replication is supported when the source and destination accounts are in any online tier (hot, cool, or cold). The source and destination accounts might be in different tiers. However, object replication fails if a blob in either the source or destination account is moved to the archive tier. Rehydrating an archived blob does not trigger object replication. Object replication is triggered only when the blob data is updated again after rehydration. For more information on blob tiers, see [Access tiers for blob data](access-tiers-overview.md).
 
 ### Immutable blobs
 
@@ -139,6 +143,10 @@ The following example sets a replication policy on the destination account with 
     "policyId": "default",
     "sourceAccount": "/subscriptions/<subscriptionId>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
     "destinationAccount": "/subscriptions/<subscriptionId>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>",
+    "metrics": {
+		  "enabled": false
+    },
+    "priorityReplication": "false",
     "rules": [
       {
         "ruleId": "",
@@ -148,14 +156,38 @@ The following example sets a replication policy on the destination account with 
           "prefixMatch": [
             "b"
           ],
-          "minCreationTime": "2021-08-028T00:00:00Z"
+          "minCreationTime": "2021-08-28T00:00:00Z"
         }
       }
     ]
   }
 }
 ```
+#### Custom filters
+It's possible to customize filters with different options in JSON file
 
+1. Prefix blob for replication, all blobs start with letter b :
+
+```json
+"filters": {
+          "prefixMatch": [
+            "b"
+          ],
+        }
+```
+2. Blob Creation Time
+```json
+"filters": {
+  "minCreationTime": "2021-08-28T00:00:00Z"
+}
+```
+
+3. For ALL BLOBS
+```json
+"filters": {
+  "minCreationTime": "1601-01-01T00:00:00Z"
+}
+```
 ### Specify full resource IDs for source and destination accounts
 
 When you create the policy definition file, specify the full Azure Resource Manager resource IDs for the **sourceAccount** and **destinationAccount** entries, as shown in the example in the previous section. To learn how to locate the resource ID for a storage account, see [Get the resource ID for a storage account](../common/storage-account-get-info.md#get-the-resource-id-for-a-storage-account).

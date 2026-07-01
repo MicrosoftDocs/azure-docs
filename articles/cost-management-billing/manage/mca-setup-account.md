@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/08/2025
+ms.date: 03/31/2026
 ms.author: jkinma
 ms.custom:
 - sfi-image-nochange
@@ -252,7 +252,7 @@ You see the following image when your Enterprise Agreement enrollment savings pl
 :::image type="content" source="./media/microsoft-customer-agreement-setup-account/savings-plan-repurchase.png" alt-text="Screenshot showing the Savings Plan page." lightbox="./media/microsoft-customer-agreement-setup-account/savings-plan-repurchase.png" :::
 
 >[!NOTE]
-> - If your enrollment transfer (e.g. EA to MCA, EA to EA, etc.) involves a change in pricing currency (e.g. EUR to USD), Savings Plans from the source enrollment will not be transferred to the destination enrollment. The Savings Plans will be cancelled in the source enrollment and automatically repurchased in the destination enrollment. Note the following:
+> - If your enrollment is non USD currency, any Azure Savings Plans purchased will not be transferred to the destination billing account. The Savings Plans will be cancelled in the source enrollment and automatically repurchased in the destination billing account. Note the following:
 >    - Each newly purchase Savings Plan will be billed Monthly, regardless of the billing frequency of the Savings Plan it is replacing.
 >    - Each newly purchased Savings Plan will be priced as the USD equivalent of the original Savings Plan. For example, assuming a €1: $1.17 rate, a €5/hour Savings Plan would be replaced with a $5.85/hour Savings Plan. 
 >    - Each newly purchased Savings Plans will have a 1-year term, regardless of the term of the Savings Plan it is replacing. As a result, each new Savings Plan will have a different term end date when compared to the Savings Plan being replaced.
@@ -280,7 +280,9 @@ When you transfer a subscription from an Enterprise Agreement to a Microsoft Cus
 
 - All other assets in the source subscription must also be able to successfully be transferred. Otherwise, the transfer fails. 
 
-- Please note Marketplace purchased through AppSource is not associated with any subscription, and cannot be transferred with this method. 
+- Marketplace purchased through Microsoft AppSource isn't associated with any subscription, and can't be transferred with this method.
+
+Software as a service (SaaS) products are an exception. A SaaS subscription is billed through the Azure subscription but doesn't move with it, so you transfer SaaS billing ownership separately. For more information, see [Software as a Service (SaaS) transfer](mpa-request-ownership.md#software-as-a-service-saas-transfer).
 
 ### Support plan
 

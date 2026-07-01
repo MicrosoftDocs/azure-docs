@@ -3,7 +3,7 @@ title: Reserved instances of Azure VMware Solution
 description: Learn how to buy a reserved instance for Azure VMware Solution. The reserved instance covers only the compute part of your usage and includes software licensing costs.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 4/4/2024
+ms.date: 3/20/2026
 ms.custom: engagement-fy23
 # Customer intent: As a cloud administrator, I want to purchase reserved instances for Azure VMware Solution, so that I can optimize compute costs and ensure software licensing is properly covered for my organization's usage.
 ---
@@ -47,7 +47,7 @@ These requirements apply to buying a reserved dedicated host instance:
 
    | Field        |  Description |
    | ------------ | ------------ |
-   | Subscription | The subscription used to pay for the reservation. The payment method on the subscription is charged the costs for the reservation. The subscription type must be an EA (offer numbers MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreement, or an individual subscription with pay-as-you-go rates (offer numbers MS-AZR-0003P or MS-AZR-0023P). The charges are deducted from the Azure Prepayment (previously called monetary commitment) balance, if available, or charged as overage. For a subscription with pay-as-you-go rates, the charges are billed to the subscription's credit card or an invoice payment method. |
+   | Subscription | The subscription used to pay for the reservation. The payment method set up for the subscription is charged for reservation costs. The subscription type must be an EA (offer numbers MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreement, or an individual subscription with pay-as-you-go rates (offer numbers MS-AZR-0003P or MS-AZR-0023P). The charges are deducted from the Azure Prepayment (previously called monetary commitment) balance, if available, or charged as overage. For a subscription with pay-as-you-go rates, the charges are billed to the subscription's credit card or an invoice payment method. |
    | Scope        | The reservation's scope can cover one subscription or multiple subscriptions (shared scope). If you select:<br><ul><li><b>Single resource group scope</b>: Applies the reservation discount to the matching resources in the selected resource group only.</li><li><b>Single subscription scope</b>: Applies the reservation discount to the matching resources in the selected subscription.</li><li><b>Shared scope</b>: Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For EA customers, the billing context is the enrollment. Therefore, the billing scope is all eligible subscriptions created by the account administrator for individual subscriptions with pay-as-you-go rates.<li>**Management group**: Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.</li></li></ul>       |
    | Region       | The Azure region covered by the reservation.   |
    | Host size    | AV36    |
@@ -76,7 +76,7 @@ CSPs that want to purchase reserved instances for their customers must use the *
 
    | Field        |  Description |
    | ------------ | ------------ |
-   | Subscription | The subscription that funds the reservation. The payment method on the subscription is charged the costs for the reservation. The subscription type must be an eligible one, which in this case is a CSP subscription.|
+   | Subscription | The subscription that funds the reservation. The payment method set up for the subscription is charged for reservation costs. The subscription type must be an eligible one, which in this case is a CSP subscription.|
    | Scope        | The reservation's scope can cover one subscription or multiple subscriptions (shared scope). If you select:<br><ul><li><b>Single resource group scope</b>: Applies the reservation discount to the matching resources in the selected resource group only.</li><li><b>Single subscription scope</b>: Applies the reservation discount to the matching resources in the selected subscription.</li><li><b>Shared scope</b>: Applies the reservation discount to matching resources in eligible subscriptions that are in the billing context. For EA customers, the billing context is the enrollment. Therefore, the billing scope is all eligible subscriptions created by the account administrator for individual subscriptions with pay-as-you-go rates.<li>**Management group**: Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.</li></li></ul>       |
    | Region       | The Azure region covered by the reservation.   |
    | Host size    | AV36    |

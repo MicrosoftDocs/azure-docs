@@ -8,7 +8,7 @@ ms.assetid: bedf411a-0781-47b9-9742-d524cf3dbfc1
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 11/10/2025
+ms.date: 05/05/2026
 ms.author: mbaldwin
 #Customer intent: As an IT Pro or decision maker, I am looking for information on the network security controls available in Azure.
 
@@ -29,7 +29,7 @@ This article covers key network security capabilities in Azure:
 * Monitoring and threat detection
 
 > [!NOTE]
-> For web workloads, we recommend using [Azure DDoS Protection](/azure/ddos-protection/ddos-protection-overview) and a [web application firewall](/azure/web-application-firewall/overview) to protect against DDoS attacks. [Azure Front Door](/azure/frontdoor/web-application-firewall) with a web application firewall provides platform-level protection against network-level DDoS attacks.
+> For web workloads, we recommend using [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) and a [web application firewall](../../web-application-firewall/overview.md) to protect against DDoS attacks. [Azure Front Door](../../frontdoor/web-application-firewall.md) with a web application firewall provides platform-level protection against network-level DDoS attacks.
 
 ## Azure Virtual Network
 
@@ -37,8 +37,8 @@ Azure Virtual Network is the fundamental building block for your private network
 
 Learn more:
 
-* [Azure Virtual Network overview](/azure/virtual-network/virtual-networks-overview)
-* [Plan virtual networks](/azure/virtual-network/virtual-network-vnet-plan-design-arm)
+* [Azure Virtual Network overview](../../virtual-network/virtual-networks-overview.md)
+* [Plan virtual networks](../../virtual-network/virtual-network-vnet-plan-design-arm.md)
 
 ## Network access control
 
@@ -56,8 +56,8 @@ NSGs include features to simplify management:
 
 Learn more:
 
-* [Network Security Groups](/azure/virtual-network/network-security-groups-overview)
-* [Network security best practices](/azure/security/fundamentals/network-best-practices)
+* [Network Security Groups](../../virtual-network/network-security-groups-overview.md)
+* [Network security best practices](network-best-practices.md)
 
 ### Service endpoints
 
@@ -65,7 +65,7 @@ Virtual Network service endpoints extend your virtual network private address sp
 
 Learn more:
 
-* [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview)
+* [Virtual Network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
 
 ### Azure Private Link
 
@@ -73,8 +73,8 @@ Azure Private Link provides private connectivity from a virtual network to Azure
 
 Learn more:
 
-* [What is Azure Private Link?](/azure/private-link/private-link-overview)
-* [Private endpoints](/azure/private-link/private-endpoint-overview)
+* [What is Azure Private Link?](../../private-link/private-link-overview.md)
+* [Private endpoints](../../private-link/private-endpoint-overview.md)
 
 ## Azure Firewall
 
@@ -88,9 +88,9 @@ Azure Firewall is available in three SKUs:
 
 Learn more:
 
-* [What is Azure Firewall?](/azure/firewall/overview)
-* [Choose the right Azure Firewall SKU](/azure/firewall/choose-firewall-sku)
-* [Threat detection and protection overview](/azure/security/fundamentals/threat-detection)
+* [What is Azure Firewall?](../../firewall/overview.md)
+* [Choose the right Azure Firewall SKU](../../firewall/choose-firewall-sku.md)
+* [Threat detection and protection overview](threat-detection.md)
 
 ## Secure remote access and cross-premises connectivity
 
@@ -106,7 +106,7 @@ Point-to-site VPN connections enable individual users to establish private, secu
 
 Learn more:
 
-* [About point-to-site VPN](/azure/vpn-gateway/point-to-site-about)
+* [About point-to-site VPN](../../vpn-gateway/point-to-site-about.md)
 * [Configure a point-to-site VPN connection](/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal)
 
 ### Site-to-site VPN
@@ -117,8 +117,8 @@ VPN Gateway is essential for hybrid IT scenarios where parts of a service are ho
 
 Learn more:
 
-* [About VPN Gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
-* [Create a site-to-site connection](/azure/vpn-gateway/tutorial-site-to-site-portal)
+* [About VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)
+* [Create a site-to-site connection](../../vpn-gateway/tutorial-site-to-site-portal.md)
 
 ### ExpressRoute
 
@@ -131,8 +131,8 @@ ExpressRoute supports:
 
 Learn more:
 
-* [ExpressRoute overview](/azure/expressroute/expressroute-introduction)
-* [ExpressRoute connectivity models](/azure/expressroute/expressroute-connectivity-models)
+* [ExpressRoute overview](../../expressroute/expressroute-introduction.md)
+* [ExpressRoute connectivity models](../../expressroute/expressroute-connectivity-models.md)
 
 ### VNet peering
 
@@ -140,7 +140,7 @@ Virtual Network peering connects two Azure virtual networks, enabling resources 
 
 Learn more:
 
-* [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview)
+* [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md)
 * [Create a VNet peering](/azure/virtual-network/tutorial-connect-virtual-networks-portal)
 
 ## Availability and load balancing
@@ -160,7 +160,7 @@ Load Balancer features include:
 
 Learn more:
 
-* [What is Azure Load Balancer?](/azure/load-balancer/load-balancer-overview)
+* [What is Azure Load Balancer?](../../load-balancer/load-balancer-overview.md)
 * [Standard Load Balancer and availability zones](/azure/load-balancer/load-balancer-standard-availability-zones)
 
 ### Azure Application Gateway
@@ -177,8 +177,8 @@ Application Gateway features include:
 
 Learn more:
 
-* [What is Azure Application Gateway?](/azure/application-gateway/overview)
-* [Application Gateway components](/azure/application-gateway/application-gateway-components)
+* [What is Azure Application Gateway?](../../application-gateway/overview.md)
+* [Application Gateway components](../../application-gateway/application-gateway-components.md)
 
 ### Azure Traffic Manager
 
@@ -188,8 +188,8 @@ Traffic Manager supports multiple routing methods including priority, weighted, 
 
 Learn more:
 
-* [What is Traffic Manager?](/azure/traffic-manager/traffic-manager-overview)
-* [Traffic Manager routing methods](/azure/traffic-manager/traffic-manager-routing-methods)
+* [What is Traffic Manager?](../../traffic-manager/traffic-manager-overview.md)
+* [Traffic Manager routing methods](../../traffic-manager/traffic-manager-routing-methods.md)
 
 ## Name resolution
 
@@ -205,8 +205,8 @@ Azure DNS provides highly available and performant name resolution using Microso
 
 Learn more:
 
-* [Azure DNS overview](/azure/dns/dns-overview)
-* [Azure Private DNS zones](/azure/dns/private-dns-overview)
+* [Azure DNS overview](../../dns/dns-overview.md)
+* [Azure Private DNS zones](../../dns/private-dns-overview.md)
 
 ## DDoS protection
 
@@ -227,8 +227,8 @@ DDoS Network Protection features include:
 
 Learn more:
 
-* [Azure DDoS Protection overview](/azure/ddos-protection/ddos-protection-overview)
-* [Manage DDoS Protection](/azure/ddos-protection/manage-ddos-protection)
+* [Azure DDoS Protection overview](../../ddos-protection/ddos-protection-overview.md)
+* [Manage DDoS Protection](../../ddos-protection/manage-ddos-protection.md)
 
 ## Azure Front Door
 
@@ -246,8 +246,8 @@ Front Door capabilities include:
 
 Learn more:
 
-* [What is Azure Front Door?](/azure/frontdoor/front-door-overview)
-* [Front Door routing architecture](/azure/frontdoor/front-door-routing-architecture)
+* [What is Azure Front Door?](../../frontdoor/front-door-overview.md)
+* [Front Door routing architecture](../../frontdoor/front-door-routing-architecture.md)
 
 ## Monitoring and threat detection
 
@@ -267,7 +267,7 @@ Network Watcher capabilities include:
 
 Learn more:
 
-* [What is Azure Network Watcher?](/azure/network-watcher/network-watcher-overview)
+* [What is Azure Network Watcher?](../../network-watcher/network-watcher-overview.md)
 * [Network Watcher monitoring overview](/azure/network-watcher/network-watcher-monitoring-overview)
 
 ### Microsoft Defender for Cloud
@@ -278,11 +278,11 @@ Learn more:
 
 * [Introduction to Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction)
 * [Protect your network resources](/azure/defender-for-cloud/protect-network-resources)
-* [Threat detection overview](/azure/security/fundamentals/threat-detection)
+* [Threat detection overview](threat-detection.md)
 
 ## Next steps
 
-* [Azure security best practices and patterns](/azure/security/fundamentals/best-practices-and-patterns)
-* [Network security best practices](/azure/security/fundamentals/network-best-practices)
-* [Identity management security overview](/azure/security/fundamentals/identity-management-overview)
-* [Threat detection and protection](/azure/security/fundamentals/threat-detection)
+* [Azure security best practices and patterns](best-practices-and-patterns.md)
+* [Network security best practices](network-best-practices.md)
+* [Identity management security overview](identity-management-overview.md)
+* [Threat detection and protection](threat-detection.md)

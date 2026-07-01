@@ -2,7 +2,7 @@
 title: Optimize Hive queries in Azure HDInsight 
 description: This article describes how to optimize your Apache Hive queries in Azure HDInsight.
 ms.service: azure-hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 10/17/2024
 ---
@@ -21,7 +21,7 @@ Choose the appropriate cluster type to help optimize performance for your worklo
 * Choose Apache **Hadoop** cluster type to optimize for Hive queries used as a batch process. 
 * **Spark** and **HBase** cluster types can also run Hive queries, and might be appropriate if you're running those workloads. 
 
-For more information on running Hive queries on various HDInsight cluster types, see [What is Apache Hive and HiveQL on Azure HDInsight?](hadoop/hdinsight-use-hive.md).
+For more information on running Hive queries on various HDInsight cluster types, see [What is Apache Hive and HiveQL on Azure HDInsight?](hadoop/hdinsight-use-hive.md)
 
 ## Scale out worker nodes
 

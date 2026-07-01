@@ -1,8 +1,8 @@
 ---
-author: ProfessorKendrick
+author: pavanatgit
 ms.topic: include
 ms.date: 01/10/2025
-ms.author: kkendrick
+ms.author: plekkala
 ---
 
 To set up the partner service on Azure, you need to register the service as a resource provider in your Azure subscription:

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 160">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#0078d4"/>
+    </marker>
+  </defs>
+  
+  <rect width="700" height="160" fill="#fafafa"/>
+  
+  <!-- Title -->
+  <text x="350" y="25" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="600" fill="#333">Your agent learns from every session</text>
+  
+  <!-- Thread Completes -->
+  <rect x="30" y="50" width="100" height="70" rx="8" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" filter="url(#shadow)"/>
+  <text x="80" y="75" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" font-weight="600" fill="#0d47a1">Thread</text>
+  <text x="80" y="90" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" font-weight="600" fill="#0d47a1">Completes</text>
+  <text x="80" y="108" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#1565c0">Sync or Async</text>
+  
+  <!-- Arrow -->
+  <path d="M130 85 L175 85" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <text x="152" y="75" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#666">30 min</text>
+  
+  <!-- Session Evaluator -->
+  <rect x="185" y="50" width="120" height="70" rx="8" fill="#ff8f00" filter="url(#shadow)"/>
+  <text x="245" y="75" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" font-weight="700" fill="white">Session</text>
+  <text x="245" y="90" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" font-weight="700" fill="white">Evaluator</text>
+  <text x="245" y="108" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#fff8e1">Auto-extracts learnings</text>
+  
+  <!-- Arrow -->
+  <path d="M305 85 L350 85" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Extracted structure -->
+  <rect x="360" y="40" width="180" height="90" rx="8" fill="#e8f5e9" stroke="#388e3c" stroke-width="2" filter="url(#shadow)"/>
+  <text x="450" y="60" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" font-weight="600" fill="#2e7d32">Learns:</text>
+  <text x="370" y="78" font-family="Segoe UI, Arial" font-size="8" fill="#388e3c">• Symptoms observed</text>
+  <text x="370" y="92" font-family="Segoe UI, Arial" font-size="8" fill="#388e3c">• Steps that worked</text>
+  <text x="370" y="106" font-family="Segoe UI, Arial" font-size="8" fill="#388e3c">• Root cause found</text>
+  <text x="370" y="120" font-family="Segoe UI, Arial" font-size="8" fill="#388e3c">• Pitfalls to avoid</text>
+  
+  <!-- Arrow -->
+  <path d="M540 85 L580 85" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Indexed -->
+  <rect x="590" y="50" width="90" height="70" rx="8" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" filter="url(#shadow)"/>
+  <text x="635" y="75" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" font-weight="600" fill="#0d47a1">Indexed</text>
+  <text x="635" y="90" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" font-weight="600" fill="#0d47a1">Memory</text>
+  <text x="635" y="108" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#1565c0">For future use</text>
+  
+  <!-- Bottom note -->
+  <text x="350" y="150" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#666">Next time a similar incident occurs, your agent recalls what worked</text>
+</svg>

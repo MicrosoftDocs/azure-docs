@@ -6,7 +6,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: concept-article
-ms.date: 08/25/2025
+ms.date: 02/10/2026
 zone_pivot_groups: appconfig-provider
 ms.custom:
   - devx-track-csharp
@@ -23,13 +23,13 @@ Azure App Configuration and its .NET, .NET Framework, and Java Spring client lib
 
 :::zone target="docs" pivot="framework-dotnet"
 
-This article shows how you can take advantage of the managed identity to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue, [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
+This article shows how you can take advantage of the managed identity to access App Configuration. It builds on the web app introduced in the quickstart. Before you continue, [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
 :::zone-end
 
 :::zone target="docs" pivot="framework-spring"
 
-This article shows how you can take advantage of the managed identity to access App Configuration. It builds on the web app introduced in the quickstarts. Before you continue, [Create a Java Spring app with Azure App Configuration](./quickstart-java-spring-app.md) first.
+This article shows how you can take advantage of the managed identity to access App Configuration. It builds on the web app introduced in the quickstart. Before you continue, [Create a Java Spring app with Azure App Configuration](./quickstart-java-spring-app.md) first.
 
 :::zone-end
 
@@ -60,7 +60,7 @@ To complete this tutorial, you must have:
 
 * An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An Azure App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md).
-* A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 11.
+* A supported [Java Development Kit (JDK)](/java/azure/jdk) with version 17.
 * [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 
 :::zone-end
@@ -121,11 +121,11 @@ The following steps describe how to assign the App Configuration Data Reader rol
 
 1. Find the endpoint to your App Configuration store. This URL is listed on the **Access keys** tab for the store in the Azure portal.
 
-1. Open the *appsettings.json* file and add the following script. Replace *\<service_endpoint>*, including the brackets, with the URL to your App Configuration store.
+1. Open the *appsettings.json* file and add the following script. Replace _`<AppConfigurationEndpoint>`_, including the brackets, with the URL to your App Configuration store.
 
     ```json
     "AppConfig": {
-        "Endpoint": "<service_endpoint>"
+        "Endpoint": "<AppConfigurationEndpoint>"
     }
     ```
 
@@ -149,7 +149,7 @@ The following steps describe how to assign the App Configuration Data Reader rol
     > [!NOTE]
     > If you want to use a **user-assigned managed identity**, be sure to specify the `clientId` when creating the [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential).
     >```csharp
-    >new ManagedIdentityCredential("<your_clientId>")
+    >new ManagedIdentityCredential("<ClientId>")
     >```
     >As explained in the [Managed Identities for Azure resources FAQs](../active-directory/managed-identities-azure-resources/known-issues.md), there is a default way to resolve which managed identity is used. In this case, the Azure Identity library enforces you to specify the desired identity to avoid possible runtime issues in the future. For instance, if a new user-assigned managed identity is added or if the system-assigned managed identity is enabled. So, you will need to specify the `clientId` even if only one user-assigned managed identity is defined, and there is no system-assigned managed identity.
 
@@ -162,15 +162,15 @@ The following steps describe how to assign the App Configuration Data Reader rol
 1. Open `application.properties`, remove the connection-string property and replace it with endpoint for System Assigned Identity:
 
 ```properties
-spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
+spring.cloud.azure.appconfiguration.stores[0].endpoint=<AppConfigurationEndpoint>
 ```
 
 For User Assigned Identity:
 
 ```properties
-spring.cloud.azure.appconfiguration.stores[0].endpoint=<service_endpoint>
+spring.cloud.azure.appconfiguration.stores[0].endpoint=<AppConfigurationEndpoint>
 spring.cloud.azure.credential.managed-identity-enabled= true
-spring.cloud.azure.credential.client-id= <client_id>
+spring.cloud.azure.credential.client-id= <ClientId>
 ```
 
 > [!NOTE]

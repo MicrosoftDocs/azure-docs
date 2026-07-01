@@ -4,7 +4,7 @@ description: Learn how to secure your Azure DNS deployment with access managemen
 author: asudbring
 ms.author: allensu
 ms.service: azure-dns
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: [security, horz-security]
 ms.date: 08/06/2025
 ai-usage: ai-assisted

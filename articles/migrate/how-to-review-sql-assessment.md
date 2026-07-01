@@ -105,7 +105,7 @@ For storage sizing, the assessment maps each disk on the on-premises instance to
 * The required disk size is the sum of the SQL Data and SQL Log drives.
 * The assessment recommends creating a storage disk pool for all SQL Log and SQL Data drives. For temporary drives, it suggests storing the files on the local drive.
 * If the assessment can't find a disk that meets the required size, it marks the instance as unsuitable for migrating to SQL Server on Azure VM.
-* If the environment type is Production, the assessment attempts to map each disk to a premium disk. For nonproduction environments, it looks for a suitable disk, which might be either a Premium or Standard SSD disk. If multiple eligible disks are available, the assessment selects the disk with the lowest cost.
+* If the environment type is Production, the assessment attempts to map each disk to a premium disk. For nonproduction environments, it looks for a suitable disk, which might be either a Premium or Standard SSD. If multiple eligible disks are available, the assessment selects the disk with the lowest cost.
 
 **Compute sizing**
 
@@ -130,9 +130,9 @@ For storage sizing, the assessment maps each disk on the on-premises instance to
 * The IO/s and throughput requirements are determined by adding read and write IO/s and read and write throughput. Candidate disks are then identified based on their ability to meet the required throughput and are mapped to required size. 
 * The assessment recommends creating a storage disk pool for all SQL Log and SQL Data drives. For temp drives, it suggests storing the files in the local drive.
 * If the source is a SQL Server Always On Failover Cluster Instance, a shared disk configuration is selected.
-*  If the environment type is Production, the assessment attempts to map each disk to a premium disk. For nonproduction environments, it looks for a suitable disk, which might be either a Premium or Standard SSD disk. If multiple eligible disks are available, the assessment selects the disk with the lowest cost.
+*  If the environment type is Production, the assessment attempts to map each disk to a premium disk. For nonproduction environments, it looks for a suitable disk, which might be either a Premium or Standard SSD. If multiple eligible disks are available, the assessment selects the disk with the lowest cost.
 
-If the environment type is Production, the assessment attempts to map each disk to a premium disk. For nonproduction environments, it looks for a suitable disk, which might be either a Premium or Standard SSD disk. If multiple eligible disks are available, the assessment selects the disk with the lowest cost.
+If the environment type is Production, the assessment attempts to map each disk to a premium disk. For nonproduction environments, it looks for a suitable disk, which might be either a Premium or Standard SSD. If multiple eligible disks are available, the assessment selects the disk with the lowest cost.
 
 **Compute sizing**
 

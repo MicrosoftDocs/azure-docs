@@ -1,7 +1,7 @@
 ---
 title: Azure Event Grid’s MQTT broker feature - Troubleshooting guide
 description: This article provides guidance on how to troubleshoot MQTT broker related issues.
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.custom:
   - build-2023
   - ignite-2023

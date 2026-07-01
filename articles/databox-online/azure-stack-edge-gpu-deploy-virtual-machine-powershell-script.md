@@ -2,12 +2,12 @@
 title: Deploy VMs on your Azure Stack Edge Pro GPU device via Azure PowerShell script
 description: Describes how to create and manage virtual machines (VMs) on an Azure Stack Edge Pro device using an Azure PowerShell script.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 05/24/2022
-ms.author: alkohli
+ms.author: sipastak
 ms.custom:
   - devx-track-azurepowershell
   - sfi-image-nochange

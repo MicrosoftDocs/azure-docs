@@ -1,18 +1,18 @@
 ---
-title: Deploy a webapp connected to Azure Blob Storage
+title: Deploy a Webapp Connected to Azure Blob Storage
 description: This tutorial guides you through creating and deploying a web application that connects to Azure Blob Storage using Service Connector.
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 12/18/2024
+ms.date: 12/02/2025
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
 
 # Tutorial: Deploy a web application connected to Azure Blob Storage with Service Connector
 
-In this tutorial, you learn how to access Azure Blob Storage for a web app (not a signed-in user) running on Azure App Service by using managed identities. In this tutorial, you'll use the Azure CLI to complete the following tasks:
+In this tutorial, you learn how to access Azure Blob Storage for a web app (not a signed-in user) running on Azure App Service by using managed identities. In this tutorial, you use the Azure CLI to complete the following tasks:
 
 > [!div class="checklist"]
 >
@@ -22,7 +22,7 @@ In this tutorial, you learn how to access Azure Blob Storage for a web app (not 
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
@@ -64,12 +64,12 @@ In this tutorial, you learn how to access Azure Blob Storage for a web app (not 
 
 1. In the terminal, make sure you're in the *WebAppStorageMISample* repository folder that contains the app code.
 
-1. Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command below and replace the placeholders with your own data:
+1. Create an App Service app (the host process) with the [`az webapp up`](/cli/azure/webapp#az-webapp-up) command and replace the following placeholders with your own data:
 
-    * For the `--location` argument, use a [region supported by Service Connector](concept-region-support.md).
-    * Replace `<app-name>` with a unique name across Azure. The server endpoint is `https://<app-name>.azurewebsites.net`. Allowed characters for `<app-name>` are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an app identifier.
+    - For the `--location` argument, use a [region supported by Service Connector](concept-region-support.md).
+    - Replace `<app-name>` with a unique name across Azure. The server endpoint is `https://<app-name>.azurewebsites.net`. Allowed characters for `<app-name>` are `A`-`Z`, `0`-`9`, and `-`. A good pattern is to use a combination of your company name and an app identifier.
 
-   ```azurecli
+    ```azurecli
     az webapp up --name <app-name> --sku B1 --location eastus --resource-group ServiceConnector-tutorial-rg
     ```
 
@@ -93,8 +93,8 @@ az webapp connection create storage-blob -g ServiceConnector-tutorial-rg -n <app
 
 Replace the following placeholders with your own data:
 
-* Replace `<app-name>` with the web app name you used in step 3.
-* Replace `<storage-name>` with the storage app name you used in step 4.
+- Replace `<app-name>` with the web app name you used in step 3.
+- Replace `<storage-name>` with the storage app name you used in step 4.
 
 > [!NOTE]
 > If you see the error message "The subscription is not registered to use Microsoft.ServiceLinker", run `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider and run the connection command again.
@@ -111,7 +111,7 @@ The sample code is a web application. Each time you refresh the index page, the 
 
 ## Next step
 
-To learn more about Service Connector, read the guide below.
+To learn more about Service Connector, read the following guide.
 
 > [!div class="nextstepaction"]
 > [Service Connector concepts](./concept-service-connector-internals.md)

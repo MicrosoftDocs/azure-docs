@@ -77,5 +77,5 @@ In the dropdown menu you can look for the Epic key word and then "Azure Large In
 
 ## What resources are available to learn more?
 
-See [What is Azure Large Instances?](what-is-azure-large-instances.md).
+See [What is Azure Large Instances?](what-is-azure-large-instances.md)
 

@@ -4,7 +4,7 @@ description: This article describes how to use Azure Stream Analytics to save ou
 author: ajetasin
 ms.author: ajetasi
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/29/2024
 ---
 # Azure Stream Analytics output to Azure Cosmos DB  

@@ -2,12 +2,12 @@
 title: Kubernetes failover scenarios on a clustered Azure Stack Edge Pro GPU, Pro R, Mini R device
 description: Describes Kubernetes failover scenarios and the device responses on your Azure Stack Edge Pro GPU 2-node cluster device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/15/2022
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Kubernetes failover scenarios on a clustered Azure Stack Edge device

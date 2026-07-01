@@ -2,23 +2,23 @@
 title: Azure Data Share terminology 
 description: Learn about common terms used to describe resources used in Azure Data Share (data provider, data consumer, data share, share subscription, snapshot, invitation, recipient.)
 ms.service: azure-data-share
-author:  sidontha
-ms.author: sidontha
+author:  chvukosw
+ms.author: chvukosw
 ms.topic: concept-article
-ms.date: 02/12/2025
+ms.date: 01/21/2026
 ---
 
-# Azure Data Share Concepts
+# Azure Data Share concepts
 
 Azure Data Share introduces some new terminology related to data sharing. This article explains some frequently used terms that you could see used throughout the service.
 
 ## Data provider
 
-A Data provider is the organization that is sharing data with their consumers. Typically the data provider can be an owner or a curator of the data. Data providers want to share data of various types. Some examples of data that a data provider might want to share include raw data, such as point of sales or time series data. A data provider might also want to share preprocessed, curated data that already contains analytics and insights.
+A Data provider is the organization that's sharing data with their consumers. Typically the data provider can be an owner or a curator of the data. Data providers want to share data of various types. Some examples of data that a data provider might want to share include raw data, such as point of sales or time series data. A data provider might also want to share preprocessed, curated data that already contains analytics and insights.
 
 ## Data consumer
 
-A Data consumer is the organization that is receiving data from a data provider. The data consumer might want to join the shared data with their own data to derive insights. In some cases, the data consumer might be receiving data that has already been processed.
+A Data consumer is the organization that's receiving data from a data provider. The data consumer might want to join the shared data with their own data to derive insights. In some cases, the data consumer might be receiving data that has already been processed.
 
 ## Data Share
 
@@ -54,7 +54,7 @@ Invitations can be resent up to five times a day.
 
 ## Recipient
 
-A recipient is someone that receives an invitation to a data share. Typically, a data provider will add recipients to data share that they create. Once the recipient of an invitation accepts the invitation, they become a data consumer.  
+A recipient is someone that receives an invitation to a data share. Typically, a data provider adds recipients to data share that they create. Once the recipient of an invitation accepts the invitation, they become a data consumer.  
 
 ## Related content
 

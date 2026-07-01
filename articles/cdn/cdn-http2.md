@@ -8,7 +8,7 @@ ms.author: halkazwini
 manager: kumudd
 ms.service: azure-cdn
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 02/28/2026
 # Customer intent: "As a web developer, I want to utilize HTTP/2 in my application, so that I can improve performance and enhance the user experience with faster load times and efficient resource management."
 ---
 

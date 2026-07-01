@@ -2,7 +2,7 @@
 title: About Azure VM backup
 description: In this article, learn how the Azure Backup service backs up Azure Virtual machines, and how to follow best practices.
 ms.topic: overview
-ms.date: 07/25/2025
+ms.date: 01/08/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As an IT admin managing Azure VMs, I want to implement effective backup strategies using Azure Backup, so that I can ensure data protection and quick recovery for my virtual machines while minimizing downtime and costs."
@@ -33,9 +33,9 @@ When you back up Azure VMs with Azure Backup, VMs are encrypted at rest with Sto
 **Encryption** | **Details** | **Support**
 --- | --- | ---
 **SSE** | With SSE, Azure Storage provides encryption at rest by automatically encrypting data before storing it. Azure Storage also decrypts data before retrieving it. Azure Backup supports backups of VMs with two types of Storage Service Encryption:<li> **SSE with platform-managed keys**: This encryption is by default for all disks in your VMs. See more [here](/azure/virtual-machines/disk-encryption#platform-managed-keys).<li> **SSE with customer-managed keys**. With CMK, you manage the keys used to encrypt the disks. See more [here](/azure/virtual-machines/disk-encryption#customer-managed-keys). | Azure Backup uses SSE for at-rest encryption of Azure VMs.
-**Azure Disk Encryption** | Azure Disk Encryption encrypts both OS and data disks for Azure VMs.<br/><br/> Azure Disk Encryption integrates with BitLocker encryption keys (BEKs), which are safeguarded in a key vault as secrets. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). | Azure Backup supports backup of managed and unmanaged Azure VMs encrypted with BEKs only, or with BEKs together with KEKs.<br/><br/> Both BEKs and KEKs are backed up and encrypted.<br/><br/> Because KEKs and BEKs are backed up, users with the necessary permissions can restore keys and secrets back to the key vault if needed. These users can also recover the encrypted VM.<br/><br/> Encrypted keys and secrets can't be read by unauthorized users or by Azure.
+**Azure Disk Encryption** | Azure Disk Encryption encrypts both OS and data disks for Azure VMs.<br/><br/> Azure Disk Encryption integrates with BitLocker encryption keys (BEKs), which are safeguarded in a key vault as secrets. Azure Disk Encryption also integrates with Azure Key Vault key encryption keys (KEKs). | Azure Backup supports backup of managed Azure VMs encrypted with BEKs only, or with BEKs together with KEKs.<br/><br/> Both BEKs and KEKs are backed up and encrypted.<br/><br/> Because KEKs and BEKs are backed up, users with the necessary permissions can restore keys and secrets back to the key vault if needed. These users can also recover the encrypted VM.<br/><br/> Encrypted keys and secrets can't be read by unauthorized users or by Azure.
 
-For managed and unmanaged Azure VMs, Backup supports both VMs encrypted with BEKs only or VMs encrypted with BEKs together with KEKs.
+For managed Azure VMs, Backup supports both VMs encrypted with BEKs only or VMs encrypted with BEKs together with KEKs.
 
 The backed-up BEKs (secrets) and KEKs (keys) are encrypted. They can be read and used only when they're restored back to the key vault by authorized users. Neither unauthorized users, or Azure, can read or use backed-up keys or secrets.
 
@@ -47,13 +47,23 @@ Azure Backup takes snapshots according to the backup schedule.
 
 If you have opted for application or file-system-consistent backups, the VM needs to have a backup extension installed to coordinate for the snapshot process. For [*agentless multi-disk crash-consistent* backups](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md), the VM agent is not required for snapshots.
 
-- **Windows VMs:** For Windows VMs, the Backup service coordinates with VSS to take an app-consistent snapshot of the VM disks.  By default, Azure Backup takes a full VSS backup (it truncates the logs of application such as SQL Server at the time of backup to get application level consistent backup).  If you're using a SQL Server database on Azure VM backup, then you can modify the setting to take a VSS Copy backup (to preserve logs). For more information, see [this article](./backup-azure-vms-troubleshoot.md#troubleshoot-vm-snapshot-issues).
+- **Windows VMs:** For Windows VMs, Azure Backup coordinates with VSS to take an application-consistent snapshot. For VMs running SQL Server, Azure VM Backup triggers a VSS Full (Copy-Only) backup by default to avoid affecting the SQL backup chain used by other backup tools. Copy-Only backups do not truncate SQL Server transaction logs. If you require log truncation (and understand the impact on the SQL backup chain), you can opt in to a VSS Full (Non-Copy-Only) backup by using the UseVssFullBackup registry setting. For more information, see [this article](./backup-azure-vms-troubleshoot.md#troubleshoot-vm-snapshot-issues).
+>[!Note]
+> Azure VM Backup is a VM-level backup. If you need database-level point-in-time recovery using transaction logs, use [Azure Backup for SQL Server in Azure VM (workload backup)](backup-azure-sql-database.md).
 
 - **Linux VMs:** To take app-consistent snapshots of Linux VMs, use the Linux pre-script and post-script framework to write your own custom scripts to ensure consistency.
 
   - Azure Backup invokes only the pre/post scripts written by you.
   - If the pre-scripts and post-scripts execute successfully, Azure Backup marks the recovery point as application-consistent. However, when you're using custom scripts, you're ultimately responsible for the application consistency.
   - [Learn more](backup-azure-linux-app-consistent.md) about how to configure scripts.
+
+- **FSFreeze and safeFreezelockFile**: **Fsfreeze** is a utility used to freeze and thaw the *filesystem* to make their state on consistent during VM backups.
+
+  - **Freeze**: When you freeze a filesystem, the currently running operations are allowed to complete. However, new write system operations and the operations that modify the filesystem are stopped.
+
+  - **Thawing**:  This operation reverses the freeze operation. When you thaw a filesystem, the previously stopped operations continue to run effectively, unblocking any modifications.
+
+  During the *Freeze* operation, Azure Backup invokes a file safeFreezelockFile. This prevents the other process to invoke the similar operation so that backup process isn't interrupted. Once the operation is complete, the lock is released.
 
 >[!Note]
 >The snapshot process starts with invoking the backup extension (agent-based), using tools such as VSS for Windows or freeze for Linux to ensure data consistency. When consistent, the Restore Point Collection monitors the extension and initiates snapshot creation. Afterward, metadata is updated with restore point paths and commit details to finalize the backup for restoration.

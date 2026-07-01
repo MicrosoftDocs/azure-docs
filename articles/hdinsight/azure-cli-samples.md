@@ -5,8 +5,8 @@ ms.service: azure-hdinsight
 ms.topic: sample
 ms.date: 09/06/2024
 ms.custom: devx-track-azurecli
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: hgowrisankar
 ---
 

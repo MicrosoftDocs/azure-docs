@@ -3,6 +3,9 @@ title: Dapr State output binding for Azure Functions
 description: Learn how to provide Dapr State output binding data during a function execution in Azure Functions.
 ms.topic: reference
 ms.date: 05/10/2024
+ms.author: nigreenf
+ms.reviewer: hannahhunter
+ms.subservice: dapr
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js, build-2024
@@ -47,9 +50,9 @@ public static async Task<IActionResult> Run(
 # [Isolated process](#tab/isolated-process)
 
 More samples for the Dapr output state binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-dapr-extension/blob/master/samples/dotnet-isolated-azurefunction/OutputBinding).
-
+<!--
 :::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/OutputBinding/StateOutputBinding.cs" range="16-28"::: 
-
+-->
 ---
 
 ::: zone-end 

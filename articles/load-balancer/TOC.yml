@@ -133,9 +133,9 @@
     - name: Reliability
       items:
         - name: Availability zones and cross-region load balancer
-          href: ../reliability/reliability-load-balancer.md?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
+          href: /azure/reliability/reliability-load-balancer?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
         - name: Availability zone migration
-          href: ../reliability/migrate-load-balancer.md?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
+          href: /azure/reliability/migrate-load-balancer?toc=/azure/load-balancer/toc.json&bc=/azure/load-balancer/breadcrumb/toc.json
     - name: Scaling and availability
       items:
         - name: Load balance a VM within a specific availability zone
@@ -231,6 +231,8 @@
       href: manage-admin-state-how-to.md
     - name: Retrieve information using the Azure Instance Metadata Service
       href: instance-metadata-service-load-balancer.md
+    - name: Testing inbound frontend IP address reachability
+      href: load-balancer-test-frontend-reachability.md
     - name: Health probes
       items:
         - name: Manage health probes
@@ -259,26 +261,8 @@
           href: load-balancer-health-event-logs.md
         - name: Manage Load Balancer health status
           href: load-balancer-manage-health-status.md
-- name: Troubleshoot
-  items:
-    - name: Troubleshoot Azure Load Balancer
-      href: load-balancer-troubleshoot.md
-    - name: Testing inbound frontend IP address reachability
-      href: load-balancer-test-frontend-reachability.md
-    - name: Health Probe status
-      href: load-balancer-troubleshoot-health-probe-status.md
-    - name: Backend pool (VM) traffic
-      href: load-balancer-troubleshoot-backend-traffic.md
-    - name: Troubleshoot SNAT exhaustion and connection timeouts
-      href: troubleshoot-outbound-connection.md
-    - name: Resource health and inbound availability issues
-      href: troubleshoot-rhc.md
-    - name: Common error codes for Azure Instance Metadata Service (IMDS)
-      href: troubleshoot-load-balancer-imds.md
-    - name: Common deployment errors
-      href: load-balancer-common-deployment-errors.md
-    - name: Troubleshoot load balancer health event logs
-      href: load-balancer-troubleshoot-health-event-logs.md
+- name: Support and troubleshooting for Azure Load Balancer
+  href: load-balancer-support-help.md
 - name: Reference
   items:
     - name: Code samples

@@ -4,7 +4,7 @@
  author: robece
  ms.service: azure-event-grid
  ms.topic: include
- ms.date: 04/30/2025
+ ms.date: 05/07/2026
  ms.author: robece
 ms.custom:
   - include file
@@ -13,7 +13,7 @@ ms.custom:
 ---
 
 > [!NOTE]
-> The following limits listed in this article are per region.
+> The following limits are per region.
 
 ## Event Grid throttle limits
 
@@ -46,16 +46,16 @@ Throughput units define the ingress and egress event rate capacity in namespaces
 | Inbound MQTT publishing requests per session | 1,000 messages per second                                                           |
 | Inbound MQTT bandwidth per session        | 1 MB per second                                                                   |
 | Inbound in-flight MQTT messages*        | 1,000 messages                                                                   |
-| Inbound in-flight MQTT bandwidth*         | 64 KB                                                             |
-| Inbound HTTP publishing requests per Event Grid namespace | 500 messages per second per TU |
-| Inbound HTTP bandwidth per Event Grid namespace           | 512 KB per second per TU       |
-| Inbound HTTP publishing requests per session              | 500 messages per second        |
-| Inbound HTTP bandwidth per session                        | 512 KB per second              |
-| Inbound in-flight HTTP messages*                          | 500 messages                   |
+| Inbound MQTT/HTTP publishing requests per Event Grid namespace | 1,000 messages per second per TU |
+| Inbound MQTT/HTTP bandwidth per Event Grid namespace | 1 MB per second per TU |
+| Inbound MQTT/HTTP publishing requests per session | 1,000 messages per second |
+| Inbound MQTT/HTTP bandwidth per session | 1 MB per second |
+| Inbound in-flight MQTT/HTTP messages* | 1,000 messages |
+| Inbound in-flight MQTT/HTTP bandwidth* | 64 KB |
 | Maximum Retain message size**                               | 64 KB                          |
 | Maximum Retain message per TU          | 10,000 messages or 640 MB (whichever is reached first) |
 | Total Retain storage per TU                               | 640 MB                         |
-| Retain message expiry (MQTT 3.1.1)                        | 365 days (default)             |
+| Retain message expiry (MQTT 3.1.1)                        | 365 days (default). To configure a Retain Expiry less than 365 days, contact Microsoft at [askmqtt@microsoft.com](mailto:askmqtt@microsoft.com) |
 | Retain message expiry (MQTT 5.0)                          | Configurable by using the message expiry interval with a range of 0 to 31,536,000 seconds (365 days) |
 | Outbound MQTT publishing requests per Event Grid namespace | 1,000 messages per second per TU                                                         |
 | Outbound MQTT bandwidth per Event Grid namespace        | 1 MB per second per TU                                                            |
@@ -81,6 +81,12 @@ Throughput units define the ingress and egress event rate capacity in namespaces
 | Subscriptions per MQTT session            | 50                                                                                |
 | Subscriptions per Event Grid namespace                  | 1 million                                                                         |
 | Subscriptions per MQTT topic                 | Unlimited, if they don't exceed the limit for subscriptions per Event Grid namespace or session|
+| Maximum number of shared subscription groups per Namespace | 100 |
+| Maximum number of subscriptions in a shared subscription group | 100 |
+| Maximum number of shared subscriptions per session | 10 (included within total 50 subscriptions per session) |
+| Maximum outgoing message rate per shared subscription | 100 × number of shared subscribers |
+| Maximum sessions per shared subscription | 100 |
+| Maximum shared subscriptions per broker | 100 |
 | Registered client resources                  | 10,000 clients per TU                                                             |
 | Certificate Authority certificates                              | 10                                                                                 |
 | Client groups                                | 10                                                                                |
@@ -115,7 +121,7 @@ The following limits apply to Event Grid custom topic, system topic, and partner
 | Limit description                                      | Limit                                                                                                                               |
 |--------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 | Custom topics per Azure subscription                   | 100<br/>When the limit is reached, you can consider a different region or consider using domains, which can support 100,000 topics. |
-| Event subscriptions per topic                          | 500<br/>This limit can't be increased.                                                                                              |
+| Event subscriptions per topic                          | 500. For Event Subscriptions on Azure Subscriptions the limit is 100. <br/>This limit can't be increased.                                                                                              |
 | Publish rate for a custom or a partner topic (ingress) | 5,000 events or 5 MB per second (whichever comes first)<br/>An event is counted for limits and pricing purposes as a 64-KB data chunk. So, if the event is 128 KB, it counts as two events. |
 | Event size                                             | 1 MB<br/>This limit can't be increased.                                                                                             |
 | Maximum event retention on topics              | 1 day<br/>This limit can't be increased. |

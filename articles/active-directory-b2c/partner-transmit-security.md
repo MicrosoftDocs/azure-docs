@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Learn how to configure Azure Active Directory B2C with Transmit Security for risk detect.
 author: yoelh
 manager: martinco
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 06/04/2024
 ms.author: yoelh
@@ -127,7 +127,7 @@ To integrating Transmit DRS into the B2C sign-in page, follow these steps:
 
 Azure AD B2C can obtain a risk recommendation from Transmit using a [API connector](./add-api-connector.md). Passing this request through an intermediate web API (such as using [Azure Functions](/azure/azure-functions/)) provides more flexibility in your implementation logic. 
 
-Follow these steps to create an Azure function that uses the action token from the frontend application to get a recommendation from the [Transmit DRS endpoint](https://developer.transmitsecurity.com/openapi/risk/recommendations/#operation/getRiskRecommendation).
+Follow these steps to create an Azure function that uses the action token from the frontend application to get a recommendation from the [Transmit DRS endpoint](https://developer.transmitsecurity.com/guides/risk/recommendations#operation/getRiskRecommendation).
 
 1. Create the entry point of your Azure Function, an HTTP-triggered function that processes incoming HTTP requests.
 

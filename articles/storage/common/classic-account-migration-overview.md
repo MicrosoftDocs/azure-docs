@@ -3,12 +3,12 @@ title: We're retiring classic storage accounts on August 31, 2024
 titleSuffix: Azure Storage
 description: Overview of migration of classic storage accounts to the Azure Resource Manager deployment model. All classic accounts must be migrated by August 31, 2024.
 services: storage
-author: akashdubey-ms
+author: normesta
 
 ms.service: azure-storage
 ms.topic: concept-article
 ms.date: 07/26/2023
-ms.author: akashdubey
+ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: devx-track-arm-template
 # Customer intent: "As a cloud administrator, I want to migrate my classic storage accounts to Azure Resource Manager, so that I can ensure continued access and benefit from the latest features and updates before the retirement date of August 31, 2024."
@@ -50,7 +50,7 @@ If your applications are using Azure Service Manager classic APIs to manage clas
 On or after 1 November 2024:
 
 - Your ability to perform write operations using the classic service model APIs, including PUT and PATCH, will be limited. You will only be able to perform read and list operations using the classic service model APIs.
-- Your remaining classic storage accounts will be migrated to Azure Resource Manager on your behalf on a rolling schedule. Your data will continue to be stored, but any applications that use the classic service model APIs to perform management plane operations will experience disruptions if you're actively using any write operations. Write operations will only be available through the Azure Resource Manager APIs after your account(s) have been migrated. Once migration is completed, you will see two storage accounts with the same name through interfaces such as the Azure Portal. This is by design. One account is your classic storage account and the other is your Azure Resource Manager and Storage Resource Provider account. To perform any management operations that update your storage account, you must use Azure Resource Manager and Storage Resource Provider APIs. 
+- Your remaining classic storage accounts will be migrated to Azure Resource Manager on your behalf on a rolling schedule. Your data will continue to be stored, but any applications that use the classic service model APIs to perform management plane operations will experience disruptions if you're actively using any write operations. Write operations will only be available through the Azure Resource Manager APIs after your account(s) have been migrated. Once migration is completed, you will see two storage accounts with the same name through interfaces such as the Azure portal. This is by design. One account is your classic storage account and the other is your Azure Resource Manager and Storage Resource Provider account. To perform any management operations that update your storage account, you must use Azure Resource Manager and Storage Resource Provider APIs. 
   - Note: There are no impacts on the availability of the data plane APIs before, during, or after the migration of classic storage accounts.
 
 ## What actions should I take?

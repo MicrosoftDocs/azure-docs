@@ -5,14 +5,17 @@ ms.author: rosemalcolm
 author: RoseHJM
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep, UpdateFrequency2
-ms.date: 09/30/2023
+ms.date: 12/15/2025
+#customer intent: As a DevTest Labs administrator, I want to learn about how to use a Bicep template so I can use Bicep to quickly and easily create labs with VMs.
 ---
 
 # Quickstart: Use Bicep to create a lab in DevTest Labs
 
 This quickstart uses Bicep to create a lab in Azure DevTest Labs that has one Windows Server 2019 Datacenter virtual machine (VM) in it.
 
-In this quickstart, you take the following actions:
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
+
+In this quickstart, you:
 
 > [!div class="checklist"]
 > * Review the Bicep file.
@@ -22,13 +25,22 @@ In this quickstart, you take the following actions:
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
+- An Azure subscription where you have permissions to create and manage resources. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+
+# [Azure CLI](#tab/CLI)
+
+- [Azure CLI installed](/cli/azure/install-azure-cli-windows)
+
+# [Azure PowerShell](#tab/PowerShell)
+
+- [Azure PowerShell installed](/powershell/scripting/install/install-powershell-on-windows)
+- [Bicep installed](/azure/azure-resource-manager/bicep/install#windows)
+
+---
 
 ## Review the Bicep file
 
-[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
-
-The Bicep file defines the following resource types:
+Review the Bicep file. The file uses the following resource types to take the following actions:
 
 - [Microsoft.DevTestLab/labs](/azure/templates/microsoft.devtestlab/labs) creates the lab.
 - [Microsoft.DevTestLab/labs/virtualnetworks](/azure/templates/microsoft.devtestlab/labs/virtualnetworks) creates a virtual network.
@@ -38,72 +50,79 @@ The Bicep file defines the following resource types:
 
 ## Deploy the Bicep file
 
-1. Save the Bicep file as **main.bicep** to your local computer.
-1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
+1. Save the Bicep file as *main.bicep* to your local computer.
+1. Run the following commands using either Azure CLI or Azure PowerShell from the folder where you saved the Bicep file. In the commands, replace the following placeholders:
+   - `<location>`: Azure region you want to use.
+   - `<lab-name>`: Name for the new lab.
+   - `<vm-name>`: Name for the new VM.
+   - `<user-name>`: Username of a local account to create on the new VM. You're prompted to enter a password for the local account. Be sure not to use any disallowed usernames or passwords listed in the **OSProfile** section of [Virtual Machines - Create or Update](/rest/api/compute/virtual-machines/create-or-update).
 
-    # [CLI](#tab/CLI)
+   # [Azure CLI](#tab/CLI)
 
-    ```azurecli
-    az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters labName=<lab-name> vmName=<vm-name> userName=<user-name>
-    ```
+   ```azurecli
+   az group create --name exampleRG --location <location>
+   az deployment group create --resource-group exampleRG --template-file main.bicep --parameters labName=<lab-name> vmName=<vm-name> userName=<user-name>
+   ```
 
-    # [PowerShell](#tab/PowerShell)
+   # [Azure PowerShell](#tab/PowerShell)
 
-    ```azurepowershell
-    New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -labName "<lab-name>" -vmName "<vm-name>" -userName "<user-name>"
-    ```
+   ```azurepowershell
+   New-AzResourceGroup -Name exampleRG -Location <location>
+   New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -labName "<lab-name>" -vmName "<vm-name>" -userName "<user-name>"
+   ```
 
-    ---
+---
 
-    > [!NOTE]
-    > Replace **\<lab-name\>** with the name of the new lab instance. Replace **\<vm-name\>** with the name of the new VM. Replace **\<user-name\>** with username of the local account that will be created on the new VM. You'll also be prompted to enter a password for the local account.
+The deployment also creates a resource group for the VM named `<lab-name>`-`<vm-name>`-`<numerical-string>`. This resource group contains VM resources like the IP address, network interface, and disk.
 
-    When the deployment finishes, you should see a message indicating the deployment succeeded.
+When the deployment completes, the output shows data about the resources and the deployment.
 
 ## Validate the deployment
 
-Use the Azure portal, Azure CLI, or Azure PowerShell to list the deployed resources in the resource group.
+Use Azure CLI or Azure PowerShell to list the deployed resources in the resource group. You can also use the Azure portal.
 
-# [CLI](#tab/CLI)
+# [Azure CLI](#tab/CLI)
 
-```azurecli-interactive
+```azurecli
 az resource list --resource-group exampleRG
 ```
 
-# [PowerShell](#tab/PowerShell)
+# [Azure PowerShell](#tab/PowerShell)
 
-```azurepowershell-interactive
+```azurepowershell
 Get-AzResource -ResourceGroupName exampleRG
 ```
 
 ---
 
-> [!NOTE]
-> The deployment also creates a resource group for the VM. The resource group contains VM resources like the IP address, network interface, and disk. The resource group appears in your subscription's **Resource groups** list with the name **\<lab name>-\<vm name>-\<numerical string>**.
-
 ## Clean up resources
 
-When no longer needed, use the Azure portal, Azure CLI, or Azure PowerShell to delete the resource group and all of its resources.
+You can use Azure CLI or Azure PowerShell to delete the resource group and all of its resources when you don't need them anymore. You can also use the Azure portal.
+
+If you want to manually delete the lab's resource group, you must delete the lab first. You can't delete a resource group that has a lab in it.
 
 # [CLI](#tab/CLI)
 
-```azurecli-interactive
+```azurecli
 az group delete --name exampleRG
 ```
 
 # [PowerShell](#tab/PowerShell)
 
-```azurepowershell-interactive
+```azurepowershell
 Remove-AzResourceGroup -Name exampleRG
 ```
 
 ---
 
-## Next steps
+## Next step
 
-In this quickstart, you created a lab that has a Windows VM. To learn how to connect to and manage lab VMs, see the next tutorial:
+To connect to lab VMs, see the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Work with lab VMs](tutorial-use-custom-lab.md)
+> [Access, claim, and connect to a DevTest Labs VM](tutorial-use-custom-lab.md)
+
+## Related content
+
+- [Tutorial: Create a lab and VM and add a user in DevTest Labs](tutorial-create-custom-lab.md)
+- [Azure DevTest Labs scenarios](devtest-lab-guidance-get-started.md)

@@ -73,14 +73,14 @@
       href: ../azure-functions/functions-bindings-signalr-service.md
     - name: Configure upstream endpoints
       href: concept-upstream.md
-  - name: High availability
+  - name: Reliability
     items:
+    - name: Reliability in Azure SignalR Service
+      href: /azure/reliability/reliability-signalr?toc=/azure/azure-signalr/TOC.json
     - name: Gracefully shut down your app server
       href: server-graceful-shutdown.md
-    - name: Resiliency and disaster recovery
+    - name: Disaster recovery
       href: signalr-concept-disaster-recovery.md
-    - name: Availability zones
-      href: availability-zones.md
   - name: Messages and connections
     href: signalr-concept-messages-and-connections.md
   - name: Performance considerations
@@ -126,7 +126,7 @@
     - name: Access key rotation
       href: signalr-howto-key-rotation.md
     - name: Application firewall
-      href: signalr-howto-configure-application-firewall.md  
+      href: signalr-howto-configure-application-firewall.md
     - name: Use Azure Service Tags
       href: howto-service-tags.md
     - name: Use Azure Private Endpoints
@@ -197,6 +197,8 @@
       items:
       - name: Versions
         items:
+          - name: v20241201
+            href: swagger/signalr-data-plane-rest-v20241201.md
           - name: v20220601
             href: swagger/signalr-data-plane-rest-v20220601.md
           - name: v1

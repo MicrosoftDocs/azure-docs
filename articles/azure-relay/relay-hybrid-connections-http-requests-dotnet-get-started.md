@@ -3,7 +3,7 @@ title: Hybrid Connections - HTTP requests in .NET
 description: Provides step-by-step instructions to create a C# console application for Azure Relay Hybrid Connections HTTP requests in .NET.
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mode-ui, mode-api, devx-track-dotnet
-ms.date: 12/11/2024
+ms.date: 01/24/2026
 # Customer intent: I want to learn how to create a .NET app to send and receive messages by using the HTTP protocol. 
 ---
 

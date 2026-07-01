@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 11/11/2025
 # Customer intent: As a cloud storage administrator, I want to generate  user and group quota reports for Azure NetApp Files volumes.
 ---
-# Generate user and group quota reports for a volume (preview)
+# Generate user and group quota reports for a volume
 
 To help with capacity management on volumes shared among multiple users, individual user and group quotas restrict capacity usage on NFS, SMB, and dual-protocol volumes. 
 
@@ -34,31 +34,13 @@ For more information and considerations related to capacity management, see [Und
 * If the quota report is an empty list or the quota report API calls fail on a volume with quota rules, retry generating the quota report after five minutes.
 * If quota rules aren't aligned with 4 KiB, the quota limit is incorrectly reported in the quota report. This happens because the field is always rounded up to the nearest multiple of 4 KiB to match disk space limits, which are translated into 4-KiB chunks. 
 
-## Register  the feature
-
-The feature must be registered on your subscription before using it for the first time. After confirmation by the product team, the feature is enabled on your subscription. 
-
-1. Register the feature:
-
-	```azurepowershell-interactive
-	Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFetchQuotaReport
-	```
-
-2. Check the status of the feature registration: 
-
-	> [!NOTE]
-	> The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-	```azurepowershell-interactive
-	Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFFetchQuotaReport
-	```
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status.
-
 ## Generate a quota report for a volume
 
 1. From the Azure portal, select the volume for which you want to generate a quota report.
 2. Navigate to **User and group quotas**. Select the **Quota Report and Management** tab from the actions menu to generate the report. 
+
+	> [!NOTE]
+	> Only the top 1000 quota report records will be downloaded in CSV format. The complete quota report is not available for download.
 
 	![Screenshot that shows the generate quota report and management option.](./media/manage-default-individual-user-group-quotas/generate-quota-reports.png) 
 
@@ -93,14 +75,11 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 > [!IMPORTANT]
 > When using the quota target filter, you must first select a quota type value. The quota target is dependent on the quota type and can't be applied independently.
 
-> [!NOTE]
-> You can add a new quota only for derived quotas. You can only edit non-derived quotas.
-
-4. To edit a quota, select `…` at the end of the quota rule row, then select **Edit**.
-
+4. You can edit individual user/group quota rules for a quota target directly from the report. To edit a quota, select `…` at the end of the quota rule row, then select **Edit**. This option is not available for derived quotas or quota targets from the default user or default group quota rules.
+	
 ![Screenshot that shows the edit option for non-derived quotas.](./media/manage-default-individual-user-group-quotas/edit-report-quota.png) 
 
-5. To add a new quota for the default user and group quota, select `…` at the end of the quota rule row then **Add**.
+5. You can add individual user/group quota rules from derived quotes in the report. To add a new quota for the default user and group quota, select `…` at the end of the quota rule row then **Add**. This option is only available for derived quotas or quota targets that are subject to a default user or default group quota rule.
 
 ![Screenshot that shows the add option for derived quotas.](./media/manage-default-individual-user-group-quotas/add-derived-quota.png) 
 

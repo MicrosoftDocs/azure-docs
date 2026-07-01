@@ -1,15 +1,13 @@
 ---
 title: SAS Tokens for Data Ingestion in Microsoft Planetary Computer Pro
 description: Learn how to add credentials and ingest data into Microsoft Planetary Computer Pro.
-author: prasadko
-ms.author: prasadkomma
+author: SilviaMSFT
+ms.author: silviadiana
 ms.service: planetary-computer-pro
 ms.topic: how-to
-ms.date: 05/08/2025
+ms.date: 05/27/2026
 
 #customer intent: Help customers understand how credentials work and how to add them ahead of an ingestion for SAS Tokens.
-ms.custom:
-  - build-2025
 ---
 
 # Set up an ingestion source for Microsoft Planetary Computer Pro using SAS tokens
@@ -18,14 +16,15 @@ Loading new data into the Microsoft Planetary Computer Pro GeoCatalog resource i
   
 In this guide, you learn how to:
 
-- Create a ingestion source through Azure portal
-- Create a ingestion source through the Microsoft Planetary Computer Pro API using the Azure Python SDK
+- Create an ingestion source through Azure portal
+- Create an ingestion source through the Microsoft Planetary Computer Pro API using the Azure Python SDK
 
 ## Prerequisites
 
 - A Microsoft Planetary Computer Pro GeoCatalog deployed to your Azure Subscription. See [Deploy a GeoCatalog resource](./deploy-geocatalog-resource.md).
 
 - An Azure Blob container setup with the correct permissions to assign managed identities and to request a SAS Token. See [Create an Azure storage account](/azure/storage/common/storage-account-create?tabs=azure-portal).
+- A Python 3.10 (or later) environment
 
 ## Managed identity vs. SAS tokens
 
@@ -37,6 +36,8 @@ Managed identities are a more secure, automated mechanism for establishing persi
 
 Managed identities only work within a single Microsoft Entra tenant, therefore the SAS Token approach is useful when moving data from storage that is in a storage account outside of your tenant.
 Data ingestion is specific to a Blob Container, and SAS tokens from the root storage resource aren't permitted. 
+
+# [Azure portal](#tab/azureportal)
 
 ## Set up an ingestion source through the UI
 
@@ -90,6 +91,8 @@ Your ingestion source is now set up to support ingesting data!
 
 If your ingestion expires or you need to add SAS tokens for a different Blob Container, repeat the previous process. 
 
+# [REST API](#tab/restapi)
+
 ## Set up ingestion source for SAS Tokens through the API
 
 Ingestion sources can also be set through the API using the Azure SDK [Storage Service](/rest/api/storageservices/create-user-delegation-sas) and the Planetary Computer API. See [ingestion sources](/rest/api/planetarycomputer/data-plane/ingestion-sources) API documentation.
@@ -114,7 +117,7 @@ from urllib.parse import urlparse
 MPCPRO_APP_ID = "https://geocatalog.spatio.azure.com"
 
 ## The API version. Do not change.
-API_VERSION = "2025-04-30-preview"
+API_VERSION = "2026-04-15"
 
 ## Replace with the URL of the Blob Container
 CONTAINER_URL = "<your_container_url>" # e.g., "https://youraccount.blob.core.windows.net/yourcontainer"
@@ -194,6 +197,71 @@ if response.status_code == 201:
 else:
     print(f"Failed to create ingestion: {response.text}")
 ```
+
+# [Python SDK](#tab/pythonsdk)
+
+## Set up ingestion source using the Python SDK
+
+Install the Planetary Computer Pro Python SDK:
+
+```console
+pip install azure-planetarycomputer azure-identity azure-storage-blob
+```
+
+```python
+from azure.planetarycomputer import PlanetaryComputerProClient
+from azure.identity import DefaultAzureCredential
+from datetime import datetime, timedelta, timezone
+from urllib.parse import urlparse
+import azure.storage.blob
+
+# Set Key Variables
+CONTAINER_URL = "<your_container_url>"
+
+# Generate SAS token for the blob container
+parsed_url = urlparse(CONTAINER_URL)
+account_url = f"{parsed_url.scheme}://{parsed_url.netloc}"
+account_name = parsed_url.netloc.split(".")[0]
+container_name = parsed_url.path.lstrip("/")
+
+credential = DefaultAzureCredential()
+blob_service_client = azure.storage.blob.BlobServiceClient(
+    account_url=account_url,
+    credential=credential,
+)
+now = datetime.now(timezone.utc).replace(microsecond=0)
+key = blob_service_client.get_user_delegation_key(
+    key_start_time=now + timedelta(hours=-1),
+    key_expiry_time=now + timedelta(hours=168),
+)
+sas_token = azure.storage.blob.generate_container_sas(
+    account_name=account_name,
+    container_name=container_name,
+    user_delegation_key=key,
+    permission=azure.storage.blob.ContainerSasPermissions(read=True),
+    start=now + timedelta(hours=-1),
+    expiry=now + timedelta(hours=168),
+)
+
+# Create the ingestion source using the SDK
+client = PlanetaryComputerProClient(
+    endpoint="<your-geocatalog-url>",
+    credential=DefaultAzureCredential()
+)
+
+ingestion_source = client.ingestion.create_source({
+    "kind": "SasToken",
+    "connectionInfo": {
+        "containerUrl": CONTAINER_URL,
+        "sasToken": sas_token,
+    },
+})
+print("Ingestion source created successfully")
+```
+
+For more information, see the [Python SDK reference](/python/api/overview/azure/planetarycomputer-readme).
+
+---
 
 ## Next steps
 Now that you have set up managed identity, its time to ingest data. 

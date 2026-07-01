@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 320" fill="none">
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; }
+    .label { font-size: 13px; fill: #1a1a2e; font-weight: 500; }
+    .sublabel { font-size: 11px; fill: #6b7280; }
+    .arrow { stroke: #94a3b8; stroke-width: 1.5; fill: none; marker-end: url(#arrowhead); }
+    .box { rx: 8; ry: 8; stroke-width: 1.5; }
+    .step { fill: #f0f7ff; stroke: #3b82f6; }
+    .action-safe { fill: #f0fdf4; stroke: #22c55e; }
+    .action-approval { fill: #fefce8; stroke: #eab308; }
+    .action-block { fill: #fef2f2; stroke: #ef4444; }
+    .start { fill: #e0e7ff; stroke: #6366f1; }
+  </style>
+  <defs>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Step 1: Your question -->
+  <rect x="20" y="130" width="120" height="50" class="box start"/>
+  <text x="80" y="152" text-anchor="middle" class="label">Your question</text>
+  <text x="80" y="167" text-anchor="middle" class="sublabel">or incident alert</text>
+
+  <!-- Arrow 1→2 -->
+  <line x1="140" y1="155" x2="170" y2="155" class="arrow"/>
+
+  <!-- Step 2: Understand -->
+  <rect x="170" y="130" width="110" height="50" class="box step"/>
+  <text x="225" y="152" text-anchor="middle" class="label">Understand</text>
+  <text x="225" y="167" text-anchor="middle" class="sublabel">parse request</text>
+
+  <!-- Arrow 2→3 -->
+  <line x1="280" y1="155" x2="310" y2="155" class="arrow"/>
+
+  <!-- Step 3: Gather -->
+  <rect x="310" y="130" width="110" height="50" class="box step"/>
+  <text x="365" y="152" text-anchor="middle" class="label">Gather context</text>
+  <text x="365" y="167" text-anchor="middle" class="sublabel">parallel queries</text>
+
+  <!-- Arrow 3→4 -->
+  <line x1="420" y1="155" x2="450" y2="155" class="arrow"/>
+
+  <!-- Step 4: Reason -->
+  <rect x="450" y="130" width="110" height="50" class="box step"/>
+  <text x="505" y="152" text-anchor="middle" class="label">Reason</text>
+  <text x="505" y="167" text-anchor="middle" class="sublabel">analyze patterns</text>
+
+  <!-- Arrow 4→actions -->
+  <line x1="560" y1="145" x2="620" y2="70" class="arrow"/>
+  <line x1="560" y1="155" x2="620" y2="155" class="arrow"/>
+  <line x1="560" y1="165" x2="620" y2="240" class="arrow"/>
+
+  <!-- Action: Safe -->
+  <rect x="620" y="45" width="160" height="50" class="box action-safe"/>
+  <text x="700" y="67" text-anchor="middle" class="label">Execute</text>
+  <text x="700" y="82" text-anchor="middle" class="sublabel">safe actions run immediately</text>
+
+  <!-- Action: Approval -->
+  <rect x="620" y="130" width="160" height="50" class="box action-approval"/>
+  <text x="700" y="152" text-anchor="middle" class="label">Ask for approval</text>
+  <text x="700" y="167" text-anchor="middle" class="sublabel">destructive actions wait</text>
+
+  <!-- Action: Respond -->
+  <rect x="620" y="215" width="160" height="50" class="box action-block"/>
+  <text x="700" y="237" text-anchor="middle" class="label">Respond</text>
+  <text x="700" y="252" text-anchor="middle" class="sublabel">present findings</text>
+
+  <!-- Loop arrow back from Reason to Gather -->
+  <path d="M 505 180 C 505 220, 365 220, 365 180" class="arrow" style="stroke-dasharray: 4 3;"/>
+  <text x="435" y="235" text-anchor="middle" class="sublabel">iterate (up to 10×)</text>
+
+  <!-- Legend -->
+  <text x="20" y="300" class="sublabel">Your agent adjusts reasoning depth automatically — simple questions get quick answers, complex incidents get multistep analysis.</text>
+</svg>

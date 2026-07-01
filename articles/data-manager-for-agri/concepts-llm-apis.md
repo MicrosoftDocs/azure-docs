@@ -4,7 +4,7 @@ description: Learn how to use generative AI features in Azure Data Manager for A
 author: BlackRider97
 ms.author: ramithar
 ms.service: azure-data-manager-agriculture
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 3/19/2024
 ms.custom: template-concept
 ---

@@ -213,7 +213,7 @@ To grant access for the user, you use the [New-AzRoleAssignment](/powershell/mod
 
     In the output, you can see that both the Contributor and Reader roles have been assigned to the RBAC Tutorial User. The Contributor role is at the rbac-tutorial-resource-group scope and the Reader role is inherited at the subscription scope.
 
-## (Optional) List access using the Azure Portal
+## (Optional) List access using the Azure portal
 
 1. To see how the role assignments look in the Azure portal, view the **Access control (IAM)** blade for the subscription.
 

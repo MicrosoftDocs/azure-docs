@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 05/12/2025
+ms.date: 04/20/2026
 ms.author: anfdocs 
 # Customer intent: As a cloud operations manager, I want to implement cross-region replication for disaster recovery using cloud storage services, so that I can ensure data availability and minimize downtime during recovery events.
 ---

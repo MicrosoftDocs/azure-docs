@@ -25,7 +25,7 @@ Whether you're a student, a small business, a startup, or an enterprise, App Ser
 
 ### Students
 
-- **Free access**: In addition to the widely available [free tier](https://azure.microsoft.com/pricing/details/app-service/), students can take advantage of the [Azure for Students Starter](https://azure.microsoft.com/pricing/offers/ms-azr-0144p) program.
+- **Free access**: In addition to the widely available [free tier](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn), students can take advantage of the [Azure for Students Starter](https://azure.microsoft.com/pricing/offers/ms-azr-0144p?cid=msft_learn) program.
 - **IDE support**: Purpose-built deployment tools are available for Visual Studio, Visual Studio Code, IntelliJ, and Eclipse.
 - **Easy to use**: Run your apps without needing experience in infrastructure management.
 - **Learning Resources**: Plenty of tutorials and guides to help you get started.
@@ -43,7 +43,7 @@ Whether you're a student, a small business, a startup, or an enterprise, App Ser
 ### Enterprises
 
 - **CI/CD**: [Deploy continuously](deploy-continuous-deployment.md) with GitHub Actions, Azure Pipelines, and more. Deploy predictably through [staging environments](deploy-staging-slots.md).
-- **High-density hosting savings**: Run more applications on fewer VMs with the memory-optimized [P*mv3 tiers](https://azure.microsoft.com/pricing/details/app-service/), and save up to 55% on predictable workloads with [Azure savings plans](https://azure.microsoft.com/pricing/offers/savings-plan-compute) and [reserved instances](https://azure.microsoft.com/pricing/reservations/).
+- **High-density hosting savings**: Run more applications on fewer VMs with the memory-optimized [P*mv3 tiers](https://azure.microsoft.com/pricing/details/app-service/), and save up to 55% on predictable workloads with [Azure savings plans](https://azure.microsoft.com/pricing/offers/savings-plans?cid=msft_learn) and [reserved instances](https://azure.microsoft.com/pricing/reservations/).
 - **Full isolation**: Secure ingress and egress with [Azure Virtual Network integration](./tutorial-networking-isolate-vnet.md), or run fully isolated applications with [App Service environments](./environment/ase-multi-tenant-comparison.md), using dedicated networking and VMs.
 - **Line-of-business**: Develop business applications easily with built-in authentication, Microsoft Graph, and [connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) to your line-of-business applications.
 - **Reliability**: Robust [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) and zone redundancy features help disaster-proof your application.

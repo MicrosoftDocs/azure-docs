@@ -243,10 +243,10 @@ const uploadFileToAzureBlob = async (uploadTask: AttachmentUploadTask) => {
   // The https://learn.microsoft.com/azure/developer/javascript/how-to/with-web-app/azure-function-file-upload
   // tutorial uses 'username' parameter to specify the storage container name.
   // the container in the tutorial is private by default. To get default downloads working in
-  // this sample, you need to change the container's access level to Public via Azure Portal.
+  // this sample, you need to change the container's access level to Public via Azure portal.
   const username = "ui-library";
 
-  // You can get function url from the Azure Portal:
+  // You can get function url from the Azure portal:
   const azFunctionBaseUri = "<YOUR_AZURE_FUNCTION_URL>";
   const uri = `${azFunctionBaseUri}&username=${username}&filename=${filename}`;
 

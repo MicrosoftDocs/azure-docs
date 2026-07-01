@@ -1,25 +1,25 @@
 ---
-title: Plan IP address space for Oracle Database@Azure
-description: Learn how to plan your IP address space for Oracle Database@Azure.
+title: Plan IP address space for Oracle AI Database@Azure
+description: Learn how to plan your IP address space for Oracle AI Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: concept-article
 ms.date: 08/29/2024
 ms.author: jacobjaygbay
-# Customer intent: "As a cloud architect, I want to plan the IP address space for Oracle Database deployment on Azure, so that I can ensure sufficient and non-overlapping IP allocations for virtual machine clusters and networking services."
+# Customer intent: "As a cloud architect, I want to plan the IP address space for Oracle AI Database deployment on Azure, so that I can ensure sufficient and non-overlapping IP allocations for virtual machine clusters and networking services."
 ---
 
-# Plan IP address space for Oracle Database@Azure
+# Plan IP address space for Oracle AI Database@Azure
 
-A key part of designing an Oracle Database@Azure deployment is planning for IP address space. It's important to ensure that you have enough IPs for your virtual machine clusters and for networking services.
+A key part of designing an Oracle AI Database@Azure deployment is planning for IP address space. It's important to ensure that you have enough IPs for your virtual machine clusters and for networking services.
 
-This article provides tables you can use to find the minimum subnet Classless Inter-Domain Routing (CIDR) size for your instance of Oracle Database@Azure.
+This article provides tables you can use to find the minimum subnet Classless Inter-Domain Routing (CIDR) size for your instance of Oracle AI Database@Azure.
 
 When you set up your network, consider the following points:
 
-- For Oracle Autonomous Database, the minimum CIDR size is /27.
-- IP address ranges that are allocated to Oracle Autonomous Database subnets and to Oracle Exadata virtual machine clusters can't overlap with other CIDRs that are in use. Overlap might cause routing issues. Account for cross-region routing when you configure CIDRs for Oracle Database@Azure.
+- For Oracle Autonomous AI Database, the minimum CIDR size is /27.
+- IP address ranges that are allocated to Oracle Autonomous AI Database subnets and to Oracle Exadata virtual machine clusters can't overlap with other CIDRs that are in use. Overlap might cause routing issues. Account for cross-region routing when you configure CIDRs for Oracle AI Database@Azure.
 - For Oracle Exadata X9M, IP addresses 100.106.0.0/16 and 100.107.0.0/16 are reserved for the interconnect and can't be allocated to client networks or backup networks.
 
 Other requirements that are specific to client subnets and backup subnets are described in the next sections.
@@ -96,7 +96,7 @@ The following table shows the number of IP addresses that are available for virt
 
 ## Related content
 
-- [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
-- [Support for Oracle Database@Azure](oracle-database-support.md)
-- [Network planning for Oracle Database@Azure](oracle-database-network-plan.md)
-- [Groups and roles for Oracle Database@Azure](oracle-database-groups-roles.md)
+- [Provision and manage Oracle AI Database@Azure](provision-oracle-database.md)
+- [Support for Oracle AI Database@Azure](oracle-database-support.md)
+- [Network planning for Oracle AI Database@Azure](oracle-database-network-plan.md)
+- [Groups and roles for Oracle AI Database@Azure](oracle-database-groups-roles.md)

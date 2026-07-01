@@ -208,7 +208,7 @@ The software may collect information about you and your use of the software and 
     metadata:
       name: appconfigurationprovider-sample
     spec:
-      endpoint: <your-app-configuration-store-endpoint>
+      endpoint: <AppConfigurationEndpoint>
       target:
         configMapName: configmap-created-by-appconfig-provider
     ```
@@ -229,11 +229,11 @@ The software may collect information about you and your use of the software and 
     metadata:
       name: appconfigurationprovider-sample
     spec:
-      endpoint: <your-app-configuration-store-endpoint>
+      endpoint: <AppConfigurationEndpoint>
       target:
         configMapName: configmap-created-by-appconfig-provider
       auth:
-        managedIdentityClientId: <your-managed-identity-client-id>
+        managedIdentityClientId: <ManagedIdentityClientId>
     ```
 
 #### Use service principal
@@ -252,11 +252,11 @@ The software may collect information about you and your use of the software and 
     metadata:
       name: appconfigurationprovider-sample
     spec:
-      endpoint: <your-app-configuration-store-endpoint>
+      endpoint: <AppConfigurationEndpoint>
       target:
         configMapName: configmap-created-by-appconfig-provider
       auth:
-        servicePrincipalReference: <your-service-principal-secret-name>
+        servicePrincipalReference: <ServicePrincipalSecretName>
     ```
 
 #### Use workload identity
@@ -269,25 +269,25 @@ The software may collect information about you and your use of the software and 
 
 1. [Grant the user-assigned managed identity **App Configuration Data Reader** role](/azure/azure-app-configuration/concept-enable-rbac#assign-azure-roles-for-access-rights) in Azure App Configuration.
    
-1. Create a service account by adding a YAML file (e.g., *serviceAccount.yaml*) with the following content to the directory containing your AKS deployment files. The service account will be created when you apply all your deployment changes to your AKS cluster (e.g., using `kubectl apply`). Replace `<your-managed-identity-client-id>` with the client ID and `<your-managed-identity-tenant-id>` with the tenant ID of the user-assigned managed identity that has just been created. Replace `<your-service-account-name>` with your preferred name.
+1. Create a service account by adding a YAML file (e.g., *serviceAccount.yaml*) with the following content to the directory containing your AKS deployment files. The service account will be created when you apply all your deployment changes to your AKS cluster (e.g., using `kubectl apply`). Replace _`<ManagedIdentityClientId>`_ with the client ID and _`<ManagedIdentityTenantId>`_ with the tenant ID of the user-assigned managed identity that has just been created. Replace _`<ServiceAccountName>`_ with your preferred name.
 
     ``` yaml
     apiVersion: v1
     kind: ServiceAccount
     metadata:
-      name: <your-service-account-name>
+      name: <ServiceAccountName>
       annotations:
-        azure.workload.identity/client-id: <your-managed-identity-client-id>
-        azure.workload.identity/tenant-id: <your-managed-identity-tenant-id>
+        azure.workload.identity/client-id: <ManagedIdentityClientId>
+        azure.workload.identity/tenant-id: <ManagedIdentityTenantId>
     ```
 
-1. Create a federated identity credential for the user-assigned managed identity using the Azure CLI. Replace `<user-assigned-identity-name>` with the name and `<resource-group>` with the resource group of the newly created user-assigned managed identity. Replace `<aks-oidc-issuer>` with the OIDC issuer URL of the AKS cluster. Replace `<your-service-account-name>` with the name of the newly created service account. Replace `<federated-identity-credential-name>` with your preferred name for the federated identity credential.
+1. Create a federated identity credential for the user-assigned managed identity using the Azure CLI. Replace _`<UserAssignedIdentityName>`_ with the name and _`<ResourceGroupName>`_ with the resource group of the newly created user-assigned managed identity. Replace _`<AksOidcIssuer>`_ with the OIDC issuer URL of the AKS cluster. Replace _`<ServiceAccountName>`_ with the name of the newly created service account. Replace _`<FederatedIdentityCredentialName>`_ with your preferred name for the federated identity credential.
 
     ``` azurecli
-    az identity federated-credential create --name "<federated-identity-credential-name>" --identity-name "<user-assigned-identity-name>" --resource-group "<resource-group>" --issuer "<aks-oidc-issuer>" --subject system:serviceaccount:default:<your-service-account-name> --audience api://AzureADTokenExchange
+    az identity federated-credential create --name "<FederatedIdentityCredentialName>" --identity-name "<UserAssignedIdentityName>" --resource-group "<ResourceGroupName>" --issuer "<AksOidcIssuer>" --subject system:serviceaccount:default:<ServiceAccountName> --audience api://AzureADTokenExchange
     ```
 
-    Note that the subject of the federated identity credential should follow this format: `system:serviceaccount:<service-account-namespace>:<service-account-name>`.
+    Note that the subject of the federated identity credential should follow this format: `system:serviceaccount:<ServiceAccountNamespace>:<ServiceAccountName>`.
 
 1. Set the `spec.auth.workloadIdentity.serviceAccountName` property to the name of the service account in the following sample `AzureAppConfigurationProvider` resource. Be sure that the `AzureAppConfigurationProvider` resource and the service account are in the same namespace.
 
@@ -297,12 +297,12 @@ The software may collect information about you and your use of the software and 
     metadata:
       name: appconfigurationprovider-sample
     spec:
-      endpoint: <your-app-configuration-store-endpoint>
+      endpoint: <AppConfigurationEndpoint>
       target:
         configMapName: configmap-created-by-appconfig-provider
       auth:
         workloadIdentity:
-          serviceAccountName: <your-service-account-name>
+          serviceAccountName: <ServiceAccountName>
     ```
 
 #### Use connection string
@@ -317,7 +317,7 @@ The software may collect information about you and your use of the software and 
     metadata:
       name: appconfigurationprovider-sample
     spec:
-      connectionStringReference: <your-connection-string-secret-name>
+      connectionStringReference: <ConnectionStringSecretName>
       target:
         configMapName: configmap-created-by-appconfig-provider
     ```
@@ -334,7 +334,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
 ```
@@ -347,7 +347,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
@@ -366,7 +366,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
@@ -384,7 +384,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
@@ -404,7 +404,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
@@ -421,7 +421,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
@@ -432,6 +432,15 @@ spec:
       enabled: true
       interval: 1m
 ```
+
+### Snapshot reference
+
+A snapshot reference is a configuration setting that references a snapshot in the same App Configuration store. When loaded, the provider resolves it and adds all key-values from that snapshot. Using snapshot references enables switching between snapshots at runtime, unlike adding a snapshot selector, which requires code changes and/or restarts to switch to a new snapshot.
+
+For more information about creating a snapshot reference, go to [snapshot reference concept](./concept-snapshot-references.md).
+
+> [!NOTE] 
+> To use snapshot references, use the version *2.6.0* or later of Azure App Configuration Kubernetes provider.
 
 ### Key Vault references
 
@@ -445,7 +454,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
@@ -455,10 +464,10 @@ spec:
     target:
       secretName: secret-created-by-appconfig-provider
     auth:
-      managedIdentityClientId: <your-user-assigned-managed-identity-client-id>
+      managedIdentityClientId: <ManagedIdentityClientId>
       keyVaults:
-        - uri: <your-key-vault-uri>
-          servicePrincipalReference: <name-of-secret-containing-service-principal-credentials>
+        - uri: <KeyVaultUri>
+          servicePrincipalReference: <ServicePrincipalSecretName>
 ```
 
 #### Types of Secret
@@ -475,9 +484,9 @@ Assuming an App Configuration store has these Key Vault references:
 
 |key|value|tags|
 |---|---|---|
-|app1-secret1|<Key Vault reference 1>|`{}`|
-|app1-secret2|<Key Vault reference 2>|`{}`|
-|app1-certificate|<Key Vault reference 3>|`{".kubernetes.secret.type": "kubernetes.io/tls"}`|
+|app1-secret1|`<KeyVaultReference1>`|`{}`|
+|app1-secret2|`<KeyVaultReference2>`|`{}`|
+|app1-certificate|`<KeyVaultReference3>`|`{".kubernetes.secret.type": "kubernetes.io/tls"}`|
 
 The following sample generates Secrets of both Opaque and TLS types.
 
@@ -487,7 +496,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
@@ -497,7 +506,7 @@ spec:
     target:
       secretName: secret-created-by-appconfig-provider
     auth:
-      managedIdentityClientId: <your-user-assigned-managed-identity-client-id>
+      managedIdentityClientId: <ManagedIdentityClientId>
 ```
 
 The generated Secrets are populated with the following data:
@@ -532,7 +541,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
@@ -543,7 +552,7 @@ spec:
     target:
       secretName: secret-created-by-appconfig-provider
     auth:
-      managedIdentityClientId: <your-user-assigned-managed-identity-client-id>
+      managedIdentityClientId: <ManagedIdentityClientId>
     refresh:
       enabled: true
       interval: 1h
@@ -559,7 +568,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
     configMapData:
@@ -588,7 +597,7 @@ metadata:
   annotations:
     key1: value1
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
@@ -599,7 +608,7 @@ spec:
     target:
       secretName: secret-created-by-appconfig-provider
     auth:
-      managedIdentityClientId: <your-user-assigned-managed-identity-client-id>
+      managedIdentityClientId: <ManagedIdentityClientId>
 ```
 
 ### ConfigMap Consumption
@@ -626,7 +635,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
 ```
@@ -650,7 +659,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
     configMapData:
@@ -676,7 +685,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
     configMapData:
@@ -704,7 +713,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
     configMapData:

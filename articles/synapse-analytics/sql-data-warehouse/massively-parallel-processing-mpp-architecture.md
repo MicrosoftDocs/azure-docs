@@ -11,6 +11,8 @@ ms.topic: concept-article
 
 # Dedicated SQL pool (formerly SQL DW) architecture in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Azure Synapse Analytics is an analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms.
 
 > [!NOTE]

@@ -6,7 +6,7 @@ ms.reviewer: v-salin
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: tutorial
-ms.date: 09/22/2025
+ms.date: 04/20/2026
 ms.author: v-salin
 ---
 # Understand your Azure Enterprise Agreement bill

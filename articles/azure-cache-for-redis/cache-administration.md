@@ -2,7 +2,7 @@
 title: Reboot, Flush, and Schedule Updates Azure Cache for Redis
 description: Learn how to reboot, flush a cache, and schedule updates for Azure Cache for Redis
 
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/30/2025
 appliesto:
   - ✅ Azure Cache for Redis

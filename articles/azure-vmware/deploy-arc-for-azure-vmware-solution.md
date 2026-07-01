@@ -3,7 +3,7 @@ title: Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud
 description: Learn how to set up and enable Arc for your Azure VMware Solution private cloud.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 05/15/2024
+ms.date: 03/02/2026
 ms.custom: references_regions, devx-track-azurecli, engagement-fy23
 # Customer intent: As an IT administrator managing VMware environments, I want to deploy Arc-enabled VMware vSphere in Azure VMware Solution, so that I can integrate my resources with Azure for centralized management and enhanced operational capabilities.
 ---
@@ -34,7 +34,7 @@ To deploy Arc for Azure VMware Solution, you need to ensure the following prereq
 ```
 - Alternately, you can sign in to your Subscription and follow these steps.
 1. Navigate to the Resource providers tab.
-1. Register the resource providers mentioned above.
+1. Register the resource providers previously mentioned.
 
 > [!IMPORTANT]
 > You can't create the resources in a separate resource group. Ensure you use the same resource group from where the Azure VMware Solution private cloud was created to create your resources.
@@ -49,9 +49,9 @@ You need the following items to ensure you're set up to begin the onboarding pro
 - From the Management VM, verify you  have access to [vCenter Server and NSX Manager portals](/azure/azure-vmware/tutorial-access-private-cloud#connect-to-the-vcenter-server-of-your-private-cloud).
 - A resource group in the subscription where you have an owner or contributor role.
 - An unused, [NSX network segment](/azure/azure-vmware/tutorial-nsx-t-network-segment) that is a static network segment used for deploying the Arc for Azure VMware Solution OVA. If an unused NSX network segment doesn't exist, one gets created.
-- The firewall and proxy URLs must be allowlisted to enable communication from the management machine and Appliance VM to the required Arc resource bridge URLs. See [Ensure Azure Arc resource bridge system requirements](/azure/azure-arc/resource-bridge/system-requirements) for more details. 
+- The firewall and proxy URLs must be allowlisted to enable communication from the management machine and Appliance VM to the required Arc resource bridge URLs. Learn more about [Ensure Azure Arc resource bridge system requirements](/azure/azure-arc/resource-bridge/system-requirements). 
 
-- In addition, Azure VMware Solution requires the following:
+- In addition, Azure VMware Solution requires the following services:
 
     | Service   | Port |  URL      | Direction      | Notes          |
     |----------------------|------|---------------------------------------------------------|----------------------------|--------------------------------------------|
@@ -71,14 +71,15 @@ You need the following items to ensure you're set up to begin the onboarding pro
 
 If you want to use a custom DNS, use the following steps: 
 
-  1. In your Azure VMware Solution private cloud, navigate to the DNS page, under Workload networking, select **DNS, and identify the default forwarder-zones under the DNS zones tab. 
-  2. Edit the forwarder zone to add the custom DNS server IP. By adding the custom DNS as the first IP, it allows requests to be directly forwarded to the first IP and decreases the number of retries. 
+  1. Navigate to the DNS page from your Azure VMware Solution private cloud. 
+  2. Under Workload networking, select **DNS**, and identify the default forwarder-zones under the DNS zones tab. 
+  3. Edit the forwarder zone to add the custom DNS server IP. When you add the custom DNS as the first IP, it allows requests to be directly forwarded to the first IP and decreases the number of retries. 
 
 ## Deployment considerations 
 
 When you run software in Azure VMware Solution, as a private cloud in Azure, there are benefits not realized by operating your environment outside of Azure. For software running in a virtual machine (VM) like, SQL Server and Windows Server, running in Azure VMware Solution provides more value such as free Extended Security Updates (ESUs).
 
-To take advantage of the benefits of running in an Azure VMware Solution, use this article to enable Arc and fully integrate the experience with the Azure VMware Solution private cloud. Alternatively, Arc-enabling VMs through the following mechanisms cannot create the necessary attributes to register the VM and software as part of Azure VMware Solution and results in billing for SQL Server ESUs for:
+To take advantage of the benefits of running in an Azure VMware Solution, use this article to enable Arc, and fully integrate the experience with the Azure VMware Solution private cloud. Arc-enabling VMs through the following list of mechanisms can't create the necessary attributes to register the VM and software as part of Azure VMware Solution and results in billing for SQL Server ESUs for:
 
 - Arc-enabled servers
 - Arc-enabled VMware vSphere
@@ -93,10 +94,10 @@ The minimum Azure roles required for operations related to Arc-enabled VMware vS
 | Onboarding your vCenter Server to Arc     | Azure Arc VMware Private Clouds Onboarding | On the subscription or resource group into which you want to onboard                                            |
 | Administering Arc-enabled VMware vSphere  | Azure Arc VMware Administrator             | On the subscription or resource group where vCenter server resource is created                                  |
 | VM Provisioning                           | Azure Arc VMware Private Cloud User        | On the subscription or resource group that contains the resource pool/cluster/host, datastore, and virtual network resources, or on the resources themselves |
-| VM Provisioning                           | Azure Arc VMware VM Contributor            | On the subscription or resource group where you want to provision VMs                                           |
+| VM Provisioning                           | Azure Arc VMware VM Contributor            | On the subscription or resource group where you want to configure VMs                                           |
 | VM Operations                             | Azure Arc VMware VM Contributor            | On the subscription or resource group that contains the VM, or on the VM itself                                 |
      
- Any roles with higher permissions on the same scope, such as Owner or Contributor, can also allow you to perform the operations listed above. 
+ Any roles with higher permissions on the same scope, like Owner or Contributor, allow you to perform the operations listed in the previous table. 
 
 ## Onboard process
 
@@ -144,7 +145,7 @@ Use the following steps to guide you through the process to onboard Azure Arc fo
   - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd` are the starting and ending IP of the pool of IPs to assign to the appliance VM. Both need to be within the `networkCIDRForApplianceVM`. 
   - `k8sNodeIPPoolStart`, `k8sNodeIPPoolEnd`, `gatewayIPAddress` ,`applianceControlPlaneIpAddress` are optional. You can choose to skip all the optional fields or provide values for all. If you choose not to provide the optional fields, then you must use /28 address space for `networkCIDRForApplianceVM` with the first lp as the gateway.
   - If all the parameters are provided, the firewall and proxy URLs must be allowlisted for the lps between K8sNodeIPPoolStart, k8sNodeIPPoolEnd.
-  - If you're skipping the optional fields, the firewall and proxy URLs must be allowlisted the following IPs in the segment. If the networkCIDRForApplianceVM is x.y.z.1/28, the IPs to allowlist are between x.y.z.11 – x.y.z.14. See the [Azure Arc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).  
+  - If you're skipping the optional fields, the firewall and proxy URLs must be allowlisted the following IPs in the segment. If the networkCIDRForApplianceVM is x.y.z.1/28, the IPs to allow list are between x.y.z.11 – x.y.z.14. See the [Azure Arc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).  
 
 **JSON Example**
 ```json
@@ -205,8 +206,8 @@ If using a proxy, the Arc Resource Bridge must be configured to use the proxy in
   - `managementProxyDetails`- Proxy details to be used on management VM for running of the script. Provide these details only if you want to set or override the existing proxy settings on management VM.
   - `http` - Proxy server address for http requests.
   - `https` - Proxy server address for https requests.
-  - `noProxy` - The list of addresses that should be excluded from proxy. The endpoints those need to be excluded for Arc Deployment for both appliance and management VM are -localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,\<esxihost endpoints common suffix\>
-  - `certificateFilePath` - The certificate that has to be used for authentication if it is an SSL proxy. 
+  - `noProxy` - The list of addresses that should be excluded from proxy. The endpoints 'noProxy' need to be excluded for Arc Deployment for both appliance and management VM are -localhost,127.0.0.1,.svc,10.0.0.0/8,172.16.0.0/12,192.168.0.0/16,\<esxihost endpoints common suffix\>
+  - `certificateFilePath` - The certificate that has to be used for authentication if it's an SSL proxy. 
 For more details on proxy configuration for Arc Deployment, Please check [Azure Arc resource bridge network requirements](/azure/azure-arc/resource-bridge/network-requirements).
 
 >[!Important]
@@ -223,7 +224,7 @@ To recover from failed deployments:
 If the Azure Arc resource bridge deployment fails, consult the [Azure Arc resource bridge troubleshooting](/azure/azure-arc/resource-bridge/troubleshoot-resource-bridge) guide. While there can be many reasons why the Azure Arc resource bridge deployment fails, one of them is KVA timeout error. Learn more about the [KVA timeout error](/azure/azure-arc/resource-bridge/troubleshoot-resource-bridge#kva-timeout-error) and how to troubleshoot.
 
 >[!IMPORTANT]
-> After the successful installation of Azure Arc Resource Bridge, it's recommended to retain a copy of the resource bridge config.yaml files in a place that facilitates easy retrieval. These files could be needed later to run commands to perform management operations (for example, [az arc appliance upgrade](/cli/azure/arcappliance/upgrade#az-arcappliance-upgrade-vmware)) on the resource bridge. You can find the three .yaml files (config files) in the same folder where you ran the script.
+> After the successful installation of Azure Arc Resource Bridge, you should retain a copy of the resource bridge config.yaml files in a place that facilitates easy retrieval. These files could be needed later to run commands to perform management operations (for example, [az arc appliance upgrade](/cli/azure/arcappliance/upgrade#az-arcappliance-upgrade-vmware)) on the resource bridge. You can find the three .yaml files (config files) in the same folder where you ran the script.
 
 ## Discover and project your VMware vSphere infrastructure resources to Azure
 
@@ -245,11 +246,11 @@ Once you connected your Azure VMware Solution private cloud to Azure, you can br
 2. Select the resources you want to enable, then select **Enable in Azure**.
 3. Select your Azure **Subscription** and **Resource Group**, then select **Enable**.
 
-  The enable action starts a deployment and creates a resource in Azure, creating representative objects in Azure for your VMware vSphere resources. It allows you to manage who can access those resources through Role-based access control granularly. 
+  The enable action starts a deployment and creates a resource in Azure, creating representative objects in Azure for your VMware vSphere resources. It allows you to manage who can access those resources through Role-based access control granularly.
 
 Repeat the previous steps for one or more virtual machine, network, resource pool, and VM template resources.
 
-Additionally, for virtual machines there's another section to configure **VM extensions**.  This enables guest management to facilitate more Azure extensions to be installed on the VM. The steps to enable this would be:
+For virtual machines there's another section to configure **VM extensions** which enables guest management to facilitate more Azure extensions to be installed on the VM. Use the following steps to enable guest management:
 
 1. Select **Enable guest management**.
 2. Choose a __Connectivity Method__ for the Arc agent.

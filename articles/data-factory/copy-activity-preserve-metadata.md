@@ -5,7 +5,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/20/2023
 ms.author: jianleishen
 ---

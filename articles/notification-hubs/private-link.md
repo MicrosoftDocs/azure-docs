@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.date: 02/02/2024
 ms.service: azure-notification-hubs
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - devx-track-azurecli
   - sfi-image-nochange

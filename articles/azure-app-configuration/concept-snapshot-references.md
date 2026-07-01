@@ -5,7 +5,7 @@ author: jimmyca15
 ms.author: jimmyca
 ms.service: azure-app-configuration
 ms.topic: concept-article 
-ms.date: 11/12/2025
+ms.date: 03/16/2026
 ---
 
 # Snapshot references
@@ -27,6 +27,18 @@ A snapshot reference is stored as a key-value whose value contains the name of t
 
 > [!NOTE]
 > You don't have to call a specialized API to opt into snapshot references. If you select the key-value that is a snapshot reference, resolution is automatic.
+
+## Creating a snapshot reference
+
+1. Open your App Configuration store in the Azure portal.
+2. Select **Configuration Explorer**.
+3. Choose **Create**.
+4. Select **Snapshot reference**.
+5. Enter a key for the reference. Optionally set a label.
+6. Choose the target snapshot name from the list (or enter it).
+7. Select **Create**.
+
+Once created, the snapshot reference appears alongside other key-values in Configuration Explorer.
 
 ## Consuming snapshot references
 
@@ -106,13 +118,14 @@ If a snapshot reference is added that points to the aforementioned snapshot, the
 
 ## Language availability
 
-| Language    | Minimum version / status |
-|-------------|---------------------------|
-| .NET        | 8.4.0+                    |
-| Java        | Work in progress          |
-| JavaScript  | Work in progress          |
-| Python      | Work in progress          |
-| Go          | Work in progress          |
+| Language / platform | Minimum version / status |
+|---------------------|--------------------------|
+| .NET                | 8.4.0+                   |
+| Java                | Work in progress         |
+| JavaScript          | 2.3.0+                   |
+| Python              | 2.4.0+                   |
+| Go                  | 1.6.0+                   |
+| Kubernetes          | 2.6.0+                   |
 
 ## Next steps
 

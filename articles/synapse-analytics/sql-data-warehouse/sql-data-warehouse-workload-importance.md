@@ -6,11 +6,13 @@ ms.author: ajagadish
 ms.date: 02/04/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: azure-synapse
 ---
 
 # Azure Synapse Analytics workload importance
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This article explains how workload importance can influence the order of execution for dedicated SQL pool requests in Azure Synapse.
 

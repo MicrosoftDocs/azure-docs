@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 02/28/2025
+ms.date: 05/19/2026
 ms.topic: concept-article
 # Customer intent: As a cloud solution architect, I want to implement best practices for Azure Batch services, so that I can optimize performance, ensure reliability, and enhance security for my batch processing workloads.
 ---
@@ -36,7 +36,7 @@ node communication model. The classic node communication model will be
 
 - **Images with impending end-of-life (EOL) dates:** It's strongly recommended to avoid images with impending Batch support
 end of life (EOL) dates. These dates can be discovered via the
-[`ListSupportedImages` API](/rest/api/batchservice/account/listsupportedimages),
+[`ListSupportedImages` API](/rest/api/batchservice/pools/list-supported-images),
 [PowerShell](/powershell/module/az.batch/get-azbatchsupportedimage), or
 [Azure CLI](/cli/azure/batch/pool/supported-images). It's your responsibility to periodically refresh your view of the EOL
 dates pertinent to your pools and migrate your workloads before the EOL date occurs. If you're using a custom image with a
@@ -54,11 +54,11 @@ Plan for the migration of your workload to a non-EOL VM SKU by creating a new po
 Absence of an associated `batchSupportEndOfLife` date for a VM SKU doesn't indicate that particular VM SKU will be
 supported indefinitely. An EOL date may be added or updated in the future at any time.
 
-- **Unique resource names:** Batch resources (jobs, pools, etc.) often come and go over time. For example, you may create a pool on Monday, delete it on Tuesday, and then create another similar pool on Thursday. Each new resource you create should be given a unique name that you haven't used before. You can create uniqueness by using a GUID (either as the entire resource name, or as a part of it) or by embedding the date and time that the resource was created in the resource name. Batch supports [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), which can give a resource a more readable name even if the actual resource ID is something that isn't human-friendly. Using unique names makes it easier for you to differentiate which particular resource did something in logs and metrics. It also removes ambiguity if you ever have to file a support case for a resource.
+- **Unique resource names:** Batch resources (jobs, pools, etc.) often come and go over time. For example, you may create a pool on Monday, delete it on Tuesday, and then create another similar pool on Thursday. Each new resource you create should be given a unique name that you haven't used before. You can create uniqueness by using a GUID (either as the entire resource name, or as a part of it) or by embedding the date and time that the resource was created in the resource name. Batch supports [DisplayName](/dotnet/api/azure.compute.batch.batchjobspecification.displayname), which can give a resource a more readable name even if the actual resource ID is something that isn't human-friendly. Using unique names makes it easier for you to differentiate which particular resource did something in logs and metrics. It also removes ambiguity if you ever have to file a support case for a resource.
 
 - **Continuity during pool maintenance and failure:** It's best to have your jobs use pools dynamically. If your jobs use the same pool for everything, there's a chance that jobs won't run if something goes wrong with the pool. This principle is especially important for time-sensitive workloads. For example, select or create a pool dynamically when you schedule each job, or have a way to override the pool name so that you can bypass an unhealthy pool.
 
-- **Business continuity during pool maintenance and failure:** There are many reasons why a pool may not grow to the size you desire, such as internal errors or capacity constraints. Make sure you can retarget jobs at a different pool (possibly with a different VM size using [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update)) if necessary. Avoid relying on a static pool ID with the expectation that it will never be deleted and never change.
+- **Business continuity during pool maintenance and failure:** There are many reasons why a pool may not grow to the size you desire, such as internal errors or capacity constraints. Make sure you can retarget jobs at a different pool (possibly with a different VM size using [BatchClient.UpdateJob](/dotnet/api/azure.compute.batch.batchclient)) if necessary. Avoid relying on a static pool ID with the expectation that it will never be deleted and never change.
 
 ### Pool security
 
@@ -101,7 +101,7 @@ under `microsoft-azure-batch`, there's no guarantee that these images are kept u
 
 Pool lifetime can vary depending upon the method of allocation and options applied to the pool configuration. Pools can have an arbitrary lifetime and a varying number of compute nodes at any point in time. It's your responsibility to manage the compute nodes in the pool either explicitly, or through features provided by the service ([autoscale](nodes-and-pools.md#automatic-scaling-policy) or [autopool](nodes-and-pools.md#autopools)).
 
-- **Pool recreation:** Avoid deleting and recreating pools on a daily basis. Instead, create a new pool and then update your existing jobs to point to the new pool. Once all of the tasks have been moved to the new pool, then delete the old pool.
+- **Pool re-creation:** Avoid deleting and re-creating pools on a daily basis. Instead, create a new pool and then update your existing jobs to point to the new pool. Once all of the tasks have been moved to the new pool, then delete the old pool.
 
 - **Pool efficiency and billing:** Batch itself incurs no extra charges. However, you do incur charges for Azure resources utilized, such as compute, storage, networking, and any other resources that may be required for your Batch workload. You're billed for every compute node in the pool, regardless of the state it's in. For more information, see [Cost analysis and budgets for Azure Batch](budget.md).
 
@@ -156,14 +156,13 @@ Avoid designing a Batch solution that requires thousands of simultaneously activ
 
 A Batch job has an indefinite lifetime until it's deleted from the system. Its state designates whether it can accept more tasks for scheduling or not.
 
-A job doesn't automatically move to completed state unless explicitly terminated. This action can be automatically triggered through the [onAllTasksComplete](/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete) property or [maxWallClockTime](/rest/api/batchservice/job/add#jobconstraints).
+A job doesn't automatically move to completed state unless explicitly terminated. This action can be automatically triggered through the [BatchAllTasksCompleteMode](/dotnet/api/azure.compute.batch.batchalltaskscompletemode) property or [maxWallClockTime](/rest/api/batchservice/jobs/create-job#batchjobconstraints).
 
 There's a default [active job and job schedule quota](batch-quota-limit.md#resource-quotas). Jobs and job schedules in completed state don't count towards this quota.
 
 Delete jobs when they're no longer needed, even if in completed state. Although completed jobs don't count towards
 active job quota, it's beneficial to periodically clean up completed jobs. For example,
-[listing jobs](/rest/api/batchservice/job/list) will be more efficient when the total number of jobs is a smaller
-set (even if proper filters are applied to the request).
+[listing jobs](/rest/api/batchservice/jobs/list-jobs) will be more efficient when the total number of jobs is a smaller set (even if proper filters are applied to the request).
 
 ## Tasks
 
@@ -177,7 +176,7 @@ Batch has integrated support Azure Storage to upload data via [OutputFiles](batc
 
 ### Manage task lifetime
 
-Delete tasks when they're no longer needed, or set a [retentionTime](/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime) task constraint. If a `retentionTime` is set, Batch automatically cleans up the disk space used by the task when the `retentionTime` expires.
+Delete tasks when they're no longer needed, or set a [retentionTime](/dotnet/api/azure.compute.batch.batchtaskconstraints) task constraint. If a `retentionTime` is set, Batch automatically cleans up the disk space used by the task when the `retentionTime` expires.
 
 Deleting tasks accomplishes two things:
 
@@ -192,7 +191,7 @@ Deleting tasks accomplishes two things:
 
 ### Submit large numbers of tasks in collection
 
-Tasks can be submitted on an individual basis or in collections. Submit tasks in [collections](/rest/api/batchservice/task/addcollection) of up to 100 at a time when doing bulk submission of tasks to reduce overhead and submission time.
+Tasks can be submitted on an individual basis or in collections. Submit tasks in [collections](/rest/api/batchservice/tasks/create-task-collection) of up to 100 at a time when doing bulk submission of tasks to reduce overhead and submission time.
 
 ### Set max tasks per node appropriately
 
@@ -200,7 +199,7 @@ Batch supports oversubscribing tasks on nodes (running more tasks than a node ha
 
 ### Design for retries and re-execution
 
-Tasks can be automatically retried by Batch. There are two types of retries: user-controlled and internal. User-controlled retries are specified by the task's [maxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount). When a program specified in the task exits with a nonzero exit code, the task is retried up to the value of the `maxTaskRetryCount`.
+Tasks can be automatically retried by Batch. There are two types of retries: user-controlled and internal. User-controlled retries are specified by the task's [maxTaskRetryCount](/dotnet/api/azure.compute.batch.batchtaskconstraints). When a program specified in the task exits with a nonzero exit code, the task is retried up to the value of the `maxTaskRetryCount`.
 
 Although rare, a task can be retried internally due to failures on the compute node, such as not being able to update internal state or a failure on the node while the task is running. The task will be retried on the same compute node, if possible, up to an internal limit before giving up on the task and deferring the task to be rescheduled by Batch, potentially on a different compute node.
 
@@ -257,7 +256,7 @@ Batch relies on VM temporary disks, for Batch-compatible VM sizes, to store meta
 execution on this temporary disk. Examples of these temporary disk mount points or directories are: `/mnt/batch`, `/mnt/resource/batch`, and `D:\batch\tasks`.
 Replacing, remounting, junctioning, symlinking, or otherwise redirecting these mount points and directories or any of the parent directories
 isn't supported and can lead to instability. If you require more disk space, consider using a VM size or family that has temporary
-disk space that meets your requirements or [attaching data disks](/rest/api/batchservice/pool/add#datadisk). For more information, see the next
+disk space that meets your requirements or [attaching data disks](/rest/api/batchservice/pools/create-pool#datadisk). For more information, see the next
 section about attaching and preparing data disks for compute nodes.
 
 ### Attaching and preparing data disks
@@ -351,7 +350,7 @@ Any HTTP requests with 5xx level status codes along with a "Connection: close" h
 
 ### Retry requests automatically
 
-Ensure that your Batch service clients have appropriate retry policies in place to automatically retry your requests, even during normal operation and not exclusively during any service maintenance time periods. These retry policies should span an interval of at least 5 minutes. Automatic retry capabilities are provided with various Batch SDKs, such as the [.NET RetryPolicyProvider class](/dotnet/api/microsoft.azure.batch.retrypolicyprovider).
+Ensure that your Batch service clients have appropriate retry policies in place to automatically retry your requests, even during normal operation and not exclusively during any service maintenance time periods. These retry policies should span an interval of at least 5 minutes. Automatic retry capabilities are provided with various Batch SDKs. With Azure.Compute.Batch, retry behavior is configured via [Azure.Core ClientOptions.Retry](/dotnet/api/azure.core.retryoptions).
 
 ### Static public IP addresses
 

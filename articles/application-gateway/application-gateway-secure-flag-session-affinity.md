@@ -19,6 +19,9 @@ In this guide you learn to create a Rewrite set for your Application Gateway and
 * You must have an Azure subscription. You can create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * An existing Application Gateway resource configured with at least one Listener, Rule, Backend Setting and Backend Pool configuration. If you don't have one, you can create one by following the [QuickStart guide](quick-create-portal.md).
 
+> [!IMPORTANT]
+> If your backend application returns multiple Set-Cookie headers (for example, application cookies in addition to the ApplicationGatewayCookie), the simple pattern matching approach shown in this article will apply the rewrite to all Set-Cookie headers. To target only the ApplicationGatewayCookie specifically, use the HeaderValueMatcher pattern matching feature. For more information, see [Pattern matching for Set-Cookie headers](rewrite-http-headers-url.md#pattern-matching).
+
 ## Creating a Rewrite set
 
 1. Sign in to the Azure portal.
@@ -41,6 +44,8 @@ In this guide you learn to create a Rewrite set for your Application Gateway and
     1. Case-sensitive - No
     1. Operator - equal (=)
     1. Pattern to match - (.*)
+        > [!NOTE]
+        > This pattern `(.*)` matches all Set-Cookie headers. If you need to target only the ApplicationGatewayCookie and preserve other Set-Cookie headers, see [Pattern matching for Set-Cookie headers](rewrite-http-headers-url.md#pattern-matching) to use the HeaderValueMatcher feature.
     1. To save these details, select **OK**.
 1. Go to the **Then** box to specify action details.
     1. Rewrite type - Response header
@@ -53,4 +58,5 @@ In this guide you learn to create a Rewrite set for your Application Gateway and
 
 
 ## Next steps
-[Visit other configurations of a Backend Setting](configuration-http-settings.md)
+- [Visit other configurations of a Backend Setting](configuration-http-settings.md)
+- [Learn about pattern matching for Set-Cookie headers](rewrite-http-headers-url.md#pattern-matching)

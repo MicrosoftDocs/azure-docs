@@ -4,7 +4,7 @@ description: Azure Load Balancer health probes and configuration for detecting a
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 12/06/2024
+ms.date: 01/08/2026
 ms.author: mbender
 # Customer intent: As a network engineer, I want to understand how to configure health probes for Azure Load Balancer so that I can detect application failures, manage load, and plan for downtime.
 ---
@@ -57,7 +57,7 @@ The protocol used by the health probe can be configured to one of the following 
 | Probe failure behavior | A TCP probe fails when:</br> 1. The TCP listener on the instance doesn't respond at all during the timeout period. A probe is marked down based on the number of timed-out probe requests, which were configured to go unanswered before marking down the probe.</br> 2. The probe receives a TCP reset from the instance. | An HTTP/HTTPS probe fails when:</br> 1. Probe endpoint returns an HTTP response code other than 200 (for example, 403, 404, or 500).</br> 2. Probe endpoint doesn't respond at all during the minimum of the probe interval and 30-second timeout period. Multiple probe requests can go unanswered before the probe gets marked as not running and until the sum of all timeout intervals is reached.</br> 3. Probe endpoint closes the connection via a TCP reset.
 | Probe up behavior | TCP health probes are considered healthy and mark the backend endpoint as healthy when:</br> 1. The health probe is successful once after the VM boots.</br> 2. Any backend endpoint in a healthy state is eligible for receiving new flows. | The health probe is marked up when the instance responds with an HTTP status 200 within the timeout period. HTTP/HTTPS health probes are considered healthy and mark the backend endpoint as healthy when:</br> 1. The health probe is successful once after the VM boots.</br> 2. Any backend endpoint in a healthy state is eligible for receiving new flows.
 
-> [!NOTE] 
+> [!NOTE]
 > The HTTPS probe requires the use of certificates based that have a minimum signature hash of SHA256 in the entire chain.
 
 ## Probe down behavior
@@ -118,7 +118,7 @@ For HTTP probes, explicit responses will immediately mark the probe as up or dow
 
 ## Probe source IP address
 
-For Azure Load Balancer's health probe to mark up your instance, you must allow 168.63.129.16 IP address in any Azure [network security groups](../virtual-network/network-security-groups-overview.md) and local firewall policies. The `AzureLoadBalancer` service tag identifies this source IP address in your [network security groups](../virtual-network/network-security-groups-overview.md) and permits health probe traffic by default. You can learn more about this IP [here](../virtual-network/what-is-ip-address-168-63-129-16.md).
+For Azure Load Balancer's health probe to mark up your instance, you must allow 168.63.129.16 IP address in any Azure [network security groups](../virtual-network/network-security-groups-overview.md) and local firewall policies. The `AzureLoadBalancer` service tag identifies this source IP address in your [network security groups](../virtual-network/network-security-groups-overview.md) and permits health probe traffic by default. You can learn more about this IP [here](/azure/virtual-network/what-is-ip-address-168-63-129-16).
 
 If you don't allow the [source IP](#probe-source-ip-address) of the probe in your firewall policies, the health probe fails as it is unable to reach your instance. In turn, Azure Load Balancer marks your instance as -down- due to the health probe failure. This misconfiguration can cause your load balanced application scenario to fail. All IPv4 Load Balancer health probes originate from the IP address 168.63.129.16 as their source. IPv6 probes use a link-local address (fe80::1234:5678:9abc) as their source. For a dual-stack Azure Load Balancer, you must [configure a Network Security Group](./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md#create-a-network-security-group-rule-for-inbound-and-outbound-connections) for the IPv6 health probe to function.
 

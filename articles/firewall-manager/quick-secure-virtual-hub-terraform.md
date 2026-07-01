@@ -16,7 +16,7 @@ content_well_notifications:
 
 In this quickstart, you use Terraform to secure your virtual hub using Azure Firewall Manager. The deployed firewall has an application rule that allows connections to `www.microsoft.com` . Two Windows Server 2019 virtual machines are deployed to test the firewall. One jump server is used to connect to the workload server. From the workload server, you can only connect to `www.microsoft.com`.
 
-For more information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md).
+For more information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md)
 
 ## Prerequisites
 

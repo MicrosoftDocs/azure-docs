@@ -1,8 +1,8 @@
 ---
-author: ProfessorKendrick
+author: pavanatgit
 ms.topic: include
 ms.date: 09/17/2025
-ms.author: kkendrick
+ms.author: plekkala
 ---
 
 To delete a resource:

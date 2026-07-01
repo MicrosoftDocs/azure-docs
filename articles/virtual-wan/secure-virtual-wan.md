@@ -1,10 +1,10 @@
 ---
 title: Secure your Azure Virtual WAN deployment
 description: Learn how to secure Azure Virtual WAN, with best practices for network security, identity management, data protection, and logging.
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 09/08/2025
 ai-usage: ai-assisted

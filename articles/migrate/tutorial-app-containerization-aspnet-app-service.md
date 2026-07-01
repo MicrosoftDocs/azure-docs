@@ -6,6 +6,7 @@ ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.topic: tutorial
 ms.date: 09/19/2025
+ms.update-cycle: 365-days
 ms.custom:
   - engagement-fy24
   - sfi-image-nochange

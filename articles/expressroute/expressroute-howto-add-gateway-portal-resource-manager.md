@@ -125,6 +125,8 @@ By default, virtual network-to-virtual network (VNet-to-VNet) and VNet-to-Virtua
 
 > [!NOTE]
 > You must complete these steps on all virtual networks that need to communicate with each other through ExpressRoute.
+>
+> Additionally, if your Virtual WAN hub has undergone the software upgrade associated with [enabling route maps](../virtual-wan/route-maps-how-to.md), a known issue prevents the virtual network gateway from properly identifying Virtual WAN routes. As a result, the **Allow traffic from remote Virtual WAN network** on Virtual Network Gateway isn't applied correctly, and Virtual WAN address prefixes from that Virtual WAN hub is always allowed regardless of the configured setting.
 
 1. In the Azure portal, go to your ExpressRoute virtual network gateway.
 
@@ -132,7 +134,7 @@ By default, virtual network-to-virtual network (VNet-to-VNet) and VNet-to-Virtua
 
 1. Select one or both of the following options:
    - **Allow traffic from remote virtual networks** - Enables VNet-to-VNet traffic through ExpressRoute.
-   - **Allow traffic from remote Virtual WAN network** - Enables VNet-to-Virtual WAN traffic through ExpressRoute.
+   - **Allow traffic from remote Virtual WAN network** - Enables VNet-to-Virtual WAN traffic through ExpressRoute. When this setting is enabled, Virtual Network gateway will learn routes for virtual networks directly connected to the shared ExpressRoute circuit between Virtual Network gateway and Virtual wAN. This setting doesn't change whether Virtual Network gateway learns other Virtual WAN routes, such as Virtual WAN VPN routes or Virtual WAN inter-hub routes.
 
     :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/allow-remote-virtual-network-wan.png" alt-text="Screenshot showing the Configuration page with checkboxes for allowing traffic from remote virtual networks and Virtual WAN networks.":::
 
@@ -157,7 +159,7 @@ You can upgrade between the following SKU types:
 
     [![Screenshot showing the Configuration page for upgrading non-availability zone gateway SKUs.](./media/expressroute-howto-add-gateway-portal-resource-manager/non-az-upgrade.png)](./media/expressroute-howto-add-gateway-portal-resource-manager/non-az-upgrade.png)
 
-- **Availability zone-enabled SKUs**: ErGw1Az, ErGw2Az, ErGw3Az
+- **Availability zone-enabled SKUs**: ErGw1Az, ErGw2Az, ErGw3Az, ErGwScale
 
     [![Screenshot showing the Configuration page for upgrading availability zone-enabled gateway SKUs.](./media/expressroute-howto-add-gateway-portal-resource-manager/az-enabled-upgrade.png)](./media/expressroute-howto-add-gateway-portal-resource-manager/az-enabled-upgrade.png)
 

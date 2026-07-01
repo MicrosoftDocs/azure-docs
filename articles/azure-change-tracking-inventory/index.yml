@@ -4,11 +4,11 @@ title: Azure Change Tracking and Inventory documentation
 metadata:
   title: Azure Change Tracking and Inventory documentation
   description: Learn how to use Azure Change Tracking and Inventory.
-  ms.service: azure-automation
+  ms.service: azure-change-tracking-inventory
   ms.topic: landing-page
   ms.date: 11/06/2025
-  ms.author: v-jasmineme
-  author: jasminemehndir
+  ms.author: v-rochak2
+  author: RochakSingh-blr
 
 landingContent: 
 

@@ -4,7 +4,7 @@ metadata:
   description: 'Answers to common questions about'
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 12/12/2025
+  ms.date: 03/17/2026
   author: AbhishekMallick-MS
   ms.author: v-mallicka
   ms.custom: engagement-fy24
@@ -117,6 +117,30 @@ sections:
           When GRS is enabled can we restore the VM on to the dedicated zone?
         answer: |
           No, we cannot restore on to the dedicated zone.
+      - question: |
+          Can I permanently delete the default Backup Policies in an Azure Recovery Services Vault?
+        answer: |
+          No, the default backup policies cannot be permanently deleted. Azure automatically recreates them to ensure baseline backup functionality. These policies are:
+          
+          - System-managed
+          - Non-deletable
+          - Non-deletable
+          - Used as fallback policies
+
+          So even if you delete them through the portal, PowerShell, CLI, or REST API, they will always reappear.
+         
+          **Recommended approach:**
+          - Simply ignore the default policies.
+          - Create and use your own custom policies with your preferred naming standards.
+          - Ensure no backup items are associated with the default ones.
+          
+  - name: Backup Vault
+    questions:
+      - question: |
+          Can I move a subscription that contains a Backup vault to a different tenant?
+        answer: |
+          No, Backup vaults aren't supported.
+
   - name: Azure Backup agent
     questions:
       - question: |
@@ -176,6 +200,8 @@ sections:
           Windows Server 2008, Windows Server 2008 R2 | 1700 GB
           Azure VM | See the [support matrix for Azure VM backup](./backup-support-matrix-iaas.md#vm-storage-support)
           
+          [!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
+
       - question: |
           How is the data source size determined?
         answer: |

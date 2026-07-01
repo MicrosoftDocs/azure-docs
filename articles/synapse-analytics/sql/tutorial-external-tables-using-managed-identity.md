@@ -12,6 +12,8 @@ ms.topic: tutorial
 
 # Tutorial: Load external data using a managed identity
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article explains how to create external tables or ingest data from Azure Data Lake Storage (ADLS) Gen2 accounts using a managed identity.
 
 ## Prerequisites

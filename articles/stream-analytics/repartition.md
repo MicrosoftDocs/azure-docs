@@ -5,7 +5,7 @@ ms.service: azure-stream-analytics
 author: ahartoon
 ms.author: anboisve
 ms.date: 02/26/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: mvc
 ---
 

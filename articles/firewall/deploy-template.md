@@ -6,7 +6,7 @@ author: duongau
 ms.service: azure-firewall
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 05/10/2021
+ms.date: 12/31/2025
 ms.author: duau
 # Customer intent: As a cloud architect, I want to deploy an Azure Firewall using an ARM template, so that I can quickly set up a secure network environment with high availability across multiple zones.
 ---
@@ -89,4 +89,4 @@ Don't remove the resource group and firewall if you plan to continue on to the f
 Next, you can monitor the Azure Firewall logs.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Monitor Azure Firewall logs](./firewall-diagnostics.md)
+> [Monitor Azure Firewall logs and metrics](./monitor-firewall.md)

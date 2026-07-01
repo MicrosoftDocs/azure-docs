@@ -11,7 +11,7 @@ ms.custom:
 ai-usage: ai-assisted
 ms.collection: 
   - ce-skilling-ai-copilot 
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 
 #customer intent: As a developer, I want to understand how to host a self-hosted MCP server on Azure Functions so that I can leverage the platform's capabilities for my application.
 ---
@@ -142,9 +142,9 @@ OAuth-based authentication and authorization provided by the App Service platfor
 
 For more information, see [Configure built-in server authorization (preview)](../app-service/configure-authentication-mcp.md) and [Hosting MCP servers on Azure Functions](./functions-mcp-tutorial.md).
 
-## Azure AI Foundry agent integrations
+## Microsoft Foundry agent integrations
 
-Agents in Azure AI Foundry can be [configured to use tools](./functions-mcp-tutorial.md#configure-azure-ai-foundry-agent-to-use-your-tools) in MCP servers hosted in Azure Functions. <!-- Re-add this link after the release branch is published: For more information, see [Build and register a Model Context Protocol (MCP) server](/azure/ai-foundry/mcp/build-your-own-mcp-server).-->
+Agents in Foundry can be [configured to use tools](./functions-mcp-tutorial.md#configure-microsoft-foundry-agent-to-use-your-tools) in MCP servers hosted in Azure Functions. <!-- Re-add this link after the release branch is published: For more information, see [Build and register a Model Context Protocol (MCP) server](/azure/ai-foundry/mcp/build-your-own-mcp-server).-->
 
 ## Register your server in Azure API Center 
 
@@ -176,6 +176,7 @@ The ability to host your own SDK-based MCP servers in Functions is currently in 
 ::: zone pivot="programming-language-java"
 Not yet available.
 ::: zone-end 
+
 
 ## Related articles
 

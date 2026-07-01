@@ -1,0 +1,44 @@
+- name: Artifact Signing documentation 
+  href: ./index.yml
+  expanded: true
+  items:
+  - name: Overview
+    items:
+    - name: What is the Artifact Signing service?
+      href: overview.md
+  - name: Quickstarts
+    items:
+    - name: Set up Artifact Signing
+      href: quickstart.md
+  - name: How-to guides
+    items:
+    - name: Set up signing integrations to use Artifact Signing
+      href: how-to-signing-integrations.md
+    - name: Sign a CI policy by using Artifact Signing
+      href: how-to-sign-ci-policy.md
+    - name: Access signed transactions in Artifact Signing 
+      href: how-to-sign-history.md
+    - name: Revoke a certificate profile in Artifact Signing
+      href: how-to-cert-revocation.md
+    - name: Renew or delete Artifact Signing identity validation
+      href: how-to-renew-identity-validation.md
+    - name: Change the account SKU (pricing tier)
+      href: how-to-change-sku.md
+    - name: Device Guard Signing Service Migration 
+      href: how-to-device-guard-signing-service-migration.md
+  - name: Tutorials
+    items:
+    - name: Assign roles in Artifact Signing
+      href: tutorial-assign-roles.md
+  - name: Concepts
+    items:
+    - name: Artifact Signing trust models
+      href: concept-trust-models.md
+    - name: Artifact Signing resources and roles
+      href: concept-resources-roles.md
+    - name: Artifact Signing certificate management
+      href: concept-certificate-management.md
+  - name: FAQ
+    items:
+    - name: Frequently asked questions about Artifact Signing
+      href: faq.yml

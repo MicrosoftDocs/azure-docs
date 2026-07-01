@@ -1,12 +1,12 @@
 ﻿---
-title: Convert a legacy Exchange peering to an Azure resource - Azure portal
+title: Convert a Legacy Exchange Peering to an Azure Resource - Azure Portal
 description: Learn how to convert a legacy Exchange peering to an Azure resource using the Azure portal.
 titleSuffix: Internet Peering
 author: halkazwini
 ms.author: halkazwini
 ms.service: internet-peering
 ms.topic: how-to
-ms.date: 03/03/2025
+ms.date: 02/25/2026
 ---
 
 # Convert a legacy Exchange peering to an Azure resource using the Azure portal

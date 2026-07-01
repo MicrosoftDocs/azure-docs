@@ -12,6 +12,8 @@ ms.custom: synapse-analytics
 
 # Monitor your Azure Synapse Analytics dedicated SQL pool workload using DMVs
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article describes how to use Dynamic Management Views (DMVs) to monitor your workload including investigating query execution in a dedicated SQL pool.
 
 ## Permissions

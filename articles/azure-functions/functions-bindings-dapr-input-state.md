@@ -3,6 +3,9 @@ title: Dapr State input binding for Azure Functions
 description: Learn how to provide Dapr State input binding data during a function execution in Azure Functions.
 ms.topic: reference
 ms.date: 05/10/2024
+ms.author: nigreenf
+ms.reviewer: hannahhunter
+ms.subservice: dapr
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js, build-2024
@@ -41,9 +44,9 @@ public static IActionResult Run(
 # [Isolated process](#tab/isolated-process)
 
 More samples for the Dapr input state binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/dotnet-isolated-azurefunction/InputBinding).
-
+<!--
 :::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/InputBinding/StateInputBinding.cs" range="15-25"::: 
-
+-->
 ---
 
 ::: zone-end 

@@ -2,8 +2,8 @@
 title: Disable Disaster Recovery in Azure IoT Hub
 titleSuffix: Azure IoT Hub
 description: Learn how to disable disaster recovery failover for Azure IoT Hub in specific regions by using the Azure portal to manage data replication settings.
-author: kgremban
-ms.author: kgremban
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 05/02/2025
@@ -15,7 +15,7 @@ ms.custom:
 
 # Disable disaster recovery in Azure IoT Hub
 
-Azure IoT Hub provides Microsoft-initiated failover and manual failover by replicating data to a [paired region](../reliability/regions-paired.md) for each IoT hub. For some regions, you can avoid data replication outside of the region by disabling disaster recovery (DR) when you create an IoT hub.
+Azure IoT Hub provides Microsoft-initiated failover and manual failover by replicating data to a [paired region](/azure/reliability/regions-paired) for each IoT hub. For some regions, you can avoid data replication outside of the region by disabling disaster recovery (DR) when you create an IoT hub.
 
 ## Prerequisites
 
@@ -55,4 +55,4 @@ You can only disable DR to avoid data replication when you create an IoT hub. If
 
 ## Related content
 
-- [Reliability in IoT Hub](../reliability/reliability-iot-hub.md)
+- [Reliability in IoT Hub](/azure/reliability/reliability-iot-hub)

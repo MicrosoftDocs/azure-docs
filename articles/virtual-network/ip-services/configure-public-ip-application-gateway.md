@@ -26,7 +26,7 @@ In this article, you learn how to create an Application Gateway using an existin
 - Two standard SKU public IP addresses in your subscription. The IP addresses can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](./create-public-ip-portal.md).
     - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1** and **myStandardPublicIP-2**.
 
-## Create Application Gateway existing public IP
+## Create Application Gateway using an existing public IP
 
 In this section, you create an Application Gateway resource. You select the IP address you created in the prerequisites as the public IP for the Application Gateway.
 
@@ -112,5 +112,5 @@ Application gateway doesn't support changing the public IP address after creatio
 
 In this article, you learned how to create an Application Gateway and use an existing public IP. 
 
-- For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](../nat-gateway/nat-overview.md).
+- For more information about Azure Virtual Network NAT, see [What is Azure Virtual Network NAT?](../nat-gateway/nat-overview.md)
 - To learn more about public IP addresses in Azure, see [Public IP addresses](./public-ip-addresses.md).

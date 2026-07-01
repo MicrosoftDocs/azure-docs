@@ -4,7 +4,7 @@ description: Advanced monitoring with annotations and user properties
 author: whhender
 ms.author: whhender
 ms.subservice: monitoring
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/20/2023
 ---
 

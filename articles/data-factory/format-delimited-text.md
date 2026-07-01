@@ -5,7 +5,7 @@ description: This topic describes how to deal with delimited text format in Azur
 author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/26/2024
 ms.author: jianleishen
 ---

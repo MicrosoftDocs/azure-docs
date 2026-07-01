@@ -1,47 +1,46 @@
 ---
-title: Extensibility for the SAP Deployment Automation Framework
-description: Describe how to extend the SAP Deployment Automation Framework.
+title: Extend SAP Deployment Automation Framework
+description: Learn how to extend SAP Deployment Automation Framework by adding custom Ansible playbooks, repositories, packages, kernel parameters, and more.
 author: kimforss
 ms.author: kimforss
-ms.reviewer: kimforss
-ms.date: 10/29/2023
-ms.topic: concept-article
+ms.date: 04/06/2026
+ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-ansible, linux-related-content
 # Customer intent: "As a cloud engineer, I want to extend the SAP Deployment Automation Framework by incorporating custom configurations and Ansible playbooks, so that I can tailor the deployment to meet specific operational requirements efficiently."
 ---
 
-# Extending the SAP Deployment Automation Framework
+# Extend SAP Deployment Automation Framework
 
+[SAP Deployment Automation Framework](deployment-framework.md) (SDAF) provides default configurations for deploying SAP environments on Azure. When your deployment requires custom OS settings, extra pipeline stages, or organization-specific Ansible playbooks, you can extend the framework to match your operational needs.
 
-Within the SAP Deployment Automation Framework (SDAF), we recognize the importance of adaptability and customization to meet the unique needs of various deployments. This document describes the ways to extend the framework's capabilities, ensuring that it aligns  with your specific requirements.
+In this article, you learn about the extensibility options available in SDAF, including custom Ansible playbooks, configuration-based extensions for repositories, packages, kernel parameters, and more.
 
-Some of the common scenarios for extending the framework include:
+Common scenarios for extending the framework include:
 
-- Forking the Source Code Repository: One method of extending SDAF is by forking the source code repository. This approach grants you the flexibility to make tailored modifications within your own forked version of the code. By doing so, you gain control over the framework's core functionality, enabling you to tailor it precisely to your deployment objectives.
-
-- Adding Stages to the SAP Configuration Pipeline: Another way to customization is by adding stages to the SAP configuration pipeline. This approach allows you to integrate specific processes or steps that are integral to your deployment workflows into the automation pipeline.
-
-- Streamlined Extensibility: This capability allows you to effortlessly incorporate your existing Ansible playbooks directly into the SDAF. By using this feature, you can seamlessly integrate your Ansible automation scripts with the framework, further enhancing its versatility.
-
-- Configuration extensibility: This feature allows you to extend the framework's configuration capabilities by adding custom repositories, packages, kernel parameters, logical volumes, mounts, and exports without the need to write any code.
-
-Throughout this documentation, we provide comprehensive guidance on each of these extensibility options, ensuring that you have the knowledge and tools needed to tailor the SAP Deployment Automation Framework to your specific deployment needs.
+- **Fork the source code repository** - Make tailored modifications in your own forked version of the code, giving you control over the framework's core functionality.
+- **Add stages to the SAP configuration pipeline** - Integrate specific processes or steps that are part of your deployment workflows into the automation pipeline.
+- **Run custom Ansible playbooks** - Incorporate your existing Ansible playbooks directly into SDAF so they run automatically as part of the deployment.
+- **Extend configuration without code** - Add custom repositories, packages, kernel parameters, logical volumes, mounts, and exports by editing the `sap-parameters.yaml` file.
 
 > [!NOTE]
-> If you fork the source code repository, you must maintain your fork of the code. You must also merge the changes from the source code repository into your fork of the code whenever there is a new release of the SDAF codebase.
+> If you fork the source code repository, you must maintain your fork. You must also merge changes from the source code repository into your fork whenever there's a new release of the SDAF codebase.
 
-## Executing your own Ansible playbooks as part of the Azure DevOps orchestration
+## Prerequisites
 
-You can implement your own Ansible playbooks, which are automatically be called as part of the Azure DevOps 'OS Configuration and SAP Installation' pipeline.
+- SAP Deployment Automation Framework [deployed and configured](get-started.md).
+- An [Azure DevOps project configured for SDAF](configure-devops.md), if you plan to run custom Ansible playbooks in the pipeline.
+- Access to the `sap-parameters.yaml` file in your SDAF workspace directory.
+- Familiarity with [Ansible playbook syntax](https://docs.ansible.com/ansible/latest/playbook_guide/playbooks_intro.html), if you plan to create custom playbooks.
 
-The Ansible playbooks must be located in a folder called 'Ansible' located in the root folder in your configuration repository. They're called with the same parameter files as the SDAF playbooks so you have access to all the configuration.
+## Run custom Ansible playbooks in Azure DevOps
 
+You can implement your own Ansible playbooks, which are automatically called as part of the Azure DevOps `OS Configuration and SAP Installation` pipeline.
 
-The Ansible playbooks must be named according to the following naming convention:
+The Ansible playbooks must be in a folder called `Ansible` in the root folder of your configuration repository. They're called with the same parameter files as the SDAF playbooks, so you have access to the entire configuration.
 
-'Playbook name_pre' for playbooks to be run before the SDAF playbook and 'Playbook name_post' for playbooks to be run after the SDAF playbook.
+The Ansible playbooks must follow this naming convention: `Playbook name_pre` for playbooks that run before the SDAF playbook and `Playbook name_post` for playbooks that run after the SDAF playbook.
 
 | Playbook name                                           | Playbook name for 'pre' tasks                              | Playbook name for 'post' tasks                              | Description                                                       |
 | ------------------------------------------------------- | ---------------------------------------------------------- | ----------------------------------------------------------- | ----------------------------------------------------------------- |
@@ -58,11 +57,11 @@ The Ansible playbooks must be named according to the following naming convention
 | `playbook_08_00_00_post_configuration_actions.yaml`     | `playbook_08_00_00_post_configuration_actions_pre.yml`     | `playbook_08_00_00_post_configuration_actions_post.yml`     | Post Configuration Actions                                        |
 
 > [!NOTE]
-> The playbook_08_00_00_post_configuration_actions.yaml step has no SDAF provided roles/tasks, it's only there to facilitate `_pre` and `_post` hooks after SDAF has completed the installation and configuration.
+> The `playbook_08_00_00_post_configuration_actions.yaml` step has no SDAF-provided roles or tasks. It's only there to facilitate `_pre` and `_post` hooks after SDAF completes the installation and configuration.
 
 ### Sample Ansible playbook
 
-```yaml	
+```yaml
 ---
 # /*---------------------------------------------------------------------------8
 # |                                                                            |
@@ -106,15 +105,14 @@ The Ansible playbooks must be named according to the following naming convention
     - name:                            "Show how to run a command on just the 'SCS' and 'ERS' hosts"
       ansible.builtin.command:         "whoami"
       register:                        whoami_results
-      when: 
+      when:
         - "'scs' in supported_tiers or 'ers' in supported_tiers "
 ...
-
 ```
 
-## Updating the user and group IDs (Linux)
+## Update user and group ID (Linux)
 
-If you want to change the user and group IDs used by the framework, you can add the following section to the sap-parameters.yaml file.
+If you want to change the user and group ID numbers used by the framework, add the following section to the `sap-parameters.yaml` file.
 
 ```yaml
 # User and group IDs
@@ -122,10 +120,9 @@ sapadm_uid:   "3000"
 sidadm_uid:   "3100"
 sapinst_gid:  "300"
 sapsys_gid:   "400"
-
 ```
 
-You can use the `configuration_settings` variable to let Terraform add them to sap-parameters.yaml file.
+You can use the `configuration_settings` variable to let Terraform add them to the `sap-parameters.yaml` file.
 
 ```terraform
 configuration_settings = {
@@ -134,12 +131,11 @@ configuration_settings = {
   sapinst_gid          = "300",
   sapsys_gid           = "400"
 }
-
 ```
 
-## Adding custom host names for instances (Linux)
+## Add custom host names for instances (Linux)
 
-In addition to the host names generated by the framework, you can add custom host names for the instances in your SAP deployment. To do so, add the following section to the sap-parameters.yaml file.
+In addition to the host names generated by the framework, you can add custom host names for the instances in your SAP deployment. To do so, add the following section to the `sap-parameters.yaml` file.
 
 ```yaml
 custom_scs_virtual_hostname:   "myscshostname"
@@ -148,7 +144,7 @@ custom_db_virtual_hostname:    "mydbhostname"
 custom_pas_virtual_hostname:   "mypashostname"
 ```
 
-You can use the `configuration_settings` variable to let Terraform add them to sap-parameters.yaml file.
+You can use the `configuration_settings` variable to let Terraform add them to the `sap-parameters.yaml` file.
 
 ```terraform
 configuration_settings = {
@@ -156,89 +152,73 @@ configuration_settings = {
   custom_ers_virtual_hostname        = "myershostname",
   custom_db_virtual_hostname         = "mydbhostname",
   custom_pas_virtual_hostname        = "mypashostname"
-
 }
-
 ```
 
+## Add custom repositories (Linux)
 
-## Adding custom repositories (Linux)
+If you need to register extra Linux package repositories on the virtual machines deployed by the framework, add the following section to the `sap-parameters.yaml` file.
 
-If you need to register extra Linux package repositories to the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters.yaml file.
-
-In this example, the repository 'epel' is registered on all the hosts in your SAP deployment that are running RedHat 8.2.
+In this example, the repository `epel` is registered on all the hosts in your SAP deployment that are running Red Hat 8.2.
 
 ```yaml
-
 custom_repos:
   redhat8.2:
     - { tier: 'ha', repo: 'epel', url: 'https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm', state: 'present' }
-
 ```
 
-## Adding custom packages (Linux)
+## Add custom packages (Linux)
 
-If you need to install more Linux packages to the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters.yaml file.
+If you need to install more Linux packages on the virtual machines deployed by the framework, add the following section to the `sap-parameters.yaml` file.
 
-In this example, the package 'openssl' is installed on all the hosts in your SAP deployment that are running SUSE Enterprise Linux for SAP Applications version 15.3.
+In this example, the package `openssl` is installed on all the hosts in your SAP deployment that are running SUSE Linux Enterprise Server for SAP Applications version 15.3.
 
 ```yaml
-
 custom_packages:
   sles_sap15.3:
     - { tier: 'os', package: 'openssl', node_tier: 'all', state: 'present' }
-
 ```
 
-If you want to install a package on a specific server type (`app`, `ers`, `pas`, `scs`, `hana`) you can add the following section to the sap-parameters.yaml file.
+If you want to install a package on a specific server type (`app`, `ers`, `pas`, `scs`, `hana`), add the following section to the `sap-parameters.yaml` file.
 
 ```yaml
-
 custom_packages:
   sles_sap15.3:
     - { tier: 'ha', package: 'pacemaker', node_tier: 'hana', state: 'present' }
-
 ```
 
-## Adding custom kernel parameters (Linux)
+## Add custom kernel parameters (Linux)
 
 You can extend the SAP Deployment Automation Framework by adding custom kernel parameters to the SDAF installation.
 
-When you add the following section to the sap-parameters.yaml file, the parameter 'fs.suid_dumpable' is set to 0 on all the hosts in your SAP deployment.
+When you add the following section to the `sap-parameters.yaml` file, the parameter `fs.suid_dumpable` is set to 0 on all the hosts in your SAP deployment.
 
 ```yaml
-
 custom_parameters:
   common:
     - { tier: 'os', node_tier: 'all', name: 'fs.suid_dumpable', value: '0', state: 'present' }
-
 ```
 
-## Adding custom services (Linux)
+## Add custom services (Linux)
 
-If you need to manage other services on the Virtual Machines deployed by the framework, you can add the following section to the sap-parameters.yaml file.
+If you need to manage other services on the virtual machines deployed by the framework, add the following section to the `sap-parameters.yaml` file.
 
-In this example, the 'firewalld' service is stopped and disabled on all the hosts in your SAP deployment that are running RedHat 7.x.
+In this example, the `firewalld` service is stopped and disabled on all the hosts in your SAP deployment that are running Red Hat 7.x.
 
 ```yaml
-
 custom_services:
   redhat7:
     - { tier: 'os',          service: 'firewalld',    node_tier: 'all',     state: 'stopped'   }
     - { tier: 'os',          service: 'firewalld',    node_tier: 'all',     state: 'disabled'  }
-
-
 ```
 
-## Adding custom logical volumes (Linux)
+## Add custom logical volumes (Linux)
 
 You can extend the SAP Deployment Automation Framework by adding logical volumes based on extra disks in your SDAF installation.
 
-When you add the following section to the sap-parameters.yaml file, a logical volume 'lv_custom' is created on all Virtual machines with a disk with the name 'custom' in your SAP deployment. A filesystem is mounted on the logical volume and available on '/custompath.'
-
+When you add the following section to the `sap-parameters.yaml` file, a logical volume `lv_custom` is created on all virtual machines with a disk named `custom` in your SAP deployment. A file system is mounted on the logical volume and available at `/custompath`.
 
 ```yaml
-
 custom_logical_volumes:
   - tier:       'sapos'
     node_tier:  'all'
@@ -246,13 +226,13 @@ custom_logical_volumes:
     lv:         'lv_custom'
     size:       '100%FREE'
     fstype:     'xfs'
-    path:       '/custompath' 
+    path:       '/custompath'
 ```
 
 > [!NOTE]
-> In order to use this functionality you need to add an extra disk named 'custom' to one or more of your Virtual machines. For more information, see [Custom disk sizing](configure-extra-disks.md).
+> To use this functionality, you need to add an extra disk named `custom` to one or more of your virtual machines. For more information, see [Custom disk sizing](configure-extra-disks.md).
 
-You can use the `configuration_settings` variable to let Terraform add them to sap-parameters.yaml file.
+You can use the `configuration_settings` variable to let Terraform add them to the `sap-parameters.yaml` file.
 
 ```terraform
 configuration_settings = {
@@ -264,20 +244,19 @@ configuration_settings = {
       lv        = 'lv_custom'
       size      = '100%FREE'
       fstype    = 'xfs'
-      path      = '/custompath' 
+      path      = '/custompath'
     }
   ]
 }
 ```
 
-## Adding custom mount (Linux)
+## Add custom mounts (Linux)
 
-You can extend the SAP Deployment Automation Framework by mounting extra mount points in your installation.
+You can extend the SAP Deployment Automation Framework by adding extra mount points in your installation.
 
-When you add the following section to the sap-parameters.yaml file, a filesystem '/usr/custom' is mounted from an NFS share on 'xxxxxxxxx.file.core.windows.net:/xxxxxxxxx/custom.'
+When you add the following section to the `sap-parameters.yaml` file, a file system at `/usr/custom` is mounted from a Network File Share (NFS) on `xxxxxxxxx.file.core.windows.net:/xxxxxxxxx/custom`.
 
 ```yaml
-
 custom_mounts:
   - path:         "/usr/custom"
     opts:         "vers=4,minorversion=1,sec=sys"
@@ -285,9 +264,9 @@ custom_mounts:
     target_nodes: "scs,pas,app"
 ```
 
-The `target_nodes` attribute defines which nodes have the mount defined. Use 'all' if you want all nodes to have the mount defined.
+The `target_nodes` attribute specifies which nodes have the mount. Use `all` to apply the mount to all nodes.
 
-You can use the `configuration_settings` variable to let Terraform add them to sap-parameters.yaml file.
+You can use the `configuration_settings` variable to let Terraform add them to the `sap-parameters.yaml` file.
 
 ```terraform
 configuration_settings = {
@@ -302,20 +281,18 @@ configuration_settings = {
 }
 ```
 
-## Adding custom export (Linux)
+## Add custom exports (Linux)
 
 You can extend the SAP Deployment Automation Framework by adding extra folders to be exported from the Central Services virtual machine.
 
-When you add the following section to the sap-parameters.yaml file, a filesystem '/usr/custom' is exported from the Central Services virtual machine and available via NFS.
+When you add the following section to the `sap-parameters.yaml` file, a file system at `/usr/custom` is exported from the Central Services virtual machine and available via NFS.
 
 ```yaml
-
 custom_exports:
     path:         "/usr/custom"
-
 ```
 
-You can use the `configuration_settings` variable to let Terraform add them to sap-parameters.yaml file.
+You can use the `configuration_settings` variable to let Terraform add them to the `sap-parameters.yaml` file.
 
 ```terraform
 configuration_settings = {
@@ -328,14 +305,14 @@ configuration_settings = {
 ```
 
 > [!NOTE]
-> This applies only for deployments with NFS_Provider set to 'NONE' as this makes the Central Services server an NFS Server.
+> Applicable only to deployments with `NFS_Provider` set to `NONE`, because this configuration makes the Central Services server an NFS server.
 
-## Custom Stripe sizes (Linux)
+## Custom stripe sizes (Linux)
 
-If you want to the stripe sizes used by the framework when creating the disks, you can add the following section to the sap-parameters.yaml file with the values you want.
+If you want to change the stripe sizes used by the framework when creating the disks, add the following section to the `sap-parameters.yaml` file with the values you want.
 
 ```yaml
-# User and group IDs
+# Stripe sizes
 hana_data_stripe_size:                 256
 hana_log_stripe_size:                  64
 
@@ -349,15 +326,13 @@ sybase_temp_stripe_size:               128
 
 oracle_data_stripe_size:               256
 oracle_log_stripe_size:                128
-
 ```
 
 ## Custom volume sizes (Linux)
 
-If you want to the default volume sizes used by the framework, you can add the following section to the sap-parameters.yaml file with the values you want.
+If you want to change the default volume sizes used by the framework, add the following section to the `sap-parameters.yaml` file with the values you want.
 
 ```yaml
-
 sapmnt_volume_size:                    32g
 usrsap_volume_size:                    32g
 hanashared_volume_size:                32g

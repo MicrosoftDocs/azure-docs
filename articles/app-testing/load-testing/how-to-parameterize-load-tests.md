@@ -3,9 +3,9 @@ title: Use secrets & environment variables
 titleSuffix: Azure Load Testing
 description: 'Learn how to create configurable load tests by using secrets and environment variables as parameters in Azure Load Testing.'
 services: load-testing
-ms.service: azure-load-testing
-ms.author: ninallam
-author: ninallam
+ms.service: azure-app-testing
+ms.author: nandinim
+author: nandinimurali
 ms.date: 01/16/2024
 ms.topic: how-to
 ---

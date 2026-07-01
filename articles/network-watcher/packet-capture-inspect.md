@@ -1,14 +1,14 @@
 ---
-title: Inspect and analyze packet capture files
+title: Inspect and Analyze Packet Capture Files
 titleSuffix: Azure Network Watcher
 description: Learn how to inspect and analyze network data that Azure Network Watcher previously captured for packets.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 03/25/2025
+ms.date: 02/25/2026
 ms.custom: sfi-image-nochange
-#CustomerIntent: As a network administrator, I want to inspect packets captured by Network Watcher to investigate network problems.
+
 # Customer intent: As a network administrator, I want to analyze packet capture files using open-source tools, so that I can troubleshoot network issues, identify unauthorized traffic, and maintain compliance with regulatory requirements.
 ---
 

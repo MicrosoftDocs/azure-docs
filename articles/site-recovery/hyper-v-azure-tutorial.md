@@ -3,8 +3,8 @@ title: Set up Hyper-V disaster recovery by using Azure Site Recovery
 description: Learn how to set up disaster recovery of on-premises Hyper-V VMs (without SCVMM) to Azure by using Site Recovery and MARS.
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 09/16/2025
-ms.custom: MVC, engagement-fy23
+ms.date: 05/05/2026
+ms.custom: MVC, engagement-fy23, references_regions
 ms.author: v-gajeronika
 author: Jeronika-MS
 # Customer intent: "As a system administrator managing on-premises Hyper-V VMs, I want to configure Azure-based disaster recovery, so that I can ensure business continuity and minimize downtime in case of an unexpected failure."
@@ -137,6 +137,8 @@ You can track progress in your Azure portal notifications. When the job finishes
 
 ## Enable replication
 
+[!INCLUDE [hyper-v-to-azure-region-limitations.md](./includes/hyper-v-to-azure-region-limitations.md)]
+
 1. In the [Azure portal](https://portal.azure.com), go to **Recovery Services vaults** and select the vault.
 1. On the vault command bar, select **Enable Site Recovery**.
 1. On **Site Recovery**, under the **Hyper-V machines to Azure** tile, select **Enable replication**.
@@ -170,7 +172,7 @@ This change impacts Azure Site Recovery (ASR) operations, especially for failove
 
 #### New ASR Enablement
 
-All new ASR configurations for H2A from Azure portal creates target disks as Managed disks. When you enable replication of a Hyper-V VM from Azure portal, the target disk is always a Managed disk, regardless of whether the replica is a blob or a Managed disk.
+All new ASR configurations for H2A from Azure portal create target disks as Managed disks. When you enable replication of a Hyper-V VM from Azure portal, the target disk is always a Managed disk, regardless of whether the replica is a blob or a Managed disk.
 
 On the Azure portal, during enable replication, **Replica Storage Account** setting is selected as **Managed Disk** by default. In that case, both your replica and target are of Managed disk type. You can also select **Storage Account** from the dropdown menu, where your replica is unmanaged disk type, and target disk is Managed disk type.
 

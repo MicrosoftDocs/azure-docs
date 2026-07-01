@@ -2,12 +2,12 @@
 title: Azure Stack Edge Pro GPU device access, power, and connectivity mode | Microsoft Docs 
 description: Describes how to manage access, power, and connectivity mode for the Azure Stack Edge Pro GPU device that helps transfer data to Azure
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/22/2022
-ms.author: alkohli 
+ms.author: sipastak
 ms.custom:
 ---
 

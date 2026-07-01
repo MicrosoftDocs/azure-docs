@@ -76,7 +76,7 @@ Azure Resource Graph is a powerful tool for exploring and querying your Azure re
 Here’s an example Azure Resource Graph query to identify all legacy Blob storage accounts (kind `BlobStorage`) and General Purpose v1 (GPv1) storage accounts (kind `Storage`) within your subscription that are impacted by the retirement:
 
 ```
-Resources
+resources
 | where type == "microsoft.storage/storageaccounts"
 | where sku.name in~ ("Standard_LRS", "Standard_GRS", "Standard_ZRS", "Standard_RAGRS", "Standard_RAGZRS")
 | where kind != "StorageV2"

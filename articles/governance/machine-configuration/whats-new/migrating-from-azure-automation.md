@@ -379,7 +379,7 @@ REST request to the service.
 [05]: ../how-to/develop-custom-package/2-create-package.md
 [06]: ../how-to/develop-custom-package/2-create-package.md#author-a-configuration
 [07]: ../how-to/develop-custom-package/overview.md
-[08]: ../overview.md
+[08]: ../overview/01-overview-concepts.md
 [09]: ./psdsc-in-machine-configuration.md#special-requirements-for-get
 [10]: /azure/automation/automation-dsc-onboarding#enable-physicalvirtual-linux-machines
 [11]: /azure/automation/state-configuration/remove-node-and-configuration-package

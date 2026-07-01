@@ -7,12 +7,14 @@ ms.author: emtehran
 ms.date: 06/13/2018
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: reference
 ms.custom:
   - azure-synapse
 ---
 
 # T-SQL language elements for dedicated SQL pool in Azure Synapse Analytics 
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Links to the documentation for T-SQL language elements supported in dedicated SQL pool.
 

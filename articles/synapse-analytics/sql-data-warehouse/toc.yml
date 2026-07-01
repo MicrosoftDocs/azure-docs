@@ -82,6 +82,9 @@ items:
     items:
     - name: Overview
       href: workspace-connected-experience.md
+    - name: Logical servers
+      href: ../sql/logical-servers.md
+
   - name: Connectivity
     items: 
     - name: Connectivity architecture
@@ -111,7 +114,7 @@ items:
       - name: Network access controls
         href: /azure/azure-sql/database/network-access-controls-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Firewall rules
-        href: /azure/azure-sql/database/firewall-configure?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+        href: ../sql/firewall-configure.md
       - name: Private Link
         href: /azure/azure-sql/database/private-endpoint-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Virtual network service endpoints
@@ -119,13 +122,15 @@ items:
       - name: Outbound firewall rules 
         href: /azure/azure-sql/database/outbound-firewall-rule-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: DNS alias
-        href: /azure/azure-sql/database/dns-alias-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+        href: dns-alias-overview.md
+      - name: Create DNS alias with PowerShell or Azure CLI
+        href: dns-alias-powershell-create.md
     - name: Authentication
       items:
       - name: Overview
         href: sql-data-warehouse-authentication.md
       - name: Logins and users
-        href: /azure/azure-sql/database/logins-create-manage?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
+        href: ../sql/logins-create-manage.md
       - name: Use Microsoft Entra ID
         href: /azure/azure-sql/database/authentication-aad-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json
       - name: Configure Microsoft Entra auth

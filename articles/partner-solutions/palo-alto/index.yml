@@ -6,6 +6,8 @@ summary: Cloud NGFW by Palo Alto Networks is part of Marketplace and combines th
 metadata:
   title: Cloud NGFW by Palo Alto Networks 
   description: Cloud NGFW by Palo Alto Networks integrates with Azure to combine the benefits of Palo Alto and the Azure cloud.
+  author: BNandiniMSFT
+  ms.author: bnandini
   ms.topic: landing-page
   ms.date: 09/15/2025
 
@@ -19,6 +21,8 @@ landingContent:
         links:
           - text: What is Cloud NGFW by Palo Alto Networks?
             url: overview.md
+          - text: FAQ
+            url: faq.yml
       - linkListType: how-to-guide
         links:
           - text: Manage your Cloud NGFW by Palo Alto Networks resource

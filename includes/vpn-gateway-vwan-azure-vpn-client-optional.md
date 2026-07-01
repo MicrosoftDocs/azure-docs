@@ -18,12 +18,25 @@ To work with VPN client profile configuration files (xml files), use the followi
 
 1. Locate the profile configuration file and open it using the editor of your choice.
 1. Using the examples in the following sections, modify the file as necessary, then save your changes.
-1. Import the file to configure the Azure VPN client. You can import the file for the Azure VPN Client using these methods:
+1. Import the file to configure the Azure VPN Client:
+   - **Windows**
+     - **Azure VPN Client interface**: Open the Azure VPN Client and select **+** and then **Import**. Locate the modified .xml file. Configure any additional settings in the Azure VPN Client interface (if necessary), then select **Save**.
+     - **Command-line prompt**: Place the appropriate downloaded configuration xml file in the *%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState* folder, then run the command that corresponds to the configuration file name. For example, `azurevpn -i azurevpnconfig_aad.xml`. To force the import, use the `-f` switch.
+   - **macOS**
+     - **Azure VPN Client interface**: Open the Azure VPN Client and select **Import**. Locate the modified .xml file. Configure any additional settings in the Azure VPN Client interface (if necessary), then select **Save**.
+     - **Command-line prompt**: Modify the following code snippet to distribute your configuration file. Execute it with privileges using `sudo sh ./script.sh`. A restart may be needed if Azure VPN CLient has been started in the user session already.
+       ```bash
+       #!/bin/sh
 
-   * **Azure VPN Client interface**: Open the Azure VPN Client and select **+** and then **Import**. Locate the modified .xml file. Configure any additional settings in the Azure VPN Client interface (if necessary), then select **Save**.
-
-   * **Command-line prompt**: Place the appropriate downloaded configuration xml file in the *%userprofile%\AppData\Local\Packages\Microsoft.AzureVpn_8wekyb3d8bbwe\LocalState* folder, then run the command that corresponds to the configuration file name. For example, `azurevpn -i azurevpnconfig_aad.xml`. To force the import, use the `-f` switch.
-
+       # Change this path
+       sourcePath="UPDATE THIS PATH TO YOUR XML"
+       profileName="Azure VPN"
+       
+       # These lines do not need changing
+       consoleuser=$(ls -l /dev/console | awk '{ print $3 }')
+       filePath="/Users/$consoleuser/Library/Containers/com.microsoft.AzureVpnMac/Data/Library/Application Support/com.microsoft.AzureVpnMac/$profileName.AzureVpnProfile.xml"
+       cp $sourcePath $filePath
+       ```
 ## DNS
 
 ### Add DNS suffixes

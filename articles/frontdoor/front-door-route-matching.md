@@ -1,12 +1,12 @@
 ---
-title: How requests get matched to a route configuration
+title: How Requests Get Matched To a Route Configuration
 titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door matches incoming requests to a route configuration.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 11/13/2024
+ms.date: 04/30/2026
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -56,7 +56,7 @@ This section explains how Front Door matches requests to routing rules. The basi
 Azure Front Door uses the following steps to match frontend hosts:
 
 1. Check for routes with an exact match on the frontend host.
-2. If no exact match is found, the request is rejected with a 404: Bad Request error.
+1. If it doesn't find an exact match, it rejects the request with a 404: Bad Request error.
 
 The following tables illustrate three different routing rules with their frontend hosts and paths:
 
@@ -80,11 +80,11 @@ The following table shows the matching results for the routing rules in the prev
 
 ### Path matching
 
-After Azure Front Door determine the specific frontend host and filtering possible routing rules, it selects the routing rules based on the request path. The following logic is used:
+After Azure Front Door determines the specific frontend host and filters possible routing rules, it selects the routing rules based on the request path. The service uses the following logic:
 
 1. Check for routing rules with an exact match to the request path.
-2. If no exact match is found, look for a routing rule with a wildcard path that matches.
-3. If no matching path is found, the request is rejected with a 404: Bad Request error.
+1. If it doesn't find an exact match, look for a routing rule with a wildcard path that matches.
+1. If it doesn't find a matching path, reject the request with a 404: Bad Request error.
 
 ::: zone pivot="front-door-standard-premium"
 
@@ -97,7 +97,7 @@ After Azure Front Door determine the specific frontend host and filtering possib
 
 > [!NOTE]
 > * Paths without a wildcard are considered exact-match paths. A path ending with a `/` is also an exact match.
-> * Path patterns are case insensitive. For example, `/FOO` and `/foo` are treated as duplicates and are not allowed in the Patterns to match setting.
+> * Path patterns are case insensitive. For example, `/FOO` and `/foo` are treated as duplicates and aren't allowed in the Patterns to match setting.
 
 ::: zone-end
 
@@ -149,17 +149,17 @@ The following table shows which routing rule matches an incoming request at the 
 
 ### Routing decision
 
-Once Azure Front Door matches a routing rule, it decides how to process the request. If a cached response is available, it gets served back to the client.
+Once Azure Front Door matches a routing rule, it decides how to process the request. If a cached response is available, it sends that response back to the client.
 
 ::: zone pivot="front-door-standard-premium"
 
-If a [rule set](front-door-rules-engine.md) is configured for the matched routing rule, it gets processed in order. Rule sets can [override a route](front-door-rules-engine-actions.md#RouteConfigurationOverride) by directing traffic to a specific origin group. If no rule set is defined, the request is forwarded to the origin group without changes.
+If you configure a [rule set](front-door-rules-engine.md) for the matched routing rule, Azure Front Door processes it in order. Rule sets can [override a route](front-door-rules-engine-actions.md#RouteConfigurationOverride) by directing traffic to a specific origin group. If you don't define a rule set, Azure Front Door forwards the request to the origin group without changes.
 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
 
-If Azure Front Door (classic) doesn't have a cached response, it checks for a [URL rewrite](front-door-url-rewrite.md) configuration. If no custom forwarding path is defined, the request is forwarded to the appropriate backend in the configured backend pool. If a custom forwarding path is defined, the request path is updated accordingly and then forwarded to the backend.
+If Azure Front Door (classic) doesn't have a cached response, it checks for a [URL rewrite](front-door-url-rewrite.md) configuration. If you don't define a custom forwarding path, Azure Front Door forwards the request to the appropriate backend in the configured backend pool. If you define a custom forwarding path, Azure Front Door updates the request path accordingly and then forwards it to the backend.
 
 ::: zone-end
 

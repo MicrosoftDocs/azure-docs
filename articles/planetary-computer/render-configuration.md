@@ -1,13 +1,11 @@
 ---
 title: Configure render settings for data visualization in Microsoft Planetary Computer Pro
 description: Learn the step-by-step process to configure render settings for visualizing geospatial data using the Microsoft Planetary Computer Pro data explorer and Tiler API.
-author: prasadko
-ms.author: prasadkomma
+author: beharris
+ms.author: brentharris
 ms.service: planetary-computer-pro
 ms.topic: how-to
-ms.date: 05/08/2025
-ms.custom:
-  - build-2025
+ms.date: 05/27/2026
 ---
 
 # Configure render settings for visualizing data in Microsoft Planetary Computer Pro
@@ -21,7 +19,8 @@ This guide walks you through the process of creating render configurations, from
 Before you can configure rendering, ensure the following prerequisite steps are complete:
 
 1.  **STAC Collection Exists:** You created a [STAC collection in Planetary Computer Pro](./create-stac-collection.md).
-2.  **Data Ingested:** You [added STAC items](./add-stac-item-to-collection.md) containing the geospatial data assets you want to visualize into the collection.
+1.  **Data Ingested:** You [added STAC items](./add-stac-item-to-collection.md) containing the geospatial data assets you want to visualize into the collection.
+1.  A Python 3.10 (or later) environment
 
 ## Process to build a Render Configuration
 | Step | Title                                                                                             | Description                                                                                                |
@@ -245,7 +244,9 @@ For more information on configuring collections, see [Configure a collection wit
 
 **Using the API:**
 
-Define a collection render configuration using the [create stac collection render options](/rest/api/planetarycomputer/data-plane/stac-collection-render-options/create) endpoint. The following is an example of using this endpoint using the REST API with Python:
+Define a collection render configuration using the [create stac collection render options](/rest/api/planetarycomputer/data-plane/stac-collection-render-options/create) endpoint.
+
+# [REST API](#tab/restapi)
 
 ```python
 import requests
@@ -265,7 +266,7 @@ response = requests.post(
     f"{geocatalog_url}/stac/collections/{collection_id}/configurations/render-options",
     json=render_config, # Your list of render config dicts
     headers=headers,
-    params={"api-version": "2025-04-30-preview"} # Use the appropriate API version
+    params={"api-version": "2026-04-15"} # Use the appropriate API version
 )
 
 if response.status_code == 200:
@@ -276,7 +277,34 @@ else:
     print(response.text)
 
 ```
-For more information on using the STAC Collection API, see [Create a STAC collection (API examples)](./create-stac-collection.md). 
+
+# [Python SDK](#tab/pythonsdk)
+
+Install the Planetary Computer Pro Python SDK:
+
+```console
+pip install azure-planetarycomputer azure-identity azure-storage-blob
+```
+
+```python
+from azure.planetarycomputer import PlanetaryComputerProClient
+from azure.identity import DefaultAzureCredential
+
+client = PlanetaryComputerProClient(
+    endpoint="<your-geocatalog-url>",
+    credential=DefaultAzureCredential()
+)
+
+collection_id = "<your-collection-id>"
+client.stac.create_render_option(collection_id, render_config)
+print("Render configuration updated successfully.")
+```
+
+For more information, see the [Python SDK reference](/python/api/overview/azure/planetarycomputer-readme).
+
+---
+
+For more information on using the STAC Collection API, see [Create a STAC collection (API examples)](./create-stac-collection.md).
 
 ## Examples
 

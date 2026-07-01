@@ -4,7 +4,7 @@ titleSuffix: Azure Functions
 ms.service: azure-functions
 description: Learn how to connect Azure SQL bindings through managed identity.
 ms.topic: tutorial
-ms.date: 6/13/2022
+ms.date: 5/01/2026
 author: dzsquared
 ms.author: drskwier
 ms.reviewer: cachai
@@ -107,6 +107,8 @@ In this step we'll connect to the SQL database with a Microsoft Entra user accou
 
     *\<identity-name>* is the name of the managed identity in Microsoft Entra ID. If the identity is system-assigned, the name is always the same as the name of your Function app.
 
+    > [!NOTE]
+    > If you're using the [Azure SQL trigger](functions-bindings-azure-sql-trigger.md), your managed identity requires additional permissions beyond `db_datareader` and `db_datawriter`. For more information, see [Grant permissions for Azure SQL trigger](functions-bindings-azure-sql-trigger.md#grant-permissions-for-azure-sql-trigger).
 
 ## Configure Azure Function SQL connection string
 

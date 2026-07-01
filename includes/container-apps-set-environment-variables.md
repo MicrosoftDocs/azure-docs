@@ -8,22 +8,22 @@ ms.author: wujia
 
 ## Set environment variables
 
-Set the following environment variables. Replace the `<PLACEHOLDERS>` with your values:
+Set the following environment variables. Replace the `<placeholders>` with your values.
 
 # [Bash](#tab/bash)
 
 ```azurecli
-RESOURCE_GROUP="<RESOURCE_GROUP>"
-LOCATION="<LOCATION>"
-CONTAINERAPPS_ENVIRONMENT="<CONTAINERAPPS_ENVIRONMENT>"
+RESOURCE_GROUP="<new-resource-group>"
+LOCATION="<location>"
+CONTAINERAPPS_ENVIRONMENT="<containerapps-environment>"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```azurepowershell
-$ResourceGroupName = '<RESOURCE_GROUP>'
-$Location = '<LOCATION>'
-$ContainerAppsEnvironment = '<CONTAINERAPPS_ENVIRONMENT>'
+$ResourceGroupName = '<new-resource-group>'
+$Location = '<location>'
+$ContainerAppsEnvironment = '<containerapps-environment>'
 ```
 
 ---

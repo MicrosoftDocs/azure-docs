@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: shwali
 ms.date: 05/25/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.subservice: data
 ---

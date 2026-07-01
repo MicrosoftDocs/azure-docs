@@ -6,8 +6,7 @@ author: angarg05
 ms.topic: concept-article
 ms.date: 7/15/2022
 ms.author: ananyagarg
-ms.service: azure-virtual-machines
-ms.subservice: azure-confidential-computing
+ms.service: azure-confidential-computing
 # Customer intent: "As a developer looking to enhance the security of my container applications, I want to implement confidential containers using Intel SGX, so that I can ensure data confidentiality and integrity without modifying existing code."
 ---
 

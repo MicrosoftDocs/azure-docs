@@ -7,7 +7,7 @@ manager: sphenry
 services: azure-communication-services
 ms.author: bashan
 ms.date: 06/19/2025
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-communication-services
 ---
 

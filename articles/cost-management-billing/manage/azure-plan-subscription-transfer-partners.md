@@ -2,12 +2,13 @@
 title: Transfer subscriptions under an Azure plan from one partner to another
 description: This article helps you understand what you need to know before and after you transfer billing ownership of your Azure subscription.
 author: Nicholak-MS
-ms.author: nicholak
-ms.reviewer: nicholak
+ms.author: clodwig
+ms.reviewer: clodwig
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/18/2025
+ms.topic: concept-article
+ms.date: 12/29/2025
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Transfer subscriptions under an Azure plan from one partner to another
@@ -40,3 +41,4 @@ You can also seek help, report misconduct, or suspicious activity using any of t
 
 - To give your new partner Azure RBAC access, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md)
 - [Obtain permissions to manage a customers service or subscription](/partner-center/customers-revoke-admin-privileges).
+- For Azure Marketplace transfer behavior—including software as a service (SaaS) subscriptions, which are billed through an Azure subscription but don't move with it—see [Get billing ownership of Azure subscriptions for your MPA account](mpa-request-ownership.md#software-as-a-service-saas-transfer).

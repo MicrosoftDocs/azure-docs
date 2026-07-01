@@ -8,7 +8,7 @@ description: Enabling audio only calling experiences
 author:      ahammer # GitHub alias
 ms.author:   adamhammer # Microsoft alias
 ms.service: azure-communication-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date:     01/08/2024
 ms.subservice: calling
 zone_pivot_groups: acs-programming-languages-support-kotlin-swift

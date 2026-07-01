@@ -4,7 +4,7 @@ description: This article describes tier concepts
 author: marielherz
 ms.author: marielherzog
 ms.service: azure-data-manager-energy
-ms.topic: conceptual
+ms.topic: product-comparison
 ms.date: 10/03/2025
 ms.custom: template-concept
 ---

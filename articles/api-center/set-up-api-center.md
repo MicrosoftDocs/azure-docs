@@ -1,11 +1,11 @@
 ---
 title: Quickstart - Create Your Azure API Center - Portal
 description: Learn how to use the Azure portal to set up an API center for API discovery, reuse, and governance. 
-author: dlepow
+
 ms.service: azure-api-center
 ms.topic: quickstart
 ms.date: 10/13/2025
-ms.author: danlep 
+ 
 ---
 
 # Quickstart: Create your API center - Azure portal

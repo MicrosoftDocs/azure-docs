@@ -5,11 +5,12 @@ author: tfitzmac
 tags: azure-service-management
 
 ms.topic: sample
-ms.date: 08/26/2020
+ms.date: 03/17/2026
 ms.author: tomfitz
 ms.custom: mvc, fasttrack-edit, devx-track-arm-template
 ms.service: azure-app-service
 ---
+
 # Azure Resource Manager templates for App Service
 
 The following table includes links to Azure Resource Manager templates for Azure App Service. For recommendations about avoiding common errors when you're creating app templates, see [Guidance on deploying apps with Azure Resource Manager templates](deploy-resource-manager-template.md).
@@ -27,7 +28,7 @@ To learn about the JSON syntax and properties for App Services resources, see [M
 |**Configuring an app**| **Description** |
 | [App certificate from Key Vault](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-certificate-from-key-vault)| Deploys an App Service app certificate from an Azure Key Vault secret and uses it for TLS/SSL binding. |
 | [App with a custom domain and SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-custom-domain-and-ssl)| Deploys an App Service app with a custom host name, and gets an app certificate from Key Vault for TLS/SSL binding. |
-| [App with Java 8 and Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-java-tomcat)| Deploys an App Service app with Java 8 and Tomcat 8 enabled. You can then run Java applications in Azure. |
+| [App with Java 13 and Tomcat 9](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-java-tomcat)| Deploys an App Service app with Java 13 and Tomcat 9 enabled. You can then run Java applications in Azure. |
 | [App with regional VNet integration](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/app-service-regional-vnet-integration)| Deploys an App Service app with regional VNet integration enabled. |
 |**Protecting an app**| **Description** |
 | [App integrated with Azure Application Gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.web/web-app-with-app-gateway-v2)| Deploys an App Service app and an Application Gateway, and isolates the traffic using service endpoint and access restrictions. |

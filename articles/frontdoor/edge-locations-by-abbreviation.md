@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 11/18/2024
+ms.date: 12/18/2025
 ms.custom: references_regions
 ---
 

@@ -1,15 +1,16 @@
 ---
 title: Restore a dedicated SQL pool from a dropped workspace
 description: How-to guide for restoring a dedicated SQL pool from a dropped workspace.
-author: joannapea
+author: joannapea 
 ms.author: joanpo
-ms.reviewer: stevehow, ajagadish
 ms.date: 07/29/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: how-to
 ---
 # Restore a dedicated SQL pool from a deleted workspace
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 In this article, you learn how to restore a dedicated SQL pool in Azure Synapse Analytics after an accidental drop of a workspace using PowerShell.
 
@@ -87,7 +88,16 @@ The following sample script accomplishes these steps:
 
 ## <a id="troubleshooting"></a> Troubleshoot
 
-If "An unexpected error occurred while processing the request." message is received, the original database might not have any recovery points available due to the original workspace being short lived. Typically this is when the workspace existed for less than one hour.
+### Error: "An unexpected error occurred while processing the request."
+
+If this message is received, the original database might not have any recovery points available due to the original workspace being short lived. Typically this is when the workspace existed for less than one hour.
+
+### Error: "ValidationFailed: The provided resource ID is not valid for this operation. Please use a SQL pool resource"
+If you receive this error, verify that:
+1. The resource ID refers to a dedicated SQL pool in an Azure Synapse workspace.
+1. The resource is a SQL pool or recoverable SQL pool.
+1. The resource ID is correct and corresponds to the intended source SQL pool.
+
 
 ## Related content
 

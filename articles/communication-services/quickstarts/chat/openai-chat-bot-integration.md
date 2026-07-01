@@ -18,13 +18,13 @@ This article demonstrates how to integrate a conversational OpenAI bot with an A
 
 :::image type="content" source="./media/chat-azure-open-ai-architecture.png" alt-text="Azure OpenAI Architecture Diagram.":::
 
-## Step 1: Deploy a Base Model with Azure AI Foundry
+## Step 1: Deploy a Base Model with Microsoft Foundry
 
-1. In the Azure AI Foundry portal, follow the [Create a project](/azure/ai-foundry/how-to/create-projects?tabs=ai-studio#create-a-project) article to create a new project. When prompted, create a new hub and accept all default settings.
+1. In the Foundry portal, follow the [Create a project](/azure/ai-foundry/how-to/create-projects?tabs=ai-studio#create-a-project) article to create a new project. When prompted, create a new hub and accept all default settings.
 
 1. Open your project, go to **Included capabilities**, select **Azure OpenAI Service**, and save both the API key and the service endpoint URL.
 
-   :::image type="content" source="./media/azure-ai-foundry-overview.png" alt-text="Screenshot that shows the overview page of Azure AI Foundry portal.":::
+   :::image type="content" source="./media/azure-ai-foundry-overview.png" alt-text="Screenshot that shows the overview page of Foundry portal.":::
 
 1. In the left-hand menu, navigate to **My assets → Models + endpoints**. Then click **+ Deploy Model** and choose **Deploy base model**.
 

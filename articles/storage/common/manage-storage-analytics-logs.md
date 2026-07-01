@@ -122,6 +122,9 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 
 Log data can accumulate in your account over time which can increase the cost of storage. If you need log data for only a small period of time, you can reduce your costs by modifying the log data retention period. For example, if you need logs for only three days, set your log data retention period to a value of `3`. That way logs will be automatically deleted from your account after 3 days. This section shows you how to view your current log data retention period, and then update that period if that's what you want to do.
 
+> [!NOTE]
+> The logging version for Azure Storage Analytics (classic) is set automatically by Azure and isn’t configurable. In the Azure portal, the default value might appear as **Logging Version = 2.0**.
+
 ### [Portal](#tab/azure-portal)
 
 1. In the [Azure portal](https://portal.azure.com), select **Storage accounts**, then the name of the storage account to open the storage account blade.
@@ -208,7 +211,7 @@ The following example changes the retention period to 4 days.
 You can verify that logs are being deleted by viewing the contents of the `$logs` container of your storage account. The following image shows the contents of a folder in the `$logs` container. The folder corresponds to January 2021 and each folder contains logs for one day. If the day today was January 29th 2021, and your retention policy is set to only one day, then this folder should contain logs for only one day.
 
 > [!div class="mx-imgBorder"]
-> ![List of log folders in the Azure Portal](./media/manage-storage-analytics-logs/verify-and-delete-logs.png)
+> ![List of log folders in the Azure portal](./media/manage-storage-analytics-logs/verify-and-delete-logs.png)
 
 <a id="download-storage-logging-log-data"></a>
 

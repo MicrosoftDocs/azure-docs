@@ -2,7 +2,7 @@
 title: Move an Azure Relay namespace to another region
 description: This article shows you how to move an Azure Relay namespace from the current region to another region. 
 ms.topic: how-to
-ms.date: 12/10/2024
+ms.date: 01/24/2026
 ms.custom:
   - subject-moving-resources
   - sfi-image-nochange

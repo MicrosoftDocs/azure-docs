@@ -4,7 +4,7 @@ description: Learn how to use Azure Container Apps from existing samples
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 12/05/2025
 ms.author: cshoe
 ---

@@ -7,7 +7,7 @@ author: mrm9084
 ms.service: azure-app-configuration
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 10/07/2025
+ms.date: 03/16/2026
 ms.custom: devx-track-java, devx-track-extended-java
 ms.author: mametcal
 #Customer intent: As a Java Spring developer, I want to dynamically update my app to use the latest configuration data in App Configuration.
@@ -34,24 +34,26 @@ App Configuration exposes `AppConfigurationRefresh`, which checks if the refresh
 1. To use `AppConfigurationRefresh`, update HelloController.
 
     ```java
-    import com.azure.spring.cloud.config.AppConfigurationRefresh;
-    
+    import org.springframework.beans.factory.annotation.Autowired;
+    import org.springframework.web.bind.annotation.GetMapping;
+    import org.springframework.web.bind.annotation.RestController;
+
+    import com.azure.spring.cloud.appconfiguration.config.AppConfigurationRefresh;
+
     @RestController
     public class HelloController {
-        private final MessageProperties properties;
-        
-        @Autowired(required = false)
-        private AppConfigurationRefresh refresh;
-    
-        public HelloController(MessageProperties properties) {
-            this.properties = properties;
-        }
-    
+
+        @Autowired
+        private final AppConfigurationRefresh appConfigurationRefresh;
+
+        @Autowired
+        private final MyProperties properties;
+
         @GetMapping
-        public String getMessage() throws InterruptedException, ExecutionException {
-            if (refresh != null) {
-                refresh.refreshConfigurations();
-            }
+        public String hello() {
+            // Manually refresh configuration from Azure App Configuration
+            appConfigurationRefresh.refreshConfigurations().block();
+            // Read the property value from @ConfigurationProperties bean
             return "Message: " + properties.getMessage();
         }
     }
@@ -66,23 +68,11 @@ App Configuration exposes `AppConfigurationRefresh`, which checks if the refresh
     >    new Thread(() -> refresh.refreshConfigurations()).start();
     >    ```
             
-1.  To enable refresh update `bootstrap.properties`:
+1.  To enable refresh update `application.properties`:
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled=true
-    spring.cloud.azure.appconfiguration.stores[0].monitoring.refresh-interval= 30s
-    spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key=sentinel
     ```
-
-1. Open the **Azure Portal** and navigate to your App Configuration resource associated with your application. Select **Configuration Explorer** under **Operations** and create a new key-value pair by selecting **+ Create** > **Key-value** to add the following parameters:
-
-    | Key | Value |
-    |---|---|
-    | sentinel | 1 |
-
-    Leave **Label** and **Content Type** empty for now.
-
-1. Select **Apply**.
 
 1. Build your Spring Boot application with Maven and run it.
 
@@ -105,12 +95,6 @@ App Configuration exposes `AppConfigurationRefresh`, which checks if the refresh
     |---|---|
     | /application/config.message | Hello - Updated |
 
-1. Update the sentinel key you created earlier to a new value. This change triggers the application to refresh all configuration keys once the refresh interval is passed.
-
-    | Key | Value |
-    |---|---|
-    | sentinel | 2 |
-
 1. Refresh the browser page twice to see the new message displayed. The first time triggers the refresh, the second loads the changes.
 
     > [!NOTE]
@@ -126,7 +110,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
 <dependency>
     <groupId>com.azure.spring</groupId>
     <artifactId>spring-cloud-azure-appconfiguration-config-web</artifactId>
-    <version>6.0.0</version>
+    <version>7.1.0</version>
 </dependency>
 ```
 
@@ -134,19 +118,7 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].monitoring.enabled=true
-    spring.cloud.azure.appconfiguration.stores[0].monitoring.refresh-interval= 30s
-    spring.cloud.azure.appconfiguration.stores[0].monitoring.triggers[0].key=sentinel
     ```
-
-1. Open the **Azure Portal** and navigate to your App Configuration resource associated with your application. Select **Configuration Explorer** under **Operations** and create a new key-value pair by selecting **+ Create** > **Key-value** to add the following parameters:
-
-    | Key | Value |
-    |---|---|
-    | sentinel | 1 |
-
-    Leave **Label** and **Content Type** empty for now.
-
-1. Select **Apply**.
 
 1. Build your Spring Boot application with Maven and run it.
 
@@ -168,12 +140,6 @@ Then, open the *pom.xml* file in a text editor and add a `<dependency>` for `spr
     | Key | Value |
     |---|---|
     | /application/config.message | Hello - Updated |
-
-1. Update the sentinel key you created earlier to a new value. This change triggers the application to refresh all configuration keys once the refresh interval is passed.
-
-    | Key | Value |
-    |---|---|
-    | sentinel | 2 |
 
 1. Refresh the browser page twice to see the new message displayed. The first time triggers the refresh, the second loads the changes, as the first request returns using the original scope.
 

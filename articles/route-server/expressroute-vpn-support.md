@@ -71,7 +71,6 @@ You can replace the SD-WAN appliance with an Azure VPN gateway to create a fully
 
 ### VPN gateway configuration considerations
 
-For Azure VPN gateways, route learning behavior depends on your BGP configuration:
 For Azure VPN gateways, route learning behavior depends on your BGP configuration. BGP-enabled VPN gateways learn on-premises routes dynamically through BGP, provide automatic route updates when network topology changes, and offer enhanced failover and redundancy capabilities. For configuration guidance on BGP-enabled gateways, see [Configure BGP for Azure VPN Gateway](../vpn-gateway/bgp-howto.md). In contrast, VPN gateways without BGP learn routes from local network gateway definitions, require static route configuration for on-premises networks, and need manual updates when topology changes occur. For configuration guidance on non-BGP gateways, see [Create a local network gateway](../vpn-gateway/tutorial-site-to-site-portal.md#LocalNetworkGateway).
 
 Regardless of BGP configuration, VPN gateways advertise learned routes to Azure Route Server when route exchange is enabled.

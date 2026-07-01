@@ -165,5 +165,5 @@ If you see authentication errors after signing in, verify that:
 
 - [Secure a Model Context Protocol server in Azure App Service](configure-authentication-mcp.md)
 - [Configure your App Service or Azure Functions app to use Microsoft Entra sign-in](configure-authentication-provider-aad.md)
-- [Configure the Microsoft Entra provider with a managed identity instead of a secret (preview)](configure-authentication-provider-aad.md#use-a-managed-identity-instead-of-a-secret-preview)
+- [Configure the Microsoft Entra provider with a managed identity instead of a secret](configure-authentication-provider-aad.md#use-a-managed-identity-instead-of-a-secret)
 - [What is Model Context Protocol?](https://modelcontextprotocol.io/)

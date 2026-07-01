@@ -5,7 +5,7 @@ description: Learn about how to enable data consistency verification in a copy a
 author: dearandyxu
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/29/2025
 ms.author: yexu
 ---

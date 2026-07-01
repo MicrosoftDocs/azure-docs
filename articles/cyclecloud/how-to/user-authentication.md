@@ -2,7 +2,8 @@
 title: User Authentication
 description: Learn about user authentication in Azure CycleCloud. You can authenticate using a built-in database with encryption, Azure AD, or LDAP.
 author: adriankjohnson
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: adjohnso
 ---
 
@@ -49,7 +50,7 @@ sign in as **EXAMPLE\\username**, so you enter "EXAMPLE" as the Domain. The serv
 ### Configuring CycleCloud for Entra Authentication and Authorization
 
 > [!NOTE]
-> You must first create a Microsoft Entra application. If you didn't yet create one, see [create one now](./create-app-registration.md#creating-the-cyclecloud-app-registration).
+> You must first create a Microsoft Entra application. If you have yet to create one, see [these instructions](./create-app-registration.md).
 
 #### GUI Configuration
 

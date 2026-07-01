@@ -6,11 +6,13 @@ ms.author: ajagadish
 ms.date: 04/02/2019
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 tag: azure-synapse
 ---
 
 # Authenticate to dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Learn how to authenticate to dedicated SQL pool (formerly SQL DW) in Azure Synapse by using Microsoft Entra ID or SQL Server authentication.
 

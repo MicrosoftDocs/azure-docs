@@ -3,6 +3,7 @@ title: Quickstart - Run the Preregistration Script for SAP ASE backup in Azure C
 description: Learn how to run the preregistration script to prepare an SAP ASE (Sybase) database configuration for backup on Azure VMs using Azure Backup.
 ms.topic: how-to
 ms.date: 05/13/2025
+ms.update-cycle: 1095-days
 ms.service: azure-backup
 ms.custom:
   - ignite-2024

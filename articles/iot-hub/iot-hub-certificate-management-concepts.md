@@ -2,8 +2,8 @@
 title: Key Concepts for Certificate Management (Preview)
 titleSuffix: Azure IoT Hub
 description: This article discusses the basic concepts of certificate management in Azure IoT Hub.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
@@ -13,7 +13,7 @@ ms.date: 10/20/2025
 
 # Key concepts for certificate management (preview)
 
-Certificate management in Azure IoT Hub is designed to simplify the management of X.509 certificates for IoT devices. This article introduces the fundamental concepts related to certificate management and certificate-based authentication in IoT Hub. For more information, see [What is certificate management (preview)?](iot-hub-certificate-management-overview.md).
+Certificate management in Azure IoT Hub is designed to simplify the management of X.509 certificates for IoT devices. This article introduces the fundamental concepts related to certificate management and certificate-based authentication in IoT Hub. For more information, see [What is certificate management (preview)?](iot-hub-certificate-management-overview.md)
 
 [!INCLUDE [public-preview-banner](includes/public-preview-banner.md)]
 
@@ -54,9 +54,9 @@ There are two general categories of X.509 certificates:
 
 ## Certificate signing request
 
-A Certificate Signing Request (CSR) is a digitally signed message that a client, such as an IoT device, generates to request a signed certificate from a Certificate Authority (CA). The CSR includes the device’s public key and identifying information, like its registration ID, and is signed with the device’s private key to prove ownership of the key.
+A Certificate Signing Request (CSR) is a digitally signed message that a client, such as an IoT device, generates to request a signed certificate from a Certificate Authority (CA). The CSR includes the device's public key and identifying information, like its registration ID, and is signed with the device's private key to prove ownership of the key.
 
-A CSR must follow the PKI’s policy requirements, including approved key algorithms, key sizes, and subject field formats. When a device generates a new private key, it also generates a new CSR. After the CA verifies and approves the CSR, it issues an X.509 certificate that binds the device’s identity to its public key. This process ensures that only devices able to demonstrate possession of their private key receive trusted certificates.
+A CSR must follow the PKI's policy requirements, including approved key algorithms, key sizes, and subject field formats. When a device generates a new private key, it also generates a new CSR. After the CA verifies and approves the CSR, it issues an X.509 certificate that binds the device's identity to its public key. This process ensures that only devices able to demonstrate possession of their private key receive trusted certificates.
 
 ### Certificate signing request requirements in Device Provisioning Service
 
@@ -70,4 +70,8 @@ In certificate management, devices submit CSRs during provisioning or reprovisio
 
 X.509 certificates are only used for authentication in IoT Hub, not authorization. Unlike with [Microsoft Entra ID](authenticate-authorize-azure-ad.md) and [shared access signatures](authenticate-authorize-sas.md), you can't customize permissions with X.509 certificates.
 
+## Related content
 
+- [Deploy Azure IoT Hub with ADR integration and certificate management](iot-hub-device-registry-setup.md)
+- [What is Microsoft-backed X.509 certificate management?](iot-hub-certificate-management-overview.md)
+- [Integration with Azure Device Registry](iot-hub-device-registry-overview.md)

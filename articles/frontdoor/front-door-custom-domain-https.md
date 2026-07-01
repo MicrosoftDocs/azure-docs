@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 08/07/2025
+ms.date: 05/04/2026
 ms.custom:
   - build-2025
   - sfi-image-nochange
@@ -17,12 +17,7 @@ ms.custom:
 
 **Applies to:** :heavy_check_mark: Front Door (classic)
 
-> [!IMPORTANT]
-> - Starting August 15, 2025, Azure Front Door (classic) will no longer support new domain onboarding. Migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) to create new domains or profiles and avoid service disruption. [Learn more](https://azure.microsoft.com/updates?id=498522)
-> - Starting August 15, 2025, Azure Front Door (classic) will [no longer support Managed certificates](/azure/security/fundamentals/managed-tls-changes). To avoid service disruption, either [switch to Bring Your Own Certificate (BYOC)](/azure/frontdoor/front-door-custom-domain-https?tabs=powershell) or migrate to [AFD Standard and Premium](/azure/frontdoor/tier-migration) by August 15, 2025. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026.  [Learn more](https://azure.microsoft.com/updates?id=498522)
-> - Azure Front Door (classic) will be retired on March 31, 2027. To avoid service disruption, ⁠[migrate to ⁠AFD Standard or Premium](/azure/frontdoor/tier-migration). ⁠[Learn more](https://azure.microsoft.com/updates?id=azure-front-door-classic-will-be-retired-on-31-march-2027).
-
-
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 This article explains how to enable HTTPS for a custom domain associated with your Front Door (classic). Using HTTPS on your custom domain (for example, `https://www.contoso.com`) ensures secure data transmission via TLS/SSL encryption. When a web browser connects to a website using HTTPS, it validates the website's security certificate and verifies its legitimacy, providing security and protecting your web applications from malicious attacks.
 
@@ -76,7 +71,7 @@ To enable HTTPS on a Front Door (classic) custom domain, you need a TLS/SSL cert
 
 ### Option 1 (default): Use a certificate managed by Front Door
 
-Using a certificate managed by Azure Front Door Classic allows you to enable HTTPS with a few settings changes. Azure Front Door Classic handles all certificate management tasks, including procurement and renewal. This is supported for custom domains with direct CNAME to Azure Front Door Classic endpoint.
+If you use a certificate managed by Azure Front Door Classic, you can turn on HTTPS by changing a few settings. Azure Front Door Classic takes care of all certificate management tasks, including getting and renewing the certificate. This option supports custom domains that use direct CNAME to Azure Front Door Classic endpoint.
 
 > [!IMPORTANT]
 > - As of May 8, 2025, DigiCert no longer supports the WHOIS-based domain validation method. If your domain uses an indirect CNAME mapping to Azure Front Door Classic endpoint, you must use the **Bring Your Own Certificate (BYOC)** feature.
@@ -128,7 +123,7 @@ New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"
 
 # [**Azure CLI**](#tab/cli)
 
-Use [az-ad-sp create](/cli/azure/ad/sp#az-ad-sp-create) command to register the Front Door service principal in your Microsoft Entra ID.
+Use the [az-ad-sp create](/cli/azure/ad/sp#az-ad-sp-create) command to register the Front Door service principal in your Microsoft Entra ID.
 
 ```azurecli-interactive
 az ad sp create --id ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037
@@ -166,12 +161,12 @@ az ad sp create --id ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037
 1. Select a key vault, Secret, and Secret version.
 
     > [!NOTE]
-    > To enable automatic certificate rotation, set the secret version to 'Latest'. If a specific version is selected, you must manually update it for certificate rotation.
+    > To enable automatic certificate rotation, set the secret version to **Latest**. If you select a specific version, you must manually update it for certificate rotation.
 
     > [!WARNING]
-    > Ensure your service principal has GET permission on the Key Vault. To see the certificate in the portal drop-down, your user account must have LIST and GET permissions on the Key Vault.
+    > Ensure your service principal has **GET** permission on the Key Vault. To see the certificate in the portal drop-down, your user account must have **LIST** and **GET** permissions on the Key Vault.
 
-1. When using your own certificate, domain validation isn't required. Proceed to [Wait for propagation](#wait-for-propagation).
+1. When you use your own certificate, domain validation isn't required. Proceed to [Wait for propagation](#wait-for-propagation).
 
 ## Validate the domain
 
@@ -185,7 +180,7 @@ Your CNAME record should be in the following format:
 
 For more information about CNAME records, see [Create the CNAME DNS record](../cdn/cdn-map-content-to-custom-domain.md).
 
-If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a certificate for your domain. The certificate is valid for one year and will be autorenewed before it expires. Automatic validation typically takes a few hours. If you don't see your domain validated in 24 hours, open a support ticket.
+If your CNAME record is in the correct format, DigiCert automatically verifies your custom domain name and creates a certificate for your domain. The certificate is valid for one year and is autorenewed before it expires. Automatic validation typically takes a few hours. If you don't see your domain validated in 24 hours, open a support ticket.
 
 Continue to [Wait for propagation](#wait-for-propagation).
 
@@ -195,7 +190,7 @@ Continue to [Wait for propagation](#wait-for-propagation).
 
 ## Wait for propagation
 
-After domain validation, it can take up to 6-8 hours for the custom domain HTTPS feature to be activated. When complete, the custom HTTPS status in the Azure portal is set to **Enabled**.
+After domain validation, it can take up to 6-8 hours for the custom domain HTTPS feature to activate. When complete, the custom HTTPS status in the Azure portal is set to **Enabled**.
 
 ### Operation progress
 
@@ -243,7 +238,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 1. **Do I need a Certificate Authority Authorization record with my DNS provider?**
 
-    No, a Certificate Authority Authorization record isn't currently required. However, if you do have one, it must include DigiCert as a valid CA.
+    No, you don't currently need a Certificate Authority Authorization record. However, if you have one, it must include DigiCert as a valid CA.
 
 ## Clean up resources
 

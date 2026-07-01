@@ -3,7 +3,7 @@ title: Create an HCX network extension
 description: Learn how to extend any networks from your on-premises environment to Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/06/2023
+ms.date: 3/02/2026
 ms.custom: engagement-fy23
 # Customer intent: "As a network administrator, I want to extend my on-premises networks to Azure VMware Solution, so that I can ensure seamless connectivity and integration between my existing infrastructure and the cloud environment."
 ---

@@ -1,12 +1,14 @@
 ---
-title: Managed connector overview
+title: Managed Connectors Overview
 description: Learn about Microsoft-managed connectors hosted on Azure in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: concept-article
+ms.update-cycle: 1095-days
+ms.date: 03/09/2026
 ms.custom: engagement-fy23
-ms.date: 06/01/2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to learn about shared connectors, which run in multitenant Azure, and how they differ from built-in counterparts that run alongside the runtime in Azure Logic Apps.
 ---
 
 # Managed connectors in Azure Logic Apps
@@ -15,21 +17,24 @@ Managed connectors provide ways for you to access other services and systems whe
 
 For a smaller number of services, systems and protocols, Azure Logic Apps provides a built-in version alongside the managed version. The number and range of built-in connectors vary based on whether you create a Consumption logic app workflow that runs in multitenant Azure Logic Apps or a Standard logic app workflow that runs in single-tenant Azure Logic Apps. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. In a few cases, some built-in connectors are available only in one logic app workflow type, and not the other.
 
-For example, a Standard workflow can use both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server, while a Consumption workflow doesn't have the built-in versions. A Consumption workflow can use built-in connectors for Azure API Management, Azure App Services, and Batch, while a Standard workflow doesn't have these built-in connectors. For more information, review [Built-in connectors in Azure Logic Apps](built-in.md) and [Single-tenant versus multitenant in Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
+For example, a Standard workflow can use both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server, while a Consumption workflow doesn't have the built-in versions. A Consumption workflow can use built-in connectors for Azure API Management, Azure App Services, and Batch, while a Standard workflow doesn't have these built-in connectors. For more information, see:
 
-This article provides a general overview about managed connectors and the way they're organized in the Consumption workflow designer versus the Standard workflow designer with examples. For technical reference information about each managed connector in Azure Logic Apps, review [Connectors reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
+- [Built-in connectors in Azure Logic Apps](built-in.md)
+- [Single-tenant versus multitenant in Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md)
+
+This guide provides a general overview about managed connectors and the way they're classified based on pricing and how they're billed or *metered*. For technical reference information about each managed connector in Azure Logic Apps, see [Connectors reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
 ## Managed connector categories
 
-For a Consumption logic app workflow, managed connectors appear in the designer under the following labels:
+For both Consumption and Standard logic app workflows, managed connectors appear in the connector gallery under the **Shared** label, which describes how these connectors are hosted and run in global, multitenant Azure. Based on the specific managed connector, pricing follows different models:
 
-* [Standard connectors](#standard-connectors) provide access to services such as Azure Blob Storage, Office 365, SharePoint, Salesforce, Power BI, OneDrive, and many more.
+- [Standard priced connectors](#standard-connectors) provide access to services such as Azure Blob Storage, Office 365, SharePoint, Salesforce, Power BI, OneDrive, and many more.
+- [Enterprise priced connectors](#enterprise-connectors) provide access to enterprise systems, such as SAP, IBM MQ, and IBM 3270 for an additional cost.
 
-* [Enterprise connectors](#enterprise-connectors) provide access to enterprise systems, such as SAP, IBM MQ, and IBM 3270 for an additional cost.
+Although managed connectors follow either Standard or Enterprise pricing in both Consumption and Standard workflows, billing or metering for managed connector usage differs based on whether your workflow is Consumption or Standard. For more information, see:
 
-For a Standard logic app *stateful* workflow, all managed connectors appear in the designer under the **Azure** label, which describes how these connectors are hosted on the Azure platform. A Standard *stateless* workflow can use only the built-in connectors designed to run natively in single-tenant Azure Logic Apps.
-
-Regardless whether you have a Consumption or Standard workflow, managed connector pricing follows the pricing for Enterprise connectors and Standard connectors, but metering works differently based on the workflow type. For more pricing information, review [Trigger and action operations in the Consumption model](../logic-apps/logic-apps-pricing.md#consumption-operations) and [Trigger and action operations in the Standard model](../logic-apps/logic-apps-pricing.md#standard-operations).
+- [Trigger and action operations in the Consumption model](../logic-apps/logic-apps-pricing.md#consumption-operations)
+- [Trigger and action operations in the Standard model](../logic-apps/logic-apps-pricing.md#standard-operations)
 
 Some managed connectors also fall into the following informal groups:
 
@@ -41,9 +46,7 @@ Some managed connectors also fall into the following informal groups:
 
 ## Standard connectors
 
-In the Consumption workflow designer, managed connectors that follow the Standard connector pricing model appear under the **Standard** label. This section lists *only some* of the popular managed connectors. For more pricing information, review [Trigger and action operations in the Consumption model](../logic-apps/logic-apps-pricing.md#consumption-operations).
-
-In the Standard workflow designer, *all* managed connectors appear under the **Azure** label. Managed connector pricing still follows the pricing for Enterprise connectors and Standard connectors, but metering works differently based on the workflow type. For more pricing information, review [Trigger and action operations in the Standard model](../logic-apps/logic-apps-pricing.md#standard-operations).
+This section lists only *some* of the popular managed connectors that follow the Standard pricing model:
 
 :::row:::
     :::column:::
@@ -116,9 +119,7 @@ In the Standard workflow designer, *all* managed connectors appear under the **A
 
 ## Enterprise connectors
 
-In the Consumption workflow designer, managed connectors that follow the Enterprise connector pricing model appear under the **Enterprise** label. These connectors can access enterprise systems for an additional cost. For more pricing information, review [Trigger and action operations in the Consumption model](../logic-apps/logic-apps-pricing.md#consumption-operations).
-
-In the Standard workflow designer, *all* managed connectors appear under the **Azure** label. Managed connector pricing still follows the pricing for Enterprise connectors and Standard connectors, but metering works differently based on the workflow type. For more pricing information, review [Trigger and action operations in the Standard model](../logic-apps/logic-apps-pricing.md#standard-operations).
+This section lists only *some* of the popular managed connectors that follow the Enterprise pricing model and provide access to enterprise systems for an additional cost:
 
 :::row:::
     :::column:::
@@ -143,7 +144,7 @@ In the Standard workflow designer, *all* managed connectors appear under the **A
 
 Before you can create a connection to an on-premises system, you must first [download, install, and set up an on-premises data gateway][gateway-doc]. This gateway provides a secure communication channel without having to set up the necessary network infrastructure.
 
-For a Consumption workflow, this section lists example [Standard connectors](#standard-connectors) that can access on-premises systems. For the expanded on-premises connectors list, review [Supported data sources](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
+For a Consumption workflow, this section lists example [Standard connectors](#standard-connectors) that can access on-premises systems. For the expanded on-premises connectors list, see [Supported data sources](../logic-apps/logic-apps-gateway-connection.md#supported-connections).
 
 :::row:::
     :::column:::
@@ -256,11 +257,9 @@ For more information, review the following documentation:
     :::column-end:::
 :::row-end:::
 
+## Related content
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Create custom APIs you can call from Logic Apps](../logic-apps/logic-apps-create-api-app.md)
+- [Create custom APIs you can call from Azure Logic Apps](../logic-apps/logic-apps-create-api-app.md)
 
 <!--Managed connector icons-->
 [apache-impala-icon]: ./media/apis-list/apache-impala.png
@@ -384,7 +383,7 @@ For more information, review the following documentation:
 [slack-doc]: ./connectors-create-api-slack.md "Connect to Slack and post messages to Slack channels"
 [smtp-doc]: ./connectors-create-api-smtp.md "Connect to an SMTP server and send email with attachments"
 [sparkpost-doc]: ./connectors-create-api-sparkpost.md "Connects to SparkPost for communication"
-[sql-server-doc]: ./connectors-create-api-sqlazure.md "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in an SQL database table"
+[sql-server-doc]: ./connectors-create-api-sqlazure.md "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in a SQL database table"
 [teradata-doc]: /connectors/teradata/ "Connect to your Teradata database to read data from tables"
 [twilio-doc]: ./connectors-create-api-twilio.md "Connect to Twilio. Send and get messages, get available numbers, manage incoming phone numbers, and more"
 [youtube-doc]: ./connectors-create-api-youtube.md "Connect to YouTube. Manage your videos and channels"

@@ -5,8 +5,8 @@ author: mijeffer
 ms.reviewer: mijeffer
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 10/01/2025
+ms.topic: concept-article
+ms.date: 02/05/2026
 ms.author: mijeffer
 service.tree.id: 84a24b9c-ce0c-4b4b-b837-45bc5ee4bef0
 ---

@@ -1,11 +1,11 @@
 ---
 title: Enrich data by using data flows
 description: Use contextualization datasets to enrich data in Azure IoT Operations data flows.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 11/13/2024
+ms.date: 05/18/2026
 
 #CustomerIntent: As an operator, I want to understand how to create a data flow to enrich data sent to endpoints.
 ms.service: azure-iot-operations
@@ -13,11 +13,12 @@ ms.service: azure-iot-operations
 
 # Enrich data by using data flows
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
+> [!TIP]
+> Data flow graphs support enrichment with expanded capabilities including enrichment in filter and branch transforms. For new projects that use MQTT, Kafka, or OpenTelemetry endpoints, see [Enrich with external data in data flow graphs](howto-dataflow-graphs-enrich.md).
 
 You can enrich data by using the *contextualization datasets* function. When incoming records are processed, you can query these datasets based on conditions that relate to the fields of the incoming record. This capability allows for dynamic interactions. Data from these datasets can be used to supplement information in the output fields and participate in complex calculations during the mapping process.
 
-To load sample data into the state store, use the [state store CLI](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/statestore-cli).
+To load sample data into the state store, use the [state store CLI](https://github.com/Azure/iot-operations-sdks/tree/main/tools/statestore-cli).
 
 For example, consider the following dataset with a few records, using the [JSON lines format](https://jsonlines.org/):
 
@@ -43,7 +44,9 @@ datasets: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 datasets:
@@ -80,7 +83,9 @@ When a new record is being processed, the mapper performs the following steps:
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
@@ -123,7 +128,9 @@ datasets: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 datasets:
@@ -153,17 +160,19 @@ inputs: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 - inputs:
   - $context(position).WorkingHours  #    - - $1
-  - $context(permission).NightShift  #    - - $2
+  - $context(permissions).NightShift  #    - - $2
 ```
 
 ---
 
-The input references use the key of the dataset like `position` or `permission`. If the key in state store is inconvenient to use, you can define an alias:
+The input references use the key of the dataset like `position` or `permissions`. If the key in state store is inconvenient to use, you can define an alias:
 
 # [Bicep](#tab/bicep)
 
@@ -180,7 +189,9 @@ datasets: [
 ]
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 datasets:

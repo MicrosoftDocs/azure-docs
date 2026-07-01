@@ -1,14 +1,13 @@
 ---
 title: 'Quickstart: Create an Azure Firewall with multiple public IP addresses - Terraform'
 description: In this quickstart, you learn how to use Terraform to create an Azure Firewall with multiple public IP addresses.
-services: firewall
 author: duongau
+ms.author: duau
 ms.service: azure-firewall
 ms.topic: quickstart
+ms.date: 03/29/2026
 ms.custom: devx-track-terraform
-ms.author: duau
-ms.date: 10/15/2023
-content_well_notification: 
+content_well_notification:
   - AI-contribution
 ai-usage: ai-assisted
 # Customer intent: As a cloud engineer, I want to deploy an Azure Firewall with multiple public IP addresses using Terraform, so that I can ensure secure connections to my virtual machines and manage their network traffic effectively.
@@ -16,7 +15,7 @@ ai-usage: ai-assisted
 
 # Quickstart: Create an Azure Firewall with multiple public IP addresses - Terraform
 
-In this quickstart, you use Terraform to deploy an Azure Firewall with multiple public IP addresses from a public IP address prefix. The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
+In this quickstart, use Terraform to deploy an Azure Firewall with multiple public IP addresses from a public IP address prefix. The deployed firewall has NAT rule collection rules that allow RDP connections to two Windows Server 2019 virtual machines.
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
@@ -25,23 +24,22 @@ For more information about Azure Firewall with multiple public IP addresses, see
 In this article, you learn how to:
 
 > [!div class="checklist"]
-
-> * Create a random value (to be used in the resource group name) using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
-> * Create a random password for the Windows VM using [random_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password)
-> * Create an Azure resource group using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
-> * Create an Azure public IP prefix using [azurerm_public_ip_prefix](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip_prefix)
-> * Create an Azure public IP using [azurerm_public_ip](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip)
-> * Create an Azure Virtual Network using [azurerm_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)
-> * Create an Azure subnet using [azurerm_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
-> * Create a network interface using [azurerm_network_interface](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface)
-> * Create a network security group (to contain a list of network security rules) using [azurerm_network_security_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group)
-> * Create an association between a Network Interface and a Network Security Group using [azurerm_network_interface_security_group_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface_security_group_association)
-> * Create an Windows Virtual Machine using [azurerm_windows_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_virtual_machine)
-> * Create an Azure Firewall Policy using [azurerm_firewall_policy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall_policy)
-> * Create an Azure Firewall Policy Rule Collection Group using [azurerm_firewall_policy_rule_collection_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall_policy_rule_collection_group)
-> * Create an Azure Firewall using [azurerm_firewall](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall)
-> * Create a route table using [azurerm_route_table](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/route_table)
-> * Create an association between the route table and the subnet using - [azurerm_subnet_route_table_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet_route_table_association)
+> * Create a random value (to use in the resource group name) by using [random_pet](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/pet)
+> * Create a random password for the Windows VM by using [random_password](https://registry.terraform.io/providers/hashicorp/random/latest/docs/resources/password)
+> * Create an Azure resource group by using [azurerm_resource_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/resource_group)
+> * Create an Azure public IP prefix by using [azurerm_public_ip_prefix](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip_prefix)
+> * Create an Azure public IP by using [azurerm_public_ip](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/public_ip)
+> * Create an Azure Virtual Network by using [azurerm_virtual_network](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network)
+> * Create an Azure subnet by using [azurerm_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet)
+> * Create a network interface by using [azurerm_network_interface](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface)
+> * Create a network security group (to contain a list of network security rules) by using [azurerm_network_security_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_group)
+> * Create an association between a Network Interface and a Network Security Group by using [azurerm_network_interface_security_group_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_interface_security_group_association)
+> * Create a Windows Virtual Machine by using [azurerm_windows_virtual_machine](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/windows_virtual_machine)
+> * Create an Azure Firewall Policy by using [azurerm_firewall_policy](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall_policy)
+> * Create an Azure Firewall Policy Rule Collection Group by using [azurerm_firewall_policy_rule_collection_group](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall_policy_rule_collection_group)
+> * Create an Azure Firewall by using [azurerm_firewall](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/firewall)
+> * Create a route table by using [azurerm_route_table](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/route_table)
+> * Create an association between the route table and the subnet by using [azurerm_subnet_route_table_association](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/subnet_route_table_association)
 
 ## Prerequisites
 
@@ -54,7 +52,7 @@ In this article, you learn how to:
 >
 > See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 
-1. Create a directory in which to test the sample Terraform code and make it the current directory.
+1. Create a directory to test the sample Terraform code and make it the current directory.
 
 1. Create a file named `providers.tf` and insert the following code:
 
@@ -94,10 +92,10 @@ In this article, you learn how to:
     resource_group_name=$(terraform output -raw resource_group_name)
     ```
 
-1. Run [az network ip-group list](/cli/azure/network/ip-group#az-network-ip-group-list) to display the two new IP Groups.
+1. Run [az network firewall show](/cli/azure/network/firewall#az-network-firewall-show) to display the firewall and its public IP addresses.
 
     ```azurecli
-    az network ip-group list --resource-group $resource_group_name
+    az network firewall show --name $(terraform output -raw firewall_name) --resource-group $resource_group_name --query "{Name:name, PublicIPs:ipConfigurations[].publicIPAddress.id}"
     ```
 
 ---

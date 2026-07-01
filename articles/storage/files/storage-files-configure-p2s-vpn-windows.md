@@ -1,6 +1,6 @@
 ---
 title: Configure a Point-to-Site VPN on Windows for Azure Files
-description: How to configure a point-to-site (P2S) VPN on Windows for use with SMB Azure file shares to mount your Azure file shares over SMB from outside of Azure without opening up port 445.
+description: How to configure a point-to-site VPN on Windows for use with SMB Azure file shares to mount your Azure file shares over SMB from outside of Azure without opening up port 445.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
@@ -12,11 +12,11 @@ ms.custom:
 # Customer intent: "As an IT administrator, I want to configure a point-to-site VPN on Windows for Azure file shares, so that I can securely access and mount file shares from on-premises without compromising network security."
 ---
 
-# Configure a point-to-site (P2S) VPN on Windows for use with Azure Files
+# Configure a point-to-site VPN on Windows for use with Azure Files
 
-**Applies to:** :heavy_check_mark: SMB Azure file shares
+**Applies to:** :heavy_check_mark: SMB file shares
 
-You can use a point-to-site (P2S) VPN connection to mount your Azure file shares over SMB from outside of Azure, without opening up port 445. A point-to-site VPN connection is a VPN connection between Azure and an individual client. To use a P2S VPN connection with Azure Files, you must configure a VPN connection for each client that wants to connect. If you have many clients that need to connect to your Azure file shares from your on-premises network, you can use a site-to-site (S2S) VPN connection instead of a point-to-site connection for each client. To learn more, see [Configure a site-to-site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
+You can use a point-to-site VPN connection to mount your Azure file shares over SMB from outside of Azure, without opening up port 445. A point-to-site VPN connection is a VPN connection between Azure and an individual client. To use a point-to-site VPN connection with Azure Files, you must configure a VPN connection for each client that wants to connect. If you have many clients that need to connect to your Azure file shares from your on-premises network, you can use a site-to-site VPN connection instead of a point-to-site connection for each client. To learn more, see [Configure a site-to-site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
 
 We strongly recommend that you read [Networking considerations for direct Azure file share access](storage-files-networking-overview.md) before continuing with this how-to article for a complete discussion of the networking options available for Azure Files.
 
@@ -567,7 +567,7 @@ Add-AzVpnClientRootCertificate @vpnClientRootCertParams
 
 ## See also
 
-- [Configure server settings for P2S VPN Gateway connections](../../vpn-gateway/point-to-site-certificate-gateway.md)
+- [Configure server settings for point-to-site VPN Gateway connections](../../vpn-gateway/point-to-site-certificate-gateway.md)
 - [Networking considerations for direct Azure file share access](storage-files-networking-overview.md)
-- [Configure a point-to-site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md)
-- [Configure a site-to-site (S2S) VPN for use with Azure Files](storage-files-configure-s2s-vpn.md)
+- [Configure a point-to-site VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md)
+- [Configure a site-to-site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md)

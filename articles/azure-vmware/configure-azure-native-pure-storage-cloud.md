@@ -10,7 +10,7 @@ ms.author:   pjeyakumar # Microsoft alias
 ms.service:  azure-vmware
 # ms.prod:   # To use ms.prod, uncomment it and delete ms.service
 ms.topic:    how-to
-ms.date:     03/31/2025
+ms.date:     05/07/2026
 # Customer intent: "As a cloud architect, I want to implement the Azure Native Pure Storage Cloud solution with Azure VMware Solution, so that I can provide scalable and efficient block storage for my VMware workloads while leveraging existing infrastructure."
 ---
 
@@ -22,7 +22,7 @@ Azure Native Pure Storage Cloud solution, offered by Pure Storage, is an iSCSI-b
 
 ## Onboarding and support
 
-Pure Storage manages onboarding of Azure Native Pure Storage Cloud for Azure VMware Solution. As Azure Native Pure Storage Cloud is a customer deployed and managed solution, reach out to Pure Storage for Customer Support.
+Pure Storage manages the onboarding of Azure Native Pure Storage Cloud for Azure VMware Solution. As Azure Native Pure Storage Cloud is a customer deployed and managed solution, reach out to Pure Storage for Customer Support.
 
 For more information, see the following resources:
 

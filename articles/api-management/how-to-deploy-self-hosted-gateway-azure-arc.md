@@ -1,10 +1,10 @@
 ---
 title: Deploy an Azure API Management Gateway on Azure Arc
 description: Enable Azure Arc to deploy your self-hosted Azure API Management gateway. 
-author: dlepow
-ms.author: danlep
 ms.service: azure-api-management
-ms.custom: devx-track-azurecli
+ms.custom: 
+  - devx-track-azurecli
+  - references_regions
 ms.topic: how-to 
 ms.date: 10/06/2025
 ---
@@ -41,6 +41,8 @@ Deploying the API Management gateway on an Azure Arc-enabled Kubernetes cluster 
 * [Provision a gateway resource in your Azure API Management instance](./api-management-howto-provision-self-hosted-gateway.md).
 
 ## Deploy the API Management gateway extension using Azure CLI
+
+[!INCLUDE [api-management-self-hosted-gateway-authentication](../../includes/api-management-self-hosted-gateway-authentication.md)]
 
 1. In the Azure portal, navigate to your API Management instance.
 1. Select **Deployment + infrastructure** > **Gateways** from the side navigation menu.
@@ -125,3 +127,4 @@ To enable monitoring of the self-hosted gateway, configure the following Log Ana
 * Learn more about [Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/overview).
 * Learn more about guidance to [run the self-hosted gateway on Kubernetes in production](how-to-self-hosted-gateway-on-kubernetes-in-production.md).
 * For configuration options, see the [self-hosted gateway extension reference](self-hosted-gateway-arc-reference.md).
+`

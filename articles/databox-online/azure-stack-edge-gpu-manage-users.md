@@ -2,12 +2,12 @@
 title: Azure Stack Edge Pro GPU manage users | Microsoft Docs 
 description: Describes how to use the Azure portal to manage users on your Azure Stack Edge Pro GPU.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/21/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Use the Azure portal to manage users on your Azure Stack Edge Pro
 

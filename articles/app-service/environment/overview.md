@@ -3,7 +3,7 @@ title: App Service Environment Overview
 description: Learn about App Service Environments, which are fully isolated and single-tenant App Service deployments that provide high-scale, network-secured hosting.
 author: seligj95
 ms.topic: overview
-ms.date: 11/11/2025
+ms.date: 04/20/2026
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom:
@@ -97,7 +97,7 @@ App Service Environment v3 differs from earlier versions in the following ways:
   - To make plans zone redundant, the App Service Environment must have zone redundancy enabled.
   - You can scale non-zone-redundant plans down to a single instance.
   
-  For more information, see [Reliability in App Service Environment](../../reliability/reliability-app-service-environment.md).
+  For more information, see [Reliability in App Service Environment](/azure/reliability/reliability-app-service-environment).
 
 - You can deploy an App Service Environment v3 on a dedicated host group. Host group deployments aren't zone redundant.
 
@@ -218,9 +218,6 @@ An App Service Environment stores customer data, including app content, settings
 ## Pricing tiers
 
 The following sections list the regional pricing tiers, or SKUs, availability for App Service Environment v3.
-
-> [!NOTE]
-> Windows container plans don't support memory-intensive SKUs.
  
 ### Azure public regions
 

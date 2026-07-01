@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom:
 ms.topic: troubleshooting
-ms.date: 01/28/2025
+ms.date: 01/12/2026
 ms.author: anfdocs
 # Customer intent: "As a system administrator, I want to troubleshoot volume errors for Azure NetApp Files, so that I can ensure reliable performance and resolve issues effectively."
 ---
@@ -49,6 +49,7 @@ If a volume create-read-update-delete (CRUD) operation is performed on a volume 
 |`Hostname lookup failed`  	| You need to create a reverse lookup zone on the DNS server, and then add a PTR record of the AD host machine in that reverse lookup zone. <br> For example, assume that the IP address of the AD machine is `10.1.1.4`, the hostname of the AD machine (as found by using the hostname command) is `AD1`, and the domain name is `contoso.com`. The PTR record added to the reverse lookup zone should be `10.1.1.4 -> AD1.contoso.com`. |
 |`Volume creation fails due to unreachable DNS server`  | Two possible solutions are available: <br> <ul><li> This error indicates that DNS isn't reachable. The cause can be an incorrect DNS IP or a networking issue. Check the DNS IP entered in the AD connection and make sure that the IP is correct. </li> <li> If you're using Basic network features, ensure that the AD and the volume are in same region and in same VNet. If they are in different VNets, ensure that VNet peering is established between the two VNets. <br> See [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md#azure-native-environments) for details. </li></ul> |
 |NFSv4.1 Kerberos volume creation fails with an error similar to the following example: <br> `Failed to enable NFS Kerberos on LIF "svm_e719cde8d6d0413fbd6adac0636cdecb_7ad0b82e_73349613". Failed to bind service principal name on LIF "svm_e719cde8d6d0413fbd6adac0636cdecb_7ad0b82e_73349613". SecD Error: server create fail join user auth.`	|The KDC IP is wrong and the Kerberos volume has been  created. Update the KDC IP with a correct address. <br> You need to re-create the volume. |
+|`The KDC IP or AD Name operation fails because the Service Principal Name (SPN) already exists` | <ol><li> Navigate to **Active Directory Users and Computers** from the Server Manager. </li> <li> Delete the NFS machine account and change the KDC IP. <br> You can locate the required NFS machine account for this volume by referring to the mount instructions where the mount path is specified. <br> Example mount instruction: `sudo mount -vvv -t nfs -o sec=krb5,rw,hard,rsize=262144,wsize=262144,vers=4.1,tcp DHR-4EC7.contoso.com:/kerb-vol kerb-vol` <br> In this example, the machine account name is NFS-DHR-4EC7.</li>|
 
 ## Errors for LDAP volumes
 
@@ -72,6 +73,12 @@ This section explains the causes of some of the common allocation failures and s
 |Error when creating new volumes or resizing existing volumes. <br> Error message: `There was a problem locating [or extending] storage  for the volume. Please retry the operation. If the problem persists, contact Support.` | The error indicates that the service ran into an error when attempting to allocate resources for this request. <br> Retry the operation after some time. Contact Support if the issue persists.|
 |Out of storage or networking capacity in a region for regular volumes. <br> Error message: `There are currently insufficient resources available to create [or extend] a volume in this region. Please retry the operation. If the problem persists, contact Support.` | The error indicates that there are insufficient resources available in the region to create or resize volumes. <br> Try one of the following workarounds: <ul><li>Create the volume under a new VNet to avoid hitting networking-related resource limits.</li> <li>Retry after some time. Resources may have been freed in the cluster, region, or zone in the interim.</li></ul> |
 |Out of storage capacity when creating a volume with network features set to `Standard`. <br> Error message: `No storage available with Standard network features, for the provided VNet.` | The error indicates that there are insufficient resources available in the region to create volumes with `Standard` networking features. <br> Try one of the following workarounds: <ul><li>If `Standard` network features aren't required, create the volume with `Basic` network features.</li> <li>Try creating the volume under a new VNet to avoid hitting networking-related resource limits</li><li>Retry after some time.  Resources may have been freed in the cluster, region, or zone in the interim.</li></ul> |
+
+## Errors for Access Control List
+
+|     Error conditions    |     Resolutions    |
+|-|-|
+| Error when attempting to set NTFS ACLs through the Windows Security tab. <br> Error message: `The program cannot open the required dialogue box because it cannot determine whether the computer is joined to a domain.`  | This error indicates that the ANF server is unable to retrieve domain information from the Domain Controllers due to missing SYSVOL synchronization among the Domain Controllers. To resolve this issue, [perform a non-authoritative synchronization of DFSR-replicated SYSVOL](/troubleshoot/windows-server/group-policy/force-authoritative-non-authoritative-synchronization) |
 
 ## Activity log warnings for volumes
 

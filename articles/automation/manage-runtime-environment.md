@@ -7,8 +7,8 @@ ms.date: 07/09/2025
 ms.topic: how-to
 ms.custom: references_regions
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 
@@ -395,4 +395,5 @@ All existing runbooks in your Azure Automation account would be automatically li
 ## Next steps
 
 * For an overview [Runtime Environment](runtime-environment-overview.md).
+* For information on runtime support and retirement, see [Language runtime support and retirement policy for Azure Automation](automation-runtime-retirement-policy.md).
 * To troubleshoot issues with runbook execution, see [Troubleshoot runbook issues](troubleshoot/runbooks.md).

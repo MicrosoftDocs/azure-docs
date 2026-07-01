@@ -4,7 +4,7 @@ description: Protect data to comply with federal, local, and company guidelines 
 author: juluczni
 ms.author: juluczni
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/09/2024
 ---
 

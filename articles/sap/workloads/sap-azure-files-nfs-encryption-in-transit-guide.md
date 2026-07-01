@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 08/27/2025
+ms.date: 02/23/2026
 ms.author: anjbanerjee
 # Customer intent: As a system administrator, I want to configure encryption in transit on Azure Files using NFS for SAP NetWeaver on Azure VMs, so that I can secure and encrypt the fileshares of SAP applications running on Linux Enterprise Server.
 ---
@@ -29,10 +29,10 @@ For SAP on Azure environment, mount Azure Files NFS shares from within the VM wi
 Steps for setting up Azure Files NFS Encryption in Transit for these two scenarios are described in this document.
 
 > [!Important]
-> For SAP on Azure environments in High Availability(HA)  configuration, and file system managed by Pacemaker, support for Azure Files NFS Encryption in Transit (EiT) is restricted to: 
+> For SAP on Azure environments in High Availability(HA)  configuration, and file system managed by Pacemaker, support for Azure Files NFS Encryption in Transit (EiT) is restricted to:
 >
 > - SLES for SAP 15 SP 4 and higher
-> - RHEL for SAP 8.8, 8.10, 9.x and higher
+> - RHEL for SAP 8.8, 8.10, 9.x and higher, 10.0
 >
 > Refer to [SAP Note 1928533](https://me.sap.com/notes/1928533) for Operating system supportability for SAP on Azure systems.
 
@@ -89,7 +89,7 @@ To mount the file share permanently by adding the mount commands in '/etc/fstab'
 
 ```bash
 vi /etc/fstab
-sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  aznfs noresvport,vers=4,minorversion=1,sec=sys,_netdev  0  0
+sapnfs.file.core.windows.net:/sapnfsafs/sapnw1/sapmntNW1 /sapmnt/NW1  aznfs noresvport,vers=4,minorversion=1,sec=sys,nofail,_netdev  0  0
 
 # Mount the file systems
 mount -a
@@ -177,7 +177,7 @@ For more information, refer to the [Verify that the in-transit data encryption s
 
 - [Plan and implement an SAP deployment on Azure](./planning-guide.md)
 - [Azure Virtual Machines deployment for SAP NetWeaver](./deployment-guide.md)
-- [Using Azure Premium Files NFS and SMB for SAP workload](./planning-guide-storage-azure-files.md)
+- [Using Azure Files SSD NFS and SMB for SAP workload](./planning-guide-storage-azure-files.md)
 - [High-availability architecture and scenarios for SAP NetWeaver](./sap-high-availability-architecture-scenarios.md)
 - [High-availability SAP NetWeaver with simple mount and NFS on SLES for SAP Applications VMs](./high-availability-guide-suse-nfs-simple-mount.md)
 - [High availability for SAP NetWeaver on VMs on RHEL with NFS on Azure Files](./high-availability-guide-rhel-nfs-azure-files.md)

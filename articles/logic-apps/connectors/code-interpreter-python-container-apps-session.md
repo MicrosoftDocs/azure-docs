@@ -1,6 +1,6 @@
 ---
-title: Run Python Code in Agent Workflows
-description: Learn to run Python code to process files in AI agent workflows with Azure Logic Apps.
+title: Run Python Code in Agentic Workflows
+description: Call and run Python code to process files in AI agentic workflows by using Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: ecfan
@@ -8,40 +8,41 @@ ms.reviewers: estfan, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
-ms.date: 09/28/2025
-#Customer intent: As an AI developer, I want to create a workflow that accepts and processes files using an agent that uploads a file and generates Python code that processes the file.
+ms.date: 03/10/2026
+#Customer intent: As an integration and AI developer who works with Azure Logic Apps, I want to create a workflow that accepts and processes files using an agent loop that uploads a file and generates Python code that processes the file.
 ---
 
-# Run Python code that processes files in agent workflows with Azure Logic Apps (Preview)
+# Run Python code that processes files in agentic workflows with Azure Logic Apps (preview)
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
 > [!NOTE]
+>
 > This capability is in preview and is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In Standard logic apps, not only can agent workflows handle natural language requests through chat interfaces by using agents, they can also process files when you create agent tools with the **Code Interpreter (Python Container Apps session)** built-in connector operations. These operations make it possible for the agent workflow to generate and run Python code, upload, download, and delete files. From a scenario perspective, the agent can receive instructions, accept files, generate and run code in an isolated environment, and return usable results, such as summaries, forecasts, or other requested data transformations - all within the same workflow.
+In Standard logic apps, not only can agentic workflows handle natural language requests through chat interfaces by using agent loop actions, they can also process files when you create agent tools with the **Code Interpreter (Python Container Apps session)** built-in connector operations. These operations make it possible for the agentic workflow to generate and run Python code, upload, download, and delete files. From a scenario perspective, the agent loop can receive instructions, accept files, generate and run code in an isolated environment, and return usable results, such as summaries, forecasts, or other requested data transformations - all within the same workflow.
 
 > [!NOTE]
 >
-> This article assumes that you're working with an agent workflow and use the **Code Interpreter** 
-> operations inside agent tools so that you can have the agent generate the necessary Python code.
+> This guide assumes that you're working with an agentic workflow and use the **Code Interpreter** 
+> operations inside agent tools so that you can have the agent loop generate the necessary Python code.
 
-The following example shows a workflow with an agent action named **Sales Report Agent**. The agent can use a tool named **Upload sales data** to run the **Code Interpreter** operations named **Upload file** and **Execute Python code**.
+The following example shows a workflow with an agent loop action named **Sales Report Agent**. The agent loop can use a tool named **Upload sales data** to run the **Code Interpreter** operations named **Upload file** and **Execute Python code**.
 
-:::image type="content" source="media/code-interpreter-python-container-apps-session/overview.png" alt-text="Screenshot shows workflow with agent and tool, which uses Code Interpreter actions that upload files to Container Apps session pool and runs Python code for file processing." lightbox="media/code-interpreter-python-container-apps-session/overview.png":::
+:::image type="content" source="media/code-interpreter-python-container-apps-session/overview.png" alt-text="Screenshot shows workflow with agent loop and tool, which uses Code Interpreter actions that upload files to Container Apps session pool and runs Python code for file processing." lightbox="media/code-interpreter-python-container-apps-session/overview.png":::
 
- When the workflow receives an HTTPS request for a specified file through the **Request** trigger, the **HTTP** action gets the requested file. The agent has instructions to upload the file to a Container Apps session pool, generate Python code to process the file, and return results based on the received instructions:
+When the workflow receives an HTTPS request for a specified file through the **Request** trigger, the **HTTP** action gets the requested file. The agent loop has instructions to upload the file to a Container Apps session pool, generate Python code to process the file, and return results based on the received instructions:
 
 > [!NOTE]
 >
-> You can use the **Code Interpreter (Python Container Apps session)** operations outside an agent 
-> action or in non-agent workflows in a Standard logic app. However, you must provide your own Python 
+> You can use the **Code Interpreter (Python Container Apps session)** operations outside an agent loop 
+> action or in non-agentic workflows in a Standard logic app. However, you must provide your own Python 
 > code for the **Execute Python code** action. In these cases, the **Code Interpreter** operations 
-> don't have access to agent capabilities provided by the agent-linked AI model, which include 
+> don't have access to agentic capabilities provided by the agent loop-linked AI model, which includes 
 > natural language interactions and model-generated code.
 
-Your agent workflow can process files that contain diverse or fragmented data and have formats such as CSV, Excel, or JSON, which can include thousands to millions of rows. However, raw data often needs extra work before you can extract useful information and insights, for example:
+Your agentic workflow can process files that contain diverse or fragmented data and have formats such as CSV, Excel, or JSON, which can include thousands to millions of rows. However, raw data often needs extra work before you can extract useful information and insights, for example:
 
 - Cleaning and transformation
 - Custom logic to extract insights
@@ -58,11 +59,11 @@ These capabilities make scenarios like the following examples possible:
 | Finance | Analyze expense reports, detect anomalies, or generate quarterly breakdowns from Excel exports. |
 | Sales and marketing | Upload raw sales data and get on-demand summaries, forecasts, or regional comparisons. |
 
-This article shows how to set up and use various **Code Interpreter (Python Container Apps session)** operations in your agent workflow.
+This guide shows how to set up and use various **Code Interpreter (Python Container Apps session)** operations in your agentic workflow.
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A container app and a code interpreter session pool in Azure Container Apps.
 
@@ -85,7 +86,7 @@ This article shows how to set up and use various **Code Interpreter (Python Cont
     >
     > To manage files or run code in the session pool, make sure that you have the Azure 
     > built-in role named **Azure ContainerApps Session Executor** on the session pool. 
-    > For this task, see [Give identity access to resources](../authenticate-with-managed-identity.md?tabs=standard#give-identity-access-to-resources).
+    > For this task, see [Give identity access to resources](../authenticate-with-managed-identity.md?tabs=standard#access-other-resources).
 
     To upload the file through Azure portal, follow these steps:
 
@@ -101,13 +102,13 @@ This article shows how to set up and use various **Code Interpreter (Python Cont
 
     1. On the **Manage Files** pane, select **Upload File**, and provide the file to upload.
 
-- A Standard logic app resource and an agent workflow. Make sure that you set up a connection between the **Default Agent** action and an AI model to use for code generation.
+- A Standard logic app resource and an agentic workflow. Make sure that you set up a connection between the **Default Agent** action and an AI model to use for code generation.
 
-  To create this workflow, see [Create workflows that use AI agents and models to complete tasks in Azure Logic Apps](../create-agent-workflows.md).
+  To create this workflow, see [Create workflows that use AI models to complete tasks in Azure Logic Apps](../create-agent-workflows.md).
 
   > [!NOTE]
   >
-  > Agent workflows must start with the **Request** trigger. The **Code Interpreter (Python Container Apps session)** 
+  > agentic workflows must start with the **Request** trigger. The **Code Interpreter (Python Container Apps session)** 
   > connector provides actions, but not triggers.
 
 ## Connector technical reference
@@ -118,7 +119,7 @@ For technical information about this connector's operations, see the [connector'
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the resource sidebar, under **Workflows**, select **Workflows**, and then select your agent workflow.
+1. On the resource sidebar, under **Workflows**, select **Workflows**, and then select your agentic workflow.
 
 1. On the workflow sidebar, under **Tools**, select the designer to open the workflow.
 
@@ -133,9 +134,9 @@ For technical information about this connector's operations, see the [connector'
    | **Input file name** | <*file-name*> | The name to assign for the file. |
    | **Input file content** | <*file-content*> | The path for the file content to upload. |
 
-   In the following example, the workflow uses an **HTTP** action, which makes a REST call to get the file from its source location. The agent action has a tool that uses the **Upload file** action with the file name and content as parameters. The file name is manual input, while the file content references output from the preceding **HTTP** action:
+   In the following example, the workflow uses an **HTTP** action, which makes a REST call to get the file from its source location. The agent loop action has a tool that uses the **Upload file** action with the file name and content as parameters. The file name is manual input, while the file content references output from the preceding **HTTP** action:
 
-   :::image type="content" source="media/code-interpreter-python-container-apps-session/upload-file-parameters.png" alt-text="Screenshot shows agent workflow with HTTP action that gets a file and Upload file action that adds file to session pool." lightbox="media/code-interpreter-python-container-apps-session/upload-file-parameters.png":::
+   :::image type="content" source="media/code-interpreter-python-container-apps-session/upload-file-parameters.png" alt-text="Screenshot that shows an agentic workflow with HTTP action that gets a file and Upload file action that adds file to session pool." lightbox="media/code-interpreter-python-container-apps-session/upload-file-parameters.png":::
 
 1. If you have more files to upload, select **Add new item**.
 
@@ -145,11 +146,11 @@ For technical information about this connector's operations, see the [connector'
 
 1. In the [Azure portal](https://portal.azure.com), open your Standard logic app resource.
 
-1. On the resource sidebar, under **Workflows**, select **Workflows**, and then select your agent workflow.
+1. On the resource sidebar, under **Workflows**, select **Workflows**, and then select your agentic workflow.
 
 1. On the workflow sidebar, under **Tools**, select the designer to open the workflow.
 
-1. For the **Default Agent** action, rename the agent for your scenario, and follow these steps:
+1. For the **Default Agent** action, rename the agent loop for your scenario, and follow these steps:
 
    1. Based on whether you created a tool with the **Upload file** action from the preceding section, choose either option:
 
@@ -165,7 +166,7 @@ For technical information about this connector's operations, see the [connector'
 
       After you're done, the **Execute Python code** action now shows the following code reference in the **Python code** box: `@{agentParameters('python_code')}`
 
-      :::image type="content" source="media/code-interpreter-python-container-apps-session/python-code-reference.png" alt-text="Screenshot shows agent workflow and code reference inside action for Execute Python Code." lightbox="media/code-interpreter-python-container-apps-session/python-code-reference.png":::
+      :::image type="content" source="media/code-interpreter-python-container-apps-session/python-code-reference.png" alt-text="Screenshot that shows an agentic workflow and code reference inside action for Execute Python Code." lightbox="media/code-interpreter-python-container-apps-session/python-code-reference.png":::
 
    1. For the **Execute Python code** action to use the file from the **Upload file** action, set the **Session ID** parameter value to the session ID for the **Upload file** action by following these steps:
 
@@ -196,4 +197,4 @@ The following table describes the information required to connect to your sessio
 
 ## Related content
 
-- [AI agent workflows in Azure Logic Apps](../agent-workflows-concepts.md)
+- [AI agentic workflows in Azure Logic Apps](../agent-workflows-concepts.md)

@@ -2,11 +2,11 @@
 title: 'Reset a VPN Gateway or Gateway Connection to Reestablish IPsec Tunnels'
 titleSuffix: Azure VPN Gateway
 description: Learn how to reset a gateway or a gateway connection to reestablish IPsec tunnels.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/26/2025
-ms.author: cherylmc 
+ms.author: duau
 # Customer intent: "As a network administrator, I want to reset a VPN gateway or connection, so that I can quickly restore IPsec tunnel connectivity and minimize disruption to my cross-premises communication."
 ---
 # Reset a VPN gateway or a connection
@@ -75,7 +75,7 @@ You can view the reset history of the gateway from [Azure portal](https://portal
 
 ### <a name="resetclassic"></a>Reset a classic gateway
 
-The cmdlet for resetting a classic gateway is **Reset-AzureVNetGateway**. The Azure PowerShell cmdlets for Service Management must be installed locally on your desktop. You can't use Azure Cloud Shell. Before performing a reset, make sure you have the latest version of the [Service Management (SM) PowerShell cmdlets](/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets).
+The cmdlet for resetting a classic gateway is **Reset-AzureVNetGateway**. The Azure PowerShell cmdlets for Service Management must be installed locally on your desktop. You can't use Azure Cloud Shell. Before performing a reset, make sure you have the latest version of the [Service Management (SM) PowerShell cmdlets](https://www.powershellgallery.com/packages/Azure/).
 
 When using this command, make sure you're using the full name of the virtual network. Classic VNets that were created using the portal have a long name that is required for PowerShell. You can view the long name by using `Get-AzureVNetConfig -ExportToFile C:\Myfoldername\NetworkConfig.xml`.
 

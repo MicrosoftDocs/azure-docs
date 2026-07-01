@@ -3,7 +3,7 @@ title: Connect multiple Azure VMware Solution private clouds in the same region
 description: Learn how to create a network connection between two or more Azure VMware Solution private clouds located in the same region.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 1/8/2024
+ms.date: 2/20/2026
 ms.custom: engagement-fy23
 # Customer intent: As a cloud architect, I want to establish network connections between multiple Azure VMware Solution private clouds in the same region, so that I can enable communication and optimize resource management across these environments.
 ---
@@ -16,10 +16,10 @@ You can connect a private cloud to multiple private clouds, and the connections 
 
 You can only connect private clouds in the same region. To connect private clouds in different regions, [use ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) to connect them in the same way you connect your private cloud to your on-premises circuit.
 
-:::image type="content" source="media/networking/avs-interconnect.png" alt-text="Diagram of the AVS Interconnect Topology for 3 private clouds connected in one region." border="true" lightbox="media/networking/avs-interconnect.png":::
+:::image type="content" source="media/networking/avs-interconnect.png" alt-text="Diagram of the AVS Interconnect Topology for three private clouds connected in one region." border="true" lightbox="media/networking/avs-interconnect.png":::
 
 >[!NOTE]
->AVS Interconnect is based on Global Reach feature for both interconnection to same\different region. Please [check the Global Reach availability for your AVS deployment](../../articles/expressroute/expressroute-global-reach.md)
+>AVS Interconnect is based on Global Reach feature for both interconnection to same\different region. [Check the Global Reach availability for your AVS deployment](../../articles/expressroute/expressroute-global-reach.md)
 
 ## Supported regions
 
@@ -33,7 +33,7 @@ The Azure VMware Solution Interconnect feature is available in all regions.
 >[!NOTE]
 >The **AVS Interconnect** feature doesn't check for overlapping IP space the way native Azure vNet peering does before creating the peering. Therefore, it's your responsibility to ensure that there isn't overlap between the private clouds.
 >
->In Azure VMware Solution environments, it's possible to configure non-routed, overlapping IP deployments on NSX segments that aren't routed to Azure. These don't cause issues with the AVS Interconnect feature, as it only routes between the NSX-T Data Center T0 gateway on each private cloud.
+>In Azure VMware Solution environments, it's possible to configure nonrouted, overlapping IP deployments on NSX segments that aren't routed to Azure. These don't cause issues with the AVS Interconnect feature, as it only routes between the NSX-T Data Center T0 gateway on each private cloud.
 
 ## Add connection between private clouds
 
@@ -46,14 +46,14 @@ The Azure VMware Solution Interconnect feature is available in all regions.
 3. Select the information and Azure VMware Solution private cloud for the new connection.
 
    >[!NOTE]
-   >You can only connect to private clouds in the same region. To connect to private clouds that are in different regions, [use ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) to connect your private clouds in the same way you connect your private cloud to your on-premises circuit. 
+   >You can only connect to private clouds in the same region. To connect to private clouds in different regions, [use ExpressRoute Global Reach](tutorial-expressroute-global-reach-private-cloud.md) to connect your private clouds in the same way you connect your private cloud to your on-premises circuit. 
 
    :::image type="content" source="media/networking/add-connection-to-other-private-cloud.png" alt-text="Screenshot showing the required information to add a connection to other private cloud." border="true":::
 
 
 4. Select the **I confirm** checkbox acknowledging that there are no overlapping routed IP spaces in the two private clouds. 
 
-5. Select **Create**.  You can check the status of the connection creation.
+5. Select **Create**. You can check the status of the connection creation.
 
    :::image type="content" source="media/networking/add-connection-to-other-private-cloud-notification.png" alt-text="Screenshot showing the Notification information for connection in progress and an existing connection." border="true":::
 

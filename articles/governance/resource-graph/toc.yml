@@ -76,6 +76,8 @@
   - name: Work with large data sets
     displayName: page, first, skip, token
     href: ./concepts/work-with-data.md
+  - name: Guidance for paging results
+    href: ./concepts/paging-results.md
   - name: Guidance for throttled requests
     displayName: pagination, batching, throttling, parallel
     href: ./concepts/guidance-for-throttled-requests.md

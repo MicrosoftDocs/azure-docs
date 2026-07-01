@@ -11,7 +11,7 @@
 + [Apache Maven 3.8.x](https://maven.apache.org)  
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-+ [Node.js 20](https://nodejs.org/)  
++ [Node.js 22](https://nodejs.org/)  
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 + [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows)

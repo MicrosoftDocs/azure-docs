@@ -2,7 +2,7 @@
 title: Optimize Spark jobs for performance - Azure HDInsight
 description: Show common strategies for the best performance of Apache Spark clusters in Azure HDInsight.
 ms.service: azure-hdinsight
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 author: abhishjain002
 ms.author: abhishjain
 ms.reviewer: sairamyeturi

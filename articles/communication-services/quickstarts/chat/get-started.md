@@ -2,10 +2,10 @@
 title: Add chat to your app
 titleSuffix: An Azure Communication Services article
 description: This article describes how to add Communication Services chat to your app.
-author: tophpalmer
+author: sundiraman
 manager: phans
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services

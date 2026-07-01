@@ -3,12 +3,15 @@ title: Migrate from gateway-based to regional virtual network integration
 description: Learn how to migrate your App Service virtual network integration from legacy gateway-based integration to modern regional virtual network integration for improved performance and capabilities.
 author: seligj95
 ms.topic: how-to
-ms.date: 06/20/2025
+ms.date: 01/30/2026
 ms.author: jordanselig
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.service: azure-app-service
 ---
 # Migrate from gateway-based to regional virtual network integration
+
+> [!IMPORTANT]
+> Gateway-required virtual network integration is being retired on March 31, 2027. For more information, see the [retirement announcement](https://azure.microsoft.com/updates/?id=499923) and [Migrate from SSTP to IKEv2 or OpenVPN](../vpn-gateway/ikev2-openvpn-from-sstp.md). We recommend migrating to [regional virtual network integration](./overview-vnet-integration.md), which mitigates the limitations of gateway-required virtual network integration.
 
 App Service supports two types of virtual network integration: **regional virtual network integration** (recommended) and **gateway-based virtual network integration** (legacy). This article guides you through migrating from the legacy gateway-based approach to the modern regional integration method.
 

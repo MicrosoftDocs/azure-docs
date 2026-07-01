@@ -11,21 +11,12 @@ services: storage
 ---
 
 # Azure file share soft-delete
-Azure Files offers soft delete, which allows you to recover your file share if you mistakenly deleted it.
 
-## Applies to
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+:heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
+
+:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider
+
+Azure Files offers soft delete, which allows you to recover your file share if you mistakenly deleted it.
 
 ## How soft delete works
 When soft delete is enabled, deleted file shares are retained in a soft deleted state for the defined retention period before being permanently deleted. When you undelete a file share, the file share and all of contents, including snapshots, are restored to their state prior to deletion. 
@@ -52,8 +43,8 @@ Billing for soft delete depends on the billing model of the file share. For more
 The following sections show how to enable and use soft delete for Azure file shares on an existing storage account:
 
 # [Portal](#tab/azure-portal)
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to your storage account and select **File shares** under **Data storage**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to your storage account.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 1. Select **Disabled** next to **Soft delete**.
 1. Select **Enabled** for **Soft delete for all file shares**.
 1. Under **File share retention period in days**, use the slider to specify a number between 1 and 365 days.
@@ -165,7 +156,8 @@ If you want to stop using soft delete, follow these instructions. To permanently
 
 # [Portal](#tab/azure-portal)
 
-1. Navigate to your storage account and select **File shares** under **Data storage**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to your storage account.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 1. Select **Enabled** next to **Soft delete**.
 1. Select **Disabled** for **Soft delete for all file shares**.
 1. Select **Save** to confirm your data retention settings.

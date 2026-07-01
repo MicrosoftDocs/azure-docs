@@ -1,14 +1,15 @@
 ---
 title: Migrate Compute from Amazon Web Services to Azure
 description: Learn how to migrate AWS compute services to Azure, including maintaining feature parity and exploring scenarios like VMs, web apps, and serverless functions.
-author: robbyatmicrosoft
-ms.author: robbymillsap
-ms.date: 03/25/2025
+author: reginahack
+ms.author: rhackenberg
+ms.date: 03/10/2026
 ms.topic: concept-article
 ms.service: azure
 ms.collection:
  - migration
  - aws-to-azure
+ms.custom: migration-hub
 ---
 
 # Migrate compute from Amazon Web Services to Azure
@@ -32,7 +33,8 @@ Use the following scenarios as examples for your migration process:
 |----------|--------------|-------------|
 | [Migrate AWS event-driven workloads to Azure](/azure/aks/eks-edw-overview) | Amazon Elastic Kubernetes Service (EKS) to Azure Kubernetes Service (AKS) | This scenario involves migrating an EKS event-driven workload that includes Kubernetes Event-Driven Autoscaling (KEDA) and Karpenter to AKS. |
 | [Migrate EKS web application workloads to AKS](/azure/aks/eks-web-overview) | Amazon EKS to AKS | This scenario involves migrating an EKS web application to AKS. |
-| [Migrate Amazon EC2 instances to Azure](/azure/migrate/tutorial-migrate-aws-virtual-machines) | Amazon EC2 instances to Azure VMs | This scenario involves migrating AWS EC2 instances to Azure VMs. |
+| [Migrate Amazon EC2 instances to Azure](/azure/virtual-machines/migration/migrate-from-elastic-compute-cloud-architecture) | Amazon EC2 instances to Azure VMs | This scenario involves migrating AWS EC2 instances to Azure VMs. |
+| [Migrate Amazon EC2 instances to Azure using Azure Migrate](/azure/migrate/tutorial-migrate-aws-virtual-machines) | Amazon EC2 instances to Azure VMs using Azure Migrate | This scenario involves migrating AWS EC2 instances to Azure VMs using Azure Migrate. |
 | [Migrate AWS Lambda to Azure Functions](/azure/azure-functions/migration/lambda-functions-migration-overview) | AWS Lambda to Azure Functions | This scenario involves migrating serverless applications from AWS Lambda to Azure Functions. |
 
 Consider the following articles when you migrate compute services. The platform-agnostic, generic scenarios in these articles can help you deploy services on Azure.

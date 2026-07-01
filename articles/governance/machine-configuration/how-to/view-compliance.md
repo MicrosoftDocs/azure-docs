@@ -2,7 +2,7 @@
 title: View Machine Configuration Compliance Reporting
 description: Learn how to view and analyze Azure Machine Configuration compliance results across Policy Assignments, Guest Assignments, and Azure Resource Graph for comprehensive governance reporting.
 ms.date: 11/07/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: references_regions
 ---
 

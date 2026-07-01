@@ -3,7 +3,7 @@ title: Integrate web app with OpenAPI in Foundry Agent Service (Node.js)
 description: Empower your existing Node.js web apps by integrating their capabilities into Foundry Agent Service with OpenAPI, enabling AI agents to perform real-world tasks.
 author: cephalin
 ms.author: cephalin
-ms.date: 10/28/2025
+ms.date: 12/05/2025
 ms.topic: tutorial
 ms.custom:
   - devx-track-javascript
@@ -230,30 +230,11 @@ At a minimum, open the [sample application](https://github.com/Azure-Samples/msd
 
 ## Create an agent in Microsoft Foundry
 
-1. Create an agent in the Foundry portal by following the steps at: [Quickstart: Create a new agent](/azure/ai-services/agents/quickstart?pivots=ai-foundry-portal).
-
-    Note the [models you can use and the available regions](/azure/ai-services/agents/concepts/model-region-support#azure-openai-models). 
-
-1. Select the new agent and add an action with the OpenAPI 3.0 specified tool by following the steps at [How to use the OpenAPI spec tool](/azure/ai-services/agents/how-to/tools/openapi-spec-samples?pivots=portal).
-
-1. In the **Define schema** page, paste the schema that you copied earlier. Review and save the action.
-
-> [!TIP]
-> In this tutorial, the OpenAPI tool is configured to call your app anonymously without authentication. For production scenarios, you should secure the tool with managed identity authentication. For step-by-step instructions, see [Secure OpenAPI endpoints for Foundry Agent Service](configure-authentication-ai-foundry-openapi-tool.md).
+[!INCLUDE [create-agent](includes/tutorial-ai-integrate-azure-ai-agent-dotnet/create-agent.md)]
 
 ## Test the agent
 
-1. If the agents playground isn't already opened in the foundry portal, select the agent and select **Try in playground**.
-
-1. In **Instructions**, give some simple instructions, like *"Please use the todosApp tool to help manage tasks."*
-
-1. Chat with the agent with the following prompt suggestions:
-
-    - Show me all the tasks.
-    - Create a task called "Come up with three lettuce jokes."
-    - Change that to "Come up with three knock-knock jokes."
-    
-    :::image type="content" source="media/tutorial-ai-integrate-azure-ai-agent-dotnet/agents-playground.png" alt-text="Screenshot showing the agents playground in the middle of a conversation that takes actions by using the OpenAPI tool.":::
+[!INCLUDE [test-agent](includes/tutorial-ai-integrate-azure-ai-agent-dotnet/test-agent.md)]
 
 ## Security best practices
 

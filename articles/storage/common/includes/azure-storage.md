@@ -2,8 +2,8 @@
 ms.service: azure-storage
 ms.topic: include
 ms.date: 07/07/2022
-author: akashdubey-ms
-ms.author: akashdubey
+author: normesta
+ms.author: normesta
 # Customer intent: "As a cloud administrator, I want to query storage accounts based on specific case-insensitive or case-sensitive tags, so that I can efficiently manage and locate resources in my environment."
 ---
 

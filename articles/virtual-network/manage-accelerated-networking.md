@@ -94,8 +94,6 @@ If the VM uses a [supported operating system](./accelerated-networking-overview.
 
 >[!NOTE]
 >- You can enable Accelerated Networking during portal VM creation only for Azure Marketplace supported operating systems. To create and enable Accelerated Networking for a VM with a custom OS image, you must use Azure CLI or PowerShell.
->
->- The Accelerated Networking setting in the portal shows the user-selected state. Accelerated Networking allows choosing **Disabled** in the portal even if the VM size requires Accelerated Networking. VM sizes that require Accelerated Networking enable Accelerated Networking at runtime regardless of the user setting in the portal.
 
 To enable or disable Accelerated Networking for an existing VM through the Azure portal:
 

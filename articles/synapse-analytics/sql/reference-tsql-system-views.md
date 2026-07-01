@@ -11,6 +11,8 @@ ms.author: fipopovi
 
 # System views supported in Synapse SQL
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Links to the documentation for T-SQL statements supported in Synapse SQL.
 
 > [!NOTE]

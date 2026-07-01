@@ -1,18 +1,18 @@
 ---
 title: Manage network access security in Azure Health Data Services
-description: Learn about network access security and outbound connections for the FHIR, DICOM, and MedTech services in Azure Health Data Services.
+description: Learn about network access security and outbound connections for the FHIR and DICOM services in Azure Health Data Services.
 services: healthcare-apis
 author: timritzer
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
-ms.date: 06/09/2025
+ms.topic: concept-article
+ms.date: 02/25/2026
 ms.author: kesheth
 ---
 
 # Manage network access security in Azure Health Data Services
 
-Azure Health Data Services provides multiple options for securing network access to its features and for managing outbound connections made by the FHIR&reg;, DICOM&reg;, or MedTech services.
+Azure Health Data Services provides multiple options for securing network access to its features and for managing outbound connections made by the FHIR&reg; or DICOM&reg;.
 
 ## Private Link
 
@@ -37,10 +37,6 @@ Here's a list of features that can make outbound connections from Azure Health D
 - **Import, export, and analytical support**: [Allow trusted services access to Azure Storage accounts](../storage/common/storage-network-security.md)
 - **Events**: [Allow trusted services access to Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md)
 - **Customer-managed keys**: [Allow trusted services access to Azure Key Vault](/azure/key-vault/general/overview-vnet-service-endpoints)
-
-### MedTech service
-
-- **Events**: [Allow trusted services access to Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md)
 
 ### De-identification service (preview)
 

@@ -2,7 +2,8 @@
 title: Node Events
 description: Use the CycleCloud Events integration to get notified on state changes 
 author: dougclayton
-ms.date: 06/10/2025
+ms.date: 06/19/2026
+ms.topic: concept-article
 ms.author: doclayto
 monikerRange: '>= cyclecloud-8'
 ---

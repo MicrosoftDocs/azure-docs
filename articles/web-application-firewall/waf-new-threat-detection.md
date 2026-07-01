@@ -35,7 +35,7 @@ The [Azure Network Security GitHub repository](https://github.com/Azure/Azure-Ne
 The following prerequisites are required to set up analytic rules:
 
 - A working WAF and a Log Analytics Workspace that is configured to receive logs from the respective Azure Application Gateway or Azure Front Door. For more information, see [Resource logs for Azure Web Application Firewall](ag/web-application-firewall-logs.md).
-- Additionally, Microsoft Sentinel should be enabled for the Log Analytics Workspace that is being used here. For more information, see [Quickstart: Onboard Microsoft Sentinel](../sentinel/quickstart-onboard.md).
+- Additionally, Microsoft Sentinel should be enabled for the Log Analytics Workspace that is being used here. For more information, see [Quickstart: Onboard Microsoft Sentinel](/azure/sentinel/quickstart-onboard).
 
 Use the following steps to configure an analytic rule in Sentinel:
 
@@ -79,5 +79,5 @@ You can configure Analytic Rules in Sentinel for various web application attacks
 
 ## Next steps
 
-- [Learn more about Microsoft Sentinel](../sentinel/overview.md)
+- [Learn more about Microsoft Sentinel](/azure/sentinel/overview)
 - [Learn more about Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview)

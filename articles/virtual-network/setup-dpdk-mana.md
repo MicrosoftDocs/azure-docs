@@ -5,7 +5,7 @@ author: mcgov
 ms.service: azure-virtual-network
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 07/10/2023
+ms.date: 04/01/2026
 ms.author: mamcgove
 # Customer intent: "As a Linux system administrator, I want to configure the Microsoft Azure Network Adapter for DPDK on Azure VMs, so that I can achieve higher network throughput and reliability for my applications."
 ---
@@ -32,23 +32,20 @@ For general information about the DPDK Environment Abstraction Layer (EAL):
 
 ## DPDK requirements for MANA
 
-Utilizing DPDK on MANA hardware requires the Linux kernel 6.2 or later or a backport of the Ethernet and InfiniBand drivers from the latest Linux kernel. It also requires specific versions of DPDK and user-space drivers.
-
+### Kernel support
+Running DPDK on MANA hardware requires the Linux kernel 6.14 or later or a backport of the Ethernet and InfiniBand drivers from the Linux kernel 6.14 or later. It also requires specific versions of DPDK and user-space drivers.
 MANA DPDK requires the following set of drivers:
-1.	[Linux kernel Ethernet driver](https://github.com/torvalds/linux/tree/master/drivers/net/ethernet/microsoft/mana) (5.15 kernel and later)
-1.	[Linux kernel InfiniBand driver](https://github.com/torvalds/linux/tree/master/drivers/infiniband/hw/mana) (6.2 kernel and later)
-1.	[DPDK MANA poll-mode driver](https://github.com/DPDK/dpdk/tree/main/drivers/net/mana) (DPDK 22.11 and later)
-1.	[Libmana user-space drivers](https://github.com/linux-rdma/rdma-core/tree/master/providers/mana) (rdma-core v44 and later)
+- DPDK MANA poll-mode driver (The last 3 stable releases)
+- Libmana user-space drivers (rdma-core v44 and later)
 
-### Supported Marketplace Images
-A nonexhaustive list of images with backported patches for DPDK with MANA:
-- Red Hat Enterprise Linux 8.9
-- Red Hat Enterprise Linux 9.4
-- Canonical Ubuntu Server 20.04 (5.15.0-1045-azure)
-- Canonical Ubuntu Server 22.04 (5.15.0-1045-azure)
+>[!NOTE]
+>DPDK officially supports the last three stable driver releases. Customers with older DPDK version need to backport all MANA patches from one of the supported stable releases.
 
 >[!NOTE]
 >MANA DPDK is not available for Windows; it will only work on Linux VMs.
+
+### Supported Marketplace Images
+A full list of supported marketplace images can be found in the '[Azure Accelerated Networking overview](/azure/virtual-network/accelerated-networking-overview?tabs=NetworkManager#limitations-and-constraints)'.
 
 ## Example: Check for MANA
 

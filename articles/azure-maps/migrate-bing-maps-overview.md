@@ -5,7 +5,7 @@ description: Overview for the migration guides that show how to migrate code fro
 author: jkebeck
 ms.author: jokebeck
 ms.date: 05/16/2024
-ms.topic: how-to
+ms.topic: upgrade-and-migration-article
 ms.service: azure-maps
 ms.subservice: general
 ---
@@ -177,7 +177,7 @@ Developers can get migration support through the [Azure Maps Q&A] or through one
 [Azure Maps service geographic scope]: geographic-scope.md
 [Azure Maps subscription key]: azure-maps-authentication.md#shared-key-authentication
 [Azure Maps terms of use]: https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Azure pricing calculator]: https://azure.microsoft.com/pricing/calculator/?service=azure-maps
 [Azure subscription]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [Azure support options]: https://azure.microsoft.com/support/options/

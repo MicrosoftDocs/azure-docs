@@ -1,15 +1,17 @@
 ---
-title: Migrate to Azure Files using RoboCopy
+title: Migrate to Azure Files Using RoboCopy
 description: Learn how to move or migrate files to an SMB Azure file share using RoboCopy.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 07/14/2025
+ms.date: 12/19/2025
 ms.author: kendownie
 # Customer intent: As an IT administrator, I want to migrate files to Azure file shares using RoboCopy, so that I can ensure data integrity and minimize downtime during the transition to cloud storage.
 ---
 
 # Use RoboCopy to migrate to Azure file shares
+
+**Applies to:** :heavy_check_mark: SMB file shares
 
 This migration article describes the use of RoboCopy to move or migrate files to an SMB Azure file share. RoboCopy is a trusted and well-known file copy utility with a feature set that makes it well suited for migrations. It uses the SMB protocol, which makes it broadly applicable to any source and target combination that supports SMB.
 
@@ -21,19 +23,11 @@ This migration article describes the use of RoboCopy to move or migrate files to
 > [!IMPORTANT]
 > There are many different migration routes for different source and deployment combinations. Before completing the steps in this article, make sure you've read the [migration overview](storage-files-migration-overview.md), determined that RoboCopy is the tool that best suits your needs, and deployed the necessary Azure storage resources for the migration.
 
-## Applies to
-
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-
 ## AzCopy vs. RoboCopy
 
-AzCopy and RoboCopy are two fundamentally different file copy tools. RoboCopy uses any version of the SMB protocol. AzCopy is a "born-in-the-cloud" tool that can be used to move data as long as the target is in Azure storage. AzCopy depends on a REST protocol.
+AzCopy and RoboCopy are two fundamentally different file copy tools. RoboCopy uses any version of the SMB protocol. AzCopy is a cloud-native tool that can be used to move data as long as the target is in Azure storage. AzCopy depends on a REST protocol.
 
-RoboCopy, as a trusted, Windows-based copy tool, has the home-turf advantage when it comes to copying files at full fidelity. RoboCopy supports many migration scenarios due to its rich set of features and the ability to copy files and folders in full fidelity. Check out the [file fidelity section in the migration overview article](storage-files-migration-overview.md#migration-basics) to learn more about the importance of copying files at maximum possible fidelity.
+RoboCopy, as a trusted, Windows-based copy tool, supports many migration scenarios due to its rich set of features and the ability to copy files and folders in full fidelity. See the [file fidelity section in the migration overview article](storage-files-migration-overview.md#migration-basics) to learn more about the importance of copying files at maximum possible fidelity.
 
 AzCopy, on the other hand, has only recently expanded to support file copy with some fidelity and added the first features needed to be considered as a migration tool. However, there are still gaps, and there can easily be misunderstandings of functionality when comparing AzCopy flags to RoboCopy flags.
 
@@ -44,9 +38,9 @@ An example: *RoboCopy /MIR* will mirror source to target - that means added, cha
 Before you can use RoboCopy, you need to make the Azure file share accessible over SMB. The easiest way is to mount the share as a local network drive to the Windows Server you're planning on using for RoboCopy.
 
 > [!IMPORTANT]
-> Mount the Azure file share using the storage account access key. Don't use a domain identity.
+> Mount the Azure file share with [admin-level access](storage-files-identity-configure-file-level-permissions.md#mount-the-file-share-with-admin-level-access): either with identity-based access with admin-level Azure RBAC roles (recommended) or with storage account key (less secure).
 
-Once you're ready, review [Use an Azure file share with Windows](storage-how-to-use-files-windows.md). Then mount the Azure file share you want to start the RoboCopy for.
+Review [Use an Azure file share with Windows](storage-how-to-use-files-windows.md), then mount the SMB Azure file share you want to start the RoboCopy for.
 
 ## Use RoboCopy to copy files to Azure file share
 
@@ -74,6 +68,14 @@ robocopy <SourcePath> <Dest.Path> /MT:20 /R:2 /W:1 /B /MIR /IT /COPY:DATSO /DCOP
 | `/L`                  | **Only for a test run** </br> Files are to be listed only. They won't be copied, not deleted, and not time stamped. Often used with `/TEE` for console output. Flags from the sample script, like `/NP`, `/NFL`, and `/NDL`, might need to be removed to achieve you properly documented test results. |
 | `/Z`                  | **Use cautiously** </br>Copies files in restart mode. This switch is recommended only in an unstable network environment. It significantly reduces copy performance because of extra logging. |
 | `/ZB`                 | **Use cautiously** </br>Uses restart mode. If access is denied, this option uses backup mode. This option significantly reduces copy performance because of checkpointing. |
+
+RoboCopy might report that files were copied even when no data transfer was necessary. This behavior occurs because robocopy evaluates both file data and metadata changes when producing its output.
+
+To correctly interpret the results, review the file status in the command output:
+- Newer: File data is copied to the destination.
+- Modified: Only metadata is updated; file data isn't recopied.
+
+In both cases, RoboCopy might report byte counts as though data was transferred. This behavior can lead to confusion when validating copy operations.
 
 > [!IMPORTANT]
 > We recommend using a Windows Server 2022 or newer. When using a Windows Server 2019, ensure at the latest patch level or at least [OS update KB5005103](https://support.microsoft.com/topic/august-26-2021-kb5005103-os-build-18363-1766-preview-4e23362c-5e43-4d8f-95e5-9fdade60605f) is installed. It contains important fixes for certain Robocopy scenarios.
@@ -158,11 +160,15 @@ You should be prepared to run multiple rounds of RoboCopy against a given namesp
 
 `/R:5 /W:5` is a reasonable setting that you can adjust to your liking. In this example, a failed file will be retried five times, with five-second wait time between retries. If the file still fails to copy, the next RoboCopy job will try again. Often files that failed because they are in use or because of timeout issues might eventually be copied successfully this way.
 
+### Use Robocopy to copy files from an Azure Files snapshot to a local drive
+
+You can use Robocopy to copy files and folders from a snapshot view of an SMB Azure file share back to a local drive. For more information, see [Copying data back to a local drive from share snapshot](storage-snapshots-files.md#copying-data-back-to-a-local-drive-from-share-snapshot).
+
 ### Estimating storage transaction charges
 
 As you begin your migration to Azure Files, RoboCopy copies your files and folders into Azure. Depending on your billing model for Azure Files, transaction charges might apply. See [Understanding billing](understanding-billing.md).
 
-If you're using a pay-as-you-go billing model for standard Azure file shares, it might be difficult to estimate the number of transactions your migration will generate.
+If your HDD (standard) Azure file shares use the pay-as-you-go billing model, it might be difficult to estimate the number of transactions your migration will generate.
 
 - It's not possible to estimate the number of transactions based on the utilized storage capacity of the source. The number of transactions scales with the number of namespace items (files and folder) and their properties that are migrated, not their size. For example, more transactions are required to migrate 1 GiB of small files than 1 GiB of larger files.
 - In order to minimize downtime, you might need to run copy operations several times from source to target. All source and target items are processed during each copy operation, though subsequent runs finish faster. After the initial operations, only the differences introduced between copy runs are transported over the network. It's important to understand that although less data is being transported, the number of transactions required might remain the same.

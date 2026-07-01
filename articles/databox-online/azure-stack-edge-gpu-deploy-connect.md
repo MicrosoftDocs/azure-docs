@@ -2,12 +2,12 @@
 title: Tutorial to connect to local web UI for Azure Stack Edge Pro GPU device | Microsoft Docs
 description: Learn how you can connect to your Azure Stack Edge device with an onboard GPU by using the local web UI.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 07/05/2022
-ms.author: alkohli
+ms.author: sipastak
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to connect to Azure Stack Edge Pro GPU so I can use it to transfer data to Azure. 
 ---

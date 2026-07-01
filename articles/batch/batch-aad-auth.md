@@ -1,21 +1,26 @@
 ---
 title: Authenticate Azure Batch services with Microsoft Entra ID
-description: Learn how to authenticate Azure Batch service applications with Microsoft Entra ID by using integrated authentication or a service principal.
+description: Learn how to authenticate Azure Batch service applications with Microsoft Entra ID by using the Azure Identity library.
 ms.topic: how-to
-ms.date: 04/02/2025
+ms.date: 05/15/2026
 ms.custom: has-adal-ref, subject-rbac-steps
-# Customer intent: As a cloud developer, I want to authenticate my Azure Batch applications using Microsoft Entra ID, so that I can securely manage access permissions for both integrated and unattended applications.
+# Customer intent: As a cloud developer, I want to authenticate my Azure Batch applications using Microsoft Entra ID and the Azure Identity library, so that I can securely manage access permissions for apps running locally, on Azure, or on-premises.
 ---
 
 # Authenticate Azure Batch services with Microsoft Entra ID
 
 Azure Batch supports authentication with [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis), Microsoft's multitenant cloud based directory and identity management service. Azure uses Microsoft Entra ID to authenticate its own customers, service administrators, and organizational users.
 
-This article describes two ways to use Microsoft Entra authentication with Azure Batch:
+The recommended way to authenticate Azure Batch apps is to use the [Azure Identity client library](/dotnet/api/overview/azure/identity-readme), which provides token-based authentication classes (such as `DefaultAzureCredential`, `ManagedIdentityCredential`, `ClientSecretCredential`, and `InteractiveBrowserCredential`) that work consistently whether your app runs locally, on Azure, or on-premises. For an overview of recommended authentication strategies, see:
 
-- **Integrated authentication** authenticates a user who's interacting with an application. The application gathers a user's credentials and uses those credentials to authenticate access to Batch resources.
+- [Authenticate .NET apps to Azure services using the Azure Identity library](/dotnet/azure/sdk/authentication/)
+- [Authenticate Python apps to Azure services using the Azure Identity library](/azure/developer/python/sdk/authentication/overview)
 
-- A **service principal** authenticates an unattended application. The service principal defines the policy and permissions for the application and represents the application to access Batch resources at runtime.
+This article describes two common scenarios for authenticating to Azure Batch with Microsoft Entra ID:
+
+- **Integrated (interactive) authentication** authenticates a user who's interacting with an application. Use a credential such as `InteractiveBrowserCredential` or `DefaultAzureCredential` (which can chain through developer tool sign-ins like Azure CLI, Visual Studio, and Visual Studio Code).
+
+- **Service principal or managed identity authentication** authenticates an unattended application. Use a credential such as `ManagedIdentityCredential` for apps hosted on Azure, or `ClientSecretCredential` / `ClientCertificateCredential` for apps that authenticate with a registered application's secret or certificate.
 
 For more information about Microsoft Entra ID, see the [Microsoft Entra documentation](/azure/active-directory/index).
 
@@ -48,7 +53,10 @@ Use the Batch resource endpoint `https://batch.core.windows.net/` to acquire a t
 
 ## Register your application with a tenant
 
-The first step in using Microsoft Entra authentication is to register your application in a Microsoft Entra tenant. Once you register your application, you can call the [Microsoft Authentication Library](/azure/active-directory/develop/msal-overview) (MSAL) from your code. The MSAL provides an API for authenticating with Microsoft Entra ID from your application. Registering your application is required whether you use integrated authentication or a service principal.
+The first step in using Microsoft Entra authentication is to register your application in a Microsoft Entra tenant. After your application is registered, you can use the [Azure Identity library](/dotnet/api/overview/azure/identity-readme) credentials from your code to acquire Microsoft Entra tokens for the Batch service. Registering your application is required for confidential client (service principal) flows and for any interactive flow that needs a tenant-specific app registration.
+
+> [!TIP]
+> If your code uses `DefaultAzureCredential` and signs in through a developer tool (Azure CLI, Azure PowerShell, Visual Studio, or Visual Studio Code) or a managed identity, you don't need to register a separate application — the credential uses the identity already configured in that environment.
 
 When you register your application, you supply information about your application to Microsoft Entra ID. Microsoft Entra ID then provides an *application ID*, also called a *client ID*, that you use to associate your application with Microsoft Entra ID at runtime. For more information about the application ID, see [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals).
 
@@ -110,249 +118,184 @@ Your application should now appear on the **Role assignments** tab of the Batch 
 
 ## Code examples
 
-The code examples in this section show how to authenticate with Microsoft Entra ID by using integrated authentication or with a service principal. The code examples use .NET and Python, but the concepts are similar for other languages.
+The code examples in this section show how to authenticate to Azure Batch with Microsoft Entra ID by using credentials from the Azure Identity library. The examples use .NET and Python, but the same patterns apply to other Azure SDK languages.
 
 > [!NOTE]
-> A Microsoft Entra authentication token expires after one hour. When you use a long-lived **BatchClient** object, it's best to get a token from MSAL on every request to ensure that you always have a valid token.
->
-> To do this in .NET, write a method that retrieves the token from Microsoft Entra ID, and pass that method to a **BatchTokenCredentials** object as a delegate. Every request to the Batch service calls the delegate method to ensure that a valid token is provided. By default MSAL caches tokens, so a new token is retrieved from Microsoft Entra-only when necessary. For more information about tokens in Microsoft Entra ID, see [Security tokens](/azure/active-directory/develop/security-tokens).
+> A Microsoft Entra authentication token expires after one hour. When you use a long-lived `BatchClient` object, the [Azure Identity](https://www.nuget.org/packages/Azure.Identity/) `TokenCredential` you supply transparently caches and refreshes the token, so a new token is acquired from Microsoft Entra ID only when necessary. For more information about tokens in Microsoft Entra ID, see [Security tokens](/azure/active-directory/develop/security-tokens).
+
+> [!TIP]
+> For most scenarios, use [`DefaultAzureCredential`](/dotnet/api/azure.identity.defaultazurecredential). It automatically tries multiple authentication methods (managed identity, environment variables, developer tool sign-ins, and so on), so the same code works whether your app runs locally during development, on Azure, or on-premises. See [Authenticate .NET apps](/dotnet/azure/sdk/authentication/) and [Authenticate Python apps](/azure/developer/python/sdk/authentication/overview) for guidance on choosing the right credential.
 
 <a name='code-example-use-azure-ad-integrated-authentication-with-batch-net'></a>
 
-### Code example: Use Microsoft Entra integrated authentication with Batch .NET
+### Code example: Authenticate to Azure Batch from .NET
 
-To authenticate with integrated authentication from Batch .NET:
+This example uses [Azure.Compute.Batch](https://www.nuget.org/packages/Azure.Compute.Batch/) with the [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/) library.
 
-1. Install the [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) and the [MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client/) NuGet packages.
+1. Install the `Azure.Compute.Batch` and `Azure.Identity` NuGet packages.
 
 1. Declare the following `using` statements in your code:
 
    ```csharp
-   using Microsoft.Azure.Batch;
-   using Microsoft.Azure.Batch.Auth;
-   using Microsoft.Identity.Client;
+   using Azure.Compute.Batch;
+   using Azure.Core;
+   using Azure.Identity;
    ```
 
-1. Reference the Microsoft Entra endpoint, including the tenant ID. You can get your tenant ID from the Microsoft Entra ID **Overview** page in the Azure portal.
-
-   ```csharp
-   private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
-   ```
-
-1. Reference the Batch service resource endpoint:
-
-   ```csharp
-   private const string BatchResourceUri = "https://batch.core.windows.net/";
-   ```
-
-1. Reference your Batch account:
+1. Reference your Batch account endpoint:
 
    ```csharp
    private const string BatchAccountUrl = "https://<myaccount>.<mylocation>.batch.azure.com";
    ```
 
-1. Specify the application (client) ID for your application. You can get the application ID from your application's **Overview** page in the Azure portal.
+1. Create a credential and pass it to the `BatchClient` constructor. Use the client for subsequent operations against the Batch service.
+
+   **Recommended: `DefaultAzureCredential`** — works locally with developer tool sign-ins (Azure CLI, Visual Studio, Visual Studio Code) and uses managed identity automatically when the app runs on Azure:
 
    ```csharp
-   private const string ClientId = "<application-id>";
-   ```
+   TokenCredential credential = new DefaultAzureCredential();
 
-1. Specify the redirect URI that you provided when you registered the application.
+   BatchClient client = new BatchClient(new Uri(BatchAccountUrl), credential);
 
-   ```csharp
-   private const string RedirectUri = "https://<redirect-uri>";
-   ```
-
-1. Write a callback method to acquire the authentication token from Microsoft Entra ID. The following example calls MSAL to authenticate a user who's interacting with the application. The MSAL [IConfidentialClientApplication.AcquireTokenByAuthorizationCode](/dotnet/api/microsoft.identity.client.iconfidentialclientapplication.acquiretokenbyauthorizationcode) method prompts the user for their credentials. The application proceeds once the user provides credentials.
-
-   The *authorizationCode* parameter is the authorization code obtained from the authorization server after the user authenticates. `WithRedirectUri` specifies the redirect URI that the authorization server redirects the user to after authentication.
-
-   ```csharp
-   public static async Task<string> GetTokenUsingAuthorizationCode(string authorizationCode, string redirectUri, string[] scopes)
+   await foreach (BatchJob job in client.GetJobsAsync())
    {
-       var app = ConfidentialClientApplicationBuilder.Create(ClientId)
-                   .WithAuthority(AuthorityUri)
-                   .WithRedirectUri(RedirectUri)
-                   .Build();
-   
-       var authResult = await app.AcquireTokenByAuthorizationCode(scopes, authorizationCode).ExecuteAsync();
-       return authResult.AccessToken;
+       Console.WriteLine(job.Id);
    }
    ```
 
-1. Call this method with the following code, replacing `<authorization-code>` with the authorization code obtained from the authorization server. The `.default` scope ensures that the user has permission to access all the scopes for the resource.
+   **Interactive (integrated) sign-in** — prompts a user to sign in via the system browser. Use this when your app must authenticate a specific user interactively:
 
    ```csharp
-   
-   var token = await GetTokenUsingAuthorizationCode("<authorization-code>", "RedirectUri", new string[] { "BatchResourceUri/.default" });
-   ```
-
-1. Construct a **BatchTokenCredentials** object that takes the delegate as a parameter. Use those credentials to open a **BatchClient** object. Then use the **BatchClient** object for subsequent operations against the Batch service:
-
-   ```csharp
-   public static void PerformBatchOperations()
-   {
-       Func<Task<string>> tokenProvider = () => GetTokenUsingAuthorizationCode();
-   
-       using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
+   TokenCredential credential = new InteractiveBrowserCredential(
+       new InteractiveBrowserCredentialOptions
        {
-           client.JobOperations.ListJobs();
-       }
-   }
+           TenantId = "<tenant-id>",
+           ClientId = "<application-id>",      // optional; required only if you registered your own app
+           RedirectUri = new Uri("http://localhost")
+       });
+
+   BatchClient client = new BatchClient(new Uri(BatchAccountUrl), credential);
+   ```
+
+   **Service principal (client secret)** — use for unattended apps that authenticate with an app registration secret:
+
+   ```csharp
+   TokenCredential credential = new ClientSecretCredential(
+       tenantId: "<tenant-id>",
+       clientId: "<application-id>",
+       clientSecret: "<client-secret>");
+
+   BatchClient client = new BatchClient(new Uri(BatchAccountUrl), credential);
+   ```
+
+   **Managed identity** — use when your app runs on an Azure resource (such as a VM, App Service, or Container App) that has a system-assigned or user-assigned managed identity:
+
+   ```csharp
+   // System-assigned managed identity
+   TokenCredential credential = new ManagedIdentityCredential();
+
+   // Or, user-assigned managed identity
+   // TokenCredential credential = new ManagedIdentityCredential(clientId: "<user-assigned-client-id>");
+
+   BatchClient client = new BatchClient(new Uri(BatchAccountUrl), credential);
    ```
 
 <a name='code-example-use-an-azure-ad-service-principal-with-batch-net'></a>
 
-### Code example: Use a Microsoft Entra service principal with Batch .NET
-
-To authenticate with a service principal from Batch .NET:
-
-1. Install the [Azure Batch .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch/) and the [MSAL](https://www.nuget.org/packages/Microsoft.Identity.Client/) NuGet packages.
-
-1. Declare the following `using` statements in your code:
-
-   ```csharp
-   using Microsoft.Azure.Batch;
-   using Microsoft.Azure.Batch.Auth;
-   using Microsoft.Identity.Client;
-   ```
-
-1. Reference the Microsoft Entra endpoint, including the tenant ID. When you use a service principal, you must provide a tenant-specific endpoint. You can get your tenant ID from the Microsoft Entra ID **Overview** page in the Azure portal.
-
-   ```csharp
-   private const string AuthorityUri = "https://login.microsoftonline.com/<tenant-id>";
-   ```
-
-1. Reference the Batch service resource endpoint:
-
-   ```csharp
-   private const string BatchResourceUri = "https://batch.core.windows.net/";
-   ```
-
-1. Reference your Batch account:
-
-   ```csharp
-   private const string BatchAccountUrl = "https://<myaccount>.<mylocation>.batch.azure.com";
-   ```
-
-1. Specify the application (client) ID for your application. You can get the application ID from your application's **Overview** page in the Azure portal.
-
-   ```csharp
-   private const string ClientId = "<application-id>";
-   ```
-
-1. Specify the secret key that you copied from the Azure portal.
-
-   ```csharp
-   private const string ClientKey = "<secret-key>";
-   ```
-
-1. Write a callback method to acquire the authentication token from Microsoft Entra ID. The following [ConfidentialClientApplicationBuilder.Create](/dotnet/api/microsoft.identity.client.confidentialclientapplicationbuilder.create) method calls MSAL for unattended authentication.
-
-   ```csharp
-   public static async Task<string> GetAccessToken(string[] scopes)
-   {
-       var app = ConfidentialClientApplicationBuilder.Create(clientId)
-                   .WithClientSecret(ClientKey)
-                   .WithAuthority(new Uri(AuthorityUri))
-                   .Build();
-   
-       var result = await app.AcquireTokenForClient(scopes).ExecuteAsync();
-       return result.AccessToken;
-   }
-   ```
-1. Call this method by using the following code. The `.default` scope ensures that the application has permission to access all the scopes for the resource.
-
-   ```csharp
-      var token = await GetAccessToken(new string[] { $"{BatchResourceUri}/.default" });
-   ```
-
-1. Construct a **BatchTokenCredentials** object that takes the delegate as a parameter. Use those credentials to open a **BatchClient** object. Then use the **BatchClient** object for subsequent operations against the Batch service:
-
-   ```csharp
-   public static void PerformBatchOperations()
-   {
-       Func<Task<string>> tokenProvider = () => GetAccessToken();
-   
-       using (var client = BatchClient.Open(new BatchTokenCredentials(BatchAccountUrl, tokenProvider)))
-       {
-           client.JobOperations.ListJobs();
-       }
-   }
-   ```
-
 <a name='code-example-use-an-azure-ad-service-principal-with-batch-python'></a>
 
-### Code example: Use a Microsoft Entra service principal with Batch Python
+### Code example: Authenticate to Azure Batch from Python
 
-To authenticate with a service principal from Batch Python:
+This example uses the [azure-batch](https://pypi.org/project/azure-batch/) client with credentials from the [azure-identity](https://pypi.org/project/azure-identity/) library. The legacy `azure.common.credentials.ServicePrincipalCredentials` class is deprecated; use `azure-identity` credentials instead.
 
-1. Install the [azure-batch](https://pypi.org/project/azure-batch/) and [azure-common](https://pypi.org/project/azure-common/) Python modules.
+1. Install the required packages:
 
-1. Reference the modules:
-
-   ```python
-   from azure.batch import BatchServiceClient
-   from azure.common.credentials import ServicePrincipalCredentials
+   ```bash
+   pip install azure-batch azure-identity
    ```
 
-1. To use a service principal, provide a tenant-specific endpoint. You can get your tenant ID from the Microsoft Entra ID **Overview** page or **Properties** page in the Azure portal.
-
-   ```python
-   TENANT_ID = "<tenant-id>"
-   ```
-
-1. Reference the Batch service resource endpoint:
-
-   ```python
-   RESOURCE = "https://batch.core.windows.net/"
-   ```
-
-1. Reference your Batch account:
+1. Reference your Batch account endpoint and the Batch resource scope:
 
    ```python
    BATCH_ACCOUNT_URL = "https://<myaccount>.<mylocation>.batch.azure.com"
+   BATCH_SCOPE = "https://batch.core.windows.net/.default"
    ```
 
-1. Specify the application (client) ID for your application. You can get the application ID from your application's **Overview** page in the Azure portal.
+1. Create a credential and pass it to the `BatchServiceClient`.
+
+   **Recommended: `DefaultAzureCredential`** — works locally with developer tool sign-ins and uses managed identity automatically when running on Azure:
 
    ```python
-   CLIENT_ID = "<application-id>"
-   ```
+   from azure.batch import BatchServiceClient
+   from azure.identity import DefaultAzureCredential
 
-1. Specify the secret key that you copied from the Azure portal:
+   credential = DefaultAzureCredential()
 
-   ```python
-   SECRET = "<secret-key>"
-   ```
-
-1. Create a **ServicePrincipalCredentials** object:
-
-   ```python
-   credentials = ServicePrincipalCredentials(
-       client_id=CLIENT_ID,
-       secret=SECRET,
-       tenant=TENANT_ID,
-       resource=RESOURCE
+   batch_client = BatchServiceClient(
+       credentials=credential,
+       batch_url=BATCH_ACCOUNT_URL,
    )
    ```
 
-1. Use the service principal credentials to open a **BatchServiceClient** object. Then use the **BatchServiceClient** object for subsequent operations against the Batch service.
+   **Interactive (integrated) sign-in** — prompts a user to sign in via the system browser:
 
    ```python
-       batch_client = BatchServiceClient(
-       credentials,
-       batch_url=BATCH_ACCOUNT_URL
+   from azure.batch import BatchServiceClient
+   from azure.identity import InteractiveBrowserCredential
+
+   credential = InteractiveBrowserCredential(
+       tenant_id="<tenant-id>",
+       client_id="<application-id>",  # optional; required only if you registered your own app
+   )
+
+   batch_client = BatchServiceClient(
+       credentials=credential,
+       batch_url=BATCH_ACCOUNT_URL,
    )
    ```
 
-For a Python example of how to create a Batch client authenticated by using a Microsoft Entra token, see the [Deploying Azure Batch Custom Image with a Python Script sample](https://github.com/azurebigcompute/recipes/blob/master/Azure%20Batch/CustomImages/CustomImagePython.md).
+   **Service principal (client secret)** — use for unattended apps:
+
+   ```python
+   from azure.batch import BatchServiceClient
+   from azure.identity import ClientSecretCredential
+
+   credential = ClientSecretCredential(
+       tenant_id="<tenant-id>",
+       client_id="<application-id>",
+       client_secret="<client-secret>",
+   )
+
+   batch_client = BatchServiceClient(
+       credentials=credential,
+       batch_url=BATCH_ACCOUNT_URL,
+   )
+   ```
+
+   **Managed identity** — use when your app runs on an Azure resource with a managed identity:
+
+   ```python
+   from azure.batch import BatchServiceClient
+   from azure.identity import ManagedIdentityCredential
+
+   # System-assigned managed identity
+   credential = ManagedIdentityCredential()
+
+   # Or, user-assigned managed identity
+   # credential = ManagedIdentityCredential(client_id="<user-assigned-client-id>")
+
+   batch_client = BatchServiceClient(
+       credentials=credential,
+       batch_url=BATCH_ACCOUNT_URL,
+   )
+   ```
 
 ## Next steps
 
 - [Authenticate Batch Management solutions with Active Directory](batch-aad-auth-management.md)
-- [Client credential flows in MSAL.NET](/entra/msal/dotnet/acquiring-tokens/web-apps-apis/client-credential-flows)
-- [Using MSAL.NET to get tokens by authorization code (for web sites)](/entra/msal/dotnet/acquiring-tokens/web-apps-apis/authorization-codes)
+- [Authenticate .NET apps to Azure services using the Azure Identity library](/dotnet/azure/sdk/authentication/)
+- [Authenticate Python apps to Azure services using the Azure Identity library](/azure/developer/python/sdk/authentication/overview)
+- [Azure Identity client library for .NET](/dotnet/api/overview/azure/identity-readme)
+- [Azure Identity client library for Python](/python/api/overview/azure/identity-readme)
 - [Application and service principal objects in Microsoft Entra ID](/azure/active-directory/develop/app-objects-and-service-principals)
 - [How to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal)
-- [Microsoft identity platform code samples](/azure/active-directory/develop/sample-v2-code)

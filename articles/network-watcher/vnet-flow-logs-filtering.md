@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 11/18/2025
+ms.date: 03/24/2026
 ---
 
 # Filter virtual network flow logs (preview)
@@ -23,8 +23,7 @@ In this article, you learn about virtual network flow logs filtering capability.
 
 | Field           | Filter based on                        | Example                                                                   |
 |-----------------|----------------------------------------|---------------------------------------------------------------------------|
-| Flow state      | Selective flow state                   | B, C, E, D                                                                |
-| Actions         | Selective actions                      | Allow, Deny                                                               |
+| Direction       | Traffic direction                      | Inbound, Outbound                                                         |
 | SrcIP           | Source IP address / CIDR range         | 192.168.1.1, 2001:db8::1/64                                               |
 | SrcPort         | Source port ranges and values          | 1024-65535, 80, 443                                                       |
 | DstIP           | Destination IP addresses / CIDR range  | 192.168.2.1, 2001:db8::2/64                                               |
@@ -92,6 +91,78 @@ Set-AzNetworkWatcherFlowLog -Enabled $true -Name 'myVNetFlowLog' -NetworkWatcher
     -FormatVersion 2 -EnabledFilteringCriteria 'dstip=20.252.145.59 || DstPort=443' `
     -EnableTrafficAnalytics -TrafficAnalyticsWorkspaceId $workspace.ResourceId `
     -EnableRetention $true -RetentionPolicyDays 15
+```
+## Filtering based on RecordTypes
+
+You can filter virtual network flow logs based on the state of a network flow. Flow state represents the lifecycle stage of a connection as observed by Network Watcher, such as when a flow begins, continues, ends, or is denied. 
+
+Use the RecordTypes parameter to specify which flow states you want to record. The parameter accepts one or more comma‑separated values.
+
+### Supported RecordType Values
+
+| Value | Description |
+|-------|-------------|
+| B     | Begin: when a flow is created. No statistics are provided. |
+| C     | Continuing: an ongoing flow. Statistics are provided at five-minute intervals. |
+| E     | End: when a flow is terminated. Statistics are provided. |
+| D     | Deny: when a flow is denied. |
+
+### Example scenarios using RecordTypes
+
+| Scenario | RecordTypes value |
+|----------|-------------------|
+| Capture only denied traffic | "D" |
+| Capture flow creation and termination events | "B,E" |
+| Capture only active traffic statistics | "C" |
+| Capture full flow lifecycle | "B,C,E" |
+
+## Manage RecordTypes filtering condition
+
+You can enable RecordTypes filtering during flow log creation by choosing which flow record formats to collect in order to tailor logging output without generating unnecessary data. You can also update RecordTypes filterning condition for an existing flow log.
+
+```azurepowershell-interactive
+# Enable RecordTypes filtering while creating flowlog 
+New-AzNetworkWatcherFlowLog `
+  -Enabled $true -Name <FlowLog Name> `
+  -NetworkWatcherName <Network Watcher Name> `
+  -ResourceGroupName NetworkWatcherRG `
+  -StorageId <Storage Account ID> `
+  -TargetResourceId <Target Resource/VNet ID> `
+  -RecordTypes "<Record Types>"
+```
+
+```azurepowershell-interactive
+# Enable RecordTypes and EnabledFilteringCriteria filtering while creating flow log
+New-AzNetworkWatcherFlowLog `
+  -Enabled $true -Name <FlowLog Name> `
+  -NetworkWatcherName <Network Watcher Name> `
+  -ResourceGroupName <Resource Group Name> `
+  -StorageId <Storage Account ID> `
+  -TargetResourceId <Target Resource/VNet ID> `
+  -EnabledFilteringCriteria "<Filtering Criteria Expression>" `
+  -RecordTypes "<Record Types>"
+```
+
+```azurepowershell-interactive
+# Update RecordTypes filtering condition on existing flow log
+Set-AzNetworkWatcherFlowLog `
+  -Enabled $true  -Name <FlowLog Name> `
+  -NetworkWatcherName <Network Watcher Name> `
+  -ResourceGroupName <Resource Group Name> `
+  -StorageId <Storage Account ID> `
+  -TargetResourceId <Target Resource/VNet ID> `
+  -RecordTypes "<Record Types>"
+```
+
+```azurepowershell-interactive
+# Remove RecordTypes filtering condition from existing flow log
+Set-AzNetworkWatcherFlowLog `
+  -Enabled $true  -Name <FlowLog Name> `
+  -NetworkWatcherName <Network Watcher Name> `
+  -ResourceGroupName <Resource Group Name> `
+  -StorageId <Storage Account ID> `
+  -TargetResourceId <Target Resource/VNet ID> `
+  -RecordTypes ""
 ```
 
 ## Related content

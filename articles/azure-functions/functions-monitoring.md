@@ -2,7 +2,7 @@
 title: Monitor executions in Azure Functions
 description: Learn how to use Azure Application Insights with Azure Functions to monitor function executions. Application Insights collects log, performance, and error data.
 ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/07/2025
 ms.custom:
   - devx-track-csharp
@@ -13,13 +13,30 @@ ms.custom:
 
 # Monitor executions in Azure Functions
 
-[Azure Functions](functions-overview.md) offers built-in integration with Azure Application Insights to monitor functions executions. This article provides an overview of the monitoring capabilities provided by Azure for monitoring Azure Functions.
+[Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) to monitor function executions. This article provides an overview of the monitoring capabilities provided by Azure for monitoring Azure Functions, including how to choose a telemetry exporter.
 
-Application Insights collects log, performance, and error data. By automatically detecting performance anomalies and featuring powerful analytics tools, you can more easily  diagnose issues and better understand how your functions are used. These tools are designed to help you continuously improve performance and usability of your functions. You can even use Application Insights during local function app project development. For more information, see [Introduction to Application Insights](/azure/azure-monitor/app/app-insights-overview).
+Application Insights collects log, performance, and error data. By automatically detecting performance anomalies and featuring powerful analytics tools, you can more easily diagnose issues and better understand how your functions are used. These tools are designed to help you continuously improve performance and usability of your functions. You can even use Application Insights during local function app project development.
 
-As Application Insights instrumentation is built into Azure Functions, you need a valid instrumentation key to connect your function app to an Application Insights resource. The instrumentation key is added to your application settings as you create your function app resource in Azure. If your function app doesn't already have this key, you can [set it manually](configure-monitoring.md#enable-application-insights-integration).  
+As Application Insights instrumentation is built into Azure Functions, you need a valid connection string or instrumentation key to connect your function app to an Application Insights resource. This connection is configured as an application setting when you create your function app resource in Azure. If your function app doesn't already have this setting, you can [set it manually](configure-monitoring.md#enable-application-insights-integration).  
 
 You can also monitor the function app itself by using Azure Monitor. To learn more, see [Monitor Azure Functions](monitor-functions.md).
+
+## Telemetry export options
+
+Azure Functions generates telemetry data from both the Functions host process and the language-specific worker process where your function code runs. You can choose how this telemetry data is exported:
+
+| Export method | Description | Recommendation |
+| --- | --- | --- |
+| **OpenTelemetry with Azure Monitor Exporter** | Exports telemetry in an OpenTelemetry format to Application Insights and optionally to any OTLP-compliant endpoint. | **Recommended** for new and existing apps. |
+| **Built-in Application Insights integration** | The default integration that sends telemetry to Application Insights without extra code. | Good for basic monitoring needs. |
+| **Classic Application Insights SDKs** | Language-specific SDKs that provide fine-grained control over custom telemetry. | **Legacy.** Plan to migrate to OpenTelemetry. |
+
+> [!IMPORTANT]
+> For new and existing applications, the recommended approach is to use the [Azure Monitor OpenTelemetry Exporter](opentelemetry-howto.md) to send telemetry to Application Insights. If you're currently using a classic Application Insights SDK to customize your exported telemetry, plan to migrate to OpenTelemetry for long-term support and access to the latest observability capabilities. The classic Application Insights SDKs won't receive new feature updates. OpenTelemetry isn't supported for [C# in-process apps](functions-dotnet-class-library.md).
+>
+> The Azure Monitor OpenTelemetry Exporter requires an Application Insights connection string (`APPLICATIONINSIGHTS_CONNECTION_STRING`) and doesn't support the use of an instrumentation key.
+
+To learn how to configure OpenTelemetry in your function app, see [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md).
 
 ## Application Insights pricing and limits
 
@@ -87,7 +104,9 @@ By assigning logged items to a category, you have more control over telemetry ge
 
 ### Custom telemetry data
 
-In [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), [JavaScript](functions-reference-node.md#track-custom-data), and [Python](functions-reference-python.md#log-custom-telemetry), you can use an Application Insights SDK to write custom telemetry data.
+To write custom telemetry data from your functions, the recommended approach is to use the [OpenTelemetry exporter](opentelemetry-howto.md), which provides standards-based telemetry that can be sent to Application Insights and any OTLP-compliant endpoint.
+
+You can also use language-specific classic Application Insights SDKs to write custom telemetry in [C#](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions), [JavaScript](functions-reference-node.md#track-custom-data), and [Python](functions-reference-python.md#logging-and-monitoring). However, these classic SDKs are legacy and won't receive new feature updates. Plan to [migrate to OpenTelemetry](opentelemetry-howto.md) for long-term support.
 
 ### Dependencies
 
@@ -106,11 +125,13 @@ Application Insights generates an _application map_ of collected dependency data
 
 Dependencies are written at the `Information` level. If you filter at `Warning` or above, you don't see the dependency data. Also, automatic collection of dependencies happens at a non-user scope. To capture dependency data, make sure the level is set to at least `Information` outside the user scope (`Function.<YOUR_FUNCTION_NAME>.User`) in your host.
 
-In addition to automatic dependency data collection, you can also use one of the language-specific Application Insights SDKs to write custom dependency information to the logs. For an example how to write custom dependencies, see one of the following language-specific examples:
+In addition to automatic dependency data collection, you can write custom dependency information to the logs. The recommended approach is to use the [OpenTelemetry exporter](opentelemetry-howto.md) for standards-based dependency tracking.
+
+You can also use language-specific classic Application Insights SDKs, but these are legacy and won't receive new feature updates:
 
 - [Log custom telemetry in C# functions](functions-dotnet-class-library.md#log-custom-telemetry-in-c-functions)
 - [Log custom telemetry in JavaScript functions](functions-reference-node.md#track-custom-data) 
-- [Log custom telemetry in Python functions](functions-reference-python.md#log-custom-telemetry)
+- [Log custom telemetry in Python functions](functions-reference-python.md#logging-and-monitoring)
 
 ### Performance Counters
 
@@ -124,7 +145,7 @@ The way that you write to logs and the APIs you use depend on the language of yo
 - [Java](functions-reference-java.md#logger)
 - [JavaScript](functions-reference-node.md#logging) 
 - [PowerShell](functions-reference-powershell.md#logging)
-- [Python](functions-reference-python.md#logging)
+- [Python](functions-reference-python.md#logging-and-monitoring)
 
 ## Analyze data
 

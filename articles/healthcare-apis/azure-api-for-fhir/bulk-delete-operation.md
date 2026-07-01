@@ -4,7 +4,7 @@ description: Learn how to bulk delete resources from the Azure API for FHIR serv
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 07/24/2025
 ms.author: kesheth
 ---

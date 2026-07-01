@@ -2,7 +2,9 @@
 author: dlepow
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 11/13/2025
+ms.date: 01/16/2026
+ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
 ms.author: danlep
 ---
 ## Configure policies for the MCP server
@@ -27,27 +29,19 @@ To configure policies for the MCP server, follow these steps:
 1. In the left menu, under **MCP**, select **Policies**.
 1. In the policy editor, add or edit the policies you want to apply to the MCP server's tools. Define the policies in XML format. 
 
-    For example, you can add a policy to limit calls to the MCP server's tools (in this example, one call per 60 seconds per MCP session).
+    For example, you can add policies to the Inbound section to limit calls to the MCP server's tools (in this example, 5 calls per 30 seconds per IP address) and to add a custom trace of the agent ID of the caller.
 
     ```xml
-    <!-- Rate limit tool calls by Mcp-Session-Id header -->
-    <set-variable name="body" value="@(context.Request.Body.As<string>(preserveContent: true))" />
-    <choose>
-        <when condition="@(
-            Newtonsoft.Json.Linq.JObject.Parse((string)context.Variables["body"])["method"] != null 
-            && Newtonsoft.Json.Linq.JObject.Parse((string)context.Variables["body"])["method"].ToString() == "tools/call"
-        )">
-        <rate-limit-by-key 
-            calls="1" 
-            renewal-period="60" 
-            counter-key="@(
-                context.Request.Headers.GetValueOrDefault("Mcp-Session-Id", "unknown")
-            )" />
-        </when>
-    </choose>
+    <inbound>
+        <base />
+        <rate-limit-by-key calls="5" renewal-period="30" counter-key="@(context.Request.IpAddress)" remaining-calls-variable-name="remainingCallsPerIP" />
+		<trace source="My MCP" severity="information">
+			<message>My MCP trace info</message>
+			<metadata name="agent-id" value="@(context.Request.Headers.GetValueOrDefault("agent-id", "n/a"))" />
+    </inbound>
     ```
 
-    :::image type="content" source="../articles/api-management/media/export-rest-mcp-server/mcp-server-policies-small.png" alt-text="Screenshot of the policy editor for an MCP server." lightbox="../articles/api-management/media/export-rest-mcp-server/mcp-server-policies.png":::
+    :::image type="content" source="../articles/api-management/media/export-rest-mcp-server/mcp-server-policies.png" alt-text="Screenshot of the policy editor for an MCP server." lightbox="../articles/api-management/media/export-rest-mcp-server/mcp-server-policies.png":::
 
 > [!NOTE]
 > API Management evaluates policies configured at the global (all APIs) scope before it evaluates policies at the MCP server scope.
@@ -76,7 +70,7 @@ To add the MCP server in Visual Studio Code:
 
     :::image type="content" source="../articles/api-management/media/export-rest-mcp-server/mcp-servers-visual-studio-code.png" alt-text="Screenshot of MCP servers configured in Visual Studio Code.":::
         
-Add fields to the JSON configuration for settings such as authentication header. The following example shows the configuration for an API Management subscription key passed in a header as in input value. Learn more about the [configuration format](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_configuration-format)   
+Add fields to the JSON configuration for settings such as authentication header. The following example shows the configuration for an API Management subscription key passed in a header as an input value. Learn more about the [configuration format](https://code.visualstudio.com/docs/copilot/chat/mcp-servers#_configuration-format)   
 
 :::image type="content" source="../articles/api-management/media/export-rest-mcp-server/mcp-server-with-header-visual-studio-code.png" alt-text="Screenshot of authentication header configuration for an MCP server":::
 
@@ -88,7 +82,7 @@ After adding an MCP server in Visual Studio Code, you can use tools in agent mod
 
     :::image type="content" source="../articles/api-management/media/export-rest-mcp-server/tools-button-visual-studio-code.png" alt-text="Screenshot of Tools button in chat.":::
 
-1. Select one or more tools from the MCP server to be available in the chat.
+1. Select one or more tools from the MCP server to make available in the chat.
 
     :::image type="content" source="../articles/api-management/media/export-rest-mcp-server/select-tools-visual-studio-code.png" alt-text="Screenshot of selecting tools in Visual Studio Code.":::
 

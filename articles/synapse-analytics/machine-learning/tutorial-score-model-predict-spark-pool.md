@@ -188,9 +188,9 @@ Make sure all prerequisites are in place before following these steps for using 
 
    columns = [<comma_separated_model_input_column_name>] # for ex. df["empid","empname"]
 
-   tranformer = model.create_transformer().setInputCols(columns).setOutputCol("PREDICT")
+   transformer = model.create_transformer().setInputCols(columns).setOutputCol("PREDICT")
 
-   tranformer.transform(df).show()
+   transformer.transform(df).show()
    ```
 
 ## Sklearn example using PREDICT

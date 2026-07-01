@@ -193,7 +193,7 @@ In the previous example, replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` wi
 You can migrate a function app between a Consumption plan and a Premium plan on Windows. 
 
 >[!TIP]  
->We recommend you migrate your Consumption plan app to run in a Flex Consumption plan instead of a Premium plan. Migration to the Flex Consumption plan is the only migration option for a Linux Consumption plan app. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md).   
+>We recommend you run your Consumption plan app in a Flex Consumption plan instead of a Premium plan. For a Linux Consumption plan app, moving to the Flex Consumption plan is the only option. Because in-place plan migration to and from Flex Consumption isn't supported, you must create a new function app in the Flex Consumption plan. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md), which walks you through creating a new Flex Consumption app with the same settings as your existing app.   
 
 When migrating between plans, keep in mind the following considerations:
 
@@ -203,6 +203,7 @@ When migrating between plans, keep in mind the following considerations:
 + The specific CLI commands depend on the direction of the migration.
 + Downtime in your function executions occurs as the function app is migrated between plans.
 + State and other app-specific content is maintained, because the same Azure Files share is used by the app both before and after migration.
++ In-place plan migration to or from the Flex Consumption plan isn't supported. You must create a new function app in the Flex Consumption plan.
 
 You can migrate your plan using these tools:
 

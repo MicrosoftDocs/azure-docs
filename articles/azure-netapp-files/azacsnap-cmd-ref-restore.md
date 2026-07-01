@@ -15,7 +15,7 @@ ms.author: phjensen
 This article provides a guide for running the restore command of the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 
 > [!NOTE]
-> The restore command is only available for Azure Large Instance and Azure NetApp Files.  Any restores of Azure Managed Disk must be done using the Azure Portal or Azure CLI.
+> The restore command is only available for Azure Large Instance and Azure NetApp Files.  Any restores of Azure Managed Disk must be done using the Azure portal or Azure CLI.
     
 ## Introduction
 

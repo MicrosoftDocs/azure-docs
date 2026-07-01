@@ -1,24 +1,23 @@
 ---
-title: Use deep investigation in Azure SRE Agent Preview
+title: Use deep investigation in Azure SRE Agent
 description: Use a hypothesis-driven approach to explore multiple potential root causes before acting on mitigation steps.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: tutorial
-ms.date: 11/04/2025
+ms.date: 03/18/2026
 ms.service: azure
 ---
 
-# Use deep investigation in Azure SRE Agent Preview
-
-Deep investigation gives you greater transparency and accuracy when diagnosing complex issues in the SRE Agent. Unlike standard queries that provide quick insights, deep investigation uses a hypothesis-driven approach so you can explore multiple potential root causes before you decide on mitigation steps.
+# Use deep investigation in Azure SRE Agent
+Deep investigation gives you greater transparency and accuracy when diagnosing complex problems in the SRE Agent. Unlike standard queries that provide quick insights, deep investigation uses a hypothesis-driven approach so you can explore multiple potential root causes before you decide on mitigation steps.
 
 Use deep investigation when:
 
-- You're investigating **high-impact, complex issues**, such as production-level outages or critical incidents.
+- You're investigating **high-impact, complex problems**, such as production-level outages or critical incidents.
 - You suspect **multiple root causes**, requiring systematic validation.
 - You need **visibility into the agent’s reasoning process**, similar to war room investigations.
 
-For simple queries, standard investigation is often all you need. However, when you encounter cases where you suspect you need a structured, multi-path analysis to locate the root cause, then use deep investigation.
+For simple queries, standard investigation is often all you need. However, when you encounter cases where you suspect you need a structured, multi-path analysis to locate the root cause, use deep investigation.
 
 ## How deep investigation works
 
@@ -40,8 +39,19 @@ Here’s an example:
 
 To enable deep investigation in your chat, select the deep investigation (:::image type="icon" source="media/deep-investigation/sre-agent-deep-investigation-icon.png" border="false":::) icon in your chat before submitting your query.
 
-:::image type="content" source="media/deep-investigation/sre-agent-chat-window-deep-investigation.png" alt-text="Screenshot of Azure SRE Agent highlighting the deep investigation button.":::
+:::image type="content" source="media/deep-investigation/sre-agent-chat-window-deep-investigation.png" alt-text="Screenshot of Azure SRE Agent highlighting the deep investigation button." lightbox="media/deep-investigation/sre-agent-chat-window-deep-investigation.png":::
+
+When you submit a query with deep investigation enabled, an authorization card appears in the chat. Select **Yes** to approve the investigation, or **No** to cancel.
+
+:::image type="content" source="media/common/deep-investigation-working.png" alt-text="Screenshot of the authorization prompt showing the investigation card, approval message, and Yes and No buttons." lightbox="media/common/deep-investigation-working.png":::
+
+## Get started
+
+Deep investigation works with any connected data source. For a step-by-step walkthrough, see [Tutorial: Run a deep investigation](tutorial-deep-investigation.md).
 
 ## Related content
 
-- [Incident management overview](incident-management.md)
+- [Root Cause Analysis](root-cause-analysis.md)
+- [Incident Response](incident-response.md)
+- [Azure Observability](diagnose-azure-observability.md)
+- [Custom agents](sub-agents.md)

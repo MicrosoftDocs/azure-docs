@@ -1,16 +1,20 @@
 ---
-title: "Job scheduler configuration"
-description: Learn how to configure job schedulers during a migration of high performance computing architecture.
+title: Deploy and migrate HPC job schedulers on Azure
+description: Configure and migrate job schedulers (Slurm, PBS, LSF) to Azure using CycleCloud, including queue setup and autoscaling policies.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 04/10/2025
+ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - sql-migration-content
+  - migration
+  - onprem-to-azure
 # Customer intent: As a cloud architect, I want to configure job schedulers during the migration of high performance computing environments, so that I can ensure efficient resource allocation and management in the cloud.
 ---
 
-# Job scheduler configuration
+# Deploy and migrate HPC job schedulers on Azure
 
 A key aspect of your high performance computing migration is the configuration of job schedulers. Job schedulers are responsible for scheduling user jobs, that is, determining where and when jobs should be executed. In the context of the cloud, job schedulers interact with resource orchestrators to acquire/release resources on-demand, which is different from an on-premises environment where resources are fixed and fully available all the time. This part of the guide covers the needs, tools, services, and best practices associated with your job schedulers.
 

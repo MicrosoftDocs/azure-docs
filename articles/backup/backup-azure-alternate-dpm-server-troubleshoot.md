@@ -2,7 +2,7 @@
 title: Troubleshoot data recovery from Microsoft Azure Backup Server by using Azure Backup
 description: Learn how to troubleshoot data recovery from Microsoft Azure Backup Server.
 ms.topic: troubleshooting
-ms.date: 01/31/2025
+ms.date: 01/08/2026
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
@@ -12,10 +12,10 @@ ms.author: v-mallicka
 
 # Troubleshoot data recovery from Microsoft Azure Backup Server 
 
-This article provides recommendations for troubleshooting common errors encountered during data recovery from Microsoft Azure Backup Server.
+This article provides recommendations for troubleshooting common errors encountered during data recovery from Microsoft Azure Backup Server (MABS).
 
 
-## Troubleshoot error messages
+## Troubleshoot error messages for data recovery from MABS
 
 | Error Message | Cause | Recommendation |
 |:--- |:--- |:--- |

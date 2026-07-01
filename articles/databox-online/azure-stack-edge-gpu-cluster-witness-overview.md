@@ -2,12 +2,12 @@
 title: Overview of cluster witness on your Azure Stack Edge device
 description: Describes a high-level overview of a cluster witness on your Azure Stack Edge device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/25/2022
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Cluster witness on your Azure Stack Edge Pro GPU device

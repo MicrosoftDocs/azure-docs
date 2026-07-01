@@ -19,6 +19,10 @@ ms.custom:
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to Azure Cosmos DB for NoSQL, and use Data Flow to transform data in Azure Cosmos DB for NoSQL. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Azure Cosmos DB for NoSQL connector documentation](/fabric/data-factory/connector-azure-cosmosdb-for-nosql-overview).
+
+
 >[!NOTE]
 >This connector only supports Azure Cosmos DB for NoSQL. For Azure Cosmos DB for MongoDB, refer to [connector for Azure Cosmos DB for MongoDB](connector-azure-cosmos-db-mongodb-api.md). Other API types aren't supported now.
 

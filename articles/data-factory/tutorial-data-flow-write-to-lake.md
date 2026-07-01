@@ -4,7 +4,7 @@ description:  This tutorial provides best practices for writing to files to data
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/15/2024
 ---
 

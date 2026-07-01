@@ -40,12 +40,14 @@ Support for zone-to-zone disaster recovery is currently limited to the following
 
 When you use zone-to-zone disaster recovery, Site Recovery doesn't move or store data out of the region in which it's deployed. You can select a Recovery Services vault from a different region if you want one. The Recovery Services vault contains metadata but no actual customer data.
 
-Learn more about [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
+Learn more about [Azure regions with availability zones](/azure/reliability/availability-zones-region-support).
 
 > [!NOTE]
 > Zone-to-zone disaster recovery isn't supported for VMs that have managed disks via zone-redundant storage (ZRS).
 >
 > Regions that don't support Azure availability zones also don't support Azure Site Recovery zone-to-zone replication. For Azure Site Recovery zone-to-zone replication to work, the region must support availability zones.
+>
+> Zone-to-zone disaster recovery isn't supported for VMs with Ultra Disks.
 
 ## Using availability zones for disaster recovery
 

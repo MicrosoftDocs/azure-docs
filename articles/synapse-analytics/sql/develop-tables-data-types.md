@@ -11,6 +11,8 @@ ms.topic: concept-article
 
 # Table data types in Synapse SQL
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you'll find recommendations for defining table data types in Synapse SQL Dedicated Pool. 
 
 ## Data types

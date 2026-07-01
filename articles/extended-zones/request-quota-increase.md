@@ -1,82 +1,82 @@
 ---
-title: Request quota increase - Azure portal
-description: Learn how to request a quota increase for your Azure Extended Zone resources using the Azure portal.
+title: Request Quota Increase
+titleSuffix: Azure Extended Zones
+description: Learn how to request a quota increase for your Azure Extended Zones resources by using the Azure portal.
 author: svaldesgzz
 ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: how-to
-ms.date: 03/07/2025
-#customer intent: As a user, I want to request a quota increase for my Azure Extended Zone resources so that I can manage my resources effectively.
+ms.date: 04/30/2026
+
+#customer intent: As a user, I want to request a quota increase for my Azure Extended Zones resources so that I can manage my resources effectively.
 ---
 
 # Request a quota increase in the Azure portal
 
-In this article, you learn how to request a quota increase for your Azure Extended Zone resources using the Azure portal.
+In this article, you learn how to request a quota increase for your Azure Extended Zones resources by using the Azure portal.
 
 ## Prerequisites
 
-- An Azure account with an active subscription.
+You need an Azure account with an active subscription.
 
 ## Request a quota increase
 
 In this section, you request a quota increase in the Azure portal.
 
-1. Select the **?** in the global header. 
+1. Select the question mark on the toolbar.
 
-    :::image type="content" source="./media/request-quota-increase/support-and-troubleshoot.png" alt-text="Screenshot of reaching support request page.":::
+    :::image type="content" source="./media/request-quota-increase/support-and-troubleshoot.png" alt-text="Screenshot that shows the support request page.":::
 
-1. In the **Support + troubleshooting** search box, enter **compute quota**, then select **Subscription Management**. Select **Next**.
+1. In the **Support + troubleshooting** search box, enter **compute quota**. Select **Subscription Management**, and then select **Next**.
 
-1. Select your subscription, select **Next**, then select **Compute-VM (cores-vCPUs) subscription limit increases**. Select **Next**.
+1. Select your subscription, and then select **Next**. Select **Compute-VM (cores-vCPUs) subscription limit increases**, and then select **Next**.
 
 1. Select **Create a Support Request**.
 
-1. In the New support request pane, enter the following details:
+1. On the **New support request** pane, enter the following information.
 
     | Field          | Value                                                   |
     |----------------|---------------------------------------------------------|
-    | What is your issue related to? | Select **Azure services**.                    |    
-    | Issue type     | Select **Service and subscription limits (quotas)**.            |
-    | Subscription   | Select your subscription.                                       |
-    | Quota type     | Select **Compute-VM (cores-vCPUs) subscription limit increases**. |
+    | **What is your issue related to?** | Select **Azure services**.                    |    
+    | **Issue type**     | Select **Service and subscription limits (quotas)**.            |
+    | **Subscription**   | Select your subscription.                                       |
+    | **Quota type**     | Select **Compute-VM (cores-vCPUs) subscription limit increases**. |
 
-1. Select **Next**. 
+1. Select **Next**.
 
-1. In the **Additional details** tab, select **Enter details**.
+1. On the **Additional details** tab, select **Enter details**.
 
-    :::image type="content" source="./media/request-quota-increase/select-request-details.png" alt-text="Screenshot that shows where to select to select Enter details.":::
- 
-1. In the **Request Details** pane, enter the following information:
+    :::image type="content" source="./media/request-quota-increase/select-request-details.png" alt-text="Screenshot that shows selecting Enter details.":::
+
+1. On the **Request details** pane, enter the following information.
 
     :::image type="content" source="./media/request-quota-increase/request-details.png" alt-text="Screenshot that shows how to fill out the Request details form.":::
 
-
     | Field          | Value                                                   |
     |----------------|---------------------------------------------------------|
-    | Deployment model | Select **Resource Manager**.                           |
-    | Choose request types | Select **Extended Zone Access**.                           |
-    | Locations       | Select the Extended Zone region.                     |
-    | Extended Zones   | Select the location of your extended zone.                          |
-    | Quotas        | Select the quota you want to increase.               |
-    | Available to increase | Enter the new quota limit in the **New limit** box.              |
-
+    | **Deployment model** | Select **Resource Manager**.                           |
+    | **Choose request types** | Select **Extended Zone Access**.                           |
+    | **Locations**       | Select the extended zone region.                     |
+    | **Extended Zones**   | Select the location of your extended zone.                          |
+    | **Quotas**        | Select the quota that you want to increase.               |
+    | **Available to increase** | Enter the new quota limit in the **New limit** box.              |
 
     > [!NOTE]
-    > You need to select the parent region first, and then choose the paired Extended Zone to select the correct Extended Zone location. For example, if you select West US, you can then choose Los Angeles as the Extended Zone. If there's no Extended Zone paired with the selected region, you won’t be able to select an Extended Zone location.
+    > You need to select the parent region first, and then choose the paired extended zone to select the correct extended zone location. For example, if you select West US, you can then choose Los Angeles as the extended zone. If no extended zone is paired with the selected region, you can't select an extended zone location.
 
-1. Select **Save and Continue**. 
+1. Select **Save and Continue**.
 
-1. In the **Advanced diagnostic information** section, select **Yes (Recommended)** to allow Azure support to gather advanced diagnostic information from your resources, or **No** if you prefer not to share this information.
+1. In the **Advanced diagnostic information** section, select **Yes (Recommended)** to allow Azure support to gather advanced diagnostic information from your resources. Select **No** if you prefer not to share this information.
 
-1. In the Support Method section, provide your preferred contact method, availability, and support language, and confirm your region. Complete the *Contact info* section to ensure we can reach you.
+1. In the **Support Method** section, provide your preferred contact method, availability, and support language. Confirm your region. Complete the **Contact info** section to ensure that we can reach you.
 
-1. Select **Next**. Review your request and select **Create**. Your request will be processed by the Extended Zones engineering team accordingly.
+1. Select **Next**. Review your request and select **Create**. The extended zone engineering team processes your request.
 
 > [!NOTE]
-> The Quota's view will only show the quota from the Extended Zone's parent region, given Extended Zones respect quota from their parent region. Nevertheless, providing the Extended Zone's information is needed when requesting quotas, as that's where the SKU is intended to be deployed. Consequently, there may be situations where the parent region is capacity constrained while the Extended Zone is not. 
+> The **Quotas** view shows only the quota from the extended zone's parent region. You need to provide the extended zone information when you request quotas because that's where the product is intended to be deployed. There might be situations where the parent region is capacity constrained while the extended zone isn't constrained.
 
 ## Related content
 
 - [What is Azure Extended Zones?](overview.md)
-- [Deploy a virtual machine in an Extended Zone](deploy-vm-portal.md)
+- [Deploy a virtual machine in an extended zone](deploy-vm-portal.md)
 - [Frequently asked questions](faq.md)

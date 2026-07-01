@@ -1,7 +1,7 @@
 ---
 title: Azure Health Data Services as Event Grid source
 description: Describes the properties that are provided for Azure Health Data Services events with Azure Event Grid
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 01/31/2023
 ---
 
@@ -305,7 +305,7 @@ This section contains examples of what Azure Health Data Services Events message
 ---
 
 ## Next steps
-* For an overview of the Azure Health Data Services Events feature, see [What are Events?](../healthcare-apis/events/events-overview.md).
+* For an overview of the Azure Health Data Services Events feature, see [What are Events?](../healthcare-apis/events/events-overview.md)
 * To learn how to deploy the Azure Health Data Services Events feature in the Azure portal, see [Deploy Events using the Azure portal](../healthcare-apis/events/events-deploy-portal.md).
  
 FHIR&#174; is a registered trademark of Health Level Seven International, registered in the U.S. Trademark Office and is used with their permission.

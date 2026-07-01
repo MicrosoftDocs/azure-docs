@@ -7,8 +7,8 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 12/09/2025
-#Customer intent: As an integration developer who works with Azure Logic Apps, I want to validate XML using schemas before trading partners process messages in B2B workflows.
+ms.date: 02/11/2026
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to validate XML by using schemas before trading partners process messages in B2B workflows.
 ---
 
 # Validate XML using schemas in B2B workflows with Azure Logic Apps
@@ -25,7 +25,7 @@ This guide shows how your logic app workflow can validate XML messages and docum
 
 - The logic app resource and workflow where you want to validate XML.
 
-  Your workflow must start with a trigger, but you can use any trigger that works for your scenario. For more information, see these [general steps](create-workflow-with-trigger-or-action.md#add-trigger) to add any trigger you want.
+  Your workflow must start with a trigger, but you can use any trigger that works for your scenario. For more information, see these [general steps](add-trigger-action-workflow.md#add-trigger) to add any trigger you want.
 
   The examples in this guide use the [**Request** trigger named **When an HTTP request is received**](../connectors/connectors-native-reqres.md), which waits until an external caller sends a request to the trigger. Alternatively, you can use the [**Schedule** trigger named **Recurrence**](../connectors/connectors-native-recurrence.md).
 
@@ -47,7 +47,7 @@ This guide shows how your logic app workflow can validate XML messages and docum
 
 1. In the [Azure portal](https://portal.azure.com), open the logic app resource. Open your workflow in the designer.
 
-1. On the designer, follow these [general steps](create-workflow-with-trigger-or-action.md?tabs=standard#add-action) to add the **XML Operations** action with the name that matches your workflow type:
+1. On the designer, follow these [general steps](add-trigger-action-workflow.md?tabs=standard#add-action) to add the **XML Operations** action with the name that matches your workflow type:
 
    | Workflow | Action name |
    |----------|-------------|
@@ -85,7 +85,7 @@ This guide shows how your logic app workflow can validate XML messages and docum
 
      1. From the **Schema name** list, select the schema.
 
-1. When you're done, save your workflow.
+1. Save your workflow.
 
 You're now finished with setting up your validate XML action. In a real world app, you might want to store the validated data in a line-of-business (LOB) app such as SalesForce. To send the validated output to Salesforce, add a **Salesforce** action.
 
@@ -97,7 +97,7 @@ Confirm that the workflow works the way that you expect.
 
 1. From the **HTTP URL** property, copy and save the endpoint URL for the trigger.
 
-1. On the designer toolbar, select **Run** > **Run**.
+1. On the designer toolbar, from the **Run** menu, select **Run**.
 
 1. To fire the **Request** trigger, use your preferred HTTP request tool to send a request with the XML content to the trigger's endpoint URL.
 

@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 07/11/2025
+ms.date: 01/07/2026
 ms.author: anfdocs
 ms.custom:
   - build-2025
@@ -72,10 +72,10 @@ This section shows an example of creating a single-host, secondary SAP HANA syst
     * **Availability option**:
         Select either **Availability zone** or **Proximity placement group**. 
         When selecting **Availability zone**, you must select the appropriate availability zone in the next field. 
-        * **Proximity placement group (PPG)**:  
-            Specifies that the data, log, and shared volumes are to be created close to the VMs.
         * **Availability Zone**: 
             This option lets you deploy the volumes in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
+        * **Proximity placement group (PPG)**:  
+            Specifies that the data, log, and shared volumes are to be created close to the VMs. Have at least one **deployed and running** HANA VM in the availability set with the assigned PPG. 
     * **Network features**: 
         Standard network features is the default, however you can still use Basic network features. 
         See [Configure network features for a volume](configure-network-features.md) and [Guidelines for Azure NetApp Files network planning](azure-netapp-files-network-topologies.md) for details.

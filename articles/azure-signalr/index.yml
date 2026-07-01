@@ -82,14 +82,14 @@ landingContent:
             url: signalr-concept-performance.md
       - linkListType: how-to-guide
         links:
-          - text: Resiliency and disaster recovery
+          - text: Reliability in Azure SignalR Service
+            url: /azure/reliability/reliability-signalr?toc=/azure/azure-signalr/TOC.json
+          - text: Disaster recovery
             url: signalr-concept-disaster-recovery.md
           - text: Autoscale
             url: signalr-howto-scale-autoscale.md
           - text: Server graceful shutdown
             url: server-graceful-shutdown.md
-          - text: Availability Zones
-            url: availability-zones.md
 
   # Card
   - title: Serverless

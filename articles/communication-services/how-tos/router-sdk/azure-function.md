@@ -21,9 +21,9 @@ As part of the customer extensibility model, Azure Communication Services Job Ro
 If you're new to Azure Functions, refer to [Getting started with Azure Functions](../../../azure-functions/functions-get-started.md) to learn how to create your first function with your favorite tool and language.
 
 > [!NOTE]
-> Your Azure Function will need to be configured to use an [Http trigger](../../../azure-functions/functions-triggers-bindings.md)
+> Your Azure Function needs to be configured to use an [Http trigger](../../../azure-functions/functions-triggers-bindings.md)
 
-The Http request body that is sent to your function will include the labels of each of the entities involved. For example, if you're writing a function to determine job priority, the payload will include the all the job labels under the `job` key.
+The Http request body that is sent to your function includes the labels of each of the entities involved. For example, if you're writing a function to determine job priority, the payload includes the all the job labels under the `job` key.
 
 ```json
 {
@@ -35,7 +35,7 @@ The Http request body that is sent to your function will include the labels of e
 }
 ```
 
-The following example will inspect the value of the `urgent` label and return a priority of 10 if it's true.
+The following example inspects the value of the `urgent` label and return a priority of 10 if it's true.
 
 ```csharp
 public static class GetPriority
@@ -69,11 +69,27 @@ await administrationClient.CreateClassificationPolicyAsync(
         }});
 ```
 
-When a new job is submitted or updated, this function will be called to determine the priority of the job.
+When a new job is submitted or updated, this function is called to determine the priority of the job.
+
+## Minimum requirements for Azure Functions used with Job Router
+
+When integrating an Azure Function as a custom rule engine for Azure Communication Services Job Router, ensure that your Function App meets the following required minimum versions to avoid serialization issues and runtime errors. These requirements are based on recent customer cases and internal validation.
+
+| Requirement | Minimum Version | Recommended Version |
+|------------|-----------------|----------------------|
+| **Target Framework** | `net8.0` | `net8.0` |
+| **Azure Functions Runtime** | `v4` | `v4` |
+| **Microsoft.NET.Sdk.Functions** | `4.1.0` | `4.4.0` |
+| **Serialization Library** | `System.Text.Json 8.0.6` | `System.Text.Json 8.0.6` |
+
+**Important notes**
+
+- `Newtonsoft.Json` is not supported for Job Router rule execution. Continuing to reference it may lead to payload deserialization failures.
+- Ensure that any models used in your function and rule engine payloads are `System.Text.Json‑compatible`.
 
 ## Errors
 
-If the Azure Function fails or returns a non-200 code, the job will move to the `ClassificationFailed` state and you'll receive a `JobClassificationFailedEvent` from Event Grid containing details of the error.
+If the Azure Function fails or returns a non-200 code, the job moves to the `ClassificationFailed` state and your application receives a `JobClassificationFailedEvent` from Event Grid containing details of the error.
 
 ## Next steps
 

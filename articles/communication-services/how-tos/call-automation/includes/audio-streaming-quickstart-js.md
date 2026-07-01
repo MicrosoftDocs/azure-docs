@@ -170,7 +170,7 @@ After sending the metadata packet, Azure Communication Services (ACS) will begin
 }
 ```
 #### DTMF example 
-When DTMF is enabled Azure Communication Servives sends a `DtmfData` type.
+When DTMF is enabled Azure Communication Services sends a `DtmfData` type.
 
 ``` json
 {

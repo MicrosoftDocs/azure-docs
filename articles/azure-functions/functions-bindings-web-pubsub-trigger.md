@@ -2,7 +2,7 @@
 title: Azure Web PubSub trigger for Azure Functions
 description: Learn how to handle Azure Web PubSub client events from Azure Functions
 ms.topic: reference
-ms.date: 09/02/2024
+ms.date: 04/24/2026
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
@@ -191,7 +191,7 @@ The following table explains the binding configuration properties that you set i
 | **eventType** | WebPubSubEventType | Required - the value must be set as the event type of messages for the function to be triggered. The value should be either `user` or `system`. |
 | **eventName** | EventName | Required - the value must be set as the event of messages for the function to be triggered. </br> </br> For `system` event type, the event name should be in `connect`, `connected`, `disconnected`. </br> </br> For user-defined subprotocols, the event name is `message`. </br> </br> For system supported subprotocol `json.webpubsub.azure.v1.`, the event name is user-defined event name. |
 | **clientProtocols** | ClientProtocols | Optional - specifies which client protocol can trigger the Web PubSub trigger functions. </br> </br> The following case-insensitive values are valid: </br> `all`: Accepts all client protocols. Default value. </br>`webPubSub`: Accepts only Web PubSub protocols. </br>`mqtt`: Accepts only MQTT protocols. |
-| **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value is used for signature validation. And the value is auto resolved with app settings `WebPubSubConnectionString` by default. And `null` means the validation isn't needed and always succeed. |
+| **connections** | Connections | Optional - An array of app setting names or setting collection prefixes that identify the upstream Azure Web PubSub service connections. These values are used for abuse protection and signature validation. When not specified, falls back to the global `WebPubSubConnectionString` app setting. When neither is configured, validation is skipped and all requests are accepted.<br> Example: `["CustomWebPubSubConnection1", "CustomWebPubSubConnection2"]` </br> |
 
 [!INCLUDE [functions-azure-web-pubsub-authorization-note](../../includes/functions-azure-web-pubsub-authorization-note.md)]
 

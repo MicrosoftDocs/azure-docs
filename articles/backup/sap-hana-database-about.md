@@ -2,7 +2,7 @@
 title: About the SAP HANA database backup on Azure VMs
 description: In this article, you'll learn about backing up SAP HANA databases that are running on Azure virtual machines.
 ms.topic: overview
-ms.date: 12/11/2025
+ms.date: 01/09/2026
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -34,11 +34,11 @@ You can back up SAP HANA databases that are running inside an Azure VM and strea
 ![Diagram of the SAP HANA Backup architecture.](./media/sap-hana-db-about/backup-architecture.png)
 
 * You begin the backup process by [creating a Recovery Services vault](./tutorial-backup-sap-hana-db.md#create-a-recovery-services-vault) in Azure. This vault will be used to store the backups and recovery points that are created over time.
-* The Azure VM that's running the SAP HANA server is registered with the vault, and the databases to be backed up are [discovered](./tutorial-backup-sap-hana-db.md#discover-the-databases). To enable the Azure Backup service to discover databases, a [preregistration script](https://go.microsoft.com/fwlink/?linkid=2173610) must be run on the HANA server as a root user.
-* This script creates the *AZUREWLBACKUPHANAUSER* database user or uses the custom Backup user you've already created. It then creates a corresponding key with the same name in *hdbuserstore*. To learn more about the functionality of the script, see [Tutorial: Back up SAP HANA databases in an Azure VM](./tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does).
+* The Azure VM that's running the SAP HANA server is registered with the vault, and the databases to be backed up are [discovered](./tutorial-backup-sap-hana-db.md#discover-the-sap-hana-databases-for-backup). To enable the Azure Backup service to discover databases, a [preregistration script](https://go.microsoft.com/fwlink/?linkid=2173610) must be run on the HANA server as a root user.
+* This script creates the *AZUREWLBACKUPHANAUSER* database user or uses the custom Backup user you've already created. It then creates a corresponding key with the same name in *hdbuserstore*. To learn more about the functionality of the script, see [Tutorial: Back up SAP HANA databases in an Azure VM](./tutorial-backup-sap-hana-db.md#preregistration-script-functionality-for-sap-hana-database-backup).
 * The Azure Backup service now installs the Azure Backup plugin for HANA on the registered SAP HANA server.
 * The AZUREWLBACKUPHANAUSER database user that was created by the preregistration script or the custom Backup user that you’ve created (and added as input to the preregistration script) is used by the Azure Backup plugin for HANA to perform all backup and restore operations. If you attempt to configure backup for SAP HANA databases without running this script, you might receive the UserErrorHanaScriptNotRun error.
-* To [configure a backup](./tutorial-backup-sap-hana-db.md#configure-backup) on the databases that you've discovered, choose the required backup policy, and then enable backups.
+* To [configure a backup](./tutorial-backup-sap-hana-db.md#configure-backup-for-sap-hana-databases) on the databases that you've discovered, choose the required backup policy, and then enable backups.
 
 * After you've configured the backup, the Azure Backup service sets up the following Backint parameters at the database level on the protected SAP HANA server:
   * `[catalog_backup_using_backint:true]`
@@ -62,7 +62,7 @@ In addition to using SAP HANA backup in Azure, which provides database-level bac
 
 You can use the [Backint certified Azure SAP HANA backup solution](#backup-architecture) for database backup and recovery.
 
-You can use [an Azure VM backup](backup-azure-vms-introduction.md) to back up the operating system and other non-database disks. The VM backup is run once a day, and it backs up all disks except the Write Accelerator operating system disks and ultra disks. Because you're backing up the database by using the Azure SAP HANA backup solution, you can take a file-consistent backup of only the operating system and non-database disks by using the [selective disk backup and restore for Azure VMs](selective-disk-backup-restore.md) feature.
+You can use [an Azure VM backup](backup-azure-vms-introduction.md) to back up the operating system and other non-database disks. The VM backup is run once a day, and it backs up all disks except the Write Accelerator operating system disks and Ultra Disks. Because you're backing up the database by using the Azure SAP HANA backup solution, you can take a file-consistent backup of only the operating system and non-database disks by using the [selective disk backup and restore for Azure VMs](selective-disk-backup-restore.md) feature.
 
 1. Restore a VM that's running SAP HANA by doing one of the following:
 
@@ -96,7 +96,7 @@ Azure Backup, now supports backing up a "Scale-out" HANA system distributed acro
 
 #### Managed disk snapshot
 
-Azure Backup uses managed disk snapshots. Azure Backup stores them in a resource group that you specify. Managed disk snapshots use standard hard disk drive (HDD) storage, irrespective of the storage type of the disk, and you're charged according to [Managed disk snapshot pricing](https://azure.microsoft.com/pricing/details/managed-disks/). The first disk snapshot is a full snapshot, and all subsequent snapshots are incremental and consist only of the changes since the last one. 
+Azure Backup uses managed disk snapshots. Azure Backup stores them in a resource group that you specify. Managed disk snapshots use Standard HDD storage, irrespective of the storage type of the disk, and you're charged according to [Managed disk snapshot pricing](https://azure.microsoft.com/pricing/details/managed-disks/). The first disk snapshot is a full snapshot, and all subsequent snapshots are incremental and consist only of the changes since the last one. 
 
 >[!Note]
 >There are no backup storage costs for snapshots, because they're *not* transferred to your Recovery Services vault.

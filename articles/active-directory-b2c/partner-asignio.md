@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Learn how to configure Azure Active Directory B2C with Asignio for multifactor authentication
 author: gargi-sinha
 manager: martinco
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 10/11/2024
 ms.author: gasinh
@@ -76,7 +76,7 @@ The following diagram illustrates the implementation.
 
 ## Configure an application with Asignio
 
-Configurating an application with Asignio is with the Asignio Partner Administration site. 
+Configuring an application with Asignio is with the Asignio Partner Administration site. 
 
 1. To request access for your organization, go to asignio.com [Asignio Partner Administration](https://partner.asignio.com) page. 
 2. With credentials, sign into Asignio Partner Administration.

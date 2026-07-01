@@ -7,8 +7,8 @@ ms.subservice: desired-state-config
 ms.date: 11/17/2025
 ms.topic: how-to
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 # Compose DSC configurations
 

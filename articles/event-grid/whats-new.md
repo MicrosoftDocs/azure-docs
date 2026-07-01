@@ -2,7 +2,7 @@
 title: What's New? Azure Event Grid
 description: Learn what's new with Azure Event Grid, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 ms.topic: overview
-ms.date: 07/30/2025
+ms.date: 05/07/2026
 ms.custom:
   - build-2025
 ---
@@ -10,6 +10,18 @@ ms.custom:
 # What's new in Azure Event Grid?
 
 Azure Event Grid receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the features that are added or updated in a release.
+
+## April 2026
+
+The following features of Event Grid namespaces moved from public preview to general availability (GA):
+
+- MQTT compliance: [MQTT Retain support](mqtt-retain.md)
+- MQTT compliance: [Shared Subscriptions](mqtt-shared-subscriptions.md)
+- [HTTP Publish of MQTT messages in Event Grid](mqtt-http-publish.md)
+
+The following features are released in preview:
+
+- MQTT compliance: [Subscription Identifiers](mqtt-support.md#subscription-identifiers)
 
 ## July 2025
 
@@ -67,7 +79,7 @@ The following features are released in preview:
 - [Forward events from one Event Grid namespace topic to another namespace topic](forward-events-to-another-namespace-topic.md)
 - [Network security perimeter in Event Grid](configure-network-security-perimeter.md)
 
-We also published the following new articles:
+The following new articles were also published:
 
 - [Transport Layer Security support](transport-layer-security.md)
 - [Cross-tenant delivery in Event Grid](cross-tenant-delivery-using-managed-identity.md)

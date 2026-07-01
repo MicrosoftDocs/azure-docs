@@ -1,12 +1,10 @@
 ---
 title: Azure API Management virtual network injection - network resources
 description: Learn about requirements for network resources when you deploy (inject) your API Management Developer or Premium tier instance in an Azure virtual network.
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 04/17/2025
-ms.author: danlep
 ---
 
 # Network resource requirements for API Management injection into a virtual network
@@ -32,7 +30,7 @@ The following are virtual network resource requirements for injection of an API 
 
 The minimum size of the subnet in which API Management can be deployed is /29, which provides three usable IP addresses. Each extra scale [unit](api-management-capacity.md) of API Management requires two more IP addresses. The minimum size requirement is based on the following considerations:
 
-* Azure reserves five IP addresses within each subnet that can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance. Three more addresses are used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
+* Azure reserves five IP addresses within each subnet that can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance. Three more addresses are used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets)
 
 * In addition to the IP addresses used by the Azure virtual network infrastructure, each API Management instance in the subnet uses:
     * Two IP addresses per unit of Basic, Standard, or Premium SKU, or 

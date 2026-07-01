@@ -1,5 +1,5 @@
 ---
-title: Using Redis Output bindings with Azure Functions for Azure Cache for Redis
+title: Using Redis Output bindings with Azure Functions for Azure Managed Redis
 description: Learn how to use Redis output binding on an Azure Functions.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -10,9 +10,9 @@ ms.topic: reference
 ms.date: 07/12/2024
 ---
 
-# Azure Cache for Redis output binding for Azure Functions
+# Azure Managed Redis output binding for Azure Functions
 
-The Azure Cache for Redis output bindings lets you change the keys in a cache based on a set of available trigger on the cache.
+The Azure Managed Redis output bindings lets you change the keys in a cache based on a set of available trigger on the cache.
 
 For information on setup and configuration details, see the [overview](functions-bindings-cache.md).
 
@@ -333,7 +333,6 @@ There are three types of connections that are allowed from an Azure Functions in
 ## Related content
 
 - [Introduction to Azure Functions](functions-overview.md)
-- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/redis/tutorial-functions-getting-started)
-- [Tutorial: Create a write-behind cache by using Azure Functions and Azure Cache for Redis](/azure/redis/tutorial-write-behind)
+- [Overview of Azure functions for Azure Redis](/azure/azure-functions/functions-bindings-cache)
 - [Redis connection string](functions-bindings-cache.md#redis-connection-string)
 - [Multiple output bindings](dotnet-isolated-process-guide.md#multiple-output-bindings)

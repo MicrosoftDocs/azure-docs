@@ -6,7 +6,7 @@ description: Learn how to set up a profile editing flow in Azure Active Director
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 01/11/2024
@@ -44,7 +44,7 @@ If you haven't already done so, [register a web application in Azure Active Dire
 
 ## Create a profile editing user flow
 
-If you want to enable users to edit their profile in your application, you use a profile editing user flow.
+To enable users to edit their profile in your application, use a profile editing user flow.
 
 1. In the menu of the Azure AD B2C tenant overview page, select **User flows**, and then select **New user flow**.
 1. On the **Create a user flow** page, select the **Profile editing** user flow. 

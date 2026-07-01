@@ -2,7 +2,7 @@
 title: Best practices for hosting a Kubernetes client application for Azure Managed Redis
 description: Learn how to host a Kubernetes client application that uses Azure Managed Redis.
 ms.date: 05/18/2025
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom:
   - linux-related-content
   - ignite-2024

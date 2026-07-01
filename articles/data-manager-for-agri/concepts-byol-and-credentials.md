@@ -4,7 +4,7 @@ description: Provides information on using third party keys
 author: BlackRider97
 ms.author: ramithar
 ms.service: azure-data-manager-agriculture
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 06/23/2023
 ms.custom:
   - template-concept

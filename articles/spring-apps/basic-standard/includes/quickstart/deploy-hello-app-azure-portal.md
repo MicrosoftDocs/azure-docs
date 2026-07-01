@@ -8,7 +8,7 @@ ms.update-cycle: 1095-days
 ---
 
 <!--
-For clarity of structure, a separate markdown file is used to describe how to deploy web app using Azure Portal.
+For clarity of structure, a separate markdown file is used to describe how to deploy web app using Azure portal.
 
 [!INCLUDE [deploy-hello-app-azure-portal](deploy-hello-app-azure-portal.md)]
 

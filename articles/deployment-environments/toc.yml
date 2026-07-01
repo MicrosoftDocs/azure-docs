@@ -6,12 +6,15 @@ items:
       - name: What is Azure Deployment Environments?
         href: overview-what-is-azure-deployment-environments.md
         displayName: Azure Deployment Environments overview
+      - name: Maintenance mode for Azure Deployment Environments
+        href: maintenance-mode.md
+        displayName: maintenance mode, service status, support
   - name: Quickstarts
     displayName: Quickstarts
     items:
       - name: Configure Azure Deployment Environments
         href: quickstart-create-and-configure-devcenter.md
-      - name: Create dev center and project (Azure Resource Manager)
+      - name: Create dev center and project by using ARM
         href: quickstart-create-dev-center-project-azure-resource-manager.md
         displayName: Azure Deployment Environments, ADE, environments, quickstart
       - name: Create and access an environment
@@ -25,7 +28,7 @@ items:
       - name: Best practices for designing catalogs
         href: best-practice-catalog-structure.md
       - name: Reliability in Azure Deployment Environments
-        href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json
+        href: concept-reliability-deployment-environments.md
       - name: Azure role-based access control
         href: concept-deployment-environments-role-based-access-control.md
   - name: Configure resources
@@ -82,9 +85,9 @@ items:
         href: how-to-request-quota-increase.md
   - name: Security
     items:
-      - name: Grant access to Azure Deployment Environments
-        displayName: role-based access control, RBAC, permissions, roles, access, manage
+      - name: Grant and manage access
         href: how-to-manage-deployment-environments-access.md
+        displayName: role-based access control, RBAC, permissions, roles, access, manage
       - name: Authenticate to REST APIs
         href: how-to-authenticate.md
   - name: Automate with CI/CD

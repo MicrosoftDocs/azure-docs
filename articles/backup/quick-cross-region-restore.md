@@ -2,7 +2,7 @@
 title: Quickstart - Restore a PostgreSQL database across regions using Azure Backup 
 description: Learn how to restore a PostgreSQL database across regions by using Azure Backup.
 ms.topic: quickstart
-ms.date: 11/12/2025
+ms.date: 01/27/2026
 ms.service: azure-backup
 ms.author: v-mallicka
 # Customer intent: "As a database administrator, I want to enable Cross Region Restore for my PostgreSQL database, so that I can ensure data availability and perform restoration drills in case of regional failures or compliance audits."
@@ -30,7 +30,7 @@ To begin with the Cross Region Restore, ensure that:
 To restore the database to the secondary region using the Azure portal, follow these steps:
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
-1. To check the available recovery point in the secondary region, go to the **Backup center** > **Backup Instances**.
+1. To check the available recovery point in the secondary region, go to the **Backup vault** > **Backup Instances**.
 1. Filter to **Azure Database for PostgreSQL servers**, then filter **Instance Region** as *Secondary Region*.
 1. Select the required Backup instance. 
 

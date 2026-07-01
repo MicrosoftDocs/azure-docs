@@ -5,7 +5,7 @@ description: This topic describes how to deal with Iceberg format in Azure Data 
 author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/12/2024
 ms.author: jianleishen
 ---

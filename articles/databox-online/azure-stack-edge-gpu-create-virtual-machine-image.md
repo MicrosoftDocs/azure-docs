@@ -2,12 +2,12 @@
 title: Create custom VM images for your Azure Stack Edge Pro GPU device
 description: Describes how to create custom Windows and Linux VM images for deploying virtual machines on Azure Stack Edge Pro GPU devices.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 08/09/2022
-ms.author: alkohli
+ms.author: sipastak
 ms.custom:
   - linux-related-content
   - sfi-image-nochange
@@ -85,9 +85,9 @@ If using Red Hat Enterprise Linux (RHEL) images, only the Red Hat Enterprise Lin
 To create a VM image using the RHEL BYOS image, follow these steps:
 
 1. Sign in to [Red Hat Subscription Management](https://access.redhat.com/management). Navigate to the [Cloud Access Dashboard](https://access.redhat.com/management/cloud) from the top menu bar.
-1. Enable your Azure subscription. See [detailed instructions](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_rhel_system_registration/red-hat-cloud-access-program-overview_). Enabling the subscription will allow you to access the Red Hat Gold Images.
+1. Enable your Azure subscription. See [detailed instructions](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_rhel_system_registration/assembly-red-hat-cloud-access-program-overview). Enabling the subscription will allow you to access the Red Hat Gold Images.
 
-1. Accept the Azure terms of use (only once per Azure Subscription, per image) and provision a VM. See [instructions](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_rhel_system_registration/red-hat-cloud-access-program-overview_). 
+1. Accept the Azure terms of use (only once per Azure Subscription, per image) and provision a VM. See [instructions](https://docs.redhat.com/en/documentation/subscription_central/1-latest/html/getting_started_with_rhel_system_registration/assembly-red-hat-cloud-access-program-overview). 
 
 You can now use the VM that you provisioned to [Create a VM custom image](#create-a-custom-vm-image) in Linux.
 

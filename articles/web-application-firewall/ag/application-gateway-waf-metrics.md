@@ -17,6 +17,8 @@ ms.custom:
 
 # Azure Web Application Firewall Monitoring and Logging
 
+**Applies to:** :heavy_check_mark: Application Gateway
+
 Azure Web Application Firewall (WAF) monitoring and logging are provided through logging and integration with Azure Monitor and Azure Monitor logs.
 
 ## Azure Monitor

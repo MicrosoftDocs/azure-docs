@@ -6,7 +6,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.date: 04/29/2025
+ms.date: 04/16/2026
 ms.author: radeltch
 ms.custom:
   - devx-track-azurecli
@@ -266,15 +266,14 @@ The following items are prefixed with:
    
    sudo pcs resource create fs_NW1_ASCS Filesystem device='glust-0:/NW1-ascs' \
      directory='/usr/sap/NW1/ASCS00' fstype='glusterfs' \
-     options='backup-volfile-servers=glust-1:glust-2' \
-     --group g-NW1_ASCS
+     options='backup-volfile-servers=glust-1:glust-2'
    
    sudo pcs resource create vip_NW1_ASCS IPaddr2 \
-     ip=10.0.0.7 \
-     --group g-NW1_ASCS
+     ip=10.0.0.7
    
-   sudo pcs resource create nc_NW1_ASCS azure-lb port=62000 \
-     --group g-NW1_ASCS
+   sudo pcs resource create nc_NW1_ASCS azure-lb port=62000
+
+   sudo pcs resource group add g-NW1_ASCS fs_NW1_ASCS vip_NW1_ASCS nc_NW1_ASCS
    ```
 
    Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
@@ -322,15 +321,14 @@ The following items are prefixed with:
    
    sudo pcs resource create fs_NW1_AERS Filesystem device='glust-0:/NW1-aers' \
      directory='/usr/sap/NW1/ERS02' fstype='glusterfs' \
-     options='backup-volfile-servers=glust-1:glust-2' \
-    --group g-NW1_AERS
+     options='backup-volfile-servers=glust-1:glust-2'
    
    sudo pcs resource create vip_NW1_AERS IPaddr2 \
-     ip=10.0.0.8 \
-    --group g-NW1_AERS
+     ip=10.0.0.8
    
-   sudo pcs resource create nc_NW1_AERS azure-lb port=62102 \
-    --group g-NW1_AERS
+   sudo pcs resource create nc_NW1_AERS azure-lb port=62102
+
+   sudo pcs resource group add g-NW1_AERS fs_NW1_AERS vip_NW1_AERS nc_NW1_AERS 
    ```
 
    Make sure that the cluster status is okay and that all resources are started. Which node the resources are running on isn't important.
@@ -443,21 +441,25 @@ The following items are prefixed with:
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 migration-threshold=1 failure-timeout=60 \
     op monitor interval=20 on-fail=restart timeout=60 \
-    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-NW1_ASCS
-   
+    op start interval=0 timeout=600 op stop interval=0 timeout=600
+
+    sudo pcs resource group add g-NW1_ASCS rsc_sap_NW1_ASCS00
     sudo pcs resource meta g-NW1_ASCS resource-stickiness=3000
    
     sudo pcs resource create rsc_sap_NW1_ERS02 SAPInstance \
     InstanceName=NW1_ERS02_nw1-aers START_PROFILE="/sapmnt/NW1/profile/NW1_ERS02_nw1-aers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-NW1_AERS
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
+
+    sudo pcs resource group add g-NW1_AERS rsc_sap_NW1_ERS02
    
-    sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS -5000
-    sudo pcs constraint location rsc_sap_NW1_ASCS00 rule score=2000 runs_ers_NW1 eq 1
     sudo pcs constraint order start g-NW1_ASCS then stop g-NW1_AERS kind=Optional symmetrical=false
-   
+    sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS score=-5000
+    # On RHEL 7.x, 8.x, 9.x
+    sudo pcs constraint location rsc_sap_NW1_ASCS00 rule score=2000 runs_ers_NW1 eq 1
+    # On RHEL 10.x
+    sudo pcs constraint location rsc_sap_NW1_ASCS00 rule score=2000 "runs_ers_NW1 eq 1"
+
     sudo pcs node unstandby nw1-cl-0
     sudo pcs property set maintenance-mode=false
     ```
@@ -472,22 +474,21 @@ The following items are prefixed with:
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 \
     op monitor interval=20 on-fail=restart timeout=60 \
-    op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-NW1_ASCS
-   
+    op start interval=0 timeout=600 op stop interval=0 timeout=600
+
+    sudo pcs resource group add g-NW1_ASCS rsc_sap_NW1_ASCS00
     sudo pcs resource meta g-NW1_ASCS resource-stickiness=3000
    
     sudo pcs resource create rsc_sap_NW1_ERS02 SAPInstance \
     InstanceName=NW1_ERS02_nw1-aers START_PROFILE="/sapmnt/NW1/profile/NW1_ERS02_nw1-aers" \
     AUTOMATIC_RECOVER=false IS_ERS=true \
-    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600 \
-    --group g-NW1_AERS
+    op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
+
+    sudo pcs resource group add g-NW1_AERS rsc_sap_NW1_ERS02
    
-    sudo pcs resource meta rsc_sap_NW1_ERS02 resource-stickiness=3000
-   
-    sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS -5000
     sudo pcs constraint order start g-NW1_ASCS then stop g-NW1_AERS kind=Optional symmetrical=false
-   
+    sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS score=-5000
+
     sudo pcs node unstandby nw1-cl-0
     sudo pcs property set maintenance-mode=false
     ```
@@ -522,7 +523,21 @@ The following items are prefixed with:
     #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
     ```
 
-10. **[A]** Add firewall rules for ASCS and ERS on both nodes.
+10. **[1]** Run the following step to configure `priority-fencing-delay` (applicable only as of pacemaker-2.0.4-6.el8 or higher).
+
+    > [!NOTE]
+    > If you have a two-node cluster, you have the option to configure the `priority-fencing-delay` cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521)
+    >
+    > The property `priority-fencing-delay` is applicable for pacemaker-2.0.4-6.el8 version or higher. If you set up `priority-fencing-delay` on an existing cluster, make sure to clear the `pcmk_delay_max` setting in the fencing device.  
+
+    ```bash
+    sudo pcs resource defaults update priority=1
+    sudo pcs resource update rsc_sap_NW1_ASCS00 meta priority=10
+
+    sudo pcs property set priority-fencing-delay=15s
+    ```
+
+11. **[A]** Add firewall rules for ASCS and ERS on both nodes.
 
     ```bash
     # Probe Port of ASCS
@@ -532,6 +547,12 @@ The following items are prefixed with:
     sudo firewall-cmd --zone=public --add-port={62102,3202,3302,50213,50214,50216}/tcp --permanent
     sudo firewall-cmd --zone=public --add-port={62102,3202,3302,50213,50214,50216}/tcp
     ```
+
+> [!Note]
+> SAP ASCS/ERS cluster can be extended from 2-node to 3-node cluster with 3rd node as a spare node for failover of ASCS or ERS services.
+> - 3-node setup can only be used for SAP systems using SAP Enqueue Replication Server 2 (ENSA2).
+> - The cluster property `priority-fencing-delay` should not be used in a 3-node cluster.
+
 
 ## SAP NetWeaver application server preparation
 
@@ -723,7 +744,7 @@ Follow these steps to install an SAP application server.
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    ```
 
-1. Simulate a node crash.
+2. Simulate a node crash.
 
    Resource state before starting the test:
 
@@ -772,7 +793,7 @@ Follow these steps to install an SAP application server.
    ```
 
    > [!NOTE]
-   > If you're using SBD as a STONITH mechanism, it could happen that after a reboot, when the node attempts to rejoin the cluster, it receives the message "we were allegendly just fenced" message in /var/log/messages and shut down the Pacemaker and Corosync services. To address the issue, you can follow the workaround described in RedHat KB [A node shuts down pacemaker after getting fenced and restarting corosync and pacemaker](https://access.redhat.com/solutions/5644441). However, in Azure, set a delay of 150 seconds for Corosync service to startup. Ensure that these steps are applied to all cluster nodes.
+   > If you're using SBD as a STONITH mechanism, it could happen that after a reboot, when the node attempts to rejoin the cluster, it receives the message "we were allegedly just fenced" message in /var/log/messages and shut down the Pacemaker and Corosync services. To address the issue, you can follow the workaround described in RedHat KB [A node shuts down pacemaker after getting fenced and restarting corosync and pacemaker](https://access.redhat.com/solutions/5644441). However, in Azure, set a delay of 150 seconds for Corosync service to startup. Ensure that these steps are applied to all cluster nodes.
 
    Use the following command to clean the failed resources.
 
@@ -796,7 +817,7 @@ Follow these steps to install an SAP application server.
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    ```
 
-1. Block network communication.
+3. Block network communication.
 
    Resource state before starting the test:
 
@@ -825,6 +846,9 @@ Follow these steps to install an SAP application server.
 
    By enabling the `priority-fencing-delay` property, the cluster introduces a delay in the fencing action, specifically on the node hosting ASCS resource, allowing the node to win the fence race.
 
+   > [!NOTE]
+   > The `priority-fencing-delay` property applies only to two-node cluster configurations.
+
    Run the following command to delete the firewall rule.
 
    ```bash
@@ -832,7 +856,7 @@ Follow these steps to install an SAP application server.
     iptables -D INPUT -s 10.0.0.8 -j DROP; iptables -D OUTPUT -d 10.0.0.8 -j DROP
    ```
 
-1. Kill the message server process.
+4. Kill the message server process.
 
    Resource state before starting the test:
 
@@ -879,7 +903,7 @@ Follow these steps to install an SAP application server.
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    ```
 
-1. Kill the enqueue server process.
+5. Kill the enqueue server process.
 
    Resource state before starting the test:
 
@@ -930,7 +954,7 @@ Follow these steps to install an SAP application server.
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    ```
 
-1. Kill the enqueue replication server process.
+6. Kill the enqueue replication server process.
 
    Resource state before starting the test:
 
@@ -980,7 +1004,7 @@ Follow these steps to install an SAP application server.
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-1
    ```
 
-1. Kill the enqueue `sapstartsrv` process.
+7. Kill the enqueue `sapstartsrv` process.
 
    Resource state before starting the test:
 

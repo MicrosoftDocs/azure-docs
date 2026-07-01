@@ -2,12 +2,10 @@
 title: Enable CORS for Azure API Management developer portal 
 description: How to configure CORS to enable the Azure API Management developer portal's interactive test console.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 05/30/2025
-ms.author: danlep
 ---
 
 # Enable CORS for interactive console in the API Management developer portal 

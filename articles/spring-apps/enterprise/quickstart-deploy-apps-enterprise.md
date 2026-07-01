@@ -76,7 +76,7 @@ Use the following steps to provision an Azure Spring Apps service instance.
        --location ${LOCATION}
    ```
 
-   For more information about resource groups, see [What is Azure Resource Manager?](../../azure-resource-manager/management/overview.md).
+   For more information about resource groups, see [What is Azure Resource Manager?](../../azure-resource-manager/management/overview.md)
 
 1. Use the following command to create an Azure Spring Apps service instance:
 

@@ -1,9 +1,9 @@
-﻿---
+---
 title: Manage resources - REST
 description: Use REST operations with Azure Resource Manager to manage your resources. Shows how to read, deploy, and delete resources. 
 ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 02/10/2025
+ms.date: 02/27/2026
 ---
 
 # Manage Azure resources by using the REST API

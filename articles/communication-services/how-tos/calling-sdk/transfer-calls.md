@@ -2,8 +2,8 @@
 title: Transfer calls
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to transfer calls.
-author: tophpalmer
-ms.author: chpalm
+author: sundiraman
+ms.author: sundraman
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: how-to 

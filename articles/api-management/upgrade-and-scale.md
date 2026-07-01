@@ -1,13 +1,11 @@
 ---
 title: Upgrade and scale an Azure API Management instance | Microsoft Docs
 description: This article describes how to upgrade and scale an Azure API Management instance.
-author: dlepow
 
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 11/11/2025
-ms.author: danlep
 ms.custom:
   - engagement-fy23
   - build-2025

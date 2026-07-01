@@ -6,11 +6,13 @@ ms.author: ajagadish
 ms.date: 11/16/2021
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: azure-synapse
 ---
 
 # Azure Synapse Analytics workload group isolation
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This article explains how workload groups can be used to configure workload isolation, contain resources, and apply runtime rules for query execution.
 

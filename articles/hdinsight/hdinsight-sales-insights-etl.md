@@ -4,9 +4,8 @@ description: Learn how to create ETL pipelines with Azure HDInsight to derive in
 ms.service: azure-hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive
-author: apurbasroy
-ms.author: apsinhar
-ms.reviewer: sairamyeturi
+author: yeturis
+ms.author: sairamyeturi
 ms.date: 06/14/2024
 ---
 

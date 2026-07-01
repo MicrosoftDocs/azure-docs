@@ -6,6 +6,7 @@ ms.custom:
   - ignite-2024
 ms.topic: quickstart
 ms.date: 05/22/2025
+ms.update-cycle: 1095-days
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka

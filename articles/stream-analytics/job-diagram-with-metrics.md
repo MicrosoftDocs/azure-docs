@@ -5,7 +5,7 @@ titleSuffix: Azure Stream Analytics
 author: xujxu
 ms.author: xujiang1
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 2/17/2023
 ---
 

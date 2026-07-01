@@ -1,16 +1,20 @@
 ---
-title: "Accounting configuration"
-description: Learn how to configure accounting during a migration of high performance computing architecture.
+title: Configure cost accounting and budget tracking for Azure HPC
+description: Set up cost management and accounting to track HPC resource usage, project costs, and budget forecasting on Azure.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 04/10/2025
+ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
 # Customer intent: "As an HPC administrator, I want to configure accounting systems during migration, so that I can ensure efficient resource utilization, optimize costs, and maintain compliance with organizational policies."
 ---
 
-# Accounting configuration
+# Configure cost accounting and budget tracking for Azure HPC
 
 A key aspect of your high performance computing migration is the configuration of accounting systems. Your accounting components ensure efficient resource utilization, cost management, and compliance. This part of the guide covers the needs, tools, services, and best practices associated with your accounting systems.
 

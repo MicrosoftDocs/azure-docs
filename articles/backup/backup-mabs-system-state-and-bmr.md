@@ -3,7 +3,7 @@ title: System state and bare-metal recovery protection for Azure Backup
 description: Use Azure Backup Server to back up your system state and provide bare-metal recovery (BMR) protection.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 12/05/2025
+ms.date: 04/24/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom: engagement-fy24
@@ -27,7 +27,7 @@ Azure Backup Server backs up system state and provides bare-metal recovery (BMR)
 
 ## Supported backup and restore scenarios for system state and BMR
 
-The following table summarizes what you can back up and recover. For information about app versions that system state and BMR can protect, see [What does Azure Backup Server back up?](backup-mabs-protection-matrix.md).
+The following table summarizes what you can back up and recover. For information about app versions that system state and BMR can protect, see [What does Azure Backup Server back up?](backup-mabs-protection-matrix.md)
 
 |Backup|Issue|Recover from Azure Backup Server backup|Recover from system state backup|BMR|
 |----------|---------|---------------------------|------------------------------------|-------|
@@ -46,6 +46,8 @@ The following table summarizes what you can back up and recover. For information
 |SQL Server/Exchange<br /><br />Azure Backup Server app backup<br /><br />BMR/system state backup|Lost or damaged operating system|N|Y|Y|
 |SQL Server/Exchange<br /><br />Azure Backup Server app backup<br /><br />BMR/system state backup|Lost server (database/transaction logs intact)|N|N|Y|
 |SQL Server/Exchange<br /><br />Azure Backup Server app backup<br /><br />BMR/system state backup|Lost server (database/transaction logs lost)|N|N|Y<br /><br />BMR recovery, followed by regular Azure Backup Server recovery|
+
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
 
 ## System state backup workflow
 

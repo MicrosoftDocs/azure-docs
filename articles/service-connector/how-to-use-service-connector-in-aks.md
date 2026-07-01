@@ -1,12 +1,10 @@
 ---
 title: How to use Service Connector in Azure Kubernetes Service (AKS)
 description: Learn how to use Service Connector to connect AKS to other Azure services. Learn about Service Connector operations, resource management, and troubleshooting.
-author: houk-ms
-ms.reviewer: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/06/2025
-ms.author: honc
+ms.date: 06/17/2026
+ms.reviewer: honc
 ms.custom: sfi-image-nochange
 ---
 
@@ -28,7 +26,7 @@ This article covers:
 
 ## Differences between Service Connector for AKS and other compute services
 
-Service Connector for AKS differs from how it operates with other [compute services supported by Service Connector](/azure/service-connector/overview#what-services-are-supported-by-service-connector) in several ways. The following outlines AKS-specific options and behaviors for each API operation.
+Service Connector for AKS differs from how it operates with other [compute services supported by Service Connector](/azure/service-connector/overview#what-services-are-supported-by-service-connector) in several ways. The following sections describe AKS-specific options and behaviors for each API operation.
 
 ### Creation
 
@@ -61,15 +59,15 @@ The output of the Azure CLI command [az aks connection validate](/cli/azure/aks/
 
 ## Operations performed by Service Connector on the AKS cluster
 
-The operations performed by Service Connector on the AKS cluster vary depending on the target services and authentication types selected when creating a service connection. The following lists the possible operations made by Service Connector.
+The operations performed by Service Connector on the AKS cluster vary depending on the target services and authentication types selected when creating a service connection, as described in the following sections.
 
 ### Adding the Service Connector Kubernetes extension
 
-A Kubernetes extension named `sc-extension` is added to the cluster the first time a service connection is created. Later on, the extension helps create Kubernetes resources in the user's cluster, whenever a service connection request comes to Service Connector. The extension is found in the user's AKS cluster in the Azure portal, in the **Extensions + applications** menu.
+A Kubernetes extension named `sc-extension` is added to the cluster the first time a service connection is created. The extension then creates Kubernetes resources in your cluster whenever a service connection is created. The extension is found in your AKS cluster in the Azure portal, in the **Extensions + applications** menu.
 
 :::image type="content" source="./media/aks-tutorial/sc-extension.png" alt-text="Screenshot of the Azure portal, view AKS extension.":::
 
-The cluster connection's metadata are also stored in the extension. Uninstalling the extension renders all the connections in the cluster unavailable. The extension operator is hosted in the cluster namespace `sc-system`.
+The cluster connection metadata is also stored in the extension. Uninstalling the extension renders all the connections in the cluster unavailable. The extension operator is hosted in the cluster namespace `sc-system`.
 
 ### Creating the Kubernetes resources
 
@@ -109,7 +107,7 @@ Service Connector retrieves the required connection configurations from the targ
 - For the `Workload Identity` authentication type, it usually contains the service endpoint.
 - For the `Service Principal` authentication type, it contains the service principal's tenant ID, client ID, and client secret. 
 
-For detailed information on specific target services, refer to the corresponding documentation, such as the [Azure AI services](/azure/service-connector/how-to-integrate-ai-services?tabs=dotnet#system-assigned-managed-identity-recommended) guide.
+For detailed information on specific target services, refer to the corresponding documentation, such as the [Foundry Tools](/azure/service-connector/how-to-integrate-ai-services?tabs=dotnet#system-assigned-managed-identity-recommended) guide.
 
 ### Create IP based firewall rules
 
@@ -269,7 +267,7 @@ Refer to [extension creation errors](/troubleshoot/azure/azure-kubernetes/extens
 
 This error is caused by connectivity problems that occur between the cluster and the firewall in addition to egress blocking problems. 
 To resolve this problem, see [Outbound network and FQDN rules for Azure Kubernetes Service (AKS) clusters](/azure/aks/outbound-rules-control-egress), 
-and add the FQDN required to pull Service Connector Helm chart: `scaksextension.azurecr.io`
+and add the FQDN required to pull Service Connector Helm chart: `mcr.microsoft.com`
 
 **Error messages:**
 

@@ -18,15 +18,15 @@ In this article, you learn how to store and manage Oracle Transparent Data Encry
 * Azure Key Vault Premium
 * Azure Key Vault Managed HSM
 
-This integration enables Oracle Database@Azure customers to meet a wide spectrum of security, compliance, and key management needs. These needs range from software-based key storage to single-tenant, FIPS 140-3 Level 3 validated hardware security modules (HSMs).
+This integration enables Oracle AI Database@Azure customers to meet a wide spectrum of security, compliance, and key management needs. These needs range from software-based key storage to single-tenant, FIPS 140-3 Level 3 validated hardware security modules (HSMs).
 
-:::image type="content" source="media\akv-on-odaa-architecture-diagram.png" alt-text="Architecture diagram for Oracle Database at Azure using Azure Key Vault.":::
+:::image type="content" source="media\akv-on-odaa-architecture-diagram.png" alt-text="Architecture diagram for Oracle AI Database at Azure using Azure Key Vault.":::
 
 ## Prerequisites
 
-* **Oracle Database@Azure provisioned**: Deploy an Exadata virtual machine (VM) cluster in a delegated subnet in an Azure virtual network. Ensure that you have access to the Oracle Cloud Infrastructure (OCI) console for management.
+* **Oracle AI Database@Azure provisioned**: Deploy an Exadata virtual machine (VM) cluster in a delegated subnet in an Azure virtual network. Ensure that you have access to the Oracle Cloud Infrastructure (OCI) console for management.
 
-* **Advanced networking**: If you haven't configured advanced networking, enable the feature as described in [Network planning for Oracle Database@Azure](/azure/oracle/oracle-db/oracle-database-network-plan). This action enables the Azure Private Link connectivity that's required for Managed HSM and Azure Arc.
+* **Advanced networking**: If you haven't configured advanced networking, enable the feature as described in [Network planning for Oracle AI Database@Azure](/azure/oracle/oracle-db/oracle-database-network-plan). This action enables the Azure Private Link connectivity that's required for Managed HSM and Azure Arc.
 
 * **Azure Key Vault private connectivity**: Configure a private endpoint with Domain Name System (DNS) for Azure Key Vault, and ensure that Exadata can reach it. For details, see [Integrate Key Vault with Azure Private Link](/azure/key-vault/general/private-link-service).
 
@@ -57,7 +57,7 @@ This integration enables Oracle Database@Azure customers to meet a wide spectrum
 
 ## Step 1: Create and prepare a key vault
 
-Set up a key vault to hold your Oracle database encryption keys. If you already have a suitable key vault and key, you can use them, but ensure that they're dedicated or appropriately secured for this purpose.
+Set up a key vault to hold your Oracle AI Database encryption keys. If you already have a suitable key vault and key, you can use them, but ensure that they're dedicated or appropriately secured for this purpose.
 
 1. Create a key vault. You can use the Microsoft Azure portal or the Azure CLI. The detailed steps depend on your tier of Azure Key Vault:
 
@@ -133,9 +133,9 @@ Here's how to create the connector:
 
 2. Create an identity connector on the OCI console:
 
-    1. Sign in to the OCI console for Oracle Database@Azure.
+    1. Sign in to the OCI console for Oracle AI Database@Azure.
 
-    1. Go to your Exadata VM cluster resource. On the menu, select **Oracle Database** > **Oracle Exadata Database Service on Dedicated Infrastructure** > **Exadata VM Clusters**, and then select your cluster name.
+    1. Go to your Exadata VM cluster resource. On the menu, select **Oracle AI Database** > **Oracle Exadata Database Service on Dedicated Infrastructure** > **Exadata VM Clusters**, and then select your cluster name.
 
     1. On the page for VM cluster details, find the **Multicloud information** section. The **Identity connector** value is likely **None** because you haven't set up the connector yet. Select **Create**.
 
@@ -237,13 +237,13 @@ After registration:
 
 Now Oracle OCI knows about your key vault and has it associated with the cluster's connector. The path is clear for a database to use the vault.
 
-## Step 6: Configure an Oracle database to use Azure Key Vault
+## Step 6: Configure an Oracle AI Database to use Azure Key Vault
 
-You need to configure one or more Oracle databases on the Exadata VM cluster to use Azure Key Vault for TDE key storage. You can do this task during database creation or by migrating an existing database from using the Oracle Wallet to using Azure Key Vault.
+You need to configure one or more Oracle AI Databases on the Exadata VM cluster to use Azure Key Vault for TDE key storage. You can do this task during database creation or by migrating an existing database from using the Oracle Wallet to using Azure Key Vault.
 
 ### Scenario A: Create a new database by using Azure Key Vault
 
-When you're provisioning a new Oracle database on the Exadata VM cluster via the OCI console:
+When you're provisioning a new Oracle AI Database on the Exadata VM cluster via the OCI console:
 
 1. Start the **Create Database** wizard. This step assumes that you already have at least one Oracle Home on the cluster to house the database.
 
@@ -261,7 +261,7 @@ The provisioning process fetches the chosen key from Azure Key Vault and sets up
 
 ### Scenario B: Migrate an existing database to Azure Key Vault
 
-For an Oracle database that's already running on the VM cluster that currently uses the default Oracle Wallet for TDE keys, you can switch it to use Azure Key Vault.
+For an Oracle AI Database that's already running on the VM cluster that currently uses the default Oracle Wallet for TDE keys, you can switch it to use Azure Key Vault.
 
 To switch by using the OCI console:
 
@@ -301,9 +301,9 @@ When the operation finishes, refresh the **Database** page. Verify that **Key 
 
 ## Step 7: Verify the integration and security
 
-Your Oracle database is now configured to use Azure Key Vault for all encryption operations. Now, verify that everything is functioning and secure:
+Your Oracle AI Database is now configured to use Azure Key Vault for all encryption operations. Now, verify that everything is functioning and secure:
 
-* **Database status**: Connect to the Oracle database and ensure that you can read and write encrypted data. Typically, if TDE is configured correctly, this process is transparent to the user. However, if the database can't access the key, you get errors when you try to open the database. For example, error ORA-28374, "protected by master key not found" (or similar) appears. If you followed the preceding steps, the database should open via the Azure Key Vault key seamlessly.
+* **Database status**: Connect to the Oracle AI Database and ensure that you can read and write encrypted data. Typically, if TDE is configured correctly, this process is transparent to the user. However, if the database can't access the key, you get errors when you try to open the database. For example, error ORA-28374, "protected by master key not found" (or similar) appears. If you followed the preceding steps, the database should open via the Azure Key Vault key seamlessly.
 
 * **OCI console confirmation**: Confirm that the database's detail page in OCI shows Azure Key Vault as the key store, and that it lists the key name/OCID. This information indicates that Oracle's control plane knows that the database is tied to the external key.
 
@@ -311,7 +311,7 @@ Your Oracle database is now configured to use Azure Key Vault for all encryption
 
   * Under **Keys**, you should see the key; for example, **OracleTDEMasterKey**. There might not be visible changes just from association, but you can check the Azure Key Vault logs.
   
-    Enable Azure Key Vault diagnostic logging if you haven't already, and check for a **Get Key** or **Decrypt/Unwrap Key** event that corresponds to when the database was opened or the key was set. This action confirms that the Oracle database accessed the key in Azure.
+    Enable Azure Key Vault diagnostic logging if you haven't already, and check for a **Get Key** or **Decrypt/Unwrap Key** event that corresponds to when the database was opened or the key was set. This action confirms that the Oracle AI Database accessed the key in Azure.
 
     Azure logs show the principal that accessed the key. It should be the Azure Arc machine's managed identity, identifiable by a GUID. The GUID should match the Azure Arc `principalId` value.
   * If you perform a rotation in the next task, a new key version appears in this list.
@@ -322,7 +322,7 @@ Your Oracle database is now configured to use Azure Key Vault for all encryption
   
   Azure Key Vault supports key versioning. Old versions can be left disabled rather than deleted until you no longer need them.
 
-* **Test failover/restart**: If this setup is for production, simulate a database restart to ensure that the database can retrieve the key on startup. Shut down and then start the Oracle database. (Or restart the VM cluster if necessary. In RAC, bounce one node at a time.) The database should start without manual intervention, pulling the key from Azure Key Vault in the process.
+* **Test failover/restart**: If this setup is for production, simulate a database restart to ensure that the database can retrieve the key on startup. Shut down and then start the Oracle AI Database. (Or restart the VM cluster if necessary. In RAC, bounce one node at a time.) The database should start without manual intervention, pulling the key from Azure Key Vault in the process.
 
   If the database starts correctly, the integration is solid. If it fails to open the wallet automatically, recheck [Step 2: Configure Microsoft Entra ID permissions for key vault access](#step-2-configure-microsoft-entra-id-permissions-for-key-vault-access) and [Step 3: Set up the Oracle identity connector](#step-3-set-up-the-oracle-identity-connector).
 
@@ -406,13 +406,13 @@ Oracle handles updates to the Exadata infrastructure and the Azure Arc agent as 
 
 ## Best practices
 
-* **Production workloads**: For production Oracle Database@Azure environments, we strongly recommend Azure Key Vault Premium or Managed HSM. Azure Key Vault and the Exadata VM cluster should be in the same tenant and in the same resource group. This is a known issue, and we're working to fix it.
+* **Production workloads**: For production Oracle AI Database@Azure environments, we strongly recommend Azure Key Vault Premium or Managed HSM. Azure Key Vault and the Exadata VM cluster should be in the same tenant and in the same resource group. This is a known issue, and we're working to fix it.
 
 * **Performance and compliance**: Choose the appropriate tier based on your FIPS compliance needs, key type support, and security isolation requirements.
 
-* **Private Link requirement**: For Managed HSM, Private Link integration is mandatory for secure access. We recommend Private Link connectivity for all Azure Key Vault and Oracle Database@Azure integrations.
+* **Private Link requirement**: For Managed HSM, Private Link integration is mandatory for secure access. We recommend Private Link connectivity for all Azure Key Vault and Oracle AI Database@Azure integrations.
 
-* **Advanced Encryption Standard (AES) key support**: Oracle Database@Azure customers should use AES keys wherever possible. To manage TDE MEKs with AES format, you must use Managed HSM.
+* **Advanced Encryption Standard (AES) key support**: Oracle AI Database@Azure customers should use AES keys wherever possible. To manage TDE MEKs with AES format, you must use Managed HSM.
 
 * **Monitoring and auditing**: Enable Azure diagnostic logs for monitoring key access and usage events across all tiers.
 
@@ -422,6 +422,6 @@ Finally, remember that this integration bridges two cloud services. Ensure that 
 
 ## Related content
 
-* [Azure Key Vault Integration for Oracle Database@Azure](https://docs.oracle.com/en-us/iaas/Content/database-at-azure-exadata/odexa-managing-exadata-database-services-azure.html#GUID-F1EAD7CE-73E1-41B2-AA3A-21B7657A95E1) (Oracle documentation)
+* [Azure Key Vault Integration for Oracle AI Database@Azure](https://docs.oracle.com/en-us/iaas/Content/database-at-azure-exadata/odexa-managing-exadata-database-services-azure.html#GUID-F1EAD7CE-73E1-41B2-AA3A-21B7657A95E1) (Oracle documentation)
 * [About Azure Key Vault](/azure/key-vault/general/overview)
 * [What is Azure Key Vault Managed HSM?](/azure/key-vault/managed-hsm/overview)

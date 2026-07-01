@@ -14,25 +14,27 @@ ms.author: kendownie
 You can now monitor your stateful workloads running on Azure Container Storage (version 1.x.x) using managed Prometheus. Prometheus is a popular open-source monitoring and alerting solution that's widely used in Kubernetes environments to monitor and alert on infrastructure and workload performance.
 
 > [!IMPORTANT]
-> This article covers monitoring for Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available. If you've already installed Azure Container Storage (version 2.x.x) and want to monitor your workloads, you can use a [similar managed Prometheus setup](enable-monitoring.md).
+> This article covers monitoring for Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available. If you already run Azure Container Storage (version 2.x.x) and want to monitor your workloads, you can use a [similar managed Prometheus setup](enable-monitoring.md).
 
 [Azure Monitor managed service for Prometheus](/azure/azure-monitor/essentials/prometheus-metrics-overview#azure-monitor-managed-service-for-prometheus) is a component of [Azure Monitor Metrics](/azure/azure-monitor/essentials/data-platform-metrics) that provides a fully managed and scalable environment for running Prometheus. It enables collecting Prometheus metrics from your Azure Kubernetes Service (AKS) clusters to monitor your workloads.
 
 Prometheus metrics are stored in an Azure Monitor workspace, where you can analyze and visualize the data using [Azure Monitor Metrics Explorer with PromQL](/azure/azure-monitor/essentials/metrics-explorer) and [Azure Managed Grafana](/azure/managed-grafana/overview).
 
-## Prerequisites and limitations
+## Prerequisites
 
 This feature only supports Azure Monitor managed service for Prometheus. If you have your own Prometheus instance deployed, then you must disable Azure Container Storage's Prometheus instance by running the following Azure CLI command. Replace `<cluster_name>` and `<resource_group_name>` with your own values.
 
-```azurecli
+```azurecli-interactive
 az k8s-extension update --cluster-type managedClusters --cluster-name <cluster_name> --resource-group <resource_group_name> --name azurecontainerstorage --config base.metrics.enablePrometheusStack=false
 ```
+
+## Limitations
 
 Azure Managed Grafana default dashboard support isn't currently enabled for Azure Container Storage.
 
 ## Collect Azure Container Storage Prometheus metrics
 
-You can use Azure Monitor managed service for Prometheus to collect Azure Container Storage metrics along with other Prometheus metrics from your AKS cluster. To start collecting Azure Container Storage metrics, [enable Managed Prometheus on the AKS cluster](/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=cli#enable-prometheus-and-grafana). If your AKS cluster already has Prometheus enabled, then installing Azure Container Storage on that cluster will automatically start collecting Azure Container Storage metrics.
+You can use Azure Monitor managed service for Prometheus to collect Azure Container Storage metrics along with other Prometheus metrics from your AKS cluster. To start collecting Azure Container Storage metrics, [enable Managed Prometheus on the AKS cluster](/azure/azure-monitor/containers/kubernetes-monitoring-enable?tabs=cli#enable-prometheus-and-grafana). If your AKS cluster already has Prometheus enabled, then installing Azure Container Storage on that cluster automatically starts collecting Azure Container Storage metrics.
 
 ### Scrape frequency
 
@@ -53,7 +55,7 @@ Azure Container Storage provides the following storage pool metrics collected fr
 
 | **Metric** | **Description** |
 |------------------|-----------------|
-| `storage_pool_ready_state` | This is a gauge metric to detect storage pool state (0 = not ready, 1 = ready). |
+| `storage_pool_ready_state` | This metric is a gauge that detects storage pool state (0 = not ready, 1 = ready). |
 | `storage_pool_capacity_provisioned_bytes` | Storage pool capacity provisioned in bytes. |
 | `storage_pool_capacity_used_bytes` | Storage pool capacity used in bytes from the provisioned storage pool capacity. |
 | `storage_pool_snapshot_capacity_reserved_bytes` | Storage pool capacity reserved in bytes for storing local snapshots. |
@@ -64,7 +66,7 @@ Azure Container Storage provides the following disk metrics collected from the `
 
 | **Metric** | **Description** |
 |------------------|-----------------|
-| `disk_pool_ready_state` | This is a gauge metric to detect disk pool state (0 = not ready, 1 = ready). |
+| `disk_pool_ready_state` | This metric is a gauge that detects disk pool state (0 = not ready, 1 = ready). |
 | `disk_read_operations_completed_total` | The number of total disk read operations performed successfully over the disk. |
 | `disk_write_operations_completed_total` | The number of total disk write operations performed successfully over the disk. |
 | `disk_read_operations_time_seconds_total` | The total time spent performing read operations in seconds. |
@@ -72,7 +74,7 @@ Azure Container Storage provides the following disk metrics collected from the `
 | `disk_errors_total` | Count of disk errors. |
 | `disk_read_bytes_total` | The total number of bytes read successfully. |
 | `disk_written_bytes_total` | The total number of bytes written successfully. |
-| `disk_readonly_errors_gauge` | This is a gauge metric to measure read-only volume mounts. |
+| `disk_readonly_errors_gauge` | This metric is a gauge that measures read-only volume mounts. |
 
 ## Query Azure Container Storage metrics
 
@@ -90,7 +92,7 @@ To view Azure Container Storage metrics, follow these steps:
 
    :::image type="content" source="media/metrics.png" alt-text="Screenshot showing how to query Azure Container Storage metrics using the Azure portal." lightbox="media/metrics.png":::
 
-1. Alternatively, you can select the Managed Grafana instance, and on the instance overview page, click on the endpoint URL. This will navigate to the Grafana portal where you can query the metrics. The data source will be automatically configured for you to query metrics from the associated Azure Monitor workspace.
+1. Alternatively, you can select the Managed Grafana instance, and on the instance overview page, click on the endpoint URL. This navigates to the Grafana portal where you can query the metrics. The data source is automatically configured for you to query metrics from the associated Azure Monitor workspace.
 
    :::image type="content" source="media/dashboard.png" alt-text="Screenshot of an Azure Managed Prometheus dashboard and metrics browser." lightbox="media/dashboard.png":::
 

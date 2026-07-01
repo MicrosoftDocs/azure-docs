@@ -1,7 +1,20 @@
 - name: Resiliency documentation
   href: index.yml
-- name: Overview
-  href: resiliency-overview.md
+- name: About Resiliency
+  items:
+  - name: Overview
+    href: resiliency-overview.md
+  - name: What's new
+    href: resiliency-whats-new.md  
+  - name: Zonal resiliency
+    items:
+    - name: Availability Zone Down Drills
+      href: availability-zone-down-drills-about.md
+    - name: Goals and recommendations
+      href: goals-recommendations-about.md
+    - name: Recovery orchestration plan
+      href: recovery-orchestration-plan-about.md
+  expanded: true
 - name: Quickstart
   items:
   - name: Understand the protection estate
@@ -34,8 +47,16 @@
     href: tutorial-manage-data-using-copilot.md
 - name: Concepts
   items:
-  - name: Support matrices
+  - name: Resiliency support matrix
     href: resiliency-support-matrix.md
+  - name: Zonal resiliency support metrics  
+    items:
+    - name: Availability zone down drills
+      href: availability-zone-down-drills-support-matrix.md
+    - name: Goals and recommendations
+      href: goals-recommendations-support-matrix.md  
+    - name: Recovery orchestration plan
+      href: recovery-orchestration-plan-support-matrix.md
   - name: Security levels
     href: security-levels-concept.md
   - name: Protect Azure Elastic SAN via Azure Backup (preview)
@@ -62,3 +83,25 @@
       href: ../backup/azure-elastic-storage-area-network-backup-restore.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json  
     - name: Manage
       href: ../backup/azure-elastic-storage-area-network-backup-manage.md?toc=/azure/business-continuity-center/toc.json&bc=/azure/business-continuity-center/breadcrumb/toc.json      
+  - name: Zonal resiliency
+    items:
+    - name: Define and execute Zone Down Drill
+      items:
+      - name: Define
+        href: availability-zone-down-drill-define.md    
+      - name: Execute
+        href: availability-zone-down-drill-execute.md    
+    - name: Assign and use Goals and recommendations
+      items:
+      - name: Assign goals and view resiliency posture
+        href: goals-recommendations-assign-goals-view-posture.md
+      - name: Review recommendations
+        href: goals-recommendations-review-recommendations.md
+      - name: Use the Resiliency agent
+        href: goals-recommendations-use-agent.md
+    - name: Configure and execute Recovery orchestration plan
+      items:
+      - name: Create and configure
+        href: recovery-orchestration-plan-create-configure.md
+      - name: Execute
+        href: recovery-orchestration-plan-execute.md

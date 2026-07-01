@@ -20,23 +20,25 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
 ## Before you start
 
-Call Recording APIs use exclusively the `serverCallId`to initiate recording. There are a couple of methods you can use to fetch the `serverCallId` depending on your scenario:
+Call Recording APIs use the `callConnectionId` or `serverCallId`to initiate recording. There are a couple of methods you can use to fetch the these IDs depending on your scenario:
 
-### Call Automation scenarios
+### How to fetch callConnectionId
 
-- When using [Call Automation](../../../call-automation/callflows-for-customer-interactions.md), you have two options to get the `serverCallId`:
-    1) Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call is established. Learn how to [Get CallConnected event](../../../call-automation/callflows-for-customer-interactions.md?pivots=programming-language-python#update-programcs) from Call Automation SDK.
-    2) Once you answer the call or a call is created, it returns the `serverCallId` as a property of the `AnswerCallResult` or `CreateCallResult` API responses respectively.
+When using [Call Automation](../../../call-automation/callflows-for-customer-interactions.md), you will receive the `callConnectionId` from the response event from a `createCall`, `answer`, or `connect` requests when initiating the call.
 
-### Calling SDK scenarios
+### How to fetch serverCallId
 
-- When using [Calling Client SDK](../../get-started-with-video-calling.md), you can retrieve the `serverCallId` by using the `server_call_id` variable on the call.
-Use this example to learn how to [Get serverCallId](../../get-server-call-id.md) from the Calling Client SDK.
+When using [Call Automation](../../../call-automation/callflows-for-customer-interactions.md), you have two options to get the `serverCallId`:
+
+1. When you establish a call, it returns a `serverCallId` as a property of the `CallConnected` event after a call is established. Learn how to [Get CallConnected event](../../../call-automation/callflows-for-customer-interactions.md?pivots=programming-language-csharp#update-programcs) from Call Automation SDK.
+
+2. When you answer the call or a call is created, it returns the `serverCallId` as a property of the `AnswerCallResult` or `CreateCallResult` API responses respectively.
 
 
+When using [Calling Client SDK](../../get-started-with-video-calling.md), you can retrieve the `serverCallId` by using the `getServerCallId` method on the call. 
+Use this example to learn how to [Get serverCallId](../../get-server-call-id.md) from the Calling Client SDK. 
 
-Let's get started with a few simple steps!
-
+Let's get started with a few simple steps.
 
 
 ## 1. Create a Call Automation client
@@ -51,13 +53,13 @@ call_automation_client = CallAutomationClient.from_connection_string("<ACSConnec
 
 ## 2. Start recording session start_recording API
 
-Use the `serverCallId` received during initiation of the call.
+Use the `callConnectionId` or `serverCallId` received during initiation of the call.
 - Use `RecordingContent` to pass the recording content type. Use `AUDIO`.
 - Use `RecordingChannel` to pass the recording channel type. Use `MIXED` or `UNMIXED`.
 - Use `RecordingFormat` to pass the format of the recording. Use `WAV`.
 
 ```python
-response = call_automation_client.start_recording(call_locator=ServerCallLocator(server_call_id),
+response = call_automation_client.start_recording(call_locator=ServerCallLocator(callConnectionId or server_call_id),
             recording_content_type = RecordingContent.Audio,
             recording_channel_type = RecordingChannel.Unmixed,
             recording_format_type = RecordingFormat.Wav,
@@ -69,7 +71,7 @@ response = call_automation_client.start_recording(call_locator=ServerCallLocator
 Start Recording with your own Azure Blob Storage defined to store the recording file once recording is complete.
 
 ```python
-response = call_automation_client.start_recording(call_locator=ServerCallLocator(server_call_id),
+response = call_automation_client.start_recording(call_locator=ServerCallLocator(callConnectionId or server_call_id),
                    recording_content_type = RecordingContent.Audio,
                    recording_channel_type = RecordingChannel.Unmixed,
                    recording_format_type = RecordingFormat.Wav,
@@ -82,7 +84,7 @@ response = call_automation_client.start_recording(call_locator=ServerCallLocator
 > **Recordings will need to be resumed for recording file to be generated.**
 
 ```python
-response = call_automation_client.start_recording(call_locator=ServerCallLocator(server_call_id),
+response = call_automation_client.start_recording(call_locator=ServerCallLocator(callConnectionId or server_call_id),
             recording_content_type = RecordingContent.Audio,
             recording_channel_type = RecordingChannel.Unmixed,
             recording_format_type = RecordingFormat.Wav,
@@ -95,7 +97,7 @@ response = call_automation_client.start_recording(call_locator=ServerCallLocator
 To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants are assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording assigns channel 0 to the first participant speaking.
 
 ```python
-response =  call_automation_client.start_recording(call_locator=ServerCallLocator(server_call_id),
+response =  call_automation_client.start_recording(call_locator=ServerCallLocator(callConnectionId or server_call_id),
             recording_content_type = RecordingContent.Audio,
             recording_channel_type = RecordingChannel.Unmixed,
             recording_format_type = RecordingFormat.Wav,
@@ -108,7 +110,7 @@ response =  call_automation_client.start_recording(call_locator=ServerCallLocato
 ```python
 _channel_affinity = ChannelAffinity(target_participant=CommunicationUserIdentifier("<ACS_USER_MRI>"), channel=0)
 
-response =  call_automation_client.start_recording(call_locator=ServerCallLocator(server_call_id),
+response =  call_automation_client.start_recording(call_locator=ServerCallLocator(callConnectionId or server_call_id),
             recording_content_type = RecordingContent.Audio,
             recording_channel_type = RecordingChannel.Unmixed,
             recording_format_type = RecordingFormat.Wav,

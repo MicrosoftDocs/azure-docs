@@ -1,20 +1,19 @@
 ---
 title: 'Tutorial: JavaScript connect to Azure services securely with Key Vault'
-description: Learn how to secure connectivity to back-end Azure services that don't support managed identity natively from a JavaScript web app
+description: Learn how to secure connectivity to back-end Azure services that don't support managed identity natively using a JavaScript web app.
 ms.devlang: javascript
 # ms.devlang: javascript, azurecli
 ms.topic: tutorial
-ms.date: 08/02/2024
+ms.date: 03/31/2026
 author: cephalin
 ms.author: cephalin
-
 ms.reviewer: jordanselig 
 ms.custom: devx-track-azurecli, devx-track-js, AppServiceConnectivity
 ms.service: azure-app-service
+#customer intent: As a developer, I need to support back-end services, such as a JavaScript app, that don't support managed identities and still require connection secrets.
 ---
 
 # Tutorial: Secure Cognitive Service connection from JavaScript App Service using Key Vault
-
 
 [!INCLUDE [tutorial-content-above-code](./includes/tutorial-connect-msi-key-vault/introduction.md)]
 
@@ -38,10 +37,11 @@ az webapp deploy --resource-group $groupName --name $appName --src-path ./defaul
 ```
 
 The preceding commands:
-* Create a linux app service plan
-* Create a web app for Node.js 24 LTS
-* Configure the web app to install the npm packages on deployment
-* Upload the zip file, and install the npm packages
+
+- Create a Linux App Service plan
+- Create a web app for Node.js 24 LTS
+- Configure the web app to install the npm packages on deployment
+- Upload the zip file, and install the npm packages
 
 ## Configure secrets as app settings
 

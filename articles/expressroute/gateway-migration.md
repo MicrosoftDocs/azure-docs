@@ -2,14 +2,13 @@
 title: About migrating to an availability zone-enabled ExpressRoute virtual network gateway
 titleSuffix: Azure ExpressRoute
 description: This article explains how to migrate from Standard/HighPerf/UltraPerf SKUs to ErGw1/2/3AZ SKUs.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.custom:
   - ignite-2023
   - build-2025
 ms.topic: concept-article
-ms.date: 05/19/2025
+ms.date: 03/30/2026
 ms.author: duau
 # Customer intent: As a network administrator, I want to migrate my existing ExpressRoute gateway to an Availability Zone-enabled SKU, so that I can enhance the reliability and high availability of my network connections without significant downtime.
 ---
@@ -28,6 +27,7 @@ For guidance on upgrading Basic SKU public IP addresses for other networking ser
 The gateway migration experience allows you to deploy a second virtual network gateway in the same GatewaySubnet, with Azure [automatically assigning a new public IP-](expressroute-about-virtual-network-gateways.md#auto-assigned-public-ip) eliminating the need for manual IP creation—while configurations are migrated from the old gateway to the new one; both gateways run simultaneously to minimize disruption, though brief connectivity interruptions may still occur.
 
 After migration, the old gateway and its connections are deleted, and the new gateway is tagged with **CreatedBy: GatewaySKUMigration** to identify it as a migrated resource and shouldn’t be deleted.
+
 ## Supported Migration Scenarios
 
 The guided ExpressRoute gateway migration experience enables customers to move from their current SKU to any equal or higher SKU. Migrating to a lower SKU (downgrades) isn't supported.
@@ -38,6 +38,12 @@ Learn how to [migrate using the Azure portal](expressroute-howto-gateway-migrati
 Learn how to [migrate using PowerShell](expressroute-howto-gateway-migration-powershell.md).
 
 For enhanced reliability and high availability, we recommend migrating to an Az-enabled SKU.
+
+## Microsoft-initiated gateway migration
+
+Microsoft-initiated migration is a managed process that upgrades eligible ExpressRoute gateways on your behalf to support the retirement of Basic Public IP addresses. During the migration, your gateway is transitioned to a Standard Public IP while preserving your existing ExpressRoute configuration. This approach allows customers to meet the Standard Public IP requirement without needing to perform the migration themselves.
+
+For more information on Microsoft-initiated gateway migration, see the associated [Azure blog post](https://techcommunity.microsoft.com/blog/azurenetworkingblog/expressroute-gateway-microsoft-initiated-migration/4497689).
 
 ### Migrate to ErGwScale (Scalable Gateway)
 The ExpressRoute Scalable Gateway (ErGwScale) is a new virtual network gateway SKU that provides flexible, high-bandwidth connectivity for your Azure virtual networks.
@@ -80,9 +86,9 @@ For more information, see [About Scalable Gateway](scalable-gateway.md).
 The guided gateway migration experience has the following limitations:
 
 - **ExpressRoute Only**: The migration tool is designed for **ExpressRoute virtual network gateways**. It does **not** support VPN gateways or other gateway types.
--**Same Virtual Network Requirement**: Migration is only supported within the same **virtual network**. Cross-subscription, cross-region, or cross-gateway-type migrations (for example, to/from VPN gateways) aren't supported.
+- **Same Virtual Network Requirement**: Migration is only supported within the same **virtual network**. Cross-subscription, cross-region, or cross-gateway-type migrations (for example, to/from VPN gateways) aren't supported.
 - **No Downgrades**: Downgrading from an **Az-enabled SKU** to a **non-Az-enabled SKU** is **not** supported.
-- **GatewaySubnet Size**: The GatewaySubnet must have a /27 prefix or longer to proceed with migration. For more information, see [Create multiple prefixes for a subnet](../virtual-network/virtual-network-manage-subnet.md) for more information.
+- **GatewaySubnet Size**: The GatewaySubnet must have a /27 prefix or larger (for example, /26 or /25) to proceed with migration. If multiple address prefixes are configured, both the existing and newly added GatewaySubnet prefixes may be used during migration, and the original prefix cannot be deleted while it is still in use. For more information, see [Create multiple prefixes for a subnet](../virtual-network/how-to-multiple-prefixes-subnet.md).
 - **Private Endpoint Connectivity**: Private endpoints (PEs) connected via ExpressRoute private peering may experience **connectivity issues** during migration. Refer to guidance on mitigating these issues in the Private endpoint connectivity documentation. [Private endpoint connectivity](expressroute-about-virtual-network-gateways.md#private-endpoint-connectivity-and-planned-maintenance-events).
 - **Legacy Gateways**: ExpressRoute gateways created or connected to circuits in **2017 or earlier** aren't supported.
 - **Unsupported SKUs**: Gateways using the **"default" SKU** aren't eligible for migration. To check the migration eligibility of your Gateway, there should be an Advisor notification.
@@ -94,7 +100,7 @@ For detailed troubleshooting errors and best practices, see [Troubleshooting Gat
 
 ### How do I add a second prefix to the GatewaySubnet?
 
-Adding multiple prefixes to the GatewaySubnet is currently in Public Preview and supported only via PowerShell. When you add an additional prefix, both prefixes will be used by the migrated gateway, so don't delete the old prefix. For instructions, see [Create multiple prefixes for a subnet](../virtual-network/virtual-network-manage-subnet.md).
+Adding multiple prefixes to the GatewaySubnet is available currently via command line (PowerShell, CLI) or Azure Resource Manager Templates. When you add an additional prefix, both prefixes will be used by the migrated gateway, so don't delete the old prefix. For instructions, see [Create multiple prefixes for a subnet](../virtual-network/how-to-multiple-prefixes-subnet.md).
 
 ### How do I monitor the health of the new gateway?
 

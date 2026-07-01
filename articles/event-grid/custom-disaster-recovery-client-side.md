@@ -68,12 +68,12 @@ namespace EventGridFailoverPublisher
         static async Task Main(string[] args)
         {
             // TODO: Enter the endpoint each topic. You can find this topic endpoint value
-            // in the "Overview" section in the "Event Grid topics" page in Azure Portal..
+            // in the "Overview" section in the "Event Grid topics" page in Azure portal.
             string primaryTopic = "https://<primary-topic-name>.<primary-topic-region>.eventgrid.azure.net/api/events";
             string secondaryTopic = "https://<secondary-topic-name>.<secondary-topic-region>.eventgrid.azure.net/api/events";
 
             // TODO: Enter topic key for each topic. You can find this in the "Access Keys" section in the
-            // "Event Grid topics" page in Azure Portal.
+            // "Event Grid topics" page in Azure portal.
             string primaryTopicKey = "<your-primary-topic-key>";
             string secondaryTopicKey = "<your-secondary-topic-key>";
 

@@ -1,11 +1,9 @@
 ---
 title: Secure access to MCP servers in Azure API Management
 description: Learn how secure access to MCP servers managed in Azure API Management.
-author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 11/10/2025
-ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ms.custom:
@@ -79,6 +77,8 @@ If you require explicit forwarding of the `Authorization` header to validate inc
 For more inbound authorization options and samples, see:
 
 * [MCP server authorization with Protected Resource Metadata (PRM) sample](https://github.com/blackchoey/remote-mcp-apim-oauth-prm)
+
+* [Lab: MCP with protected resource metadata (PRM) authorization](https://github.com/Azure-Samples/AI-Gateway/tree/main/labs/mcp-prm-oauth)
 
 * [Secure Remote MCP Servers using Azure API Management (Experimental)](https://github.com/Azure-Samples/remote-mcp-apim-functions-python)
 

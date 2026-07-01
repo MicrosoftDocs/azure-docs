@@ -18,13 +18,13 @@ Provisioning an Oracle Exadata VM Cluster requires the existence of an Oracle Ex
 There are prerequisites that must be completed before you can provision Exadata Services. You need to complete the following:
 
 - An existing Azure subscription
-- An Azure virtual network with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`)
+- An Azure virtual network with a subnet delegated to the Oracle AI Database@Azure service (`Oracle.Database/networkAttachments`)
 - Permissions in Azure to create resources in the region, with the following conditions:
    * No policies prohibiting the creation of resources without tags, because the OracleSubscription resource is created automatically without tags during onboarding.
    * No policies enforcing naming conventions, because the OracleSubscription resource is created automatically with a default resource name.
 - Purchase OracleDB@Azure in the Azure portal.
 - Select your Oracle Cloud Infrastructure (OCI) account.
-For more detailed documentation, including optional steps, see [Onboarding with Oracle Database@Azure](onboard-oracle-database.md).
+For more detailed documentation, including optional steps, see [Onboarding with Oracle AI Database@Azure](onboard-oracle-database.md).
 
 >[!NOTE]
 >Review the [Troubleshoot Exadata services](exadata-troubleshoot-services.md), specifically the IP Address Requirement Differences, to ensure you have all the information needed for a successful provisioning flow.
@@ -46,7 +46,7 @@ To create an Oracle Exadata VM Cluster resource, select that tab first and follo
     1. The **License type** is either **License included** or **Bring your own license (BYOL)**. Your selection affects your billing.
     1. The default **Time zone** is UTC. There's also an option to **Select another time zone**.
     1. If you choose the **Select another time zone** option, two additional required fields open, **Region or country** and **Selected time zone**. Both of these fields are drop-down lists with selectable values. Once you select the **Region or country**, the **Selected time zone** is populated with the available values for that **Region or country**.
-    1. The **Grid Infrastructure Version** is selectable based on your previous selections. The **Grid Infrastructure Version** limits the Oracle Database versions that the Oracle Exadata VM Cluster supports.
+    1. The **Grid Infrastructure Version** is selectable based on your previous selections. The **Grid Infrastructure Version** limits the Oracle AI Database versions that the Oracle Exadata VM Cluster supports.
     1. If selected, the **Choose Exadata Image version** checkbox allows you to select whether or not to **Include Exadata Image minor versions** as selectable, and then to choose the specific **Exadata Image version** from the drop-down field based on whether or not you allowed **Include Exadata Image minor versions**.
     1. The **SSH public key source** can be selected to **Generate new key pair**, **Use existing key stored in Azure**, or **Use existing public key**. If you select **Generate new key pair**, you must give your newly generated key a unique name. If you select **Use existing key stored in Azure**, you must select that key from a dropdown of defined key for your subscription. If you select **Use existing public key**, you must provide an RSA public key in sing-line format (starting with "ssh-rsa") or the multi-line PEM format. You can generate SSH keys using ssh-keygen or Linux and OS X, or PuTTYGen on Windows.
     1. Select **Next** to continue.

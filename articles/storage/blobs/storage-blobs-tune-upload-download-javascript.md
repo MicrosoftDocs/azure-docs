@@ -153,6 +153,42 @@ const result = await client.downloadToBuffer(offset, count, downloadToBufferOpti
 
 ---
 
+## Transfer validation with CRC64-NVME
+
+In addition to performance tuning with `BlockBlobParallelUploadOptions` and `BlobDownloadToBufferOptions`, you can configure transfer validation to verify data integrity for uploads and downloads. While CRC64-NVME is generally performant to compute, enabling transfer validation may have performance implications that should be considered alongside other tuning decisions.
+
+[!INCLUDE [storage-dev-guide-transfer-validation](../../../includes/storage-dev-guides/storage-dev-guide-transfer-validation.md)]
+
+Transfer validation options can be defined at the client level using [BlobClientConfig](/javascript/api/@azure/storage-blob/blobclientconfig), which applies validation options to all methods called from a [BlobClient](/javascript/api/@azure/storage-blob/blobclient) instance. Alternatively, you can override transfer validation options at the operation level via options, such as [BlobUploadOptions](/javascript/api/@azure/storage-blob/blobuploadoptions) or [BlobDownloadOptions](/javascript/api/@azure/storage-blob/blobdownloadoptions).
+
+### [JavaScript](#tab/javascript)
+
+```javascript
+const blobServiceClient = new BlobServiceClient(
+   `https://${account}.blob.core.windows.net`,
+   new DefaultAzureCredential(),
+   {
+     uploadContentChecksumAlgorithm: "StorageCrc64",
+     downloadContentChecksumAlgorithm: "StorageCrc64",
+   }
+);
+```
+
+### [TypeScript](#tab/typescript)
+
+```typescript
+ const blobServiceClient: BlobServiceClient = new BlobServiceClient(
+   `https://${account}.blob.core.windows.net`,
+   new DefaultAzureCredential(),
+   {
+     uploadContentChecksumAlgorithm: "StorageCrc64",
+     downloadContentChecksumAlgorithm: "StorageCrc64",
+   },
+);
+```
+
+---
+
 ## Related content
 
 - To understand more about factors that can influence performance for Azure Storage operations, see [Latency in Blob storage](storage-blobs-latency.md).

@@ -5,8 +5,8 @@ description: Learn how to copy data from MongoDB to supported sink data stores, 
 author: jianleishen
 ms.author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.date: 06/30/2025
+ms.topic: how-to
+ms.date: 01/26/2026
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -18,6 +18,10 @@ ms.custom:
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory Synapse Analytics pipelines to copy data from and to a MongoDB database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric MongoDB connector documentation](/fabric/data-factory/connector-mongodb-overview).
+
 
 >[!IMPORTANT]
 >The new MongoDB connector provides improved native MongoDB support. If you are using the legacy MongoDB connector in your solution, supported as-is for backward compatibility only, refer to [MongoDB connector (legacy)](connector-mongodb-legacy.md) article.
@@ -275,23 +279,12 @@ The following table shows the release stage and change logs for different versio
 
 | Version  | Release stage           | Change log |
 | :------- | :---------------------- |:---------- |
-| MongoDB (legacy) | End of support | / |
+| MongoDB (legacy) | Removed | Not applicable. |
 | MongoDB | GA version available | • Support the equivalent MongoDB queries only. <br><br>• Double is read as String data type. |
 
 ### Upgrade the MongoDB linked service
 
-Here are steps that help you upgrade your linked service and related queries:
-
-1. Create a new MongoDB linked service and configure it by referring to [Linked service properties](#linked-service-properties).
-1. If you use SQL queries in your pipelines that refer to the old MongoDB linked service, replace them with the equivalent MongoDB queries. See the following table for the replacement examples:
-
-    | SQL query | Equivalent MongoDB query | 
-    |:--- |:--- |
-    | `SELECT * FROM users` | `db.users.find({})` |
-    | `SELECT username, age FROM users` |`db.users.find({}, {username: 1, age: 1})` |
-    | `SELECT username AS User, age AS Age, statusNumber AS Status, CASE WHEN Status = 0 THEN "Pending" CASE WHEN Status = 1 THEN "Finished" ELSE "Unknown" END AS statusEnum LastUpdatedTime + interval '2' hour AS NewLastUpdatedTime FROM users` | `db.users.aggregate([{ $project: { _id: 0, User: "$username", Age: "$age", Status: "$statusNumber", statusEnum: { $switch: { branches: [ { case: { $eq: ["$Status", 0] }, then: "Pending" }, { case: { $eq: ["$Status", 1] }, then: "Finished" } ], default: "Unknown" } }, NewLastUpdatedTime: { $add: ["$LastUpdatedTime", 2 * 60 * 60 * 1000] } } }])`|
-    | `SELECT employees.name, departments.name AS department_name FROM employees LEFT JOIN departments ON employees.department_id = departments.id;`|`db.employees.aggregate([ { $lookup: { from: "departments", localField: "department_id", foreignField: "_id", as: "department" } }, { $unwind: "$department" }, { $project: { _id: 0, name: 1, department_name: "$department.name" } } ])` |
-
+Create a new MongoDB linked service and configure it by referring to [Linked service properties](#linked-service-properties).
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

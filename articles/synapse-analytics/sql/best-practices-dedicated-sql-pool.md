@@ -11,6 +11,8 @@ ms.topic: concept-article
 
 # Best practices for dedicated SQL pools in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article provides a collection of best practices to help you achieve optimal performance for dedicated SQL pools in Azure Synapse Analytics. If you're working with serverless SQL pool, see [Best practices for serverless SQL pools](best-practices-serverless-sql-pool.md) for specific guidance. Below, you'll find basic guidance and important areas to focus on as you build your solution. Each section introduces you to a concept and then points you to more detailed articles that cover the concept in more depth.
 
 ## Dedicated SQL pools loading

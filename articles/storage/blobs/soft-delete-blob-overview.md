@@ -17,13 +17,13 @@ Blob soft delete protects an individual blob, snapshot, or version from accident
 
 ## Recommended data protection configuration
 
-Blob soft delete is part of a comprehensive data protection strategy for blob data. For optimal protection for your blob data, Microsoft recommends enabling all of the following data protection features:
+Blob soft delete is part of a comprehensive in-account data protection strategy for blob data. For optimal protection of your blob data, Microsoft recommends enabling the following data protection features:
 
-- Container soft delete, to restore a container that has been deleted. To learn how to enable container soft delete, see [Enable and manage soft delete for containers](soft-delete-container-enable.md).
-- Blob versioning, to automatically maintain previous versions of a blob. When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it's erroneously modified or deleted. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
 - Blob soft delete, to restore a blob, snapshot, or version that has been deleted. To learn how to enable blob soft delete, see [Enable and manage soft delete for blobs](soft-delete-blob-enable.md).
 
-To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
+- Container soft delete, to restore a container that has been deleted. To learn how to enable container soft delete, see [Enable and manage soft delete for containers](soft-delete-container-enable.md).
+
+For protection against broader data loss scenarios such as accidental account deletion or ransomware, consider enabling Azure Backup in addition to in-account features. To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
 
 > [!CAUTION]
 > After you enable blob versioning for a storage account, every write operation to a blob in that account results in the creation of a new version. For this reason, enabling blob versioning may result in additional costs. To minimize costs, use a lifecycle management policy to automatically delete old versions. For more information about lifecycle management, see [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md).
@@ -76,8 +76,6 @@ To protect a copy operation, blob soft delete must be enabled for the destinatio
 
 Blob soft delete doesn't protect against operations to write blob metadata or properties. No soft-deleted snapshot is created when a blob's metadata or properties are updated.
 
-Blob soft delete doesn't afford overwrite protection for blobs in the archive tier. If a blob in the archive tier is overwritten with a new blob in any tier, then the overwritten blob is permanently deleted.
-
 For premium storage accounts, soft-deleted snapshots don't count toward the per-blob limit of 100 snapshots.
 
 ### Restoring soft-deleted objects
@@ -95,7 +93,7 @@ Data in a soft-deleted blob or snapshot can't be read until the object has been 
 For more information on how to restore soft-deleted objects, see [Manage and restore soft-deleted blobs](soft-delete-blob-manage.yml).
 
 > [!TIP]
-> You can use a _storage task_ to restore blobs at scale across multiple storage accounts based on a set of conditions that you define. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md).
+> You can use a _storage task_ to restore blobs at scale across multiple storage accounts based on a set of conditions that you define. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md)
 
 ## Blob soft delete and versioning
 

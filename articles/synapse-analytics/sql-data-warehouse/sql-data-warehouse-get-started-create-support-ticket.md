@@ -2,7 +2,7 @@
 title: Request quota increases and get support
 description: How to create a support request in the Azure portal for Azure Synapse Analytics. Request quota increases or get problem resolution support.
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: sql-dw
 ms.date: 03/10/2020
 author: ajagadish-24
@@ -11,6 +11,8 @@ ms.custom: azure-synapse
 ---
 
 # Request quota increases and get support for Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This article describes how to submit a support ticket in the Azure portal for Azure Synapse Analytics. This process enables you to request a quota increase or to submit a technical support request for the engineering support team.
 

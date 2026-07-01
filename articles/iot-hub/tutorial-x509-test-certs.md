@@ -2,13 +2,13 @@
 title: Tutorial - Create and upload certificates for testing
 titleSuffix: Azure IoT Hub
 description: Tutorial - Create a root certificate authority and use it to create subordinate CA and client certificates that you can use for testing purposes with Azure IoT Hub.
-author: SoniaLopezBravo
+author: sethmanheim
 
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 03/27/2025
-ms.author: sonialopez
+ms.author: sethm
 ms.custom:
   - mvc
   - 'Role: Cloud Development'

@@ -7,7 +7,8 @@ brand: azure
 metadata:
   title: Azure Native Integrations
   description: Azure Native Integrations enables you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. Azure Native Integrations is developed and managed by Microsoft and the ISV.
-  
+  author: pavanatgit
+  ms.author: plekkala
   ms.topic: hub-page
   ms.custom:
     - ignite-2023
@@ -78,11 +79,6 @@ productDirectory:
       links:
         - url: ./mongo-db/overview.md
           text: A fully managed document database with native vector search support for AI applications.    
-    - title: Neon Serverless Postgres
-      imageSrc: ./media/index/neon.svg
-      links:
-        - url: ./neon/overview.md
-          text: A serverless Postgres solution that uses the principles of serverless computing to provide scalable and flexible database services.
     - title: New Relic
       imageSrc: ./media/index/new-relic.svg
       links:

@@ -4,7 +4,7 @@ description: This article describes Azure Blob Storage and Azure Data Lake Gen2 
 author: an-emma
 ms.author: raan
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/27/2024
 ---
 

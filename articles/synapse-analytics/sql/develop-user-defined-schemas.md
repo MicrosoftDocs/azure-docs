@@ -3,7 +3,7 @@ title: User-defined schemas within Synapse SQL
 description: In the sections below, you'll find various tips for using T-SQL user-defined schemas to develop solutions with the Synapse SQL capability of Azure Synapse Analytics.
 author: azaricstefan 
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: best-practice
 ms.subservice: sql
 ms.date: 04/15/2020 
 ms.author: stefanazaric 
@@ -11,6 +11,8 @@ ms.author: stefanazaric
 
 
 # User-defined schemas within Synapse SQL
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 In the sections below, you'll find various tips for using T-SQL user-defined schemas to develop solutions within Synapse SQL.
 

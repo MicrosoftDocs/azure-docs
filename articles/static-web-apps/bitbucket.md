@@ -2,11 +2,11 @@
 title: "Tutorial: Deploy Bitbucket repositories on Azure Static Web Apps"
 description: Use Bitbucket with Azure Static Web Apps
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
 ms.topic: quickstart
 ms.date: 04/24/2024
-ms.author: wujia
+ms.author: jikunchen
 ---
 
 # Tutorial: Deploy Bitbucket repositories on Azure Static Web Apps

@@ -19,6 +19,9 @@ You can also manage and preview files uploaded by your devices inside your IoT C
 
 To learn how to configure file uploads by using the IoT Central REST API, see [Add a file upload storage account configuration](howto-manage-iot-central-with-rest-api.md#add-a-file-upload-storage-account-configuration).
 
+> [!NOTE]
+> IoT Central's auto scale behavior doesn't consider **file-upload operations**. If your solution relies heavily on file uploads, you may need to manually scale the underlying IoT Hub instance to avoid throttling. If this is the case, contact Microsoft support.
+
 ## Prerequisites
 
 You need to be an administrator in your IoT Central application to configure file uploads.
@@ -42,6 +45,16 @@ To configure device file uploads:
 1. Select **Save**. When the status shows **Configured**, devices can upload files.
 
 :::image type="content" source="media/howto-configure-file-uploads/file-upload-configuration.png" alt-text="Screenshot that shows a properly configured file upload." lightbox="media/howto-configure-file-uploads/file-upload-configuration.png":::
+
+## Best practices to avoid unexpected throttling for file upload scenarios
+
+To avoid unexpected throttling when using file uploads, consider the following best practices:
+
+- Stagger uploads across devices.
+- Avoid synchronized uploads. For example, at top of the hour.
+- Implement client-side exponential backoff on `429 / ThrottleBacklogTimeout` errors.
+- Consider alternative ingestion mechanisms such as ADX ingestion, Fabric pipelines, or direct storage writes.
+- Test workload behavior under expected production upload patterns.
 
 ## Disable device file uploads
 

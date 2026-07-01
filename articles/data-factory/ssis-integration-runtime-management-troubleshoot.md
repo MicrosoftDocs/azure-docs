@@ -2,9 +2,9 @@
 title: Troubleshoot SSIS Integration Runtime management
 description: "This article provides troubleshooting guidance for management issues of SSIS Integration Runtime (SSIS IR)"
 ms.subservice: integration-services
-ms.topic: conceptual
-author: chinadragon0515
-ms.author: dashe
+ms.topic: troubleshooting-general
+author: whhender
+ms.author: whhender
 ms.reviewer: chugugrace
 ms.date: 05/15/2024
 ---
@@ -17,7 +17,7 @@ This article provides troubleshooting guidance for management issues in Azure-SQ
 
 ## Overview
 
-If you run into any issue while provisioning or deprovisioning SSIS IR, you'll see an error message in the Microsoft Azure Data Factory portal or an error returned from a PowerShell cmdlet. The error always appears in the format of an error code with a detailed error message.
+If you run into any issue while provisioning or deprovisioning SSIS IR, you see an error message in the Microsoft Azure Data Factory portal or an error returned from a PowerShell cmdlet. The error always appears in the format of an error code with a detailed error message.
 
 If the error code is InternalServerError, the service has transient issues, and you should retry the operation later. If a retry doesn’t help, contact the Azure Data Factory support team.
 
@@ -25,15 +25,15 @@ Otherwise, three major external dependencies can cause errors: Azure SQL Databas
 
 ## SQL Database or SQL Managed Instance issues
 
-SQL Database or SQL Managed Instance is required if you're provisioning SSIS IR with an SSIS catalog database. The SSIS IR must be able to access SQL Database or SQL Managed Instance. Also, the login account for SQL Database or SQL Managed Instance must have permission to create an SSIS catalog database (SSISDB). If there's an error, an error code with a detailed SQL exception message will be shown in the Data Factory portal. Use the information in the following list to troubleshoot the error codes.
+SQL Database or SQL Managed Instance is required if you're provisioning SSIS IR with an SSIS catalog database. The SSIS IR must be able to access SQL Database or SQL Managed Instance. Also, the sign-in account for SQL Database or SQL Managed Instance must have permission to create an SSIS catalog database (SSISDB). If there's an error, an error code with a detailed SQL exception message will be shown in the Data Factory portal. Use the information in the following list to troubleshoot the error codes.
 
 ### AzureSqlConnectionFailure
 
 You might see this issue when you're provisioning a new SSIS IR or while IR is running. If you experience this error during IR provisioning, you might get a detailed SqlException message in the error message that indicates one of the following problems:
 
 * A network connection issue. Check whether the host name for SQL Database or SQL Managed Instance  is accessible. Also verify that no firewall or network security group (NSG) is blocking SSIS IR access to the server.
-* Login failed during SQL authentication. The account provided can't sign in to the SQL Server database. Make sure you provide the correct user account.
-* Login failed during Microsoft Entra ID
+* Sign in failed during SQL authentication. The account provided can't sign in to the SQL Server database. Make sure you provide the correct user account.
+* Sign in failed during Microsoft Entra ID
  authentication (managed identity). Add the managed identity of your factory to a Microsoft Entra group, and make sure the managed identity has access permissions to your catalog database server.
 * Connection timeout. This error is always caused by a security-related configuration. We recommend that you:
   1. Create a new VM.
@@ -78,13 +78,13 @@ Custom setup provides an interface to add your own setup steps during the provis
 
 Make sure your container contains only the necessary custom setup files; all the files in the container will be downloaded onto the SSIS IR worker node. We recommend that you test the custom setup script on a local machine to fix any script execution issues before you run the script in SSIS IR.
 
-The custom setup script container will be checked while IR is running, because SSIS IR is regularly updated. This updating requires access to the container to download the custom setup script and install it again. The process also checks whether the container is accessible and whether the main.cmd file exists.
+The custom setup script container is checked while IR is running, because SSIS IR is regularly updated. This updating requires access to the container to download the custom setup script and install it again. The process also checks whether the container is accessible and whether the main.cmd file exists.
 
-For any error that involves custom setup, you'll see a CustomSetupScriptFailure error code with sub code like CustomSetupScriptBlobContainerInaccessible or CustomSetupScriptNotFound.
+For any error that involves custom setup, you see a CustomSetupScriptFailure error code with sub code like CustomSetupScriptBlobContainerInaccessible or CustomSetupScriptNotFound.
 
 ### CustomSetupScriptBlobContainerInaccessible
 
-This error means that SSIS IR can't access your Azure blob container for custom setup. Make sure the SAS URI of the container is reachable and has not expired.
+This error means that SSIS IR can't access your Azure blob container for custom setup. Make sure the SAS URI of the container is reachable and hasn't expired.
 
 Stop the IR if it's running, reconfigure the IR with new custom setup container SAS URI, and then restart the IR.
 
@@ -98,11 +98,11 @@ This error means the execution of custom setup script (main.cmd) failed. Try the
 
 ### CustomSetupScriptTimeout
 
-This error indicates an execute custom setup script timeout. Make sure that your script can be executed silently, and no interactive input needed, and make sure your blob container contains only the necessary custom setup files. It is recommended to test the script on local machine first. You should also check the custom setup execution logs in your blob container. The maximum period for custom setup is 45 minutes before it times out, and the maximum period includes the time to download all files from your container and install them on SSIS IR. If you need a longer period, raise a support ticket.
+This error indicates an execute custom setup script timeout. Make sure that your script can be executed silently, and no interactive input needed, and make sure your blob container contains only the necessary custom setup files. It's recommended to test the script on local machine first. You should also check the custom setup execution logs in your blob container. The maximum period for custom setup is 45 minutes before it times out, and the maximum period includes the time to download all files from your container and install them on SSIS IR. If you need a longer period, raise a support ticket.
 
 ### CustomSetupScriptLogUploadFailure
 
-This error means that the attempt to upload custom setup execution logs to your blob container failed. This problem occurs either because SSIS IR doesn't have write permissions to your blob container or because of storage or network issues. If custom setup is successful, this error won't affect any SSIS function, but the logs will be missing. If custom setup fails with another error, and the log isn't uploaded, we will report this error first so that the log can be uploaded for analysis. Also, after this issue is resolved, we will report any more specific issues. If this issue is not resolved after a retry, contact the Azure Data Factory support team.
+This error means that the attempt to upload custom setup execution logs to your blob container failed. This problem occurs either because SSIS IR doesn't have write permissions to your blob container or because of storage or network issues. If custom setup is successful, this error won't affect any SSIS function, but the logs will be missing. If custom setup fails with another error, and the log isn't uploaded, we'll report this error first so that the log can be uploaded for analysis. Also, after this issue is resolved, we'll report any more specific issues. If this issue isn't resolved after a retry, contact the Azure Data Factory support team.
 
 ## Virtual network configuration
 
@@ -116,7 +116,7 @@ This error can occur for a variety of reasons. To troubleshoot it, see the [Forb
 
 ### Forbidden
 
-This kind of error might resemble this: “SubnetId is not enabled for current account. Microsoft.Batch resource provider is not registered under the same subscription of VNet.”
+This kind of error might resemble this: `SubnetId is not enabled for current account. Microsoft.Batch resource provider is not registered under the same subscription of VNet.`
 
 These details mean that Azure Batch can't access your virtual network. Register the Microsoft.Batch resource provider under the same subscription as Virtual Network.
 
@@ -124,8 +124,8 @@ These details mean that Azure Batch can't access your virtual network. Register 
 
 This kind of error might resemble one of the following: 
 
-- “Either the specified VNet does not exist, or the Batch service does not have access to it.”
-- “The specified subnet xxx does not exist.”
+- “Either the specified VNet doesn't exist, or the Batch service doesn't have access to it.”
+- “The specified subnet xxx doesn't exist.”
 
 These errors mean the virtual network doesn't exist, the Azure Batch service can't access it, or the subnet provided doesn't exist. Make sure the virtual network and subnet exist and that Azure Batch can access them.
 
@@ -137,11 +137,11 @@ In this situation, you probably have a customized configuration of DNS server or
 
 ### VNetResourceGroupLockedDuringUpgrade
 
-SSIS IR will be automatically updated on a regular basis. A new Azure Batch pool is created during upgrade and the old Azure Batch pool is deleted. Also, Virtual Network-related resources for the old pool are deleted, and the new Virtual Network-related resources are created under your subscription. This error means that deleting Virtual Network-related resources for the old pool failed because of a delete lock at the subscription or resource group level. Because the customer controls and sets the delete lock, they must remove the delete lock in this situation.
+SSIS IR will be automatically updated regularly. A new Azure Batch pool is created during upgrade and the old Azure Batch pool is deleted. Also, Virtual Network-related resources for the old pool are deleted, and the new Virtual Network-related resources are created under your subscription. This error means that deleting Virtual Network-related resources for the old pool failed because of a delete lock at the subscription or resource group level. Because the customer controls and sets the delete lock, they must remove the delete lock in this situation.
 
 ### VNetResourceGroupLockedDuringStart
 
-If SSIS IR provisioning fails, all the resources that were created are deleted. However, if there's a resource delete lock at the subscription or resource group level, Virtual Network resources are not deleted as expected. To fix this error, remove the delete lock and restart the IR.
+If SSIS IR provisioning fails, all the resources that were created are deleted. However, if there's a resource delete lock at the subscription or resource group level, Virtual Network resources aren't deleted as expected. To fix this error, remove the delete lock and restart the IR.
 
 ### VNetResourceGroupLockedDuringStop/VNetDeleteLock
 
@@ -153,26 +153,26 @@ This error occurs when IR is running, and it means that IR has become unhealthy.
 
 ## Static public IP addresses configuration
 
-When you join the Azure-SSIS IR to Azure Virtual Network, you are also able to bring your own static public IP addresses for the IR so that the IR can access data sources which limit access to specific IP addresses. For more information, see [Join an Azure-SSIS Integration Runtime to a virtual network](./join-azure-ssis-integration-runtime-virtual-network.md).
+When you join the Azure-SSIS IR to Azure Virtual Network, you're also able to bring your own static public IP addresses for the IR so that the IR can access data sources, which limit access to specific IP addresses. For more information, see [Join an Azure-SSIS Integration Runtime to a virtual network](./join-azure-ssis-integration-runtime-virtual-network.md).
 
-Besides the above virtual network issues, you may also meet static public IP addresses-related issue. Please check the following errors for help.
+Besides the above virtual network issues, you could also meet static public IP addresses-related issue. Check the following errors for help.
 
 ### <a name="InvalidPublicIPSpecified"></a>InvalidPublicIPSpecified
 
-This error can occur for a variety of reasons when you start the Azure-SSIS IR:
+This error can occur for various reasons when you start the Azure-SSIS IR:
 
 | Error message | Solution|
 |:--- |:--- |
-| The provided static public IP address is already used, please provide two unused ones for your Azure-SSIS Integration Runtime. | You should select two unused static public IP addresses or remove current references to the specified public IP address, and then restart the Azure-SSIS IR. |
-| The provided static public IP address has no DNS name, please provide two of them with DNS name for your Azure-SSIS Integration Runtime. | You can setup the DNS name of the public IP address in Azure portal, as the picture below shows. Specific steps are as follows: (1) Open Azure portal and goto the resource page of this public IP address; (2) Select the **Configuration** section and set up the DNS name, then click **Save** button; (3) Restart your Azure-SSIS IR. |
-| The provided VNet and static public IP addresses for your Azure-SSIS Integration Runtime must be in the same location. | According to the Azure Network's requirements, the static public IP address and the virtual network should be in the same location and subscription. Please provide two valid static public IP addresses and restart the Azure-SSIS IR. |
-| The provided static public IP address is a basic one, please provide two standard ones for your Azure-SSIS Integration Runtime. | Refer to [SKUs of Public IP Address](../virtual-network/ip-services/public-ip-addresses.md#sku) for help. |
+| The provided static public IP address is already used, provide two unused ones for your Azure-SSIS Integration Runtime. | You should select two unused static public IP addresses or remove current references to the specified public IP address, and then restart the Azure-SSIS IR. |
+| The provided static public IP address has no DNS name, provide two of them with DNS name for your Azure-SSIS Integration Runtime. | You can set up the DNS name of the public IP address in Azure portal, as the picture below shows. Specific steps are as follows: (1) Open Azure portal and goto the resource page of this public IP address; (2) Select the **Configuration** section and set up the DNS name, then select the **Save** button; (3) Restart your Azure-SSIS IR. |
+| The provided VNet and static public IP addresses for your Azure-SSIS Integration Runtime must be in the same location. | According to the Azure Network's requirements, the static public IP address and the virtual network should be in the same location and subscription. Provide two valid static public IP addresses and restart the Azure-SSIS IR. |
+| The provided static public IP address is a basic one, provide two standard ones for your Azure-SSIS Integration Runtime. | Refer to [SKUs of Public IP Address](../virtual-network/ip-services/public-ip-addresses.md#sku) for help. |
 
 :::image type="content" source="media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png" alt-text="Azure-SSIS IR":::
 
 ### PublicIPResourceGroupLockedDuringStart
 
-If Azure-SSIS IR provisioning fails, all the resources that were created are deleted. However, if there's a resource delete lock at the subscription or resource group (which contains your static public IP address) level, the network resources are not deleted as expected. To fix the error, please remove the delete lock and restart the IR.
+If Azure-SSIS IR provisioning fails, all the resources that were created are deleted. However, if there's a resource delete lock at the subscription or resource group (which contains your static public IP address) level, the network resources aren't deleted as expected. To fix the error, remove the deleted lock and restart the IR.
 
 ### PublicIPResourceGroupLockedDuringStop
 
@@ -180,7 +180,7 @@ When you stop Azure-SSIS IR, all the network resources created in the resource g
 
 ### PublicIPResourceGroupLockedDuringUpgrade
 
-Azure-SSIS IR is automatically updated on a regular basis. New IR nodes are created during upgrade and the old nodes will be deleted. Also, the created network resources (e.g., the load balancer and the network security group) for the old nodes are deleted, and the new network resources are created under your subscription. This error means that deleting the network resources for the old nodes failed due to a delete lock at the subscription or resource group (which contains your static public IP address) level. Remove the delete lock so that we can clean up the old nodes and release the static public IP address for the old nodes. Otherwise the static public IP address cannot be released and we will not be able to upgrade your IR further.
+Azure-SSIS IR is automatically updated regularly. New IR nodes are created during upgrade and the old nodes will be deleted. Also, the created network resources (for example, the load balancer and the network security group) for the old nodes are deleted, and the new network resources are created under your subscription. This error means that deleting the network resources for the old nodes failed due to a delete lock at the subscription or resource group (which contains your static public IP address) level. Remove the delete lock so that we can clean up the old nodes and release the static public IP address for the old nodes. Otherwise the static public IP address can't be released and we won't be able to upgrade your IR further.
 
 ### PublicIPNotUsableDuringUpgrade
 
@@ -190,4 +190,4 @@ When you want to bring your own static public IP addresses, two public IP addres
 
 ### Resource tag not updated
 
-You can apply [tags](../azure-resource-manager/management/tag-resources.md) to your Azure resources to logically organize them into a taxonomy. While the SSIS IR is running, changes to SSIS IR parent data factory tags will not take effective until SSIS IR is restarted.
+You can apply [tags](../azure-resource-manager/management/tag-resources.md) to your Azure resources to logically organize them into a taxonomy. While the SSIS IR is running, changes to SSIS IR parent data factory tags won't take effective until SSIS IR is restarted.

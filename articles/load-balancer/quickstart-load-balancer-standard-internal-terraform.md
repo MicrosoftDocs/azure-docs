@@ -7,7 +7,7 @@ author: mbender-ms
 manager: kumud
 ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 04/02/2025
+ms.date: 01/28/2026
 ms.author: mbender
 ms.custom: devx-track-terraform
 #Customer intent: I want to create an internal load balancer by using Terraform so that I can load balance internal traffic to VMs.

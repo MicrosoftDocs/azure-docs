@@ -15,6 +15,8 @@ ms.custom:
 
 # Quickstart: Configure dedicated SQL pool workload isolation using a workload group in the Azure portal
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this quickstart, you will configure [workload isolation](sql-data-warehouse-workload-isolation.md) by creating a workload group for reserving resources. For purposes of this tutorial, we will create the workload group for data loading called `DataLoads`. The workload group will reserve 20% of the system resources. With 20% isolation for data loads, they are guaranteed resources that allow them to hit SLAs. After creating the workload group, [create a workload classifier](quickstart-create-a-workload-classifier-portal.md) to assign queries to this workload group.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
@@ -89,4 +91,4 @@ To use the `DataLoads` workload group, a [workload classifier](/sql/t-sql/statem
 ## See also
 
 - [Manage and monitor Workload Management](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)
-- [What's the difference between Azure Synapse dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in an Azure Synapse Analytics workspace?](../sql/overview-difference-between-formerly-sql-dw-workspace.md).
+- [What's the difference between Azure Synapse dedicated SQL pools (formerly SQL DW) and dedicated SQL pools in an Azure Synapse Analytics workspace?](../sql/overview-difference-between-formerly-sql-dw-workspace.md)

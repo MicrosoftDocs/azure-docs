@@ -6,7 +6,7 @@ ms.author: ali
 ms.service: azure-stream-analytics
 ms.custom:
   - ignite-2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2024
 ---
 

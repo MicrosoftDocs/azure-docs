@@ -5,7 +5,7 @@ description: Tutorial to configure Azure Active Directory B2C with BioCatch to i
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 06/21/2024
 
@@ -407,7 +407,7 @@ For the following instructions, see [Tutorial: Register a web application in Azu
 
       "score": 275, 
 
-      "tid": "aaaaaaaa-0000-1111-2222-bbbbbbbbbbbb" 
+      "tid": "bbbbcccc-1111-dddd-2222-eeee3333ffff" 
 
     }.[Signature]  
 

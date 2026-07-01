@@ -25,7 +25,7 @@ The most recent stable release of the Azure Maps services.
 | [Geolocation] |  1.0  | Convert IP addresses to country/region ISO codes. |
 | [Render] |  2024-04-01  | Get road, satellite/aerial, weather, traffic map tiles, and static map images. |
 | [Route] |  2025-01-01  | Calculate optimized travel times and distances between locations for multiple modes of transportation and returns localized travel instructions. Now supports [Snap to Roads] API that snaps GPS data to road aligned coordinates. |
-| [Search] |  2025-01-01  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. |
+| [Search] |  2026-01-01  | Geocode addresses and coordinates, search for places and businesses by name or category, and retrieve administrative boundary polygons. The Autocomplete API returns real-time suggestions for addresses and places based on partial user input. |
 | [Timezone] |  1.0  | Get time zone and sunrise/sunset information for specified locations. |
 | [Traffic] |  2025-01-01  | Provides traffic incident data, such as construction, traffic congestion, accidents, and more, within a specified bounding box. |
 | [Weather] |  1.1  | Get current, forecasted, and historical weather conditions, air quality, tropical storm details, and weather along a route. |
@@ -50,7 +50,6 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 | API | API version | Description |
 |-----|-------------|-------------|
 | [Route][Route-2024-07-01-preview] | 2024-07-01-preview | The Route Range API supports high definition isochrone polygons. |
-| [Search][Search-2025-06-01-preview]  |  2025-06-01-preview  | The new Autocomplete (preview) API enhances user experience by providing real-time suggestions as users type queries for addresses or places. |
 
 <!--- Links to latest versions of each service ---------------------------------->
 [Geolocation]: /rest/api/maps/geolocation
@@ -73,4 +72,3 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 <!--- 2024-07-01-preview is the latest preview release of the Route service,
       currently the only Azure Maps service in Preview -------------------------->
 [Route-2024-07-01-preview]: /rest/api/maps/route?view=rest-maps-2024-07-01-preview
-[Search-2025-06-01-preview]: /rest/api/maps/search?view=rest-maps-2025-06-01-preview

@@ -29,7 +29,7 @@ The various load balancer configurations provide the following metrics:
 
 | Metric | Resource type | Description | Recommended aggregation |
 | --- | --- | --- | --- |
-| Data Path Availability | Public and internal load balancer | A load balancer continuously uses the data path from within a region to the load balancer frontend, to the network that supports your VM. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path in use is validated. The measurement is invisible to your application and doesn’t interfere with other operations.| Average |
+| Data Path Availability | Public and internal load balancer | A load balancer continuously uses the data path from within a region to the load balancer frontend, to the network that supports your VM. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path in use is validated. The measurement is invisible to your application and doesn’t interfere with other operations. | Average |
 | Health Probe Status | Public and internal load balancer | A load balancer uses a distributed health-probing service that monitors your application endpoint's health according to your configuration settings. This metric provides an aggregate or per-endpoint filtered view of each instance endpoint in the load balancer pool. You can see how load balancer views the health of your application, as indicated by your health probe configuration. |  Average |
 | SYN Count | Public and internal load balancer |A load balancer doesn’t terminate Transmission Control Protocol (TCP) connections or interact with TCP or User Data-gram Packet (UDP) flows. Flows and their handshakes are always between the source and the VM instance. To better troubleshoot your TCP protocol scenarios, you can make use of SYN packets counters to understand how many TCP connection attempts are made. The metric reports the number of TCP SYN packets that were received.| Sum |
 | Source Network Address Translation (SNAT) Connection Count | Public load balancer | A load balancer reports the number of outbound flows that are masqueraded to the Public IP address frontend.  SNAT ports are an exhaustible resource. This metric can give an indication of how heavily your application is relying on SNAT for outbound originated flows. Counters for successful and failed outbound SNAT flows are reported. The counters can be used to troubleshoot and understand the health of your outbound flows.| Sum |
@@ -43,6 +43,9 @@ The various load balancer configurations provide the following metrics:
   >
   >Max and min aggregations are not available for the SYN count, packet count, SNAT connection count, and byte count metrics.
   >Count aggregation is not recommended for Data path availability and health probe status. Use average instead for best represented health data.
+
+  >[!NOTE]
+  >Data Path Availability metric may take up to 10 minutes to appear in Azure Monitor metrics after a load balancer is created or updated. 
  
 ### View your load balancer metrics in the Azure portal
 
@@ -290,8 +293,8 @@ Health status for the standard load balancer resources is exposed via the existi
 | Resource health status | Description |
 | --- | --- |
 | Available | Your standard load balancer resource is healthy and available. |
-| Degraded | Your standard load balancer has platform or user initiated events impacting performance. The metric for data path availability has reported less than 90% but greater than 25% health for at least two minutes. With this status, you experience moderate to severe performance effect. [Follow the troubleshooting RHC guide](./troubleshoot-rhc.md) to determine whether there are user initiated events causing impacting your availability.
-| Unavailable | Your standard load balancer resource isn’t healthy. The metric for data path availability has reported less the 25% health for at least two minutes. With this status, you experience significant performance effect or lack of availability for inbound connectivity. There may be user or platform events causing unavailability. [Follow the troubleshooting RHC guide](./troubleshoot-rhc.md) to determine whether there are user initiated events impacting your availability. |
+| Degraded | Your standard load balancer has platform or user initiated events impacting performance. The metric for data path availability has reported less than 90% but greater than 25% health for at least two minutes. With this status, you experience moderate to severe performance effect. See [Support and troubleshooting for Azure Load Balancer](./load-balancer-support-help.md) to determine whether there are user initiated events impacting your availability.
+| Unavailable | Your standard load balancer resource isn’t healthy. The metric for data path availability has reported less the 25% health for at least two minutes. With this status, you experience significant performance effect or lack of availability for inbound connectivity. There may be user or platform events causing unavailability. See [Support and troubleshooting for Azure Load Balancer](./load-balancer-support-help.md) to determine whether there are user initiated events impacting your availability. |
 | Unknown | Health status for your load balancer resource hasn’t been updated or hasn’t received information for data path availability for the last 10 minutes. This state should be transient and will reflect correct status as soon as data is received. |
 
 To view the health of your public standard load balancer resources:

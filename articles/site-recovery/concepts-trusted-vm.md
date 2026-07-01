@@ -5,7 +5,7 @@ services: site-recovery
 author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 06/05/2025
+ms.date: 01/06/2026
 ms.author: v-gajeronika
 
 # Customer intent: As a cloud architect, I want to implement Azure Site Recovery for trusted launch virtual machines, so that I can ensure robust disaster recovery and migrate existing VMs securely against persistent threats.
@@ -39,16 +39,18 @@ The following Linux distributions and kernels are supported for trusted launch v
 
 Following are the supported distros:
 - **Ubuntu**: 18.04, 20.04, 22.04, 24.04
-- **RHEL**: 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5
-- **SUSE 15**: SP3, SP4, SP5, SP6
-- **Alma Linux**: 8.10, 9.4, 9.5
+- **RHEL**: 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 9.7, 10, 10.1
+- **SUSE 15**: SP3, SP4, SP5, SP6, SP7
+- **Alma Linux**: 8.10, 9.4, 9.5, 9.6, 9.7, 10, 10.1
 - **Debian**: 12
+- **Oracle Linux**: 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9, 8.10, 9.0, 9.1, 9.2, 9.3, 9.4, 9.5 
 
 Azure Site Recovery supports the same kernels for Azure Trusted VMs as for Azure Standard VMs across the listed Linux distributions. For SUSE, however, Azure Site Recovery support only the following kernels for Azure Trusted launch VMs, provided these kernels are also supported for Azure Standard VMs by Azure Site Recovery:
 - **SUSE 15 SP3**: 5.3.18-150300.59.179.1 and later 
 - **SUSE 15 SP4**: 5.14.21-150400.24.141.1 and later 
 - **SUSE 15 SP5**: 5.14.21-150500.55.83.1 and later 
-- **SUSE 15 SP6**: 6.4.0-150600.23.25.1 and later 
+- **SUSE 15 SP6**: 6.4.0-150600.23.25.1 and later
+- **SUSE 15 SP7**: 6.4.0-150700.18.9 and later
 
 ## Azure Site Recovery for trusted VMs 
 

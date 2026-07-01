@@ -4,7 +4,7 @@ description:  An overview of key concepts about billing model of Azure Web PubSu
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/29/2022
 ---
 

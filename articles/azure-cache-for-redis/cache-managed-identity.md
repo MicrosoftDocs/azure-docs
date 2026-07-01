@@ -1,7 +1,7 @@
 ---
 title: Managed identity for storage accounts
 description: Learn to Azure Cache for Redis
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 04/21/2025
 appliesto:
   - ✅ Azure Cache for Redis

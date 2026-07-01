@@ -32,42 +32,56 @@ items:
       href: tutorial-snap-to-Road.md
 - name: Concepts
   items:
-  - name: Authentication with Azure Maps
-    href: azure-maps-authentication.md
-  - name: Authentication best practices
-    href: authentication-best-practices.md
-  - name: Azure Maps Event Grid integration
-    href: azure-maps-event-grid-integration.md
-  - name: Azure Maps geographic scope
-    href: geographic-scope.md
-  - name: Consent management
-    href: consent-management.md
-  - name: Azure Services that support managed identities
-    href: ../active-directory/managed-identities-azure-resources/managed-identities-status.md
-  - name: Coverage
+  - name: Security & Identity
     items:
-    - name: Coverage
-      href: geographic-coverage.md
-    - name: Geocoding coverage
-      href: geocoding-coverage.md
-    - name: Traffic coverage
-      href: traffic-coverage.md
-    - name: Render coverage
-      href: render-coverage.md
-    - name: Routing coverage
-      href: routing-coverage.md
-    - name: Weather coverage
-      href: weather-coverage.md
-  - name: Localization support
-    href: supported-languages.md
-  - name: Supported map styles
-    href: supported-map-styles.md
-  - name: Zoom levels and tile grid
-    href: zoom-levels-and-tile-grid.md
-  - name: Weather service concepts
-    href: weather-services-concepts.md
-  - name: Weather service FAQ
-    href: weather-services-faq.yml
+    - name: Authentication with Azure Maps
+      href: azure-maps-authentication.md
+    - name: Authentication best practices
+      href: authentication-best-practices.md
+    - name: Azure Maps Event Grid integration
+      href: azure-maps-event-grid-integration.md
+    - name: Consent management
+      href: consent-management.md
+    - name: Use private endpoints with Azure Maps
+      href: private-endpoints.md
+    - name: Azure Services that support managed identities
+      href: ../active-directory/managed-identities-azure-resources/managed-identities-status.md
+  - name: Integration
+    items:
+    - name: Azure Maps Event Grid integration
+      href: azure-maps-event-grid-integration.md
+  - name: Geography & Coverage
+    items:
+      - name: Azure Maps geographic scope
+        href: geographic-scope.md
+      - name: Coverage
+        items:
+        - name: Geographic coverage
+          href: geographic-coverage.md
+        - name: Geocoding coverage
+          href: geocoding-coverage.md
+        - name: Traffic coverage
+          href: traffic-coverage.md
+        - name: Render coverage
+          href: render-coverage.md
+        - name: Routing coverage
+          href: routing-coverage.md
+        - name: Weather coverage
+          href: weather-coverage.md
+      - name: Localization support
+        href: supported-languages.md
+  - name: Maps & Visualization
+    items:
+    - name: Supported map styles
+      href: supported-map-styles.md
+    - name: Zoom levels and tile grid
+      href: zoom-levels-and-tile-grid.md
+  - name: Weather service
+    items:
+    - name: Weather service concepts
+      href: weather-services-concepts.md
+    - name: Weather service FAQ
+      href: weather-services-faq.yml
 - name: How-to guides
   items:
   - name: Migrate from Bing Maps
@@ -131,7 +145,9 @@ items:
     - name: Android SDK migration guide
       href: android-sdk-migration-guide.md	  
     - name: iOS SDK migration guide
-      href: ios-sdk-migration-guide.md 
+      href: ios-sdk-migration-guide.md
+    - name: Migrate Azure Maps Search 1.0 APIs
+      href: migrate-search-v1-api.md
     - name: Migrate Azure Maps Route 1.0 APIs
       href: migrate-route-v1-api.md
     - name: Migrate Azure Maps Traffic 1.0 APIs
@@ -295,8 +311,8 @@ items:
       href: power-bi-visual-geocode.md
     - name: Understanding layers
       href: power-bi-visual-understanding-layers.md
-    - name: Add a bubble layer
-      href: power-bi-visual-add-bubble-layer.md
+    - name: Add a marker layer
+      href: power-bi-visual-add-marker-layer.md
     - name: Add a cluster bubble layer
       href: power-bi-visual-cluster-bubbles.md
     - name: Add a pie chart layer

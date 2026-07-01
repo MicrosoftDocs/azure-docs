@@ -316,7 +316,7 @@ items:
     items:
     - name: Use serverless SQL pool to analyze data
       href: ./sql/tutorial-data-analyst.md
-    - name: Create Logical Data Warehouse with serverless SQL pool
+    - name: Create Logical Data Warehouse on Cosmos DB and Azure Storage
       href: ./sql/tutorial-logical-data-warehouse.md
     - name: Power BI Desktop
       href: ./sql/tutorial-connect-power-bi-desktop.md
@@ -600,8 +600,6 @@ items:
       items:
       - name: Overview
         href: sql/connect-overview.md
-      - name: Query with Azure Data Studio
-        href: sql/get-started-azure-data-studio.md
       - name: Connection strings
         href: sql/connection-strings.md
       - name: Query with SSMS
@@ -612,7 +610,7 @@ items:
         href: sql/get-started-visual-studio.md
       - name: Query using .NET Core
         href: /azure/azure-sql/database/connect-query-dotnet-core?context=/azure/synapse-analytics/context/context
-      - name: Query using Visual Studio .NET
+      - name: Query using Visual Studio
         href: /azure/azure-sql/database/connect-query-dotnet-visual-studio?context=/azure/synapse-analytics/context/context
       - name: Query using Python
         href: /azure/azure-sql/database/connect-query-python?context=/azure/synapse-analytics/context/context
@@ -695,7 +693,7 @@ items:
         href: ./spark/apache-spark-version-support.md
       - name: Azure Synapse Apache Spark 3.5 runtime (GA)
         href: ./spark/apache-spark-35-runtime.md
-      - name: Azure Synapse Apache Spark 3.4 runtime (EOSA)
+      - name: Azure Synapse Apache Spark 3.4 runtime (unsupported)
         href: ./spark/apache-spark-34-runtime.md
       - name: Azure Synapse Apache Spark 3.3 runtime (unsupported)
         href: ./spark/apache-spark-33-runtime.md
@@ -765,18 +763,22 @@ items:
         href: ./spark/connect-monitor-azure-synapse-spark-application-level-metrics.md
       - name: Monitor Apache Spark Applications metrics with Prometheus and Grafana
         href: ./spark/use-prometheus-grafana-to-monitor-apache-spark-application-level-metrics.md
-      - name: Monitor your Apache Spark applications with Azure Log Analytics
-        href: ./spark/apache-spark-azure-log-analytics.md
+      - name: Collect logs and metrics with Azure Log Analytics
+        href: ./spark/data-collector-api-to-log-ingestion-api.md  
       - name: Collect Apache Spark applications logs and metrics with Azure Storage account
         href: ./spark/azure-synapse-diagnostic-emitters-azure-storage.md
       - name: Collect Apache Spark applications logs and metrics with Azure Event Hubs
         href: ./spark/azure-synapse-diagnostic-emitters-azure-eventhub.md
       - name: Collect Apache Spark Application Logs and Metrics to Azure Event Hubs Using Certificate-Based Service Principal Authentication
         href: ./spark/how-to-use-certificate-with-service-principalp-emit-log-event-hubs.md
+      - name: Collect Apache Spark Application Logs and Metrics to Azure Storage Account Using Certificate-Based Service Principal Authentication
+        href: ./spark/how-to-use-certificate-with-service-principal-for-log-storage.md
       - name: Manage Apache Spark configuration
-        href: ./spark/apache-spark-azure-create-spark-configuration.md
+        href: ./spark/apache-spark-azure-create-spark-configuration.md       
       - name: Apache Spark Advisor
         href: ./monitoring/apache-spark-advisor.md
+    - name: Legacy HTTP Data Collector API path for Azure Log Analytics
+      href: ./spark/apache-spark-azure-log-analytics.md 
     - name: Data sources
       items:
       - name: Azure Cosmos DB Spark 3
@@ -818,7 +820,7 @@ items:
       - name: Azure Cosmos DB FAQ
         href: /azure/cosmos-db/synapse-link-frequently-asked-questions?context=/azure/synapse-analytics/context/context
       - name: Synapse Link use cases
-        href: /azure/cosmos-db/synapse-link-use-cases?context=/azure/synapse-analytics/context/context
+        href: /azure/cosmos-db/synapse-link
     - name: SQL Database
       items:
       - name: Synapse Link for Azure SQL Database
@@ -1447,7 +1449,7 @@ items:
       - name: Azure Machine Learning
         displayName: linked service
         href: machine-learning/quickstart-integrate-azure-machine-learning.md
-      - name: Azure AI services
+      - name: Foundry Tools
         displayName: linked service, configure
         href: ./machine-learning/tutorial-configure-cognitive-services-synapse.md
   - name: Concepts
@@ -1488,7 +1490,7 @@ items:
       - name: PREDICT score in Synapse spark using model registered in AML or ADLS
         displayName: predict score, Synapse spark, model registered in AML or ADLS
         href: ./machine-learning/tutorial-score-model-predict-spark-pool.md
-      - name: With Azure AI services
+      - name: With Foundry Tools
         items:
         - name: Overview
           displayName: cognitive services, ai services, score model

@@ -1,13 +1,13 @@
 ---
 title: Add a Trigger or Action to a Workflow
-description: Learn how to add a trigger or an action to create a workflow in Azure Logic Apps.
+description: Add a trigger or action to build an automated integration workflow in Azure Logic Apps.
 services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 05/19/2025
-# As an integration solution developer, I want to build an integration workflow by adding a trigger or an action operation in Azure Logic Apps.
+ms.date: 03/02/2026
+# As an integration solution developer who works with Azure Logic Apps, I want to add a trigger or action operation to build my integration workflow.
 ms.custom:
   - build-2025
 ---
@@ -24,7 +24,7 @@ This guide shows how to add a trigger and action for Consumption and Standard lo
 
 ## Prerequisites
 
-- An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A logic app resource and workflow, based on whether you want to add a trigger or an action:
 
@@ -33,13 +33,13 @@ This guide shows how to add a trigger and action for Consumption and Standard lo
   | Trigger | You have to start with a logic app resource and a blank workflow. |
   | Action | You have to start with a logic app resource and a workflow with the trigger at least. You can use any trigger that fits your specific scenario. |
 
-  For more information, see the following documentation:
+  For more information, see:
 
   - [Create an example Consumption logic app workflow in the Azure portal](quickstart-create-example-consumption-workflow.md)
 
   - [Create an example Standard logic app workflow in the Azure portal](create-single-tenant-workflows-azure-portal.md)
 
-  Although this guide's examples use the Azure portal, you can also use Visual Studio Code to build a logic app workflow. For more information, see the following documentation:
+  Although this guide's examples use the Azure portal, you can also use Visual Studio Code to build a logic app workflow. For more information, see:
 
   - [Create Consumption logic app workflows in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 
@@ -197,6 +197,20 @@ This guide shows how to add a trigger and action for Consumption and Standard lo
 
 ---
 
+## Rename a trigger or action
+
+To change the default name for a trigger or action, follow these steps:
+
+1. On the designer, select that operation.
+
+1. In the information pane that opens, select the name for that operation.
+
+1. Change the default name to the name you want.
+
+   > [!IMPORTANT]
+   >
+   > Avoid using any Unicode characters in the operation name. These characters can result in dropped logs that you export through the diagnostic settings.
+
 <a name="connectors-triggers-actions-designer"></a>
 
 ## Connectors, triggers, and actions in the designer
@@ -255,4 +269,4 @@ For more information, see the following documentation:
 
 ## Related content
 
-[General information about connectors, triggers, and actions](/connectors/connectors)
+- [General information about connectors, triggers, and actions](/connectors/connectors)

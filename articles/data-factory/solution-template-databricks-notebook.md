@@ -3,7 +3,7 @@ title: Transformation with Azure Databricks
 description:  Learn how to use a solution template to transform data by using a Databricks notebook in Azure Data Factory.
 ms.author: abnarain
 author: nabhishek
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/15/2025
 ms.subservice: orchestration
 ms.custom: sfi-image-nochange

@@ -1,7 +1,7 @@
 ---
 title: Configure IP firewall for Azure Event Grid topics or domains 
 description: This article describes how to configure firewall settings for Event Grid topics or domains. 
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.date: 03/24/2023
 ---

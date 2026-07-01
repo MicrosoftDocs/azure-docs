@@ -1,80 +1,103 @@
 ---
-title: Quickstart - Register an existing system with Azure Center for SAP solutions with CLI
-description: Learn how to register an existing SAP system in Azure Center for SAP solutions through Azure CLI.
+title: Register an Existing SAP System with the Azure CLI
+description: Learn how to register an existing SAP system in Azure Center for SAP solutions through the Azure CLI.
 ms.service: sap-on-azure
 ms.subservice: center-sap-solutions
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 05/04/2023
+ms.date: 03/10/2026
 ms.author: kanamudu
 author: kalyaninamuduri
 #Customer intent: As a developer, I want to register my existing SAP system so that I can use the system with Azure Center for SAP solutions.
-# Customer intent: As a system administrator, I want to register my existing SAP system with Azure Center for SAP solutions using CLI, so that I can leverage Azure's management and monitoring capabilities for my SAP environment.
+#Customer intent: As a system administrator, I want to register my existing SAP system with Azure Center for SAP solutions by using the Azure CLI, so that I can use Azure management and monitoring capabilities for my SAP environment.
 ---
-# Quickstart: Register an existing SAP system with Azure Center for SAP solutions with CLI
 
-The Azure CLI is used to create and manage Azure resources from the command line or in scripts. 
+# Register an existing SAP system with Azure Center for SAP solutions with the Azure CLI
 
-[Azure Center for SAP solutions](overview.md) enables you to deploy and manage SAP systems on Azure. This article shows you how to register an existing SAP system running on Azure with *Azure Center for SAP solutions* using Az CLI. Alternatively, you can register systems using the Azure PowerShell or in the Azure portal.
-After you register an SAP system with *Azure Center for SAP solutions*, you can use its visualization, management, and monitoring capabilities through the Azure portal. For example, you can:
+Use the Azure CLI to create and manage Azure resources from the command line or in scripts.
 
-This quickstart enables you to register an existing SAP system with *Azure Center for SAP solutions*.
+With [Azure Center for SAP solutions](overview.md), you can deploy and manage SAP systems on Azure. This article shows you how to register an existing SAP system that runs on Azure with Azure Center for SAP solutions. We use the Azure CLI in this article. Alternatively, you can register systems by using Azure PowerShell or the Azure portal. After you register an SAP system, you can use its visualization, management, and monitoring capabilities through the Azure portal.
 
-## Prerequisites for registering a system
-- Check that you're trying to register a [supported SAP system configuration](/azure/sap/center-sap-solutions/register-existing-system#supported-systems)
+## Prerequisites
+
+- Confirm that you're trying to register a [supported SAP system configuration](/azure/sap/center-sap-solutions/register-existing-system#supported-systems).
+
 - Grant access to Azure Storage accounts from the virtual network where the SAP system exists. Use one of these options:
-    - Allow outbound internet connectivity for the Virtual Machines.
-    - Use a [**Storage** service tag](../../virtual-network/service-tags-overview.md) to allow connectivity to any Azure storage account from the VMs.
-    - Use a [**Storage** service tag with regional scope](../../virtual-network/service-tags-overview.md) to allow storage account connectivity to the Azure storage accounts in the same region as the VMs.
-    - Allowlist the region-specific IP addresses for Azure Storage.
-- The first time you use Azure Center for SAP solutions, you must register the **Microsoft.Workloads** Resource Provider in the subscription where you have the SAP system with [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider), as follows:
+  
+  - Allow outbound internet connectivity for the virtual machines (VMs).
+  
+  - Use a **Storage** [service tag](../../virtual-network/service-tags-overview.md) to allow connectivity to any Azure Storage account from the VMs.
+  
+  - Use a **Storage** [service tag with regional scope](../../virtual-network/service-tags-overview.md) to allow storage account connectivity to the Azure Storage accounts in the same region as the VMs.
+  
+  - Add the region-specific IP addresses for Azure Storage to your *allow* list.
 
-    ```azurecli-interactive
-    az provider register --namespace 'Microsoft.Workloads'
-    ```
-- Check that your Azure account has **Azure Center for SAP solutions administrator** and **Managed Identity Operator** or equivalent role access on the subscription or resource groups where you have the SAP system resources.
-- A **User-assigned managed identity** which has **Azure Center for SAP solutions service role** access on the Compute resource group and **Reader** role access on the Virtual Network resource group of the SAP system. Azure Center for SAP solutions service uses this identity to discover your SAP system resources and register the system as a VIS resource.
-- Make sure ASCS, Application Server and Database virtual machines of the SAP system are in **Running** state.
-- sapcontrol and saphostctrl exe files must exist on ASCS, App server and Database.
-    - File path on Linux Virtual Machines: /usr/sap/hostctrl/exe
-    - File path on Windows Virtual Machines: C:\Program Files\SAP\hostctrl\exe\
-- Make sure the **sapstartsrv** process is running on all **SAP instances** and for **SAP hostctrl agent** on all the VMs in the SAP system.
-    - To start hostctrl sapstartsrv, use this command for Linux Virtual Machines: 'hostexecstart -start'
-    - To start instance sapstartsrv, use the command: 'sapcontrol -nr 'instanceNr' -function StartService S0S'
-    - To check status of hostctrl sapstartsrv use this command for Windows Virtual Machines: C:\Program Files\SAP\hostctrl\exe\saphostexec –status
-- For successful discovery and registration of the SAP system, ensure there's network connectivity between ASCS, App, and DB VMs. 'ping' command for App instance hostname must be successful from ASCS Virtual Machine. 'ping' for Database hostname must be successful from App server Virtual Machine.
-- On App server profile, SAPDBHOST, DBTYPE, DBID parameters must have the right values configured for the discovery and registration of Database instance details.
+- The first time you use Azure Center for SAP solutions, you must register the `Microsoft.Workloads` resource provider in the subscription where you have the SAP system with [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider), as follows:
 
-## Register SAP system
+  ```azurecli-interactive
+  az provider register --namespace 'Microsoft.Workloads'
+  ```
+
+- On the subscription or resource groups where you have the SAP system resources, confirm that your Azure account has **Azure Center for SAP solutions administrator** and **Managed Identity Operator** or equivalent role access.
+
+- Confirm that **User-assigned managed identity** has the following access roles: **Azure Center for SAP solutions service** role access on the compute resource group, and **Reader** role access on the virtual network resource group of the SAP system. Azure Center for SAP solutions uses this identity to discover your SAP system resources and register the system as a Virtual Instance for SAP solutions (VIS) resource.
+
+- Make sure that Advanced Business Application Programming SAP Central Services (ASCS), the application server, and database VMs of the SAP system are in the **Running** state.
+
+- `sapcontrol` and `saphostctrl` executable files must exist on ASCS, the application server, and the database.
+  
+  - File path on Linux VMs: `/usr/sap/hostctrl/exe`
+  
+  - File path on Windows VMs: `C:\Program Files\SAP\hostctrl\exe\`
+
+- Make sure that the **sapstartsrv** process runs on all SAP instances and for the **SAP hostctrl agent** on all the VMs in the SAP system.
+  
+  - To start `hostctrl` `sapstartsrv`, use this command for Linux VMs: `hostexecstart -start`.
+  
+  - To start an instance of `sapstartsrv`, use the command: `sapcontrol -nr instanceNr -function StartService S0S`.
+  
+  - To check the status of `hostctrl` `sapstartsrv`, use this command for Windows VMs: `C:\Program Files\SAP\hostctrl\exe\saphostexec –status`.
+
+- For successful discovery and registration of the SAP system, ensure that there's network connectivity between ASCS, the application server, and database VMs. The `ping` command for the app instance host name must be successful from an ASCS VM. When you ping the database host name, it must be successful from the app server VM.
+
+- On the app server profile, `SAPDBHOST`, `DBTYPE`, and `DBID` parameters must have the right values configured for the discovery and registration of database instance details.
+
+## Register an SAP system
 
 To register an existing SAP system in Azure Center for SAP solutions:
 
-1. Use the [az workloads sap-virtual-instance create](/cli/azure/workloads/sap-virtual-instance#az-workloads-sap-virtual-instance-create) to register an existing SAP system as a *Virtual Instance for SAP solutions* resource:
+1. Use [az workloads sap-virtual-instance create](/cli/azure/workloads/sap-virtual-instance#az-workloads-sap-virtual-instance-create) to register an existing SAP system as a Virtual Instance for SAP solutions resource:
 
-     ```azurecli-interactive
-     az workloads sap-virtual-instance create -g <Resource Group Name> \
-          -n C36 \ 
-          --environment NonProd \ 
-          --sap-product s4hana \ 
-          --central-server-vm <Virtual Machine resource ID> \ 
-          --identity "{type:UserAssigned,userAssignedIdentities:{<Managed Identity resource ID>:{}}}" \
-          --managed-rg-name "acss-C36" \
-          --managed-resources-network-access-type <private/public> \
-     ```
-    - **g** is used to specify the name of the existing Resource Group into which you want the Virtual Instance for SAP solutions resource to be deployed. It could be the same RG in which you have Compute, Storage resources of your SAP system or a different one. 
-    - **n** parameter is used to specify the SAP System ID (SID) that you're registering with Azure Center for SAP solutions.
-    - **environment** parameter is used to specify the type of SAP environment you're registering. Valid values are *NonProd* and *Prod*.
-    - **sap-product** parameter is used to specify the type of SAP product you're registering. Valid values are *S4HANA*, *ECC*, *Other*.
-    - **managed-rg-name** parameter is used to specify the name of the managed resource group which is deployed by ACSS service in your Subscription. This RG is unique for each SAP system (SID) you register. If you don't specify the name, ACSS service sets a name with this naming convention 'mrg-{SID}-{random string}'.
-    - **managed-resources-network-access-type** specifies the network access configuration for the resources that will be deployed in the Managed Resource Group. The options to choose from are Public and Private. If 'Private' is chosen, the Storage Account service tag should be enabled on the subnets in which the SAP VMs exist. This is required for establishing connectivity between VM extensions and the managed resource group storage account. This setting is currently applicable only to Storage Account.
+   ```azurecli-interactive
+   az workloads sap-virtual-instance create -g <Resource Group Name> \
+       -n C36 \
+       --environment NonProd \
+       --sap-product s4hana \
+       --central-server-vm <Virtual Machine resource ID> \
+       --identity "{type:UserAssigned,userAssignedIdentities:{<Managed Identity resource ID>:{}}}" \
+       --managed-rg-name "acss-C36" \
+       --managed-resources-network-access-type <private/public> \
+   ```
 
-2. Once you trigger the registration process, you can view its status by getting the status of the Virtual Instance for SAP solutions resource that gets deployed as part of the registration process.
+   - `g` specifies the name of the existing resource group into which you want the Virtual Instance for SAP solutions resource to be deployed. It can be the same resource group in which you have compute and storage resources of your SAP system, or it can be a different one.
 
-     ```azurecli-interactive
-     az workloads sap-virtual-instance show -g <Resource-group-name> -n C36
-     ```
+   - `n` specifies the SAP System ID (SID) that you're registering with Azure Center for SAP solutions.
 
-## Next steps
+   - `environment` specifies the type of SAP environment that you're registering. Valid values are `NonProd` and `Prod`.
 
-- [Monitor SAP system from Azure portal](monitor-portal.md)
+   - `sap-product` specifies the type of SAP product that you're registering. Valid values are `S4HANA`, `ECC`, and `Other`.
+
+   - `managed-rg-name` specifies the name of the managed resource group deployed by the Azure Cloud Solution for SAP (ACSS) service in your subscription. This resource group is unique for each SAP SID that you register. If you don't specify the name, the ACSS service sets a name with the following naming convention: `mrg-{SID}-{random string}`.
+
+   - `managed-resources-network-access-type` specifies the network access configuration for the resources deployed in the managed resource group. The options are `public` and `private`. If you choose private, enable the storage account service tag on the subnets in which the SAP VMs exist. This step is required for establishing connectivity between VM extensions and the managed resource group storage account. This setting is currently applicable only to the storage account.
+
+1. After you trigger the registration process, you can view its status by getting the status of the Virtual Instance for SAP solutions resource that gets deployed as part of the registration process.
+
+   ```azurecli-interactive
+   az workloads sap-virtual-instance show -g <resource-group-name> -n C36
+   ```
+
+## Related content
+
+- [Monitor SAP system from the Azure portal](monitor-portal.md)
 - [Manage a VIS](manage-virtual-instance.md)

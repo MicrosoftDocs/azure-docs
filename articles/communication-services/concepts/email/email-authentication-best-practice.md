@@ -7,7 +7,7 @@ manager: sphenry
 services: azure-communication-services
 ms.author: bashan
 ms.date: 03/31/2023
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: azure-communication-services
 ---
 

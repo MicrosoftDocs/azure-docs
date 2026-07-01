@@ -7,6 +7,7 @@ ms.custom:
   - build-2025
 ms.topic: quickstart
 ms.date: 05/15/2025
+ms.update-cycle: 1095-days
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka

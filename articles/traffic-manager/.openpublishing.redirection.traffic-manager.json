@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/traffic-manager/traffic-manager-troubleshooting-degraded.md",
+            "redirect_url": "/troubleshoot/azure/traffic-manager/troubleshoot-traffic-manager-degraded-status",
+            "redirect_document_id": false
+        }
+    ]
+}

@@ -1,16 +1,20 @@
 ---
-title: "Storage options"
-description: Learn what basic storage infrastructure options to consider during a migration of high performance computing architecture.
+title: Set up foundational storage accounts for HPC on Azure
+description: Create and configure basic Azure Storage accounts for logs, backups, and general data management in HPC environments.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 04/10/2025
+ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
 # Customer intent: As a cloud architect, I want to establish a basic storage infrastructure for high-performance computing migration, so that I can ensure effective data management, security, and resource accessibility during the deployment process.
 ---
 
-# Storage options
+# Set up foundational storage accounts for HPC on Azure
 
 In any Azure subscription, setting up basic storage is essential for managing data, applications, and resources effectively. While more advanced and HPC-specific storage configurations are addressed separately, a solid foundation of basic storage is crucial for general resource management and initial deployment needs. This part of the guide covers the needs, tools, services, and best practices associated with your basic storage infrastructure.
 

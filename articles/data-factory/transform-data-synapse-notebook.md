@@ -6,7 +6,7 @@ author: nabhishek
 ms.author: jejiang
 ms.date: 10/03/2024
 ms.subservice: orchestration
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - synapse
   - sfi-image-nochange

@@ -1,22 +1,22 @@
 ---
-title: Groups and roles in Oracle Database@Azure
-description: Learn about groups and roles in Oracle Database@Azure.
+title: Groups and roles in Oracle AI Database@Azure
+description: Learn about groups and roles in Oracle AI Database@Azure.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 12/12/2023
 ms.custom: engagement-fy23
-# Customer intent: As a database administrator, I want to understand the groups and roles in Oracle Database@Azure so that I can manage user access and permissions effectively in my cloud environment.
+# Customer intent: As a database administrator, I want to understand the groups and roles in Oracle AI Database@Azure so that I can manage user access and permissions effectively in my cloud environment.
 ---
 
-# Groups and roles in Oracle Database@Azure
+# Groups and roles in Oracle AI Database@Azure
 
-This article lists groups and roles you use to manage access to Oracle Database@Azure. Using these groups and roles ensures that assigned users have the appropriate permissions to operate the service.
+This article lists groups and roles you use to manage access to Oracle AI Database@Azure. Using these groups and roles ensures that assigned users have the appropriate permissions to operate the service.
 
 ## Groups and roles in Azure
 
-For more information about groups and roles in Azure, see [Set Up Role Based Access Control for Oracle Database@Azure](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-7.htm).
+For more information about groups and roles in Azure, see [Set Up Role Based Access Control for Oracle AI Database@Azure](https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaaonboard-task-7.htm).
 
 ## Groups in Oracle Cloud Infrastructure
 
@@ -31,16 +31,16 @@ Use the following groups in your OCI tenancy:
 
 ## Required Identity and Access Management policies
 
-The following Oracle Cloud Infrastructure Identity and Access Management (IAM) policies are required for each user and each group in Oracle Database@Azure:
+The following Oracle Cloud Infrastructure Identity and Access Management (IAM) policies are required for each user and each group in Oracle AI Database@Azure:
 
 - `Allow any-user to use tag-namespaces in tenancy where request.principal.type = ‘multicloudlink’`
 - `Allow any-user to manage tag-defaults in tenancy where request.principal.type = ‘multicloudlink’`
 
-For information about working with policies, see [Get started with policies](https://docs.oracle.com/iaas/Content/Identity/policiesgs/get-started-with-policies.htm) in Oracle databases.
+For information about working with policies, see [Get started with policies](https://docs.oracle.com/iaas/Content/Identity/policiesgs/get-started-with-policies.htm) in Oracle AI Databases.
 
 ## Related content
 
-- [Overview of Oracle Database@Azure](database-overview.md)
-- [Onboard Oracle Database@Azure](onboard-oracle-database.md)
-- [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
-- [Support for Oracle Database@Azure](oracle-database-support.md)
+- [Overview of Oracle AI Database@Azure](database-overview.md)
+- [Onboard Oracle AI Database@Azure](onboard-oracle-database.md)
+- [Provision and manage Oracle AI Database@Azure](provision-oracle-database.md)
+- [Support for Oracle AI Database@Azure](oracle-database-support.md)

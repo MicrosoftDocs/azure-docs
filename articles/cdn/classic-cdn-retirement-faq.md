@@ -8,7 +8,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-cdn
 ms.topic: faq
-ms.date: 03/31/2025
+ms.date: 03/31/2026
 ms.custom: ai-usage
 # Customer intent: As a cloud service user, I want to transition from Azure CDN Standard (classic) to Azure Front Door Standard or Premium, so that I can take advantage of improved features, enhanced security, and maintain support before the retirement of the legacy service on September 30, 2027.
 ---
@@ -22,6 +22,7 @@ In our ongoing efforts to provide the best product experience and streamline our
 > [!IMPORTANT]
 > - Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support new domain onboarding or profile creation. Migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) to create new domains or profiles and avoid service disruption. [Learn more](https://azure.microsoft.com/updates?id=498522)
 > - Starting August 15, 2025, Azure CDN from Microsoft (classic) will no longer support Managed certificates. To avoid service disruption, either [switch to Bring Your Own Certificate (BYOC)](/azure/cdn/cdn-custom-ssl?toc=%2Fazure%2Ffrontdoor%2Ftoc.json&tabs=option-1-default-enable-https-with-a-cdn-managed-certificate) or migrate to [AFD Standard and Premium](/azure/cdn/migrate-tier?toc=%2Fazure%2Ffrontdoor%2Ftoc.json) by this date. Existing managed certificates will be auto renewed before August 15, 2025, and remain valid until April 14, 2026. [Learn more](https://azure.microsoft.com/updates?id=498522)
+> - If you migrate to Azure Front Door Standard or Premium after your managed certificates have already expired, then after migration, the certificates will change to *Pending Revalidation* state or start to rotate after 1-2 days. Alternatively, rotate the Front Door Standard and Premium managed certificates by refreshing the validation token using either **[Powershell](/powershell/module/az.cdn/update-azfrontdoorcdncustomdomainvalidationtoken)** or **[CLI](/cli/azure/afd/custom-domain#az-afd-custom-domain-regenerate-validation-token)**. After adding the new TXT record token to your DNS zone, the custom domain will be revalidated and a new certificate will be deployed.
 
 ## Frequently asked questions
 

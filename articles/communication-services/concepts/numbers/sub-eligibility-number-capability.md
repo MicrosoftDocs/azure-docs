@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: krkutser
 ms.date: 03/04/2025
-ms.topic: conceptual
+ms.topic: feature-availability
 ms.service: azure-communication-services
 ms.custom: references_regions
 ---

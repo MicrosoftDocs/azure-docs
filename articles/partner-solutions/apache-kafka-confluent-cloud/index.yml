@@ -6,6 +6,8 @@ summary: Use Apache Kafka and Apache Flink as a managed service on Azure
 metadata:
   title: Confluent Cloud with Azure documentation
   description: Confluent Cloud integrates with Azure to offer Apache Kafka and Apache Flink as a service.
+  author: praveenrajap
+  ms.author: praveenrajap
   ms.service: partner-services
   ms.subservice: confluent
   ms.topic: landing-page
@@ -21,6 +23,8 @@ landingContent:
         links:
           - text: What is Apache Kafka & Apache Flink on Confluent Cloud?
             url: overview.md
+          - text: FAQ
+            url: faq.yml
       - linkListType: how-to-guide
         links:
           - text: Manage a resource

@@ -14,13 +14,18 @@ ms.author: mbender
 
 You can configure the application gateway to have a public IP address, a private IP address, or both. A public IP address is required when you host a backend that clients must access over the internet via an internet-facing virtual IP.
 
+> [!IMPORTANT]
+>In availability zone-enabled regions, the frontend public IP address must be configured for all availability zones used by the Application Gateway (that is, the public IP's zone selection must be a superset of the gateway's zones). When you create an Application Gateway in the Azure portal, the default availability zone configuration is Zones 1, 2, and 3. As a result, the frontend public IP address must also be configured for Zones 1, 2, and 3.
+>
+>If you already have a public IP address deployed to a subset of zones (for example, Zones 1 and 2), you can't create the gateway through the portal because the public IP zones wouldn't include the portal's default gateway zone configuration. In this scenario, create the Application Gateway by using Azure CLI, Azure PowerShell, REST API, or an SDK, and explicitly specify the gateway zones as a subset of the public IP zones (for example, Zones 1 and 2).
+
 ## Public and private IP address support
 
 Application Gateway v2 currently supports the following combinations:
 
 * Private IP address and public IP address
 * Public IP address only
-* [Private IP address only (preview)](application-gateway-private-deployment.md)
+* [Private IP address only](application-gateway-private-deployment.md)
 
 For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.yml#how-do-i-use-application-gateway-v2-with-only-a-private-frontend-ip-address).
 

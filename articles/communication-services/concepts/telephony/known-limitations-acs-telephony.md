@@ -6,7 +6,7 @@ manager: rcole
 services: azure-communication-services
 ms.author: bobazile
 ms.date: 04/03/2024
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.subservice: pstn
 ---

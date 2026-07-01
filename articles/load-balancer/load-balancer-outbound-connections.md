@@ -160,7 +160,7 @@ Outbound connections can burst. A backend instance can be allocated insufficient
 
 For more information about connection pooling with Azure App Service, see [Troubleshooting intermittent outbound connection errors in Azure App Service](../app-service/troubleshoot-intermittent-outbound-connection-errors.md#avoiding-the-problem)
 
-New outbound connections to a destination IP fail when port exhaustion occurs. Connections succeed when a port becomes available. This exhaustion occurs when the 64,000 ports from an IP address are spread thin across many backend instances. For guidance on mitigation of SNAT port exhaustion, see the [troubleshooting guide](./troubleshoot-outbound-connection.md). 
+New outbound connections to a destination IP fail when port exhaustion occurs. Connections succeed when a port becomes available. This exhaustion occurs when the 64,000 ports from an IP address are spread thin across many backend instances. For guidance on mitigation of SNAT port exhaustion, see [Support and troubleshooting for Azure Load Balancer](./load-balancer-support-help.md).
 
 ## Port reuse
 For TCP connections, the load balancer uses a single SNAT port for every destination IP and port. For connections to the same destination IP, a single SNAT port can be reused as long as the destination port differs. Reuse isn't possible when there already exists a connection to the same destination IP and port.
@@ -185,7 +185,6 @@ In the example in the following table, a backend instance with private IP 10.0.0
 *	Each IP address provides 64,000 ports that can be used for SNAT.
 
 *	Each port can be used for both TCP and UDP connections to a destination IP address
-
   *	A UDP SNAT port is needed whether the destination port is unique or not. For every UDP connection to a destination IP, one UDP SNAT port is used.
 
   *	A TCP SNAT port can be used for multiple connections to the same destination IP provided the destination ports are different.
@@ -198,6 +197,6 @@ In the example in the following table, a backend instance with private IP 10.0.0
 
 ## Next steps
 
-*	[Troubleshoot outbound connection failures because of SNAT exhaustion](./troubleshoot-outbound-connection.md)
+*	[Support and troubleshooting for Azure Load Balancer](./load-balancer-support-help.md)
 *	[Review SNAT metrics](./load-balancer-standard-diagnostics.md#how-do-i-check-my-snat-port-usage-and-allocation) and familiarize yourself with the correct way to filter, split, and view them.
 *	Learn how to [migrate your existing outbound connectivity method to NAT gateway](../virtual-network/nat-gateway/tutorial-migrate-outbound-nat.md)

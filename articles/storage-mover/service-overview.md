@@ -34,7 +34,7 @@ Document score: 98 (808 words and 1 false positive)
     :::column-end:::
 :::row-end:::
 
-You can use Storage Mover for different migration scenarios such as *lift-and-shift*, and for migrations that you have to repeat regularly. Azure Storage Mover also helps maintain oversight and manage the migration of all your globally distributed file shares from a single storage mover resource.
+You can use Storage Mover for different migration scenarios such as *lift-and-shift*, and for migrations that you have to repeat regularly. Azure Storage Mover also helps maintain oversight and manage the migration of all your globally distributed file shares from a single storage mover resource. Mover can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](../azure-government/documentation-government-welcome.md).
 
 ## Supported sources and targets
 

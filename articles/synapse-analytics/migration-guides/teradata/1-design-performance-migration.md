@@ -3,7 +3,7 @@ title: "Design and performance for Teradata migrations"
 description: Learn how Teradata and Azure Synapse SQL databases differ in their approach to high query performance on exceptionally large data volumes.
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: upgrade-and-migration-article
 author: ajagadish-24
 ms.author: ajagadish
 
@@ -229,8 +229,6 @@ Teradata supports special table types for time-series and temporal data. The syn
 >Standard tables in Azure Synapse can support migrated Teradata time-series and temporal data.
 
 Teradata implements temporal query functionality by using query rewriting to add additional filters within a temporal query to limit the applicable date range. If you plan to migrate this functionality from the source Teradata environment, then add the additional filtering into the relevant temporal queries.
-
-The Azure environment supports [time series insights](https://azure.microsoft.com/services/time-series-insights) for complex analytics on time-series data at scale. This functionality is aimed at IoT data analysis applications.
 
 #### SQL DML syntax differences
 

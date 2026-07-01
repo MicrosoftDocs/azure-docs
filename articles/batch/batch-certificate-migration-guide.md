@@ -3,7 +3,7 @@ title: Migrate Batch account certificates to Azure Key Vault
 description: Learn how to migrate Batch account certificates to Azure Key Vault and plan for feature end of support.
 ms.service: azure-batch
 ms.topic: how-to
-ms.date: 07/01/2025
+ms.date: 01/05/2026
 # Customer intent: "As a cloud administrator, I want to migrate Batch account certificates to Azure Key Vault, so that I can ensure continued secure access and management of my certificates after the Batch account certificates feature is retired on February 29, 2024."
 ---
 
@@ -13,7 +13,7 @@ On *February 29, 2024*, the Azure Batch account certificates feature will be ret
 
 ## About the feature
 
-Certificates are often required in various scenarios such as decrypting a secret, securing communication channels, or [accessing another service](credential-access-key-vault.md). Currently, Azure Batch offers two ways to manage certificates on Batch pools. You can add certificates to a Batch account or you can use the Azure Key Vault VM extension to manage certificates on Batch pools. Only the [certificate functionality on an Azure Batch account](/rest/api/batchservice/certificate) and the functionality it extends to Batch pools via `CertificateReference` to [Add Pool](/rest/api/batchservice/pool/add#certificatereference), [Patch Pool](/rest/api/batchservice/pool/patch#certificatereference), [Update Properties](/rest/api/batchservice/pool/update-properties#certificatereference) and the corresponding references on Get and List Pool APIs are being retired. Additionally, for Linux pools, the environment variable `$AZ_BATCH_CERTIFICATES_DIR` will no longer be defined and populated.
+Certificates are often required in various scenarios such as decrypting a secret, securing communication channels, or [accessing another service](credential-access-key-vault.md). Currently, Azure Batch offers two ways to manage certificates on Batch pools. You can add certificates to a Batch account or you can use the Azure Key Vault VM extension to manage certificates on Batch pools. For Linux pools, the environment variable `$AZ_BATCH_CERTIFICATES_DIR` will no longer be defined and populated.
 
 ## Feature end of support
 

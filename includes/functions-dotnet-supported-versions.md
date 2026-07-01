@@ -30,7 +30,7 @@ The following table shows the highest level of .NET or .NET Framework that can b
 
 <sup>4</sup> Support ends for the in-process model on November 10, 2026. For more information, see [this support announcement](https://aka.ms/azure-functions-retirements/in-process-model). For continued full support, you should  [migrate your apps to the isolated worker model](../articles/azure-functions/migrate-dotnet-to-isolated-model.md).
 
-<sup>5</sup> You can't run .NET 10 apps on Linux in the Consumption plan. To run on Linux, you should instead use the [Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md).
+<sup>5</sup> You can't run .NET 10 apps on Linux in the Consumption plan. To run on Linux, you should instead use the [Flex Consumption plan](../articles/azure-functions/flex-consumption-plan.md). For step-by-step migration instructions, see [Migrate Consumption plan apps to the Flex Consumption plan](../articles/azure-functions/migration/migrate-plan-consumption-to-flex.md?pivots=platform-linux).
 
 For the latest news about Azure Functions releases, including the removal of specific older minor versions, monitor [Azure App Service announcements](https://github.com/Azure/app-service-announcements/issues).
 

@@ -3,8 +3,8 @@ title: Troubleshoot Apache HBase performance issues on Azure HDInsight
 description: Various Apache HBase performance tuning guidelines and tips for getting optimal performance on Azure HDInsight. 
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date:  05/10/2024
 ---

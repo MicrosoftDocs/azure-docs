@@ -1,11 +1,13 @@
 ---
-title: Move logic apps across subscriptions, resource groups, or regions
+title: Move Logic Apps to Other Subscriptions, Resource Groups, or Regions
 description: Migrate logic apps or integration accounts to other Azure subscriptions, resource groups, or locations (regions).
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 02/19/2025
+ms.update-cycle: 365-days
+ms.date: 03/11/2026
+# Customer intent: As a developer who works with Azure Logic Apps, I want to move or migrate my logic app resources to other Azure resource groups, subscriptions, or regions.
 ---
 
 # Move logic app resources to other Azure resource groups, regions, or subscriptions
@@ -78,7 +80,7 @@ When you want to move a logic app to a different region, your options depend on 
 
 * If you created and deployed your logic app by using continuous integration (CI) and continuous delivery (CD) tools, such as Azure Pipelines in Azure DevOps, you can deploy your app to another region by using those tools.
 
-For more information about deployment templates for logic apps, see these topics:
+For more information about deployment templates for logic apps, see these articles:
 
 * [Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)
 * [Find, open, and download your logic app from the Azure portal into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md)
@@ -99,7 +101,7 @@ The template that you get from Visual Studio includes only the resource definiti
 
 1. In the [Azure portal](https://portal.azure.com), find and open your integration account.
 
-1. On your integration account's menu, under **Settings**, select **Export template**.
+1. On the integration account sidebar, under **Settings**, select **Export template**.
 
 1. On the toolbar, select **Download**, and save the template.
 

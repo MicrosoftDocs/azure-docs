@@ -3,7 +3,7 @@ title: How Azure IoT Edge Modules Run Logic on Devices
 description: Learn how Azure IoT Edge modules run logic on devices, using containerized applications, and secure communication with IoT Hub.
 author: sethmanheim
 ms.author: sethm
-ms.date: 03/20/2025
+ms.date: 02/27/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -19,23 +19,23 @@ ms.custom:
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-Azure IoT Edge lets you deploy and manage business logic on edge devices using *modules*. Azure IoT Edge modules are the smallest unit of computation managed by IoT Edge, and can contain Azure services (such as Azure Stream Analytics) or your own solution-specific code. To understand how modules are developed, deployed, and maintained, consider the four conceptual elements of a module:
+Azure IoT Edge lets you deploy and manage business logic on edge devices by using *modules*. Azure IoT Edge modules are the smallest unit of computation managed by IoT Edge. They can contain Azure services, such as Azure Stream Analytics, or your own solution-specific code. To understand how modules are developed, deployed, and maintained, consider the four conceptual elements of a module:
 
 * A **module image** is a package containing the software that defines a module.
-* A **module instance** is the specific unit of computation running the module image on an IoT Edge device. The module instance is started by the IoT Edge runtime.
-* A **module identity** is a piece of information (including security credentials) stored in IoT Hub that is associated to each module instance.
-* A **module twin** is a JSON document stored in IoT Hub that contains state information for a module instance, including metadata, configurations, and conditions.
+* A **module instance** is the specific unit of computation running the module image on an IoT Edge device. The IoT Edge runtime starts the module instance.
+* A **module identity** is a piece of information, including security credentials, that IoT Hub stores and associates with each module instance.
+* A **module twin** is a JSON document that IoT Hub stores and contains state information for a module instance, including metadata, configurations, and conditions.
 
 ## Module images and instances
 
-IoT Edge module images contain applications that take advantage of the management, security, and communication features of the IoT Edge runtime. You can develop your own module images, or export one from a supported Azure service, such as Azure Stream Analytics.
-The images exist in the cloud, and you can update, change, and deploy them in different solutions. For example, a module using machine learning to predict production line output is a separate image from a module using computer vision to control a drone.
+IoT Edge module images contain applications that take advantage of the management, security, and communication features of the IoT Edge runtime. You can develop your own module images or export one from a supported Azure service, such as Azure Stream Analytics.
+You manage images in the cloud. You can update, change, and deploy them in different solutions. For example, a module that uses machine learning to predict production line output is a separate image from a module that uses computer vision to control a drone.
 
-Each time the IoT Edge runtime deploys and starts a module image on a device, it creates a new instance of that module. Two devices in different parts of the world could use the same module image. However, each device would have its own module instance when the module is started on the device.
+Each time the IoT Edge runtime deploys and starts a module image on a device, it creates a new instance of that module. Two devices in different parts of the world can use the same module image. However, each device has its own module instance when the module starts on the device.
 
 ![Diagram - Module images in cloud, module instances on devices](./media/iot-edge-modules/image_instance.png)
 
-In implementation, modules images exist as container images in a repository, and module instances are containers on devices.
+In implementation, module images exist as container images in a repository, and module instances are containers on devices.
 
 ## Module identities
 

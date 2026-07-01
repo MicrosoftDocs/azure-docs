@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 10/28/2025
+ms.date: 03/19/2026
 ms.author: primittal
 # customer intent: As a reservation purchaser, I want learn how to exchange or refund Azure reservations.
 ---
@@ -16,7 +16,7 @@ ms.author: primittal
 Azure Reservations help you save money by committing to one- or three-year plans for Azure services. We understand that your business needs can change, so Azure Reservations are designed with flexibility in mind.
 You can exchange reservations within the same product family to better align with your evolving workloads. For example:
 
-- If you have compute reservations, you can exchange between Azure Virtual Machines, Azure Dedicated Host, and Azure VMware Solution.
+- If you have compute reservations, you can exchange between Azure Virtual Machines, Azure Dedicated Host, Azure VMware Solution, and Nutanix on Azure BareMetal. 
 - If you have SQL-related reservations, you can exchange between SQL Managed Instance, SQL Database, and Elastic Pool.
 
 These exchanges can be done in bulk and are especially helpful when you're scaling up, moving to a different region, different term, or changing deployment strategies. For example, you can exchange a reservation that's in West US 2 region for one that's in West Europe region or exchange 1 year to 3 year or vice-versa given you adhere to exchange policy.
@@ -29,7 +29,7 @@ This flexibility ensures you can adapt your reservations as your cloud strategy 
 > [!NOTE]
 > Initially planned to end on January 1, 2024, the availability of Azure compute reservation exchanges for Azure Virtual Machine, Azure Dedicated Host and Azure App Service was extended **until further notice**.
 >
->Launched in October 2022, the [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) aims at providing savings on consistent spend, across different compute services, regardless of region. With savings plan's automatic flexibility, we updated our reservations exchange policy. While [instance size flexibility for VMs](/azure/virtual-machines/reserved-vm-instance-size-flexibility) remains post-grace period, exchanges of instance series or regions for Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations will no longer be supported.
+>Launched in October 2022, the [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plans?cid=msft_learn) aims at providing savings on consistent spend, across different compute services, regardless of region. With savings plan's automatic flexibility, we updated our reservations exchange policy. While [instance size flexibility for VMs](/azure/virtual-machines/reserved-vm-instance-size-flexibility) remains post-grace period, exchanges of instance series or regions for Azure Virtual Machine, Azure Dedicated Host and Azure App Service reservations will no longer be supported.
 >
 >You may continue [exchanging](exchange-and-refund-azure-reservations.md) your compute reservations for different instance series and regions until we notify you again, which will be **at least 6 months in advance**. In addition, any compute reservations purchased during this extended grace period will retain the right to **one more exchange after the grace period ends**. The extended grace period allows you to better assess your cost savings commitment needs and plan effectively. For more information, see [Changes to the Azure reservation exchange policy](reservation-exchange-policy-changes.md).
 >
@@ -41,12 +41,9 @@ When you exchange a reservation, you can change your term from one-year to three
 
 Not all reservations are eligible for exchange. For example, you can't exchange the following reservations:
 
-- Azure Databricks Pre-purchase plan
-- Synapse Analytics Pre-purchase plan
 - Red Hat plans
 - SUSE Linux plans
-- Microsoft Defender for Cloud Pre-Purchase Plan
-- Microsoft Sentinel Pre-Purchase Plan
+- All pre-purchase plans
 
 You can also refund reservations, but the sum total of all canceled reservation commitment in your billing scope (such as EA, Microsoft Customer Agreement - Billing Profile, and Microsoft Partner Agreement - Customer) can't exceed USD 50,000 in a 12 month rolling window.
 
@@ -54,12 +51,9 @@ You can also refund reservations, but the sum total of all canceled reservation 
 
 The following reservations aren't eligible for refunds:
 
-- Azure Databricks Pre-purchase plan
-- Synapse Analytics Pre-purchase plan
 - Red Hat plans
 - SUSE Linux plans
-- Microsoft Defender for Cloud Pre-Purchase Plan
-- Microsoft Sentinel Pre-Purchase Plan
+- All pre-purchase plans
 
 ## Prerequisites
 

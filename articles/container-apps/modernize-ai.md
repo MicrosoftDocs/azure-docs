@@ -5,7 +5,7 @@ author: craigshoemaker
 ms.topic: overview
 ms.date: 11/04/2025
 ms.author: cshoe
-ms.service: azure-sre-agent
+ms.service: azure-container-apps
 ---
 
 # GitHub Copilot tooling for app modernization and migration in Azure Container Apps

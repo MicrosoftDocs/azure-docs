@@ -4,7 +4,7 @@ description: This article describes how to use Azure Stream Analytics with Proto
 ms.service: azure-stream-analytics
 author: AliciaLiMicrosoft
 ms.author: ali
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/18/2024
 ms.custom:
   - ignite-2024

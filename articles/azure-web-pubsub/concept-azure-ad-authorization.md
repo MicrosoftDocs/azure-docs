@@ -6,7 +6,7 @@ author: terencefan
 ms.author: lianwei
 ms.date: 11/08/2021
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Authorize access to Web PubSub resources using Microsoft Entra ID

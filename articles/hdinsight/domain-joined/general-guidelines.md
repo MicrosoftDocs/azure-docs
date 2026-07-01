@@ -2,7 +2,7 @@
 title: Enterprise security general guidelines in Azure HDInsight
 description: Some best practices that should make Enterprise Security Package deployment and management easier.
 ms.service: azure-hdinsight
-ms.topic: conceptual
+ms.topic: best-practice
 author: hareshg
 ms.author: hgowrisankar
 ms.reviewer: nijelsf 

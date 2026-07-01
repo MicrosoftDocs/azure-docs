@@ -7,7 +7,7 @@ ms.subservice: reservations
 ms.author: primittal
 ms.reviewer: primittal
 ms.topic: troubleshooting
-ms.date: 10/28/2025
+ms.date: 03/19/2026
 ---
 
 # Troubleshoot no eligible subscriptions
@@ -71,7 +71,7 @@ You can only purchase reservations using subscriptions on which you have owner o
 To buy a reservation, you need to create a new Azure subscription that supports reservations.
 
 - If you have an Azure Free trial, you can [upgrade your subscription](../manage/upgrade-azure-subscription.md).
-- You can create a new Azure subscription with [pay-as-you-go rates](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
+- You can create a new Azure subscription with [pay-as-you-go rates](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Sign up for a [Microsoft Customer Agreement](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/) and create a new subscription.
 - Purchase a new subscription with a [CSP](https://www.microsoft.com/solution-providers/home) and create a new subscription.
 

@@ -1,9 +1,9 @@
-﻿---
+---
 title: Reuse templates across clouds
 description: Develop Azure Resource Manager templates (ARM templates) that work consistently for different cloud environments. Create new or update existing templates for Azure Stack.
 author: marcvaneijk
 ms.topic: article
-ms.date: 04/28/2025
+ms.date: 06/26/2026
 ms.author: mavane
 ms.custom:
   - devx-track-arm-template
@@ -429,7 +429,7 @@ Resources can have references to other services on the platform. For example, a 
 The following two examples are common endpoint namespaces that need to be explicitly specified when creating a resource:
 
 * Storage accounts (blob, queue, table and file)
-* Connection strings for databases and Azure Cache for Redis
+* Connection strings for databases and Azure Managed Redis
 
 Endpoint namespaces can also be used in the output of a template as information for the user when the deployment completes. The following are common examples:
 
@@ -645,7 +645,7 @@ To retrieve a list of the available versions for a specific VM extension, use th
 Get-AzureRmVMExtensionImage -Location myLocation -PublisherName Microsoft.PowerShell -Type DSC | FT
 ```
 
-To get a list of publishers, use the [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) command. To request type, use the [Get-AzureRmVMExtensionImageType](/powershell/module/az.compute/get-azvmextensionimagetype) commend.
+To get a list of publishers, use the [Get-AzureRmVmImagePublisher](/powershell/module/az.compute/get-azvmimagepublisher) command. To request type, use the [Get-AzureRmVMExtensionImageType](/powershell/module/az.compute/get-azvmextensionimagetype) command.
 
 ## Tips for testing and automation
 

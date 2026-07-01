@@ -23,7 +23,7 @@ In this article, you learn how to upgrade a classic reserved IP to a basic publi
 - An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Your Azure subscription registered for migration. For more information, see [Migrate to Resource Manager with PowerShell](/azure/virtual-machines/migration-classic-resource-manager-ps).
 - A classic deployment model reserved IP address.
-- Azure PowerShell Service Management module installed for PowerShell. For more information, see [Installing the Azure PowerShell Service Management module](/powershell/azure/servicemanagement/install-azure-ps).
+- Azure PowerShell Service Management module installed for PowerShell. For more information, see [Installing the Azure PowerShell Service Management module](https://www.powershellgallery.com/packages/Azure/).
 - Azure classic CLI installed for Azure CLI instructions. For more information, see [Install the Azure classic CLI](/cli/azure/install-classic-cli).
 
 ## Azure PowerShell Service Management module

@@ -6,7 +6,7 @@ description: Learn how to enable JavaScript and use page layout versions in Azur
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 10/17/2024

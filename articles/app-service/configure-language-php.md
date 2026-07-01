@@ -348,23 +348,25 @@ As an alternative to using a `.user.ini` file, you can use [`ini_set()`](https:/
 
 ::: zone pivot="platform-linux"
 
+This section applies to directives with a change mode of `PHP_INI_USER`, `PHP_INI_PERDIR`, or `PHP_INI_ALL`. For directives that require change mode `PHP_INI_SYSTEM`, see [Customize PHP_INI_SYSTEM directives](#customize-php_ini_system-directives).
+
 To customize `PHP_INI_USER`, `PHP_INI_PERDIR`, and `PHP_INI_ALL` directives for Linux web apps, such as `upload_max_filesize` and `expose_php`, use a custom *.ini* file. You can create it in an [SSH session](configure-linux-open-ssh-session.md). First, set up the directory:
 
 1. Go to your Kudu site. To get the random hash and region values, in your app **Overview**, copy **Default domain**.
 1. On the top menu, select **Debug console**, then **Bash** or **SSH**.
-1. In Bash or SSH, go to your `/home/site/wwwroot` directory.
+1. In Bash or SSH, go to your `/home/site` directory.
 1. Create a directory called `ini` (for example, `mkdir ini`).
 1. Change the current working directory to the `ini` folder that you created.
 
 Next, create an *.ini* file where you add your settings. This example uses `extensions.ini`. There are no file editors such as Vi, Vim, or Nano, so use `Echo` to add the settings to the file. Change the `upload_max_filesize` value from `2M` to `50M`. Use the following command to add the setting and create an `extensions.ini` file if one doesn't already exist:
 
 ```bash
-/home/site/wwwroot/ini>echo "upload_max_filesize=50M" >> extensions.ini
-/home/site/wwwroot/ini>cat extensions.ini
+/home/site/ini>echo "upload_max_filesize=50M" >> extensions.ini
+/home/site/ini>cat extensions.ini
 
 upload_max_filesize=50M
 
-/home/site/wwwroot/ini>
+/home/site/ini>
 ```
 
 In the Azure portal, add an application setting to scan the `ini` directory that you just created to apply the change for `upload_max_filesize`:
@@ -372,7 +374,7 @@ In the Azure portal, add an application setting to scan the `ini` directory that
 1. Go to the [Azure portal](https://portal.azure.com) and select your App Service Linux PHP application.
 1. Go to **Settings** > **Environment variables**.
 1. Select **+ Add**.
-1. For **Name** enter *PHP_INI_SCAN_DIR* and for **Value**, enter `:/home/site/wwwroot/ini`.
+1. For **Name** enter *PHP_INI_SCAN_DIR* and for **Value**, enter `:/home/site/ini`.
 1. Select **Apply**, then **Apply** again. Confirm your changes.
 
 > Make sure to include the colon (:) when appending custom paths to PHP_INI_SCAN_DIR. Omitting it will result in NGINX returning a 404 error.
@@ -403,7 +405,7 @@ For example, to change the value of [`expose_php`](https://php.net/manual/ini.co
 ```bash
 cd /home/site
 mkdir ini
-echo "expose_php = Off" >> ini/setting.ini
+echo "expose_php = Off" >> ini/settings.ini
 ```
 
 For the changes to take effect, restart the app.
@@ -412,7 +414,9 @@ For the changes to take effect, restart the app.
 
 ::: zone pivot="platform-linux"
 
-To customize `PHP_INI_SYSTEM` directives, you can't use the *.htaccess* approach. App Service provides a separate mechanism that uses the `PHP_INI_SCAN_DIR` app setting.
+This section applies to directives with a change mode of `PHP_INI_SYSTEM`. If your changes don't take effect after following the previous section, verify the directive's [change mode](https://www.php.net/manual/ini.list.php) before proceeding.
+
+To customize `PHP_INI_SYSTEM` directives, use the `PHP_INI_SCAN_DIR` app setting.
 
 First, run the following command to add an app setting called `PHP_INI_SCAN_DIR`:
 
@@ -434,7 +438,7 @@ For example, to change the value of [`expose_php`](https://php.net/manual/ini.co
 ```bash
 cd /home/site
 mkdir ini
-echo "expose_php = Off" >> ini/setting.ini
+echo "expose_php = Off" >> ini/settings.ini
 ```
 
 For the changes to take effect, restart the app.

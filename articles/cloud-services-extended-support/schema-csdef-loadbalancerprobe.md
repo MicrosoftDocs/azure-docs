@@ -2,11 +2,13 @@
 title: Azure Cloud Services (extended support) Def. LoadBalancerProbe Schema | Microsoft Docs
 description: Information related to the load balancer probe schema for Cloud Services (extended support)
 ms.topic: concept-article
-ms.service: azure-virtual-machines
+ms.service: azure-cloud-services-classic
 ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
+ms.update-cycle: 1095-days
+ms.custom: cloud-services-extended-support
 # Customer intent: As a cloud solution architect, I want to configure custom load balancer probes in my service definition file, so that I can implement advanced health checks and optimize traffic routing to role instances.
 ---
 

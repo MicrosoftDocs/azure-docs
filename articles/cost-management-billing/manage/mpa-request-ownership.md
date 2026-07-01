@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/29/2025
+ms.date: 05/19/2026
 ms.author: jkinma
 ms.custom:
 - sfi-image-nochange
@@ -20,13 +20,10 @@ An Azure Expert MSP can request to transfer their customer's Enterprise subscrip
 
 Supported product (subscriptions, reservations and savings plans) billing ownership transfer options include:
 
-- A direct Enterprise Agreement transfer to an Azure plan under the MPA
+- An Enterprise Agreement transfer to an Azure plan under the MPA
 - An enterprise Microsoft Customer Agreement transfer to an Azure plan under the MPA
 
-> [!NOTE]
-> Indirect Enterprise Agreement transfers to an Azure plan under an MPA aren't supported.
-
-This feature is available only for CSP Direct Bill Partners certified as [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp). It's subject to Microsoft governance and policies and might require review and approval for certain customers.
+This feature is available only for CSP Direct Bill Partners certified as [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) and have the [Frontier Distributor Designation](https://partner.microsoft.com/asset/collection/frontier-distributor-collection). It's subject to Microsoft governance and policies and might require review and approval for certain customers.
 
 This article applies to billing accounts for Microsoft Partner Agreements. These accounts are created for Cloud Solution Providers (CSPs) to manage billing for their customers in the new commerce experience. The new experience is only available for partners, who have at least one customer that has accepted a Microsoft Customer Agreement (MCA) and has an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
 
@@ -53,7 +50,7 @@ There are four options to transfer products:
     1. [Confirm that the customer has accepted the Microsoft Customer Agreement](/partner-center/confirm-customer-agreement).
 1. Set up an [Azure plan](/partner-center/purchase-azure-plan) for the customer. If the customer is purchasing through multiple resellers, you need to set up an Azure plan for each combination of a customer and a reseller.
 
-When there's a currency change during or after an EA enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly, not up front, reservation purchases. For more information, see [Transfer Azure Enterprise enrollment accounts and subscriptions](ea-transfers.md#prerequisites-1).
+When there's a currency change during or after an EA enrollment transfer, reservations paid for monthly are canceled for the source enrollment. Cancellation happens at the time of the next monthly payment for an individual reservation. The cancellation is intentional and only affects monthly, not up front, reservation purchases. For more information, see [Transfer Azure Enterprise enrollment accounts and subscriptions](ea-transfers.md#prerequisites-1). For more information about cross-currency transfers, see [Transfer Reservations and Savings Plans with currency change](subscription-transfer.md#transfer-reservations-and-savings-plans-with-currency-change)
 
 Before you begin, make sure that the people involved in the product transfer have the required permissions. 
 
@@ -201,7 +198,7 @@ All resources from the subscriptions like VMs, disks, and websites transfer. Whe
 
 ### Azure Marketplace products transfer
 
-Azure Marketplace products, which are available for subscriptions that are managed by Cloud Solution Providers (CSPs) are transferred along with their respective subscriptions. Subscriptions that have Azure Marketplace products that aren't enabled for CSPs can't be transferred.
+Azure Marketplace products, which are available for subscriptions that are managed by Cloud Solution Providers (CSPs), are transferred along with their respective subscriptions. Subscriptions that have Azure Marketplace products that aren't enabled for CSPs can't be transferred. While software as a service (SaaS) products are a type of Azure Marketplace product, they don't move with the Azure subscription. You must transfer SaaS products separately. For more information, see [Software as a Service (SaaS) transfer](#software-as-a-service-saas-transfer). For the criteria that determine whether a Marketplace product can transfer, see [Transfer eligibility](/marketplace/transfer-eligibility).
 
 ### Access to Azure services
 
@@ -231,7 +228,7 @@ You can cancel the transfer request until the request is approved or declined. T
 
 ### Software as a Service (SaaS) transfer
 
-SaaS products don't transfer with the subscriptions. Ask the user to [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to transfer billing ownership of SaaS products. Along with the billing ownership, the user can also transfer resource ownership. Resource ownership lets you do management operations like deleting and viewing the details of the product. User must be a resource owner on the SaaS product to transfer resource ownership.
+SaaS products are sold as SaaS subscriptions that are associated with, and billed through, an Azure subscription. A SaaS subscription doesn't move with its associated Azure subscription when billing ownership transfers, so you transfer it separately. Ask the user to [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to transfer billing ownership of SaaS subscriptions. Along with the billing ownership, the user can also transfer resource ownership. Resource ownership lets you do management operations like deleting and viewing the details of the product. The user must be a resource owner on the SaaS product to transfer resource ownership. For the criteria that determine whether a SaaS product can transfer, see [Transfer eligibility](/marketplace/transfer-eligibility).
 
 ### Additional approval for certain customers
 

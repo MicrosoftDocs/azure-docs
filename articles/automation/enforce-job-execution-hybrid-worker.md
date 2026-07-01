@@ -6,8 +6,8 @@ ms.subservice: process-automation
 ms.date: 11/17/2025
 ms.topic: overview
 ms.service: azure-automation
-ms.author: v-jasmineme
-author: jasminemehndir
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Use Azure Policy to enforce job execution on Hybrid Runbook Worker

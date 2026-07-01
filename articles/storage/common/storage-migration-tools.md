@@ -200,7 +200,7 @@ The following tables provide a source and target-based supportability matrix for
 <sup>1</sup> HNS enabled<br>
 <sup>2</sup> SMB only<br>
 <sup>3</sup> Requires two-steps: migrate to Azure Files using Data Box first, then move from Azure Files to ANF<br>
-<sup>4</sup> You can migrate as page blobs to managed disks with a maximum supported size of 8 TB; PV2 and Ultra disks aren't supported<br>
+<sup>4</sup> You can migrate as page blobs to managed disks with a maximum supported size of 8 TB; PV2 and Ultra Disks aren't supported<br>
 <sup>5</sup> Multicloud connector required<br>
 <sup>6</sup> Azure Blob and Files support only NFS v3 v4.1, respectively; consider corresponding application and user functionality, and post-migration accessibility<br>
 

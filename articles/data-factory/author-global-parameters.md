@@ -2,7 +2,7 @@
 title: Global parameters
 description: Set global parameters for each of your Azure Data Factory environments
 ms.subservice: authoring
-ms.topic: conceptual
+ms.topic: concept-article
 author: nabhishek
 ms.author: abnarain
 ms.date: 02/13/2025

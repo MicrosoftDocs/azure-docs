@@ -5,8 +5,8 @@ description: Learn how to copy and transform data in Microsoft Fabric Lakehouse 
 ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.date: 10/23/2025
+ms.topic: how-to
+ms.date: 04/06/2026
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -19,6 +19,9 @@ ms.custom:
 Microsoft Fabric Lakehouse is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location. In order to achieve seamless data access across all compute engines in Microsoft Fabric, go to [Lakehouse and Delta Tables](/fabric/data-engineering/lakehouse-and-delta-tables) to learn more. By default, data is written to Lakehouse Table in V-Order, and you can go to [Delta Lake table optimization and V-Order](/fabric/data-engineering/delta-optimization-and-v-order?tabs=sparksql#what-is-v-order) for more information.
 
 This article outlines how to use Copy activity to copy data from and to Microsoft Fabric Lakehouse and use Data Flow to transform data in Microsoft Fabric Lakehouse. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Lakehouse connector documentation](/fabric/data-factory/connector-lakehouse-overview).
 
 
 ## Supported capabilities
@@ -573,6 +576,8 @@ To copy data to Microsoft Fabric Lakehouse using Microsoft Fabric Lakehouse Tabl
 
 >[!Note]
 > Data is written to Lakehouse Table in V-Order by default. For more information, go to [Delta Lake table optimization and V-Order](/fabric/data-engineering/delta-optimization-and-v-order?tabs=sparksql#what-is-v-order).
+>
+> For more details on Delta Lake interoperability and supported behaviors across pipelines, go to [Delta Lake table format interoperability](/fabric/fundamentals/delta-lake-interoperability#delta-lake-features-and-fabric-experiences).
 
 **Example:**
 
@@ -690,6 +695,9 @@ For more information, see the [source transformation](data-flow-source.md) and [
 
 To use Microsoft Fabric Lakehouse Files dataset as a source or sink dataset in mapping data flow, go to the following sections for the detailed configurations.
 
+>[!NOTE]
+> Mapping data flows currently support service principal authentication only.
+
 #### Microsoft Fabric Lakehouse Files as a source or sink type
 
 Microsoft Fabric Lakehouse connector supports the following file formats. Refer to each article for format-based settings.
@@ -757,6 +765,23 @@ sink(allowSchemaDrift: true,
 
 ```
 For Fabric Lakehouse table-based connector in inline dataset type, you only need to use Delta as dataset type. This will allow you to read and write data from Fabric Lakehouse tables.
+
+
+The following table depicts the behavior of Mapping Data Flows when interacting with Fabric Lakehouse tables, based on whether the Lakehouse is schema-enabled or schema-less, and whether a schema is explicitly defined.
+
+> **Note:** All scenarios are supported when selecting the table name using the dropdown.
+
+| Fabric Lakehouse Type | Role   | Schema Provided | Behavior |
+|----------------------|--------|-----------------|----------|
+| **Schema-less Lakehouse** | Source | Yes | Operation fails |
+|                      | Source | No  | Operation succeeds |
+|                      | Sink   | Yes | Operation fails or may result in unexpected behavior |
+|                      | Sink   | No  | Operation succeeds |
+| **Schema-enabled Lakehouse** | Source | Yes | Operation succeeds |
+|                      | Source | No  | Operation fails |
+|                      | Sink   | Yes | Operation succeeds |
+|                      | Sink   | No  | Operation fails or may result in unexpected behavior |
+
 
 ## Lookup activity properties
 

@@ -1,7 +1,7 @@
-﻿---
+---
 title: Parameters in Bicep files
 description: Learn how to define and use parameters in a Bicep file.
-ms.topic: article
+ms.topic: how-to
 ms.custom:
   - devx-track-bicep
   - build-2025
@@ -205,7 +205,7 @@ See [Elevate error level](./user-defined-data-types.md#elevate-error-level).
 
 ### Secure parameters
 
-You can mark string or object parameters as secure. When a parameter is decorated with `@secure()`, Azure Resource Manager treats the parameter value as sensitive, preventing it from being logged or displayed in deployment history, Azure Portal, or command-line outputs.
+You can mark string or object parameters as secure. When a parameter is decorated with `@secure()`, Azure Resource Manager treats the parameter value as sensitive, preventing it from being logged or displayed in deployment history, Azure portal, or command-line outputs.
 
 ```bicep
 @secure()

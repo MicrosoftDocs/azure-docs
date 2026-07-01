@@ -23,7 +23,7 @@ This article provides troubleshooting guidance for some of the common issues tha
 
 ### Root cause
 
-For HTTP/2, the max length for a single header is **4 K**, so if using browser to access Azure service, there's an error `ERR_CONNECTION_` for this limitation.
+For HTTP/2, the max length for a single header is **4 K**, so if you're using a browser to access the Azure service, you might encounter an error `ERR_CONNECTION_` for this limitation.
 
 For HTTP/1.1, or C# clients, the max URI length is **12 K** and the max header length is **16 K**.
 
@@ -320,7 +320,7 @@ This issue often occurs when someone establishes a SignalR client connection in 
 
 ## Server connection drops
 
-When the app server starts, in the background, the Azure SDK starts to initiate server connections to the remote Azure SignalR. As described in [Internals of Azure SignalR Service](https://github.com/Azure/azure-signalr/blob/dev/docs/internal.md), Azure SignalR routes incoming client traffics to these server connections. When a server connection is dropped, it closes all the client connections it was serving.
+When the app server starts, in the background, the Azure SDK starts to initiate server connections to the remote Azure SignalR. As described in [Internals of Azure SignalR Service](https://github.com/Azure/azure-signalr/blob/dev/docs/internal.md), Azure SignalR routes incoming client traffic to these server connections. When a server connection is dropped, it closes all the client connections it was serving.
 
 As the connections between the app server and SignalR Service are persistent connections, they might experience network connectivity issues. In the Server SDK, we have an **Always Reconnect** strategy to server connections. As a best practice, we also encourage users to add continuous reconnection logic to the clients with a random delay time to avoid massive simultaneous requests to the server.
 

@@ -91,7 +91,7 @@ There are two components required to implement a circuit breaker in an event str
 
 Implementation details can vary, but to share state among instances you need a storage mechanism. You can store state in Azure Storage, a Redis cache, or any other persistent service that can be accessed by your function app instances.
 
-Both [Durable Functions](./durable/durable-functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md) provide infrastructure to manage workflows and circuit states. This article describes using Logic Apps to pause and restart function executions, giving you the control required to implement the circuit breaker pattern.
+Both [Durable Functions](../durable-task/common/what-is-durable-task.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md) provide infrastructure to manage workflows and circuit states. This article describes using Logic Apps to pause and restart function executions, giving you the control required to implement the circuit breaker pattern.
 
 ### Define a failure threshold across instances
 

@@ -1,34 +1,32 @@
 ---
 title: Connect Azure OpenAI in Foundry Models to Other Azure Services
 titleSuffix: Service Connector
-description: Use these code samples to integrate Azure OpenAI into your application with Service Connector.
-author: wchigit
-ms.author: wchi
+description: Learn how to integrate Azure OpenAI in Foundry Models into your application with Service Connector by using supported authentication methods and clients.
+ms.reviewer: wchi
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 09/30/2025
+ms.date: 06/17/2026
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
-#customer intent: As a cloud developer, I want to connect my compute services toAzure OpenAI in Foundry Models using Service Connector.
+#customer intent: As a cloud developer, I want to connect my compute services to Azure OpenAI in Foundry Models using Service Connector.
 ---
 
 # Connect to Azure OpenAI in Foundry Models using Service Connector
 
-This page provides information about supported authentication methods and clients. It provides sample code you can use to connect compute services to Azure OpenAI in Foundry Models using Service Connector. This page also lists default environment variable names and values obtained when creating service connections.
+In this article, we cover the supported authentication methods and clients that you can use to connect compute services to Azure OpenAI in Foundry Models using Service Connector. For each supported method, we provide sample code and list the default environment variable names and values obtained when creating service connections.
 
 ## Supported compute services
 
 Service Connector can be used to connect the following compute services to Azure OpenAI:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps
 
 ## Supported authentication types and client types
 
-This table shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure OpenAI using Service Connector. A "Yes" indicates that the combination is supported, while a "No" indicates that it isn't supported.
+This table shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure OpenAI using Service Connector. A *Yes* indicates that the combination is supported, while a *No* indicates that it isn't supported.
 
 
 | Client type | System-assigned managed identity | User-assigned managed identity | Secret/connection string | Service principal |
@@ -54,6 +52,7 @@ Use the following connection details to connect compute services to Azure OpenAI
 #### Sample code
 
 To connect to Azure OpenAI using a system-assigned managed identity, refer to the following steps and code.
+
 [!INCLUDE [code sample for app config](./includes/code-openai-microsoft-entra-id.md)]
 
 ### User-assigned managed identity
@@ -66,6 +65,7 @@ To connect to Azure OpenAI using a system-assigned managed identity, refer to th
 #### Sample code
 
 To connect to Azure OpenAI using a user-assigned managed identity, refer to the following steps and code.
+
 [!INCLUDE [code sample for Azure OpenAI](./includes/code-openai-microsoft-entra-id.md)]
 
 ### Connection string
@@ -79,6 +79,7 @@ To connect to Azure OpenAI using a user-assigned managed identity, refer to the 
 #### Sample Code 
 
 To connect to Azure OpenAI using a connection string, refer to the following steps and code.
+
 [!INCLUDE [code sample for Azure OpenAI](./includes/code-openai-secret.md)]
 
 
@@ -94,10 +95,11 @@ To connect to Azure OpenAI using a connection string, refer to the following ste
 #### Sample code
 
 To connect to Azure OpenAI using a service principal, refer to the following steps and code.
+
 [!INCLUDE [code sample for Azure OpenAI](./includes/code-openai-microsoft-entra-id.md)]
 
 ### Related content
 
 - [Connect to Azure OpenAI in AKS using Workload Identity](./tutorial-python-aks-openai-workload-identity.md)
 - [Connect to an Azure AI multi-service resource](./how-to-integrate-cognitive-services.md)
-- [Connect to Azure AI services](./how-to-integrate-ai-services.md)
+- [Connect to Foundry Tools](./how-to-integrate-ai-services.md)

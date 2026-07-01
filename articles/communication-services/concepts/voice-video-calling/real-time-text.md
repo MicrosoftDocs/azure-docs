@@ -5,7 +5,7 @@ description: This article describes Real Time Text (RTT) in Azure Communication 
 author: ahammer
 ms.date: 06/24/2025
 ms.author: adamhammer
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: calling
 ---

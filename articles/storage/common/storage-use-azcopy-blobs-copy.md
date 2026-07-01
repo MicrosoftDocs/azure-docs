@@ -46,6 +46,8 @@ Apply the following guidelines to your AzCopy commands.
 
 - If the source blobs have index tags, and you want to retain those tags, you need to reapply them to the destination blobs. For information about how to set index tags, see the [Copy blobs to another storage account with index tags](#copy-between-accounts-and-add-index-tags) section of this article.
 
+- When copying blobs between storage accounts, AzCopy converts uppercase characters in metadata names to lowercase. This behavior aligns with HTTP protocol specifications.
+
 ## Copy a blob
 
 Copy a blob to another storage account by using the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command.
@@ -152,7 +154,7 @@ The copy operation is synchronous. When the command returns, it indicates that a
 
 Copy blobs to another storage account and add [blob index tags](../blobs/storage-manage-find-blobs.md) to the target blob.
 
-If you're using Microsoft Entra authorization, assign the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role to your security principal, or give it permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/resource-provider-operations.md#microsoftstorage) through a custom Azure role. If you're using a Shared Access Signature (SAS) token, the token must provide access to the blob's tags through the `t` SAS permission.
+If you're using Microsoft Entra authorization, assign the [Storage Blob Data Owner](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role to your security principal, or give it permission to the `Microsoft.Storage/storageAccounts/blobServices/containers/blobs/tags/write` [Azure resource provider operation](../../role-based-access-control/permissions/storage.md#microsoftstorage) through a custom Azure role. If you're using a Shared Access Signature (SAS) token, the token must provide access to the blob's tags through the `t` SAS permission.
 
 To add tags, use the `--blob-tags` option with a URL encoded key-value pair.
 

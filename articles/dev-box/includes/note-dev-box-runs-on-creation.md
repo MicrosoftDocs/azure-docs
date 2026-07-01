@@ -6,5 +6,5 @@ ms.topic: include
 ms.service: dev-box
 ---
 
-> [!IMPORTANT]
+> [!TIP]
 > A dev box is automatically started and running when the creation process finishes. Dev boxes incur costs whenever they're running.

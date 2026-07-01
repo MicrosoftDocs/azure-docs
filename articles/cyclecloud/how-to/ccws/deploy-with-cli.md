@@ -2,7 +2,8 @@
 title: How to deploy a CycleCloud Workspace for Slurm environment using the CLI
 description: How to deploy a CycleCloud Workspace for Slurm environment using the Azure CLI and the Azure portal UI Sandbox
 author: xpillons
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: padmalathas
 ---
 
@@ -47,6 +48,6 @@ Prerequisites: Install the Azure CLI and Git, and then sign in or set your Azure
 ## Resources
 
 * [Configure Open OnDemand with CycleCloud](./configure-open-ondemand.md)
-* [Add users for Open OnDemand](./open-ondemand-add-users.md)
+* [Add users to your registered Microsoft Entra ID application](../create-app-registration.md#permissioning-users-for-cyclecloud)
 * [How to connect to the CycleCloud portal through Bastion](/azure/cyclecloud/how-to/ccws/connect-to-portal-with-bastion)
 * [How to connect to a Login Node through Bastion](/azure/cyclecloud/how-to/ccws/connect-to-login-node-with-bastion)

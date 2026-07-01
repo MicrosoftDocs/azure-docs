@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: mkhribech
 ms.date: 04/14/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: data
 ---
@@ -32,7 +32,7 @@ Each Azure resource requires its own diagnostic setting, which defines the follo
 Complete these instructions to configure your Azure Monitor resource to start creating logs and metrics for your Communications Services. For detailed documentation about using Diagnostic Settings across all Azure resources, see: [Enable logging in Diagnostic Settings](../enable-logging.md).
 
 > [!NOTE]
-> T to enable the logs for SMS, under diagnostic setting name select **SMS Operational**.
+> To enable the logs for SMS, under diagnostic setting name select **SMS Operational**.
 
 ## **Overview**
 

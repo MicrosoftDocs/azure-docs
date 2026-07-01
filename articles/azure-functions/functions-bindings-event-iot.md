@@ -23,4 +23,4 @@ This set of articles explains how to work with Azure Functions bindings for IoT 
 ## Next steps
 
 - [Respond to events sent to an event hub event stream (Trigger)](./functions-bindings-event-iot-trigger.md)
-- [Write events to an event stream (Output binding)](./functions-bindings-event-iot-output.md)
+- [Write events to an event stream (Output binding)](./functions-bindings-event-hubs-output.md)
