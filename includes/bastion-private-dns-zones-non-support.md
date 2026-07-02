@@ -1,10 +1,10 @@
 ---
  services: bastion
- author: cherylmc
+ author: asudbring
  ms.service: azure-bastion
  ms.topic: include
  ms.date: 08/03/2023
- ms.author: cherylmc
+ ms.author: allensu
 
 ---
 > [!NOTE]

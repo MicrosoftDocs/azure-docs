@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 06/08/2026
- ms.author: cherylmc
+ ms.author: duau
 ---
 
 The following SKUs can be used to deploy new VPN gateways. They have zone-redundant options and are recommended for all new deployments.

@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: vpn-gateway
  ms.topic: include
  ms.date: 03/07/2025
- ms.author: cherylmc
+ ms.author: duau
 #Customer intent: this file is used for both virtual wan and vpn gateway articles.
 ---
 ## Working with VPN client profile configuration files
