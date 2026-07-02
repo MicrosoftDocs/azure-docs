@@ -3,7 +3,7 @@ title: User-defined types in Bicep
 description: This article describes how to define and use user-defined data types in Bicep.
 ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 06/02/2026
+ms.date: 06/26/2026
 ---
 
 # User-defined data types in Bicep
@@ -27,166 +27,207 @@ The [`@allowed`](./parameters.md#use-decorators) decorator is permitted only on 
 
 Valid type expressions include:
 
-- Symbolic references are identifiers that refer to an *ambient* type (like `string` or `int`) or a user-defined type symbol declared in a `type` statement.
+### Symbolic references
 
-    ```bicep
-    // Bicep data type reference
-    type myStringType = string
+Symbolic references are identifiers that refer to an *ambient* type (like `string` or `int`) or a user-defined type symbol declared in a `type` statement.
 
-    // user-defined type reference
-    type myOtherStringType = myStringType
-    ```
+```bicep
+// Bicep data type reference
+type myStringType = string
 
-- Primitive literals, including strings, integers, and Booleans, are valid type expressions. For example:
+// user-defined type reference
+type myOtherStringType = myStringType
+```
 
-    ```bicep
-    // a string type with three allowed values.
-    type myStringLiteralType = 'bicep' | 'arm' | 'azure'
+### Primitive literals
 
-    // an integer type with one allowed value
-    type myIntLiteralType = 10
+Primitive literals, including strings, integers, and Booleans, are valid type expressions. For example:
 
-    // an boolean type with one allowed value
-    type myBoolLiteralType = true
-    ```
+```bicep
+// a string type with three allowed values.
+type myStringLiteralType = 'bicep' | 'arm' | 'azure'
 
-- You can declare array types by appending `[]` to any valid type expression. For example:
+// an integer type with one allowed value
+type myIntLiteralType = 10
 
-    ```bicep
-    // A string type array
-    type myStrStringsType1 = string[]
-    // A string type array with three allowed values
-    type myStrStringsType2 = ('a' | 'b' | 'c')[]
+// an boolean type with one allowed value
+type myBoolLiteralType = true
+```
 
-    type myIntArrayOfArraysType = int[][]
+### Array types
 
-    // A mixed-type array with four allowed values
-    type myMixedTypeArrayType = ('fizz' | 42 | {an: 'object'} | null)[]
-    ```
+You can declare array types by appending `[]` to any valid type expression. For example:
 
-- Object types contain zero or more properties between curly brackets:
+```bicep
+// A string type array
+type myStrStringsType1 = string[]
+// A string type array with three allowed values
+type myStrStringsType2 = ('a' | 'b' | 'c')[]
 
-    ```bicep
-    type storageAccountConfigType = {
-      name: string
-      sku: string
-    }
-    ```
+type myIntArrayOfArraysType = int[][]
 
-    Each property in an object consists of a key and a value separated by a colon `:`. The key can be any string, with nonidentifier values enclosed in quotation marks. The value can be any type of expression.
+// A mixed-type array with four allowed values
+type myMixedTypeArrayType = ('fizz' | 42 | {an: 'object'} | null)[]
+```
 
-    Properties are required unless they have an optionality marker `?` after the property value. For example, the `sku` property in the following example is optional:
+### Union types
 
-    ```bicep
-    type storageAccountConfigType = {
-      name: string
-      sku: string?
-    }
-    ```
+A union type allows you to create a combined type consisting of a set of subtypes. A value matches the type if it matches any one of the subtypes. Use the pipe (`|`) operator to separate the individual member types. Bicep translates union types into the allowed-value constraint, so only literals are permitted as members. Unions can include any number of literal-typed expressions.
 
-  You can use decorators on properties. You can use an asterisk (`*`) to make all values require a constraint. You can define more properties by using `*`. This example creates an object that requires a key of type `int` named `id`. All other entries in the object must be a string value at least 10 characters long.
+```bicep
+type directions = 'east' | 'south' | 'west' | 'north'
 
-    ```bicep
-    type obj = {
-      @description('The object ID')
-      id: int
+type obj = {
+  level: 'bronze' | 'silver' | 'gold'
+}
+```
 
-      @description('Additional properties')
-      @minLength(10)
-      *: string
-    }
-    ```
+You can declare union types inline, and a member can be a reference to another literal-typed symbol.
 
-    The following sample shows how to use the [union type syntax](./data-types.md#union-types) to list a set of predefined values:
+#### Mixed-type unions
 
-    ```bicep
-    type directions = 'east' | 'south' | 'west' | 'north'
+The member types don't need to be the same kind of literal. A union can combine string, integer, Boolean, object, and `null` literals.
 
-    type obj = {
-      level: 'bronze' | 'silver' | 'gold'
-    }
-    ```
+```bicep
+type mixedType = 'fizz' | 42 | { an: 'object' } | null
+```
 
-- Object types can use direct or indirect recursion if at least the leg of the path to the recursion point is optional. For example, the `myObjectType` definition in the following example is valid because the directly recursive `recursiveProp` property is optional:
+> [!NOTE]
+> The `|` operator is also used in several related scenarios documented elsewhere in this article:
+>
+> - To create an array whose elements are constrained to union members, see [Array types](#array-types).
+> - To pair the `|` operator with the `@discriminator()` decorator and build a discriminated union, see [Tagged union data type](#tagged-union-data-type).
+> - When you use [Resource-derived types](#resource-derived-types), their expanded equivalents are expressed as unions.
 
-    ```bicep
-    type myObjectType = {
-      stringProp: string
-      recursiveProp: myObjectType?
-    }
-    ```
+### Object types
 
-    The following type definition isn't valid because none of `level1`, `level2`, `level3`, `level4`, or `level5` is optional.
+Object types contain zero or more properties between curly brackets:
 
-    ```bicep
-    type invalidRecursiveObjectType = {
-      level1: {
-        level2: {
-          level3: {
-            level4: {
-              level5: invalidRecursiveObjectType
-            }
-          }
+```bicep
+type storageAccountConfigType = {
+  name: string
+  sku: string
+}
+```
+
+Each property in an object consists of a key and a value separated by a colon `:`. The key can be any string, with nonidentifier values enclosed in quotation marks. The value can be any type of expression.
+
+Properties are required unless they have an optionality marker `?` after the property value. For example, the `sku` property in the following example is optional:
+
+```bicep
+type storageAccountConfigType = {
+  name: string
+  sku: string?
+}
+```
+
+You can use decorators on properties. You can use an asterisk (`*`) to make all values require a constraint. You can define more properties by using `*`. This example creates an object that requires a key of type `int` named `id`. All other entries in the object must be a string value at least 10 characters long.
+
+```bicep
+type obj = {
+  @description('The object ID')
+  id: int
+
+  @description('Additional properties')
+  @minLength(10)
+  *: string
+}
+```
+
+The following sample shows how to use the [union type syntax](./data-types.md#union-types) to list a set of predefined values:
+
+```bicep
+type directions = 'east' | 'south' | 'west' | 'north'
+
+type obj = {
+  level: 'bronze' | 'silver' | 'gold'
+}
+```
+
+### Recursion
+
+Object types can use direct or indirect recursion if at least the leg of the path to the recursion point is optional. For example, the `myObjectType` definition in the following example is valid because the directly recursive `recursiveProp` property is optional:
+
+```bicep
+type myObjectType = {
+  stringProp: string
+  recursiveProp: myObjectType?
+}
+```
+
+The following type definition isn't valid because none of `level1`, `level2`, `level3`, `level4`, or `level5` is optional.
+
+```bicep
+type invalidRecursiveObjectType = {
+  level1: {
+    level2: {
+      level3: {
+        level4: {
+         level5: invalidRecursiveObjectType
         }
       }
     }
-    ```
+  }
+}
+```
 
-- You can use [Bicep unary operators](./operators.md) with integer and Boolean literals or references to integer or Boolean literal-typed symbols.
+### Unary operators
 
-    ```bicep
-    type negativeIntLiteral = -10
-    type negatedIntReference = -negativeIntLiteral
+Use [Bicep unary operators](./operators.md) with integer and Boolean literals or references to integer or Boolean literal-typed symbols.
 
-    type negatedBoolLiteral = !true
-    type negatedBoolReference = !negatedBoolLiteral
-    ```
+```bicep
+type negativeIntLiteral = -10
+type negatedIntReference = -negativeIntLiteral
 
-- Unions can include any number of literal-typed expressions. Union types are translated into the [allowed-value constraint](./parameters.md#use-decorators) in Bicep, so only literals are permitted as members.
+type negatedBoolLiteral = !true
+type negatedBoolReference = !negatedBoolLiteral
+```
 
-    ```bicep
-    type oneOfSeveralObjects = {
-      foo: 'bar'
-    } | {
-      fizz: 'buzz'
-    } | {
-      snap: 'crackle'
-    }
-    type mixedTypeArray = ('fizz' | 42 | {an: 'object'} | null)[]
-    ```
+Unions can include any number of literal-typed expressions. Bicep translates union types into the [allowed-value constraint](./parameters.md#use-decorators), so only literals are permitted as members.
 
-Use type expressions in the `type` statement. You can also use type expressions to create user-defined data types, as shown in the following places:
+```bicep
+type oneOfSeveralObjects = {
+  foo: 'bar'
+} | {
+  fizz: 'buzz'
+} | {
+  snap: 'crackle'
+}
+type mixedTypeArray = ('fizz' | 42 | {an: 'object'} | null)[]
+```
+
+Use type expressions in the `type` statement. You can also use type expressions to create user-defined data types, as shown in the following places.
 
 - As the type clause of a `param` statement. For example:
 
-    ```bicep
-    param storageAccountConfig {
-      name: string
-      sku: string
-    }
-    ```
+  ```bicep
+  param storageAccountConfig {
+    name: string
+    sku: string
+  }
+  ```
 
 - Following the `:` in an object type property. For example:
 
-    ```bicep
-    param storageAccountConfig {
-     name: string
-      properties: {
-        sku: string
-      }
-    } = {
-      name: 'store$(uniqueString(resourceGroup().id)))'
-      properties: {
-        sku: 'Standard_LRS'
-      }
+  ```bicep
+  param storageAccountConfig {
+   name: string
+    properties: {
+      sku: string
     }
-    ```
+  } = {
+    name: 'store$(uniqueString(resourceGroup().id)))'
+    properties: {
+      sku: 'Standard_LRS'
+    }
+  }
+  ```
 
 - Preceding the `[]` in an array type expression. For example:
 
-    ```bicep
-    param mixedTypeArray ('fizz' | 42 | {an: 'object'} | null)[]
-    ```
+  ```bicep
+  param mixedTypeArray ('fizz' | 42 | {an: 'object'} | null)[]
+  ```
 
 A typical Bicep file to create a storage account looks like:
 
@@ -347,7 +388,7 @@ type anObject = {
   property: string
   optionalProperty: string?
 }
- 
+
 param aParameter anObject = {
   property: 'value'
   otionalProperty: 'value'
@@ -359,7 +400,7 @@ The warning informs you that the `anObject` type doesn't include a property name
 To escalate these warnings to errors, apply the `@sealed()` decorator to the object type:
 
 ```bicep
-@sealed() 
+@sealed()
 type anObject = {
   property: string
   optionalProperty?: string
@@ -373,8 +414,8 @@ type anObject = {
   property: string
   optionalProperty: string?
 }
- 
-@sealed() 
+
+@sealed()
 param aParameter anObject = {
   property: 'value'
   otionalProperty: 'value'

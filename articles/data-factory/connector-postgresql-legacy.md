@@ -5,20 +5,21 @@ description: Learn how to copy data from PostgreSQL V1 to supported sink data st
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 04/14/2025
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ms.author: jianleishen
 ms.custom:
   - synapse
   - sfi-image-nochange
   - sfi-ropc-nochange
 ---
-# Copy data from PostgreSQL V1 using Azure Data Factory or Synapse Analytics 
+# Copy data from PostgreSQL V1 using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from a PostgreSQL database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The PostgreSQL V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the PostgreSQL connector](connector-postgresql.md#upgrade-the-postgresql-linked-service) from V1 to V2.
+> The PostgreSQL V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You're recommended to [upgrade the PostgreSQL connector](connector-postgresql.md#upgrade-the-postgresql-linked-service) from V1 to V2.
 
 ## Supported capabilities
 
@@ -49,7 +50,7 @@ The Integration Runtime provides a built-in PostgreSQL driver starting from vers
 
 Use the following steps to create a linked service to PostgreSQL in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -122,13 +123,13 @@ A typical connection string is `Server=<server>;Database=<database>;Port=<port>;
         "type": "PostgreSql",
         "typeProperties": {
             "connectionString": "Server=<server>;Database=<database>;Port=<port>;UID=<username>;",
-            "password": { 
-                "type": "AzureKeyVaultSecret", 
-                "store": { 
-                    "referenceName": "<Azure Key Vault linked service name>", 
-                    "type": "LinkedServiceReference" 
-                }, 
-                "secretName": "<secretName>" 
+            "password": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<Azure Key Vault linked service name>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<secretName>" 
             }
         },
         "connectVia": {
@@ -139,7 +140,7 @@ A typical connection string is `Server=<server>;Database=<database>;Port=<port>;
 }
 ```
 
-If you were using PostgreSQL linked service with the following payload, it is still supported as-is, while you are suggested to use the new one going forward.
+If you were using PostgreSQL linked service with the following payload, it's still supported as-is, while you're suggested to use the new one going forward.
 
 **Previous payload:**
 
@@ -196,7 +197,7 @@ To copy data from PostgreSQL, the following properties are supported:
 }
 ```
 
-If you were using `RelationalTable` typed dataset, it's still supported as-is, while you are suggested to use the new one going forward.
+If you were using `RelationalTable` typed dataset, it's still supported as-is, while you're suggested to use the new one going forward.
 
 ## Copy activity properties
 
@@ -246,7 +247,7 @@ To copy data from PostgreSQL, the following properties are supported in the copy
 ]
 ```
 
-If you were using `RelationalSource` typed source, it is still supported as-is, while you are suggested to use the new one going forward.
+If you were using `RelationalSource` typed source, it's still supported as-is, while you're suggested to use the new one going forward.
 
 ## Lookup activity properties
 

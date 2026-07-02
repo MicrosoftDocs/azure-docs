@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: vpn-gateway
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 02/08/2021
- ms.author: cherylmc
+ ms.author: duau
  ms.custom: include file
 
 # This include is used for both virtual wan and vpn gateway articles.

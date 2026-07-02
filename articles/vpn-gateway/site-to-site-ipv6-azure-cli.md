@@ -2,11 +2,11 @@
 title: Configure a Site-to-site VPN Connection in IPv4 and IPv6 Dual Stack - Azure CLI
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure a site-to-site VPN connection with IPv4 and IPv6 dual stack for VPN Gateway using Azure CLI.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 04/08/2026
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: "As a network administrator, I want to configure IPv6 in dual-stack mode for Azure VPN Gateway, so that I can support seamless IPv6 traffic alongside IPv4 within my organization's VPN infrastructure."
 ---
 

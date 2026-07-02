@@ -2,7 +2,7 @@
 title: Service Bus Dead-Letter Queues
 description: Describes dead-letter queues in Azure Service Bus. Service Bus queues and topic subscriptions provide a secondary subqueue, called a dead-letter queue.
 ms.topic: concept-article
-ms.date: 06/04/2026
+ms.date: 06/29/2026
 ms.custom:
   - "fasttrack-edit, devx-track-csharp"
   - build-2025
@@ -33,6 +33,17 @@ Each queue and each subscription has its own dead-letter sub-queue. You can addr
 ```
 
 When you use the `Azure.Messaging.ServiceBus` .NET library, you don't construct this path yourself. Instead, set `ServiceBusReceiverOptions.SubQueue` to `SubQueue.DeadLetter` when you create the receiver. For an example, see [Receive messages from a dead-letter queue](#receive-messages-from-a-dead-letter-queue).
+
+## Path to the transfer dead-letter queue
+
+When a message can't be forwarded to its destination in auto forward or send via scenarios, the message is placed in the _transfer dead-letter queue_ (TDLQ) of the **source** entity that did the forwarding, not on the destination entity. Each queue or subscription that forwards messages has its own transfer dead-letter subqueue, which you can address directly by using the following syntax:
+
+```
+<queue path>/$Transfer/$DeadLetterQueue
+<topic path>/Subscriptions/<subscription path>/$Transfer/$DeadLetterQueue
+```
+
+When you use the `Azure.Messaging.ServiceBus` .NET library, set `ServiceBusReceiverOptions.SubQueue` to `SubQueue.TransferDeadLetter`. For an example, see [Receive messages from the transfer dead-letter queue](#receive-messages-from-the-transfer-dead-letter-queue).
 
 ## DLQ message count
 
@@ -109,7 +120,7 @@ string description = dlqMessage.DeadLetterErrorDescription;
 await dlqReceiver.CompleteMessageAsync(dlqMessage);
 ```
 
-The same pattern works for the transfer dead-letter queue by using `SubQueue.TransferDeadLetter`.
+The same pattern works for the transfer dead-letter queue by using `SubQueue.TransferDeadLetter`. For a complete example, see [Receive messages from the transfer dead-letter queue](#receive-messages-from-the-transfer-dead-letter-queue).
 
 ## Dead-lettering in auto forward scenarios
 
@@ -123,6 +134,49 @@ Messages are sent to the dead-letter queue under the following conditions:
 
 - If the destination queue or topic is disabled, the message is sent to the transfer dead-letter queue (TDLQ) of the source queue.
 - If the destination queue or entity exceeds the entity size, the message is sent to a TDLQ of the source queue.
+
+You can check how many messages are waiting in the transfer dead-letter queue by reading the `TransferDeadLetterMessageCount` runtime property of the source entity. For more information, see [Message count details](message-counters.md).
+
+## Receive messages from the transfer dead-letter queue
+
+The transfer dead-letter queue is a sub-queue of the source entity, so you receive from it the same way you receive from a regular dead-letter queue: scope the receiver to the source queue (or the source topic subscription) and select the transfer dead-letter sub-queue.
+
+When you use the `Azure.Messaging.ServiceBus` .NET library, set `ServiceBusReceiverOptions.SubQueue` to `SubQueue.TransferDeadLetter` when you create the receiver. The library addresses the transfer dead-letter sub-queue for you.
+
+```csharp
+using Azure.Identity;
+using Azure.Messaging.ServiceBus;
+
+string fullyQualifiedNamespace = "<NAMESPACE-NAME>.servicebus.windows.net";
+
+// The source queue that forwards messages. The transfer dead-letter queue
+// lives on this entity, not on the destination.
+string sourceQueueName = "<SOURCE-QUEUE-NAME>";
+
+// 1. Create the top-level client. Passwordless authentication is recommended.
+await using var client = new ServiceBusClient(fullyQualifiedNamespace, new DefaultAzureCredential());
+
+// 2. Configure options to target the transfer dead-letter sub-queue.
+var options = new ServiceBusReceiverOptions
+{
+    SubQueue = SubQueue.TransferDeadLetter
+};
+
+// 3. Create a receiver scoped to the source entity's transfer dead-letter queue.
+//    For a subscription that forwards, use:
+//    client.CreateReceiver(topicName, subscriptionName, options).
+ServiceBusReceiver tdlqReceiver = client.CreateReceiver(sourceQueueName, options);
+
+// 4. Receive a message that failed to transfer to its destination.
+ServiceBusReceivedMessage tdlqMessage = await tdlqReceiver.ReceiveMessageAsync();
+
+// 5. Inspect why the message couldn't be transferred.
+string reason = tdlqMessage.DeadLetterReason;
+string description = tdlqMessage.DeadLetterErrorDescription;
+
+// 6. Complete the message to remove it from the transfer dead-letter queue.
+await tdlqReceiver.CompleteMessageAsync(tdlqMessage);
+```
 
 ## Sending dead-lettered messages to be reprocessed
 

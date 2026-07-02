@@ -36,8 +36,8 @@ To enable access keys for Azure App configuration resource, use the following co
 
 ```azurecli-interactive
 az appconfig update \
-    --name <app-configuration-name> \
-    --resource-group <resource-group> \
+    --name <AppConfigurationStoreName> \
+    --resource-group <ResourceGroupName> \
     --disable-local-auth false
 ```
 
@@ -67,8 +67,8 @@ If access key authentication is enabled, then read-only access keys and read-wri
 
 ```azurecli-interactive
 az appconfig credential list \
-    --name <app-configuration-name> \
-    --resource-group <resource-group>
+    --name <AppConfigurationStoreName> \
+    --resource-group <ResourceGroupName>
 ```
 
 ---
@@ -99,8 +99,8 @@ To disable access keys for Azure App configuration resource, use the following c
 
 ```azurecli-interactive
 az appconfig update \
-    --name <app-configuration-name> \
-    --resource-group <resource-group> \
+    --name <AppConfigurationStoreName> \
+    --resource-group <ResourceGroupName> \
     --disable-local-auth true
 ```
 
@@ -129,8 +129,8 @@ To verify access key authentication is disabled for an Azure App Configuration r
 
 ```azurecli-interactive
 az appconfig credential list \
-    --name <app-configuration-name> \
-    --resource-group <resource-group>
+    --name <AppConfigurationStoreName> \
+    --resource-group <ResourceGroupName>
 ```
 
 ---
@@ -176,9 +176,9 @@ You must have only one key in your code, because when you regenerate your second
 
     ```azurecli-interactive
     az appconfig credential regenerate  \
-        --name <app-configuration-name> \
-        --resource-group <resource-group> \
-        --id <key-to-be-regenerated>
+        --name <AppConfigurationStoreName> \
+        --resource-group <ResourceGroupName> \
+        --id <KeyName>
     ```
 
     ---

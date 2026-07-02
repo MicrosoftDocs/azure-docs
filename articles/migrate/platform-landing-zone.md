@@ -7,7 +7,7 @@ ms.author: piyushdhore
 ms.service: azure-migrate
 ms.date: 03/12/2026
 ms.reviewer: v-uhabiba
-monikerRange:
+monikerRange: migrate
 # Customer intent: This article helps customers generate, customize, and deploy a Platform Landing Zone using Azure Migrate to establish core Azure foundations as part of migration planning.
 ---
 

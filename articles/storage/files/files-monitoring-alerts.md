@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/05/2026
+ms.date: 06/29/2026
 ms.author: kendownie
 ms.custom: monitoring
 # Customer intent: As a cloud administrator, I want to create monitoring alerts for Azure Files metrics and logs, so that I can proactively identify and resolve issues before they impact users.
@@ -34,6 +34,8 @@ The following table lists some example scenarios to monitor and the proper metri
 |-|-|
 | File share is throttled. | Metric: Transactions<br>Dimension name: Response type <br>Dimension name: File Share (provisioned file shares only) |
 | File share size exceeds 80% of capacity. | Metric: Percentage File Share Utilization<br>Dimension name: File Share (provisioned file shares only) |
+| File share bandwidth utilization exceeds 80%. | Metric: Percentage File Share Bandwidth Utilization<br>Dimension  name: File Share (provisioned file shares only) |
+| File share IOPS utilization exceeds 80%. | Metric: Percentage File Share IOPS Utilization<br>Dimension name: File  Share (provisioned file shares only) |
 | File share egress exceeds 500 GiB in one day. | Metric: Egress<br>Dimension name: File Share (provisioned file shares only) |
 | File share availability is less than 99.9%. | Metric: Availability<br>Dimension name: File Share (provisioned file shares only) |
 
@@ -86,7 +88,9 @@ To create an alert that notifies you if a file share is throttled, follow these 
 
 1. Select **Review + create**, and then select **Create** to create the alert.
 
-## How to create an alert if the Azure file share size exceeds 80% of capacity
+## How to create an alert if the file share size exceeds 80% of capacity
+
+Follow these steps to create an alert if the file share size exceeds 80% of provisioned capacity.
 
 1. Go to the storage account that contains the file shares you want to alert on.
 
@@ -113,7 +117,71 @@ To create an alert that notifies you if a file share is throttled, follow these 
 
 1. Select **Review + create**, then select **Create** to create the alert.
 
-## How to create an alert if the Azure file share egress exceeds 500 GiB in a day
+## How to create an alert if the file share bandwidth utilization exceeds 80%
+
+Follow these steps to create an alert if the file share bandwidth utilization exceeds 80% of provisioned bandwidth.
+
+1. Go to the storage account that contains the file shares you want to alert on.
+
+1. From the service menu, select **Monitoring** > **Metrics**, and then select **+ Add metric**.
+
+1. Under **Metric Namespace**, select **File**. Under **Metric**, select **Percentage File Share Bandwidth Utilization**. You can either view the average utilization for the storage account, or select **Apply splitting** to view the metric for individual file shares. Leave **Aggregation** set to **Avg** unless you want to catch brief peaks that push the share to its limit, in which case you should set **Aggregation** to **Max**.
+
+1. Select **New alert rule**. On the **Condition** tab of the **Create an alert rule** dialog box, under **Signal name**, you see **Percentage File Share Bandwidth Utilization**.
+
+1. Under **Alert logic**, enter the **Threshold** value as a percentage. For example, if you want to receive an alert when the file share consistently uses more than 80% of its provisioned bandwidth, enter a threshold value of 80, and under **Value is**, select **Greater than**.
+
+1. For provisioned file shares, select the **Dimension name** drop-down list, and then select **File Share**. For pay-as-you-go file shares, skip to the next step.
+
+    > [!NOTE]
+    > If the file share is a pay-as-you-go file share, the **File Share** dimension doesn't list the file shares because per share metrics aren't available for pay-as-you-go file shares. If you want per share metrics, use the  provisioned v2 model instead of the pay-as-you-go model.
+
+1. Select the **Dimension values** drop-down and select the provisioned file shares that you want to alert on. The drop-down only lists file shares that have recent activity for this metric. Because **Percentage File Share Bandwidth Utilization** is calculated from underlying usage metrics, a share that hasn't recently consumed bandwidth doesn't emit data points and won't appear in the list. If an expected file share is missing, do the following:
+   - Confirm the share has had recent traffic, or generate some I/O against it, then wait a few minutes and reopen the drop-down.
+   - Widen the metric time range (for example, the last hour instead of the last few minutes) so that it includes a period when the share was active.
+
+1. Under **When to evaluate**, specify the desired evaluation frequency and lookback period. Because bandwidth usage is often bursty, consider using a longer lookback period (for example, 15 to 30 minutes) so that brief, expected spikes don't trigger the alert.
+
+1. Select the **Details** tab and provide a name for the alert rule as well as a severity level and optional description.
+
+1. Optional: Select the **Actions** tab to add an action group (email, SMS, and so on) to the alert. Select an existing action group or create a new action group.
+
+1. Select **Review + create**, then select **Create** to create the alert.
+
+## How to create an alert if the file share IOPS utilization exceeds 80%
+
+Follow these steps to create an alert if the file share IOPS utilization exceeds 80% of provisioned IOPS.
+
+1. Go to the storage account that contains the file shares you want to alert on.
+
+1. From the service menu, select **Monitoring** > **Metrics**, and then select **+ Add metric**.
+
+1. Under **Metric Namespace**, select **File**. Under **Metric**, select **Percentage File Share IOPS  Utilization**. You can either view the average utilization for the storage account, or select **Apply splitting** to view the metric for individual file shares. Leave **Aggregation** set to **Avg** unless you want to catch brief peaks that push the share to its limit, in which case you should set **Aggregation** to **Max**.
+
+1. Select **New alert rule**. On the **Condition** tab of the **Create an alert rule** dialog box, under **Signal name**, you see **Percentage File Share IOPS Utilization**.
+
+1. Under **Alert logic**, enter the **Threshold** value as a percentage. For example, if you want to receive an alert when the file share consistently uses more than 80% of its provisioned IOPS, enter a threshold value of 80, and under **Value is**, select **Greater than**.
+
+1. For provisioned file shares, select the **Dimension name** drop-down list, and then select **File Share**. For pay-as-you-go file shares, skip to the next step.
+
+    > [!NOTE]
+    > If the file share is a pay-as-you-go file share, the **File Share** dimension doesn't list the file shares  because per share metrics aren't available for pay-as-you-go file shares. If you want per share metrics, use the  provisioned v2 model instead of the pay-as-you-go model.
+
+1. Select the **Dimension values** drop-down and select the provisioned file shares that you want to alert on. The drop-down only lists file shares that have recent activity for this metric. Because **Percentage File Share IOPS Utilization** is calculated from underlying usage metrics, a share that hasn't recently consumed IOPS doesn't emit data points and won't appear in the list. If an expected file share is missing, do the following:
+   - Confirm the share has had recent traffic, or generate some I/O against it, then wait a few minutes and reopen the drop-down.
+   - Widen the metric time range (for example, the last hour instead of the last few minutes) so that it includes a period when the share was active.
+
+1. Under **When to evaluate**, specify the desired evaluation frequency and lookback period. Because IOPS usage is often bursty, consider using a longer lookback period (for example, 15 to 30 minutes) so that brief, expected  spikes don't trigger the alert.
+
+1. Select the **Details** tab and provide a name for the alert rule as well as a severity level and optional description.
+
+1. Optional: Select the **Actions** tab to add an action group (email, SMS, and so on) to the alert. Select an existing action group or create a new action group.
+
+1. Select **Review + create**, then select **Create** to create the alert.
+
+## How to create an alert if the file share egress exceeds 500 GiB in a day
+
+Follow these steps to create an alert if the file share egress exceeds 500 GiB in a day.
 
 1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule).
 
@@ -167,7 +235,9 @@ To create an alert for high server latency (average), follow these steps.
 
 1. Select **Review + create**, and then select **Create** to create the alert.
 
-## How to create an alert if the Azure file share availability is less than 99.9%
+## How to create an alert if the file share availability is less than 99.9%
+
+Follow these steps to create an alert if the file share availability is less than 99.9%.
 
 1. Open the **Create an alert rule** dialog box. For more information, see [Create or edit an alert rule](/azure/azure-monitor/alerts/alerts-create-new-alert-rule).
 

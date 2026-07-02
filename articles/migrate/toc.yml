@@ -249,8 +249,8 @@ items:
   items:
   - name: Overview of migration method
     href: server-migrate-overview.md
-  - name: End-to-end portal experience for server migrations with Azure Migrate
-    href: end-to-end-portal-experience-server-migrations.md
+  - name: Execute server migrations in Azure Migrate portal
+    href: execute-server-migrations.md
   - name: Agentless migrations using portal
     href: tutorial-migrate-vmware.md
   - name: Agent-based migration using portal

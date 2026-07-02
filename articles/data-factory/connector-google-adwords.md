@@ -6,7 +6,8 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 02/13/2025
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -16,11 +17,7 @@ ms.custom:
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Google Ads. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!Important]
-> Please kindly [upgrade your Google Ads driver version](#upgrade-the-google-ads-driver-version) before **February 18, 2024**. If not, connection will start to fail with an [error](connector-troubleshoot-google-ads.md#error-code-deprecatedgoogleadslegacydriverversion) because of the deprecation of the legacy driver.
 
 ## Supported capabilities
 
@@ -45,7 +42,7 @@ The service provides a built-in driver to enable connectivity, therefore you don
 
 Use the following steps to create a linked service to Google Ads in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -240,8 +237,8 @@ You can follow the guidance below to convert the SQL statement to the correspond
 
 1. If `*` (asterisk) is used after the `SELECT` clause, then you need to specify all the required fields in place of the asterisk as GAQL doesn't support `SELECT *`. Go to this [article](https://developers.google.com/google-ads/api/fields/v14/ad_group) to see all the selectable fields in the specific resource.
 2. If the field name is used after the `SELECT` clause, then you need to convert the name to the corresponding field name in GAQL as they have different naming conventions. For example, the field name `campaign_id` in SQL query statement should be converted to `campaign.id` in GAQL. See [Field name](#field-name) for more details on field name conversion.
-3. The resource name can be left as it is unless its case is inconsistent with what is specified [here](https://developers.google.com/google-ads/api/fields/v14/overview#list-of-all-resources).
-4. `WHERE` clause should be updated according to the [GAQL grammar](https://developers.google.com/google-ads/api/docs/query/grammar) as the operators supported by GAQL are not consistent with SQL, and field name should also be converted as described in the second point.
+3. The resource name can be left as it's unless its case is inconsistent with what is specified [here](https://developers.google.com/google-ads/api/fields/v14/overview#list-of-all-resources).
+4. `WHERE` clause should be updated according to the [GAQL grammar](https://developers.google.com/google-ads/api/docs/query/grammar) as the operators supported by GAQL aren't consistent with SQL, and field name should also be converted as described in the second point.
 
 Here are two very useful tools offered by Google and they are highly recommended when building the corresponding GAQL query statements:
 
@@ -250,7 +247,7 @@ Here are two very useful tools offered by Google and they are highly recommended
 
 #### Field name
 
-The field name used in SQL is not aligned with GAQL. You also need to learn the conversion rules from field names in SQL to field names in GAQL. The conversion rule can be summarized as follows:
+The field name used in SQL isn't aligned with GAQL. You also need to learn the conversion rules from field names in SQL to field names in GAQL. The conversion rule can be summarized as follows:
 
 - If the field name belongs to a resource, the underscore (`_`) in SQL will be changed to dot (`.`) in GAQL. And for the words between the dot, the camelCase type statement used in SQL will be changed to standalone words with added underscores in between. The first string of type PascalCase in SQL will be changed to the corresponding resource name in GAQL.
 
@@ -271,14 +268,14 @@ The table below shows the feature differences between Google Ads using the recom
 
 | Recommended driver version | Legacy driver version |
 |:---|:---|
-|Specifying Google Ads API version is supported.|Specifying Google Ads API version is not supported.|
+|Specifying Google Ads API version is supported.|Specifying Google Ads API version isn't supported.|
 |ServiceAuthentication supports two properties: <br>&nbsp; • email<br>&nbsp; • privateKey |ServiceAuthentication supports four properties:<br>&nbsp; • email<br>&nbsp; • keyFilePath<br>&nbsp; • trustedCertPath<br>&nbsp; • useSystemTrustStore |
-|Selecting a table in a dataset is not supported.|Support selecting a table in a dataset and querying the table in copy activities.|
+|Selecting a table in a dataset isn't supported.|Support selecting a table in a dataset and querying the table in copy activities.|
 |Support GAQL syntax as the query language.|Support SQL syntax as the query language.|
 |The output column names are the same as the field names defined in Google Ads.|The output column names don't match the field names defined in Google Ads.|
 |The following mappings are used from Google Ads data types to interim data types used by the service internally.<br><br>float -> float <br>int32 -> int <br>int64 -> long |The following mappings are used from Google Ads data types to interim data types used by the service internally. <br><br>float -> string <br>int32 -> string <br>int64 -> string |
 
-## Upgrade Google AdWords connector to Google Ads connector 
+## Upgrade Google AdWords connector to Google Ads connector
 
 Upgrade your Google AdWords linked service to the latest Google Ads linked service following the steps below:
 
@@ -302,7 +299,7 @@ Upgrade your Google AdWords linked service to the latest Google Ads linked servi
         | CAMPAIGN_PERFORMANCE_REPORT | campaign | 
         | CAMPAIGN_SHARED_SET_REPORT | campaign_shared_set |  
         | CAMPAIGN_LOCATION_TARGET_REPORT | location_view | 
-        | CLICK_PERFORMANCE_REPORT | click_view | 
+        | Select_PERFORMANCE_REPORT | select_view | 
         | DISPLAY_KEYWORD_PERFORMANCE_REPORT | display_keyword_view | 
         | DISPLAY_TOPICS_PERFORMANCE_REPORT | topic_view |  
         | GENDER_PERFORMANCE_REPORT | gender_view |  
