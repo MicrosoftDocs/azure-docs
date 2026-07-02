@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Shell release notes
 description: This article lists the new features and changes released in Azure Cloud Shell.
-ms.date: 05/22/2026
+ms.date: 07/02/2026
 ms.topic: release-notes
 ---
 
@@ -24,6 +24,19 @@ criteria, see [Cloud Shell Package inclusion guide][12].
 
 You can install any tool you need in your Cloud Shell session as long as it doesn't require root
 access. For installation instructions, consult the documentation for the package you require.
+
+## July 2026
+
+Tool updates
+
+- Az CLI upgraded to v2.87.0
+- Azure Developer CLI upgraded to v1.25.6
+- Azure Functions Core Tools CLI upgraded to v4.12.0
+- Azure PowerShell upgraded to v16.0.0
+- Bicep CLI upgraded to v0.43.8
+- CLI for M365 upgraded to v11.8.0
+- Inspektor Gadget (`ig`) upgraded to v0.53.2
+- `istioctl` upgraded to v1.30.1
 
 ## May 2026
 
