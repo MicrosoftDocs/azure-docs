@@ -3,7 +3,7 @@ title: Run a silent or unattended installation of Azure Backup Server V4
 description: Learn how to run a silent, unattended, or non-interactive installation of Azure Backup Server (MABS) V4 by using a setup.ini file and command-line installation switches.
 ms.service: azure-backup
 ms.topic: how-to
-ms.date: 07/14/2025
+ms.date: 07/02/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a system administrator, I want to execute a silent installation of Azure Backup Server V4 using PowerShell, so that I can streamline the setup process without manual intervention.
@@ -13,24 +13,6 @@ ms.author: v-mallicka
 This article describes how to run a silent (unattended) installation of Azure Backup Server (MABS) V4 or later by using a setup.ini file and command-line switches.
 
 These steps don't apply if you're installing older version of Azure Backup Server like MABS V1, V2 and V3.
-
-## When to use unattended installation
-
-Use unattended installation when you need one or more of these outcomes:
-
-- Deploy MABS in repeated or standardized environments.
-- Reduce manual installation time and operator input.
-- Automate setup in controlled server provisioning workflows.
-
-## Quick command flow
-
-Use this high-level sequence before you start:
-
-1. Create the required folder under Program Files.
-2. Enable required Windows features.
-3. Create and populate `MABSSetup.ini`.
-4. Run Setup.exe with `/f`, `/l`, and `/i` switches.
-5. Validate installation status and logs.
 
 ## Prerequisites
 
