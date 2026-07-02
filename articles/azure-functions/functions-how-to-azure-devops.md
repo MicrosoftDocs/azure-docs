@@ -681,5 +681,6 @@ To create a build pipeline in Azure, use the `az functionapp devops-pipeline cre
 
 ## Next steps
 
+- [Recover from a bad Flex Consumption plan deployment](functions-rollback-deployments.md).
 - Review the [Azure Functions overview](functions-overview.md).
 - Review the [Azure DevOps overview](/azure/devops/pipelines/).
