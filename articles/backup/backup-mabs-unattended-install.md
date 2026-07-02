@@ -74,26 +74,6 @@ You can use these flags for the installation:</br>
 **/i**: Installation path</br>
 **/x**: Uninstall path</br>
 
-## Validate installation
-
-After setup completes, verify that installation succeeded:
-
-1. Review the setup log that you specified with the `/l` switch.
-2. Open the Azure Backup Server console and confirm that services and workloads load as expected.
-3. Verify that the MABS server is registered and that you can proceed with protection configuration.
-
-## Troubleshoot common unattended setup issues
-
-If setup fails or behaves unexpectedly, check these common causes:
-
-- Invalid setup.ini values, missing required fields, or incorrect paths.
-- SQL instance name, credentials, or reporting settings are incorrect.
-- Vault credential file path or passphrase save location isn't valid.
-- Required Windows features weren't enabled successfully, or restart is pending.
-- Setup was started without elevation.
-
-If Microsoft Azure Backup Server fails with errors during setup, backup, or restore, see [Azure Backup Server error codes](https://support.microsoft.com/kb/3041338).
-
 ## Next steps
 
 After you install Backup Server, learn how to prepare your server, or begin protecting a workload.
