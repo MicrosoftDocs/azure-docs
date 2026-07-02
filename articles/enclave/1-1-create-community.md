@@ -303,7 +303,7 @@ After the community deployment completes, perform these validation steps to ensu
 
 ### Step 1: Check community status
 
-1. Navigate to the community in the Azure portal
+1. Go to the community in the Azure portal.
 1. Verify `Status` shows `Succeeded`
 1. Review the `Overview` page for basic information
 
