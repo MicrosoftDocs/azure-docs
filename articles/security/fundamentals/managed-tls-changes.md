@@ -7,9 +7,9 @@ ms.subservice: security-fundamentals
 ms.topic: concept-article
 ms.date: 02/06/2026
 
-ms.author: sarahlipsey
-author: shlipsey3
-manager: pmwongera
+author: msmbaldwin
+ms.author: mbaldwin
+manager: femila
 ms.reviewer: quentinb
 ---
 

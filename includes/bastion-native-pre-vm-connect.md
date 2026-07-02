@@ -1,9 +1,9 @@
 ---
-author: cherylmc
+author: asudbring
 ms.service: azure-bastion
 ms.topic: include
 ms.date: 01/28/2025
-ms.author: cherylmc
+ms.author: allensu
 ---
 Before you begin, verify that you have the following prerequisites:
 

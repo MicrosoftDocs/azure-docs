@@ -129,9 +129,9 @@ items:
           - name: Responsible AI in Microsoft Discovery
             href: concept-responsible-ai.md
             displayName: Microsoft Discovery, responsible AI, safety, limitations, best practices, evaluations
-          - name: Transparency note
+          - name: Platform card
             href: concept-platform-card.md
-            displayName: Microsoft Discovery, transparency note, responsible AI, intended uses, target users, capabilities
+            displayName: Microsoft Discovery, platform card, responsible AI, intended uses, target users, capabilities
           - name: Code of conduct
             href: concept-code-of-conduct.md
             displayName: Microsoft Discovery, responsible AI, code of conduct

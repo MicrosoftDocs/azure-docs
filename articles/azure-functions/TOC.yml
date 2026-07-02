@@ -458,6 +458,8 @@
       href: functions-continuous-deployment.md
     - name: Deployment slots
       href: functions-deployment-slots.md
+    - name: Recover a Flex Consumption deployment
+      href: functions-rollback-deployments.md
     - name: Containers
       items:
       - name: Work with containers
