@@ -29,14 +29,14 @@ access. For installation instructions, consult the documentation for the package
 
 Tool updates
 
-- Az CLI upgraded to v2.87.0
-- Azure Developer CLI upgraded to v1.25.6
-- Azure Functions Core Tools CLI upgraded to v4.12.0
-- Azure PowerShell upgraded to v16.0.0
-- Bicep CLI upgraded to v0.43.8
-- CLI for M365 upgraded to v11.8.0
-- Inspektor Gadget (`ig`) upgraded to v0.53.2
-- `istioctl` upgraded to v1.30.1
+- Azure CLI upgraded to version 2.87.0.
+- Azure Developer CLI upgraded to version 1.25.6.
+- Azure Functions Core Tools CLI upgraded to version 4.12.0.
+- Azure PowerShell upgraded to version 16.0.0.
+- Bicep CLI upgraded to version 0.43.8.
+- CLI for M365 upgraded to version 11.8.0.
+- Inspektor Gadget (`ig`) upgraded to version 0.53.2.
+- `istioctl` upgraded to version 1.30.1.
 
 ## May 2026
 
