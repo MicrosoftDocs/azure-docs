@@ -30,7 +30,7 @@ Use the following steps to monitor the replication status for your virtual machi
 
 1. Go to the **Execute>Migrations** page in Azure Migrate on the Azure portal.
    
-2. You'll see a list of servers in execution stage along with information about stage, status. The **Execution stage** column indicates the current migration stage of the VM (Preparation, Testing & Completion). The **Execution status** column shows the current status of the VM (In progress, In error, Action pending & Completed). [Learn more](end-to-end-portal-experience-server-migrations.md#track-migrations) about Execution stage and Execution status.
+1. You see a list of servers in execution stage along with information about stage and status. The **Execution stage** column indicates the current migration stage of the VM (Preparation, Testing, and Completion). The **Execution status** column shows the current status of the VM (In progress, In error, Action pending, and Completed). [Learn more](execute-server-migrations.md#track-migrations) about Execution stage and Execution status.
 
 3. In **Execution status** column, click on any VM with **In error** status to open the detailed migration job pane. Then, click on the error link to view the detailed error message and related remediation guidance for the same. 
 

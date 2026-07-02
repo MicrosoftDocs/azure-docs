@@ -30,6 +30,7 @@ This feature allows you to promote any secondary region to primary, at any time.
 > - The following features aren't currently available yet. The product team is continuously working on bringing more features and will update this list with the latest status.
 >     - Large messages aren't supported yet.
 >     - Geo-Replication on [partitioned namespaces](enable-partitions-premium.md) is still in public preview.
+>     - Using Geo-Replication together with a [network security perimeter](network-security-perimeter.md) isn't supported yet. You can't enable Geo-Replication on a namespace that's associated with a network security perimeter, or associate a Geo-Replication enabled namespace with one.
 > - Currently, when you perform a failover, the timer for entities that have auto-delete on idle enabled is reset and starts over. A future release fixes this behavior.
 > - When you enable Event Grid integration on a namespace that uses Geo-Replication, note the following:
 >   - Event Grid replicates to the [geo-paired location](/azure/reliability/reliability-event-grid#set-up-disaster-recovery), not the secondary region set up for geo-replication.

@@ -39,6 +39,14 @@ General-purpose v2 supports:
 - Geo-zone-redundant storage (**GZRS**).
 - Read-access geo-zone-redundant storage (**RA-GZRS**).
 
+### How can I upgrade my accounts?
+You can upgrade your accounts in the Azure portal or by using tools like Azure Policy. 
+
+> [!TIP]
+> To migrate general-purpose v1 accounts to general-purpose v2 accounts, use the `deployIfDoesNotExist` Azure Policy. This policy detects and identifies any general-purpose v1 accounts and enables you to perform a non-disruptive, in-place upgrade of those accounts.  
+>
+> A sample policy is available here: [general-purpose v1 Azure policy](https://aka.ms/gpv1_azure_policy) 
+
 ### Does GPv1 support hot, cool, or archive tiers or lifecycle management?
 
 No.
