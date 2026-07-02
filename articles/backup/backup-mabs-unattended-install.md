@@ -16,7 +16,7 @@ These steps don't apply if you're installing older version of Azure Backup Serve
 
 ## Prerequisites
 
-Before you run unattended setup, confirm the following:
+Before you run unattended setup, confirm the following conditions:
 
 - You're installing Azure Backup Server V4 or later.
 - You run commands from an elevated command prompt.
