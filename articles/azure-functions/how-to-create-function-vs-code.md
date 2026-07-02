@@ -52,7 +52,7 @@ Make sure to select your preferred development language at the top of the articl
 + The [Java extension pack](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack)       
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-+ [Node.js 18.x](https://nodejs.org/en/about/previous-releases) or above. Use the `node --version` command to check your version.
++ [Node.js 22.x](https://nodejs.org/en/about/previous-releases) or above. Use the `node --version` command to check your version.
 ::: zone-end 
 ::: zone pivot="programming-language-powershell"  
 + [PowerShell 7.4](/powershell/scripting/install/installing-powershell-core-on-windows)

@@ -40,10 +40,10 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 + [Python 3.11 or later](https://www.python.org/downloads/)
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
-+ [Node.js 18.x or later](https://nodejs.org/)
++ [Node.js 22.x or later](https://nodejs.org/)
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-+ [Node.js 18.x or later](https://nodejs.org/)
++ [Node.js 22.x or later](https://nodejs.org/)
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"  
 + [.NET 8.0 SDK](https://dotnet.microsoft.com/download/dotnet/8.0)
