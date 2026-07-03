@@ -44,7 +44,7 @@ To assign the Monitoring Data Reader role:
 1. Once the operation is complete, Azure displays all the Azure Monitor workspaces added to the Azure Managed Grafana workspace. You can add more Azure Monitor workspaces by selecting **Add** again.
 
 > [!NOTE]
-> Starting with Grafana 13, Azure authentication for this Prometheus data source is provided by the Azure Monitor Managed Service for Prometheus plugin. Existing data sources migrate automatically, so your dashboards, alerts, and queries keep working. For details, see [How to manage data sources](how-to-data-source-plugins-managed-identity.md#supported-grafana-data-sources).
+> Starting with Grafana 13, the Azure Monitor Managed Service for Prometheus plugin provides Azure authentication for this Prometheus data source. Existing data sources migrate automatically, so your dashboards, alerts, and queries keep working. For details, see [How to manage data sources](how-to-data-source-plugins-managed-identity.md#supported-grafana-data-sources).
 
 ## Display Prometheus data in Grafana
 

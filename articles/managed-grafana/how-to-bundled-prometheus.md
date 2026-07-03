@@ -50,7 +50,7 @@ Complete the following steps to connect your Grafana workspace to an Azure Monit
 1. To switch to a different Azure Monitor workspace in the future, repeat steps 2 and 3 above.
 
 > [!NOTE]
-> Starting with Grafana 13, Azure authentication for the `bundled-azure-prometheus` data source is provided by the Azure Monitor Managed Service for Prometheus plugin. Existing data sources migrate automatically, so your recording rules, dashboards, and alerts keep working. For details, see [How to manage data sources](how-to-data-source-plugins-managed-identity.md#supported-grafana-data-sources).
+> Starting with Grafana 13, the Azure Monitor Managed Service for Prometheus plugin provides Azure authentication for the `bundled-azure-prometheus` data source. Existing data sources migrate automatically, so your recording rules, dashboards, and alerts keep working. For details, see [How to manage data sources](how-to-data-source-plugins-managed-identity.md#supported-grafana-data-sources).
 
 ## Create a Grafana alert rule
 
