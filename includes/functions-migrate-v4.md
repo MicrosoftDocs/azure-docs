@@ -108,7 +108,7 @@ The [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfun
     az functionapp config set --net-framework-version v8.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
     ```
 
-    .NET 8.0 is required for function apps in any language running on Windows.
+    Function apps in any language running on Windows require .NET 8.0.
 
     # [Linux](#tab/linux)
 

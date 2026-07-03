@@ -156,7 +156,7 @@ The best practice is to check the import statement from each *.py* file in your 
 
 First, take a look into the latest version of the package in `https://pypi.org/project/<package-name>`. This package usually has its own GitHub page. Go to the **Issues** section on GitHub and search to see whether your issue has been fixed. If it has been fixed, update the package to the latest version.
 
-Sometimes, the package might have been integrated into [Python Standard Library](https://docs.python.org/3/library/) (such as `pathlib`). If so, because we provide a certain Python distribution in Azure Functions (Python 3.10, Python 3.11, Python 3.12, and Python 3.13), the package in your *requirements.txt* file should be removed.
+Sometimes, the package might be integrated into [Python Standard Library](https://docs.python.org/3/library/) (such as `pathlib`). If so, because Azure Functions provides a certain Python distribution (Python 3.10, Python 3.11, Python 3.12, and Python 3.13), remove the package from your *requirements.txt* file.
 
 However, if you're finding that the issue hasn't been fixed, and you're on a deadline, we encourage you to do some research to find a similar package for your project. Usually, the Python community provides you with a wide variety of similar libraries that you can use.
 
@@ -185,7 +185,7 @@ There are several possible causes for errors that reference `cygrpc`, which are 
 
 This mismatch is most likely caused by a 32-bit Python interpreter being installed on your 64-bit operating system.
 
-If you're running on an x64 operating system, ensure that your Python version 3.10, 3.11, 3.12, or 3.13 interpreter is also on a 64-bit version.
+If you're running on an x64 operating system, make sure your Python version 3.10, 3.11, 3.12, or 3.13 interpreter is also a 64-bit version.
 
 You can check your Python interpreter bitness by running the following commands:
 
