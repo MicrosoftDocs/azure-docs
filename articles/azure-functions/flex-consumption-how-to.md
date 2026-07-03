@@ -97,7 +97,7 @@ To support your function code, you need to create three resources:
     ::: zone-end
     ::: zone pivot="programming-language-javascript,programming-language-typescript"
     ```azurecli
-    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime node --runtime-version 20
+    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime node --runtime-version 22
     ```
     ::: zone-end
     ::: zone pivot="programming-language-python"
