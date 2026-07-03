@@ -443,7 +443,10 @@ For Node.js v18 or lower, the app setting is used, and the default behavior depe
 
 ## FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT
 
-Overrides the default limit on the body size of requests sent to HTTP endpoints. The value is given in bytes, with a default maximum request size of 104,857,600 bytes. 
+Sets the supported body size of requests sent to HTTP endpoints. The value is given in bytes, with a default maximum request size of 220,200,960 bytes. This setting allows control of the amount of data sent to HTTP endpoints but it will not allow you to increase the limits as detailed at [ScaleLimits](functions-scale.md#service-limits). The supported limit is 210MB across all SKUs.
+
+The recommended pattern if your payloads exceed this is to have the payload live in a blob and send a pointer to that in the http request, or to use an Event Grid Blob trigger pattern like [Event Grid Blob Trigger](functions-event-grid-blob-trigger.md).
+
 
 |Key|Sample value|
 |---|------------|
@@ -765,11 +768,11 @@ The maximum number of instances that the app can scale out to. Default is no lim
 ## WEBSITE\_NODE\_DEFAULT_VERSION
 
 _Windows only._
-Sets the version of Node.js to use when running your function app on Windows. You should use a tilde (`~`) to have the runtime use the latest available version of the targeted major version. For example, when set to `~18`, the latest version of Node.js 18 is used. When a major version is targeted with a tilde, you don't have to manually update the minor version.
+Sets the version of Node.js to use when running your function app on Windows. You should use a tilde (`~`) to have the runtime use the latest available version of the targeted major version. For example, when set to `~22`, the latest version of Node.js 22 is used. When a major version is targeted with a tilde, you don't have to manually update the minor version.
 
 |Key|Sample value|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|`~18`|
+|WEBSITE\_NODE\_DEFAULT_VERSION|`~22`|
 
 ## WEBSITE\_OVERRIDE\_STICKY\_DIAGNOSTICS\_SETTINGS
 
