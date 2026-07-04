@@ -443,14 +443,15 @@ For Node.js v18 or lower, the app setting is used, and the default behavior depe
 
 ## FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT
 
-Sets the supported body size of requests sent to HTTP endpoints. The value is given in bytes, with a default maximum request size of 220,200,960 bytes. This setting allows control of the amount of data sent to HTTP endpoints but it will not allow you to increase the limits as detailed at [ScaleLimits](functions-scale.md#service-limits). The supported limit is 210MB across all SKUs.
+Sets the supported body size, in bytes, of requests sent to HTTP endpoints. This setting lets you restrict the amount of data sent to HTTP endpoints. By default, this setting is the maximum request size of 220,200,960 bytes across all plans. While you can reduce the body size, you can't increase it beyond the default maximum limit. For more information, see **Max request size** in the [service limits table](functions-scale.md#service-limits). 
 
-The recommended pattern if your payloads exceed this is to have the payload live in a blob and send a pointer to that in the http request, or to use an Event Grid Blob trigger pattern like [Event Grid Blob Trigger](functions-event-grid-blob-trigger.md).
-
+If your application requires larger payloads, you should instead store the payload in Azure Blob storage and reference its URL in the blob container in the http request. You can also use the [Event Grid Blob trigger pattern](functions-event-grid-blob-trigger.md).
 
 |Key|Sample value|
 |---|------------|
-|FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT |`250000000`|
+| FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT |`100000000`|
+
+This sample `FUNCTIONS_REQUEST_BODY_SIZE_LIMIT` value limits the message body in requests to 100 MB.
 
 ## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
