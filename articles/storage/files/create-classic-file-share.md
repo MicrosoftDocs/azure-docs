@@ -90,7 +90,7 @@ The **Access protocols** section applies only to Azure Blob storage, even in Fil
 | Field name | Input type | Values | Applicable to Azure Files | Meaning |
 |-|-|-|-|-|
 | Enable SFTP | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is disabled for FileStorage storage accounts, but is active for storage accounts using the pay-as-you-go model, even if Azure Files is selected as the primary service. |
-| Enable network file system v3 | Checkbox | Checked/unchecked | No | This is an Azure Blob storage only setting. This setting is disabled for FileStorage storage accounts, but is active for storage accounts using the pay-as-you-go model. FileStorage storage accounts can create NFSv4.1 file shares even though this setting is unchecked; in Azure Files, the file share's protocol is selected on the file share, not the storage account. |
+| Enable network file system v3 | Checkbox | Checked/unchecked | No | This setting applies only to Azure Blob storage. The setting is disabled for FileStorage storage accounts, but is active for storage accounts that use the pay-as-you-go model. FileStorage storage accounts can create NFSv4.1 file shares even though this setting is unchecked. In Azure Files, you select the file share's protocol on the file share, not the storage account. |
 
 The **Blob storage** section applies only to Azure Blob storage use, even in FileStorage storage accounts using the provisioned v1 or provisioned v2 models which can only contain Azure file shares.
 
