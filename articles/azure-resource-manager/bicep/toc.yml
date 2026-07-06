@@ -599,7 +599,7 @@ items:
         href: linter-rule-use-stable-vm-image.md
       - name: Use user-defined-types for complex objects
         displayName: linter
-        href: linter-rule-use-user-defined-types.md        
+        href: linter-rule-use-user-defined-types.md
       - name: What-if short-circuiting
         displayName: linter
         href: linter-rule-what-if-short-circuiting.md
@@ -779,6 +779,8 @@ items:
       href: diagnostics/bcp311.md
     - name: BCP318
       href: diagnostics/bcp318.md
+    - name: BCP321
+      href: diagnostics/bcp321.md
     - name: BCP327
       href: diagnostics/bcp327.md
     - name: BCP328
@@ -793,6 +795,8 @@ items:
       href: diagnostics/bcp337.md
     - name: BCP338
       href: diagnostics/bcp338.md
+    - name: BCP364
+      href: diagnostics/bcp364.md
     - name: BCP401
       href: diagnostics/bcp401.md
     - name: BCP414
