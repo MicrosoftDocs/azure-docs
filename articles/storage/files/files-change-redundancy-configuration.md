@@ -35,7 +35,7 @@ When deciding which redundancy configuration is best for your scenario, consider
 
 For a detailed overview of all of the redundancy options for Azure Files, see [Azure Files redundancy](files-redundancy.md).
 
-You can change your storage account's redundancy configurations as needed, though some configurations are subject to [limitations](#limitations-for-changing-replication-types) and [downtime requirements](#downtime-requirements). Reviewing these limitations and requirements before making any changes within your environment helps avoid conflicts with your own timeframe and uptime requirements.
+You can change your storage account's redundancy configurations as needed, though some configurations are subject to [limitations](#limitations-for-changing-replication-types) and [downtime requirements](#downtime-requirements-for-azure-files-redundancy-change). Reviewing these limitations and requirements before making any changes within your environment helps avoid conflicts with your own timeframe and uptime requirements.
 
 There are three ways to change the replication settings:
 
@@ -118,7 +118,7 @@ az storage account update \
 
 A redundancy "conversion" is the process of changing the zone-redundancy aspect of a storage account.
 
-During a conversion, there's [no data loss or application downtime required](#downtime-requirements).
+During a conversion, there's [no data loss or application downtime required](#downtime-requirements-for-azure-files-redundancy-change).
 
 There are two ways to initiate a conversion:
 
