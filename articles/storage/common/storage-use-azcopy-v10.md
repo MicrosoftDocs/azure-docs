@@ -153,7 +153,7 @@ The following table lists all AzCopy v10 commands. Each command links to a refer
 > [!NOTE]
 > AzCopy doesn't have a command to rename files.
 
-## Configure, optimize, and troublesoot AzCopy
+## Configure, optimize, and troubleshoot AzCopy
 
 See any of the following resources:
 
