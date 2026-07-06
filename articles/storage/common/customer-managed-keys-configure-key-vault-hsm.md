@@ -17,7 +17,7 @@ ms.custom: devx-track-azurecli
 
 # Configure encryption with customer-managed keys stored in Azure Key Vault Managed HSM
 
-Azure Storage encrypts all data in a storage account at rest. By default, data is encrypted with Microsoft-managed keys. For additional control over encryption keys, you can manage your own keys. Customer-managed keys must be stored in Azure Key Vault or Azure Key Vault Managed HSM (Hardware Security Module). An Azure Key Vault Managed HSM is an FIPS 140-2 Level 3 validated HSM.
+Azure Storage encrypts all data in a storage account at rest. By default, Azure Storage encrypts data by using Microsoft-managed keys. For more control over encryption keys, manage your own keys. You must store customer-managed keys in Azure Key Vault or Azure Key Vault Managed HSM (Hardware Security Module). An Azure Key Vault Managed HSM is a FIPS 140-2 Level 3 validated HSM.
 
 This article shows how to configure encryption with customer-managed keys stored in a managed HSM by using Azure CLI. To learn how to configure encryption with customer-managed keys stored in a key vault, see [Configure encryption with customer-managed keys stored in Azure Key Vault](customer-managed-keys-configure-key-vault.md).
 
