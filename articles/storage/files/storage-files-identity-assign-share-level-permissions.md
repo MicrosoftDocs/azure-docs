@@ -56,7 +56,7 @@ Several built-in Azure role-based access control (RBAC) roles are intended for u
 
 ## Share-level permissions for specific Microsoft Entra users or groups
 
-If you want to use a specific Microsoft Entra user or group to access Azure file share resources, that identity can be either a cloud-only identity (Microsoft Entra ID only), or it can be a [hybrid identity](/entra/identity/hybrid/whatis-hybrid-identity) that exists in both on-premises AD DS and Microsoft Entra ID.
+To access Azure file share resources, use a specific Microsoft Entra user or group as the identity. This identity can be either a cloud-only identity (Microsoft Entra ID only) or a [hybrid identity](/entra/identity/hybrid/whatis-hybrid-identity) that exists in both on-premises AD DS and Microsoft Entra ID.
 
 Assigning specific share-level permissions to cloud-only identities is currently supported only for Microsoft Entra Kerberos authentication in a [subset of Azure public cloud regions](storage-files-identity-auth-hybrid-identities-enable.md#regional-availability-for-microsoft-entra-kerberos). If the region you want to deploy in isn't supported, reach out to the [Azure Files team](mailto:azurefiles@microsoft.com) for assistance or use a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
 
