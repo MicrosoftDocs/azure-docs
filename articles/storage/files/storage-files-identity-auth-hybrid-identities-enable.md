@@ -9,7 +9,7 @@ ms.author: kendownie
 # Customer intent: As a storage administrator, I want to enable Microsoft Entra Kerberos authentication on Azure Files, so that hybrid and cloud-only users can securely access SMB Azure file shares with their Microsoft Entra credentials.
 ---
 
-#  for hybrid and cloud-only identities on Azure Files
+# Enable Microsoft Entra Kerberos authentication for hybrid and cloud-only identities on Azure Files
 
 **Applies to:** :heavy_check_mark: SMB file shares
 
