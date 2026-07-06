@@ -29,7 +29,7 @@ NFS file shares are often used in the following scenarios:
 - Workloads that require POSIX-compliant file shares, case sensitivity, or Unix style permissions (UID/GID).
 - New application and service development, particularly if that application or service has a requirement for random I/O and hierarchical storage.
 
-## Features
+## NFS Azure file share features
 
 - Fully POSIX-compliant file system
 - Hard link support
@@ -99,18 +99,18 @@ The status of items that appear in this table might change over time as support 
 | Azure Storage Browser on Azure portal| ⛔ |
 | Support for more than 16 groups| ⛔ |
 
-## Regional availability
+## NFS Azure file share regional availability
 
 NFS Azure file shares are supported in all regions that support SSD file shares. See [Azure products available by region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=storage&regions=all).
 
-## Performance
+## NFS Azure file share performance
 
 NFS Azure file shares are only offered on SSD file shares, which store data on solid-state drives (SSD). In the provisioned v2 model, you get to customize on provisioned capacity, IOPS, and throughput independently. See the [provisioned v2 model](understanding-billing.md#provisioned-v2-model) to understand more. In the provisioned v1 model, the IOPS and throughput of NFS shares scale with the provisioned capacity. See the [provisioned v1 model](understanding-billing.md#provisioned-v1-model) to understand the formulas for IOPS, IO bursting, and throughput. The average IO latencies are low-single-digit-millisecond for small IO size, while average metadata latencies are high-single-digit-millisecond. Metadata heavy operations such as untar and workloads like WordPress might face additional latencies due to the high number of open and close operations.
 
 > [!NOTE]
 > You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance](nfs-performance.md).
 
-## Workloads
+## NFS Azure file share workloads
 
 > [!IMPORTANT]
 > Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json) for a list of known issues.

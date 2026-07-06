@@ -165,7 +165,7 @@ Before migrating the data, you must first mount the Azure file share.
 
 #### Windows clients (SMB)
 
-To mount an Azure file share as a local network drive on Windows, see [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md). Be sure to mount the share using either the [Windows permission model for SMB admin](storage-files-identity-configure-file-level-permissions.md#use-the-windows-permission-model-for-smb-admin) or the storage account key (not recommended).
+To mount an Azure file share as a local network drive on Windows, see [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md). Be sure to mount the share by using either the [Windows permission model for SMB admin](storage-files-identity-configure-file-level-permissions.md#use-the-storage-file-data-smb-admin-role-to-mount-the-share) or the storage account key (not recommended).
 
 # [Linux](#tab/linux)
 
