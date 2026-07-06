@@ -229,7 +229,7 @@ $context = New-AzStorageContext -StorageAccountName $AccountName -StorageAccount
 Add-AzFileAce -Context $context -FileShareName test -FilePath "/" -Type Allow -Principal "testUser@contoso.com" -AccessRights Read,Synchronize -InheritanceFlags ObjectInherit,ContainerInherit 
 ```
 
-In this example, -Type Allow creates an allow access control entry (ACE) for the specified user. The -AccessRights Read,Synchronize parameter grants read access along with the Synchronize permission, which is commonly included with file system permissions. The -InheritanceFlags ObjectInherit,ContainerInherit parameter propagates the ACE to both files (ObjectInherit) and subdirectories (ContainerInherit) under the specified path.
+In this example, `-Type Allow` creates an allow access control entry (ACE) for the specified user. The `-AccessRights Read,Synchronize` parameter grants read access along with the Synchronize permission, which is commonly included with file system permissions. The `-InheritanceFlags ObjectInherit,ContainerInherit` parameter propagates the ACE to both files (ObjectInherit) and subdirectories (ContainerInherit) under the specified path.
 
 ## Next step
 
