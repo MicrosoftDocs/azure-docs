@@ -70,7 +70,7 @@ Azure Files supports two different top-level resource types, which are items tha
 
 - **File shares** are a new top-level resource type that simplifies the deployment of Azure file shares by eliminating the need to create a storage account. File shares support the recommended provisioned v2 model only, and support only the SSD media tier with the NFS file system protocol. The `Microsoft.FileShares` resource provider offers file shares as a top-level resource.
 
-## Storage units
+## Azure Files Storage units
 
 Azure Files uses the base-2 units of measurement to represent storage capacity: KiB, MiB, GiB, and TiB.
 
@@ -200,7 +200,7 @@ Share credits have three states:
 
 - **Accruing**, when the file share is using less than the provisioned IOPS.
 - **Declining**, when the file share is using more than the provisioned IOPS and in the bursting mode.
-- **Constant**, when the files share is using exactly the provisioned IOPS and there are either no credits accrued or used.
+- **Constant**, when the file share is using exactly the provisioned IOPS and there are either no credits accrued or used.
 
 A new file share starts with the full number of credits in its burst bucket. Burst credits don't accrue if the share IOPS fall below the provisioned limit due to throttling by the server. The following formulas are used to determine the burst IOPS limit and the number of credits possible for a file share:
 
@@ -246,7 +246,7 @@ Classic file shares created in the same storage account share that storage accou
 
 | Attribute | SSD value | HDD value | Enforcement strategy |
 |-|-|-|-|
-| Maximum provisioned storage per storage account | 256 TiB (262,144 GiB) | 4 PiB (4,194,304) | At provision time. |
+| Maximum provisioned storage per storage account | 256 TiB (262,144 GiB) | 4 PiB (4,194,304 GiB) | At provision time. |
 | Maximum provisioned IOPS per storage account | 102,400 IOPS | 50,000 IOPS | At provision time. |
 | Maximum provisioned throughput per storage account | 10,340 MiB / sec | 5,120 MiB / sec | At provision time. |
 | Maximum number of classic file shares per storage account | 50 classic file shares | 50 classic file shares | At provision time. | 
@@ -607,7 +607,7 @@ Classic file shares created in the same storage account share that storage accou
 
 | Attribute | HDD value | Enforcement strategy |
 |-|-|-|
-| Maximum used storage per storage account | 5 PiB (5,242,880) | Usage is capped. |
+| Maximum used storage per storage account | 5 PiB (5,242,880 GiB) | Usage is capped. |
 | Maximum used IOPS per storage account | <ul><li>Select regions: 40,000 IOPS</li><li>Default: 20,000 IOPS</li></ul> | Usage above the limit is throttled. |
 | Maximum used throughput per storage account | <ul><li>Select regions:<ul><li>Ingress: 7,680 MiB / sec</li><li>Egress: 25,600 MiB / sec</li></ul></li><li>Default:<ul><li>Ingress: 3,200 MiB / sec</li><li>Egress: 6,400 MiB / sec</li></ul></li></ul> | Usage above the limit is throttled. |
 | Maximum number of classic file shares per storage account | Unlimited | Storage, IOPS, and throughput limits are meant to be a practical bound on the number of classic file shares. |
@@ -664,7 +664,7 @@ The **Data Stored** and **Metadata** billing meters emit consumption units hourl
 
 The other meters (for example, **Write Operations** or **Data Retrieval**) emit consumption hourly. Because these meters don't have a specific timeframe associated with them, they don't require any special unit transformations.
 
-## Provisioned size or quota, logical size, and physical size
+## Azure Files share size concepts: Provisioned size or quota, logical size, and physical size
 
 Azure Files tracks three distinct quantities with respect to share capacity:
 
@@ -674,7 +674,7 @@ Azure Files tracks three distinct quantities with respect to share capacity:
 
 - **Physical size**: The physical size of the file relates to the size of the file as encoded on disk. Physical size might align with the file's logical size, or it might be smaller, depending on how the operating system writes the file. A common reason for the logical size and physical size to be different is by using [sparse files](/windows/win32/fileio/sparse-files). The physical size of the files in the share is used for snapshot billing, although allocated ranges are shared between snapshots if they're unchanged (differential storage).
 
-## Value-added services
+## Value-added services for Azure Files
 
 Like many on-premises storage solutions, Azure Files provides integration points for first- and third-party products to integrate with customer-owned file shares. Although these solutions can provide considerable extra value to Azure Files, consider the extra costs that these services add to the total cost of an Azure Files solution.
 
