@@ -70,7 +70,7 @@ Azure Files supports two different top-level resource types, which are items tha
 
 - **File shares** are a new top-level resource type that simplifies the deployment of Azure file shares by eliminating the need to create a storage account. File shares support the recommended provisioned v2 model only, and support only the SSD media tier with the NFS file system protocol. The `Microsoft.FileShares` resource provider offers file shares as a top-level resource.
 
-## Azure Files Storage units
+## Azure Files storage units
 
 Azure Files uses the base-2 units of measurement to represent storage capacity: KiB, MiB, GiB, and TiB.
 
