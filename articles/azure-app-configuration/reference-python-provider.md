@@ -292,7 +292,7 @@ alpha = config["feature_management"]["feature_flags"]["Alpha"]
 print(alpha["enabled"])
 ```
 
-By default, all feature flags with no label are loaded when `feature_flag_enabled` is set to `True`. If you want to load feature flags with a specific label, you can use the `feature_flag_selectors` parameter to filter the feature flags, which takes in a list of `SettingSelector` objects.
+By default, all feature flags with no label are loaded when you set `feature_flag_enabled` to `True`. If you want to load feature flags with a specific label, use the `feature_flag_selectors` parameter to filter the feature flags. This parameter takes a list of `SettingSelector` objects.
 
 ```python
 from azure.appconfiguration.provider import load, SettingSelector
