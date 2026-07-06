@@ -78,6 +78,8 @@ items:
         href: ruleset-support-policy.md?pivots=application-gateway
       - name: Exclusion lists
         href: ./ag/application-gateway-waf-configuration.md
+      - name: Exception lists
+        href: ./ag/application-gateway-exceptions.md
       - name: Upgrade ruleset version
         href: ./ag/upgrade-ruleset-version.md
       - name: Customize managed rules
