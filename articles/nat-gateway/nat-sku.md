@@ -24,6 +24,7 @@ Azure NAT Gateway has two stock-keeping units (SKUs): Standard and StandardV2. T
 | | Port reuse timer | Supported | Supported |
 | | Protocols | TCP, UDP | TCP, UDP, ICMP Echo Request and Reply (ping) |
 | | Public IP version | IPv4 | IPv4, IPv6 |
+| | NAT64 | Not supported | Supported |
 | | Attach point | Subnet | Subnet |
 | Scalability | Public IP addresses | 16 IPv4 addresses | 16 IPv4 addresses, 16 IPv6 addresses |
 | | Public IP prefixes | /28 IPv4 prefix | /28 IPv4 prefix, /124 IPv6 prefix |
@@ -66,6 +67,12 @@ You can attach a StandardV2 NAT gateway to 16 IPv6 public IPs and 16 IPv4 public
 ### Flow logs
 
 A StandardV2 NAT gateway supports flow logs through Azure Monitor. Flow logs provide visibility into the traffic that flows through the NAT gateway. For more information, see [Manage StandardV2 NAT gateway flow logs](./nat-gateway-flow-logs.md).
+
+### NAT64
+
+NAT64 is a translation feature available exclusively on StandardV2 NAT gateways. It enables IPv6 workloads to communicate with IPv4-only destinations by translating outbound IPv6 traffic destined for the well-known prefix 64:ff9b::/96 into IPv4 traffic.
+> [!NOTE]
+> NAT64 requires a third-party DNS64 solution to synthesize AAAA records for IPv4-only destinations.
 
 ### Known limitations
 
