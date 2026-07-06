@@ -281,7 +281,7 @@ Azure Files supports snapshots, which are similar to volume shadow copies (VSS) 
 
 Snapshots are always differential from the live share and from each other. In the provisioned v2 billing model, if the total differential size of all snapshots fits within the excess provisioned storage space of the file share, there's no extra cost for snapshot storage. If the size of the live share data plus the differential snapshot data is greater than the provisioned storage of the share, the excess used capacity of the snapshots is billed against the **Overflow Snapshot Usage** meter. The formula for determining the amount of overflow is: `MAX((LiveShareUsedGiB + SnapshotDifferentialUsedGiB) - ProvisionedStorageGiB, 0)`
 
-Some value-added services for Azure Files use snapshots as part of their value proposition. For more information, see [value-added services for Azure Files](##value-added-services-for-azure-files).
+Some value-added services for Azure Files use snapshots as part of their value proposition. For more information, see [value-added services for Azure Files](#value-added-services-for-azure-files).
 
 ### Provisioned v2 soft delete
 
