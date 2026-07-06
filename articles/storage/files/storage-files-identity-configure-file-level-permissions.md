@@ -51,7 +51,7 @@ The following table shows how share-level permissions and Windows ACLs work toge
    | **NTFS - Full**         | Access denied | Read                       | Read, Write, Delete      | Read, Write, Delete, Apply permissions to anyone's folders/files |
 
 
-To configure ACLs by using identity-based authentication instead of a storage account key (recommended), you'll need an additional RBAC role: [Storage File Data SMB Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin). This role grants share-level access and the `takeOwnership` permission, which allows a user to take ownership of any file or directory by using the Windows `takeown` command, even if there's no existing ACL entry. After taking ownership, the user can modify ACLs. For details, see [Use the Windows permission model for SMB admin](#use-the-windows-permission-model-for-smb-admin).
+To configure ACLs by using identity-based authentication instead of a storage account key (recommended), you'll need an additional RBAC role: [Storage File Data SMB Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin). This role grants share-level access and the `takeOwnership` permission, which allows a user to take ownership of any file or directory by using the Windows `takeown` command, even if there's no existing ACL entry. After taking ownership, the user can modify ACLs. For details, see [Use the Windows permission model for SMB admin](#use-the-storage-file-data-smb-admin-role-to-mount-the-share).
 
 ## Supported Windows ACLs
 
@@ -123,7 +123,7 @@ To use the Windows permission model for SMB admin, follow these steps:
 ### Mount the file share by using your storage account key (not recommended)
 
 > [!WARNING]
-> If possible, use the [Windows permission model for SMB admin](#use-the-windows-permission-model-for-smb-admin) to mount the share instead of using the storage account key.
+> If possible, use the [Windows permission model for SMB admin](#use-the-storage-file-data-smb-admin-role-to-mount-the-share) to mount the share instead of using the storage account key.
 
 Sign in to a domain-joined device or a device that has unimpeded network connectivity to the domain controllers. Sign in as a Microsoft Entra user if your identity source is Microsoft Entra Domain Services.
 
