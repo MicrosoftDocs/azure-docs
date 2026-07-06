@@ -48,9 +48,9 @@ This article supports version 2 of the Python programming model for Azure Functi
 ::: zone-end
 <!--- remove when supported
 ::: zone pivot="programming-language-powershell"
-+ [PowerShell 7.2](/powershell/scripting/install/installing-powershell-core-on-windows)
++ [PowerShell 7.4](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-+ [.NET 6.0 SDK](https://dotnet.microsoft.com/download)
++ [.NET 8 runtime](https://dotnet.microsoft.com/download/dotnet/8.0)
 ::: zone-end
 -->
 ::: zone pivot="programming-language-python"

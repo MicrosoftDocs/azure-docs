@@ -16,7 +16,7 @@ ms.custom: references_regions, devx-track-azurepowershell
 Application Gateway v2 is the latest version of Application Gateway. It provides advantages over Application Gateway v1 such as performance enhancements, autoscaling, zone redundancy, and static VIPs.
 
 > [!IMPORTANT]
-> Deprecation of Application Gateway V1 was [announced on April 28, 2023](v1-retirement.md). If you use Application Gateway V1 SKU, start planning your migration to V2 now and complete your migration to Application Gateway v2 by April 28, 2026. The v1 service isn't supported after this date.
+> Deprecation of Application Gateway V1 was [announced on April 28, 2023](v1-retirement.md). Application Gateway V1 retired on April 28, 2026, and is no longer supported. If you still use the Application Gateway V1 SKU, migrate to Application Gateway v2 now.
 
 ## Key capabilities
 
@@ -128,9 +128,9 @@ This section describes features and limitations of the v2 SKU that differ from t
 
 ## Register for the preview
 
-Run the following Azure CLI commands to register for the preview of Application Gateway Basic SKU. 
+Run the following Azure PowerShell commands to register for the preview of Application Gateway Basic SKU. 
 
-```azurecli-interactive
+```azurepowershell
 Set-AzContext -Subscription "<your subscription ID>"
 Get-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace "Microsoft.Network"
 Register-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace Microsoft.Network 
@@ -141,9 +141,9 @@ Register-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -Provide
 To unregister from the public preview of Basic SKU:
 
 1. Delete all instances of Application Gateway Basic SKU from your subscription.
-1. Run the following Azure CLI commands: 
+1. Run the following Azure PowerShell commands: 
 
-```azurecli-interactive
+```azurepowershell
 Set-AzContext -Subscription "<your subscription ID>"
 Get-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace "Microsoft.Network"
 Unregister-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace Microsoft.Network 
