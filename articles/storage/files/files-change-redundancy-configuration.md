@@ -337,7 +337,7 @@ After an account failover to the secondary region, it's possible to initiate a f
 
 If you performed a customer-managed account failover to recover from an outage for your GRS account, the account becomes locally redundant (LRS) in the new primary region after the failover. Conversion to ZRS or GZRS for an LRS account resulting from a failover isn't supported, even for so-called failback operations. For example, if you perform an account failover from GRS to LRS in the secondary region, and then configure it again as GRS, it remains LRS in the new secondary region (the original primary). If you then perform another account failover to failback to the original primary region, it remains LRS again in the original primary. In this case, you can't perform a conversion to ZRS or GZRS in the primary region. Instead, perform a manual migration to add zone-redundancy.
 
-## Downtime requirements
+## Downtime requirements for Azure Files redundancy change
 
 During a [conversion](#perform-a-conversion), you can access data in your storage account with no loss of durability or availability. [The Azure Storage SLA](https://azure.microsoft.com/support/legal/sla/storage/) is maintained during the migration process and no data is lost during a conversion. Service endpoints, access keys, shared access signatures, and other account options remain unchanged after the migration.
 
