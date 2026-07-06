@@ -210,7 +210,7 @@ Set-AzStorageAccount `
 To enable AES-256 encryption, the domain object that represents your storage account must be a computer account (default) or service logon account in the Active Directory domain. If your domain object doesn't meet this requirement, delete it and create a new domain object that does. Also, you must have write access to the `msDS-SupportedEncryptionTypes` attribute of the object.
 
 > [!IMPORTANT]
-> An upcoming Windows change (July 2026 Windows Server Update) will change the default Kerberos encryption type in AD DS from RC4 to AES-256. If you're still using RC4, you might experience mount errors when this change rolls out. We recommend upgrading to AES-256 now to ensure uninterrupted access to your Azure file shares.
+> An upcoming Windows change (July 2026 Windows Server Update) changes the default Kerberos encryption type in AD DS from RC4 to AES-256. If you're still using RC4, you might experience mount errors when this change rolls out. Upgrade to AES-256 now to ensure uninterrupted access to your Azure file shares.
 
 The cmdlet you run to configure AES-256 support depends on whether the domain object that represents your storage account is a computer account or service logon account (user account). Either way, you must have AD PowerShell cmdlets installed and execute the cmdlet in PowerShell 5.1 with elevated privileges.
 
