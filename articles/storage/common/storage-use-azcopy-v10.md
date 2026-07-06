@@ -91,7 +91,7 @@ Append a SAS token to each source or destination URL that you use in your AzCopy
 ```azcopy
 azcopy copy "C:\local\path" "https://account.blob.core.windows.net/mycontainer1/?sv=2018-03-28&ss=bjqt&srt=sco&sp=rwddgcup&se=2019-05-01T05:01:17Z&st=2019-04-30T21:01:17Z&spr=https&sig=MGCXiyEzbtttkr3ewJIh2AR8KrghSy1DGM9ovN734bQF4%3D" --recursive=true
 ```
-The SAS token in the example above contains query parameters that define the access granted to the storage resource. For example, sv specifies the storage service version, sp specifies the permitted operations, st and se define the validity period, spr specifies the allowed protocol, and sig contains the cryptographic signature. The --recursive=true flag copies all files and subdirectories from the specified local directory. To learn more about SAS tokens and how to obtain one, see [shared access signatures (SAS)](./storage-sas-overview.md).
+The SAS token in the example above contains query parameters that define the access granted to the storage resource. For example, `sv` specifies the storage service version, `sp` specifies the permitted operations, `st` and `se` define the validity period, `spr` specifies the allowed protocol, and `sig` contains the cryptographic signature. The `--recursive=true` flag copies all files and subdirectories from the specified local directory. To learn more about SAS tokens and how to obtain one, see [shared access signatures (SAS)](./storage-sas-overview.md).
 
 <a id="transfer-data"></a>
 
