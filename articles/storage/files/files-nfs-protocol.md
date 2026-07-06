@@ -29,7 +29,7 @@ NFS file shares are often used in the following scenarios:
 - Workloads that require POSIX-compliant file shares, case sensitivity, or Unix style permissions (UID/GID).
 - New application and service development, particularly if that application or service has a requirement for random I/O and hierarchical storage.
 
-## NFS Azure file share Features
+## NFS Azure file share features
 
 - Fully POSIX-compliant file system
 - Hard link support
@@ -110,7 +110,7 @@ NFS Azure file shares are only offered on SSD file shares, which store data on s
 > [!NOTE]
 > You can use the `nconnect` Linux mount option to improve performance for NFS Azure file shares at scale. For more information, see [Improve NFS Azure file share performance](nfs-performance.md).
 
-## NFS Azure File Shares Workloads
+## NFS Azure file share workloads
 
 > [!IMPORTANT]
 > Before using NFS Azure file shares in production, see [Troubleshoot NFS Azure file shares](/troubleshoot/azure/azure-storage/files-troubleshoot-linux-nfs?toc=/azure/storage/files/toc.json) for a list of known issues.
