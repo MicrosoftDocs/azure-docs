@@ -105,7 +105,7 @@ If you're migrating to Azure Files from on-premises or comparing Azure Files to 
 
 - **What do you need to manage?** Azure Files is a fully managed solution. Other solutions might require operating system updates or managing virtual resources such as VMs, disks, and network IP addresses.
 
-- **What are the costs of value-added products?** Azure Files supports integrations with multiple first- and third-party [value-added services](#value-added-services). Value-added services such as Azure Backup, Azure File Sync, and Microsoft Defender for Storage provide backup, replication and caching, and security functionality for Azure Files. Value-added solutions, whether on-premises or in the cloud, have their own licensing and product costs, but are often considered part of the total cost of ownership for file storage.
+- **What are the costs of value-added products?** Azure Files supports integrations with multiple first- and third-party [value-added services](#value-added-services-for-azure-files). Value-added services such as Azure Backup, Azure File Sync, and Microsoft Defender for Storage provide backup, replication and caching, and security functionality for Azure Files. Value-added solutions, whether on-premises or in the cloud, have their own licensing and product costs, but are often considered part of the total cost of ownership for file storage.
 
 ## Provisioned v2 model
 
@@ -281,7 +281,7 @@ Azure Files supports snapshots, which are similar to volume shadow copies (VSS) 
 
 Snapshots are always differential from the live share and from each other. In the provisioned v2 billing model, if the total differential size of all snapshots fits within the excess provisioned storage space of the file share, there's no extra cost for snapshot storage. If the size of the live share data plus the differential snapshot data is greater than the provisioned storage of the share, the excess used capacity of the snapshots is billed against the **Overflow Snapshot Usage** meter. The formula for determining the amount of overflow is: `MAX((LiveShareUsedGiB + SnapshotDifferentialUsedGiB) - ProvisionedStorageGiB, 0)`
 
-Some value-added services for Azure Files use snapshots as part of their value proposition. For more information, see [value-added services for Azure Files](#value-added-services).
+Some value-added services for Azure Files use snapshots as part of their value proposition. For more information, see [value-added services for Azure Files](##value-added-services-for-azure-files).
 
 ### Provisioned v2 soft delete
 
