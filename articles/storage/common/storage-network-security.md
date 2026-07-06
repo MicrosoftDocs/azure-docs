@@ -97,6 +97,7 @@ To learn how to configure a resource instance rule, see [Create a resource insta
 <a id="grant-access-to-trusted-azure-services"></a>
 <a id="manage-exceptions"></a>
 <a id="exceptions"></a>
+<a id="exceptions-for-trusted-azure-services"></a>
 
 ## Exceptions for trusted Azure services and network security
 
