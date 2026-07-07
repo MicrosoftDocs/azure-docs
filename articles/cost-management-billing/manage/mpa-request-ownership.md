@@ -16,14 +16,14 @@ service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 
 # Transfer Azure product billing ownership to your Microsoft Partner Agreement (MPA)
 
-An Azure Expert MSP can request to transfer their customer's Enterprise subscriptions, reservations and savings plans to the Microsoft Partner Agreement (MPA) that they manage. 
+A partner can request to transfer their customer's Enterprise subscriptions, reservations and savings plans to the Microsoft Partner Agreement (MPA) that they manage. 
 
 Supported product (subscriptions, reservations and savings plans) billing ownership transfer options include:
 
 - An Enterprise Agreement transfer to an Azure plan under the MPA
 - An enterprise Microsoft Customer Agreement transfer to an Azure plan under the MPA
 
-This feature is available only for CSP Direct Bill Partners certified as [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) and have the [Frontier Distributor Designation](https://partner.microsoft.com/asset/collection/frontier-distributor-collection). It's subject to Microsoft governance and policies and might require review and approval for certain customers.
+This feature is available only for Certified CSP Direct Bill Partners that are enrolled in [Azure Solutions Partner Designation](https://partner.microsoft.com/partnership/solutions-partner), [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) or [Frontier Distributor Designation](https://partner.microsoft.com/asset/collection/frontier-distributor-collection). It's subject to Microsoft governance and policies and might require review and approval for certain customers.
 
 This article applies to billing accounts for Microsoft Partner Agreements. These accounts are created for Cloud Solution Providers (CSPs) to manage billing for their customers in the new commerce experience. The new experience is only available for partners, who have at least one customer that has accepted a Microsoft Customer Agreement (MCA) and has an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
 

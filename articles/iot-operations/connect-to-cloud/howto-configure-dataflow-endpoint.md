@@ -273,7 +273,7 @@ Similar to the MQTT example, you can create multiple data flows that use the sam
 ## Next steps
 
 > [!TIP]
-> To route dataflow traffic to cloud destinations through Private Link instead of public endpoints, see [Configure dataflow destinations with private endpoints](../manage-layered-network/howto-private-connectivity.md#configure-dataflow-destinations-with-private-endpoints).
+> To route dataflow traffic to cloud destinations through Private Link instead of public endpoints, see [Configure dataflow destinations with private endpoints](../manage-layered-network/howto-private-connectivity.md#configure-data-flow-destinations-with-private-endpoints).
 
 Create a data flow endpoint: 
 
