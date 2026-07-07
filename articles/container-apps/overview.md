@@ -12,7 +12,7 @@ ms.custom: build-2023
 
 # Azure Container Apps overview
 
-Azure Container Apps is a serverless platform for running containerized applications without managing the underlying infrastructure. Instead of configuring servers, orchestrating containers, and handling deployment details yourself, you let Container Apps provide the up-to-date resources that keep your applications stable, secure, and scalable. This approach reduces operational overhead and helps you save on costs.
+Azure Container Apps is a serverless platform for running containerized applications without managing the underlying infrastructure. Instead of configuring servers, orchestrating containers, and handling deployment details yourself, let Container Apps provide the up-to-date resources that keep your applications stable, secure, and scalable. This approach reduces operational overhead and helps you save on costs.
 
 Common uses of Azure Container Apps include:
 
