@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
-ms.date: 04/09/2025
+ms.date: 07/07/2026
 ms.custom:
   - template-quickstart
   - mode-ui
@@ -239,14 +239,20 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01'
 ### Deployment Prerequisites
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-* Permissions to create a Policy Definition and Policy Assignment at the target subscription scope (this is required when using the deployment parameter `networkGroupMembershipType=Dynamic` to deploy the required Policy resources for Network Group membership. The default is `static`, which does not deploy a Policy.
+* Permissions to create a Policy Definition and Policy Assignment at the target subscription scope, This is required when using the deployment parameter `networkGroupMembershipType=Dynamic` to deploy the required Policy resources for Network Group membership. The default is `static`, which does not deploy a Policy.
+* All resources in this solution are available in [Azure Samples GitHub repository](https://github.com/Azure-Samples/avnm-mesh-connected-group). You can download the Bicep solution from the repo or clone the repo to your local machine.
 
 #### Download the Bicep Solution
 
-1. Download a Zip archive of the MSPNP repo at [this link](https://github.com/mspnp/samples/archive/refs/heads/main.zip)
-1. Extract the downloaded Zip file and in your terminal, navigate to the `solutions/avnm-mesh-connected-group/bicep` directory.
+1. Download a Zip archive of the sample repo at [this link](https://github.com/Azure-Samples/avnm-mesh-connected-group/archive/refs/heads/main.zip)
+1. Extract the downloaded Zip file and in your terminal, navigate to the extracted `avnm-mesh-connected-group` directory. The Bicep files for this solution are located in the `bicep` subdirectory.
 
-Alternatively, you can use `git` to clone the repo with `git clone https://github.com/mspnp/samples.git`
+Alternatively, you can use `git` to clone the repo with:
+
+```bash
+git clone https://github.com/Azure-Samples/avnm-mesh-connected-group
+cd avnm-mesh-connected-group
+```
 
 #### Connect to Azure
 
@@ -303,18 +309,34 @@ az account set -s <subscriptionId>
 
 #### [PowerShell](#tab/powershell1)
 
+**Default deployment with static network group membership**
+
 ```powershell
-    $templateParameterObject = @{
-        'location' = '<resourceLocation>'
-        'resourceGroupName' = '<newOrExistingResourceGroup>'
-    }
-    New-AzSubscriptionDeployment -TemplateFile ./main.bicep -Location <deploymentLocation> -TemplateParameterObject $templateParameterObject
+New-AzSubscriptionDeployment -Name avnm-mesh-connected-group -Location <deploymentLocation> -TemplateFile ./bicep/main.bicep -resourceGroupName <newOrExistingResourceGroup>
+```
+
+**Deployment with dynamic network group membership**
+
+Include the deployment parameter `networkGroupMembershipType` with a value of `dynamic` to use Azure Policy to dynamically manage the membership of the network group.
+
+```powershell
+New-AzSubscriptionDeployment -Name avnm-mesh-connected-group -Location <deploymentLocation> -TemplateFile ./bicep/main.bicep -resourceGroupName <newOrExistingResourceGroup> -networkGroupMembershipType dynamic
 ```
 
 #### [Azure CLI](#tab/azurecli1)
 
+**Default deployment with static network group membership**
+
 ```azurecli
-    az deployment sub create -l <deploymentLocation> -f ./main.bicep -p location=<resourceLocation> resourceGroupName=<newOrExistingResourceGroup>
+az deployment sub create --template-file ./bicep/main.bicep -n avnm-mesh-connected-group -l <deploymentLocation> --parameters resourceGroupName=<newOrExistingResourceGroup>
+```
+
+**Deployment with dynamic network group membership**
+
+Include the deployment parameter `networkGroupMembershipType` with a value of `dynamic` to use Azure Policy to dynamically manage the membership of the network group.
+
+```azurecli
+az deployment sub create --template-file ./bicep/main.bicep -n avnm-mesh-connected-group -l <deploymentLocation> --parameters resourceGroupName=<newOrExistingResourceGroup> networkGroupMembershipType=dynamic
 ```
 
 ---
