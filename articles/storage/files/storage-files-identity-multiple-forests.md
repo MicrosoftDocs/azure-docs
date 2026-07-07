@@ -107,7 +107,7 @@ If icacls fails with an *Access is denied* error, follow these steps to configur
 
 1. Delete the existing share mount: `net use * /delete /y`
 
-1. Re-mount the share by using either the [Windows permission model for SMB admin](storage-files-identity-configure-file-level-permissions.md#use-the-windows-permission-model-for-smb-admin) or the storage account key (not recommended). See [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md).
+1. Re-mount the share by using either the [Windows permission model for SMB admin](storage-files-identity-configure-file-level-permissions.md#use-the-storage-file-data-smb-admin-role-to-mount-the-share) or the storage account key (not recommended). See [Mount SMB Azure file share on Windows](storage-how-to-use-files-windows.md).
 
 1. Set icacls permissions for user in **Forest 2** on storage account joined to **Forest 1** from client in **Forest 1**.
 
