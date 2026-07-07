@@ -6,7 +6,7 @@ ms.service: azure-iot
 services: iot
 ms.topic: best-practice
 ms.custom: horz-security
-ms.date: 06/23/2026
+ms.date: 07/07/2026
 ms.author: dobett
 # Customer intent: As a solution builder, I want a high-level overview of the key concepts around securing a typical Azure IoT solution.
 ---
@@ -79,17 +79,9 @@ This section provides guidance on how to secure your assets, such as industrial 
 
 This section provides guidance on how to secure the connections between your assets, edge runtime environment, and cloud services. The security of the connections is crucial to ensure the integrity and confidentiality of the data transmitted.
 
-- **Use Transport Layer Security (TLS) to secure connections from assets**: All communication within Azure IoT Operations is encrypted using TLS. To provide a secure-by-default experience that minimizes inadvertent exposure of your edge-connected solution to attackers, Azure IoT Operations is deployed with a default root CA and issuer for TLS server certificates. For a production deployment, we recommend using your own CA issuer and an enterprise PKI solution.
+- **Follow Azure IoT Operations production deployment guidelines for connections**: For production Azure IoT Operations deployments, [production deployment guidelines](../iot-operations/deploy-iot-ops/concept-production-guidelines.md) provide detailed configuration for [bringing your own CA issuer with enterprise PKI](../iot-operations/deploy-iot-ops/howto-bring-your-own-issuer.md#bring-your-own-issuer), [MQTT broker internal traffic encryption](../iot-operations/deployment-plan/deployment-planning-encryption.md), [automatic TLS certificate management for BrokerListener](../iot-operations/manage-mqtt-broker/howto-configure-brokerlistener.md), and [secure connections to OPC UA servers](../iot-operations/discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md).
 
-- **Bring your own CA for production**: For production deployments, replace the default self-signed root CA with your own CA issuer and integrate with an enterprise PKI to ensure trust and compliance. To learn more, see [Bring your own issuer](../iot-operations/deploy-iot-ops/howto-bring-your-own-issuer.md#bring-your-own-issuer).
-
-- **Consider using enterprise firewalls or proxies to manage outbound traffic**: If you use enterprise firewalls or proxies, add the [Azure IoT Operations endpoints](../iot-operations/deploy-iot-ops/overview-deploy.md#azure-iot-operations-endpoints) to your allow list.
-
-- **Encrypt internal traffic of message broker**: Ensuring the security of internal communications within your edge infrastructure is important to maintain data integrity and confidentiality. You should configure the MQTT broker to encrypt internal traffic and data in transit between the MQTT broker frontend and backend pods. To learn more, see [Internal traffic encryption](../iot-operations/deployment-plan/deployment-planning-encryption.md).
-
-- **Configure TLS with automatic certificate management for listeners in your MQTT broker**: Azure IoT Operations provides automatic certificate management for listeners in your MQTT broker. This capability reduces the administrative overhead of manually managing certificates, ensures timely renewals, and helps maintain compliance with security policies. To learn more, see [Secure MQTT broker communication by using BrokerListener](../iot-operations/manage-mqtt-broker/howto-configure-brokerlistener.md).
-
-- **Set up a secure connection to OPC UA servers**: Before connecting to an OPC UA server, determine which OPC UA servers you trust so that you can establish secure sessions with them. To learn more, see [Configure OPC UA certificates infrastructure for the connector for OPC UA](../iot-operations/discover-manage-assets/howto-configure-opc-ua-certificates-infrastructure.md).
+- **Use Transport Layer Security (TLS) to secure connections from assets**: All communication within Azure IoT Operations is encrypted by using TLS. To provide a secure-by-default experience that minimizes inadvertent exposure of your edge-connected solution to attackers, Azure IoT Operations is deployed with a default root CA and issuer for TLS server certificates. For a production deployment, use your own CA issuer and an enterprise PKI solution.
 
 - **Isolate and segment networks**: Use network segmentation and firewalls to isolate IoT Operations clusters and edge devices from other network resources. Add required endpoints to your allow list if using enterprise firewalls or proxies. To learn more, see [Production deployment guidelines – Networking](../iot-operations/deploy-iot-ops/concept-production-guidelines.md#networking).
 
@@ -97,21 +89,13 @@ This section provides guidance on how to secure the connections between your ass
 
 This section provides guidance on how to secure your edge runtime environment, which is the software that runs on your edge platform. This software processes your asset data and manages the communication between your assets and cloud services. The security of the edge runtime environment is crucial to ensure the integrity and confidentiality of the data processed and transmitted.
 
-- **Keep the edge runtime environment up to date**: Keep your cluster and Azure IoT Operations deployment up to date with the latest patches and minor releases to get all available security and bug fixes. For production deployments, [turn off autoupgrade for Azure Arc](/azure/azure-arc/kubernetes/agent-upgrade#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) to have complete control over when new updates are applied to your cluster. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade#manually-upgrade-agents) as needed.
-
-- **Verify the integrity of container and Helm images**: Before deploying any image to your cluster, verify that the image is signed by Microsoft. To learn more, see [Validate image signing](../iot-operations/secure-iot-ops/howto-validate-images.md).
-
-- **Always use X.509 certificates or Kubernetes service account tokens for authentication with your MQTT broker**: An MQTT broker supports multiple authentication methods for clients. You can configure each listener port to have its own authentication settings with a BrokerAuthentication resource. To learn more, see [Configure MQTT broker authentication](../iot-operations/manage-mqtt-broker/howto-configure-authentication.md).
-
-- **Provide the least privilege needed for the topic asset in your MQTT broker**: Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure the MQTT broker to use one or multiple authorization policies with the BrokerAuthorization resource. To learn more, see [Configure MQTT broker authorization](../iot-operations/manage-mqtt-broker/howto-configure-authorization.md).
+- **Follow Azure IoT Operations production deployment guidelines for the edge runtime**: For production Azure IoT Operations deployments, follow the [production deployment guidelines](../iot-operations/deploy-iot-ops/concept-production-guidelines.md), which cover [validating Microsoft-signed images](../iot-operations/secure-iot-ops/howto-validate-images.md), keeping the cluster patched, [controlling Arc autoupgrade](/azure/azure-arc/kubernetes/agent-upgrade#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc), [MQTT broker authentication](../iot-operations/manage-mqtt-broker/howto-configure-authentication.md), and [least-privilege topic authorization](../iot-operations/manage-mqtt-broker/howto-configure-authorization.md).
 
 ### Cloud security
 
 This section provides guidance on how to secure your cloud services, which are the services that process and store your asset data. The security of the cloud services is crucial to ensure the integrity and confidentiality of your data.
 
-- **Use user-assigned managed identities for cloud connections**: Always use managed identity authentication. When possible, [use user-assigned managed identity](../iot-operations/connect-to-cloud/howto-configure-mqtt-endpoint.md#user-assigned-managed-identity) in data flow endpoints for flexibility and auditability. To learn more, see [Set up a user-assigned managed identity for cloud connections](../iot-operations/secure-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
-
-- **Deploy observability resources and set up logs**: Observability provides visibility into every layer of your Azure IoT Operations configuration. It gives you insight into the actual behavior of issues, which increases the effectiveness of site reliability engineering. Azure IoT Operations offers observability through custom curated Grafana dashboards that are hosted in Azure. These dashboards are powered by Azure Monitor managed service for Prometheus and by Container Insights. [Deploy observability resources](../iot-operations/deploy-iot-ops/howto-configure-observability.md) on your cluster before deploying Azure IoT Operations.
+- **Follow Azure IoT Operations production deployment guidelines for cloud connections**: For production Azure IoT Operations deployments, [production deployment guidelines](../iot-operations/deploy-iot-ops/concept-production-guidelines.md) cover [user-assigned managed identities for data flow endpoints and cloud connections](../iot-operations/secure-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) and [deploying observability resources](../iot-operations/deploy-iot-ops/howto-configure-observability.md) before deployment.
 
 - **Secure access to assets and asset endpoints with Azure RBAC**: Assets and asset endpoints in Azure IoT Operations have representations in both the Kubernetes cluster and the Azure portal. Use Azure RBAC to secure access to these resources. Azure RBAC is an authorization system that enables you to manage access to Azure resources. Use Azure RBAC to grant permissions to users, groups, and applications at a certain scope. To learn more, see [Custom RBAC roles for your Azure IoT Operations resources](../iot-operations/reference/custom-rbac.md).
 
