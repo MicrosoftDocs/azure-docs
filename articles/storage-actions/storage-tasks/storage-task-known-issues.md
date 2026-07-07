@@ -48,7 +48,7 @@ The workaround is to delete the storage task assignment and then move the storag
 
 ## Restrictions on moving a storage task
 
-You can't move a storage task to another region or to another subscription. You can't move a subscription that contains a storage task to another tenant.
+You can move a storage task to another resource group or to another subscription. You can't move a subscription that contains a storage task to another tenant.
 
 ## Concurrency limit for execution
 
