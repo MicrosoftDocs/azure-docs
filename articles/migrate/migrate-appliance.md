@@ -155,6 +155,21 @@ The following table summarizes the Azure Migrate appliance requirements for VMwa
 ## URL access
 
 The Azure Migrate appliance needs connectivity to the internet.
+### Network access control requirements for restricted environments
+
+In environments with strict network access controls, validate the required network paths before you deploy or register the Azure Migrate appliance. These controls can include firewalls, proxy servers, network security groups, user-defined routes, Azure Firewall, DNS filtering, TLS inspection, and allowlist-based outbound access controls.
+
+The appliance must be able to reach the required Azure Migrate, identity, management, download, and logging endpoints listed in this article. If you're using private endpoint connectivity, the appliance must also be able to reach the required private endpoint IP addresses over TCP port 443.
+
+Before you register the appliance, verify that:
+
+- Required URLs are allowed through the firewall or proxy.
+- Required private endpoint FQDNs resolve to private IP addresses when private endpoint connectivity is used.
+- The appliance subnet has a valid route to the private endpoint subnet.
+- Network security groups, user-defined routes, Azure Firewall, proxy rules, or inspection devices don't block appliance registration, discovery, assessment, or replication traffic.
+- Azure Policy or landing zone controls don't block required Azure Migrate resource creation, including private endpoints, private DNS zones, Key Vault, storage accounts, or Recovery Services vault resources.
+
+If appliance registration, discovery, assessment, or replication fails in a restricted environment, validate DNS resolution and TCP 443 connectivity from the appliance before you redeploy the appliance or recreate the Azure Migrate project.
 
 - When you deploy the appliance, Azure Migrate does a connectivity check to the required URLs.
 - You need to allow access to all URLs in the list. If you're doing assessment only, you can skip the URLs that are marked as required for VMware agentless migration.
@@ -233,6 +248,17 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 *.blob.core.usgovcloudapi.net (optional)|  This is optional and is not required if the storage account has a private endpoint attached.
 *.applicationinsights.us (optional)| Upload appliance logs used for internal monitoring.  
 
+### Private DNS requirements for private endpoint connectivity
+
+When you use private endpoint connectivity, Azure Migrate appliance components must resolve Azure Migrate resource fully qualified domain names (FQDNs) to private endpoint IP addresses.
+
+During Azure Migrate project key generation, Azure Migrate creates private endpoints for required resources. Azure Migrate also creates private DNS zones for the corresponding `privatelink` subdomains and adds DNS A records for the associated private endpoints. These records allow the appliance and related components to reach Azure Migrate resources by using private IP addresses.
+
+If your organization uses custom DNS, centralized DNS, Azure DNS Private Resolver, DNS forwarders, or multiple Azure Private DNS zone resources with the same zone name, validate the DNS zone used by the appliance DNS resolution path.
+
+> [!IMPORTANT]
+> Separate Azure Private DNS zone resources with the same zone name don't automatically synchronize records. If Azure Migrate creates DNS records in one private DNS zone, but the appliance resolves through another private DNS zone with the same name, the appliance might not resolve required endpoints to the correct private endpoint IP addresses.
+
 ### Microsoft Azure operated by 21Vianet (Microsoft Azure operated by 21Vianet) URLs
 
 **URL** | **Details**  
@@ -269,6 +295,18 @@ download.microsoft.com/download | Allow downloads from Microsoft download center
 *.blob.core.chinacloudapi.cn  |  **Used for VMware agentless migration.**<br/><br/>Upload data to storage for migration.
 *.applicationinsights.azure.cn | Upload appliance logs used for internal monitoring.
 
+Before you register the appliance, verify that:
+
+- The required private DNS zones exist.
+- The virtual network that contains the private endpoint is linked to the correct private DNS zones.
+- The appliance DNS resolution path resolves required Azure Migrate private link FQDNs to private IP addresses.
+- Required DNS A records exist in the DNS zone used by the appliance.
+- Duplicate private DNS zones with the same name are documented and synchronized if required.
+- Stale or incorrect DNS records are removed and recreated with the correct private endpoint IP address.
+
+If your organization maintains centralized private DNS zones, manually add or automate the required A records in the DNS zone used by the appliance resolver path. The records should match the FQDNs and private IP addresses shown in the private endpoint DNS configuration or in the DNS settings downloaded from Azure Migrate.
+
+For testing, validate name resolution from the appliance by using `nslookup`, and then verify TCP 443 connectivity to the resolved private endpoint IP address.
 ## Discovery and collection process
 
 :::image type="content" source="./media/migrate-appliance/architecture.png" alt-text="Diagram of Appliance architecture.":::
