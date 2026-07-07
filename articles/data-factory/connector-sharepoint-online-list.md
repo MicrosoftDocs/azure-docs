@@ -89,34 +89,9 @@ The following properties are supported for a SharePoint Online List linked servi
 | connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. If not specified, the default Azure Integration Runtime is used. | No           |
 
 >[!Note]
->If you are using service principal key authentication, which is based on Azure ACS (Access Control Services), we recommend switching to the **service principal certificate authentication** due to the [ACS retirement plan](/sharepoint/dev/sp-add-ins/retirement-announcement-for-azure-acs).
+>If you are using service principal key authentication, which is based on Azure ACS (Access Control Services), please switch to the **service principal certificate authentication** due to the [ACS retirement plan](/sharepoint/dev/sp-add-ins/retirement-announcement-for-azure-acs).
 
-**Example 1: Using service principal key authentication**
-
-```json
-{
-    "name": "SharePointOnlineList",
-    "properties": {
-        "type": "SharePointOnlineList",
-        "typeProperties": {
-            "siteUrl": "<site URL>",
-            "servicePrincipalId": "<service principal id>",
-            "servicePrincipalCredentialType":  "ServicePrincipalKey",
-            "servicePrincipalKey": {
-                "type": "SecureString",
-                "value": "<service principal key>"
-            },
-            "tenantId": "<tenant ID>"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-**Example 2: Using service principal certificate authentication**
+**Example : Using service principal certificate authentication**
 
 ```json
 {
@@ -145,37 +120,33 @@ The following properties are supported for a SharePoint Online List linked servi
 }
 ```
 
-### Grant permission for using service principal key
+### Grant permission for using service principal certificate
 
 The SharePoint List Online connector uses service principal authentication to connect to SharePoint. Follow these steps to set it up:
 
-1. Register an application with the Microsoft identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
+1. Generate a self-signed certificate and export both the public certificate and the certificate including its private key. To learn how, see [Create a self-signed public certificate to authenticate your application](https://learn.microsoft.com/en-us/entra/identity-platform/howto-create-self-signed-certificate).
+
+2. Register an application with the Microsoft identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
 
     - Application ID
-    - Application key
     - Tenant ID
 
-2. Grant SharePoint Online site permission to your registered application by following the steps below. To do this, you need a site admin role.
+3. Upload the public certificate in the **Certificates & secrets**.
 
-    1. Open your SharePoint Online site link. For example, the URL in the format `https://<your-site-url>/_layouts/15/appinv.aspx` where the placeholder `<your-site-url>` is your site.
-    2. Search the application ID you registered, fill the empty fields, and select "Create".
+4. Select **Add Permission** for **API permissions**.
 
-        - App Domain: `contoso.com`
-        - Redirect URL: `https://www.contoso.com`
-        - Permission Request XML:  
+5. Select **SharePoint** for **Select an API**.
 
-            ```xml
-            <AppPermissionRequests AllowAppOnlyPolicy="true">
-                <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
-            </AppPermissionRequests>
-            ```
+6. Select **Application permissions**.
 
-            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site admin role.":::
+7. Select **Sites.Read.All** for **Select permissions**.
 
-        > [!NOTE]
-        > In the context of configuring the SharePoint connector, the "App Domain" and "Redirect URL" refer to the SharePoint app that you have registered in Microsoft Entra ID to allow access to your SharePoint data. The "App Domain" is the domain where your SharePoint site is hosted. For example, if your SharePoint site is located at "https://contoso.sharepoint.com", then the "App Domain" would be "contoso.sharepoint.com". The "Redirect URL" is the URL that the SharePoint app will redirect to after the user has authenticated and granted permissions to the app. This URL should be a page on your SharePoint site that the app has permission to access. For example, you could use the URL of a page that displays a list of files in a library, or a page that displays the contents of a document.
+8. Select **Add permissions**.
 
-    3. Select "Trust It" for this app.
+9. Select **Grant admin consent for**.
+
+10. Select **Yes** for **Grant admin consent confirmation**.
+
 
 ## Dataset properties
 
