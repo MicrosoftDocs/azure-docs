@@ -7,7 +7,8 @@ ms.author: ulrichchrist
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: synapse
-ms.date: 10/20/2023
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ---
 
 # Copy data from SAP Business Warehouse via Open Hub using Azure Data Factory or Synapse Analytics
@@ -38,17 +39,17 @@ This SAP Business Warehouse Open Hub connector is supported for the following ca
 
 Specifically, this SAP Business Warehouse Open Hub connector supports:
 
-- SAP Business Warehouse **version 7.01 or higher (in a recent SAP Support Package Stack released after the year 2015)**. SAP BW/4HANA is not supported by this connector.
+- SAP Business Warehouse **version 7.01 or higher (in a recent SAP Support Package Stack released after the year 2015)**. SAP BW/4HANA isn't supported by this connector.
 - Copying data via Open Hub Destination local table, which underneath can be DSO, InfoCube, MultiProvider, DataSource, etc.
 - Copying data using basic authentication.
 - Connecting to an SAP application server or SAP message server.
 - Retrieving data via RFC.
 
-## SAP BW Open Hub Integration 
+## SAP BW Open Hub Integration
 
-[SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service) is an efficient way to extract data from SAP BW. The following diagram shows one of the typical flows customers have in their SAP system, in which case data flows from SAP ECC -> PSA -> DSO -> Cube.
+[SAP BW Open Hub Service](https://help.sap.com/docs/SAP_NETWEAVER_702/fe29ba4c6c551014b4be9ddad70bba51/cec2463c6796e61ce10000000a114084.html) is an efficient way to extract data from SAP BW. The following diagram shows one of the typical flows customers have in their SAP system, in which case data flows from SAP ECC -> PSA -> DSO -> Cube.
 
-SAP BW Open Hub Destination (OHD) defines the target to which the SAP data is relayed. Any objects supported by SAP Data Transfer Process (DTP) can be used as open hub data sources, for example, DSO, InfoCube, DataSource, etc. Open Hub Destination type - where the relayed data is stored - can be database tables (local or remote) and flat files. This SAP BW Open Hub connector support copying data from OHD local table in BW. In case you are using other types, you can directly connect to the database or file system using other connectors.
+SAP BW Open Hub Destination (OHD) defines the target to which the SAP data is relayed. Any objects supported by SAP Data Transfer Process (DTP) can be used as open hub data sources, for example, DSO, InfoCube, DataSource, etc. Open Hub Destination type - where the relayed data is stored - can be database tables (local or remote) and flat files. This SAP BW Open Hub connector support copying data from OHD local table in BW. In case you're using other types, you can directly connect to the database or file system using other connectors.
 
 :::image type="content" source="./media/connector-sap-business-warehouse-open-hub/sap-bw-open-hub.png" alt-text="SAP BW Open Hub":::
 
@@ -57,7 +58,7 @@ SAP BW Open Hub Destination (OHD) defines the target to which the SAP data is re
 The SAP BW Open Hub Connector offers two optional properties: `excludeLastRequest` and `baseRequestId` which can be used to handle delta load from Open Hub. 
 
 - **excludeLastRequestId**: Whether to exclude the records of the last request. Default value is true. 
-- **baseRequestId**: The ID of request for delta loading. Once it is set, only data with requestId larger than the value of this property will be retrieved. 
+- **baseRequestId**: The ID of request for delta loading. Once it's set, only data with requestId larger than the value of this property will be retrieved. 
 
 Overall, the extraction from SAP InfoProviders consists of two steps: 
 
@@ -71,11 +72,11 @@ Overall, the extraction from SAP InfoProviders consists of two steps:
 
 In the first step, a DTP is executed. Each execution creates a new SAP request ID. The request ID is stored in the Open Hub table and is then used by the connector to identify the delta. The two steps run asynchronously: the DTP is triggered by SAP, and the data copy is triggered through the service. 
 
-By default, the service is not reading the latest delta from the Open Hub table (option "exclude last request" is true). Hereby, the data in the service is not 100% up to date with the data in the Open Hub table (the last delta is missing). In return, this procedure ensures that no rows get lost caused by the asynchronous extraction. It works fine even when the service is reading the Open Hub table while the DTP is still writing into the same table. 
+By default, the service isn't reading the latest delta from the Open Hub table (option "exclude last request" is true). Hereby, the data in the service isn't 100% up to date with the data in the Open Hub table (the last delta is missing). In return, this procedure ensures that no rows get lost caused by the asynchronous extraction. It works fine even when the service is reading the Open Hub table while the DTP is still writing into the same table. 
 
-You typically store the max copied request ID in the last run by the service in a staging data store (such as Azure Blob in above diagram). Therefore, the same request is not read a second time by the service in the subsequent run. Meanwhile, note the data is not automatically deleted from the Open Hub table.
+You typically store the max copied request ID in the last run by the service in a staging data store (such as Azure Blob in above diagram). Therefore, the same request isn't read a second time by the service in the subsequent run. Meanwhile, note the data isn't automatically deleted from the Open Hub table.
 
-For proper delta handling, it is not allowed to have request IDs from different DTPs in the same Open Hub table. Therefore, you must not create more than one DTP for each Open Hub Destination (OHD). When needing Full and Delta extraction from the same InfoProvider, you should create two OHDs for the same InfoProvider. 
+For proper delta handling, it's not allowed to have request IDs from different DTPs in the same Open Hub table. Therefore, you must not create more than one DTP for each Open Hub Destination (OHD). When needing Full and Delta extraction from the same InfoProvider, you should create two OHDs for the same InfoProvider. 
 
 ## Prerequisites
 
@@ -92,7 +93,7 @@ To use this SAP Business Warehouse Open Hub connector, you need to:
     - Authorization for RFC and SAP BW. 
     - Permissions to the “Execute” Activity of Authorization Object “S_SDSAUTH”.
 
-- Create SAP Open Hub Destination type as **Database Table** with "Technical Key" option checked.  It is also recommended to leave the Deleting Data from Table as unchecked although it is not required. Use the DTP (directly execute or integrate into existing process chain) to land data from source object (such as cube) you have chosen to the open hub destination table.
+- Create SAP Open Hub Destination type as **Database Table** with "Technical Key" option checked.  It's also recommended to leave the Deleting Data from Table as unchecked although it's not required. Use the DTP (directly execute or integrate into existing process chain) to land data from source object (such as cube) you have chosen to the open hub destination table.
 
 ## Getting started
 
@@ -159,7 +160,7 @@ To copy data from and to SAP BW Open Hub, set the type property of the dataset t
 | type | The type property must be set to **SapOpenHubTable**.  | Yes |
 | openHubDestinationName | The name of the Open Hub Destination to copy data from. | Yes |
 
-If you were setting `excludeLastRequest` and `baseRequestId` in dataset, it is still supported as-is, while you are suggested to use the new model in activity source going forward.
+If you were setting `excludeLastRequest` and `baseRequestId` in dataset, it's still supported as-is, while you're suggested to use the new model in activity source going forward.
 
 **Example:**
 
@@ -192,7 +193,7 @@ To copy data from SAP BW Open Hub, the following properties are supported in the
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity source must be set to **SapOpenHubSource**. | Yes |
 | excludeLastRequest | Whether to exclude the records of the last request. | No (default is **true**) |
-| baseRequestId | The ID of request for delta loading. Once it is set, only data with requestId **larger than** the value of this property will be retrieved.  | No |
+| baseRequestId | The ID of request for delta loading. Once it's set, only data with requestId **larger than** the value of this property will be retrieved.  | No |
 | customRfcReadTableFunctionModule | A custom RFC function module that can be used to read data from an SAP table. <br/> You can use a custom RFC function module to define how the data is retrieved from your SAP system and returned to the service. The custom function module must have an interface implemented (import, export, tables) that's similar to `/SAPDS/RFC_READ_TABLE2`, which is the default interface used by the service. | No |
 | sapDataColumnDelimiter | The single character that is used as delimiter passed to SAP RFC to split the output data. | No |
 
@@ -255,7 +256,7 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 ## Troubleshooting tips
 
-**Symptoms:** If you are running SAP BW on HANA and observe only subset of data is copied over using copy activity (1 million rows), the possible cause is that you enable "SAP HANA Execution" option in your DTP, in which case the service can only retrieve the first batch of data.
+**Symptoms:** If you're running SAP BW on HANA and observe only subset of data is copied over using copy activity (1 million rows), the possible cause is that you enable "SAP HANA Execution" option in your DTP, in which case the service can only retrieve the first batch of data.
 
 **Resolution:** Disable "SAP HANA Execution" option in DTP, reprocess the data, then try executing the copy activity again.
 

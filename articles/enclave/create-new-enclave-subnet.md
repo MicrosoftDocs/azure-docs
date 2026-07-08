@@ -1,16 +1,16 @@
 ---
-title: Create new Subnet within an Enclave Virtual Network
+title: Create new subnet within an enclave Virtual Network
 titleSuffix: Azure Enclave
-description: Create new Subnet within an Enclave Virtual Network.
+description: Create new subnet within an enclave Virtual Network.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
 ms.date: 9/30/2025
 ---
 
-# Create new Subnet within an Enclave Virtual Network
+# Create new subnet within an enclave Virtual Network
 
-This guides you through replacing the existing Azure Enclave enclave virtual network subnet `AzureVirtualEnclaveSubnet` with a replacement `AzureVirtualEnclaveSubnet` subnet and a new subnet of your choice. This is an important step to perform early after the Enclave is created so there are no resources attached to the existing subnet. An existing subnet can't be deleted until there are no resources attached to it.
+This guides you through replacing the existing Azure Enclave enclave virtual network subnet `AzureVirtualEnclaveSubnet` with a replacement `AzureVirtualEnclaveSubnet` subnet and a new subnet of your choice. This is an important step to perform early after the enclave is created so there are no resources attached to the existing subnet. An existing subnet can't be deleted until there are no resources attached to it.
 
 > [!NOTE]
 > * You aren't able to resize a virtual network with existing connections. [Official Docs](/azure/virtual-network/virtual-network-manage-subnet?tabs=azure-portal#change-subnet-settings). If you need to resize an existing subnet you need to move any connected devices out first, resize, then move them back.
@@ -29,6 +29,6 @@ The subnet size determines how many usable IP addresses are in the subnet.
 | /24 | 251 |
 
 ## Detailed subnet creation steps
-Change the subnets in the Enclave by selecting `Manage` on the left side and then `Subnet` to manage existing subnets or create new subnets.
+Change the subnets in the enclave by selecting `Manage` on the left side and then `Subnet` to manage existing subnets or create new subnets.
 
-![Screenshot showing the Enclave submet management page.](./media/enclave-subnet-management.png)
+![Screenshot showing the enclave submet management page.](./media/enclave-subnet-management.png)

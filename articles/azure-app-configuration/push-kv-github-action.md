@@ -123,7 +123,7 @@ jobs:
         with: 
           azcliversion: latest
           inlineScript: |
-            az appconfig kv import --endpoint <your-app-configuration-store-endpoint> --auth-mode login -s file --path appsettings.json --format json --yes
+            az appconfig kv import --endpoint <AppConfigurationEndpoint> --auth-mode login -s file --path appsettings.json --format json --yes
 ```
 
 For more information about Azure App Configuration CLI import commands, see the [Azure AppConfiguration CLI documentation.](/cli/azure/appconfig/kv#az-appconfig-kv-import)
@@ -151,7 +151,7 @@ In the following example, all key-values imported will have a unique label based
         with: 
           azcliversion: latest
           inlineScript: |
-            az appconfig kv import --endpoint <your-app-configuration-store-endpoint> --auth-mode login -s file --path appsettings.json --format json --label ${{ steps.determine_label.outputs.LABEL }} --yes
+            az appconfig kv import --endpoint <AppConfigurationEndpoint> --auth-mode login -s file --path appsettings.json --format json --label ${{ steps.determine_label.outputs.LABEL }} --yes
 ```
 ## Next steps
 

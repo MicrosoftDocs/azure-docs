@@ -4,8 +4,8 @@ description: Start here to learn how to monitor availability and performance for
 ms.date: 03/26/2025
 ms.custom: horz-monitor
 ms.topic: concept-article
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-virtual-wan
 ---
 

@@ -6,8 +6,8 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: concept-article
 ms.date: 12/06/2023
-ms.author: sarahlipsey
-author: shlipsey3
+author: msmbaldwin
+ms.author: mbaldwin
 manager: femila
 ms.reviewer: quentinb
 ---

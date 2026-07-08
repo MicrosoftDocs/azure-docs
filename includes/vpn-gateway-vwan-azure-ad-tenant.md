@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 10/08/2024
- ms.author: cherylmc
+ ms.author: duau
  ms.custom: sfi-image-nochange
 
 #Note that Audience values are not sensitive data. 

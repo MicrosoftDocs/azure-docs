@@ -481,19 +481,19 @@ In *app.py*, the `load(...)` function retrieves configuration data from Azure Ap
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AzureAppConfigurationEndpoint "<endpoint-of-your-app-configuration-store>"
+    setx AzureAppConfigurationEndpoint "<AppConfigurationEndpoint>"
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:AzureAppConfigurationEndpoint = "<endpoint-of-your-app-configuration-store>"
+    $Env:AzureAppConfigurationEndpoint = "<AppConfigurationEndpoint>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export AzureAppConfigurationEndpoint='<endpoint-of-your-app-configuration-store'
+    export AzureAppConfigurationEndpoint='<AppConfigurationEndpoint>'
     ```
 
 1. In the command prompt, in the *QuoteOfTheDay* folder, run: `flask run`.

@@ -1,5 +1,6 @@
 ---
 title: Deploy private DNS zones from the service catalog into a workload
+titleSuffix: Azure Enclave
 description: Deploy private DNS zones from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
@@ -28,8 +29,8 @@ Azure Enclave is a cloud networking service that provides organizations with hig
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
-2. Select `Add Service` button.
-3. Select the `Private DNS Zones` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
+1. Select `Add Service` button.
+1. Select the `Private DNS Zones` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the private DNS zones template selected from the service catalog list.](./media/service-catalog-list-private-dns-zones.png)
 
@@ -37,9 +38,9 @@ Azure Enclave is a cloud networking service that provides organizations with hig
 > 
 > This template deploys resources into the [enclave managed resource group](./best-practices.md#enclave-managed-resource-group) by default because the other enclave private DNS zones are located there.
 
-4. Go through each tab and enter all the required parameters.
-5. Adjust any of the prepopulated parameters as needed.
-5. Select `Review + Add` then `Create`.
+1. Go through each tab and enter all the required parameters.
+1. Adjust any of the prepopulated parameters as needed.
+1. Select `Review + Create` then `Create`.
 
 It can take a few minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 

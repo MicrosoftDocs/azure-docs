@@ -138,19 +138,19 @@ To use the Spring Cloud Azure Config starter to have your application communicat
 1. Set an environment variable named **AZURE_APPCONFIG_ENDPOINT**, and set it to the access key to your App Configuration store. At the command line, run the following command and restart the command prompt to allow the change to take effect:
 
    ```cmd
-   setx AZURE_APPCONFIG_ENDPOINT "<endpoint-of-your-app-configuration-store>"
+   setx AZURE_APPCONFIG_ENDPOINT "<AppConfigurationEndpoint>"
    ```
 
    If you use Windows PowerShell, run the following command:
 
    ```azurepowershell
-   $Env:AZURE_APPCONFIG_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
+   $Env:AZURE_APPCONFIG_ENDPOINT = "<AppConfigurationEndpoint>"
    ```
 
    If you use macOS or Linux, run the following command:
 
    ```cmd
-   export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+   export AZURE_APPCONFIG_ENDPOINT='<AppConfigurationEndpoint>'
    ```
 
 1. Open command prompt to the root directory and run the following commands to build your Spring Boot application with Maven and run it.

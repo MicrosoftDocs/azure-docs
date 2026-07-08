@@ -1,12 +1,12 @@
 ---
-title: Azure Data Lake Storage Hierarchical Namespace
+title: Azure Data Lake Storage hierarchical namespace
 titleSuffix: Azure Storage
-description: Learn how Azure Data Lake Storage hierarchical namespace improves directory operations, speeds analytics workloads, and lowers TCO. Find out when to enable it.
+description: Learn how enabling a hierarchical namespace in Azure Data Lake Storage improves directory operations, accelerates analytics workloads, and lowers TCO.
 author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: concept-article
-ms.date: 05/26/2026
+ms.date: 07/02/2026
 ms.author: normesta
 ms.reviewer: jamesbak
 # Customer intent: As a data engineer, I want to enable a hierarchical namespace in Azure Data Lake Storage, so that I can optimize directory manipulation and improve the efficiency of my analytics workloads while reducing overall total cost of ownership (TCO).
@@ -14,7 +14,7 @@ ms.reviewer: jamesbak
 
 # Azure Data Lake Storage hierarchical namespace
 
-A key mechanism that allows Azure Data Lake Storage to provide file system performance at object storage scale and prices is the addition of a **hierarchical namespace**. This feature organizes the collection of objects and files within an account into a hierarchy of directories and nested subdirectories, similar to the file system on your computer. When you enable a hierarchical namespace, a storage account can offer the scalability and cost-effectiveness of object storage, along with file system semantics that analytics engines and frameworks find familiar.
+Azure Data Lake Storage uses a **hierarchical namespace** to provide file system performance at object storage scale and price. This feature organizes the collection of objects and files within an account into a hierarchy of directories and nested subdirectories, similar to the file system on your computer. When you enable a hierarchical namespace, a storage account can offer the scalability and cost-effectiveness of object storage, along with file system semantics that analytics engines and frameworks find familiar.
 
 ## The benefits of a hierarchical namespace
 
@@ -32,15 +32,19 @@ One of the reasons that object stores historically didn't support a hierarchical
 
 After you enable a hierarchical namespace on your account, you can't revert it back to a flat namespace. Therefore, consider whether it makes sense to enable a hierarchical namespace based on the nature of your object store workloads. To evaluate the impact of enabling a hierarchical namespace on workloads, applications, costs, service integrations, tools, features, and documentation, see [Upgrading Azure Blob Storage with Azure Data Lake Storage capabilities](upgrade-to-data-lake-storage-gen2.md).
 
-Some workloads might not gain any benefit by enabling a hierarchical namespace. Examples include backups, image storage, and other applications where object organization is stored separately from the objects themselves (for example: in a separate database).
+Some workloads might not gain any benefit by enabling a hierarchical namespace. Examples include backups, image storage, and other applications where object organization is stored separately from the objects themselves (for example, in a separate database).
 
 Also, while support for Blob storage features and the Azure service ecosystem continues to grow, some features and Azure services aren't yet supported in accounts that have a hierarchical namespace. See [Known Issues](data-lake-storage-known-issues.md).
 
-In general, turn on a hierarchical namespace for storage workloads that are designed for file systems that manipulate directories. This recommendation includes all workloads that are primarily for analytics processing. Datasets that require a high degree of organization also benefit from enabling a hierarchical namespace.
+### Workloads that benefit from a hierarchical namespace
 
-The reasons for enabling a hierarchical namespace are determined by a TCO analysis. Generally speaking, improvements in workload latency due to storage acceleration require compute resources for less time. Latency for many workloads might improve due to atomic directory manipulation that a hierarchical namespace enables. In many workloads, the compute resource represents more than 85% of the total cost, so even a modest reduction in workload latency equates to a significant amount of TCO savings. Even in cases where enabling a hierarchical namespace increases storage costs, the TCO is still lowered due to reduced compute costs.
+In general, turn on a hierarchical namespace for storage workloads that are designed for file systems that manipulate directories. This condition includes all analytics processing workloads. Datasets that require a high degree of organization also benefit from enabling a hierarchical namespace.
 
-To analyze differences in data storage prices, transaction prices, and storage capacity reservation pricing between accounts that have a flat hierarchical namespace versus a hierarchical namespace, see [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
+Use a TCO analysis to determine whether to enable a hierarchical namespace. Generally speaking, improvements in workload latency due to storage acceleration require compute resources for less time. Latency for many workloads might improve due to atomic directory manipulation that a hierarchical namespace enables. In many workloads, the compute resource represents more than 85% of the total cost, so even a modest reduction in workload latency equates to a significant amount of TCO savings. Even in cases where enabling a hierarchical namespace increases storage costs, the TCO is still lowered due to reduced compute costs.
+
+To analyze differences in data storage prices, transaction prices, and storage capacity reservation pricing between accounts that have a flat namespace versus a hierarchical namespace, see [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/).
+
+To enable a hierarchical namespace, see [Create a storage account to use with Azure Data Lake Storage](create-data-lake-storage-account.md) (new accounts) or [Upgrade Azure Blob Storage with Azure Data Lake Storage capabilities](upgrade-to-data-lake-storage-gen2-how-to.md) (existing accounts).
 
 ## Next steps
 

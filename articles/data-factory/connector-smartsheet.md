@@ -7,10 +7,11 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: how-to
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ---
 
-#  Transform data in Smartsheet (Preview) using Azure Data Factory or Synapse Analytics
+# Transform data in Smartsheet (Preview) using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 

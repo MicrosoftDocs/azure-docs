@@ -5,143 +5,63 @@ description: Access Control Overview.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
-ms.date: 9/30/2025
+ms.date: 6/29/2026
 ---
 
-# Identity and access controls for Azure Enclave
+# Azure Enclave Access Controls
 
-Azure Enclave provides robust identity and access management (IAM) controls to safeguard your environments while ensuring operational flexibility. This document outlines how enclave and Workload Administration settings are configured, as well as how enclaves integrate with Azure-first identity solutions like Microsoft Entra ID, on-premises Active Directory, Privileged Identity Management (PIM), and the Personnel Portal.
+Azure Enclave provides robust identity and access management (IAM) controls to safeguard your environments while ensuring operational flexibility. Azure Enclave supports native Azure RBAC controls and/or isolated access controls at the Community, Enclave, and workload levels through a combination of RBAC role assignments, deny assignments, and deny assignment exclusions that block standard RBAC inheritance and allow for more granular access controls.  
 
-## Enclave administration and workload administration settings
+## Community access controls 
 
-Azure Enclave uses hierarchical IAM settings to define roles and permissions at multiple levels: 
+- `Community Administration settings` - Define **who has permissions over Community managed resources**. Specify these settings during Community creation or modification. They result in RBAC role assignments and deny assignment exclusions over Community managed resources, such as Virtual WAN, Firewall, and Firewall policy.  
 
-### Enclave administration settings
-- **Purpose**: Control administrative access to the resources that form the enclave's managed infrastructure.  
-- **Scope**: Applies to the enclave managed resource group.  
-- **Configuration**:  
-  `Enclave Administration` settings define **who can manage and configure enclave-level resources**. Azure Enclave users specify these permissions during enclave creation or modification.  
-  Common roles assigned include:
-  - **Enclave Admin**: Full access to enclave managed resource group.
-  - **Enclave Operator**: Limited permissions for operational tasks such as monitoring logs or restarting services.
+   [![Screenshot showing Community Administration settings in Azure Enclave.](./media/community-create-admin-settings.png)](./media/community-create-admin-settings.png#lightbox)
 
-  **Resources governed under Enclave Administration settings**:
-  - **Virtual Network (vNet) and NSGs**
-  - **Azure Bastion**
-  - **Private DNS Zones**
-  - **Logging and monitoring configurations**
+- `Community Maintenance Mode` - Grants specific users, groups, and service principals deny assignment exclusions over Community managed resources to perform the following RBAC actions:
 
-### Workload administration settings
-- **Purpose**: Define administrative access for workloads deployed into resource groups within the enclave.  
-- **Scope**: Applies to each workload resource group associated with the enclave.  
-- **Configuration**:  
-  Workload Administration settings ensure **administrators can manage application-specific resources without impacting enclave-wide infrastructure**. These settings are specified when deploying or updating workloads.  
-  Common roles assigned include:
-  - **Workload Admin**: Full access to the workload resource group for deployment and configuration.
-  - **Workload Contributor**: Permissions limited to deploying preapproved resources from the service catalog.
+   | Mode | Permissions |
+   |------|-------------|
+   | General | `Microsoft.Insights/alertRules/*` <br> `Microsoft.Support/*` <br> `Microsoft.Resources/tags/*` |
+   | Advanced | `Microsoft.Network/azureFirewalls/networkRuleCollections/write` <br> `Microsoft.Network/azureFirewalls/applicationRuleCollections/write` <br> `Microsoft.Network/azureFirewalls/natRuleCollections/write` <br> `Microsoft.Network/firewallPolicies/ruleGroups/write` <br> `Microsoft.Insights/dataCollectionRules/*` <br> `Microsoft.Insights/dataCollectionEndpoints/*` <br> `Microsoft.OperationalInsights/workspaces/sharedKeys/action` <br> `Microsoft.Network/virtualHubs/write` <br> `Microsoft.Network/virtualWans/virtualHubs/read` <br> `Microsoft.Network/virtualWans/join/action` <br> `Microsoft.Authorization/policyExemptions/*` |
 
-  **Resources governed under workload Administration settings**:
-  - Compute (for example, Virtual Machines, Azure Kubernetes Service)
-  - Storage (for example, Azure Blob Storage, Azure Files)
-  - Managed Services (for example, Azure SQL Database, App Services)
+   [![Screenshot showing Community Maintenance Mode settings in Azure Enclave.](./media/community-create-maintenance-mode.png)](./media/community-create-maintenance-mode.png#lightbox)
 
+## Enclave and workload access controls
 
-## Identity and access control use cases
+Enclave-level access controls determine who can access Enclave managed resources and workload resources. Specify these settings during Enclave creation or modification and for Workload resource groups.
 
-### Scenario 1: Enclave setup and administration
-- An IT administrator assignment is created **Enclave Admin** role during enclave creation.  
-- This administrator configures network security settings, sets up private DNS zones, and monitors logging within the enclave managed resource group.  
-- More operators are granted **enclave Operator** roles for troubleshooting and operational tasks.
+- `Enclave Administration settings` - Define **who has permissions over Enclave managed resources** and result in RBAC role assignments and deny assignment exclusions over Enclave managed resources (virtual network, network security groups, and other resources).
 
-### Scenario 2: Workload deployment
-- A development team is granted **workload contributor** role within a specific workload resource group.  
-- Team members deploy a preapproved web application from the service catalog without requiring access to enclave infrastructure.
+   [![Screenshot showing Enclave Administration settings in Azure Enclave.](./media/enclave-create-admin-settings.png)](./media/enclave-create-admin-settings.png#lightbox)
 
-### Scenario 3: Dynamic group management
-- A personnel group for database administrators is created in the Personnel Portal.  
-- Membership is dynamically updated in Microsoft Entra ID to grant administrator access to workloads with Azure SQL resources.  
-- Members lose access automatically if they no longer meet compliance requirements.
+- `Workload Administration settings` - Define **RBAC inheritance and explicit permissions over Workload resources** and result in RBAC role assignments and deny assignment exclusions over workload resource groups.
+  - `RBAC Inheritance`
+    - Enabled: Standard Azure RBAC inheritance is enabled for Workload resources.
+    - Disabled: Only permissions defined under workload admin settings apply to workload resources.
+  - `Reader Access`
+    - Allowed: Standard RBAC inheritance is enabled for read permissions only over workload resources.
+    - Denied: Read access is denied unless explicitly defined under workload admin settings. 
 
-### Scenario 4: Elevated access for emergency troubleshooting
-- A workload admin requests temporary **Enclave Admin** privileges via Azure PIM for emergency troubleshooting.  
-- The request is reviewed and approved, granting time-limited permissions.  
-- Access is automatically revoked after the defined period.
+[![Screenshot showing Workload Administration settings in Azure Enclave.](./media/enclave-create-workload-permissions.png)](./media/enclave-create-workload-permissions.png#lightbox)
 
+- `Enclave Maintenance Mode` - Grants specific users, groups, and service principals deny assignment exclusions over Enclave managed resources to perform the following RBAC actions:
 
-The Azure Enclave identity and access control model ensures robust security, dynamic adaptability, and precise governance across isolated, zero-trust environments. Integrate with Azure-first identity solutions so Azure Enclave can provide administrators with the tools needed to meet even the most stringent security and compliance requirements.
+   | Mode | Permissions |
+   |------|-------------|
+   | General | `Microsoft.Support/*` <br> `Microsoft.Insights/alertRules/*` <br> `Microsoft.Resources/tags/*` |
+   | Advanced | `Microsoft.Network/virtualNetworks/write` <br> `Microsoft.Network/routeTables/routes/write` <br> `Microsoft.Resources/deployments/*` <br> `Microsoft.Network/privateDnsZones/*` <br> `Microsoft.Network/privateDnsOperationResults/*` <br> `Microsoft.Network/privateDnsOperationStatuses/*` <br> `Microsoft.Network/virtualNetworks/join/action` <br> `Microsoft.Network/virtualNetworks/subnets/join/action` <br> `Microsoft.Authorization/policyExemptions/*` <br> `Microsoft.Insights/dataCollectionRules/*` <br> `Microsoft.Insights/dataCollectionEndpoints/*` <br> `Microsoft.OperationalInsights/workspaces/sharedKeys/action` |
+
+   [![Screenshot showing Enclave Maintenance Mode settings in Azure Enclave.](./media/enclave-create-maintenance-mode.png)](./media/enclave-create-maintenance-mode.png#lightbox)
 
 ## Built in RBAC roles for Azure Enclave
 
 Azure Enclave includes a set of built-in **Role-Based Access Control (RBAC)** roles designed to manage Azure Enclave-specific resource types. These roles provide granular permissions to manage Azure Enclave objects like communities and enclaves, without granting permissions to underlying Azure networking resources such as Virtual WAN or Azure Firewall. 
 
-### Azure Enclave Built in roles
-
-The built-in roles are scoped specifically for Azure Enclave and don't overlap with permissions for Azure networking, firewall, or virtual WAN components. The key Azure Enclave RBAC roles and their descriptions:
-
-#### Community-Level roles
-**Community owner**  
-  Grants full control over the Azure Enclave community resource. This role allows the user to configure community-level settings and manage associated enclaves but doesn't permit direct modification of the underlying Azure networking resources (for example, Virtual WAN or firewall).  
-  **Example Permissions**:  
-  - Create, delete, or update an Azure Enclave community.  
-  - Configure endpoints and transit hub connections for the community.  
-
-**Community contributor**  
-  Provides permissions to manage community configurations but doesn't include the ability to delete the resource.  
-  **Example Permissions**:  
-  - Modify existing endpoint rules or transit hub configurations.  
-
-**Community reader**  
-  Grants read-only access to view the Azure Enclave community and its settings, such as networking endpoints and diagnostics configurations.  
-
-#### Enclave-Level roles
-**Enclave owner**  
-  Grants full control over the Azure Enclave enclave resource. Users can manage the enclave’s configuration, including endpoints and workload associations, but can't modify the underlying infrastructure (for example, virtual network or NSGs).  
-  **Example Permissions**:  
-  - Create, update, or delete an enclave.  
-  - Associate workloads and manage enclave connection rules.  
-
-**Enclave contributor**  
-  Provides permissions to manage enclave configurations without the ability to delete the resource.  
-  **Example Permissions**:  
-  - Modify enclave endpoints or workload settings.  
-
-**Enclave reader**  
-  Grants read-only access to view enclave settings and associated workloads.  
-
-
-### Example scenario
-
-Consider a scenario where an organization is managing an Azure Enclave environment. Azure RBAC is managed at four levels - Management Group, Subscription, resource group, and Individual Resource. RBAC Role Assignments can be made at any of these levels.
-
-Environment Structure:
-
-**Management Group Administration**
-  - **Owner** role assignment is created for the owner of Fabrikam, Inc.
-  - **Contributor** role assignment is created for Fabrikam IT Managers.
-  - **Viewer** role assignment is created for Fabrikam Security Auditors.
-
-**Subscription Administration**
-  - **Owner** role assignments are created for the owner each Fabrikam subscript.
-  - **Contributor** role assignment is created for Fabrikam IT Managers.
-  - **Viewer** role assignment is created for Fabrikam Security Auditors.
-
-**Community Administration**: 
-  - **Community owner** role assignment is created at the Subscription Level for each individual subscription to enable the deployment of communities and enclaves within those subscriptions. 
-  - **Community Approver** role assignment is created at the Security Administrator to review and authorized connections to/from external destinations.
-  - **Community Viewer** role assignment is created at the community-level Security Auditor to view/analyze endpoints and connections within the community.
-  - **Azure Firewall Contributor** role assignment is created at the Security Administrator for configuring firewall policies.
-
-**Enclave Administration** - Azure Enclave Built-in role assignments set the:  
-  - **Enclave owner** Mission/Network Owners that need to deploy workloads, endpoints, and connections for one or more enclaves.
-  - **Enclave Viewer** Security Auditor to view and analyze endpoints and connections within the enclave.
-  - **Network Contributor** Network Engineer for updating underlying NSG rules within the enclave’s virtual network in a break-glass scenario.
-
-**Workload Administration**:
-  - **Virtual Machine Contributor** Platforms Engineers to deploy and configure virtual machines.
-  - **Storage Blob Contributor** Data Engineers to store and process sensitive data.
-  - **Viewer** Security Auditors to analyze and validate an individual workloads output.
-
-**Workload Administration**
-  - **User Access Administrator** role to manage user access to Azure resources.
-
-Azure Enclave built-in RBAC roles streamline permissions for managing Azure Enclave-specific resources while Azure’s existing roles provide the necessary access for the underlying infrastructure. This separation ensures clear boundaries and simplifies role assignments across your organization.
+- **Community Owner** - Grants full control over the Azure Enclave community resource. This role allows the user to configure community-level settings and manage associated enclaves but doesn't permit direct modification of the underlying Azure networking resources (for example, Virtual WAN or firewall).  
+- **Community Contributor** - Provides permissions to manage community configurations but doesn't include the ability to delete the resource.   
+- **Community Reader** Grants read-only access to view the Azure Enclave community and its settings, such as networking endpoints and diagnostics configurations.  
+- **Enclave Owner** - Grants full control over the Azure Enclave enclave resource. Users can manage the enclave’s configuration, including endpoints and workload associations, but can't modify the underlying infrastructure (for example, virtual network or NSGs).  
+- **Enclave Contributor** - Provides permissions to manage enclave configurations without the ability to delete the resource.  
+- **Enclave Reader** - Grants read-only access to view enclave settings and associated workloads.  
+- **Enclave Approver** - Required role for authorizing actions that have been configured to require approvals. 

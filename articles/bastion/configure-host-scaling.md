@@ -2,11 +2,11 @@
 title: Configure host scaling
 titleSuffix: Azure Bastion
 description: Learn how to add more instances (scale units) to Azure Bastion.
-author: cherylmc
+author: asudbring
 ms.service: azure-bastion
 ms.topic: how-to
 ms.date: 03/13/2026
-ms.author: cherylmc
+ms.author: allensu
 # Customer intent: As a network administrator, I want to configure scale units and understand what the impact it will be on my cloud environment.
 
 ---

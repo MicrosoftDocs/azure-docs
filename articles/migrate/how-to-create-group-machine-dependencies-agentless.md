@@ -6,7 +6,7 @@ ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 08/28/2025
+ms.date: 06/26/2026
 ms.reviewer: v-uhabiba
 ms.custom:
   - engagement-fy25
@@ -304,7 +304,7 @@ The dependency data is exported and downloaded in a CSV format. The downloaded f
 1. The process type is set to **Resolvable** by default. This exports only resolvable connections between discovered servers. But you can change this to **All** if you want to export all connections gathered (including unresolved connections to servers which were either not discovered by Azure Migrate or errored in dependency data gathering).
 1. Select **Generate** to generate a file with the earliest available dependency data amongst the selected appliance(s) within the chosen time interval.
 
-   :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/new-export-dep.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/new-export-dep.png":::
+   :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/new-export-dependency.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/new-export-dependency.png":::
 
 1. After the file is generated, select **Download** to save it.
 

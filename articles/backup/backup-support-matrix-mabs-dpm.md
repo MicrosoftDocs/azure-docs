@@ -51,6 +51,8 @@ For more information:
 
 - [Learn more](backup-architecture.md#architecture-back-up-to-dpmmabs) about MABS architecture.
 - [Review what's supported](backup-support-matrix-mars-agent.md) for the MARS agent.
+- [Back up Exchange Server databases to Azure Backup with System Center DPM](backup-azure-backup-exchange-server.md).
+- [Back up Exchange server with Azure Backup Server](backup-azure-exchange-mabs.md).
 
 ## Supported scenarios
 

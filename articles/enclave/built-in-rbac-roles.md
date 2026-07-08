@@ -15,7 +15,7 @@ Access to Azure Enclave resources is controlled by built-in Azure role-based acc
 Azure Enclave provides built-in RBAC roles to control access at community and enclave scopes.
 - **Community owner** - Create and delete communities, enclaves, community endpoints, and transit hub resources. Read-only access to workloads, enclave connections, and enclave endpoints.
 - **Community contributor** - Same as Community Owner except Community Contributors can't delete.
-- **Community reader** - Read-only access to communities, Enclaves, community endpoints, and transit hub.
+- **Community reader** - Read-only access to communities, enclaves, community endpoints, and transit hub.
 - **Enclave owner** - Creates, deletes, and manages workloads, endpoints, and connection resources for one or more enclaves
 - **Enclave contributor** - Creates, and manages workloads, endpoints, and connection resources for one or more enclaves
 - **Enclave reader** - Read-only access to one or more enclave resources and underlying workloads, endpoints, and connections.
@@ -37,7 +37,7 @@ For example, a user with a community owner assignment at subscription scope can 
 
 ## RBAC for workloads
 
-Each workload deployed in Azure Enclave uses a managed resource group. The enclaves service owns that resource group, and you manage workload access control by using standard Azure RBAC.
+Azure Enclave provides multiple options to control access to workload resources. Workloads can be secured with Deny Assignments that block standard RBAC inheritance or can be managed with standard Azure Role-Based Access Controls.
 
 [Learn more about Azure RBAC](/azure/role-based-access-control/overview)
 

@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.date: 02/23/2026
+ms.date: 07/02/2026
 ms.author: radeltch
 ms.custom:
   - devx-track-azurecli
@@ -54,15 +54,16 @@ Read the following SAP Notes and papers first:
 - [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
 - [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
 - [SAP HANA system replication in Pacemaker cluster](https://access.redhat.com/articles/3004101)
-- General Red Hat Enterprise Linux (RHEL) documentation:
-  - [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
-  - [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
-  - [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+- RHEL HA documentation:
+  - [Configuring and managing high availability clusters](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/configuring_and_managing_high_availability_clusters/index).
+  - [Support Policies for RHEL High Availability Clusters - Management of SAP HANA in a Cluster](https://access.redhat.com/articles/3397471)
+  - Classic: [Automating SAP HANA Scale-Up System Replication using the RHEL HA Add-on](https://docs.redhat.com/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/automating_sap_hana_scale-up_system_replication_using_the_rhel_ha_add-on/index)
+  - New Generation - angi: [Deploying SAP HANA Scale-Up System Replication with angi resource agent](https://docs.redhat.com/documentation/red_hat_enterprise_linux_for_sap_solutions/9/html-single/automating_sap_hana_scale-up_system_replication_using_the_rhel_ha_add-on/index)
   - [Configure SAP HANA System Replication in Scale-Up in a Pacemaker cluster when the HANA file systems are on NFS shares](https://access.redhat.com/solutions/5156571)
 - Azure-specific RHEL documentation:
   - [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)
   - [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)
-  - [Configure SAP HANA scale-up system replication in a Pacemaker cluster when the HANA file systems are on NFS shares](https://access.redhat.com/solutions/5156571)
+  - [Deploying RHEL on Azure](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/9/html/deploying_rhel_9_on_microsoft_azure/index)
 - [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md)
 
 ## Overview
@@ -71,7 +72,7 @@ Traditionally in a scale-up environment, all file systems for SAP HANA are mount
 
 To achieve SAP HANA HA of a scale-up system on [Azure NetApp Files](../../azure-netapp-files/index.yml) NFS shares, we need some more resource configuration in the cluster, in order for HANA resources to recover, when one node loses access to the NFS shares on Azure NetApp Files. The cluster manages the NFS mounts, allowing it to monitor the health of the resources. The dependencies between the file system mounts and the SAP HANA resources are enforced.
 
-![Diagram that shows SAP HANA HA scale-up on Azure NetApp Files](./media/sap-hana-high-availability-rhel/sap-hana-scale-up-netapp-files-red-hat.png).
+![Diagram that shows SAP HANA HA scale-up on Azure NetApp Files.](./media/sap-hana-high-availability-rhel/sap-hana-scale-up-netapp-files-red-hat.png)
 
 SAP HANA file systems are mounted on NFS shares by using Azure NetApp Files on each node. File systems `/hana/data`, `/hana/log`, and `/hana/shared` are unique to each node.
 
@@ -120,13 +121,13 @@ The configuration in this article is presented with simple Azure NetApp Files vo
 
 ### Deploy Azure NetApp Files resources
 
-The following instructions assume that you already deployed your [Azure virtual network](../../virtual-network/virtual-networks-overview.md). The Azure NetApp Files resources and VMs, where the Azure NetApp Files resources will be mounted, must be deployed in the same Azure virtual network or in peered Azure virtual networks.
+The following instructions assume that you already deployed your [Azure virtual network](../../virtual-network/virtual-networks-overview.md). You must deploy the Azure NetApp Files resources and VMs, where the Azure NetApp Files resources are mounted, in the same Azure virtual network or in peered Azure virtual networks.
 
 1. Create a NetApp account in your selected Azure region by following the instructions in [Create a NetApp account](../../azure-netapp-files/azure-netapp-files-create-netapp-account.md).
 
 1. Set up an Azure NetApp Files capacity pool by following the instructions in [Set up an Azure NetApp Files capacity pool](../../azure-netapp-files/azure-netapp-files-set-up-capacity-pool.md).
 
-   The HANA architecture shown in this article uses a single Azure NetApp Files capacity pool at the *Ultra* service level. For HANA workloads on Azure, we recommend using an Azure NetApp Files *Ultra* or *Premium* [service Level](../../azure-netapp-files/azure-netapp-files-service-levels.md).
+   The HANA architecture shown in this article uses a single Azure NetApp Files capacity pool at the *Ultra* service level. For HANA workloads on Azure, we recommend using Azure NetApp Files *Ultra* or *Premium* [service Level](../../azure-netapp-files/azure-netapp-files-service-levels.md).
 
 1. Delegate a subnet to Azure NetApp Files, as described in the instructions in [Delegate a subnet to Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-delegate-subnet.md).
 
@@ -158,9 +159,9 @@ Azure Marketplace contains images qualified for SAP HANA with the High Availabil
 
 ### Deploy Linux VMs manually via the Azure portal
 
-This document assumes that you've already deployed a resource group, an [Azure virtual network](../../virtual-network/virtual-networks-overview.md), and a subnet.
+This document assumes that you deployed a resource group, an [Azure virtual network](../../virtual-network/virtual-networks-overview.md), and a subnet.
 
-Deploy VMs for SAP HANA. Choose a suitable RHEL image that's supported for the HANA system. You can deploy a VM in any one of the availability options: virtual machine scale set, availability zone, or availability set.
+Deploy VMs for SAP HANA. Choose a suitable RHEL image supported for the HANA system. You can deploy a VM in any one of the availability options: virtual machine scale set, availability zone, or availability set.
 
 > [!IMPORTANT]
 >
@@ -168,7 +169,7 @@ Deploy VMs for SAP HANA. Choose a suitable RHEL image that's supported for the H
 
 ### Configure Azure load balancer
 
-During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow below steps, to set up standard load balancer for high availability setup of HANA database.
+During VM configuration, you can create or select an existing load balancer in the networking section. To set up a standard load balancer for a high availability setup of the HANA database, follow the steps in the following sections.
 
 #### [Azure portal](#tab/lb-portal)
 
@@ -350,7 +351,6 @@ For more information about the required ports for SAP HANA, read the chapter [Co
 
    Configure the OS as described in the following SAP Notes based on your RHEL version:
 
-   - [2292690 - SAP HANA DB: Recommended OS settings for RHEL 7](https://me.sap.com/notes/2292690)
    - [2777782 - SAP HANA DB: Recommended OS Settings for RHEL 8](https://me.sap.com/notes/2777782)
    - [3108302 - SAP HANA DB: Recommended OS Settings for RHEL 9](https://me.sap.com/notes/3108302)
    - [3562919 - SAP HANA DB: Recommended OS Settings for RHEL 10](https://me.sap.com/notes/3562919)
@@ -377,20 +377,80 @@ This section describes the steps required for a cluster to operate seamlessly wh
 
 ### Create a Pacemaker cluster
 
-Follow the steps in [Set up Pacemaker on Red Hat Enterprise Linux](./high-availability-guide-rhel-pacemaker.md) in Azure to create a basic Pacemaker cluster for this HANA server.
+Follow the steps in [Set up Pacemaker on Red Hat Enterprise Linux](./high-availability-guide-rhel-pacemaker.md) to create a basic Pacemaker cluster for this HANA server.
 
 > [!IMPORTANT]
-> With the systemd based SAP Startup Framework, SAP HANA instances can now be managed by systemd. The minimum required Red Hat Enterprise Linux (RHEL) version is RHEL 8 for SAP. As outlined in SAP Note [3189534](https://me.sap.com/notes/3189534), any new installations of SAP HANA SPS07 revision 70 or above, or updates to HANA systems to HANA 2.0 SPS07 revision 70 or above, SAP Startup framework will be automatically registered with systemd.
+> By using the systemd-based SAP Startup Framework, systemd manages the SAP HANA instance. The minimum required Red Hat Enterprise Linux (RHEL) version is RHEL 8 for SAP. As outlined in SAP Note [3189534](https://me.sap.com/notes/3189534), any new installations of SAP HANA SPS07 revision 70 or later, or updates to HANA systems to HANA 2.0 SPS07 revision 70 or later, automatically register the SAP Startup framework with systemd.
 >
 > When using HA solutions to manage SAP HANA system replication in combination with systemd-enabled SAP HANA instances (refer to SAP Note [3189534](https://me.sap.com/notes/3189534)), additional steps are necessary to ensure that the HA cluster can manage the SAP instance without systemd interference. So, for SAP HANA system integrated with systemd, additional steps outlined in [Red Hat KBA 7029705](https://access.redhat.com/solutions/7029705) must be followed on all cluster nodes.
 
-### Implement the Python system replication hook SAPHanaSR
+### Implement SAP HANA system replication hooks
 
-This step is an important one to optimize the integration with the cluster and improve the detection when a cluster failover is needed. We highly recommend that you configure the SAPHanaSR Python hook. Follow the steps in [Implement the Python system replication hook SAPHanaSR](sap-hana-high-availability-rhel.md#implement-sap-hana-system-replication-hooks).
+Red Hat provides two generations of resource agents for configuring a HANA system replication HA cluster on RHEL. Because the configuration procedures differ, this document splits them into separate tabs based on the resource agent generation:
 
-### Configure file system resources
+- Classic Tab: Covers the classic generation of resource agents, provided in the "resource-agents-sap-hana" (scale-up) package.
+- New Generation Tab: Covers the new generation of resource agents, provided in "sap-hana-ha" package. In upstream, this generation is referred to as "SAPHanaSR-angi".
 
-In this example, each cluster node has its own HANA NFS file systems `/hana/shared`, `/hana/data`, and `/hana/log`.
+> [!NOTE]
+> For new generation setup, the `sap-hana-ha` package is available from RHEL 9.4 and later.
+
+The classic and new generation packages are mutually exclusive. You can configure only one package on your system at a time. Configure the SAPHanaSR/HanaSR and ChkSrv Python hook. Follow the steps in [Implement the Python system replication hook SAPHanaSR/HanaSR and ChkSrv](sap-hana-high-availability-rhel.md#implement-sap-hana-system-replication-hooks), and use the corresponding tab for your specific configuration.
+
+### Manage file system
+
+For SAP HANA scale-up on Azure NetApp Files NFS shares, Red Hat takes different approaches depending on the software package. With the new generation resource agent package, you define the mount in `/etc/fstab` instead, and the `SAPHanaFilesystem` resource agent monitors the filesystem and detects issues before SAPHanaController does. In contrast, the classic resource agent package uses Pacemaker filesystem cluster resources to manage NFS shares.
+
+Follow the appropriate step in the following section, depending on whether you're configuring HANA Scale-Up on Azure NetApp Files with new generation or classic resource agents.
+
+#### [New Generation](#tab/newgeneration-angi)
+
+Each cluster node has its own HANA NFS file systems `/hana/shared`, `/hana/data`, and `/hana/log`. Make sure you insert the correct entries of the volumes in each node.
+
+1. **[A]** Stop SAP HANA on both replication sites. Run as \<sap-sid\>adm.
+
+    ```bash
+    sapcontrol -nr 03 -function StopSystem
+    ```
+
+1. **[A]** Unmount all HANA filesystems on both VMs, since it was mounted temporarily for installation. Before unmounting, stop any processes or sessions that are still using it.
+
+    ```bash
+    umount /hana/shared
+    ```
+
+1. **[1]** Mount the node specific volumes on node1 (hanadb1).
+
+    ```bash
+    sudo vi /etc/fstab
+    # Add the following entry
+    10.32.2.4:/hanadb1-shared-mnt00001 /hana/shared  nfs rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+    10.32.2.4:/hanadb1-log-mnt00001 /hana/log  nfs rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+    10.32.2.4:/hanadb1-data-mnt00001 /hana/data  nfs rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+    # Mount all volumes
+    sudo mount -a 
+    ```
+
+1. **[2]** Mount the node specific volumes on node2 (hanadb2).
+
+    ```bash
+    sudo vi /etc/fstab
+    # Add the following entries
+    10.32.2.4:/hanadb2-shared-mnt00001 /hana/shared  nfs rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+    10.32.2.4:/hanadb2-log-mnt00001 /hana/log  nfs rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+    10.32.2.4:/hanadb2-data-mnt00001 /hana/data  nfs rw,nfsvers=4.1,hard,timeo=600,rsize=262144,wsize=262144,noatime,lock,_netdev,sec=sys  0  0
+    # Mount the volume
+    sudo mount -a 
+    ```
+
+1. **[A]** Start SAP HANA on both replication sites. Run as \<sap-sid\>adm.
+
+    ```bash
+    sapcontrol -nr 03 -function StartSystem 
+    ```
+
+#### [Classic](#tab/classic)
+
+Each cluster node has its own HANA NFS file systems `/hana/shared`, `/hana/data`, and `/hana/log`.
 
 1. **[1]** Put the cluster in maintenance mode.
 
@@ -420,62 +480,41 @@ In this example, each cluster node has its own HANA NFS file systems `/hana/shar
 
    The `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation so that each monitor performs a read/write test on the file system. Without this attribute, the monitor operation only verifies that the file system is mounted. This can be a problem because when connectivity is lost, the file system might remain mounted despite being inaccessible.
 
-   The `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced. Without this option, the default behavior is to stop all resources that depend on the failed resource, restart the failed resource, and then start all the resources that depend on the failed resource. Not only can this behavior take a long time when an SAPHana resource depends on the failed resource, but it also can fail altogether. The SAPHana resource can't stop successfully if the NFS server holding the HANA executables is inaccessible.
+   The `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced. Without this option, the default behavior is to stop all resources that depend on the failed resource, restart the failed resource, and then start all the resources that depend on the failed resource. Not only can this behavior take a long time when a SAPHana resource depends on the failed resource, but it also can fail altogether. The SAPHana resource can't stop successfully if the NFS server holding the HANA executables is inaccessible.
 
    The suggested timeout values allow the cluster resources to withstand protocol-specific pause, related to NFSv4.1 lease renewals. For more information, see [NFS in NetApp Best practice](https://www.netapp.com/media/10720-tr-4067.pdf). The timeouts in the preceding configuration might need to be adapted to the specific SAP setup.
 
-   For workloads that require higher throughput, consider using the `nconnect` mount option, as described in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#nconnect-mount-option). Check if `nconnect` is [supported by Azure NetApp Files](../../azure-netapp-files/performance-linux-mount-options.md#nconnect) on your Linux release.
+   For workloads that require higher throughput, consider using the `nconnect` mount option, as described in [NFS v4.1 volumes on Azure NetApp Files for SAP HANA](./hana-vm-operations-netapp.md#nconnect-mount-option). Check if `nconnect` is [supported on Azure NetApp Files](../../azure-netapp-files/performance-linux-mount-options.md#nconnect) for your Linux release.
 
-1. **[1]** Configure location constraints.
-
-   Configure location constraints to ensure that the resources that manage hanadb1 unique mounts can never run on hanadb2, and vice versa.
-
-   ### [RHEL 10.x](#tab/rhel10)
+1. **[1]** Configure location constraints to ensure that the resources that manage hanadb1 unique mounts can never run on hanadb2, and vice versa.
 
     ```bash
+    # On RHEL 10.x
     sudo pcs constraint location hanadb1_nfs rule score=-INFINITY resource-discovery=never "#uname eq hanadb2"
     sudo pcs constraint location hanadb2_nfs rule score=-INFINITY resource-discovery=never "#uname eq hanadb1"
-    ```
 
-   ### [RHEL 8.x/9.x](#tab/rhel8-9)
-
-    ```bash
+    # On RHEL 9.x/8.x
     sudo pcs constraint location hanadb1_nfs rule score=-INFINITY resource-discovery=never \#uname eq hanadb2
-    sudo pcs constraint location hanadb2_nfs rule score=-INFINITY resource-discovery=never \#uname eq hanadb1
+    sudo pcs constraint location hanadb2_nfs rule score=-INFINITY resource-discovery=never \#uname eq hanadb1   
     ```
-
-   ### [RHEL 7.x](#tab/rhel7)
-
-    ```bash
-    sudo pcs constraint location hanadb1_nfs rule score=-INFINITY resource-discovery=never \#uname eq hanadb2
-    sudo pcs constraint location hanadb2_nfs rule score=-INFINITY resource-discovery=never \#uname eq hanadb1
-    ```
-
-    ---
 
     The `resource-discovery=never` option is set because the unique mounts for each node share the same mount point. For example, `hana_data1` uses mount point `/hana/data`, and `hana_data2` also uses mount point `/hana/data`. Sharing the same mount point can cause a false positive for a probe operation, when resource state is checked at cluster startup, and it can in turn cause unnecessary recovery behavior. To avoid this scenario, set `resource-discovery=never`.
 
-1. **[1]** Configure attribute resources.
-
-   Configure attribute resources. These attributes are set to true if all of a node's NFS mounts (`/hana/data`, `/hana/log`, and `/hana/data`) are mounted. Otherwise, they're set to false.
+1. **[1]** Configure attribute resources. Set these attributes to true if all of a node's NFS mounts (`/hana/data`, `/hana/log`, and `/hana/data`) are mounted. Otherwise, set them to false.
 
    ```bash
    sudo pcs resource create hana_nfs1_active ocf:pacemaker:attribute active_value=true inactive_value=false name=hana_nfs1_active
    sudo pcs resource create hana_nfs2_active ocf:pacemaker:attribute active_value=true inactive_value=false name=hana_nfs2_active
    ```
 
-1. **[1]** Configure location constraints.
-
-   Configure location constraints to ensure that hanadb1's attribute resource never runs on hanadb2, and vice versa.
+1. **[1]** Configure location constraints to ensure that hanadb1's attribute resource never runs on hanadb2, and vice versa.
 
    ```bash
    sudo pcs constraint location hana_nfs1_active avoids hanadb2
    sudo pcs constraint location hana_nfs2_active avoids hanadb1
    ```
 
-1. **[1]** Create ordering constraints.
-
-   Configure ordering constraints so that a node's attribute resources start only after all of the node's NFS mounts are mounted.
+1. **[1]** Configure ordering constraints so that a node's attribute resources start only after all of the node's NFS mounts are mounted.
 
     ```bash
     sudo pcs constraint order hanadb1_nfs then hana_nfs1_active
@@ -485,77 +524,71 @@ In this example, each cluster node has its own HANA NFS file systems `/hana/shar
    > [!TIP]
    > If your configuration includes file systems, outside of group `hanadb1_nfs` or `hanadb2_nfs`, include the `sequential=false` option so that there are no ordering dependencies among the file systems. All file systems must start before `hana_nfs1_active`, but they don't need to start in any order relative to each other. For more information, see [How do I configure SAP HANA System Replication in Scale-Up in a Pacemaker cluster when the HANA file systems are on NFS shares](https://access.redhat.com/solutions/5156571)
 
+---
+
 ### Configure SAP HANA cluster resources
 
-1. Follow the steps in [Create SAP HANA cluster resources](./sap-hana-high-availability-rhel.md#create-sap-hana-cluster-resources) to create the SAP HANA resources in the cluster. After SAP HANA resources are created, you need to create a location rule constraint between SAP HANA resources and file systems (NFS mounts).
+1. Follow the appropriate tab in [Create SAP HANA cluster resources](./sap-hana-high-availability-rhel.md#create-sap-hana-cluster-resources) to create the SAP HANA resources in the cluster.
 
-1. **[1]** Configure constraints between the SAP HANA resources and the NFS mounts.
+1. After creating the SAP HANA resources, perform the additional steps. Select the appropriate tabs based on your configuration.
 
-    Location rule constraints are set so that the SAP HANA resources can run on a node only if all of the node's NFS mounts are mounted.
+    #### [New Generation](#tab/newgeneration-angi)
 
-    ### [RHEL 10.x](#tab/rhel10)
+    The new generation package introduces a new resource agent, `SAPHanaFilesystem`, which monitors read and write access to the `/hana/shared/SID` path. The filesystem is mounted statically at the OS level, with each host configured through `/etc/fstab`. Neither `SAPHanaFilesystem` nor Pacemaker is responsible for mounting this filesystem for HANA.
 
-    ```bash
-    sudo pcs constraint location SAPHanaTopology_HN1_03-clone rule score=-INFINITY "hana_nfs1_active ne true and hana_nfs2_active ne true"
-    sudo pcs constraint location SAPHana_HN1_03-clone rule score=-INFINITY "hana_nfs1_active ne true and hana_nfs2_active ne true"
-    ```
+    1. **[1]** For SAP HANA scale-up on Azure NetApp Files NFS shared, configure `SAPHanaFileSystem` resource agent.
 
-    ### [RHEL 8.x/9.x](#tab/rhel8-9)
+        ```bash
+        sudo pcs resource create rsc_SAPHanaFilesystem_HN1_HDB03 \
+            ocf:heartbeat:SAPHanaFilesystem \
+            SID=HN1 \
+            InstanceNumber=03 \
+            ON_FAIL_ACTION="fence" \
+            op start interval=0 timeout=10 \
+            op stop interval=0 timeout=20 \
+            op monitor interval=120 timeout=120 \
+            clone cln_SAPHanaFilesystem_HN1_HDB03 \
+            meta clone-node-max=1 interleave=true --future
+        ```
 
-    ```bash
-    sudo pcs constraint location SAPHanaTopology_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
-    sudo pcs constraint location SAPHana_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
-    ```
+    #### [Classic](#tab/classic)
 
-    ### [RHEL 7.x](#tab/rhel7)
+    You need to create a location rule constraint between SAP HANA resources and file systems (NFS mounts).
 
-    ```bash
-    sudo pcs constraint location SAPHanaTopology_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
-    sudo pcs constraint location SAPHana_HN1_03-master rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
-    ```
+    1. **[1]** Configure location constraints so the SAP HANA resources can only run on a node where all of that node's NFS mounts are mounted.
 
-    ---
+        ```bash
+        # On RHEL 10.x
+        sudo pcs constraint location SAPHanaTopology_HN1_03-clone rule score=-INFINITY "hana_nfs1_active ne true and hana_nfs2_active ne true"
+        sudo pcs constraint location SAPHana_HN1_03-clone rule score=-INFINITY "hana_nfs1_active ne true and hana_nfs2_active ne true"
 
-1. **[1]** Configure ordering constraints so that the SAP resources on a node will stop ahead of a stop for any of the NFS mounts.
+        # On RHEL 9.x/8.x
+        sudo pcs constraint location SAPHanaTopology_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
+        sudo pcs constraint location SAPHana_HN1_03-clone rule score=-INFINITY hana_nfs1_active ne true and hana_nfs2_active ne true
+        ```
 
-    ```bash
-    pcs constraint order stop SAPHanaTopology_HN1_03-clone then stop hanadb1_nfs symmetrical=false
-    pcs constraint order stop SAPHanaTopology_HN1_03-clone then stop hanadb2_nfs symmetrical=false
-    ```
+    1. **[1]** Configure ordering constraints so that, on each node, the SAP resources stop before any of the NFS mounts stop.
 
-    ### [RHEL 10.x](#tab/rhel10)
+        ```bash
+        pcs constraint order stop SAPHanaTopology_HN1_03-clone then stop hanadb1_nfs symmetrical=false
+        pcs constraint order stop SAPHanaTopology_HN1_03-clone then stop hanadb2_nfs symmetrical=false
+    
+        pcs constraint order stop SAPHana_HN1_03-clone then stop hanadb1_nfs symmetrical=false
+        pcs constraint order stop SAPHana_HN1_03-clone then stop hanadb2_nfs symmetrical=false
+        ```
 
-    ```bash
-    pcs constraint order stop SAPHana_HN1_03-clone then stop hanadb1_nfs symmetrical=false
-    pcs constraint order stop SAPHana_HN1_03-clone then stop hanadb2_nfs symmetrical=false
-    ```
+    1. Take the cluster out of maintenance mode.
 
-    ### [RHEL 8.x/9.x](#tab/rhel8-9)
-
-    ```bash
-    pcs constraint order stop SAPHana_HN1_03-clone then stop hanadb1_nfs symmetrical=false
-    pcs constraint order stop SAPHana_HN1_03-clone then stop hanadb2_nfs symmetrical=false
-    ```
-
-    ### [RHEL 7.x](#tab/rhel7)
-
-    ```bash
-    pcs constraint order stop SAPHana_HN1_03-master then stop hanadb1_nfs symmetrical=false
-    pcs constraint order stop SAPHana_HN1_03-master then stop hanadb2_nfs symmetrical=false
-    ```
-
-    ---
-
-1. Take the cluster out of maintenance mode.
-
-    ```bash
-    sudo pcs property set maintenance-mode=false
-    ```
+        ```bash
+        sudo pcs property set maintenance-mode=false
+        ```
 
 1. Check the status of the cluster and all the resources.
 
    > [!NOTE]
    > This article contains references to a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
+
+    #### [New Generation](#tab/newgeneration-angi)
 
     ```bash
     sudo pcs status
@@ -564,40 +597,59 @@ In this example, each cluster node has its own HANA NFS file systems `/hana/shar
     Example output:
 
     ```output
-    Online: [ hanadb1 hanadb2 ]
+    Node List:
+    * Online: [ hanadb1 hanadb2 ]
+    
+    Full List of Resources:
+    * rsc_hdb_azr_agt        (stonith:fence_azure_arm):       Started hanadb1
+    * Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]:
+        * Started: [ hanadb1 hanadb2 ]
+    * Clone Set: cln_SAPHanaController_HN1_HDB03 [rsc_SAPHanaController_HN1_HDB03] (promotable):
+        * Promoted: [ hanadb1 ]
+        * Unpromoted: [ hanadb2 ]
+    * Clone Set: cln_SAPHanaFilesystem_HN1_HDB03 [rsc_SAPHanaFilesystem_HN1_HDB03]:
+        * Started: [ hanadb1 hanadb2 ]
+    * Resource Group: g_ip_HN1_03:
+        * nc_HN1_03         (ocf:heartbeat:azure-lb):        Started hanadb1
+        * vip_HN1_03        (ocf:heartbeat:IPaddr2):         Started hanadb2
+    ```
+
+    #### [Classic](#tab/classic)
+
+    ```bash
+    sudo pcs status
+    ```
+
+    Example output:
+
+    ```output
+    * Online: [ hanadb1 hanadb2 ]
     
     Full list of resources:
-    
-    rsc_hdb_azr_agt(stonith:fence_azure_arm):  Started hanadb1
-    
-    Resource Group: hanadb1_nfs
-    hana_data1 (ocf::heartbeat:Filesystem):Started hanadb1
-    hana_log1  (ocf::heartbeat:Filesystem):Started hanadb1
-    hana_shared1   (ocf::heartbeat:Filesystem):Started hanadb1
-    
-    Resource Group: hanadb2_nfs
-    hana_data2 (ocf::heartbeat:Filesystem):Started hanadb2
-    hana_log2  (ocf::heartbeat:Filesystem):Started hanadb2
-    hana_shared2   (ocf::heartbeat:Filesystem):Started hanadb2
-    
-    hana_nfs1_active   (ocf::pacemaker:attribute): Started hanadb1
-    hana_nfs2_active   (ocf::pacemaker:attribute): Started hanadb2
-    
-    Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
-    Started: [ hanadb1 hanadb2 ]
-    
-    Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-    Masters: [ hanadb1 ]
-    Slaves: [ hanadb2 ]
-    
-    Resource Group: g_ip_HN1_03
-    nc_HN1_03  (ocf::heartbeat:azure-lb):  Started hanadb1
-    vip_HN1_03 (ocf::heartbeat:IPaddr2):   Started hanadb1
+    * rsc_hdb_azr_agt(stonith:fence_azure_arm):  Started hanadb1
+    * Resource Group: hanadb1_nfs
+        * hana_data1     (ocf::heartbeat:Filesystem):    Started hanadb1
+        * hana_log1      (ocf::heartbeat:Filesystem):    Started hanadb1
+        * hana_shared1   (ocf::heartbeat:Filesystem):    Started hanadb1
+    * Resource Group: hanadb2_nfs
+        * hana_data2     (ocf::heartbeat:Filesystem):    Started hanadb2
+        * hana_log2      (ocf::heartbeat:Filesystem):    Started hanadb2
+        * hana_shared2   (ocf::heartbeat:Filesystem):    Started hanadb2
+    * hana_nfs1_active   (ocf::pacemaker:attribute):     Started hanadb1
+    * hana_nfs2_active   (ocf::pacemaker:attribute):     Started hanadb2
+    * Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
+        * Started: [ hanadb1 hanadb2 ]
+    * Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
+        * Masters: [ hanadb1 ]
+        * Slaves: [ hanadb2 ]
+    * Resource Group: g_ip_HN1_03
+        * nc_HN1_03      (ocf::heartbeat:azure-lb):      Started hanadb1
+        * vip_HN1_03     (ocf::heartbeat:IPaddr2):       Started hanadb1
     ```
 
 ## Configure HANA active/read-enabled system replication in Pacemaker cluster
 
-Starting with SAP HANA 2.0 SPS 01, SAP allows active/read-enabled setups for SAP HANA System Replication, where the secondary systems of SAP HANA System Replication can be used actively for read-intense workloads. To support such a setup in a cluster, a second virtual IP address is required, which allows clients to access the secondary read-enabled SAP HANA database.
+With SAP HANA 2.0 SPS 01, SAP supports active and read-enabled setups for SAP HANA System Replication. In these setups, you can use the secondary systems of SAP HANA System Replication actively for workloads that require a lot of reading. To support this setup in a cluster, you need a second virtual IP address. This IP address gives clients access to the secondary read-enabled SAP HANA database.
 
 To ensure that the secondary replication site can still be accessed after a takeover has occurred, the cluster needs to move the virtual IP address around with the secondary of the SAPHana resource.
 
@@ -621,43 +673,12 @@ This section describes how you can test your setup.
 
    It's difficult to simulate a failure where one of the servers loses access to the NFS share. As a test, you can remount the file system as read-only. This approach validates that the cluster can fail over, if access to `/hana/shared` is lost on the active node.
 
-   **Expected result:** On making `/hana/shared` as a read-only file system, the `OCF_CHECK_LEVEL` attribute of the resource `hana_shared1`, which performs read/write operations on file systems, fails. It isn't able to write anything on the file system and performs HANA resource failover. The same result is expected when your HANA node loses access to the NFS shares.
+   **Expected result:** When you make `/hana/shared` a read-only file system, the read/write operations on the file system fail, resulting in the failover. The same result is expected when your HANA node loses access to the NFS shares.
 
-   Resource state before starting the test:
+   Check the resource state before starting the test:
 
     ```bash
     sudo pcs status
-    ```
-
-    Example output:
-
-    ```output
-    Full list of resources:
-     rsc_hdb_azr_agt        (stonith:fence_azure_arm):      Started hanadb1
-   
-     Resource Group: hanadb1_nfs
-         hana_data1 (ocf::heartbeat:Filesystem):    Started hanadb1
-         hana_log1  (ocf::heartbeat:Filesystem):    Started hanadb1
-         hana_shared1       (ocf::heartbeat:Filesystem):    Started hanadb1
-   
-    Resource Group: hanadb2_nfs
-         hana_data2 (ocf::heartbeat:Filesystem):    Started hanadb2
-         hana_log2  (ocf::heartbeat:Filesystem):    Started hanadb2
-         hana_shared2       (ocf::heartbeat:Filesystem):    Started hanadb2
-   
-     hana_nfs1_active       (ocf::pacemaker:attribute):     Started hanadb1
-     hana_nfs2_active       (ocf::pacemaker:attribute):     Started hanadb2
-   
-     Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
-         Started: [ hanadb1 hanadb2 ]
-   
-     Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-         Masters: [ hanadb1 ]
-         Slaves: [ hanadb2 ]
-   
-     Resource Group: g_ip_HN1_03
-         nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hanadb1
-         vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hanadb1
     ```
 
    You can place `/hana/shared` in read-only mode on the active cluster node by using this command:
@@ -670,39 +691,6 @@ This section describes how you can test your setup.
 
     ```bash
     sudo pcs status
-    ```
-
-    Example output:
-
-    ```output
-    Full list of resources:
-   
-     rsc_hdb_azr_agt        (stonith:fence_azure_arm):      Started hanadb2
-   
-     Resource Group: hanadb1_nfs
-         hana_data1 (ocf::heartbeat:Filesystem):    Stopped
-         hana_log1  (ocf::heartbeat:Filesystem):    Stopped
-         hana_shared1       (ocf::heartbeat:Filesystem):    Stopped
-   
-     Resource Group: hanadb2_nfs
-         hana_data2 (ocf::heartbeat:Filesystem):    Started hanadb2
-         hana_log2  (ocf::heartbeat:Filesystem):    Started hanadb2
-         hana_shared2       (ocf::heartbeat:Filesystem):    Started hanadb2
-   
-     hana_nfs1_active       (ocf::pacemaker:attribute):     Stopped
-     hana_nfs2_active       (ocf::pacemaker:attribute):     Started hanadb2
-   
-     Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
-         Started: [ hanadb2 ]
-         Stopped: [ hanadb1 ]
-   
-     Master/Slave Set: SAPHana_HN1_03-master [SAPHana_HN1_03]
-         Masters: [ hanadb2 ]
-         Stopped: [ hanadb1 ]
-   
-     Resource Group: g_ip_HN1_03
-         nc_HN1_03  (ocf::heartbeat:azure-lb):      Started hanadb2
-         vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hanadb2
     ```
 
    We recommend that you thoroughly test the SAP HANA cluster configuration by also performing the tests described in [Set up SAP HANA System Replication on RHEL](./sap-hana-high-availability-rhel.md#test-the-cluster-setup).

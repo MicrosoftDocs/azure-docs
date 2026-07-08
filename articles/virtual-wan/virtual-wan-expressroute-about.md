@@ -1,11 +1,11 @@
 ---
 title: 'About ExpressRoute Connections in Azure Virtual WAN'
 description: Learn about using ExpressRoute in Azure Virtual WAN to connect your Azure and on-premises environments.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 03/26/2025
-ms.author: cherylmc
+ms.author: duau
 ---
 # About ExpressRoute connections in Azure Virtual WAN
 

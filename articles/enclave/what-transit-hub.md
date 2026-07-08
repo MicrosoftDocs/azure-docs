@@ -50,9 +50,9 @@ Simplified S2S connections support the following deployment scenarios:
 To use simplified S2S connections:
 
 1. Ensure your on-premises or Azure Local VPN device supports IKEv2 and BGP
-2. Gather your on-premises network address ranges (CIDR blocks)
-3. Identify the public IP address of your on-premises VPN gateway
-4. Configure the transit hub with your connection parameters
+1. Gather your on-premises network address ranges (CIDR blocks)
+1. Identify the public IP address of your on-premises VPN gateway
+1. Configure the transit hub with your connection parameters
 
 For detailed configuration steps, see [Create a transit hub](./create-transit-hub-portal.md).
 
@@ -72,8 +72,8 @@ Transit hubs within the same community can be connected to enable traffic flow b
 When two transit hubs are interconnected:
 
 1. Traffic from one external network can route through its transit hub to the community Virtual WAN
-2. The Virtual WAN routes traffic to the destination transit hub
-3. Traffic exits through the second transit hub to the target external network
+1. The Virtual WAN routes traffic to the destination transit hub
+1. Traffic exits through the second transit hub to the target external network
 
 This architecture leverages Azure Virtual WAN's native routing capabilities to provide:
 
@@ -86,8 +86,8 @@ This architecture leverages Azure Virtual WAN's native routing capabilities to p
 To connect transit hubs within the same community:
 
 1. Create both transit hubs within the community
-2. Create an enclave connection with one transit hub as the source and the other as the destination
-3. Configure the appropriate firewall rules to allow the desired traffic
+1. Create an enclave connection with one transit hub as the source and the other as the destination
+1. Configure the appropriate firewall rules to allow the desired traffic
 
 For step-by-step instructions, see [Create an enclave connection](./create-enclave-connection-portal.md).
 

@@ -52,24 +52,23 @@ With this Bicep file, we create one key with two different values, one of which 
 1. Save the Bicep file as **main.bicep** to your local computer.
 1. Deploy the Bicep file using either Azure CLI or Azure PowerShell.
 
+    In the following examples, replace _`<ResourceGroupName>`_ with a name for your resource group, and _`<AppConfigurationStoreName>`_ with a unique name for your configuration store.
+
     # [CLI](#tab/CLI)
 
     ```azurecli
-    az group create --name exampleRG --location eastus
-    az deployment group create --resource-group exampleRG --template-file main.bicep --parameters configStoreName=<store-name>
+    az group create --name <ResourceGroupName> --location eastus
+    az deployment group create --resource-group <ResourceGroupName> --template-file main.bicep --parameters configStoreName=<AppConfigurationStoreName>
     ```
 
     # [PowerShell](#tab/PowerShell)
 
     ```azurepowershell
-    New-AzResourceGroup -Name exampleRG -Location eastus
-    New-AzResourceGroupDeployment -ResourceGroupName exampleRG -TemplateFile ./main.bicep -configStoreName "<store-name>"
+    New-AzResourceGroup -Name <ResourceGroupName> -Location eastus
+    New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile ./main.bicep -configStoreName "<AppConfigurationStoreName>"
     ```
 
     ---
-
-    > [!NOTE]
-    > Replace **\<store-name\>** with the name of the App Configuration store.
 
     When the deployment finishes, you should see a message indicating the deployment succeeded.
 
@@ -80,13 +79,13 @@ Use Azure CLI or Azure PowerShell to list the deployed resources in the resource
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az resource list --resource-group exampleRG
+az resource list --resource-group <ResourceGroupName>
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Get-AzResource -ResourceGroupName exampleRG
+Get-AzResource -ResourceGroupName <ResourceGroupName>
 ```
 
 ---
@@ -106,13 +105,13 @@ When no longer needed, use Azure CLI or Azure PowerShell to delete the resource 
 # [CLI](#tab/CLI)
 
 ```azurecli-interactive
-az group delete --name exampleRG
+az group delete --name <ResourceGroupName>
 ```
 
 # [PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
-Remove-AzResourceGroup -Name exampleRG
+Remove-AzResourceGroup -Name <ResourceGroupName>
 ```
 
 ---

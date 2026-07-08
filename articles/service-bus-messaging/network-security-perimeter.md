@@ -32,6 +32,9 @@ Azure Service Bus supports scenarios that require access to other PaaS resources
 
 For legacy geo-disaster recovery (alias-based pairing), both the primary and secondary namespaces must be associated with the same network security perimeter. If only the primary is associated, pairing fails.
 
+> [!IMPORTANT]
+> Network security perimeter currently isn't supported on namespaces that use [Geo-Replication](service-bus-geo-replication.md). You can't associate a Geo-Replication enabled namespace with a network security perimeter, and you can't enable Geo-Replication on a namespace that's already associated with a network security perimeter.
+
 Network security perimeter rules don't govern private link traffic through [private endpoints](../private-link/private-endpoint-overview.md).
 
 ## Create a network security perimeter

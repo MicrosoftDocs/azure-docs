@@ -2,11 +2,11 @@
 title: About Gateway Root Certificate Migration and P2S VPN Profile Updates
 titleSuffix: Azure VPN Gateway
 description: Learn about certificate migration for VPN gateways and how it affects point-to-site VPN client connection profiles.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 06/04/2026
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: "I want to understand more about root certificate migration for VPN Gateway and how it impacts my point-to-site VPN client profiles, so I can be prepared to take necessary actions to maintain connectivity."
 
 ---

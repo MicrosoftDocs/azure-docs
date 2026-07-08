@@ -325,7 +325,7 @@ Run the following commands:
 az iot ops ns asset media create --name my-media-source-cli --instance {your instance name}  -g {your resource group name} --device media-connector-cli --endpoint media-connector-cli-0
 
 # Add a stream to the asset
-az iot ops ns asset media stream add --asset my-media-source-cli --instance {your instance name}  -g {your resource group name} --name snapshotmqtt --task-type snapshot-to-mqtt --format jpeg --snapshots-per-sec 0.25 --destination topic="azure-iot-operations/data/snapshots" qos=Qos1 retain=Never ttl=60
+az iot ops ns asset media stream add --asset my-media-source-cli --instance {your instance name}  -g {your resource group name} --name snapshotmqtt --task-type snapshot-to-mqtt --format jpeg --snapshots-per-sec 0.25 --destination topic="azure-iot-operations/data/snapshots" qos=Qos1 retain=Never ttl=60 --disable-autostart false
 ```
 
 To learn more, see [az iot ops ns asset media](/cli/azure/iot/ops/ns/asset/media).

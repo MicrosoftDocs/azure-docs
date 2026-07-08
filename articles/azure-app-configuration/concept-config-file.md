@@ -52,7 +52,7 @@ The following configuration file, *appsettings.json*, provides an example of the
 To import this file into App Configuration, run the following Azure CLI command. It applies a `dev` label to the setting and the feature flag, and it uses a colon (`:`) as the separator to flatten the key name.
 
 ```azurecli-interactive
-az appconfig kv import --label dev --separator : --name <App-Configuration-store-name> --source file --path appsettings.json --format json
+az appconfig kv import --label dev --separator : --name <AppConfigurationStoreName> --source file --path appsettings.json --format json
 ```
 
 You can optionally add the following parameter to the preceding command: `--profile appconfig/default`. The parameter is optional, because the default profile is `appconfig/default`.
@@ -62,7 +62,7 @@ Azure Key Vault references require a particular content type during importing. A
 ```json
 {
     "Database:ConnectionString": {
-        "uri": "https://<Key-Vault-name>.vault.azure.net/secrets/db-secret"
+        "uri": "https://<KeyVaultName>.vault.azure.net/secrets/db-secret"
     }  
 }
 ```
@@ -70,7 +70,7 @@ Azure Key Vault references require a particular content type during importing. A
 To import this file, run the following Azure CLI command. It applies a `test` label to the Key Vault reference, and it uses the Key Vault reference content type.
 
 ```azurecli-interactive
-az appconfig kv import --label test --content-type "application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8" --name <App-Configuration-store-name> --source file --path keyvault-refs.json --format json
+az appconfig kv import --label test --content-type "application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8" --name <AppConfigurationStoreName> --source file --path keyvault-refs.json --format json
 ```
 
 The following table shows all the imported data in your App Configuration store:
@@ -79,7 +79,7 @@ The following table shows all the imported data in your App Configuration store:
 |---------|---------|---------|---------|
 | .appconfig.featureflag/Beta | {"id":"Beta","description":"","enabled": false,"conditions":{"client_filters":[]}} | dev | application/vnd.microsoft.appconfig.ff+json;charset=utf-8 |
 | Logging:LogLevel:Default | Warning | dev |  |
-| Database:ConnectionString | {\"uri\":\"https://\<Key-Vault-name\>.vault.azure.net/secrets/db-secret\"} | test | application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 |
+| Database:ConnectionString | {\"uri\":\"https://\<KeyVaultName\>.vault.azure.net/secrets/db-secret\"} | test | application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 |
 
 ## File content profile: KVSet
 
@@ -103,7 +103,7 @@ The following file, *appconfigdata.json*, is based on the KVSet file content pro
     },
     {
       "key": "Database:ConnectionString",
-      "value": "{\"uri\":\"https://<Key-Vault-name>.vault.azure.net/secrets/db-secret\"}",
+      "value": "{\"uri\":\"https://<KeyVaultName>.vault.azure.net/secrets/db-secret\"}",
       "label": "test",
       "content_type": "application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8",
       "tags": {}
@@ -122,7 +122,7 @@ The following file, *appconfigdata.json*, is based on the KVSet file content pro
 In the previous section, an example shows how to import data into your App Configuration store. You can export that data to a file by using the following Azure CLI command:
 
 ```azurecli-interactive
-az appconfig kv export --profile appconfig/kvset --label * --name <App-Configuration-store-name> --destination file --path appconfigdata.json --format json 
+az appconfig kv export --profile appconfig/kvset --label * --name <AppConfigurationStoreName> --destination file --path appconfigdata.json --format json 
 ```
 
 After you export the file, open it in a text editor and make the following changes:
@@ -133,7 +133,7 @@ After you export the file, open it in a text editor and make the following chang
 To import the updated file into your App Configuration store, run the following CLI command, which includes the `--profile appconfig/kvset` parameter. You don't need to specify data transformation rules such as a separator, label, or content type like you did for the default file content profile. All needed information is already in the file.
 
 ```azurecli-interactive
-az appconfig kv import --profile appconfig/kvset --name <App-Configuration-store-name> --source file --path appconfigdata.json --format json
+az appconfig kv import --profile appconfig/kvset --name <AppConfigurationStoreName> --source file --path appconfigdata.json --format json
 ```
 
 > [!NOTE]
@@ -149,7 +149,7 @@ The following table shows all the imported data in your App Configuration store:
 |---------|---------|---------|---------|
 | .appconfig.featureflag/Beta | {"id":"Beta","description":"Beta feature","enabled":**true**,"conditions":{"client_filters":[]}} | dev | application/vnd.microsoft.appconfig.ff+json;charset=utf-8 |
 | Logging:LogLevel:Default | **Debug** | dev |  |
-| Database:ConnectionString | {\"uri\":\"https://\<Key-Vault-name\>.vault.azure.net/secrets/db-secret\"} | test | application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 |
+| Database:ConnectionString | {\"uri\":\"https://\<KeyVaultName\>.vault.azure.net/secrets/db-secret\"} | test | application/vnd.microsoft.appconfig.keyvaultref+json;charset=utf-8 |
 
 ## Next steps
 

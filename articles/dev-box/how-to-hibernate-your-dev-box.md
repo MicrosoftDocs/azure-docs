@@ -60,7 +60,7 @@ To learn more about managing your dev box from the CLI, see: [devcenter referenc
 
 ## Troubleshooting
 
-**My dev box doesn't resume from hibernated state. Attempts to connect to it fail and I receive an error from the RDP app.** 
+**My dev box doesn't resume from hibernation. Attempts to connect fail and I receive an error in Windows App.** 
 
 If your machine is unresponsive, it might have stalled either while going into hibernation or resuming from hibernation. To resolve this issue, you can manually reboot your dev box. 
 

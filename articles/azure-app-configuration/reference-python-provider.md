@@ -284,15 +284,15 @@ config = load(
 
 ## Feature flag
 
-You can [create feature flags](./manage-feature-flags.md#create-a-feature-flag) in Azure App Configuration. By default, the configuration provider doesn't load feature flags. You can enable loading and refreshing feature flags through the `feature_flags_enabled` parameter.
+You can [create feature flags](./manage-feature-flags.md#create-a-feature-flag) in Azure App Configuration. By default, the configuration provider doesn't load feature flags. You can enable loading and refreshing feature flags through the `feature_flag_enabled` parameter.
 
 ```python
-config = load(endpoint=endpoint, credential=DefaultAzureCredential(), feature_flags_enabled=True)
+config = load(endpoint=endpoint, credential=DefaultAzureCredential(), feature_flag_enabled=True)
 alpha = config["feature_management"]["feature_flags"]["Alpha"]
 print(alpha["enabled"])
 ```
 
-By default, all feature flags with no label are loaded when `feature_flags_enabled` is set to `True`. If you want to load feature flags with a specific label, you can use the `feature_flag_selectors` parameter to filter the feature flags, which takes in a list of `SettingSelector` objects.
+By default, all feature flags with no label are loaded when you set `feature_flag_enabled` to `True`. If you want to load feature flags with a specific label, use the `feature_flag_selectors` parameter to filter the feature flags. This parameter takes a list of `SettingSelector` objects.
 
 ```python
 from azure.appconfiguration.provider import load, SettingSelector
@@ -300,7 +300,7 @@ from azure.appconfiguration.provider import load, SettingSelector
 config = load(
     endpoint=endpoint, 
     credential=DefaultAzureCredential(), 
-    feature_flags_enabled=True, 
+    feature_flag_enabled=True, 
     feature_flag_selectors=[SettingSelector(key_filter="*", label_filter="dev")]
 )
 alpha = config["feature_management"]["feature_flags"]["Alpha"]
@@ -321,7 +321,7 @@ from azure.appconfiguration.provider import load
 from featuremanagement import FeatureManager
 
 
-config = load(endpoint=endpoint, credential=DefaultAzureCredential(), feature_flags_enabled=True)
+config = load(endpoint=endpoint, credential=DefaultAzureCredential(), feature_flag_enabled=True)
 feature_manager = FeatureManager(config)
 
 print(f"Beta is: {feature_manager.is_enabled("Beta")}")
@@ -335,7 +335,7 @@ When feature flag telemetry is enabled, the Azure App Configuration provider inj
 
 - **AllocationID**: A unique identifier representing the state of the feature flag's allocation.
 - **ETag**: The current ETag for the feature flag.
-- **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`. When a label is present, the reference includes it as a query parameter: `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
+- **FeatureFlagReference**: A reference to the feature flag in the format of `<AppConfigurationEndpoint>kv/<FeatureFlagKey>`. When a label is present, the reference includes it as a query parameter: `<AppConfigurationEndpoint>kv/<FeatureFlagKey>?label=<FeatureFlagLabel>`.
 
 The full schema can be found in the [App Configuration Feature Evaluation Event schema definition](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureEvaluationEvent/AppConfigurationFeatureEvaluationEvent.v1.0.0.schema.json). For more information about how to use the feature flag telemetry, go to the [enable telemetry for feature flags](./howto-telemetry.md) walkthrough.
 
@@ -347,7 +347,7 @@ To enable refresh for feature flags, you need to set `feature_flag_refresh_enabl
 config = load(
     endpoint=endpoint, 
     credential=DefaultAzureCredential(), 
-    feature_flags_enabled=True, 
+    feature_flag_enabled=True, 
     feature_flag_refresh_enabled=True
 )
 

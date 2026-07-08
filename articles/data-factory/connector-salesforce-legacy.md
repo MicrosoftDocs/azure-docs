@@ -6,13 +6,14 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 05/07/2025
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ms.custom:
   - synapse
   - sfi-image-nochange
 ---
 
-# Copy data from and to Salesforce V1 using Azure Data Factory or Azure Synapse Analytics 
+# Copy data from and to Salesforce V1 using Azure Data Factory or Azure Synapse Analytics
 
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -20,7 +21,7 @@ ms.custom:
 This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Salesforce. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
 
 > [!IMPORTANT]
-> The Salesforce V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Salesforce connector](connector-salesforce.md#differences-between-salesforce-and-salesforce-legacy) from V1 to V2.
+> The Salesforce V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You're recommended to [upgrade the Salesforce connector](connector-salesforce.md#differences-between-salesforce-and-salesforce-legacy) from V1 to V2.
 
 
 ## Supported capabilities
@@ -70,7 +71,7 @@ You might also receive the "REQUEST_LIMIT_EXCEEDED" error message in both scenar
 
 Use the following steps to create a linked service to Salesforce in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -168,7 +169,7 @@ The following properties are supported for the Salesforce linked service.
 
 **Example: Store credentials in Key Vault, as well as environmentUrl and username**
 
-Note that by doing so, you will no longer be able to use the UI to edit settings.  The ***Specify dynamic contents in JSON format*** checkbox will be checked, and you will have to edit this configuration entirely by hand.  The advantage is you can derive ALL configuration settings from the Key Vault instead of parameterizing anything here.
+Note that by doing so, you'll no longer be able to use the UI to edit settings.  The ***Specify dynamic contents in JSON format*** checkbox will be checked, and you'll have to edit this configuration entirely by hand.  The advantage is you can derive ALL configuration settings from the Key Vault instead of parameterizing anything here.
 
 ```json
 {
@@ -271,7 +272,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **SalesforceSource**. | Yes |
-| query |Use the custom query to read data. You can use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query or SQL-92 query. See more tips in [query tips](#query-tips) section. If query is not specified, all the data of the Salesforce object specified in "objectApiName" in dataset will be retrieved. | No (if "objectApiName" in the dataset is specified) |
+| query |Use the custom query to read data. You can use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query or SQL-92 query. See more tips in [query tips](#query-tips) section. If query isn't specified, all the data of the Salesforce object specified in "objectApiName" in dataset will be retrieved. | No (if "objectApiName" in the dataset is specified) |
 | readBehavior | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is the former. <br>Allowed values: **query** (default), **queryAll**.  | No |
 
 > [!IMPORTANT]
@@ -328,7 +329,7 @@ To copy data to Salesforce, set the sink type in the copy activity to **Salesfor
 | externalIdFieldName | The name of the external ID field for the upsert operation. The specified field must be defined as "External ID Field" in the Salesforce object. It can't have NULL values in the corresponding input data. | Yes for "Upsert" |
 | writeBatchSize | The row count of data written to Salesforce in each batch. | No (default is 5,000) |
 | ignoreNullValues | Indicates whether to ignore NULL values from input data during a write operation.<br/>Allowed values are **true** and **false**.<br>- **True**: Leave the data in the destination object unchanged when you do an upsert or update operation. Insert a defined default value when you do an insert operation.<br/>- **False**: Update the data in the destination object to NULL when you do an upsert or update operation. Insert a NULL value when you do an insert operation. | No (default is false) |
-| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example: Salesforce sink in a copy activity**
 
@@ -377,12 +378,12 @@ To query the soft deleted records from the Salesforce Recycle Bin, you can speci
 
 ### Difference between SOQL and SQL query syntax
 
-When copying data from Salesforce, you can use either SOQL query or SQL query. Note that these two have different syntax and functionality support, do not mix it. You are suggested to use the SOQL query, which is natively supported by Salesforce. The following table lists the main differences:
+When copying data from Salesforce, you can use either SOQL query or SQL query. Note that these two have different syntax and functionality support, don't mix it. You're suggested to use the SOQL query, which is natively supported by Salesforce. The following table lists the main differences:
 
 | Syntax | SOQL Mode | SQL Mode |
 |:--- |:--- |:--- |
 | Column selection | Need to enumerate the fields to be copied in the query, e.g. `SELECT field1, filed2 FROM objectname` | `SELECT *` is supported in addition to column selection. |
-| Quotation marks | Filed/object names cannot be quoted. | Field/object names can be quoted, e.g. `SELECT "id" FROM "Account"` |
+| Quotation marks | Filed/object names can't be quoted. | Field/object names can be quoted, e.g. `SELECT "id" FROM "Account"` |
 | Datetime format |  Refer to details [here](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) and samples in next section. | Refer to details [here](/sql/odbc/reference/develop-app/date-time-and-timestamp-literals) and samples in next section. |
 | Boolean values | Represented as `False` and `True`, e.g. `SELECT … WHERE IsDeleted=True`. | Represented as 0 or 1, e.g. `SELECT … WHERE IsDeleted=1`. |
 | Column renaming | Not supported. | Supported, e.g.: `SELECT a AS b FROM …`. |
@@ -426,7 +427,7 @@ When you copy data from Salesforce, the following mappings are used from Salesfo
 | URL |String |
 
 > [!Note]
-> Salesforce Number type is mapping to Decimal type in Azure Data Factory and Azure Synapse pipelines as a service interim data type. Decimal type honors the defined precision and scale. For data whose decimal places exceeds the defined scale, its value will be rounded off in preview data and copy. To avoid getting such precision loss in Azure Data Factory and Azure Synapse pipelines, consider increasing the decimal places to a reasonably large value in **Custom Field Definition Edit** page of Salesforce. 
+> Salesforce Number type is mapping to Decimal type in Azure Data Factory and Azure Synapse pipelines as a service interim data type. Decimal type honors the defined precision and scale. For data whose decimal places exceeds the defined scale, its value will be rounded off in preview data and copy. To avoid getting such precision loss in Azure Data Factory and Azure Synapse pipelines, consider increasing the decimal places to a reasonably large value in **Custom Field Definition Edit** page of Salesforce. 
 
 ## Lookup activity properties
 

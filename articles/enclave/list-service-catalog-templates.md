@@ -3,8 +3,9 @@ title: List of service catalog templates
 description: List of service catalog templates.
 author: aserfass-msft
 ms.author: aserfass
+ai-usage: ai-assisted
 ms.topic: overview
-ms.date: 9/30/2025
+ms.date: 6/30/2026
 ---
 
 # List of service catalog templates
@@ -13,7 +14,7 @@ The current list of Azure services and workload templates in the service catalog
 ## Table of Azure Service templates
 These customer workload accelerators are available from the workload service catalog or [scripts](./deploy-template-service-catalog-azure-cli.md)
 
-| Template Name | Description | Status |
+| Template Name | Documentation | Status |
 |--|--|--|
 | Admin VM | [link](#admin-vm) | Available |
 | App Service: Web App | [link](#app-service-web-app) | Available |
@@ -21,13 +22,16 @@ These customer workload accelerators are available from the workload service cat
 | Azure Cosmos DB | [link](#azure-cosmos-db) | Available |
 | Azure Kubernetes Service (AKS) | [link](#azure-kubernetes-service-aks) | Available |
 | Azure SQL | [link](#azure-sql) | Available |
+| ExpressRoute Connection | [link](#expressroute-connection) | Available |
 | Common Dependencies | [link](#common-dependencies) | Available |
 | App Service: Functions | [link](#app-service-function-app) | Available |
 | Key Vault | [link](#key-vault) | Available |
 | Private DNS Zones | [link](#private-dns-zones) | Available |
 | Service Bus | [link](#service-bus) | Available |
+| Workload Quickstart | [link](#workload-quickstart) | Available |
 | Storage Account | [link](#storage-account) | Available |
 | Virtual Machine | [link](#virtual-machine) | Available |
+| VPN Connection | [link](#vpn-connection) | Available |
 
 ## Admin VM
 [How to create an Admin VM](./deploy-admin-vm-service-catalog.md)
@@ -64,6 +68,11 @@ Documentation:
 [RemoteApp Streaming Overview](/azure/virtual-desktop/remote-app-streaming/overview)
 [How-to deploy a Streaming App (RemoteApp)](./deploy-virtual-machine-service-catalog.md)
 
+## VPN Connection
+[How to create an Azure Enclave compliant VPN Connection](./deploy-vpn-connection-service-catalog.md)
+
+Description: This template creates a site-to-site VPN connection from a Transit Hub VPN gateway to an on-premises VPN device. It can also create the customer-side VPN connection when the required gateway resources already exist. [Learn more](/azure/vpn-gateway/vpn-gateway-about-vpngateways)
+
 ## Storage Account
 [How to create an Azure Enclave compliant Storage Account](./deploy-storage-account-service-catalog.md)
 
@@ -94,6 +103,16 @@ Description: Azure Functions is a serverless solution that allows you to write l
 [How to create an Azure Enclave compliant Azure SQL](./deploy-azure-sql-service-catalog.md)
 
 Description: Azure SQL Database, a fully managed platform as a service (PaaS) database engine that handles most of the database management functions such as upgrading, patching, backups, and monitoring without user involvement. [Learn more](/azure/azure-sql/database/sql-database-paas-overview)
+
+## ExpressRoute Connection
+[How to create an Azure Enclave compliant ExpressRoute Connection](./deploy-express-route-connection-service-catalog.md)
+
+Description: This template connects a Transit Hub ExpressRoute gateway to a customer-owned ExpressRoute circuit. Use this template when you already have a provisioned circuit with private peering configured. [Learn more](/azure/expressroute/expressroute-introduction)
+
+## Workload Quickstart
+[How to create an Azure Enclave compliant Workload Quickstart](./deploy-workload-quickstart-service-catalog.md)
+
+Description: This template quickly creates the common workload resources you need in Azure Enclave, including private DNS zones, a key vault with a customer-managed key, a user-assigned managed identity, a disk encryption set, a storage account, and a virtual machine. [Learn more](/azure/virtual-network/virtual-networks-overview)
 
 ## Azure Kubernetes Service (AKS)
 [How to create an Azure Enclave compliant AKS](./deploy-azure-kubernetes-service-service-catalog.md)

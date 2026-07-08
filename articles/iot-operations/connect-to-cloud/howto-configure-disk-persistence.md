@@ -111,7 +111,7 @@ Add the `requestDiskPersistence` property to your data flow configuration file:
 Add the `requestDiskPersistence` property to your data flow resource. The API version is `2025-10-01` or later:
 
 ```bicep
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2025-10-01' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-03-01' = {
   parent: defaultDataflowProfile
   name: dataflowName
   extendedLocation: {

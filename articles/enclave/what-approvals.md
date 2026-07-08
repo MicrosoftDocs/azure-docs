@@ -132,10 +132,10 @@ Approvals help organizations maintain strict governance and security standards f
 The Approvals workflow in Azure Enclave follows these key steps:
 
 1. **Request submission**: A user with appropriate permissions initiates an action that requires approval, such as creating an enclave connection or modifying an endpoint
-2. **Pending state**: The requested change enters a pending state and is queued for review
-3. **Approval review**: Users with the **Enclave Approver Role** can review pending approval requests
-4. **Decision**: An approver either approves or rejects the request with optional comments
-5. **Implementation**: If approved, the change is automatically implemented; if rejected, the request is discarded
+1. **Pending state**: The requested change enters a pending state and is queued for review
+1. **Approval review**: Users with the **Enclave Approver Role** can review pending approval requests
+1. **Decision**: An approver either approves or rejects the request with optional comments
+1. **Implementation**: If approved, the change is automatically implemented; if rejected, the request is discarded
 
 ## Resources that require approval
 
@@ -186,12 +186,12 @@ Approvals can be combined with Azure Privileged Identity Management (PIM) for en
 When implementing Approvals in your Azure Enclave environment:
 
 1. **Assign dedicated approvers**: Designate specific individuals or teams as approvers to maintain separation of duties
-2. **Define approval policies**: Clearly document which changes require approval and the approval criteria
-3. **Set SLAs for approvals**: Establish timeframes for approval decisions to prevent deployment delays
-4. **Use descriptive justifications**: Require requesters to provide detailed justifications for their change requests
-5. **Regular audit reviews**: Periodically review approval logs to identify patterns and improve processes
-6. **Combine with PIM**: Use time-bound approver access for sensitive environments
-7. **Document rejection reasons**: When rejecting requests, provide clear feedback to help requesters understand why
+1. **Define approval policies**: Clearly document which changes require approval and the approval criteria
+1. **Set SLAs for approvals**: Establish timeframes for approval decisions to prevent deployment delays
+1. **Use descriptive justifications**: Require requesters to provide detailed justifications for their change requests
+1. **Regular audit reviews**: Periodically review approval logs to identify patterns and improve processes
+1. **Combine with PIM**: Use time-bound approver access for sensitive environments
+1. **Document rejection reasons**: When rejecting requests, provide clear feedback to help requesters understand why
 
 ## Monitoring and auditing
 

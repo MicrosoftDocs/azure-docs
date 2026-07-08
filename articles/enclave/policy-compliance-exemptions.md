@@ -32,7 +32,7 @@ Should further troubleshooting be required to investigate Azure Policy exemption
 ## References
 - [What is Azure Enclave?](./what-azure-enclave.md)
 - [Best Practices](./best-practices.md)
-- [What is an Enclave?](./what-enclave.md)
+- [What is an enclave?](./what-enclave.md)
 - [What is a workload?](./what-workload.md)
 - [Azure Policy initiatives](/azure/governance/policy/concepts/initiative-definition-structure)
 - [Azure Policy assignment structure](/azure/governance/policy/concepts/assignment-structure)

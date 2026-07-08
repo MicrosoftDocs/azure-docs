@@ -197,7 +197,7 @@ Community deployments take approximately **30-45 minutes** to complete. Azure En
 
 In the `Azure Enclave` page, select `Communities` in the left menu.
 
-[ ![Screenshot showing the Azure portal homepage for Azure Enclave with the Create a Community button.](./media/azure-enclave-homepage.png) ](./media/azure-enclave-homepage.png#lightbox)
+[ ![Screenshot showing the Azure portal homepage for Azure Enclave with the Create a community button.](./media/azure-enclave-homepage.png) ](./media/azure-enclave-homepage.png#lightbox)
 
 #### Step 2: Start community creation
 
@@ -304,8 +304,8 @@ After the community deployment completes, perform these validation steps to ensu
 ### Step 1: Check community status
 
 1. Navigate to the community in Azure portal
-2. Verify `Status` shows `Succeeded`
-3. Review the `Overview` page for basic information
+1. Verify `Status` shows `Succeeded`
+1. Review the `Overview` page for basic information
 
    [ ![Screenshot showing created community on its overview page.](./media/tutorial-step-one-community-overview-page.png) ](./media/tutorial-step-one-community-overview-page.png#lightbox)
 
@@ -319,7 +319,7 @@ After the community deployment completes, perform these validation steps to ensu
 ### Step 2: Verify network configuration
 
 1. In the community overview, select `Managed Resource Group`
-2. Review the resources created:
+1. Review the resources created:
 
 **Expected resources in managed resource group:**
 - Managed identity
@@ -336,7 +336,7 @@ After the community deployment completes, perform these validation steps to ensu
 ### Step 3: Review RBAC and access
 
 1. Navigate to `Access control (IAM)` in the community
-2. Review role assignments
+1. Review role assignments
 
 **Expected roles:**
 - Your user account should have appropriate permissions
@@ -372,11 +372,11 @@ If you need to delete your community after completing this tutorial:
 **To delete a community:**
 
 1. Navigate to Azure Enclave in the Azure portal
-2. Select `Communities` from the left menu
-3. Select the community to delete (for example, `fabrikam`)
-4. Select `Delete` from the top menu
-5. Type the community name to confirm deletion
-6. Select `Delete`
+1. Select `Communities` from the left menu
+1. Select the community to delete (for example, `fabrikam`)
+1. Select `Delete` from the top menu
+1. Type the community name to confirm deletion
+1. Select `Delete`
 
    [ ![Screenshot showing the completed community in the Azure Enclave portal page communities list.](./media/tutorial-step-one-azure-enclave-page-communities-list-deployed.png) ](./media/tutorial-step-one-azure-enclave-page-communities-list-deployed.png#lightbox)
 
@@ -420,9 +420,9 @@ Deployment fails with error message about address space conflicts
    ```azurecli
    az network vnet list --output table
    ```
-2. Choose a different, nonoverlapping CIDR block
-3. Verify with network team if using hybrid connectivity
-4. Restart deployment with new address space
+1. Choose a different, nonoverlapping CIDR block
+1. Verify with network team if using hybrid connectivity
+1. Restart deployment with new address space
 
 **Prevention:**
 Maintain an IP address management (IPAM) spreadsheet documenting all allocated ranges
@@ -439,9 +439,9 @@ Deployment running for more than 60 minutes
 
 **Resolution steps:**
 1. Check Azure status page for service health issues
-2. Review deployment logs in Activity Log
-3. Contact Azure support if deployment exceeds 90 minutes
-4. Don't cancel deployment unless explicitly advised
+1. Review deployment logs in Activity Log
+1. Contact Azure support if deployment exceeds 90 minutes
+1. Don't cancel deployment unless explicitly advised
 
 **Prevention:**
 Deploy during off-peak hours when possible
@@ -458,9 +458,9 @@ Community deployed but inaccessible in portal
 
 **Resolution steps:**
 1. Verify you have Reader or Contributor role on community
-2. Check Conditional Access policies in Microsoft Entra ID
-3. Request access from subscription administrator
-4. Clear browser cache and retry
+1. Check Conditional Access policies in Microsoft Entra ID
+1. Request access from subscription administrator
+1. Clear browser cache and retry
 
 **Prevention:**
 Ensure proper RBAC assignments before starting deployment
@@ -470,9 +470,9 @@ Ensure proper RBAC assignments before starting deployment
 If you continue experiencing issues:
 
 1. **Check the Azure Enclave troubleshooting guide**: [Troubleshooting guide](./troubleshoot.md)
-2. **Review logs**: Check Activity Log for error messages
-3. **Azure documentation**: Review the [Azure Enclave documentation](./index.yml) and [Azure Enclave FAQs](./azure-enclave-faq.md)
-4. **Contact support**: Create a support ticket with:
+1. **Review logs**: Check Activity Log for error messages
+1. **Azure documentation**: Review the [Azure Enclave documentation](./index.yml) and [Azure Enclave FAQs](./azure-enclave-faq.md)
+1. **Contact support**: Create a support ticket with:
    - Subscription ID
    - Community resource ID
    - Timeline of deployment events

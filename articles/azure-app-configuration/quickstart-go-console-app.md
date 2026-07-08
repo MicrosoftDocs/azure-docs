@@ -264,19 +264,19 @@ Update `main.go` with the following content:
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIG_ENDPOINT "<endpoint-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIG_ENDPOINT "<AppConfigurationEndpoint>"
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:AZURE_APPCONFIG_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
+    $Env:AZURE_APPCONFIG_ENDPOINT = "<AppConfigurationEndpoint>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_ENDPOINT='<AppConfigurationEndpoint>'
     ```
 
     Additionally, make sure you have logged in with the Azure CLI or use environment variables for Azure authentication:
@@ -291,19 +291,19 @@ Update `main.go` with the following content:
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIG_CONNECTION_STRING "<AppConfigurationConnectionString>"
     ```
 
    If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<connection-string-of-your-app-configuration-store>"
+    $Env:AZURE_APPCONFIG_CONNECTION_STRING = "<AppConfigurationConnectionString>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export AZURE_APPCONFIG_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_CONNECTION_STRING='<AppConfigurationConnectionString>'
     ```
     
     ---

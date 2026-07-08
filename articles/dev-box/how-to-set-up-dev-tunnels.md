@@ -22,7 +22,7 @@ Use Microsoft Dev Box with Visual Studio Code (VS Code) to create secure, cloud-
 
 ## Enable Dev Tunnels on a Dev Box Pool
 
-Dev Box Dev Tunnels is a feature that developers use to connect to their Dev Box by using Visual Studio Code (VS Code) through secure tunnels. This feature is particularly useful for developers who want to work remotely or from different locations without needing a full remote desktop connection.
+Dev Box Dev Tunnels is a feature that developers use to connect to their Dev Box by using Visual Studio Code (VS Code) through secure tunnels. This feature is particularly useful for developers who want to work remotely or from different locations without needing a full desktop session in Windows App or the browser.
 
 ### Register the Dev Box Tunnels preview feature
 

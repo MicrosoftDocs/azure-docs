@@ -3,7 +3,7 @@ title: Manage an Azure Operator Service Manager Cluster Extension
 description: This article provides a command reference and examples for the Azure Operator Service Manager network function operator (NFO) extension.
 author: msftadam
 ms.author: adamdor
-ms.date: 09/16/2024
+ms.date: 07/2/2026
 ms.topic: how-to
 ms.service: azure-operator-service-manager
 ---
@@ -44,6 +44,7 @@ az k8s-extension create --cluster-name
                         [--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCCadence=]
                         [--config global.networkfunctionextension.clusterRegistry.clusterRegistryGCThreshold=]
                         [--config global.networkfunctionextension.clusterRegistry.registryService.scale={"small", "medium", "large"}]
+                        [--config networkfunctionextension.manager.scale={"small", "medium", "large"}]
                         [--version]
 ```
 
@@ -219,6 +220,24 @@ az k8s-extension create --cluster-name
         - small: cpu: 100m, memory: 2Gi
         - medium: cpu: 500m, memory: 2Gi
         - large: cpu: 1, memory: 4Gi
+  ```
+  
+`--config networkfunctionextension.manager.scale=`
+
+* This configuration sets the CPU and memory resources for the controller manager to a predefined scale option.
+* Accepted values: `small`, `medium`, `large`.
+* Default value: `small`.
+* Following are the controller manager resource specifications for all three scales:
+
+  ```
+      - requests:
+        - small: cpu: 100m, memory: 256Mi
+        - medium: cpu: 500m, memory: 512Mi
+        - large: cpu: 1, memory: 1Gi
+      - limits:
+        - small: cpu: 100m, memory: 1Gi
+        - medium: cpu: 1, memory: 2Gi
+        - large: cpu: 2, memory: 4Gi
   ```
 
 ## Update an NFO extension

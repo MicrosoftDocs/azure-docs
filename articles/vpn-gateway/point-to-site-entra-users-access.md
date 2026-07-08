@@ -2,11 +2,11 @@
 title: Configure P2S access based on users and groups - Microsoft Entra ID authentication
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure P2S access based on users and groups for Microsoft Entra ID authentication.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/31/2025
-ms.author: cherylmc
+ms.author: duau
 
 # Customer intent: As an IT administrator managing VPN access, I want to configure point-to-site access based on user and group permissions, so that users can connect to specific VPN gateways according to their assigned roles.
 ---

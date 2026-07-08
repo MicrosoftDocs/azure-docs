@@ -2,11 +2,11 @@
 title: 'Configure Azure VPN Client - Microsoft Entra ID authentication - Microsoft-registered App ID - Windows'
 description: Learn how to configure the Azure VPN Client to connect to a virtual network using VPN Gateway point-to-site VPN, OpenVPN protocol connections, and Microsoft Entra ID authentication from a Windows computer. This article applies to P2S gateways configured with the Microsoft-registered App ID.
 titleSuffix: Azure VPN Gateway
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 07/03/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 
 #Audience and custom App ID values are not sensitive data. Please do not remove. They are required for the configuration.
