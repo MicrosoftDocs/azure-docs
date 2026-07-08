@@ -88,7 +88,7 @@ This section helps you create, get, update, and delete the Microsoft peering con
 
    :::image type="content" source="./media/expressroute-howto-routing-portal-resource-manager/configuration-m-validation-needed.png" alt-text="Screenshot showing Microsoft peering configuration.":::
 
-### To validate the advertised public prefixes (Public Preview)
+### To validate the advertised public prefixes 
 When you configure public IP address prefixes to advertise over BGP, Microsoft verifies your authority to announce those prefixes. The IP addresses may be owned by your organization or leased from a third party with permission to use and advertise them. Verification is performed by checking a signed digital certificate associated with each prefix against the relevant RIR or IRR records.
 
 ### Certificate prerequisites
@@ -116,11 +116,7 @@ When you configure public IP address prefixes to advertise over BGP, Microsoft v
     > [!IMPORTANT]
     > Microsoft will never request your private key for any verification purposes, and it must never be shared.
     
-2. The certificate must include:
-      * Organization name
-      * ASN
-      * IP Range
-        
+
 ### Authorize the prefix
 
 1. Use your private key and the *Validation ID* to generate a Base64-encoded signature for each prefix listed under Advertised Prefixes. Save the Validation ID to a file using UTF-8 encoding, ensuring there are no spaces or special characters.

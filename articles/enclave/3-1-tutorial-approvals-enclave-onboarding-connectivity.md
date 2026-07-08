@@ -44,13 +44,13 @@ For approval concepts and roles, see [Understand approvals](./understand-approva
 ## Step 1: Create the community with approvals enabled
 
 1. In the Azure portal, open `Azure Enclave` and select `Communities`.
-2. Select `Create` and enter your basics settings (for example, `cmt-fabrikam`, `East US`, and your address space).
-3. Go to the `Approvals` tab.
+1. Select `Create` and enter your basic settings, such as `cmt-fabrikam`, `East US`, and your address space.
+1. Go to the `Approvals` tab.
 4. Configure only these approval requirements:
    - `Enclave creation`: `Required`, `Minimum number of approvers = 1`
    - `Community endpoint updates`: `Required`, `Minimum number of approvers = 1`
    - `Enclave connection updates`: `Required`, `Minimum number of approvers = 1`
-5. Complete `Review + create`, and then select `Create`.
+1. Complete `Review + create`, and then select `Create`.
 
 ![Screenshot showing the community approvals setting page for tutorial configuration.](./media/tutorial-step-one-create-community-screen-approvals-input.png)
 
@@ -65,42 +65,42 @@ These steps require a person that requests the resource creation or change and a
 3. Ask your approver to open `Approvals` from the Azure Enclave service, community, or enclave view.
 4. Ask your approver to find the pending `Enclave` creation request and review the requested details.
 5. Ask your approver to select `Approve` to allow deployment to continue.
-6. Return to `Enclaves` and confirm the enclave provisioning state is `Succeeded`.
+1. Return to `Enclaves` and confirm the enclave provisioning state is `Succeeded`.
 
 ![Screenshot showing the Azure Enclave service view of approval requests.](./media/approvals-service-view.png)
 
 ## Step 3: Create a community endpoint for partner egress
 
 1. Open your community and select `Community Endpoints` > `Create`.
-2. Enter endpoint basics (for example, `ce-fabrikam-partner-api`).
-3. Add a rule for partner API egress:
+1. Enter endpoint basics (for example, `ce-fabrikam-partner-api`).
+1. Add a rule for partner API egress:
    - `Destination Type`: `FQDN`
    - `Destination`: Enter the desintation in the format `*.microsoft.com,*.azure.com`.
    - `Protocol`: `HTTPS`
    - `Port`: `443`
-4. Select `Review + create`, and then select `Create`.
+1. Select `Review + create`, and then select `Create`.
 
 ![Screenshot showing community endpoint rules during creation.](./media/tutorial-step-five-fabrikam-endpoint-rules.png)
 
 ## Step 4: Update the community endpoint and complete approval
 
-After security review, Fabrikam narrows the destination from a broad test value to a production-specific value. That update requires approval.
+After the security review, Fabrikam narrows the destination from a broad test value to a production-specific value. This update requires approval.
 
-1. Open `Community Endpoints`, select `ce-fabrikam-partner-api`, and select `Edit`.
+1. Open **Community Endpoints**, select `ce-fabrikam-partner-api`, and select **Edit**.
 2. Update one rule value (for example, a stricter FQDN) and save. For this tutorial, you can add or remove your FQDNs.
 3. Ask your approver to open `Approvals` and review the pending `Community endpoint update` request.
 4. Ask your approver to approve the request.
-5. Confirm the endpoint reflects the approved update.
+1. Confirm the endpoint reflects the approved update.
 
 For the approval review process, see [Manage approval requests](./manage-approvals.md).
 
 ## Step 5: Create an enclave connection and then update it with approval
 
-1. In the community, select `Enclave Connections` > `Create`.
+1. In the community, select **Enclave Connections** > **Create**.
 2. Create a connection from your source enclave (for example, `ve-Enclave-Data`) to the community endpoint (`ce-fabrikam-partner-api`).
-3. After creation succeeds, open the connection and change one setting that triggers an update request (for example, source CIDR range).
+1. After creation succeeds, open the connection and change one setting that triggers an update request (for example, source CIDR range).
 4. Ask your approver to open `Approvals`, review the pending `Enclave connection update` request, and approve it.
-5. Confirm the connection state is healthy after the approved update.
+1. Confirm the connection state is healthy after the approved update.
 
 ![Screenshot showing enclave connection creation inputs.](./media/tutorial-step-five-fabrikam-connection-input.png)
 
@@ -118,9 +118,9 @@ At the end of this tutorial, verify:
 If you no longer need this environment, delete the tutorial resources:
 
 1. Delete the enclave connection.
-2. Delete the community endpoint.
-3. Delete the enclave.
-4. Delete the community.
+1. Delete the community endpoint.
+1. Delete the enclave.
+1. Delete the community.
 
 > [!NOTE]
 > 

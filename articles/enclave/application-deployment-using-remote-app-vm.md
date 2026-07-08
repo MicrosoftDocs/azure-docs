@@ -75,8 +75,8 @@ The RemoteApp template supports scripting to automate the process of installing 
                     - (optional) additional scripts
                     - (optional) azcopy.exe
         ```
-2. Download the application installer you need. In this example download [Vscode.exe](https://code.visualstudio.com/sha/download?build=stable&os=win32-x64) and upload the installer into the storage account app folder.
-3. Upload the `main.ps1` application installer script compatible with the version of Visual Studio Code you added to the storage account app folder:
+1. Download the application installer you need. In this example download [Vscode.exe](https://code.visualstudio.com/sha/download?build=stable&os=win32-x64) and upload the installer into the storage account app folder.
+1. Upload the `main.ps1` application installer script compatible with the version of Visual Studio Code you added to the storage account app folder:
     ```powershell
         # Main powershell script that installs the application
 
@@ -88,15 +88,15 @@ The RemoteApp template supports scripting to automate the process of installing 
 
 ![Screenshot showing workload overview page.](./media/workload-overview.png)
 
-2. For `Service`, select `Virtual Machine`.
+1. For `Service`, select `Virtual Machine`.
 
 ![Screenshot showing Virtual Machine selected from the service catalog list.](./media/service-catalog-list-virtual-machine.png)
 
-3. Confirm the resource group selection and select `Next`
-4. Basics Tab:
+1. Confirm the resource group selection and select `Next`
+1. Basics Tab:
     - For `Virtual Machine name`, input the name of the Virtual Machine.
     - For  `Admin username` and `Admin password`, input the username and password you use to log into your Virtual Machine.
-5. App Tab:
+1. App Tab:
     - For `App folder URI`, input the URI to the container. Select an artifact within the container, copy its URI, **remove everything** after the folder name in the URI.
         ![Screenshot showing the application folder URI for use in this deployment.](./media/remoteapp-vm-app-folder-uri.png)
 
@@ -113,14 +113,14 @@ The RemoteApp template supports scripting to automate the process of installing 
 ### Private Container:
 
 1. For `App folder in private container` select `true` to allow `reader` role access to the storage account via the Virtual Machine. 
-2. For `Storage container resource id` get the following three parts: `<storage-account-resource-id>` + '/blobServices/default/containers/' + `<container-name>`.
+1. For `Storage container resource id` get the following three parts: `<storage-account-resource-id>` + '/blobServices/default/containers/' + `<container-name>`.
     - To get `Storage container resource id`, from the storage account, select "Overview," select "JSON View" in the far right corner, copy the storage account resource ID.
 
     ![Screenshot of account resource id for use in this deployment.](./media/remoteapp-storage-account-resource-id.png)
 
     - For the container name, copy the name of the private container that holds the artifacts.
     - Example storage container resource ID: `subscriptions/000000a0-a0a0-000a-00a0-0000aaa0a000/resourceGroups/providers/Microsoft.Storage/storageAccounts/storage-account-example/blobServices/default/containers/container-name`
-3. If the parameter `AzCopy File URI` is displayed, add the URI to the azcopy.exe from the container
+1. If the parameter `AzCopy File URI` is displayed, add the URI to the azcopy.exe from the container
     - Select the file, and copy its URL:
 
     ![Screenshot showing storage container organization structure with azcopy.exe file.](./media/remoteapp-container-artifacts.png)
@@ -131,8 +131,8 @@ Example Private Container Parameters:
 
 ![Screenshot showing the App tab parameters completed.](./media/remoteapp-tab-parameters.png)
 
-4. Select `Review and Create`, if validations pass, select `Create`.
-5. Once resources are deployed, check to see if app is installed on application Virtual Machine by connecting to the Application Virtual Machine. [Connect to the Application Virtual Machine](./deploy-virtual-machine-service-catalog.md#connect-to-the-application-virtual-machine)
+1. Select `Review and Create`, if validations pass, select `Create`.
+1. Once resources are deployed, check to see if app is installed on application Virtual Machine by connecting to the Application Virtual Machine. [Connect to the Application Virtual Machine](./deploy-virtual-machine-service-catalog.md#connect-to-the-application-virtual-machine)
 
 ## WinGet Installation
 
@@ -151,7 +151,7 @@ Folder Structure:
 1. Download installers and upload them to the winget folder in storage container
     - WinGet `MSIX` bundle ([Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle](https://github.com/microsoft/winget-cli/releases/tag/v1.8.1911))
     - Windows UI Library ([Microsoft.UI.Xaml.2.8.x64.appx](https://github.com/microsoft/microsoft-ui-xaml/releases/tag/v2.8.6))
-2. Create and upload scripts
+1. Create and upload scripts
     1. main.ps1
         ```powershell
         # This script creates and runs a scheduled task to install the appx package and msix bundle with elevated privileges
@@ -168,7 +168,7 @@ Folder Structure:
         # Register the scheduled task
         Register-ScheduledTask -TaskName "InstallWinget" -Action $taskAction -Trigger $taskTrigger -Principal $taskPrincipal
         ```
-    2. install_winget.ps1
+    1. install_winget.ps1
         ```powershell
         Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
 
@@ -190,8 +190,8 @@ Folder Structure:
         # Register the scheduled task
         Register-ScheduledTask -TaskName "Reboot" -Action $taskAction -Trigger $taskTrigger -Principal $taskPrincipal
         ```
-    3.  restart.ps1
+    1.  restart.ps1
         ```powershell
         Restart-Computer -Force
         ```
-3. Proceed to [Deploy Template](#setup-template)
+1. Proceed to [Deploy Template](#setup-template)

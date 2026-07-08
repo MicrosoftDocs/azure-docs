@@ -73,10 +73,10 @@ Azure Enclave includes roles to help you manage your environments with least pri
 If you're deploying an Azure service into a workload resource group and see the error `Do not allow creation of resource types outside of the allowlist`, the service isn't allowed by the assigned Azure Policy. You can create a policy exemption for the workload resource group.
 
 1. In the Azure portal, go to the workload resource group.
-2. In the left menu, select `Governance`, and then select `Policy compliance`.
-3. Search for `Allow`, and then select the policy assignment for your workload resource group.
-4. Select `Create exemption`.
-5. Select `Review + create`, and then select `Create`.
+1. In the left menu, select `Governance`, and then select `Policy compliance`.
+1. Search for `Allow`, and then select the policy assignment for your workload resource group.
+1. Select `Create exemption`.
+1. Select `Review + create`, and then select `Create`.
 
 After the exemption update finishes, redeploy the service that was previously denied. For more information, see [Policy compliance exemptions](./policy-compliance-exemptions.md).
 
@@ -101,8 +101,8 @@ Workload resources that allow moving can be moved according to the move options 
 You pay for:
 
 1. Each enclave on an hourly basis.
-2. Resources managed by Azure Enclave to create community and enclave boundaries.
-3. Workloads that you deploy within your enclaves.
+1. Resources managed by Azure Enclave to create community and enclave boundaries.
+1. Workloads that you deploy within your enclaves.
 
 Managed resources for Azure Enclave include:
 
@@ -114,7 +114,7 @@ Managed resources for Azure Enclave include:
 
 For more information, see [Azure Enclave pricing](./azure-enclave-pricing.md).
 
-The cost of the Enclave includes the community, community endpoints, enclave endpoints, enclave connections, and transit hub.
+The cost of the enclave includes the community, community endpoints, enclave endpoints, enclave connections, and transit hub.
 
 ### Are partial hours pro-rated?
 Enclaves deployed during part of an hour are charged for the full hour.

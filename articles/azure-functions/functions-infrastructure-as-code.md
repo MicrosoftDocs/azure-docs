@@ -759,7 +759,7 @@ resource functionAppName_resource 'Microsoft.Web/sites@2024-04-01' = {
         }
         {
           name: 'WEBSITE_NODE_DEFAULT_VERSION'
-          value: '~20'
+          value: '~22'
         }
       ]
     }
@@ -814,7 +814,7 @@ For a complete end-to-end example, see this [main.bicep file](https://github.com
           },
           {
             "name": "WEBSITE_NODE_DEFAULT_VERSION",
-            "value": "~20"
+            "value": "~22"
           }
         ]
       }
@@ -836,7 +836,7 @@ resource functionApp 'Microsoft.Web/sites@2024-04-01' = {
     reserved: true
     serverFarmId: hostingPlan.id
     siteConfig: {
-      linuxFxVersion: 'node|20'
+      linuxFxVersion: 'node|22'
       appSettings: [
         {
           name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
@@ -889,7 +889,7 @@ For a complete end-to-end example, see this [main.bicep file](https://github.com
       "reserved": true,
       "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
       "siteConfig": {
-        "linuxFxVersion": "node|20",
+        "linuxFxVersion": "node|22",
         "appSettings": [
           {
             "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
@@ -958,7 +958,7 @@ resource functionApp 'Microsoft.Web/sites@2024-04-01' = {
         }
         {
           name: 'WEBSITE_NODE_DEFAULT_VERSION'
-          value: '~20'
+          value: '~22'
         }
       ]
     }
@@ -1006,7 +1006,7 @@ For a complete end-to-end example, see this [main.bicep file](https://github.com
           },
           {
             "name": "WEBSITE_NODE_DEFAULT_VERSION",
-            "value": "~20"
+            "value": "~22"
           }
         ]
       }
@@ -1030,7 +1030,7 @@ resource functionApp 'Microsoft.Web/sites@2024-04-01' = {
     serverFarmId: hostingPlan.id
     siteConfig: {
       alwaysOn: true
-      linuxFxVersion: 'node|20'
+      linuxFxVersion: 'node|22'
       appSettings: [
         {
           name: 'APPLICATIONINSIGHTS_CONNECTION_STRING'
@@ -1076,7 +1076,7 @@ For a complete end-to-end example, see this [main.bicep file](https://github.com
       "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('hostingPlanName'))]",
       "siteConfig": {
         "alwaysOn": true,
-        "linuxFxVersion": "node|20",
+        "linuxFxVersion": "node|22",
         "appSettings": [
           {
             "name": "APPLICATIONINSIGHTS_CONNECTION_STRING",
@@ -1392,7 +1392,7 @@ resource functionApp 'Microsoft.Web/sites@2024-04-01' = {
         }
         {
           name: 'WEBSITE_NODE_DEFAULT_VERSION'
-          value: '~20'
+          value: '~22'
         }
         {
           name: 'FUNCTIONS_EXTENSION_VERSION'
@@ -1452,7 +1452,7 @@ resource functionApp 'Microsoft.Web/sites@2024-04-01' = {
           },
           {
             "name": "WEBSITE_NODE_DEFAULT_VERSION",
-            "value": "~20"
+            "value": "~22"
           },
           {
             "name": "FUNCTIONS_EXTENSION_VERSION",

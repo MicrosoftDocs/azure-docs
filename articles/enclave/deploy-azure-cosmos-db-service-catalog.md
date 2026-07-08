@@ -1,5 +1,6 @@
 ---
 title: Deploy Azure Cosmos DB from the service catalog into a workload
+titleSuffix: Azure Enclave
 description: Deploy Azure Cosmos DB from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
@@ -35,34 +36,34 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
 > 
 > You can't resize a subnet once resources are deployed inside the subnet.
 
-2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
+1. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
     - `Key Vault` required when creating a Key Vault from this template or the more customizable [Key Vault template](./deploy-key-vault-service-catalog.md).
     - `Storage File`, `Storage Queue`, `Storage Blob`, and `Storage Table` are required when making a Storage Account from this template or the more customizable [Storage Account template](./deploy-storage-account-service-catalog.md).
     - `privatelink.cosmos.azure.com` under `Additional Private DNS Zone names` which is required to access Cosmos DB privately.
-3. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, and Managed Identity in the [Common Dependencies service catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own.
+1. A Key Vault, Customer Managed Key (CMK), and Managed Identity are required for this template. Create a Key Vault, CMK, and Managed Identity in the [Common Dependencies service catalog quickstart](./deploy-common-dependencies-service-catalog.md) or create your own.
     - These resources should be created inside a [workload resource group](./create-workload-portal.md#add-workload-resource-groups).
     - After creating the User Managed Identity, ensure it has access to the CMK key
         - Assign the `Key Vault Crypto Service Encryption User` RBAC role to the managed identity scoped to the key vault with [these instructions](./create-user-managed-identity.md#assign-role-to-managed-identity). This allows you to then assign the managed identity to another resource, like a Virtual Machine, and that Virtual Machine can encrypt the operating system disk with the CMK in the key vault without having permissions to do other operations on the key vault following least privilege.
-4. (optional) An existing domain to join if the Admin VM will be domain joined.
+1. (optional) An existing domain to join if the Admin VM will be domain joined.
 
 ## Deploy the template
 1. Navigate to the workload for the intended deployment.
-2. Select `+Add an Azure Service` button.
-3. Select the `Azure Cosmos DB` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
+1. Select `+Add an Azure Service` button.
+1. Select the `Azure Cosmos DB` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the Cosmos DB template selected from the service catalog list.](./media/service-catalog-list-cosmos-db.png)
 
-4. Go through each tab and enter all the required parameters.
-5. Adjust any of the prepopulated parameters as needed.
-6. Select `Review + Add` then `Create`.
+1. Go through each tab and enter all the required parameters.
+1. Adjust any of the prepopulated parameters as needed.
+1. Select `Review + Create` then `Create`.
 
 It can take up to 30 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 
 ## Validate the deployment
 1. Go to the specified resource group to confirm the resources were created: an Azure Cosmos DB account and a private endpoint.
-2. Verify that the Azure Cosmos DB account was created and it its status is `Online`.
-3. Check that the Azure Cosmos DB account `identity` is using the user assigned Managed Identity mentioned in prerequisites section.
-4. Check that Azure Cosmos DB account encryption is using the key mentioned in prerequisites section.
+1. Verify that the Azure Cosmos DB account was created and it its status is `Online`.
+1. Check that the Azure Cosmos DB account `identity` is using the user assigned Managed Identity mentioned in prerequisites section.
+1. Check that Azure Cosmos DB account encryption is using the key mentioned in prerequisites section.
 
 
 ## Delete the deployment

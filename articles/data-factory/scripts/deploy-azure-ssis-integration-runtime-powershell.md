@@ -19,7 +19,7 @@ This sample PowerShell script creates an Azure-SSIS integration runtime that can
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/deploy-azure-ssis-integration-runtime/deploy-azure-ssis-integration-runtime.ps1 "Deploy Azure-SSIS Integration Runtime")]
+[!code-powershell[main](~/powershell_scripts/data-factory/deploy-azure-ssis-integration-runtime/deploy-azure-ssis-integration-runtime.ps1 "Deploy Azure-SSIS Integration Runtime")]
 
 ## Clean up deployment
 

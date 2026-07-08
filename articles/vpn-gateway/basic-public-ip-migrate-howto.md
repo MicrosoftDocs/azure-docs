@@ -2,11 +2,11 @@
 title: How to migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway 
 titleSuffix: Azure VPN Gateway
 description: Learn how to migrate from a Basic SKU public IP address to a Standard SKU public IP address for VPN Gateway deployment.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 01/30/2026
-ms.author: cherylmc
+ms.author: duau
 #customer intent: As a cloud network administrator, I want to migrate a Basic SKU public IP address to a Standard SKU for VPN Gateway, so that I can ensure optimal performance and compliance with service standards during our infrastructure upgrade.
 ---
 

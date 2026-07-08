@@ -2,11 +2,11 @@
 title: 'Advertise custom routes for point-to-site VPN Gateway clients'
 titleSuffix: Azure VPN Gateway
 description: Learn how to advertise custom routes to your VPN Gateway point-to-site clients. This article includes steps for VPN client forced tunneling.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 10/15/2024
-ms.author: cherylmc
+ms.author: duau
 ms.custom:
   - devx-track-azurepowershell
   - sfi-image-nochange

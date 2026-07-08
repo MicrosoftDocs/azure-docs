@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 06/30/2025
- ms.author: cherylmc
+ ms.author: duau
 ---
 
 1. On the page for your virtual network, on the left pane, select **Subnets** to open the **Subnets** page.

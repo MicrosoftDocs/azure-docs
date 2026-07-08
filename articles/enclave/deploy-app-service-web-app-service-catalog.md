@@ -1,5 +1,6 @@
 ---
 title: Deploy an App Service Web App from the service catalog into a workload
+titleSuffix: Azure Enclave
 description: Deploy an App Service Web App from the service catalog into a workload.
 author: aserfass-msft
 ms.author: aserfass
@@ -48,19 +49,19 @@ There are guardrail requirements on the enclaves to ensure enclave resources are
   > 
   > You can't resize a subnet once resources are deployed inside the subnet.
 
-2. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
+1. Quickly create these [Private DNS Zones](./deploy-private-dns-zones-service-catalog.md) based on what you create next:
     - Create `privatelink.azurewebsites.net` under `Additional Private DNS Zone names` which is required to access the web app privately.
 
 ## Deploy the template
 1. Navigate to the [workload](./what-workload.md) for the intended deployment.
-2. Select `+Add Azure Service` button.
-3. Select the `App Service` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
+1. Select `+Add Azure Service` button.
+1. Select the `App Service` service template from the [service catalog list](./list-service-catalog-templates.md) dropdown, confirm the version you need (default: `latest`), and select `Next`.
 
 ![Screenshot showing the App Service template selected from the service catalog list.](./media/service-catalog-list-app-service.png)
 
-4. Enter all the required parameters on each page.
-5. Adjust any of the prepopulated parameters as needed.
-5. Select `Review + Add` then `Create`.
+1. Enter all the required parameters on each page.
+1. Adjust any of the prepopulated parameters as needed.
+1. Select `Review + Create` then `Create`.
 
 It can take up to 30 minutes to finish all resource creation. Wait for the deployment to be successfully completed before you take any actions within your deployed resources.
 

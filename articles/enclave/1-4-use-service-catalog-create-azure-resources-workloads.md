@@ -36,7 +36,7 @@ In this tutorial, part four of eight, you create Azure resources using service c
 
 1. Navigate to the `ve-Enclave-WebApp` enclave and select `Maintenance Mode`.
 
-2. Enter the information needed to enable maintenance mode:
+1. Enter the information needed to enable maintenance mode:
    - **Maintenance Mode:** Select `General`
    - **Principals:** Select `Choose Microsoft Entra principal` and enter your username
    - **Justification:** Select `Networking`
@@ -44,31 +44,31 @@ In this tutorial, part four of eight, you create Azure resources using service c
 
    [ ![Screenshot showing the maintenance mode screen.](./media/service-catalog-app-service-maintenance-mode-input.png) ](./media/service-catalog-app-service-maintenance-mode-input.png#lightbox)
 
-3. Select `Confirm` and allow a few minutes for the enclave to return to `Succeeded` state.
+1. Select `Confirm` and allow a few minutes for the enclave to return to `Succeeded` state.
 
    ![Screenshow showing the popup confirmation box for maintenance mode confirmation.](./media/service-catalog-app-service-maintenance-mode-confirm.png)
 
 ## Create App Service required resources
 
 1. Navigate to the `wl-webapp-frontend` workload to create an Azure App Service for your webapp.
-2. Select `Add an Azure service` button on the overview page.
-3. Select `Private DNS Zones` from the service catalog dropdown list and select `Next`.
+1. Select `Add an Azure service` button on the overview page.
+1. Select `Private DNS Zones` from the service catalog dropdown list and select `Next`.
 
    [ ![Screenshot showing the service catalog with the private DNS zones template selected.](./media/service-catalog-app-service-private-link-catalog.png) ](./media/service-catalog-app-service-private-link-catalog.png#lightbox)
 
-4. Create the private DNS zone:
+1. Create the private DNS zone:
     
     1. For `Resource groups`, select `wl-webapp-frontend`.
-    2. For `Additional Private DNS Zone Names`, enter the private DNS zone name for App Service `["privatelink.azurewebsites.net"]`. You might need to use a different value depending on the Azure cloud you're using.
-    3. Select `Review + Create` then `Create`.
+    1. For `Additional Private DNS Zone Names`, enter the private DNS zone name for App Service `["privatelink.azurewebsites.net"]`. You might need to use a different value depending on the Azure cloud you're using.
+    1. Select `Review + Create` then `Create`.
  
 ## Create Azure web app resources from the service catalog
 
 1. Navigate to the `wl-webapp-frontend` workload to create an Azure App Service for your webapp.
-2. Select `Add an Azure service` button on the overview page.
-3. Select `App Service` from the service catalog dropdown list and select `Next`.
+1. Select `Add an Azure service` button on the overview page.
+1. Select `App Service` from the service catalog dropdown list and select `Next`.
     [ ![Screenshot showing the App Service template selected in the workload portal view.](./media/service-catalog-app-service-catalog-page.png) ](./media/service-catalog-app-service-catalog-page.png#lightbox)
-4. Enter all the required parameters on each tab.
+1. Enter all the required parameters on each tab.
    - **Web App Site Name:** Enter `webapp-frontend-fabrikam`
    - **App Service Sku Name:** Select an option from the dropdown, `P1v2`, or the lowest option for this tutorial. See this table for a full list of options: https://azure.microsoft.com/pricing/details/app-service/linux/#pricing
    - **App Service Sku Tier:** Enter `PremiumV2`.
@@ -76,7 +76,7 @@ In this tutorial, part four of eight, you create Azure resources using service c
 
    [ ![Screenshot showing the basics input screen for an App Service web app.](./media/service-catalog-app-service-basics.png) ](./media/service-catalog-app-service-basics.png#lightbox)
 
-5. Select `Next` then enter the networking information. Ensure the App Service subnet has a delegation to 'Microsoft.Web/serverfarms' and the private link subnet doesn't.
+1. Select `Next` then enter the networking information. Ensure the App Service subnet has a delegation to 'Microsoft.Web/serverfarms' and the private link subnet doesn't.
    - `Dedicated App Service Subnet Name`: Enter `webapp-Subnet` for the subnet delegated in the previous step.
    - `Private Link Subnet Name`: Enter `common-subnet` for the subnet containing the private endpoints.
    - `Private Dns Zone Resource Group Name`: Enter `rg-webapp-frontend`.
@@ -84,7 +84,7 @@ In this tutorial, part four of eight, you create Azure resources using service c
 
    ![Screenshot showing the networking input screen for an App Service web app.](./media/service-catalog-app-service-networking.png)
 
-6. Select `Review + Create` and then `Create`.
+1. Select `Review + Create` and then `Create`.
 
    Wait for the deployment to complete successfully before you take any actions within your deployed resources.
 

@@ -43,8 +43,8 @@ Docker configuration:
 - Images used by the extension must be pulled and tagged locally before you use the extension:
 
     ```bash
-    docker pull mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.9
-    docker tag mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.9 devx-runtime
+    docker pull mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.10
+    docker tag mcr.microsoft.com/azureiotoperations/devx-runtime:0.1.10 devx-runtime
     ```
 
 - All the containers the extension launches are configured to run on a custom network named `aio_akri_network` for network isolation purpose:

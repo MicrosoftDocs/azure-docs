@@ -271,4 +271,4 @@ DeploymentDebugLogLevel :
 
 ## Next steps
 
-[Monitor replication](tutorial-migrate-vmware.md#track-and-monitor) status through the portal experience and perform Test migrations and migration.
+[Monitor replication](tutorial-migrate-vmware.md#track-migrations) status through the portal experience and perform test migrations and migration.

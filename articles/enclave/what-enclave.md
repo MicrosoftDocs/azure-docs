@@ -1,13 +1,13 @@
 ---
 title: What is an Enclave?
-description: What is an Enclave?
+description: What is an enclave?
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
 ms.date: 5/5/2026
 ---
 
-# What is an Enclave?
+# What is an enclave?
 
 An enclave is an isolated Azure Virtual Network that belongs to a [community](./what-community.md). It hosts one or more [workloads](./what-workload.md) that require network isolation, monitoring, and security boundaries. You can connect enclaves together using [enclave endpoints](./what-enclave-endpoint.md) to enable secure [enclave-to-enclave communication](./what-enclave-connection.md).
 
@@ -64,4 +64,4 @@ The following resources types are deployed into the enclave managed resource gro
 - [What is a community?](./what-community.md)
 - [Best practices](./best-practices.md)
 - [Maintenance mode](./maintenance-mode.md)
-- [Tutorial: Create an Enclave](./1-2-create-enclaves-inside-community.md)
+- [Tutorial: Create an enclave](./1-2-create-enclaves-inside-community.md)

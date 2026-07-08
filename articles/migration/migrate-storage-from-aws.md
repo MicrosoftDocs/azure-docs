@@ -4,7 +4,7 @@ description: Learn about concepts, how-tos, and best practices for migrating sto
 author: stevenmatthew
 ms.author: shaas
 ms.reviewer: rhackenberg, chkittel
-ms.date: 03/10/2026
+ms.date: 07/01/2026
 ms.topic: concept-article
 ms.service: azure
 ms.collection:
@@ -30,12 +30,13 @@ Start the migration process by comparing the AWS storage service that's used in 
 
 Use the following migration guides as examples to help structure your migration strategy.
 
-| Scenario | Key services | Description |
-|--|--|--|
-| [Get started with cloud-to-cloud migration in Azure Storage Mover](/azure/storage-mover/cloud-to-cloud-migration). | Amazon S3 to Azure Blob Storage | Guides you through the complete process of configuring Storage Mover to migrate your data from Amazon S3 to Azure Blob Storage. |
-| [Copy data from Amazon S3 to Azure Storage by using AzCopy](/azure/storage/common/storage-use-azcopy-s3). | Amazon S3 to Azure Blob Storage | Demonstrates how to migrate data from Amazon S3 to Azure by using AzCopy for online transfers. |
-| [Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage](/azure/data-factory/data-migration-guidance-s3-azure-storage). | Amazon S3 to Azure Blob Storage | Covers planning and implementation steps for migrating data from S3 to Azure, including operational details. |
-| [Migrate data from Amazon S3 to Azure Data Lake Storage Gen2](/azure/data-factory/solution-template-migration-s3-azure). | Amazon S3 to Azure Data Lake Storage | Provides a prebuilt approach to help automate your data migration from S3 to Azure Storage. |
+| Scenario                                                                                                                                | Key services                                           | Description                                                                                                                                                                                      |
+| --------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [Get started with cloud-to-cloud migration in Azure Storage Mover](/azure/storage-mover/cloud-to-cloud-migration).                      | Amazon S3 to Azure Blob Storage                        | Guides you through the complete process of configuring Storage Mover to migrate your data from Amazon S3 to Azure Blob Storage.                                                                  |
+| [Migrate data using private connections in Azure Storage Mover](/azure/storage-mover/migrations-requiring-private-connections).         | Amazon S3 to Azure Blob Storage over a private network | Migrate S3 data whose source is in an Amazon Virtual Private Cloud (VPC) over private networks by using Azure Private Link and private endpoints, which keeps transfers off the public internet. |
+| [Copy data from Amazon S3 to Azure Storage by using AzCopy](/azure/storage/common/storage-use-azcopy-s3).                               | Amazon S3 to Azure Blob Storage                        | Demonstrates how to migrate data from Amazon S3 to Azure by using AzCopy for online transfers.                                                                                                   |
+| [Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage](/azure/data-factory/data-migration-guidance-s3-azure-storage). | Amazon S3 to Azure Blob Storage                        | Covers planning and implementation steps for migrating data from S3 to Azure, including operational details.                                                                                     |
+| [Migrate data from Amazon S3 to Azure Data Lake Storage Gen2](/azure/data-factory/solution-template-migration-s3-azure).                | Amazon S3 to Azure Data Lake Storage                   | Provides a prebuilt approach to help automate your data migration from S3 to Azure Storage.                                                                                                      |
 
 ## Related workload components
 

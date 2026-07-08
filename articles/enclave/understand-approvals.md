@@ -44,7 +44,7 @@ You have the flexibility to define approvers based on your requirements. You can
 
 1. Go to the resource where you want to grant the approver role and select `Access Control (IAM)` in the left pane.
 1. Select `Add`, and then select `Add role assignment`.
-1. Search for and select `Enclave Approver`, and then select `Next`.
+1. Search for and select `Enclave Approver Role`, and then select `Next`.
 1. Select `Select Members`, search for and select the users or groups you want to make approvers, and then select `Next`.
 1. On the final screen, select `Review + Assign`. The selected members get the approver role.
 
@@ -98,10 +98,10 @@ The metadata for deleted requests remains in logs for auditing purposes.
 ### 5. How can I attach a ticket ID to an approval request?
 
 1. Navigate to your approval request and select `Review`.
-2. View the field called `Ticket ID`.
-3. Select `Add Ticket ID`.
-4. Enter the ticket ID in the field and select `Save`.
-5. To update the ticket ID, select `Edit`.
+1. View the field called `Ticket ID`.
+1. Select `Add Ticket ID`.
+1. Enter the ticket ID in the field and select `Save`.
+1. To update the ticket ID, select `Edit`.
 
 > [!IMPORTANT]
 >
@@ -121,4 +121,4 @@ For example, consider a community with approval settings that require one approv
 
 - [What is Azure Enclave?](./what-azure-enclave.md)
 - [Concepts and best practices](./best-practices.md)
-- [What is an Enclave?](./what-enclave.md)
+- [What is an enclave?](./what-enclave.md)

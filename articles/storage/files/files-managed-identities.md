@@ -62,7 +62,7 @@ To enable the `SMBOAuth` property on your storage account, use either the Azure 
 
 ### [Portal](#tab/portal)
 
-To create a new storage account with the `SMBOAuth` property enabled by using the Azure portal, follow [these steps](create-classic-file-share.md#create-a-storage-account). On the **Advanced** tab, select the **Enable Managed Identity for SMB** checkbox.
+To create a new storage account with the `SMBOAuth` property enabled by using the Azure portal, follow [these steps](create-classic-file-share.md#create-a-storage-account-for-classic-file-shares). On the **Advanced** tab, select the **Enable Managed Identity for SMB** checkbox.
 
 :::image type="content" source="media/managed-identities/enable-managed-identity.png" alt-text="Screenshot that shows how to enable a managed identity for SMB when creating a new storage account by using the Azure portal." border="true":::
 

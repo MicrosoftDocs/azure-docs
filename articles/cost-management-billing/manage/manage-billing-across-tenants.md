@@ -144,8 +144,12 @@ Before moving subscriptions, make sure you [add a tenant as an associated billin
 1. Go to the [Microsoft admin center](https://admin.microsoft.com).
 1. In the admin center, go to the **Billing > Your products page**.
 1. Select the name of the product that you want to move to the associated billing tenant.
-1. On the product details page, in the **Licenses assigned from all subscriptions** section, select **Move to another tenant**.
-1. In the **Move subscription to a different tenant** pane, search for a tenant name or select a tenant from the list, then select **Move subscription**.
+1. On the product details page, in the **Licenses assigned from all subscriptions** section, select **Move to another tenant**.  
+    :::image type="content" source="./media/manage-billing-across-tenants/inventory-detail-page.png" alt-text="Screenshot showing the inventory detail page." lightbox="./media/manage-billing-across-tenants/inventory-detail-page.png" :::
+1. In the **Move subscription to a different tenant** pane, search for a tenant name or select a tenant from the list, then select **Move subscription**.  
+    :::image type="content" source="./media/manage-billing-across-tenants/move-subscription-to-associated-tenant.png" alt-text="Screenshot showing the move subscription to an associated tenant experience." lightbox="./media/manage-billing-across-tenants/move-subscription-to-associated-tenant.png" :::
+1. The subscription is now moved to the destination tenant.  
+    :::image type="content" source="./media/manage-billing-across-tenants/move-subscription-to-associated-tenant-success.png" alt-text="Screenshot showing the successful move of a subscription to an associated tenant." lightbox="./media/manage-billing-across-tenants/move-subscription-to-associated-tenant-success.png" :::
 
 ## Move Azure subscriptions to an associated billing tenant
 

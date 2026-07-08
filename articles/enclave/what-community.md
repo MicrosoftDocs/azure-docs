@@ -44,6 +44,6 @@ See [template documentation](./azure-enclave-templates.md#resource-modules)
 
 ## Next Steps
 - [What is Azure Enclave?](./what-azure-enclave.md)
-- [What is an Enclave?](./what-enclave.md)
+- [What is an enclave?](./what-enclave.md)
 - [Best practices for Azure Enclave](./best-practices.md)
 - [Tutorial: Create a community](./1-1-create-community.md)

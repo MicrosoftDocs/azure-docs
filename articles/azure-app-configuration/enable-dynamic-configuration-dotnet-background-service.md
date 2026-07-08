@@ -180,19 +180,19 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx Endpoint "<endpoint-of-your-app-configuration-store>"
+    setx Endpoint "<AppConfigurationEndpoint>"
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:Endpoint = "<endpoint-of-your-app-configuration-store>"
+    $Env:Endpoint = "<AppConfigurationEndpoint>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export Endpoint='<endpoint-of-your-app-configuration-store>'
+    export Endpoint='<AppConfigurationEndpoint>'
     ```
 
     ### [Connection string](#tab/connection-string)
@@ -201,19 +201,19 @@ You use the [.NET command-line interface (CLI)](/dotnet/core/tools/) to create a
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx ConnectionString "<connection-string-of-your-app-configuration-store>"
+    setx ConnectionString "<AppConfigurationConnectionString>"
     ```
 
    If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:ConnectionString = "<connection-string-of-your-app-configuration-store>"
+    $Env:ConnectionString = "<AppConfigurationConnectionString>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export ConnectionString='<connection-string-of-your-app-configuration-store>'
+    export ConnectionString='<AppConfigurationConnectionString>'
     ```
     ---
 

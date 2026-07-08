@@ -14,7 +14,7 @@ This example of setting up a DNS Forwarder Virtual Machine (VM) is for the `cont
 ## Steps in this guide
 
 1. Deploy DNS Forwarder VM.
-2. Update virtual network DNS.
+1. Update virtual network DNS.
 
 ## Deploy and configure DNS forwarder VM
 
@@ -27,8 +27,8 @@ In the `Server Manager` window, select `Manage` to install a new feature
 ![Screenshot showing the add DNS Forwarder Roles and Feature selection.](./media/dns-forwarder-add-roles-features.png)
 
 1. Select `Next` until `Server Roles` where you check the box next to `DNS Server`.
-2. Accept the recommended tools and select `Next` until the install button appears.
-3. Wait for the installation to finish.
+1. Accept the recommended tools and select `Next` until the install button appears.
+1. Wait for the installation to finish.
 
 ### Add domain controller IPs as the DNS Forwarders
 In the `Server Manager` window, select `Tools` and `DNS`. Make sure the DNS forwarder VM name is selected and double select `Forwarders` and add the domain controller IPs.
@@ -42,5 +42,5 @@ Use the commands `ipconfig /all` and `nslookup contoso5.com` to get the VM IP ad
 
 ## Update enclave virtual network DNS
 1. Open the enclave virtual network resource.
-2. Select `DNS` on the left side.
-3. Remove the default Azure IP address and add the domain controller IPs. Reboot any VMs in the virtual network for these new setting to take effect automatically.
+1. Select `DNS` on the left side.
+1. Remove the default Azure IP address and add the domain controller IPs. Reboot any VMs in the virtual network for these new setting to take effect automatically.

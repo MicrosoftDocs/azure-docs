@@ -55,10 +55,10 @@ This section lists the outbound IP address ranges that Playwright Workspaces req
 
 | Azure region | IP address range |
 |--------------|------------------|
-| East US      | 52.190.15.208/28 |
-| West US3     | 20.172.9.112/28  |
-| East Asia    | 20.24.220.64/28  |
-| West Europe  | 98.71.172.224/28 |
+| East US      | 52.190.15.208/28, 48.211.3.96/27 |
+| West US3     | 20.172.9.112/28, 4.149.23.64/27 |
+| East Asia    | 20.24.220.64/28, 72.145.176.32/27 |
+| West Europe  | 98.71.172.224/28, 4.252.148.64/27 |
 
 ## Related content
 

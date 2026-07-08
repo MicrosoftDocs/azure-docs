@@ -1411,6 +1411,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/storage/files/storage-files-zonal-placement.md",
+            "redirect_url": "/azure/storage/files/zonal-placement",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/files/storage-how-to-create-premium-fileshare.md",
             "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
             "redirect_document_id": false

@@ -28,7 +28,7 @@ This sample PowerShell script creates a sample Azure notification hub.
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/notification-hubs/create-notification-hub/create-notification-hub.ps1 "Create a notification hub")]
+[!code-powershell[main](~/powershell_scripts/notification-hubs/create-notification-hub/create-notification-hub.ps1 "Create a notification hub")]
 
 ## Clean up deployment
 

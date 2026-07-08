@@ -36,19 +36,19 @@ Before creating Azure resources in an enclave, create the Azure Enclave workload
 
 1. In the Azure portal, go to `Azure Enclave`.
 
-2. In the left menu, select `Enclaves`.
+1. In the left menu, select `Enclaves`.
 
-3. On the `Enclaves` page for the `cmt-fabrikam` community, select the `ve-Enclave-WebApp` enclave that you created in [Tutorial 1-2: Create enclaves in a community](./1-2-create-enclaves-inside-community.md).
+1. On the `Enclaves` page for the `cmt-fabrikam` community, select the `ve-Enclave-WebApp` enclave that you created in [Tutorial 1-2: Create enclaves in a community](./1-2-create-enclaves-inside-community.md).
 
     [ ![Screenshot showing the WebApp enclave overview.](./media/tutorial-step-two-webapp-enclave-overview-page.png) ](./media/tutorial-step-two-webapp-enclave-overview-page.png#lightbox)
 
-4. Under `Manage`, select `Workloads`.
+1. Under `Manage`, select `Workloads`.
 
-5. On the `Workloads` page, select `Create`.
+1. On the `Workloads` page, select `Create`.
 
     [ ![Screenshot showing the WebApp enclave workloads list with the create button highlighted.](./media/tutorial-step-three-webapp-enclave-workload-list-create.png) ](./media/tutorial-step-three-webapp-enclave-workload-list-create.png#lightbox)
 
-6. On the `Basics` tab, enter the following values for the frontend workload:
+1. On the `Basics` tab, enter the following values for the frontend workload:
 
    - `Enclave`: Confirm that `ve-Enclave-WebApp` is selected.
    - `Workload name`: Enter `wl-webapp-frontend`.
@@ -60,16 +60,16 @@ Before creating Azure resources in an enclave, create the Azure Enclave workload
     
     ![Screenshot showing the frontend workload creation screen with the tutorial inputs entered.](./media/tutorial-step-three-create-frontend-workload-screen-basics-input.png)
 
-7. Select `Review + create`, confirm the workload details, and then select `Create`.
+1. Select `Review + create`, confirm the workload details, and then select `Create`.
 
-8. To create the backend workload, repeat the previous steps with these values:
+1. To create the backend workload, repeat the previous steps with these values:
 
    - `Enclave`: Confirm that `ve-Enclave-WebApp` is selected.
    - `Workload name`: Enter `wl-webapp-backend`.
    - `Resource groups`: Select `Add`.
    - `Create new`: Enter `rg-webapp-backend`, and then select `OK`.
 
-9. Select `Review + create`, confirm the workload details, and then select `Create`.
+1. Select `Review + create`, confirm the workload details, and then select `Create`.
 
 ## Validate the workloads
 

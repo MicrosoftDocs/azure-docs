@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 06/19/2024
- ms.author: cherylmc
+ ms.author: duau
 ---
 ### How many VPN client endpoints can I have in my point-to-site configuration?
 

@@ -4,8 +4,8 @@ description: Learn about hybrid connectivity in Azure, and the services that can
 ms.service: azure-virtual-network
 ms.topic: overview
 ms.date: 06/24/2025
-ms.author: cherylmc
-author: cherylmc
+ms.author: allensu
+author: asudbring
 ms.custom: portfolio-consolidation-2025
 ---
 

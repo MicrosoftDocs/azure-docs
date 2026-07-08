@@ -17,23 +17,20 @@ As an administrator, you can [delete Azure Enclave resources and resource groups
 - You can't create an enclave in failed communities.
 - You can't create a workload in failed enclaves.
 - You can't create an enclave endpoint in failed enclaves.
-- You can't create a service catalog in failed enclaves.
 - You can't create a transit hub in failed communities or use failed enclave endpoints.
-- You can't create an enclave connection in failed enclaves or using failed enclave endpoints.
 
 ## Delete conditions
 
-Azure Enclave resources have dependency requirements that must be met before deletion. You must remove dependent child resources before deleting a parent resource. Additionally, if a resource group is locked, delete operations will fail even for resources that appear unmodified.
+Azure Enclave resources have dependency requirements that you must meet before deletion. You must remove dependent child resources before deleting a parent resource. Additionally, if you lock a resource group, delete operations fail even for resources that appear unmodified.
 
 - A community can't be deleted if there are enclaves in the community.
-- A community can't be deleted if there are any existing transit hubs in the community.
+- A community can't be deleted if there are any existing transit hub in the community.
 - You can't delete an enclave if the enclave contains workloads.
 - You can't delete an enclave if the enclave contains enclave endpoints.
-- You can't delete an enclave if the enclave contains service catalogs.
 - You can't delete an enclave if the enclave contains workload resource groups that aren't empty.
 - You can't delete a workload if the workload contains workload resource groups that aren't empty.
-- When you delete an enclave, enclave connections associated with the enclave are also deleted, along with their associated Azure Firewall network rules. The enclave managed resource group and all platform-managed resources within it are also deleted.
-- A workload can't be deleted if the workload resource group is locked.
+- When you delete an enclave, you also delete enclave connections or community endpoints between the community and enclave along with firewall rules.
+- A workload can't be deleted in the workload resource group is locked.
 - An enclave endpoint can't be deleted if there are active enclave connections using the enclave endpoint.
-- A community endpoint can't be deleted if there are active enclave connections using it.
+- You can't delete a community endpoint if active enclave connections use it.
 - Transit hubs can't be deleted if there are associated community endpoints.

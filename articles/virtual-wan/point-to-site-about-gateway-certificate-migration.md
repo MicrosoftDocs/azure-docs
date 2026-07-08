@@ -2,11 +2,11 @@
 title: About Gateway Root Certificate Migration and P2S User VPN Profile Updates
 titleSuffix: Azure Virtual WAN
 description: Learn about certificate migration for VPN gateways and how it affects point-to-site User VPN client connection profiles.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 06/08/2026
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: "I want to understand more about root certificate migration for Azure Virtual WAN and how it impacts my point-to-site VPN client profiles, so I can be prepared to take necessary actions to maintain connectivity."
 ---
 # About gateway root certificate migration and P2S User VPN profile updates

@@ -6,7 +6,8 @@ ms.author: jianleishen
 author: jianleishen
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 10/20/2023
+ms.date: 06/22/2026
+ms.update-cycle: 1095
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -53,7 +54,7 @@ To use this Microsoft Access connector, you need to:
 
 Use the following steps to create a linked service to Microsoft Access in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -83,9 +84,9 @@ The following properties are supported for Microsoft Access linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **MicrosoftAccess** | Yes |
-| connectionString | The ODBC connection string excluding the credential portion. You can specify the connection string or use the system DSN (Data Source Name) you set up on the Integration Runtime machine (you need still specify the credential portion in linked service accordingly).<br> You can also put a password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details.| Yes |
+| connectionString | The ODBC connection string excluding the credential portion. You can specify the connection string or use the system DSN (Data Source Name) you set up on the Integration Runtime machine (you need still specify the credential portion in linked service accordingly).<br> You can also put a password in Azure Key Vault and pull the `password` configuration out of the connection string. Refer to [Store credentials in Azure Key Vault](store-credentials-in-key-vault.md) with more details.| Yes |
 | authenticationType | Type of authentication used to connect to the Microsoft Access data store.<br/>Allowed values are: **Basic** and **Anonymous**. | Yes |
-| userName | Specify user name if you are using Basic authentication. | No |
+| userName | Specify user name if you're using Basic authentication. | No |
 | password | Specify password for the user account you specified for the userName. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 | credential | The access credential portion of the connection string specified in driver-specific property-value format. Mark this field as a SecureString. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. A Self-hosted Integration Runtime is required as mentioned in [Prerequisites](#prerequisites). |Yes |
@@ -198,7 +199,7 @@ To copy data to Microsoft Access, the following properties are supported in the 
 | writeBatchTimeout |Wait time for the batch insert operation to complete before it times out.<br/>Allowed values are: timespan. Example: “00:30:00” (30 minutes). |No |
 | writeBatchSize |Inserts data into the SQL table when the buffer size reaches writeBatchSize.<br/>Allowed values are: integer (number of rows). |No (default is 0 - auto detected) |
 | preCopyScript |Specify a SQL query for Copy Activity to execute before writing data into data store in each run. You can use this property to clean up the pre-loaded data. |No |
-| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run.Specify a value only when you want to limit concurrent connections.| No |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run.Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
 
