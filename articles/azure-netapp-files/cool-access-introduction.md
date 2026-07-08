@@ -53,6 +53,9 @@ When cool access is enabled on the Premium and Ultra service levels, throughput 
 
 If a volume is within the Premium or Ultra service levels with auto QoS enabled and has more than 100 GiB of cool access data, the throughput QoS limit is different for the data on hot and cool tier respectively.
 
+> [!NOTE]
+> Throughput is calculated per volume, not per capacity pool. Volumes within the same pool that have different amounts of data in the cool tier have different maximum throughput. This difference is expected. To find any volume's maximum throughput, apply the formulas in the following table to each volume separately.
+
 Review the table to understand how throughput limit is calculated. 
 
 | Service level | Formula without cool access | Formula with cool access | 

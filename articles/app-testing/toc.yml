@@ -143,6 +143,8 @@ items:
       items:
         - name: Troubleshoot issues in private endpoints tests
           href: load-testing/troubleshoot-private-endpoint-tests.md
+        - name: Troubleshoot issues with browser recording extension
+          href: load-testing/troubleshoot-browser-extension.md
     - name: Reference
       items:
         - name: Azure CLI

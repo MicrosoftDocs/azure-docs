@@ -2,11 +2,11 @@
 title: 'Configure P2S VPN clients - certificate authentication - iOS OpenVPN client'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure the VPN client for VPN Gateway P2S configurations that use certificate authentication. This article applies to iOS OpenVPN client.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/18/2024
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: As a network administrator, I want to configure the OpenVPN client for certificate authentication on iOS, so that I can securely connect to the Azure virtual network using point-to-site VPN.
 ---
 

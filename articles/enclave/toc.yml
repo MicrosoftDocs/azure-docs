@@ -90,8 +90,6 @@
     href: 1-6-monitor-your-enclaves.md
   - name: Host a publicly accessible application in an Azure Enclave
     href: 1-7-host-publicly-accessible-application-azure-enclave.md
-  - name: Migrate workload resources
-    href: 1-8-migrate-workload-resources.md
 - name: Tutorial - Create a complex workload architecture
   items:
   - name: Plan your architecture for Azure Virtual Desktop and AKS workloads
@@ -102,6 +100,10 @@
     href: 2-3-deploy-virtual-desktop-workload.md
   - name: Deploy Azure Kubernetes Service (AKS) workload
     href: 2-4-deploy-kubernetes-workload.md
+- name: Tutorial - Approvals with Azure Enclave resources
+  items:
+  - name: Require approvals with Azure Enclave resources
+    href: 3-1-approvals-azure-enclave.md
 - name: Governance, Security, and Compliance
   items:
   - name: Observability

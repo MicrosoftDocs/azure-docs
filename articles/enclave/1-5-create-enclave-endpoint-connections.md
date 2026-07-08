@@ -104,6 +104,55 @@ Create an enclave connection from the web app enclave to the community endpoint 
 
 1. Approve the pending approvals and the connection state is automatically updated to the `connected` state. For more information about reviewing approval requests, see [Manage approval requests](./manage-approvals.md). For resource-type approval settings, see [Configure approval settings](./configure-approvals.md).
 
+## Clean up resources
+
+If you no longer need the endpoint and connection resources that you created in this tutorial, delete them to avoid incurring unnecessary charges.
+
+> [!WARNING]
+> Deleting endpoint and connection resources is **permanent** and **can't be undone**. Review dependent workloads and active traffic paths before deletion.
+
+**Before deleting:**
+- Verify that no workloads depend on these endpoints or connections.
+
+**Recommended deletion order:**
+1. Delete enclave connections.
+1. Delete enclave endpoints.
+1. Delete community endpoints.
+
+**To delete enclave connections:**
+
+1. In the Azure portal, go to your community (for example, `cmt-fabrikam`).
+1. Select `Enclave Connections`.
+1. Select the enclave connection to delete (for example, `ec-fabrikam-external-connection`).
+4. Select `Delete`.
+5. Confirm deletion.
+
+**To delete enclave endpoints:**
+
+1. In Azure portal, navigate to the source enclave (for example, `ve-Enclave-WebApp`).
+2. Select `Enclave Endpoints`.
+3. Select the enclave endpoint to delete (for example, `ee-MyService`).
+4. Select `Delete`.
+5. Confirm deletion.
+
+**To delete community endpoints:**
+
+1. In Azure portal, navigate to your community (for example, `cmt-fabrikam`).
+2. Select `Community Endpoints`.
+3. Select the community endpoint to delete (for example, `ce-fabrikam-website`).
+4. Select `Delete`.
+5. Confirm deletion.
+
+**What gets deleted:**
+- Enclave connection resources created in this tutorial.
+- Enclave endpoint resources created in this tutorial.
+- Community endpoint resources created in this tutorial.
+
+**What is retained:**
+- Community and enclave resources.
+- Workloads and subnet resources.
+- Approval settings and other unrelated Azure Enclave resources.
+
 ## Next steps
 In this tutorial, you deployed community and enclave endpoints using Azure portal. You also learned how to:
 

@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 03/10/2025
- ms.author: cherylmc
+ ms.author: duau
 ---
 
 1. In the portal, go to the virtual network gateway that you want to reset.

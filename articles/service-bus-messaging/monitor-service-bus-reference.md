@@ -52,7 +52,7 @@ The following metrics are *message metrics*.
 
 | Metric | Description |
 |:-------|:------------|
-| Incoming Messages | The number of events or messages sent to Service Bus over a specified period. Includes successfully auto-forwarded messages delivered to the destination entity. |
+| Incoming Messages | The number of events or messages sent to Service Bus over a specified period. This count includes messages auto forwarded to the entity via auto-forwarding from a source entity. |
 | Outgoing Messages | The number of events or messages received from Service Bus over a specified period. The outgoing autoforwarded messages aren't included in this metric. |
 | Messages | Count of messages in a queue/topic. This metric includes messages in all the different states like active, dead-lettered, scheduled, etc. |
 | Active Messages | Count of active messages in a queue/topic. Active messages are the messages in the queue or subscription that are in the active state and ready for delivery. The messages are available to be received. |

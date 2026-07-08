@@ -10,7 +10,8 @@ ms.author: anfdocs
 ---
 # Migrate volumes to Azure NetApp Files 
 
-With Azure NetApp Files' migration assistant, you can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP to Azure NetApp Files. 
+By using Azure NetApp Files migration assistant, you can peer and migrate volumes from on-premises ONTAP or Cloud Volumes ONTAP to Azure NetApp Files.
+
 
 ## Requirements 
 

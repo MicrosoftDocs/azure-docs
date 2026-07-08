@@ -2,8 +2,8 @@
 title: 'Assign Users IP Addresses from Defined Pools for P2S VPN Connections - Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to assign IP addresses from specific address pools to P2S VPN users based on their identity or authentication credentials using the Azure portal.
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 05/05/2026
@@ -23,7 +23,7 @@ This article helps you configure Policy Groups, Group Members, and prioritize gr
   * [Create a VPN gateway using PowerShell](create-gateway-powershell.md)
   * [Create a VPN gateway using Azure CLI](create-routebased-vpn-gateway-cli.md)
 
-* **Permissions for Entra**. If you plan to use Microsoft Entra authentication, you need to have the appropriate permissions in Microsoft Entra to be able to view group Object IDs and assign users to groups. For more information about Microsoft Entra permissions, see [Microsoft Entra built-in roles](https://learn.microsoft.com/entra/identity/role-based-access-control/permissions-reference). For this exercise, we use 2 Microsoft Entra groups with their Object IDs to configure the policy groups and members for this feature. We don't walk through the steps to create Microsoft Entra ID groups or assign users to groups in this article, but you can find more information about managing Microsoft Entra groups in the [Enterprise user management documentation](https://learn.microsoft.com/entra/identity/users/).
+* **Permissions for Entra**. If you plan to use Microsoft Entra authentication, you need to have the appropriate permissions in Microsoft Entra to be able to view group Object IDs and assign users to groups. For more information about Microsoft Entra permissions, see [Microsoft Entra built-in roles](/entra/identity/role-based-access-control/permissions-reference). For this exercise, we use 2 Microsoft Entra groups with their Object IDs to configure the policy groups and members for this feature. We don't walk through the steps to create Microsoft Entra ID groups or assign users to groups in this article, but you can find more information about managing Microsoft Entra groups in the [Enterprise user management documentation](/entra/identity/users/).
 
 ## Workflow
 

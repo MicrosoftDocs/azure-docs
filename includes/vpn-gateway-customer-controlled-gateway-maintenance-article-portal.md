@@ -1,6 +1,6 @@
 ---
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.date: 11/01/2023
 ms.service: azure-vpn-gateway
 ms.topic: include

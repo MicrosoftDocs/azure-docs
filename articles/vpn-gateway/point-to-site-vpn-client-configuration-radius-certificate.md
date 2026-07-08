@@ -4,8 +4,8 @@ titleSuffix: Azure VPN Gateway
 description: Learn how to configure a VPN client for point-to-site VPN configurations that use RADIUS certificate authentication.
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-author: cherylmc
-ms.author: cherylmc 
+author: duongau
+ms.author: duau
 ms.date: 05/23/2024
 ms.custom: sfi-image-nochange
 # Customer intent: As a network administrator, I want to configure a VPN client for point-to-site RADIUS certificate authentication, so that I can securely connect client devices to the virtual network using certificate-based authentication.

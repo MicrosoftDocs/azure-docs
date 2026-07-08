@@ -355,6 +355,15 @@ groups:
     title: .NET (isolated)
   - id: other
     title: non-.NET
+# Owner: hhunter-ms
+- id: dts-sandbox-languages
+  title: On-demand Sandboxes SDK
+  prompt: Choose a programming language
+  pivots:
+  - id: csharp
+    title: .NET
+  - id: python
+    title: Python
 ### end azure-functions
 #Owner: jiayma
 - id: bring-third-party-dependency-programming-functions
@@ -2147,7 +2156,15 @@ groups:
     title: Windows
   - id: linux
     title: Linux
-
+# Owner: zamasiel
+- id: sap-ha-nfs-solution
+  title: Azure NFS Hosting Option
+  prompt: Choose your Azure NFS Hosting Solution
+  pivots:
+  - id: azurefiles
+    title: NFS on Azure Files
+  - id: anf
+    title: Azure NetApp Files
 # Owner: duongau
 - id: networking-scenario
   title: Choose your scenario

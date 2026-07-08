@@ -16,8 +16,8 @@ If you need more information about a particular diagnostic code, select the **Fe
 
 You can suppress Bicep diagnostic codes by using `disable-next-line` and `disable-diagnostics`. See [Directives](./file.md#directives).
 
-| Code       | Level | Description |
-|------------|-------|-------------|
+| Code | Level | Description |
+| -- | -- | -- |
 | <a id='BCP001' />BCP001 | Error | The following token isn't recognized: `{token}`. |
 | <a id='BCP002' />BCP002 | Error | The multi-line comment at this location isn't terminated. Terminate it with the `*/` character sequence. |
 | <a id='BCP003' />BCP003 | Error | The string at this location isn't terminated. Terminate the string with a single quote character. |
@@ -309,7 +309,7 @@ You can suppress Bicep diagnostic codes by using `disable-next-line` and `disabl
 | <a id='BCP318' />[BCP318](./diagnostics/bcp318.md) | Warning | The value of type `<possible-null-type>` may be null at the start of the deployment, which would cause this access expression (and the overall deployment with it) to fail.  |
 | <a id='BCP319' />BCP319 | Error | The type at `{errorSource}` couldn't be resolved by the ARM JSON template engine. Original error message: `{message}` |
 | <a id='BCP320' />BCP320 | Error | The properties of module output resources can't be accessed directly. To use the properties of this resource, pass it as a resource-typed parameter to another module and access the parameter's properties therein. |
-| <a id='BCP321' />BCP321 | Warning | Expected a value of type `{expectedType}`, but the provided value is of type `{actualType}`. If you know the value won't be null, use a non-null assertion operator to inform the compiler that the value won't be null: `{SyntaxFactory.AsNonNullable(expression).ToString()}`. |
+| <a id='BCP321' />[BCP321](./diagnostics/bcp321.md) | Warning | Expected a value of type `<expected-type>`, but the provided value is of type `<actual-type>`. If you know the value won't be null, use a non-null assertion operator to inform the compiler that the value won't be null: `{SyntaxFactory.AsNonNullable(expression).ToString()}`. |
 | <a id='BCP322' />BCP322 | Error | The `.?` (safe dereference) operator may not be used on instance function invocations. |
 | <a id='BCP323' />BCP323 | Error | The `[?]` (safe dereference) operator may not be used on resource or module collections. |
 | <a id='BCP325' />BCP325 | Error | Expected a type identifier at this location. |
@@ -347,7 +347,7 @@ You can suppress Bicep diagnostic codes by using `disable-next-line` and `disabl
 | <a id='BCP361' />BCP361 | Error | The `@export()` decorator must target a top-level statement. |
 | <a id='BCP362' />BCP362 | Error | This symbol is imported multiple times under the names `{string.Join(", ", importedAs.Select(identifier => $"'{identifier}'"))}`. |
 | <a id='BCP363' />BCP363 | Error | The `{LanguageConstants.TypeDiscriminatorDecoratorName}` decorator can only be applied to object-only union types with unique member types. |
-| <a id='BCP364' />BCP364 | Error | The property `{discriminatorPropertyName}` must be a required string literal on all union member types. |
+| <a id='BCP364' />[BCP364](./diagnostics/bcp364.md) | Error | The property `{discriminatorPropertyName}` must be a required string literal on all union member types. |
 | <a id='BCP365' />BCP365 | Error | The value `{discriminatorPropertyValue}` for discriminator property `{discriminatorPropertyName}` is duplicated across multiple union member types. The value must be unique across all union member types. |
 | <a id='BCP366' />BCP366 | Error | The discriminator property name must be `{acceptablePropertyName}` on all union member types. |
 | <a id='BCP367' />BCP367 | Error | The `{featureName}` feature is temporarily disabled. |

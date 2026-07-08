@@ -1113,7 +1113,7 @@ The following snippet shows this configuration in the context of a project file:
 
 ### Placeholders
 
-Placeholders are a platform capability that improves cold start for apps targeting .NET 6 or later. To use this optimization, you must explicitly enable placeholders by following these steps:
+Placeholders are a platform capability that improves cold start for apps targeting .NET 8 or later. To use this optimization, explicitly enable placeholders by following these steps:
 
 1. Update your project configuration to use the latest dependency versions, as detailed in the previous section.
 
@@ -1125,7 +1125,7 @@ Placeholders are a platform capability that improves cold start for apps targeti
 
     In this example, replace `<groupName>` with the name of the resource group, and replace `<appName>` with the name of your function app. 
  
-1. Make sure that the [`netFrameworkVersion`](./functions-app-settings.md#netframeworkversion) property of the function app matches your project's target framework, which must be .NET 6 or later. Use this [az functionapp config set](/cli/azure/functionapp/config#az-functionapp-config-set) command:
+1. Make sure that the [`netFrameworkVersion`](./functions-app-settings.md#netframeworkversion) property of the function app matches your project's target framework, which must be .NET 8 or later. Use the [az functionapp config set](/cli/azure/functionapp/config#az-functionapp-config-set) command:
 
     ```azurecli
     az functionapp config set -g <groupName> -n <appName> --net-framework-version <framework>
@@ -1148,7 +1148,7 @@ The function executor is a component of the platform that causes invocations to 
 
 ### ReadyToRun
 
-You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance to help reduce the effect of cold starts when running in a [Consumption plan](consumption-plan.md). ReadyToRun is available in .NET 6 and later versions and requires [version 4.0 or later](functions-versions.md) of the Azure Functions runtime.
+You can compile your function app as [ReadyToRun binaries](/dotnet/core/deploying/ready-to-run). ReadyToRun is a form of ahead-of-time compilation that can improve startup performance and help reduce the effect of cold starts when running in a [Consumption plan](consumption-plan.md). ReadyToRun is available in .NET 8 and later versions and requires [version 4.0 or later](functions-versions.md) of the Azure Functions runtime.
 
 ReadyToRun requires you to build the project against the runtime architecture of the hosting app. When these architectures aren't aligned, your app encounters an error at startup. Select your runtime identifier from this table:
 

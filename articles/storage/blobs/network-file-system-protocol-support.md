@@ -63,7 +63,7 @@ Azure Data Lake Storage introduced the ability to use a hierarchical namespace. 
 
 When your application makes a request by using the NFS 3.0 protocol, that request is translated into a combination of block blob operations. For example, NFS 3.0 read Remote Procedure Call (RPC) requests are translated into [Get Blob](/rest/api/storageservices/get-blob) operations. NFS 3.0 write RPC requests are translated into a combination of [Get Block List](/rest/api/storageservices/get-block-list), [Put Block](/rest/api/storageservices/put-block), and [Put Block List](/rest/api/storageservices/put-block-list).
 
-Block blobs are optimized to efficiently process large amounts of read-heavy data. Block blobs are composed of blocks. A block ID identifies each block. A block blob can include up to 50,000 blocks. Each block in a block blob can be a different size, up to the maximum size permitted for the service version that your account uses.
+Block blobs are optimized to efficiently process large amounts of read-heavy data. Block blobs are composed of blocks. A block ID identifies each block. A block blob can include up to 50,000 blocks. Each block in a block blob can be a different size, up to the maximum size of 100 MiB. Therefore, the maximum block blob size is approximately 4.75 TiB (100 MiB × 50,000 blocks).
 
 | NFSv3 RPC      | REST API operation |
 |---------------|--------------------|

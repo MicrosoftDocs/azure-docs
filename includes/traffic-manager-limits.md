@@ -1,10 +1,10 @@
 ---
 title: Include file
 description: Include file
-author: greg-lindsay
+author: asudbring
 ms.topic: include
 ms.date: 05/05/2025
-ms.author: greglin
+ms.author: allensu
 ms.custom: include file
 ---
 
