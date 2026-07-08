@@ -23,7 +23,7 @@ To use the Dapr pluggable components, define the component spec for each of the 
 
 ## Install Dapr runtime
 
-To install the Dapr runtime, use the following Helm command:
+To install the Dapr runtime, run the following Helm commands:
 
 ```bash
 helm repo add dapr https://dapr.github.io/helm-charts/
