@@ -61,24 +61,20 @@ General-purpose v1 pricing differs from GPv2 in the following ways:
 
 ### Is there a tool to estimate the cost impact of migrating from GPv1 to GPv2 storage accounts?
 
-Yes. Microsoft provides an open-source GPv1 to GPv2 Cost Estimator to help you understand the potential billing impact of migrating your storage accounts.
+Yes. Microsoft provides an open-source [GPv1 to GPv2 Cost Estimator](https://aka.ms/gpv1costestimator) that helps you understand the potential billing impact of migrating your storage accounts. Use it to:
 
-The tool allows you to:
+- Compare estimated costs between GPv1 and GPv2 based on your current usage.
+- Upload billing data (CSV) to model real-world scenarios.
+- Understand how capacity, transactions, and access tiers affect pricing.
+- Export results to share with stakeholders.
 
-- Compare estimated costs between GPv1 and GPv2 based on your current usage
-- Upload billing data (CSV) to model real-world scenarios
-- Understand how capacity, transactions, and access tiers affect pricing
-- Export results to share with stakeholders
-
-Because this is an open-source project, you can review the code, run it locally, or adapt it to your own needs.
-
-> [!TIP]
-> You can access the estimator here: [General purpose v1 (GPv1) storage account cost estimator](https://aka.ms/gpv1costestimator)
+Because the tool is open source, you can review the code, run it locally, or adapt it to your own needs.
 
 > [!NOTE]
 > The estimator uses publicly available pricing and doesn't include contract-specific discounts, taxes, or reservations. Actual costs might vary.
 
 ### Does converting a storage account from GPv1 to GPv2 change pricing for files or disks?
+
 **No.** Converting a storage account from GPv1 to GPv2 only affects Blob Storage pricing. Azure files and Azure disks each have their own independent pricing models, so their costs do not change when the underlying storage account is upgraded.
 
 ### Can I upgrade from GPv1 to GPv2 later? Will anything break?
@@ -96,18 +92,13 @@ Many recent innovations **SMB Multichannel**, **NFS 3.0**, **premium file shares
 
 Your bill will reflect **GPv2** pricing, which differs slightly from GPv1. Key differences include:
 
-- Charges for **read/write operations**  
-- **tier based** pricing (hot, cool, cold, archive)  
-- More **redundancy** flexibility
+- Charges for **read/write operations**.
+- **Tier-based** pricing (hot, cool, cold, archive).
+- More **redundancy** flexibility.
 
-Use the **Azure Pricing Calculator** and your current invoice data to estimate new costs.  
-**Pricing:** https://azure.microsoft.com/pricing/details/storage/blobs/  
-**Calculator:** https://azure.microsoft.com/pricing/calculator/
+Use the [Azure pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/) and the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/), along with your current invoice data, to estimate new costs.
 
-Microsoft also provides an open-source GPv1 to GPv2 Cost Estimator to help you understand the potential billing impact of migrating your storage accounts.
-
-> [!TIP]
-> You can access the estimator here: [General purpose v1 (GPv1) storage account cost estimator](https://aka.ms/gpv1costestimator)
+Microsoft also provides an open-source [GPv1 to GPv2 Cost Estimator](https://aka.ms/gpv1costestimator) to help you understand the potential billing impact of migrating your storage accounts.
 
 > [!NOTE]
 > The estimator uses publicly available pricing and doesn't include contract-specific discounts, taxes, or reservations. Actual costs might vary.
