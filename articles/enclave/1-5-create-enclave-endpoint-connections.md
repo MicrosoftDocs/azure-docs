@@ -106,24 +106,24 @@ Create an enclave connection from the web app enclave to the community endpoint 
 
 ## Clean up resources
 
-If you no longer need the endpoint and connection resources created in this tutorial, delete them to avoid unnecessary charges.
+If you no longer need the endpoint and connection resources that you created in this tutorial, delete them to avoid incurring unnecessary charges.
 
 > [!WARNING]
-> Deleting endpoint and connection resources is **permanent** and **cannot be undone**. Review dependent workloads and active traffic paths before deletion.
+> Deleting endpoint and connection resources is **permanent** and **can't be undone**. Review dependent workloads and active traffic paths before deletion.
 
 **Before deleting:**
-- Verify no workloads depend on these endpoints or connections.
+- Verify that no workloads depend on these endpoints or connections.
 
 **Recommended deletion order:**
 1. Delete enclave connections.
-2. Delete enclave endpoints.
-3. Delete community endpoints.
+1. Delete enclave endpoints.
+1. Delete community endpoints.
 
 **To delete enclave connections:**
 
-1. In Azure portal, navigate to your community (for example, `cmt-fabrikam`).
-2. Select `Enclave Connections`.
-3. Select the enclave connection to delete (for example, `ec-fabrikam-external-connection`).
+1. In the Azure portal, go to your community (for example, `cmt-fabrikam`).
+1. Select `Enclave Connections`.
+1. Select the enclave connection to delete (for example, `ec-fabrikam-external-connection`).
 4. Select `Delete`.
 5. Confirm deletion.
 

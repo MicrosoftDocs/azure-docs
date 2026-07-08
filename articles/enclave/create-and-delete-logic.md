@@ -21,7 +21,7 @@ As an administrator, you can [delete Azure Enclave resources and resource groups
 
 ## Delete conditions
 
-Azure Enclave resources have dependency requirements that must be met before deletion. You must remove dependent child resources before deleting a parent resource. Additionally, if a resource group is locked, delete operations will fail even for resources that appear unmodified.
+Azure Enclave resources have dependency requirements that you must meet before deletion. You must remove dependent child resources before deleting a parent resource. Additionally, if you lock a resource group, delete operations fail even for resources that appear unmodified.
 
 - A community can't be deleted if there are enclaves in the community.
 - A community can't be deleted if there are any existing transit hub in the community.
@@ -32,5 +32,5 @@ Azure Enclave resources have dependency requirements that must be met before del
 - When you delete an enclave, you also delete enclave connections or community endpoints between the community and enclave along with firewall rules.
 - A workload can't be deleted in the workload resource group is locked.
 - An enclave endpoint can't be deleted if there are active enclave connections using the enclave endpoint.
-- A community endpoint can't be deleted if there are active enclave connections using it.
+- You can't delete a community endpoint if active enclave connections use it.
 - Transit hubs can't be deleted if there are associated community endpoints.
