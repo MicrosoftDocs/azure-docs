@@ -244,7 +244,7 @@ resource policyDefinition 'Microsoft.Authorization/policyDefinitions@2021-06-01'
 
 #### Download the Bicep solution
 
-1. Download a Zip archive of the sample repo at [this link](https://github.com/Azure-Samples/avnm-mesh-connected-group/archive/main.zip)
+1. Download a ZIP archive of the sample repo at [this link](https://github.com/Azure-Samples/avnm-mesh-connected-group/archive/main.zip).
 1. Extract the downloaded ZIP file. In your terminal, go to the extracted `avnm-mesh-connected-group` directory. The Bicep files for this solution are in the `bicep` subdirectory.
 
 Alternatively, you can use `git` to clone the repo:
