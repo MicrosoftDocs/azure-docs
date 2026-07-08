@@ -46,7 +46,7 @@ For approval concepts and roles, see [Understand approvals](./understand-approva
 1. In the Azure portal, open `Azure Enclave` and select `Communities`.
 1. Select `Create` and enter your basic settings, such as `cmt-fabrikam`, `East US`, and your address space.
 1. Go to the `Approvals` tab.
-4. Configure only these approval requirements:
+1. Configure only these approval requirements:
    - `Enclave creation`: `Required`, `Minimum number of approvers = 1`
    - `Community endpoint updates`: `Required`, `Minimum number of approvers = 1`
    - `Enclave connection updates`: `Required`, `Minimum number of approvers = 1`
