@@ -136,7 +136,7 @@ items:
         href: ./afds/waf-front-door-exclusion.md
       - name: Configure exclusion lists
         href: ./afds/waf-front-door-exclusion-configure.md
-      - name: Exceptions List
+      - name: Exception lists
         href: ./afds/front-door-exceptions.md
     - name: HTTP DDoS protection
       href: ./afds/http-ddos-ruleset.md

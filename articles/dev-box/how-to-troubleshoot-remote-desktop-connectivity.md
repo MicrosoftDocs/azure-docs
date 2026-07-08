@@ -12,7 +12,7 @@ ms.date: 11/21/2025
 
 # Troubleshoot known dev box issues
 
-This article lists known remote connectivity and other issues with dev boxes in Microsoft Dev Box. These issues can include connection issues, sign-in problems, high latencies, or performance issues.
+This article lists known remote connectivity and other issues in Microsoft Dev Box. These issues can include connection problems, sign-in troubles, high latencies, or performance problems.
 
 If this article doesn't address your issue, try running the automated troubleshooting and repair tool from your dev box tile in the developer portal. For more information, see [Resolve connectivity issues with the Troubleshoot and Repair tool](how-to-troubleshoot-repair-dev-box.md). Also try the troubleshooting steps at [Troubleshoot dev box connectivity issues](how-to-resolve-dev-box-connectivity-issues.md).
 
