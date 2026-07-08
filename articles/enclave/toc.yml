@@ -90,8 +90,6 @@
     href: 1-6-monitor-your-enclaves.md
   - name: Host a publicly accessible application in an Azure Enclave
     href: 1-7-host-publicly-accessible-application-azure-enclave.md
-  - name: Migrate workload resources
-    href: 1-8-migrate-workload-resources.md
 - name: Tutorial - Create a complex workload architecture
   items:
   - name: Plan your architecture for Azure Virtual Desktop and AKS workloads
