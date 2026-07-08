@@ -1,14 +1,14 @@
 ---
 title: Azure Compute Fleet overview
 description: Learn about Azure Compute Fleet and how to accelerate your access to Azure's capacity.
-author: shandilvarun
-ms.author: vashan
+author: fitzgeraldsteele
+ms.author: fisteele
 ms.topic: overview
 ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
-ms.date: 10/29/2025
-ms.reviewer: wwilliams
+ms.date: 07/08/2026
+ms.reviewer: cynthn, diyellap, wwilliams
 # Customer intent: As a cloud administrator, I want to deploy and manage multiple virtual machines efficiently using an automated compute resource management tool, so that I can optimize resource allocation based on cost and capacity while ensuring high availability for my workloads.
 ---
 
