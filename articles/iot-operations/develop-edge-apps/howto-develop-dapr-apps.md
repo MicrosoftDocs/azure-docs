@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/22/2024
+ms.date: 07/08/2026
 
 # CustomerIntent: As a developer, I want to understand how to use Dapr to develop distributed apps that talk with MQTT broker.
 ms.service: azure-iot-operations
