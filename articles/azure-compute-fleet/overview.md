@@ -60,7 +60,7 @@ Compute Fleet doesn't change the underlying Azure quotas or limits. Standard Azu
 
 - Compute Fleet doesn't limit the number of fleets you can create in a region, resource group, or subscription.
 - Each Compute Fleet has a target capacity of up to 10,000 VMs or 100,000 vCPUs.
-- A single Compute Fleet can span up to 3 regions.
+- A single Compute Fleet can span up to three regions.
 
 ## Target capacity 
 
