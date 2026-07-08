@@ -48,7 +48,7 @@ The workaround is to delete the storage task assignment and then move the storag
 
 ## Restrictions on moving a storage task across Microsoft Entra directories
 
-You can move storage tasks across resource groups and subscriptions. However, because storage tasks rely on managed identities, moving a subscription that contains a storage task to a different Microsoft Entra directory breaks the managed identity and causes the storage task to stop working. For more information, see [Known issues with managed identities for Azure resources: Transferring a subscription between Microsoft Entra directories](https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-microsoft-entra-directories).
+You can move storage tasks across resource groups and subscriptions. However, because storage tasks rely on managed identities, moving a subscription that contains a storage task to a different Microsoft Entra directory breaks the managed identity and causes the storage task to stop working. For more information, see [Known issues with managed identities for Azure resources: Transferring a subscription between Microsoft Entra directories](/entra/identity/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-microsoft-entra-directories).
 
 ## Concurrency limit for execution
 
