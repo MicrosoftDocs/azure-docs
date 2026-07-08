@@ -96,7 +96,7 @@ Your bill will reflect **GPv2** pricing, which differs slightly from GPv1. Key d
 - **Tier-based** pricing (hot, cool, cold, archive).
 - More **redundancy** flexibility.
 
-Use the [Azure pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/) and the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/), along with your current invoice data, to estimate new costs.
+To estimate new costs, use the [Azure pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/) and the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/), along with your current invoice data.
 
 Microsoft also provides an open-source [GPv1 to GPv2 Cost Estimator](https://aka.ms/gpv1costestimator) to help you understand the potential billing impact of migrating your storage accounts.
 
