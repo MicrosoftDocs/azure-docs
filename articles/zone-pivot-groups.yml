@@ -2147,7 +2147,15 @@ groups:
     title: Windows
   - id: linux
     title: Linux
-
+# Owner: zamasiel
+- id: sap-ha-nfs-solution
+  title: Azure NFS Hosting Option
+  prompt: Choose your Azure NFS Hosting Solution
+  pivots:
+  - id: azurefiles
+    title: NFS on Azure Files
+  - id: anf
+    title: Azure NetApp Files
 # Owner: duongau
 - id: networking-scenario
   title: Choose your scenario
