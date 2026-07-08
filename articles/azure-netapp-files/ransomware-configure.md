@@ -22,16 +22,16 @@ With this data, advanced ransomware protection monitors your volumes for pattern
 
 Advanced ransomware protection's alert mechanisms enable you to stay vigilant in preventing ransomware attacks on your data and maintaining the resiliency of your workload.
 
-## Anti-ransomware snapshots
+## How advanced ransomware protection works
 
-When advanced ransomware protection detects suspicious activity, Azure NetApp Files automatically creates a protected recovery snapshot of the affected volume. These snapshots provide recovery points that you can use to restore data following a confirmed ransomware event. The service manages anti-ransomware snapshots, and they are separate from user-created snapshots. The service automatically adjusts snapshot retention based on threat status and service policies. You can't reduce retention periods but you can extend them when a threat remains under investigation or is confirmed as ransomware activity.
+When advanced ransomware protection detects suspicious activity, Azure NetApp Files automatically creates a protected recovery snapshot of the affected volume and sends an alert. These snapshots provide recovery points that you can use to restore data following a confirmed ransomware event. The service manages anti-ransomware snapshots, and they are separate from user-created snapshots. The service automatically adjusts snapshot retention based on threat status and service policies. You can't reduce retention periods but you can extend them when a threat remains under investigation or is confirmed as ransomware activity.
 
 ## Ransomware protection snapshots
 
 Advanced ransomware protection in Azure NetApp Files protects your data by taking automated protection snapshots.
 
-* The service automatically creates snapshots when it detects suspicious activity.
-* Snapshot creation can occur before an attack is confirmed.
+* The service automatically creates protection snapshots when it detects suspicious activity.
+* Protection snapshot creation can occur before an attack is confirmed.
 * Snapshots provide recovery points for recovery from ransomware attacks.
 * The service manages snapshot retention, and it might vary according to threat status.
 * The presence of a snapshot doesn't necessarily mean ransomware is confirmed.
