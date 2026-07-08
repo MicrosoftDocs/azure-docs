@@ -24,7 +24,8 @@ Advanced ransomware protection's alert mechanisms enable you to stay vigilant in
 
 ## How advanced ransomware protection works
 
-When advanced ransomware protection detects suspicious activity, Azure NetApp Files automatically creates a protected recovery snapshot of the affected volume and sends an alert. These snapshots provide recovery points that you can use to restore data following a confirmed ransomware event. The service manages anti-ransomware snapshots, and they are separate from user-created snapshots. The service automatically adjusts snapshot retention based on threat status and service policies. You can't reduce retention periods but you can extend them when a threat remains under investigation or is confirmed as ransomware activity.
+When advanced ransomware protection detects suspicious activity, Azure NetApp Files automatically creates a protected recovery snapshot of the affected volume and sends an alert. These snapshots provide recovery points that you can use to restore data following a confirmed ransomware event. The service manages anti-ransomware snapshots, and they're separate from user-created snapshots. The service automatically adjusts snapshot retention based on threat status and service policies. You can't reduce retention periods but you can extend them when a threat remains under investigation or is confirmed as ransomware activity.
+
 
 ## Ransomware protection snapshots
 
