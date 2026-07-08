@@ -103,7 +103,7 @@
 - name: Tutorial - Approvals with Azure Enclave resources
   items:
   - name: Require approvals with Azure Enclave resources
-    href: 3-1-tutorial-approvals-enclave-onboarding-connectivity.md
+    href: 3-1-approvals-azure-enclave.md
 - name: Governance, Security, and Compliance
   items:
   - name: Observability
