@@ -122,9 +122,9 @@ The following properties are supported for a SharePoint Online List linked servi
 
 The SharePoint List Online connector uses service principal authentication to connect to SharePoint. Follow these steps to set it up:
 
-1. Generate a self-signed certificate and export both the public certificate and the certificate including its private key. To learn how, see [Create a self-signed public certificate to authenticate your application](https://learn.microsoft.com/entra/identity-platform/howto-create-self-signed-certificate).
+1. Generate a self-signed certificate and export both the public certificate and the certificate including its private key. To learn how, see [Create a self-signed public certificate to authenticate your application](/entra/identity-platform/howto-create-self-signed-certificate).
 
-2. Register an application with the Microsoft identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
+2. Register an application with the Microsoft identity platform. To learn how, see [Register an application with the Microsoft identity platform](/graph/auth-register-app-v2). Make note of these values, which you use to define the linked service:
 
     - Application ID
     - Tenant ID
@@ -137,7 +137,7 @@ The SharePoint List Online connector uses service principal authentication to co
 
 6. Select **Application permissions**.
 
-7. Select **Sites.Read.All** for **Select permissions**. To learn details about the permissions, check [Microsoft Graph permissions reference](https://learn.microsoft.com/graph/permissions-reference#sitesreadall).
+7. Select **Sites.Read.All** for **Select permissions**. To learn details about the permissions, check [Microsoft Graph permissions reference](/graph/permissions-reference#sitesreadall).
 
 8. Select **Add permissions**.
 
