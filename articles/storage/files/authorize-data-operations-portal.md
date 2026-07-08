@@ -13,11 +13,9 @@ ms.author: kendownie
 
 **Applies to:** :heavy_check_mark: SMB file shares
 
-This article is about authorizing access to Azure Files data when browsing file shares in the **Azure portal**. It doesn't cover setting up identity-based authentication (such as Microsoft Entra Kerberos or AD DS) for SMB access to file shares. If that's what you're looking for, see [Overview of Azure Files identity-based authentication](storage-files-active-directory-overview.md).
+This article is about authorizing access to Azure Files data when browsing file shares in the Azure portal. It doesn't cover setting up identity-based authentication for SMB access to file shares. If that's what you're looking for, see [Overview of Azure Files identity-based authentication](storage-files-active-directory-overview.md).
 
-This article explains how to authorize access to file data in the Azure portal using either your Microsoft Entra account or the storage account access key. When you access file data by using the Azure portal, the portal makes requests to the Azure Files service behind the scenes.
-
-The portal shows which method you're using and lets you switch between the two methods if you have the appropriate permissions. By default, the portal uses whichever method you're already using to authorize all file shares. You can change this setting for individual file share operations.
+When you access file data by using the Azure portal, the portal makes requests to the Azure Files service. You can authorize access to file data in the Azure portal using either your Microsoft Entra account (recommended) or the storage account access key (less secure). The portal shows which method you're using and lets you switch between the two methods if you have the appropriate permissions. By default, the portal uses whichever method you're already using to authorize all file shares. You can change this setting for individual file share operations.
 
 > [!WARNING]
 > Accessing a file share by using storage account keys has inherent security risks. Always authenticate by using Microsoft Entra when possible. For information on how to protect and manage your keys, see [Manage storage account access keys](../common/storage-account-keys-manage.md).
