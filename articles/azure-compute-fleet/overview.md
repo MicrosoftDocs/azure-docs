@@ -56,14 +56,11 @@ We recommend you consider the following configuration options when creating your
 
 ## Compute Fleet quota 
 
-Azure Compute Fleet has applicable Standard and Spot VM quotas. The following table outlines quota limits, depending on your scenario.
+Compute Fleet doesn't change the underlying Azure quotas or limits. Standard Azure VM and vCPU quotas still apply per subscription, per region, and per VM family, and Compute Fleet doesn't raise them. The following limits apply when you use Compute Fleet:
 
-| Scenario | Quota |
-| -------- | ----- |
-| The number of **Compute Fleets** per Region in `active`, `deleted_running` | 500 fleets |
-| The **target capacity** per Compute Fleet | 10,000 VMs |
-| The **target capacity** across all Compute Fleets in a given Region | 100,000 VMs |
-| A Compute Fleet can span across multiple **Regions** | 3 regions |
+- Compute Fleet doesn't limit the number of fleets you can create in a region, resource group, or subscription.
+- Each Compute Fleet has a target capacity of up to 10,000 VMs or 100,000 vCPUs.
+- A single Compute Fleet can span up to 3 regions.
 
 ## Target capacity 
 
