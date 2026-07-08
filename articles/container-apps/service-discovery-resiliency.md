@@ -449,7 +449,7 @@ properties: {
 | `maxConnections` | Yes | Maximum number of concurrent connections to a container app. | `100` |
 
 > [!NOTE]
-> When `maxConnections` isn't set, a default maximum of 10,240 concurrent connections applies. Set `maxConnections` to raise or lower this limit for your container app.
+> When you don't set `maxConnections`, a default maximum of 10,240 concurrent connections applies. Set `maxConnections` to raise or lower this limit for your container app.
 
 ## Resiliency observability
 
