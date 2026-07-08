@@ -188,7 +188,7 @@ AKS requires outbound connectivity to several Azure services. Create community e
 
 ### Configure community endpoint
 
-1. Navigate to your community (for example, `fabrikam`).
+1. Go to your community (for example, `cmt-fabrikam`).
 1. Select **Community endpoints** > **+ Create** or edit existing `ce-aks-services`.
 1. Ensure these rules exist:
 

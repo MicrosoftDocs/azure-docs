@@ -63,7 +63,7 @@ The Azure Virtual Desktop community endpoint enables session hosts to communicat
 1. Search for and select **Azure Virtual Desktop Community Endpoint**.
 1. Configure the deployment:
    - **Resource group**: Select your workload resource group (for example, `rg-avd-workload`)
-   - **Community Resource Name**: Select your community (for example, `fabrikam`)
+   - **Community Resource Name**: Select your community (for example, `cmt-fabrikam`).
    - **Community Endpoint Name**: `ce-avd-services`
    - **Include Azure Virtual Desktop URLs**: Check all required URLs:
      - `*.wvd.microsoft.com`
