@@ -36,7 +36,7 @@ To automatically identify and address dev box issues, try running **Troubleshoot
 > * Confirm that your dev box status is **Running**. If the status is **Stopped** or **Hibernated**, select **Start** or **Resume** from the **More actions** menu on the dev box tile in the [developer portal](https://devbox.microsoft.com).
 > * Check Windows Update. You can't connect to a dev box for up to 30 minutes while Windows is updating.
 > * If you can access your dev box, review security and connection information by selecting the icons on the top connection bar during a session.
-> * Review known connectivity issues at [Troubleshoot known Remote Desktop connectivity issues with dev boxes](how-to-troubleshoot-remote-desktop-connectivity.md).
+> * Review known connectivity issues at [Troubleshoot known dev box issues](how-to-troubleshoot-remote-desktop-connectivity.md).
 
 ## Remote connectivity issues
 
@@ -77,7 +77,7 @@ If you experience frequent connection drops during high CPU load on the dev box,
 
 ## Connection issues during low CPU usage
 
-If you experience frequent connection drops even with low CPU usage on the dev box, you can switch your remote desktop connection to use Transmission Control Protocol (TCP) instead of User Datagram Protocol (UDP). To ensure that the connection uses only TCP, change the settings on both the client device and the dev box.
+If you experience frequent connection drops even with low CPU usage on the dev box, switch the connection to use Transmission Control Protocol (TCP) instead of User Datagram Protocol (UDP). To ensure that the connection uses only TCP, change the settings on both the client device and the dev box.
 
 ### Client settings
 
@@ -111,7 +111,7 @@ defaults write com.microsoft.rdc.macos ClientSettings.EnableAvdUdpSideTransport 
 
 ### Host settings
 
-Use Group Policy Editor to set the remote desktop transport protocols on your dev box to use only TCP.
+Use Group Policy Editor to set the connection transport protocols on your dev box to use only TCP.
 
 1. On your dev box, open the Local Group Policy Editor `gpedit.msc`.
 1. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Connections**.
@@ -141,7 +141,7 @@ If you file a support request, include:
 
 If you can access your dev box, you can get security and connection information by selecting the corresponding icon on the top connection bar during your session.
 
-:::image type="content" source="media/how-to-resolve-dev-box-connectivity-issues/troubleshooting-connection-bar.png" alt-text="Screenshot that shows the Remote Desktop connection bar.":::
+:::image type="content" source="media/how-to-resolve-dev-box-connectivity-issues/troubleshooting-connection-bar.png" alt-text="Screenshot that shows the connection bar for an active dev box session.":::
 
 To see connection details such as **Timestamp** and **Activity ID**, select **See details** in the connection dialog box. Copy the connection details by pressing **Ctrl**+**C**, and close the dialog by selecting **OK**.
  
@@ -150,5 +150,5 @@ To see connection details such as **Timestamp** and **Activity ID**, select **Se
 ## Related content
 
 - [Resolve connectivity issues with the Troubleshoot and Repair tool](how-to-troubleshoot-repair-dev-box.md)
-- [Troubleshoot known Remote Desktop connectivity issues with dev boxes](how-to-troubleshoot-remote-desktop-connectivity.md)
+- [Troubleshoot known dev box issues](how-to-troubleshoot-remote-desktop-connectivity.md)
 - [Get support for Microsoft Dev Box](how-to-get-help.md)

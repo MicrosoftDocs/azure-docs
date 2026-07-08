@@ -41,11 +41,11 @@ You can also create dev boxes through the Azure CLI dev center extension. For mo
 
 ## Connect through an app
 
-After you create your dev box, you can connect to it through the Windows App remote desktop application or through a browser.
+After you create your dev box, you can connect to it through Windows App or through a browser.
 
-### Connect through the Windows App
+### Connect through Windows App
 
-Windows App is the default app for connecting to Microsoft Dev Box from any device, including your phone or laptop. The Windows App is available for Windows, macOS, iOS/iPadOS, Android/Chrome OS (preview), and on web browsers.
+Windows App is the default app for connecting to Microsoft Dev Box from any device, including your phone or laptop. Windows App is available for Windows, macOS, iOS/iPadOS, Android/Chrome OS (preview), and web browsers.
 
 [!INCLUDE [connect-with-windows-app](includes/connect-with-windows-app.md)]  
 
