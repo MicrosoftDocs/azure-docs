@@ -86,8 +86,6 @@
     href: 1-4-use-service-catalog-create-azure-resources-workloads.md
   - name: Create an enclave endpoint and connection
     href: 1-5-create-enclave-endpoint-connections.md
-  - name: Use approvals for enclave onboarding and external connectivity
-    href: tutorial-approvals-enclave-onboarding-connectivity.md
   - name: Monitor your enclaves
     href: 1-6-monitor-your-enclaves.md
   - name: Host a publicly accessible application in an Azure Enclave
