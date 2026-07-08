@@ -61,10 +61,10 @@ For approval concepts and roles, see [Understand approvals](./understand-approva
 These steps require a person that requests the resource creation or change and another person to approve the request. The approver must have the **Enclave Approver Role** at the correct scope. This tutorial requires one `minimum number of approvers` but you would need multiple people to approve a request if your configuration requires that.
 
 1. As the requestor, go to `Enclaves` and select `Create`.
-2. Enter enclave details for the new workload enclave (for example, `ve-Enclave-Data`) and submit the request.
-3. Ask your approver to open `Approvals` from the Azure Enclave service, community, or enclave view.
-4. Ask your approver to find the pending `Enclave` creation request and review the requested details.
-5. Ask your approver to select `Approve` to allow deployment to continue.
+1. Enter enclave details for the new workload enclave (for example, `ve-Enclave-Data`) and submit the request.
+1. Ask your approver to open `Approvals` from the Azure Enclave service, community, or enclave view.
+1. Ask your approver to find the pending `Enclave` creation request and review the requested details.
+1. Ask your approver to select `Approve` to allow deployment to continue.
 1. Return to `Enclaves` and confirm the enclave provisioning state is `Succeeded`.
 
 ![Screenshot showing the Azure Enclave service view of approval requests.](./media/approvals-service-view.png)
@@ -75,7 +75,7 @@ These steps require a person that requests the resource creation or change and a
 1. Enter endpoint basics (for example, `ce-fabrikam-partner-api`).
 1. Add a rule for partner API egress:
    - `Destination Type`: `FQDN`
-   - `Destination`: Enter the desintation in the format `*.microsoft.com,*.azure.com`.
+   - `Destination`: Enter the destination in the format `*.microsoft.com,*.azure.com`.
    - `Protocol`: `HTTPS`
    - `Port`: `443`
 1. Select `Review + create`, and then select `Create`.
@@ -87,9 +87,9 @@ These steps require a person that requests the resource creation or change and a
 After the security review, Fabrikam narrows the destination from a broad test value to a production-specific value. This update requires approval.
 
 1. Open **Community Endpoints**, select `ce-fabrikam-partner-api`, and select **Edit**.
-2. Update one rule value (for example, a stricter FQDN) and save. For this tutorial, you can add or remove your FQDNs.
-3. Ask your approver to open `Approvals` and review the pending `Community endpoint update` request.
-4. Ask your approver to approve the request.
+1. Update one rule value (for example, a stricter FQDN) and save. For this tutorial, you can add or remove your FQDNs.
+1. Ask your approver to open **Approvals** and review the pending **Community endpoint update** request.
+1. Ask your approver to approve the request.
 1. Confirm the endpoint reflects the approved update.
 
 For the approval review process, see [Manage approval requests](./manage-approvals.md).
@@ -97,9 +97,9 @@ For the approval review process, see [Manage approval requests](./manage-approva
 ## Step 5: Create an enclave connection and then update it with approval
 
 1. In the community, select **Enclave Connections** > **Create**.
-2. Create a connection from your source enclave (for example, `ve-Enclave-Data`) to the community endpoint (`ce-fabrikam-partner-api`).
+1. Create a connection from your source enclave (for example, `ve-Enclave-Data`) to the community endpoint (`ce-fabrikam-partner-api`).
 1. After creation succeeds, open the connection and change one setting that triggers an update request (for example, source CIDR range).
-4. Ask your approver to open `Approvals`, review the pending `Enclave connection update` request, and approve it.
+1. Ask your approver to open **Approvals**, review the pending **Enclave connection update** request, and approve it.
 1. Confirm the connection state is healthy after the approved update.
 
 ![Screenshot showing enclave connection creation inputs.](./media/tutorial-step-five-fabrikam-connection-input.png)
@@ -124,7 +124,7 @@ If you no longer need this environment, delete the tutorial resources:
 
 > [!NOTE]
 > 
-> If all of these resources are in the same resource group and the contents of the resource group are no longer needed, you can delete the whole resoruce group to clean up the tutorial resources.
+> If all of these resources are in the same resource group and you no longer need the contents of the resource group, you can delete the whole resource group to clean up the tutorial resources.
 
 For full cleanup guidance, see:
 

@@ -124,29 +124,29 @@ If you no longer need the endpoint and connection resources that you created in 
 1. In the Azure portal, go to your community (for example, `cmt-fabrikam`).
 1. Select `Enclave Connections`.
 1. Select the enclave connection to delete (for example, `ec-fabrikam-external-connection`).
-4. Select `Delete`.
-5. Confirm deletion.
+1. Select `Delete`.
+1. Confirm deletion.
 
 **To delete enclave endpoints:**
 
-1. In Azure portal, navigate to the source enclave (for example, `ve-Enclave-WebApp`).
-2. Select `Enclave Endpoints`.
-3. Select the enclave endpoint to delete (for example, `ee-MyService`).
-4. Select `Delete`.
-5. Confirm deletion.
+1. In the Azure portal, go to the source enclave (for example, `ve-Enclave-WebApp`).
+1. Select `Enclave Endpoints`.
+1. Select the enclave endpoint to delete (for example, `ee-MyService`).
+1. Select `Delete`.
+1. Confirm deletion.
 
 **To delete community endpoints:**
 
-1. In Azure portal, navigate to your community (for example, `cmt-fabrikam`).
-2. Select `Community Endpoints`.
-3. Select the community endpoint to delete (for example, `ce-fabrikam-website`).
-4. Select `Delete`.
-5. Confirm deletion.
+1. In the Azure portal, go to your community (for example, `cmt-fabrikam`).
+1. Select `Community Endpoints`.
+1. Select the community endpoint to delete (for example, `ce-fabrikam-website`).
+1. Select `Delete`.
+1. Confirm deletion.
 
 **What gets deleted:**
-- Enclave connection resources created in this tutorial.
-- Enclave endpoint resources created in this tutorial.
-- Community endpoint resources created in this tutorial.
+- Enclave connection resources that you created in this tutorial.
+- Enclave endpoint resources that you created in this tutorial.
+- Community endpoint resources that you created in this tutorial.
 
 **What is retained:**
 - Community and enclave resources.

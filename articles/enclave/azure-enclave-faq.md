@@ -135,7 +135,7 @@ Azure Enclave configures required platform egress for managed resources. For com
 
 For example, if you need to quickly block or remove access from a resource like a virtual machine to a problematic website, you can:
 
-- Delete the enclave connection, for example, from your enclave to a community endpoint that allows access to a problematic website or IP address.
+- Delete the enclave connection, such as from your enclave to a community endpoint that allows access to a problematic website or IP address.
 - Remove the virtual machine's subnet from the enclave connection.
 - If you have access to the community or enclave endpoint, remove the problematic website or IP address from the endpoint rules.
 
