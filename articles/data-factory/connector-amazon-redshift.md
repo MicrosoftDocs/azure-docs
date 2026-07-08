@@ -2,8 +2,8 @@
 title: Copy data from Amazon Redshift
 description: Learn how to copy data from Amazon Redshift to supported sink data stores using Azure Data Factory or Synapse Analytics pipelines.
 titleSuffix: Azure Data Factory & Azure Synapse
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 05/12/2026

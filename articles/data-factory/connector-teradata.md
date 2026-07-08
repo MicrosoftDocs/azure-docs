@@ -2,11 +2,11 @@
 title: Copy data from Teradata Vantage
 description: The Teradata Connector in Azure Data Factory and Synapse Analytics lets you copy data from a Teradata Vantage to supported sink data stores. 
 titleSuffix: Azure Data Factory & Azure Synapse
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 08/05/2025
-ms.author: jianleishen
+ms.author: tinglee
 ms.custom:
   - synapse
   - sfi-image-nochange
