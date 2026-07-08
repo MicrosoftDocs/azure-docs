@@ -52,7 +52,7 @@ For approval concepts and roles, see [Understand approvals](./understand-approva
    - `Enclave connection updates`: `Required`, `Minimum number of approvers = 1`
 1. Complete `Review + create`, and then select `Create`.
 
-![Screenshot showing the community approvals setting page for tutorial configuration.](./media/tutorial-step-one-create-community-screen-approvals-input.png)
+[ ![Screenshot showing the community approvals setting page for tutorial configuration.](./media/tutorial-step-one-create-community-screen-approvals-input.png) ](./media/tutorial-step-one-create-community-screen-approvals-input.png#lightbox)
 
 > [!NOTE]
 > In production, define approvers as security groups and use a minimum approver count that matches your governance policy. You can also add the security group as a required approver if that meets your requirements.
@@ -67,7 +67,7 @@ These steps require a person that requests the resource creation or change and a
 1. Ask your approver to select `Approve` to allow deployment to continue.
 1. Return to `Enclaves` and confirm the enclave provisioning state is `Succeeded`.
 
-![Screenshot showing the Azure Enclave service view of approval requests.](./media/approvals-service-view.png)
+[ ![Screenshot showing the Azure Enclave service view of approval requests.](./media/approvals-service-view.png) ](./media/approvals-service-view.png#lightbox)
 
 ## Step 3: Create a community endpoint for partner egress
 
