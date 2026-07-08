@@ -121,6 +121,10 @@ landingContent:
             url: 2-3-deploy-virtual-desktop-workload.md
           - text: Deploy Azure Kubernetes Service Workload
             url: 2-4-deploy-kubernetes-workload.md
+      - linkListType: tutorial
+        links:
+          - text: Require approvals with Azure Enclave resources
+            url: 3-1-tutorial-approvals-enclave-onboarding-connectivity.md
   # Card
   - title: Governance, Security, and Compliance
     linkLists:
