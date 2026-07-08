@@ -1,24 +1,24 @@
 ---
-title: Monitor metrics for Durable Task Scheduler
-description: Learn about the action metrics emitted by the Durable Task Scheduler for monitoring utilization, billing, and workload breakdown.
+title: Monitor action metrics for Durable Task Scheduler
+description: Learn about the action metrics emitted by the Durable Task Scheduler for monitoring billing and workload breakdown.
 ms.service: durable-task
 ms.topic: concept-article
-ms.date: 06/15/2026
+ms.date: 06/03/2026
 ms.author: kaibocai
 author: kaibocai
 ms.reviewer: hhunter-ms
 ---
 
-# Monitor metrics for Durable Task Scheduler
+# Monitor action metrics for Durable Task Scheduler
 
-The Durable Task Scheduler emits a set of action metrics for every task hub. Because the Consumption SKU for the Durable Task Scheduler is billed by the number of actions dispatched to your application, these metrics let you monitor exactly what drives your bill and break it down by work type.
+The Durable Task Scheduler emits a set of **action metrics** for every task hub. Because the Consumption SKU for the Durable Task Scheduler is billed by the number of **actions** dispatched to your application, these metrics let you monitor exactly what drives your bill and break it down by work type.
 
 > [!NOTE]
-> Only the [Consumption SKU](https://learn.microsoft.com/en-us/azure/durable-task/scheduler/durable-task-scheduler-billing#consumption-sku) is billed on the total number of actions. The Dedicated SKU is billed on capacity units.
+> Only the [Consumption SKU](../scheduler/durable-task-scheduler-billing.md#consumption-sku) is billed on the total number of actions. The Dedicated SKU is billed on capacity units. 
 
 ## What is an action?
 
-An *action* is a message the Durable Task Scheduler dispatches to your application to trigger the execution of an orchestrator, activity, or entity function. The total number of actions is what you're billed on for the Consumption SKU. For a full definition, examples, and billing details, see [What is an action?](https://learn.microsoft.com/en-us/azure/durable-task/scheduler/durable-task-scheduler-billing#what-is-an-action) in the billing guide.
+An *action* is a message the Durable Task Scheduler dispatches to your application to trigger the execution of an orchestrator, activity, or entity function. The total number of actions is what you're billed on for the Consumption SKU. For a full definition, examples, and billing details, see [What is an action?](../scheduler/durable-task-scheduler-billing.md#what-is-an-action) in the billing guide.
 
 ## View metrics in the Azure portal
 
@@ -33,12 +33,12 @@ You can also pin charts to your dashboard or configure diagnostic settings to ro
 
 ## Available metrics
 
-All action metrics are scoped to an individual task hub and emitted under the meter
+All metrics are scoped to an individual task hub and emitted under the meter
 `Microsoft.DurableTask.Scheduler.TaskHubs`. They're counters with the unit `actions`.
 
 | Metric | Description |
 | --- | --- |
-| `TotalActions` | Total actions for the task hub. Equals the sum of `OrchestrationActions`, `ActivityActions`, `TimerActions`, and `EntityActions`. For the Consumption SKU, this value is what you're billed on. For the Dedicated SKU, use the rate of this metric (actions per second) to gauge capacity utilization. |
+| `TotalActions` | Total billable actions for the task hub. Equals the sum of `OrchestrationActions`, `ActivityActions`, `TimerActions`, and `EntityActions`. This value is what you're billed on. |
 | `OrchestrationActions` | Messages processed by an orchestrator. For example, an orchestration start, an external event, or the result of an activity, timer, or suborchestration being handed back to the orchestrator. |
 | `ActivityActions` | New activities scheduled by orchestrators. |
 | `TimerActions` | New durable timers scheduled by orchestrators. |
@@ -58,9 +58,9 @@ by scheduler and task hub:
 
 ## How to use these metrics
 
-- **Track billing (Consumption SKU):** Watch `TotalActions` over time to understand
-  and forecast your action-based costs.
-- **Understand workload breakdown:** Compare `OrchestrationActions`, `ActivityActions`,
+- **Track billing:** Watch `TotalActions` over time to understand and forecast your
+  action-based costs for the Consumption SKU.
+- **Understand cost drivers:** Compare `OrchestrationActions`, `ActivityActions`,
   `TimerActions`, and `EntityActions` to see which workload type contributes most to
   your total. For example, a high `ActivityActions` value indicates activity-heavy
   orchestrations.
