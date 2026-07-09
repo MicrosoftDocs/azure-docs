@@ -688,7 +688,7 @@ In a Standard workflow that starts with the **Request** trigger (but not a webho
 
 * Your Consumption logic app resource is limited to a maximum number of authorization policies. Each authorization policy also has a maximum number of [claims](/entra/identity-platform/developer-glossary#claim). For more information, see [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md#authentication-limits).
 
-* An authorization policy must include at least the **Issuer** claim and the **Audience** claim. **Issuer** has a value that starts with either **`https://sts.windows.net/`** or **`https://login.microsoftonline.com/`** (OAuth V2) as the issuer for Microsoft Entra ID. **Audience** has a value that is set to the expected audience for your logic app resource.
+* An authorization policy must include at least the **Issuer** and the **Audience** claims. The **Issuer** claim has a value that starts with either **`https://sts.windows.net/`** or **`https://login.microsoftonline.com/`** (OAuth V2) as the issuer for Microsoft Entra ID. The **Audience** claim has a value that is the expected audience for your logic app resource.
 
   For example, suppose that your logic app resource has an authorization policy that requires two claim types, **Audience** and **Issuer**. This sample [payload section](/entra/identity-platform/access-token-claims-reference#payload-claims) for a decoded access token includes both claim types where `aud` is the **Audience** value and `iss` is the **Issuer** value:
 
