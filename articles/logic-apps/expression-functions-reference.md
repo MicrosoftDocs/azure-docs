@@ -1896,6 +1896,58 @@ encodeUriComponent('https://contoso.com')
 
 And returns this result: `"https%3A%2F%2Fcontoso.com"`
 
+<a name="encodeXmlName"></a>
+
+### encodeXmlName
+
+Encode a string as an XML element name.
+
+```
+encodeXmlName('<name>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*name*> | Yes | String | The string to encode as an XML element name |
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*encoded-name*> | String | The encoded XML element name |
+
+*Example*
+
+```
+encodeXmlName('data/value')
+```
+
+And returns this result: `"data_x002F_value"`
+
+<a name="encodeXmlValue"></a>
+
+### encodeXmlValue
+
+Encode a string as an XML element value.
+
+```
+encodeXmlValue('<value>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*value*> | Yes | String | The string to encode as an XML element value |
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*encoded-value*> | String | The encoded XML element value |
+
+*Example*
+
+```
+encodeXmlValue('<value>')
+```
+
+And returns this result: `"&lt;value&gt;"`
+
 <a name="empty"></a>
 
 ### empty
@@ -2006,58 +2058,6 @@ And returns these results:
 
 * First example: Both values are equivalent, so the function returns `true`.
 * Second example: Both values aren't equivalent, so the function returns `false`.
-
-<a name="encodeXmlName"></a>
-
-### encodeXmlName
-
-Encode a string as an XML element name.
-
-```
-encodeXmlName('<name>')
-```
-
-| Parameter | Required | Type | Description |
-| --------- | -------- | ---- | ----------- |
-| <*name*> | Yes | String | The string to encode as an XML element name |
-
-| Return value | Type | Description |
-| ------------ | ---- | ----------- |
-| <*encoded-name*> | String | The encoded XML element name |
-
-*Example*
-
-```
-encodeXmlName('data/value')
-```
-
-And returns this result: `"data_x002F_value"`
-
-<a name="encodeXmlValue"></a>
-
-### encodeXmlValue
-
-Encode a string as an XML element value.
-
-```
-encodeXmlValue('<value>')
-```
-
-| Parameter | Required | Type | Description |
-| --------- | -------- | ---- | ----------- |
-| <*value*> | Yes | String | The string to encode as an XML element value |
-
-| Return value | Type | Description |
-| ------------ | ---- | ----------- |
-| <*encoded-value*> | String | The encoded XML element value |
-
-*Example*
-
-```
-encodeXmlValue('<value>')
-```
-
-And returns this result: `"&lt;value&gt;"`
 
 ## F
 
@@ -3235,7 +3235,7 @@ And return this result: `3`
 
 ### mergeObjects
 
-Merge two JSON objects. When both objects contain the same property, the value from the second object replaces the value from the first object. Nested objects are merged recursively.
+Merge two JSON objects. Property names are matched without regard to case. For scalar properties, the value from the second object replaces the value from the first object. Nested objects are merged recursively, and arrays are merged by index.
 
 ```
 mergeObjects(<object1>, <object2>)
@@ -4390,32 +4390,6 @@ startsWith('hello world', 'greetings')
 
 And returns this result: `false`
 
-<a name="strongEquals"></a>
-
-### strongEquals
-
-Check whether two or more values of the same type are equivalent. This function accepts a mix of integer and floating-point numbers. Unlike [equals()](#equals), this function returns an error when the values have different types.
-
-```
-strongEquals(<value1>, <value2>, ...)
-```
-
-| Parameter | Required | Type | Description |
-| --------- | -------- | ---- | ----------- |
-| <*value1*>, <*value2*>, ... | Yes | Any | Two or more values of the same type to compare |
-
-| Return value | Type | Description |
-| ------------ | ---- | ----------- |
-| true or false | Boolean | Return true when all values are equivalent. Return false when the values aren't equivalent. |
-
-*Example*
-
-```
-strongEquals(1, 1.0)
-```
-
-And returns this result: `true`
-
 <a name="string"></a>
 
 ### string
@@ -4453,6 +4427,32 @@ string( { "name": "Sophie Owen" } )
 ```
 
 And returns this result: `"{ \\"name\\": \\"Sophie Owen\\" }"`
+
+<a name="strongEquals"></a>
+
+### strongEquals
+
+Check whether two or more values of the same type are equivalent. This function accepts a mix of integer and floating-point numbers, and it accepts null values when compared with nullable values. Unlike [equals()](#equals), this function returns an error when the values have different types.
+
+```
+strongEquals(<value1>, <value2>, ...)
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*value1*>, <*value2*>, ... | Yes | Any | Two or more values of the same type to compare |
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| true or false | Boolean | Return true when all values are equivalent. Return false when the values aren't equivalent. |
+
+*Example*
+
+```
+strongEquals(1, 1.0)
+```
+
+And returns this result: `true`
 
 <a name="sub"></a>
 
@@ -4686,7 +4686,7 @@ trimByteOrderMark(<content>)
 
 | Return value | Type | Description |
 | ------------ | ---- | ----------- |
-| <*content-without-bom*> | String or Binary | The original content without a leading BOM. If no BOM exists, the original content is returned. |
+| <*content-without-bom*> | String or Binary | The original content without a leading BOM. If no BOM exists, the original content is returned. If the input is null, an empty string is returned. |
 
 *Example*
 
@@ -4694,6 +4694,12 @@ This example removes a UTF-8 BOM before converting the XML string to XML content
 
 ```
 xml(trimByteOrderMark(concat(uriComponentToString('%EF%BB%BF'), '<produce><item>02</item></produce>')))
+```
+
+And returns this result:
+
+```xml
+<produce><item>02</item></produce>
 ```
 
 <a name="trigger"></a>
