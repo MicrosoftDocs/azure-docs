@@ -131,7 +131,7 @@ You can configure domain suffixes by using one of the following methods:
 
 You can solve the domain routing issue by modifying the SPN suffix of the storage account associated with the Azure file share, and then adding a CNAME record to route the new suffix to the endpoint of the storage account. With this configuration, domain-joined clients can access storage accounts joined to any forest. This solution works for environments that have two or more forests.
 
-In this example, the domains **contoso.com** and **adatum.com** have **CONTOSFS** and **ADATUMFS** as storage accounts associated with SMB Azure file shares in the respective domains. These domains are in different forests that trust each other to access resources in each other's forests. You want to allow access to both storage accounts from clients who belong to each forest. To do this, you need to modify the SPN suffixes of the storage account:
+In this example, the domains **contoso.com** and **adatum.com** have **contosofs** and **adatumfs** as storage accounts associated with SMB Azure file shares in the respective domains. These domains are in different forests that trust each other to access resources in each other's forests. You want to allow access to both storage accounts from clients who belong to each forest. To do this, you need to modify the SPN suffixes of the storage account:
 
 You would add **contosofs.contoso.com** to the **contosofs.file.core.windows.net** object in Active Directory and **adatumfs.adatum.com** to the **adatumfs.file.core.windows.net** object in Active Directory.
  
