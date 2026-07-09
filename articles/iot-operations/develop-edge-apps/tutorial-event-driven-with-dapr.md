@@ -280,7 +280,7 @@ This tutorial uses a prebuilt container of the Dapr application. If you would li
 1. Change to the Dapr tutorial directory:
 
     ```bash
-    cd explore-iot-operations/tutorials/mq-event-driven-dapr/src
+    cd explore-iot-operations/tutorials/mq-event-driven-dapr
     ```
 
 1. Build the docker image:
