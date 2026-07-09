@@ -56,6 +56,14 @@ Yes, you must create an Active Directory connection before deploying an SMB volu
 
 Azure NetApp Files supports one AD connection per NetApp account. To integrate with multiple Active Directory forests and domains, you may use multiple NetApp accounts. For more information about AD connections, check the [Active Directory type](create-active-directory-connections.md#netapp-accounts-and-active-directory-type) field of your NetApp account.
 
+## Why does SMB authentication fail after Active Directory changes?
+
+SMB authentication can fail after Active Directory changes if the Azure NetApp Files computer account has an invalid configuration or is missing required attributes. Symptoms can include SMB access failures, CIFS password reset failures, and errors similar to: Password update failed. Reason: SecD Error: LDAP attribute missing.
+
+Verify that the Azure NetApp Files computer account is present and properly configured in Active Directory. Also review any recent Active Directory security hardening activities, updates, or manual modifications that might affect the computer account or its attributes, such as msDS-SupportedEncryptionTypes. If the problem persists, contact Microsoft Support.
+
+For detailed troubleshooting steps, including how to validate the Azure NetApp Files computer account and required Active Directory attributes, see [Troubleshoot Azure NetApp Files SMB authentication and CIFS password reset failures](troubleshoot-authentication-password-reset-failure.md).
+
 ## Does Azure NetApp Files support SMB symbolic links or widelinks?
 
 No. Azure NetApp Files SMB volumes don't support UNIX symbolic links (symlinks) or widelinks. SMB clients can't create or follow symbolic links. 

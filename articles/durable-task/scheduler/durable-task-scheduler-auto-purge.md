@@ -44,6 +44,9 @@ Autopurge ignores orchestration data associated with non-terminal statuses. Non-
 > [!NOTE]
 > Orchestrations using `ContinueAsNew` aren't considered terminal. `ContinueAsNew` restarts the orchestration with a new execution history while preserving the instance ID, so these instances aren't purged until they reach a true terminal state.
 
+> [!NOTE]
+> You might see different naming across APIs and SDKs: `ContinueAsNew` is the orchestration API call, while runtime status values appear as `ContinuedAsNew` (SDKs) or `Continued_As_New` (service/REST payloads). Some older .NET in-process client types are marked obsolete, but this change doesn't affect autopurge behavior: continued-as-new instances remain non-terminal and aren't purged until they later reach a terminal state.
+
 [Once enabled,](#enable-autopurge) autopurge periodically deletes orchestration data older than the retention period you set. Autopurge only removes data for orchestrations in terminal statuses.
 
 > [!NOTE]
