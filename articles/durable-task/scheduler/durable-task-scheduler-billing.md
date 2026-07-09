@@ -26,7 +26,7 @@ The following table compares the two pricing models at a glance.
 | **High availability** | Supported (requires 3 CUs) | Not available |
 | **Best for** | Production workloads with predictable volume | Dev/test and variable workloads |
 
-For current pricing, see the [Durable Task Scheduler pricing page](https://azure.microsoft.com/pricing/details/durable-task-scheduler/).
+For current pricing, see the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) (which includes Durable Task Scheduler pricing information).
 
 ## What is an action?
 
@@ -144,7 +144,7 @@ An e-commerce application experiences dynamic scaling during promotional sales e
 
 ## Monthly spend examples
 
-Use your regional prices from the [Durable Task Scheduler pricing page](https://azure.microsoft.com/pricing/details/durable-task-scheduler/), then apply the formulas in this section.
+Use your regional prices from the [Azure Functions pricing page](https://azure.microsoft.com/pricing/details/functions/) (which includes Durable Task Scheduler pricing information), then apply the formulas in this section.
 
 ### Consumption SKU monthly spend example
 
@@ -219,7 +219,7 @@ For detailed pricing information, see the billing documentation for each compute
 ## Related content
 
 - [Quickstart: Host a Durable Task SDK app on Azure Container Apps](../sdks/quickstart-container-apps-durable-task-sdk.md)
-- [Durable Task Scheduler pricing](https://azure.microsoft.com/pricing/details/durable-task-scheduler/)
+- [Azure Functions pricing (includes Durable Task Scheduler pricing information)](https://azure.microsoft.com/pricing/details/functions/)
 - [Throughput performance benchmarks](./durable-task-scheduler-work-item-throughput.md)
 - [Choose your orchestration framework](../common/choose-orchestration-framework.md)
 - [Durable Functions billing](../durable-functions/durable-functions-billing.md)
