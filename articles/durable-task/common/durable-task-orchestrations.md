@@ -417,12 +417,14 @@ public static async Task Synchronize(
 }
 ```
 
+In .NET isolated worker orchestrations, use `TaskOrchestrationContext.Entities.LockEntitiesAsync` (see [.NET isolated API mapping](../durable-functions/durable-functions-isolated-api-mapping.md)).
+
 The `LockAsync` method acquires the durable locks and returns an `IDisposable` that ends the critical section when disposed. This `IDisposable` result can be used together with a `using` block to get a syntactic representation of the critical section. When an orchestrator function enters a critical section, only one instance can execute that block of code. Any other instances that try to enter the critical section are blocked until the previous instance exits the critical section.
 
 The critical section feature is also useful for coordinating changes to durable entities. For more information about critical sections, see [Entity coordination](durable-task-entities.md#entity-coordination).
 
 > [!NOTE]
-> Critical sections are available in Durable Functions 2.0. Currently, only .NET in-process orchestrations implement this feature. Entities and critical sections aren't yet available in Durable Functions for .NET isolated worker orchestrations.
+> Critical sections are available in Durable Functions 2.x for .NET orchestrations, including both in-process and .NET isolated worker models. The API differs by model: in-process uses `IDurableOrchestrationContext.LockAsync`, while isolated uses `TaskOrchestrationContext.Entities.LockEntitiesAsync`.
 
 ### Calls to HTTP endpoints (Durable Functions 2.x)
 
