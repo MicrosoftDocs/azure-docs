@@ -33,6 +33,15 @@ In the Azure portal, there are three sections for the migration process:
   * Migrate the VPN Gateway gateway SKU from a non-AZ SKU to an AZ SKU. For example, VpnGw2 becomes VpnGw2AZ.
 * The third section validates the migration and deletes the old Basic SKU public IP address resource.
 
+The following videos are recommended for learning about the migration process and its key steps.
+* See the migration process for VPN Gateway in **Active/Standby** mode:
+
+  > [!VIDEO https://learn-video.azurefd.net/vod/player?id=f03be51c-ec60-4280-8656-679b6907bfbd]
+
+* See the migration process for VPN Gateway in **Active/Active** mode:
+
+  > [!VIDEO https://learn-video.azurefd.net/vod/player?id=f866d3a7-a120-4c91-a7fb-83b2cbc00212]
+
 ## <a name="migrate"></a>Migrate to a Standard SKU public IP address for VPN Gateway
 
 #### [Portal](#tab/portal)
