@@ -83,7 +83,7 @@ Get started with Azure Batch with one of these quickstarts:
 - [Run your first Batch job using the Python API](quick-run-python.md)
 - [Create a Batch account using ARM templates](quick-create-template.md)
 
-Continue with these tutorials for end-to-end scenarios:
+To continue, see these tutorials for end-to-end scenarios:
 
 - [Run a parallel workload with the Python API](tutorial-parallel-python.md)
 - [Run a parallel workload with the .NET API](tutorial-parallel-dotnet.md)
