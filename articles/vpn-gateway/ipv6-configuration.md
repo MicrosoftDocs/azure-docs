@@ -46,7 +46,7 @@ When you deploy VPN Gateway with IPv6 in dual stack mode, you can use the same s
 
 The following limitations apply to IPv6 in dual stack configuration for VPN Gateway:
 
-* VpnGw1AZ through VpnGw5AZ are supported for IPv6 dual stack deployments.
+* VpnGw1AZ through VpnGw5AZ support IPv6 dual stack deployments.
 * A VPN gateway deployed in IPv6 dual stack mode can't be moved to an IPv4 only configuration.
 * Point-to-Site VPN gateways using IKEv2 and OpenVPN protocols support IPv6. Point-to-Site VPN gateways don't support IPv6 when using SSTP protocol.
 * Site-to-Site VPN gateways don't support IPv6 when using IKEv1 protocol.
