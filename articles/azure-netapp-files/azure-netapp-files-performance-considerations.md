@@ -78,7 +78,7 @@ To check if the maximum throughput limit has been reached, monitor the metric [T
 
 For high-throughput workloads, performance planning should consider not only volume-level throughput limits but also aggregate workload demand and backend placement.
 
-Azure NetApp Files volumes are served by backend infrastructure with finite physical network and node-level resources. When multiple volumes supporting the same application are placed on the same backend resources, the aggregate workload can approach platform-level throughput limits. This scenario is more likely with sustained, throughput-intensive workloads such as Oracle, SAP HANA, and other large database platforms.
+Azure NetApp Files volumes use backend infrastructure with finite physical network and node-level resources. When you place multiple volumes that support the same application on the same backend resources, the aggregate workload can approach platform-level throughput limits. This scenario is more likely with sustained, throughput-intensive workloads such as Oracle, SAP HANA, and other large database platforms.
 
 To reduce the risk of backend resource concentration:
 
@@ -86,10 +86,9 @@ To reduce the risk of backend resource concentration:
 * Distribute volumes according to application best practices.
 * Avoid concentrating many high-throughput volumes without considering aggregate demand.
 * Use zonal deployment patterns where low latency and predictable placement are required.
-* Monitor volume throughput, latency, and the “throughput limit reached” metric where applicable.
+* Monitor volume throughput, latency, and the throughput limit reached metric where applicable.
 
-Application Volume Groups help improve placement, isolation, and predictability for supported workloads by organizing related volumes using application-aware deployment rules.
-
+Application Volume Groups help improve placement, isolation, and predictability for supported workloads by organizing related volumes by using application-aware deployment rules.
 
 ## Next steps
 

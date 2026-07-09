@@ -44,7 +44,7 @@ Azure NetApp Files provides volume performance metrics. You can also use Azure M
 
 Azure NetApp Files throughput is determined by a combination of the volume’s provisioned throughput, service level, workload profile, client configuration, and backend resource placement. In some high-throughput scenarios, especially sustained database workloads such as Oracle or SAP HANA, aggregate demand across multiple volumes can approach the physical limits of the backend storage node or network interface.
 
-When multiple high-throughput volumes are placed on the same backend resources, the workload may encounter a physical throughput ceiling even if individual volume QoS settings appear sufficient. This behavior is expected and reflects infrastructure limits rather than a service defect.
+When you place multiple high-throughput volumes on the same backend resources, the workload might encounter a physical throughput ceiling even if individual volume QoS settings appear sufficient. This behavior reflects infrastructure limits rather than a service defect.
 
 For high-performance database deployments, use Application Volume Groups where available to help distribute volumes across backend resources, improve placement, and reduce the likelihood of single-node bottlenecks. 
 
