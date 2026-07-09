@@ -165,7 +165,7 @@ Using the existing consumption examples in this article:
 
 ### Dedicated SKU monthly spend example
 
-The Dedicated SKU is billed by provisioned CUs, not by actions.
+The Dedicated SKU bills by provisioned CUs, not by actions.
 
 | Step | Calculation |
 | - | - |
