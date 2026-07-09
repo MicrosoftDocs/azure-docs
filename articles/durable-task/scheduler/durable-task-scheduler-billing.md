@@ -148,7 +148,7 @@ Use your regional prices from the [Durable Task Scheduler pricing page](https://
 
 ### Consumption SKU monthly spend example
 
-The Consumption SKU is billed by actions dispatched.
+The Consumption SKU bills you by actions dispatched.
 
 | Step | Calculation |
 | - | - |
