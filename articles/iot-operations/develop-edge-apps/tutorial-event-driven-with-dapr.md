@@ -28,7 +28,7 @@ The Dapr application performs the following steps:
 
 ## Prerequisites
 
-* Azure IoT Operations installed - [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
+* An Azure Arc-enabled Kubernetes cluster with Azure IoT Operations deployed. If you don't have one, you can follow the instructions in [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) to quickly create one in GitHub Codespaces.
 * MQTT broker Dapr components installed - [Install MQTT broker Dapr Components](./howto-deploy-dapr.md)
  
 ## Deploy the Dapr application
