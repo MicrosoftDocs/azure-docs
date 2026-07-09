@@ -953,6 +953,8 @@ items:
       href: managed-virtual-network-private-endpoint.md
     - name: Azure private link for Data Factory
       href: data-factory-private-link.md
+    - name: whats new trsuted service with adf
+      href: whats-new-with-trustedservice-adf.md
     - name: Azure security baseline
       href: /security/benchmark/azure/baselines/data-factory-security-baseline?toc=/azure/data-factory/TOC.json
   - name: Settings
