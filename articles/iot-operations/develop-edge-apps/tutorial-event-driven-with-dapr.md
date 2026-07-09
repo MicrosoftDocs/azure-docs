@@ -19,9 +19,9 @@ The Dapr application performs the following steps:
 
 1. Subscribes to the `sensor/data` topic for sensor data.
 1. When data is receiving on the topic, it's published to the MQTT broker state store.
-2. Every **10 seconds**, it fetches the data from the state store and calculates the *min*, *max*, *mean*, *median*, and *75th percentile* values on any sensor data timestamped in the last **30 seconds**.
-3. Data older than **30 seconds** is expired from the state store.
-4. The result is published to the `sensor/window_data` topic in JSON format.
+1. Every **10 seconds**, it fetches the data from the state store and calculates the *min*, *max*, *mean*, *median*, and *75th percentile* values on any sensor data timestamped in the last **30 seconds**.
+1. Data older than **30 seconds** is expired from the state store.
+1. The result is published to the `sensor/window_data` topic in JSON format.
 
 > [!NOTE]
 > This tutorial [disables Dapr CloudEvents](https://docs.dapr.io/developing-applications/building-blocks/pubsub/pubsub-raw/) which enables it to publish and subscribe using raw MQTT.
