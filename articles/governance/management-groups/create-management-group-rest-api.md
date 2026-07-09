@@ -91,8 +91,10 @@ specify a different management group as the parent, use the **properties.parent.
   {
     "properties": {
       "displayName": "Contoso Group",
-      "parent": {
-        "id": "/providers/Microsoft.Management/managementGroups/HoldingGroup"
+      "details": {
+        "parent": {
+          "id": "/providers/Microsoft.Management/managementGroups/HoldingGroup"
+        }
       }
     }
   }
