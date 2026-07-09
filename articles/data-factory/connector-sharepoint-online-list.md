@@ -139,7 +139,7 @@ The SharePoint List Online connector uses service principal authentication to co
 
 1. Select **Sites.Read.All** for **Select permissions**. To learn details about the permissions, check [Microsoft Graph permissions reference](/graph/permissions-reference#sitesreadall).
 
-8. Select **Add permissions**.
+1. Select **Add permissions**.
 
 1. Select **Grant admin consent for**.
 
