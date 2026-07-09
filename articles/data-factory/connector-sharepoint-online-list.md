@@ -252,7 +252,7 @@ You can copy a file from SharePoint Online by using **Web activity** to authenti
 
 :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png" alt-text="sharepoint copy file flow":::
 
-1. Follow the [Grant permission for using service principal certificate](#grant-permission-for-using-service-principal-certificate) section to create Microsoft Entra application and grant permission to **Microsoft Graph**, not **SharePoint**.
+1. Follow the [Grant permission for using service principal certificate](#grant-permission-for-using-service-principal-certificate) section to create a Microsoft Entra application and grant permission to **Microsoft Graph**, not **SharePoint**.
 
 2. Create a **Web Activity** to get the access token from SharePoint Online:
 
