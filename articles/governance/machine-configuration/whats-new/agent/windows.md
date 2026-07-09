@@ -36,7 +36,7 @@ for each section includes the specific version for that release and the date for
 
 ### New Features
 
-- Resolved TLS connection failures to HTTPS endpoints whose intermediate or root certificate was not already present in the local Windows certificate store.
+- Resolved TLS connection failures to HTTPS endpoints when the intermediate or root certificate isn't already in the local Windows certificate store.
 - Fixed a periodic memory spike during routine assignment-refresh checks.
 
 ## Version 1.29.112.0 - July 2026
