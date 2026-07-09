@@ -392,7 +392,7 @@ Use one `privatelink.servicebus.windows.net` private DNS zone per region, linked
 
 If you share a single private DNS zone across both virtual networks, only one A record exists and it points to whichever endpoint was attached last. In that case, add [cross-region virtual network peering](/azure/virtual-network/virtual-network-peering-overview) so all clients can reach that endpoint.
 
-For on-premises clients, resolve the namespace to the nearest region's private endpoint through conditional forwarding or a manually maintained record. Promotion does not require an on-premises DNS change.
+For on-premises clients, resolve the namespace to the nearest region's private endpoint through conditional forwarding or a manually maintained record. Promotion doesn't require an on-premises DNS change.
 
 **Failover scenarios**
 
