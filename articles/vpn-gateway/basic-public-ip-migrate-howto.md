@@ -109,7 +109,7 @@ Use Azure PowerShell to migrate your Basic SKU public IP address resource to a S
 
 ### Prepare for migration
 
-Run [Invoke-AzVirtualNetworkGatewayPrepareMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewaypreparemigration?view=azps-latest) to prepare your gateway for migration.
+Run [Invoke-AzVirtualNetworkGatewayPrepareMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewaypreparemigration?view=azps-latest&preserve-view=true) to prepare your gateway for migration.
 
 ```azurepowershell-interactive
 $gateway = Get-AzVirtualNetworkGateway -Name "ContosoVirtualGateway" -ResourceGroupName "RGName"
@@ -119,7 +119,7 @@ Invoke-AzVirtualNetworkGatewayPrepareMigration -InputObject $gateway -MigrationP
 
 ### Execute migration
 
-Run [Invoke-AzVirtualNetworkGatewayExecuteMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewayexecutemigration?view=azps-latest) to start the migration.
+Run [Invoke-AzVirtualNetworkGatewayExecuteMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewayexecutemigration?view=azps-latest&preserve-view=true) to start the migration.
 
 ```azurepowershell-interactive
 $gateway = Get-AzVirtualNetworkGateway -Name "ContosoVirtualGateway" -ResourceGroupName "RGName"
@@ -128,7 +128,7 @@ Invoke-AzVirtualNetworkGatewayExecuteMigration -InputObject $gateway
 
 ### Commit migration
 
-After validating that migration was successful, run [Invoke-AzVirtualNetworkGatewayCommitMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewaycommitmigration?view=azps-latest) to finalize the migration.
+After validating that migration was successful, run [Invoke-AzVirtualNetworkGatewayCommitMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewaycommitmigration?view=azps-latest&preserve-view=true) to finalize the migration.
 
 ```azurepowershell-interactive
 $gateway = Get-AzVirtualNetworkGateway -Name "ContosoVirtualGateway" -ResourceGroupName "RGName"
@@ -137,7 +137,7 @@ Invoke-AzVirtualNetworkGatewayCommitMigration -InputObject $gateway
 
 ### Abort migration
 
-If you need to roll back the migration before committing, run [Invoke-AzVirtualNetworkGatewayAbortMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewayabortmigration?view=azps-latest).
+If you need to roll back the migration before committing, run [Invoke-AzVirtualNetworkGatewayAbortMigration](/powershell/module/az.network/invoke-azvirtualnetworkgatewayabortmigration?view=azps-latest&preserve-view=true).
 
 ```azurepowershell-interactive
 $gateway = Get-AzVirtualNetworkGateway -Name "ContosoVirtualGateway" -ResourceGroupName "RGName"
