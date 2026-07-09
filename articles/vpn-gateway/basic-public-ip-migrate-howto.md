@@ -58,7 +58,7 @@ Use the steps in the Azure portal to migrate your Basic SKU public IP address re
 
    :::image type="content" source="./media/basic-public-ip-address-migrate-howto/migrate-prepare.png" alt-text="Screenshot of the migrate tab for migrating a virtual network gateway."lightbox="./media/basic-public-ip-address-migrate-howto/migrate-prepare.png":::
 
-1. The **Migrate** tab lets you prepare for migration, and then migrate. If the environment requires manual preparation steps, you'll see a list of prerequisites that must be met before migration can begin. If these prerequisites aren't met, validation fails and you can't proceed with the migration. You must fix any problems identified in this section before you can proceed with the migration.
+1. The **Migrate** tab lets you prepare for migration, and then migrate. If the environment requires manual preparation steps, you see a list of prerequisites that must be met before migration can begin. If these prerequisites aren't met, validation fails and you can't proceed with the migration. You must fix any problems identified in this section before you can proceed with the migration.
 
 Before your initiate migration for your VPN gateway, verify that your gateway subnet has at least three available IP addresses in your current prefix. If your current gateway subnet is /28 or smaller, the migration tool might error out. You need to [add multiple prefixes](../virtual-network/how-to-multiple-prefixes-subnet.md) for the gateway subnet before you can proceed with migration.
 
@@ -204,8 +204,7 @@ Follow these migration steps if your VPN Gateway uses legacy cloudapp.NET DNS
 
 ## What is the known Traffic selector behavior during Active-Active VPN Gateway migration?
 
-When migrating an Active Active Azure VPN Gateway that has BGP enabled, IPsec tunnels might go down after migration if Narrow Traffic Selectors are both configured.
-This behavior can cause site to site connectivity loss immediately after migration.
+When you migrate an Active-Active Azure VPN Gateway that has BGP enabled, IPsec tunnels might go down after migration if Narrow Traffic Selectors are both configured. This behavior can cause site-to-site connectivity loss immediately after migration.
  
 * Which configurations are impacted?
   
