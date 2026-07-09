@@ -45,7 +45,7 @@ The following functionality is limited during this time. These limitations will 
 - /32 route destination from peered Virtual Network (VNET): If you're advertising /32 routes from NSX (such as HCX MON routes or DNS forwarder routes) and need access to that /32 destination from a peered virtual network, you need to open a Support Case in the Azure portal. Connectivity to the /32 destination works correctly from within the local VNET.
 - VNET Peer Sync Subnet advertisement and Azure Route Table (UDR) association – Azure VMware Solution Gen 2 utilizes two internal architectures. The current architecture synchronizes both specific subnets and the broader Azure address space for NSX segment or subnet routes with peered Azure virtual networks. As a result, with Gen 2’s current architecture, you may need to configure Azure route tables (UDR) with more specific NSX segment subnet routes rather than using general address space routes for Azure VMware Solution workload segments.
 - Azure NAT gateway isn't supported for Gen-2 workloads.
-- Azure Subnet peering is not supported with Gen-2 private cloud subnets.
+- Azure Subnet peering isn't supported with Gen-2 private cloud subnets.
   
 ## Unsupported integrations
 
