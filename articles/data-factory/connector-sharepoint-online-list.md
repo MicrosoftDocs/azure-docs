@@ -268,7 +268,7 @@ You can copy a file from SharePoint Online by using **Web activity** to authenti
 3. Chain with a **Copy activity** with HTTP connector as source to copy SharePoint Online file content:
 
     - HTTP linked service:
-        - **Base URL**: `https://graph.microsoft.com/v1.0/sites/{Your-Site-ID}/drives/{Drive-ID}/root:/{path to file}:/content`. Replace the site ID, drive ID, and relative path to file. To learn how to get Drive ID, see [List available drives](/graph/api/drive-list?view=graph-rest-1.0&tabs=http).
+        - **Base URL**: `https://graph.microsoft.com/v1.0/sites/{Your-Site-ID}/drives/{Drive-ID}/root:/{path to file}:/content`. Replace the site ID, drive ID, and relative path to file. To learn how to get Drive ID, see [List available drives](/graph/api/drive-list?view=graph-rest-1.0&tabs=http). Alternatively, you can retrieve a direct download URL from the `@microsoft.graph.downloadUrl` property of the DriveItem object and use that URL instead.
         - **Authentication type:** Anonymous *(to use the Bearer token configured in copy activity source later)*
     - Dataset: choose the format you want. To copy file as-is, select "Binary" type.
     - Copy activity source:
