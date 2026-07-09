@@ -248,19 +248,19 @@ When you copy data from SharePoint Online List, the following mappings are used 
 
 ## Copy file from SharePoint Online
 
-You can copy file from SharePoint Online by using **Web activity** to authenticate and grab access token from SPO, then passing to subsequent **Copy activity** to copy data with **HTTP connector as source**.
+You can copy file from SharePoint Online by using **Web activity** to authenticate and grab access token from SPO, then passing to subsequent **Copy activity** to copy data with **HTTP connector as source**. 
 
 :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png" alt-text="sharepoint copy file flow":::
 
-1. Follow the [Grant permission for using service principal key](#grant-permission-for-using-service-principal-key) section to create Microsoft Entra application and grant permission to SharePoint Online. 
+1. Follow the [Grant permission for using service principal certificate](#grant-permission-for-using-service-certificate) section to create Microsoft Entra application and grant permission to **Microsoft Graph**, not **SharePoint**.
 
 2. Create a **Web Activity** to get the access token from SharePoint Online:
 
-    - **URL**: `https://accounts.accesscontrol.windows.net/[Tenant-ID]/tokens/OAuth/2`. Replace the tenant ID.
+    - **URL**: `https://login.microsoftonline.com/[tenant-ID]/oauth2/v2.0/token`. Replace the tenant ID.
     - **Method**: POST
     - **Headers**:
         - Content-Type: application/x-www-form-urlencoded
-    - **Body**:  `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]`. Replace the client ID (application ID), client secret (application key), tenant ID, and tenant name (of the SharePoint tenant).
+    - **Body**:  `client_id=[Client-ID]&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=[Client-Secret]&grant_type=client_credentials`. Replace the client ID (application ID) and client secret (application key).
 
     > [!CAUTION]
     > Set the Secure Output option to true in Web activity to prevent the token value from being logged in plain text. Any further activities that consume this value should have their Secure Input option set to true.
@@ -268,7 +268,7 @@ You can copy file from SharePoint Online by using **Web activity** to authentica
 3. Chain with a **Copy activity** with HTTP connector as source to copy SharePoint Online file content:
 
     - HTTP linked service:
-        - **Base URL**: `https://[site-url]/_api/web/GetFileByServerRelativeUrl('[relative-path-to-file]')/$value`. Replace the site URL and relative path to file. Make sure to include the SharePoint site URL along with the Domain name, such as `https://[sharepoint-domain-name].sharepoint.com/sites/[sharepoint-site]/_api/web/GetFileByServerRelativeUrl('/sites/[sharepoint-site]/[relative-path-to-file]')/$value`.
+        - **Base URL**: `https://graph.microsoft.com/v1.0/sites/{Your-Site-ID}/drives/{Drive-ID}/root:/{path to file}:/content`. Replace the site ID, driver ID and relative path to file. To learn how to get Drive ID, check [List available drives](/graph/api/drive-list?view=graph-rest-1.0&tabs=http).
         - **Authentication type:** Anonymous *(to use the Bearer token configured in copy activity source later)*
     - Dataset: choose the format you want. To copy file as-is, select "Binary" type.
     - Copy activity source:
