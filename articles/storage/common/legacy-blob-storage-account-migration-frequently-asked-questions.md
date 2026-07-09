@@ -76,7 +76,8 @@ Features like **lifecycle management**, **per-blob tiering**, **point-in-time re
 
 Your bill reflects **general-purpose v2** pricing, which includes charges for **read/write operations**, **tier-based storage pricing**, and **redundancy options**. Use the **Azure pricing calculator** and your current invoice data to estimate new costs.
 
-- Azure pricing calculator: https://azure.microsoft.com/pricing/calculator/
+> [!TIP]
+> Estimate new costs with the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
 
 ### Is the migration permanent?
 
