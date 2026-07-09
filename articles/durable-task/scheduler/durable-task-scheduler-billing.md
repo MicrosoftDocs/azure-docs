@@ -148,7 +148,7 @@ Use your regional prices from the [Azure Functions pricing page](https://azure.m
 
 ### Consumption SKU monthly spend example
 
-The Consumption SKU is billed by actions dispatched.
+The Consumption SKU bills you by actions dispatched.
 
 | Step | Calculation |
 | - | - |
@@ -165,7 +165,7 @@ Using the existing consumption examples in this article:
 
 ### Dedicated SKU monthly spend example
 
-The Dedicated SKU is billed by provisioned CUs, not by actions.
+The Dedicated SKU bills by provisioned CUs, not by actions.
 
 | Step | Calculation |
 | - | - |
