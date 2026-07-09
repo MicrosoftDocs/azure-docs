@@ -19,6 +19,17 @@ ms.author: evach
 
 Azure API for FHIR&reg; provides a fully managed deployment of the Microsoft FHIR Server for Azure. The server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document provides details about the features and enhancements made to Azure API for FHIR.
 
+## July 2026
+### FHIR service
+
+**Improved handling of invalid bundle types**: The FHIR service now returns proper error responses when an invalid bundle type is submitted (HTTP 400 Bad Request instead of HTTP 500 Internal Server Error).
+
+**New configuration options for date search behavior**: Added new configuration options to control date search behavior, allowing the Date Equality Rewriter to be used only when Date Containment is enabled. This provides more control over how date-based searches are optimized.
+
+#### Bug fixes:
+
+**Fix for `$bulk-delete` and `$bulk-update` without search parameters**: Fixed an issue where `$bulk-delete` and `$bulk-update` operations would fail when no search parameters were provided. These operations now work correctly without parameters.
+
 ## June 2026
 ### FHIR service
 

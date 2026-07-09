@@ -30,7 +30,8 @@ This feature allows you to promote any secondary region to primary, at any time.
 > - The following features aren't currently available yet. The product team is continuously working on bringing more features and will update this list with the latest status.
 >     - Large messages aren't supported yet.
 >     - Geo-Replication on [partitioned namespaces](enable-partitions-premium.md) is still in public preview.
-> - Currently, when you perform a failover, the timer for entities that have auto-delete on idle enabled is reset and starts over. A future release fixes this behavior.
+>     - Using Geo-Replication together with a [network security perimeter](network-security-perimeter.md) isn't supported yet. You can't enable Geo-Replication on a namespace that's associated with a network security perimeter, or associate a Geo-Replication enabled namespace with one.
+> - When you perform a failover, the timer for entities that have auto-delete on idle enabled is reset and starts over.
 > - When you enable Event Grid integration on a namespace that uses Geo-Replication, note the following:
 >   - Event Grid replicates to the [geo-paired location](/azure/reliability/reliability-event-grid#set-up-disaster-recovery), not the secondary region set up for geo-replication.
 >   - [Promotion](#promotion-flow) of a secondary region for Service Bus doesn't initiate a failover of Event Grid. Consequently, after promotion, Service Bus is now running in the new primary region, but Event Grid is still running in the initial primary region.

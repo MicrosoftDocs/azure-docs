@@ -2,8 +2,8 @@
 title: Transform data in data.world (Preview)
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to transform data in data.world (Preview) by using Data Factory or Azure Synapse Analytics.
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.custom: synapse
