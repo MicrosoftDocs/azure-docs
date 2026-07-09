@@ -248,7 +248,7 @@ When you copy data from SharePoint Online List, the following mappings are used 
 
 ## Copy file from SharePoint Online
 
-You can copy file from SharePoint Online by using **Web activity** to authenticate and grab access token from Microsoft Entra ID, then passing to subsequent **Copy activity** to copy data with **HTTP connector as source**. 
+You can copy a file from SharePoint Online by using **Web activity** to authenticate and get an access token from Microsoft Entra ID. Then, pass the token to the next **Copy activity** to copy data by using **HTTP connector as source**. 
 
 :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png" alt-text="sharepoint copy file flow":::
 
