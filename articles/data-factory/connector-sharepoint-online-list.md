@@ -124,26 +124,26 @@ The SharePoint List Online connector uses service principal authentication to co
 
 1. Generate a self-signed certificate and export both the public certificate and the certificate including its private key. To learn how, see [Create a self-signed public certificate to authenticate your application](/entra/identity-platform/howto-create-self-signed-certificate).
 
-2. Register an application with the Microsoft identity platform. To learn how, see [Register an application with the Microsoft identity platform](/graph/auth-register-app-v2). Make note of these values, which you use to define the linked service:
+1. Register an application with the Microsoft identity platform. To learn how, see [Register an application with the Microsoft identity platform](/graph/auth-register-app-v2). Make note of these values, which you use to define the linked service:
 
     - Application ID
     - Tenant ID
 
-3. Upload the public certificate in the **Certificates & secrets**.
+1. Upload the public certificate in the **Certificates & secrets**.
 
-4. Select **Add Permission** for **API permissions**.
+1. Select **Add Permission** for **API permissions**.
 
-5. Select **SharePoint** for **Select an API**.
+1. Select **SharePoint** for **Select an API**.
 
-6. Select **Application permissions**.
+1. Select **Application permissions**.
 
-7. Select **Sites.Read.All** for **Select permissions**. To learn details about the permissions, check [Microsoft Graph permissions reference](/graph/permissions-reference#sitesreadall).
+1. Select **Sites.Read.All** for **Select permissions**. To learn details about the permissions, check [Microsoft Graph permissions reference](/graph/permissions-reference#sitesreadall).
 
 8. Select **Add permissions**.
 
-9. Select **Grant admin consent for**.
+1. Select **Grant admin consent for**.
 
-10. Select **Yes** for **Grant admin consent confirmation**.
+1. Select **Yes** for **Grant admin consent confirmation**.
 
 
 ## Dataset properties
@@ -268,7 +268,7 @@ You can copy a file from SharePoint Online by using **Web activity** to authenti
 3. Chain with a **Copy activity** with HTTP connector as source to copy SharePoint Online file content:
 
     - HTTP linked service:
-        - **Base URL**: `https://graph.microsoft.com/v1.0/sites/{Your-Site-ID}/drives/{Drive-ID}/root:/{path to file}:/content`. Replace the site ID, drive ID, and relative path to file. To learn how to get Drive ID, see [List available drives](/graph/api/drive-list?view=graph-rest-1.0&tabs=http). Alternatively, you can retrieve a direct download URL from the `@microsoft.graph.downloadUrl` property of the DriveItem object and use that URL instead.
+        - **Base URL**: `https://graph.microsoft.com/v1.0/sites/{Your-Site-ID}/drives/{Drive-ID}/root:/{path to file}:/content`. Replace the site ID, drive ID, and relative path to file. To learn how to get Drive ID, see [List available drives](/graph/api/drive-list?view=graph-rest-1.0&tabs=http&preserve-view=true). Alternatively, you can retrieve a direct download URL from the `@microsoft.graph.downloadUrl` property of the DriveItem object and use that URL instead.
         - **Authentication type:** Anonymous *(to use the Bearer token configured in copy activity source later)*
     - Dataset: choose the format you want. To copy file as-is, select "Binary" type.
     - Copy activity source:
