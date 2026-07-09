@@ -1,0 +1,24 @@
+{
+  "redirections": [
+    {
+      "source_path_from_root": "/articles/virtual-network-manager/how-to-create-hub-and-spoke.md",
+      "redirect_url": "/azure/virtual-network-manager/how-to-create-network-manager-topologies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network-manager/how-to-create-hub-and-spoke-powershell.md",
+      "redirect_url": "/azure/virtual-network-manager/how-to-create-network-manager-topologies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network-manager/how-to-create-mesh-network.md",
+      "redirect_url": "/azure/virtual-network-manager/how-to-create-network-manager-topologies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network-manager/how-to-create-mesh-network-powershell.md",
+      "redirect_url": "/azure/virtual-network-manager/how-to-create-network-manager-topologies",
+      "redirect_document_id": false
+    }
+  ]
+}

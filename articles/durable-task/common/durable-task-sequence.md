@@ -146,7 +146,23 @@ PowerShell sample isn't available yet.
 
 # [Java](#tab/java)
 
-Java sample isn't available yet.
+The following Java orchestrator runs the function chaining pattern by calling `SayHello` three times in sequence:
+
+```java
+@FunctionName("HelloCities")
+public List<String> runOrchestrator(
+        @DurableOrchestrationTrigger(name = "context") TaskOrchestrationContext ctx,
+        final ExecutionContext context) {
+    context.getLogger().info("Saying hello.");
+    List<String> outputs = new ArrayList<>();
+    outputs.add(ctx.callActivity("SayHello", "Tokyo", String.class).await());
+    outputs.add(ctx.callActivity("SayHello", "Seattle", String.class).await());
+    outputs.add(ctx.callActivity("SayHello", "London", String.class).await());
+    return outputs;
+}
+```
+
+Sample source: [HelloCities Java sample](https://github.com/Azure/azure-functions-durable-extension/tree/dev/test/e2e/Apps/BasicJava/src/main/java/com/function/HelloCities.java).
 
 ---
 
@@ -354,7 +370,19 @@ PowerShell sample coming soon.
 
 # [Java](#tab/java)
 
-Java sample coming soon.
+The following Java activity function is used by the chaining orchestrator:
+
+```java
+@FunctionName("SayHello")
+public String sayHello(
+        @DurableActivityTrigger(name = "name") String name,
+        final ExecutionContext context) {
+    context.getLogger().info("Saying hello to " + name + ".");
+    return "Hello " + name + "!";
+}
+```
+
+Sample source: [HelloCities Java sample](https://github.com/Azure/azure-functions-durable-extension/tree/dev/test/e2e/Apps/BasicJava/src/main/java/com/function/HelloCities.java).
 
 ---
 
@@ -570,7 +598,23 @@ PowerShell sample coming soon.
 
 # [Java](#tab/java)
 
-Java sample coming soon.
+Use an HTTP-triggered client function to start the Java chaining orchestration:
+
+```java
+@FunctionName("StartOrchestration")
+public HttpResponseMessage startOrchestration(
+        @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+        HttpRequestMessage<Optional<String>> request,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext,
+        final ExecutionContext context) {
+    DurableTaskClient client = durableContext.getClient();
+    String instanceId = client.scheduleNewOrchestrationInstance("HelloCities");
+    context.getLogger().info("Started orchestration with ID = '" + instanceId + "'.");
+    return durableContext.createCheckStatusResponse(request, instanceId);
+}
+```
+
+Sample source: [HelloCities Java sample](https://github.com/Azure/azure-functions-durable-extension/tree/dev/test/e2e/Apps/BasicJava/src/main/java/com/function/HelloCities.java).
 
 ---
 
