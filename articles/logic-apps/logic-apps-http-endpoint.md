@@ -5,7 +5,7 @@ services: logic-apps
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 07/10/2026
-ms.update-cycle: 1068-days
+ms.update-cycle: 1095-days
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
