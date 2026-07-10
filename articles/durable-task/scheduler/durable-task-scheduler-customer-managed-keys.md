@@ -245,7 +245,7 @@ The `provisioningState` value should become `Succeeded` after the update complet
 
 If a configure, update, or revert request fails, or `provisioningState` reports `Failed`, the key usually doesn't meet the [key requirements](#key-requirements) or Durable Task Scheduler can't reach it. Missing purge protection and missing key permissions are the most common causes.
 
-Review the [key requirements](#key-requirements), correct anything that isn't met, then repeat the [configure](#configure-customer-managed-keys) command and [verify the configuration](#verify-the-configuration). For more context, see the [Transparent data encryption troubleshooting guide](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current). If every requirement is met and the request still fails, contact the Durable Task Scheduler team.
+Review the [key requirements](#key-requirements), correct anything that isn't met, then repeat the [configure](#configure-customer-managed-keys) command and [verify the configuration](#verify-the-configuration). For more context on common issues that can occur with Azure SQL customer-managed key configuration, see the [Transparent data encryption troubleshooting guide](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current). If every requirement is met and the request still fails, contact the Durable Task Scheduler team.
 
 ## Rotate keys
 
