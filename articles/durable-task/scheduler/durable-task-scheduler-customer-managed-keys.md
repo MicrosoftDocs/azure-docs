@@ -52,7 +52,7 @@ When you configure or update a customer-managed key, make sure your key and key 
 | **Key store protection** | The key vault or managed HSM has both soft-delete and purge protection enabled. |
 
 > [!NOTE]
-> If the key vault or managed HSM has a firewall enabled, turn on **Allow trusted Microsoft services to bypass this firewall** so that Durable Task Scheduler can reach the key. For more information, see [Set up Azure SQL TDE with a customer-managed key](https://aka.ms/sqltdebyoksetup).
+> If the key vault or managed HSM has a firewall enabled, turn on **Allow trusted Microsoft services to bypass this firewall** so that Durable Task Scheduler can reach the key.
 
 ## Grant Durable Task Scheduler access to the key
 
