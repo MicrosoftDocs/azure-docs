@@ -4,7 +4,8 @@ description: Learn how to create workflows that receive inbound requests through
 services: logic-apps
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/20/2025
+ms.date: 07/10/2026
+ms.update-cycle: 1095-days
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange

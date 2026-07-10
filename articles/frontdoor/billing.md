@@ -67,13 +67,13 @@ If the request can be served from the Front Door edge location's cache, Front Do
 
 When your origin server processes a request, it sends data back to Front Door so that it can return the data to the client. Front Door doesn't bill you for this traffic, even if the origin is in a different region from the Front Door edge location for the request.
 
-If your origin is within Azure, the data egress from the Azure origin to Front Door isn't charged. However, you should determine whether those Azure services might bill you to process your requests.
+If your origin is within Azure, you aren't charged for data egress from the Azure origin to Front Door. However, check whether those Azure services might bill you to process your requests.
 
 If your origin is outside of Azure, you might incur charges from other network providers.
 
 ### Data transfer from Front Door to client
 
-Front Door charges for the bytes that are sent from the Front Door edge location back to the client. The price is different depending on the geographical region of the Front Door edge location that serves the request.
+Front Door charges for the bytes that it sends from the Front Door edge location back to the client. The price varies depending on the geographical region of the Front Door edge location that serves the request.
 
 If a response is compressed, Front Door only charges for the compressed data.
 
@@ -83,7 +83,7 @@ When you use the Premium tier, Front Door can [connect to your origin by using P
 
 Front Door Premium has a higher base fee and request processing fee. You don't pay extra for Private Link traffic compared to traffic that uses an origin's public endpoint.
 
-When you configure a Private Link origin, you select a region for the private endpoint to use. A [subset of Azure regions support Private Link traffic for Front Door](private-link.md#region-availability). If the region you select is different to the region the origin is deployed to, there isn't an extra charge for cross-region traffic. However, the request latency likely is greater.
+When you configure a Private Link origin, you select a region for the private endpoint to use. A [subset of Azure regions support Private Link traffic for Front Door](private-link.md#region-availability). If the region you select is different from the region where the origin is deployed, you aren't charged extra for cross-region traffic. However, the request latency likely is greater.
 
 ## Cross-region traffic
 

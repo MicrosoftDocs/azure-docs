@@ -1,11 +1,11 @@
 ---
-title: Azure serverless
-description: Learn how Azure serverless solutions help you focus more on building cloud-based apps and less on managing infrastructure by using Azure Logic Apps and Azure Functions.
-services: logic-apps
+title: Serverless with Azure
+description: Learn how Azure serverless solutions help you focus on building cloud-based apps and manage less infrastructure by using Azure Logic Apps and Azure Functions.
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: concept-article
-ms.date: 07/22/2025
+ms.update-cycle: 180-days
+ms.date: 07/10/2026
 ---
 
 # Azure serverless overview: Create cloud-based apps and solutions with Azure Logic Apps and Azure Functions
