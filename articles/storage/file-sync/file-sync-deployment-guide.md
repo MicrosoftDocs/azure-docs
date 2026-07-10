@@ -770,7 +770,7 @@ The Azure file share (cloud endpoint) is a full SMB endpoint that's capable of d
 
 The most common reason to have an additional server endpoint rather than accessing the Azure file share directly is that changes made directly on the Azure file share can take up to 24 hours or longer for Azure File Sync to discover them. Changes made on a server endpoint are discovered nearly immediately and synced to all other server and cloud endpoints. This configuration is extremely common in environments where a substantial portion of users are remote.
 
-If port 445 is blocked in your environment, you can use SMB over QUIC to access a file share hosted on a Windows Server 2022 Azure Edition server endpoint without VPN or ExpressRoute. For networking details and setup guidance, see [SMB over QUIC](file-sync-networking-overview.md#smb-over-quic) in the Azure File Sync networking overview.
+If port 445 is blocked in your environment, you can use SMB over QUIC to access a file share hosted on a Windows Server Datacenter: Azure Edition server endpoint without VPN or ExpressRoute. For networking details and setup guidance, see [SMB over QUIC](file-sync-networking-overview.md#smb-over-quic).
 
 ## Onboard Azure File Sync
 
