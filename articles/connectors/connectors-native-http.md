@@ -1,11 +1,12 @@
 ---
 title: Call External HTTPS Endpoints from Workflows
-description: Learn how to send calls to external HTTP or HTTPS endpoints from workflows in Azure Logic Apps.
+description: Send calls to external HTTP or HTTPS endpoints from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.update-cycle: 1095-days
+ms.date: 07/10/2026
 ---
 
 # Call external HTTP or HTTPS endpoints from workflows in Azure Logic Apps
