@@ -45,7 +45,7 @@ In addition to the following limits, there's a [composite limit on the number of
 ### Azure Front Door Standard and Premium service limits
 
 - Maximum of **500** total Standard and Premium profiles per subscription.
-- In addition to the following limits, there are [composite limit on the number of routes, domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
+- In addition to the following limits, there's a [composite limit on the number of routes, domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
 
 | Resource | Standard tier limit | Premium tier limit |
 | --- | --- | --- |
