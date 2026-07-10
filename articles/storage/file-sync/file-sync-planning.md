@@ -407,7 +407,7 @@ Based on your organization's policy or unique regulatory requirements, you might
 - Configure Azure File Sync to support your proxy in your environment.
 - Throttle network activity from Azure File Sync.
 
-If you want to communicate with your Azure file share over SMB but port 445 is blocked, consider using SMB over QUIC. This method offers a zero-configuration VPN for SMB access to your Azure file shares through the QUIC transport protocol over port 443. Although Azure Files doesn't directly support SMB over QUIC, you can create a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM by using Azure File Sync. To learn more about this option, see [SMB over QUIC](file-sync-networking-overview.md#smb-over-quic) in the Azure File Sync networking overview.
+If you want to communicate with your Azure file share over SMB but port 445 is blocked, consider using SMB over QUIC. This method offers a zero-configuration VPN for SMB access to your Azure file shares through the QUIC transport protocol over port 443. Although Azure Files doesn't directly support SMB over QUIC, you can create a lightweight cache of your Azure file shares on a Windows Server Datacenter: Azure Edition VM by using Azure File Sync. To learn more about this option, see [SMB over QUIC](file-sync-networking-overview.md#smb-over-quic).
 
 To learn more about Azure File Sync and networks, see [Networking considerations for Azure File Sync](file-sync-networking-overview.md).
 
