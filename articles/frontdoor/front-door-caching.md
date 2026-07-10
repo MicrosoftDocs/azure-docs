@@ -203,7 +203,7 @@ You may see `REVALIDATED_HIT` in the `Cache-Control` response header. This indic
 When the cache is stale, Azure Front Door uses HTTP cache validators to compare the cached version of a file with the version on the origin server. Azure Front Door supports only `Last-Modified`.
 
 > [!NOTE]
-> Azure Front Door does not support `etag`.
+> Azure Front Door doesn't support `etag`.
 
 Last-Modified:
 
