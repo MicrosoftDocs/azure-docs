@@ -91,11 +91,11 @@ If you use the Metrics drilldown and want to keep it after upgrading, install th
 1. Open your Azure Managed Grafana workspace in the Azure portal.
 1. Select **Plugin management**.
 1. Check the box for the **Grafana Metrics Drilldown** plugin.
-1. Select **Save**, then select **Yes** to confirm.
+1. Select **Save**, and then select **Yes** to confirm.
 
 For more information, see [How to manage Grafana plugins](how-to-manage-plugins.md#add-a-plugin).
 
-After the plugin is installed, reload Grafana and confirm that **Drilldown** > **Metrics** is available.
+After you install the plugin, reload Grafana and confirm that **Drilldown** > **Metrics** is available.
 
 > [!NOTE]
 > When you use the Metrics drilldown with an Azure Monitor managed service for Prometheus data source, you must select a single metric before you can filter by labels. Filtering by labels before you select a metric isn't supported and can cause plugin errors. The Logs and Traces drilldown apps don't currently support Azure Monitor Logs or Application Insights traces.
