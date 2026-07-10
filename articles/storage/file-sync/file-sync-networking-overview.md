@@ -89,7 +89,7 @@ Azure Files and Azure File Sync support the following mechanisms to tunnel traff
 
 ### SMB over QUIC
 
-If port 445 is blocked in your environment, you can use SMB over QUIC as an alternative to VPN or ExpressRoute. SMB over QUIC uses the QUIC transport protocol over port 443, which most organizations and internet service providers (ISPs) have open to support HTTPS traffic. This eliminates much of the networking configuration normally required to access a file share remotely over the public internet.
+If port 445 is blocked in your environment, you can use SMB over QUIC as an alternative to VPN or ExpressRoute. SMB over QUIC uses the QUIC transport protocol over port 443, which most organizations and internet service providers (ISPs) have open to support HTTPS traffic. This feature eliminates much of the networking configuration normally required to access a file share remotely over the public internet.
 
 To use SMB over QUIC with Azure File Sync:
 
