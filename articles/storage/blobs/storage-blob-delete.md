@@ -51,6 +51,8 @@ If the blob has any associated snapshots, you must delete all of its snapshots t
 
 To delete *only* the snapshots and not the blob itself, you can pass the parameter `DeleteSnapshotsOption.OnlySnapshots`.
 
+When a container is deleted, you can't create a container with the same name for at least 30 seconds. The container might not be available for more than 30 seconds if the service is still processing the request. While the container is being deleted, attempts to create a container of the same name generate a conflict and fail with status code 409. The service indicates that the container is being deleted. All other operations, including operations on any blobs within the container, fail with status code 404 (Not Found) while the container is being deleted.
+
 ## Restore a deleted blob
 
 Blob soft delete protects an individual blob and its versions, snapshots, and metadata from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore the blob to its state at deletion. After the retention period has expired, the blob is permanently deleted. For more information about blob soft delete, see [Soft delete for blobs](soft-delete-blob-overview.md).

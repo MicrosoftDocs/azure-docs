@@ -1,11 +1,12 @@
 ---
 title: Connect to Azure Blob Storage from Workflows
-description: Learn how to connect to Azure Blob Storage from workflows in Azure Logic Apps by using the Azure Blob Storage connector.
+description: Connect to Azure Blob Storage from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/18/2025
+ms.update-cycle: 1095-days
+ms.date: 07/10/2026
 ms.custom: sfi-image-nochange
 ---
 

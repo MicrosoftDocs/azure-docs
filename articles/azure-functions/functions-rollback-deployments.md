@@ -1,5 +1,5 @@
 ---
-title: Recover a deploment to a Flex Consumption plan in Azure Functions
+title: Recover a deployment to a Flex Consumption plan in Azure Functions
 description: Learn how to recover from a bad deployment to an app running in the Flex Consumption plan by rolling back or rolling forward through your deployment process.
 #customer intent: As a developer, I want to roll back or forward a Flex Consumption function app deployment so that I can quickly recover from a bad release.
 ms.topic: how-to
