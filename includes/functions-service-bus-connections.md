@@ -65,3 +65,15 @@ Store this connection string in an app setting with a name that matches the valu
 If the app setting name starts with `AzureWebJobs`, you only need to specify the rest of the name. For example, if you set `connection` to `MyServiceBus`, the Functions runtime looks for an app setting named `AzureWebJobsMyServiceBus`. If you leave `connection` empty, the Functions runtime uses the default Service Bus connection string in the app setting named `AzureWebJobsServiceBus`.
 
 ---
+
+### Scaling permissions
+
+The Service Bus extension uses the Service Bus Administration API (`GetQueueRuntimePropertiesAsync` / `GetSubscriptionRuntimePropertiesAsync`) to retrieve accurate message counts for scale decisions. This API requires additional permissions beyond what is needed to send or receive messages:
+
+- **SAS connection strings**: The SAS policy must include the **Manage** access right.
+- **Identity-based connections**: The identity must be assigned the **Azure Service Bus Data Owner** role, or a custom role that includes `Microsoft.ServiceBus/namespaces/*/read`.
+
+If the connection lacks these permissions, the extension silently falls back to peek-based message estimation, which is less accurate and may result in delayed or incorrect scaling decisions. No error is raised at startup.
+
+> [!TIP]
+> For production workloads that rely on auto-scaling, include the **Manage** claim (SAS) or assign the **Azure Service Bus Data Owner** role (identity-based connections) to ensure accurate scale behavior.
