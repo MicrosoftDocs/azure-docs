@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.update-cycle: 1068-days
+ms.update-cycle: 1095-days
 ms.date: 07/10/2026
 ms.custom: sfi-image-nochange
 ---

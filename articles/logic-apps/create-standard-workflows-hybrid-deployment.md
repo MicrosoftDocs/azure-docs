@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 07/09/2026
-ms.update-cycle: 1068-days
+ms.update-cycle: 1095-days
 ms.custom:
   - build-2025
   - sfi-image-nochange
