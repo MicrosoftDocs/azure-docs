@@ -21,7 +21,7 @@ Use these steps if you choose migration tooling for Enterprise caches using Azur
 
 ## Step 1: Validate and start migration
 
-1. Add the resource tag `amr-migration-data-preserve: false` to your Azure Cache for Redis Enterprise instance to explicitly disable best-effort data sync. This tag is required before migration can proceed. We recommend setting the resource tag to `False` as it will ensure migration is faster with more probability of success. Data sync is not supported yet.
+1. Add the resource tag `amr-migration-data-preserve: false` to your Azure Cache for Redis Enterprise instance to explicitly disable best-effort data sync. This tag is required before migration can proceed. We recommend setting the resource tag to `False` as it will ensure migration is faster with more probability of success. If the data sync is absolutely needed then set the resource tag to `True`. 
 
     ```Azure CLI
     az tag update --resource-id --operation Merge --tags amr-migration-data-preserve=False
