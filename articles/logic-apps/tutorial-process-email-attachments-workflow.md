@@ -1,13 +1,12 @@
 ---
 title: Create Workflows with Multiple Azure Services
 description: Build an automated workflow that integrates Azure Functions and Azure Storage by using Azure Logic Apps.
-services: azure-logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: tutorial
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
-ms.date: 01/31/2026
+ms.date: 07/10/2026
 ms.custom:
   - mvc
   - devx-track-csharp
