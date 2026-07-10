@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewers: estfan, divswa, azla
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 12/12/2025
+ms.date: 07/10/2026
 ms.update-cycle: 180-days
 # Customer intent: As an AI integration developer working in Microsoft Foundry, I want to add agent tools powered by connector actions in Azure Logic Apps by creating MCP servers.
 ---
