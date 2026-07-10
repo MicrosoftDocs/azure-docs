@@ -40,7 +40,7 @@ The `up` command can create resources, or it can use existing ones, including:
 - A Container Apps environment and Log Analytics workspace.
 - Your container app.
 
-If you need to customize the Container Apps environment, first use the [`az containerapp env create`](/cli/azure/containerapp/env#az-containerapp-env-create) command to create and customize your environment. When you then run the `up` command, use the `--environment` option to specify the customized environment.
+If you need to customize the Container Apps environment, first use the [`az containerapp env create`](/cli/azure/containerapp/env#az-containerapp-env-create) command to create and customize your environment. When you run the `up` command, use the `--environment` option to specify the customized environment.
 
 If you don't specify an existing environment, the `up` command looks for one in your resource group. If the command finds an environment, it uses that environment. If the command doesn't find an environment, it creates one that includes a Log Analytics workspace.
 
