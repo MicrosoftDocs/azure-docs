@@ -191,7 +191,7 @@ The following billing meters increment:
 
 ## Related content
 
-- [Create an Azure Front Door profile](create-front-door-portal.md)
-- [Compare pricing between Azure Front Door tiers](understanding-pricing.md)
-- [Compare the pricing of Azure CDN and Front Door](compare-cdn-front-door-price.md)
+- [Comparison between Azure Front Door and Azure CDN](front-door-cdn-comparison.md)
+- [Price comparison between Azure Front Door tiers](understanding-pricing.md)
+- [Price comparison between Azure CDN and Azure Front Door](compare-cdn-front-door-price.md)
 
