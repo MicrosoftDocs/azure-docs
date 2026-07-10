@@ -42,6 +42,25 @@ Create or choose an Azure Key Vault key or Azure Managed HSM key. The key URI mu
 
 Versioned and versionless key URIs are both supported. When you enable automatic rotation, we recommend a versionless key URI, such as `https://<vault-name>.vault.azure.net/keys/<key-name>`, so the Durable Task Scheduler configuration doesn't embed a specific key version. For more information, see [Using versioned and versionless Azure Key Vault keys for TDE](/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql&tabs=azurekeyvault%2Cazurekeyvaultrequirements%2Cazurekeyvaultrecommendations#using-versioned-and-versionless-azure-key-vault-keys-for-tde).
 
+## Key requirements
+
+When you configure or update a customer-managed key, Durable Task Scheduler validates the key before it applies the configuration. These checks match the Azure SQL transparent data encryption (TDE) requirements that Durable Task Scheduler relies on for data encryption. If any requirement isn't met, the request fails validation with a descriptive error, and the scheduler keeps its current encryption configuration.
+
+Make sure your key meets all of the following requirements before you configure customer-managed keys:
+
+| Requirement | Details |
+| --- | --- |
+| **Durable Task Scheduler has access** | The Durable Task Scheduler service identity has the **Key Vault Crypto Service Encryption User** role (Azure RBAC) or the `get`, `wrapKey`, and `unwrapKey` key permissions (access policy) on the key vault. For Azure Managed HSM, it has the **Managed HSM Crypto Service Encryption User** role at the key scope. |
+| **Key exists and is reachable** | The key exists at the key URI you provide, and the key vault or managed HSM allows Durable Task Scheduler to reach it over the network. |
+| **Supported key type and size** | The key is an RSA or RSA-HSM key that's 2,048 or 3,072 bits. |
+| **Key is enabled** | The key is in the enabled state. |
+| **Activation date has passed** | If the key has an activation date (**Not before**), that date is in the past. |
+| **Key isn't expired** | If the key has an expiration date (**Expires on**), that date is in the future. |
+| **Wrap and unwrap are allowed** | The key permits the `wrapKey` and `unwrapKey` operations, in addition to `get`. |
+
+> [!NOTE]
+> If the key vault or managed HSM has a firewall enabled, turn on **Allow trusted Microsoft services to bypass this firewall** so that Durable Task Scheduler can reach the key. For more information, see [Set up Azure SQL TDE with a customer-managed key](https://aka.ms/sqltdebyoksetup).
+
 ## Grant Durable Task Scheduler access to the key
 
 Durable Task Scheduler needs permission to read and use the key for encryption operations. Grant the Durable Task Scheduler service identity the minimum permissions required by your key store.
@@ -227,7 +246,22 @@ az rest \
   --output table
 ```
 
-The `provisioningState` value should become `Succeeded` after the update completes. If the state is `Failed`, restore key access and repeat the configure command.
+The `provisioningState` value should become `Succeeded` after the update completes. If the state is `Failed`, see [Troubleshoot customer-managed key access](#troubleshoot-customer-managed-key-access) to identify and fix the cause, and then repeat the configure command.
+
+## Troubleshoot customer-managed key access
+
+If a configure, update, or key-rotation request fails validation, or the `provisioningState` reports `Failed`, the most common cause is that Durable Task Scheduler can't access the configured key. The [key requirements](#key-requirements) describe every condition that must be true for access to succeed.
+
+Before you contact the Durable Task Scheduler team, work through the following checklist and correct anything that's wrong:
+
+1. Confirm that the Durable Task Scheduler service identity has the **Key Vault Crypto Service Encryption User** role (Azure RBAC) or the `get`, `wrapKey`, and `unwrapKey` key permissions (access policy) on the key vault. For Azure Managed HSM, confirm the **Managed HSM Crypto Service Encryption User** role at the key scope.
+2. Confirm that the key is enabled, past its activation date, and not expired.
+3. Confirm that the key is an RSA or RSA-HSM key (2,048 or 3,072 bits) that permits the `wrapKey` and `unwrapKey` operations.
+4. If the key vault firewall is enabled, confirm that **Allow trusted Microsoft services to bypass this firewall** is turned on.
+
+For detailed setup and troubleshooting steps, see [Set up Azure SQL TDE with a customer-managed key](https://aka.ms/sqltdebyoksetup).
+
+After you fix any issue, repeat the [configure](#configure-customer-managed-keys) command to retry validation, and then [verify the configuration](#verify-the-configuration). If every requirement is satisfied and the request still fails, contact the Durable Task Scheduler team for further help.
 
 ## Rotate keys
 
