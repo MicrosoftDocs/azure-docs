@@ -15,7 +15,7 @@ ms.date: 06/08/2026
 
 Durable Task Scheduler encrypts data at rest by default. Customer-managed keys let you use a key that you own in Azure Key Vault or Azure Managed HSM for Durable Task Scheduler data encryption. Use customer-managed keys when your organization requires separation of duties, control over key lifecycle operations, or centralized auditing of key access.
 
-With customer-managed keys, you're responsible for creating, protecting, rotating, and preserving the key. For detailed key lifecycle requirements and operational guidance, see [Azure SQL transparent data encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview).
+When you use customer-managed keys, you're responsible for creating, protecting, rotating, and preserving the key. For detailed key lifecycle requirements and operational guidance, see [Azure SQL transparent data encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview).
 
 > [!NOTE]
 > Customer-managed keys for Durable Task Scheduler are currently in preview and require a [Dedicated SKU](durable-task-scheduler-billing.md#dedicated-sku-pricing-and-capacity) scheduler in a supported region.
