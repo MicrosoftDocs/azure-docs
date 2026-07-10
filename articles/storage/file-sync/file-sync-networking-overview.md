@@ -93,7 +93,7 @@ If port 445 is blocked in your environment, you can use SMB over QUIC as an alte
 
 To use SMB over QUIC with Azure File Sync:
 
-- The Azure File Sync server endpoint must run on a Windows Server 2022 Azure Edition virtual machine in Azure.
+- The Azure File Sync server endpoint must run on a Windows Server Datacenter: Azure Edition virtual machine in Azure.
 - Clients must be running Windows 11 or later.
 
 For setup and configuration details, see [SMB over QUIC](/windows-server/storage/file-server/smb-over-quic). For background on how Azure Files relates to SMB over QUIC, see [SMB over QUIC](../files/storage-files-networking-overview.md#smb-over-quic) in the Azure Files networking overview.
