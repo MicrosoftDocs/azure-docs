@@ -133,7 +133,7 @@ You can solve the domain routing issue by modifying the SPN suffix of the storag
 
 In this example, the domains **contoso.com** and **adatum.com** have **contosofs** and **adatumfs** as storage accounts associated with SMB Azure file shares in the respective domains. These domains are in different forests that trust each other to access resources in each other's forests. You want to allow access to both storage accounts from clients who belong to each forest. To do this, you need to modify the SPN suffixes of the storage account:
 
-You would add **contosofs.contoso.com** to the **contosofs.file.core.windows.net** object in Active Directory and **adatumfs.adatum.com** to the **adatumfs.file.core.windows.net** object in Active Directory.
+You add **contosofs.contoso.com** to the **contosofs.file.core.windows.net** object in Active Directory and **adatumfs.adatum.com** to the **adatumfs.file.core.windows.net** object in Active Directory.
  
 This change allows Adatum clients to mount the Contoso share by using `net use \\contosofs.contoso.com` and Contoso clients to mount the Adatum share by using `net use \\adatumfs.adatum.com` because clients in either **contoso** or **adatum** know to search **adatum.com** or **contoso.com** to find the proper resource for that storage account.
 
