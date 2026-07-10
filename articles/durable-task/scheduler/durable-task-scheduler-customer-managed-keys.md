@@ -28,9 +28,6 @@ With customer-managed keys, you're responsible for creating, protecting, rotatin
 - An Azure Key Vault key or Azure Managed HSM key that meets the [requirements for configuring a TDE protector](/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql&tabs=azurekeyvault%2Cazurekeyvaultrequirements%2Cazurekeyvaultrecommendations#key-requirements-for-configuring-tde-protector).
 - Permissions to grant data-plane access on the key vault or managed HSM.
 
-> [!IMPORTANT]
-> Enable soft-delete and purge protection on the key vault or managed HSM before you configure customer-managed keys. If the key, key vault, or managed HSM is deleted, purged, disabled, expired, or no longer accessible to Durable Task Scheduler, the scheduler can become unavailable until access is restored.
-
 ## Prepare the key
 
 Create or choose an Azure Key Vault key or Azure Managed HSM key. The key URI must use one of the following formats:
@@ -44,20 +41,17 @@ Versioned and versionless key URIs are both supported. When you enable automatic
 
 ## Key requirements
 
-When you configure or update a customer-managed key, Durable Task Scheduler validates the key, and Azure SQL transparent data encryption (TDE) validates the key store, before the configuration is applied. Durable Task Scheduler relies on Azure SQL TDE for data encryption, so these checks match the Azure SQL customer-managed key requirements. If any requirement isn't met, the request fails with a descriptive error, and the scheduler keeps its current encryption configuration.
+When you configure or update a customer-managed key, Durable Task Scheduler validates the key and Azure SQL transparent data encryption (TDE) validates the key store before the configuration is applied. If a requirement isn't met, the request fails with a descriptive error and the scheduler keeps its current encryption configuration.
 
-Make sure your key meets all of the following requirements before you configure customer-managed keys:
+Make sure your key and key store meet the following requirements:
 
 | Requirement | Details |
 | --- | --- |
-| **Durable Task Scheduler has access** | The Durable Task Scheduler service identity has the **Key Vault Crypto Service Encryption User** role (Azure RBAC) or the `get`, `wrapKey`, and `unwrapKey` key permissions (access policy) on the key vault. For Azure Managed HSM, it has the **Managed HSM Crypto Service Encryption User** role at the key scope. |
-| **Key exists and is reachable** | The key exists at the key URI you provide, and the key vault or managed HSM allows Durable Task Scheduler to reach it over the network. |
-| **Supported key type and size** | The key is an RSA or RSA-HSM key that's 2,048 or 3,072 bits. |
-| **Key is enabled** | The key is in the enabled state. |
-| **Activation date has passed** | If the key has an activation date (**Not before**), that date is in the past. |
-| **Key isn't expired** | If the key has an expiration date (**Expires on**), that date is in the future. |
-| **Wrap and unwrap are allowed** | The key permits the `wrapKey` and `unwrapKey` operations, in addition to `get`. |
-| **Soft-delete and purge protection are enabled** | The key vault or managed HSM has both soft-delete and purge protection enabled. Azure SQL TDE requires these settings before it can use the key as a TDE protector. |
+| **Access** | The Durable Task Scheduler service identity has the **Key Vault Crypto Service Encryption User** role (Azure RBAC) or the `get`, `wrapKey`, and `unwrapKey` key permissions (access policy). For Azure Managed HSM, it has the **Managed HSM Crypto Service Encryption User** role at the key scope. |
+| **Key type and size** | The key is an RSA or RSA-HSM key that's 2,048 or 3,072 bits. |
+| **Key state** | The key is enabled, past its activation date (if set), and not expired. |
+| **Key operations** | The key permits the `wrapKey` and `unwrapKey` operations, in addition to `get`. |
+| **Key store protection** | The key vault or managed HSM has both soft-delete and purge protection enabled. |
 
 > [!NOTE]
 > If the key vault or managed HSM has a firewall enabled, turn on **Allow trusted Microsoft services to bypass this firewall** so that Durable Task Scheduler can reach the key. For more information, see [Set up Azure SQL TDE with a customer-managed key](https://aka.ms/sqltdebyoksetup).
@@ -247,23 +241,13 @@ az rest \
   --output table
 ```
 
-The `provisioningState` value should become `Succeeded` after the update completes. If the state is `Failed`, see [Troubleshoot customer-managed key access](#troubleshoot-customer-managed-key-access) to identify and fix the cause, and then repeat the configure command.
+The `provisioningState` value should become `Succeeded` after the update completes. If the state is `Failed`, see [Troubleshoot customer-managed key configuration](#troubleshoot-customer-managed-key-configuration).
 
-## Troubleshoot customer-managed key access
+## Troubleshoot customer-managed key configuration
 
-If a configure, update, or key-rotation request fails validation, or the `provisioningState` reports `Failed`, the most common cause is that Durable Task Scheduler can't access the configured key. The [key requirements](#key-requirements) describe every condition that must be true for access to succeed.
+If a configure, update, or rotation request fails, or `provisioningState` reports `Failed`, the key usually doesn't meet the [key requirements](#key-requirements) or Durable Task Scheduler can't reach it. Missing purge protection and missing key permissions are the most common causes.
 
-Before you contact the Durable Task Scheduler team, work through the following checklist and correct anything that's wrong:
-
-1. Confirm that the Durable Task Scheduler service identity has the **Key Vault Crypto Service Encryption User** role (Azure RBAC) or the `get`, `wrapKey`, and `unwrapKey` key permissions (access policy) on the key vault. For Azure Managed HSM, confirm the **Managed HSM Crypto Service Encryption User** role at the key scope.
-2. Confirm that the key is enabled, past its activation date, and not expired.
-3. Confirm that the key is an RSA or RSA-HSM key (2,048 or 3,072 bits) that permits the `wrapKey` and `unwrapKey` operations.
-4. If the key vault firewall is enabled, confirm that **Allow trusted Microsoft services to bypass this firewall** is turned on.
-5. Confirm that the key vault or managed HSM has soft-delete and purge protection enabled.
-
-For detailed setup and troubleshooting steps, see [Set up Azure SQL TDE with a customer-managed key](https://aka.ms/sqltdebyoksetup).
-
-After you fix any issue, repeat the [configure](#configure-customer-managed-keys) command to retry validation, and then [verify the configuration](#verify-the-configuration). If every requirement is satisfied and the request still fails, contact the Durable Task Scheduler team for further help.
+Review the [key requirements](#key-requirements), correct anything that isn't met, then repeat the [configure](#configure-customer-managed-keys) command and [verify the configuration](#verify-the-configuration). For detailed setup steps, see [Set up Azure SQL TDE with a customer-managed key](https://aka.ms/sqltdebyoksetup). If every requirement is met and the request still fails, contact the Durable Task Scheduler team.
 
 ## Rotate keys
 
@@ -285,7 +269,6 @@ After the delete operation completes, a `GET` request for the child resource ret
 
 - **Dedicated SKU only**: Customer-managed keys are supported only for Dedicated SKU schedulers. Requests for Consumption SKU schedulers fail validation.
 - **Key availability affects scheduler availability**: Don't disable, delete, purge, expire, or revoke access to the configured key unless you're intentionally making the scheduler unavailable. If access is lost, restore the key and permissions, then repeat the configure command to retry validation.
-- **Key permissions are required before configuration**: The Durable Task Scheduler service identity must have `get`, `wrapKey`, and `unwrapKey` permissions before you create or update the customer-managed key configuration.
 - **Use the latest key guidance**: Follow the Azure SQL customer-managed key recommendations for key protection, rotation, backup, restore, and inaccessible-key recovery. For more information, see [Azure SQL transparent data encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql).
 
 ## Related content
