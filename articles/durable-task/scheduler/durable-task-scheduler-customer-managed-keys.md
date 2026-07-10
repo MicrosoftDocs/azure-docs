@@ -2,7 +2,7 @@
 author: hhunter-ms
 ms.author: hannahhunter
 ms.reviewer: wangbill
-title: "Configure customer-managed keys for Durable Task Scheduler (Preview)"
+title: "Configure customer-managed keys for Durable Task Scheduler (preview)"
 titleSuffix: Durable Task
 description: Learn how to configure customer-managed keys for Durable Task Scheduler data encryption by using Azure Key Vault or Azure Managed HSM.
 ms.topic: how-to
@@ -18,13 +18,13 @@ Durable Task Scheduler encrypts data at rest by default. Customer-managed keys l
 With customer-managed keys, you're responsible for creating, protecting, rotating, and preserving the key. For detailed key lifecycle requirements and operational guidance, see [Azure SQL transparent data encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql).
 
 > [!NOTE]
-> Customer-managed keys for Durable Task Scheduler are currently in preview and require a [Dedicated SKU](/azure/durable-task/scheduler/durable-task-scheduler-billing#dedicated-sku-pricing-and-capacity) scheduler in a supported region.
+> Customer-managed keys for Durable Task Scheduler are currently in preview and require a [Dedicated SKU](durable-task-scheduler-billing.md#dedicated-sku-pricing-and-capacity) scheduler in a supported region.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- [Azure CLI](https://learn.microsoft.com/cli/azure/install-azure-cli).
-- A [Durable Task Scheduler](/azure/durable-task/scheduler/durable-task-scheduler) resource that uses the Dedicated SKU.
+- [Azure CLI](/cli/azure/install-azure-cli).
+- A [Durable Task Scheduler](durable-task-scheduler.md) resource that uses the Dedicated SKU.
 - An Azure Key Vault key or Azure Managed HSM key that meets the [requirements for configuring a TDE protector](/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql&tabs=azurekeyvault%2Cazurekeyvaultrequirements%2Cazurekeyvaultrecommendations#key-requirements-for-configuring-tde-protector).
 - Permissions to grant data-plane access on the key vault or managed HSM.
 
@@ -52,11 +52,11 @@ The Durable Task Scheduler service identity uses application ID `887c6b43-ba92-4
 
 The Durable Task Scheduler Microsoft application must have a service principal in your Microsoft Entra tenant before you assign key permissions. Creating the service principal makes the Durable Task Scheduler Microsoft application available in your tenant for permission assignment.
 
-You can create the service principal by using Microsoft Entra methods such as [Azure CLI](https://learn.microsoft.com/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create), [Azure PowerShell](https://learn.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal), or [Microsoft Graph](https://learn.microsoft.com/graph/api/serviceprincipal-post-serviceprincipals). Use the service principal object ID returned by any method when you grant key permissions.
+You can create the service principal by using Microsoft Entra methods such as [Azure CLI](/cli/azure/ad/sp#az-ad-sp-create), [Azure PowerShell](/powershell/module/az.resources/new-azadserviceprincipal), or [Microsoft Graph](/graph/api/serviceprincipal-post-serviceprincipals). Use the service principal object ID returned by any method when you grant key permissions.
 
-The Azure CLI examples in this article use the following commands:
+The Azure CLI examples in this article use the following Bash commands:
 
-```azurecli
+```bash
 DTS_SERVICE_PRINCIPAL_APP_ID="887c6b43-ba92-4adb-a82b-73670fc48dac"
 
 DTS_SERVICE_PRINCIPAL_OBJECT_ID=$(az ad sp show \
@@ -96,7 +96,7 @@ Grant key permissions by using the access model for your key store.
 
 Assign the **Key Vault Crypto Service Encryption User** role on the key vault:
 
-```azurecli
+```bash
 KEY_VAULT_NAME="<key-vault-name>"
 
 KEY_VAULT_ID=$(az keyvault show \
@@ -117,7 +117,7 @@ For more information, see [Azure Key Vault RBAC built-in roles](/azure/key-vault
 
 If your key vault uses the vault access policy permission model, grant `get`, `wrapKey`, and `unwrapKey` permissions:
 
-```azurecli
+```bash
 KEY_VAULT_NAME="<key-vault-name>"
 
 az keyvault set-policy \
@@ -130,7 +130,7 @@ az keyvault set-policy \
 
 Managed HSM uses local RBAC. Assign the **Managed HSM Crypto Service Encryption User** role at the key scope:
 
-```azurecli
+```bash
 MANAGED_HSM_NAME="<managed-hsm-name>"
 KEY_NAME="<key-name>"
 
@@ -147,9 +147,9 @@ For more information, see [Managed HSM role management](/azure/key-vault/managed
 
 Use the `transparentDataEncryptions/default` child resource to configure the scheduler to use your key.
 
-The Azure CLI examples in this article use the following variables:
+The Azure CLI examples in this article use the following Bash variables:
 
-```azurecli
+```bash
 SUBSCRIPTION_ID=$(az account show --query id --output tsv)
 RESOURCE_GROUP_NAME="<resource-group-name>"
 SCHEDULER_NAME="<scheduler-name>"
@@ -254,8 +254,8 @@ After the delete operation completes, a `GET` request for the child resource ret
 
 ## Related content
 
-- [Durable Task Scheduler](/azure/durable-task/scheduler/durable-task-scheduler)
-- [Durable Task Scheduler billing](/azure/durable-task/scheduler/durable-task-scheduler-billing)
+- [Durable Task Scheduler](durable-task-scheduler.md)
+- [Durable Task Scheduler billing](durable-task-scheduler-billing.md)
 - [Azure SQL transparent data encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql)
 - [Azure Key Vault RBAC guide](/azure/key-vault/general/rbac-guide)
 - [Managed HSM role management](/azure/key-vault/managed-hsm/role-management)
