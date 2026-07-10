@@ -3,7 +3,7 @@ title: Overview of Azure SRE Agent
 description: Learn how Azure SRE Agent automates incident triage, scheduled operations, and site reliability workflows with integrations for PagerDuty, Grafana, ServiceNow, and GitHub.
 author: craigshoemaker
 ms.topic: overview
-ms.date: 06/16/2026
+ms.date: 07/10/2026
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
@@ -63,11 +63,11 @@ The agent operates through five extension primitives:
 
 - **Skills**: Discrete capabilities, including marketplace runbooks and Azure CLI scripts, that extend the agent's operational reach without requiring custom code.
 
-- **Subagents**: Purpose-built agents for specific operational domains. Five subagents ship built-in (architecture, logs and metrics, source code, root cause analysis, and scanning), and you can build additional custom subagents or compose them for cross-domain investigations.
+- **Subagents**: Purpose-built agents for specific operational domains. Six generic subagents ship built in—Explore, Plan, CodeReview, Bash, Verification, and GeneralPurpose—so the agent can parallelize investigation, planning, review, shell, and verification work across built-in and custom subagents.
 
 - **Python tools**: Custom logic, data transformations, and API integrations for scenarios that require code rather than configuration.
 
-- **MCP servers**: Connect to 40+ pre-built connectors (Datadog, Prometheus, Grafana, New Relic, Splunk, Elasticsearch, Dynatrace, AWS CloudWatch, GCP Stackdriver, and more) or any custom tool through the Model Context Protocol standard.
+- **MCP servers**: Connect to 40+ pre-built connectors (Datadog, New Relic, Splunk, Elasticsearch, Dynatrace, and more) or any custom tool through the Model Context Protocol standard.
 
 - **Agent hooks**: Event-triggered automations that run at defined points in the agent lifecycle, either before investigation or after resolution. Two executor types are supported: command hooks run deterministic CLI operations, and prompt hooks produce LLM-evaluated structured JSON output. Use hooks to enforce policies, emit telemetry, or integrate with external approval workflows. See [agent hooks](agent-hooks.md).
 
