@@ -37,7 +37,7 @@ Create or choose an Azure Key Vault key or Azure Managed HSM key. The key URI mu
 | Azure Key Vault | `https://<vault-name>.vault.azure.net/keys/<key-name>[/<key-version>]` |
 | Azure Managed HSM | `https://<hsm-name>.managedhsm.azure.net/keys/<key-name>[/<key-version>]` |
 
-Versioned and versionless key URIs are both supported. When you enable automatic rotation, we recommend a versionless key URI, such as `https://<vault-name>.vault.azure.net/keys/<key-name>`, so the Durable Task Scheduler configuration doesn't embed a specific key version. For more information, see [Using versioned and versionless Azure Key Vault keys for TDE](/azure/azure-sql/database/transparent-data-encryption-byok-overview?tabs=azurekeyvault%2Cazurekeyvaultrequirements%2Cazurekeyvaultrecommendations#using-versioned-and-versionless-azure-key-vault-keys-for-tde).
+Versioned and versionless key URIs are both supported. When you enable automatic rotation, use a versionless key URI, such as `https://<vault-name>.vault.azure.net/keys/<key-name>`, so the Durable Task Scheduler configuration doesn't embed a specific key version. For more information, see [Using versioned and versionless Azure Key Vault keys for TDE](/azure/azure-sql/database/transparent-data-encryption-byok-overview?tabs=azurekeyvault%2Cazurekeyvaultrequirements%2Cazurekeyvaultrecommendations#using-versioned-and-versionless-azure-key-vault-keys-for-tde).
 
 ## Key requirements
 
