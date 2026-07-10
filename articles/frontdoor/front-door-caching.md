@@ -209,7 +209,7 @@ Last-Modified:
 
 - Specifies the date and time that the origin server determined the resource was last modified. For example, `Last-Modified: Thu, 19 Oct 2025 09:28:00 GMT`.
 - For content larger than 8 MB, origin backend servers should maintain consistent `Last-Modified` timestamps per asset. Returning inconsistent `Last-Modified` times from backend servers causes validator mismatch errors and results in partial file downloads or HTTP 5XX failures. Azure Storage might not support consistent `Last-Modified` timestamps across replicas, which can cause similar validator mismatch errors.
-- A cache validates a file using `Last-Modified` by sending an `If-Modified-Since` header with a date and time in the request. The origin server compares that date with the `Last-Modified` header of the latest resource. If the resource hasn't been modified since the specified time, the server returns status code 304 (Not Modified) in its response. If the resource has been modified, the server returns status code 200 (OK) and the updated resource.
+- A cache validates a file by using `Last-Modified`. It sends an `If-Modified-Since` header with a date and time in the request. The origin server compares that date with the `Last-Modified` header of the latest resource. If the resource isn't modified since the specified time, the server returns status code 304 (Not Modified) in its response. If the resource is modified, the server returns status code 200 (OK) and the updated resource.
 
 ## Request headers
 
