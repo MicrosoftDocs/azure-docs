@@ -267,7 +267,7 @@ After the delete operation completes, a `GET` request for the child resource ret
 
 - **Dedicated SKU only**: Customer-managed keys are supported only for Dedicated SKU schedulers. Requests for Consumption SKU schedulers fail validation.
 - **Key availability affects scheduler availability**: Don't disable, delete, purge, expire, or revoke access to the configured key unless you're intentionally making the scheduler unavailable. If access is lost, restore the key and permissions, then repeat the configure command to retry validation.
-- **Use the latest key guidance**: Follow the Azure SQL customer-managed key recommendations for key protection, rotation, backup, restore, and inaccessible-key recovery. For more information, see [Azure SQL transparent data encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql).
+- **Use the latest key guidance**: Follow the Azure SQL customer-managed key recommendations for key protection, rotation, backup, restore, and inaccessible-key recovery. For more information, see [Azure SQL transparent data encryption with customer-managed key](/azure/azure-sql/database/transparent-data-encryption-byok-overview).
 
 ## Related content
 
