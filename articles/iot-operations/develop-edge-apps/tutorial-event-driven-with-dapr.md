@@ -228,7 +228,7 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
     ```
 
     > [!NOTE]
-    > The preceding command works for the [quickstart codespace](../get-started-end-to-end-sample/quickstart-deploy.md). If you're using a different environment, you may need to adjust the parameters accordingly.
+    > The preceding command works for the [quickstart codespace](../get-started-end-to-end-sample/quickstart-deploy.md). If you're using a different environment, you might need to adjust the parameters.
 
 1. Verify the application is outputting a sliding windows calculation for the various sensors every 10 seconds:
 
