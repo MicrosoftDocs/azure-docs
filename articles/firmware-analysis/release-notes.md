@@ -4,7 +4,7 @@ author: karengu0
 ms.author: karenguo
 description: Learn about the latest updates for firmware analysis.
 ms.topic: concept-article
-ms.date: 05/26/2026
+ms.date: 07/07/2026
 ms.service: azure
 ms.subservice: azure-firmware-analysis
 ---
@@ -16,6 +16,15 @@ Get notified about when to revisit this page for updates by copying and pasting 
 
 > `https://learn.microsoft.com/api/search/rss?search=%22What%27s+new+in+firmware+analysis%22&locale=en-us`
 
+## July 2026
+
+- **SBOM component expansion**: Firmware analysis now supports detection of four additional SBOM components: nano, libarchive, protobuf-c, and jansson. This expansion improves SBOM coverage across firmware images and enhances visibility into potential vulnerabilities.
+
+- **Fixed extraction crash on large tarball entries**: Resolved a crash (ValueError overflow) during firmware extraction when device files exceed USTAR field limits. This fix improves the reliability of analysis results.
+
+- **Fixed UBIFS extraction for multi-image files**: Resolved an issue extracting images that contain multiple UBIFS images embedded in a single file separated by padding.
+
+- **Updated CVE database**: Firmware analysis's CVE database was refreshed on June 17, 2026 to incorporate newer CVE data.
 
 
 ## May 2026

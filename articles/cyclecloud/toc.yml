@@ -23,6 +23,8 @@ items:
     href: ./concepts/core.md
   - name: Clusters & Nodes
     href: ./concepts/clusters.md
+  - name: Plan and size HPC clusters
+    href: ./concepts/plan-and-size-hpc-clusters.md
   - name: Scheduling
     href: ./concepts/scheduling.md
   - name: Multi-region Cluster Deployment
