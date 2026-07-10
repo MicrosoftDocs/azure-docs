@@ -2,11 +2,11 @@
 title: Upgrade a VPN Gateway SKU
 titleSuffix: Azure VPN Gateway
 description: Learn how to upgrade a VPN Gateway SKU in Azure.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/03/2026
-ms.author: cherylmc
+ms.author: duau
 
 #customer intent: As an Azure network engineer, I want to understand the workflow for upgrading a VPN Gateway SKU so that I can plan properly and minimize downtime.
 
@@ -34,7 +34,7 @@ In the preceding table, *AZ* stands for *availability zone*, and means that the 
 ## Limitations and restrictions
 
 * You can't upgrade a Basic SKU to a new SKU. You must delete the gateway, and then create a new one.
-* You can't downgrade a SKU without deleting the gateway and creating a new one.
+* Downgrades are supported within the same SKU family. For example, AZ SKUs can be upgraded or downgraded among supported AZ SKUs. Downgrading from an AZ SKU to the Basic SKU isn't supported and requires deleting and recreating the gateway.
 * Legacy gateway SKUs (Standard and High Performance) can be upgraded to new SKU families only by migrating the Basic SKU IP address to Standard SKU IP address first. You can use the [Basic SKU IP Migration tool](basic-public-ip-migrate-howto.md?tabs=portal) to migrate your IP address and your SKU will also be upgraded to AZ SKU family as part of this migration. For more information about working with legacy gateway SKUs, see [VPN Gateway legacy SKUs](vpn-gateway-about-skus-legacy.md).
 
 ## Upgrade a gateway SKU by using the Azure portal

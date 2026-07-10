@@ -222,6 +222,8 @@ For all language frameworks, Container Apps makes the claims in the incoming tok
 
 Code that is written in any language or framework can get the information that it needs from these headers.
 
+In addition to these identity headers, your application can access authentication tokens (such as Microsoft Entra access tokens) through request headers like `X-MS-TOKEN-AAD-ACCESS-TOKEN`. To make these tokens available, you must enable the **token store** as part of your container app's authentication settings. Once enabled, requests sent to your application include additional token-related headers, depending on the configured identity provider and authentication flow.
+
 > [!NOTE]
 > Different language frameworks might present these headers to the app code in different formats, such as lowercase or title case.
 

@@ -3,7 +3,7 @@ title: 'Quickstart: Create and run load tests from a recording'
 titleSuffix: Azure Load Testing
 description: 'This quickstart shows how to create and run load tests using the browser extension for Azure App Testing.'
 services: load-testing
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.topic: quickstart
 author: nandinimurali
 ms.author: nandinim

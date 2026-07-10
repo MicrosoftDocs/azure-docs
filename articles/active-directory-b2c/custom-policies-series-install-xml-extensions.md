@@ -6,7 +6,7 @@ description: Learn how to validate custom policy files by using TrustFrameworkPo
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements

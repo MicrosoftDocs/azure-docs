@@ -39,6 +39,8 @@ items:
         href: quickstart-create-nat-gateway-v2-templates.md
   - name: Secure
     items:
+      - name: Secure NAT Gateway deployment
+        href: secure-nat-gateway.md
       - name: NAT gateway security baseline
         href: /security/benchmark/azure/baselines/virtual-network-nat-security-baseline
       - name: Network security blog

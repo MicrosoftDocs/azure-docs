@@ -207,7 +207,7 @@ The following is displayed in the **Add an inbound NAT rule** creation page for 
 | Current number of machines in backend pool | The displayed value is the number of machines in the selected backend pool, and for information only; you can't modify this value. |
 | Maximum number of machines in backend pool | Enter the maximum number of instances in the backend pool when scaling out. |
 | Backend port | Enter a port for traffic sent to on backend pool. |
-| Protocol | Azure Load Balancer is a layer 4 network lod balancer. </br> Your options are: TCP or UDP. |
+| Protocol | Azure Load Balancer is a layer 4 network load balancer. </br> Your options are: TCP or UDP. |
 | Enable TCP Reset | Load Balancer can send TCP resets to help create a more predictable application behavior on when the connection is idle. </br> Learn more about [TCP reset](load-balancer-tcp-reset.md) |
 | Idle timeout (minutes) | Keep a TCP or HTTP connection open without relying on clients to send keep-alive messages. |
 | Enable Floating IP | Some application scenarios prefer or require the same port to be used by multiple application instances on a single VM in the backend pool. If you want to reuse the backend port across multiple rules, you must enable [Floating IP](load-balancer-floating-ip.md) in the rule definition.|

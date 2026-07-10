@@ -40,15 +40,15 @@ Commonly, wildcard domains are used to support software as a service (SaaS) solu
 You can add a wildcard domain by following steps similar to those for subdomains. For more information about adding a subdomain to Azure Front Door, see [Configure a custom domain on Azure Front Door using the Azure portal](standard-premium/how-to-add-custom-domain.md).
 
 > [!NOTE]
-> * Azure DNS supports wildcard records.
-> * You can't [purge the Azure Front Door cache](front-door-caching.md#cache-purge) for a wildcard domain. You must specify a subdomain when purging the cache.
+> - Azure DNS supports wildcard records.
+> - You can't [purge the Azure Front Door cache](front-door-caching.md#cache-purge) for a wildcard domain. You must specify a subdomain when purging the cache.
 
 To accept HTTPS traffic on your wildcard domain, you must enable HTTPS on the wildcard domain. The certificate binding for a wildcard domain requires a wildcard certificate. That is, the subject name of the certificate should also have the wildcard domain. 
 
 > [!NOTE]
-> * You can choose to use the same wildcard certificate from Azure Key Vault or from Azure Front Door managed certificates for subdomains. 
-> * If you want to add a subdomain of the wildcard domain that’s already validated in the Azure Front Door Standard or Premium profile, the domain validation is automatically approved. This condition applies to Bring Your Own Certificate. Domain ownership is required for managed certificate for subdomains.
-> * If a wildcard domain is validated and already added to one profile, a single-level subdomain can still be added to another profile as long as it's also validated. 
+> - You can choose to use the same wildcard certificate from Azure Key Vault or from Azure Front Door managed certificates for subdomains. 
+> - If you want to add a subdomain of the wildcard domain that’s already validated in the Azure Front Door Standard or Premium profile, the domain validation is automatically approved. This condition applies to Bring Your Own Certificate. Domain ownership is required for managed certificate for subdomains.
+> - If a wildcard domain is validated and already added to one profile, a single-level subdomain can still be added to another profile as long as it's also validated. 
 
 ## Define a subdomain explicitly
 
@@ -56,8 +56,8 @@ You can add as many single-level subdomains of the wildcard as you want. For exa
 
 You might need to explicitly add subdomains in these situations:
 
-* You need to define a different route for a subdomain than the rest of the domains (from the wildcard domain). For example, your customers might use subdomains like `customer1.contoso.com`, `customer2.contoso.com`, and so forth, and these subdomains should all be routed to your main application servers. However, you might also want to route `images.contoso.com` to an Azure Storage blob container.
-* You need to use a different WAF policy for a specific subdomain.
+- You need to define a different route for a subdomain than the rest of the domains (from the wildcard domain). For example, your customers might use subdomains like `customer1.contoso.com`, `customer2.contoso.com`, and so forth, and these subdomains should all be routed to your main application servers. However, you might also want to route `images.contoso.com` to an Azure Storage blob container.
+- You need to use a different WAF policy for a specific subdomain.
 
 Subdomains like `www.image.contoso.com` aren't a single-level subdomain of `*.contoso.com`.
 

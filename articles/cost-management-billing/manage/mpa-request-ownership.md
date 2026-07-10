@@ -16,14 +16,14 @@ service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 
 # Transfer Azure product billing ownership to your Microsoft Partner Agreement (MPA)
 
-An Azure Expert MSP can request to transfer their customer's Enterprise subscriptions, reservations and savings plans to the Microsoft Partner Agreement (MPA) that they manage. 
+A partner can request to transfer their customer's Enterprise subscriptions, reservations and savings plans to the Microsoft Partner Agreement (MPA) that they manage. 
 
 Supported product (subscriptions, reservations and savings plans) billing ownership transfer options include:
 
 - An Enterprise Agreement transfer to an Azure plan under the MPA
 - An enterprise Microsoft Customer Agreement transfer to an Azure plan under the MPA
 
-This feature is available only for CSP Direct Bill Partners certified as [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) and have the Frontier Distributor Designation. It's subject to Microsoft governance and policies and might require review and approval for certain customers.
+This feature is available only for Certified CSP Direct Bill Partners that are enrolled in [Azure Solutions Partner Designation](https://partner.microsoft.com/partnership/solutions-partner), [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) or [Frontier Distributor Designation](https://partner.microsoft.com/asset/collection/frontier-distributor-collection). It's subject to Microsoft governance and policies and might require review and approval for certain customers.
 
 This article applies to billing accounts for Microsoft Partner Agreements. These accounts are created for Cloud Solution Providers (CSPs) to manage billing for their customers in the new commerce experience. The new experience is only available for partners, who have at least one customer that has accepted a Microsoft Customer Agreement (MCA) and has an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
 
@@ -198,7 +198,7 @@ All resources from the subscriptions like VMs, disks, and websites transfer. Whe
 
 ### Azure Marketplace products transfer
 
-Azure Marketplace products, which are available for subscriptions that are managed by Cloud Solution Providers (CSPs) are transferred along with their respective subscriptions. Subscriptions that have Azure Marketplace products that aren't enabled for CSPs can't be transferred.
+Azure Marketplace products, which are available for subscriptions that are managed by Cloud Solution Providers (CSPs), are transferred along with their respective subscriptions. Subscriptions that have Azure Marketplace products that aren't enabled for CSPs can't be transferred. While software as a service (SaaS) products are a type of Azure Marketplace product, they don't move with the Azure subscription. You must transfer SaaS products separately. For more information, see [Software as a Service (SaaS) transfer](#software-as-a-service-saas-transfer). For the criteria that determine whether a Marketplace product can transfer, see [Transfer eligibility](/marketplace/transfer-eligibility).
 
 ### Access to Azure services
 
@@ -228,7 +228,7 @@ You can cancel the transfer request until the request is approved or declined. T
 
 ### Software as a Service (SaaS) transfer
 
-SaaS products don't transfer with the subscriptions. Ask the user to [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to transfer billing ownership of SaaS products. Along with the billing ownership, the user can also transfer resource ownership. Resource ownership lets you do management operations like deleting and viewing the details of the product. User must be a resource owner on the SaaS product to transfer resource ownership.
+SaaS products are sold as SaaS subscriptions that are associated with, and billed through, an Azure subscription. A SaaS subscription doesn't move with its associated Azure subscription when billing ownership transfers, so you transfer it separately. Ask the user to [Contact Azure support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to transfer billing ownership of SaaS subscriptions. Along with the billing ownership, the user can also transfer resource ownership. Resource ownership lets you do management operations like deleting and viewing the details of the product. The user must be a resource owner on the SaaS product to transfer resource ownership. For the criteria that determine whether a SaaS product can transfer, see [Transfer eligibility](/marketplace/transfer-eligibility).
 
 ### Additional approval for certain customers
 

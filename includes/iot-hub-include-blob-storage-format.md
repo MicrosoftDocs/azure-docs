@@ -1,12 +1,12 @@
 ---
 title: include file
 description: Include file that describes how to use a blob storage endpoint.
-author: SoniaLopezBravo
+author: sethmanheim
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 03/31/2025
-ms.author: sonialopez
+ms.author: sethm
 ms.custom: include file
 ---
 > [!NOTE]

@@ -50,7 +50,8 @@ The following table describes resource limits for the Flexible, Standard, Premiu
 |  Maximum number of export policy rules per volume     |    5  |    No    | 
 |  Maximum number of quota rules per volume     |   1,000  |    No    | 
 |  Minimum assigned throughput for a manual Quality of Service (QoS) volume     |    1 MiB/s   |    No    |    
-|  Maximum assigned throughput for a manual QoS volume     |    4,500 MiB/s    |    No    |    
+|  Maximum assigned throughput for a manual QoS regular volume     |    4,500 MiB/s    |    No    |   
+|  Maximum assigned throughput for a manual QoS large volume     |    12,800 MiB/s    |    No    |   
 |  Number of cross-region replication data protection volumes (destination volumes)     |    2000    |    Yes    |     
 |  Number of cross-zone replication data protection volumes (destination volumes)     |    2000    |    Yes    |     
 |  Maximum numbers of policy-based (scheduled) backups per volume  | <ul><li> Daily retention count: 2 (minimum) to 1019 (maximum) </li> <li> Weekly retention count: 0 (minimum) to 1019 (maximum) </li> <li> Monthly retention count: 0 (minimum) to 1019 (maximum) </ol></li> <br> The maximum hourly, daily, weekly, and monthly backup retention counts *combined* is 1019.  |  No  |

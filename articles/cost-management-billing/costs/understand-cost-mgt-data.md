@@ -170,7 +170,7 @@ Costs shown in Cost Management are rounded. Rounding varies by experience. Costs
 
 Currency rounding for Azure Commitment discount (ACD) takes place on the unit rate aspect of the effective rate. Currency rounding depends on currency *precision* (or "minimal accountable currency unit" or "minor units"). For most world currencies, the precision is 1/100. It corresponds to two digits after the decimal point.
 
-For example, assume a discount recieved as part of your ACD is 12.5%:
+For example, assume a discount received as part of your ACD is 12.5%:
 
 - After a 0.125 discount on a $0.09 market price, it equals 0.07875. When rounded, it’s a $0.08 unit rate.
 - After a 0.125 discount on a 0.6 market price, it equals 0.525. When rounded, it’s a $0.53 unit rate.

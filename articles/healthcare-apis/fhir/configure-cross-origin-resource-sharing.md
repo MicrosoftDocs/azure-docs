@@ -1,9 +1,9 @@
 ---
 title: Configure cross-origin resource sharing in FHIR service
-description: This article describes how to configure cross-origin resource sharing in FHIR service
+description: This article describes how to configure cross-origin resource sharing (CORS) in Azure Health Data Services FHIR service.
 author: expekesheth
 ms.author: kesheth
-ms.date: 08/12/2025
+ms.date: 06/08/2026
 ms.topic: reference
 ms.service: azure-health-data-services
 ms.subservice: fhir
@@ -21,7 +21,7 @@ CORS is often used in a single-page app that must call a RESTful API to a differ
 
 To configure a CORS setting in the FHIR service, specify the following settings.
 
-- **Origins (Access-Control-Allow-Origin)**. A list of domains allowed to make cross-origin requests to the FHIR service. Each domain (origin) must be entered in a separate line. You can enter an asterisk (*) to allow calls from any domain, but we don't recommend it because it's a security risk.
+- **Origins (Access-Control-Allow-Origin)**. A list of domains allowed to make cross-origin requests to the FHIR service. Enter each domain (origin) on a separate line. You can enter an asterisk (*) to allow calls from any domain, but don't use it because it's a security risk.
 
 - **Headers (Access-Control-Allow-Headers)**. A list of headers that the origin request contains. To allow all headers, enter an asterisk (*).
 
@@ -29,7 +29,7 @@ To configure a CORS setting in the FHIR service, specify the following settings.
 
 - **Max age (Access-Control-Max-Age)**. The value in seconds to cache preflight request results for Access-Control-Allow-Headers and Access-Control-Allow-Methods.
 
-- **Allow credentials (Access-Control-Allow-Credentials)**. CORS requests normally don’t include cookies to prevent [cross-site request forgery (CSRF)](https://en.wikipedia.org/wiki/Cross-site_request_forgery) attacks. If you select this setting, the request can be made to include credentials, such as cookies. You can't configure this setting if you already set Origins with an asterisk (*).
+- **Allow credentials (Access-Control-Allow-Credentials)**. CORS requests normally don’t include cookies to prevent [cross-site request forgery (CSRF)](https://en.wikipedia.org/wiki/Cross-site_request_forgery) attacks. If you select this setting, the request can include credentials, such as cookies. You can't configure this setting if you already set Origins with an asterisk (*).
 
 ![Cross-origin resource sharing (CORS) settings](media/cors/cors.png)
 
@@ -38,7 +38,7 @@ To configure a CORS setting in the FHIR service, specify the following settings.
 
 ## Next steps
 
-In this tutorial, we walked through how to configure a CORS setting in the FHIR service. Next, you can review how to pass the CARIN IG for Blue Button tests in Touchstone.
+In this tutorial, you learned how to configure a CORS setting in the FHIR service. Next, you can review how to pass the CARIN IG for Blue Button tests in Touchstone.
 
 >[!div class="nextstepaction"]
 >[CARIN Implementation Guide for Blue Button&#174;](carin-implementation-guide-blue-button-tutorial.md)

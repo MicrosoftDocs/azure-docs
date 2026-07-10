@@ -5,7 +5,7 @@ description: Reference for service limits and restrictions for Azure Active Dire
 author: kengaderdus
 ms.author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 03/02/2026

@@ -129,6 +129,37 @@ Set `send_to_group_message.group` to `group`, and set `send_to_group_message.dat
     01 02 03
     ```
 
+### Start streaming messages
+
+To start a group stream, set `send_to_group_message.group` to the target group and set `send_to_group_message.stream` to a `StreamStartInfo` message. A stream start request doesn't set `send_to_group_message.data` or `send_to_group_message.ack_id`.
+
+* `send_to_group_message.stream.stream_id` is the identifier of the logical stream. It must be a non-empty string and must be unique among active streams on the same client connection. Client libraries are recommended to generate a globally unique value, such as a GUID or UUID.
+* `send_to_group_message.stream.idle_timeout_ms` is optional. If specified, it must be greater than `0`. If omitted, the service default is `300000` milliseconds. The value is an idle timeout, not a total stream lifetime. Send stream data, send a stream keepalive, or end the stream before this timeout elapses when the application needs to keep the stream open.
+* `send_to_group_message.no_echo` is optional. If set to true, stream messages aren't echoed back to the same connection. If not set, the default value is false.
+
+When the stream is accepted, the client receives a [stream ack response](#stream-ack-response) with `expected_sequence_id` set to `1`.
+
+### Send streaming data
+
+To send stream data, set `stream_data_message.stream_id`, `stream_data_message.stream_sequence_id`, and `stream_data_message.data`.
+
+* `stream_data_message.stream_id` identifies an active stream on the same client connection.
+* `stream_data_message.stream_sequence_id` is a positive uint64 number. The first data fragment in a stream uses `1`, and each following data fragment for the same `stream_id` increases by exactly `1`.
+* `stream_data_message.data` uses the same `MessageData` encoding rules as [publish messages](#publish-messages).
+
+To keep a stream active without delivering data to subscribers, send `stream_data_message` with only `stream_id` set.
+
+### End streaming messages
+
+To end a stream, set `stream_end_message.stream_id`.
+
+To end a stream with an application-defined error, set `stream_end_message.error`.
+
+* `stream_end_message.error.message` is an optional human-readable error message.
+* `stream_end_message.error.user_error_code` is an optional application-defined error code.
+
+When the stream is closed, the publisher receives a [stream closed response](#stream-closed-response).
+
 ### Send custom events
 
 There's an implicit `dataType`, which can be `protobuf`, `text`, or `binary`, depending on the `dataType` you set. The receiver clients can use `dataType` to handle the content correctly.

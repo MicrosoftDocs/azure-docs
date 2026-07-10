@@ -4,10 +4,10 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 description: Learn about Nutanix Cloud Clusters on Azure and the benefits it offers (obsolete).
 ms.topic: overview
-ms.subservice: baremetal-nutanix
+ms.subservice: nutanix
 ms.custom: engagement-fy23
 ms.date: 03/28/2025
-ms.service: azure-baremetal-infrastructure
+ms.service: baremetal-infrastructure-azure
 # Customer intent: "As a cloud architect, I want to leverage Nutanix Cloud Clusters on Azure, so that I can seamlessly manage hybrid workloads and optimize resource provisioning while utilizing existing skills and licenses."
 ---
 

@@ -3,12 +3,12 @@ title: Create an Azure Storage Account
 titleSuffix: Azure Storage
 description: Create an Azure storage account to store blobs, files, queues, and tables. Use the Azure portal, CLI, PowerShell, or templates to get started.
 services: storage
-author: akashdubey-ms
+author: normesta
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 05/08/2026
-ms.author: akashdubey
+ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom:
   - devx-track-azurecli

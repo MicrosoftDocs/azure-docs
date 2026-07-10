@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python, typescript
 ms.custom: devx-track-python, devx-track-js, mode-ui, devdivchpfy22, devx-track-extended-java, devx-track-ts
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 #Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
 ---
 
@@ -60,7 +60,7 @@ Your project has been configured to use [extension bundles](extension-bundles.md
 
 Extension bundles is already enabled in the *host.json* file at the root of the project, which should look like the following example:
 
-:::code language="json" source="~/functions-docs-python/functions-add-output-binding-storage-queue-cli/host.json":::
+:::code language="json" source="~/functions-docs-python-v2/host.json":::
 
 Now, you can add the storage output binding to your project.
 

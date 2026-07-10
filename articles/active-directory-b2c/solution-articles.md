@@ -8,7 +8,7 @@ manager: CelesteDG
 ms.author: kengaderdus
 ms.date: 01/11/2024
 ms.topic: concept-article
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.subservice: b2c
 
 

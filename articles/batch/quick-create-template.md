@@ -1,7 +1,7 @@
 ---
 title: Azure Quickstart - Create a Batch account - Azure Resource Manager template
 description: This quickstart shows how to create a Batch account by using an ARM template.
-ms.date: 06/13/2024
+ms.date: 06/16/2026
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 # Customer intent: "As a cloud developer, I want to deploy a Batch account using an ARM template, so that I can manage compute resources and workloads efficiently in my Azure environment."
@@ -15,7 +15,7 @@ After completing this quickstart, you'll understand the key concepts of the Batc
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
+If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 
 :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.batch%2Fbatchaccount-with-storage%2Fazuredeploy.json":::
 
@@ -51,7 +51,7 @@ Two Azure resources are defined in the template:
    - **Location**: select a location. For example, **Central US**.
    - **Batch Account Name**: Leave the default value.
    - **Storage Accountsku**: select a storage account type. For example, **Standard_LRS**.
-   - **Location**: Leave the default so that the resources will be in the same location as your resource group.
+   - **Location**: Leave the default so that the resources are in the same location as your resource group.
 
 1. Select **Review + create**, then select **Create**.
 
@@ -65,7 +65,7 @@ You can validate the deployment in the Azure portal by navigating to the resourc
 
 ## Clean up resources
 
-If you plan to continue on with more of our [tutorials](./tutorial-parallel-dotnet.md), you may wish to leave these resources in place. Or, if you no longer need them, you can [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group), which will also delete the Batch account and the storage account that you created.
+If you plan to continue with more [tutorials](./tutorial-parallel-dotnet.md), you might want to leave these resources in place. Or, if you no longer need them, you can [delete the resource group](../azure-resource-manager/management/delete-resource-group.md?tabs=azure-portal#delete-resource-group), which also deletes the Batch account and the storage account that you created.
 
 ## Next steps
 

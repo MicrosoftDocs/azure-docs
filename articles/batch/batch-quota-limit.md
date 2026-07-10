@@ -2,7 +2,7 @@
 title: Service quotas and limits
 description: Learn about default Azure Batch quotas, limits, and constraints. Also learn how to request quota increases.
 ms.topic: concept-article
-ms.date: 06/05/2024
+ms.date: 06/16/2026
 # Customer intent: "As a cloud engineer managing Batch workloads, I want to understand the service quotas and limits, so that I can effectively plan resource allocation and request necessary quota increases for optimal workload performance."
 ---
 
@@ -82,9 +82,9 @@ To view your Batch account quotas in the Azure portal:
 
 You can request a quota increase for your Batch account or your subscription using the [Azure portal](https://portal.azure.com) or by using the [Azure Quota REST API](#request-through-azure-quota-rest-api).
 
-The type of quota increase depends on the pool allocation mode of your Batch account. To request a quota increase, you must include the VM series for which you would like to increase the quota. When the quota increase is applied, it's applied to all series of VMs.
+The type of quota increase depends on the pool allocation mode of your Batch account. To request a quota increase, you must include the VM series for which you want to increase the quota. When the quota increase is applied, it's applied to all series of VMs.
 
-Once you've submitted your support request, Azure support will contact you. Quota requests may be completed within a few minutes or up to two business days.
+After you submit your support request, Azure support contacts you. Quota requests might be completed within a few minutes or up to two business days.
 
 ### Quota types
 

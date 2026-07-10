@@ -2,12 +2,10 @@
 title: Azure API Management - Availability of v2 tiers and workspace gateways
 description: Availability of API Management v2 tiers and workspace gateways in Azure regions. This information supplements product availability by region. 
 services: api-management
-author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/11/2026
-ms.author: danlep
 ms.custom:
   - references_regions
   - build-2025
@@ -39,7 +37,7 @@ Information in the following table is updated regularly. Capacity availability i
 | Canada Central  | ✅ | ✅ | ✅ |  |
 | Canada East  | ✅ | ✅ | |  |
 | Central India  | ✅ | ✅ | |  |
-| Central US  | ✅ | ✅ | ✅ |  |
+| Central US  | ✅ | ✅ | |  |
 | East Asia | ✅ | ✅ | | ✅ |
 | East US  | ✅ | ✅ |  |  |
 | East US 2 | ✅ | ✅ | ✅ ¹ | ✅ |

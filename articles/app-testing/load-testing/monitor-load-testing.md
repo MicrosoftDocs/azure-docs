@@ -2,7 +2,7 @@
 title: Monitoring Azure Load Testing
 description: Learn about the data
 services: load-testing
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.topic: how-to
 author: nandinimurali
 ms.author: nandinim

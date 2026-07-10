@@ -1,8 +1,9 @@
 ---
 title: Using Spot VMs
-description: Using Spot VMs within Azure CycleCloud
+description: Learn how to use Azure Spot VMs in Azure CycleCloud node arrays to significantly reduce the operational cost of your clusters.
 author: bwatrous
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: bewatrou
 ---
 

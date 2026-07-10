@@ -3,10 +3,11 @@ title: Chat completion configuration
 titleSuffix: Azure App Configuration
 description: Learn how to create chat completion configuration in Azure App Configuration.
 ms.service: azure-app-configuration
-author: MaryanneNjeri
-ms.author: mgichohi
+author: maud-lv
+ms.author: malev
+ms.reviewer: mgichohi
 ms.topic: how-to
-ms.date: 11/21/2025
+ms.date: 06/22/2026
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---
@@ -45,7 +46,7 @@ You successfully added your chat completion configuration named **ChatApp:ChatCo
 
 1. Follow the [Get started with Azure OpenAI Service](/azure/ai-foundry/openai/how-to/create-resource) to create and deploy an Azure OpenAI service resource with a **gpt-4o** model. Note down the deployment name for later use.
 
-1. In your Azure OpenAI resource, from the **Resource Management** menu, select **Keys and Endpoint** and copy the Azure OpenAI resource endpoint. It should follow the format: `https://<open-ai-resource-name>.openai.azure.com`. If using the API key for authentication, copy the API key as well.
+1. In your Azure OpenAI resource, from the **Resource Management** menu, select **Keys and Endpoint** and copy the Azure OpenAI resource endpoint. It should follow the format: `https://<OpenAIResourceName>.openai.azure.com`. If using the API key for authentication, copy the API key as well.
 
 1. Navigate to your App Configuration store and add the following key-values. Leave **Label** and **Content Type** with their default values. For more information about how to add key-values to a store using the Azure portal or the CLI, go to [Create a key-value](./quickstart-azure-app-configuration-create.md#create-a-key-value).
 

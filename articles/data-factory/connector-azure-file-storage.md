@@ -2,8 +2,8 @@
 title: Copy data from/to Azure Files
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Azure Files to supported sink data stores (or) from supported source data stores to Azure Files by using Azure Data Factory.
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 12/16/2024
@@ -18,6 +18,10 @@ ms.custom:
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to copy data to and from Azure Files. To learn about Azure Data Factory, read the [introductory article](introduction.md).
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Azure Files connector documentation](/fabric/data-factory/connector-azure-files-overview).
+
 
 ## Supported capabilities
 

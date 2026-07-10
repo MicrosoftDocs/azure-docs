@@ -2,7 +2,7 @@
 title: Back up Azure Local virtual machines with MABS
 description: This article contains the procedures to back up and recover virtual machines using Microsoft Azure Backup Server (MABS).
 ms.topic: how-to
-ms.date: 04/24/2026
+ms.date: 06/05/2026
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
@@ -94,7 +94,7 @@ These are the prerequisites for backing up virtual machines with MABS:
         >[!Note]
         >Default Application Control settings may prevent agent deployment, [switch application control to "Audit" mode](/azure/azure-local/manage/manage-wdac#switch-application-control-policy-modes) before agent installation to work around this issue. After deployment is complete, we recommend that you switch the application control back to **Enforced** mode. 
 
-     2. After the installation is complete, run the following command to configure the agent on the node:
+     2. After the installation is complete, go to the installation location `C:\Program Files\Microsoft Data Protection Manager\DPM\bin`, and run the following command to configure the agent on the node:
 
         ```
         .\SetDpmServer.exe -dpmServerName winvm01

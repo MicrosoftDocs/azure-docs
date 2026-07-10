@@ -6,7 +6,7 @@ ms.author: honc
 ms.service: service-connector
 ms.topic: quickstart
 zone_pivot_groups: interaction-type
-ms.date: 8/19/2025
+ms.date: 06/18/2026
 keywords: azure functions, service connector, database connection, managed identity, azure storage, authentication
 #Customer intent: As an app developer, I want to securely connect my Azure Functions app to databases, storage accounts, and other Azure services using managed identities and other authentication types.
 ---

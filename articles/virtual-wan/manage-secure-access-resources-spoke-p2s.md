@@ -3,12 +3,12 @@ title: 'Manage secure access to resources in spoke VNets for P2S clients'
 titleSuffix: Azure Virtual WAN
 description: This article helps you use Azure Virtual WAN and Azure Firewall rules to manage secure access to virtual networks for User VPN (point-to-site) clients.
 services: virtual-wan
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 11/21/2023
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 
 ---

@@ -2,11 +2,11 @@
 title: Copy and transform data from Microsoft 365 (Office 365)
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data from Microsoft 365 (Office 365) to supported sink data stores by using copy and mapping data flow activity in an Azure Data Factory or Synapse Analytics pipeline.
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 04/27/2025
-ms.author: jianleishen
+ms.author: tinglee
 ms.custom:
   - synapse
   - build-2025
@@ -16,6 +16,10 @@ ms.custom:
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Azure Data Factory and Synapse Analytics pipelines integrate with [Microsoft Graph data connect](/graph/data-connect-concept-overview), allowing you to bring the rich organizational data in your Microsoft 365 (Office 365) tenant into Azure in a scalable way and build analytics applications and extract insights based on these valuable data assets. Integration with Privileged Access Management provides secured access control for the valuable curated data in Microsoft 365 (Office 365).  Refer to [this link](/graph/data-connect-concept-overview) for an overview of Microsoft Graph data connect.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Microsoft 365 connector documentation](/fabric/data-factory/connector-microsoft-365-overview).
+
 
 This article outlines how to use the Copy Activity to copy data and Data Flow to transform data from Microsoft 365 (Office 365). For an introduction to copy data, read the [copy activity overview](copy-activity-overview.md). For an introduction to transforming data, read [mapping data flow overview](concepts-data-flow-overview.md).
 

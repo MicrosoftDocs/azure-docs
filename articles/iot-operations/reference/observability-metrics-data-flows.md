@@ -4,6 +4,7 @@ description: Available observability metrics for data flows to monitor the healt
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-data-flows
 ms.topic: reference
 ms.date: 03/27/2026
 

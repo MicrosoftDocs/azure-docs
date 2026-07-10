@@ -6,7 +6,7 @@ ms.author: stefanazaric
 ms.service: azure-synapse-analytics
 ms.topic: concept-article
 ms.subservice: sql
-ms.date: 10/06/2024
+ms.date: 05/29/2026
 ---
 
 # Difference between Azure Synapse (formerly SQL DW) and Azure Synapse Analytics workspaces
@@ -33,9 +33,9 @@ Circa 2016, Microsoft adapted its massively parallel processing (MPP) on-premise
 
 Historians remember the appliance was named parallel data warehouse (PDW) and then Analytics Platform System (APS) which still powers many on-premises data warehousing solutions today.
 
-Azure SQL Data Warehouse adopted the constructs of Azure SQL DB such as a logical server where administration and networking are controlled. SQL DW could exist on the same server as other SQL DBs. This implementation made it easy for current Azure SQL DB administrators and practitioners to apply the same concepts to data warehouse.
+Azure SQL Data Warehouse adopted the constructs of Azure SQL Database, such as a [logical SQL server](logical-servers.md) where administration and networking are controlled. SQL DW could exist on the same server as other SQL databases. This implementation made it easy for current Azure SQL Database administrators and practitioners to apply the same concepts to data warehouse.
 
-However, the analytics and insights space has gone through massive changes since 2016. We made a paradigm shift in how data warehousing would be delivered. As SQL DW handled the warehousing, the Synapse workspace expanded upon that and rounded out the analytics portfolio. The new Synapse Workspace experience became generally available in 2020.
+However, the analytics and insights space has gone through massive changes since 2016. We made a paradigm shift in how data warehousing would be delivered. As SQL DW handled the warehousing, the Synapse workspace expanded upon that and rounded out the analytics portfolio. The new Synapse Workspace experience became generally available in 2020. Dedicated SQL pools in Azure Synapse Analytics workspaces do not use logical SQL servers.
 
 :::image type="content" source="media/overview-difference-between-formerly-sql-dw-workspace/synapse-workspace.png" alt-text="Diagram of the Azure Synapse Analytics workspace, experience, and platform.":::
 

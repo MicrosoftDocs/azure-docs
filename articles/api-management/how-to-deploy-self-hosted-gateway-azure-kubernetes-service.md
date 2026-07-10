@@ -1,11 +1,9 @@
 ---
 title: Deploy a Self-Hosted Gateway to Azure Kubernetes Service
 description: Learn how to deploy self-hosted gateway component of Azure API Management to Azure Kubernetes Service.
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/07/2025
-ms.author: danlep
 ---
 
 # Deploy an Azure API Management self-hosted gateway to Azure Kubernetes Service

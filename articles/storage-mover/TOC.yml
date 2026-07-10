@@ -27,7 +27,7 @@ items:
     - name: Network prerequisites
       href: network-prerequisites.md
     - name: Planning your Private Networking for cloud to cloud migrations
-      href: cloud-to-cloud-private-network-configs.md
+      href: cloud-to-cloud-private-network-configuration.md
     - name: Performance targets
       href: performance-targets.md
   - name: Deploy and execute
@@ -36,6 +36,8 @@ items:
       href: storage-mover-create.md
     - name: Migrate from Amazon S3 to Azure
       href: cloud-to-cloud-migration.md
+    - name: Migrate from Google S3 to Azure
+      href: google-migration.md
     - name: Transfer from Azure Blob to Blob
       href: azure-to-azure-migration.md
     - name: Deploy a storage mover agent
@@ -66,6 +68,12 @@ items:
       href: status-code.md
     - name: Collect a support bundle
       href: troubleshooting.md
+- name: Reliability and resiliency
+  items:
+  - name: Reliability in Azure Storage Mover
+    href: /azure/reliability/reliability-azure-storage-mover?toc=/azure/storage-mover/toc.json
+  - name: Customer-initiated disaster recovery
+    href: customer-initiated-disaster-recovery.md
 - name: Resources
   items:
   - name: Monitor copy and job run logs

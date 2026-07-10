@@ -43,8 +43,8 @@ Billing for soft delete depends on the billing model of the file share. For more
 The following sections show how to enable and use soft delete for Azure file shares on an existing storage account:
 
 # [Portal](#tab/azure-portal)
-1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Navigate to your storage account and select **File shares** under **Data storage**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to your storage account.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 1. Select **Disabled** next to **Soft delete**.
 1. Select **Enabled** for **Soft delete for all file shares**.
 1. Under **File share retention period in days**, use the slider to specify a number between 1 and 365 days.
@@ -156,7 +156,8 @@ If you want to stop using soft delete, follow these instructions. To permanently
 
 # [Portal](#tab/azure-portal)
 
-1. Navigate to your storage account and select **File shares** under **Data storage**.
+1. Sign in to the [Azure portal](https://portal.azure.com) and go to your storage account.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 1. Select **Enabled** next to **Soft delete**.
 1. Select **Disabled** for **Soft delete for all file shares**.
 1. Select **Save** to confirm your data retention settings.

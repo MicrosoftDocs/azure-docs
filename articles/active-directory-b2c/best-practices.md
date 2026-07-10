@@ -6,7 +6,7 @@ description: Recommendations and best practices to consider when working with Az
 author: kengaderdus
 ms.author: kengaderdus
 manager: mwongerapz
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: concept-article
 ms.date: 10/07/2024

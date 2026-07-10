@@ -2,13 +2,13 @@
 title: Gateway SKU Mappings
 titleSuffix: Azure VPN Gateway
 description: Learn about the changes for virtual network gateway SKUs for VPN Gateway.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.custom: references_regions
 ms.date: 05/13/2026
 
-ms.author: cherylmc
+ms.author: duau
 
 #customer intent: As a network administrator, I want to understand the migration process and benefits of VPN Gateway SKUs transitioning to availability zone support, so that I can ensure my organization's VPN solutions are optimized for reliability and cost-efficiency.
 ---

@@ -3,7 +3,7 @@ title: Analyze test results using actionable insights
 titleSuffix: Azure Load Testing
 description: Fix performance issues faster by analyzing load test results and getting recommendations using AI-powered actionable insights in Azure App Testing.
 services: load-testing
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.author: nandinim
 author: nandinimurali
 ms.date: 05/19/2025

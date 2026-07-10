@@ -4,6 +4,7 @@ description: Available observability metrics for the connector for OPC UA to mon
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-opcua-connector
 ms.topic: reference
 ms.custom:
   - ignite-2023

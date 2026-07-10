@@ -46,9 +46,9 @@ You can stop an in-progress run by [removing the role assignment](/azure/role-ba
 
 The workaround is to delete the storage task assignment and then move the storage account resource.
 
-## Restrictions on moving a storage task
+## Restrictions on moving a storage task across Microsoft Entra directories
 
-You can't move a storage task to another region or to another subscription. You can't move a subscription that contains a storage task to another tenant.
+You can move storage tasks across resource groups and subscriptions. However, because storage tasks rely on managed identities, moving a subscription that contains a storage task to a different Microsoft Entra directory breaks the managed identity and causes the storage task to stop working. For more information, see [Known issues with managed identities for Azure resources: Transferring a subscription between Microsoft Entra directories](/entra/identity/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-microsoft-entra-directories).
 
 ## Concurrency limit for execution
 
@@ -92,10 +92,6 @@ If multiple filters are used in storage task assignments, not all directory pref
 ## Using whitespace characters in the path prefix during task assignment isn't supported
 
 Storage accounts that have a hierarchical namespace display location information as `container1 / subcontainer1` with a whitespace character between the string and the `/` character. An error appears if you copy and paste this information into the path prefix field during assignment.
-
-## Moving storage tasks and task assignments
-
-Moving storage tasks and task assignments across different resource groups and subscriptions isn't supported. This limitation means that any storage tasks and their associated task assignments can't be transferred between resource groups or subscriptions.
 
 ## Cleaning up task assignments before deleting storage accounts or storage tasks
 

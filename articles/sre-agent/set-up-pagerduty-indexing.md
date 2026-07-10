@@ -3,7 +3,7 @@ title: Set up PagerDuty incident indexing in Azure SRE Agent
 description: Connect PagerDuty to Azure SRE Agent so your agent automatically picks up, investigates, and resolves PagerDuty incidents.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 04/03/2026
+ms.date: 06/08/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -21,8 +21,28 @@ Connect your PagerDuty account so your agent automatically picks up PagerDuty in
 
 - An Azure SRE Agent in **Running** state
 - A PagerDuty account with at least one service configured
-- A PagerDuty REST API v2 access key ([PagerDuty API Access Keys](https://support.pagerduty.com/docs/api-access-keys))
+- A PagerDuty **User API key** (not a General API key) — see [PagerDuty API Access Keys](https://support.pagerduty.com/docs/api-access-keys)
 - **Contributor** role or higher on the SRE Agent resource
+
+### PagerDuty API key types
+
+PagerDuty provides two types of API keys:
+
+| Key type | Description | Works with SRE Agent? |
+|---|---|---|
+| **General API key** | Used for development work and general API access | No — can't acknowledge incidents on behalf of the agent |
+| **User API key** | Associated with a specific user account and email address | Yes — required for SRE Agent integration |
+
+> [!IMPORTANT]
+> You must use a **User API key** for the SRE Agent integration. General API keys don't allow the agent to acknowledge incidents properly because they lack the user context (email address) required for incident acknowledgment.
+
+### Create a User API key in PagerDuty
+
+1. Sign in to your PagerDuty account.
+1. Go to **User Settings** > **API Access**.
+1. Select **Create API User Token**.
+1. Provide a description for the key (for example, "SRE Agent Integration").
+1. Copy the generated User API key.
 
 ## Step 1: Open Incident platform
 
@@ -48,7 +68,7 @@ Enter your **REST API access key** in the field.
 The agent validates your key instantly by calling the PagerDuty API.
 
 > [!TIP]
-> In PagerDuty, go to **Integrations** > **API Access Keys** > **Create New API Key**. The key needs incident read access at minimum. For full functionality (acknowledge, resolve, add notes), use a key with write access.
+> To create a User API key, go to **User Settings** > **API Access** in PagerDuty and select **Create API User Token**. For full functionality (acknowledge, resolve, add notes), ensure your user account has write access.
 
 **Checkpoint:** No validation error appears below the key field. The **Save** button becomes active.
 

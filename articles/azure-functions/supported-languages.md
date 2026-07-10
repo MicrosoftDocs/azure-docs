@@ -31,7 +31,8 @@ The following table shows which languages supported by Functions can run on Linu
 | [Java](functions-reference-java.md) | Java |✓ |✓ | |
 | [PowerShell](functions-reference-powershell.md) |PowerShell Core |✓ |✓ |✓ |
 | [TypeScript](functions-reference-node.md?tabs=typescript) | Node.js |✓ |✓ |  |
-| [Go/Rust/other](functions-custom-handlers.md) | Custom Handlers |✓ |✓ | |
+| [Go (Preview)](functions-reference-go.md) | Go |✓ | | |
+| [Rust/other](functions-custom-handlers.md) | Custom Handlers |✓ |✓ | |
 
 1. In-portal editing isn't currently supported when running in the [Flex Consumption plan](./flex-consumption-plan.md). When in-portal editing isn't available, you must instead [develop your function apps locally](functions-develop-local.md#local-development-environments).
 2. Although we recommend local development for C# apps, you can use the portal to develop and test C# script functions that use the in-process model. For more information, see [Create a C# script app](functions-reference-csharp.md#create-a-c-script-app).
@@ -99,4 +100,8 @@ The following table lists the support that Open Database Connectivity (ODBC) dri
 ::: zone pivot="programming-language-python"
 > [!div class="nextstepaction"]
 > [Python developer reference](functions-reference-python.md)
+::: zone-end
+::: zone pivot="programming-language-go"
+> [!div class="nextstepaction"]
+> [Go developer reference](functions-reference-go.md)
 ::: zone-end

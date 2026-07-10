@@ -2,11 +2,11 @@
 title: Azure confidential computing development tools
 description: Use tools and libraries to develop applications for confidential computing on Intel SGX
 services: virtual-machines
-author: cynthn
+author: iamwilliew
 ms.service: azure-confidential-computing
 ms.topic: concept-article
 ms.date: 11/01/2021
-ms.author: cynthn
+ms.author: wwilliams
 # Customer intent: "As a developer working on confidential computing applications, I want to utilize appropriate SDKs and frameworks for creating enclaves, so that I can ensure the security of sensitive data and computations within my software."
 ---
 

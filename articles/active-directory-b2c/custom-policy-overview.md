@@ -5,7 +5,7 @@ description: Understand Azure AD B2C custom policies and the Identity Experience
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: overview
 ms.date: 02/17/2025

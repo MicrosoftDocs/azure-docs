@@ -10,21 +10,23 @@ ms.date: 05/18/2026
 
 # customer intent: As a developer or administrator using Azure App Configuration, I want to understand how network security perimeters work so that I can manage network access to my App Configuration store alongside other PaaS resources.
 ---
-# Network security perimeter for Azure App Configuration (preview)
+# Network security perimeter for Azure App Configuration (private preview)
 
 [Azure network security perimeter (NSP)](../private-link/network-security-perimeter-concepts.md) allows you to define a logical network isolation boundary for PaaS resources, such as an App Configuration store, that are deployed outside of a virtual network. By default, a network security perimeter restricts public network access to PaaS resources within the perimeter. However, you can configure explicit access rules for inbound and outbound traffic.
 
-When you associate an App Configuration store with a network security perimeter, you can control inbound and outbound traffic with access rules, share a common set of rules across multiple PaaS resources using perimeter profiles, and monitor network traffic through diagnostic logs. For more information, see [Why use a network security perimeter?](../private-link/network-security-perimeter-concepts.md#why-use-a-network-security-perimeter).
+When you associate an App Configuration store with a network security perimeter, you can control inbound and outbound traffic with access rules, share a common set of rules across multiple PaaS resources using perimeter profiles, and monitor network traffic through diagnostic logs. For more information, see [Why use a network security perimeter?](../private-link/network-security-perimeter-concepts.md#why-use-a-network-security-perimeter)
 
 ## Transitioning to a network security perimeter
 
-A resource association with a network security perimeter supports two access modes: **Transition** and **Enforced**. Transition mode is intended as a temporary, intermediate step that lets you adopt a network security perimeter without disrupting existing connectivity by falling back to the App Configuration store's existing network access rules when no perimeter rule matches. See [Transition to a network security perimeter in Azure](../private-link/network-security-perimeter-transition.md) to learn how to use Transition mode for a smooth adoption of NSP.
+A resource association with a network security perimeter supports two access modes: **Transition** and **Enforced**. Transition mode is intended as a temporary, intermediate step that lets you adopt a network security perimeter without disrupting existing connectivity by falling back to the App Configuration store's existing network access rules when no perimeter rule matches. See [Transition to a network security perimeter in Azure](../private-link/network-security-perimeter-transition.md) to learn how to use Transition mode for a smooth adoption of NSP. For a breakdown on how a resource association's access mode interacts with the public network access setting of the App Configuration store, see [Moving new resources into network security perimeter](../private-link/network-security-perimeter-transition.md#moving-new-resources-into-network-security-perimeter).
 
-## Access mode and public network access
+## Enforcing networking restrictions with a network security perimeter
 
-When an App Configuration store is associated with an NSP, the network access rules enforced on the App Configuration store depend on the combination of two settings: the association's access mode (Transition or Enforced) and the App Configuration store's public network access setting (Enabled, Disabled, or Secured by perimeter). Together, these settings determine whether inbound and outbound traffic is evaluated against the perimeter's access rules, the App Configuration store's public network access setting, or both.
+To enforce network restrictions with a network security perimeter, ensure the network security perimeter resource association is in Enforced mode. In this mode, the App Configuration store only permits inbound and outbound requests allowed by the associated network security perimeter profile, regardless of the public network access setting of the App Configuration store.
 
-For a complete breakdown of how these settings interact, see [Moving new resources into network security perimeter](../private-link/network-security-perimeter-transition.md#moving-new-resources-into-network-security-perimeter).
+## Considerations for private endpoint requests
+
+Inbound requests to the App Configuration store through a valid [private endpoint](./concept-private-endpoint.md) are always permitted by a network security perimeter regardless of the perimeter's association mode or profile rules.
 
 ## Considerations for customer-managed key encryption
 
@@ -41,17 +43,33 @@ If your App Configuration store has [monitoring](./monitor-app-configuration.md)
 
 ## Limitations
 
+- Azure App Configuration support for network security perimeter is currently in private preview with access limited to a set of subscriptions.
+- During private preview, network security perimeter management plane operations, such as associating an App Configuration store with a perimeter or viewing the association configuration, can only be performed using ARM templates or the Azure CLI. For a tutorial on how to associate with an App Configuration store using the Azure CLI, see [Associate Azure App Configuration with a network security perimeter](./howto-set-up-network-security-perimeter.md).
 - Certain network security perimeter features, such as subscription-based inbound access rules, don't work with [access key authentication](./howto-disable-access-key-authentication.md). Use [Microsoft Entra ID authentication](./concept-enable-rbac.md) for full NSP functionality.
 - At this time, an App Configuration store in a network security perimeter can't send events to Azure Event Grid. If an App Configuration store has an [Azure App Configuration event subscription](./concept-app-configuration-event.md) configured, you can't associate the store with a network security perimeter. Similarly, if a store is associated with a network security perimeter, you can't enable an event subscription for the store.
 - Subscription-based and IP-based inbound access rules don't apply to the original caller for data plane requests made through [deployment tools](./quickstart-deployment-overview.md) such as ARM templates, Bicep, or Terraform. Because these requests are forwarded to the App Configuration store by Azure Resource Manager, the original caller's subscription and IP address aren't passed to the perimeter for evaluation.
 
 ## Troubleshooting
 
-**RP registration errors**
+### Feature access errors
+
+**Azure CLI**
+
+> (BadRequest) This feature is not yet available for given subscription. 
+> Code: BadRequest
+> Message: This feature is not yet available for given subscription
+
+**Azure portal**
+
+> Failed to associate resource. This feature is not yet available for given subscription. 
+
+These errors indicate that the subscription you're using doesn't have access to the network security perimeter feature for Azure App Configuration, which is currently in private preview.
+
+### RP registration errors
 
 If you associate an App Configuration store with a network security perimeter in a different subscription than the store, you must ensure that the network security perimeter's subscription has the `Microsoft.AppConfiguration` resource provider registered. If the resource provider isn't registered, you receive the following error when performing the association:
 
-> The network security perimeter's subscription 'aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e' is not registered to use resource provider 'Microsoft.AppConfiguration'. See https://aka.ms/registerrp for instructions on registering a resource provider.
+> The operation cannot be completed because the network security perimeter's subscription '\<SubscriptionId\>' is not registered to use resource provider 'Microsoft.AppConfiguration'. See https://aka.ms/appconfig/NSPTroubleshooting for instructions on registering a resource provider.
 
 To resolve this error, take the following steps:
 1. Register the `Microsoft.AppConfiguration` resource provider in the network security perimeter's subscription.
@@ -59,7 +77,7 @@ To resolve this error, take the following steps:
 
 For more information about registering a subscription to a resource provider, see [Register resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 
-**Customer-managed key access errors**
+### Customer-managed key access errors
 
 If your App Configuration store uses [customer-managed key encryption](./concept-customer-managed-keys.md), you might receive the following error when associating the store with a network security perimeter:
 
