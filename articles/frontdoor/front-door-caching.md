@@ -200,7 +200,7 @@ If the `Cache-Control` header isn't present on the response from the origin, by 
 You may see `REVALIDATED_HIT` in the `Cache-Control` response header. This indicates that the cached content in Azure Front Door was revalidated with the origin server before being served to the client. This can happen when the cached content has expired, but the origin server indicates that the content hasn't changed. In this case, the cached content is served to the client, and the cache expiration is reset.
 
 ## Validators
-When the cache is stale, HTTP cache validators are used to compare the cached version of a file with the version on the origin server. Azure Front Door supports only `Last-Modified`.
+When the cache is stale, Azure Front Door uses HTTP cache validators to compare the cached version of a file with the version on the origin server. Azure Front Door supports only `Last-Modified`.
 
 > [!NOTE]
 > Azure Front Door does not support `etag`.
