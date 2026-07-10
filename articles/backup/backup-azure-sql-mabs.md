@@ -10,7 +10,7 @@ ms.custom: engagement-fy24
 # Customer intent: As a database administrator, I want to configure Azure Backup Server to back up SQL Server databases, so that I can ensure data protection and recovery capabilities for my organization's critical SQL databases.
 ---
 
-# Back up and restore SQL Server databases to Azure with Azure Backup Server (MABS)
+# Back up and restore SQL Server databases to Azure by using Azure Backup Server (MABS)
 
 Use Azure Backup Server (MABS) to back up SQL Server databases to Azure and restore them when needed. This article covers prerequisites, policy configuration, on-demand backups, and recovery steps.
 
