@@ -38,7 +38,7 @@ Before you begin, complete the following tasks:
 1. Enable the inference gateway feature on ALB Controller. For new installations or upgrades of ALB Controller, include `--set albController.aiGateway=true` in the Helm command. When you enable this setting, ALB Controller also installs v1.3.1 of the Gateway API Inference Extension CRDs.
 
   >[!Note]
-  >Inference gateway is not currently supported via the Application Gateway for Containers' AKS add-on. The Application Gateway for Containers' ALB Controller must be deployed by helm chart to configure this feature.
+  >Inference gateway isn't currently supported through the Application Gateway for Containers' AKS add-on. You must deploy the Application Gateway for Containers' ALB Controller by Helm chart to configure this feature.
 
 1. Prepare an AKS cluster with a GPU node pool that has at least one schedulable GPU and the NVIDIA device plugin installed. For instructions, see [Use GPUs for compute-intensive workloads on AKS](/azure/aks/gpu-cluster).
 1. Install the following tools on your workstation or use Azure Cloud Shell where available:
