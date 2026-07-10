@@ -24,7 +24,7 @@ We're centered around developers, both as individuals working in teams and organ
 
 GitHub is one of the largest developer communities. For millions of developers around the world, their GitHub identity is a critical aspect of their digital life. Recognizing that, we’re excited to announce improvements that help GitHub users get started with our developer services, including Monthly Azure Credits for Visual Studio Subscribers.  
 
-## Sign in to Microsoft services with your GitHub credentials  
+## Sign in to Microsoft services by using your GitHub credentials  
 
 We're enabling developers to sign in with their existing GitHub account to Microsoft online services. Using your GitHub credentials, you can sign in via OAuth anywhere a personal Microsoft account does, including Azure Credit Subscriptions and Visual Studio.  
 
