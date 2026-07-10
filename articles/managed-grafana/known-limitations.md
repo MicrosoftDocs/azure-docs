@@ -4,7 +4,7 @@ titlesuffix: Azure Managed Grafana
 description: Learn about current service limits, quotas, and constraints you may encounter using Azure Managed Grafana.
 ms.service: azure-managed-grafana
 ms.topic: troubleshooting
-ms.date: 06/24/2026
+ms.date: 07/10/2026
 ms.author: malev
 ms.custom: engagement-fy23
 author: maud-lv
@@ -35,6 +35,8 @@ Some Data plane APIs require Grafana Server Admin permissions and can't be calle
 * Only Azure subscriptions billed directly through Microsoft are eligible for the purchase of Grafana Enterprise. CSP subscriptions, i.e., Azure subscriptions billed through Cloud Solution Providers (CSP), aren't eligible.
 
 * An Azure Managed Grafana workspace can use only one managed identity: user-assigned or system-assigned.
+
+* [Git Sync](how-to-create-dashboard.md#manage-dashboards-as-code-with-git-sync) supports GitHub repositories only, with up to 10 repositories and 10,000 resources per repository.
 
 ### Current User authentication
 
