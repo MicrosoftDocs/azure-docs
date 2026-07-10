@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett 
 ms.subservice: azure-mqtt-broker
 ms.topic: tutorial
-ms.date: 07/08/2026
+ms.date: 07/10/2026
 
 #CustomerIntent: As an operator, I want to configure MQTT broker to bridge to Azure Event Grid MQTT broker PaaS so that I can process my IoT data at the edge and in the cloud.
 ms.service: azure-iot-operations
@@ -226,6 +226,9 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
       -t "sensor/window_data" \
       -v
     ```
+
+    > [!NOTE]
+    > The preceding command works for the [quickstart codespace](../get-started-end-to-end-sample/quickstart-deploy.md). If you're using a different environment, you may need to adjust the parameters accordingly.
 
 1. Verify the application is outputting a sliding windows calculation for the various sensors every 10 seconds:
 
