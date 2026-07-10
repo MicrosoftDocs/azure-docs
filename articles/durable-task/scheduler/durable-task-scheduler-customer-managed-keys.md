@@ -41,13 +41,11 @@ Versioned and versionless key URIs are both supported. When you enable automatic
 
 ## Key requirements
 
-When you configure or update a customer-managed key, Durable Task Scheduler validates the key and Azure SQL transparent data encryption (TDE) validates the key store before the configuration is applied. If a requirement isn't met, the request fails with a descriptive error and the scheduler keeps its current encryption configuration.
-
-Make sure your key and key store meet the following requirements:
+When you configure or update a customer-managed key, make sure your key and key store meet the following requirements:
 
 | Requirement | Details |
 | --- | --- |
-| **Access** | The Durable Task Scheduler service identity has the **Key Vault Crypto Service Encryption User** role (Azure RBAC) or the `get`, `wrapKey`, and `unwrapKey` key permissions (access policy). For Azure Managed HSM, it has the **Managed HSM Crypto Service Encryption User** role at the key scope. |
+| **Access** | The Durable Task Scheduler service identity has the **Key Vault Crypto Service Encryption User** role (Azure RBAC) or the `get`, `wrapKey`, and `unwrapKey` key permissions (access policy). |
 | **Key type and size** | The key is an RSA or RSA-HSM key that's 2,048 or 3,072 bits. |
 | **Key state** | The key is enabled, past its activation date (if set), and not expired. |
 | **Key operations** | The key permits the `wrapKey` and `unwrapKey` operations, in addition to `get`. |
