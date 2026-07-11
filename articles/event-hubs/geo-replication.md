@@ -256,7 +256,7 @@ The pricing meters for the geo-replication data transfer bandwidth charge appear
 
 ## Private endpoints
 
-Clients connecting to an Event Hubs namespace through a [private endpoint](private-link-service.md) automatically connect to the new primary region after failover. The Event Hubs namespace routes traffic to the current primary region internally, so clients don't need to know which region is primary and the private endpoint keeps working without any change. Promotion typically completes in under two minutes, during which clients may see transient errors and reconnect. Configure retry policy accordingly.
+Clients connecting to an Event Hubs namespace through a [private endpoint](private-link-service.md) automatically connect to the new primary region after failover. The Event Hubs namespace routes traffic to the current primary region internally, so clients don't need to know which region is primary and the private endpoint keeps working without any change. Promotion typically completes in under two minutes, during which clients might see transient errors and reconnect. Configure retry policy accordingly.
 
 Private endpoints are regional resources. For high availability, deploy your application across multiple regions and create a private endpoint in each region's virtual network.
 
