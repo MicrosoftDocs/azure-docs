@@ -7787,6 +7787,11 @@
       "source_path": "articles/signups/azure-usage.md",
       "redirect_url": "/startups/microsoft-for-startups/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-availability-zones.md",
+      "redirect_url": "/azure/reliability/reliability-automation",
+      "redirect_document_id": false
     }
   ]
 }
