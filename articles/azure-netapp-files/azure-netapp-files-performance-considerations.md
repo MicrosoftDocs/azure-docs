@@ -74,9 +74,9 @@ When volume throughput reaches its maximum (as determined by the QoS setting), t
 
 To check if the maximum throughput limit has been reached, monitor the metric [Throughput limit reached](azure-netapp-files-metrics.md#volumes). For more recommendations, see [Performance FAQs for Azure NetApp Files](faq-performance.md#what-should-i-do-to-optimize-or-tune-azure-netapp-files-performance). 
 
-## Backend placement, aggregate throughput, and fan-in considerations
+## Backend placement, throughput, and fan-in considerations
 
-For high-throughput workloads, performance planning should consider not only volume-level throughput limits but also aggregate workload demand and backend placement.
+For high-throughput workloads, performance planning should consider not only volume-level throughput limits but also workload demand.
 
 Azure NetApp Files volumes use backend infrastructure with finite physical network and node-level resources. When you place multiple volumes that support the same application on the same backend resources, the aggregate workload can approach platform-level throughput limits. This scenario is more likely with sustained, throughput-intensive workloads such as Oracle, SAP HANA, and other large database platforms.
 
