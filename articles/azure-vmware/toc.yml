@@ -348,8 +348,12 @@ items:
       href: ../site-recovery/avs-tutorial-failback.md?context=%2fazure%2fazure-vmware%2fcontext%2fcontext
 - name: Operations and monitoring
   items:
+  - name: Collect esxtop performance data
+    href: run-command-esxtop.md
   - name: Run Command
     href: using-run-command.md
+  - name: Troubleshoot Run Command
+    href: troubleshoot-run-command.md
   - name: Use Set-ToolsRepo Run Command
     href: use-set-toolsrepo-run-command.md
   - name: Use vCenter Login Banner Run Command

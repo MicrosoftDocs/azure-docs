@@ -225,9 +225,9 @@ Use remote MCP servers when agents need to call tools hosted by another service 
 
 ### Azure connectors
 
-Connectors let agents work with external services without custom API client code. For example, a Microsoft 365 Outlook connector can send email, a Teams connector can work with messages, and other connectors can call actions in systems such as Salesforce, SAP, or SQL. A [Connector Namespace](../logic-apps/connector-namespace/connector-namespace-overview.md) hosts the connections, triggers, and MCP servers that make those integrations available to your app.
+Connectors let agents work with external services without custom API client code. For example, a Microsoft 365 Outlook connector can send email, a Teams connector can work with messages, and other connectors can call actions in systems such as Salesforce, SAP, or SQL. A [Connector Namespace](../connector-namespace/connector-namespace-overview.md) hosts the connections, triggers, and MCP servers that make those integrations available to your app.
 
-To use connector capabilities in a serverless agents app, first create a Connector Namespace, create a connection to the service, and authorize that connection. Then choose how the agent uses the connection:
+To use connector capabilities in a serverless agents app, first create a Connector Namespace resource, create a connection to the service, and authorize that connection. Then choose how the agent uses the connection:
 
 + **Connector triggers** start agents when something happens in a connected service, such as a new email, Teams message, or calendar event. To use one, create a trigger in the Connector Namespace that uses the authorized connection, and then configure the agent with the trigger name and arguments from that connector trigger definition.
 + **Connector MCP tools** let agents call service actions, such as sending email or updating a record. To use them, create an MCP server in the Connector Namespace that uses the authorized connection, and then add the MCP server endpoint to `mcp.json`.

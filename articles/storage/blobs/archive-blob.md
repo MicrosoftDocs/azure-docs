@@ -333,7 +333,7 @@ To archive blobs with a batch operation, use one of the Azure Storage client lib
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/AccessTiers.cs" id="Snippet_BulkArchiveContainerContents":::
 
-For an in-depth sample application that shows how to change tiers with a batch operation, see [AzBulkSetBlobTier](/samples/azure/azbulksetblobtier/azbulksetblobtier/).
+For an in-depth sample application that shows how to change tiers with a batch operation, see [AzBulkSetBlobTier](/sql/).
 
 ## Use lifecycle management policies to archive blobs
 

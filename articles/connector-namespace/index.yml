@@ -1,0 +1,34 @@
+### YamlMime:Landing
+
+title: Connector Namespace documentation # < 60 chars
+summary: Use Connector Namespace to run managed connectors and MCP servers that integrate apps and AI agents with external services without custom API code. # < 160 chars
+
+metadata:
+  title: Connector Namespace documentation
+  description: Use Connector Namespace to run managed connectors and MCP servers that integrate apps and AI agents with external services without custom API code.
+  ms.service: connector-namespace
+  ms.topic: landing-page
+  author: wsilveira
+  ms.author: wsilveira
+  ms.date: 07/08/2026
+  ms.update-cycle: 365-days
+
+# linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
+
+landingContent:
+  - title: About Connector Namespace
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: What is Connector Namespace?
+            url: connector-namespace-overview.md
+      - linkListType: quickstart
+        links:
+          - text: Create hosted MCP servers
+            url: hosted-mcp-quickstart.md
+          - text: Create a connector namespace
+            url: create-connector-namespace.md            
+      - linkListType: how-to-guide
+        links:
+          - text: Create a connector namespace connection
+            url: create-connector-namespace-connection.md

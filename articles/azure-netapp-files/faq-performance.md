@@ -40,6 +40,12 @@ You can change the service level of an existing volume by moving the volume to a
 
 Azure NetApp Files provides volume performance metrics. You can also use Azure Monitor for monitoring usage metrics for Azure NetApp Files. See [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md) for the list of performance metrics for Azure NetApp Files.
 
+## How can fan-in bottlenecks affect aggregate throughput across multiple volumes?
+
+Azure NetApp Files throughput is determined by a combination of the volume’s provisioned throughput, service level, workload profile, client configuration, and backend resource placement. In some high-throughput scenarios, especially sustained database workloads such as Oracle or SAP HANA, aggregate demand across multiple volumes can approach the physical limits of the backend storage node or network interface.
+
+For high-performance database deployments, use Application Volume Groups where available to help distribute volumes across backend resources, improve placement, and reduce the likelihood of single-node bottlenecks. 
+
 ## Why is a workload's latency high when the IOPS are low?
 
 In the absence of other symptoms (such as errors, network issues, or an application not responding), low IOP workloads are typically not a problem. Low IOPS are typically below 500-600 IOPS but can vary.

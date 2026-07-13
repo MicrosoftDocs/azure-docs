@@ -1,23 +1,23 @@
 ---
-title: Hosted MCP Servers in Azure Connector Namespace
-description: Get an overview of hosted MCP servers in Azure Connector Namespace. 
+title: Hosted MCP Servers in Connector Namespace
+description: Get an overview of hosted MCP servers in Connector Namespace. 
 author: lilyjma
 ms.author: jiayma
 ms.reviewer: glenga
 ms.date: 06/02/2026
 ms.topic: concept-article
-ms.service: azure-logic-apps
+ms.service: connector-namespace
 ms.custom: ai-assisted
 # Customer intent: As a developer, I want to understand hosted MCP servers in Connector Namespace so that I can choose the right approach for exposing tools to AI agents.
 ---
 
-# Hosted MCP servers in Azure Connector Namespace (preview)
+# Hosted MCP servers in Connector Namespace (preview)
 
 > [!IMPORTANT]
 > This preview feature is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This article explains what hosted Model Context Protocol (MCP) servers are in Azure Connector Namespace, along with the features and servers that are available during the preview.
+This article explains what hosted Model Context Protocol (MCP) servers are in Connector Namespace, along with the features and servers that are available during the preview.
 
 ## What are hosted MCP servers?
 
@@ -44,7 +44,7 @@ The Connector Namespace catalog offers three types of MCP servers:
 
 ## Supported servers
 
-During the preview, the following curated set of hosted MCP servers is available. The catalog expands over time.
+During the preview, the catalog offers the following curated set of hosted MCP servers. The catalog expands over time.
 
 | Server | Description |
 | ------ | ----------- |
@@ -79,7 +79,7 @@ Keep the following points in mind when you're working with hosted MCP servers du
 - **Preview limitations**. The service isn't recommended for production workloads. Expect breaking changes between preview milestones.
 - **Catalog availability**. The set of supported servers expands over time based on demand and validation.
 - **Region availability**. Limited regions are available during early preview: West Central US, East Asia, Central US, North Europe.
-- **Cold start**. Servers that haven't received traffic recently might experience a brief cold start delay on the first request.
+- **Cold start**. Servers that didn't receive traffic recently might experience a brief cold start delay on the first request.
 - **Configuration responsibility**. Unlike managed MCP servers, you're responsible for correctly configuring hosted servers. Misconfigured environment variables or parameters can cause server failures.
 
 ## Resources for getting started
@@ -89,7 +89,7 @@ Keep the following points in mind when you're working with hosted MCP servers du
 
 ## What's next
 
-The team is actively working to improve the experience of hosted MCP. Your feedback will help shape what comes next. [File an issue or feature request](https://aka.ms/hosted-mcp-github).
+The team is actively working to improve the experience of hosted MCP. Your feedback helps shape what comes next. [File an issue or feature request](https://aka.ms/hosted-mcp-github).
 
 Top items in the backlog include:
 
@@ -101,5 +101,6 @@ Top items in the backlog include:
 
 ## Related content
 
-- [What is Azure Connector Namespace?](connector-namespace-overview.md)
+- [What is Connector Namespace?](connector-namespace-overview.md)
 - [Create and manage connector namespaces](create-connector-namespace.md)
+
