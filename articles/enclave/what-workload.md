@@ -16,8 +16,6 @@ Workloads are a logical way to organize your Azure resource groups and create a 
 
 The alternative is to deploy an Azure resource group through the portal that isn't linked to a workload. Workload resource groups are equivalent to normal Azure resource groups with the added benefit of keeping the resources secured within the enclave boundary. Deploying a normal Azure resource group through the portal is still an option, but a normal Azure resource group wouldn't be secured within the enclave boundary.
 
-> [!VIDEO https://learn-video.azurefd.net/vod/player?id=58cd99f7-02bf-4ddb-bbf4-04028745bc7b]
-
 ## Architecture of a workload
 Workloads are linked as a child resource to [enclaves](./what-enclave.md) and are linked as the parent resource to [workload resource groups](#workload-resource-group).
 
