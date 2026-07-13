@@ -99,7 +99,7 @@ Register the preview feature in the Azure portal:
 
 # [Azure CLI](#tab/cli)
 
-Register the `AllowNspLink` preview feature on the `Microsoft.Network` provider, then check its registration status:
+Register the `AllowNspLink` preview feature on the `Microsoft.Network` provider, check its registration status, and refresh the provider registration:
 
 ```azurecli
 # Register the AllowNspLink preview feature on the Microsoft.Network provider
@@ -113,6 +113,9 @@ az feature show \
   --namespace Microsoft.Network \
   --query properties.state \
   -o tsv
+
+# Refresh the provider registration to apply the newly registered feature
+az provider register --namespace Microsoft.Network
 ```
 
 # [Azure PowerShell](#tab/powershell)
@@ -364,6 +367,16 @@ Once you identify the existing link, an administrator of either participating ne
     ```
 
     To skip the confirmation prompt, add the `--yes` parameter.
+
+1. List the existing perimeter link references to find the name of the one you want to remove by using the [az network perimeter link-reference list](/cli/azure/network/perimeter/link-reference#az-network-perimeter-link-reference-list) command.
+
+    ```azurecli
+    # List the perimeter link references on the remote network security perimeter
+    az network perimeter link-reference list \
+        --perimeter-name <remote-perimeter-name> \
+        --resource-group <remote-resource-group-name> \
+        --output table
+    ```
 
 1. Remove the perimeter link reference by using the [az network perimeter link-reference delete](/cli/azure/network/perimeter/link-reference#az-network-perimeter-link-reference-delete) command.
 
