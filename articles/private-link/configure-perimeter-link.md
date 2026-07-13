@@ -368,7 +368,7 @@ Once you identify the existing link, an administrator of either participating ne
 
     To skip the confirmation prompt, add the `--yes` parameter.
 
-1. List the existing perimeter link references to identify the name of the one you want to remove by using the [az network perimeter link-reference list](/cli/azure/network/perimeter/link-reference#az-network-perimeter-link-reference-list) command.
+1. List the existing perimeter link references to find the name of the one you want to remove by using the [az network perimeter link-reference list](/cli/azure/network/perimeter/link-reference#az-network-perimeter-link-reference-list) command.
 
     ```azurecli
     # List the perimeter link references on the remote network security perimeter
