@@ -19,7 +19,7 @@ This article covers the basic aspects of a migration to SMB [Azure file shares](
 
 ## Migration basics
 
-During the migration, you want to guarantee the integrity of the production data and availability. This requires preserving file fidelity and minimizing downtime so that the migration can fit into or only slightly exceed your regular maintenance windows.
+During the migration, you need to guarantee the integrity of the production data and availability. This requirement means preserving file fidelity and minimizing downtime so that the migration can fit into or only slightly exceed your regular maintenance windows.
 
 ### Preserving file fidelity
 
@@ -52,7 +52,7 @@ If you use on-premises Active Directory Domain Services (AD DS) or Microsoft Ent
 The following table lists supported metadata for Azure Files.
 
 > [!IMPORTANT]
-> The *LastAccessTime* timestamp isn't currently supported for files or directories on the target share. However, Azure Files will return the *LastAccessTime* value for a file when requested. Because the timestamp isn't updated on read operations, it will always be equal to the *CreationTime*.
+> The *LastAccessTime* timestamp isn't currently supported for files or directories on the target share. However, Azure Files returns the *LastAccessTime* value for a file when requested. Because the timestamp isn't updated on read operations, it always equals the *CreationTime*.
 
 | **Source** | **Target** |
 |------------|------------|
@@ -65,7 +65,7 @@ The following table lists supported metadata for Azure Files.
 
 ## File share discovery
 
-The first phase of a migration is the discovery phase, in which you determine all the existing SMB file shares that need to be migrated, including their size, number, and any dependencies. This can be a difficult and time-consuming task, especially for organizations with large, distributed environments.
+The first phase of a migration is the discovery phase. In this phase, you determine all the existing SMB file shares that need to be migrated, including their size, number, and any dependencies. This phase can be difficult and time-consuming, especially for organizations with large, distributed environments.
 
 ### Azure Migrate file share discovery
 
@@ -94,9 +94,9 @@ You can also create a business case from the assessment to compare the cost of r
 
 ### Deploy Azure storage resources
 
-As part of the assessment phase, you'll provision the Azure storage accounts and the Azure classic file shares within them.
+As part of the assessment phase, provision the Azure storage accounts and the Azure classic file shares within them.
 
-Classic Azure file shares are deployed in the cloud in an Azure storage account. For HDD (standard) file shares, that arrangement makes the storage account a scale target for performance numbers like IOPS and throughput. If you place multiple file shares in a single storage account, you're creating a shared pool of IOPS and throughput for these shares.
+You deploy classic Azure file shares in the cloud in an Azure storage account. For HDD (standard) file shares, that arrangement makes the storage account a scale target for performance numbers like IOPS and throughput. If you place multiple file shares in a single storage account, you create a shared pool of IOPS and throughput for these shares.
 
 As a general rule, you can pool multiple Azure file shares into the same storage account if you have archival shares or you expect low day-to-day activity in them. However, if you have highly active shares (shares used by many users and/or applications), you'll want to deploy storage accounts with one file share each. These limitations don't apply to FileStorage (SSD) storage accounts, where performance is explicitly provisioned and guaranteed for each share.
 
@@ -105,7 +105,7 @@ For more information about performance and cost, see [Understand performance](un
 > [!NOTE]
 > There's a limit of 250 storage accounts per subscription per Azure region. With a quota increase, you can create up to 500 storage accounts per region. For more information, see [Increase Azure Storage account quotas](/azure/quotas/storage-account-quota-requests).
 
-Another consideration when you're deploying classic file shares in a storage account is redundancy. See [Azure Files redundancy](files-redundancy.md).
+Another consideration when deploying classic file shares in a storage account is redundancy. See [Azure Files redundancy](files-redundancy.md).
 
 If you've made a list of your shares, you should map each share to the storage account it will be created in.
 
@@ -115,7 +115,7 @@ Now deploy the appropriate number of Azure storage accounts with the appropriate
 
 ### Prepare to use Azure file shares
 
-You'll also need to decide how your servers and users in Azure and outside of Azure will access your Azure file shares. The most critical decisions are:
+You also need to decide how your servers and users in Azure and outside of Azure access your Azure file shares. The most critical decisions are:
 
 - **Networking:** Enable your networks to route SMB traffic. See [Networking overview for Azure file shares](storage-files-networking-overview.md) for more information. You can use public endpoints, private endpoints, or a combination of both.
 - **Authentication:** Configure the Azure storage account for identity-based authentication and join the storage account to your AD domain. This will allow your apps and users to use their AD identity for authentication.
