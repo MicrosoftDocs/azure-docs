@@ -211,7 +211,7 @@ The token was requested for the wrong Microsoft Entra audience, or the caller do
 
 ### Solution
 
-- Request tokens for audience `https://dashboard.azure.com`.
+- Request tokens for the audience `https://dashboard.azure.com`.
 - Verify that the caller has a Grafana role assignment on the Azure Managed Grafana resource.
 - Retry after a few minutes if role assignments were recently changed.
 

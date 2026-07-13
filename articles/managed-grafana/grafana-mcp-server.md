@@ -90,7 +90,7 @@ Use a Grafana service account token for authentication. Start by creating a toke
 
 Use a Microsoft Entra ID token for authentication. This approach is useful when you're using managed identities or service principals.
 
-- Use the Azure CLI to obtain a Microsoft Entra ID token for the Azure Managed Grafana audience `https://dashboard.azure.com`:
+- Use the Azure CLI to obtain a Microsoft Entra ID token for the Azure Managed Grafana audience `https://dashboard.azure.com`.
 
     ```bash
     az account get-access-token --resource https://dashboard.azure.com --query accessToken -o tsv
