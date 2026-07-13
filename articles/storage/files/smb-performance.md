@@ -260,7 +260,7 @@ To verify that SMB Multichannel is configured correctly, follow these steps:
 1. Generate load with your application.
     A copy tool such as robocopy /MT, or any performance tool such as Diskspd to read/write files can generate load.
 1. Open PowerShell as an admin and run the following command:
-[`Get-SmbMultichannelConnection`](/powershell/module/smbshare/get-smbmultichannelconnection) `|fl`
+`Get-SmbMultichannelConnection | fl`
 1. Look for **MaxChannels** and **CurrentChannels** properties.
 
 ### Performance comparison
