@@ -215,7 +215,7 @@ az grafana dashboard update --name <AMG-name> --resource-group <AMG-resource-gro
 
 ## Manage dashboards as code with Git Sync
 
-Git Sync lets you store your dashboards as JSON files in a Git repository and manage them as code. You can version control your dashboards, collaborate through pull requests, and automate deployments. Git Sync is bidirectional: changes you make in the Grafana UI can be committed to your repository, and changes made in your repository are synchronized back to Grafana.
+By using Git Sync, you can store your dashboards as JSON files in a Git repository and manage them as code. You can version control your dashboards, collaborate through pull requests, and automate deployments. Git Sync is bidirectional: changes you make in the Grafana UI can be committed to your repository, and changes made in your repository are synchronized back to Grafana.
 
 You configure and use Git Sync from the Grafana UI. To authenticate to your repository, use a GitHub app or a personal access token (PAT).
 
