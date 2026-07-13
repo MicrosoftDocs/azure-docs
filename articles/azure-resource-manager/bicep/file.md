@@ -1,9 +1,9 @@
 ﻿---
 title: Bicep file structure and syntax
 description: Understand how to use declarative syntax to understand the structure and properties of Bicep files.
-ms.topic: article
+ms.topic: concept-article
 ms.custom: devx-track-bicep
-ms.date: 01/30/2026
+ms.date: 07/03/2026
 ---
 
 # Bicep file structure and syntax
@@ -322,6 +322,7 @@ The following table lists the decorators:
 | --------- | ---- | ----------- | ------- |
 | allowed | [param](./parameters.md#allowed-values) | all | array | Use this decorator to make sure the user provides correct values. This decorator is permitted only on `param` statements. To declare that a property must be one of a set of predefined values in a [`type`](./user-defined-data-types.md) or [`output`](./outputs.md) statement, use [union type syntax](./data-types.md#union-types). You can also use union type syntax in `param` statements.|
 | batchSize |[module](./modules.md#batchsize), [resource](./resource-declaration.md#batchsize) | N/A | integer | Set up instances to deploy sequentially. |
+| retryOn | [resource](./resource-declaration.md) | N/A | array, int | Retry a resource deployment when specified error codes are returned. Accepts a list of error code strings and an optional retry count (maximum 10, with exponential back-off). For more information, see [Bicep retryOn](./bicep-retryon.md). |
 | description | [func](./user-defined-functions.md#description), [param](./parameters.md#description), [module](./modules.md#description), [output](./outputs.md#description), [resource](./resource-declaration.md#description), [type](./user-defined-data-types.md#description), [var](./variables.md#description) | all | string | Provide descriptions for the elements. Use Markdown-formatted text for the description text. |
 | discriminator | [param](./parameters.md#discriminator), [type](./user-defined-data-types.md#discriminator), [output](./outputs.md#discriminator) | object | string | Use this decorator to ensure that the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
 | export | [func](./user-defined-functions.md#export), [type](./user-defined-data-types.md#export), [var](./variables.md#export) | all | none| Indicates that another Bicep file can import the element. |
@@ -350,14 +351,14 @@ You separate arguments by using spaces. The linter rules and diagnostic codes ar
 
 Bicep currently supports three directive types:
 
-* `#disable-next-line` — disables one or more diagnostics for the next line only
-* `#disable-diagnostics` — disables one or more diagnostics for an entire file or until re-enabled
-* `#restore-diagnostics` — re-enables previously disabled diagnostics
+* `#disable-next-line` - disables one or more diagnostics for the next line only
+* `#disable-diagnostics` - disables one or more diagnostics for an entire file or until re-enabled
+* `#restore-diagnostics` - re-enables previously disabled diagnostics
 
 The following example suppresses multiple diagnostics and rules:
 
 ```bicep
-#disable-diagnostics no-unused-vars BCP335 
+#disable-diagnostics no-unused-vars BCP335
 
 var location = 'eastus'
 

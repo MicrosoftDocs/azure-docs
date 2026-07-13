@@ -340,8 +340,8 @@ for ($i=1; $i -le 2; $i++)
         VM = $vmConfig
         Zone = "$i"
     }
+    New-AzVM @vm -asjob
 }
-New-AzVM @vm -asjob
 ```
 
 The deployments of the virtual machines and bastion host are submitted as PowerShell jobs. To view the status of the jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):

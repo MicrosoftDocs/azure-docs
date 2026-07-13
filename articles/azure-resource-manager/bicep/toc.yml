@@ -268,6 +268,9 @@ items:
   - name: Resources (resource)
     displayName: batchsize,nullIfNotFound,onlyifnotexists,description,decorator
     href: resource-declaration.md
+  - name: Retry resource deployments (retryOn)
+    displayName: retryOn,decorator,retry,transient errors,resource deployment
+    href: bicep-retryon.md
   - name: Outputs (output)
     displayName: decorator,dynamic number of outputs,modules
     href: outputs.md
@@ -649,7 +652,7 @@ items:
   - name: Resource reference
     href: /azure/templates/
   - name: Bicep CLI
-    displayName: build,console,decompile,decompile-params, format,generate-params,install,jsonrpc,lint,list-versions,list versions,publish,restore,upgrade,version,module,registry
+    displayName: build,console,decompile,decompile-params,format,generate-params,install,jsonrpc,lint,list-versions,list versions,publish,restore,upgrade,version,module,registry
     href: bicep-cli.md
   - name: Azure CLI
     href: /cli/azure/resource
@@ -810,5 +813,5 @@ items:
     - name: BCP446
       href: diagnostics/bcp446.md
   - name: Programmatic Bicep usage with JSON-RPC
-    href: bicep-cli-jsonrpc.md
     displayName: jsonrpc,json-rpc,rpc,pipe,socket,stdio,programmatic
+    href: bicep-cli-jsonrpc.md
