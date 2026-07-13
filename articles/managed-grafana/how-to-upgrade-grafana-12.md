@@ -84,7 +84,7 @@ In the Azure CLI:
 
 ## Restore the Metrics drilldown
 
-In Grafana 11, the **Drilldown** > **Metrics** menu is available out of the box, without installing a plugin. Grafana 12 introduces a by-design breaking change: the **Metrics** drilldown is now delivered by the `grafana-metricsdrilldown-app` plugin, which isn't installed by default. After you upgrade to Grafana 12, the **Metrics** entry under **Drilldown** is empty until you install this plugin. This change affects only the **Metrics** drilldown—other drilldown apps are unaffected.
+In Grafana 11, the **Drilldown** > **Metrics** menu is available out of the box, without installing a plugin. Grafana 12 introduces a by-design breaking change: the **Metrics** drilldown is now delivered by the `grafana-metricsdrilldown-app` plugin, which isn't installed by default. After you upgrade to Grafana 12, the **Metrics** entry under **Drilldown** is empty until you install this plugin.
 
 If you use the Metrics drilldown and want to keep it after upgrading, install the plugin from your workspace:
 
@@ -98,7 +98,7 @@ For more information, see [How to manage Grafana plugins](how-to-manage-plugins.
 After you install the plugin, reload Grafana and confirm that **Drilldown** > **Metrics** is available.
 
 > [!NOTE]
-> When you use the Metrics drilldown with an Azure Monitor managed service for Prometheus data source, you must select a single metric before you can filter by labels. Filtering by labels before you select a metric isn't supported and can cause plugin errors. The Logs and Traces drilldown apps don't currently support Azure Monitor Logs or Application Insights traces.
+> When you use the Metrics drilldown with an Azure Monitor managed service for Prometheus data source, you must select a single metric before you can filter by labels. Filtering by labels before you select a metric isn't supported and can cause plugin errors.
 
 ## Next step
 
