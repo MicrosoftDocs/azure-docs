@@ -34,7 +34,7 @@ The [Self-service migration](migrate-redis-enterprise-self-service.md) article p
 
 ## Option 2: Use migration tooling 
 
-Azure provides built-in migration tooling that transforms your existing Azure Cache for Redis Enterprise instance into Azure Managed Redis instance, while keeping the same hostname and access key, so your client applications reconnect automatically to the Azure Managed Redis instance using the same hostname and access key. With data sync enabled, all data is migrated as part of the migration process. After you validate the migration, update your client applications to use the new Azure Managed Redis hostname and decommission the old Azure Cache for Redis Enterprise hostname
+Azure provides built-in migration tooling that transforms your existing Azure Cache for Redis Enterprise instance into Azure Managed Redis instance, while keeping the same hostname and access key, so your client applications reconnect automatically to the Azure Managed Redis instance using the same hostname and access key. With data sync enabled, all data is migrated as part of the migration process. After you validate the migration, update your client applications to use the new Azure Managed Redis hostname and decommission the old Azure Cache for Redis Enterprise hostname.
 
 > [!IMPORTANT]
 > Review the limitations below carefully before choosing this approach.
