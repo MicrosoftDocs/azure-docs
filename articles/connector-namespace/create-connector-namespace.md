@@ -1,10 +1,11 @@
 ---
 title: Create and manage connector namespaces for integration
-titleSuffix: Azure Connector Namespace
-description: Create connector namespaces so your solutions can easily work with other services, systems, apps, and data. Create, organize, and manage reusable connections, triggers, actions, and MCP servers that your solutions need for integration by using Azure Connector Namespace.
+titleSuffix: Connector Namespace
+description: Create connector namespaces so your solutions can easily work with other services, systems, apps, and data. Create, organize, and manage reusable connections, triggers, actions, and MCP servers that your solutions need for integration by using Connector Namespace.
 author: wsilveiranz
 ms.author: wsilveira
 ms.reviewers: ecfan, azla
+ms.service: connector-namespace
 ms.topic: how-to
 ai-usage: ai-assisted
 ms.update-cycle: 365-days
@@ -14,13 +15,13 @@ ms.custom:
 # Customer intent: As a backend developer who works with Azure, I want to create connector namespaces so I can organize and manage reusable connections, triggers, actions, and MCP servers that my solutions need to access and integrate with other services, systems, apps, and data.
 ---
 
-# Quickstart: Create and manage connector namespaces for integrating your solutions through Azure Connector Namespace (preview)
+# Quickstart: Create and manage connector namespaces for integrating your solutions through Connector Namespace (preview)
 
 > [!IMPORTANT]
 >
 > This preview capability is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). During preview, this capability is available in select Azure regions only.
 
-When you build solutions that need to connect with other services, systems, apps, and data, you usually have to set up and manage the authentication, credential management, end system polling, webhook delivery, and Model Context Protocol (MCP) server hosting yourself. Azure Connector Namespace is a fully managed service that removes overhead and complexity by handling these security and management tasks for you.
+When you build solutions that need to connect with other services, systems, apps, and data, you usually have to set up and manage the authentication, credential management, end system polling, webhook delivery, and Model Context Protocol (MCP) server hosting yourself. Connector Namespace is a fully managed service that removes overhead and complexity by handling these security and management tasks for you.
 
 When you create a connector namespace resource, you get a managed environment and a connector catalog so you can create and organize reusable connections, event triggers, actions, AI agent tools, and MCP server tools that your solutions can use to integrate with other components. Connector namespaces make integration easy so your solutions can work with other components without needing custom API client code or tool wrappers.
 
@@ -112,4 +113,5 @@ To manage your connector namespace and any connections, triggers, and MCP server
 ## Related content
 
 - [Create reusable connections in connector namespaces for integration](create-connector-namespace-connection.md)
-- [What is Azure Connector Namespace?](connector-namespace-overview.md)
+- [What is Connector Namespace?](connector-namespace-overview.md)
+
