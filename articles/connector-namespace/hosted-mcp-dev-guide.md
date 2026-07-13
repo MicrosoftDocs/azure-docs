@@ -1,13 +1,13 @@
 ---
 title: Developer Guide for Hosted MCP Servers
-titleSuffix: Azure Connector Namespace
+titleSuffix: Connector Namespace
 description: Learn how to configure server deployments, authentication, observability, and access policies for hosted MCP servers in Connector Namespace.
 author: lilyjma
 ms.author: jiayma
 ms.reviewer: glenga
 ms.date: 06/02/2026
 ms.topic: concept-article
-ms.service: azure-logic-apps
+ms.service: connector-namespace
 ms.custom: ai-assisted
 # Customer intent: As a developer, I want to understand the configuration options and requirements for hosted MCP servers so that I can set them up correctly.
 ---
@@ -18,7 +18,7 @@ ms.custom: ai-assisted
 > This preview feature is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-This guide covers features, configuration details, and requirements for hosted Model Context Protocol (MCP) servers in Azure Connector Namespace. For an overview of hosted MCP servers, see [Hosted MCP servers in Azure Connector Namespace](connector-namespace-hosted-mcp.md).
+This guide covers features, configuration details, and requirements for hosted Model Context Protocol (MCP) servers in Connector Namespace. For an overview of hosted MCP servers, see [Hosted MCP servers in Connector Namespace](connector-namespace-hosted-mcp.md).
 
 ## Supported regions
 
@@ -42,11 +42,11 @@ Hosted MCP servers involve two authentication boundaries.
 
 ### Inbound authentication
 
-Inbound authentication helps secure the connection between MCP clients and the hosted server. The namespace provides OAuth-based authentication with Microsoft Entra ID out of the box.
+Inbound authentication secures the connection between MCP clients and the hosted server. The namespace provides OAuth-based authentication with Microsoft Entra ID.
 
 ### Outbound authentication
 
-Outbound authentication helps secure the connection between the hosted server and the downstream service that it interacts with. Servers support the following mechanisms:
+Outbound authentication secures the connection between the hosted server and the downstream service that it interacts with. Servers support the following mechanisms:
 
 | Method | Description |
 | ------ | ----------- |
@@ -55,7 +55,7 @@ Outbound authentication helps secure the connection between the hosted server an
 
 ### Managed identity options
 
-When you use a managed identity for outbound authentication, you can choose either:
+When you use a managed identity for outbound authentication, choose either:
 
 - **System-assigned managed identity (SAMI)**. Automatically created and assigned to a namespace when you enable it during namespace creation. It's tied to the namespace lifecycle, so it's deleted when the namespace is deleted.
 - **User-assigned managed identity (UAMI)**. A standalone Azure resource that you create and assign to the namespace. It persists independently and can be reused across resources.
@@ -78,7 +78,7 @@ To add a UAMI to your namespace:
 
 ## Integration with Application Insights
 
-You can configure the server to send logs and metrics to a specified Application Insights resource. The server creation flow provides a way to configure immediately after creation. If you missed it, follow these steps:
+You can configure the server to send logs and metrics to a specified Application Insights resource. The server creation flow provides a way to configure this option immediately after creation. If you missed it, follow these steps:
 
 1. In the [web portal](https://connectors.azure.com/), go to the namespace instance.
 
@@ -96,7 +96,7 @@ To view server logs:
 
 ## Access policy
 
-Configuring an access policy allows you to control who has access to your hosted MCP server. When you create a server, a policy is automatically created for you. You can add policies to grant others access to the server.
+By configuring an access policy, you control who can access your hosted MCP server. When you create a server, the portal automatically creates a policy for you. You can add policies to grant others access to the server.
 
 You can add an access policy for individual users or a group. To create a group, see [Manage groups in Microsoft Entra ID](/entra/fundamentals/how-to-manage-groups).
 
@@ -118,7 +118,7 @@ To add an access policy:
 
 ## Server deployment requirements
 
-Most hosted MCP servers deploy without additional artifacts. You select the server from the catalog, and the namespace provisions it. Some servers require extra configuration during deployment.
+Most hosted MCP servers deploy without extra artifacts. You select the server from the catalog, and the namespace provisions it. Some servers require extra configuration during deployment.
 
 ### Azure SQL
 
@@ -202,4 +202,5 @@ ORDER BY name;
 
 - [Overview of hosted MCP servers](connector-namespace-hosted-mcp.md)
 - [Quickstart: Create a hosted MCP server](hosted-mcp-quickstart.md)
-- [What is Azure Connector Namespace?](connector-namespace-overview.md)
+- [What is Connector Namespace?](connector-namespace-overview.md)
+

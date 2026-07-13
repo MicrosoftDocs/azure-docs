@@ -1,26 +1,27 @@
 ---
-title: "Quickstart: Create a Hosted MCP Server in Azure Connector Namespace"
-description: Learn how to create a hosted MCP server in Azure Connector Namespace and connect it to AI agents and MCP-aware clients.
+title: "Quickstart: Create a Hosted MCP Server in Connector Namespace"
+titleSuffix: Connector Namespace
+description: Learn how to create a hosted MCP server in Connector Namespace and connect it to AI agents and MCP-aware clients.
 author: lilyjma
 ms.author: jiayma
 ms.reviewer: glenga
 ms.date: 05/21/2026
 ms.topic: quickstart
-ms.service: azure-logic-apps
+ms.service: connector-namespace
 ms.custom: ai-assisted
 zone_pivot_groups: connector-namespace-hosted-servers
 # Customer intent: As a developer, I want to create a hosted MCP server in my connector namespace so that AI agents and MCP-aware clients can discover and call tools without managing infrastructure.
 ---
 
-# Quickstart: Create a hosted MCP server in Azure Connector Namespace (preview)
+# Quickstart: Create a hosted MCP server in Connector Namespace (preview)
 
 > [!IMPORTANT]
 > This preview feature is subject to the
 > [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-In this quickstart, you create a [hosted Model Context Protocol (MCP) server](./connector-namespace-hosted-mcp.md) in [Azure Connector Namespace](./connector-namespace-overview.md) and connect it to MCP clients. Use the server selector at the top of this page to choose the server that you want to deploy.
+In this quickstart, you create a [hosted Model Context Protocol (MCP) server](./connector-namespace-hosted-mcp.md) in [Connector Namespace](./connector-namespace-overview.md) and connect it to MCP clients. Use the server selector at the top of this page to choose the server that you want to deploy.
 
-MCP servers are a first-class resource in Azure Connector Namespace. Connector Namespace is a fully managed service that hosts connectors, connections, triggers, and MCP servers.
+MCP servers are a first-class resource in Connector Namespace. Connector Namespace is a fully managed service that hosts connectors, connections, triggers, and MCP servers.
 
 When you create a hosted MCP server in a namespace, the platform runs a prebuilt image of the server in dedicated compute that it provisions. You control server configuration, environment variables, and parameters. The namespace handles hosting, scaling, and credential management. AI agents like Copilot, custom agents, or any MCP-aware client discover and call the server's tools by using the namespace's connection model.  
 
@@ -80,7 +81,7 @@ The SQL hosted MCP server is built on [Data API builder (DAB)](/azure/data-api-b
    dab init --database-type "mssql" --host-mode "Development" --graphql.enabled false --rest.enabled false --connection-string "<your-sql-connection-string>"
    ```
 
-   Because the server will access the underlying database by using a system-assigned managed identity (SAMI), the connection string should look like the following example:
+   Because the server accesses the underlying database by using a system-assigned managed identity (SAMI), the connection string should look like the following example:
 
    ```bash
    Server=<your-sql-server>.database.windows.net;Database=<your-database>;Authentication=Active Directory Default;Encrypt=True;TrustServerCertificate=False;
@@ -171,7 +172,7 @@ The SQL hosted MCP server is built on [Data API builder (DAB)](/azure/data-api-b
 
 1. Search for your **Connector Namespace** resource.
 
-1. Select **Connect to Namespace** to open the namespace portal on a new browser tab.
+1. Select **Connect to Namespace** to open the namespace portal in a new browser tab.
 
 1. When you're redirected, sign in by using your Microsoft account that's associated with the namespace.
 
@@ -179,19 +180,19 @@ The SQL hosted MCP server is built on [Data API builder (DAB)](/azure/data-api-b
 
 ::: zone pivot="playwright"
 
-6. Search for **Playwright** and select it to create the server.
+1. Search for **Playwright** and select it to create the server.
 
 ::: zone-end
 
 ::: zone pivot="sql"
 
-6. Search for **Azure SQL** and select it to create the server.
+1. Search for **Azure SQL** and select it to create the server.
 
-7. In the creation window, select **Manage Identity** for the outbound authentication method.  
+1. In the creation window, select **Manage Identity** for the outbound authentication method.  
 
-8. Upload the DAB configuration file generated earlier.
+1. Upload the DAB configuration file generated earlier.
 
-9. Select **Create**.
+1. Select **Create**.
 
 ::: zone-end
 
@@ -207,7 +208,7 @@ Wait for the required connection and server to be provisioned and deployed. Don'
 
 1. Select **Done** when Application Insights is configured.  
 
-You should be automatically directed to the deployed server's **Overview** page, where you can find the endpoint. If not, select the **MCP Connectors** tab on the left menu and find the server that you deployed.
+You're automatically directed to the deployed server's **Overview** page, where you can find the endpoint. If not, select the **MCP Connectors** tab on the left menu and find the server that you deployed.
 
 ::: zone pivot="sql"
 
@@ -253,13 +254,13 @@ Replace `<your-connector-namespace-name>` with the name of your Connector Namesp
 
 ::: zone pivot="playwright"
 
-4. Open Copilot agent mode and ask "What is the closest pizzeria to 11 Times Square?"
+1. Open Copilot agent mode and ask "What is the closest pizzeria to 11 Times Square?"
 
 ::: zone-end
 
 ::: zone pivot="sql"
 
-4. Open Copilot agent mode and ask "What tables are available?"
+1. Open Copilot agent mode and ask "What tables are available?"
 
 ::: zone-end
 
@@ -289,7 +290,7 @@ Replace `<your-connector-namespace-name>` with the name of your Connector Namesp
 
 ::: zone pivot="playwright"
 
-4. Call a specific tool. For example, the following command calls the `browser_navigate` tool:
+1. Call a specific tool. For example, the following command calls the `browser_navigate` tool:
 
    ```bash
    npx @modelcontextprotocol/inspector --cli \
@@ -305,7 +306,7 @@ Replace `<your-connector-namespace-name>` with the name of your Connector Namesp
 
 ::: zone pivot="sql"
 
-4. Call a specific tool. For example, the following command calls the `describe_entities` tool to list available entities:
+1. Call a specific tool. For example, the following command calls the `describe_entities` tool to list available entities:
 
    ```bash
    npx @modelcontextprotocol/inspector --cli \
@@ -317,7 +318,7 @@ Replace `<your-connector-namespace-name>` with the name of your Connector Namesp
    --tool-arg 'nameOnly=true'
    ```
 
-5. Call the `read_records` tool to retrieve records from an entity (`Books`):
+1. Call the `read_records` tool to retrieve records from an entity (`Books`):
 
    ```bash
    npx @modelcontextprotocol/inspector --cli \
@@ -358,5 +359,6 @@ If your hosted SQL MCP server doesn't connect or return data as expected, check 
 ## Related content
 
 - [Developer guide for hosted MCP servers](hosted-mcp-dev-guide.md)
-- [What is Azure Connector Namespace?](connector-namespace-overview.md)
+- [What is Connector Namespace?](connector-namespace-overview.md)
 - [Create and manage connector namespaces](create-connector-namespace.md)
+

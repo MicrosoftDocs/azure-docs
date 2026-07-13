@@ -39,7 +39,7 @@ Azure Resource Manager represents MCP servers as follows: 
 
 - **Tool:** An [API tool](/rest/api/apimanagement/api-tool/create-or-update?view=rest-apimanagement-2025-09-01-preview) sub-resource of an MCP server. You can safely manage tool resources from CI/CD. You can add, rename, or remove tools without recreating the MCP server. 
 
-- **Policies:** As with regular APIs, attach [API policy](/rest/api/apimanagement/api-policy/create-or-update?view=rest-apimanagement-2025-09-01-preview) or [policy](/rest/api/apimanagement/policies/policy/create-or-update?view=rest-apimanagement-2025-09-01-preview) sub-resources to an MCP server. 
+- **Policies:** As with regular APIs, attach [API policy](/rest/api/apimanagement/api-policy/create-or-update?view=rest-apimanagement-2025-09-01-preview) or [policy](/rest/api/apimanagement/policy/create-or-update?view=rest-apimanagement-2025-09-01-preview&tabs=HTTP) sub-resources to an MCP server. 
 
 - **Products:** Product binding is a separate child relationship (`products/{productId}/apis/{mcpServerId}`), enabling independent deployment and multi-product binding.
 
