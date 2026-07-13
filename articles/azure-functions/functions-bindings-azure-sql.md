@@ -130,7 +130,7 @@ In addition to the samples for C#, Java, JavaScript, PowerShell, and Python avai
 
 - [C# ToDo API sample with Azure SQL bindings](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/)
 - [Use SQL bindings in Azure Stream Analytics](../stream-analytics/sql-database-upsert.md#option-1-update-by-key-with-the-azure-function-sql-binding)
-- [Send data from Azure SQL with Python](/samples/azure-samples/sqlbindings-python-datatransfer/sample-load-data-from-sql-using-python-and-azure-functions/)
+- [Send data from Azure SQL with Python](/azure/azure-functions/functions-bindings-azure-sql)
 
 
 ## Next steps
