@@ -617,6 +617,16 @@ Triggers such as HTTP, Service Bus, and Event Hubs depend on context propagation
 
 In Azure Functions, the `OperationId` used for correlating telemetry comes directly from the `traceparent` value in the incoming request or message. If multiple calls reuse the same `traceparent` value, they all get the same `OperationId`.
 
+### Application logs have an empty OperationId
+
+Application logs written by your function code can appear in the traces table with an empty operation_Id. As a result, they don't correlate with the invocation's request and trace in the end-to-end transaction view.
+
+As described in Duplicate OperationId, the operation_Id is applied to telemetry that is emitted within the invocation context. Application logs emitted outside that context—for example, logs that the Functions host forwards—are recorded without an operation_Id.
+
+If you need OperationId in your application logs, use the Application Insights agent to instrument your logging framework instead of the OpenTelemetry mode: enable the agent as described in [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications](https://learn.microsoft.com/en-us/azure/azure-monitor/app/opentelemetry-enable?tabs=java). The agent stamps the trace context (operation_Id = trace ID) on the logs it emits within the invocation context.
+
+Make sure telemetryMode isn't set to OpenTelemetry in your `host.json`. If you added `"telemetryMode": "OpenTelemetry"`, remove it.
+
 ### Configure OpenTelemetry with environment variables
 
 You can configure OpenTelemetry behavior by using its standard environment variables. These variables provide a consistent way to control behavior across different languages and runtimes. You can adjust sampling strategies, exporter settings, and resource attributes. For more information about supported environment variables, see the [OpenTelemetry documentation](https://opentelemetry.io/docs/languages/sdk-configuration/).
