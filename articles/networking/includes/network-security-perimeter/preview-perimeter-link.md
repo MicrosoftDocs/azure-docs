@@ -5,7 +5,7 @@ services: private-link
 author: mbender
 ms.service: azure-private-link
 ms.topic: include
-ms.date: 07/13/2026
+ms.date: 07/14/2026
 ms.author: mbender-ms
 ms.custom: include file
 ---
