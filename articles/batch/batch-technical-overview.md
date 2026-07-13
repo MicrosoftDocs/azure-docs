@@ -2,7 +2,7 @@
 title: Azure Batch runs large parallel jobs in the cloud
 description: Learn about using the Azure Batch service for large-scale parallel and HPC workloads.
 ms.topic: overview
-ms.date: 06/16/2026
+ms.date: 07/09/2026
 # Customer intent: "As a developer, I want to utilize Azure Batch for managing and executing large-scale parallel workloads, so that I can efficiently run high-performance computing tasks without worrying about underlying infrastructure management."
 ---
 
@@ -82,3 +82,10 @@ Get started with Azure Batch with one of these quickstarts:
 - [Run your first Batch job using the .NET API](quick-run-dotnet.md)
 - [Run your first Batch job using the Python API](quick-run-python.md)
 - [Create a Batch account using ARM templates](quick-create-template.md)
+
+To continue, see these tutorials for end-to-end scenarios:
+
+- [Run a parallel workload with the Python API](tutorial-parallel-python.md)
+- [Run a parallel workload with the .NET API](tutorial-parallel-dotnet.md)
+- [Trigger a Batch job with Azure Functions](tutorial-batch-functions.md)
+- [Run a Batch job through Azure Data Factory](tutorial-run-python-batch-azure-data-factory.md)

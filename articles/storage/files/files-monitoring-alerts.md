@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 06/29/2026
+ms.date: 07/08/2026
 ms.author: kendownie
 ms.custom: monitoring
 # Customer intent: As a cloud administrator, I want to create monitoring alerts for Azure Files metrics and logs, so that I can proactively identify and resolve issues before they impact users.
@@ -15,7 +15,7 @@ ms.custom: monitoring
 
 :heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
 
-:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider
+:heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider
 
 Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They help you identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/alerts/alerts-metric-overview), [logs](/azure/azure-monitor/alerts/alerts-unified-log), and the [activity log](/azure/azure-monitor/alerts/activity-log-alerts). 
 

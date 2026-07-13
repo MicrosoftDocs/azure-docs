@@ -2,8 +2,8 @@
 title: Copy data from Amazon Simple Storage Service (S3) Compatible Storage
 description: Learn about how to copy data from Amazon S3 Compatible Storage to supported sink data stores using an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 06/22/2026

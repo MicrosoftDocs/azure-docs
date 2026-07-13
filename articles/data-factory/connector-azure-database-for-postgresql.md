@@ -2,8 +2,8 @@
 title: Copy and transform data in Azure Database for PostgreSQL
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data in Azure Database for PostgreSQL using Azure Data Factory and Synapse Analytics.
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 02/09/2026

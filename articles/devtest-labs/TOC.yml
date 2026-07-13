@@ -213,7 +213,6 @@
       href: devtest-lab-troubleshoot-apply-artifacts.md
   - name: Encrypt OS disks using customer-managed keys
     href: encrypt-disks-customer-managed-keys.md
-  - name: Integrate with CI/CD
   - name: Extend DevTest Labs
     items:
     - name: Use Azure Functions to extend DevTest Labs

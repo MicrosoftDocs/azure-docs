@@ -87,6 +87,17 @@ Azure Files and Azure File Sync support the following mechanisms to tunnel traff
 
 - [ExpressRoute](../../expressroute/expressroute-introduction.md), which enables you to create a defined route (private connection) between Azure and your on-premises network that doesn't traverse the internet. Because ExpressRoute provides a dedicated path between your on-premises datacenter and Azure, ExpressRoute can be useful when network performance is a key consideration. ExpressRoute is also a good option when your organization's policy or regulatory requirements require a deterministic path to your resources in the cloud.
 
+### SMB over QUIC
+
+If port 445 is blocked in your environment, you can use [SMB over QUIC](../files/storage-files-networking-overview.md#smb-over-quic) as an alternative to VPN or ExpressRoute. SMB over QUIC uses the QUIC transport protocol over port 443, which most organizations and internet service providers (ISPs) have open to support HTTPS traffic. This feature eliminates much of the networking configuration normally required to access a file share remotely over the public internet.
+
+To use SMB over QUIC with Azure File Sync:
+
+- The Azure File Sync server endpoint must run on a Windows Server Datacenter: Azure Edition virtual machine in Azure.
+- Clients must be running Windows 11 or later.
+
+For setup and configuration details, see [SMB over QUIC](/windows-server/storage/file-server/smb-over-quic).
+
 ### Private endpoints
 
 In addition to the default public endpoints Azure Files and Azure File Sync provide through the storage account and Storage Sync Service, they provide the option to have one or more private endpoints per resource. This allows you to privately and securely connect to Azure file shares from on-premises using VPN or ExpressRoute and from within an Azure VNET. When you create a private endpoint for an Azure resource, it gets a private IP address from within the address space of your virtual network, much like how your on-premises Windows file server has an IP address within the dedicated address space of your on-premises network.

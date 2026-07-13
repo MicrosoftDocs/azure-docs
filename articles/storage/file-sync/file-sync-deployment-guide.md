@@ -770,9 +770,7 @@ The Azure file share (cloud endpoint) is a full SMB endpoint that's capable of d
 
 The most common reason to have an additional server endpoint rather than accessing the Azure file share directly is that changes made directly on the Azure file share can take up to 24 hours or longer for Azure File Sync to discover them. Changes made on a server endpoint are discovered nearly immediately and synced to all other server and cloud endpoints. This configuration is extremely common in environments where a substantial portion of users are remote.
 
-Traditionally, accessing any file share with SMB over the public internet can be difficult because many organizations and internet service providers (ISPs) block port 445. This situation includes file shares hosted on a Windows file server and on Azure Files directly. You can work around this limitation by using [private endpoints and virtual private networks](file-sync-networking-overview.md#private-endpoints). However, Windows Server 2022 Azure Edition provides an additional access strategy: SMB over the QUIC transport protocol.
-
-SMB over QUIC communicates over port 443, which most organizations and ISPs have open to support HTTPS traffic. Using SMB over QUIC greatly simplifies the networking required to access a file share hosted on an Azure File Sync server endpoint for clients that use Windows 11 or later. To learn more about how to set up and configure SMB over QUIC on Windows Server Azure Edition, see [SMB over QUIC](/windows-server/storage/file-server/smb-over-quic).
+If port 445 is blocked in your environment, you can use SMB over QUIC to access a file share hosted on a Windows Server Datacenter: Azure Edition server endpoint without VPN or ExpressRoute. For networking details and setup guidance, see [SMB over QUIC](file-sync-networking-overview.md#smb-over-quic).
 
 ## Onboard Azure File Sync
 

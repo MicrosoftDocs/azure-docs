@@ -24,7 +24,7 @@ You can connect from an any-to-any (IP VPN) network, a point-to-point Ethernet n
 
 ## Key benefits
 
-* Layer 3 connectivity between your on-premises network and the Microsoft cloud through a connectivity provider. You can connect from an any-to-any (IPVPN) network, a point-to-point Ethernet connection, or through a virtual cross-connection via an Ethernet exchange.
+* Layer 3 connectivity between your on-premises network and the Microsoft cloud through a connectivity provider. You can connect from an any-to-any (IP VPN) network, a point-to-point Ethernet connection, or through a virtual cross-connection via an Ethernet exchange.
 * Connectivity to Microsoft cloud services across all regions in the geopolitical region.
 * Global connectivity to Microsoft services across all regions with the ExpressRoute premium add-on.
 * Dynamic routing between your network and Microsoft via BGP.

@@ -68,6 +68,8 @@
       href: ../durable-functions/durable-functions-perf-and-scale.md
     - name: Data persistence and serialization
       href: ../durable-functions/durable-functions-serialization-and-persistence.md
+    - name: Migrate to type-safe serialization (Python)
+      href: ../durable-functions/durable-functions-python-type-safe-serialization-migrate.md
   - name: Features
     items:
     - name: Instance management

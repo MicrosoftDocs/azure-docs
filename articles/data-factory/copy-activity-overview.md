@@ -2,12 +2,12 @@
 title: Copy activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about the Copy activity in Azure Data Factory and Azure Synapse Analytics. You can use it to copy data from a supported source data store to a supported sink data store.
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: concept-article
 ms.date: 09/30/2025
-ms.author: jianleishen
+ms.author: tinglee
 ---
 
 # Copy activity in Azure Data Factory and Azure Synapse Analytics

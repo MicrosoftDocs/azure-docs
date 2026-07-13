@@ -1,13 +1,14 @@
 ---
 title: Connect to SQL Databases from Workflows
-description: Learn how to connect to SQL databases from workflows in Azure Logic Apps by using the SQL Server connector.
+description: Connect to SQL databases from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/19/2025
+ms.update-cycle: 1095-days
+ms.date: 07/10/2026
 ms.custom: sfi-image-nochange
-## As a developer, I want to access my SQL database from my logic app workflow.
+#Customer intent: As an automation and integration developer who works with Azure Logic Apps, I want to access my SQL database from my workflow.
 ---
 
 # Connect to SQL databases from workflows in Azure Logic Apps

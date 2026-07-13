@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: concept-article
-ms.date: 06/27/2025
+ms.update-cycle: 1095-days
+ms.date: 07/10/2026
 ---
 
 # MDN acknowledgments for AS2 messages in Azure Logic Apps

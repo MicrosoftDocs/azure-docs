@@ -145,7 +145,7 @@
       href: account-move.md
     - name: Rotate Batch account keys
       href: account-key-rotation.md
-    - name: Associate Batch accounts with network security perimeter
+    - name: Associate Batch accounts with network security perimeter (preview)
       href: network-security-perimeter.md
   - name: Authenticate with Microsoft Entra ID
     items:

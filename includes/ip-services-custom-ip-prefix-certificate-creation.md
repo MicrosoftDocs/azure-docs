@@ -40,7 +40,9 @@ The following steps show the steps required to prepare sample customer range (1.
      
     After the public comments are filled out, the Whois/RDAP record should look like the following example. When copying, ensure there aren't spaces, or carriage returns and include all dashes:
 
-    :::image type="content" source="./media/ip-services-pre-provisioning-steps/certificate-example.png" alt-text="Screenshot of example certificate comment.":::
+     ```text
+     -----BEGIN CERTIFICATE-----BCDEFG0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2-----END CERTIFICATE-----
+     ```
     
 3. To create the message passed to Microsoft, create a string that contains relevant information about your prefix and subscription. Sign this message with the key pair generated previously. Use the following format, substituting your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. 
 
@@ -92,7 +94,9 @@ The following steps show the steps required to prepare sample customer range (1.
      
     After the public comments are filled out, the Whois/RDAP record should look like the following example. Ensure there aren't spaces or carriage returns and include all dashes:
 
-    :::image type="content" source="./media/ip-services-pre-provisioning-steps/certificate-example.png" alt-text="Screenshot of example certificate comment.":::
+    ```text
+     -----BEGIN CERTIFICATE-----BCDEFG0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2c0a1b2-----END CERTIFICATE-----
+    ```
     
 3. To create the message passed to Microsoft, create a string that contains relevant information about your prefix and subscription. Sign this message with the key pair generated previously. Use the following format, substituting your subscription ID, prefix to be provisioned, and expiration date matching the Validity Date on the ROA. Ensure the format is in that order. 
 

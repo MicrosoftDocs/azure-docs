@@ -71,7 +71,7 @@ The agent operates through five extension primitives:
 
 - **Agent hooks**: Event-triggered automations that run at defined points in the agent lifecycle, either before investigation or after resolution. Two executor types are supported: command hooks run deterministic CLI operations, and prompt hooks produce LLM-evaluated structured JSON output. Use hooks to enforce policies, emit telemetry, or integrate with external approval workflows. See [agent hooks](agent-hooks.md).
 
-- **Permission gate**: A pre-execution safety layer that evaluates every proposed tool call before it runs. Operators can require human approval, enforce policy rules, or block disallowed operations, ensuring your team remains in control even during fully automated workflows. Audit telemetry routes to your own Application Insights instance for compliance visibility.
+A permission gate governs all five primitives. This pre-execution safety layer evaluates every proposed tool call before it runs. Operators can require human approval, enforce policy rules, or block disallowed operations, ensuring your team remains in control even during fully automated workflows. Audit telemetry routes to your own Application Insights instance for compliance visibility.
 
 For the full primitive taxonomy, including RBAC scoping, cost attribution, and audit trail patterns, see [Subagents and extensibility](sub-agents.md) and [Agent hooks](agent-hooks.md).
 
@@ -207,7 +207,7 @@ Whether you're evaluating for a team or running operations solo, start with the 
 | [Pricing and billing](pricing-billing.md) | Usage-based pricing, free tier eligibility, and capacity planning |
 | [Security overview](security-overview.md) | Data handling, privacy, network integration |
 | [Create and set up](create-agent.md) | How to run a structured pilot |
-| [Team setup and roles](create-agent.md) | Administrator vs. Standard User roles, phased rollout guide |
+| [Team setup and roles](team-onboard.md) | Administrator vs. Standard User roles, phased rollout guide |
 
 ## Considerations
 

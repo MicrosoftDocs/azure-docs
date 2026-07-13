@@ -2,8 +2,8 @@
 title: Copy data from Azure Cosmos DB for MongoDB
 description: Learn how to copy data from supported source data stores to or from Azure Cosmos DB for MongoDB to supported sink stores using Azure Data Factory or Synapse Analytics pipelines.
 titleSuffix: Azure Data Factory & Azure Synapse
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 12/25/2025

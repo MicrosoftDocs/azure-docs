@@ -1,8 +1,8 @@
 ---
 title: Connector lifecycle overview
 description: This article describes the connector lifecycle.
-author: jianleishen
-ms.author: jianleishen
+author: simplywilson
+ms.author: tinglee
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article

@@ -131,13 +131,11 @@ You can configure domain suffixes by using one of the following methods:
 
 You can solve the domain routing issue by modifying the SPN suffix of the storage account associated with the Azure file share, and then adding a CNAME record to route the new suffix to the endpoint of the storage account. With this configuration, domain-joined clients can access storage accounts joined to any forest. This solution works for environments that have two or more forests.
 
-In this example, the domains **onpremad1.com** and **onpremad2.com** have **onprem1sa** and **onprem2sa** as storage accounts associated with SMB Azure file shares in the respective domains. These domains are in different forests that trust each other to access resources in each other's forests. You want to allow access to both storage accounts from clients who belong to each forest. To do this, you need to modify the SPN suffixes of the storage account:
+In this example, the domains **contoso.com** and **adatum.com** have **contosofs** and **adatumfs** as storage accounts associated with SMB Azure file shares in the respective domains. These domains are in different forests that trust each other to access resources in each other's forests. You want to allow access to both storage accounts from clients who belong to each forest. To do this, you need to modify the SPN suffixes of the storage account:
+
+You add **contosofs.contoso.com** to the **contosofs.file.core.windows.net** object in Active Directory and **adatumfs.adatum.com** to the **adatumfs.file.core.windows.net** object in Active Directory.
  
-**onprem1sa.onpremad1.com -> onprem1sa.file.core.windows.net**
- 
-**onprem2sa.onpremad2.com -> onprem2sa.file.core.windows.net**
- 
-This change allows clients to mount the share by using `net use \\onprem1sa.onpremad1.com` because clients in either **onpremad1** or **onpremad2** know to search **onpremad1.com** to find the proper resource for that storage account.
+This change allows Adatum clients to mount the Contoso share by using `net use \\contosofs.contoso.com` and Contoso clients to mount the Adatum share by using `net use \\adatumfs.adatum.com` because clients in either **contoso** or **adatum** know to search **adatum.com** or **contoso.com** to find the proper resource for that storage account.
 
 To use this method, complete the following steps:
 
@@ -148,16 +146,19 @@ To use this method, complete the following steps:
    ```
    setspn -s cifs/<storage-account-name>.<DomainDnsRoot> <storage-account-name>
    ```
-
+   Following our example for **contosofs.file.core.windows.net**:
+    ```
+   setspn -s cifs/contosofs.contoso.com contosofs
+   ```
 1. Add a CNAME entry by using Active Directory DNS Manager and follow the steps below for each storage account in the domain that the storage account is joined to. If you're using a private endpoint, add the CNAME entry to map to the private endpoint name.
 
    1. Open Active Directory DNS Manager.
-   1. Go to your domain (for example, **onpremad1.com**).
+   1. Go to your domain (for example, **contoso.com**).
    1. Go to "Forward Lookup Zones".
-   1. Select the node named after your domain (for example, **onpremad1.com**) and right-click **New Alias (CNAME)**.
+   1. Select the node named after your domain (for example, **contoso.com**) and right-click **New Alias (CNAME)**.
    1. For the alias name, enter your storage account name.
-   1. For the fully qualified domain name (FQDN), enter **`<storage-account-name>`.`<domain-name>`**, such as **mystorageaccount.onpremad1.com**.
-   1. For the target host FQDN, enter **`<storage-account-name>`.file.core.windows.net**
+   1. For the fully qualified domain name (FQDN), enter **`<storage-account-name>`.`<domain-name>`**, such as **contosofs.contoso.com**.
+   1. For the target host FQDN, enter **`<storage-account-name>`.file.core.windows.net**, such as **contosofs.file.core.windows.net**
    1. Select **OK**.
 
       :::image type="content" source="media/storage-files-identity-multiple-forests/add-cname-record.png" alt-text="Screenshot showing how to add a CNAME record for suffix routing using Active Directory DNS Manager." border="true":::

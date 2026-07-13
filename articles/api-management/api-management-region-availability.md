@@ -31,18 +31,18 @@ Information in the following table is updated regularly. Capacity availability i
 | Region | Basic v2 | Standard v2 | Premium v2 | Workspace gateway (Premium) | 
 |-----|:---:|:---:|:---:|:---:|
 | Australia Central | ✅ | ✅ | | |
-| Australia East | ✅ | ✅ | ✅ | ✅ |
+| Australia East | ✅ | ✅ | ⚠️ ¹ | ⚠️ ¹ |
 | Australia Southeast | ✅ | ✅ | | |
 | Brazil South | ✅ | ✅ | |  |
 | Canada Central  | ✅ | ✅ | ✅ |  |
 | Canada East  | ✅ | ✅ | |  |
 | Central India  | ✅ | ✅ | |  |
-| Central US  | ✅ | ✅ | |  |
+| Central US  | ✅ | ✅ | ⚠️ ¹ | ⚠️ ¹ |
 | East Asia | ✅ | ✅ | | ✅ |
 | East US  | ✅ | ✅ |  |  |
-| East US 2 | ✅ | ✅ | ✅ ¹ | ✅ |
+| East US 2 | ✅ | ✅ | ⚠️ ¹ | ⚠️ ¹ |
 | France Central  | ✅ | ✅ | | ✅ |
-| Germany West Central  | ✅ | ✅ | ✅ | ✅ |
+| Germany West Central  | ✅ | ✅ | ⚠️ ¹ | ⚠️ ¹ |
 | Italy North | ✅ | ✅ |  |  |
 | Japan East | ✅ | ✅ | | ✅ |
 | Korea Central | ✅ | ✅ | ✅ | | 
@@ -54,10 +54,10 @@ Information in the following table is updated regularly. Capacity availability i
 | South India | ✅ | ✅ |  |  |
 | Southeast Asia | ✅ | ✅ |  |  |
 | Spain Central | ✅ | ✅ |  |  |
-| Sweden Central | ✅ | ✅ | ✅ | |
+| Sweden Central | ✅ | ✅ | ⚠️ ¹ | ⚠️ ¹ |
 | Switzerland North | ✅ |✅ |  |  |
 | UAE North | ✅ | ✅ | |  |
-| UK South | ✅ ¹ | ✅ ¹ | ✅ ¹ | ✅ ¹ |
+| UK South | ⚠️ ¹ | ⚠️ ¹ | ⚠️ ¹ | ⚠️ ¹ |
 | UK West | ✅  | ✅ | | |
 | West Europe  | ✅ | ✅ | | ✅ |
 | West US | ✅ | ✅ |  | ✅ |
