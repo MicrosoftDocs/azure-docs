@@ -241,7 +241,7 @@ These limits would apply to the target subscription used for Azure Operator Serv
 Generally, AOSM requires 8x the number of concurrent SNS operations against a target subscription.
 
 ### Azure Container Registry limits
-These limits would apply to the artifact-store resource used for Azure Operator Service Manager deployment.
+These limits apply to the artifact-store resource used for Azure Operator Service Manager deployment.
 
 |Resource	|Limit|
 |---------|-----|
