@@ -7789,6 +7789,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/enclave/1-8-migrate-workload-resources.md",
+      "redirect_url": "/azure/enclave/migrate-azure-resources-azure-enclave",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/automation/automation-availability-zones.md",
       "redirect_url": "/azure/reliability/reliability-automation",
       "redirect_document_id": false
