@@ -12,6 +12,8 @@ ai-usage: ai-assisted
 
 This article answers common questions about Azure Enclave, including planning, usage, billing, configuration, and connections.
 
+## Overview
+
 ### What is Azure Enclave?
 
 Azure Enclave is a hub-and-spoke network architecture with built-in network isolation and policy enforcement. For more information, see [What is Azure Enclave?](./what-azure-enclave.md).
@@ -92,14 +94,6 @@ Moving the enclave resource itself isn't supported. Additionally, moves aren't s
 
 Workload resources that allow moving can be moved according to the move options supported for that resource type. For example, you could make a virtual machine image and move the image to recreate or replicate a virtual machine in a new enclave.
 
-### How can I quickly stop resource access to a URL or IP?
-
-For example, if you need to quickly block or remove access from a resource like a virtual machine to a problematic website, you can:
-
-- Delete the enclave connection, for example, from your enclave to a community endpoint that allows access to a problematic website or IP address.
-- Remove the virtual machine's subnet from the enclave connection.
-- If you have access to the community or enclave endpoint, remove the problematic website or IP address from the endpoint rules.
-
 ## Billing
 
 ### How does billing work for Azure Enclave?
@@ -136,6 +130,14 @@ Adding a virtual network firewall isn't a recommended pattern. Azure Enclave man
 ### What access is allowed by default?
 
 Azure Enclave configures required platform egress for managed resources. For communities using a non-Basic firewall, a default outbound firewall policy rule is created for Key Management Service (KMS) over TCP port 1688.
+
+### How can I quickly stop resource access to a URL or IP?
+
+For example, if you need to quickly block or remove access from a resource like a virtual machine to a problematic website, you can:
+
+- Delete the enclave connection, such as from your enclave to a community endpoint that allows access to a problematic website or IP address.
+- Remove the virtual machine's subnet from the enclave connection.
+- If you have access to the community or enclave endpoint, remove the problematic website or IP address from the endpoint rules.
 
 ### How can I make deployments faster?
 
