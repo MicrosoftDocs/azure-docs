@@ -1,11 +1,11 @@
 ---
-title: Create a file share (Microsoft.FileShares)
+title: Create a File Share (Microsoft.FileShares)
 description: Learn to use the Azure portal to deploy an NFS file share with Microsoft.FileShares resource provider.
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 06/04/2026
+ms.date: 07/14/2026
 ms.author: kendownie
 # Customer intent: "As an IT admin, I want to learn how to deploy an NFS file share with Microsoft.FileShares resource provider."
 ---
@@ -16,12 +16,18 @@ ms.author: kendownie
 
 :heavy_multiplication_x: **Doesn't apply to:** Classic file shares created with the Microsoft.Storage resource provider
 
-The new Microsoft.FileShares resource provider and management model enables you to deploy file shares without creating an Azure storage account. Before you create an Azure file share with the Microsoft.FileShares resource provider, review the following information to decide if it fits your needs. If you need all the features that Azure Files offers, or you need to use the SMB protocol, or want HDD (standard) performance, use a [classic file share](create-classic-file-share.md) instead. To see which features are missing from the Microsoft.FileShares resource provider, see the [comparison chart](storage-files-planning.md#comparing-resource-providers-microsoftstorage-versus-microsoftfileshares).
-
-The new Microsoft.FileShares resource provider and management model enables you to deploy file shares without creating an Azure storage account. Before you create an Azure file share by using the Microsoft.FileShares resource provider, review the following information to decide if it fits your needs. If you need all the features that Azure Files offers, or you need to use the SMB protocol, or want HDD (standard) performance, use a [classic file share](create-classic-file-share.md) instead. To see which features are missing from the Microsoft.FileShares resource provider, see the [comparison chart](storage-files-planning.md#comparing-resource-providers-microsoftstorage-versus-microsoftfileshares).
+The new Microsoft.FileShares resource provider and management model enables you to deploy file shares without creating an Azure storage account. Before you create an Azure file share by using the Microsoft.FileShares resource provider, review the following information to decide if it fits your needs. If you need all the features that Azure Files offers, or you need to use the SMB protocol, or want HDD (standard) performance, use a [classic file share](create-classic-file-share.md) instead.
 
 
-- The Microsoft.FileShares resource provider only supports locally redundant storage (LRS) and zone-redundant storage (ZRS). It doesn't support geo-redundant storage. See [Azure Files redundancy](./files-redundancy.md) for more information.
+## Supported features
+
+The Microsoft.FileShares resource provider and management model currently supports only NFS file shares, which require SSD (premium) storage. SSD media provides consistent high performance and low latency, within single-digit milliseconds for most IO operations.
+
+The Microsoft.FileShares resource provider only supports the [provisioned v2 billing model](understanding-billing.md#provisioned-v2-model), which allows you to specify how much storage, IOPS, and throughput your file share needs. The amount that you provision determines your total bill. When you create a new file share using the provisioned v2 model, Azure provides a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. You can choose to override these recommendations with your own values.
+
+The Microsoft.FileShares resource provider only supports locally redundant storage (LRS) and zone-redundant storage (ZRS). It doesn't support geo-redundant storage. See [Azure Files redundancy](./files-redundancy.md) for more information.
+
+To see which features are missing from the Microsoft.FileShares resource provider, see the [comparison chart](storage-files-planning.md#comparing-resource-providers-microsoftstorage-versus-microsoftfileshares).
 
 For more information on Azure Files management concepts, see [Plan for an Azure Files deployment](storage-files-planning.md#management-concepts).
 
@@ -30,7 +36,6 @@ For more information on Azure Files management concepts, see [Plan for an Azure 
 This article assumes that you have an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 Make sure both Microsoft.FileShares and Microsoft.Storage resource providers are registered for the subscription. The Microsoft.FileShares resource provider is required to create NFS file shares by using the new management model described in this article. To register a resource provider, follow these steps:
-
 
 1. Sign in to the Azure portal.
 1. In the search box, enter *subscriptions*.
@@ -44,7 +49,7 @@ You can create a file share with Microsoft.FileShares by using the Azure portal,
 
 # [Portal](#tab/azure-portal)
 
-To create a file share through the Azure portal, use the search box at the top of the Azure portal to search for **file share** and select the matching result.
+To create a file share by using the Azure portal, use the search box at the top of the Azure portal to search for **file share** and select the matching result.
 
 ![A screenshot of the Azure portal search box with results for file share.](./media/storage-how-to-create-microsoft-fileshares/search-for-file-share.png)
 
