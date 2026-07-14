@@ -98,7 +98,7 @@ Check out the full list of [events that Communication Services supports](../../.
 
 ### Receive Email events
 
-After you generate an event, notice that `Email Delivery Report Received` and `Email Engagement Tracking Report Received` events are sent to your endpoint. These events show up in the [Event Grid viewer](/azure/event-grid/) that we set up at the beginning of this quickstart. Select the eye icon next to the event to see the entire payload. Events should look similar to the following data:
+After you generate an event, the `Email Delivery Report Received` and `Email Engagement Tracking Report Received` events are sent to your endpoint. These events show up in the [Event Grid viewer](/azure/event-grid/) that you set up at the beginning of this quickstart. Select the eye icon next to the event to see the entire payload. Events should look similar to the following data:
 
 #### Microsoft.Communication.EmailDeliveryReportReceived event
 :::image type="content" source="./media/handle-email-events/email-delivery-report-received.png" alt-text="Screenshot of the Azure Event Grid viewer that shows the Event Grid schema for an EMAIL delivery report received event.":::
