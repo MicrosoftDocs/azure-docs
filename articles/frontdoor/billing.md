@@ -1,14 +1,14 @@
 ---
 title: Azure Front Door billing
-description: Learn how you're billed when you use Azure Front Door.
+description: Understand Azure Front Door's billing model, including base fees, request processing charges, data transfer costs, and how pricing varies by region and tier.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 07/10/2026
+ms.date: 07/14/2026
 ---
 
-# Understand Azure Front Door billing
+# Understanding Azure Front Door billing
 
 **Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
@@ -188,6 +188,34 @@ The following billing meters increment:
 | Number of requests from client to Front Door | 1 | South America |
 | Data transfer from Front Door edge to origin | *none* | South America |
 | Data transfer from Front Door to client | 1 KB | South America |
+
+### Example 7: Edge actions
+
+Contoso creates a single Edge action that Azure Front Door Rulesets invokes in the US East, Europe, and Asia regions. 
+
+**Scenario 1:** At the end of the month, 1 million invocations are generated, each with 1 ms execution time. 
+
+The following billing meters increment:
+
+| Meter | Incremented by | Billing region |
+|-|-|-|
+| Invocations | 1 M | Global |
+| Overage execution time | 0 | Global |
+
+**Scenario 2:** At the end of the month, there are total 50 million invocations with the following distribution:
+
+| Number of invocations | Execution time per invocation |
+|-|-|
+| 10 M | 1 ms |
+| 20 M | 3 ms |
+| 20 M | 8 ms |
+
+The following billing meters increment:
+
+| Meter | Incremented by | Billing region |
+|-|-|-|
+| Invocations | 50 M | Global |
+| Overage execution time | 20 M x (3-1) + 20 M x (8-1) = 180 M milliseconds or 180 K seconds | Global |
 
 ## Related content
 
