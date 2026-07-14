@@ -82,7 +82,7 @@ You can subscribe to specific events to provide Event Grid with information abou
 
 1. For **Endpoint**, select **Select an endpoint**, and then enter the URL of your web app.
 
-   In this case, use the URL from the [Event Grid viewer](/azure/event-grid/) that we set up earlier in the quickstart. The URL for the sample has this format: `https://{{site-name}}.azurewebsites.net/api/updates`
+   In this case, use the URL from the [Event Grid viewer](/azure/event-grid/) that you set up earlier in the quickstart. The URL for the sample has this format: `https://{{site-name}}.azurewebsites.net/api/updates`
 
 1. Select **Confirm Selection**.
 
