@@ -137,9 +137,11 @@ File scale targets apply to individual files stored in classic file shares. Your
 | Attribute | SSD value (includes both provisioned v2 and provisioned v1) | HDD value (includes both provisioned v2 and pay-as-you-go) |
 |-|-|-|
 | Maximum file size | 4 TiB | 4 TiB |
-| Maximum data IOPS per file | 8,000 IOPS | 1,000 IOPS |
-| Maximum throughput per file | 1,024 MiB / sec | 60 MiB / sec |
-| Hard link limit per file (NFS only) | 178 | N/A |
+| Maximum data IOPS per file | 12,000 IOPS | 1,000 IOPS |
+| Maximum read throughput per file (multi-client) | Up to 10,240 MiB / sec | Up to account limit |
+| Maximum read throughput per file | SMB: ~3 GiB/s, NFS: ~2 GiB/s | 60 MiB / sec |
+| Maximum write throughput per file | SMB: ~2 GiB/s, NFS: ~1.5 GiB/s | 60 MiB / sec |
+| Hard link limit per file | 178 | N/A |
 | Maximum concurrent handles for root directory | 10,000 handles | 10,000 handles |
 | Maximum concurrent handles per file and directory | 2,000 handles | 2,000 handles |
 
@@ -195,11 +197,13 @@ File scale targets apply to individual files stored in a file share. Your abilit
 | Attribute | SSD value |
 |-|-|
 | Maximum file size | 4 TiB |
-| Maximum data IOPS per file | 8,000 IOPS |
-| Maximum throughput per file | 1,024 MiB / sec |
+| Maximum data IOPS per file | 12,000 IOPS |
+| Maximum read throughput per file (multi-client) | Up to 10,240 MiB / sec |
+| Maximum read throughput per file | ~2 GiB/s |
+| Maximum write throughput per file | ~1.5 GiB/s |
 | Hard link limit per file | 178 |
-| Maximum concurrent handles for root directly | 10,000 handles |
-| Maximum concurrent handles per file and directly | 2,000 handles |
+| Maximum concurrent handles for root directory | 10,000 handles |
+| Maximum concurrent handles per file and directory | 2,000 handles |
 
 ## See also
 
