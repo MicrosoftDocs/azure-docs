@@ -144,7 +144,7 @@ This flow is useful for users who aren't familiar with the [Azure Front Door rul
 > [!NOTE]
 > - For any advanced operations such as custom ruleset name, custom conditions, or actions, use the rules engine UI.
 > - The *easy attach* creation flow checks to see if a default ruleset exists.
-> - If it doesn't, it creates one, along with a default invocation rule. If a default ruleset exists with a default rule for another Edge Action, the flow creates a new default rule with a number increment at the end (for example, 002) to attach the new Edge Action. |
+> - If it doesn't, it creates one, along with a default invocation rule. If a default ruleset exists with a default rule for another Edge Action, the flow creates a new default rule with a number increment at the end (for example, 002) to attach the new Edge Action.
 
 1. In the Azure portal, go to your Azure Front Door profile.
 
