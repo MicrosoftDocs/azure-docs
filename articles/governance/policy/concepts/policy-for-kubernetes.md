@@ -81,7 +81,7 @@ The Azure Policy Add-on for AKS is part of Kubernetes version 1.27 with long ter
    az aks list
    ```
 
-1. Open ports for the Azure Policy addon. The Azure Policy addon uses these domains and ports to fetch policy
+1. Open ports for the Azure Policy add-on. The Azure Policy add-on uses these domains and ports to fetch policy
    definitions and assignments and report compliance of the cluster back to Azure Policy.
 
    |Domain |Port |
