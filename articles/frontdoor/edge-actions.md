@@ -105,7 +105,7 @@ When a user initiates a request to a resource that Azure Front Door fronts, the 
     :::image type="content" source="media/edge-actions/edge-action-overview.png" alt-text="Screenshot that shows the Overview page of an Edge Action." lightbox="media/edge-actions/edge-action-overview.png":::
 
 > [!IMPORTANT]
-> During the preview, use the Edge Actions preview portal link [https://aka.ms/edgeaction/publicpreview](https://aka.ms/edgeaction/publicpreview) for all Edge Action operations in the Azure portal, and continue the workflow in the portal session opened by this link. This includes creating and managing Edge Action resources and versions, configuring execution filters and diagnostic settings, and attaching, managing, verifying, or detaching Edge Actions from Azure Front Door routes. Edge Action resources and Azure Front Door integration options might not appear if you open the Azure portal directly without first using the preview portal link.
+> During the preview, use the Edge Actions preview portal link [https://aka.ms/edgeaction/publicpreview](https://aka.ms/edgeaction/publicpreview) for all Edge Action operations in the Azure portal. Continue the workflow in the portal session opened by this link. This workflow includes creating and managing Edge Action resources and versions, configuring execution filters and diagnostic settings, and attaching, managing, verifying, or detaching Edge Actions from Azure Front Door routes. If you open the Azure portal directly without first using the preview portal link, you might not see Edge Action resources and Azure Front Door integration options.
 
 ## Create a new version of Edge Action 
 
