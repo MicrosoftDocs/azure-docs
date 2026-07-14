@@ -16,6 +16,8 @@ items:
       href: migration-strategies.md
     - name: SMART on FHIR
       href: smart-on-fhir.md
+    - name: SMART on FHIR proxy
+      href: smart-on-fhir-proxy.md
     - name: Best practices
       href: fhir-best-practices.md
 - name: Quickstarts
