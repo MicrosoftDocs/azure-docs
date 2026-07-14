@@ -103,7 +103,7 @@ Check out the full list of [events that Communication Services supports](../../.
 
 ### Receive SMS events
 
-After you generate an event, see that `SMS Received` and `SMS Delivery Report Received` events are sent to your endpoint. These events show up in the [Event Grid viewer](/azure/event-grid/) that we set up at the beginning of this quickstart. To see the entire payload, select the eye icon next to the event. Events should look similar to the following data:
+After you generate an event, see that `SMS Received` and `SMS Delivery Report Received` events are sent to your endpoint. These events show up in the [Event Grid viewer](/azure/event-grid/) that you set up at the beginning of this quickstart. To see the entire payload, select the eye icon next to the event. Events should look similar to the following data:
 
 :::image type="content" source="./media/handle-sms-events/sms-received.png" alt-text="Screenshot of the Azure Event Grid viewer that shows the Event Grid schema for an SMS received event.":::
 
