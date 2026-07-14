@@ -22,10 +22,8 @@ API Management [v2 tiers](v2-service-tiers-overview.md) and API Management [work
 Information in the following table is updated regularly. Capacity availability in Azure regions may vary.
 
 > [!IMPORTANT]
-> **Temporary capacity limitations**
-> - **UK South** - Creation of new Basic v2, Standard v2, and Premium v2 instances is currently unavailable.
-> - **East US 2** - Creation of new Premium v2 instances is currently unavailable.
->
+> **Temporary capacity limitations** <br/>
+> The ⚠️ icon in the following table indicates that the corresponding v2 tier or workspace gateway is temporarily unavailable in that region.
 > We're actively working to restore availability in these regions. Existing instances are not affected. In the meantime, consider deploying to an alternative region or choose a different tier.
 
 | Region | Basic v2 | Standard v2 | Premium v2 | Workspace gateway (Premium) | 
