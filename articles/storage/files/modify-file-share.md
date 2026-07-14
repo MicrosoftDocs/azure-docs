@@ -23,7 +23,7 @@ This article explains how to adjust the size, cost, and performance characterist
 
 After creating your classic file share, you might need to adjust the provisioning (provisioned models) or access tier (pay-as-you-go model) of the share. The following sections show you how to adjust the relevant properties for your share.
 
-### Change the cost and performance characteristics of a provisioned v2 classic file share
+### Provisioned v2 billing model
 
 After creating your provisioned v2 classic file share, you can change one or all three of the provisioned quantities of your file share. You can dynamically scale up or down the amount of storage, IOPS, and throughput you provision as your needs change. However, you can only decrease a provisioned quantity after 24 hours elapse since your last quantity increase. Storage, IOPS, and throughput changes take effect within a few minutes after a provisioning change.
 
@@ -39,9 +39,9 @@ Follow these instructions to update the provisioning for your file share.
 
    ![A screenshot of the Change size and performance button in the file share overview.](./media/storage-how-to-create-file-share/change-provisioned-v2-0.png)
 
-1. The **Size and performance** pop out dialog has the following options:
+1. The **Size and performance** pop-out dialog has the following options:
 
-   ![A screenshot of the Size and performance pop out dialog.](./media/storage-how-to-create-file-share/change-provisioned-v2-1.png)
+   ![A screenshot of the Size and performance pop-out dialog.](./media/storage-how-to-create-file-share/change-provisioned-v2-1.png)
 
    - **Provisioned storage (GiB)**: The amount of storage provisioned on the share.
 
@@ -51,11 +51,11 @@ Follow these instructions to update the provisioning for your file share.
 
      - **Throughput (MiB/sec)**: If you select _Manually specify IOPS and throughput_, this textbox enables you to change the amount of throughput provisioned on this file share.
 
-1. Select **Save** to save provisioning changes. Storage, IOPS, and throughput changes take effect within a few minutes after a provisioning change.
+1. Select **Save** to apply the provisioning changes.
 
 # [PowerShell](#tab/azure-powershell)
 
-Use the `Update-AzRmStorageShare` cmdlet to modify a provisioned v2 file share. Replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$shareName`, `$provisionedThroughputMibPerSec`, `$provisionedIops`, and `$provisionedStorageGib` with the values you want for your file share.
+Use the [`Update-AzRmStorageShare`](/powershell/module/az.storage/update-azrmstorageshare) cmdlet to modify a provisioned v2 file share. Replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$shareName`, `$provisionedThroughputMibPerSec`, `$provisionedIops`, and `$provisionedStorageGib` with the values you want for your file share.
 
 ```powershell
 # The path to the file share resource to be modified.
@@ -81,7 +81,7 @@ $f | fl
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the `az storage share-rm update` command to modify a provisioned v2 file share. Replace the values for the variables `resourceGroupName`, `storageAccountName`, `fileShareName`, `provisionedStorageGib`, `provisionedIops`, and `provisionedThroughputMibPerSec` with the values you want for your file share.
+Use the [`az storage share-rm update`](/cli/azure/storage/share-rm#az-storage-share-rm-update) command to modify a provisioned v2 file share. Replace the values for the variables `resourceGroupName`, `storageAccountName`, `fileShareName`, `provisionedStorageGib`, `provisionedIops`, and `provisionedThroughputMibPerSec` with the values you want for your file share.
 
 ```bash
 # The path to the file share resource to be modified.
@@ -107,7 +107,7 @@ az storage share-rm update \
 
 ---
 
-### Change the cost and performance characteristics of a provisioned v1 classic file share
+### Provisioned v1 billing model
 
 After creating your provisioned v1 file share, you can change the provisioned storage size of the file share. When you change the provisioned storage size, you also change the amount of provisioned IOPS and provisioned throughput. You can only decrease the provisioned storage after 24 hours have elapsed since your last storage increase. Storage, IOPS, and throughput changes take effect within a few minutes after a provisioning change. For more information, see [provisioned v1 provisioning detail](./understanding-billing.md#provisioned-v1-provisioning-detail).
 
@@ -127,7 +127,7 @@ Follow these instructions to update the provisioning for your file share.
 
    ![A screenshot of the "Size and performance" dialog for provisioned v1 file shares.](./media/storage-how-to-create-file-share/change-provisioned-v1-0.png)
 
-1. Select **Save** to save provisioning changes. Storage, IOPS, and throughput changes take effect within a few minutes after a provisioning change.
+1. Select **Save** to apply the provisioning changes.
 
 > [!NOTE]
 > You can use PowerShell and CLI to enable or disable paid bursting. Paid bursting is an advanced feature of the provisioned v1 billing model. See [provisioned v1 paid bursting](./understanding-billing.md#provisioned-v1-paid-bursting) before enabling paid bursting.
@@ -209,7 +209,7 @@ az storage share-rm update \
 
 ---
 
-### Change the cost and performance characteristics of a pay-as-you-go classic file share
+### Pay-as-you-go billing model
 
 After you create your pay-as-you-go file share, you might want to change two properties:
 
@@ -245,7 +245,7 @@ To update the quota of your file share by using the Azure portal, follow these s
 
 # [PowerShell](#tab/azure-powershell)
 
-You can also the Azure PowerShell `Update-AzRmStorageShare` cmdlet to change the access tier and quota settings for a pay-as-you-go file share. Replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$fileShareName`, `$accessTier`, and `$quotaGib` with the values you want for your file share.
+You can also use the Azure PowerShell `Update-AzRmStorageShare` cmdlet to change the access tier and quota settings for a pay-as-you-go file share. Replace the values for the variables `$resourceGroupName`, `$storageAccountName`, `$fileShareName`, `$accessTier`, and `$quotaGib` with the values you want for your file share.
 
 ```PowerShell
 # The path to the file share resource to be modified.
@@ -309,7 +309,7 @@ Follow these instructions to change the size and performance of a file share (Mi
 1. From the context menu, select **Settings**.
 1. Choose **Size + performance**.
 
-   ![image on choosing size and performance for a file share created with Microsoft.FileShares](./media/storage-how-to-create-file-share/file-share-change-performance-button.png)
+   ![A screenshot of the Size and performance dialog for a Microsoft.FileShares file share in the Azure portal.](./media/storage-how-to-create-file-share/file-share-change-performance-button.png)
 
 1. The **Size and performance** dialog has the following options:
 
@@ -321,9 +321,9 @@ Follow these instructions to change the size and performance of a file share (Mi
 
     - **Throughput (MiB/sec)**: If you select _Manually specify IOPS and throughput_, this textbox enables you to change the amount of throughput provisioned on the file share.
 
-    ![image on saving new size for a file share created with Microsoft.FileShares](./media/storage-how-to-create-file-share/file-share-change-performance-save.png)
+    ![A screenshot of the Save button in the Size and performance dialog for a Microsoft.FileShares file share in the Azure portal.](./media/storage-how-to-create-file-share/file-share-change-performance-save.png)
 
-1. Select **Save**. Storage, IOPS, and throughput changes take effect within a few minutes after a provisioning change.
+1. Select **Save**.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -402,7 +402,7 @@ Follow these instructions to delete a classic file share by using the Azure port
 
 # [PowerShell](#tab/azure-powershell)
 
-You can also use the Azure PowerShell `Remove-AzRmStorageShare` cmdlet to delete a file share. Replace the values for the variables `$resourceGroupName`, `$storageAccountName`, and `$fileShareName` with the values for your file share.
+You can also use the Azure PowerShell [`Remove-AzRmStorageShare`](/powershell/module/az.storage/remove-azrmstorageshare) cmdlet to delete a file share. Replace the values for the variables `$resourceGroupName`, `$storageAccountName`, and `$fileShareName` with the values for your file share.
 
 ```PowerShell
 # The path to the file share resource to be deleted.
@@ -418,7 +418,7 @@ Remove-AzRmStorageShare `
 
 # [Azure CLI](#tab/azure-cli)
 
-You can also use the Azure CLI `az storage share-rm delete` command to delete a file share. Replace the values for the variables `resourceGroupName`, `storageAccountName`, and `fileShareName` with the values for your file share.
+You can also use the Azure CLI [`az storage share-rm delete`](/cli/azure/storage/share-rm#az-storage-share-rm-delete) command to delete a file share. Replace the values for the variables `resourceGroupName`, `storageAccountName`, and `fileShareName` with the values for your file share.
 
 ```bash
 resourceGroupName="<resource-group>"
@@ -435,7 +435,7 @@ az storage share-rm delete \
 
 ## Delete a file share (Microsoft.FileShares)
 
-Before deleting a file share that you created with the Microsoft.FileShares resource provider, make sure to delete or disconnect its associated private endpoint. File share deletion fails if the private endpoint is still present.
+Before deleting a file share that you created with the Microsoft.FileShares resource provider, make sure you delete or disconnect its associated private endpoint. File share deletion fails if the private endpoint is still present.
 
 # [Portal](#tab/azure-portal)
 
@@ -445,7 +445,7 @@ To delete a file share (Microsoft.FileShares) by using the Azure portal, follow 
 
 1. Select **Delete** from the context menu.
 
-    ![Delete image](./media/storage-how-to-create-file-share/delete-file-share.png)
+    ![A screenshot of the delete confirmation dialog for a Microsoft.FileShares file share in the Azure portal.](./media/storage-how-to-create-file-share/delete-file-share.png)
 
 1. The **Delete** pop-out contains a survey about why you're deleting the file share. You can skip this survey, but the product team appreciates any feedback you provide, particularly if something isn't working properly for you. If your file share has dependent resources such as snapshots, the deletion process also deletes the snapshots, and the action is non-recoverable. If your file share has associated resources like private endpoints, the portal helps you remove them before you can delete the file share.
 
@@ -453,7 +453,7 @@ To delete a file share (Microsoft.FileShares) by using the Azure portal, follow 
 
 # [PowerShell](#tab/azure-powershell)
 
-To delete a file share (Microsoft.FileShares) by using Azure PowerShell, run the following command. Be sure to replace the variables with your intended values.
+To delete a file share (Microsoft.FileShares) by using Azure PowerShell, run the following command. Make sure you replace the variables with your intended values.
 
 ```powershell
 # To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
