@@ -35,7 +35,7 @@ sections:
       - question: |
           Which Azure regions support Compute Fleet? 
         answer: |
-          East US, East US2, West US, and West US2.
+          Compute Fleet is available in all Azure public regions, except those located in China.
       - question: |
           Which SKUs are supported for Compute Fleet? 
         answer: |
