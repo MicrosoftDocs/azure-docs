@@ -23,7 +23,7 @@ Information in the following table is updated regularly. Capacity availability i
 
 > [!IMPORTANT]
 > **Temporary capacity limitations** <br/>
-> The ⚠️ icon in the table below indicates that the corresponding v2 tier or workspace gateway is temporarily unavailable in that region.
+> The ⚠️ icon in the following table indicates that the corresponding v2 tier or workspace gateway is temporarily unavailable in that region.
 > We're actively working to restore availability in these regions. Existing instances are not affected. In the meantime, consider deploying to an alternative region or choose a different tier.
 
 | Region | Basic v2 | Standard v2 | Premium v2 | Workspace gateway (Premium) | 
