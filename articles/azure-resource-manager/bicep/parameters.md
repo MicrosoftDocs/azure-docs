@@ -31,7 +31,7 @@ param <parameter-name> <parameter-data-type> = <default-value>
 
 A parameter can't have the same name as a variable, resource, output, or other parameter in the same scope.
 
-Parameter names must be valid Bicep identifiers: they can contain letters, digits, and underscores, but not periods or other special characters. This differs from ARM template JSON, which supports periods in parameter names. If you decompile an ARM template that has parameters with periods in their names, the Bicep decompiler replaces the periods with underscores. For example, a parameter named `Security.Authentication.AAD.Tenant` becomes `Security_Authentication_AAD_Tenant`.
+Parameter names must be valid Bicep identifiers: they can contain letters, digits, and underscores, but not periods or other special characters. This rule differs from ARM template JSON, which supports periods in parameter names. If you decompile an ARM template that has parameters with periods in their names, the Bicep decompiler replaces the periods with underscores. For example, a parameter named `Security.Authentication.AAD.Tenant` becomes `Security_Authentication_AAD_Tenant`.
 
 The following example shows basic declarations of parameters.
 
