@@ -129,6 +129,9 @@ To execute client requests successfully, each Edge Action must include at least 
 
 ## Attach Edge Action to Azure Front Door route
 
+> [!IMPORTANT]
+> During the preview, use the Edge Actions preview portal link [https://aka.ms/edgeaction/publicpreview](https://aka.ms/edgeaction/publicpreview) for all Edge Action operations in the Azure portal. Continue the workflow in the portal session opened by this link. This workflow includes creating and managing Edge Action resources and versions, configuring execution filters and diagnostic settings, and attaching, managing, verifying, or detaching Edge Actions from Azure Front Door routes. If you open the Azure portal directly without first using the preview portal link, you might not see Edge Action resources and Azure Front Door integration options.
+
 This part of the configuration is the most important. Currently, you can invoke Edge Actions only through Azure Front Door route configurations. You can attach an Edge Action to an Azure Front Door route in three ways:
 
 1. Easy attach experience in Azure Front Door profile
