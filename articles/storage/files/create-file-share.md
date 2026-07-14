@@ -16,11 +16,12 @@ ms.author: kendownie
 
 :heavy_multiplication_x: **Doesn't apply to:** Classic file shares created with the Microsoft.Storage resource provider
 
-The new Microsoft.FileShares resource provider and management model enables you to deploy file shares without creating an Azure storage account. Before you create an Azure file share with the Microsoft.FileShares resource provider, review the following information to decide if it fits your needs. If you need all the features that Azure Files offers, or you need to use the SMB protocol, or want HDD (standard) performance, use a [classic file share](create-classic-file-share.md) instead.
+The new Microsoft.FileShares resource provider and management model enables you to deploy file shares without creating an Azure storage account. Before you create an Azure file share by using the Microsoft.FileShares resource provider, review the following information to decide if it fits your needs. If you need all the features that Azure Files offers, or you need to use the SMB protocol, or want HDD (standard) performance, use a [classic file share](create-classic-file-share.md) instead.
+
 
 ## Supported features
 
-The Microsoft.FileShares resource provider and management model is currently only available for NFS file shares, which require SSD (premium) storage. SSD media provides consistent high performance and low latency, within single-digit milliseconds for most IO operations.
+The Microsoft.FileShares resource provider and management model currently supports only NFS file shares, which require SSD (premium) storage. SSD media provides consistent high performance and low latency, within single-digit milliseconds for most IO operations.
 
 The Microsoft.FileShares resource provider only supports the [provisioned v2 billing model](understanding-billing.md#provisioned-v2-model), which allows you to specify how much storage, IOPS, and throughput your file share needs. The amount that you provision determines your total bill. When you create a new file share using the provisioned v2 model, Azure provides a recommendation for how many IOPS and how much throughput you need based on the amount of provisioned storage you specify. You can choose to override these recommendations with your own values.
 
