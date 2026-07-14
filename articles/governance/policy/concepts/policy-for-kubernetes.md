@@ -81,14 +81,14 @@ The Azure Policy Add-on for AKS is part of Kubernetes version 1.27 with long ter
    az aks list
    ```
 
-1. Open ports for the Azure Policy extension. The Azure Policy extension uses these domains and ports to fetch policy
+1. Open ports for the Azure Policy add-on. The Azure Policy add-on uses these domains and ports to fetch policy
    definitions and assignments and report compliance of the cluster back to Azure Policy.
 
    |Domain |Port |
    |---|---|
    |`data.policy.core.windows.net` |`443` |
    |`store.policy.core.windows.net` |`443` |
-   |`login.windows.net` |`443` |
+   |`login.microsoftonline.com` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 
 After the prerequisites are completed, install the Azure Policy Add-on in the AKS cluster
