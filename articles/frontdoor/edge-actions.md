@@ -88,6 +88,9 @@ When a user initiates a request to a resource that Azure Front Door fronts, the 
 
 ## Create and manage an Edge Action
 
+> [!IMPORTANT]
+> During the preview, use the Edge Actions preview portal link [https://aka.ms/edgeaction/publicpreview](https://aka.ms/edgeaction/publicpreview) for all Edge Action operations in the Azure portal. Continue the workflow in the portal session opened by this link. This workflow includes creating and managing Edge Action resources and versions, configuring execution filters and diagnostic settings, and attaching, managing, verifying, or detaching Edge Actions from Azure Front Door routes. If you open the Azure portal directly without first using the preview portal link, you might not see Edge Action resources and Azure Front Door integration options.
+
 1. Sign in to the Azure portal at [aka.ms/edgeaction/publicpreview](https://aka.ms/edgeaction/publicpreview).
 
 1. In the search box at the top of the portal, enter *Edge Actions*. Select **Edge Actions** from the search results.
@@ -103,9 +106,6 @@ When a user initiates a request to a resource that Azure Front Door fronts, the 
 1. After the deployment finishes, select **Go to resource** to go to the Edge Action resource page.
 
     :::image type="content" source="media/edge-actions/edge-action-overview.png" alt-text="Screenshot that shows the Overview page of an Edge Action." lightbox="media/edge-actions/edge-action-overview.png":::
-
-> [!IMPORTANT]
-> During the preview, use the Edge Actions preview portal link [https://aka.ms/edgeaction/publicpreview](https://aka.ms/edgeaction/publicpreview) for all Edge Action operations in the Azure portal. Continue the workflow in the portal session opened by this link. This workflow includes creating and managing Edge Action resources and versions, configuring execution filters and diagnostic settings, and attaching, managing, verifying, or detaching Edge Actions from Azure Front Door routes. If you open the Azure portal directly without first using the preview portal link, you might not see Edge Action resources and Azure Front Door integration options.
 
 ## Create a new version of Edge Action 
 
