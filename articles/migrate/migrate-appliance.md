@@ -85,7 +85,7 @@ C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip 
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | Zip file (839 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | 69AD956833E6C254DA7ECB44F29B26CAA07ADD4797BBA35405EDFA630CE1CA37   |
+    | ZIP file (839 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | 69AD956833E6C254DA7ECB44F29B26CAA07ADD4797BBA35405EDFA630CE1CA37   |
 
 
 ## Appliance services
