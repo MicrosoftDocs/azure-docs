@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/10/2026
+ms.date: 07/14/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for OpenTelemetry destinations in Azure IoT Operations so that I can send metrics and logs to observability platforms like Grafana and Azure Monitor.
@@ -519,7 +519,7 @@ batching: {
 
 | Property | Description | Default |
 |----------|-------------|---------|
-| `latencySeconds` | Maximum time to wait before sending a batch. | 60 seconds |
+| `latencySeconds` | Maximum time to wait before sending a batch. | 5 seconds |
 | `maxMessages` | Maximum number of messages in a batch. | 100000 messages |
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -534,7 +534,7 @@ batching:
 
 | Property | Description | Default |
 |----------|-------------|---------||
-| `latencySeconds` | Maximum time to wait before sending a batch. | 60 seconds |
+| `latencySeconds` | Maximum time to wait before sending a batch. | 5 seconds |
 | `maxMessages` | Maximum number of messages in a batch. | 100000 messages |
 
 ---

@@ -1,11 +1,11 @@
 ---
 title: Understand creation and deletion
 titleSuffix: Azure Enclave
-description: Understand creation and deletion in Azure Enclave.
+description: Learn the conditions that must be met before you can create or delete Azure Enclave resources, including dependency and lock requirements.
 author: jadean-msft
 ms.author: jadean
-ms.topic: overview
-ms.date: 9/30/2025
+ms.topic: concept-article
+ms.date: 06/29/2026
 ---
 
 # Understand creation and deletion in Azure Enclave
@@ -21,7 +21,7 @@ As an administrator, you can [delete Azure Enclave resources and resource groups
 
 ## Delete conditions
 
-Attempting to delete Azure Enclave resources while Azure Enclave resources are locked can lead to unexpected results. Some operations, which don't seem to modify a resource, require blocked actions. Locks prevent the POST method from sending data to the Azure Resource Manager (ARM) API.
+Azure Enclave resources have dependency requirements that you must meet before deletion. You must remove dependent child resources before deleting a parent resource. Additionally, if you lock a resource group, delete operations fail even for resources that appear unmodified.
 
 - A community can't be deleted if there are enclaves in the community.
 - A community can't be deleted if there are any existing transit hub in the community.
@@ -32,5 +32,5 @@ Attempting to delete Azure Enclave resources while Azure Enclave resources are l
 - When you delete an enclave, you also delete enclave connections or community endpoints between the community and enclave along with firewall rules.
 - A workload can't be deleted in the workload resource group is locked.
 - An enclave endpoint can't be deleted if there are active enclave connections using the enclave endpoint.
-- community endpoints can't be deleted if there are active enclave connections using the community endpoint.
+- You can't delete a community endpoint if active enclave connections use it.
 - Transit hubs can't be deleted if there are associated community endpoints.
