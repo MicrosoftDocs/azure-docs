@@ -84,7 +84,7 @@ If you select **IP prefix** for **IP type**, you see the following information:
 | Name | The name of the public IP prefix resource. |
 | SKU | Public IP prefixes have one SKU, **Standard**. |
 | IP version | **IPv4** or **IPv6**. </br> The version displayed corresponds to the version chosen. |
-| Prefix size | IPv4 or IPv6 prefixes are displayed depending on the selection above. </br> **IPv4** </br> /24 (256 addresses) </br> /25 (128 addresses) </br> /26 (64 addresses) </br> /27 (32 addresses) </br> /28 (16 addresses) </br> /29 (8 addresses) </br> /30 (4 addresses) </br> /31 (2 addresses) </br> **IPv6** </br> /124 (16 addresses) </br> /125 (8 addresses) </br> 126 (4 addresses) </br> 127 (2 addresses) |
+| Prefix size | IPv4 or IPv6 prefixes are displayed depending on the selection above. </br> **IPv4** </br> /28 (16 addresses) </br> /29 (8 addresses) </br> /30 (4 addresses) </br> /31 (2 addresses) </br> **IPv6** </br> /124 (16 addresses) </br> /125 (8 addresses) </br> /126 (4 addresses) </br> /127 (2 addresses) |
 | Availability zone | Select **Zone-redundant** to create a resilient load balancer. </br> To create a zonal load balancer, select a specific zone from **1**, **2**, or **3**. </br> Standard load balancer and public IP prefixes support zones. </br> Learn more about [load balancer and availability zones](load-balancer-standard-availability-zones.md).
 
 :::image type="content" source="./media/manage/create-public-ip-prefix.png" alt-text="Screenshot of create public IP prefix." border="true":::
