@@ -86,7 +86,7 @@ FROM Input
 
 ### Important notes
 
-When Stream Analytics reads events from Event Hubs, event application property names are treated as case insensitive. If an event contains multiple properties whose names differ only in casing (for example, `key1` and `KEY1`), Stream Analytics uses a first-win strategy: it keeps the value of the property that appears first and ignores any later properties with the same name.
+When Stream Analytics reads events from Event Hubs, it treats event application property names as case insensitive. If an event contains multiple properties whose names differ only in casing (for example, `key1` and `KEY1`), Stream Analytics uses a first-win strategy: it keeps the value of the property that appears first and ignores any later properties with the same name.
 
 For example, if an Event Hubs event has these application properties:
 
