@@ -91,6 +91,7 @@ Use these front matter fields to configure an agent:
 | `mcp` | No | Controls access to MCP servers discovered from `mcp.json`. Use `false` to disable MCP servers for this agent, or use `exclude` to remove specific servers. |
 | `skills` | No | Controls access to discovered skills. Use `false` to disable skills for this agent, or use `exclude` to remove specific skills. |
 | `tools` | No | Controls access to discovered custom Python tools. Use `false` to disable custom tools for this agent, or use `exclude` to remove specific tools. |
+| `workflows` | No | Enables experimental dynamic workflows for supported agents. For more information, see [Run dynamic workflows with Azure Functions serverless agents](functions-agents-dynamic-workflows.md). |
 | `system_tools` | No | Lets an agent opt out of configured system tools, such as sandboxed execution. |
 | `input_schema` | No | JSON Schema used to validate HTTP request bodies for HTTP-triggered agents. |
 | `response_schema` | No | JSON Schema used to validate structured responses returned by HTTP-triggered agents. |
@@ -390,6 +391,12 @@ tools:
     - submit_ticket
 ```
 
+### Dynamic workflows
+
+Dynamic workflows let supported agents start durable, multi-step plans made of workflow-safe tool calls and waits. They extend the programmatic tool calling pattern with Durable Functions so an agent can fan out work, wait on durable timers, survive worker restarts, and keep large intermediate results out of the conversation until a final summary is ready.
+
+In the current experimental v1 surface, workflows are enabled in `main.agent.md` and workflow tasks call Python functions that you explicitly decorate with `@workflow_tool`. For more information, see [Run dynamic workflows with Azure Functions serverless agents](functions-agents-dynamic-workflows.md).
+
 ## Configure model providers
 
 The runtime uses Microsoft Agent Framework to call model providers. Preview support includes Azure OpenAI, Azure AI Foundry, and OpenAI.
@@ -492,6 +499,7 @@ Start with the quickstart to deploy a serverless agents app with a chat agent, a
 ## Related content
 
 + [Use AI tools and models in Azure Functions](functions-create-ai-enabled-apps.md)
++ [Run dynamic workflows with Azure Functions serverless agents](functions-agents-dynamic-workflows.md)
 + [Build a custom remote MCP server using Azure Functions](scenario-custom-remote-mcp-server.md)
 + [Connect an MCP server on Azure Functions to Foundry Agent Service](functions-mcp-foundry-tools.md)
 + [Flex Consumption plan hosting](flex-consumption-plan.md)

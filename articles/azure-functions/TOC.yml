@@ -656,6 +656,9 @@
     - name: Quickstart
       displayName: AI, agent, agentic, serverless agents runtime, timer, email, connector, MCP, Foundry
       href: scenario-serverless-agents-runtime.md
+    - name: Dynamic workflows
+      displayName: AI, agent, agentic, serverless agents runtime, durable workflows, dynamic workflows
+      href: functions-agents-dynamic-workflows.md
   - name: Azure MCP server for Azure Functions
     href: /azure/developer/azure-mcp-server/services/azure-mcp-server-for-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: GitHub Copilot for Azure
