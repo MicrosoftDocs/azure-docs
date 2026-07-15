@@ -47,12 +47,21 @@ Remembering that a standard Render Configuration argument in JSON format looks l
     "name": "prK1950-06-30",
     "type": "raster-tile",
     "options": "assets=pr-kerchunk&subdataset_name=pr&rescale=0,0.01&colormap_name=viridis&datetime=1950-06-30",
-    "minZoom": 1
+    "minZoom": 1,
+    "info_options": [
+      {
+        "asset": "pr-kerchunk",
+        "subdataset_name": "pr",
+        "dimension_label": "time"
+      }
+    ]
   }
 ]
 ```
 
 The `options` field is where you'll want to utilize the cloud optimized, Kerchunk asset, as opposed to the original asset listed in the STAC Item. You'll also need to include the `subdataset_name` argument, which is the name of the variable you want to render.
+
+The `info_options` field enables the Explorer's time slider for this collection. The Explorer queries the Tiler's `/info` endpoint for each visible STAC item using the specified `asset` and `subdataset_name`, then uses the returned band descriptions to build the slider's tick positions. This works independently of data cube enrichment, so the slider reflects exactly what the Tiler can serve. If `info_options` is omitted, the Explorer falls back to reading time bounds from STAC item metadata (`cube:dimensions`, `start_datetime`, `end_datetime`).
 
 #### Render configuration for GRIB2 assets
 
@@ -66,10 +75,17 @@ The `options` field for the Render Configuration of GRIB2 assets look similar to
     "description": "A sample render configuration. Update `options` below.",
     "type": "raster-tile",
     "options": "assets=data&subdataset_bands=1&colormap_name=winter&rescale=0,10",
-    "minZoom": 1
+    "minZoom": 1,
+    "info_options": [
+      {
+        "asset": "data"
+      }
+    ]
  }
 ]
 ```
+
+For GRIB2, set `asset` in `info_options` to the asset key used in `options`. Adding `info_options` enables the Explorer's time slider, which discovers the available GRIB band/message indices directly from the Tiler's `/info` endpoint. If your GRIB collection exposes multiple subdatasets, add one entry per subdataset.
 
 #### Render configuration for Zarr assets
 
