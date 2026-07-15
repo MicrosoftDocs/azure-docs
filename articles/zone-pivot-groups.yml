@@ -1547,12 +1547,16 @@ groups:
   title: API version pivots
   prompt: Choose an API version
   pivots:
-  - id: v1
-    title: "1.0"
-  - id: v23-10
-    title: "2023-10-01"
+  - id: v26-04
+    title: "2026-04-01"
+  - id: v24-09
+    title: "2024-09-01"
   - id: v23-11
     title: "2023-11-01"
+  - id: v23-10
+    title: "2023-10-01"
+  - id: v1
+    title: "1.0"
 # Owner: v-yilinhu
 - id: programming-languages-batch-linux-nodes
   title: Programming languages

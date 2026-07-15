@@ -9,7 +9,7 @@ ms.date: 08/02/2024
 zone_pivot_groups: appconfig-data-plane-api-version
 
 ---
-:::zone target="docs" pivot="v1,v23-10,v23-11"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
 
 # Key-values
 
@@ -28,6 +28,9 @@ A key-value is a resource identified by unique combination of `key` + `label`. `
 
 ## Syntax
 
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09"
+
 ```json
 {
   "etag": [string],
@@ -41,14 +44,51 @@ A key-value is a resource identified by unique combination of `key` + `label`. `
 }
 ```
 
+:::zone-end
+:::zone target="docs" pivot="v26-04"
+
+```json
+{
+  "etag": [string],
+  "key": [string],
+  "label": [string, optional],
+  "content_type": [string, optional],
+  "value": [string],
+  "last_modified": [datetime ISO 8601],
+  "locked": [boolean],
+  "tags": [object with string properties, optional],
+  "description": [string, optional]
+}
+```
+
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
+
 ## Get key-value
 
 Required: ``{key}``, ``{api-version}``  
 Optional: ``label`` (If omitted, it implies a key-value without a label.)
 
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11"
+
 ```http
 GET /kv/{key}?label={label}&api-version={api-version}
 ```
+
+:::zone-end
+:::zone target="docs" pivot="v24-09,v26-04"
+
+Optional: ``tags`` (If not specified, it implies any tags.)
+
+The `key` and `label` must match exactly before `tags` are applied for additional filtering. For more options, see the "Filtering" section later in this article.
+
+```http
+GET /kv/{key}?label={label}&tags={tagFilter1}&tags={tagFilter2}&api-version={api-version}
+```
+
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
 
 **Responses:**
 
@@ -58,6 +98,9 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json; charset=utf-8;
 Last-Modified: Tue, 05 Dec 2017 02:41:26 GMT
 ETag: "4f6dd610dd5e4deebc7fbaef685fb903"
 ```
+
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09"
 
 ```json
 {
@@ -74,6 +117,29 @@ ETag: "4f6dd610dd5e4deebc7fbaef685fb903"
   }
 }
 ```
+
+:::zone-end
+:::zone target="docs" pivot="v26-04"
+
+```json
+{
+  "etag": "4f6dd610dd5e4deebc7fbaef685fb903",
+  "key": "{key}",
+  "label": "{label}",
+  "content_type": null,
+  "value": "example value",
+  "last_modified": "2017-12-05T02:41:26+00:00",
+  "locked": "false",
+  "tags": {
+    "t1": "value1",
+    "t2": "value2"
+  },
+  "description": "example description"
+}
+```
+
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
 
 If the key doesn't exist, the following response is returned:
 
@@ -126,7 +192,7 @@ Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v23-11"
+:::zone target="docs" pivot="v23-11,v24-09,v26-04"
 
 Optional: ``tags`` (If not specified, it implies any tags.)
 
@@ -141,12 +207,12 @@ HTTP/1.1 200 OK
 Content-Type: application/vnd.microsoft.appconfig.kvset+json; charset=utf-8
 ```
 :::zone-end
-:::zone target="docs" pivot="v1,v23-10,v23-11"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
 
 For more options, see the "Filtering" section later in this article.
 
 :::zone-end
-:::zone target="docs" pivot="v23-10,v23-11"
+:::zone target="docs" pivot="v23-10,v23-11,v24-09,v26-04"
 
 ## List key-values (conditionally)
 
@@ -192,7 +258,7 @@ HTTP/1.1 200 OK
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v1,v23-10,v23-11"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
 
 ## Pagination
 
@@ -233,7 +299,7 @@ GET /kv?key={key}&label={label}&api-version={api-version}
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v23-11"
+:::zone target="docs" pivot="v23-11,v24-09,v26-04"
 
 A combination of `key`, `label`, and `tags` filtering is supported.
 Use the optional `key`, `label`, and `tags` query string parameters.
@@ -244,7 +310,7 @@ GET /kv?key={key}&label={label}&tags={tagFilter1}&tags={tagFilter2}&api-version=
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v1,v23-10,v23-11"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
 
 
 ### Supported filters
@@ -265,7 +331,7 @@ GET /kv?key={key}&label={label}&tags={tagFilter1}&tags={tagFilter2}&api-version=
 |`label=prod,test`|Matches labels **prod** or **test** (limited to 5 CSV)|
 
 :::zone-end
-:::zone target="docs" pivot="v23-11"
+:::zone target="docs" pivot="v23-11,v24-09,v26-04"
 
 |Tags filter|Effect|
 |--|--|
@@ -276,7 +342,7 @@ GET /kv?key={key}&label={label}&tags={tagFilter1}&tags={tagFilter2}&api-version=
 |`tags=tag1=`|Matches key-values that have a tag named `tag1` with empty value|
 
 :::zone-end
-:::zone target="docs" pivot="v1,v23-10,v23-11"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
 
 ***Reserved characters***
 
@@ -367,6 +433,9 @@ PUT /kv/{key}?label={label}&api-version={api-version} HTTP/1.1
 Content-Type: application/vnd.microsoft.appconfig.kv+json
 ```
 
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09"
+
 ```json
 {
   "value": "example value",         // optional
@@ -378,6 +447,24 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json
 }
 ```
 
+:::zone-end
+:::zone target="docs" pivot="v26-04"
+
+```json
+{
+  "value": "example value",             // optional
+  "content_type": "user defined",       // optional
+  "tags": {                             // optional
+    "tag1": "value1",
+    "tag2": "value2",
+  },
+  "description": "example description"  // optional
+}
+```
+
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
+
 **Responses:**
 
 ```http
@@ -386,6 +473,9 @@ Content-Type: application/vnd.microsoft.appconfig.kv+json; charset=utf-8
 Last-Modified: Tue, 05 Dec 2017 02:41:26 GMT
 ETag: "4f6dd610dd5e4deebc7fbaef685fb903"
 ```
+
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09"
 
 ```json
 {
@@ -401,6 +491,28 @@ ETag: "4f6dd610dd5e4deebc7fbaef685fb903"
   }
 }
 ```
+
+:::zone-end
+:::zone target="docs" pivot="v26-04"
+
+```json
+{
+  "etag": "4f6dd610dd5e4deebc7fbaef685fb903",
+  "key": "{key}",
+  "label": "{label}",
+  "content_type": "user defined",
+  "value": "example value",
+  "last_modified": "2017-12-05T02:41:26.4874615+00:00",
+  "tags": {
+    "tag1": "value1",
+    "tag2": "value2",
+  },
+  "description": "example description"
+}
+```
+
+:::zone-end
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
 
 If the item is locked, the following response is returned:
 
