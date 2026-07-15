@@ -77,7 +77,7 @@ Future work is expected to include support for non-`main.agent.md` agents, sub-a
 
 ## Enable workflows on an agent
 
-Enable dynamic workflows in the front matter of your interactive agent file:
+Enable dynamic workflows in the front matter of `main.agent.md`, the interactive agent file supported by experimental v1:
 
 ```markdown
 ---
@@ -163,7 +163,7 @@ If you want the same function to be available both as a normal chat tool and as 
 
 The following diagram shows the main components in the current v1 architecture:
 
-![Diagram showing a markdown agent starting a workflow in the Durable orchestrator, which runs workflow-safe tool activities, durable timers, and sub-agent tasks. The chat UI polls workflow status and resumes the agent session after completion.](media/functions-agents-dynamic-workflows/dynamic-workflow-architecture.png)
+![Diagram showing a markdown agent starting a workflow in the Durable orchestrator, which runs workflow-safe tool activities and durable timers. The diagram also shows the intended sub-agent path, which isn't implemented in experimental v1. The chat UI polls workflow status and resumes the agent session after completion.](media/functions-agents-dynamic-workflows/dynamic-workflow-architecture.png)
 
 The markdown agent authors the task plan and starts the workflow. The Durable orchestrator walks the plan, runs ready tool activities in parallel, and creates durable timers for `wait` tasks. The chat UI tracks the orchestration independently. When the workflow completes, the session is notified and the agent retrieves the final status.
 
@@ -247,7 +247,7 @@ For an end-to-end example, see the [workflow incident triage sample](https://git
 
 ### Optional: run locally with the DTS emulator
 
-You can use the [Durable Task Scheduler emulator](/azure/durable-task/scheduler/develop-with-durable-task-scheduler) to test the recommended DTS backend locally. The emulator runs in Docker and includes a local dashboard.
+DTS is the recommended backend for production-style validation and operator-facing demos. You can use the [Durable Task Scheduler emulator](/azure/durable-task/scheduler/develop-with-durable-task-scheduler) to test this backend locally before provisioning it in Azure. The emulator runs in Docker and includes a local dashboard.
 
 1. Start the DTS emulator with fixed ports for the scheduler endpoint and dashboard:
 
