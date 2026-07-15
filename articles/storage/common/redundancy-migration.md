@@ -7,7 +7,7 @@ author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 10/10/2025
+ms.date: 07/16/2026
 ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.custom: engagement-fy23, references_regions, devx-track-azurepowershell
@@ -491,54 +491,11 @@ The following table provides an overview of redundancy options available for sto
 | Premium page blob           | &#x2705;     |              |                         |                           |                           |
 | Managed disks<sup>2</sup>   | &#x2705;     | &#x2705;     | &#x2705;                |                           | &#x2705;                  |
 | Standard general purpose v1 | &#x2705;     |              |    <sup>3</sup>         |                           | &#x2705;                  |
-| ZRS Classic<sup>4</sup><br /><sub>(available in standard general purpose v1 accounts)</sub> | &#x2705; |  |  |  |                           |
 
 
 <sup>1</sup> Customer-initiated conversion for premium file shares can be undertaken using the [Azure portal](../common/redundancy-migration.md?tabs=portal#customer-initiated-conversion), [PowerShell](redundancy-migration.md?tabs=powershell#customer-initiated-conversion), or the [Azure CLI](redundancy-migration.md?tabs=azure-cli#customer-initiated-conversion). You can also [open a support request](#support-initiated-conversion).<br />
 <sup>2</sup> Managed disks are available for LRS and ZRS, though ZRS disks have some [limitations](/azure/virtual-machines/disks-redundancy#limitations). If an LRS disk is regional (no zone specified), it can be converted by [changing the SKU](/azure/virtual-machines/disks-convert-types). If an LRS disk is zonal, then it can only be manually migrated by following the process in [Convert a disk from LRS to ZRS](/azure/virtual-machines/disks-migrate-lrs-zrs). You can store snapshots and images for Standard SSD managed disks on Standard HDD storage and [choose between LRS and ZRS options](https://azure.microsoft.com/pricing/details/managed-disks/). For information about integration with availability sets, see [Introduction to Azure managed disks](/azure/virtual-machines/managed-disks-overview#integration-with-availability-sets).<br />
 <sup>3</sup> If your storage account is v1, you need to upgrade it to v2 before performing a conversion. To learn how to upgrade your v1 account, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md).<br />
-<sup>4</sup> ZRS Classic storage accounts are deprecated. For information about converting ZRS Classic accounts, see [Converting ZRS Classic accounts](#converting-zrs-classic-accounts).<br />
-
-#### Converting ZRS Classic accounts
-
-ZRS Classic was available only for **block blobs** in general-purpose V1 (GPv1) storage accounts. For more information about storage accounts, see [Azure storage account overview](storage-account-overview.md).
-
-ZRS Classic accounts asynchronously replicated data across data centers within one to two regions. Replicated data wasn't available unless Microsoft initiated a failover to the secondary. A ZRS Classic account can't be converted to or from LRS, GRS, or RA-GRS. ZRS Classic accounts also don't support metrics or logging.
-
-To change ZRS Classic to another replication type, use one of the following methods:
-
-- Upgrade it to ZRS first
-- [Manually migrate the data directly to another replication type](#manual-migration)
-
-To upgrade your ZRS Classic storage account to ZRS, use the Azure portal, PowerShell, or Azure CLI in regions where ZRS is available:
-
-# [Portal](#tab/portal)
-
-To upgrade to ZRS in the Azure portal, navigate to the **Configuration** settings of the account and choose **Upgrade**:
-
-![Upgrade ZRS Classic to ZRS in the Portal](media/redundancy-migration/portal-zrs-classic-upgrade.png)
-
-# [PowerShell](#tab/powershell)
-
-To upgrade to ZRS using PowerShell, call the following command:
-
-```powershell
-Set-AzStorageAccount -ResourceGroupName <resource_group> -AccountName <storage_account> -UpgradeToStorageV2
-```
-
-# [Azure CLI](#tab/azure-cli)
-
-To upgrade to ZRS using Azure CLI, call the following command:
-
-```cli
-az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
-```
-
----
-
-To manually migrate your ZRS Classic account data to another type of replication, follow the steps to [perform a manual migration](#manual-migration).
-
-If you want to migrate your data into a zone-redundant storage account located in a region different from the source account, you must perform a manual migration. For more information, see [Move an Azure Storage account to another region](storage-account-move.md).
 
 ### Access tier
 

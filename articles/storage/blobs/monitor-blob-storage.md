@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Blob Storage
 description: Start here to learn how to monitor Azure Blob Storage.
-ms.date: 02/07/2024
+ms.date: 07/15/2026
 ms.custom: horz-monitor
 ms.topic: concept-article
 author: normesta
@@ -13,9 +13,6 @@ ms.service: azure-blob-storage
 # Monitor Azure Blob Storage
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
-
->[!IMPORTANT]
->Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to an Azure Resource Manager storage account. For more information, see [Migrate to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview).
 
 [!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
