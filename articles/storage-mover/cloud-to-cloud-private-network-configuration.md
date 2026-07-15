@@ -9,8 +9,7 @@ ms.date: 06/17/2026
 zone_pivot_groups: storage-mover-multicloud
 ---
 
-# Migrate multicloud data from S3 sources using Azure Storage Mover private connections
-
+# Migrate multicloud data from external sources using Azure Storage Mover private connections
 
 :::zone pivot="aws"
 
