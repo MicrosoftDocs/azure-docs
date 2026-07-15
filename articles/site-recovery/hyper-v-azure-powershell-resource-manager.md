@@ -202,6 +202,15 @@ Before you start, the storage account specified should be in the same Azure regi
    $DRjob = New-AzRecoveryServicesAsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -RecoveryAzureStorageAccountId $StorageAccountID -OSDiskName $OSDiskNameList[$i] -OS $OSType -RecoveryResourceGroupId $ResourceGroupID
    ```
 
+1. To have Azure Site Recovery create managed disks for the replicated VM in Azure, use the following command:
+
+   ```azurepowershell
+   $DRjob = New-AzRecoveryServicesAsrReplicationProtectedItem -ProtectableItem $VM -Name $VM.Name -ProtectionContainerMapping $ProtectionContainerMapping -LogStorageAccountId $StorageAccountId -OSDiskName $OSDiskNameList[$i] -OS $OSType -RecoveryResourceGroupId $ResourceGroupID -Size "Standard_D4s_v3" -UseManagedDisksForReplication $true -UseManagedDisk $true
+   ```
+
+   > [!NOTE]
+   > To use Azure Managed Disks for the replicated VM, specify both `-UseManagedDisksForReplication $true` and `-UseManagedDisk $true`. The storage account specified by `-LogStorageAccountId` is used for replication logs, while the replicated disks in Azure are created as managed disks.
+
 1. Wait for the VMs to reach a protected state after the initial replication. This can take a while, depending on factors such as the amount of data to be replicated, and the available upstream bandwidth to Azure. When a protected state is in place, the job State and StateDescription are updated as follows:
 
    ```console
