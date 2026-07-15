@@ -39,7 +39,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The template used in this quickstart is from the [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/internal-loadbalancer-create/).
 
-```json
+:::code language="json" source="~/quickstart-templates/quickstarts/microsoft.network/internal-loadbalancer-create/main.bicep":::
 
 Multiple Azure resources have been defined in the template:
 
@@ -78,8 +78,8 @@ In this step, you deploy the template using Azure PowerShell with the [New-AzRes
     az deployment group create --resource-group $resourceGroupName --template-uri $templateUri --name $projectName --parameters location=$location
     
     read -p "Press [ENTER] to continue."
-   ```
-
+    ```
+   
    # [PowerShell](#tab/PowerShell)
 
    ```azurepowershell
