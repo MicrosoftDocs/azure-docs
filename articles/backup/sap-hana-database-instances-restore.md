@@ -10,7 +10,7 @@ ms.custom: sfi-ropc-nochange
 # Customer intent: "As a database administrator, I want to restore SAP HANA database instances from snapshots on Azure virtual machines, so that I can recover critical data efficiently and ensure business continuity."
 ---
 
-# Restore SAP HANA database instance snapshots on Azure VMs (Preview)
+# Restore SAP HANA database instance snapshots on Azure VMs
 
 This article describes how to restore a backed-up SAP HANA database instance to another target virtual machine (VM) via snapshots.
 

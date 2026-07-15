@@ -33,11 +33,11 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 | **HANA Instances**         | - A single SAP HANA instance on a  single Azure VM – scale up only. <br><br> - Multiple SAP HANA instances on a  single VM. You can protect only one of these multiple instances at a time. |                            |
 | **HANA database types**    | Single Database Container (SDC)  ON 1.x, Multi-Database Container (MDC) on 2.x | MDC in HANA 1.x                                              |
 | **HANA database size**     | HANA database of size upto 40 TB (this isn't the memory size of the HANA system).               |                                                              |
-| **Backup types**           | Full, Differential, Incremental and Log backups, Snapshots (Preview) |                                      |
+| **Backup types**           | Full, Differential, Incremental and Log backups, Snapshots (Standard policy: Generally Available; Enhanced policy: Preview) |                                      |
 | **Restore types**          | Refer to the SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to learn about the supported restore types |                                                              |
 | **Cross Subscription Restore** | Supported via the Azure portal and Azure CLI. [Learn more](sap-hana-database-restore.md#cross-subscription-restore). |          |
 | **Number of full backups per day**     |   One scheduled backup.  <br><br>   Three on-demand backups. <br><br> We recommend not to trigger more than three backups per day. However, to allow user retries in case of failed attempts, hard limit for on-demand backups is set to nine attempts.  |
-| **HANA deployments** | HANA System Replication (HSR), including instance snapshot backups (Preview) <br><br> HANA Scale-out system i.e one HANA system distributed across multiple nodes (Preview)|           |
+| **HANA deployments** | HANA System Replication (HSR), including instance snapshot backups (Preview, supported only with Enhanced policy) <br><br> HANA Scale-out system i.e one HANA system distributed across multiple nodes (Preview)|           |
 | **Special configurations** |                                                              | SAP HANA + Dynamic Tiering <br>  Cloning through LaMa        |
 | **Compression** | You can enable HANA Native compression via the Backup policy. [See the SAP HANA document](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/86943e9f8d5343c59577755edff8296b.html). |       |
 | **Multi-streaming backup** | You can increase your streaming backup throughput from *420 MBps* to *1.5 GBps*. [Learn more](#support-for-multistreaming-data-backups). |      |
