@@ -64,7 +64,7 @@ Whether you're assessing performance requirements for a new or existing workload
 
 - **IOPS and throughput requirements:** SSD file shares support larger IOPS and throughput limits than HDD file shares. For more information, see [file share scale targets](./storage-files-scale-targets.md).
 
-- **Workload duration and frequency:** Short (minutes) and infrequent (hourly) workloads are less likely to reach the upper performance limits of HDD file shares compared to long-running, frequently occurring workloads. On SSD file shares, workload duration helps determine the correct performance profile to use based on the provisioned storage, IOPS, and throughput. A common mistake is running performance tests for only a few minutes, which is often misleading. To get a realistic view of performance, be sure to test at a sufficiently high frequency and duration.
+- **Workload duration and frequency:** Short (minutes) and infrequent (hourly) workloads are less likely to reach the upper performance limits of HDD file shares compared to long-running, frequently occurring workloads. On SSD file shares, workload duration helps determine the correct performance profile to use based on the provisioned storage, IOPS, and throughput. A common mistake is running performance tests for only a few minutes, which is often misleading. To get a realistic view of performance, make sure you test at a sufficiently high frequency and duration.
 
 - **Workload parallelization:** For workloads that perform operations in parallel, such as through multiple threads, processes, or application instances on the same client, SSD file shares provide a clear advantage over HDD file shares: SMB Multichannel. For more information, see [Improve SMB Azure file share performance](smb-performance.md).
 
@@ -108,7 +108,7 @@ The following table illustrates the various combinations you can use to achieve 
 | 2           | 2         | 4           | 16              |
 | 2           | 4         | 4           | 32              |
 | 1           | 8         | 8           | 64              |
-| 4           | 4         | 2           | 64              |
+| 4           | 4         | 2           | 32              |
 
 > [!TIP]
 > To achieve upper performance limits, make sure that your workload or benchmarking test is multithreaded with multiple files.

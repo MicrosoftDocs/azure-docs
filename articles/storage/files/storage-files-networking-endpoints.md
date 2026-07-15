@@ -34,7 +34,7 @@ Before reading this guide, review [Azure Files networking considerations](storag
 - If you intend to use Azure PowerShell, [install the latest version](/powershell/azure/install-azure-powershell).
 - If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
 
-## Endpoint configurations
+## Create and configure endpoints
 
 You can configure your endpoints to restrict network access to your storage account. To restrict access to a storage account to a virtual network, use one of the following approaches:
 
@@ -208,8 +208,7 @@ To create a private endpoint, you must create a private link service connection.
          -ErrorAction Stop
 ```
 
-If you create an Azure private DNS zone, the original host name resolves to the private IP inside of the virtual network. Although optional from the perspective of creating a private endpoint, it is explicitly required for mounting
-the Azure file share directly using an AD user principal or accessing via the REST API.
+If you create an Azure private DNS zone, the original host name resolves to the private IP inside of the virtual network. Although optional from the perspective of creating a private endpoint, it's explicitly required for mounting the Azure file share directly using an Active Directory (AD) user principal or accessing through the REST API.
 
 ```PowerShell
  # Get the host name suffix (core.windows.net for public cloud).
@@ -372,7 +371,7 @@ privateEndpoint=$(az network private-endpoint create \
         --query "id" --output tsv)
 ```
 
-If you create an Azure private DNS zone, the original host name resolves to the private IP inside the virtual network. Although optional from the perspective of creating a private endpoint, it's required for mounting the Azure file share by using an AD user principal or accessing via the FileREST API.
+If you create an Azure private DNS zone, the original host name resolves to the private IP inside the virtual network. Although optional from the perspective of creating a private endpoint, it's required for mounting the Azure file share by using an AD user principal or accessing through the FileREST API.
 
 ```bash
 # Get the desired storage account suffix (core.windows.net for public cloud).
