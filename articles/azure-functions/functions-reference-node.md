@@ -38,7 +38,7 @@ The following table shows each version of the Node.js programming model along wi
 | 3.x | GA | 4.x | 24.x, 22.x | Requires a specific file structure with your triggers and bindings declared in a "function.json" file |
 
 > [!NOTE]
-> Node.js 24 doesn't support 32-bit platforms. When using Node.js 24 in Azure Functions, your function app must run as a 64-bit app. For Windows function apps, make sure that the app isn't configured to use a 32-bit worker process.
+> Node.js 24 doesn't support 32-bit platforms. When you use Node.js 24 in Azure Functions, your function app must run as a 64-bit app. For Windows function apps, make sure that the app isn't configured to use a 32-bit worker process.
 
 ## Folder structure
 

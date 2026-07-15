@@ -277,7 +277,7 @@ For example:
 | `-1` | 1000 | Connector default behavior |
 | `0` | 1000 | No key frames |
 | `1` | 1000 | Key frame every one second |
-| `10` | 500 | Key frame every five seconds |
+| `10` | 5000 | Key frame every five seconds |
 
 For the key frame count setting, choose:
 
@@ -292,7 +292,7 @@ To learn more about configuring key frames, see [Add a dataset to an asset](howt
 
 ## How does it relate to Azure IoT Operations?
 
-The connector for ONVIF is part of Azure IoT Operations. You deploy the connector to an Arc-enabled Kubernetes cluster on the edge as part of an Azure IoT Operations deployment. The connector interacts with other Azure IoT Operations elements, such as:
+The connector for OPC UA is part of Azure IoT Operations. You deploy the connector to an Arc-enabled Kubernetes cluster on the edge as part of an Azure IoT Operations deployment. The connector interacts with other Azure IoT Operations elements, such as:
 
 - [Assets and devices](./concept-assets-devices.md)
 - [The MQTT broker](../connect-to-cloud/overview-dataflow.md)

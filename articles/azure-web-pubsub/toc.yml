@@ -172,6 +172,15 @@
           href: reference-rest-api-mqtt.md
         - name: Cross-protocol communication
           href: reference-mqtt-cross-protocol-communication.md
+- name: Chat hub (Preview)
+  expanded: true
+  items: 
+    - name: Overview
+      href: chat-hub-overview.md
+    - name: Quickstart
+      href: chat-hub-quickstart.md
+    - name: FAQ 
+      href: chat-hub-faq.md
 - name: Socket.IO
   expanded: false
   items:
