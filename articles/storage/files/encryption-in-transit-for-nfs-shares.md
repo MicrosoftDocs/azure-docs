@@ -220,6 +220,8 @@ sudo mkdir -p /mount/<storage-account-name>/<share-name>
 ```bash
 sudo mount -t aznfs <storage-account-name>.file.core.windows.net:/<storage-account-name>/<share-name> /mount/<storage-account-name>/<share-name> -o vers=4,minorversion=1,sec=sys,nconnect=4
 ```
+> [!NOTE]
+> To mount NFS share with custom CA certificate, add cafile=<absolute-path> as an additional parameter to the mount command. Absolute path for the CA file should start from the root directory.
 
 To mount the NFS share **without TLS encryption**:
 
