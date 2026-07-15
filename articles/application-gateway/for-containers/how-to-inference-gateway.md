@@ -543,5 +543,5 @@ kubectl delete namespace $NAMESPACE --ignore-not-found
 ## Next steps
 
 - [Application Gateway for Containers - Inference gateway](inference-gateway.md)
-- [Gateway API Inference Extension guides](https://gateway-api-inference-extension.sigs.k8s.io/guides/)
+- [Gateway API Inference Extension guides](https://gateway-api-inference-extension.sigs.k8s.io/)
 - [Troubleshoot Application Gateway for Containers](troubleshooting-guide.md)
