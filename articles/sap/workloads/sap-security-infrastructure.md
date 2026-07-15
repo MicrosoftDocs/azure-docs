@@ -100,7 +100,7 @@ We recommend that you enable TDE for all DBMSs that run SAP applications on Azur
 
 Most DBMS platforms create encrypted backups if the database is enabled for TDE. This configuration mitigates one common attack vector: theft of backups.
 
-SAP HANA doesn't support storing keys in Azure Key Vault or any other HSM device. For more information, see [SAP Note 3444154: HSM for SAP HANA Encryption Key Management](https://userapps.support.sap.com/sap/support/knowledge/en/3444154). To enable TDE on HANA, see [Enable Encryption](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/4b11e7dee04f4dd98301fcd86e2f3d8b.html) in the SAP Help Portal.
+SAP HANA doesn't support storing keys in Azure Key Vault or any other HSM device. For more information, see [SAP Note 3444154: HSM for SAP HANA Encryption Key Management](https://support.sap.com/). To enable TDE on HANA, see [Enable Encryption](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/4b11e7dee04f4dd98301fcd86e2f3d8b.html) in the SAP Help Portal.
 
 SQL Server TDE is fully integrated into Key Vault. For more information, see:
 
