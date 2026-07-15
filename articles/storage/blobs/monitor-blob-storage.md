@@ -137,7 +137,7 @@ az monitor metrics list --resource <resource-ID> --metric "Transactions" --inter
 
 ### [.NET](#tab/dotnet)
 
-Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. The [sample code](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/) shows how to use the SDK with different parameters. You need to use `0.18.0-preview` or a later version for storage metrics.
+Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/) to read metric definition and values. 
 
 In these examples, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the Blob storage service. You can find these resource IDs on the **Endpoints** pages of your storage account in the Azure portal.
 
