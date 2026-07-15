@@ -85,6 +85,7 @@ In addition to the following limits, there's a [composite limit on the number of
 | WAF custom response body length | 32 KB | 32 KB |
 | Edge action code size <sup>4</sup> | 16 KB | 16 KB |
 | Edge action version counts <sup>4</sup> | 3 | 3 |
+| Edge action execution time <sup>4</sup> | 10 ms | 10 ms |
 | Maximum number of Edge Actions resources per subscription <sup>4</sup> | 100 | 100 |
 
 <sup>1</sup> If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limit is needed, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
