@@ -152,7 +152,7 @@ az monitor metrics list --resource <resource-ID> --metric "Transactions" --inter
 
 ### [.NET](#tab/dotnet)
 
-Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/microsoft.azure.management.monitor/) to read metric definition and values. 
+Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/microsoft.azure.management.monitor/) to read metric definitions and values. 
 
 In these examples, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the queue. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
