@@ -89,7 +89,7 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 
 ### [GitHub](#tab/github)
 
-This installation method requires that you have [Git](https://git-scm.com/) and [Node.js version 20.0 or later](https://nodejs.org) installed. Clone the [GitHub repository](https://github.com/azure/azurite) for the Azurite project by using the following console command.
+This installation method requires that you have [Git](https://git-scm.com/) and [Node.js version 21.0 or later](https://nodejs.org) installed. Clone the [GitHub repository](https://github.com/azure/azurite) for the Azurite project by using the following console command.
 
 ```console
 git clone https://github.com/Azure/Azurite.git
