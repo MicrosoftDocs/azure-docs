@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: tutorial
-ms.date: 02/26/2026
+ms.date: 07/16/2026
 ms.author: mbender
 ms.custom: sfi-image-nochange
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can host multiple sites.
