@@ -4,7 +4,7 @@ description: Learn how to enable Microsoft Entra Kerberos authentication over SM
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/04/2026
+ms.date: 07/16/2026
 ms.author: kendownie
 ms.custom: sfi-ga-nochange
 # Customer intent: As an IT administrator, I want to configure a cloud trust between on-premises Active Directory and Microsoft Entra ID, so that users can access SMB Azure file shares using their existing credentials in a hybrid environment.
@@ -14,16 +14,16 @@ ms.custom: sfi-ga-nochange
 
 **Applies to:** :heavy_check_mark: SMB file shares
 
-Many organizations want to use identity-based authentication for SMB Azure file shares in environments that span both on-premises Active Directory Domain Services (AD DS) and Microsoft Entra ID ([formerly Azure Active Directory](/entra/fundamentals/new-name)), but don't meet the necessary [operating system or domain prerequisites](storage-files-identity-auth-hybrid-identities-enable.md#operating-system-and-domain-prerequisites).
+Many organizations want to use identity-based authentication for SMB Azure file shares in environments that span both on-premises Active Directory Domain Services (AD DS) and Microsoft Entra ID ([formerly Azure Active Directory](/entra/fundamentals/new-name)), but don't meet the necessary [operating system or domain prerequisites](storage-files-identity-auth-hybrid-identities-enable.md#operating-system-and-domain-prerequisites). In such scenarios, you can enable Microsoft Entra Kerberos authentication for [hybrid user identities](/entra/identity/hybrid/whatis-hybrid-identity), and then establish a cloud trust between your on-premises AD DS and Entra ID to access SMB file shares by using your on-premises credentials. 
+
+Hybrid user identities are on-premises AD DS identities that are synced to Microsoft Entra ID by using either [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync).
 
 A cloud trust is an incoming trust relationship in which on-premises Active Directory Domain Services trusts Microsoft Entra ID as a Kerberos Key Distribution Center (KDC). This allows domain-joined clients to obtain Kerberos tickets from Microsoft Entra ID without requiring direct network connectivity to on-premises domain controllers.
 
 > [!NOTE]
 > Only forest trusts are supported for Azure Files. Other trust types, such as external trusts, aren't supported.
 
-In such scenarios, you can enable Microsoft Entra Kerberos authentication for hybrid user identities and then establish a cloud trust between your on-premises AD DS and Entra ID to access SMB file shares by using your on-premises credentials. This article explains how a cloud trust works, and provides instructions for setup and validation. It covers enabling Microsoft Entra Kerberos authentication, creating the Trusted Domain Object, configuring clients to retrieve Kerberos tickets, and optional steps to rotate or remove the trust. It also includes steps to rotate a Kerberos key for your service account in Entra ID and Trusted Domain Object, and steps to remove a Trusted Domain Object and all Kerberos settings, if desired.
-
-This article focuses on authenticating [hybrid user identities](/entra/identity/hybrid/whatis-hybrid-identity), which are on-premises AD DS identities that are synced to Microsoft Entra ID by using either [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync).
+This article explains how a cloud trust works, and provides instructions for setup and validation. It covers enabling Microsoft Entra Kerberos authentication, creating the Trusted Domain Object, configuring clients to retrieve Kerberos tickets, and optional steps to rotate or remove the trust. It also includes steps to rotate a Kerberos key for your service account in Entra ID and Trusted Domain Object, and steps to remove a Trusted Domain Object and all Kerberos settings, if desired.
 
 ## Cloud trust scenarios
 
