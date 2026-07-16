@@ -171,8 +171,8 @@ $vnet = New-AzVirtualNetwork -Name appgwvnet -ResourceGroupName $rg.ResourceGrou
 # Retrieve the subnet object for later use
 $subnet = $vnet.Subnets[0]
 
-# Create a public IP address
-$publicip = New-AzPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -name publicIP01 -location "East US" -AllocationMethod Dynamic
+# Create a public IP address (v2 requires a Standard SKU, static public IP address)
+$publicip = New-AzPublicIpAddress -ResourceGroupName $rg.ResourceGroupName -name publicIP01 -location "East US" -AllocationMethod Static -Sku Standard
 
 # Create an ip configuration object
 $gipconfig = New-AzApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
@@ -200,7 +200,7 @@ $listener = New-AzApplicationGatewayHttpListener -Name listener01  -Protocol Htt
 $rule = New-AzApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 
 # Define the size of the application gateway
-$sku = New-AzApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
+$sku = New-AzApplicationGatewaySku -Name Standard_v2 -Tier Standard_v2 -Capacity 2
 
 # Configure the TLS policy to use a different predefined policy
 $policy = New-AzApplicationGatewaySslPolicy -PolicyType Predefined -PolicyName AppGwSslPolicy20170401S
