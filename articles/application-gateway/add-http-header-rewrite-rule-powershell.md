@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 07/16/2026
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to configure HTTP header rewrites using Azure PowerShell, so that I can efficiently modify headers in requests and responses for my Application Gateway."
