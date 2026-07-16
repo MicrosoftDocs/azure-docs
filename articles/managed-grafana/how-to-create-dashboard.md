@@ -219,12 +219,12 @@ Git Sync lets you store your dashboards as JSON files in a Git repository and ma
 
 You configure and use Git Sync from the Grafana UI. To authenticate to your repository, use a GitHub app or a personal access token (PAT).
 
-Azure Managed Grafana supports up to 10 repositories, with up to 10,000 resources per repository. Grafana automatically pulls changes from your repositories at the default polling interval.
+Azure Managed Grafana supports up to 10 repositories, with up to 1,000 resources per repository.
 
 > [!NOTE]
 > Git Sync in Azure Managed Grafana supports GitHub repositories only.
 
-To set up Git Sync and synchronize your dashboards, follow the [Git Sync documentation](https://grafana.com/docs/grafana/latest/as-code/observability-as-code/git-sync/) on the Grafana Labs website.
+To set up Git Sync and synchronize your dashboards, follow the [Set up Git Sync](https://grafana.com/docs/grafana/latest/as-code/observability-as-code/git-sync/git-sync-setup/) documentation on the Grafana Labs website.
 
 ## Next step
 
