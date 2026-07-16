@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 06/06/2023
+ms.date: 07/16/2026
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to configure TLS policies on an Application Gateway using PowerShell, so that I can enhance security and control encryption standards for my web applications."
