@@ -31,29 +31,29 @@ To troubleshoot:
 - If applicable, verify the proxy configuration. For details, see: [Configuring the transport](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample13_AdvancedConfiguration.md#configuring-the-transport)
 - For more information about troubleshooting network connectivity, see: [Connectivity, certificate, or timeout issues](#connectivity-certificate-or-timeout-issues).
 
-### Message send or receive is timing out
-Most send and receive timeouts are transient and recover on their own. A smaller number point to conditions on the service side that are worth checking. This section helps you tell the two apart and choose the right response.
+### Send or receive operation times out
+Most send and receive timeouts are transient and resolve on their own. Some timeouts point to conditions on the service side that you should check. This section helps you distinguish between these two types of timeouts and choose the right response.
 
-#### Transient timeouts recover automatically
-A transient timeout is a brief interruption, for example a momentary network blip, a link that's being reestablished, or a short-lived spike in load. The client libraries automatically retry transient failures, including timeouts, using the built-in [retry policy](/azure/architecture/best-practices/retry-service-specific#service-bus). The default policy retries up to three times with exponential back-off and a per-attempt timeout (`TryTimeout`) of 60 seconds, so most transient timeouts clear on their own with no action from you.
+#### Transient timeouts resolve automatically
+A transient timeout is a brief interruption, such as a momentary network blip, a link that's being reestablished, or a short-lived spike in load. The client libraries automatically retry transient failures, including timeouts, by using the built-in [retry policy](/azure/architecture/best-practices/retry-service-specific#service-bus). The default policy retries up to three times with exponential back-off and a per-attempt timeout (`TryTimeout`) of 60 seconds, so most transient timeouts clear on their own with no action from you.
 
-To let the SDK do this work for you:
+To let the SDK handle this work:
 
 - Keep the default retry policy. It gives the SDK room to recover transient failures for you. Lowering the maximum retry count or `TryTimeout` reduces that room, so keep the defaults unless you have a specific reason to change them.
 - A `ServiceBusException` with a `Reason` of `ServiceTimeout` (or the equivalent transient error in your SDK) is safe to retry, so let the SDK retry it or retry the operation yourself.
 - A single timeout that succeeds on the next call can be expected and needs no action.
 
 #### When to check the service side
-If timeouts continue across retries and client restarts rather than clearing on their own, it's worth checking the health of the service. Two patterns are worth looking for:
+If timeouts continue across retries and client restarts rather than clearing on their own, check the health of the service. Look for two patterns:
 
 - **An unresponsive entity.** A single queue, topic, or subscription stops responding while the rest of the namespace continues to work. Send and receive operations against that one entity time out even though connectivity to the namespace is healthy.
-- **A rise in internal server errors.** Requests across the namespace begin returning internal server errors, for example a `ServiceBusException` with a `Reason` of `ServiceCommunicationProblem`, or an AMQP `amqp:internal-error`. A sustained rise, as opposed to the occasional retryable error, points to a service-side condition.
+- **A rise in internal server errors.** Requests across the namespace begin returning internal server errors, such as a `ServiceBusException` with a `Reason` of `ServiceCommunicationProblem`, or an AMQP `amqp:internal-error`. A sustained rise, as opposed to the occasional retryable error, points to a service-side condition.
 
 To confirm and get help:
 
 - Open the **Resource health** page for your namespace in the Azure portal to check the health that the service reports. For more information, see [Resource health](#resource-health).
 - In Azure Monitor, watch the **Server Errors** metric. A sustained rise in server errors points to the service side rather than your client. For the metric definitions, see [Monitoring Azure Service Bus data reference](monitor-service-bus-reference.md).
-- If you also see a rise in the **Throttled Requests** metric, the namespace is reaching its throughput or resource limits. That's a capacity condition rather than a service fault, so address it by reducing load or scaling up, for example by adding messaging units on the Premium tier. For more information, see [Throttling in Azure Service Bus](service-bus-throttling.md).
+- If you also see a rise in the **Throttled Requests** metric, the namespace is reaching its throughput or resource limits. That's a capacity condition rather than a service fault, so address it by reducing load or scaling up, such as by adding messaging units on the Premium tier. For more information, see [Throttling in Azure Service Bus](service-bus-throttling.md).
 - Confirm the client isn't the cause by working through [Connectivity, certificate, or timeout issues](#connectivity-certificate-or-timeout-issues).
 - If Resource health reports a problem, the platform detects it and works to mitigate it. The SDK automatically reconnects through brief interruptions, but a longer service-side event can exceed the retry limits, so have your application retry or resume processing once the service recovers. Monitor Resource health until it does.
 - If Resource health shows the namespace as healthy but you still see a single unresponsive entity or a sustained rise in server errors, open a support request so the team can investigate the service side.
