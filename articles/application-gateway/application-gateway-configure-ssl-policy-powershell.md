@@ -84,7 +84,7 @@ AvailableProtocols:
 
 ## List predefined TLS Policies
 
-Application gateway comes with multiple predefined policies that can be used. The `Get-AzApplicationGatewaySslPredefinedPolicy` cmdlet retrieves these policies. Each policy has different protocol versions and cipher suites enabled. These predefined policies can be used to quickly configure a TLS policy on your application gateway. By default **AppGwSslPolicy20150501** is selected if no specific TLS policy is defined.
+Application gateway comes with multiple predefined policies that can be used. The `Get-AzApplicationGatewaySslPredefinedPolicy` cmdlet retrieves these policies. Each policy has different protocol versions and cipher suites enabled. These predefined policies can be used to quickly configure a TLS policy on your application gateway. The default policy applied when no specific TLS policy is defined depends on the SKU and API version: Application Gateway v2 deployments created with API version 2023-02-01 or later default to **AppGwSslPolicy20220101**, while earlier API versions default to **AppGwSslPolicy20150501**. Because [support for TLS 1.0 and 1.1 ended on August 31, 2025](application-gateway-tls-version-retirement.md), use a 2022 predefined policy or a CustomV2 policy so that clients and backend servers negotiate TLS 1.2 or higher.
 
 The following output is an example of running `Get-AzApplicationGatewaySslPredefinedPolicy`.
 
@@ -119,7 +119,7 @@ CipherSuites:
 
 ## Configure a custom TLS policy
 
-When configuring a custom TLS policy, you pass the following parameters: PolicyType, MinProtocolVersion, CipherSuite, and ApplicationGateway. If you attempt to pass other parameters, you get an error when creating or updating the Application Gateway. The following example sets a custom TLS policy on an application gateway. It sets the minimum protocol version to `TLSv1_1` and enables the following cipher suites:
+When configuring a custom TLS policy, you pass the following parameters: PolicyType, MinProtocolVersion, CipherSuite, and ApplicationGateway. If you attempt to pass other parameters, you get an error when creating or updating the Application Gateway. The following example sets a custom TLS policy on an application gateway. It sets the minimum protocol version to `TLSv1_2` and enables the following cipher suites:
 
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
@@ -129,7 +129,7 @@ When configuring a custom TLS policy, you pass the following parameters: PolicyT
 $gw = Get-AzApplicationGateway -Name AdatumAppGateway -ResourceGroup AdatumAppGatewayRG
 
 # set the TLS policy on the application gateway
-Set-AzApplicationGatewaySslPolicy -ApplicationGateway $gw -PolicyType Custom -MinProtocolVersion TLSv1_1 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"
+Set-AzApplicationGatewaySslPolicy -ApplicationGateway $gw -PolicyType Custom -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384"
 
 # validate the TLS policy locally
 Get-AzApplicationGatewaySslPolicy -ApplicationGateway $gw
