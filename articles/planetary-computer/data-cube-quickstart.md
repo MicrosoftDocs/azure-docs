@@ -55,7 +55,7 @@ Remembering that a standard Render Configuration argument in JSON format looks l
 
 The `options` field is where you'll want to utilize the cloud optimized, Kerchunk asset, as opposed to the original asset listed in the STAC Item. You'll also need to include the `subdataset_name` argument, which is the name of the variable you want to render.
 
-The `info_options` field enables the Explorer's time slider for this collection. It uses the same URL query-string format as `options`, but it should include only the parameters needed for `/info` discovery, typically `assets` and `subdataset_name`. Omit styling and slicing parameters such as `rescale`, `colormap_name`, and `datetime`. When you want the slider to remain active, don't pin `datetime=...` in `options`, because a hard-coded value overrides the slider. If `info_options` is omitted, the Explorer falls back to reading time bounds from STAC item metadata (`cube:dimensions`, `start_datetime`, `end_datetime`).
+The `info_options` field enables the Explorer's time slider for this collection. It uses the same URL query-string format as `options`, but it should include only the parameters needed for `/info` discovery, typically `assets` and `subdataset_name`. Omit styling and slicing parameters such as `rescale`, `colormap_name`, and `datetime`. When you want the slider to remain active, don't pin `datetime=...` in `options`, because a hard-coded value overrides the slider. If you omit `info_options`, the Explorer falls back to reading time bounds from STAC item metadata (`cube:dimensions`, `start_datetime`, `end_datetime`).
 
 #### Render configuration for GRIB2 assets
 
