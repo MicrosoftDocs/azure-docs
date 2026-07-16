@@ -2,7 +2,7 @@
 title: Migrate VMware VMs to Azure (agentless) - PowerShell
 description: Learn how to run an agentless migration of VMware VMs with Azure Migrate and Modernize through PowerShell.
 author: vijain
-ms.author: vijain
+ms.author: v-uhabiba
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.reviewer: v-uhabiba
