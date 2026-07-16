@@ -1,17 +1,17 @@
 ---
-title: Microsoft Planetary Computer Service Usage Meters
-description: This article explains the usage metering model for Microsoft Planetary Computer Pro.
+title: Microsoft Planetary Computer Service Usage Metrics
+description: This article explains the usage metrics for Microsoft Planetary Computer Pro.
 author: jglixon
 ms.author: jglixon
 ms.service: planetary-computer-pro
 ms.topic: article
 ms.date: 02/11/2026
-#customer intent: As a user, I want to understand the service usage meter structure for Microsoft Planetary Computer Pro so I can estimate usage.
+#customer intent: As a user, I want to understand the service usage metrics for Microsoft Planetary Computer Pro so I can estimate usage.
 ---
 
-# Microsoft Planetary Computer Pro service usage meters
+# Microsoft Planetary Computer Pro service usage metrics
 
-Microsoft Planetary Computer Pro uses a pay-as-you-go pricing model. You pay for the resources you use, so you have flexibility and control over your spending. This article describes the usage meters for the different components of the service.
+Microsoft Planetary Computer Pro uses a pay-as-you-go pricing model. You pay for the resources you use, so you have flexibility and control over your spending. This article describes the usage metrics for the different components of the service.
 
 ## Access usage metrics through the Azure portal
 
@@ -19,18 +19,18 @@ You can find detailed information about the utilization of your GeoCatalog resou
 
 [![Screenshot of the Azure portal showing the Metrics blade for a GeoCatalog resource.](./media/service-usage-metrics.png)](./media/service-usage-metrics.png#lightbox)
 
-## Service usage meters
+## Service usage metrics
 
 The service measures usage by using the following dimensions:
 
-| Meter                       | Measured Units            | Description                                                                                                |
+| Metric                       | Measured Units            | Description                                                                                                |
 |----------------------------|---------------------------|------------------------------------------------------------------------------------------------------------|
 | **Geospatial Storage**               | GiB-month                  | Ingested data stored after any cloud-optimization and compression.                                         |
 | **Geospatial Data Operations**             | 10K operations            | Storage read and metadata retrieval operations, such as search, list, and item or asset metadata access.                   |
 | **Ingestion & Transformation** | vCPU-hour                 | Compute consumed transforming data into cloud-optimized formats (for example COG generation) and ingesting data into GeoCatalog.              |
 | **Bandwidth**              | GiB                 | Data transferred out of the Azure region hosting the GeoCatalog resource.                                  |
 
-All meters use binary gigabytes (GiB), where 1 GiB equals 1,073,741,824 bytes. 
+All metrics use binary gigabytes (GiB), where 1 GiB equals 1,073,741,824 bytes. 
 
 ### Geospatial Storage
 
@@ -72,7 +72,7 @@ The ingestion and transformation metric can take up to 2 hours to reflect new ac
 
 ### Bandwidth
 
-You measure bandwidth in GiB of data that leave the GeoCatalog’s Azure region. This meter increments alongside read [operations](#geospatial-data-operations) whenever data moves to another Azure region or outside of Azure when using the SAS API to read data directly from GeoCatalog managed storage. 
+You measure bandwidth in GiB of data that leave the GeoCatalog’s Azure region. This metric increments alongside read [operations](#geospatial-data-operations) whenever data moves to another Azure region or outside of Azure when using the SAS API to read data directly from GeoCatalog managed storage. 
 
 > [!NOTE]
 > Use of the Data/Tiler API doesn't result in any bandwidth usage.

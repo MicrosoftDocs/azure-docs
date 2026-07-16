@@ -1,8 +1,8 @@
 ---
 title: Remove the Basic SKU public IP Reference from a Basic SKU VPN gateway - Azure portal
 description: Learn how to remove the Basic SKU public IP address resource reference from an existing Basic SKU VPN gateway using the Azure portal.
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/24/2026

@@ -500,6 +500,9 @@ For complete identity configuration details, see [Configure managed identity for
 
 This section covers task hub creation and deletion and inspecting task hub contents. It applies to bring-your-own (BYO) storage providers: Azure Storage, Netherite, and MSSQL.
 
+> [!IMPORTANT]
+> When you use a BYO storage provider, you are responsible for securing the underlying storage resources. Write access to task hub storage can be used to alter application behavior, including triggering arbitrary code execution. Use identity-based connections, apply least-privilege RBAC, and restrict network access. For a full hardening checklist, see [Secure your task hub storage](../durable-functions/durable-functions-serialization-and-persistence.md#secure-your-task-hub-storage).
+
 ### Create and delete task hubs
 
 An empty task hub with all the required resources is automatically created in storage when a function app starts for the first time.

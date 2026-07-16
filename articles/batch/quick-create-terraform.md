@@ -3,7 +3,7 @@ title: 'Quickstart: Create an Azure Batch account using Terraform'
 description: 'In this article, you create an Azure Batch account using Terraform'
 ms.topic: quickstart
 ms.service: azure-batch
-ms.date: 04/02/2025
+ms.date: 06/16/2026
 ms.custom: devx-track-terraform
 author: TomArcherMsft
 ms.author: tarcher
@@ -17,7 +17,7 @@ ai-usage: ai-assisted
 
 Get started with [Azure Batch](/azure/batch/batch-technical-overview) by using Terraform to create a Batch account, including storage. You need a Batch account to create compute resources (pools of compute nodes) and Batch jobs. You can link an Azure Storage account with your Batch account. This pairing is useful to deploy applications and store input and output data for most real-world workloads.
 
-After completing this quickstart, you'll understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
+After you complete this quickstart, you understand the key concepts of the Batch service and are ready to try Batch with more realistic workloads at larger scale.
 
 [!INCLUDE [Terraform abstract](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 

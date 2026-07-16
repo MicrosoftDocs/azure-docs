@@ -7,6 +7,7 @@ ms.manager: vijain
 ms.topic: how-to
 ms.date: 05/08/2025
 ms.reviewer: v-uhabiba
+ms.update-cycle: 365-days
 ms.custom: engagement-fy25
 # Customer intent: As a system administrator, I want to upgrade the Windows Server OS during migration to Azure, so that I can ensure a seamless transition while preserving my settings, server roles, and data integrity.
 ---
@@ -59,7 +60,7 @@ Windows Server 2019 | Windows Server 2022
 
 To upgrade Windows during the test migration, follow these steps:
 
-1. In Azure Migrate project, Go to **Execute>Migrations**, select **Start execution**. [Learn more](end-to-end-portal-experience-server-migrations.md#execute-migrations) on how to start execution for servers you want to migrate.
+1. In your Azure Migrate project, go to **Execute > Migrations**, and select **Start execution**. [Learn more](execute-server-migrations.md#execute-migrations) about how to start execution for servers you want to migrate.
 
 1. In the **Migrations** page, select the windows server for which you want to upgrade OS which is currently in **Testing** stage, select **Testing** drop-down menu and select **Start test migration**.
 

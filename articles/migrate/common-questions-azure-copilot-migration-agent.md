@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 03/12/2026
 ms.reviewer: v-uhabiba
 ms.custom: engagement-fy25
+ms.update-cycle: 180-days
 monikerRange: migrate 
 # Customer intent: "To understand how Azure Copilot migration agent works, what data it uses, how customer data is handled, and whether the service is safe, compliant, and trustworthy to use during migration planning."
 ---

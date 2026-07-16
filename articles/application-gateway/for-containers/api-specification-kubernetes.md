@@ -21,7 +21,7 @@ Package v1 is the v1 version of the API.
 
 This document defines each of the resource types for `alb.networking.azure.io/v1`.
 
-### Resource Types:
+### Resource types
 
 <h3 id="alb.networking.azure.io/v1.AffinityType">AffinityType
 (<code>string</code> alias)</h3>
@@ -2048,7 +2048,7 @@ bool
 <p>UseTLS indicates whether health check should enforce TLS.
 By default, health check uses the same protocol as the
 service if the same port is used for health check. If the port
-is different, health check is plaintext.</p>
+is different, health check uses plaintext.</p>
 </td>
 </tr>
 <tr>
@@ -2909,7 +2909,7 @@ Kubernetes meta/v1.Duration
 </td>
 <td>
 <em>(Optional)</em>
-<p>If the endpoint doesn't report load metrics for this duration, metrics stop
+<p>If the endpoint doesn't report load metrics for this duration, the system stops using metrics to influence load balancing decisions. The default value is 3 minutes.</p>
 being used to influence load balancing decisions. Default is 3 minutes.</p>
 </td>
 </tr>
@@ -2937,7 +2937,6 @@ Default is 1.0.</p>
 <td>
 <em>(Optional)</em>
 <p>A list of custom metrics reported by endpoints to be used for reporting utilization
-and influencing load balancing decisions. Utilization is computed by taking the
 max of the values of metrics specified in this list.</p>
 </td>
 </tr>
@@ -3400,7 +3399,7 @@ int
 <td>
 <em>(Optional)</em>
 <p>StatusCode is the HTTP status code to be used in response.</p>
-<p>Values can be added to this enum, implementations
+<p>Values might be added to this enum. Implementations
 must ensure that unknown values won&rsquo;t cause a crash.</p>
 </td>
 </tr>
@@ -4005,7 +4004,7 @@ CustomTargetRef
 </p>
 <div>
 <p>URLRewriteFilter defines a filter that modifies a request during
-forwarding. At most one of these filters can be used on a rule. This
+forwarding. You can use at most one of these filters on a rule. This
 MUST NOT be used on the same rule having an sslRedirect.</p>
 </div>
 <table>

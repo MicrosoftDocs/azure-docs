@@ -5,15 +5,15 @@ items:
   items:
   - name: What is Datadog?
     href: overview.md
-    displayName: Datadog, Monitoring
+    displayName: Datadog, Monitoring, Azure Native Integration
   - name: FAQ
     href: faq.yml
 - name: Quickstarts
   expanded: true
   items:
-  - name: Create new Datadog org
+  - name: Create new Datadog organization
     href: create.md
-  - name: Link to an existing Datadog org
+  - name: Link to an existing Datadog organization
     href: link-to-existing-organization.md
 - name: How to
   items:
@@ -24,7 +24,7 @@ items:
   - name: Troubleshoot
     items:
     - name: Get support
-      href: https://www.datadoghq.com/support
+      href: https://help.datadoghq.com/hc/en-us
     - name: Fix common errors
       href: troubleshoot.md
 - name: Reference
@@ -33,3 +33,5 @@ items:
     href: /cli/azure/datadog
   - name: REST API
     href: /rest/api/datadog
+  - name: Terraform
+    href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/datadog_monitor

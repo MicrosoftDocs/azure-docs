@@ -40,7 +40,7 @@ Follow the steps in this section to configure an Azure Blob container source and
 
 ### [Azure portal](#tab/portal)
 1. Go to your Storage Mover instance in Azure.
-1. From the **Resource management** group in the left navigation, select **Storage endpoints**. Select the **Source endpoints** tab, and then select **Add endpoint** to open the **Create source endpoint** pane.
+1. From the **Resource management** group in the left navigation, select **Storage endpoints**. Select the **Source endpoints** tab, and then select **Create endpoint** to open the **Create source endpoint** pane.
 1. In the **Create source endpoint** pane:
 
     - Select **Blob container** as the **Source type**.
@@ -49,7 +49,7 @@ Follow the steps in this section to configure an Azure Blob container source and
     - Optionally, provide a description for the endpoint in the **Description** field.
     - Verify that your selections are correct and select **Create** to create the endpoint as shown in the following image.
 
-         :::image type="content" source="./media/azure-to-azure/endpoint-source-create.png" alt-text="Screenshot of the Endpoints page showing the Create Source Endpoint pane with required fields displayed." lightbox="./media/azure-to-azure/endpoint-source-create.png":::
+         :::image type="content" source="./media/azure-to-azure/endpoint-source-create.png" alt-text="Screenshot of the Endpoints page showing the Create Source Endpoint pane with required fields displayed.":::
       
 
 ### [Azure PowerShell](#tab/powershell)
@@ -130,7 +130,7 @@ az storage-mover endpoint create-for-storage-container \
     - Optionally, provide a description for the endpoint in the **Description** field.
     - Verify that your selections are correct and select **Create** to create the endpoint as shown in the following image.
 
-        :::image type="content" source="./media/azure-to-azure/endpoint-target-create.png" alt-text="Screenshot of the Endpoints page showing the Create Target Endpoint pane with required fields displayed." lightbox="./media/azure-to-azure/endpoint-target-create.png":::
+        :::image type="content" source="./media/azure-to-azure/endpoint-target-create.png" alt-text="Screenshot of the Endpoints page showing the Create Target Endpoint pane with required fields displayed.":::
 
 
 ### [Azure PowerShell](#tab/powershell)

@@ -162,6 +162,10 @@ If you're using the [isolated worker model](dotnet-isolated-process-guide.md), y
 For Visual Studio Code development, you might also need to update the user setting for the `azureFunctions.projectRuntime` to match the version of the tools installed. This setting also updates the templates and languages used during function app creation.
 ::: zone-end  
 
+::: zone pivot="programming-language-go"
+Go support is currently in public preview and requires Azure Functions runtime 4.x. For version requirements, see the [Go developer reference](functions-reference-go.md#prerequisites).
+::: zone-end
+
 ## Related content
 
 * [Develop Azure Functions locally by using Core Tools](functions-run-local.md)

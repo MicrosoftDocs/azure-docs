@@ -20,9 +20,6 @@ items:
         displayName: Microsoft Discovery, Studio, web interface, investigations
   - name: Quickstarts
     items:
-      - name: v1 to v2 transition guidance
-        href: concept-v1-to-v2-transition-guide.md
-        displayName: Microsoft Discovery, v1, v2, migration, transition, resources
       - name: Quickstart - Deploy infrastructure using Azure portal
         href: quickstart-infrastructure-portal.md
         displayName: Microsoft Discovery, quickstart, infrastructure, portal, getting started
@@ -42,6 +39,9 @@ items:
           - name: Role assignments
             href: concept-role-assignments.md
             displayName: Microsoft Discovery, RBAC, role assignments, permissions, access control
+          - name: Assign persona roles with a PowerShell script
+            href: how-to-assign-persona-roles.md
+            displayName: Microsoft Discovery, RBAC, persona, Platform Administrator, Scientist, PowerShell, Set-DiscoveryRoleAssignments, onboarding
           - name: Resource Naming
             href: concept-resource-naming.md
             displayName: Microsoft Discovery, resource naming conventions, best practices, organization
@@ -85,6 +85,9 @@ items:
           - name: Projects and Investigations
             href: concept-projects-investigations.md
             displayName: Microsoft Discovery, projects, investigations, workspace, research, organization
+          - name: GitHub Copilot & Microsoft Discovery
+            href: concept-copilot.md
+            displayName: Microsoft Discovery, projects, investigations, GitHub Copilot
       - name: Agents
         items:
           - name: Discovery Agent concepts
@@ -126,24 +129,19 @@ items:
           - name: Responsible AI in Microsoft Discovery
             href: concept-responsible-ai.md
             displayName: Microsoft Discovery, responsible AI, safety, limitations, best practices, evaluations
-          - name: Transparency note
+          - name: Platform card
             href: concept-platform-card.md
-            displayName: Microsoft Discovery, transparency note, responsible AI, intended uses, target users, capabilities
+            displayName: Microsoft Discovery, platform card, responsible AI, intended uses, target users, capabilities
           - name: Code of conduct
             href: concept-code-of-conduct.md
             displayName: Microsoft Discovery, responsible AI, code of conduct
   - name: How-tos
     items:
-      - name: Migration
-        items:
-          - name: Collect v1 resource configurations
-            href: how-to-collect-v1-configurations.md
-            displayName: Microsoft Discovery, v1, v2, migration, export, tools, agents, workflows, collect
-          - name: Recreate resources in v2
-            href: how-to-recreate-v2-resources.md
-            displayName: Microsoft Discovery, v1, v2, migration, recreate, tools, agents, workflows, bookshelves
       - name: Identity & Access
         items:
+          - name: Assign persona roles with a PowerShell script
+            href: how-to-assign-persona-roles.md
+            displayName: Microsoft Discovery, RBAC, persona, Platform Administrator, Scientist, PowerShell, Set-DiscoveryRoleAssignments, onboarding
           - name: Configure managed identities
             href: how-to-configure-managed-identity.md
             displayName: Microsoft Discovery, managed identity, UAMI, role assignments, authentication
@@ -205,6 +203,9 @@ items:
           - name: Debug task execution
             href: how-to-debug-task-execution.md
             displayName: debug, troubleshoot, stuck tasks, validation, errors
+          - name: Use GitHub Copilot in Microsoft Discovery
+            href: how-to-copilot.md
+            displayName: Microsoft Discovery, GitHub Copilot
       - name: Tools
         items:
           - name: Plan tool requirements

@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - sql-data-source | Microsoft Docs
 description: Reference for the sql-data-source resolver policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 01/10/2025
-ms.author: danlep
 ---
 
 # Azure SQL data source for a resolver

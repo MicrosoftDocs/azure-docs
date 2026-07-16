@@ -16,6 +16,8 @@ items:
       href: migration-strategies.md
     - name: SMART on FHIR
       href: smart-on-fhir.md
+    - name: SMART on FHIR proxy
+      href: smart-on-fhir-proxy.md
     - name: Best practices
       href: fhir-best-practices.md
 - name: Quickstarts
@@ -28,7 +30,7 @@ items:
         - name: Azure portal
           href: deploy-azure-portal.md
         - name: Bicep
-          href: fhir-service-bicep.md
+          href: ../deploy-healthcare-apis-using-bicep.md
         - name: ARM template
           href: fhir-service-resource-manager-template.md
     - name: Use Microsoft Entra External ID for an identity provider
@@ -61,10 +63,10 @@ items:
 - name: Compliance with mandates
   expanded: true
   items: 
+    - name: CMS Interoperability and Patient Access rule overview
+      href: centers-for-medicare-tutorial-introduction.md
     - name: US Core
       href: us-core.md
-    - name: CMS Interoperability and Patient Access rule introduction
-      href: centers-for-medicare-tutorial-introduction.md
     - name: CARIN Implementation Guide for Blue Button
       href: carin-implementation-guide-blue-button-tutorial.md
     - name: Da Vinci Drug Formulary

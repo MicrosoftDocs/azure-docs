@@ -68,6 +68,8 @@
       href: ../durable-functions/durable-functions-perf-and-scale.md
     - name: Data persistence and serialization
       href: ../durable-functions/durable-functions-serialization-and-persistence.md
+    - name: Migrate to type-safe serialization (Python)
+      href: ../durable-functions/durable-functions-python-type-safe-serialization-migrate.md
   - name: Features
     items:
     - name: Instance management
@@ -230,14 +232,24 @@
       href: ../scheduler/develop-with-durable-task-scheduler.md
     - name: Develop
       items:
+      - name: On-demand sandboxes
+        items:
+        - name: On-demand sandboxes overview
+          href: ../scheduler/durable-task-scheduler-on-demand-sandboxes.md
+        - name: Configure on-demand sandboxes
+          href: ../scheduler/durable-task-scheduler-configure-on-demand-sandboxes.md
       - name: Configure autoscale for Container Apps
         href: ../sdks/durable-task-scheduler-auto-scaling.md
       - name: Auto-purge
         href: ../scheduler/durable-task-scheduler-auto-purge.md
+      - name: Add tags to orchestrations and activities
+        href: ../scheduler/durable-task-scheduler-tags.md
     - name: Secure
       items:
       - name: Identity-based access
         href: ../scheduler/durable-task-scheduler-identity.md
+      - name: Customer-managed keys
+        href: ../scheduler/durable-task-scheduler-customer-managed-keys.md
       - name: Private endpoints
         href: ../scheduler/durable-task-scheduler-private-endpoints.md
     - name: Monitor
@@ -246,6 +258,8 @@
         href: ../scheduler/durable-task-scheduler-dashboard.md
       - name: OpenTelemetry and distributed tracing
         href: ../sdks/durable-task-scheduler-opentelemetry-tracing.md
+      - name: Action metrics
+        href: durable-task-metrics.md
     - name: Debug
       items:
       - name: Troubleshoot Durable Task Scheduler
@@ -271,7 +285,7 @@
     - name: .NET API
       href: /dotnet/api/microsoft.durabletask
     - name: Python API
-      href: /python/api/durabletask/
+      href: /python/api/overview/azure/durable-task
     - name: Java API
       href: /java/api/com.microsoft.durabletask
   - name: Durable Functions

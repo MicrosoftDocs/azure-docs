@@ -17,8 +17,56 @@ ms.custom:
 
 Release notes describe features, enhancements, and bug fixes released in 2026 for the FHIR&reg; service and DICOM&reg; service in Azure Health Data Services.
 
+## July 2026
+### FHIR service
+
+**Improved handling of invalid bundle types**: The FHIR service now returns proper error responses when an invalid bundle type is submitted (HTTP 400 Bad Request instead of HTTP 500 Internal Server Error).
+
+**New configuration options for date search behavior**: Added new configuration options to control date search behavior, allowing the Date Equality Rewriter to be used only when Date Containment is enabled. This provides more control over how date-based searches are optimized.
+
+**Improved search parameter statistics handling for `:missing` modifier**: Improved search parameter statistics handling for searches using the `:missing` modifier, resulting in better query performance for these types of searches.
+
+**Improved stability of standalone FHIR operations**: Improved stability of standalone FHIR operations by making them more resilient to transient database conflicts. Sporadic deadlock errors are now automatically retried instead of being returned to the caller.
+
+**Improved reliability of reindex operations for large datasets**: Improved reliability of reindex operations for large datasets by increasing timeout thresholds and fixing sliding window logic.
+
+#### Bug fixes:
+
+**Fix for `$bulk-delete` and `$bulk-update` without search parameters**: Fixed an issue where `$bulk-delete` and `$bulk-update` operations would fail when no search parameters were provided. These operations now work correctly without parameters.
+
+**Fix for iterative includes exceeding maximum count**: Fixed an issue where searches with iterative includes exceeding the maximum count would return a server error. The service now returns a proper warning instead.
+
+**Fix for search parameter delete workflow with pending delete statuses**: Fixed the search parameter delete workflow to correctly handle parameters with pending delete statuses, preventing stale search parameter data from being included in query results. For more information, see [Selectable search parameters for the FHIR service in Azure Health Data Services](./fhir/selectable-search-parameters.md#get-the-status-of-search-parameters).
+
+## June 2026
+### FHIR service
+
+**Bug fix for chained searches with birthdates**: A previous improvement for birthdate search performance introduced a bug in chained searches with birthdates. This issue has been fixed.
+
+**`$expand` operation returns HTTP 404 for missing ValueSet**: The `$expand` operation now correctly returns HTTP 404 (instead of HTTP 200) when the requested ValueSet isn't found, aligning with FHIR spec requirements.
+
+**Rework of search parameter concurrency handling**: To guarantee store data integrity, FHIR server implemented strict concurrency control for search parameter writes. When requests to write search parameters are sent in parallel, depending on timing, some requests might fail with concurrency conflict errors. This is because each write operation requires validation against the reference set, and concurrent modifications might lead to data integrity issues, therefore they are restricted. When writing search parameters, avoid sending multiple parallel requests. If you need to process multiple search parameters, send requests one after another, or use a single bundle call. 
+
+**Transaction bundle conflict handling**: Transaction bundle conflict handling has been improved. When concurrent transaction bundles encounter conflicts, the service now returns HTTP 409 Conflict instead of HTTP 500 Internal Server Error, allowing clients to retry appropriately.
+
+**Improved error handling for malformed continuation tokens**: Malformed continuation tokens now return HTTP 400 Bad Request instead of HTTP 500 Internal Server Error, improving error classification for invalid client requests.
+
+**Birthdate search performance improvement**: Birthdate search performance has been improved. Date-of-birth equality queries now use a more efficient query pattern, reducing database load for common patient birthdate searches.
+
+**Reject JWT access tokens in URL**: Requests containing JWT access tokens in URL paths or query strings are now rejected with HTTP 400 Bad Request, helping prevent accidental token exposure in logs and telemetry.
+
+**HTTP 404 for mis-cased FHIR resource types**: Requests with incorrectly cased FHIR resource types, such as `/patient` instead of `/Patient`, now return HTTP 404 Not Found, aligning behavior more clearly with FHIR resource type casing expectations.
+
+**Parallel bundle error handling improvement**: Parallel bundle error handling has been improved. Client-side errors now return HTTP 400 Bad Request, and dependent operations are marked as HTTP 424 Failed Dependency.
+
+**Deduplication of duplicate query parameters**: Duplicate query parameters with identical key-value pairs are now deduplicated before query parsing, reducing unnecessary database load. 
+
 ## May 2026
 ### FHIR service
+
+**Improved bundle error handling**: When a bundle request was throttled (HTTP 429) and the client canceled the request during the retry wait, the server could exhibit unexpected behavior. The server now properly handles cancellation during retry delays and returns HTTP 408 (Request Timeout) for affected bundle entries. The maximum Retry-After delay is also capped at 15 seconds.
+
+**Improved error handling for incorrectly cased resource types**: Requests with incorrectly cased resource types (for example, `GET /patient/{id}` instead of `GET /Patient/{id}`) now return 404 Not Found instead of 405 Method Not Allowed.
 
 **Security enhancements for export**: Added validation to reject path traversal sequences in $export endpoint parameters to prevent unauthorized access to blob storage paths.
 
@@ -54,7 +102,7 @@ Release notes describe features, enhancements, and bug fixes released in 2026 fo
 **Token search behavior update**: After 2 March 2026, the Azure FHIR service was updated so that token values longer than 128 characters are no longer truncated during indexing. If your workspace is affected, you may notice changes in the number of resources returned for token-based queries, along with improved overall query performance. The goal for this update is to improve search behavior accuracy and strengthen service reliability. An Azure service notification was sent to affected accounts with more details.
 
 **Bulk Export cancellation behavior update**: Added updates to align the FHIR server to support [Bulk Data Access 2.0](https://hl7.org/fhir/uv/bulkdata/STU2/export.html#bulk-data-delete-request). This includes a change to bulk export cancellation behavior. Previously, cancellation request of an already completed, canceled, or failed export job returned "200 OK." The behavior is now updated to return more informative operation outcomes:
-  - Cancelling an already-cancelled export job returns "404 Job Not Found."
+  - Cancelling an already-canceled export job returns "404 Job Not Found."
   - Cancelling a completed or failed export job returns "404 Job Not Found" if the job has already been canceled or failed; otherwise returns "202 Accepted."
   - Cancelling a queued or running export job returns "202 Accepted"; no behavior change.
   - Trying to get the status of a user-requested canceled job returns "404 Job Not Found."

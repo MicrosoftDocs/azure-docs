@@ -3,7 +3,7 @@ title: Manage usage limits on Azure Load Testing resource
 titleSuffix: Azure Load Testing
 description: Learn how to manage usage limits an Azure Load testing resource.
 services: load-testing
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.custom: manage-usage-limits
 ms.author: nandinim
 author: nandinimurali

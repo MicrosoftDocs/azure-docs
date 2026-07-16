@@ -4,7 +4,7 @@ description: Learn how Azure Service Bus premium tier provides dedicated resourc
 #customer intent: As a solutions architect, I want to understand the differences between Service Bus Premium and Standard tiers so that I can choose the right tier for my application
 ms.topic: concept-article
 ms.custom: devx-track-extended-java
-ms.date: 05/28/2025
+ms.date: 05/30/2026
 author: spelluru
 ms.author: spelluru
 ai-usage: ai-assisted

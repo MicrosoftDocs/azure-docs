@@ -4,7 +4,7 @@ description: Learn about the recommendations and guidelines for preparing Azure 
 author: dominicbetts
 ms.author: dobett
 ms.topic: concept-article
-ms.date: 03/13/2025
+ms.date: 06/10/2026
 ms.service: azure-iot-operations
 ai-usage: ai-assisted
 
@@ -34,7 +34,7 @@ Create an Arc-enabled cluster that meets the system requirements.
 * If you expect intermittent connectivity for your cluster, ensure that you allocate enough disk space to the cluster cache data and messages while the cluster is offline. Azure IoT Operations can operate offline for a maximum of 72 hours.
 * If possible, have a second cluster as a staging area for testing new changes before deploying to the primary production cluster.
 * [Turn off autoupgrade for Azure Arc](/azure/azure-arc/kubernetes/agent-upgrade#toggle-automatic-upgrade-on-or-off-when-connecting-a-cluster-to-azure-arc) to have complete control over when new updates are applied to your cluster. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade#manually-upgrade-agents) as needed.
-* *For multi-node clusters*: [Configure clusters with Edge Volumes](./howto-prepare-cluster.md#configure-multi-node-clusters-for-azure-container-storage-enabled-by-azure-arc) to prepare for enabling fault tolerance during deployment.
+* *For multinode clusters*: [Configure clusters with Edge Volumes](./howto-prepare-cluster.md#configure-azure-container-storage-enabled-by-azure-arc) to prepare for enabling fault tolerance during deployment.
 
 ### Security
 

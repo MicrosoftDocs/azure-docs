@@ -1,9 +1,8 @@
 ---
-author: yungezz
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/25/2023
-ms.author: yungezz
+ms.date: 06/17/2026
+ms.reviewer: yungezz
 ---
 
 
@@ -89,7 +88,7 @@ var blobServiceClient = new BlobServiceClient(
         .buildClient();
     ```
 
-### [SpringBoot](#tab/springBoot)
+### [Spring Boot](#tab/springBoot)
 Refer to [Upload a file to an Azure Blob Storage](/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-storage?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json) and set up your Spring application. The configuration properties (of Spring Cloud Azure 4.0 and above) are added to Spring Apps by Service Connector. For more information about configuration properties, see [Azure Storage Blob Properties](https://microsoft.github.io/spring-cloud-azure/current/reference/html/appendix.html#azure_storage_blob_proeprties).
 
 ### [Python](#tab/python)
@@ -168,7 +167,7 @@ Refer to [Upload a file to an Azure Blob Storage](/azure/developer/java/spring-f
    go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
    go get "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
    ```
-2. In code, authenticate via `azidentity` library. Get the Azure Blob Storage endpoint url from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. In code, authenticate by using the `azidentity` library. Get the Azure Blob Storage endpoint URL from the environment variable added by Service Connector. In the following code, uncomment the section for your authentication type.
 
       ```go
       import (
@@ -213,7 +212,7 @@ Refer to [Upload a file to an Azure Blob Storage](/azure/developer/java/spring-f
    npm install --save @azure/identity
    npm install @azure/storage-blob
    ```
-2. Get the Azure Blob Storage endpoint url from the environment variable added by Service Connector. Authenticate via `@azure/identity` library. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get the Azure Blob Storage endpoint URL from the environment variable added by Service Connector. Authenticate by using the `@azure/identity` library. In the following code, uncomment the section for your authentication type.
 
    ```javascript
    import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";

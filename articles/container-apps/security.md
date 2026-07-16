@@ -9,7 +9,7 @@ ms.date: 05/29/2026
 ms.author: cshoe
 ---
 
-# Security overview in Azure Container Apps
+# Security overview for Azure Container Apps
 
 Azure Container Apps provides several built-in security features that help you build secure containerized applications. This guide explores key security principles, including managed identities, secrets management, and token store, while providing best practices to help you design secure and scalable applications.
 
@@ -57,14 +57,14 @@ For more information, see [Managed identities](managed-identity.md) and [Image p
 
 Azure Container Apps provides built-in mechanisms to securely store and access sensitive configuration values like connection strings, API keys, and certificates.
 
-### Key security features for secrets
+### Key secrets management features
 
 - **Secret isolation**: Scope secrets to the application level and isolate them from specific revisions.
 - **Environment variable references**: Expose secrets to containers as environment variables.
 - **Volume mounts**: Mount secrets as files within containers.
 - **Key Vault integration**: Reference secrets stored in Azure Key Vault.
 
-### Security best practices for secrets
+### Best practices for secrets management
 
 - Avoid storing secrets directly in Container Apps for production environments.
 - Use Azure Key Vault integration for centralized secret management.
@@ -75,7 +75,7 @@ Azure Container Apps provides built-in mechanisms to securely store and access s
 
 For more information, see [Import certificates from Azure Key Vault](key-vault-certificates-manage.md) to learn how to set up secrets management for your application.
 
-## Token store for secure authentication
+## Token store for authentication security
 
 The token store feature provides a secure way to manage authentication tokens independent of your application code.
 
@@ -112,6 +112,6 @@ Use the confidential compute workload profile when your applications process reg
 
 For configuration details, see [Confidential compute in Azure Container Apps](confidential-compute.md).
 
-## Microsoft Defender for Cloud Serverless Containers Posture (Preview)
+## Microsoft Defender for Cloud Serverless Containers Posture (preview)
 
 Microsoft Defender for Cloud includes serverless containers posture capabilities in [CSPM](/azure/defender-for-cloud/concept-cloud-security-posture-management) for Azure Container Apps. These capabilities provide inventory, posture assessments, and attack path analysis for Azure Container Apps workloads so security teams can identify and prioritize risks in their container apps environment. For onboarding guidance and feature details, see [Serverless protection](/azure/defender-for-cloud/serverless-protection).

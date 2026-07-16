@@ -2,11 +2,11 @@
 title: 'Configure P2S VPN clients - certificate authentication - macOS native client'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure the VPN client for VPN Gateway P2S configurations that use certificate authentication. This article applies to macOS native client.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 01/30/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 # Customer intent: As a macOS user, I want to configure the native VPN client for P2S connections using certificate authentication so that I can securely connect to my organization's virtual network.
 ---

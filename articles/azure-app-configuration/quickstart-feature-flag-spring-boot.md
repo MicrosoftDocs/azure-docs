@@ -136,7 +136,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     ### [Windows command prompt](#tab/windowscommandprompt)
 
     ```console
-    setx AZURE_APPCONFIG_ENDPOINT "<endpoint-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIG_ENDPOINT "<AppConfigurationEndpoint>"
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
@@ -144,13 +144,13 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     ### [PowerShell](#tab/powershell)
 
     ```azurepowershell
-    $Env:AZURE_APPCONFIG_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
+    $Env:AZURE_APPCONFIG_ENDPOINT = "<AppConfigurationEndpoint>"
     ```
 
     ### [macOS](#tab/unix)
 
     ```console
-    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_ENDPOINT='<AppConfigurationEndpoint>'
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.
@@ -158,7 +158,7 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
     ### [Linux](#tab/linux)
 
     ```console
-    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_ENDPOINT='<AppConfigurationEndpoint>'
     ```
 
     Restart the command prompt to allow the change to take effect. Validate that it's set properly by printing the value of the environment variable.

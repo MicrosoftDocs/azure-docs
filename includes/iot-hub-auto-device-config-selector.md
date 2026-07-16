@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: iot-hub
-author: ChrisGMsft
+author: sethmanheim
 ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 6/18/2018
-ms.author: chrisgre
+ms.author: sethm
 ms.custom: include file
 ---
 

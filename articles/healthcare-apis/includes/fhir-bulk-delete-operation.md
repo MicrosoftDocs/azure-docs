@@ -48,15 +48,15 @@ You can execute the `$bulk-delete` operation at the system level or for individu
 
 #### Parameters for bulk delete
 
-Parameters allow you how to control the behavior of the bulk delete operation and filter the resources that are deleted. You can use these parameters to specify whether the delete is soft or hard, whether to purge history, exclude certain resource types, remove references, and filter resources using FHIR search parameters.
+Parameters allow you to control the behavior of the bulk delete operation and filter the resources that are deleted. Use these parameters to specify whether the delete is soft or hard, whether to purge history, exclude certain resource types, remove references, and filter resources by using FHIR search parameters.
 
-|Parameter        | Default Value   |  Description|
+| Parameter        | Default Value   |  Description|
 |------------------------|---|------------|
 |_hardDelete|False|Deletes a resource permanently. If you don't pass this parameter or set `hardDelete` to false, the operation only soft deletes the resource.|
 |_purgeHistory|False|Deletes history versions associated with resource. It doesn't delete the current version of the resource and soft deleted resources. Note: When you use `_purgeHistory` with the `_hardDelete` parameter set to true, it permanently deletes all versions associated with the resource.|
 |excludedResourceTypes|empty|Excludes specified resource types (comma-separated) from being deleted in a bulk delete request. For example, `DELETE [base]/$bulk-delete?excludedResourceTypes=patient,observation` deletes all resources in your FHIR server, except for the Patient and Observation resource types. |
 |_remove-references|False|Removes references to resources that are being deleted. You must use this parameter with `_hardDelete=true`. After you use this parameter to remove references, the removed references are replaced with the following value: `“display”: “Referenced resource deleted”`. For example,  `DELETE [base]/Patient/$bulk-delete?_remove-references=true&_hardDelete=true` bulk hard deletes all Patient resources, and removes references to those patients from other resources. So, if an Observation resource references a deleted Patient resource, the reference to that Patient, which was previously `"subject": { "reference": "Patient/example-patient-id", }`, is replaced with `"subject": { "display": "Referenced resource deleted" }`. |
-|_not-referenced|empty| Use the [`_not-referenced`](/azure/healthcare-apis/fhir/overview-of-search#search-result-parameters) search parameter to search for resources that no other resources reference. See the following section for more examples of using FHIR service supported search parameters.|
+|_not-referenced|empty| Use the [`_not-referenced`](../fhir/overview-of-search.md#fhir-search-result-parameters) search parameter to search for resources that no other resources reference. See the following section for more examples of using FHIR service supported search parameters.|
 |FHIR service supported search parameters||Specify search criteria. The operation deletes resources that match the search criteria. For example: `address:contains=Meadow subject:Patient.birthdate=1987-02-20`. The following section provides more examples of using FHIR service supported search parameters, including how to use `_include` and `_revinclude` to use bulk delete with references, and `_not-referenced` to look for resources not referenced by other resources. |
 
 
@@ -68,7 +68,7 @@ The `$bulk-delete` operation supports using FHIR service supported search parame
 
 #### Bulk delete resources with references
 
-Use `$bulk-delete` with `_include` and `_revinclude` to bulk delete resources that have references. For more information about `_include` and `_revinclude` as search result parameters, see [Include and RevInclude](../fhir/overview-of-search.md#search-result-parameters). 
+Use `$bulk-delete` with `_include` and `_revinclude` to bulk delete resources that have references. For more information about `_include` and `_revinclude` as search result parameters, see [Include and RevInclude](../fhir/overview-of-search.md#fhir-search-result-parameters). 
 
 Here are some examples of using `$bulk-delete` with `_include` and `_revinclude`:
 

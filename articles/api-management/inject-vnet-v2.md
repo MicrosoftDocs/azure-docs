@@ -1,8 +1,6 @@
 ---
 title: Inject API Management in virtual network - Premium v2
 description: Learn how to deploy (inject) an Azure API Management instance in the Premium v2 tier in a virtual network to isolate inbound and outbound traffic.
-author: dlepow
-ms.author: danlep
 ms.service: azure-api-management
 ms.topic: how-to 
 ms.date: 10/08/2025

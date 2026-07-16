@@ -2,11 +2,11 @@
 title: How to use the 'blobfuse2 completion zsh' command to generate the autocompletion script for BlobFuse2
 titleSuffix: Azure Storage
 description: Learn how to use the 'blobfuse2 completion zsh' command to generate the autocompletion script for BlobFuse2.
-author: akashdubey-ms
+author: normesta
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/02/2022
-ms.author: akashdubey
+ms.author: normesta
 # Customer intent: As a developer using BlobFuse2, I want to generate an autocompletion script for the zsh shell, so that I can improve my command-line efficiency and productivity while working with Azure Blob storage.
 ---
 
@@ -41,8 +41,7 @@ The following flags apply only to the `blobfuse2 completion` subcommands:
 
 ## Usage
 
-If shell completion is not already enabled in your environment you will need
-to enable it.  To do so, run the following command once:
+If shell completion isn't already enabled in your environment, run the following command to enable it:
 
 `echo "autoload -U compinit; compinit" >> ~/.zshrc`
 
@@ -50,7 +49,7 @@ To load completions in your current shell session:
 
 `source <(blobfuse2 completion zsh); compdef _blobfuse2 blobfuse2`
 
-To load completions for every new session, execute once:
+To load completions for every new session, run once:
 
 - On Linux:
 
@@ -61,7 +60,7 @@ To load completions for every new session, execute once:
     `blobfuse2 completion zsh > /usr/local/share/zsh/site-functions/_blobfuse2`
 
 > [!NOTE]
-> You will need to start a new shell for this setup to take effect.
+> You'll need to start a new shell for this setup to take effect.
 
 ## See also
 

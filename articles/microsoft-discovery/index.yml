@@ -23,7 +23,7 @@ landingContent:
           - text: Key scenarios
             url: overview-key-scenarios.md
           - text: Microsoft Discovery and the Microsoft Discovery app
-            url: discovery-and-discovery-app.md
+            url: concept-discovery-and-discovery-app.md
           - text: Microsoft Discovery app GitHub
             url: https://github.com/microsoft/discovery
           - text: Service architecture overview

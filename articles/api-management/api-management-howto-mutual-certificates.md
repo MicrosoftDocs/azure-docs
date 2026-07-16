@@ -3,12 +3,10 @@ title: Secure API Management Backend Using Client Certificate Authentication
 titleSuffix: Azure API Management
 description: Learn how to manage client certificates and secure backend services by using client certificate authentication in Azure API Management.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/31/2026
-ms.author: danlep 
 ms.custom:
   - devx-track-azurepowershell
   - engagement-fy23

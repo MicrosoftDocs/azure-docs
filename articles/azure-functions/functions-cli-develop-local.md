@@ -2,7 +2,7 @@
 title: Develop Azure Functions locally using the Azure Functions CLI (preview)
 description: Learn how to develop and test Azure Functions projects locally using the Azure Functions CLI (v5), which uses a workload-based architecture for modular stack-specific tooling.
 ms.topic: how-to
-ms.date: 05/29/2026
+ms.date: 06/09/2026
 ms.custom:
   - build-2026
 zone_pivot_groups: programming-languages-set-functions
@@ -25,10 +25,26 @@ Examples are currently unavailable due to lack of language stack support.
 
 ## Install the Azure Functions CLI
 
-The Azure Functions CLI is distributed as a small base install plus workloads that you add for the stacks you develop in. Microsoft publishes installer packages for Windows, macOS, and Linux. After installation, the `func` binary is on your `PATH`.
+The Azure Functions CLI is distributed as a small base install plus workloads that you add for the stacks you develop in. After installation, the `func` binary is on your `PATH`.
 
 > [!NOTE]
-> While the Azure Functions CLI is in preview, install the latest preview build from the [Azure Functions Core Tools releases page](https://github.com/Azure/azure-functions-core-tools/releases). Final installation guidance is published with the general availability release.
+> The installation method might change between preview and general availability.
+
+### [Windows](#tab/windows)
+
+```powershell
+iex "& { $(irm https://aka.ms/func-cli/install.ps1) } -Prerelease"
+```
+
+### [macOS/Linux](#tab/linux)
+
+```bash
+curl -sSL https://aka.ms/func-cli/install.sh | bash -s -- --prerelease
+```
+
+---
+
+If you're upgrading from a previous install, add `-Force` (PowerShell) or `--force` (Bash) to the command.
 
 Verify the install:
 
@@ -37,7 +53,7 @@ func --version
 ```
 
 After you install the base CLI, install the workloads for your stack. The fastest way is [`func setup`](functions-core-tools-reference.md#func-setup), which installs the host, the language worker, the extension bundles (when needed), the stack workload, and the templates workload in one step. 
-::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-python"  
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-go"  
 For example:
 
 ::: zone-end  
@@ -61,6 +77,14 @@ func setup --features node
 
 ```command
 func setup --features python
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+```command
+func setup --features go
 ```
 
 ::: zone-end
@@ -89,26 +113,25 @@ The first time you run `func init`, `func new`, or `func run`, the CLI checks wh
 
 Run `func workload search` periodically to check for newly available workloads. Continue using [Core Tools (v4)](functions-run-local.md) for unsupported stacks or when you need specific GA features of Core Tools.
 
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-go"
 ## Create a local project
 
 To create a new Functions project, use the [`func init`](functions-core-tools-reference.md#func-init) command.
-
+::: zone-end  
 ::: zone pivot="programming-language-csharp"
 
 ```command
 func init MyProjFolder --stack dotnet
 ```
 
-::: zone-end
-
+::: zone-end  
 ::: zone pivot="programming-language-javascript"
 
 ```command
 func init MyProjFolder --stack node --language javascript
 ```
 
-::: zone-end
-
+::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
 ```command
@@ -125,6 +148,14 @@ func init MyProjFolder --stack python
 
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+
+```command
+func init MyProjFolder --stack go
+```
+
+::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-go"
 The `--stack` option specifies which language stack to use. The installed workload for that stack provides the scaffolding.
 
 ## Create a function
@@ -134,9 +165,6 @@ To add a function from a template, use the [`func new`](functions-core-tools-ref
 ```command
 func new --template "HTTP trigger" --name MyHttpTrigger
 ```
-
-> [!NOTE]
-> `func new` is currently a preview stub until a templates workload is installed for the project's stack. The command dynamically hydrates template-specific options from template metadata.
 
 ## Run functions locally
 
@@ -151,7 +179,7 @@ func run
 ## Scaffold from quickstart templates
 
 To browse and scaffold complete sample apps (HTTP APIs, queue workers, Durable Functions orchestrations), use [`func quickstart`](functions-core-tools-reference.md#func-quickstart):
-
+::: zone-end
 ::: zone pivot="programming-language-csharp"
 
 ```command
@@ -172,6 +200,14 @@ func quickstart --stack node --resource http
 
 ```command
 func quickstart --stack python --resource http
+```
+
+::: zone-end
+
+::: zone pivot="programming-language-go"
+
+```command
+func quickstart --stack go --resource http
 ```
 
 ::: zone-end

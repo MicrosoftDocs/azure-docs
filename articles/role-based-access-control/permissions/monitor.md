@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 05/25/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -878,6 +878,7 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | `Microsoft.OperationalInsights/workspaces/query/AFSAuditLogs/read` | Read data from the AFSAuditLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/AGCAccessLogs/read` | Read data from the AGCAccessLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/AGCFirewallLogs/read` | Read data from the AGCFirewallLogs table |
+> | `Microsoft.OperationalInsights/workspaces/query/AgentsInfo/read` | Read data from the AgentsInfo table |
 > | `Microsoft.OperationalInsights/workspaces/query/AggregatedSecurityAlert/read` | Read data from the AggregatedSecurityAlert table |
 > | `Microsoft.OperationalInsights/workspaces/query/AgriFoodApplicationAuditLogs/read` | Read data from the AgriFoodApplicationAuditLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/AgriFoodFarmManagementLogs/read` | Read data from the AgriFoodFarmManagementLogs table |
@@ -1112,6 +1113,7 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | `Microsoft.OperationalInsights/workspaces/query/CloudAppEvents/read` | Read data from the CloudAppEvents table |
 > | `Microsoft.OperationalInsights/workspaces/query/CloudAuditEvents/read` | Read data from the CloudAuditEvents table |
 > | `Microsoft.OperationalInsights/workspaces/query/CloudDnsEvents/read` | Read data from the CloudDnsEvents table |
+> | `Microsoft.OperationalInsights/workspaces/query/CloudHsmHardwareOperationAuditLogs/read` | Read data from the CloudHsmHardwareOperationAuditLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/CloudHsmServiceOperationAuditLogs/read` | Read data from the CloudHsmServiceOperationAuditLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/CloudProcessEvents/read` | Read data from the CloudProcessEvents table |
 > | `Microsoft.OperationalInsights/workspaces/query/CloudStorageAggregatedEvents/read` | Read data from the CloudStorageAggregatedEvents table |
@@ -1122,6 +1124,7 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | `Microsoft.OperationalInsights/workspaces/query/ConfigurationChange/read` | Read data from the ConfigurationChange table |
 > | `Microsoft.OperationalInsights/workspaces/query/ConfigurationData/read` | Read data from the ConfigurationData table |
 > | `Microsoft.OperationalInsights/workspaces/query/ContainerAppConsoleLogs/read` | Read data from the ContainerAppConsoleLogs table |
+> | `Microsoft.OperationalInsights/workspaces/query/ContainerAppHTTPLogs/read` | Read data from the ContainerAppHTTPLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/ContainerAppSystemLogs/read` | Read data from the ContainerAppSystemLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/ContainerEvent/read` | Read data from the ContainerEvent table |
 > | `Microsoft.OperationalInsights/workspaces/query/ContainerImageInventory/read` | Read data from the ContainerImageInventory table |
@@ -1137,6 +1140,7 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | `Microsoft.OperationalInsights/workspaces/query/CopilotActivity/read` | Read data from the CopilotActivity table |
 > | `Microsoft.OperationalInsights/workspaces/query/CoreAzureBackup/read` | Read data from the CoreAzureBackup table |
 > | `Microsoft.OperationalInsights/workspaces/query/CrowdStrikeAlerts/read` | Read data from the CrowdStrikeAlerts table |
+> | `Microsoft.OperationalInsights/workspaces/query/CrowdStrikeAuditEvents/read` | Read data from the CrowdStrikeAuditEvents table |
 > | `Microsoft.OperationalInsights/workspaces/query/CrowdStrikeCases/read` | Read data from the CrowdStrikeCases table |
 > | `Microsoft.OperationalInsights/workspaces/query/CrowdStrikeDetections/read` | Read data from the CrowdStrikeDetections table |
 > | `Microsoft.OperationalInsights/workspaces/query/CrowdStrikeHosts/read` | Read data from the CrowdStrikeHosts table |
@@ -1249,6 +1253,9 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | `Microsoft.OperationalInsights/workspaces/query/DHOSCrashData/read` | Read data from the DHOSCrashData table |
 > | `Microsoft.OperationalInsights/workspaces/query/DHOSReliability/read` | Read data from the DHOSReliability table |
 > | `Microsoft.OperationalInsights/workspaces/query/DHWipAppLearning/read` | Read data from the DHWipAppLearning table |
+> | `Microsoft.OperationalInsights/workspaces/query/DiscoveryBookshelfAuditLogs/read` | Read data from the DiscoveryBookshelfAuditLogs table |
+> | `Microsoft.OperationalInsights/workspaces/query/DiscoverySupercomputerAuditLogs/read` | Read data from the DiscoverySupercomputerAuditLogs table |
+> | `Microsoft.OperationalInsights/workspaces/query/DiscoveryWorkspaceAuditLogs/read` | Read data from the DiscoveryWorkspaceAuditLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/DisruptionAndResponseEvents/read` | Read data from the DisruptionAndResponseEvents table |
 > | `Microsoft.OperationalInsights/workspaces/query/DnsAuditEvents/read` | Read data from the DnsAuditEvents table |
 > | `Microsoft.OperationalInsights/workspaces/query/DnsEvents/read` | Read data from the DnsEvents table |
@@ -1306,6 +1313,7 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | `Microsoft.OperationalInsights/workspaces/query/GKEScheduler/read` | Read data from the GKEScheduler table |
 > | `Microsoft.OperationalInsights/workspaces/query/GoogleCloudSCC/read` | Read data from the GoogleCloudSCC table |
 > | `Microsoft.OperationalInsights/workspaces/query/GoogleWorkspaceReports/read` | Read data from the GoogleWorkspaceReports table |
+> | `Microsoft.OperationalInsights/workspaces/query/GraphNotificationsActivityLogs/read` | Read data from the GraphNotificationsActivityLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/HDInsightAmbariClusterAlerts/read` | Read data from the HDInsightAmbariClusterAlerts table |
 > | `Microsoft.OperationalInsights/workspaces/query/HDInsightAmbariSystemMetrics/read` | Read data from the HDInsightAmbariSystemMetrics table |
 > | `Microsoft.OperationalInsights/workspaces/query/HDInsightGatewayAuditLogs/read` | Read data from the HDInsightGatewayAuditLogs table |
@@ -1506,6 +1514,7 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | `Microsoft.OperationalInsights/workspaces/query/PowerPlatformAdminActivity/read` | Read data from the PowerPlatformAdminActivity table |
 > | `Microsoft.OperationalInsights/workspaces/query/PowerPlatformConnectorActivity/read` | Read data from the PowerPlatformConnectorActivity table |
 > | `Microsoft.OperationalInsights/workspaces/query/PowerPlatformDlpActivity/read` | Read data from the PowerPlatformDlpActivity table |
+> | `Microsoft.OperationalInsights/workspaces/query/PreAuthenticationDiscoveryLogs/read` | Read data from the PreAuthenticationDiscoveryLogs table |
 > | `Microsoft.OperationalInsights/workspaces/query/ProjectActivity/read` | Read data from the ProjectActivity table |
 > | `Microsoft.OperationalInsights/workspaces/query/ProtectionStatus/read` | Read data from the ProtectionStatus table |
 > | `Microsoft.OperationalInsights/workspaces/query/PurviewDataSensitivityLogs/read` | Read data from the PurviewDataSensitivityLogs table |
@@ -1702,9 +1711,9 @@ Azure service: [Azure Monitor](/azure/azure-monitor/)
 > | `Microsoft.OperationalInsights/workspaces/storageinsightconfigs/delete` | Deletes a storage configuration. This will stop Microsoft Operational Insights from reading data from the storage account. |
 > | `Microsoft.OperationalInsights/workspaces/summarylogs/write` | Create or update a log analytics table. |
 > | `Microsoft.OperationalInsights/workspaces/summarylogs/read` | Get a log analytics table. |
-> | `Microsoft.OperationalInsights/workspaces/summarylogs/delete` | Delete a log analytics summary logs. |
-> | `Microsoft.OperationalInsights/workspaces/summarylogs/start/action` | Starting a suspended summary log rule. |
-> | `Microsoft.OperationalInsights/workspaces/summarylogs/stop/action` | Suspending a summary log rule. |
+> | `Microsoft.OperationalInsights/workspaces/summarylogs/delete` | Delete a log analytics summary rule. |
+> | `Microsoft.OperationalInsights/workspaces/summarylogs/start/action` | Starting a suspended summary rule. |
+> | `Microsoft.OperationalInsights/workspaces/summarylogs/stop/action` | Suspending a summary rule. |
 > | `Microsoft.OperationalInsights/workspaces/summarylogs/operationresults/read` | Gets the result of the asynchronous summarylogs operation. |
 > | `Microsoft.OperationalInsights/workspaces/tables/write` | Create or update a log analytics table. |
 > | `Microsoft.OperationalInsights/workspaces/tables/read` | Get a log analytics table. |

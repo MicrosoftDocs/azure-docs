@@ -206,7 +206,7 @@ You can find a full sample on how to use the Management SDK to redirect SignalR 
 
 When you use an Azure function app, you can work with the function extension. Here's a sample of using `SignalRConnectionInfo` in C# isolated worker model to help you build the negotiation response:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRNegotiationFunctions.cs" id="snippet_negotiate":::
+<!--- :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/SignalR/SignalRNegotiationFunctions.cs" id="snippet_negotiate"::: --->
 
 > [!Warning]
 > For the simplicity, we omit the authentication and authorization parts in this sample. As a result, this endpoint is publicly accessible without any restrictions. To ensure the security of your negotiation endpoint, you should implement appropriate authentication and authorization mechanisms based on your specific requirements. For guidance on protecting your HTTP endpoints, see the following articles: 

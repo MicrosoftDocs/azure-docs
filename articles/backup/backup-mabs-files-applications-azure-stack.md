@@ -3,6 +3,7 @@ title: Back up files in Azure Stack VMs
 description: Use Azure Backup to back up and recover Azure Stack files and applications to your Azure Stack environment.
 ms.topic: how-to
 ms.date: 06/27/2025
+ms.update-cycle: 1095-days
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka

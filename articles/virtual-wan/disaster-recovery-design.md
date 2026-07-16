@@ -2,8 +2,8 @@
 title: 'Disaster recovery design for Azure Virtual WAN'
 description: Learn about architectural recommendations for disaster recovery while using Azure Virtual WAN.
 services: virtual-wan
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 12/10/2024

@@ -1,11 +1,12 @@
 ---
-title: Connect GitHub Enterprise Cloud repositories to Azure SRE Agent
-description: Set up BYO GitHub App authentication for github.com or GitHub Enterprise Cloud hosts using Key Vault-backed private keys.
+title: "Connect GitHub Enterprise Cloud Repositories to Azure SRE Agent"
+description: "Learn how to connect GitHub Enterprise Cloud repositories to your Azure SRE Agent by configuring a BYO GitHub App with Key Vault-backed private keys."
 ms.topic: how-to
 ms.service: azure-sre-agent
-ms.date: 05/28/2026
+ms.date: 06/02/2026
 author: dchelupati
 ms.author: dchelupati
+ms.reviewer: dchelupati
 ms.ai-usage: ai-assisted
 #customer intent: As an SRE with repositories on GitHub Enterprise Cloud, I want to connect my agent to GHE repos so that it can search enterprise code during incident investigations.
 ---
@@ -19,7 +20,7 @@ Connect repositories hosted on GitHub Enterprise Cloud (`<TENANT>.ghe.com`) or `
 > [!NOTE]
 > BYO GitHub App works for both `github.com` and `*.ghe.com` hosts. For `github.com` with OAuth or PAT, see [Set up GitHub connector](setup-github-connector.md).
 
-## When to use BYO app
+## When to use BYO GitHub App authentication
 
 Use BYO App when:
 
@@ -144,10 +145,10 @@ Disconnecting one host doesn't affect others.
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| Auth validation fails | Wrong Client ID or wrong host | Verify app was created on the same host entered in Code Access |
-| Secret read fails | Missing Key Vault RBAC or access policy | Grant **Key Vault Secrets User** to agent identity |
-| Repo shows **Failed** in Code Access | Missing app permissions or install scope | Verify **Metadata: Read** + **Contents: Read** and installation scope |
-| Chat issues work but Code Access fails | Endpoint/path checks differ | Re-run connection test and verify metadata permission |
+| Auth validation fails | Wrong Client ID or wrong host | Verify app was created on the same host entered in Code Access. |
+| Secret read fails | Missing Key Vault RBAC or access policy | Grant **Key Vault Secrets User** to agent identity. |
+| Repo shows **Failed** in Code Access | Missing app permissions or install scope | Verify **Metadata: Read** + **Contents: Read** and installation scope. |
+| Chat issues work but Code Access fails | Endpoint/path checks differ | Re-run connection test and verify metadata permission. |
 
 ## Next step
 

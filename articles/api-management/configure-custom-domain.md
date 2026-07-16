@@ -3,12 +3,10 @@ title: Configure custom domain name for Azure API Management instance
 titleSuffix: Azure API Management
 description: How to configure a custom domain name and choose certificates for the endpoints of your Azure API Management instance.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 05/20/2026
-ms.author: danlep
+ms.date: 06/03/2026
 ms.custom:
   - engagement-fy23
   - build-2025
@@ -89,16 +87,16 @@ If you use Azure Key Vault to manage a custom domain TLS certificate, make sure 
 > When using a key vault certificate in API Management, be careful not to delete the certificate, key vault, or managed identity used to access the key vault.
 
 To fetch a TLS/SSL certificate, API Management must have the list and get secrets permissions on the Azure Key Vault containing the certificate. 
-* When you use the Azure portal to import the certificate, all the necessary configuration steps are completed automatically. 
+* When you use the Azure portal to import the certificate to API Management, all the necessary configuration steps are completed automatically. 
 * When you use command-line tools or management API, these permissions must be granted manually, in two steps:
     1. On the **Managed identities** page of your API Management instance, enable a system-assigned or user-assigned [managed identity](api-management-howto-use-managed-service-identity.md). Note the principal ID on that page.
     1.  Assign permissions to the managed identity to access the key vault. Use steps in the following section.
     
     [!INCLUDE [api-management-key-vault-certificate-access](../../includes/api-management-key-vault-certificate-access.md)]
 
-If the certificate is set to `autorenew` and your API Management tier has an SLA (that is, in all tiers except the Developer tier), API Management will pick up the latest version automatically, without downtime to the service. 
+If the certificate is set to `autorenew` and your API Management tier has an SLA (that is, in all tiers except the Developer tier), API Management will pick up the latest version automatically, without downtime to the service. This update can take up to 1-2 days. You can trigger certificate synchronization manually if you don't want to wait for API Management to update the certificate automatically.
 
-For help with troubleshooting Azure Key Vault certificate access issues, see [Certificate synchronization and troubleshooting for Azure Key Vault-backed certificates](#certificate-synchronization-and-troubleshooting-for-azure-key-vault-backed-certificates) later in this article.
+For more information about synchronization and help with troubleshooting Azure Key Vault certificate access issues, see [Certificate synchronization and troubleshooting for Azure Key Vault-backed certificates](#certificate-synchronization-and-troubleshooting-for-azure-key-vault-backed-certificates) later in this article.
 
 # [Managed](#tab/managed)
 
@@ -218,7 +216,7 @@ You can also get a domain ownership identifier by calling the [Get Domain Owners
 
 ## Certificate synchronization and troubleshooting for Azure Key Vault-backed certificates
 
-When you use an Azure Key Vault-backed certificate for a custom domain, API Management provides controls and diagnostics to help you keep certificates in sync and quickly resolve access issues.
+API Management provides controls and diagnostics to help you keep certificates in sync and quickly resolve access issues.
 
 For example, because of a configuration change or connectivity problem, your API Management instance might be unable to fetch a hostname certificate from Azure Key Vault after a certificate is updated or rotated there. When this happens, your API Management instance continues to use a cached certificate until it receives an updated certificate. If the cached certificate expires, runtime traffic to the gateway will be blocked. Any upstream service such as Application Gateway that uses the hostname certificate configuration could also block runtime traffic to the gateway when an expired cached certificate is used.
 
@@ -226,7 +224,7 @@ Use the following controls and diagnostics to keep your certificates in sync and
 
 ### Synchronize certificates
 
-Select **Sync certificates** on the command bar to manually start certificate synchronization when certificate thumbprints have changed. This option lets you avoid waiting for the automated synchronization job, which typically runs every 3-4 hours.
+Select **Sync certificates** on the command bar to manually start certificate synchronization when certificate thumbprints have changed. This option lets you avoid waiting for the automated synchronization job, which can take several hours or longer.
 
 :::image type="content" source="media/configure-custom-domain/synchronize-key-vault-certificates.png" alt-text="Screenshot of command to synchronize hostname certificates from Azure Key Vault in the portal." lightbox="media/configure-custom-domain/synchronize-key-vault-certificates.png":::
 

@@ -6,6 +6,7 @@ ms.service: azure-sre-agent
 ms.date: 06/02/2026
 author: dchelupati
 ms.author: dchelupati
+ms.reviewer: dchelupati
 ms.ai-usage: ai-assisted
 #customer intent: As an SRE, I want to set up the GitHub connector with OAuth or PAT so that my agent can manage issues, PRs, and workflows.
 ---
@@ -32,7 +33,7 @@ Use the GitHub connector to connect `github.com` to your agent for managing issu
 
 ## Choose an authentication method
 
-Choose one method:
+Select one method:
 
 | Method | When to use |
 |---|---|
@@ -75,7 +76,7 @@ Get me recent issues from owner/repo.
 | List or create issues | Issue-capable repo access |
 | Pull request operations | PR-capable repo access |
 
-## Troubleshooting
+## Troubleshoot connections
 
 | Symptom | Likely cause | Fix |
 |---|---|---|

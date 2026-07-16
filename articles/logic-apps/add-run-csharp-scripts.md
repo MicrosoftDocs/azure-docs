@@ -320,12 +320,12 @@ public static async Task<Results> Run(WorkflowContext context, ILogger log)
 
 ## Import NuGet packages
 
-[NuGet](/nuget/what-is-nuget) is a Microsoft-supported way to create, publish, host, discover, consume, and share .NET code libraries called *packages*. The **Execute CSharp Script Code** action supports the capability to import NuGet packages by using a *function.prof* file, located at the root of the workflow folder, for example:
+[NuGet](/nuget/what-is-nuget) is a Microsoft-supported way to create, publish, host, discover, consume, and share .NET code libraries called *packages*. The **Execute CSharp Script Code** action supports the capability to import NuGet packages by using a *functions.proj* file, located at the root of the workflow folder, for example:
 
 `site/wwwroot/<workflow-name>/workflow.json`<br>
-`site/wwwroot/<workflow-name>/function.proj`
+`site/wwwroot/<workflow-name>/functions.proj`
 
-For example, you can use the following *function.proj* file to import NuGet packages into your **Execute CSharp Script Code** action:
+For example, you can use the following *functions.proj* file to import NuGet packages into your **Execute CSharp Script Code** action:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -344,7 +344,7 @@ For example, you can use the following *function.proj* file to import NuGet pack
 
   This requirement doesn't mean that package versions are limited to `netstandard2.0`. You can still reference packages for `net6.0` and later.
 
-- When the *function.proj* file initializes, you must restart the logic app so that the Azure Logic Apps runtime can recognize and consume the file.
+- When the *functions.proj* file initializes, you must restart the logic app so that the Azure Logic Apps runtime can recognize and consume the file.
 
 After restart completes, the runtime automatically gets the required assemblies from NuGet.org and puts the assembly in the appropriate folder for your script to use. Although you don't need to manually load these assemblies, make sure to directly reference the packages in your code by using standard `using` statements, for example:
 

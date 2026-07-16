@@ -18,6 +18,10 @@ For information on setup and configuration details, see the [overview](functions
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"  
 >[!NOTE]  
 > For C#, the Azure Functions MCP extension supports only the [isolated worker model](dotnet-isolated-process-guide.md). 
@@ -238,7 +242,7 @@ app.mcpPrompt('GenerateDocumentation', {
 });
 ```
 
-For the complete code example, see [mcp-prompts](https://github.com/Azure-Samples/remote-mcp-functions-typescript/tree/main/src/mcp-prompts) sample on GitHub.
+For the complete code example, see [mcp-prompts](https://github.com/Azure-Samples/remote-mcp-functions-typescript/tree/main/mcp-prompts) sample on GitHub.
 
 > [!NOTE]
 > MCP prompt support requires the preview extension bundle and `@azure/functions` version 4.14.0 or later. Update your `host.json` to use the preview bundle:

@@ -44,7 +44,7 @@ Requirement | Details
 --- | ---
 **vCenter Server/ESXi host** | You need a server running vCenter Server version 8.0, 7.0, 6.7, 6.5, 6.0, or 5.5.<br /><br /> Servers must be hosted on an ESXi host running version 5.5 or later.<br /><br /> On the vCenter Server, allow inbound connections on TCP port 443 so that the appliance can collect configuration and performance metadata.<br /><br /> The appliance connects to vCenter Server on port 443 by default. If the server running vCenter Server listens on a different port, you can modify the port when you provide the vCenter Server details in the appliance configuration manager.<br /><br /> On the ESXi hosts, ensure that inbound access is allowed on TCP port 443 for discovery of installed applications and for agentless dependency analysis on servers.
 **Azure Migrate appliance** | vCenter Server must have these resources to allocate to a server that hosts the Azure Migrate appliance:<br /><br /> - 32 GB of RAM, 8 vCPUs, and approximately 80 GB of disk storage.<br /><br /> - An external virtual switch and internet access on the appliance server, directly or via a proxy.
-**Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br /><br /> For application discovery on servers, all Windows and Linux OS versions are supported. Check the [OS versions supported for agentless dependency analysis](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agent-based) <br /><br /> For discovery of installed applications and for agentless dependency analysis, VMware Tools (version 10.2.1 or later) must be installed and running on servers. Windows servers must have PowerShell version 2.0 or later installed.<br /><br /> For Linux servers, SSH key-based authentication supports discovery of configuration and performance data, installed applications, agentless dependency analysis, and workload discovery. <br /><br > To discover Linux servers using SSH key-based authentication, the appliance needs a direct connection to the target servers. <br /><br /> To discover SQL Server instances and databases, check [supported SQL Server and Windows OS versions and editions](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) and Windows authentication mechanisms.<br /><br /> To discover ASP.NET web apps running on IIS web server, check [supported Windows OS and IIS versions](migrate-support-matrix-vmware.md).<br /><br />  To discover Java web apps running on Apache Tomcat web server, check [supported Linux OS and Tomcat versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements). 
+**Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br /><br /> For application discovery on servers, all Windows and Linux OS versions are supported. Check the [OS versions supported for agentless dependency analysis](migrate-support-matrix-vmware.md) <br /><br /> For discovery of installed applications and for agentless dependency analysis, VMware Tools (version 10.2.1 or later) must be installed and running on servers. Windows servers must have PowerShell version 2.0 or later installed.<br /><br /> For Linux servers, SSH key-based authentication supports discovery of configuration and performance data, installed applications, agentless dependency analysis, and workload discovery. <br /><br > To discover Linux servers using SSH key-based authentication, the appliance needs a direct connection to the target servers. <br /><br /> To discover SQL Server instances and databases, check [supported SQL Server and Windows OS versions and editions](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) and Windows authentication mechanisms.<br /><br /> To discover ASP.NET web apps running on IIS web server, check [supported Windows OS and IIS versions](migrate-support-matrix-vmware.md).<br /><br />  To discover Java web apps running on Apache Tomcat web server, check [supported Linux OS and Tomcat versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements). 
 **SQL Server access** | To discover SQL Server instances and databases, the Windows account, or SQL Server account [requires these permissions](migrate-support-matrix-vmware.md#sql-server-instance-and-database-discovery-requirements) for each SQL Server instance. You can use the [account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
 
 ## Prepare an Azure user account
@@ -77,17 +77,17 @@ In VMware vSphere Web Client, set up a read-only account to use for vCenter Serv
 > [!NOTE]
 > - For vCenter Server 7.x and above you must clone the Read Only system role and add the Guest Operations Privileges to the cloned role.  Assign the cloned role to the vCenter Account. Learn how to [create a custom role in VMware vCenter](https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.security.doc/GUID-41E5E52E-A95B-4E81-9724-6AD6800BEF78.html). 
 > - You can scope the vCenter Server account to limit discovery to specific vCenter Server datacenters, clusters, hosts, folders of clusters or hosts, or individual servers. Learn how to [scope the vCenter Server user account](set-discovery-scope.md).
-> - vCenter assets connected via Linked-Mode to the vCenter server specified for discovery will not be discovered by Azure Migrate.
+> - vCenter assets connected via Linked-Mode to the vCenter server specified for discovery won't be discovered by Azure Migrate.
 
 ### Create an account to access servers
 
 > [!NOTE]
-> Lightweight Directory Access Protocol (LDAP) accounts are not supported for discovery.
+> Lightweight Directory Access Protocol (LDAP) accounts aren't supported for discovery.
 
 Refer to security best practices to set up user accounts. 
 
 > [!NOTE]
-> You can add multiple server credentials in the Azure Migrate appliance configuration manager to initiate discovery of installed applications, agentless dependency analysis, and discovery of web apps, and SQL Server instances and databases. You can add multiple domains, Windows (non-domain), Linux (non-domain), Linux (SSH-key) or SQL Server authentication credentials. Learn how to [add server credentials](add-server-credentials.md).
+> You can add multiple server credentials in the Azure Migrate appliance configuration manager to initiate discovery of installed applications, agentless dependency analysis, and discovery of web apps, and SQL Server instances and databases. You can add multiple domains, Windows (non-domain), Linux (non-domain), Linux (SSH-key), or SQL Server authentication credentials. Learn how to [add server credentials](add-server-credentials.md).
 
 ## Set up a project
 
@@ -153,7 +153,7 @@ Import the downloaded file, and then create a server in the VMware environment:
 1. In **Host/Cluster**, select the host or cluster on which the server will run.
 1. In **Storage**, select the storage destination for the server.
 1. In **Disk Format**, select the disk type and size.
-1. In **Network Mapping**, select the network the server will connect to. The network requires internet connectivity to send metadata to Azure Migrate.
+1. In **Network Mapping**, select the network the server connects to. The network requires internet connectivity to send metadata to Azure Migrate.
 1. Review and confirm the settings, and then select **Finish**.
 
 #### Verify appliance access to Azure
@@ -188,7 +188,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
 
     :::image type="content" source="./media/tutorial-discover-vmware/prerequisites.png" alt-text="Screenshot that shows setting up the prerequisites in the appliance configuration manager.":::
 1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key and then copy the key that's shown.
-1. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
+1. The appliance verifies the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
 1. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and go to an Azure sign in prompt in a new browser tab. Ensure you've disabled the pop-up blocker in the browser to see the prompt.
 
     :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and sign in."::: 
@@ -198,7 +198,7 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     > [!Note]
     > If you close the sign in tab accidentally without logging in, refresh the browser tab of the appliance configuration manager to display the device code and Copy code & Login button.
 
-1. After you successfully sign in, return to the browser tab that display the appliance configuration manager. If the Azure user account that you used to sign in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
+1. After you successfully sign in, return to the browser tab that displays the appliance configuration manager. If the Azure user account that you used to sign in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
 
     After the appliance is successfully registered, to see the registration details, select **View details**. 
 
@@ -217,7 +217,7 @@ Complete the setup steps in the appliance configuration manager to prepare for a
 The appliance must connect to vCenter Server to discover the configuration and performance data of the servers:
 
 1. In **Step 1: Provide vCenter Server credentials**, select **Add credentials** to enter a name for the credentials. Add the username and password for the vCenter Server account that the appliance will use to discover servers running on vCenter Server.
-    - You should have set up an account with the required permissions as described earlier in this article. If you are discovering your AVS environment, use the CloudAdmin account in this step.
+    - You should have set up an account with the required permissions as described earlier in this article. If you're discovering your AVS environment, use the CloudAdmin account in this step.
     - If you want to scope discovery to specific VMware objects (vCenter Server datacenters, clusters, hosts, folders of clusters or hosts, or individual servers), review the instructions to [set discovery scope](set-discovery-scope.md) to restrict the account that Azure Migrate uses.
     - If you want to add multiple credentials at once, select **Add more** to save and add more credentials. Multiple credentials are supported for discovery of servers across multiple vCenter Servers using a single appliance.
 1. In **Step 2: Provide vCenter Server details**, select **Add discovery source** to add the IP address or FQDN of a vCenter Server. You can leave the port as the default (443) or specify a custom port on which vCenter Server listens. Select the friendly name for credentials you would like to map to the vCenter Server and select **Save**.
@@ -297,7 +297,7 @@ To start vCenter Server discovery, select **Start discovery**. After the discove
 * Discovery of installed applications might take longer than 15 minutes. The duration depends on the number of discovered servers. For 500 servers, it takes approximately one hour for the discovered inventory to appear in the Azure Migrate project in the portal.
 * [Software inventory](how-to-discover-applications.md) identifies web server role existing on discovered servers. If a server is found to have web server role enabled, Azure Migrate will perform web apps discovery on the server. Web apps configuration data is updated once every 24 hours.
 * During software inventory, the added server credentials are iterated against servers and validated for agentless dependency analysis. When the discovery of servers is finished, in the portal, you can enable agentless dependency analysis on the servers. Only the servers on which validation succeeds can be selected to enable [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md).
-* Along with software inventory, pending updates for Windows and Linux servers are gathered. No additional permissions are required for identifying pending updates. Software and pending updates metadata is processed further to generate [Insights](/azure/migrate/insights-overview), that provides security risks in the datacenter.
+* Along with software inventory, pending updates for Windows and Linux servers are gathered. No additional permissions are required for identifying pending updates. Software and pending updates metadata is processed further to generate [Insights](/azure/migrate/insights-overview) that provides security risks in the datacenter.
 * Web apps and SQL Server instances and databases data begin to appear in the portal within 24 hours after you start discovery.
 * By default, Azure Migrate uses the most secure way of connecting to SQL instances that is, Azure Migrate encrypts communication between the Azure Migrate appliance and the source SQL Server instances by setting the TrustServerCertificate property to `true`. Additionally, the transport layer uses TLS to encrypt the channel and bypass the certificate chain to validate trust. Hence, the appliance server must be set up to trust the certificate's root authority. However, you can modify the connection settings, by selecting **Edit SQL Server connection properties** on the appliance. [Learn more](/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) to understand what to choose.
 
@@ -330,7 +330,7 @@ To view the remaining duration until end of support, that is, the number of mont
 ## Onboard to Azure Local (optional)
 
 > [!Note]
-> Perform this step only if you are migrating to [Azure Local](/azure-stack/hci/overview).
+> Perform this step only if you're migrating to [Azure Local](/azure-stack/hci/overview).
 Provide the Azure Stack cluster information and the credentials to connect to the cluster. For more information, see [Download the Azure Local software](/azure-stack/hci/deploy/download-azure-stack-hci-software).
 
 

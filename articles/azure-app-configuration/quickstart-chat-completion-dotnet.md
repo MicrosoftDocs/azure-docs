@@ -3,15 +3,16 @@ title: Quickstart for using chat completion configuration in a .NET app
 titleSuffix: Azure App Configuration
 description: Learn to implement chat completion configuration in your .NET application using Azure App Configuration.
 services: azure-app-configuration
-author: MaryanneNjeri
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
-ms.date: 11/21/2025
+ms.date: 06/22/2026
 ms.update-cycle: 180-days
-ms.author: mgichohi
+author: maud-lv
+ms.author: malev
+ms.reviewer: mgichohi
 ms.collection: ce-skilling-ai-copilot
 ---
 
@@ -344,17 +345,17 @@ The full sample source code is available in the [Azure App Configuration GitHub 
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AZURE_APPCONFIGURATION_ENDPOINT "<endpoint-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIGURATION_ENDPOINT "<AppConfigurationEndpoint>"
     ```
 
     If you use PowerShell, run the following command:
     ```powershell
-    $Env:AZURE_APPCONFIGURATION_ENDPOINT = "<endpoint-of-your-app-configuration-store>"
+    $Env:AZURE_APPCONFIGURATION_ENDPOINT = "<AppConfigurationEndpoint>"
     ```
 
     If you use macOS or Linux run the following command:
     ```bash
-    export AZURE_APPCONFIGURATION_ENDPOINT ='<endpoint-of-your-app-configuration-store>'
+    export AZURE_APPCONFIGURATION_ENDPOINT ='<AppConfigurationEndpoint>'
     ```
 
 1.  After the environment variable is properly set, run the following command to build and run your app.

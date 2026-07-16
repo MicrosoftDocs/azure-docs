@@ -5,7 +5,7 @@ description: How to build apps directly by using the protocols that are supporte
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: concept-article
 ms.date: 10/11/2024

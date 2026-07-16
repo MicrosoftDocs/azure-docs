@@ -12,7 +12,7 @@ ms.date: 04/17/2026
 
 # Microsoft Discovery billing overview
  
-Microsoft Discovery provides [two experiences](discovery-and-discovery-app.md): the Discovery app (local install) and Discovery services (Azure-hosted), each with a distinct pricing model. The Discovery app does not have an additional platform charge and relies only on user’s GitHub Copilot subscription for usage (a paid Copilot tier is recommended for practical workloads).
+Microsoft Discovery provides [two experiences](concept-discovery-and-discovery-app.md): the Discovery app (local install) and Discovery services (Azure-hosted), each with a distinct pricing model. The Discovery app does not have an additional platform charge and relies only on user’s GitHub Copilot subscription for usage (a paid Copilot tier is recommended for practical workloads).
  
 The remainder of this document describes the billing model for Discovery services, including Azure resource consumption and message-based runtime charges.
  

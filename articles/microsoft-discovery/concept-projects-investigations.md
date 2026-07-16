@@ -24,7 +24,7 @@ Projects scope access to the following resources:
 
 | Resource | Description |
 | --- | --- |
-| **Agents** | Every project includes a default **Discovery** agent ready to use. You can also create custom prompt agents and workflow agents that execute specific scientific tasks. Agents declare their project affiliation at creation and can't be shared across projects. However, you can clone agents between projects using the **add existing agents** option.|
+| **Agents** | Every project includes a default **Discovery** agent ready to use. You can also create custom prompt agents that execute specific scientific tasks. Agents declare their project affiliation at creation and can't be shared across projects. However, you can clone agents between projects using the **add existing agents** option.|
 | **Tools and knowledge bases** | Tools and knowledge bases are not directly associated to a project, however, they are used by agents within a project.
 | **Shared sessions** | Research sessions where you chat with agents, run analyses, and collect insights. |
 | **Storage containers** | Azure Blob Storage containers that hold input and output data for your shared sessions. |
@@ -58,7 +58,7 @@ Within a shared session, you can:
 - **Chat with agents** by selecting an agent and entering prompts in natural language. Use the agent selector in the chat input box or `@` and select to route messages to specific agents.
 - **Run computational analyses** where agents invoke tools and knowledge bases, on your behalf to accomplish a given task.
 - **Collect data-driven insights** as agents reason over your knowledge bases, run calculations, and synthesize findings.
-- **Orchestrate multi-agent workflows** by invoking workflow agents that coordinate multiple prompt agents across research steps.
+- **Orchestrate multi-agent research** by using the Discovery Engine that coordinates multiple prompt agents across research steps.
 
 Each shared session maintains its own conversation history and context, allowing you to track the progression of a research thread from initial question to final insight.
 

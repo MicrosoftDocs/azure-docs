@@ -1,11 +1,12 @@
 ---
 title: Connect to Office 365 Outlook from Workflows
-description: Learn how to automate tasks in Office 365 Outlook by using workflows in Azure Logic Apps.
+description: Connect to Office 365 Outlook from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 06/19/2025
+ms.update-cycle: 1095-days
+ms.date: 07/10/2026
 ---
 
 # Connect to Office 365 Outlook from workflows in Azure Logic Apps
