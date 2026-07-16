@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 10/23/2024
+ms.date: 07/16/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.
@@ -216,14 +216,6 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
    systemctl restart k3s
    ```
 
-### Configure multi-node clusters for Azure Container Storage enabled by Azure Arc
-
-Features such as data flow local storage endpoints and the media connector optionally use [Azure Container Storage enabled by Azure Arc (ACSA)](/azure/azure-arc/container-storage/overview) to synchronize local data to the cloud. ACSA is not installed as part of Azure IoT Operations, so you must install it separately.
-
-On multi-node Ubuntu clusters with at least three nodes, you have the option to enable fault tolerance for ACSA storage. To enable fault tolerance during deployment, follow the steps in [Prepare Linux for Edge Volumes using a multi-node Ubuntu cluster](/azure/azure-arc/container-storage/howto-multi-node-cluster-edge-volumes?pivots=ubuntu-other) to configure your cluster.
-
-If you're running your cluster on a Kubernetes distribution other than k3s, review the guidance to [Prepare Linux with other platforms](/azure/azure-arc/container-storage/howto-multi-node-cluster-edge-volumes?pivots=other).
-
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
 
 [Azure Kubernetes Service Edge Essentials](/azure/aks/hybrid/aks-edge-overview) is an on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale. AKS Edge Essentials includes a Microsoft-supported Kubernetes platform that includes a lightweight Kubernetes distribution with a small footprint and simple installation experience that supports PC-class or "light" edge hardware.
@@ -341,6 +333,16 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
    az connectedk8s enable-features -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
    ```
 ---
+
+## Configure Azure Container Storage enabled by Azure Arc
+
+Features such as data flow local storage endpoints and the media connector optionally use [Azure Container Storage enabled by Azure Arc (ACSA)](/azure/azure-arc/container-storage/overview) to synchronize local data to the cloud. ACSA isn't installed as part of Azure IoT Operations, so you must install it separately.
+
+To learn how to install ACSA on your Kubernetes cluster:
+
+- Review [What is Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview).
+- Review [Prepare Linux for Edge Volumes](/azure/azure-arc/container-storage/howto-prepare-linux-edge-volumes).
+- Follow the steps in [Install Azure Container Storage enabled by Azure Arc Edge Volumes](/azure/azure-arc/container-storage/howto-install-edge-volumes).
 
 ## Next steps
 

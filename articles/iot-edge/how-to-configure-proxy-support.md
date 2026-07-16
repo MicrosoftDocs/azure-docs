@@ -3,7 +3,7 @@ title: Configure devices for network proxies for Azure IoT Edge
 description: Learn how to configure Azure IoT Edge devices to communicate through a proxy server.
 author: sethmanheim
 ms.author: sethm
-ms.date: 04/01/2026
+ms.date: 07/16/2026
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
@@ -167,7 +167,7 @@ This step takes place once on the IoT Edge device during initial device setup.
     type = "docker"
     
     [agent.config]
-    image = "mcr.microsoft.com/azureiotedge-agent:1.5"
+    image = "mcr.microsoft.com/azureiotedge-agent:1.6"
     
     [agent.env]
     # RuntimeLogLevel = "debug"
@@ -179,7 +179,7 @@ This step takes place once on the IoT Edge device during initial device setup.
 
     ```toml
     [agent.config]
-    image = "mcr.microsoft.com/azureiotedge-agent:1.5"
+    image = "mcr.microsoft.com/azureiotedge-agent:1.6"
     
     [agent.env]
     # RuntimeLogLevel = "debug"
@@ -243,7 +243,7 @@ With the environment variables included, the module definition looks like the fo
 "edgeHub": {
     "type": "docker",
     "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
+        "image": "mcr.microsoft.com/azureiotedge-hub:1.6",
         "createOptions": "{}"
     },
     "env": {

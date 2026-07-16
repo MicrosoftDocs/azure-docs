@@ -6,6 +6,7 @@ ms.author: molir
 ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 11/4/2025
+ms.update-cycle: 1095-days
 ms.custom: engagement-fy25
 # Customer intent: "As a cloud architect, I want to prepare Azure accounts and assign Azure Migrate built-in roles to provide secure, least-privileged access for Azure Migrate projects". 
 ---
