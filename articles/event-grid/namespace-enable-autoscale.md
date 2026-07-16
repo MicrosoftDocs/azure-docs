@@ -1,6 +1,6 @@
 ---
 title: Enable Autoscale for an Azure Event Grid namespace (preview)
-description: Learn how to enable Autoscale for an Azure Event Grid namespace using the Azure portal, ARM template, REST API, or Azure CLI.
+description: Learn how to enable Autoscale for an Azure Event Grid namespace using the Azure portal, ARM template, or REST API.
 ms.topic: how-to
 ms.date: 05/14/2026
 author: robece
@@ -13,7 +13,7 @@ ai-usage: ai-assisted
 
 This article shows you how to enable autoscale for an Azure Event Grid namespace. Autoscale requires only three configuration properties: an enable flag and the minimum and maximum throughput unit (TU) limits. Event Grid manages all scaling logic internally.
 
-You can enable autoscale by using the Azure portal, an Azure Resource Manager template, the REST API, or Azure CLI.
+You can enable autoscale by using the Azure portal, an Azure Resource Manager template, or the REST API.
 
 ## Prerequisites
 
@@ -159,30 +159,6 @@ Request body:
 }
 ```
 
-## Enable autoscale - Azure CLI
-
-Use Azure CLI to enable autoscale on an existing namespace. Replace placeholder values with your own.
-
-To configure autoscale using Azure CLI, set three properties on the namespace:
-
-| Property | Description |
-|---|---|
-| `enableAutoScale` | Set to `true` to enable autoscale. |
-| `minimumThroughputUnits` | The minimum number of TUs the namespace can scale down to. Must be at least 1. |
-| `maximumThroughputUnits` | The maximum number of TUs the namespace can scale up to. Maximum supported value is 40. |
-
-
-```azurecli
-az resource update \
-    --resource-group <resource-group-name> \
-    --name <namespace-name> \
-    --resource-type "Microsoft.EventGrid/namespaces" \
-    --api-version 2025-11-15-preview \
-    --set properties.autoScaleConfiguration.enableAutoScale=true \
-         properties.autoScaleConfiguration.minimumThroughputUnits=2 \
-         properties.autoScaleConfiguration.maximumThroughputUnits=8
-```
-
 ## Verify Autoscale configuration
 
 After enabling Autoscale, verify the configuration by retrieving the namespace details.
@@ -235,30 +211,9 @@ The response body includes the `autoScaleConfiguration` section:
 }
 ```
 
-### Azure CLI
-
-```azurecli
-az resource show \
-    --resource-group <resource-group-name> \
-    --name <namespace-name> \
-    --resource-type "Microsoft.EventGrid/namespaces" \
-    --api-version 2025-11-15-preview \
-    --query "properties.autoScaleConfiguration"
-```
-
-Expected output:
-
-```json
-{
-  "enableAutoScale": true,
-  "minimumThroughputUnits": 2,
-  "maximumThroughputUnits": 8
-}
-```
-
 ## Disable autoscale
 
-This section shows how to disable autoscale for an Event Grid namespace by using Azure portal, CLI, and REST API. The namespace keeps its current TU allocation and stops scaling automatically.
+This section shows how to disable autoscale for an Event Grid namespace by using the Azure portal and REST API. The namespace keeps its current TU allocation and stops scaling automatically.
 
 ### Azure portal
 Follow these steps to disable autoscale by using the Azure portal:
@@ -288,17 +243,6 @@ Request body:
     }
   }
 }
-```
-
-### Azure CLI
-
-```azurecli
-az resource update \
-    --resource-group <resource-group-name> \
-    --name <namespace-name> \
-    --resource-type "Microsoft.EventGrid/namespaces" \
-    --api-version 2025-11-15-preview \
-    --set properties.autoScaleConfiguration.enableAutoScale=false
 ```
 
 ## Best practices
