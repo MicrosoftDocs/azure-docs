@@ -4,7 +4,7 @@ metadata:
   description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 06/12/2026
+  ms.date: 07/16/2026
   author: AbhishekMallick-MS
   ms.author: v-mallicka
   ms.custom:
