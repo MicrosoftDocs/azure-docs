@@ -161,7 +161,7 @@ You'll also need to [create a policy for SAP HANA database backup](backup-azure-
 
 To discover the database instance where the snapshot is present, see [Back up SAP HANA databases in Azure VMs](backup-azure-sap-hana-database.md#discover-the-databases).
 
-For HSR-enabled systems, ensure that both HSR nodes are  registered with the same vault before you enable snapshot protection. [Learn how to register HSR nodes with a vault](sap-hana-database-with-hana-system-replication-backup.md).
+For HSR-enabled systems, ensure that both HSR nodes are registered with the same vault before you enable snapshot protection. [Learn how to register HSR nodes with a vault](sap-hana-database-with-hana-system-replication-backup.md).
 
 [!INCLUDE [How to configure backup for SAP HANA instance snapshot, run an on-demand backup, and monitor the backup job](../../includes/backup-azure-configure-sap-hana-database-instance-backup.md)]
 

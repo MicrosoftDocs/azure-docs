@@ -14,7 +14,7 @@ ms.custom: sfi-ropc-nochange
 
 This article describes how to restore a backed-up SAP HANA database instance to another target virtual machine (VM) via snapshots.
 
-For HSR-enabled SAP HANA systems, the same snapshot restore workflow applies when the source snapshots were created from an HSR-protected pair.
+For HSR-enabled SAP HANA systems, the same snapshot restore workflow applies when the source snapshots come from an HSR-protected pair.
 
 > [!Note]
 > If you want to do an in-place restore (that is, overwrite the backed-up VM by detaching the existing disks and attaching new disks), detach the existing disks and see the following sections.
