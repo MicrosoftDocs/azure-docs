@@ -257,7 +257,7 @@ For GRIB2 collections, `info_options` typically contains only the asset selectio
 ```
 
 > [!NOTE]
-> When `info_options` is absent, the Explorer falls back to the legacy behavior — reading `cube:dimensions` and `start_datetime`/`end_datetime` from STAC item metadata. Both approaches are supported simultaneously, so existing collections continue to work without changes.
+> When `info_options` is absent, the Explorer falls back to the legacy behavior - reading `cube:dimensions` and `start_datetime`/`end_datetime` from STAC item metadata. Both approaches are supported simultaneously, so existing collections continue to work without changes.
 
 ## Step 6: Add the Render Configuration to Your Collection
 
