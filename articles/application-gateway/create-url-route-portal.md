@@ -114,7 +114,7 @@ In this example, you create three virtual machines to be used as backend servers
 1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**.
 
    > [!NOTE]
-   > For the Application Gateway v2 SKU, you can only choose **Public** frontend IP configuration. Private frontend IP configuration is currently not enabled for this v2 SKU.
+   > For the Application Gateway v2 SKU, a public frontend IP configuration is required. You can also add a private frontend IP configuration, but v2 can't be configured with a private frontend IP address only. This example uses a public frontend IP. For more information, see [Private Application Gateway deployment](application-gateway-private-deployment.md).
 
 2. Select **Add new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 3. Select **Next: Backends**.
