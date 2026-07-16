@@ -7,7 +7,7 @@ ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.custom: references_regions
 ms.date: 03/06/2026
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: As a network administrator, I want to migrate my VPN gateway from a Basic SKU public IP address to a Standard SKU, so that I can ensure continued service and optimize performance as Basic SKU is phased out.
 ---
 

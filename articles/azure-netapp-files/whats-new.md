@@ -17,6 +17,11 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## July 2026 
+
+* [Support for DNS server, LDAP port, User DN, Group DN, and Netgroup DN](configure-directory-server.md) (preview)
+
+    Azure NetApp Files now supports additional LDAP connection configuration options for NFS volumes, including custom LDAP ports, customer-specified DNS servers, and configurable User DN, Group DN, and Netgroup DN values. These enhancements improve compatibility with a broader range of LDAP directory service deployments and provide greater flexibility when integrating Azure NetApp Files with existing enterprise directory environments. 
 ## June 2026
 
 * [Azure NetApp Files migration assistant portal experience](migrate-volumes.md?tabs=portal) is now generally available (GA)

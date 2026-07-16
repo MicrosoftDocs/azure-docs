@@ -50,7 +50,7 @@ The following table summarizes the support for different scenarios for SQL Serve
 
 _*The database size limit depends on the data transfer rate that we support and the backup time limit configuration. It’s not the hard limit. [Learn more](#backup-throughput-performance-for-sql-streaming-backup) on backup throughput performance._
 
-* SQL Server backup can be configured in the Azure portal or **PowerShell**. CLI isn't supported.
+* SQL Server backup can be configured in the Azure portal, **PowerShell**, or **Azure CLI**.
 * The solution is supported on both kinds of [deployments](../azure-resource-manager/management/deployment-models.md) - Azure Resource Manager VMs and classic VMs.
 * All backup types (full/differential/log) and recovery models (simple/full/bulk logged) are supported.
 * For **read-only** databases: full and copy-only full backups are the only supported backup types.

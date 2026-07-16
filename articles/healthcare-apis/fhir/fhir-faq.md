@@ -115,11 +115,13 @@ To replicate settings between FHIR instance, you can follow below steps
 
 ### What is SMART on FHIR?
 
-SMART (Substitutable Medical Applications and Reusable Technology) on FHIR is a set of open specifications to integrate partner applications with FHIR Servers and other Health IT systems, such as Electronic Health Records and Health Information Exchanges. By creating a SMART on FHIR application, you can ensure that your application can be accessed and used by many different systems. For more information about SMART, see [SMART Health IT](https://smarthealthit.org/).
+SMART (Substitutable Medical Applications and Reusable Technology) on FHIR is a set of open specifications to integrate partner applications with FHIR Servers and other Health IT systems, such as Electronic Health Records and Health Information Exchanges. By creating a SMART on FHIR application, you can ensure that many different systems can access and use your application. For more information about SMART, see [SMART Health IT](https://docs.smarthealthit.org/).
 
 ### Does the FHIR service support SMART on FHIR?
 
-Yes, SMART on FHIR capability is supported using [AHDS samples](https://github.com/Azure-Samples/azure-health-data-and-ai-samples/blob/main/samples/patientandpopulationservices-smartonfhir-oncg10-smart-v1/docs/deployment.md). This capability is referred to as SMART on FHIR(Enhanced). SMART on FHIR(Enhanced) can be considered to meet requirements with [SMART on FHIR Implementation Guide (v 1.0.0)](https://hl7.org/fhir/smart-app-launch/1.0.0/) and [§170.315(g)(10) Standardized API for patient and population services criterion](https://www.healthit.gov/test-method/standardized-api-patient-and-population-services#ccg). For more information, visit [SMART on FHIR(Enhanced) Documentation](smart-on-fhir.md).
+Yes, the FHIR service supports SMART on FHIR by using:
+
+Azure Health Data Services (AHDS) FHIR service provides native support for SMART on FHIR. The SMART App Launch Implementation Guide defines the industry standard for launching healthcare applications using OAuth 2.0 and OpenID Connect, enabling secure, interoperable access to FHIR resources across EHRs and FHIR servers. For more information, see the [SMART App Launch Implementation Guide v2.0.0](https://hl7.org/fhir/smart-app-launch/STU2/).
 
 
 ### Can I create a custom FHIR resource?

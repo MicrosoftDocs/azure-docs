@@ -1,6 +1,6 @@
 ---
-author: EdB-MSFT
-ms.author: edbaynash
+author: cephalin
+ms.author: cephalin
 ms.service: azure-monitor
 ms.topic: include
 ms.date: 09/11/2023

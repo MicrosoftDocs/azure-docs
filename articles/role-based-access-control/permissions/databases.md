@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 06/20/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -363,6 +363,7 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | `Microsoft.DBforPostgreSQL/privateEndpointConnectionsApproval/action` | Determines if user is allowed to approve a private endpoint connection |
 > | `Microsoft.DBforPostgreSQL/register/action` | Register PostgreSQL Resource Provider |
 > | `Microsoft.DBforPostgreSQL/checkNameAvailability/action` | Verify whether given server name is available for provisioning worldwide for a given subscription. |
+> | `Microsoft.DBforPostgreSQL/flexibleServers/startMajorVersionUpgradePrecheck/action` | Creates a Major Version Upgrade Precheck operation |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/migrateNetwork/action` | Creates the migrate network operation with the specified parameters. |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/ltrBackupAccess/action` | Start LTR backup access operation for a server |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/ltrBackup/action` | Start LTR backup operation for a server |
@@ -370,22 +371,21 @@ Azure service: [Azure Database for PostgreSQL](/azure/postgresql/)
 > | `Microsoft.DBforPostgreSQL/flexibleServers/ltrRestoreFinalize/action` | Start LTR restore finalize operation for a server |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/ltrRestoreInitialize/action` | Start LTR restore initialize operation for a server |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/ltrRestorePreCheck/action` | Start LTR restore pre-check operation for a server |
+> | `Microsoft.DBforPostgreSQL/flexibleServers/synchronizeGroupMembers/action` | Synchronizes Microsoft Entra ID group members with PostgreSQL roles. |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/read` | Return the list of servers or gets the properties for the specified server. |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/write` | Creates a server with the specified parameters or update the properties or tags for the specified server. |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/delete` | Deletes an existing server. |
-> | `Microsoft.DBforPostgreSQL/flexibleServers/majorVersionUpgradePrecheck/action` | Creates a Major Version Upgrade Precheck operation |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/restart/action` | Restarts an existing server |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/start/action` | Starts an existing server |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/stop/action` | Stops an existing server |
-> | `Microsoft.DBforPostgreSQL/flexibleServers/waitStatistics/action` |  |
-> | `Microsoft.DBforPostgreSQL/flexibleServers/resetQueryPerformanceInsightData/action` |  |
-> | `Microsoft.DBforPostgreSQL/flexibleServers/checkMigrationNameAvailability/action` | Checks the availability of the given migration name. |
-> | `Microsoft.DBforPostgreSQL/flexibleServers/administrators/action` | Creates a server administrator with the specified parameters or update the properties or tags for the specified server administrator. |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/getSourceDatabaseList/action` |  |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/testConnectivity/action` |  |
+> | `Microsoft.DBforPostgreSQL/flexibleServers/checkMigrationNameAvailability/action` | Checks the availability of the given migration name. |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/startLtrBackup/action` | Start long term backup for a server |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/ltrPreBackup/action` | Checks if a server is ready for a long term backup |
-> | `Microsoft.DBforPostgreSQL/flexibleServers/synchronizeGroupMembers/action` | Synchronizes Microsoft Entra ID group members with PostgreSQL roles. |
+> | `Microsoft.DBforPostgreSQL/flexibleServers/administrators/action` | Creates a server administrator with the specified parameters or update the properties or tags for the specified server administrator. |
+> | `Microsoft.DBforPostgreSQL/flexibleServers/resetQueryPerformanceInsightData/action` |  |
+> | `Microsoft.DBforPostgreSQL/flexibleServers/waitStatistics/action` |  |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/privateEndpointConnectionsApproval/action` | Determines if the user is allowed to approve a private endpoint connection |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/administrators/read` | Return the list of server administrators or gets the properties for the specified server administrator. |
 > | `Microsoft.DBforPostgreSQL/flexibleServers/administrators/delete` | Deletes an existing PostgreSQL server administrator. |

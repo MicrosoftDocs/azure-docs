@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: best-practice
 ms.date: 05/13/2025
 ms.reviewer: v-uhabiba
+ms.update-cycle: 365-days
 ms.custom:
   - build-2025
 # Customer intent: As a cloud migration specialist, I want to implement security best practices for deploying the migration appliance, so that I can experience a secure and efficient migration process while protecting sensitive data.

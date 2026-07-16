@@ -28,6 +28,7 @@ Use this tier if any of the following statements is true:
 * You want to build applications with flexible consumption patterns, for example, HTTP pull delivery for multiple consumers or push delivery to Event Hubs.
 * You require HTTP communication rates greater than 5 MB/s for ingress and egress using pull delivery or push delivery. Event Grid currently supports up to 40 MB/s for ingress and 80 MB/s for egress for events published to namespace topics (HTTP). MQTT supports a throughput rate of 40 MB/s for publisher and subscriber clients.
 * You require CloudEvents retention of up to 7 days.
+* You require automatic scaling of throughput units based on real-time event traffic and resource utilization without manual intervention.
 
 For more information, see quotas and limits for [namespaces](quotas-limits.md#event-grid-namespace-resource-limits).
 
@@ -69,6 +70,7 @@ The basic tier focuses on providing push delivery support to trigger actions bas
 | Subscribe to partner events | | Yes |
 | Domain scope subscriptions | | Yes |
 | Pull delivery to Fabric Eventstream | Yes | No |
+| Autoscale (automatic TU adjustment) | Yes | No |
 
 ## Related content
 

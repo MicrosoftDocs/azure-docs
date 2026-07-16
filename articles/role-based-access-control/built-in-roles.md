@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 06/20/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -365,6 +365,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
+> | <a name='azure-device-registry-administrator'></a>[Azure Device Registry Administrator](./built-in-roles/internet-of-things.md#azure-device-registry-administrator) | Azure Device Registry Administrator | 12675fd7-7f59-493f-9201-f7944860a2f1 |
 > | <a name='azure-device-registry-contributor'></a>[Azure Device Registry Contributor](./built-in-roles/internet-of-things.md#azure-device-registry-contributor) | Allows for full access to IoT devices within Azure Device Registry Namespace. | a5c3590a-3a1a-4cd4-9648-ea0a32b15137 |
 > | <a name='azure-device-registry-credentials-contributor'></a>[Azure Device Registry Credentials Contributor](./built-in-roles/internet-of-things.md#azure-device-registry-credentials-contributor) | Allows for full access to manage credentials and policies within Azure Device Registry Namespace. | 09267e11-2e06-40b5-8fe4-68cea20794c9 |
 > | <a name='azure-device-registry-onboarding'></a>[Azure Device Registry Onboarding](./built-in-roles/internet-of-things.md#azure-device-registry-onboarding) | Allows for full access to Azure Device Registry Namespace and X.509 certificate provisioning. | 547f7f0a-69c0-4807-bd9e-0321dfb66a84 |
@@ -535,6 +536,8 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-migrate-execute-expert'></a>[Azure Migrate Execute Expert](./built-in-roles/migration.md#azure-migrate-execute-expert) | Grants restricted access on an Azure Migrate project to only perform migration related operations, including replication, execution of test migrations, tracking and monitoring of migration progress, and initiation of agentless and agent-based migrations. | 1cfa4eac-9a23-481c-a793-bfb6958e836b |
 > | <a name='azure-migrate-owner'></a>[Azure Migrate Owner](./built-in-roles/migration.md#azure-migrate-owner) | Grants full access to create and manage Azure Migrate projects including appliance-based discovery, creation of business case & assessment report and execution of migrations; Also grants ability to assign Azure Migrate specific roles in Azure RBAC. | fd8ea4d5-6509-4db0-bada-356ab233b4fa |
 > | <a name='azure-migrate-service-reader'></a>[Azure Migrate Service Reader](./built-in-roles/migration.md#azure-migrate-service-reader) | Grants required access to the system assigned managed identity of Azure Migrate project resource. | ba480ccd-6499-4709-b581-8f38bb215c63 |
+> | <a name='azure-local-migrate-execute-expert'></a>[Azure Local Migrate Execute Expert](./built-in-roles/migration.md#azure-local-migrate-execute-expert) | Grants restricted access on an Azure Local based Azure Migrate project to only perform migration related operations, including replication, execution of migrations, tracking and monitoring of migration progress, and initiation of agentless migrations. | 1cfa4eac-9a23-481c-a793-bfb6958e836c |
+> | <a name='azure-local-migrate-owner'></a>[Azure Local Migrate Owner](./built-in-roles/migration.md#azure-local-migrate-owner) | Grants full access to create and manage Azure Local based Azure Migrate projects including appliance-based discovery and execution of migrations; Also grants ability to assign Azure Migrate Local specific roles in Azure RBAC | fd8ea4d5-6509-4db0-bada-356ab233b4fb |
 > | <a name='migrate-arc-discovery-reader---preview'></a>[Migrate Arc Discovery Reader - Preview](./built-in-roles/migration.md#migrate-arc-discovery-reader---preview) | Read metadata of Azure Arc enabled server resources and metadata, performance and migration suitability of Arc enabled SQL server resources. Users creating Azure Migrate project that uses Arc resource discovery require this role on Arc scope of the project. To enable periodic sync, Azure Migrate project managed identity must be assigned this role. This role is in preview and subject to change. | 5d5dddae-e124-4753-972d-aae60b37deb4 |
 
 ## Monitor

@@ -68,6 +68,8 @@
       href: ../durable-functions/durable-functions-perf-and-scale.md
     - name: Data persistence and serialization
       href: ../durable-functions/durable-functions-serialization-and-persistence.md
+    - name: Migrate to type-safe serialization (Python)
+      href: ../durable-functions/durable-functions-python-type-safe-serialization-migrate.md
   - name: Features
     items:
     - name: Instance management
@@ -230,6 +232,12 @@
       href: ../scheduler/develop-with-durable-task-scheduler.md
     - name: Develop
       items:
+      - name: On-demand sandboxes
+        items:
+        - name: On-demand sandboxes overview
+          href: ../scheduler/durable-task-scheduler-on-demand-sandboxes.md
+        - name: Configure on-demand sandboxes
+          href: ../scheduler/durable-task-scheduler-configure-on-demand-sandboxes.md
       - name: Configure autoscale for Container Apps
         href: ../sdks/durable-task-scheduler-auto-scaling.md
       - name: Auto-purge

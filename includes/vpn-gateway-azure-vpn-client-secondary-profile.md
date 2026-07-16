@@ -1,8 +1,8 @@
 ---
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: include
-ms.author: cherylmc
+ms.author: duau
 ms.date: 03/20/2025
 ms.custom: sfi-image-nochange
 ---

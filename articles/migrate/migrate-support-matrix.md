@@ -6,6 +6,7 @@ ms.author: vibansa
 ms.topic: concept-article
 ms.reviewer: v-uhabiba
 ms.date: 05/08/2025
+ms.update-cycle: 1095-days
 ms.custom: engagement-fy24
 # Customer intent: As a cloud architect, I want to understand the Azure Migrate support matrix so that I can determine the service's capabilities and limitations for assessing and migrating on-premises workloads to Azure effectively.
 ---

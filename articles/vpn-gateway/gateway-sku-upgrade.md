@@ -2,11 +2,11 @@
 title: Upgrade a VPN Gateway SKU
 titleSuffix: Azure VPN Gateway
 description: Learn how to upgrade a VPN Gateway SKU in Azure.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 03/03/2026
-ms.author: cherylmc
+ms.author: duau
 
 #customer intent: As an Azure network engineer, I want to understand the workflow for upgrading a VPN Gateway SKU so that I can plan properly and minimize downtime.
 

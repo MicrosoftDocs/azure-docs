@@ -71,7 +71,7 @@ items:
 - name: Reliability and resiliency
   items:
   - name: Reliability in Azure Storage Mover
-    href: /azure/reliability/reliability-azure-storage-mover?toc=/azure/storage-mover/toc.json
+    href: /azure/reliability/reliability-storage-mover?toc=/azure/storage-mover/toc.json
   - name: Customer-initiated disaster recovery
     href: customer-initiated-disaster-recovery.md
 - name: Resources

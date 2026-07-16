@@ -147,9 +147,9 @@ To pin your function app to a specific runtime version on Linux, set a version-s
 >
 > Pinning to a specific runtime isn't currently supported for Linux function apps running in a Consumption plan.
 
-The following example shows the [`linuxFxVersion`] value required to pin a Node.js 16 function app to a specific runtime version of 4.14.0.3:
+The following example shows the [`linuxFxVersion`] value required to pin a Node.js 22 function app to a specific runtime version of 4.14.0.3:
 
-`DOCKER|mcr.microsoft.com/azure-functions/node:4.14.0.3-node16`
+`DOCKER|mcr.microsoft.com/azure-functions/node:4.14.0.3-node22`
 
 When needed, a support professional can provide you with a valid base image URI for your application.
 

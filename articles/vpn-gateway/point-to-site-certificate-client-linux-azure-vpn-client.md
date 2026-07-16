@@ -2,11 +2,11 @@
 title: 'Configure P2S VPN clients - certificate authentication - Azure VPN Client - Linux'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure a Linux client to connect to Azure using a point-to-site connection, Open VPN, and the Azure VPN Client for Linux.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 02/26/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom:
   - linux-related-content
   - sfi-image-nochange
