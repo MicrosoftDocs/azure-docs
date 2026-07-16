@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 05/26/2020
+ms.date: 07/16/2026
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to configure TLS termination using Key Vault certificates with Azure PowerShell, so that I can secure my application gateway communications effectively."
