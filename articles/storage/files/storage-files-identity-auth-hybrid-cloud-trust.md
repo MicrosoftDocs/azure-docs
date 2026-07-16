@@ -18,7 +18,7 @@ Many organizations want to use identity-based authentication for SMB Azure file 
 
 Hybrid user identities are on-premises AD DS identities that are synced to Microsoft Entra ID by using either [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync).
 
-A cloud trust is an incoming trust relationship in which on-premises Active Directory Domain Services trusts Microsoft Entra ID as a Kerberos Key Distribution Center (KDC). This allows domain-joined clients to obtain Kerberos tickets from Microsoft Entra ID without requiring direct network connectivity to on-premises domain controllers.
+A cloud trust is an incoming trust relationship in which on-premises Active Directory Domain Services trusts Microsoft Entra ID as a Kerberos Key Distribution Center (KDC). This trust relationship allows domain-joined clients to obtain Kerberos tickets from Microsoft Entra ID without requiring direct network connectivity to on-premises domain controllers.
 
 > [!NOTE]
 > Only forest trusts are supported for Azure Files. Other trust types, such as external trusts, aren't supported.
