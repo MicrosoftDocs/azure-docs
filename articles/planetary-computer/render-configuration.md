@@ -106,7 +106,7 @@ Render configurations are defined as a list of JSON objects (or Python dictionar
     "type": "raster-tile", // Usually "raster-tile"
     "options": "key1=value1&key2=value2...", // The core TiTiler parameters
     "minZoom": 8, // Optional: Minimum map zoom level to display this layer
-    "info_options": [ ... ] // Optional: Enables the Explorer time slider for data cube collections
+    "info_options": "assets=<asset_key>&subdataset_name=<var>" // Optional URL query-string for Explorer time slider discovery
   },
   {
     // ... another render configuration object ...
@@ -120,7 +120,7 @@ Render configurations are defined as a list of JSON objects (or Python dictionar
 *   `type`: Typically `"raster-tile"`.
 *   `options`: A string containing URL query parameters (`key=value` pairs separated by `&`) that control the TiTiler rendering engine. This is where most customization happens.
 *   `minZoom`: Optional integer specifying the minimum map zoom level at which this layer becomes visible. Useful for managing performance with high-resolution data.
-*   `info_options`: Optional array of objects that enables the Explorer's time slider for data cube collections (NetCDF, HDF5, GRIB2). See [Configuring the Explorer time slider](#8-configuring-the-explorer-time-slider-data-cubes) for details.
+*   `info_options`: Optional URL query-string that enables the Explorer's time slider for data cube collections (NetCDF, HDF5, GRIB2). See [Configuring the Explorer time slider](#8-configuring-the-explorer-time-slider-data-cubes) for details.
 
 Using the same structure, it's possible to have multiple render configurations for the same data so data can be visualized in multiple ways. 
 
@@ -226,12 +226,16 @@ For more information about color correction, see the [TiTiler documentation](htt
 | `subdataset_bands={band_index}` | GRIB | Select specific message/band | `assets=grib_data&subdataset_bands=1&colormap_name=jet&rescale=273,300` |
 | `subdataset_name={variable_name}` | NetCDF | Select variable to visualize | `assets=netcdf_data&subdataset_name=temperature` |
 | `datetime={timestamp}` | NetCDF | Select time slice (ISO 8601) | `datetime=2023-10-26T12:00:00Z` |
+| `sel={dimension}={value}` | Zarr | Xarray-style indexer, repeatable per dimension. | `sel=time=2024-01-01` |
+| `sel_method={method}` | Zarr | Xarray indexing method for inexact matches. | `sel_method=nearest` |
 
 **Full NetCDF example:** `assets=netcdf_data&subdataset_name=temperature&datetime=2023-10-26T12:00:00Z&colormap_name=viridis&rescale=0,30`
 
 ### 8. Configuring the Explorer Time Slider (Data Cubes)
 
-To enable the Explorer's time slider for data cube collections, add an `info_options` array to your render configuration object. This top-level field (alongside `id`, `name`, `options`, etc.) tells the Explorer which assets to query via the Tiler's `/info` endpoint to discover available time steps and dimensions. The time slider works independently of data cube enrichment — it reads available ticks directly from what the Tiler can serve.
+To enable the Explorer's time slider for a data cube render option, add an `info_options` field to your render configuration object. `info_options` is a URL query-string, in the same format as `options`, that the Explorer forwards to the Tiler's `/info` endpoint for each visible STAC item. The Explorer uses the returned band descriptions to build the slider's tick positions, so the slider reflects what the Tiler can serve. This field is valid only for `raster-tile` render options.
+
+Author `info_options` as the discovery-relevant subset of `options`: typically the `assets` parameter and, for NetCDF, HDF5, and Zarr, `subdataset_name`. Omit styling and slicing parameters such as `rescale`, `colormap_name`, `datetime`, `sel`, and `sel_method` because they don't affect band discovery. When you enable the slider, also remove any `datetime=` from `options`, otherwise the pinned value overrides the slider.
 
 ```jsonc
 {
@@ -240,30 +244,15 @@ To enable the Explorer's time slider for data cube collections, add an `info_opt
   "type": "raster-tile",
   "options": "assets=t2m-kerchunk&subdataset_name=t2m&colormap_name=viridis&rescale=250,310",
   "minZoom": 1,
-  "info_options": [
-    {
-      "asset": "t2m-kerchunk",
-      "subdataset_name": "t2m",
-      "dimension_label": "time"
-    }
-  ]
+  "info_options": "assets=t2m-kerchunk&subdataset_name=t2m"
 }
 ```
 
-| `info_options` field | Required | Description |
-| :------------------- | :------- | :---------- |
-| `asset` | Yes | The STAC asset key to query via the Tiler `/info` endpoint. Must match a key in your collection's `item_assets`. |
-| `subdataset_name` | No | The subdataset (variable) within the asset. Required for multi-variable NetCDF/HDF5 files. |
-| `dimension_label` | No | Human-readable label shown above the slider in the Explorer UI (for example, `"time"`, `"depth"`, `"sample"`). |
-
-For GRIB2 collections that expose multiple subdatasets, declare one entry per subdataset:
+For GRIB2 collections, `info_options` typically contains only the asset selection used for discovery:
 
 ```jsonc
 {
-  "info_options": [
-    { "asset": "data", "subdataset_name": "subset_a" },
-    { "asset": "data", "subdataset_name": "subset_b" }
-  ]
+  "info_options": "assets=data"
 }
 ```
 
@@ -398,15 +387,9 @@ Here are various examples of the `options` string and the full render configurat
     "name": "Precipitation (1950-07-07)",
     "description": "Precipitation from NetCDF data.",
     "type": "raster-tile",
-    "options": "assets=cmip&rescale=0,0.01&colormap_name=viridis&subdataset_name=pr&datetime=1950-07-07T00:00:00",
+    "options": "assets=cmip&rescale=0,0.01&colormap_name=viridis&subdataset_name=pr",
     "minZoom": 4,
-    "info_options": [
-      {
-        "asset": "cmip",
-        "subdataset_name": "pr",
-        "dimension_label": "time"
-      }
-    ]
+    "info_options": "assets=cmip&subdataset_name=pr"
   }
 ```
 
