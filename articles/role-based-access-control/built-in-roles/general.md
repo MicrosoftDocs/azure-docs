@@ -5,9 +5,9 @@ ms.service: role-based-access-control
 ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.author: rolyon
-ms.date: 04/25/2025
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 

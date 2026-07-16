@@ -1,12 +1,16 @@
 ---
-title: Deploy the first SAP HANA host using Azure NetApp Files application volume group for SAP HANA | Microsoft Docs
+title: Deploy the first SAP HANA host using Azure NetApp Files application volume group for SAP HANA
 description: Describes how to deploy the first SAP HANA host using Azure NetApp Files application volume group for SAP HANA.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/22/2025
+ms.date: 01/07/2026
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+  - sfi-image-nochange
+# Customer intent: "As a cloud architect, I want to deploy the first SAP HANA host using an application volume group, so that I can efficiently manage storage and ensure optimal performance for my SAP HANA environment."
 ---
 # Deploy the first SAP HANA host using application volume group for SAP HANA
 
@@ -19,8 +23,8 @@ This article describes how to deploy the first SAP HANA host using Azure NetApp 
 - Understand the [requirements and considerations for application volume group for SAP HANA](application-volume-group-considerations.md). 
 
 - Application volume group for SAP HANA enables you to select Standard network features and availability zone volume placement without using volume pinning.
-    Alternately, adhere to the **[pinning recommendations](https://aka.ms/HANAPINNING)**. Have at least one HANA virtual machine (VM) in the availability set started. 
-
+    Alternately, adhere to the **[pinning recommendations](https://aka.ms/HANAPINNING)**, and have at least one **deployed and running** HANA VM in the availability set.
+  
 ## Steps 
 
 1. From your NetApp account, select **Application volume groups**, then **+Add Group**.
@@ -57,10 +61,10 @@ This article describes how to deploy the first SAP HANA host using Azure NetApp 
 
         Select either **Availability zone** or **Proximity placement group**. 
         When selecting **Availability zone**, you must select the appropriate availability zone in the next field. 
-        * **Proximity placement group (PPG)**:  
-            Specifies that the data, log, and shared volumes are to be created close to the VMs.
         * **Availability Zone**: 
             This option lets you deploy the volumes in the logical availability zone that you specify. Select an availability zone where Azure NetApp Files resources are present. For details, see [Manage availability zone volume placement](manage-availability-zone-volume-placement.md).
+        * **Proximity placement group (PPG)**:  
+            Specifies that the data, log, and shared volumes are to be created close to the VMs. Have at least one **deployed and running** HANA VM in the availability set with the assigned PPG. 
     * **Network features**: 
 
         Standard network features is the default, however you can still use Basic network features. 

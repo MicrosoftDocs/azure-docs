@@ -1,8 +1,8 @@
 ---
 title: About the Azure Operator Service Manager CLI extension
 description: Learn about the Azure Operator Service Manager CLI extension.
-author: pjw711
-ms.author: peterwhiting
+author: JAC0BSMITH
+ms.author: jacobsmith
 ms.service: azure-operator-service-manager
 ms.topic: concept-article
 ms.date: 03/20/2024
@@ -26,6 +26,42 @@ The Azure CLI AOSM Extension provides a convenient, simplified interface for pub
 - **Simplified commands** - The Az CLI AOSM extension collapses the API calls needed to onboard a network function (NF) to AOSM into three commands for NFDV onboarding, and three similar commands for NSDV onboarding.
 
 - **Optimized for initial testing** - The CLI builds AOSM resources which are optimized for simplicity and for accelerating the publish, deploy, test feedback loop.
+
+## Managing the CLI extension
+
+As of 10/1/2025, the Azure Operator Service Manager CLI extension is classified in preview state by Azure CLI. Installing preview extensions generates warnings in the Azure CLI. To suppress these warnings, the following command examples include the `--allow-preview true` flag. This flag is optional, extension operations run without this flag will also work.
+
+## CLI Extension Install
+
+To install the Azure Operator Service Manager CLI extension, use the following command:
+
+```powershell
+az extension install --name aosm --allow-preview true 
+```
+
+## CLI Extension Update
+
+To update the Azure Operator Service Manager CLI extension, use the following command:
+
+```powershell
+az extension update --name aosm --allow-preview true 
+```
+## CLI Extension Version
+
+To confirm the installed CLI extension version, use the following command:
+
+```powershell
+az --version
+```
+
+If the Azure Operator Service Manager CLI extension is installed, the `aosm` row will be emitted in the version output:
+
+```powershell
+----------------------------------------
+...
+aosm                             2.0.0b3
+...
+```
 
 ## Next Steps
 

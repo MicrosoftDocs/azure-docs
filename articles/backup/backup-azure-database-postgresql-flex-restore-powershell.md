@@ -2,11 +2,12 @@
 title: Restore Azure Database for PostgreSQL - Flexible Server using Azure PowerShell
 description: Learn how to restore Azure Database for PostgreSQL - Flexible Server using Azure PowerShell.
 ms.topic: how-to
-ms.date: 02/28/2025
+ms.date: 01/27/2026
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, ignite-2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a database administrator, I want to restore an Azure Database for PostgreSQL - Flexible Server using PowerShell, so that I can recover data from backup while adhering to necessary permissions and configurations.
 ---
 
 # Restore Azure Database for PostgreSQL - Flexible Server using Azure PowerShell
@@ -22,7 +23,7 @@ Let's use an existing Backup vault `TestBkpVault`, under the resource group `tes
 $TestBkpVault = Get-AzDataProtectionBackupVault -VaultName TestBkpVault -ResourceGroupName "testBkpVaultRG"
 ```
 
-## Set up permissions for restore
+## Set up permissions for PostgreSQL - Flexible Server restore
 
 Backup vault uses managed identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the Azure PostgreSQL – Flexible Server to which the database should be restored.
 
@@ -30,7 +31,7 @@ To assign the relevant permissions for vault's system-assigned managed identity 
 
 To restore the recovery point as files to a storage account, the [Backup vault's system-assigned managed identity needs access on the target storage account](./restore-azure-database-postgresql.md#restore-permissions-on-the-target-storage-account).
 
-## Fetch the relevant recovery point
+## Fetch the relevant recovery point of PostgreSQL - Flexible Server
 
 Fetch all instances using [Get-AzDataProtectionBackupInstance](/powershell/module/az.dataprotection/get-azdataprotectionbackupinstance) cmdlet and identify the relevant instance.
 
@@ -57,7 +58,7 @@ Once the instance is identified, fetch the relevant recovery point.
 $rp = Get-AzDataProtectionRecoveryPoint -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -BackupInstanceName $AllInstances[2].BackupInstanceName
 ```
 
-## Prepare the restore request
+## Prepare the restore request for PostgreSQL - Flexible Server
 
 You can restore the recovery point for a PostgreSQL – Flexible Server database as files only.
 
@@ -99,7 +100,7 @@ pg_restore -h <hostname> -U <username> -j <Num of parallel jobs> -Fd -C -d <data
 If you have more than one database to restore, rerun the earlier cmdlet for each database.
 Also, by using multiple concurrent jobs `-j`, you can reduce the restore time of a large database on a **multi-vCore** target server. The number of jobs can be equal to or less than the number of `vCPUs` allocated for the target server.
 
-## Trigger the restore
+## Trigger the restore for PostgreSQL - Flexible Server
 
 To trigger the restore operation with the prepared request, use the [`Start-AzDataProtectionBackupInstanceRestore`](/powershell/module/az.dataprotection/start-azdataprotectionbackupinstancerestore) cmdlet 
 
@@ -107,7 +108,7 @@ To trigger the restore operation with the prepared request, use the [`Start-AzDa
 Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $AllInstances[2].BackupInstanceName -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -Parameter $OssRestoreReq
 ```
 
-## Track jobs
+## Track jobs for PostgreSQL - Flexible Server restore
 
 Track all jobs by using the [`Get-AzDataProtectionJob`](/powershell/module/az.dataprotection/get-azdataprotectionjob) cmdlet. You can list all jobs and fetch a particular job detail.
 

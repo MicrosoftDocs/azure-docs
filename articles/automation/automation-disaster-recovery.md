@@ -1,12 +1,12 @@
 ---
 title: Disaster recovery for Azure Automation
-description: This article details on disaster recovery strategy to handle service outage or zone failure for Azure Automation
+description: Learn about disaster recovery strategies to handle service outages or region failures for Azure Automation.
 keywords: automation disaster recovery
 services: automation
 ms.subservice: process-automation
-author: SnehaSudhirG
-ms.author: sudhirsneha
-ms.date: 08/20/2024
+ms.author: v-rochak2
+author: RochakSingh-blr
+ms.date: 11/17/2025
 ms.topic: how-to 
 ms.service: azure-automation
 ---
@@ -15,12 +15,13 @@ ms.service: azure-automation
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs
 
-This article explains the disaster recovery strategy to handle a region-wide or zone-wide failure.
+This article explains the disaster recovery strategy to handle a region-wide failure.
 
-You must have a disaster recovery strategy to handle a region-wide service outage or zone-wide failure to help reduce the impact and effects arising from unpredictable events on your business and customers. You're responsible to set up disaster recovery of Automation accounts, and its dependent resources such as Modules, Connections, Credentials, Certificates, Variables and Schedules. An important aspect of a disaster recovery plan is preparing to fail over to the replica of the Automation account created in advance in the secondary region, if the Automation account in the primary region becomes unavailable. Ensure that your disaster recovery strategy considers your Automation account and the dependent resources.
+You must have a disaster recovery strategy to handle a region-wide service outage failure. A disaster recovery strategy helps reduce the impact and effects arising from unpredictable events on your business and customers. You're responsible for setting up disaster recovery of Automation accounts and its dependent resources such as Modules, Connections, Credentials, Certificates, Variables, and Schedules. An important aspect of a disaster recovery plan is preparing to fail over to the replica of the Automation account created in advance in the secondary region, if the Automation account in the primary region becomes unavailable. Ensure that your disaster recovery strategy considers your Automation account and the dependent resources.
 
-In addition to high availability offered by Availability zones, some regions are paired with another region to provide protection from regional or large geographical disasters. Irrespective of whether the primary region has a regional pair or not, the disaster recovery strategy for the Automation account remains the same. For more information about regional pairs, [learn more](../reliability/cross-region-replication-azure.md).
+Some regions are [paired with another region](/azure/reliability/regions-paired) to provide protection from regional or large geographical disasters. Irrespective of whether the primary region has a regional pair or not, the disaster recovery strategy for the Automation account remains the same.
 
+To learn more about reliability for Azure Automation, including high availability through availability zone support, see [Reliability in Azure Automation](/azure/reliability/reliability-automation?toc=/azure/automation/TOC.json).
 
 ## Enable disaster recovery
 
@@ -30,7 +31,7 @@ requires a location that you must use for deployment. This would be the primary 
 - Begin by [creating a replica Automation account](/azure/automation/quickstarts/create-azure-automation-account-portal#create-automation-account) in any alternate [region](https://azure.microsoft.com/global-infrastructure/services/?products=automation&regions=all).
 - Select the secondary region of your choice - paired region or any other region where Azure Automation is available.
 - Apart from creating a replica of the Automation account, replicate the dependent resources such as Runbooks, Modules, Connections, Credentials, Certificates, Variables, Schedules and permissions assigned for the Run As account and Managed Identities in the Automation account in primary region to the Automation account in secondary region. You can use the [PowerShell script](#script-to-migrate-automation-account-assets-from-one-region-to-another) to migrate assets of the Automation account from one region to another.
-- If you're using [ARM templates](../azure-resource-manager/management/overview.md) to define and deploy Automation runbooks, you can use these templates to deploy the same runbooks in any other Azure region where you create the replica Automation account. In case of a region-wide outage or zone-wide failure in the primary region, you can execute the runbooks replicated in the secondary region to continue business as usual. This ensures that the secondary region steps up to continue the work if the primary region has a disruption or failure. 
+- If you're using [ARM templates](../azure-resource-manager/management/overview.md) to define and deploy Automation runbooks, you can use these templates to deploy the same runbooks in any other Azure region where you create the replica Automation account. In case of a region-wide outage in the primary region, you can execute the runbooks replicated in the secondary region to continue business as usual. This approach ensures that the secondary region steps up to continue the work if the primary region has a disruption or failure. 
 
 >[!NOTE]
 > Due to data residency requirements, jobs data and logs present in the primary region are not available in the secondary region.
@@ -47,30 +48,12 @@ If the Windows or Linux Hybrid Runbook worker is deployed using the extension-ba
 1. [Add](extension-based-hybrid-runbook-worker-install.md?tabs=windows#create-hybrid-worker-group) the same Hybrid Runbook worker to a Hybrid Worker group in the Automation account in the secondary region. The Hybrid worker extension is installed on the machine in the replica of the Automation account.
 1. Execute the jobs on the Hybrid Runbook worker created in Step 2.
 
-For Hybrid Runbook worker deployed using the agent-based approach, choose from below:
-
-#### [Windows Hybrid Runbook worker](#tab/win-hrw)
-
-If the Windows Hybrid Runbook worker is deployed using an agent-based approach in a region different from the primary region of failure, follow the steps to continue executing Hybrid jobs: 
-1. [Uninstall](automation-windows-hrw-install.md#remove-windows-hybrid-runbook-worker) the agent from the Hybrid Runbook worker present in the Automation account in the primary region. 
-1. [Re-install](automation-windows-hrw-install.md#installation-options) the agent on the same machine in the replica Automation account in the secondary region. 
-1. You can now execute jobs on the Hybrid Runbook worker created in Step 2. 
-
-#### [Linux Hybrid Runbook worker](#tab/linux-hrw)
-
-If the Linux Hybrid Runbook worker is deployed using agent-based approach in a region different from the primary region of failure, follow the below steps to continue executing Hybrid jobs: 
-1. [Uninstall](automation-linux-hrw-install.md#remove-linux-hybrid-runbook-worker) the agent from the Hybrid Runbook worker present in Automation account in the primary region. 
-1. [Re-install](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker) the agent on the same machine in the replica Automation account in the secondary region. 
-1. You can now execute jobs on the Hybrid Runbook worker created in Step 2. 
-
 ---
 
 ### Scenario: Execute jobs on Hybrid Runbook Worker deployed in the primary region of failure
 If the Hybrid Runbook worker is deployed in the primary region, and there's a compute failure in that region, the machine won't be available for executing Automation jobs. You must provision a new virtual machine in an alternate region and register it as Hybrid Runbook Worker in Automation account in the secondary region.
  
 - See the installation steps in [how to deploy an extension-based Windows or Linux User Hybrid Runbook Worker](extension-based-hybrid-runbook-worker-install.md?tabs=windows#create-hybrid-worker-group).
-- See the installation steps in [how to deploy an agent-based Windows Hybrid Worker](automation-windows-hrw-install.md#installation-options).
-- See the installation steps in [how to deploy an agent-based Linux Hybrid Worker](automation-linux-hrw-install.md#install-a-linux-hybrid-runbook-worker).
 
 ## Script to migrate Automation account assets from one region to another
 
@@ -83,7 +66,6 @@ You can use these scripts for migration of Automation account assets from the ac
  1. Ensure that the system assigned managed identities of the primary Automation account have contributor access to the subscription it belongs to.
  1. Ensure that the primary Automation account's managed identity has Contributor access with read and write permissions to the Automation account in secondary region. To enable, provide the necessary permissions in secondary Automation account's managed identities. [Learn more](../role-based-access-control/quickstart-assign-role-user-portal.md).
  1. Ensure that the script has access to the Automation account assets in primary region. Hence, it should be executed as a runbook in that Automation account for successful migration.
- 1. If the primary Automation account is deployed using a Run as account, then it must be switched to Managed Identity before migration. [Learn more](migrate-run-as-accounts-managed-identity.md).
  1. Modules required are:
  
       - Az.Accounts version 2.8.0 
@@ -100,7 +82,7 @@ Follow the steps to import and execute the runbook:
 #### [PowerShell script](#tab/ps-script)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to Automation account that you want to migrate to another region.
+1. Go to the Automation account that you want to migrate to another region.
 1. Under **Process Automation**, select **Runbooks**.
 1. Select **Browse gallery** and in the search, enter *Migrate Automation account assets from one region to another* and select **PowerShell script**.
 1. In the **Import a runbook** page, enter a name for the runbook.
@@ -112,7 +94,7 @@ You can choose either of the options to edit and execute the script. You can pro
 
 #### [PowerShell Workflow](#tab/ps-workflow)
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Go to Automation account that you want to migrate to another region.
+1. Go to the Automation account that you want to migrate to another region.
 1. Under **Process Automation**, select **Runbooks**.
 1. Select **Browse gallery** and in the search, enter *Migrate Automation account assets from one region to another* and Select **PowerShell workflow**.
 1. In the **Import a runbook** page, enter a name for the runbook.
@@ -148,10 +130,11 @@ Type[] | True | Array consisting of all the types of assets that need to be migr
 ---
 
 ### Limitations
-- The script migrates only Custom PowerShell modules. Default modules and Python packages wouldn't be migrated to replica Automation account.
+- The script migrates only custom PowerShell modules. It doesn't migrate default modules and Python packages to the replica Automation account.
 - The script doesn't migrate **Schedules** and **Managed identities** present in Automation account in primary region. These would have to be created manually in replica Automation account.
 - Jobs data and activity logs wouldn't be migrated to the replica account.
 
 ## Next steps
 
-- Learn more about [regions that support availability zones](../reliability/availability-zones-region-support.md).
+- [Reliability in Azure Automation](/azure/reliability/reliability-automation?toc=/azure/automation/TOC.json)
+- [Regions that support availability zones](/azure/reliability/regions-list).

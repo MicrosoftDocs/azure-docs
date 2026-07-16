@@ -7,7 +7,10 @@ ms.author: baanders
 ms.date: 2/12/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
-ms.custom: subject-rbac-steps, engagement-fy23
+ms.custom:
+  - subject-rbac-steps
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # Set up an Azure Digital Twins instance and authentication (portal)
@@ -98,7 +101,7 @@ You can also assign the **Azure Digital Twins Data Owner** role using the access
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the **Azure Digital Twins Data Owner** role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the **Azure Digital Twins Data Owner** role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
     | Setting | Value |
     | --- | --- |
@@ -124,7 +127,7 @@ Start by opening the [Azure portal](https://portal.azure.com) in a browser.
 
 1. Search for the name of your instance in the portal search bar, and select it to view its details.
 
-1. Select **Identity** in the left-hand menu.
+1. Select **Settings > Identity** in the left-hand menu.
 
 1. Use the tabs to select which type of managed identity you want to add or remove.
     1. **System-assigned**: After selecting this tab, select the **On** option to turn on this feature, or **Off** to remove it.

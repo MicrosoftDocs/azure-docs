@@ -13,6 +13,8 @@ ms.custom:
 
 # Indexes on dedicated SQL pool tables in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Recommendations and examples for indexing tables in dedicated SQL pool in Azure Synapse Analytics.
 
 ## Index types

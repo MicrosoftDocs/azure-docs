@@ -3,8 +3,9 @@ title: Architecture - Design considerations for vSAN stretched clusters
 description: Learn about how to use stretched clusters for Azure VMware Solution.
 ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 12/24/2024
+ms.date: 1/8/2026
 ms.custom: references_regions, engagement-fy24
+# Customer intent: "As a cloud architect, I want to design a vSAN stretched cluster for Azure VMware Solution, so that I can enhance application availability and ensure resilience against Availability Zone failures while managing my infrastructure efficiently."
 ---
 
 # Design vSAN stretched clusters
@@ -17,7 +18,7 @@ Azure’s global infrastructure is broken up into Regions. Each region supports 
 
 With Azure VMware Solution, ESXi hosts deployed in a standard vSphere cluster traditionally reside in a single Azure Availability Zone (AZ) and are protected by vSphere high availability (HA). However, it doesn't protect the workloads against an Azure AZ failure. To protect against an AZ failure, a single vSAN cluster can be enabled to span two separate availability zones, called a [vSAN stretched cluster](https://www.vmware.com/docs/vsan-stretched-cluster-guide#GUID-4172337E-E25F-4C6B-945E-01623D314FDA-en).
 
-Stretched clusters allow the configuration of vSAN Fault Domains across two AZs to notify vCenter Server that hosts reside in each Availability Zone (AZ). Each fault domain is named after the AZ it resides within to increase clarity. When you stretch a vSAN cluster across two AZs within a region, should an AZ go down, it's treated as a vSphere HA event and the virtual machine is restarted in the other AZ.
+Stretched clusters allow the configuration of vSAN Fault Domains across two AZs to notify vCenter Server that hosts reside in each Availability Zone (AZ). Each fault domain is named after the AZ it resides within to increase clarity. When you stretch a vSAN cluster across two AZs within a region, should an AZ go down, it gets treated as a vSphere HA event and the virtual machine is restarted in the other AZ.
 
 **Stretched cluster benefits:**
 - Improve application availability.
@@ -29,7 +30,7 @@ To protect against split-brain scenarios and help measure site health, a managed
 
 The following diagram depicts a vSAN cluster stretched across two AZs. 
 
-:::image type="content" source="media/stretch-clusters/diagram-1-vsan-witness-third-availability-zone.png" alt-text="Diagram shows a managed vSAN stretched cluster created in a third Availability Zone with the data being copied to all three of them." border="false" lightbox="media/stretch-clusters/diagram-1-vsan-witness-third-availability-zone.png":::
+:::image type="content" source="media/stretch-clusters/diagram-1-vsan-witness-third-availability-zone.png" alt-text="Diagram shows a managed vSAN stretched cluster created in a third Availability Zone with data copied to all three." border="false" lightbox="media/stretch-clusters/diagram-1-vsan-witness-third-availability-zone.png":::
 
 The following diagram depicts the normal flow of network traffic within a vSAN cluster stretched across two AZs. 
 
@@ -58,7 +59,7 @@ It's important to understand that stretched cluster private clouds only offer an
 
         :::image type="content" source="media/stretch-clusters/diagram-6-site-failure-traffic-flow.png" alt-text="Diagram shows VMware NSX traffic flows for a managed vSAN stretched cluster during a complete site failure." border="false" lightbox="media/stretch-clusters/diagram-6-site-failure-traffic-flow.png":::
 
-It should be noted that these types of failures, although rare, fall outside the scope of the protection offered by a stretched cluster private cloud. Because of those types of rare failures, a stretched cluster solution should be regarded as a multi-AZ high availability solution reliant upon vSphere HA. It's important you understand that a stretched cluster solution isn't meant to replace a comprehensive multi-region Disaster Recovery strategy that can be employed to ensure application availability. The reason is because a Disaster Recovery solution typically has separate management and control planes in separate Azure regions. Azure VMware Solution stretched clusters have a single management and control plane stretched across two availability zones within the same Azure region. For example, one vCenter Server, one NSX Manager cluster, one NSX Edge VM pair.
+It should be noted that these types of failures, although rare, fall outside the scope of the protection offered by a stretched cluster private cloud. Because of those types of rare failures, a stretched cluster solution should be regarded as a multi-AZ high availability solution reliant upon vSphere HA. A stretched cluster solution isn't meant to replace a comprehensive multi-region Disaster Recovery strategy that can be employed to ensure application availability. The reason is because a Disaster Recovery solution typically has separate management and control planes in separate Azure regions. Azure VMware Solution stretched clusters have a single management and control plane stretched across two availability zones within the same Azure region. For example, one vCenter Server, one NSX Manager cluster, one NSX Microsoft Edge VM pair.
 
 ## Stretched clusters region availability
 
@@ -66,7 +67,8 @@ Azure VMware Solution stretched clusters are available in the following regions:
 
 - UK South (on AV36, and AV36P)
 - West Europe (on AV36, and AV36P) 
-- Germany West Central (on AV36, and AV36P)
+- Germany West Central (on AV48)
+
 - Australia East (on AV36P)
 - East US (on AV36P)
 
@@ -109,11 +111,15 @@ No. A stretched cluster is created between two availability zones, while the thi
 - Customer workload VMs are restarted with a medium vSphere HA priority. Management VMs have the highest restart priority.
 - The solution relies on vSphere HA and vSAN for restarts and replication. Recovery time objective (RTO) is determined by the amount of time it takes vSphere HA to restart a VM on the surviving AZ after the failure of a single AZ.
 - Currently not supported in a stretched cluster environment:
-    - Recently released features like Public IP down to NSX Edge and external storage, like ANF datastores.
+    - Recently released features like Public IP down to NSX Microsoft Edge and external storage, like ANF datastores.
     - Disaster recovery addons like VMware SRM, Zerto, and JetStream.
+    - NSX Edge Scale-OUT to add additional NSX Edges is not supported at this time.
 - Open a [support ticket](https://rc.portal.azure.com/#create/Microsoft.Support) from the Azure portal for the following scenarios (be sure to select **Stretched Clusters** as a **Problem Type**):
     - Connect a private cloud to a stretched cluster private cloud.
-    - Connect two stretched cluster private clouds in a single region.
+    - Connect two stretched cluster private clouds.
+ 
+>[!NOTE]
+>Azure VMware Solution interconnect between stretched cluster private clouds is supported only when both stretched clusters are either hosted within the same pod set or have no common pod between them. It is not supported if the private cloud share only one common pod.
 
 ### What kind of latencies should I expect between the availability zones (AZs)?
 

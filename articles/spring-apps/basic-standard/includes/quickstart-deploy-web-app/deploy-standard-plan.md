@@ -3,7 +3,8 @@ author: KarlErickson
 ms.author: xiada
 ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 08/31/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 <!--
@@ -185,7 +186,7 @@ Use the following steps to create an Azure Spring Apps instance and an Azure Dat
 
    ```output
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
-   You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
+   You can view the resources created under the resource group rg-<your-environment-name> in Azure portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
    ```
 
@@ -277,7 +278,7 @@ You can now deploy the app to Azure Spring Apps. Use the following steps to pack
 
    
    SUCCESS: Your application was deployed to Azure in xx minutes xx seconds.
-   You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
+   You can view the resources created under the resource group rg-<your-environment-name> in Azure portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
    ```
 

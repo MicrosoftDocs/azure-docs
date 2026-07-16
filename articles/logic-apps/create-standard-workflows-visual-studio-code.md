@@ -1,13 +1,13 @@
 ---
-title: Create Standard workflows with Visual Studio Code
-description: Create Standard logic app workflows that run in single-tenant Azure Logic Apps with Visual Studio Code.
+title: Create Standard Workflows with Visual Studio Code
+description: Learn to create Standard logic app workflows that run in single-tenant Azure Logic Apps with Visual Studio Code.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 03/17/2025
+ms.date: 10/27/2025
 ms.custom: devx-track-dotnet
-# Customer intent: As a logic apps developer, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
+# Customer intent: As an integration developer working with Azure Logic Apps, I want to create a Standard logic app workflow that runs in single-tenant Azure Logic Apps using Visual Studio Code.
 ---
 
 # Create Standard logic app workflows with Visual Studio Code
@@ -56,7 +56,7 @@ If you plan to locally create and run workflows using only [built-in operations]
 
 These requirements include the following items:
 
-- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Access to the internet so that you can download the required extension, connect from Visual Studio Code to your Azure account, test workflows that include managed connector operations, and deploy to Azure from Visual Studio Code.
 
@@ -293,7 +293,7 @@ To create your workflow, start your workflow with a trigger, and then initially 
 
 1. In the **Add a trigger** pane, [follow these general steps to add the **Request** trigger named **When an HTTP request is received**](/azure/logic-apps/create-workflow-with-trigger-or-action?tabs=standard#add-trigger).
 
-   The following example selects the **Group by Connector** option and has **Runtime** set to **In-app** so only the built-in triggers appear:
+   The following example selects the **Built-in** option so that only the built-in triggers appear:
 
    :::image type="content" source="media/create-standard-workflows-visual-studio-code/add-request-trigger.png" alt-text="Screenshot shows workflow designer, Add a trigger pane, and selected trigger named When an HTTP request is received.":::
 
@@ -567,13 +567,13 @@ If you created your logic app project when assemblies support wasn't available f
 
 ### Enable built-in connector authoring
 
-You can create your own built-in connectors for any service you need by using the [single-tenant Azure Logic Apps extensibility framework](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the single-tenant Azure Logic Apps runtime.
+You can create your own built-in connectors for any service you need by using the [single-tenant Azure Logic Apps extensibility framework](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-logic-apps-running-anywhere-built-in-connector-extensibility/1921272). Similar to built-in connectors such as Azure Service Bus and SQL Server, these connectors provide higher throughput, low latency, local connectivity, and run natively in the same process as the single-tenant Azure Logic Apps runtime.
 
 The authoring capability is currently available only in Visual Studio Code, but isn't enabled by default. To create these connectors, follow these steps:
 
 1. If you haven't already, [convert your extension bundle-based (Node.js) project to a NuGet package-based (.NET) project](#convert-project-nuget).
 
-1. Review and follow the steps in the article, [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-built-in-connector/ba-p/1921272).
+1. Review and follow the steps in the article, [Azure Logic Apps Running Anywhere - Built-in connector extensibility](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-logic-apps-running-anywhere-built-in-connector-extensibility/1921272).
 
 <a name="run-debug-test-locally"></a>
 
@@ -656,12 +656,16 @@ To test your workflow, follow these steps to run a debugging session and find th
 
 1. In Visual Studio Code, return to your workflow's overview page. Under **Run history**, check the status for the workflow run.
 
-   > [!TIP]
-   >
+   > [!NOTE]
+   > 
    > If the run status doesn't appear, try refreshing the overview page by selecting **Refresh**. 
    > A run doesn't happen for a trigger that's skipped due to unmet criteria or finding no data.
 
    :::image type="content" source="media/create-standard-workflows-visual-studio-code/post-trigger-call.png" alt-text="Screenshot that shows the workflow's overview page with run status and history.":::
+
+   > [!IMPORTANT]
+   >
+   > Under **Run history**, no workflow run history data appears if the logic app is stopped. Make sure the logic app is still running to view the workflow run history data.
 
    The following table shows the possible final statuses that each workflow run can have and show in Visual Studio Code:
 
@@ -1130,8 +1134,8 @@ During workflow execution, your logic app workflow emits telemetry along with ot
 
 After Application Insights opens, you can review various metrics for your logic app. For more information, see these articles:
 
-* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/1877849)
-* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 2](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-monitor-with-application/ba-p/2003332)
+* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 1](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-logic-apps-running-anywhere-%e2%80%93-monitor-with-application-insights-%e2%80%93-part-1/1877849)
+* [Azure Logic Apps Running Anywhere - Monitor with Application Insights - part 2](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-logic-apps-running-anywhere-%e2%80%93-monitor-with-application-insights-%e2%80%93-part-2/2003332)
 
 <a name="troubleshooting"></a>
 

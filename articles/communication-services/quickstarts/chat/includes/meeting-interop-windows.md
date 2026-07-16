@@ -5,6 +5,7 @@ ms.author: juramir
 ms.date: 10/15/2021
 ms.topic: include
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 
 This article describes how to chat in a Teams meeting using the Azure Communication Services Chat SDK for C#.
@@ -16,7 +17,7 @@ Download this code at GitHub Azure Samples [Join your chat app to a Teams meetin
 ## Prerequisites 
 
 * A [Teams deployment](/deployoffice/teams-install). 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).  
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).  
 * Install [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) with Universal Windows Platform development workload.  
 * A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md). 
 * A Teams Meeting Link.

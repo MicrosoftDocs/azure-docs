@@ -1,7 +1,7 @@
----
+﻿---
 title: Managed app with managed identity
 description: Configure an Azure Managed Application with managed identity for linking to existing resources, managing Azure resources, and providing operational identity for Activity Log.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/10/2025
 ms.custom: subject-rbac-steps
 ---
@@ -194,7 +194,7 @@ A basic Azure Resource Manager template that deploys a managed application with 
 
 Once a managed application is granted an identity, it can be granted access to existing Azure resources by creating a role assignment.
 
-To do so, search for and select the name of the managed application or user-assigned managed identity, and then select **Access control (IAM)**. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+To do so, search for and select the name of the managed application or user-assigned managed identity, and then select **Access control (IAM)**. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Linking existing Azure resources
 
@@ -281,7 +281,7 @@ A sample main template that sets the network profile to an existing network inte
       "name": "myLinkedResourceVM",
       "location": "[resourceGroup().location]",
       "properties": {
-        …,
+        ...,
         "networkProfile": {
           "networkInterfaces": [
             {
@@ -335,10 +335,10 @@ Content-Type: application/json
 {
   "value": [
     {
-      "access_token": "eyJ0eXAi…",
-      "expires_in": "2…",
-      "expires_on": "1557…",
-      "not_before": "1557…",
+      "access_token": "eyJ0eXAi...,
+      "expires_in": "2...,
+      "expires_on": "1557...,
+      "not_before": "1557...,
       "authorizationAudience": "https://management.azure.com/",
       "resourceId": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}",
       "token_type": "Bearer"
@@ -429,3 +429,4 @@ This section describes how to create a managed identity and assign a role as par
 
 > [!div class="nextstepaction"]
 > [How to configure a managed application with a custom provider](../custom-providers/overview.md)
+

@@ -1,12 +1,13 @@
 ---
-title: Azure NetApp Files datastore performance benchmarks for Azure VMware Solution | Microsoft Docs
+title: Azure NetApp Files datastore performance benchmarks for Azure VMware Solution
 description: Describes performance benchmarks that Azure NetApp Files datastores deliver for virtual machines on Azure VMware Solution.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/03/2024
 ms.author: anfdocs
+# Customer intent: As a cloud architect, I want to review Azure NetApp Files performance benchmarks for Azure VMware Solution, so that I can design optimal storage solutions that meet the performance needs of my virtual machine workloads.
 ---
 # Azure NetApp Files datastore performance benchmarks for Azure VMware Solution
 
@@ -22,6 +23,9 @@ The following `read:write` I/O ratios were tested for each scenario: `100:0, 75:
 Benchmarks documented in this article were performed with sufficient volume throughput to prevent soft limits from affecting performance. Benchmarks can be achieved with Azure NetApp Files Premium and Ultra service levels, and in some cases with Standard service level. For more information on volume throughput, see [Performance considerations for Azure NetApp Files](azure-netapp-files-performance-considerations.md).
 
 Consult the [Azure NetApp Files datastore for Azure VMware Solution TCO Estimator](https://azure.github.io/azure-netapp-files/avs-calc/) to understand the sizing and associated cost benefits of Azure NetApp Files datastores.
+
+> [!NOTE]
+> Azure VMware Solution now supports the nconnect mount option, so you can raise per-datastore performance by setting nconnect=4. This opens four parallel TCP connections per NFS datastore on each host, which increases aggregate throughput and IOPS through greater network parallelism. In practice, nconnect=4 allows a single datastore approach the performance that previously required roughly four datastores, because it removes the single-connection bottleneck. You can also combine nconnect=4 with multiple datastores for further scaling, up to 64 datastores per AVS cluster. Support for nconnect=4 is available on both AVS Gen 1 and Gen 2 private clouds. See [Performance scaling](performance-benchmarks-azure-vmware-solution.md#performance-scaling) for results comparing 1 versus 4 datastores. Enabling nconnect on NFS datastores is a non-disruptive operation that can be performed without affecting active workloads. The nconnect option is enabled with a fixed connection value of 4, which cannot be customized. If necessary, it can be disabled to restore the default single-connection configuration (nconnect=1).
 
 ## Latency
 

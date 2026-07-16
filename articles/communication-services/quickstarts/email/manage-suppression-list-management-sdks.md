@@ -2,10 +2,10 @@
 title: Manage domain suppression lists with Management SDKs
 titleSuffix: An Azure Communication Services article
 description: This article describes how to manage domain suppression lists in Azure Communication Services using the management client libraries.
-author: yogeshmo
+author: anmolbohra97
 manager: koagbakp
 services: azure-communication-services
-ms.author: ymohanraj
+ms.author: anmolbohra
 ms.date: 11/21/2023
 ms.topic: quickstart
 ms.service: azure-communication-services

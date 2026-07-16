@@ -3,7 +3,7 @@ title: Linter rule - no deployments resources
 description: Linter rule - no deployments resources
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 10/30/2025
 ---
 
 # Linter rule - no deployments resources
@@ -69,7 +69,7 @@ In Bicep, you can still use the `Microsoft.Resources/deployments` resource for n
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 param location string = resourceGroup().location
 
-resource nestedTemplate1 'Microsoft.Resources/deployments@2024-03-01' = {
+resource nestedTemplate1 'Microsoft.Resources/deployments@2025-04-01' = {
   name: 'nestedTemplate1'
   properties:{
     mode: 'Incremental'
@@ -116,7 +116,7 @@ _nested_nestedTemplate1.bicep_:
 param storageAccountName string
 param location string
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   name: storageAccountName
   location: location
   sku: {

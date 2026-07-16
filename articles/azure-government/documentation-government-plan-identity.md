@@ -2,7 +2,7 @@
 title: Azure Government Identity
 description: Microsoft Azure Government provides the same ways to build applications and manage identities as Azure Public. This article provides planning guidance for identity management in Azure Government.
 ms.service: azure-government
-ms.topic: article
+ms.topic: concept-article
 recommendations: false
 ms.date: 06/15/2022
 ---
@@ -20,7 +20,7 @@ Before determining the identity approach for your application, you need to know 
 |On-premises identities belong to on-premises Active Directory environments that most customers use today.|Cloud identities originate, exist only, and are managed in Microsoft Entra ID.|Hybrid identities originate as on-premises identities, but become hybrid through directory synchronization to Microsoft Entra ID. After directory synchronization, they exist both on-premises and in the cloud, hence hybrid.|
  
 > [!NOTE]
-> Hybrid comes with deployment options (synchronized identity, federated identity, and so on) that all rely on directory synchronization and mostly define how identities are authenticated as discussed in [What is hybrid identity with Microsoft Entra ID?](../active-directory/hybrid/whatis-hybrid-identity.md).
+> Hybrid comes with deployment options (synchronized identity, federated identity, and so on) that all rely on directory synchronization and mostly define how identities are authenticated as discussed in [What is hybrid identity with Microsoft Entra ID?](../active-directory/hybrid/whatis-hybrid-identity.md)
 >
 
 ## Selecting identity for an Azure Government application

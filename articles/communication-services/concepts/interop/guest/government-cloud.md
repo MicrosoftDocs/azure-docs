@@ -5,7 +5,7 @@ description: Support for external user from Azure Communication Services connect
 author: tinaharter
 ms.author: tinaharter
 ms.date: 9/22/2022
-ms.topic: conceptual
+ms.topic: feature-availability
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ---

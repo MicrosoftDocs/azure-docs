@@ -4,6 +4,7 @@ ms.service: azure-databox
 ms.topic: include
 ms.date: 12/20/2021
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 1. In the Azure portal, go to your Azure Edge Hardware Center order item resource. In the **Overview**, go to the top command bar in the right pane and select **Return**. The return option is only enabled after you have received a device.

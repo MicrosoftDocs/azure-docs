@@ -2,13 +2,17 @@
 title: Get started with Azure IoT Hub device twins (Java)
 titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDK for Java to create device and backend service application code for device twins.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.devlang: java
 ms.topic: include
 ms.date: 07/20/2024
-ms.custom: mqtt, devx-track-java, devx-track-extended-java
+ms.custom:
+  - mqtt
+  - devx-track-java
+  - devx-track-extended-java
+  - sfi-ropc-nochange
 ---
 
   * Requires [Java SE Development Kit 8](/azure/developer/java/fundamentals/). Make sure you select **Java 8** under **Long-term support** to navigate to downloads for JDK 8.
@@ -151,7 +155,7 @@ In this example, the `DesiredPropertiesUpdatedHandler` desired property change c
 
 ### SDK device sample
 
-The Azure IoT SDK for Java includes a working sample to test the device app concepts described in this article. For more information, see  [Device Twin Sample](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples/device-twin-sample).
+The Azure IoT SDK for Java includes a working sample to test the device app concepts described in this article. For more information, see  [Device twin sample](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples/device-twin-sample).
 
 ## Create a backend application
 
@@ -304,4 +308,4 @@ while (twinClient.hasNextDeviceTwin(twinQuery)) {
 
 ### SDK service sample
 
-The Azure IoT SDK for Java provides a working sample of a service app that handles device twin tasks. For more information, see  [Device Twin Sample](https://github.com/Azure/azure-iot-service-sdk-java/blob/main/service/iot-service-samples/device-twin-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/DeviceTwinSample.java).
+The Azure IoT SDK for Java provides a working sample of a service app that handles device twin tasks. For more information, see  [Device twin sample](https://github.com/Azure/azure-iot-service-sdk-java/blob/main/service/iot-service-samples/device-twin-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/DeviceTwinSample.java).

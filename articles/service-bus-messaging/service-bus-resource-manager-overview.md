@@ -4,9 +4,11 @@ description: Use Azure Resource Manager templates to automate the creation of Se
 author: spelluru
 ms.topic: article
 ms.tgt_pltfrm: dotnet
-ms.custom: devx-track-arm-template
 ms.date: 09/20/2021
 ms.author: spelluru 
+ms.custom:
+  - devx-track-arm-template
+  - sfi-ropc-nochange
 ---
 
 # Create Service Bus resources using Azure Resource Manager templates
@@ -29,6 +31,9 @@ These Service Bus Azure Resource Manager templates are available for download an
 * [Create a Service Bus namespace with topic and subscription](service-bus-resource-manager-namespace-topic.md)
 * [Create a Service Bus namespace with queue and authorization rule](service-bus-resource-manager-namespace-auth-rule.md)
 * [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md)
+
+> [!NOTE]
+> If your entity names contain forward slashes (`/`), use `~` (tilde) in place of `/` in ARM template resource names. For example, to create a queue named `orders/us/west`, specify the name as `orders~us~west` in the template. For details, see [Entity names with forward slashes](service-bus-resource-manager-exceptions.md#error-entity-names-with-forward-slashes).
 
 ## Deploy with PowerShell
 

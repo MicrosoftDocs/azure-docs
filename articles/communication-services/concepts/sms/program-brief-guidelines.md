@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: prakulka
 ms.date: 2/15/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: sms
 ---
@@ -240,3 +240,5 @@ In this field, you must provide a sample message for each content type you inten
 ## Related articles
 
 - See the [SMS SDK overview](../sms/sdk-features.md).
+> [!TIP]
+> For global SMS delivery and partner-managed options, check out [Messaging Connect](../sms/messaging-connect.md).

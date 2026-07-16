@@ -2,7 +2,7 @@
 title: Design Azure Policy as Code workflows
 description: Learn to design workflows to deploy your Azure Policy definitions as code and automatically validate resources.
 ms.date: 03/04/2025
-ms.topic: conceptual
+ms.topic: how-to
 ---
 # Design Azure Policy as Code workflows
 
@@ -162,7 +162,7 @@ specifically for validating policies.
 > the resource.
 
 After the assignment is deployed, use the Azure Policy SDK, the
-[Azure Pipelines Security and Compliance Assessment task](/azure/devops/pipelines/tasks/deploy/azure-policy), or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries (see [samples](../samples/resource-graph-samples.md)) to [get compliance data](../how-to/get-compliance-data.md) for the new assignment. The environment
+[Azure Pipelines Security and Compliance Assessment task](/azure/devops/pipelines/tasks/deploy/azure-policy), or [Azure Resource Graph (ARG)](../../resource-graph/overview.md) queries (see [samples](/azure/governance/policy/samples/resource-graph-samples)) to [get compliance data](../how-to/get-compliance-data.md) for the new assignment. The environment
 used to test the policies and assignments should have resources with varying compliance states.
 Like a good unit test for code, you want to test that resources are evaluated as expected with no false-positives or false-negatives. If you test and validate only for what you expect, there
 may be unexpected and unidentified impact from the policy. For more information, see

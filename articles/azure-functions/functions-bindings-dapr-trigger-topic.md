@@ -3,6 +3,9 @@ title: Dapr Topic trigger for Azure Functions
 description: Learn how to run Azure Functions as Dapr topic data changes.
 ms.topic: reference
 ms.date: 05/10/2024
+ms.author: nigreenf
+ms.reviewer: hannahhunter
+ms.subservice: dapr
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-csharp, devx-track-python, devx-track-dotnet, devx-track-extended-java, devx-track-js, build-2024
@@ -42,9 +45,9 @@ public static void Run(
 
  
 # [Isolated process](#tab/isolated-process)
-
+<!--
 :::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/Trigger/TransferEventBetweenTopics.cs" range="20-29"::: 
-
+-->
 ---
 
 ::: zone-end 
@@ -353,7 +356,7 @@ To use a Dapr Topic trigger, start by setting up a Dapr pub/sub component. You c
 
 To use the `daprTopicTrigger` in Python v2, set up your project with the correct dependencies.
 
-1. [Create and activate a virtual environment](create-first-function-cli-python.md?tabs=macos%2Cbash%2Cazure-cli&pivots=python-mode-decorators#create-venv). 
+1. [Create and activate a virtual environment](how-to-create-function-azure-cli.md?pivots=programming-language-python#create-venv). 
 
 1. In your `requirements.text` file, add the following line:
 

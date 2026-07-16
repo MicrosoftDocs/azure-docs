@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 10/30/2024
- ms.author: cherylmc
+ ms.author: duau
 
 # The numbers in this include are correct. They add on to sections in multiple articles that are already numbered.
 ---

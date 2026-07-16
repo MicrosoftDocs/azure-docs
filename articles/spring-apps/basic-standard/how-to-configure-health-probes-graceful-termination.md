@@ -3,8 +3,9 @@ title: How to Configure Health Probes and Graceful Termination Period for Apps H
 description: Learn how to customize apps running in Azure Spring Apps with health probes and graceful termination period.
 author: KarlErickson
 ms.service: azure-spring-apps
-ms.topic: conceptual
-ms.date: 04/23/2024
+ms.topic: how-to
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.reviewer: xuycao
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli

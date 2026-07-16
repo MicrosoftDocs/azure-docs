@@ -6,13 +6,14 @@ description: Learn how to set up a custom policy so users can change their passw
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 02/19/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As an Azure AD B2C administrator, I want to set up a password change flow using custom policies, so that users can change their passwords without email verification, improving the user experience and security.
@@ -20,15 +21,17 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up password change by using custom policies in Azure Active Directory B2C
- 
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-You can configure Azure Active Directory B2C (Azure AD B2C) so that a user who is signed in with a local account can change their password without using email verification to prove their identity. 
+You can configure Azure Active Directory B2C (Azure AD B2C) to allow users who are signed in with a local account to change their password without using email verification to prove their identity.
 
 The password change flow involves the following steps:
 
 1. The user signs in to their local account. If the session is still active, Azure AD B2C authorizes the user and skips to the next step.
-1. In **Old password**, the user verifies their old password. In **New password**, they create and confirm their new password.
+1. In **Old password**, the user verifies their current password. In **New password**, they create and confirm their new password.
 
    ![Screenshot that shows two numbered dialogs for making a password change.](./media/add-password-change-policy/password-change-flow.png)  
 

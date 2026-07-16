@@ -3,10 +3,11 @@ title: Azure Cloud Services (extended support) support and help options
 description: How to obtain help and support for questions or problems when you create solutions using Azure Cloud Services (extended support). 
 author: mimckitt
 ms.author: mimckitt
-ms.service: azure-cloud-services-extended-support
+ms.service: azure-cloud-services-classic
 ms.topic: troubleshooting
 ms.date: 07/24/2024
-ms.custom: support-help-page
+ms.update-cycle: 365-days
+ms.custom: support-help-page, cloud-services-extended-support
 # Customer intent: As a developer working with Azure Cloud Services (extended support), I want access to relevant troubleshooting resources and support options so that I can resolve issues efficiently and continue developing reliable cloud solutions.
 ---
 
@@ -43,7 +44,7 @@ Explore the range of [Azure support options and choose the plan](https://azure.m
 
 Learn about important product updates, roadmap, and announcements in [Azure Updates](https://azure.microsoft.com/updates/?category=compute).
 
-News and information about Azure Cloud Services (extended support) is shared at the [Azure blog](https://azure.microsoft.com/blog/topics/virtual-machines/).
+News and information about Azure Cloud Services (extended support) is shared at the [Azure blog](https://azure.microsoft.com/blog/product/virtual-machines/).
 
 
 ## Next steps

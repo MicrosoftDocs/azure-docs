@@ -2,12 +2,12 @@
 title: Authenticate to Azure Communication Services
 titleSuffix: An Azure Communication Services article
 description: This article describes how you can use an app or service to authenticate to Azure Communication Services.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 09/05/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: identity
 ---
@@ -90,4 +90,4 @@ The user identity is intended to act as a primary key for logs and metrics colle
 
 ## Related articles
 
-- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture)
+- [Learn about client and server architecture](../concepts/identity-model.md#client-server-architecture-for-the-bring-your-own-identity-byoi-model)

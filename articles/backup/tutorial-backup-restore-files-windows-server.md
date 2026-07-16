@@ -4,9 +4,11 @@ description: Learn how to use the Microsoft Azure Recovery Services Agent (MARS)
 ms.service: azure-backup
 ms.topic: tutorial
 ms.date: 04/30/2025
+ms.update-cycle: 1095-days
 ms.custom: mvc, engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a system administrator, I want to recover deleted files from a Windows Server using Azure Backup, so that I can quickly restore important data without extensive downtime."
 ---
 # Tutorial: Recover files from Azure to a Windows Server
 

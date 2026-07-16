@@ -201,4 +201,4 @@ Replicas inherit most configurations from the primary resource; however, some se
 3. **Log Destination Settings**. If not configured on the replicas, only logs from the primary resource will be transferred.
 4. **Alerts**. 
 
-All other configurations are inherited from the primary resource. For example, access keys, identity, application firewall, custom domains, private endpoints, and access control.
+All other configurations are inherited from the primary resource. For example, access keys, identity, application firewall, custom domains, [private endpoints](howto-private-endpoints.md#private-endpoints-with-geo-replication), and access control.

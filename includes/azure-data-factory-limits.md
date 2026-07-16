@@ -1,11 +1,11 @@
 ---
 title: include file
 description: include file
-author: chez-charlie
 ms.service: azure-data-factory
 ms.topic: include
 ms.date: 2/6/2025
-ms.author: n0elleli
+author: n0elleli
+ms.author: noelleli
 ms.custom: include file
 ---
 

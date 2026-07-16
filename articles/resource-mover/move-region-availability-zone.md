@@ -1,20 +1,19 @@
 ---
 title: Move Azure VMs to availability zones in another region with Azure Resource Mover
 description: Learn how to move Azure VMs to availability zones with Azure Resource Mover.
-author: ankitaduttaMSFT 
+author: RochakSingh-blr
+ms.author: v-rochak2
+ms.date: 07/31/2025
 ms.service: azure-resource-mover
 ms.topic: how-to
-ms.date: 12/27/2024
-ms.author: ankitadutta
-
-#Customer intent: As an Azure admin,  I want to move Azure VMs to a different Azure region using Azure Resource Mover.
-
+ms.custom: sfi-image-nochange
+# Customer intent: As an Azure administrator, I want to move Azure virtual machines and associated resources to a different region using Resource Mover, so that I can enhance the resiliency of my deployment across availability zones.
 ---
 # Move Azure VMs to an availability zone in another region with Azure Resource Mover
 
-In this article, learn how to move Azure VMs (and related network/storage resources) to an availability zone in a different Azure region, using [Azure Resource Mover](overview.md).  To use migration methods other than Resource Mover, see [Migrate Virtual Machines and Virtual Machine Scale Sets to availability zone support](../reliability/migrate-vm.md).
+In this article, learn how to move Azure VMs (and related network/storage resources) to an availability zone in a different Azure region, using [Azure Resource Mover](overview.md).  To use migration methods other than Resource Mover, see [Move Azure single instance VMs from regional to zonal target availability zones](/azure/virtual-machines/move-virtual-machines-regional-zonal-portal).
 
-[Azure availability zones](../reliability/availability-zones-overview.md) help protect your Azure deployment from datacenter failures. Each availability zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all [enabled regions](../reliability/availability-zones-region-support.md). Using Resource Mover, you can move:
+[Azure availability zones](/azure/reliability/availability-zones-overview) help protect your Azure deployment from datacenter failures. Each availability zone is made up of one or more datacenters equipped with independent power, cooling, and networking. To ensure resiliency, there’s a minimum of three separate zones in all [enabled regions](/azure/reliability/availability-zones-region-support). Using Resource Mover, you can move:
 
 - A single instance VM to an availability zone/availability set in the target region.
 - A VM in an availability set to an availability zone/availability set in the target region.

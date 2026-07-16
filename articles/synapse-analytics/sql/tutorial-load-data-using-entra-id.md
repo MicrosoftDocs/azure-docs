@@ -12,6 +12,8 @@ ms.topic: tutorial
 
 # Tutorial: Load external data using Microsoft Entra ID
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article explains how to create external tables using Microsoft Entra ID passthrough.
 
 ## Prerequisites

@@ -4,8 +4,8 @@ description: In this article, you create an Azure Stream Analytics job using Ter
 ms.service: azure-stream-analytics
 ms.topic: quickstart
 ms.custom: devx-track-terraform
-author: TomArcherMsft
-ms.author: tarcher
+author: spelluru
+ms.author: spelluru
 ms.date: 4/22/2023
 content_well_notification: 
   - AI-contribution

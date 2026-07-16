@@ -3,10 +3,11 @@ title: Manage users and roles in Azure IoT Central application
 description: Create, edit, delete, and manage users and roles in your Azure IoT Central application to control access to resources.
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/01/2024
+ms.date: 08/06/2025
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
+ms.custom: sfi-image-nochange
 
 # Administrator
 ---
@@ -21,7 +22,7 @@ To learn how to manage users and roles by using the IoT Central REST API, see [H
 
 ## Add users
 
-Every user must have a user account before they can sign in and access an application. IoT Central supports Microsoft user accounts, Microsoft Entra accounts, Microsoft Entra groups, and Microsoft Entra service principals. To learn more, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [Quickstart: Add new users to Microsoft Entra ID](../../active-directory/fundamentals/add-users-azure-active-directory.md).
+Every user must have a user account before they can sign in and access an application. IoT Central supports Microsoft user accounts, Microsoft Entra accounts, Microsoft Entra groups, and Microsoft Entra service principals. To learn more, see [Microsoft account help](https://support.microsoft.com/products/microsoft-account?category=manage-account) and  [How to create, invite, and delete users](../../active-directory/fundamentals/add-users-azure-active-directory.md).
 
 1. To add a user to an IoT Central application, go to the **Users** page in the **Permissions** section:
 
@@ -46,7 +47,7 @@ Every user must have a user account before they can sign in and access an applic
     When you invite a new user, you need to share the application URL with them and ask them to sign in. After the user signs in for the first time, the application appears on the user's [My apps](https://apps.azureiotcentral.com/myapps) page.
 
     > [!NOTE]
-    > If a user is deleted from Microsoft Entra ID and then added back, they won't be able to sign into the IoT Central application. To re-enable access, the application's administrator should delete and re-add the user in the application as well.
+    > If a user is deleted from Microsoft Entra ID and then added back, they aren't able to sign into the IoT Central application. To re-enable access, the application's administrator should delete and re-add the user in the application as well.
 
 The following limitations apply to Microsoft Entra groups and service principals:
 
@@ -59,7 +60,7 @@ The following limitations apply to Microsoft Entra groups and service principals
 Roles and organizations can't be changed after they're assigned. To change the role or organization assigned to a user, delete the user, and then add the user again with a different role or organization.
 
 > [!NOTE]
-> The roles assigned are specific to the IoT Central application and cannot be managed from the Azure Portal.
+> The roles assigned are specific to the IoT Central application and can't be managed from the Azure portal.
 
 ## Delete users
 

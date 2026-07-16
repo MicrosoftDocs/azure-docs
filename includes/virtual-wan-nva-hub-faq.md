@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-virtual-wan
  ms.topic: include
  ms.date: 04/19/2022
- ms.author: cherylmc
+ ms.author: duau
 ---
 ### I'm a network virtual appliance (NVA) partner and want to get our NVA in the hub. Can I join this partner program?
 

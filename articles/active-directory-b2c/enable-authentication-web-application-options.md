@@ -4,7 +4,7 @@ description:  This article discusses several ways to enable web app authenticati
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024
@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Enable authentication options in a web app by using Azure AD B2C 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article describes how to enable, customize, and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your web application. 
 

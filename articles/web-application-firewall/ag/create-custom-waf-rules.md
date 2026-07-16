@@ -1,16 +1,19 @@
 ---
-title: Create and use v2 custom rules
+title: Create and use WAF v2 custom rules on Application Gateway
 titleSuffix: Azure Web Application Firewall
 description: This article provides information on how to create Web Application Firewall (WAF) v2 custom rules in Azure Application Gateway.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-web-application-firewall
 ms.topic: how-to
-ms.date: 04/06/2023
+ms.date: 04/30/2025
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a security engineer, I want to create custom rules for the Web Application Firewall on my application gateway, so that I can effectively block or allow traffic based on specific criteria unique to my web applications.
 ---
 
 # Create and use Web Application Firewall v2 custom rules on Application Gateway
+
+**Applies to:** :heavy_check_mark: Application Gateway V2
 
 The Web Application Firewall (WAF) v2 on Azure Application Gateway provides protection for web applications. This protection is provided by the Open Web Application Security Project (OWASP) Core Rule Set (CRS). In some cases, you may need to create your own custom rules to meet your specific needs. For more information about WAF custom rules, see [Custom web application firewall rules overview](custom-waf-rules-overview.md).
 
@@ -19,9 +22,7 @@ This article shows you some example custom rules that you can create and use wit
 The JSON snippets shown in this article are derived from a [ApplicationGatewayWebApplicationFirewallPolicies](/azure/templates/microsoft.network/applicationgatewaywebapplicationfirewallpolicies) resource.
 
 >[!NOTE]
-> If your application gateway is not using the WAF tier, the option to upgrade the application gateway to the WAF tier appears in the right pane.
-
-![Enable WAF][fig1]
+> If your application gateway isn't using the WAF tier, the option to upgrade the application gateway to the WAF tier appears in the right pane.
 
 ## Example 1
 
@@ -50,7 +51,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And here's the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -111,7 +112,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -169,7 +170,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -229,7 +230,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-Here's the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -299,7 +300,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
    -State Enabled
 ```
 
-Here's the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -390,7 +391,7 @@ $rule2 = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -448,7 +449,58 @@ And the corresponding JSON:
 
 ## Example 6
 
-You want to only allow requests from specific known user agents.
+You want to only allow requests from specific known user agents and block any requests where the user agent isn't present. You will need to create two custom rules for this scenario; one to block any requests where user agent is missing, and a second rule to block any requests with an unauthorized user agent.
+
+### Rule 1
+
+```azurepowershell
+$variable = New-AzApplicationGatewayFirewallMatchVariable `
+   -VariableName RequestHeaders `
+   -Selector User-Agent
+$condition = New-AzApplicationGatewayFirewallCondition `
+   -MatchVariable $variable `
+   -Operator Any `
+   -NegationCondition $True
+
+$rule = New-AzApplicationGatewayFirewallCustomRule `
+   -Name BlockMissingUserAgents `
+   -Priority 1 `
+   -RuleType MatchRule `
+   -MatchCondition $condition `
+   -Action Block `
+   -State Enabled
+```
+
+Corresponding JSON:
+
+```json
+[
+  {
+    "name": "BlockMissingUserAgents",
+    "priority": 1,
+    "ruleType": "MatchRule",
+    "matchConditions": [
+      {
+        "matchVariables": [
+          {
+            "variableName": "RequestHeaders",
+            "selector": "User-Agent"
+          }
+        ],
+        "operator": "Any",
+        "negationConditon": true,
+        "matchValues": [
+          ".*"
+        ],
+        "transforms": []
+      }
+    ],
+    "action": "Block",
+    "state": "Enabled"
+  },
+```
+
+### Rule 2
 
 Because the logic used here is **or**, and all the values are in the *User-Agent* header, all of the *MatchValues* can be in a comma-separated list.
 
@@ -534,7 +586,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -State Enabled
 ```
 
-And here's the corresponding JSON:
+Corresponding JSON:
 
 ```json
 {
@@ -568,8 +620,6 @@ And here's the corresponding JSON:
 }
 ```
 
-## Next steps
+## Next step
 
 After you create your custom rules, you can learn how to view your WAF logs. For more information, see [Application Gateway diagnostics](../../application-gateway/application-gateway-diagnostics.md#diagnostic-logging).
-
-[fig1]: ../media/create-custom-waf-rules/1.png

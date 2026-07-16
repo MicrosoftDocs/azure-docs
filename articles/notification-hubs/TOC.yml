@@ -74,7 +74,7 @@
 - name: Concepts
   items:
   - name: Availability zones and disaster recovery
-    href: ../reliability/reliability-notification-hubs.md?toc=/azure/reliability/toc.json
+    href: /azure/reliability/reliability-notification-hubs?toc=/azure/reliability/toc.json
   - name: EU Data Boundary
     href: eu-data-boundary.md
   - name: Data encryption at rest
@@ -185,7 +185,7 @@
   - name: SDKs
     href: notification-hubs-sdks.md
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/notification-hubs/
   - name: Microsoft Q&A question page

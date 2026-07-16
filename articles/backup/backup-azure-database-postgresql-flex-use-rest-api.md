@@ -1,13 +1,14 @@
 ---
 title: Back up Azure Database for PostgreSQL - Flexible Servers using REST API
 description: Learn how to back up Azure Database for PostgreSQL - Flexible servers using REST API.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - ignite-2024
-ms.date: 02/28/2025
+ms.date: 02/12/2026
 ms.assetid: 759ee63f-148b-464c-bfc4-c9e640b7da6b
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a database administrator, I want to configure backups for Azure Database for PostgreSQL Flexible Servers using REST API, so that I can ensure the security and recoverability of my data.
 ---
 
 # Back up Azure Database for PostgreSQL - Flexible Servers using REST API
@@ -17,11 +18,14 @@ This article describes how to back up Azure Database for PostgreSQL - Flexible S
 For information on the Azure PostgreSQL - Flexible server backup supported scenarios, limitations, and authentication mechanisms, see the [overview document](backup-azure-database-postgresql-flex-overview.md).
 
 ## Prerequisites
+
+Before configuring backup for Azure PostgreSQL - Flexible servers, ensure that the following prerequisites are met:
+
 - [Create a Backup vault](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md)
 - [Create a PostgreSQL flexible server backup policy](backup-azure-database-postgresql-flex-use-rest-api-create-update-policy.md).
 
 
-## Configure backup
+## Configure backup for PostgreSQL - Flexible servers
 
 Once the vault and policy are created, there're three critical points to consider for an Azure PostgreSQL - Flexible servers protection.
 
@@ -292,7 +296,7 @@ GET https://management.azure.com/subscriptions/00001111-aaaa-2222-bbbb-3333cccc4
 
 ```
 
-## Configure backup request
+## Configure backup request for PostgreSQL - Flexible servers
 
 Once the request is validated, you can submit the same to the [create backup instance API](/rest/api/dataprotection/backup-instances/create-or-update). One of the Azure Backup data protection services protects the Backup instance within the Backup vault. Here, the Azure PostgreSQL flexible server is the backup instance. Use the above-validated request body with minor additions.
 
@@ -447,7 +451,7 @@ Once the operation completes, it returns 200 (OK) with the success message in th
 
 ```
 
-## Stop protection and delete data
+## Stop protection and delete data for PostgreSQL - Flexible servers
 
 To remove the protection on an Azure PostgreSQL database and delete the backup data as well, perform a [delete operation](/rest/api/dataprotection/backup-instances/delete).
 

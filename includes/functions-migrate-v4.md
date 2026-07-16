@@ -34,23 +34,23 @@ You must also set another setting, which differs between Windows and Linux.
 
 # [Windows](#tab/windows/azure-cli)
 
-When running on Windows, you also need to enable .NET 6.0, which is required by version 4.x of the runtime.
+When running on Windows, you also need to enable .NET 8.0, which is required by version 4.x of the runtime.
 
 ```azurecli
-az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
+az functionapp config set --net-framework-version v8.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
 ```
 
-.NET 6 is required for function apps in any language running on Windows.
+.NET 8.0 is required for function apps in any language running on Windows.
 
 # [Windows](#tab/windows/azure-powershell)
 
-When running on Windows, you also need to enable .NET 6.0, which is required by version 4.x of the runtime.
+When running on Windows, you also need to enable .NET 8.0, which is required by version 4.x of the runtime.
 
 ```azurepowershell
-Set-AzWebApp -NetFrameworkVersion v6.0 -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
+Set-AzWebApp -NetFrameworkVersion v8.0 -Name <APP_NAME> -ResourceGroupName <RESOURCE_GROUP_NAME>
 ```
 
-.NET 6 is required for function apps in any language running on Windows.
+.NET 8.0 is required for function apps in any language running on Windows.
 
 # [Linux](#tab/linux/azure-cli)
 
@@ -98,17 +98,17 @@ The [`Update-AzFunctionAppSetting`](/powershell/module/az.functions/update-azfun
     az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
-1. Version 4.x of the Functions runtime requires .NET 6 in Windows. On Linux, .NET apps must also update to .NET 6. Use the following command so that the runtime can run on .NET 6:
+1. Version 4.x of the Functions runtime requires .NET 8.0 in Windows. On Linux, .NET apps must also update to .NET 8.0. Use the following command so that the runtime can run on .NET 8.0:
    
     # [Windows](#tab/windows)
 
-    When running on Windows, you also need to enable .NET 6.0, which is required by version 4.x of the runtime.
+    When running on Windows, you also need to enable .NET 8.0, which is required by version 4.x of the runtime.
 
     ```azurecli
-    az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
+    az functionapp config set --net-framework-version v8.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
     ```
 
-    .NET 6 is required for function apps in any language running on Windows.
+    Function apps in any language running on Windows require .NET 8.0.
 
     # [Linux](#tab/linux)
 
@@ -160,17 +160,17 @@ To minimize the downtime in your production app, you can swap the `WEBSITE_OVERR
     az functionapp config appsettings set --settings FUNCTIONS_EXTENSION_VERSION=~4 -g <RESOURCE_GROUP_NAME>  -n <APP_NAME> --slot <SLOT_NAME>
     ```
 
-1. Version 4.x of the Functions runtime requires .NET 6 in Windows. On Linux, .NET apps must also update to .NET 6. Use the following command so that the runtime can run on .NET 6:
+1. Version 4.x of the Functions runtime requires .NET 8.0 in Windows. On Linux, .NET apps must also update to .NET 8.0. Use the following command so that the runtime can run on .NET 8.0:
    
     # [Windows](#tab/windows)
 
-    When running on Windows, you also need to enable .NET 6.0, which is required by version 4.x of the runtime.
+    When running on Windows, you also need to enable .NET 8.0, which is required by version 4.x of the runtime.
 
     ```azurecli
-    az functionapp config set --net-framework-version v6.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
+    az functionapp config set --net-framework-version v8.0 -g <RESOURCE_GROUP_NAME> -n <APP_NAME>
     ```
 
-    .NET 6 is required for function apps in any language running on Windows.
+    .NET 8.0 is required for function apps in any language running on Windows.
 
     # [Linux](#tab/linux)
 

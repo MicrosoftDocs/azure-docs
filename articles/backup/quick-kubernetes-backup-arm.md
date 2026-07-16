@@ -3,11 +3,12 @@ title: Quickstart - Configure vaulted backup for an Azure Kubernetes Service (AK
 description: Learn how to quickly configure backup for a Kubernetes cluster using Azure Resource Manager.
 ms.service: azure-backup
 ms.topic: quickstart
-ms.date: 01/21/2025
+ms.date: 01/09/2026
 ms.custom: devx-track-terraform, devx-track-extended-azdevcli, ignite-2024
 ms.reviewer: rajats
-ms.author: jsuri
-author: jyothisuri
+ms.author: v-mallicka
+author: AbhishekMallick-MS
+# Customer intent: As a cloud administrator, I want to configure backup for an Azure Kubernetes Service cluster using an ARM template, so that I can ensure data protection and recovery for my Kubernetes applications effectively.
 ---
 
 # Quickstart: Configure backup for an Azure Kubernetes Service (AKS) cluster using Azure Resource Manager
@@ -204,3 +205,6 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 - Restore Azure Kubernetes Service cluster using [Azure PowerShell](azure-kubernetes-service-cluster-restore-using-powershell.md), [Azure CLI](azure-kubernetes-service-cluster-restore-using-cli.md)
 - [Manage Azure Kubernetes Service cluster backups](azure-kubernetes-service-cluster-manage-backups.md)
 - [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-cluster-backup-concept.md)
+
+## Related content
+[Configure item-level backup for an AKS cluster](tutorial-configure-backup-aks.md).

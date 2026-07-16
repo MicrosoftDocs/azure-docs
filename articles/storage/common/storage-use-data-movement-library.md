@@ -3,15 +3,19 @@ title: Transfer data with the Data Movement library for .NET
 titleSuffix: Azure Storage
 description: Use the Data Movement library to move or copy data to or from blob and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 02/11/2025
-ms.author: pauljewell
+ms.author: shaas
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
-ms.custom: devx-track-csharp, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - devx-track-dotnet
+  - sfi-ropc-nochange
+# Customer intent: "As a .NET developer working with Azure Storage, I want to transfer data using the Data Movement library, so that I can efficiently manage uploads, downloads, and copies of blobs and files within Azure Storage."
 ---
 
 # Transfer data with the Data Movement library
@@ -27,7 +31,7 @@ If you're migrating code from the older **Microsoft.Azure.Storage.DataMovement**
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure storage account - [create a storage account](storage-account-create.md)
 - Latest [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
 
@@ -98,7 +102,7 @@ You can optionally provide an instance of [TransferManagerOptions](/dotnet/api/a
 
 - [CheckpointStoreOptions](/dotnet/api/azure.storage.datamovement.transfermanageroptions.checkpointstoreoptions): Optional. Defines the options for creating a checkpoint used for saving transfer state so transfers can be resumed.
 - [Diagnostics](/dotnet/api/azure.storage.datamovement.transfermanageroptions.diagnostics): Gets the transfer manager diagnostic options.
-- [ErrorHandling](/dotnet/api/azure.storage.datamovement.transfermanageroptions.errorhandling): Optional. Defines how errors are handled during a transfer. Default is `StopOnAnyFailure`.
+- [ErrorMode](/dotnet/api/azure.storage.datamovement.transfermanageroptions.errormode): Optional. Defines how errors are handled during a transfer. Default is `StopOnAnyFailure`.
 - [MaximumConcurrency](/dotnet/api/azure.storage.datamovement.transfermanageroptions.maximumconcurrency): The maximum number of workers that can be used in a parallel transfer.
 - [ProvidersForResuming](/dotnet/api/azure.storage.datamovement.transfermanageroptions.providersforresuming): Resource providers for the transfer manager to use in resuming a transfer. Expects one provider for each storage provider in use. To learn more, see [Resume an existing transfer](#resume-an-existing-transfer).
 
@@ -385,3 +389,4 @@ To learn more about the extension methods for `BlobContainerClient`, see [Extens
 ## Next step
 
 - Code samples for [DataMovement.Blobs](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Blobs/samples) and [DataMovement.Files.Shares](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement.Files.Shares/samples) are available in the Azure SDK for .NET GitHub repository.
+

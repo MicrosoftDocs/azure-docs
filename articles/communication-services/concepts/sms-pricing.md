@@ -5,7 +5,7 @@ description: This article describes the Azure Communication Services short messa
 author: prakulka
 ms.author: prakulka
 ms.date: 04/10/2025
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 zone_pivot_groups: acs-tollfree-shortcode-alphanumeric-tendlc-mobile
 ---
@@ -41,6 +41,7 @@ zone_pivot_groups: acs-tollfree-shortcode-alphanumeric-tendlc-mobile
 
 ## Related articles
 
+- For global messaging and partner-led options, see [Messaging Connect](../concepts/sms/messaging-connect.md).
 - Learn about the [SMS SDKs](../concepts/sms/sdk-features.md).
 - Get an SMS capable [phone number](../quickstarts/telephony/get-phone-number.md).
 - Get a [short code](../quickstarts/sms/apply-for-short-code.md).

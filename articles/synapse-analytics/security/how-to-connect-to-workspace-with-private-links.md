@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.subservice: security 
 ms.date: 12/20/2024 
 ms.author: danzhang
+ms.custom: sfi-image-nochange
 ---
 
 # Connect to your Azure Synapse workspace using private links

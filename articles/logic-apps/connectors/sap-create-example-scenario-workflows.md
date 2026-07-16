@@ -1,23 +1,25 @@
 ---
-title: Create common SAP workflows
-description: Build workflows for common SAP scenarios in Azure Logic Apps.
-services: logic-apps
+title: Create Common SAP Integration Workflows
+description: Build integration workflows for common SAP integration scenarios by using workflows in Azure Logic Apps.
+services: azure-logic-apps
 ms.suite: integration
 author: daviburg
 ms.author: daviburg
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 02/12/2025
-#As an integration solution developer, I want to learn how I can build automated workflows that perform tasks with SAP resources.
+ms.update-cycle: 1095-days
+ms.date: 03/13/2026
+ms.custom: sfi-ropc-nochange
+#Customer intent: As an SAP integration solution developer who works with Azure Logic Apps, I want to create automation and integration workflows that perform tasks with SAP resources.
 ---
 
 # Create workflows for common SAP integration scenarios in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](../../../includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../includes/logic-apps-sku-consumption-standard.md)]
 
-This how-to guide shows how to create example logic app workflows for some common SAP integration scenarios using Azure Logic Apps and the SAP connector.
+This guide shows how to create example logic app workflows for some common SAP integration scenarios using Azure Logic Apps and the SAP connector.
 
-Both Standard and Consumption logic app workflows offer the SAP *managed* connector that's hosted and run in multitenant Azure. Standard workflows also offer the SAP *built-in service provider* connector that's hosted and run in single-tenant Azure Logic Apps. For more information, see [Connector technical reference](sap.md#connector-technical-reference).
+Both Standard and Consumption logic app workflows offer the SAP *managed* connector hosted and run in multitenant Azure. Standard workflows also offer the SAP *built-in service provider* connector hosted and run in single-tenant Azure Logic Apps. For more information, see [Connector technical reference](sap.md#connector-technical-reference).
 
 ## Prerequisites
 
@@ -76,9 +78,9 @@ Based on whether you have a Consumption workflow in multitenant Azure Logic Apps
    | **ProgramId** | Yes | The registration gateway program ID for the SAP RFC server. <br><br>**Note**: This value is case-sensitive. Make sure that you consistently use the same case format for the **Program ID** value when you configure your logic app workflow and SAP server. Otherwise, when you attempt to send an IDoc to SAP, the tRFC Monitor (T-Code SM58) might show the following errors (links require SAP login): <br><br>- [**Function IDOC_INBOUND_ASYNCHRONOUS not found** (2399329)](https://launchpad.support.sap.com/#/notes/2399329)<br>- [**Non-ABAP RFC client (partner type) not supported** (353597)](https://launchpad.support.sap.com/#/notes/353597) |
    | **DegreeOfParallelism** | No | The number of calls to process in parallel. To add this parameter and change the value, from the **Advanced parameters** list, select **DegreeOfParallelism**, and enter the new value. |
    | **SapActions** | No | Filter the messages that you receive from your SAP server based on a [list of SAP actions](#filter-with-sap-actions). To add this parameter, from the **Advanced parameters** list, select **SapActions**. In the new **SapActions** section, for the **SapActions - 1** parameter, use the file picker to select an SAP action or manually specify an action. For more information about the SAP action, see [Message schemas for IDoc operations](/biztalk/adapters-and-accelerators/adapter-sap/message-schemas-for-idoc-operations). |
-   | **IDoc Format** | No | The format to use for receiving IDocs. To add this parameter, from the **Advanced parameters** list, select **IDoc Format**. <br><br>- To receive IDocs as SAP plain XML, from the **IDoc Format** list, select **SapPlainXml**. <br><br>- To receive IDocs as a flat file, from the **IDoc Format** list, select **FlatFile**. <br><br>- **Note**: If you also use the [Flat File Decode action](../logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record that's sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema that's provided to the action must match. |
+   | **IDoc Format** | No | The format to use for receiving IDocs. To add this parameter, from the **Advanced parameters** list, select **IDoc Format**. <br><br>- To receive IDocs as SAP plain XML, from the **IDoc Format** list, select **SapPlainXml**. <br><br>- To receive IDocs as a flat file, from the **IDoc Format** list, select **FlatFile**. <br><br>- **Note**: If you also use the [Flat File Decode action](../logic-apps-enterprise-integration-flatfile.md) in your workflow, in your flat file schema, you have to use the **early_terminate_optional_fields** property and set the value to **true**. This requirement is necessary because the flat file IDoc data record sent by SAP on the tRFC call named `IDOC_INBOUND_ASYNCHRONOUS` isn't padded to the full SDATA field length. Azure Logic Apps provides the flat file IDoc original data without padding as received from SAP. Also, when you combine this SAP trigger with the Flat File Decode action, the schema provided to the action must match. |
    | **Receive IDOCS with unreleased segments** | No | Receive IDocs with or without unreleased segments. To add this parameter and change the value, from the **Advanced parameters** list, select **Receive IDOCS with unreleased segments**, and select **Yes** or **No**. |
-   | **SncPartnerNames** | No | The list of SNC partners that have permissions to call the trigger at the SAP client library level. Only the listed partners are authorized by the SAP server's SNC connection. To add this parameter, from the **Advanced parameters** list, select **SncPartnerNames**. Make sure to enter each name separated by a vertical bar (**\|**). |
+   | **SncPartnerNames** | No | The list of SNC partners that have permissions to call the trigger at the SAP client library level. The list shows only partners that the SAP server's SNC connection authorizes. To add this parameter, from the **Advanced parameters** list, select **SncPartnerNames**. Make sure to enter each name separated by a vertical bar (**\|**). |
 
    The following example shows a minimally configured SAP managed trigger in a workflow:
 
@@ -159,7 +161,7 @@ The SAP built-in trigger is a non-polling, Azure Functions-based trigger, not a 
 
 To receive IDoc packets, which are batches or groups of IDocs, the SAP trigger doesn't need extra configuration. However, to process each item in an IDoc packet after the trigger receives the packet, you have to implement a few more steps to split the packet into individual IDocs by setting up SAP to [send IDocs in packets](https://help.sap.com/viewer/8f3819b0c24149b5959ab31070b64058/7.4.16/4ab38886549a6d8ce10000000a42189c.html). 
 
-The following example workflow shows how to extract individual IDocs from a packet by using the [`xpath()` function](../workflow-definition-language-functions-reference.md#xpath):
+The following example workflow shows how to extract individual IDocs from a packet by using the [`xpath()` function](../expression-functions-reference.md#xpath):
 
 1. Before you start, you need a Consumption or Standard logic app workflow with an SAP trigger. If your workflow doesn't already start with this trigger, follow the previous steps in this guide to [add the SAP trigger that can receive messages to your workflow](#receive-messages-sap).
 
@@ -191,7 +193,7 @@ The following example workflow shows how to extract individual IDocs from a pack
 
    1. In the action, select inside the **Value** edit box to show the options for the dynamic content list (lightning icon) and expression editor (function icon).
    
-   1. Select the function icon to open expression editor, and create the following expression using the [`xpath()` function](../workflow-definition-language-functions-reference.md#xpath):
+   1. Select the function icon to open expression editor, and create the following expression using the [`xpath()` function](../expression-functions-reference.md#xpath):
 
       `xpath(xml(triggerBody()?['Content']), 'namespace-uri(/*)')`
 
@@ -354,7 +356,7 @@ Next, create an action to send your IDoc to SAP when the workflow's **Request** 
 
    1. Browse the SAP action type folders using the arrows to find and select the SAP action that you want to use.
 
-      This example selects the following folders all the way to the SAP action named **Send**: **ORDERS** > **ORDERS05** > **720** > **Send**.
+      This example selects the following folders up to the SAP action named **Send**: **ORDERS** > **ORDERS05** > **720** > **Send**.
 
       :::image type="content" source="media/sap-create-example-scenario-workflows/sap-send-message-find-orders-action-consumption.png" alt-text="Screenshot shows Consumption workflow and selections for folders named Orders, Orders05, 720, and so on.":::
 
@@ -578,7 +580,7 @@ Z2XSK010003000000001017945375000110Z2XSK01000000108030 XR1 13.000 6795.00 CX
 
 ### Add a response action
 
-Now, set up your workflow to return the results from your SAP server to the original requestor. For this task, follow these steps:
+Now, set up your workflow to return the results from your SAP server to the original requester. For this task, follow these steps:
 
 ### [Consumption](#tab/consumption)
 
@@ -690,15 +692,15 @@ In the following example, the `STFC_CONNECTION` RFC module generates a request a
 
 You've now created a workflow that can send IDocs and communicate with your SAP server. Now that you've set up an SAP connection for your workflow, you can try experimenting with BAPI and RFC.
 
-#### Workflow time-out issues
+#### Workflow timeout issues
 
 Your workflow times out in any of the following scenarios:
 
-- All the steps required for the response don't finish within the [request time-out limit](../logic-apps-limits-and-config.md). If this condition happens, requests might get blocked. To help you diagnose problems, learn [how to check workflow status and view run history for your workflows](/azure/logic-apps/view-workflow-status-run-history).
+- All the steps required for the response don't finish within the [request timeout limit](../logic-apps-limits-and-config.md). If this condition happens, requests might get blocked. To help you diagnose problems, see [how to check workflow status and view run history for your workflows](/azure/logic-apps/view-workflow-status-run-history).
 
 - Your SAP system's processing mode is set to the default **Trigger immediately** setting, which causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing.
 
-  If your SAP system is under load, for example, when your workflow sends a batch of IDocs all at one time to SAP, the queued IDoc calls time out. The default processing mode causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute time out, by default.
+  If your SAP system is under load, for example, when your workflow sends a batch of IDocs all at one time to SAP, the queued IDoc calls time out. The default processing mode causes your SAP system to block the inbound call for IDoc transmission until an IDoc finishes processing. In Azure Logic Apps, workflow actions have a 2-minute timeout, by default.
 
   To resolve this problem, follow the [steps in the **Prerequisites** section that change the setting to **Trigger by background program**](sap.md#prerequisites).
 
@@ -706,7 +708,7 @@ Your workflow times out in any of the following scenarios:
 
 ## Safe typing
 
-By default, when you create a connection for the SAP managed operation, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. If you choose **Safe Typing**, the DATS type and TIMS type in SAP are treated as strings rather than as their XML equivalents, `xs:date` and `xs:time`, where `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. Safe typing affects the behavior for all schema generation, the send message for both the "been sent" payload and the "been received" response, and the trigger.
+By default, when you create a connection for the SAP managed operation, strong typing is used to check for invalid values by performing XML validation against the schema. This behavior can help you detect issues earlier. The **Safe Typing** option is available for backward compatibility and only checks the string length. If you choose **Safe Typing**, the DATS type and TIMS type in SAP are treated as strings rather than as their XML equivalents, `xs:date` and `xs:time`, where `xmlns:xs="http://www.w3.org/2001/XMLSchema"`. Safe typing affects the behavior for all schema generation, the Send message for both the "sent" payload and the "received" response, and the trigger.
 
 When strong typing is used (**Safe Typing** isn't enabled), the schema maps the DATS and TIMS types to more straightforward XML types:
 
@@ -778,7 +780,7 @@ When you connect to SAP from Azure Logic Apps, English is the default language u
 
 When you send transactions to SAP from Azure Logic Apps, this exchange happens in two steps as described in the SAP document, [Transactional RFC Server Programs](https://help.sap.com/doc/saphelp_nwpi71/7.1/22/042ad7488911d189490000e829fbbd/content.htm?no_cache=true).
 
-By default, the SAP managed connector action named [**Send message to SAP**](/connectors/sap/#send-message-to-sap) handles both the steps to transfer the function and confirm the transaction in a single call. You can also to decouple these steps. The capability to decouple the transfer and confirmation steps is useful for scenarios where you don't want to duplicate transactions in SAP. Such scenarios include failures that happen due to causes such as network issues.
+By default, the SAP managed connector action named [**Send message to SAP**](/connectors/sap/#send-message-to-sap) handles both the steps to transfer the function and confirm the transaction in a single call. You can also decouple these steps. The capability to decouple the transfer and confirmation steps is useful for scenarios where you don't want to duplicate transactions in SAP. Such scenarios include failures that happen due to causes such as network issues.
 
 You can send an IDoc without automatically confirming the transaction using the SAP managed connector action named [**[IDOC] Send document to SAP**](/connectors/sap/#[idoc]-send-document-to-sap). You can then explicitly confirm the transaction using the SAP managed connector action named [**[IDOC - RFC] Confirm transaction Id**](/connectors/sap/#[idoc---rfc]-confirm-transaction-id). When your workflow separately confirms the transaction in a different step, the SAP system completes the transaction only once.
 

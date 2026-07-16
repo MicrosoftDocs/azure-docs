@@ -8,7 +8,9 @@ ms.topic: get-started
 ms.date: 02/13/2025
 ms.author: whhender
 ms.reviewer: xupzhou
-ms.custom: subject-armqs
+ms.custom:
+  - subject-armqs
+  - sfi-image-nochange
 ---
 
 # Get started with Azure Data Factory
@@ -21,7 +23,7 @@ The Azure Resource Manager template (ARM template) in this article creates and c
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Video summary
 

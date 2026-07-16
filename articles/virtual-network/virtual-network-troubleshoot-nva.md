@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.topic: troubleshooting
 ms.date: 04/03/2025
 ms.author: allensu
+# Customer intent: "As a network administrator, I want to troubleshoot connectivity issues with Network Virtual Appliances in Azure, so that I can ensure proper configuration and performance for seamless network operations."
 ---
 
 # Network virtual appliance issues in Azure

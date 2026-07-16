@@ -3,13 +3,13 @@ title: 'Create site-to-site connections using Virtual WAN - PowerShell'
 description: Learn how to create a site-to-site connection from your branch site to Azure Virtual WAN using PowerShell.
 titleSuffix: Azure Virtual WAN
 services: virtual-wan
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/27/2025
-ms.author: cherylmc
+ms.author: duau
 ---
 # Create a site-to-site connection to Azure Virtual WAN using PowerShell
 

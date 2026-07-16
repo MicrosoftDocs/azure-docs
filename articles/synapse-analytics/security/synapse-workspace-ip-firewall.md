@@ -7,6 +7,7 @@ ms.topic: overview
 ms.subservice: security 
 ms.date: 01/22/2025
 ms.author: danzhang 
+ms.custom: sfi-image-nochange
 
 ---
 
@@ -16,7 +17,10 @@ This article will explain IP firewall rules and teach you how to configure them 
 
 ## IP firewall rules
 
-IP firewall rules grant or deny access to your Azure Synapse workspace based on the originating IP address of each request. You can configure IP firewall rules for your workspace. IP firewall rules configured at the workspace level apply to all public endpoints of the workspace (dedicated SQL pools, serverless SQL pool, and development). The maximum number of IP firewall rules is limited to 128. If you have the **Allow Azure Services and resources to access this server** setting enabled, this counts as a single firewall rule for the workspace.
+IP firewall rules grant or deny access to your Azure Synapse workspace based on the originating IP address of each request. You can configure IP firewall rules for your workspace. IP firewall rules configured at the workspace level apply to all public endpoints of the workspace (dedicated SQL pools, serverless SQL pool, and development). The maximum number of IP firewall rules is limited to 128. If you have the **Allow Azure Services and resources to access this workspace** setting enabled, this counts as a single firewall rule for the workspace.
+
+> [!IMPORTANT]  
+> When **Allow Azure Services and resources to access this workspace** setting is enabled, it configures the workspace firewall to allow all connections from Azure, including connections from the subscriptions of other customers. If you select this option, make sure that your login and user permissions limit access to authorized users only.
 
 ## Create and manage IP firewall rules
 
@@ -43,8 +47,8 @@ Make sure that the firewall on your network and local computer allows outgoing c
 To connect using tools such as SSMS and Power BI, you must allow outgoing communication on TCP port 1433. The 1433 port used by SSMS (Desktop Application).
 
 > [!NOTE]
-> Azure Policy operates at a level above other Azure services by applying policy rules against PUT requests and GET responses of resource types exchanged between Azure Resource Manager and the owning resource provider (RP). However, updates to Synapse workspace firewall settings in the Azure Portal are made using POST calls, such as the replaceAllIpFirewallRules operation.\
-> Due to this design, Azure Policy definitions cannot block changes to networking settings made via POST operations. As a result, modifications to firewall rules through the Azure Portal may bypass Azure Policy, even if restrictive policies are in place.
+> Azure Policy operates at a level above other Azure services by applying policy rules against PUT requests and GET responses of resource types exchanged between Azure Resource Manager and the owning resource provider (RP). However, updates to Synapse workspace firewall settings in the Azure portal are made using POST calls, such as the replaceAllIpFirewallRules operation.\
+> Due to this design, Azure Policy definitions cannot block changes to networking settings made via POST operations. As a result, modifications to firewall rules through the Azure portal may bypass Azure Policy, even if restrictive policies are in place.
 
 ## Manage the Azure Synapse workspace firewall
 

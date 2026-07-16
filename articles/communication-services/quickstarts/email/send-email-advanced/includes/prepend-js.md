@@ -8,6 +8,7 @@ ms.author: natekimball
 ms.date: 04/07/2023
 ms.topic: include
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 
 Get started with Azure Communication Services by using the Communication Services JS Email client library to send Email messages.
@@ -46,7 +47,7 @@ EmailSendResult returns the following status on the email operation performed.
 ## Prerequisites
 
 - [Node.js (~14)](https://nodejs.org/download/release/v14.19.1/).
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Email Communication Services resource created and ready with a provisioned domain. [Get started with creating an Email Communication Resource](../../create-email-communication-resource.md).
 - An active Azure Communication Services resource connected to an Email Domain and its connection string. [Get started by connecting an Email Communication Resource with a Azure Communication Resource](../../../create-communication-resource.md).
 

@@ -6,7 +6,7 @@ description: Region availability, data residency, high availability, SLA, and in
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 11/27/2024
@@ -20,6 +20,7 @@ ms.custom: references_regions
 ---
 
 # Azure Active Directory B2C: Region availability & data residency
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Azure Active Directory B2C (Azure AD B2C) stores customer data in a geographic location based on how a tenant was created and provisioned. For the Azure portal or Microsoft Entra API, the location is defined when a customer selects a location from the pre-defined list.
 

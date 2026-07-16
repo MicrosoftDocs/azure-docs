@@ -6,7 +6,7 @@ description: Provides definitions for the cookies used in Azure Active Directory
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024
@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # Cookies definitions for Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 The following sections provide information about the cookies used in Azure Active Directory B2C (Azure AD B2C).
 

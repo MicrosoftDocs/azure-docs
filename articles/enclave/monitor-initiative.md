@@ -1,0 +1,53 @@
+---
+title: Monitoring Initiative
+description: Monitoring Initiative.
+author: jadean-msft
+ms.author: jadean
+ms.topic: overview
+ms.date: 9/30/2025
+---
+
+# Monitoring guardrails initiative
+This article describes the Policy guardrails in place to ensure Azure Monitoring is deployed securely.
+
+## Monitoring GitHub Repository
+
+[GitHub Repository](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policyDefinitions/Monitoring)
+
+## Monitoring Policies Custom
+
+| Name | Description | Version | Type | Effect | Policy definition |
+| :---- | :---- | :---- | :---- | :---- | :---- |
+| Azure Monitor Logs for Application Insights should be linked to a Log Analytics workspace | Link the Application Insights component to a Log Analytics workspace for logs encryption. Customer-managed keys are commonly required to meet regulatory compliance and for more control over the access to your data in Azure Monitor. Linking your component to a Log Analytics workspace is enabled with a customer-managed key, ensures that your Application Insights logs meet this compliance requirement, [Learn more](/azure/azure-monitor/logs/customer-managed-keys). | 1.1.0 | Custom | AuditDeny | N/A |
+| Apply Diagnostic Settings for Microsoft.Storage/storageAccounts to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.Storage/storageAccounts to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | AuditDeploy | N/A |
+| Audit Diagnostic Settings for Microsoft.Storage/storageAccounts/blobServices to a Log Analytics workspace and Storage Account | This policy audits diagnostic settings for Microsoft.Storage/storageAccounts/blobServices to a Log Analytics workspace and a Storage Account. | 1.0.1 | Custom | AuditIfNotExist | N/A |
+| Audit Diagnostic Settings for Microsoft.Storage/storageAccounts/fileServices to a Log Analytics workspace and Storage Account | This policy audits diagnostic settings for Microsoft.Storage/storageAccounts/fileServices to a Log Analytics workspace and a Storage Account. | 1.0.1 | Custom | AuditIfNotExist | N/A |
+| Audit Diagnostic Settings for Microsoft.Storage/storageAccounts/queueServices to a Log Analytics workspace and Storage Account | This policy audits diagnostic settings for Microsoft.Storage/storageAccounts/queueServices to a Log Analytics workspace and a Storage Account. | 1.0.1 | Custom | AuditIfNotExist | N/A |
+| Audit Diagnostic Settings for Microsoft.Storage/storageAccounts/tableServices to a Log Analytics workspace and Storage Account | This policy audits diagnostic settings for Microsoft.Storage/storageAccounts/tableServices to a Log Analytics workspace and a Storage Account. | 1.0.1 | Custom | AuditIfNotExist | N/A |
+| Apply Diagnostic Settings for Microsoft.ContainerService/managedClusters to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.ContainerService/managedClusters to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.KeyVault/vaults to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.KeyVault/vaults to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | AuditDeploy | N/A |
+| Apply Diagnostic Settings for Microsoft.Sql/servers/databases to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.Sql/servers/databases to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Configure Azure SQL database servers diagnostic settings to Log Analytics workspace | Enables auditing logs for Azure SQL Database server and stream the logs to a Log Analytics workspace when any SQL Server which is missing this auditing is created or updated | 1.0.2 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.ServiceBus/namespaces to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.ServiceBus/namespaces to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Azure Monitor log profile should collect logs for categories 'write,' 'delete,' and 'action' | This policy ensures that a log profile collects logs for categories 'write,' 'delete,' and 'action' | 1.0.0 | Custom | AuditIfNotExist | N/A |
+| Audit diagnostic setting for selected resource types | Audit diagnostic setting for selected resource types. Be sure to select only resource types which support diagnostics settings. | 2.0.1 | Custom | AuditIfNotExists | N/A |
+| Apply Diagnostic Settings for Microsoft.ContainerRegistry/registries to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.ContainerRegistry/registries to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.DocumentDB/databaseAccounts to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.DocumentDB/databaseAccounts to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.Sql/managedInstances to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.Sql/managedInstances to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.DBforPostgreSQL/flexibleServers to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.DBforPostgreSQL/flexibleServers to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.Network/networkInterfaces to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.Network/networkInterfaces to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.Network/networkSecurityGroups to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.Network/networkSecurityGroups to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.Web/serverfarms to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.Web/serverfarms to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.Network/publicIPAddresses to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.Network/publicIPAddresses to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.Network/loadBalancers to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.Network/loadBalancers to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.OperationalInsights/workspaces to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.OperationalInsights/workspaces to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.Web/sites (App Service) to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.Web/sites (App Service) to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.Network/virtualNetworks to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.Network/virtualNetworks to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.Insights/components to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.Insights/components to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.Network/azurefirewalls to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.Network/azurefirewalls to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.Web/sites (Function App) to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.Web/sites (Function App) to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.Logic/workflows to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.Logic/workflows to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.Resources/subscriptions to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.Resources/subscriptions to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.DesktopVirtualization/applicationgroups to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.DesktopVirtualization/applicationgroups to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.DesktopVirtualization/hostpools to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.DesktopVirtualization/hostpools to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |
+| Apply Diagnostic Settings for Microsoft.DesktopVirtualization/workspaces to a Log Analytics workspace and Storage Account | This policy automatically deploys diagnostic settings for Microsoft.DesktopVirtualization/workspaces to a Log Analytics workspace and a Storage Account. | 1.0.0 | Custom | Deploy | N/A |

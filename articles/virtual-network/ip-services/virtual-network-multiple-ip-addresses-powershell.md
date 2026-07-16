@@ -10,6 +10,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to assign multiple IP addresses to a virtual machine using PowerShell, so that I can host multiple services and improve network configurations on a single server.
 ---
 
 # Assign multiple IP addresses to virtual machines using Azure PowerShell
@@ -35,7 +36,7 @@ This article explains how to add multiple IP addresses to a virtual machine usin
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - PowerShell environment in [Azure Cloud Shell](https://shell.azure.com/powershell) or Azure PowerShell installed locally. To learn more about using PowerShell in Azure Cloud Shell, see [Azure Cloud Shell Quickstart](/azure/cloud-shell/quickstart?tabs=powershell).
 

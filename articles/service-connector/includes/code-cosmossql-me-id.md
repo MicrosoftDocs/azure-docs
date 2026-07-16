@@ -1,9 +1,8 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 12/04/2023
-ms.author: wchi
+ms.date: 17/06/2026
+ms.reviewer: wchi
 ---
 
 ### [.NET](#tab/dotnet)
@@ -14,7 +13,7 @@ ms.author: wchi
     dotnet add package Azure.Identity
     ```
 
-1. Authenticate using `Azure.Identity` NuGet package and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get an access token for the managed identity or service principal by using Azure.Identity. Then use connection information from environment variables added by Service Connector to connect to Azure Cosmos DB for NoSQL. In the code below, uncomment the section for your authentication type:
     ```csharp
     using Microsoft.Azure.Cosmos;
     using Azure.Core;

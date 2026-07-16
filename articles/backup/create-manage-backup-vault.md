@@ -2,15 +2,16 @@
 title: Create and delete Backup vaults
 description: Learn how to create and delete the Backup vaults.
 ms.topic: how-to
-ms.date: 03/19/2025
+ms.date: 01/30/2026
 ms.custom: references_regions
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to create and delete Backup vaults, so that I can efficiently manage and organize backup data for Azure services while ensuring data security and compliance.
 ---
 # Create and delete Backup vaults
 
-This article describes how to create Backup vaults and delete them.
+This article describes how to create Backup vaults and delete them. You can also [create a Backup vault using REST API](backup-azure-dataprotection-use-rest-api-create-update-backup-vault.md).
 
 A Backup vault is a storage entity in Azure that houses backup data for certain newer workloads that Azure Backup supports. You can use Backup vaults to hold backup data for various Azure services, such Azure Database for PostgreSQL servers and newer workloads that Azure Backup will support. Backup vaults make it easy to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides the **Enhanced capabilities to help secure backup data**. With Backup vaults, Azure Backup provides security capabilities to protect cloud backups. The security features ensure you can secure your backups, and safely recover data, even if production and backup servers are compromised. [Learn more](backup-azure-security-feature.md)
 
@@ -44,7 +45,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
     ![Select Review + Create](./media/backup-vault-overview/review-and-create.png)
 
-Learn more about [creating a Backup vault using Azure Business Continuity Center](../business-continuity-center/backup-vaults.md).
+Learn more about [creating a Backup vault using Resiliency](../resiliency/backup-vaults.md).
 
 ## Delete a Backup vault
 
@@ -61,7 +62,7 @@ If you try to delete the vault without removing the dependencies, you'll encount
 
 >Cannot delete the Backup vault as there are existing backup instances or backup policies in the vault. Delete all backup instances and backup policies that are present in the vault and then try deleting the vault.
 
-Ensure that you cycle through the **Datasource type** filter options in **Backup center** to not miss any existing Backup Instance or policy that needs to be removed, before being able to delete the Backup Vault.
+Ensure that you cycle through the **Datasource type** filter options in **Resiliency** to not miss any existing Backup Instance or policy that needs to be removed, before being able to delete the Backup Vault.
 
 ![Datasource Types](./media/backup-vault-overview/datasource-types.png)
 
@@ -87,5 +88,6 @@ When there are no more items in the vault, select **Delete** on the vault dashbo
 
 ## Next steps
 
-- [Manage a Backup vault](manage-backup-vault.md)
-- [Configure backup on Azure PostgreSQL databases](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases)
+- [Manage a Backup vault](manage-backup-vault.md).
+- [Troubleshoot Azure Backup Vault related operations](backup-azure-backup-vault-troubleshoot.md).
+- [Configure backup on Azure PostgreSQL databases](backup-azure-database-postgresql.md#configure-backup-on-azure-postgresql-databases).

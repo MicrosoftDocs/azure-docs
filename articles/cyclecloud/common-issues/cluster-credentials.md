@@ -1,20 +1,21 @@
 ---
 title: Common Issues - Cluster Credentials
-description: Azure CycleCloud common issue - Cluster Credentials
+description: Troubleshoot cluster credential errors in Azure CycleCloud, such as 'Credentials not found' during node validation.
 author: adriankjohnson
-ms.date: 11/15/2019
+ms.date: 06/19/2026
+ms.topic: troubleshooting-problem-resolution
 ms.author: adjohnso
 ---
-# Common Issues: Cluster Credentials
+# Common issues: Cluster credentials
 
-## Possible Error Messages
+## Possible error messages
 
 - `Validating nodes (Credentials not found)`
 
 ## Resolution
 
-Check that the Credentials specified for the cluster, node, or nodearray exist in your CycleCloud instance. To determine if a credential exists in CycleCloud, click the gear icon at the bottom of the clusters page and verify that the named credential exists in the account list.
+Check that the credentials you specify for the cluster, node, or node array exist in your CycleCloud instance. To see if a credential exists in CycleCloud, select the gear icon at the bottom of the clusters page. Check the account list for the named credential.
 
-## More Information
+## More information
 
 For more information, see [Configuring Azure Credentials](/azure/cyclecloud/configuration).

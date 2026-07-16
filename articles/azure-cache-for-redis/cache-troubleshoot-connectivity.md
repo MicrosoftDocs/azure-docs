@@ -1,10 +1,7 @@
 ---
 title: Troubleshoot connectivity
 description: Learn how to resolve connectivity problems when creating clients with Azure Cache for Redis.
-
-
-
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.date: 04/17/2025
 appliesto:
   - ✅ Azure Cache for Redis
@@ -12,6 +9,8 @@ ms.custom: template-concept, ignite-2024
 ---
 
 # Troubleshoot Azure Cache for Redis connectivity
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 This article explains how to troubleshoot common issues with connecting your client application to Azure Cache for Redis. Connectivity issues might be caused by intermittent conditions, or by incorrect cache configuration. This article is divided into intermittent issues and cache configuration issues.
 
@@ -93,7 +92,7 @@ In the Azure portal, check your private endpoint configuration by selecting **Pr
   
 ### Public IP address change
 
-If you configure any networking or security resource to use your cache's public IP address, check to see whether your cache's public IP address changed. For more information, see [Rely on hostname not public IP address](cache-best-practices-development.md#rely-on-hostname-not-public-ip-address).
+If you configure any networking or security resource to use your cache's public IP address, check to see whether your cache's public IP address changed. For more information, see [Rely on hostname, not a public or private IP address](cache-best-practices-development.md#rely-on-hostname-not-a-public-or-private-ip-address).
 
 ### Virtual network configuration
 

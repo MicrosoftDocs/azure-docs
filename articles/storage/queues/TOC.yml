@@ -32,7 +32,7 @@
   - name: Java
     href: ../common/storage-samples-java.md?toc=/azure/storage/queues/toc.json
   - name: Spring
-    href: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/spring-cloud-azure_v4.3.0/storage/spring-cloud-azure-starter-storage-queue/storage-queue-client
+    href: https://github.com/Azure-Samples/azure-spring-boot-samples/tree/main/storage/spring-cloud-azure-starter-storage-queue/storage-queue-client
   - name: Python
     href: ../common/storage-samples-python.md?toc=/azure/storage/queues/toc.json
   - name: JavaScript
@@ -93,10 +93,14 @@
       href: security-recommendations.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/storage-security-baseline?toc=/azure/storage/queues/toc.json?toc=/azure/storage/queues/TOC.json
-  - name: Data redundancy
-    href: ../common/storage-redundancy.md?toc=/azure/storage/queues/toc.json
-  - name: Disaster recovery and failover
-    href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/queues/toc.json
+  - name: Reliability
+    items:
+    - name: Reliability in Azure Queue storage
+      href: /azure/reliability/reliability-storage-queue?toc=/azure/storage/queues/toc.json
+    - name: Data redundancy
+      href: ../common/storage-redundancy.md?toc=/azure/storage/queues/toc.json
+    - name: Disaster recovery and failover
+      href: ../common/storage-disaster-recovery-guidance.md?toc=/azure/storage/queues/toc.json
   - name: Performance, scaling, and cost optimization
     items:
     - name: Scalability and performance targets
@@ -302,7 +306,7 @@
   - name: Azure pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+    href: /shows/data-exposed/?products=azure-storage
   - name: NuGet packages (.NET)
     items:
     - name: Microsoft.Azure.Storage.Common (version 11.x)

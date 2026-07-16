@@ -1,11 +1,12 @@
 ---
 title: Share and receive data from Azure SQL Database and Azure Synapse Analytics
 description: Learn how to share and receive data from Azure SQL Database and Azure Synapse Analytics
-author:  sidontha
-ms.author: sidontha
+author:  chvukosw
+ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 02/12/2025
+ms.date: 01/20/2026
+ms.custom: sfi-image-nochange
 ---
 
 # Share and receive data from Azure SQL Database and Azure Synapse Analytics
@@ -16,7 +17,7 @@ ms.date: 02/12/2025
 
 This article describes sharing data from **Azure SQL Database** and **Azure Synapse Analytics**.
 
-This article will guide you through:
+This article guides you through:
 
 - [What kinds of data can be shared](#whats-supported)
 - [How to prepare your environment](#prerequisites-to-share-data)
@@ -56,10 +57,10 @@ Data consumers can choose to accept shared data into several Azure resources:
 
 Shared data in **Azure Data Lake Storage Gen 2** or **Azure Blob Storage** can be stored as a csv or parquet file. Full data snapshots overwrite the contents of the target file if already exists.
 
-Shared data in **Azure SQL Database** and **Azure Synapse Analytics** is stored in tables. If the target table doesn't already exist, Azure Data Share creates the SQL table with the source schema. If a target table with the same name already exists, it will be dropped and overwritten with the latest full snapshot.
+Shared data in **Azure SQL Database** and **Azure Synapse Analytics** is stored in tables. If the target table doesn't already exist, Azure Data Share creates the SQL table with the source schema. If a target table with the same name already exists, it is dropped and overwritten with the latest full snapshot.
 
 >[!NOTE]
-> For source SQL tables with dynamic data masking, data will appear masked on the recipient side.
+> For source SQL tables with dynamic data masking, data appear masked on the recipient side.
 
 ### Supported data types
 
@@ -107,9 +108,9 @@ When you share data from a SQL source, the following mappings are used from SQL 
 
 ## Prerequisites to share data
 
-To share data snapshots from your Azure SQL resources, you first need to prepare your environment. You'll need:
+To share data snapshots from your Azure SQL resources, you first need to prepare your environment. You need:
 
-- An Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - An [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart) or [Azure Synapse Analytics (formerly Azure SQL DW)](../synapse-analytics/get-started-create-workspace.md) with tables and views that you want to share.
 - [An Azure Data Share account](share-your-data-portal.md#create-a-data-share-account).
 - Your data recipient's Azure sign-in e-mail address (using their e-mail alias won't work).
@@ -134,9 +135,9 @@ You can use one of these methods to authenticate with Azure SQL Database or Azur
 
 #### Microsoft Entra authentication
 
-These prerequisites cover the authentication you'll need so Azure Data Share can connect with your Azure SQL Database:
+These prerequisites cover the authentication you need so Azure Data Share can connect with your Azure SQL Database:
 
-- You'll need permission to write to the databases on SQL server: *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role.
+- You need permission to write to the databases on SQL server: *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role.
 - SQL Server **Microsoft Entra Admin** permissions.
 - SQL Server Firewall access:
     1. In the [Azure portal](https://portal.azure.com/), navigate to your SQL server. Select *Firewalls and virtual networks* from left navigation.
@@ -247,10 +248,10 @@ Before you can accept a data share invitation, you need to prepare your environm
 
 Confirm that all prerequisites are complete before accepting a data share invitation:
 
-- Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
 - Register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the Azure subscription where you'll create a Data Share resource and the Azure subscription where your target Azure data stores are located.
-- You'll need a resource in Azure to store the shared data. You can use these kinds of resources:
+- You need a resource in Azure to store the shared data. You can use these kinds of resources:
   - [Azure Storage](../storage/common/storage-account-create.md)
   - [Azure SQL Database](/azure/azure-sql/database/single-database-create-quickstart)
   - [Azure Synapse Analytics (formerly Azure SQL DW)](../synapse-analytics/get-started-create-workspace.md)
@@ -348,7 +349,7 @@ To open an invitation from email, check your inbox for an invitation from your d
 
 To open an invitation from Azure portal directly, search for **Data Share Invitations** in the Azure portal, which takes you to the list of Data Share invitations.
 
-If you're a guest user on a tenant, you'll need to verify your email address for the tenant before viewing a Data Share invitation for the first time. Once verified, your email is valid for 12 months.
+If you're a guest user on a tenant, you need to verify your email address for the tenant before viewing a Data Share invitation for the first time. Once verified, your email is valid for 12 months.
 
 :::image type="content" source="./media/invitations.png" alt-text="Screenshot of the invitations page, showing a pending invitation.":::
 
@@ -356,17 +357,17 @@ Then, select the share you would like to view.
 
 ### Accept invitation
 
-1. Make sure all fields are reviewed, including the **Terms of Use**. If you agree to the terms of use, you'll be required to check the box to indicate you agree.
+1. Make sure all fields are reviewed, including the **Terms of Use**. If you agree to the terms of use, you are required to check the box to indicate you agree.
 
    :::image type="content" source="./media/terms-of-use.png" alt-text="Screenshot of the invitation acceptance page, showing the terms of use highlighted and the agreement selected.":::
 
-1. Under *Target Data Share Account*, select the Subscription and Resource Group that you'll be deploying your Data Share into.
+1. Under *Target Data Share Account*, select the Subscription and Resource Group that you are deploying your Data Share into.
 
 1. For the **Data Share Account** field, select **Create new** if you don't have an existing Data Share account. Otherwise, select an existing Data Share account that you'd like to accept your data share into.
 
 1. For the **Received Share Name** field, you might leave the default specified by the data provide, or specify a new name for the received share.
 
-1. Once you've agreed to the terms of use and specified a Data Share account to manage your received share, Select **Accept and configure**. A share subscription will be created.
+1. Once you've agreed to the terms of use and specified a Data Share account to manage your received share, Select **Accept and configure**. A share subscription is created.
 
    :::image type="content" source="./media/accept-options.png" alt-text="Screenshot of the acceptance page, showing the target data share account information filled out.":::
 
@@ -380,7 +381,7 @@ Follow the steps below to configure where you want to receive data.
 
    :::image type="content" source="./media/dataset-map-target.png" alt-text="Screenshot of the received shares page with the map to target button highlighted.":::
 
-1. Select the target resource to store the shared data. Any data files or tables in the target data store with the same path and name will be overwritten. If you're receiving data into a SQL store and the **Allow Data Share to run the above 'create user' SQL script on my behalf** checkbox appears, check the checkbox. Otherwise, follow the instruction in prerequisites to run the script appear on the screen. This will give Data Share resource write permission to your target SQL DB.
+1. Select the target resource to store the shared data. Any data files or tables in the target data store with the same path and name will be overwritten. If you're receiving data into a SQL store and the **Allow Data Share to run the above 'create user' SQL script on my behalf** checkbox appears, check the checkbox. Otherwise, follow the instruction in prerequisites to run the script appear on the screen. This gives Data Share resource write permission to your target SQL DB.
 
     :::image type="content" source="./media/dataset-map-target-sql.png" alt-text="Screenshot of the map datasets to target window, showing available targets in the dropdown.":::
 
@@ -405,7 +406,7 @@ These steps only apply to snapshot-based sharing.
 
 ### View history
 
-This step only applies to snapshot-based sharing. To view history of your snapshots, select **History** tab. Here you'll find history of all snapshots that were generated for the past 30 days.
+This step only applies to snapshot-based sharing. To view history of your snapshots, select **History** tab. Here you find history of all snapshots that were generated for the past 30 days.
 
 ## Snapshot performance
 
@@ -413,7 +414,7 @@ SQL snapshot performance is impacted by many factors. It's always recommended to
 
 - Source or destination data store input/output operations per second (IOPS) and bandwidth.
 - Hardware configuration (For example: vCores, memory, DWU) of the source and target SQL data store.
-- Concurrent access to the source and target data stores. If you're sharing multiple tables and views from the same SQL data store, or receive multiple tables and views into the same SQL data store, performance will be impacted.
+- Concurrent access to the source and target data stores. If you're sharing multiple tables and views from the same SQL data store, or receive multiple tables and views into the same SQL data store, performance is impacted.
 - Network bandwidth between the source and destination data stores, and location of source and target data stores.
 - Size of the tables and views being shared. SQL snapshot sharing does a full copy of the entire table. If the size of the table grows over time, snapshot will take longer.
 

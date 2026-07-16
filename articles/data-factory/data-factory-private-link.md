@@ -4,8 +4,9 @@ description: Learn about how Azure Private Link works in Azure Data Factory.
 ms.author: lle
 author: lrtoyou1223
 ms.subservice: integration-runtime
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/13/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Azure Private Link for Azure Data Factory

@@ -11,6 +11,7 @@ ms.date: 06/22/2020
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 03/25/2019
+ms.custom: sfi-image-nochange
 ---
 
 # Configure Apple Push Notification Service settings for a notification hub in the Azure portal

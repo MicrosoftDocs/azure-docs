@@ -6,11 +6,13 @@ ms.service: azure-virtual-wan
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 02/10/2025
-ms.author: cherylmc
-author: cherylmc
+ms.author: duau
+author: duongau
 ---
 
 # Configure Azure VPN Client – Microsoft Entra ID authentication – Linux (Preview)
+
+[!INCLUDE [Linux retirement](../../includes/vpn-gateway-azure-vpn-client-linux-retirement.md)]
 
 This article helps you configure the Azure VPN Client on a Linux computer (Ubuntu) to connect to a virtual network using a Virtual WAN User VPN (point-to-site) and Microsoft Entra ID authentication.
 

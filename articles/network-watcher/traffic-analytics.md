@@ -1,15 +1,15 @@
 ---
-title: Traffic analytics overview
+title: Traffic Analytics Overview
 titleSuffix: Azure Network Watcher
 description: Learn what Azure Network Watcher traffic analytics is, and how to use it for viewing network activity, securing networks, and optimizing performance.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 04/14/2025
+ms.date: 02/10/2026
 ms.custom: references_regions
 
-#CustomerIntent: As an Azure administrator, I want to use Traffic analytics to analyze Network Watcher flow logs so that I can view network activity, secure my networks, and optimize performance.
+# Customer intent: As an Azure administrator, I want to analyze flow logs with traffic analytics so that I can gain insights into network activity, enhance security, and optimize network performance in my cloud infrastructure.
 ---
 
 # Traffic analytics overview
@@ -114,9 +114,10 @@ For pricing details, see [Network Watcher pricing](https://azure.microsoft.com/p
 
 ## Traffic analytics FAQ
 
-To get answers to the most frequently asked questions about traffic analytics, see [Traffic analytics FAQ](traffic-analytics-faq.yml).
+To get answers to the most frequently asked questions about traffic analytics, see [Traffic analytics FAQ](/azure/network-watcher/frequently-asked-questions#traffic-analytics).
 
 ## Related content
 
-- To learn how to use traffic analytics, see [Usage scenarios](traffic-analytics-usage-scenarios.md).
-- To understand the schema and processing details of traffic analytics, see [Schema and data aggregation in Traffic Analytics](traffic-analytics-schema.md).
+- [Traffic analytics usage scenarios](traffic-analytics-usage-scenarios.md)
+- [Schema and data aggregation in Traffic Analytics](traffic-analytics-schema.md)
+- [Use queries in traffic analytics](traffic-analytics-queries.md)

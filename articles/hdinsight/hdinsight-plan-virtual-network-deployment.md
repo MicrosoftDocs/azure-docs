@@ -2,14 +2,25 @@
 title: Plan a virtual network for Azure HDInsight
 description: Learn how to plan an Azure Virtual Network deployment to connect HDInsight to other cloud resources, or resources in your datacenter.
 ms.service: azure-hdinsight
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: hdinsightactive
-ms.date: 09/19/2024
+ms.date: 05/08/2026
 ---
 
 # Plan a virtual network for Azure HDInsight
 
 This article provides background information on using [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) (VNets) with Azure HDInsight. It also discusses design and implementation decisions that must be made before you can implement a virtual network for your HDInsight cluster. Once the planning phase is finished, you can proceed to [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md). For more information on HDInsight management IP addresses that are needed to properly configure network security groups (NSGs) and user-defined routes, see [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
+
+> [!IMPORTANT]
+> The TLS certificate issuer for HDInsight cluster domains (*.azurehdinsight.net) is periodically updated by the Security team. Customers with restricted outbound VNET/firewall settings may experience gateway request failures or cluster creation failures if the client cannot validate the new certificate chain.
+> 
+> You are affected if all three conditions are true:
+> 
+> 1. Your client performs full chain validation of the cluster TLS certificate
+> 1. The new intermediate certificate is not already in the client's trusted store
+> 1. Your firewall blocks outbound access to download the certificate
+> 
+> Mitigation: Allow outbound access (HTTP/port 80) to the domains listed in [Azure Certificate Authority details — Certificate downloads and revocation lists](/azure/security/fundamentals/azure-certificate-authority-details?tabs=root-and-subordinate-cas-list#certificate-downloads-and-revocation-lists). Failure to do so will cause gateway request failures on existing clusters and cluster creation failures for new clusters.
 
 Using an Azure Virtual Network enables the following scenarios:
 
@@ -199,6 +210,28 @@ When you create a HDInsight cluster, several load balancers are created as well.
 There are [several outbound connectivity methods](/azure/load-balancer/load-balancer-outbound-connections) enabled for the standard load balancer. It’s worth noting that the default outbound access will be retired soon. If a NAT gateway is adopted to provide outbound network access, the subnet is not capable with the basic load balancer. If you intend to bond a NAT gateway to a subnet, there should be no basic load balancer existed in this subnet. With the NAT gateway as the outbound access method, a newly created HDInsight cluster can't share the same subnet with previously created HDInsight clusters with basic load balancers.
 
 Another constraint is that the HDInsight load balancers shouldn't be deleted or modified. **Any changes to the load balancer rules will get overwritten during certain maintenance events such as certificate renewals.** If the load balancers are modified and it affects the cluster functionality, you may need to recreate the cluster.
+
+## Azure HDInsight Cluster Creation with Custom VNet: Private Endpoint Requirements and Policy Considerations
+
+### Overview
+When you create an Azure HDInsight cluster in a custom virtual network (VNet), the HDInsight Resource Provider (RP) must automatically deploy several networking resources into your VNet’s resource group, for example, load balancers, network interfaces, IP addresses, private endpoints, etc. Azure Storage and Azure SQL Databases (if not provided) will also be created along with the cluster.
+
+### Role of Private Endpoints in HDInsight
+Private Endpoints will be used to connect your cluster privately and securely to the Azure services, such as Azure Storage and Azure SQL Databases, over the Microsoft backbone network.
+
+### Policy Impact on Private Endpoint Creation
+If your organization has Azure Policies that deny the creation of private endpoints or deny the creation of cross-tenant private endpoint according to the document [Limit cross-tenant private endpoint connections in Azure](/azure/cloud-adoption-framework/ready/azure-best-practices/limit-cross-tenant-private-endpoint-connections)in the resource group, HDInsight cluster creation will fail. This is because:
+
+* The HDInsight RP is unable to create the necessary private endpoint resources.
+* The cluster will transition into error state.
+    
+### Typical Error Scenario
+If private endpoint creation is blocked, you may see errors during cluster provisioning:
+
+* FailedToCreateDedicatedStoragePrivateEndpoint
+
+### Best Practices and Recommendations
+Create exemption in Azure Policy to allow PE creation in the subscription or resource group where HDInsight cluster resides.
 
 ## Next steps
 

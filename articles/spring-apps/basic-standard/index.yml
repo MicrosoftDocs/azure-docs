@@ -11,7 +11,8 @@ metadata:
   ms.topic: landing-page
   author: KarlErickson
   ms.author: karler
-  ms.date: 12/14/2023
+  ms.date: 08/19/2025
+  ms.update-cycle: 1095-days
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -37,8 +38,6 @@ landingContent:
         links:
           - text: Enterprise plan
             url: ../enterprise/index.yml
-          - text: Consumption and dedicated plan
-            url: ../consumption-dedicated/index.yml
 
   # Card (optional)
   - title: About Azure Spring Apps

@@ -106,7 +106,7 @@ In this section, you will use feature flags in a simple ASP.NET web application 
 
     The `<feature>` tag ensures the *Beta* menu item is shown only when the *Beta* feature flag is enabled.
 
-1. [Containerize the application](./quickstart-azure-kubernetes-service.md#containerize-the-application) and [Push the image to Azure Container Registry](./quickstart-azure-kubernetes-service.md#push-the-image-to-azure-container-registry). 
+1. [Containerize the application](./quickstart-azure-kubernetes-service.md#containerize-the-application) and [Push the image to Azure Container Registry](./quickstart-azure-kubernetes-service.md#push-the-image-to-container-registry). 
 
 1. [Deploy the application](./quickstart-azure-kubernetes-service.md#deploy-the-application). Refresh the browser and the web page will look like this:
 
@@ -122,7 +122,7 @@ In this section, you will use feature flags in a simple ASP.NET web application 
     metadata:
       name: appconfigurationprovider-sample
     spec:
-      endpoint: <your-app-configuration-store-endpoint>
+      endpoint: <AppConfigurationEndpoint>
       target:
         configMapName: configmap-created-by-appconfig-provider
         configMapData: 
@@ -130,7 +130,7 @@ In this section, you will use feature flags in a simple ASP.NET web application 
           key: mysettings.json
       auth:
         workloadIdentity:
-          managedIdentityClientId: <your-managed-identity-client-id>
+          managedIdentityClientId: <ManagedIdentityClientId>
       featureFlag:
         selectors:
           - keyFilter: 'Beta'

@@ -3,6 +3,7 @@ title: Manage labs in Azure Lab Services when using lab accounts| Microsoft Docs
 description: Learn how to create and configure a lab, view all the labs, share the registration link with a lab user, or delete a lab. 
 ms.topic: how-to
 ms.date: 03/28/2023
+ms.custom: sfi-image-nochange
 ---
 
 # Manage labs in Azure Lab Services when using lab accounts

@@ -6,12 +6,14 @@ ms.author: ajagadish
 ms.date: 01/06/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: reference
 ms.custom:
   - azure-synapse
 ---
 
 # System views for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Links to the documentation for T-SQL statements supported in dedicated SQL pool (formerly SQL DW).
 

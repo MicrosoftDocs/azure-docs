@@ -10,7 +10,7 @@ metadata:
   description: >-
     A collection of release notes and documentation about the new features available in and changes
     to Azure machine configuration.
-  ms.service:    machine-configuration
+  ms.service: azure-machine-configuration
   ms.topic:      landing-page
   author:        michaeltlombardi
   ms.author:     mlombardi
@@ -23,8 +23,10 @@ landingContent:
     linkLists:
       - linkListType: whats-new
         links:
-          - text: What's new in the Azure machine configuration agent
-            url: ./agent.md
+          - text: What's new in the Azure machine configuration Windows agent
+            url: ./agent/windows.md
+          - text: What's new in the Azure machine configuration Linux agent
+            url: ./agent/linux.md
           - text: What's new in the Azure machine configuration docs
             url: ./docs.md
 

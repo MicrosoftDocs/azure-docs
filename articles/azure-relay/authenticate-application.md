@@ -2,7 +2,7 @@
 title: Authenticate from an application - Azure Relay 
 description: This article provides information about authenticating an application with Microsoft Entra ID to access Azure Relay resources. 
 ms.topic: article
-ms.date: 12/10/2024
+ms.date: 01/24/2026
 ---
 
 # Authenticate and authorize an application with Microsoft Entra ID to access Azure Relay entities 
@@ -38,7 +38,7 @@ The application needs a client secret to prove its identity when requesting a to
 > Make note of the **Client Secret**. You will need it to run the sample application.
 
 ## Assign Azure roles using the Azure portal
-Assign one of the Azure Relay roles to the application's service principal at the desired scope (Relay entity, namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+Assign one of the Azure Relay roles to the application's service principal at the desired scope (Relay entity, namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 ## Run the sample
 

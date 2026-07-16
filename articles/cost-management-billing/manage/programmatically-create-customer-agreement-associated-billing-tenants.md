@@ -1,13 +1,14 @@
 ---
 title: Create MCA subscriptions across associated tenants
 description: Learn how to programmatically create Azure subscriptions across associated Microsoft Entra tenants, including steps and considerations.
-author: PreetiSGit
+author: mijeffer
+ms.author: mijeffer
+ms.reviewer: mijeffer
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/14/2025
-ms.reviewer: presharm
-ms.author: presharm
+ms.date: 06/07/2026
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Programmatically create MCA subscriptions across associated Microsoft Entra tenants

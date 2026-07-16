@@ -18,7 +18,7 @@ It's often necessary to send notifications during or after execution of a pipeli
 
 ## Prerequisites
 
-- **Azure subscription**. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
+- **Azure subscription**. If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) account before you begin.
 - **Standard logic app workflow**. To trigger sending an email from the pipeline, you use [Azure Logic Apps](../logic-apps/logic-apps-overview.md) to define the workflow. For details on creating a Standard logic app workflow, see [Create an example Standard logic app workflow](../logic-apps/create-single-tenant-workflows-azure-portal.md).
 
 ## Create the email workflow in your logic app
@@ -109,7 +109,3 @@ make your messages dynamic. For example:  
 
 The above expressions will return the relevant error messages from a Copy activity failure, which can be redirected then to your Web activity that sends the email. Refer to the
 [Copy activity output properties](copy-activity-monitoring.md) article for more details.
-
-## Related content
-
-[How to send Teams notifications from a pipeline](how-to-send-notifications-to-teams.md)

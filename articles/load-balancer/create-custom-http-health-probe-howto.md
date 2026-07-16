@@ -5,10 +5,13 @@ description: Learn to create a custom HTTP/HTTPS health probe for Azure Load Bal
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.custom: devx-track-python
 ms.topic: troubleshooting
 ms.date: 09/30/2024
 ms.author: mbender
+ms.custom:
+  - devx-track-python
+  - sfi-image-nochange
+# Customer intent: "As a cloud engineer, I want to create a custom HTTP health probe for my Azure Load Balancer using Python and FLASK, so that I can monitor the health of backend instances based on specific criteria like CPU usage."
 ---
 
 # Create a custom HTTP/HTTPS health probe for Azure Load Balancer
@@ -17,7 +20,7 @@ In this article, you learn to create a custom API for HTTP [health probes](load-
 
 ## Prerequisites
 
--  An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) and access to the Azure portal.
+-  An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) and access to the Azure portal.
 - An existing standard SKU Azure Load Balancer. For more information on creating a load balancer, see [Create a public load balancer using the Azure portal](quickstart-load-balancer-standard-public-portal.md).
 - An Azure Virtual Machine running linux in the backend pool of the Azure Load Balancer, see [Create a virtual machine using the Azure portal](/azure/virtual-machines/linux/quick-create-portal).
 - Linux virtual machine has *python3*, *pip* and the following packages installed:

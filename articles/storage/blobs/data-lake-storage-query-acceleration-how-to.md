@@ -12,6 +12,7 @@ ms.reviewer: jamsbak
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, devx-track-azurepowershell
+# Customer intent: As a data engineer, I want to implement query acceleration on Azure Data Lake Storage, so that I can efficiently retrieve and process specific subsets of data for analytics tasks.
 ---
 
 # Filter data by using Azure Data Lake Storage query acceleration
@@ -22,7 +23,7 @@ Query acceleration enables applications and analytics frameworks to dramatically
 
 ## Prerequisites
 
-- To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- To access Azure Storage, you'll need an Azure subscription. If you don't already have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - A **general-purpose v2** storage account. see [Create a storage account](../common/storage-account-create.md).
 
@@ -220,8 +221,8 @@ You can use SQL to specify the row filter predicates and column projections in a
 ```powershell
 Function Get-QueryCsv($ctx, $container, $blob, $query, $hasheaders) {
     $tempfile = New-TemporaryFile
-    $informat = New-AzStorageBlobQueryConfig -AsCsv -HasHeader:$hasheaders
-    Get-AzStorageBlobQueryResult -Context $ctx -Container $container -Blob $blob -InputTextConfiguration $informat -OutputTextConfiguration (New-AzStorageBlobQueryConfig -AsCsv -HasHeader) -ResultFile $tempfile.FullName -QueryString $query -Force
+    $informat = New-AzStorageBlobQueryConfig -AsCsv -HasHeader:$hasheaders -RecordSeparator "`n" -ColumnSeparator "," -QuotationCharacter """" -EscapeCharacter "\"
+    Get-AzStorageBlobQueryResult -Context $ctx -Container $container -Blob $blob -InputTextConfiguration $informat -OutputTextConfiguration (New-AzStorageBlobQueryConfig -AsCsv -HasHeader -RecordSeparator "`n" -ColumnSeparator "," -QuotationCharacter """" -EscapeCharacter "\") -ResultFile $tempfile.FullName -QueryString $query -Force
     Get-Content $tempfile.FullName
 }
 

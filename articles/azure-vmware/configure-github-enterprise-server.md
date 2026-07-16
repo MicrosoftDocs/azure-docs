@@ -3,8 +3,11 @@ title: Configure GitHub Enterprise Server on Azure VMware Solution
 description: Learn how to Set up GitHub Enterprise Server on your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/06/2023
-ms.custom: engagement-fy23
+ms.date: 2/11/2026
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: "As a cloud administrator, I want to configure GitHub Enterprise Server on Azure VMware Solution, so that I can support collaboration among developers and enhance our CI/CD capabilities with GitHub Actions."
 ---
 
 # Configure GitHub Enterprise Server on Azure VMware Solution
@@ -13,7 +16,7 @@ In this article, learn how to set up GitHub Enterprise Server, the "on-premises"
 
 ## Before you begin
 
-GitHub Enterprise Server requires a valid license key. You can sign up for a [trial license](https://enterprise.github.com/trial). If you're looking to extend the capabilities of GitHub Enterprise Server via an integration, check if you qualify for a free five-seat developer license. Apply for this license through [GitHub's Partner Program](https://partner.github.com/).
+GitHub Enterprise Server requires a valid license key. You can sign up for a [trial license](https://enterprise.github.com/trial). If you're looking to extend the capabilities of GitHub Enterprise Server via an integration, check if you qualify for a free five-user developer license. Apply for this license through [GitHub's Partner Program](https://partner.github.com/).
 
 ## Install GitHub Enterprise Server on VMware
 
@@ -80,7 +83,7 @@ To harden your instance for production use, the following optional setup steps a
     - Virtualization host system failures
     - Logically or physically severed network
 
-2. [Configure](https://docs.github.com/en/enterprise/admin/configuration/configuring-backups-on-your-appliance) [backup-utilities](https://github.com/github/backup-utils), providing versioned snapshots for disaster recovery, hosted in availability that is separate from the primary instance.
+2. [Configure](https://docs.github.com/en/enterprise/admin/configuration/configuring-backups-on-your-appliance) [backup-utilities](https://github.com/github/backup-utils), providing versioned snapshots for disaster recovery, hosted in availability that's separate from the primary instance.
 3. [Setup subdomain isolation](https://docs.github.com/en/enterprise/admin/configuration/enabling-subdomain-isolation), using a valid TLS certificate, to mitigate cross-site scripting and other related vulnerabilities.
 
 
@@ -93,9 +96,9 @@ At this point, you should have an instance of GitHub Enterprise Server running, 
 
 Create somewhere for GitHub Actions to run using Azure VMware Solution.
 
-1. Provision a new VM on the cluster and base it on [a recent release of Ubuntu Server](http://releases.ubuntu.com/20.04.1/).
+1. Configure a new VM on the cluster and base it on [a recent release of Ubuntu Server](http://releases.ubuntu.com/20.04.1/).
 
-   :::image type="content" source="media/github-enterprise-server/provision-new-vm.png" alt-text="Screenshot showing the virtual machine name and location to provision a new VM.":::
+   :::image type="content" source="media/github-enterprise-server/provision-new-vm.png" alt-text="Screenshot showing the virtual machine name and location to configure a new VM.":::
 
 1. Continue through the setup selecting the compute resource, storage, and compatibility.
 
@@ -178,7 +181,7 @@ Configure and enable GitHub Actions on the GitHub Enterprise Server instance.
 
    You should see output: _Blob Storage is healthy_.
 
-1. Now that **GitHub Actions** is configured, enable it for your users. Sign in to your GitHub Enterprise Server instance as an administrator, and select the :::image type="icon" source="media/github-enterprise-server/rocket-icon.png"::: in the upper right corner of any page. 
+1. Now that **GitHub Actions** is configured, enable it for your users. Sign in to your GitHub Enterprise Server instance as an administrator, and select the :::image type="icon" source="media/github-enterprise-server/rocket-icon.png"::: icon in the upper right corner of any page. 
 
 1. In the left sidebar, select **Enterprise overview**, then **Policies**, **Actions**, and select the option to **enable Actions for all organizations**.
 
@@ -227,7 +230,7 @@ If you chose not to enable GitHub Connect, you could use the following alternati
 
 :::image type="content" source="media/github-enterprise-server/workflow-example-2.png" alt-text="Screenshot of an alternative example workflow.":::
 
-1. Navigate to a repo on your instance, and add the above workflow as: `.github/workflows/hello-world.yml`
+1. Navigate to a repo on your instance, and add the previous workflow as: `.github/workflows/hello-world.yml`
 
    :::image type="content" source="media/github-enterprise-server/workflow-example-3.png" alt-text="Screenshot of another alternative example workflow.":::
 
@@ -243,7 +246,7 @@ If everything ran successfully, you should see a new issue in your repo, entitle
 
 :::image type="content" source="media/github-enterprise-server/example-in-repo.png" alt-text="Screenshot of the Hello world issue in GitHub created by github-actions.":::
 
-Congratulations! You just completed your first Actions workflow on GitHub Enterprise Server, running on your Azure VMware Solution private cloud.
+Congratulations, you completed your first Actions workflow on GitHub Enterprise Server, running on your Azure VMware Solution private cloud.
 
 This article set up a new instance of GitHub Enterprise Server, the self-hosted equivalent of GitHub.com, on top of your Azure VMware Solution private cloud. The instance includes support for GitHub Actions and uses Azure Blob Storage for persistence of logs and artifacts. But we're just scratching the surface of what you can do with GitHub Actions. Check out the list of Actions on [GitHub's Marketplace](https://github.com/marketplace), or [create your own](https://docs.github.com/en/actions/creating-actions).
 

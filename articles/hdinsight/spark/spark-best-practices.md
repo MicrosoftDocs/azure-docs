@@ -2,7 +2,7 @@
 title: Apache Spark guidelines on Azure HDInsight
 description: Learn guidelines for using Apache Spark in Azure HDInsight.
 ms.service: azure-hdinsight
-ms.topic: conceptual
+ms.topic: hub-page
 author: abhishjain002
 ms.author: abhishjain
 ms.reviewer: sairamyeturi

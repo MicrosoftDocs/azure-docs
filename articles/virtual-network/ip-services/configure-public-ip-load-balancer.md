@@ -8,6 +8,8 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 01/07/2025
+ms.custom: sfi-image-nochange
+# Customer intent: As an IT network engineer, I want to manage public IP addresses with a load balancer, so that I can efficiently configure and optimize resource accessibility and egress for backend services, while preparing for future infrastructure changes.
 ---
 
 # Manage a public IP address with a load balancer
@@ -35,7 +37,7 @@ Finally, the article reviews unique aspects of using public IPs and public IP pr
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Two standard SKU public IP addresses in your subscription. The IP addresses can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP address using the Azure portal](./create-public-ip-portal.md).
     - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1** and **myStandardPublicIP-2**.
 - A public IP prefix in your subscription. For more information on creating a public IP prefix, see [Create a public IP address prefix using the Azure portal](./create-public-ip-prefix-portal.md).

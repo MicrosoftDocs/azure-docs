@@ -1,11 +1,14 @@
 ---
-title: Check workflow status, view run history, and set up alerts
-description: Check your workflow status, view workflow run history, and enable alerts in Azure Logic Apps.
+title: View Workflow Status and Run History
+description: Check workflow status and run history or create alerts in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 02/07/2025
+ms.update-cycle: 365-days
+ms.date: 03/02/2026
+ms.custom: sfi-image-nochange
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to view the status and run history for my workflows and create alerts for events.
 ---
 
 # Check workflow status, view run history, and set up alerts in Azure Logic Apps
@@ -46,7 +49,7 @@ Each workflow run starts with a trigger, which either fires on a schedule or wai
    |----------------|-------------|
    | **Failed** | An error occurred. To review any generated error messages for a failed trigger, select that trigger attempt, and choose **Outputs**. For example, you might find inputs that aren't valid. |
    | **Skipped** | The trigger checked the endpoint but found no data that met the specified criteria. |
-   | **Succeeded** | The trigger checked the endpoint and found available data. Usually, a **Fired** status also appears alongside this status. If not, the trigger definition might have a condition or **SplitOn** command that wasn't met. <br><br>This status can apply to a manual trigger, recurrence-based trigger, or polling trigger. A trigger can run successfully, but the run itself might still fail when the actions generate unhandled errors. |
+   | **Succeeded** | The trigger checked the endpoint and found available data. Usually, a **Fired** status also appears alongside this status. If not, the trigger definition might have a condition that wasn't met or the `splitOn` property set to a value. <br><br>This status can apply to a manual trigger, recurrence-based trigger, or polling trigger. A trigger can run successfully, but the run itself might still fail when the actions generate unhandled errors. |
 
    > [!TIP]
    >
@@ -83,7 +86,7 @@ For a stateful workflow, you can review the trigger history for each run, includ
    |----------------|-------------|
    | **Failed** | An error occurred. To review any generated error messages for a failed trigger, select that trigger attempt and choose **Outputs**. For example, you might find inputs that aren't valid. |
    | **Skipped** | The trigger checked the endpoint but found no data that met the specified criteria. |
-   | **Succeeded** | The trigger checked the endpoint and found available data. Usually, a **Fired** status also appears alongside this status. If not, the trigger definition might have a condition or **SplitOn** command that wasn't met. <br><br>This status can apply to a manual trigger, recurrence-based trigger, or polling trigger. A trigger can run successfully, but the run itself might still fail when the actions generate unhandled errors. |
+   | **Succeeded** | The trigger checked the endpoint and found available data. Usually, a **Fired** status also appears alongside this status. If not, the trigger definition might have a condition that wasn't met or the `splitOn` property set to a value. <br><br>This status can apply to a manual trigger, recurrence-based trigger, or polling trigger. A trigger can run successfully, but the run itself might still fail when the actions generate unhandled errors. |
 
    > [!TIP]
    >
@@ -162,7 +165,7 @@ Each time that a trigger successfully fires, Azure Logic Apps creates a workflow
    | **Skipped** | ![Skipped icon][skipped-icon] | The action was skipped because its **runAfter** conditions weren't met, for example, a preceding action failed. Each action has a `runAfter` object where you can set up conditions that must be met before the current action can run. |
    | **Succeeded** | ![Succeeded icon][succeeded-icon] | The action succeeded. |
    | **Succeeded with retries** | ![Succeeded-with-retries-icon][succeeded-with-retries-icon] | The action succeeded but only after a single or multiple retries. To review the retry history, on the run history page, select that action so that you can view the inputs and outputs. |
-   | **Timed out** | ![Timed-out icon][timed-out-icon] | The action stopped due to the time-out limit specified by that action's settings. |
+   | **Timed out** | ![Timed-out icon][timed-out-icon] | The action stopped due to the time out limit specified by that action's settings. |
    | **Waiting** | ![Waiting icon][waiting-icon] | Applies to a webhook action that is waiting for an inbound request from a caller. |
 
    [aborted-icon]: media/view-workflow-status-run-history/aborted.png
@@ -254,7 +257,7 @@ You can view run history only for stateful workflows, not stateless workflows. T
    | **Skipped** | ![Skipped icon][skipped-icon] | The action was skipped because its **runAfter** conditions weren't met, for example, a preceding action failed. Each action has a `runAfter` object where you can set up conditions that must be met before the current action can run. |
    | **Succeeded** | ![Succeeded icon][succeeded-icon] | The action succeeded. |
    | **Succeeded with retries** | ![Succeeded-with-retries-icon][succeeded-with-retries-icon] | The action succeeded but only after a single or multiple retries. To review the retry history, on the run history page, select that action so that you can view the inputs and outputs. |
-   | **Timed out** | ![Timed-out icon][timed-out-icon] | The action stopped due to the time-out limit specified by that action's settings. |
+   | **Timed out** | ![Timed-out icon][timed-out-icon] | The action stopped due to the timeout limit specified by that action's settings. |
    | **Waiting** | ![Waiting icon][waiting-icon] | Applies to a webhook action that is waiting for an inbound request from a caller. |
 
    [aborted-icon]: media/view-workflow-status-run-history/aborted.png
@@ -285,7 +288,7 @@ You can view run history only for stateful workflows, not stateless workflows. T
    > are decrypted only when a user requests to view that data. You can 
    > [hide inputs and outputs in the workflow run history](logic-apps-securing-a-logic-app.md#obfuscate)
    > or control user access to this information by using
-   > [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
+   > [Azure role-based access control (RBAC)](../role-based-access-control/overview.md).
 
 ---
 
@@ -303,7 +306,7 @@ Completing this task creates and adds a new workflow run to your workflow's run 
 
 ### Limitations and considerations
 
-- By default, only Consumption workflows and Standard stateful workflows, which record and store run history, are supported. To use these capabilities with a stateless Standard workflow, enable stateful mode. For more information, see [Enable run history for stateless workflows](create-single-tenant-workflows-azure-portal.md#enable-run-history-for-stateless-workflows) and [Enable stateful mode for stateless connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
+- By default, only Consumption workflows and Standard stateful workflows, which record and store run history, are supported. To use these capabilities with a stateless Standard workflow, enable stateful mode. For more information, see [Enable run history for stateless workflows](create-single-tenant-workflows-azure-portal.md#enable-run-history-stateless) and [Enable stateful mode for stateless connectors](../connectors/enable-stateful-affinity-built-in-connectors.md).
 
 - The resubmitted run executes the same workflow version as the original run, even if you updated the workflow definition.
 
@@ -477,6 +480,12 @@ To set up alerts without using [Azure Monitor](/azure/azure-monitor/logs/log-que
 
 For general information, see [Create an alert rule from a specific resource - Azure Monitor](/azure/azure-monitor/alerts/alerts-create-new-alert-rule#create-or-edit-an-alert-rule-in-the-azure-portal).
 
+## Troubleshoot problems
+
+### Exported logs are missing or dropped
+
+If logs exported through diagnostic settings are missing or dropped, check whether the name for the trigger, action, or workflow run has any Unicode characters, which aren't permitted.
+
 ## Related content
 
-* [Monitor logic apps with Azure Monitor](monitor-workflows-collect-diagnostic-data.md)
+- [Monitor logic apps with Azure Monitor](monitor-workflows-collect-diagnostic-data.md)

@@ -6,8 +6,7 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-manager: rkarlin
-ms.date: 09/29/2024
+ms.date: 05/05/2026
 ---
 
 # Platform integrity and security overview

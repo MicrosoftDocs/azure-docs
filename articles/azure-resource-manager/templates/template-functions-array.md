@@ -3,7 +3,7 @@ title: Template functions - arrays
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) for working with arrays.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 02/12/2025
+ms.date: 06/03/2026
 ---
 
 # Array functions for ARM templates
@@ -13,7 +13,7 @@ This article describes the template functions for working with arrays.
 To get an array of string values delimited by a value, see [split](template-functions-string.md#split).
 
 > [!TIP]
-> We recommend [Bicep](../bicep/overview.md) because it offers the same capabilities as ARM templates and the syntax is easier to use. To learn more, see [array](../bicep/bicep-functions-array.md) functions.
+> [Bicep](../bicep/overview.md) is recommended since it offers the same capabilities as ARM templates, and the syntax is easier to use. To learn more, see [`array`](../bicep/bicep-functions-array.md) functions.
 
 ## array
 
@@ -21,13 +21,13 @@ To get an array of string values delimited by a value, see [split](template-func
 
 Converts the value to an array.
 
-In Bicep, use the [array](../bicep/bicep-functions-array.md#array) function.
+In Bicep, use the [`array`](../bicep/bicep-functions-array.md#array) function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| convertToArray |Yes |int, string, array, or object |The value to convert to an array. |
+| --- | --- | --- | --- |
+| convertToArray | Yes | int, string, array, or object | The value to convert to an array. |
 
 ### Return value
 
@@ -35,11 +35,49 @@ An array.
 
 ### Example
 
-The following example shows how to use the array function with different types.
+The following example shows how to use the `array` function with different types:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/array.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "intToConvert": {
+      "type": "int",
+      "defaultValue": 1
+    },
+    "stringToConvert": {
+      "type": "string",
+      "defaultValue": "efgh"
+    },
+    "objectToConvert": {
+      "type": "object",
+      "defaultValue": {
+        "a": "b",
+        "c": "d"
+      }
+    }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "intOutput": {
+      "type": "array",
+      "value": "[array(parameters('intToConvert'))]"
+    },
+    "stringOutput": {
+      "type": "array",
+      "value": "[array(parameters('stringToConvert'))]"
+    },
+    "objectOutput": {
+      "type": "array",
+      "value": "[array(parameters('objectToConvert'))]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -53,16 +91,16 @@ The output from the preceding example with the default values is:
 
 Combines multiple arrays and returns the concatenated array, or combines multiple string values and returns the concatenated string.
 
-In Bicep, use the [concat](../bicep/bicep-functions-array.md#concat) function.
+In Bicep, use the [`concat`](../bicep/bicep-functions-array.md#concat) function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |array or string |The first array or string for concatenation. |
-| more arguments |No |array or string |More arrays or strings in sequential order for concatenation. |
+| --- | --- | --- | --- |
+| arg1 | Yes | array or string | The first array or string for concatenation. |
+| more arguments | No | array or string | More arrays or strings in sequential order for concatenation. |
 
-This function can take any number of arguments, and can accept either strings or arrays for the parameters. However, you can't provide both arrays and strings for parameters. Arrays are only concatenated with other arrays.
+This function can take any number of arguments and can accept either strings or arrays for the parameters. However, you can't provide both arrays and strings for parameters. Arrays are only concatenated with other arrays.
 
 ### Return value
 
@@ -70,21 +108,70 @@ A string or array of concatenated values.
 
 ### Example
 
-The following example shows how to combine two arrays.
+The following example shows how to combine two arrays:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/concat-array.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [
+        "1-1",
+        "1-2",
+        "1-3"
+      ]
+    },
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [
+        "2-1",
+        "2-2",
+        "2-3"
+      ]
+    }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "return": {
+      "type": "array",
+      "value": "[concat(parameters('firstArray'), parameters('secondArray'))]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | return | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
-The following example shows how to combine two string values and return a concatenated string.
+The following example shows how to combine two string values and return a concatenated string:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/string/concat-string.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "prefix": {
+      "type": "string",
+      "defaultValue": "prefix"
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "concatOutput": {
+      "type": "string",
+      "value": "[concat(parameters('prefix'), '-', uniqueString(resourceGroup().id))]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -94,28 +181,79 @@ The output from the preceding example with the default values is:
 
 `contains(container, itemToFind)`
 
-Checks whether an array contains a value, an object contains a key, or a string contains a substring. The string comparison is case-sensitive. However, when testing if an object contains a key, the comparison is case-insensitive.
+Checks if an array contains a value, an object contains a key, or a string contains a substring. The string comparison is case-sensitive. However, when testing if an object contains a key, the comparison is case-insensitive.
 
-In Bicep, use the [contains](../bicep/bicep-functions-array.md#contains) function.
+In Bicep, use the [`contains`](../bicep/bicep-functions-array.md#contains) function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| container |Yes |array, object, or string |The value that contains the value to find. |
-| itemToFind |Yes |string or int |The value to find. |
+| --- | --- | --- | --- |
+| container | Yes | array, object, or string | The value that contains the value to find. |
+| itemToFind | Yes | string or int | The value to find. |
 
 ### Return value
 
-**True** if the item is found; otherwise, **False**.
+**True** if the function finds the item; otherwise, **False**.
 
 ### Example
 
-The following example shows how to use contains with different types:
+The following example shows how to use `contains` with different types:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/contains.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "stringToTest": {
+      "type": "string",
+      "defaultValue": "OneTwoThree"
+    },
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c"
+      }
+    },
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
+    }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "stringTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('stringToTest'), 'e')]"
+    },
+    "stringFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('stringToTest'), 'z')]"
+    },
+    "objectTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('objectToTest'), 'one')]"
+    },
+    "objectFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('objectToTest'), 'a')]"
+    },
+    "arrayTrue": {
+      "type": "bool",
+      "value": "[contains(parameters('arrayToTest'), 'three')]"
+    },
+    "arrayFalse": {
+      "type": "bool",
+      "value": "[contains(parameters('arrayToTest'), 'four')]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -137,20 +275,63 @@ In Bicep, the `createArray` function isn't supported. To construct an array, see
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| args |No |String, Integer, Array, or Object |The values in the array. |
+| --- | --- | --- | --- |
+| args | No | String, Integer, Array, or Object | The values in the array. |
 
 ### Return value
 
-An array. When no parameters are provided, it returns an empty array.
+An array. When you don't provide any parameters, it returns an empty array.
 
 ### Example
 
-The following example shows how to use createArray with different types:
+The following example shows how to use `createArray` with different types:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/createarray.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c"
+      }
+    },
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
+    }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "stringArray": {
+      "type": "array",
+      "value": "[createArray('a', 'b', 'c')]"
+    },
+    "intArray": {
+      "type": "array",
+      "value": "[createArray(1, 2, 3)]"
+    },
+    "objectArray": {
+      "type": "array",
+      "value": "[createArray(parameters('objectToTest'))]"
+    },
+    "arrayArray": {
+      "type": "array",
+      "value": "[createArray(parameters('arrayToTest'))]"
+    },
+    "emptyArray": {
+      "type": "array",
+      "value": "[createArray()]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -160,18 +341,87 @@ The output from the preceding example with the default values is:
 | arrayArray | Array | [["one", "two", "three"]] |
 | emptyArray | Array | [] |
 
+## distinct
+
+`distinct(arrayToModify)`
+
+Returns a new array with all duplicate values removed from the input array. The function preserves the original order of first occurrence.
+
+In Bicep, use the [`distinct`](../bicep/bicep-functions-array.md#distinct) function.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+| --- | --- | --- | --- |
+| arrayToModify | Yes | array | The array to remove duplicates from. |
+
+### Return value
+
+An array containing only unique elements from the input array. The order of elements is preserved based on their first appearance.
+
+### Example
+
+The following example shows how to use the `distinct` function with different types of arrays.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "numbers": [ 1, 2, 2, 3, 1 ],
+    "names": [ "apple", "banana", "apple", "cherry" ],
+    "resources": [
+      {
+        "name": "storage1",
+        "type": "Microsoft.Storage/storageAccounts"
+      },
+      {
+        "name": "vm1",
+        "type": "Microsoft.Compute/virtualMachines"
+      },
+      {
+        "name": "storage1",
+        "type": "Microsoft.Storage/storageAccounts"
+      }
+    ]
+  },
+  "outputs": {
+    "uniqueNumbers": {
+      "type": "array",
+      "value": "[distinct(variables('numbers'))]"
+    },
+    "uniqueNames": {
+      "type": "array",
+      "value": "[distinct(variables('names'))]"
+    },
+    "uniqueResources": {
+      "type": "array",
+      "value": "[distinct(variables('resources'))]"
+    }
+  }
+}
+```
+
+The output from the preceding example with the default values is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| uniqueNumbers | Array | [1, 2, 3] |
+| uniqueNames | Array | ["apple", "banana", "cherry"] |
+| uniqueResources | Array | [{"name": "storage1", "type": "Microsoft.Storage/storageAccounts"}, {"name": "vm1", "type": "Microsoft.Compute/virtualMachines"}] |
+
 ## empty
 
 `empty(itemToTest)`
 
 Determines if an array, object, or string is empty.
 
-In Bicep, use the [empty](../bicep/bicep-functions-array.md#empty) function.
+In Bicep, use the [`empty`](../bicep/bicep-functions-array.md#empty) function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
+| --- | --- | --- | --- |
 | itemToTest |Yes |array, object, or string |The value to check if it's empty. |
 
 ### Return value
@@ -180,11 +430,46 @@ Returns **True** if the value is empty; otherwise, **False**.
 
 ### Example
 
-The following example checks whether an array, object, and string are empty.
+The following example checks if an array, object, and string are empty:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/empty.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testArray": {
+      "type": "array",
+      "defaultValue": []
+    },
+    "testObject": {
+      "type": "object",
+      "defaultValue": {}
+    },
+    "testString": {
+      "type": "string",
+      "defaultValue": ""
+    }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "arrayEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testArray'))]"
+    },
+    "objectEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testObject'))]"
+    },
+    "stringEmpty": {
+      "type": "bool",
+      "value": "[empty(parameters('testString'))]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -198,13 +483,13 @@ The output from the preceding example with the default values is:
 
 Returns the first element of the array, or first character of the string.
 
-In Bicep, use the [first](../bicep/bicep-functions-array.md#first) function.
+In Bicep, use the [`first`](../bicep/bicep-functions-array.md#first) function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |array or string |The value to retrieve the first element or character. |
+| --- | --- | --- | --- |
+| arg1 | Yes | array or string | The value to retrieve the first element or character. |
 
 ### Return value
 
@@ -212,16 +497,90 @@ The type (string, int, array, or object) of the first element in an array, or th
 
 ### Example
 
-The following example shows how to use the first function with an array and string.
+The following example shows how to use the `first` function with an array and a string:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/first.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
+    }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "arrayOutput": {
+      "type": "string",
+      "value": "[first(parameters('arrayToTest'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[first('One Two Three')]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | arrayOutput | String | one |
 | stringOutput | String | O |
+
+## indexFromEnd
+
+`indexFromEnd(sourceArray, reverseIndex)`
+
+Returns an element of the array by counting backwards from the end. This function is useful when you want to reference elements starting from the end of a list rather than the beginning. The [`tryIndexFromEnd`](#tryindexfromend) function is a safe version of `indexFromEnd`.
+
+In Bicep, use the [Reserved index accessor](../bicep/operators-access.md#reverse-index-accessor) operator.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+| --- | --- | --- | --- |
+| sourceArray | Yes | array | The value to retrieve the element by counting backwards from the end. |
+| reverseIndex | Yes | integer | The one-based index from the end of the array. |
+
+### Return value
+
+A single element from an array, selected by counting backward from the end of the array.
+
+### Example
+
+The following example shows how to use the `indexFromEnd` function:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "items": [
+      "apple",
+      "banana",
+      "orange",
+      "grape"
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "secondToLast": {
+      "type": "string",
+      "value": "[indexFromEnd(variables('items'), 2)]"
+    }
+  }
+}
+```
+
+The output of default values from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| secondToLast | String | orange |
 
 ## indexOf
 
@@ -238,11 +597,11 @@ Returns an integer for the index of the first occurrence of an item in an array.
 
 ### Return value
 
-An integer representing the first index of the item in the array. The index is zero-based. If the item isn't found, -1 is returned.
+An integer representing the first index of the item in the array. The index is zero-based. If the item isn't found, the function returns -1.
 
 ### Examples
 
-The following example shows how to use the indexOf and lastIndexOf functions:
+The following example shows how to use the `indexOf` and `lastIndexOf` functions:
 
 ```json
 {
@@ -332,15 +691,15 @@ The output from the preceding example is:
 
 Returns a single array or object with the common elements from the parameters.
 
-In Bicep, use the [intersection](../bicep/bicep-functions-array.md#intersection) function.
+In Bicep, use the [`intersection`](../bicep/bicep-functions-array.md#intersection) function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |array or object |The first value to use for finding common elements. |
-| arg2 |Yes |array or object |The second value to use for finding common elements. |
-| more arguments |No |array or object |More values to use for finding common elements. |
+| --- | --- | --- | --- |
+| arg1 | Yes | array or object | The first value to use for finding common elements. |
+| arg2 | Yes | array or object | The second value to use for finding common elements. |
+| more arguments | No | array or object | More values to use for finding common elements. |
 
 ### Return value
 
@@ -348,11 +707,54 @@ An array or object with the common elements.
 
 ### Example
 
-The following example shows how to use intersection with arrays and objects.
+The following example shows how to use `intersection` with arrays and objects:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/intersection.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c"
+      }
+    },
+    "secondObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "z",
+        "three": "c"
+      }
+    },
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
+    },
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [ "two", "three" ]
+    }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "objectOutput": {
+      "type": "object",
+      "value": "[intersection(parameters('firstObject'), parameters('secondObject'))]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[intersection(parameters('firstArray'), parameters('secondArray'))]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -365,13 +767,13 @@ The output from the preceding example with the default values is:
 
 Returns the last element of the array, or last character of the string.
 
-In Bicep, use the [last](../bicep/bicep-functions-array.md#last) function.
+In Bicep, use the [`last`](../bicep/bicep-functions-array.md#last) function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |array or string |The value to retrieve the last element or character. |
+| --- | --- | --- | --- |
+| arg1 | Yes | array or string | The value to retrieve the last element or character. |
 
 ### Return value
 
@@ -379,11 +781,34 @@ The type (string, int, array, or object) of the last element in an array, or the
 
 ### Example
 
-The following example shows how to use the last function with an array and string.
+The following example shows how to use the `last` function with an array and a string:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/last.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
+    }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "arrayOutput": {
+      "type": "string",
+      "value": "[last(parameters('arrayToTest'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[last('One Two Three')]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -409,7 +834,7 @@ An integer representing the last index of the item in the array. The index is ze
 
 ### Examples
 
-The following example shows how to use the indexOf and lastIndexOf functions:
+The following example shows how to use the `indexOf` and `lastIndexOf` functions:
 
 ```json
 {
@@ -483,7 +908,7 @@ The output from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| index1 |int | 1 |
+| index1 | int | 1 |
 | index2 | int | 0 |
 | index3 | int | 0 |
 | index4 | int | 2 |
@@ -499,13 +924,13 @@ The output from the preceding example is:
 
 Returns the number of elements in an array, characters in a string, or root-level properties in an object.
 
-In Bicep, use the [length](../bicep/bicep-functions-array.md#length) function.
+In Bicep, use the [`length`](../bicep/bicep-functions-array.md#length) function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |array, string, or object |The array to use for getting the number of elements, the string to use for getting the number of characters, or the object to use for getting the number of root-level properties. |
+| --- | --- | --- | --- |
+| arg1 | Yes | array, string, or object | The array to use for getting the number of elements, the string to use for getting the number of characters, or the object to use for getting the number of root-level properties. |
 
 ### Return value
 
@@ -513,11 +938,57 @@ An int.
 
 ### Example
 
-The following example shows how to use length with an array and string.
+The following example shows how to use `length` with an array and a string:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/length.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [
+        "one",
+        "two",
+        "three"
+      ]
+    },
+    "stringToTest": {
+      "type": "string",
+      "defaultValue": "One Two Three"
+    },
+    "objectToTest": {
+      "type": "object",
+      "defaultValue": {
+        "propA": "one",
+        "propB": "two",
+        "propC": "three",
+        "propD": {
+          "propD-1": "sub",
+          "propD-2": "sub"
+        }
+      }
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayLength": {
+      "type": "int",
+      "value": "[length(parameters('arrayToTest'))]"
+    },
+    "stringLength": {
+      "type": "int",
+      "value": "[length(parameters('stringToTest'))]"
+    },
+    "objectLength": {
+      "type": "int",
+      "value": "[length(parameters('objectToTest'))]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -525,7 +996,7 @@ The output from the preceding example with the default values is:
 | stringLength | Int | 13 |
 | objectLength | Int | 4 |
 
-You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
+You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** refers to an array of names to use when creating websites:
 
 ```json
 "copy": {
@@ -542,13 +1013,13 @@ For more information about using this function with an array, see [Resource iter
 
 Returns the maximum value from an array of integers or a comma-separated list of integers.
 
-In Bicep, use the [max](../bicep/bicep-functions-array.md#max) function.
+In Bicep, use the [`max`](../bicep/bicep-functions-array.md#max) function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |array of integers, or comma-separated list of integers |The collection to get the maximum value. |
+| --- | --- | --- | --- |
+| arg1 | Yes | array of integers, or comma-separated list of integers | The collection to get the maximum value. |
 
 ### Return value
 
@@ -556,11 +1027,33 @@ An int representing the maximum value.
 
 ### Example
 
-The following example shows how to use max with an array and a list of integers.
+The following example shows how to use `max` with an array and a list of integers:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/max.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ 0, 3, 2, 5, 4 ]
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "int",
+      "value": "[max(parameters('arrayToTest'))]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[max(0,3,2,5,4)]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -573,13 +1066,13 @@ The output from the preceding example with the default values is:
 
 Returns the minimum value from an array of integers or a comma-separated list of integers.
 
-In Bicep, use the [min](../bicep/bicep-functions-array.md#min) function.
+In Bicep, use the [`min`](../bicep/bicep-functions-array.md#min) function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |array of integers, or comma-separated list of integers |The collection to get the minimum value. |
+| --- | --- | --- | --- |
+| arg1 | Yes | array of integers, or comma-separated list of integers | The collection to get the minimum value. |
 
 ### Return value
 
@@ -587,11 +1080,33 @@ An int representing the minimum value.
 
 ### Example
 
-The following example shows how to use min with an array and a list of integers.
+The following example shows how to use `min` with an array and a list of integers:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/numeric/min.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "arrayToTest": {
+      "type": "array",
+      "defaultValue": [ 0, 3, 2, 5, 4 ]
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "int",
+      "value": "[min(parameters('arrayToTest'))]"
+    },
+    "intOutput": {
+      "type": "int",
+      "value": "[min(0,3,2,5,4)]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -604,14 +1119,14 @@ The output from the preceding example with the default values is:
 
 Creates an array of integers from a starting integer and containing a number of items.
 
-In Bicep, use the [range](../bicep/bicep-functions-array.md#range) function.
+In Bicep, use the [`range`](../bicep/bicep-functions-array.md#range) function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| startIndex |Yes |int |The first integer in the array. The sum of startIndex and count must be no greater than 2147483647. |
-| count |Yes |int |The number of integers in the array. Must be non-negative integer up to 10000. |
+| --- | --- | --- | --- |
+| startIndex | Yes | int | The first integer in the array. The sum of `startIndex` and `count` can't be greater than 2,147,483,647. |
+| count | Yes | int | The number of integers in the array. Must be a non-negative integer up to 10,000. |
 
 ### Return value
 
@@ -619,11 +1134,33 @@ An array of integers.
 
 ### Example
 
-The following example shows how to use the range function.
+The following example shows how to use the `range` function:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/range.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "startingInt": {
+      "type": "int",
+      "defaultValue": 5
+    },
+    "numberOfElements": {
+      "type": "int",
+      "defaultValue": 3
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "rangeOutput": {
+      "type": "array",
+      "value": "[range(parameters('startingInt'),parameters('numberOfElements'))]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -635,14 +1172,14 @@ The output from the preceding example with the default values is:
 
 Returns an array with all the elements after the specified number in the array, or returns a string with all the characters after the specified number in the string.
 
-In Bicep, use the [skip](../bicep/bicep-functions-array.md#skip) function.
+In Bicep, use the [`skip`](../bicep/bicep-functions-array.md#skip) function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
+| --- | --- | --- | --- |
 | originalValue |Yes |array or string |The array or string to use for skipping. |
-| numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, all the elements or characters in the value are returned. If it's larger than the length of the array or string, an empty array or string is returned. |
+| numberToSkip |Yes |int |The number of elements or characters to skip. If this value is 0 or less, the function returns all the elements or characters in the value. If it's larger than the length of the array or string, the function returns an empty array or string. |
 
 ### Return value
 
@@ -650,11 +1187,49 @@ An array or string.
 
 ### Example
 
-The following example skips the specified number of elements in the array, and the specified number of characters in a string.
+The following example skips the specified number of elements in the array and the specified number of characters in a string:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/skip.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testArray": {
+      "type": "array",
+      "defaultValue": [
+        "one",
+        "two",
+        "three"
+      ]
+    },
+    "elementsToSkip": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "testString": {
+      "type": "string",
+      "defaultValue": "one two three"
+    },
+    "charactersToSkip": {
+      "type": "int",
+      "defaultValue": 4
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "array",
+      "value": "[skip(parameters('testArray'),parameters('elementsToSkip'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[skip(parameters('testString'),parameters('charactersToSkip'))]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -667,14 +1242,14 @@ The output from the preceding example with the default values is:
 
 Returns an array or string. An array has the specified number of elements from the start of the array. A string has the specified number of characters from the start of the string.
 
-In Bicep, use the [take](../bicep/bicep-functions-array.md#take) function.
+In Bicep, use the [`take`](../bicep/bicep-functions-array.md#take) function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| originalValue |Yes |array or string |The array or string to take the elements from. |
-| numberToTake |Yes |int |The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it's larger than the length of the given array or string, all the elements in the array or string are returned. |
+| --- | --- | --- | --- |
+| originalValue | Yes | array or string | The array or string to take the elements from. |
+| numberToTake | Yes | int | The number of elements or characters to take. If this value is 0 or less, an empty array or string is returned. If it's larger than the length of the given array or string, all the elements in the array or string are returned. |
 
 ### Return value
 
@@ -682,16 +1257,207 @@ An array or string.
 
 ### Example
 
-The following example takes the specified number of elements from the array, and characters from a string.
+The following example takes the specified number of elements from an array and characters from a string:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/take.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "testArray": {
+      "type": "array",
+      "defaultValue": [
+        "one",
+        "two",
+        "three"
+      ]
+    },
+    "elementsToTake": {
+      "type": "int",
+      "defaultValue": 2
+    },
+    "testString": {
+      "type": "string",
+      "defaultValue": "one two three"
+    },
+    "charactersToTake": {
+      "type": "int",
+      "defaultValue": 2
+    }
+  },
+  "resources": [],
+  "outputs": {
+    "arrayOutput": {
+      "type": "array",
+      "value": "[take(parameters('testArray'),parameters('elementsToTake'))]"
+    },
+    "stringOutput": {
+      "type": "string",
+      "value": "[take(parameters('testString'),parameters('charactersToTake'))]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
 | arrayOutput | Array | ["one", "two"] |
 | stringOutput | String | on |
+
+## tryGet
+
+`tryGet(itemToTest, keyOrIndex)`
+
+`tryGet` helps you avoid deployment failures when trying to access a non-existent property or index in an object or array. If the specified key or index doesn't exist, `tryGet` returns null instead of throwing an error.
+
+In Bicep, use the [safe-dereference](../bicep/operator-safe-dereference.md#safe-dereference) operator.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+| --- | --- | --- | --- |
+| itemToTest | Yes | array, object | An object or array to look into. |
+| keyOrIndex | Yes | string, int | A key or index to retrieve from the array or object. A property name for objects or index for arrays. |
+
+### Return value
+
+Returns the value at the key or index if it exists. Returns null if the key or index is missing or out of bounds.
+
+### Example
+
+The following example checks if an array, object, and string are empty:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "users": {
+      "name": "John Doe",
+      "age": 30
+    },
+    "colors": [
+      "red",
+      "green"
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "region": {
+      "type": "string",
+      "nullable": true,
+      "value": "[tryGet(variables('users'), 'region')]"
+    },
+    "name": {
+      "type": "string",
+      "nullable": true,
+      "value": "[tryGet(variables('users'), 'name')]"
+    },
+    "firstColor": {
+      "type": "string",
+      "nullable": true,
+      "value": "[tryGet(variables('colors'), 0)]"
+    }
+  }
+}
+```
+
+The output from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| region | String | (NULL) |
+| name | String | John Doe |
+| firstColor | String | Red |
+
+## tryIndexFromEnd
+
+`tryIndexFromEnd(sourceArray, reverseIndex)`
+
+The `tryIndexFromEnd` function is a safe version of [`indexFromEnd`](#indexfromend). It retrieves a value from an array by counting backward from the end without throwing an error if the index is out of range.
+
+In Bicep, use the [Reserved index accessor](../bicep/operators-access.md#reverse-index-accessor) operator and the [Safe dereference](../bicep/operator-safe-dereference.md#safe-dereference) operator.
+
+### Parameters
+
+| Parameter | Required | Type | Description |
+| --- | --- | --- | --- |
+| sourceArray | Yes | array | The value to retrieve the element by counting backwards from the end. |
+| reverseIndex | Yes | integer | The one-based index from the end of the array. |
+
+### Return value
+
+If the index is valid (within array bounds), returns the array element at that reverse index. If the index is out of range, returns null instead of throwing an error.
+
+### Example
+
+The following example shows how to use the `tryIndexFromEnd` function:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {
+    "items": [
+      "apple",
+      "banana",
+      "orange",
+      "grape"
+    ]
+  },
+  "resources": [],
+  "outputs": {
+    "secondToLast": {
+      "type": "string",
+      "value": "[tryIndexFromEnd(variables('items'), 2)]"
+    }
+  }
+}
+```
+
+The output of default values from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| secondToLast | String | orange |
+
+The following example shows an out-of-bound scenario:
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "languageVersion": "2.0",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "items": {
+      "type": "array",
+      "defaultValue": [
+        "apple",
+        "banana",
+        "orange",
+        "grape"
+      ]
+    }
+  },
+  "resources": {},
+  "outputs": {
+    "outOfBound": {
+      "type": "string",
+      "nullable": true,
+      "value": "[tryIndexFromEnd(parameters('items'), 5)]"
+    }
+  }
+}
+```
+
+The output of default values from the preceding example is:
+
+| Name | Type | Value |
+| ---- | ---- | ----- |
+| outOfBound | String | (null) |
 
 ## union
 
@@ -699,15 +1465,15 @@ The output from the preceding example with the default values is:
 
 Returns a single array or object with all elements from the parameters. For arrays, duplicate values are included once. For objects, duplicate property names are only included once.
 
-In Bicep, use the [union](../bicep/bicep-functions-array.md#union) function.
+In Bicep, use the [`union`](../bicep/bicep-functions-array.md#union) function.
 
 ### Parameters
 
 | Parameter | Required | Type | Description |
-|:--- |:--- |:--- |:--- |
-| arg1 |Yes |array or object |The first value to use for joining elements. |
-| arg2 |Yes |array or object |The second value to use for joining elements. |
-| more arguments |No |array or object |More values to use for joining elements. |
+| --- | --- | --- | --- |
+| arg1 | Yes | array or object | The first value to use for joining elements. |
+| arg2 | Yes | array or object | The second value to use for joining elements. |
+| more arguments | No | array or object | More values to use for joining elements. |
 
 ### Return value
 
@@ -715,21 +1481,64 @@ An array or object.
 
 ### Remarks
 
-The union function uses the sequence of the parameters to determine the order and values of the result.
+The `union function` uses the sequence of the parameters to determine the order and values of the result.
 
 For arrays, the function iterates through each element in the first parameter and adds it to the result if it isn't already present. Then, it repeats the process for the second parameter and any more parameters. If a value is already present, its earlier placement in the array is preserved.
 
 For objects, property names and values from the first parameter are added to the result. For later parameters, any new names are added to the result. If a later parameter has a property with the same name, that value overwrites the existing value. The order of the properties isn't guaranteed.
 
-The union function merges not only the top-level elements but also recursively merges any nested objects within them. Nested array values aren't merged. See the second example in the following section.
+The `union` function not only merges the top-level elements but also recursively merges any nested objects within them. Nested array values aren't merged. See the second example in the following section.
 
 ### Example
 
-The following example shows how to use union with arrays and objects.
+The following example shows how to use `union` with arrays and objects:
 
-:::code language="json" source="~/resourcemanager-templates/azure-resource-manager/functions/array/union.json":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "firstObject": {
+      "type": "object",
+      "defaultValue": {
+        "one": "a",
+        "two": "b",
+        "three": "c1"
+      }
+    },
+    "secondObject": {
+      "type": "object",
+      "defaultValue": {
+        "three": "c2",
+        "four": "d",
+        "five": "e"
+      }
+    },
+    "firstArray": {
+      "type": "array",
+      "defaultValue": [ "one", "two", "three" ]
+    },
+    "secondArray": {
+      "type": "array",
+      "defaultValue": [ "three", "four" ]
+    }
+  },
+  "resources": [
+  ],
+  "outputs": {
+    "objectOutput": {
+      "type": "object",
+      "value": "[union(parameters('firstObject'), parameters('secondObject'))]"
+    },
+    "arrayOutput": {
+      "type": "array",
+      "value": "[union(parameters('firstArray'), parameters('secondArray'))]"
+    }
+  }
+}
+```
 
-The output from the preceding example with the default values is:
+The output of default values from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
@@ -802,10 +1611,10 @@ The output from the preceding example is:
 
 | Name | Type | Value |
 | ---- | ---- | ----- |
-| objectOutput | Object |{"property":{"one":"a","two":"b","three":"c2","four":"d","five":"e"},"nestedArray":[3,4]}|
-| arrayOutput | Array |[["one","two"],["three"],["four","two"]]|
+| objectOutput | Object | {"property":{"one":"a","two":"b","three":"c2","four":"d","five":"e"},"nestedArray":[3,4]} |
+| arrayOutput | Array | [["one","two"],["three"],["four","two"]] |
 
-If nested arrays were merged, then the value of **objectOutput.nestedArray** would be [1, 2, 3, 4], and the value of **arrayOutput** would be [["one", "two", "three"], ["three", "four", "two"]].
+If nested arrays were merged, the value of **objectOutput.nestedArray** is [1, 2, 3, 4], and the value of **arrayOutput** is [["one", "two", "three"], ["three", "four", "two"]].
 
 ## Next steps
 

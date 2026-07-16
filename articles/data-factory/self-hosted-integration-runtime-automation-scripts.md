@@ -2,7 +2,7 @@
 title: Automating self-hosted integration runtime installation using local PowerShell scripts
 description: To automate installation of Self-hosted Integration Runtime on local machines.
 ms.subservice: integration-runtime
-ms.topic: conceptual
+ms.topic: how-to
 author: lrtoyou1223
 ms.author: lle
 ms.date: 05/15/2024

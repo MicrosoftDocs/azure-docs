@@ -1,8 +1,9 @@
 ---
 title: CycleServer Configuration Reference
-description: Configuration reference for cycle_server.properties file
+description: Reference for CycleServer configuration settings in the cycle_server.properties file for Azure CycleCloud.
 author: atomic-penguin
-ms.date: 03/28/2025
+ms.date: 06/19/2026
+ms.topic: reference
 ms.author: erwolfe
 ---
 

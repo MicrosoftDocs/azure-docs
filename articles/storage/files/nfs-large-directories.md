@@ -1,31 +1,20 @@
 ---
-title: Work with large directories in Azure file shares
+title: Work with Large Directories in Azure Files
 description: Learn recommendations for working with large directories in Azure file shares mounted on Linux clients, including mount options, commands, and operations.
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
-ms.topic: conceptual
-ms.date: 01/24/2025
+ms.topic: concept-article
+ms.date: 07/25/2025
 ms.author: kendownie
+# Customer intent: "As a Linux administrator, I want to optimize performance when accessing large directories in Azure file shares, so that I can reduce latency and improve efficiency in file enumeration and management tasks."
 ---
 
 # Optimize file share performance when accessing large directories from Linux clients
 
-This article provides recommendations for working with directories that contain large numbers of files. It's usually a good practice to reduce the number of files in a single directory by spreading the files over multiple directories. However, there are situations in which large directories can't be avoided. Consider the following suggestions when working with large directories on Azure file shares that are mounted on Linux clients.
+**Applies to:** :heavy_check_mark: NFS file shares
 
-## Applies to
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+This article provides recommendations for working with directories that contain large numbers of files. It's usually a good practice to reduce the number of files in a single directory by spreading the files over multiple directories. However, there are situations in which large directories can't be avoided. Consider the following suggestions when working with large directories on Azure file shares that are mounted on Linux clients.
 
 ## Increase the number of hash buckets
 
@@ -145,4 +134,3 @@ When developing applications that use large directories, follow these recommenda
 ## See also
 
 - [Improve NFS Azure file share performance](nfs-performance.md)
-- [Improve SMB Azure file share performance](smb-performance.md)

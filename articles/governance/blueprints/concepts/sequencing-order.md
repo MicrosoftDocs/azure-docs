@@ -2,7 +2,7 @@
 title: Understand the deployment sequence order
 description: Learn about the default order that blueprint artifacts are deployed in during a blueprint assignment and how to customize the deployment order.
 ms.date: 09/07/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 # Understand the deployment sequence in Azure Blueprints
 

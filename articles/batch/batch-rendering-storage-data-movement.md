@@ -4,8 +4,9 @@ description: Learn about the various storage and data movement options for rende
 services: batch
 ms.service: azure-batch
 ms.custom: linux-related-content
-ms.date: 02/07/2025
+ms.date: 01/06/2026
 ms.topic: how-to
+# Customer intent: As a rendering engineer, I want to explore efficient storage and data movement options for rendering asset and output files, so that I can optimize performance and manage file accessibility in my rendering workflows.
 ---
 
 # Storage and data movement options for rendering asset and output files
@@ -46,8 +47,8 @@ To copy only modified files, the /XO parameter can be used:
 There are a couple of different approaches to copy files with the best approach determined by the size of the job assets.
 The simplest approach is to copy all the asset files to the pool VMs for each job:
 
-* When there are files unique to a job, but are required for all the tasks of a job, then a [job preparation task](/rest/api/batchservice/job/add#jobpreparationtask) can be specified to copy all the files. The job preparation task is run once when the first job task is executed on a VM but is not run again for subsequent job tasks.
-* When a [job release task](/rest/api/batchservice/job/add#jobreleasetask) required to be specified to remove the per-job files once the job has completed; this will avoid the VM disk getting filled by all the job asset files.
+* When there are files unique to a job, but are required for all the tasks of a job, then a [job preparation task](/rest/api/batchservice/jobs/create-job#batchjobpreparationtask) can be specified to copy all the files. The job preparation task is run once when the first job task is executed on a VM but is not run again for subsequent job tasks.
+* When a [job release task](/rest/api/batchservice/jobs/create-job#batchjobreleasetask) required to be specified to remove the per-job files once the job has completed; this will avoid the VM disk getting filled by all the job asset files.
 * When there are multiple jobs using the same assets, with only incremental changes to the assets for each job, then all asset files are still copied, even if only a subset were updated. This would be inefficient when there are lots of large asset files.
 
 When asset files are reused between jobs, with only incremental changes between jobs, then a more efficient but slightly more involved approach is to store assets in the shared folder on the VM and sync changed files.
@@ -55,11 +56,11 @@ When asset files are reused between jobs, with only incremental changes between 
 * The job preparation task would perform the copy using azcopy with the /XO parameter to the VM shared folder specified by AZ_BATCH_NODE_SHARED_DIR environment variable. This will only copy changed files to each VM.
 * Thought will have to be given to the size of all assets to ensure they'll fit on the temporary drive of the pool VMs.
 
-Azure Batch has built-in support to copy files between a storage account and Batch pool VMs. Task [resource files](/rest/api/batchservice/job/add#resourcefile) copy files from storage to pool VMs and could be specified for the job preparation task. Unfortunately, when there are hundreds of files it's possible to hit a limit and tasks to fail. When there are large numbers of assets it's recommended to use the azcopy command line in the job preparation task, which can use wildcards and has no limit.
+Azure Batch has built-in support to copy files between a storage account and Batch pool VMs. Task [resource files](/rest/api/batchservice/jobs/create-job#resourcefile) copy files from storage to pool VMs and could be specified for the job preparation task. Unfortunately, when there are hundreds of files it's possible to hit a limit and tasks to fail. When there are large numbers of assets it's recommended to use the azcopy command line in the job preparation task, which can use wildcards and has no limit.
 
 ### Copying output files to blob storage from Batch pool VMs
 
-[Output files](/rest/api/batchservice/task/add#outputfile) can be used copy files from a pool VM to storage. One or more files can be copied from the VM to a specified storage account once the task has completed. The rendered output should be copied, but it also may be desirable to store log files.
+[Output files](/rest/api/batchservice/tasks/create-task#outputfile) can be used copy files from a pool VM to storage. One or more files can be copied from the VM to a specified storage account once the task has completed. The rendered output should be copied, but it also may be desirable to store log files.
 
 ## Using a blobfuse virtual file system for Linux VM pools
 
@@ -79,7 +80,7 @@ As files are simply blobs in Azure Storage, then standard blob APIs, tools, and 
 
 ## Using Azure Files with Windows VMs
 
-[Azure Files](../storage/files/storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the SMB protocol. Azure Files is based on Azure Blob Storage; it's [cost-efficient](https://azure.microsoft.com/pricing/details/storage/files/) and can be configured with data replication to another region so globally redundant. [Scale targets](../storage/files/storage-files-scale-targets.md#azure-files-scale-targets) should be reviewed to determine if Azure Files should be used given the forecast pool size and number of asset files.
+[Azure Files](../storage/files/storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the SMB protocol. Azure Files is based on Azure Blob Storage; it's [cost-efficient](https://azure.microsoft.com/pricing/details/storage/files/) and can be configured with data replication to another region so globally redundant. [Scale targets](../storage/files/storage-files-scale-targets.md) should be reviewed to determine if Azure Files should be used given the forecast pool size and number of asset files.
 
 There's [documentation](../storage/files/storage-how-to-use-files-windows.md) covering how to mount an Azure File share.
 

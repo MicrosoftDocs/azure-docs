@@ -4,9 +4,12 @@ description: In this guide, learn how to enable service accounts and add a servi
 author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
-ms.custom: devx-track-azurecli
-ms.topic: conceptual
-ms.date: 11/05/2024
+ms.topic: concept-article
+ms.date: 05/28/2026
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 #customer intent: As a Grafana administrator, I want to use service accounts in Azure Managed Grafana so that I can automate operations add authenticate applications in Grafana.
 ---
 
@@ -22,9 +25,11 @@ Common use cases include:
 - Setting up an external SAML authentication provider
 - Interacting with Grafana without signing in as a user
 
+For an automation scenario where you want to use Microsoft Entra ID instead of a service account token, see [Authenticate to Azure Managed Grafana data plane APIs with Microsoft Entra ID](./how-to-authenticate-data-plane-api.md).
+
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Managed Grafana workspace. If you don't have one yet, [create an Azure Managed Grafana workspace](./quickstart-managed-grafana-portal.md).
 
 ## Enable service accounts
@@ -225,3 +230,7 @@ In this how-to guide, you learned how to create and manage service accounts and 
 
 > [!div class="nextstepaction"]
 > [Enable zone redundancy](how-to-enable-zone-redundancy.md)
+
+## Related content
+
+- [Authenticate to Azure Managed Grafana data plane APIs with Microsoft Entra ID](./how-to-authenticate-data-plane-api.md)

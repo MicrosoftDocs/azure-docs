@@ -2,13 +2,30 @@
 title: Cross-tenant delivery in Azure Event Grid
 description: Describes how to publish and deliver events across tenants using an Azure Event Grid topic with a user-assigned identity.
 ms.topic: how-to
-ms.custom: devx-track-azurecli, ignite-2024
-ms.date: 11/18/2024
+ms.custom:
+  - devx-track-azurecli
+  - ignite-2024
+  - build-2025
+ms.date: 04/29/2025
 # Customer intent: As a developer, I want to know how to delivery events using managed identity to a destination in another tenant.
 ---
 
 # Cross-tenant event delivery using a managed identity 
 This article provides information on delivery of events where Azure Event Grid basic resources like topics, domains, system topics, and partner topics are in one tenant and the Azure destination resource is in another tenant. 
+
+## Supported destinations and tiers
+The following table provides you with the information on whether the cross-tenant delivery to a supported destination is available in a tier (basic or standard) and is generally available (GA) or in public preview. 
+
+
+| Destination                | Basic tier          | Standard tier (Namespaces) |
+|----------------------------|---------------------|----------------------------|
+| Event Hubs                 | General available   | Public preview             |
+| Service Bus (topics)       | General available   | NA                         |
+| Service Bus (queues)       | General available   | NA                         |
+| Storage queues             | General available   | NA                         |
+| Webhooks                   | Public preview      | Public preview             |
+| Namespace topics           | Public preview      | NA                         |
+| Blob Storage (Dead Letter Storage) | General available | Public preview       |
 
 The following sections show you how to implement a sample scenario where an Azure Event Grid topic with a user-assigned identity as a federated credential delivers events to an Azure Storage Queue destination hosted in another tenant. Here are the high-level steps:
 
@@ -17,9 +34,6 @@ The following sections show you how to implement a sample scenario where an Azur
 1. Create an Azure Storage Queue destination in Tenant B. 
 1. While creating an event subscription to the topic, enable cross-tenant delivery and configure an endpoint.
 
-> [!NOTE]
-> - This feature is currently in preview. 
-> - Cross-tenant delivery is currently available for the following endpoints: Service Bus topics and queues, Event Hubs, and Storage queues. 
 
 ## Create a topic with a user-assigned identity (Tenant A) 
 Create a user-assigned identity by following instructions in the [Manage user-assigned managed identities](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) article. Then, enable a user-assigned managed identity while creating a topic or updating an existing topic by using steps in the following procedure. 

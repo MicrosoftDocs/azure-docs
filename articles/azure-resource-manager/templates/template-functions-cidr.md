@@ -3,7 +3,7 @@ title: Template functions - CIDR
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to manipulate IP addresses and create IP address ranges.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 02/12/2025
+ms.date: 06/26/2026
 ---
 
 # CIDR functions for ARM templates

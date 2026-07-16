@@ -1,20 +1,15 @@
 ---
 title: Microsoft Customer Agreement cost and usage details file schema
 description: Learn about the data fields available in the Microsoft Customer Agreement cost and usage details file.
-author: bandersmsft
-ms.reviewer: jojo
+author: vikramdesai01
+ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 01/24/2025
-ms.author: banders
+ms.date: 06/26/2025
+ms.author: vikdesai
 ---
-
 # Microsoft Customer Agreement cost and usage details file schema
-
-This article applies to the Microsoft Customer Agreement cost and usage details file schema.
-
-The following information lists the cost and usage details (formerly known as usage details) fields found in Microsoft Customer Agreement cost and usage details files. The file contains contains all of the cost details and usage data for the Azure services that were used.
 
 ## Version 2023-12-01-preview
 
@@ -79,7 +74,7 @@ The following information lists the cost and usage details (formerly known as us
 | 57 |term|Displays the term for the validity of the offer. For example: For reserved instances, it displays 12 months as the Term. For one-time purchases or recurring purchases, Term is one month (SaaS, Marketplace Support). Not applicable for Azure consumption.|
 | 58 |reservationId|Unique identifier for the purchased reservation instance.|
 | 59 |reservationName|Name of the purchased reservation instance.|
-| 60 |PricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, `Spot`, and `SavingsPlan`)|
+| 60 |pricingModel|Identifier that indicates how the meter is priced. (Values: `On Demand`, `Reservation`, `Spot`, and `SavingsPlan`)|
 | 61 |unitPrice|The price for a given product or service inclusive of any negotiated discount that you might have on top of the market price (PayG price column) for your contract. For more information, see [Pricing behavior in cost details](../automate/automation-ingest-usage-details-overview.md#pricing-behavior-in-cost-and-usage-details).|
 | 62 |costAllocationRuleName|Name of the Cost Allocation rule that's applicable to the record.|
 | 63 |benefitId| Unique identifier for the purchased savings plan instance. |

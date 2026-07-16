@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 01/31/2025
 ms.author: duau
 ms.custom: references_regions
+# Customer intent: As a network administrator, I want to collect and analyze flow logs from ExpressRoute circuits, so that I can monitor network performance, optimize costs, and conduct forensics on network traffic.
 ---
 
 # Azure ExpressRoute Traffic Collector
@@ -47,7 +48,9 @@ For more information, see [ExpressRoute limits](../azure-resource-manager/manage
 
 ## Supported ExpressRoute circuits
 
-ExpressRoute Traffic Collector supports both Provider-managed circuits and ExpressRoute Direct circuits. Currently, it only supports circuits with a bandwidth of 1Gbps or greater.
+ExpressRoute Traffic Collector supports both Provider-managed Circuits and ExpressRoute Direct Circuits. Currently, it supports Circuits with a bandwidth between 1Gbps and 100Gbps. 
+
+200Gbps and 400Gbps ExpressRoute Direct Circuits are not supported.
 
 ## Flow log schema
 

@@ -1,12 +1,13 @@
 ---
-title: Troubleshoot Azure NetApp Files Resource Provider errors | Microsoft Docs
+title: Troubleshoot Azure NetApp Files Resource Provider errors
 description: Describes causes, solutions, and workarounds for common Azure NetApp Files Resource Provider errors.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: troubleshooting
-ms.date: 08/15/2024
+ms.date: 08/15/2025
 ms.author: anfdocs
+# Customer intent: "As a cloud administrator, I want to troubleshoot Azure NetApp Files Resource Provider errors, so that I can resolve issues effectively and ensure optimal performance of my cloud storage resources."
 ---
 # Troubleshoot Azure NetApp Files Resource Provider errors 
 
@@ -106,16 +107,16 @@ Contact Azure Support Center to report the detailed reason in logs.
 * Workaround:   
 None.
 
-***The file path name can contain letters, numbers, and hyphens (""-"") only.***
+***The file path name can contain letters, numbers, underscores ("_"), and hyphens (""-"") only.***
 
-This error occurs when the file path contains unsupported characters, for example, a period ("."), comma (","), underscore ("_"), or dollar sign ("$").
+This error occurs when the file path contains unsupported characters, for example, a period ("."), comma (","), or dollar sign ("$").
 
 * Cause:   
-The file path contains unsupported characters, for example, a period ("."), comma (","), underscore ("_"), or dollar sign ("$").
+The file path contains unsupported characters, for example, a period ("."), comma (","), or dollar sign ("$").
 * Solution:   
-Remove all characters other than alphabetical letters, numbers, or hyphens ("-") from the file path you entered.
+Remove all characters other than alphabetical letters, numbers, underscores ("_"), or hyphens ("-") from the file path you entered.
 * Workaround:   
-You can replace an underscore with a hyphen or use capitalization instead of spaces to indicate the beginning of new words.  For example, use "NewVolume" instead of "new volume".
+Use capitalization instead of spaces to indicate the beginning of new words.  For example, use "NewVolume" instead of "new volume".
 
 ***FileSystemId cannot be changed.***
 

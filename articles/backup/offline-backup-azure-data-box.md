@@ -2,11 +2,12 @@
 title: Offline backup by using Azure Data Box
 description: Learn how you can use Azure Data Box to seed large initial backup data offline from the MARS Agent to a Recovery Services vault. 
 ms.topic: how-to
-ms.date: 04/18/2025
-author: jyothisuri
-ms.author: jsuri
+ms.date: 03/17/2026
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.service: azure-backup
 ms.custom: engagement-fy24
+# Customer intent: As a backup administrator, I want to use Azure Data Box for offline data seeding with the MARS Agent, so that I can efficiently transfer large initial backup data to the Recovery Services vault without consuming network bandwidth.
 ---
 
 # Azure Backup offline backup by using Azure Data Box
@@ -44,6 +45,8 @@ The process to seed data from the MARS Agent by using Azure Data Box is supporte
 | Windows Storage Server 2012 64 bit    | Standard, Workgroup                                         |
 | Windows Server 2008 R2 SP1 64 bit     | Standard, Enterprise, Datacenter, Foundation                |
 | Windows Server 2008 SP2 64 bit        | Standard, Enterprise, Datacenter                            |
+
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
 
 ### Backup data size and supported Data Box SKUs
 

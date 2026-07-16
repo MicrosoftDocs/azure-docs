@@ -2,11 +2,11 @@
 title: "Tutorial: Deploy static-rendered Next.js websites on Azure Static Web Apps"
 description: "Generate and deploy Next.js static-rendered sites with Azure Static Web Apps."
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
 ms.topic:  tutorial
 ms.date: 10/12/2022
-ms.author: wujia
+ms.author: jikunchen
 ms.custom: devx-track-js, engagement-fy23
 ---
 
@@ -16,7 +16,7 @@ In this tutorial, learn to deploy a [Next.js](https://nextjs.org) generated stat
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub account. [Create an account for free](https://github.com/join).
 - [Node.js](https://nodejs.org) installed.
 

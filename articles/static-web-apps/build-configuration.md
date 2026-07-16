@@ -2,11 +2,11 @@
 title: Build configuration for Azure Static Web Apps
 description: Learn how to control the build process for Azure Static Web Apps.
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/04/2024
-ms.author: wujia
+ms.author: jikunchen
 zone_pivot_groups: static-web-apps-ci-cd
 ---
 
@@ -32,13 +32,13 @@ With these settings, you can set up GitHub Actions or [Azure Pipelines](get-star
 
 ## File name and location
 
-::: zone pivot="azure-pipelines"
+::: zone pivot="github-actions"
 
 The GitHub action generates the configuration file and is stored in the *.github/workflows* folder, named using the following format: `azure-static-web-apps-<RANDOM_NAME>.yml`.
 
 ::: zone-end
 
-::: zone pivot="github-actions"
+::: zone pivot="azure-pipelines"
 
 By default, the configuration file is stored at the root of your repository with the name `azure-pipelines.yml`.
 

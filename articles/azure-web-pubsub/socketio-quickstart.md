@@ -20,7 +20,7 @@ Code shown in this quickstart is in CommonJS. If you want to use an ECMAScript m
 ## Prerequisites
 
 > [!div class="checklist"]
-> * An Azure account with an active subscription. If you don't have one, you can [create a free account](https://azure.microsoft.com/free/). 
+> * An Azure account with an active subscription. If you don't have one, you can [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). 
 > * Some familiarity with the Socket.IO library.
 
 ## Create a Web PubSub for Socket.IO resource

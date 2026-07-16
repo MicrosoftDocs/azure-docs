@@ -7,6 +7,7 @@ ms.custom: devx-track-python
 ms.topic: quickstart
 ms.date: 08/24/2022
 ms.author: andrsmith
+# Customer intent: "As a cloud administrator, I want to apply best practices configuration profiles to existing virtual machines using Python, so that I can automate the management and optimization of my cloud resources effectively before the upcoming retirement of Azure Automanage services."
 ---
 
 # Quickstart: Enable Azure Automanage for virtual machines using Python
@@ -21,7 +22,7 @@ Azure Automanage allows users to seamlessly apply Azure best practices to their 
 
 ## Prerequisites 
 
-- An active [Azure Subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)
+- An active [Azure Subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An existing [Virtual Machine](/azure/virtual-machines/windows/quick-create-portal)
 
 > [!NOTE]

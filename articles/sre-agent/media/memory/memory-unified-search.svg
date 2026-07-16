@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 280">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#0078d4"/>
+    </marker>
+  </defs>
+  
+  <rect width="720" height="280" fill="#fafafa"/>
+  
+  <!-- Input Sources -->
+  <!-- Sync Chat -->
+  <rect x="20" y="40" width="90" height="50" rx="6" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" filter="url(#shadow)"/>
+  <text x="65" y="60" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" font-weight="600" fill="#0d47a1">Sync Chat</text>
+  <text x="65" y="78" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#1565c0">Your questions</text>
+  
+  <!-- Async/Auto -->
+  <rect x="20" y="110" width="90" height="50" rx="6" fill="#e8f5e9" stroke="#388e3c" stroke-width="2" filter="url(#shadow)"/>
+  <text x="65" y="130" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" font-weight="600" fill="#2e7d32">Async</text>
+  <text x="65" y="148" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#388e3c">Auto-triggered</text>
+  
+  <!-- Arrows to SearchMemory -->
+  <path d="M110 65 L155 105" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M110 135 L155 115" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- SearchMemory Central -->
+  <rect x="165" y="85" width="120" height="70" rx="10" fill="#ff8f00" filter="url(#shadow)"/>
+  <text x="225" y="112" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="700" fill="white">SearchMemory</text>
+  <text x="225" y="128" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#fff8e1">Searches all sources</text>
+  <text x="225" y="142" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#fff8e1">simultaneously</text>
+  
+  <!-- Memory Sources -->
+  <!-- Past Sessions (top) -->
+  <path d="M285 100 L330 60" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <rect x="340" y="25" width="140" height="70" rx="6" fill="#e8f5e9" stroke="#388e3c" stroke-width="2" filter="url(#shadow)"/>
+  <text x="410" y="48" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" font-weight="600" fill="#2e7d32">Past Sessions</text>
+  <text x="410" y="62" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#388e3c">Symptoms, Root Cause</text>
+  <text x="410" y="74" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#388e3c">Steps, Pitfalls</text>
+  <text x="410" y="86" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7" fill="#4caf50" font-style="italic">Auto-learned</text>
+  
+  <!-- User Memories (middle) -->
+  <path d="M285 120 L330 120" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <rect x="340" y="100" width="140" height="50" rx="6" fill="#fff3e0" stroke="#f57c00" stroke-width="2" filter="url(#shadow)"/>
+  <text x="410" y="118" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" font-weight="600" fill="#e65100">User Memories</text>
+  <text x="410" y="132" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#bf360c">#remember facts</text>
+  <text x="410" y="144" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7" fill="#ff9800" font-style="italic">Explicit saves</text>
+  
+  <!-- Documents (bottom) -->
+  <path d="M285 140 L330 175" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <rect x="340" y="155" width="140" height="70" rx="6" fill="#e1f5fe" stroke="#0288d1" stroke-width="2" filter="url(#shadow)"/>
+  <text x="410" y="178" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" font-weight="600" fill="#01579b">Knowledge Base</text>
+  <text x="410" y="192" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#0277bd">Runbooks, Docs</text>
+  <text x="410" y="204" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#0277bd">Architecture guides</text>
+  <text x="410" y="216" text-anchor="middle" font-family="Segoe UI, Arial" font-size="7" fill="#03a9f4" font-style="italic">Uploaded + Connectors</text>
+  
+  <!-- Arrows converging to response -->
+  <path d="M480 60 L530 95" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M480 125 L530 120" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M480 190 L530 145" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Response -->
+  <rect x="540" y="80" width="160" height="80" rx="10" fill="#ff8f00" filter="url(#shadow)"/>
+  <text x="620" y="105" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="700" fill="white">Grounded</text>
+  <text x="620" y="122" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="700" fill="white">Response</text>
+  <text x="620" y="142" text-anchor="middle" font-family="Segoe UI, Arial" font-size="8" fill="#fff8e1">With clickable citations</text>
+  
+  <!-- Learning Loop Arrow (bottom) -->
+  <path d="M620 160 L620 240 L65 240 L65 170" stroke="#4caf50" stroke-width="2" stroke-dasharray="5,3" fill="none" marker-end="url(#arrow)"/>
+  <text x="340" y="255" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#388e3c" font-weight="600">Learnings saved back to memory (30 min after thread ends)</text>
+</svg>

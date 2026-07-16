@@ -5,7 +5,9 @@ items:
   expanded: true
   items:
   - name: What is Arize AI?
-    href: overview.md 
+    href: overview.md
+  - name: FAQ
+    href: faq.yml 
 - name: Quickstart
   expanded: true
   items:
@@ -16,3 +18,5 @@ items:
   items:
   - name: Manage a resource
     href: manage.md
+  - name: Get support
+    href: https://arize.com/contact/

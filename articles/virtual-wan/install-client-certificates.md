@@ -2,12 +2,12 @@
 title: 'Install a User VPN P2S client certificate'
 titleSuffix: Azure Virtual WAN
 description: Learn how to install client certificates for User VPN P2S certificate authentication - Windows, Mac, Linux.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 02/13/2025
-ms.author: cherylmc
+ms.author: duau
 ---
 # Install client certificates for User VPN connections
 

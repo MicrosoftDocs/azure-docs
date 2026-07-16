@@ -1,24 +1,25 @@
 ---
-title: 'Quickstart: Create a Managed Redis cache'
+title: "Quickstart: Create a Managed Redis cache"
 description: In this quickstart, learn how to create an instance of Azure Managed Redis in use the Managed tier.
-
-
-ms.service: azure
-ms.custom: mvc, mode-other, ignite-2024
+ms.date: 05/18/2025
 ms.topic: quickstart
-ms.date: 04/12/2023
+ms.custom:
+  - mvc
+  - mode-other
+  - ignite-2024
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
 ---
-# Quickstart: Create an Azure Managed Redis (preview) Instance
+# Quickstart: Create an Azure Managed Redis Instance
 
-Azure Managed Redis (preview) provides fully integrated and managed [Redis Enterprise](https://redislabs.com/redis-enterprise/) on Azure. There are four tiers of Azure Managed Redis (preview), each with different performance characteristics:
+Azure Managed Redis provides fully integrated and managed [Redis Enterprise](https://redis.io) on Azure. There are four tiers of Azure Managed Redis, each with different performance characteristics:
 
 Three tiers are for in-memory data:
 
-- **Memory Optimized** Ideal for memory-intensive use cases that require a high memory-to-vCPU ratio (1:8) but don't need the highest throughput performance. It provides a lower price point for scenarios where less processing power or throughput is necessary, making it an excellent choice for development and testing environments.
-- **Balanced (Memory + Compute)** Offers a balanced memory-to-vCPU (1:4) ratio, making it ideal for standard workloads. It provides a healthy balance of memory and compute resources.
-- **Compute Optimized** Designed for performance-intensive workloads requiring maximum throughput, with a low memory-to-vCPU (1:2) ratio. It's ideal for applications that demand the highest performance.
+- **Memory Optimized** Ideal for memory-intensive use cases that require a high memory-to-vCPU ratio (8:1) but don't need the highest throughput performance. It provides a lower price point for scenarios where less processing power or throughput is necessary, making it an excellent choice for development and testing environments.
+- **Balanced (Memory + Compute)** Offers a balanced memory-to-vCPU (4:1) ratio, making it ideal for standard workloads. It provides a healthy balance of memory and compute resources.
+- **Compute Optimized** Designed for performance-intensive workloads requiring maximum throughput, with a low memory-to-vCPU (2:1) ratio. It's ideal for applications that demand the highest performance.
 
 One tier stores data both in-memory and on-disk:
 

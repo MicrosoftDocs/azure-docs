@@ -1,7 +1,7 @@
 ---
 title: Network security for Azure Event Hubs 
 description: This article describes how to configure access from private endpoints.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/13/2022
 ---
 
@@ -22,9 +22,6 @@ You can use service tags to define network access controls on [network security
 | Service tag | Purpose | Can use inbound or outbound? | Can be regional? | Can use with Azure Firewall? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | `EventHub` | Azure Event Hubs. | Outbound | Yes | Yes |
-
-> [!NOTE] 
-> Azure Event Hubs service tag contains some of the IP addresses used by Azure Service Bus because of historical reasons. 
 
 ## IP firewall 
 By default, Event Hubs namespaces are accessible from internet as long as the request comes with valid authentication and authorization. With IP firewall, you can restrict it further to only a set of IPv4 or IPv6 addresses or address ranges in [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation.

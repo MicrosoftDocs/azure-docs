@@ -1,26 +1,26 @@
 ---
-title: Overview of DNS security policy (Preview)
+title: Overview of DNS security policy
 description: Learn how to configure DNS security policy to filter and log DNS queries in your Azure Virtual Network. Display, save, and review DNS queries and responses from the VNET. Block malicious domains and optimize DNS query traffic.
-author: greg-lindsay
+author: asudbring
 manager: KumuD
 ms.service: azure-dns
 ms.topic: article
-ms.date: 02/24/2025
-ms.author: greglin
+ms.date: 11/17/2025
+ms.author: allensu
+# Customer intent: "As a network administrator, I want to configure DNS security policies for my virtual network, so that I can filter and log DNS queries to protect against malicious domains and optimize DNS traffic."
 ---
 
-# DNS security policy (Preview)
+# DNS security policy
 
-This article provides an overview of DNS security policy. Also see the following how-to guide:
+This article provides an overview of DNS security policy and Threat intelligence feed.
 
-- [Secure and view DNS traffic (Preview)](dns-traffic-log-how-to.md).
+For more information about configuration of DNS security policy and Threat intelligence feed, see the following how-to guides:
 
-> [!NOTE]
-> DNS security policy is currently in PREVIEW.<br> 
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.<br>
-> Some [Requirements and restrictions](#requirements-and-restrictions) apply to DNS security policy during preview.
- 
-## What DNS security policy?
+- [Secure and view DNS traffic ](dns-traffic-log-how-to.md).
+
+- [Secure your VNet with Threat intelligence feed](dns-traffic-log-how-to.md#secure-dns-traffic-with-threat-intelligence-feed).
+
+## What is DNS security policy?
 
 DNS security policy offers the ability to filter and log DNS queries at the virtual network (VNet) level. Policy applies to both public and private DNS traffic within a VNet. DNS logs can be sent to a storage account, log analytics workspace, or event hubs. You can choose to allow, alert, or block DNS queries.
 
@@ -36,9 +36,43 @@ A DNS security policy has the following associated elements and properties:
 
 DNS security policy can be configured using Azure PowerShell or the Azure portal.
 
+## What is DNS Threat Intelligence?
+
+Azure DNS security policy with Threat Intelligence feed allows early detection and prevention of security incidents on customer virtual networks where known malicious domains sourced by [Microsoft’s Security Response Center (MSRC)](https://www.microsoft.com/msrc) can be blocked from name resolution. 
+
+:::image type="content" source="./media/dns-security-policy/threat-intelligence-feed.png" alt-text="Diagram of the network flow of the DNS Threat Intelligence feed." lightbox="./media/dns-security-policy/threat-intelligence-feed.png":::
+
+Apart from the features already provided DNS security policy, the feed is available as a managed domain list and enables the protection of workloads against known malicious domains with Microsoft’s own managed Threat Intelligent feed. 
+
+The following are benefits of using DNS security policy with Threat Intelligence feed:
+
+- **Smart protection**:
+
+    - Almost all attacks begin with a DNS query. Threat Intelligence managed domain list enables the detection and prevention of security incidents early.
+
+- **Continuous updates**: 
+
+    - Microsoft automatically updates the feed to protect against newly detected malicious domains.
+
+- **Malicious domain monitoring and blocking**: 
+    
+    - The flexibility of observation of the activity in alert only mode or block the suspected activity in blocking mode.
+    
+    - Logging enablement gives visibility into all DNS traffic in the virtual network. 
+
+### Use cases
+
+- Configure Threat Intelligence as a managed domain list in DNS security policies for an additional layer of protection against known malicious domains.
+
+- Gain visibility of compromised hosts that attempt to resolve known malicious domains from virtual networks.
+
+- Log and set up alerts when malicious domains are resolved in virtual networks where the Threat Intel feed is configured.
+
+- Seamlessly integrate with virtual networks and other services such as Azure Private DNS Zones, Private Resolver, and other services in the virtual network. 
+
 ## Location
 
-A security policy can only apply to VNets in the same region. You can create up to 10 security policies per region during preview. In the following example, two policies are created in each of two different regions (East US and Central US). 
+A security policy can only apply to VNets in the same region. In the following example, two policies are created in each of two different regions (East US and Central US). 
 
 ![Screenshot of the list of DNS security policies.](./media/dns-security-policy/policy-list.png)
 
@@ -104,27 +138,15 @@ When viewing a DNS domain list in the Azure portal, you can also select **Settin
 
 ## Requirements and restrictions
 
-Preview access
-- This DNS security policy preview is offered without a requirement to enroll in a pre-release feature preview.
-
-Virtual network restrictions:
-- DNS security policies can only be applied to VNets in the same region as the DNS security policy.
-- You can link one security policy per VNet. 
-- During preview, a single security policy can be linked to 50 VNets. This limit is increased to 500 for general availability.
-
-Security policy restrictions:
-- During preview, up to 10 security policies are allowed per region. This limit is increased to 1000 for general availability.
-
-DNS traffic rule restrictions:
-- During preview, up to 10 traffic rules are allowed per security policy. This limit is increased to 100 for general availability.
-
-Domain list restrictions:
-- During preview, up to 10 domain lists are allowed per region. This limit is increased to 1000 for general availability.
-
-Domain restrictions:
-- During preview, up to 1000 domains are allowed across all regions. This limit is increased to 100,000 for general availability.
-
+| Restriction Type                 | Limit / Rule                                                                 |
+|----------------------------------|-----------------------------------------------------------------------------|
+| Virtual network restrictions     | - DNS security policies can only be applied to VNets in the same region as the DNS security policy.<br>- You can link one security policy per VNet. |
+| Security policy restrictions     | 1000                                                                        |
+| DNS traffic rule restrictions    | 100                                                                         |
+| Domain list restrictions         | 2,000                                                                       |
+| Large Domain list restrictions   | 100,000                                                                     |
+| Domain restrictions              | 100,000                                                                     |
 
 ## Related content
 
-- [Secure and view DNS traffic (Preview)](dns-traffic-log-how-to.md).
+- [Secure and view DNS traffic](dns-traffic-log-how-to.md).

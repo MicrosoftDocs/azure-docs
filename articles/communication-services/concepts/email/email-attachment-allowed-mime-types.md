@@ -7,7 +7,7 @@ manager: koagbakp
 services: azure-communication-services
 ms.author: natekimball
 ms.date: 03/31/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ---
 

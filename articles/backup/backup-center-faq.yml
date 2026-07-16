@@ -2,15 +2,15 @@
 metadata:
   title: Backup center - FAQ
   description: This article answers frequently asked questions about Backup center.
-  ms.date: 02/28/2025
+  ms.date: 02/13/2026
   ms.topic: faq
   ms.service: azure-backup
-  author: jyothisuri
-  ms.author: jsuri
+  author: AbhishekMallick-MS
+  ms.author: v-mallicka
 title: Backup center - Frequently asked questions
 summary: This article answers frequently asked questions about Backup center.
 sections:
-  - name: Management
+  - name: Management using Backup center
     questions:
       - question: How can I open Backup center from the Azure portal?
         answer: |
@@ -34,7 +34,7 @@ sections:
           
           If the issue still persists, contact Microsoft Support.
           
-  - name: Configuration
+  - name: Configuration using Backup center
     questions:
       - question: Do I need to configure anything to see data in Backup center? 
         answer: |

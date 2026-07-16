@@ -1,6 +1,8 @@
 ---
 title: What is Apache Airflow on Astro?
 description: Learn about Apache Airflow on Astro, which allows you to deploy a fully managed and seamless Apache Airflow on Astro on Azure, in Azure Marketplace.
+author: praveenrajap
+ms.author: praveenrajap
 ms.topic: overview
 ms.date: 01/17/2025
 ---

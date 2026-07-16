@@ -128,7 +128,7 @@ The application firewall rules only take effect when the access token contains t
 Below is an example to add userId and insert a unique placeholder in the access token:
 
 ```cs
-// The GUID role wont have any effect. But it ensures this token's uniqueness when using rule ThrottleByJwtSignatureRule.
+// The GUID role won't have any effect. But it ensures this token's uniqueness when using rule ThrottleByJwtSignatureRule.
 var url = service.GetClientAccessUri((userId: "user1" , roles: new string[] {  "webpubsub.joinLeaveGroup.group1", Guid.NewGuid().ToString()});
 ```
 

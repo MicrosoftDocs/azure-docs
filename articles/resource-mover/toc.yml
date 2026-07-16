@@ -4,8 +4,8 @@
   items:
   - name: About Azure Resource Mover
     href: overview.md
-  - name: Select a tool to move resources
-    href: select-move-tool.md
+  - name: Select options to move resources
+    href: select-options-to-move-resources.md
   - name: Common questions
     href: common-questions.md
   - name: What's new
@@ -55,7 +55,7 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.migrate/allversions
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
+    href: https://azure.microsoft.com/updates/
 - name: Monitoring
   items:
   - name: Monitor Move across region

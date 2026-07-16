@@ -4,8 +4,9 @@ description: Learn about Message Disposition Notification (MDN) acknowledgments 
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 03/27/2025
+ms.topic: concept-article
+ms.update-cycle: 1095-days
+ms.date: 07/10/2026
 ---
 
 # MDN acknowledgments for AS2 messages in Azure Logic Apps

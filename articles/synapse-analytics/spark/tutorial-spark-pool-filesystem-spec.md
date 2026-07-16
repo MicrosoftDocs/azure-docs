@@ -18,7 +18,7 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Read/write ADLS data in a dedicated Spark session.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 

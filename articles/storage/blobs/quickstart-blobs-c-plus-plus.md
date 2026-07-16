@@ -2,14 +2,18 @@
 title: "Quickstart: Azure Blob Storage library - C++"
 titleSuffix: Azure Storage
 description: In this quickstart, you learn how to use the Azure Blob Storage client library for C++ to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 08/30/2023
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: cpp
-ms.custom: mode-api
+ms.custom:
+  - mode-api
+  - sfi-image-nochange
+  - sfi-ropc-nochange
+# Customer intent: As a C++ developer, I want to utilize the Azure Blob Storage client library so that I can efficiently manage unstructured data by creating containers, uploading and downloading blobs, and performing related operations in my applications.
 ---
 
 # Quickstart: Azure Blob Storage client library for C++
@@ -20,7 +24,7 @@ Get started with the Azure Blob Storage client library for C++. Azure Blob Stora
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure storage account - [create a storage account](../common/storage-account-create.md)
 - [C++ compiler](https://azure.github.io/azure-sdk/cpp_implementation.html#supported-platforms)
 - [CMake](https://cmake.org/)
@@ -156,7 +160,7 @@ You can authorize access to data in your storage account using the following ste
 A connection string includes the storage account access key and uses it to authorize requests. Always be careful to never expose the keys in an unsecure location.
 
 > [!NOTE]
-> To authorize data access with the storage account access key, you'll need permissions for the following Azure RBAC action: [Microsoft.Storage/storageAccounts/listkeys/action](../../role-based-access-control/resource-provider-operations.md#microsoftstorage). The least privileged built-in role with permissions for this action is [Reader and Data Access](../../role-based-access-control/built-in-roles.md#reader-and-data-access), but any role which includes this action will work.
+> To authorize data access with the storage account access key, you'll need permissions for the following Azure RBAC action: [Microsoft.Storage/storageAccounts/listkeys/action](../../role-based-access-control/permissions/storage.md#microsoftstorage). The least privileged built-in role with permissions for this action is [Reader and Data Access](../../role-based-access-control/built-in-roles.md#reader-and-data-access), but any role which includes this action will work.
 
 [!INCLUDE [retrieve credentials](../../../includes/retrieve-credentials.md)]
 
@@ -297,3 +301,4 @@ To see a C++ Blob Storage sample, continue to:
 
 > [!div class="nextstepaction"]
 > [Azure Blob Storage client library for C++ samples](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage/azure-storage-blobs/samples)
+

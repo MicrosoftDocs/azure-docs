@@ -1,7 +1,7 @@
 ---
 title: Azure Event Grid subscriber operations for namespace topics
 description: Describes subscriber operations supported by Azure Event Grid when using namespaces.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom:
   - ignite-2023
 ms.date: 11/15/2023

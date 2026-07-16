@@ -1,9 +1,11 @@
----
+﻿---
 title: Migrate Azure resources and JSON ARM templates to use Bicep
 description: Learn the recommended workflow when migrating Azure resources and JSON ARM templates to use Bicep.
-ms.topic: conceptual
-ms.date: 04/02/2025
-ms.custom: devx-track-bicep
+ms.topic: article
+ms.date: 12/10/2025
+ms.custom:
+  - devx-track-bicep
+  - build-2025
 author: joshuawaddell
 ms.author: jowaddel
 ---
@@ -19,8 +21,6 @@ When migrating existing JSON Azure Resource Manager templates (ARM templates) to
 The first step in the process is to capture an initial representation of your Azure resources. If necessary, you then decompile the JSON file to an initial Bicep file, which you improve upon by refactoring. When you have a working file, you test and deploy using a process that minimizes the risk of breaking changes to your Azure environment.
 
 :::image type="content" source="./media/migrate/migrate-bicep.png" alt-text="Diagram of the recommended workflow for migrating Azure resources to Bicep." border="false":::
-
-In this article, we summarize this recommended workflow. See the [Migrate Azure resources and JSON ARM templates to use Bicep](/training/modules/migrate-azure-resources-bicep/) Learn module for more guidance.
 
 ## Phase 1: Convert
 
@@ -82,7 +82,7 @@ The test phase consists of two steps, which you complete in sequence:
 
 1. **Run the ARM template deployment what-if operation.** To help you verify your converted templates before deployment, you can use the [Azure Resource Manager template deployment what-if operation](../templates/deploy-what-if.md). It compares the current state of your environment with the desired state that is defined in the template. The tool outputs the list of changes that will occur _without_ applying the changes to your environment. You can use what-if with both [incremental mode](../templates/deployment-modes.md#incremental-mode) and [complete mode](../templates/deployment-modes.md#complete-mode) deployments. Even if you plan to deploy your template using incremental mode, it's a good idea to run your what-if operation in complete mode.
 
-1. **Perform a test deployment.** Before introducing your converted Bicep template to production, consider running multiple test deployments. If you have multiple environments (for example, development, test, and production), you may want to try deploying your template to one of your non-production environments first. After the deployment, compare the original resources with the new resource deployments for consistency.
+1. **Perform a test deployment.** Before introducing your converted Bicep file to production, consider running multiple test deployments. If you have multiple environments (for example, development, test, and production), you may want to try deploying your template to one of your non-production environments first. After the deployment, compare the original resources with the new resource deployments for consistency.
 
 ## Phase 5: Deploy
 
@@ -101,3 +101,4 @@ The deploy phase consists of four steps, which you complete in sequence:
 ## Next steps
 
 To learn more about the Bicep decompiler, see [Decompile ARM template JSON to Bicep](decompile.md).
+

@@ -1,18 +1,18 @@
 ---
-title: Create a workload profiles environment in the Azure portal
-description: Learn to create an environment with a specialized hardware profile in the Azure portal. 
+title: Create a Container Apps environment in the Azure portal
+description: Learn to create an environment with specialized hardware profiles in the Azure portal. 
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 08/29/2023
+ms.date: 06/16/2025
 ms.author: cshoe
 ms.custom: references_regions
 ---
 
-# Manage a workload profiles in the Azure portal
+# Manage a workload profile in the Azure portal
 
-Learn to manage a [workload profiles](./workload-profiles-overview.md) environment in the Azure portal.
+Learn to manage [workload profiles](./workload-profiles-overview.md) in your Container Apps environment in the Azure portal.
 
 ## Create a container app in a workload profile
 
@@ -40,7 +40,7 @@ Learn to manage a [workload profiles](./workload-profiles-overview.md) environme
 
     :::image type="content" source="media/workload-profiles/azure-container-apps-workload-profiles-environment-v2.png" alt-text="Screenshot of create an Azure Container Apps workload profiles environment window.":::
 
-    Enter the following values to create your environment.
+    To create your environment, enter the following values:
 
     | Property | Value |
     | --- | --- |

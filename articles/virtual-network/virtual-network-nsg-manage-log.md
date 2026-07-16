@@ -7,10 +7,11 @@ author: asudbring
 manager: mtillman
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 03/22/2023
+ms.date: 07/11/2025
 ms.author: allensu
 ms.custom: devx-track-azurecli
 ms.devlang: azurecli
+# Customer intent: "As a network administrator, I want to enable resource logging for a network security group so that I can monitor traffic and analyze the application of security rules within my virtual network."
 ---
 
 # Resource logging for a network security group
@@ -19,12 +20,12 @@ A network security group (NSG) includes rules that allow or deny traffic to a vi
 
 When you enable logging for an NSG, you can gather the following types of resource log information:
 
-- **Event**: Entries are logged for which NSG rules are applied to virtual machines, based on a MAC address.
-- **Rule counter**: Contains entries for how many times each NSG rule is applied to allow or deny traffic. The status for these rules is collected every 300 seconds.
+- **Event**: Entries are logged for the NSG rules applied to virtual machines, based on a MAC address.
+- **Rule counter**: Tracks how many times each NSG rule is applied to allow or deny traffic. The status for these rules is collected every 300 seconds.
 
-Resource logs are available only for NSGs deployed through the Azure Resource Manager deployment model. You can't enable resource logging for NSGs deployed through the classic deployment model. For more information, see [Understand deployment models](../azure-resource-manager/management/deployment-models.md).
+Resource logs are available only for NSGs deployed through the Azure Resource Manager (ARM) deployment model. You can't enable resource logging for NSGs deployed through the classic deployment model. For more information, see [Understand deployment models](../azure-resource-manager/management/deployment-models.md).
 
-Resource logging is enabled separately for *each* NSG for which to collect diagnostic data. If you're interested in *activity*, or *operational*, logs instead, see [Overview of Azure platform logs](/azure/azure-monitor/essentials/platform-logs-overview). If you're interested in IP traffic flowing through NSGs, see [Flow logs for network security groups](../network-watcher/network-watcher-nsg-flow-logging-overview.md).
+Resource logging is enabled separately for *each* NSG from which you want to collect diagnostic data. If you're interested in *activity* or *operational* logs instead, see [Overview of Azure platform logs](/azure/azure-monitor/essentials/platform-logs-overview). If you're interested in IP traffic flowing through the virtual network, see [Virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md).
 
 ## Enable logging
 
@@ -35,7 +36,7 @@ You can use the [Azure portal](#azure-portal), [Azure PowerShell](#azure-powersh
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search box at the top of the Azure portal, enter **network security groups**. Select **Network security groups** in the search results.
 1. Select the NSG for which you want to enable logging.
-1. Under **Monitoring**, select **Diagnostic settings**, and then select **Add diagnostic setting**.
+1. Under **Monitoring**, select **Diagnostic settings**, then select **Add diagnostic setting**.
 
    :::image type="content" source="./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png" alt-text="Screenshot that shows the diagnostic settings for an NSG with Add diagnostic setting highlighted." lightbox="./media/virtual-network-nsg-manage-log/turn-on-diagnostics.png":::
 
@@ -82,7 +83,7 @@ $Oms=Get-AzOperationalInsightsWorkspace `
   -Name myWorkspace
 ```
 
-There are two categories of logging that you can enable. For more information, see [Log categories](#log-categories). Enable resource logging for the NSG with the [New-AzDiagnosticSetting](/powershell/module/az.monitor/new-azdiagnosticsetting) cmdlet. The following example logs both event and counter category data to the workspace for an NSG. It uses the IDs for the NSG and workspace that you got with the previous commands:
+There are two categories of logging that you can enable. For more information, see [Log categories](#log-categories). Enable resource logging for the NSG with the [New-AzDiagnosticSetting](/powershell/module/az.monitor/new-azdiagnosticsetting) cmdlet. The following example logs both event and rule counter category data to the workspace for an NSG. It uses the IDs for the NSG and workspace that you obtained with the previous command:
 
 ```azurepowershell-interactive
 New-AzDiagnosticSetting `
@@ -101,7 +102,7 @@ View and analyze logs. For more information, see [View and analyze logs](#view-a
 
 You can run the commands in this section in [Cloud Shell](https://shell.azure.com/bash) or by running the Azure CLI from your computer. Cloud Shell is a free interactive shell. It has common Azure tools preinstalled and configured to use with your account.
 
-If you run the CLI from your computer, you need version 2.0.38 or later. Run `az --version` on your computer to find the installed version. If you need to upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). If you run the CLI locally, you also need to run `az login` to sign in to Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
+If you run the CLI from your computer, you need version 2.0.28 or later. Run `az --version` on your computer to find the installed version. If you need to upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). If you run the CLI locally, you also need to run `az login` to sign in to Azure with an account that has the [necessary permissions](virtual-network-network-interface.md#permissions).
 
 To enable resource logging, you need the ID of an existing NSG. If you don't have an existing NSG, create one by using [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
 
@@ -115,9 +116,9 @@ nsgId=$(az network nsg show \
   --output tsv)
 ```
 
-You can write resource logs to different destination types. For more information, see [Log destinations](#log-destinations). In this article, logs are sent to a Log Analytics workspace destination, as an example. For more information, see [Log categories](#log-categories).
+You can write resource logs to different destination types. For more information, see [Log destinations](#log-destinations). In this article, logs are sent to a Log Analytics workspace destination as an example. For more information, see [Log categories](#log-categories).
 
-Enable resource logging for the NSG with [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). The following example logs both event and counter category data to an existing workspace named `myWorkspace`, which exists in a resource group named `myWorkspaces`. It uses the ID of the NSG that you saved by using the previous command.
+Enable resource logging for the NSG with [az monitor diagnostic-settings create](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create). The following example logs both event and rule counter category data to an existing workspace named `myWorkspace`, which exists in a resource group named `myWorkspaces`. It uses the ID of the NSG you obtained with the previous command:
 
 ```azurecli-interactive
 az monitor diagnostic-settings create \
@@ -145,11 +146,14 @@ You can send diagnostics data to the following options:
 
 ## Log categories
 
-JSON-formatted data is written for the following log categories: event and rule counter.
+JSON-formatted data is written for the following log categories:
+
+- [Event](#event)
+- [Rule counter](#rule-counter)
 
 ### Event
 
-The event log contains information about which NSG rules are applied to virtual machines, based on a MAC address. The following data is logged for each event. In the following example, the data is logged for a virtual machine with the IP address 192.168.1.4 and a MAC address of 00-0D-3A-92-6A-7C.
+The event log contains information of NSG rules applied to virtual machines, based on a MAC address. The following data is logged for each event. In the following example, the data is logged for a virtual machine with the IP address 192.168.1.4 and a MAC address of 00-0D-3A-92-6A-7C.
 
 ```json
 {
@@ -180,7 +184,7 @@ The event log contains information about which NSG rules are applied to virtual 
 
 ### Rule counter
 
-The rule counter log contains information about each rule applied to resources. The following example data is logged each time a rule is applied. In the following example, the data is logged for a virtual machine with the IP address 192.168.1.4 and a MAC address of 00-0D-3A-92-6A-7C.
+The rule counter log contains information of each NSG rule applied to resources. The following example data is logged each time a rule is applied. In the following example, the data is logged for a virtual machine with the IP address 192.168.1.4 and a MAC address of 00-0D-3A-92-6A-7C.
 
 ```json
 {
@@ -203,17 +207,18 @@ The rule counter log contains information about each rule applied to resources. 
 ```
 
 > [!NOTE]
-> The source IP address for the communication isn't logged. You can enable [NSG flow logging](../network-watcher/network-watcher-nsg-flow-logging-portal.md) for an NSG, which logs all of the rule counter information and the source IP address that initiated the communication. NSG flow log data is written to an Azure Storage account. You can analyze the data with the [traffic analytics](../network-watcher/traffic-analytics.md) capability of Azure Network Watcher.
+> The source IP address for the communication isn't logged. You can enable [Virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md) for the NSG's virtual network, which logs all of the IP traffic flowing through a virtual network. Virtual network flow log data is written to an Azure Storage account in the same subscription and region of the virtual network. You can analyze the data with the [traffic analytics](../network-watcher/traffic-analytics.md) capability of Azure Network Watcher.
 
 ## View and analyze logs
 
 If you send diagnostics data to:
 
 - **Azure Monitor logs**: You can use the [NSG analytics](/azure/azure-monitor/insights/azure-networking-analytics?toc=%2fazure%2fvirtual-network%2ftoc.json) solution for enhanced insights. The solution provides visualizations for NSG rules that allow or deny traffic, per MAC address, of the network interface in a virtual machine.
-- **Azure Storage account**: Data is written to a *PT1H.json* file. You can find the:
+- **Azure Storage account**: Data is written to a *PT1H.json* file. You can find the following logs:
 
-  - Event log that's in the following path: *insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]*
-  - Rule counter log that's in the following path: *insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]*
+  - Event log found in the path: *insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]*
+
+  - Rule counter log found in the path: *insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]*
 
 To learn how to view resource log data, see [Azure platform logs overview](/azure/azure-monitor/essentials/platform-logs-overview).
 
@@ -221,11 +226,11 @@ To learn how to view resource log data, see [Azure platform logs overview](/azur
 
 - For more information about activity logging, see [Overview of Azure platform logs](/azure/azure-monitor/essentials/platform-logs-overview).
 
-  Activity logging is enabled by default for NSGs created through either Azure deployment model. To determine which operations were completed on NSGs in the activity log, look for entries that contain the following resource types:
+  Activity logging is enabled by default for NSGs created through either the ARM or classic deployment model. To determine which operations were completed on NSGs in the activity log, look for entries that contain the following resource types:
 
   - `Microsoft.ClassicNetwork/networkSecurityGroups`
   - `Microsoft.ClassicNetwork/networkSecurityGroups/securityRules`
   - `Microsoft.Network/networkSecurityGroups`
   - `Microsoft.Network/networkSecurityGroups/securityRules`
 
-- To learn how to log diagnostic information, see [Log network traffic to and from a virtual machine by using the Azure portal](../network-watcher/network-watcher-nsg-flow-logging-portal.md).
+- To learn how to log diagnostic information for traffic flowing through the virtual network that match NSG rules, see [how to manage virtual network flow logs](../network-watcher/vnet-flow-logs-manage.md).

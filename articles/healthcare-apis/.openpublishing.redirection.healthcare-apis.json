@@ -1,6 +1,10 @@
 {
     "redirections": [
       {
+          "source_path_from_root": "/articles/healthcare-apis/fhir/fhir-service-bicep.md",
+          "redirect_url": "/azure/healthcare-apis/azure-api-for-fhir/fhir-service-bicep",
+          "redirect_document_id": true
+      },     {
           "source_path_from_root": "/articles/healthcare-apis/release-notes.md",
           "redirect_url": "/azure/healthcare-apis/release-notes-2024",
           "redirect_document_id": false

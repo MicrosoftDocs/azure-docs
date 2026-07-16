@@ -2,12 +2,12 @@
 title: 'Quickstart: Deploy an AKS cluster with Enclave Confidential Container Intel SGX nodes by using the Azure CLI'
 description: Learn how to create an Azure Kubernetes Service (AKS) cluster with enclave confidential containers a Hello World app by using the Azure CLI.
 author: angarg05
-ms.service: azure-virtual-machines
-ms.subservice: azure-confidential-computing
+ms.service: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 11/06/2023
 ms.author: ananyagarg
 ms.custom: devx-track-azurecli, mode-api, innovation-engine
+# Customer intent: As a developer, I want to deploy an AKS cluster with enclave-aware confidential computing nodes using the command line, so that I can run secure applications in isolated environments.
 ---
 
 # Quickstart: Deploy an AKS cluster with confidential computing Intel SGX agent nodes by using the Azure CLI

@@ -1,9 +1,11 @@
----
+﻿---
 title: Use Bicep to manage secrets 
 description: Learn how to use Bicep and Azure Key Vault to manage secrets.
-ms.topic: conceptual
-ms.date: 03/17/2025
-ms.custom: devx-track-bicep
+ms.topic: article
+ms.date: 12/22/2025
+ms.custom:
+  - devx-track-bicep
+  - sfi-ropc-nochange
 ---
 
 # Use Bicep to manage secrets 
@@ -38,13 +40,13 @@ param functionAppName string = 'fn-${uniqueString(resourceGroup().id)}'
 var appServicePlanName = 'MyPlan'
 var applicationInsightsName = 'MyApplicationInsights'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2021-06-01' existing = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' existing = {
   name: storageAccountName
 }
 
 var storageAccountConnectionString = 'DefaultEndpointsProtocol=https;AccountName=${storageAccount.name};EndpointSuffix=${environment().suffixes.storage};AccountKey=${listKeys(storageAccount.id, storageAccount.apiVersion).keys[0].value}'
 
-resource functionApp 'Microsoft.Web/sites@2023-12-01' = {
+resource functionApp 'Microsoft.Web/sites@2025-03-01' = {
   name: functionAppName
   location: location
   kind: 'functionapp'
@@ -78,7 +80,7 @@ resource functionApp 'Microsoft.Web/sites@2023-12-01' = {
   }
 }
 
-resource appServicePlan 'Microsoft.Web/serverfarms@2023-12-01' = {
+resource appServicePlan 'Microsoft.Web/serverfarms@2025-03-01' = {
   name: appServicePlanName
   location: location
   sku: {
@@ -119,7 +121,7 @@ Secrets are a [child resource](child-resource-name-type.md) and can be created b
 param location string = resourceGroup().location
 param keyVaultName string = 'mykv${uniqueString(resourceGroup().id)}'
 
-resource keyVault 'Microsoft.KeyVault/vaults@2023-07-01' = {
+resource keyVault 'Microsoft.KeyVault/vaults@2025-05-01' = {
   name: keyVaultName
   location: location
   properties: {
@@ -134,7 +136,7 @@ resource keyVault 'Microsoft.KeyVault/vaults@2023-07-01' = {
   }
 }
 
-resource keyVaultSecret 'Microsoft.KeyVault/vaults/secrets@2023-07-01' = {
+resource keyVaultSecret 'Microsoft.KeyVault/vaults/secrets@2025-05-01' = {
   parent: keyVault
   name: 'MySecretName'
   properties: {
@@ -155,7 +157,7 @@ When you use Bicep modules, you can provide secure parameters by using [the `get
 You can also reference a key vault defined in another resource group by using the `existing` and `scope` keywords together. In the following example, the Bicep file is deployed to a resource group named _Networking_. The value for the module's parameter _mySecret_ is defined in a key vault named _contosonetworkingsecrets_, which is located in the _Secrets_ resource group:
 
 ```bicep
-resource networkingSecretsKeyVault 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
+resource networkingSecretsKeyVault 'Microsoft.KeyVault/vaults@2025-05-01' existing = {
   scope: resourceGroup('Secrets')
   name: 'contosonetworkingsecrets'
 }

@@ -2,11 +2,13 @@
 title: Extensions for Cloud Services (extended support) 
 description: Extensions for Cloud Services (extended support)
 ms.topic: how-to
-ms.service: azure-cloud-services-extended-support
+ms.service: azure-cloud-services-classic
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+ms.update-cycle: 365-days
+ms.custom: cloud-services-extended-support
 # Customer intent: "As a cloud service administrator, I want to configure extensions for post-deployment tasks, so that I can automate monitoring, security, and remote access for applications in extended support environments."
 ---
 

@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: reference
-ms.date: 01/23/2025
+ms.date: 04/09/2025
 ms.author: cshoe
 ms.custom: build-2023
 ---
@@ -14,37 +14,7 @@ ms.custom: build-2023
 
 Azure Container Apps deployments are powered by an Azure Resource Manager (ARM) template. Some Container Apps CLI commands also support using a YAML template to specify a resource.
 
-This article includes examples of the ARM and YAML configurations for frequently used Container Apps resources. For a complete list of Container Apps resources see [Azure Resource Manager templates for Container Apps](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-arm-template). The code listed in this article is for example purposes only. For full schema and type information, see the JSON definitions for your required API version.
-
-## API versions
-
-The latest management API versions for Azure Container Apps are:
-
-- [`2024-03-01`](/rest/api/resource-manager/containerapps/operation-groups?view=rest-resource-manager-containerapps-2024-03-01&preserve-view=true) (stable)
-- [`2024-10-02-preview`](/rest/api/resource-manager/containerapps/operation-groups?view=rest-resource-manager-containerapps-2024-10-02-preview&preserve-view=true) (preview)
-
-To learn more about the differences between API versions, see [Microsoft.App change log](/azure/templates/microsoft.app/change-log/summary).
-
-### Updating API versions
-
-To use a specific API version in ARM or Bicep, update the version referenced in your templates. To use the latest API version in Azure CLI or Azure PowerShell, update them to the latest version.
-
-Update Azure CLI and the Azure Container Apps extension by running the following commands:
-
-```bash
-az upgrade
-az extension add -n containerapp --upgrade
-```
-
-To update Azure PowerShell, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell).
-
-To programmatically manage Azure Container Apps with the latest API version, use the latest versions of the management SDK:
-
-- [.NET](/dotnet/api/azure.resourcemanager.appcontainers)
-- [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appcontainers/armappcontainers)
-- [Java](/java/api/overview/azure/resourcemanager-appcontainers-readme)
-- [Node.js](/javascript/api/overview/azure/arm-appcontainers-readme)
-- [Python](/python/api/azure-mgmt-appcontainers/azure.mgmt.appcontainers)
+This article includes examples of the ARM and YAML configurations for frequently used Container Apps resources. For a complete list of Container Apps resources see [Azure Resource Manager templates for Container Apps](/azure/templates/microsoft.app/containerapps?pivots=deployment-language-arm-template). The code listed in this article is for example purposes only. For full schema and type information, see the JSON definitions for your required API version. For information about API versions, see [API versions](#api-versions).
 
 ## Container Apps environment
 
@@ -120,6 +90,11 @@ The following example ARM template snippet deploys a Container Apps environment.
 The following tables describe the commonly used properties in the container app resource. For a complete list of properties, see [Azure Container Apps REST API reference](/rest/api/resource-manager/containerapps/container-apps/get?view=rest-resource-manager-containerapps-2024-03-01&tabs=HTTP&preserve-view=true).
 
 ### Resource 
+A container app configuration includes a top-level `kind` property, which is an optional string used to create either a Functions or workflow app.
+
+| Property | Description | Data type | Read only |
+|---|---|---|---|
+| `kind` | The kind of app to create. Currently supports `functionapp` and `workflowapp`. Additional values may be supported in the future. If omitted, a standard container app is created by default. | string | No |
 
 A container app resource's `properties` object includes the following properties:
 
@@ -148,7 +123,7 @@ A resource's `properties.configuration` object includes the following properties
 | `secrets` | Defines secret values in your container app. | object |
 | `ingress` | Object that defines public accessibility configuration of a container app. | object |
 | `registries` | Configuration object that references credentials for private container registries. Entries defined with `secretref` reference the secrets configuration object. | object |
-| `dapr` | Configuration object that defines the Dapr settings for the container app. | object  |
+| `dapr` | Configuration object that defines the [Dapr settings for the container app](./enable-dapr.md). | object  |
 
 Changes made to the `configuration` section are [application-scope changes](revisions.md#application-scope-changes), which doesn't trigger a new revision.
 
@@ -176,8 +151,7 @@ The following example ARM template snippet deploys a container app.
 {
   "identity": {
     "userAssignedIdentities": {
-      "/subscriptions/<subscription_id>/resourcegroups/my-rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/my-user": {
-      }
+      "/subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_NAME>": {}
     },
     "type": "UserAssigned"
   },
@@ -227,8 +201,8 @@ The following example ARM template snippet deploys a container app.
         "clientCertificateMode": "accept",
         "corsPolicy": {
           "allowedOrigins": [
-            "https://a.test.com",
-            "https://b.test.com"
+            "https://a.contoso.com",
+            "https://b.contoso.com"
           ],
           "allowedMethods": [
             "GET",
@@ -253,7 +227,15 @@ The following example ARM template snippet deploys a container app.
         "httpReadBufferSize": 30,
         "httpMaxRequestSize": 10,
         "logLevel": "debug",
-        "enableApiLogging": true
+        "enableApiLogging": true,
+        "appHealth": {
+          "enabled": true,
+          "path": "/health",
+          "probeIntervalSeconds": 3,
+          "probeTimeoutMilliseconds": 1000,
+          "threshold": 3
+        },
+        "maxConcurrency": 10
       },
       "maxInactiveRevisions": 10,
       "service": {
@@ -382,6 +364,24 @@ The following example ARM template snippet deploys a container app.
 }
 ```
 
+The following example ARM template example shows how to deploy an Azure Functions app on Container Apps.
+
+```json
+{
+  "kind": "functionapp",
+  "identity": {
+    "userAssignedIdentities": {
+      "/subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_NAME>": {}
+    },
+    "type": "UserAssigned"
+  },
+  "properties": {
+    // same as regular container app properties 
+  }
+}
+```
+
+
 # [YAML](#tab/yaml)
 
 The following example YAML configuration deploys a container app when used with the `--yaml` parameter in the following Azure CLI commands:
@@ -389,6 +389,8 @@ The following example YAML configuration deploys a container app when used with 
 - [`az containerapp create`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-create)
 - [`az containerapp update`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-update)
 - [`az containerapp revision copy`](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true#az-containerapp-revision-copy)
+
+The following example YAML shows how to deploy a container app.
 
 ```yaml
 identity:
@@ -427,8 +429,8 @@ properties:
       clientCertificateMode: accept
       corsPolicy:
         allowedOrigins:
-        - https://a.test.com
-        - https://b.test.com
+        - https://a.contoso.com
+        - https://b.contoso.com
         allowedMethods:
         - GET
         - POST
@@ -448,6 +450,13 @@ properties:
       httpMaxRequestSize: 10
       logLevel: debug
       enableApiLogging: true
+      appHealth: 
+        - enabled: true
+        - path: "/health"
+        - probeIntervalSeconds: 3
+        - probeTimeoutMilliseconds: 1000
+        - threshold: 3
+      maxConcurrency: 10
     maxInactiveRevisions: 10
     service:
       type: redis
@@ -516,6 +525,17 @@ properties:
     serviceBinds:
     - serviceId: "/subscriptions/<subscription_id>/resourceGroups/rg/providers/Microsoft.App/containerApps/redisService"
       name: redisService
+```
+
+The following example YAML show how to deploy an Azure Functions app on Container Apps.
+```yaml
+kind: functionapp
+identity:
+  userAssignedIdentities:
+    "/subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUOP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER_NAME>": {}
+  type: UserAssigned
+properties:
+  # same as regular container app properties 
 ```
 
 ---
@@ -731,5 +751,32 @@ properties:
       - secretRef: mysecret
         path: mysecret.txt
 ```
+
+## API versions
+
+Check the latest stable and preview API versions in the [Resource Manager API documentation](/rest/api/resource-manager/containerapps/operation-groups) to ensure you're using the most up-to-date versions.
+
+To learn more about the differences between API versions, see [Microsoft.App change log](/azure/templates/microsoft.app/change-log/summary).
+
+### Updating API versions
+
+To use a specific API version in ARM or Bicep, update the version referenced in your templates. To use the latest API version in Azure CLI or Azure PowerShell, update them to the latest version.
+
+Update Azure CLI and the Azure Container Apps extension by running the following commands:
+
+```bash
+az upgrade
+az extension add -n containerapp --upgrade
+```
+
+To update Azure PowerShell, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell).
+
+To programmatically manage Azure Container Apps with the latest API version, use the latest versions of the management SDK:
+
+- [.NET](/dotnet/api/azure.resourcemanager.appcontainers)
+- [Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/appcontainers/armappcontainers)
+- [Java](/java/api/overview/azure/resourcemanager-appcontainers-readme)
+- [Node.js](/javascript/api/overview/azure/arm-appcontainers-readme)
+- [Python](/python/api/azure-mgmt-appcontainers/azure.mgmt.appcontainers)
 
 ---

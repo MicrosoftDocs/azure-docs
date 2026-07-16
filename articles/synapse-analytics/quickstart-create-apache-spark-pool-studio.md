@@ -10,6 +10,7 @@ ms.subservice: spark
 ms.topic: quickstart
 ms.custom:
   - mode-ui
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create a serverless Apache Spark pool using Synapse Studio
@@ -24,11 +25,11 @@ This quickstart describes the steps to create an Apache Spark pool in a Synapse 
 > [!NOTE]
 > Synapse Studio will continue to support terraform or bicep-based configuration files.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 
-- You'll need an Azure subscription. If needed, [create a free Azure account](https://azure.microsoft.com/free/)
+- You'll need an Azure subscription. If needed, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - You'll be using the [Synapse workspace](./quickstart-create-workspace.md).
 
 ## Sign in to the Azure portal

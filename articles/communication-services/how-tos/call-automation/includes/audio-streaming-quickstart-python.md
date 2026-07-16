@@ -12,7 +12,7 @@ ms.author: alvinhan
 ---
 
 ## Prerequisites 
-- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
+- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp).
 - A new web service application created using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - [Python](https://www.python.org/downloads/) 3.7+.
@@ -34,14 +34,15 @@ Enable automatic audio streaming when the call is established by setting the fla
 This setting ensures that audio streaming starts automatically as soon as the call is connected.
 
 ``` python
-media_streaming_configuration = MediaStreamingOptions(
-    transport_url=TRANSPORT_URL,
-    transport_type=MediaStreamingTransportType.WEBSOCKET,
+media_streaming_options = MediaStreamingOptions(
+    transport_url=WEBSOCKET_URI_HOST,
+    transport_type=StreamingTransportType.WEBSOCKET,
     content_type=MediaStreamingContentType.AUDIO,
     audio_channel_type=MediaStreamingAudioChannelType.MIXED,
     start_media_streaming=True,
     enable_bidirectional=True,
-    audio_format=AudioFormat.PCM24_K_MONO,
+    enable_dtmf_tones=True,
+    audio_format=AudioFormat.PCM24_K_MONO
 )
 answer_call_result = call_automation_client.answer_call(
     incoming_call_context=incoming_call_context,
@@ -56,13 +57,14 @@ When Azure Communication Services receives the URL for your WebSocket server, it
 To start media streaming during the call, you can use the API. To do so, set the `startMediaStreaming` parameter to `false` (which is the default), and later in the call, you can use the start API to enable media streaming.
 
 ``` python
-media_streaming_configuration = MediaStreamingOptions(
-    transport_url=TRANSPORT_URL,
-    transport_type=MediaStreamingTransportType.WEBSOCKET,
+media_streaming_options = MediaStreamingOptions(
+    transport_url=WEBSOCKET_URI_HOST,
+    transport_type=StreamingTransportType.WEBSOCKET,
     content_type=MediaStreamingContentType.AUDIO,
     audio_channel_type=MediaStreamingAudioChannelType.MIXED,
-    start_media_streaming=False,
+    start_media_streaming=True,
     enable_bidirectional=True,
+    enable_dtmf_tones=True,
     audio_format=AudioFormat.PCM24_K_MONO
 )
 
@@ -109,6 +111,9 @@ async def handle_client(websocket):
 
 The first packet you receive contains metadata about the stream, including audio settings such as encoding, sample rate, and other configuration details.
 
+### Additional Headers
+The Correlation ID and Call Connection ID are now included in the WebSocket headers for improved traceability `x-ms-call-correlation-id` and `x-ms-call-connection-id`. These are sent when Azure Communication Services tries to connect to your endpoint.
+
 ``` json
 {
   "kind": "AudioMetadata",
@@ -132,6 +137,18 @@ After sending the metadata packet, Azure Communication Services (ACS) will begin
     "participantRawID": "8:acs:3d20e1de-0f28-41c5…",
     "data": "5ADwAOMA6AD0A…",
     "silent": false
+  }
+}
+```
+
+#### DTMF example 
+When DTMF is enabled Azure Communication Services sends a `DtmfData` type.
+
+``` json
+{
+  "kind": "DtmfData",
+  "dtmfData": {
+    "data": "3"
   }
 }
 ```

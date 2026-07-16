@@ -8,9 +8,12 @@ ms.topic: how-to
 ms.date: 11/10/2022
 ms.custom: devx-track-bicep
 zone_pivot_groups: web-application-firewall-configuration
+# Customer intent: As a security administrator, I want to configure bot protection rules in the Web Application Firewall for Azure Front Door, so that I can effectively manage traffic from bots and enhance the security posture of my web applications.
 ---
 
 # Configure bot protection for Web Application Firewall
+
+**Applies to:** :heavy_check_mark: Front Door Premium
 
 The Azure Web Application Firewall (WAF) for Front Door provides bot rules to identify good bots and protect from bad bots. For more information on the bot protection rule set, see [Bot protection rule set](afds-overview.md#bot-protection-rule-set).
 

@@ -12,6 +12,8 @@ ms.custom: template-how-to
 
 # Identify queries running beyond workload group query execution timeout
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article covers guidance on how to identify queries that are running beyond the query_execution_timeout_sec value configured for the workload group. 
 
 Azure Synapse Analytics provides the ability to [create workload groups for isolating resources](sql-data-warehouse-workload-isolation.md) and [classify workloads to the appropriate workload group](sql-data-warehouse-workload-classification.md). As part of the workload group definition, query_execution_timeout_sec can be configured to set the maximum execution time, in seconds, allowed before the query is canceled. However, to prevent the return of partial results, queries will not be canceled once they have reached the return phase of execution.

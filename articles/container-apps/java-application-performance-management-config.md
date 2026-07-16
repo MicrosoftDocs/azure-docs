@@ -5,12 +5,15 @@ description: Learn how to configure the Application Performance Management (APM)
 customer intent: As a developer, I want to configure the APM Java agent with init containers in Azure Container Apps so that I can monitor and manage application performance.
 services: container-apps
 ms.service: azure-container-apps
-ms.custom: devx-track-azurecli, devx-track-java
 ms.topic: tutorial
 ms.date: 02/03/2025
 author: KarlErickson
 ms.author: karler
 ms.reviewer: kuzhong
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-java
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Configure the Application Performance Management (APM) Java agent with init containers in Azure Container Apps
@@ -26,7 +29,7 @@ In this tutorial, you:
 
 ## Prerequisites
 
-- An Azure subscription. [Create one for free.](https://azure.microsoft.com/free/).
+- An Azure subscription. [Create one for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An instance of [Application Insights](/azure/azure-monitor/app/app-insights-overview).
 - An instance of Azure Container Registry or another container image registry.
 - [Docker](https://www.docker.com/), to build an image.
@@ -318,7 +321,7 @@ Use the following steps to configure your init container with secrets, environme
                value: -javaagent:/java-agent/agent.jar
              volumeMounts:
              - mountPath: /java-agent
-                volumeName: java-agent-volume
+               volumeName: java-agent-volume
         ```
 
 1. Update the container app with the modified **app.yaml** file by using the following command:

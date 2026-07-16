@@ -572,13 +572,13 @@ This problem may be caused by the line endings in the Python file. Many Windows 
 
 You can use the following PowerShell statements to remove the CR characters before uploading the file to HDInsight:
 
-[!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=148-150)]
+[!code-powershell[main](~/powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=148-150)]
 
 ### PowerShell scripts
 
 Both of the example PowerShell scripts used to run the examples contain a commented line that displays error output for the job. If you aren't seeing the expected output for the job, uncomment the following line and see if the error information indicates a problem.
 
-[!Code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=135-139)]
+[!Code-powershell[main](~/powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=135-139)]
 
 The error information (STDERR) and the result of the job (STDOUT) are also logged to your HDInsight storage.
 

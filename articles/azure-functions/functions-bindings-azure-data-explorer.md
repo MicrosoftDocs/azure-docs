@@ -5,7 +5,7 @@ author: ramacg
 ms.topic: reference
 ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 05/04/2023
-ms.author: shsagir
+ms.author: spelluru
 ms.reviewer: ramacg
 zone_pivot_groups: programming-languages-set-functions-data-explorer
 ---
@@ -168,4 +168,4 @@ Azure Data Explorer bindings for Azure Functions have a required property for th
 - [Read data from a database (input binding)](functions-bindings-azure-data-explorer-input.md)
 - [Save data to a database (output binding)](functions-bindings-azure-data-explorer-output.md)
 
-[extension bundle]: functions-bindings-register.md#extension-bundles
+[extension bundle]: extension-bundles.md

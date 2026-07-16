@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: krkutser
 ms.date: 03/30/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.custom: references_regions
 ---
@@ -21,11 +21,13 @@ Use the below tables to find all the relevant information on number availability
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | Toll-Free   | -                    | -                    | -                    | General Availability\*       |
-| Mobile                    | Public Preview       | Public Preview       | -                    | -                      |
+| Mobile                    | General Availability\**       | General Availability\**      | -                    | -                      |
 | Alphanumeric Sender ID\**       | General Availability                   | -                    | - | - |
 
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
+
+\** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
 
 ## Subscription eligibility
@@ -57,7 +59,8 @@ More details on eligible subscription types are as follows:
 
 [!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
-## Azure subscription billing locations where Poland mobile numbers are available
+## Azure subscription billing locations where Poland mobile numbers are available
+
 | Country/Region |
 | :---------- |
 | Australia       |

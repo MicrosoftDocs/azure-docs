@@ -5,7 +5,7 @@ description: How to execute data flows from inside an Azure Data Factory or Azur
 author: kromerm
 ms.subservice: data-flows
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.author: makromer
 ms.date: 09/25/2024
 ---

@@ -1,6 +1,6 @@
 ---
-title: Provision an Exadata infrastructure for Oracle Database@Azure
-description: Provision an Exadata infrastructure for Oracle Database@Azure
+title: Provision an Exadata infrastructure for Oracle AI Database@Azure
+description: Provision an Exadata infrastructure for Oracle AI Database@Azure
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 6/07/2024
 ms.custom: engagement-fy23
 ms.author: jacobjaygbay
+# Customer intent: As a cloud administrator, I want to provision Oracle Exadata infrastructure on Azure, so that I can support the deployment of Exadata VM Clusters and databases efficiently.
 ---
 
 # Provision an Exadata infrastructure 

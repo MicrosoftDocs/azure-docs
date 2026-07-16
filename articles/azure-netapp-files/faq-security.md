@@ -1,11 +1,12 @@
 ---
-title: Security FAQs for Azure NetApp Files | Microsoft Docs
+title: Security FAQs for Azure NetApp Files
 description: Answers frequently asked questions (FAQs) about Azure NetApp Files security.
 ms.service: azure-netapp-files
-ms.topic: conceptual
+ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
 ms.date: 04/23/2025
+# Customer intent: As a security administrator, I want to understand the encryption options and key management for Azure NetApp Files, so that I can ensure the protection of sensitive data in compliance with security policies.
 ---
 # Security FAQs for Azure NetApp Files
 
@@ -41,7 +42,7 @@ Yes, you can configure up to five rules in a single NFS export policy.
 
 Yes, Azure NetApp Files supports Azure RBAC features. Along with the built-in Azure roles, you can [create custom roles](../role-based-access-control/custom-roles.md) for Azure NetApp Files. 
 
-For the complete list of Azure NetApp Files permissions, see Azure resource provider operations for [`Microsoft.NetApp`](../role-based-access-control/resource-provider-operations.md#microsoftnetapp).
+For the complete list of Azure NetApp Files permissions, see Azure resource provider operations for [`Microsoft.NetApp`](../role-based-access-control/permissions/storage.md#microsoftnetapp).
 
 ## Are Azure Activity Logs supported on Azure NetApp Files?
 

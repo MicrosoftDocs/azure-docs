@@ -16,7 +16,7 @@ The Azure Maps Power BI Visual now features on-object interaction, an intuitive 
 
 ## Use on-object interaction in your Power BI Visual
 
-On-object interaction can be used to edit chart titles, legends, bubble layers, Map style, and Map controls.
+On-object interaction can be used to edit chart titles, legends, marker layers, Map style, and Map controls.
 
 > [!IMPORTANT]
 > Since the on-object feature is in preview, you need to turn it on. For more information, see [Turn on preview features] in the Power BI documentation.
@@ -41,9 +41,9 @@ While you're using on-object interaction, the format pane is expanded, and the c
 
 :::image type="content" source="./media/power-bi-visual/on-object-interaction/format-pane-expanded.png" alt-text="A screenshot showing in-place formatting of a chart or legend title with the format pane expanded in Power BI." lightbox="./media/power-bi-visual/on-object-interaction/format-pane-expanded.png":::
 
-On-object interaction is also available on the bubble layer. By selecting bubbles, you can set bubble layer's position or its formatting such as size or color.
+On-object interaction is also available on the marker layer. By selecting markers, you can set marker layer's position or its formatting such as size or color.
 
-:::image type="content" source="./media/power-bi-visual/on-object-interaction/bubble-layer.png" alt-text="A screenshot showing in-place formatting in the bubble layer." lightbox="./media/power-bi-visual/on-object-interaction/bubble-layer.png":::
+:::image type="content" source="./media/power-bi-visual/on-object-interaction/bubble-layer.png" alt-text="A screenshot showing in-place formatting in the marker layer." lightbox="./media/power-bi-visual/on-object-interaction/bubble-layer.png":::
 
 ### Select Map styles
 
@@ -62,6 +62,6 @@ The on-object interaction feature available in Azure Maps Visual is a user-frien
 Change how your data is displayed on the map:
 
 > [!div class="nextstepaction"]
-> [Add a bubble layer](power-bi-visual-add-bubble-layer.md)
+> [Add a marker layer](power-bi-visual-add-marker-layer.md)
 
 [Turn on preview features]: /power-bi/create-reports/power-bi-on-object-interaction#turn-on-preview-features

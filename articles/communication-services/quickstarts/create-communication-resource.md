@@ -2,17 +2,21 @@
 title: Create a Communication Services resource in Azure Communication Services
 titleSuffix: An Azure Communication Services article
 description: This article describes how to create and manage your first Azure Communication Services resource.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: arm
 zone_pivot_groups: acs-plat-azp-azcli-net-ps
-ms.custom: mode-other, devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli 
+ms.custom:
+  - mode-other
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-ropc-nochange
 ---
 
 # Create an Communication Services resource
@@ -132,7 +136,7 @@ az communication delete --name "acsResourceName" --resource-group "resourceGroup
 If you have any phone numbers assigned to your resource upon resource deletion, the phone numbers are automatically released from your resource at the same time.
 
 > [!NOTE]
-> Resource deletion is **permanent**. If you delete the resource, no deletd data can be recovered, including Event Grid filters, phone numbers, or other data tied to your resource.
+> Resource deletion is **permanent**. If you delete the resource, no deleted data can be recovered, including Event Grid filters, phone numbers, or other data tied to your resource.
 
 ## Next steps
 

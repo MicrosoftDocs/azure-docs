@@ -4,7 +4,7 @@ description: Learn how to set a compatibility level for an Azure Stream Analytic
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/18/2021
 ---
 

@@ -6,7 +6,8 @@ ms.author: karler
 ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
-ms.date: 01/29/2025
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -73,7 +74,7 @@ Use the following steps to provision the component:
 
 ## Update your container app dependency
 
-To integrate the Admin component into your container app, add the following dependency to your **pom.xml** file. Replace the version number with the latest version from the [Maven Repository](https://search.maven.org/artifact/de.codecentric/spring-boot-admin-starter-client).
+To integrate the Admin component into your container app, add the following dependency to your **pom.xml** file. Replace the version number with the latest version from the [Maven Repository](https://central.sonatype.com/artifact/de.codecentric/spring-boot-admin-starter-client).
 
 ```xml
 <dependency>

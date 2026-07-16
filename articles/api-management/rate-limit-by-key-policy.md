@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - rate-limit-by-key | Microsoft Docs
 description: Reference for the rate-limit-by-key policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
-ms.date: 03/31/2025
-ms.author: danlep
+ms.date: 11/14/2025
 ---
 
 # Limit call rate by key
@@ -55,13 +53,14 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 - [**Gateways:**](api-management-gateways-overview.md) classic, v2, self-hosted, workspace
 
 ### Usage notes
 
 * [!INCLUDE [api-management-rate-limit-key-scope](../../includes/api-management-rate-limit-key-scope.md)]
+* [!INCLUDE [api-management-rate-limit-implementation-v2](../../includes/api-management-rate-limit-implementation-v2.md)]
 * [!INCLUDE [api-management-self-hosted-gateway-rate-limit](../../includes/api-management-self-hosted-gateway-rate-limit.md)] [Learn more](how-to-self-hosted-gateway-on-kubernetes-in-production.md#request-throttling)
 * [!INCLUDE [api-management-rate-limit-gateway-calls](../../includes/api-management-rate-limit-gateway-calls.md)]
 * When `increment-condition` or `increment-count` are defined using expressions, evaluation and increment of the rate limit counter are postponed to the end of outbound pipeline to allow for policy expressions based on the response. Limit exceeded condition is not evaluated at the same time in this case and will be evaluated on next incoming call. This leads to cases where `429 Too Many Requests` status code is returned 1 call later than usual.

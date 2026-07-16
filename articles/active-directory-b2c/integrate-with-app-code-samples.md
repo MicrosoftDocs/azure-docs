@@ -9,7 +9,7 @@ ms.author: godonnell
 ms.date: 01/24/2025
 ms.custom: mvc
 ms.topic: sample
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.subservice: b2c
 
 #Customer Intent: As a developer, I want to access code samples for Azure Active Directory B2C, so that I can learn how to integrate authentication and user management into my web, mobile, and desktop applications using Azure AD B2C.
@@ -17,6 +17,8 @@ ms.subservice: b2c
 ---
 
 # Azure Active Directory B2C code samples
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 The following tables provide links to samples for applications including iOS, Android, .NET, and Node.js.
 

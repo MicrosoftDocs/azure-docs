@@ -9,6 +9,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.date: 05/30/2023
 ms.author: robiro
+# Customer intent: "As an IT architect, I want to plan and implement an SAP deployment on Azure, so that I can leverage cloud resources for optimal performance and ensure compliance and security throughout the deployment process."
 ---
 # Plan and implement an SAP deployment on Azure
 
@@ -132,7 +133,7 @@ As you start to plan and think about which regions to choose as primary region a
 
 ### Azure paired regions
 
-In an Azure paired region, replication of certain data is enabled by default between the two regions. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../../reliability/cross-region-replication-azure.md).
+In an Azure paired region, replication of certain data is enabled by default between the two regions. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](/azure/reliability/cross-region-replication-azure).
 
 Data replication in a region pair is tied to types of Azure storage that you can configure to replicate into a paired region. For details, see [Storage redundancy in a secondary region](../../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region).
 
@@ -349,7 +350,7 @@ To get detailed information about VM pricing for different Azure services, opera
 
 To learn about the pricing and flexibility of one-year and three-year savings plans and reserved instances, see these articles:
 
-- [What are Azure savings plans for compute?](../../cost-management-billing/savings-plan/savings-plan-compute-overview.md)
+- [What are Azure savings plans for compute?](../../cost-management-billing/savings-plan/savings-plan-overview.md)
 - [What are Azure Reservations?](../../cost-management-billing/reservations/save-compute-costs-reservations.md)
 - [Virtual machine size flexibility with Reserved VM Instances](/azure/virtual-machines/reserved-vm-instance-size-flexibility)
 - [How the Azure reservation discount is applied to virtual machines](../../cost-management-billing/manage/understand-vm-reservation-charges.md)
@@ -509,6 +510,8 @@ For more information, including a description of Azure Disk Encryption, see a [c
 For SAP deployments on Linux systems, don't use Azure Disk Encryption. Azure Disk Encryption entails encryption running inside the SAP VMs by using CMKs from Azure Key Vault. For Linux, Azure Disk Encryption doesn't support the [operating system images](/azure/virtual-machines/linux/disk-encryption-overview#supported-operating-systems) that are used for SAP workloads. Azure Disk Encryption can be used on Windows systems with SAP workloads, but don't combine Azure Disk Encryption with database native encryption. We recommend that you use database native encryption instead of Azure Disk Encryption. For more information, see the next section.
 
 Similar to managed disk encryption, [Azure Files](/azure/storage/common/customer-managed-keys-overview) encryption at rest (SMB and NFS) is available with PMKs or CMKs.
+
+Azure Files supports Encryption in Transit (EiT) for [SMB](../../storage/files/files-smb-protocol.md#security) and NFS file shares. If you would like to use Encryption in Transit, read [Azure Files NFS Encryption in Transit for SAP on Azure Systems](./sap-azure-files-nfs-encryption-in-transit-guide.md) to learn how to configure and deploy.
 
 For SMB network shares, carefully review Azure Files and [operating system dependencies](/windows-server/storage/file-server/smb-security) with [SMB versions](/azure/storage/files/files-smb-protocol?tabs=azure-portal) because the configuration affects support for in-transit encryption.
 

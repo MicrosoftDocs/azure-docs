@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Azure Native New Relic Service?
     href: overview.md
+  - name: FAQ
+    href: faq.yml
 - name: Quickstarts
   expanded: true
   items:
@@ -14,10 +16,14 @@ items:
   items:
   - name: Manage
     href: manage.md
-  - name: Fix common errors
-    href: troubleshoot.md
-  - name: Get support
-    href: support.md
+  - name: Troubleshoot
+    items:
+    - name: Get support
+      href: https://support.newrelic.com/
+    - name: Fix common errors
+      href: troubleshoot.md
+    - name: Troubleshoot log forwarding with Copilot
+      href: troubleshoot-logs-copilot.md
 - name: Reference
   items:
   - name: REST API

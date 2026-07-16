@@ -1,13 +1,12 @@
 ---
 title: 'Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint - Azure CLI'
 description: Use this tutorial to learn how to create an Azure SQL server with a private endpoint using Azure CLI
-services: private-link
-author: abell
+author: asudbring
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
 ms.service: azure-private-link
 ms.topic: tutorial
-ms.date: 01/06/2025
-ms.author: abell
+ms.date: 03/30/2026
+ms.author: allensu
 ms.custom: template-tutorial, fasttrack-edit, devx-track-azurecli
 ---
 
@@ -27,7 +26,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Sign in to the Azure portal and check that your subscription is active by running `az login`.
 * Check your version of the Azure CLI in a terminal or command window by running `az --version`. For the latest version, see the [latest release notes](/cli/azure/release-notes-azure-cli?tabs=azure-cli).
   * If you don't have the latest version, update your installation by following the [installation guide for your operating system or platform](/cli/azure/install-azure-cli).
@@ -79,7 +78,7 @@ az network vnet subnet update \
     --name myBackendSubnet \
     --resource-group CreateSQLEndpointTutorial-rg \
     --vnet-name myVNet \
-    --disable-private-endpoint-network-policies true
+    --private-endpoint-network-policies Disabled
 ```
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public ip address for the bastion host:
@@ -123,6 +122,7 @@ az network bastion create \
     --name myBastionHost \
     --public-ip-address myBastionIP \
     --vnet-name myVNet \
+    --sku Basic \
     --location eastus
 ```
 
@@ -138,13 +138,13 @@ Create a VM with [az vm create](/cli/azure/vm#az-vm-create). When prompted, pr
 * In **CreateSQLEndpointTutorial-rg**.
 * In network **myVNet**.
 * In subnet **myBackendSubnet**.
-* Server image **Win2019Datacenter**.
+* Server image **Win2022AzureEditionCore**.
 
 ```azurecli-interactive
 az vm create \
     --resource-group CreateSQLEndpointTutorial-rg \
     --name myVM \
-    --image Win2019Datacenter \
+    --image Win2022AzureEditionCore \
     --public-ip-address "" \
     --vnet-name myVNet \
     --subnet myBackendSubnet \

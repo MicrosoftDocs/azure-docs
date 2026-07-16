@@ -3,15 +3,16 @@ title: Quickstart - Create and manage workflows with Azure CLI
 description: Use the Azure CLI to create and manage logic app workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: quickstart
+ms.update-cycle: 1095-days
+ms.date: 03/11/2026
 ms.custom: mvc, devx-track-azurecli, mode-api
-ms.date: 02/20/2025
 ---
 
 # Quickstart: Create and manage workflows with Azure CLI in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 
 This quickstart shows how to create and manage automated workflows that run in Azure Logic Apps by using the [Azure CLI Logic Apps extension](/cli/azure/logic) (`az logic`). From the command line, you can create a [Consumption logic app](logic-apps-overview.md#resource-environment-differences) in multitenant Azure Logic Apps by using the JSON file for a logic app workflow definition. You can then manage your logic app by running operations such as `list`, `show` (`get`), `update`, and `delete` from the command line.
 
@@ -26,7 +27,7 @@ If you're new to Azure Logic Apps, learn how to create your first Consumption lo
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. [Get a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * The [Azure CLI](/cli/azure/install-azure-cli) installed on your local computer.
 
@@ -95,7 +96,7 @@ Your command must include the following [required parameters](/cli/azure/logic/w
 | Resource group name | `--resource-group -g` | The [Azure resource group](../azure-resource-manager/management/overview.md) in which you want to create your logic app. [Create a resource group](#example---create-resource-group) before you begin if you don't already have one for your logic app. |
 ||||
 
-You can also include additional [optional parameters](/cli/azure/logic/workflow#az-logic-workflow-create-optional-parameters) to configure your logic app's access controls, endpoints, integration account, state, and resource tags.
+You can also include more [optional parameters](/cli/azure/logic/workflow#az-logic-workflow-create-optional-parameters) to configure your logic app's access controls, endpoints, integration account, state, and resource tags.
 
 ### Example - Create logic app
 
@@ -184,7 +185,7 @@ Deleting a logic app affects workflow instances in the following ways:
 
 * Azure Logic Apps doesn't create or run new workflow instances.
 
-* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+* If you delete a workflow and then recreate the same workflow, the recreated workflow doesn't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
 
 ## Show logic apps in CLI
 
@@ -270,7 +271,7 @@ You can use the following optional global Azure CLI parameters with your `az log
 
 For more information on the Azure CLI, see the [Azure CLI documentation](/cli/azure/).
 
-You can find additional Azure Logic Apps CLI script samples in [Microsoft's code samples browser](/samples/browse/?products=azure-logic-apps).
+You can find more Azure Logic Apps CLI script samples in [Microsoft's code samples browser](/samples/browse/?products=azure-logic-apps).
 
 Next, you can create an example app logic through the Azure CLI using a sample script and workflow definition.
 

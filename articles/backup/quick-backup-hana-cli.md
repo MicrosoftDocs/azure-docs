@@ -3,11 +3,12 @@ title: Quickstart - Back up an SAP HANA database with Azure CLI
 description: In this quickstart, learn how to create a Recovery Services vault, enable protection on an SAP HANA System Replication database, and create the initial recovery point with Azure CLI.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 06/17/2024
+ms.date: 12/02/2025
 ms.custom: mvc, devx-track-azurecli, mode-api, engagement-fy24
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to back up my SAP HANA databases on Azure using CLI commands, so that I can ensure data protection and meet recovery objectives efficiently."
 ---
 
 # Quickstart: Back up SAP HANA System Replication on Azure VMs using Azure CLI
@@ -57,7 +58,7 @@ az vm show --name hsr-primary --resource-group hanarghsr2
 
 For example, `id` is `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-primary`.
 
-## Check the registration of primary and secondary servers to the vault
+## Check the registration of primary and secondary SAP HANA database servers to the vault
 
 To check if primary and secondary servers are registered to the  vault, run the following command:
 
@@ -69,7 +70,7 @@ VMAppContainer;Compute;hanarghsr2;hsr-primary    hsr-primary      hanarghsr2    
 VMAppContainer;Compute;hanarghsr2;hsr-secondary  hsr-secondary    hanarghsr2        AzureWorkload  Registered
 ```
 
-## View the item list for protection
+## View the SAP HANA database item list for protection
 
 To check the items that you can protect, run the following command:
 
@@ -87,7 +88,7 @@ saphanadatabase;hsrtestps2;2;DB1  SAPHanaDatabase          HsrTestP2  hsr-primar
 saphanadatabase;hsrtestps2;systemdb             SAPHanaDatabase          HsrTestP2  hsr-primary    NotProtected
 ```
 
-## Rediscover the database
+## Rediscover the SAP HANA database
 
 If the database isn't in the item list that can be protected or to rediscover the database, reinitiate discovery on the physical primary VM by running the following command:
 
@@ -95,7 +96,7 @@ If the database isn't in the item list that can be protected or to rediscover th
 az backup protectable-item initialize --resource-group hanarghsr2 --vault-name hanavault10 --container-name "VMAppContainer;Compute;hanarghsr2;hsr-primary" --workload-type SAPHanaDatabase
 ```
 
-## Enable protection for the database
+## Enable protection for the SAP HANA database
 
 To enable protection for the database listed under the HSR System with required backup policy, run the following command:
 
@@ -105,7 +106,7 @@ az backup protection enable-for-azurewl --resource-group hanarghsr2 --vault-name
 az backup protection enable-for-azurewl --resource-group hanarghsr2 --vault-name hanavault10 --policy-name hanahsr --protectable-item-name "saphanadatabase;hsrtestps2;systemdb"  --protectable-item-type SAPHanaDatabase --workload-type SAPHanaDatabase --output table --server-name hsr-secondary 
 ```
 
-## Run an on-demand backup
+## Run an on-demand backup for the SAP HANA database
 
 To initiate a backup job manually, run the following command:
 

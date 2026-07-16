@@ -18,7 +18,7 @@ ms.custom: mode-other
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free.](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [An active Communication Services resource.](../create-communication-resource.md).
 - [An eligible subscription address.](../../concepts/numbers/sub-eligibility-number-capability.md).
 
@@ -31,6 +31,9 @@ There are two types of alphanumeric sender IDs:
 - Preregistered alphanumeric sender ID: Supported in countries/regions that require registration for use. Preregistered alphanumeric sender IDs are typically provisioned in 4-5 weeks.
 
 For list of supported countries/regions, see [SMS overview page](../../concepts/sms/concepts.md).
+
+> [!TIP]
+> For global SMS delivery and partner-managed options, check out [Messaging Connect](../../concepts/sms/messaging-connect.md).
 
 ## Enable dynamic alphanumeric sender ID
 

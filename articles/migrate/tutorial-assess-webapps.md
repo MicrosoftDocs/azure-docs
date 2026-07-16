@@ -4,9 +4,14 @@ description: Learn how to create assessment for Azure App Service in Azure Migra
 ms.topic: tutorial
 ms.date: 02/07/2025
 ms.service: azure-migrate
-ms.custom: engagement-fy24, devx-track-extended-java
+ms.reviewer: v-uhabiba
 zone_pivot_groups: web-apps-assessment-app-service
+ms.custom:
+  - engagement-fy24
+  - devx-track-extended-java
+  - sfi-image-nochange
 ::: moniker range="migrate"
+# Customer intent: As an IT administrator managing on-premises web apps, I want to assess their readiness for migration to a cloud environment, so that I can identify risks and estimate costs involved in moving to a cloud-based application service.
 ---
 
 
@@ -78,7 +83,7 @@ To run an assessment, follow these steps:
 
     - In **Savings options (Compute)**, specify the savings option that you want the assessment to consider, helping to optimize your Azure Compute cost. 
         - [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (one year or three year reserved) are a good option for the most consistently running resources.
-        - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (one year or three year savings plan) provides additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation is consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
+        - [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-overview.md) (one year or three year savings plan) provides additional flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation is consumed first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. 
         - When you select *None*, the Azure Compute cost is based on the Pay-as-you-go rate or based on actual usage.
         - You need to select Pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than *None*, the **Discount (%)** setting isn't applicable.
 

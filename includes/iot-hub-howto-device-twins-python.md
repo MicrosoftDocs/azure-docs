@@ -2,13 +2,17 @@
 title: Get started with Azure IoT Hub device twins (Python)
 titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDK for Python to create device and backend service application code for device twins.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.devlang: python
 ms.topic: include
 ms.date: 07/12/2024
-ms.custom: mqtt, devx-track-python, py-fresh-zinc
+ms.custom:
+  - mqtt
+  - devx-track-python
+  - py-fresh-zinc
+  - sfi-ropc-nochange
 ---
 
   * Python SDK - [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.

@@ -2,10 +2,12 @@
 title: Overview of Azure Database for PostgreSQL Backup
 description: Get an overview of the Azure Database for PostgreSQL backup solution.
 ms.topic: overview
-ms.date: 04/16/2025
+ms.date: 01/30/2026
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+ms.custom: sfi-image-nochange
+# Customer intent: "As a database administrator, I want to implement long-term backup solutions for Azure Database for PostgreSQL, so that I can ensure data compliance and recoverability over an extended period."
 ---
 
 # What is Azure Database for PostgreSQL backup?
@@ -32,11 +34,11 @@ Azure Backup provides compliance and resiliency solutions, including vaulted bac
 
 On the retirement date, scheduled backup jobs for PostgreSQL single-server databases permanently stopped. You can't create any new restore points.
 
-However, your existing PostgreSQL single-server database backups are retained in accordance with the backup policy. The restore points will be deleted only after the expiration of the retention period. To retain the restore points indefinitely or to delete them before the expiration of their retention period, see the [Azure Business Continuity Center console](https://portal.azure.com/#view/Microsoft_Azure_BCDRCenter/AbcCenterMenuBlade/~/overview).
+However, your existing PostgreSQL single-server database backups are retained in accordance with the backup policy. The restore points will be deleted only after the expiration of the retention period. To retain the restore points indefinitely or to delete them before the expiration of their retention period, see the [Resiliency console](https://portal.azure.com/#view/Microsoft_Azure_BCDRCenter/AbcCenterMenuBlade/~/overview).
 
 ### Changes in billing
 
-As of March 31, 2025, you're no longer charged the Protected Instance (PI) fee for protecting your PostgreSQL single-server databases. But the fee for storing your backups still applies. To avoid the storage fee, delete all restore points from the Azure Business Continuity Center.
+As of March 31, 2025, you're no longer charged the Protected Instance (PI) fee for protecting your PostgreSQL single-server databases. But the fee for storing your backups still applies. To avoid the storage fee, delete all restore points from the Resiliency.
 
 > [!NOTE]
 > Azure Backup retains the last restore point even after the expiration of its retention period. This feature ensures that you have access to the last restore point for future use. You can only delete the last restore point manually. If you want to delete the last restore point and avoid the storage fee, [stop the database protection](manage-azure-database-postgresql.md#stop-backup).
@@ -210,3 +212,4 @@ You can add new databases and database users to the server. For database users, 
 - [Create a backup policy for PostgreSQL databases using REST API](backup-azure-data-protection-use-rest-api-create-update-postgresql-policy.md).
 - [Configure backup for PostgreSQL databases using REST API](backup-azure-data-protection-use-rest-api-backup-postgresql.md).
 - [Restore for PostgreSQL databases using REST API](restore-postgresql-database-use-rest-api.md).
+- [Manage an Azure Database for PostgreSQL server by using the Azure portal](manage-azure-database-postgresql.md).

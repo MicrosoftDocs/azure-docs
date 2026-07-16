@@ -6,7 +6,9 @@
  ms.topic: include
  ms.date: 1/10/2025
  ms.author: dobett
- ms.custom: include file
+ ms.custom:
+   - include file
+   - sfi-image-nochange
 ---
 
 ## Create the cloud components

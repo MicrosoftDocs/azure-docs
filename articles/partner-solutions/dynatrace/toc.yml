@@ -5,6 +5,8 @@ items:
   items:
   - name: What is Azure Native Dynatrace Service?
     href: overview.md
+  - name: FAQ
+    href: faq.yml
 - name: Quickstarts
   expanded: true
   items:
@@ -23,7 +25,7 @@ items:
   - name: Troubleshoot
     items:
     - name: Get support
-      href: support.md
+      href: https://support.dynatrace.com/
     - name: Fix common errors
       href: troubleshoot.md
 - name: Reference

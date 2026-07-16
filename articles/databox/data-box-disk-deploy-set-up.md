@@ -5,10 +5,12 @@ services: databox
 author: stevenmatthew
 
 ms.service: azure-data-box-disk
-ms.custom: linux-related-content
 ms.topic: tutorial
 ms.date: 04/09/2024
 ms.author: shaas
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
 ---
 
@@ -97,7 +99,7 @@ In the Azure portal, navigate to your Data Box Disk Order. Search for it by navi
 Depending on whether you are connected to a Windows or Linux client, the steps to unlock the disks are different.
 
 <!--
-### [Azure Portal](#tab/portal)
+### [Azure portal](#tab/portal)
 
 In the Azure portal, navigate to your Data Box Disk Order. Search for it by navigating to **General > All resources**, then select your Data Box Disk Order. Use the copy icon to copy the passkey. This passkey will be used to unlock the disks.
 

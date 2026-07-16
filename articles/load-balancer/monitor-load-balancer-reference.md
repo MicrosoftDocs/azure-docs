@@ -7,6 +7,7 @@ ms.topic: reference
 author: mbender-ms
 ms.author: mbender
 ms.service: azure-load-balancer
+# Customer intent: As a network administrator, I want to access detailed metrics and monitoring data for Azure Load Balancer, so that I can effectively manage performance and troubleshoot issues in my cloud infrastructure.
 ---
 
 # Azure Load Balancer monitoring data reference
@@ -52,6 +53,9 @@ This table includes additional information about metrics from the Microsoft.Netw
 | SYN count (synchronize) | Public and internal load balancer | Standard Load Balancer doesn’t terminate Transmission Control Protocol (TCP) connections or interact with TCP or User Data-gram Packet (UDP) flows. Flows and their handshakes are always between the source and the virtual machine instance. To better troubleshoot your TCP protocol scenarios, you can make use of SYN packets counters to understand how many TCP connection attempts are made. The metric reports the number of TCP SYN packets that were received. |
 | Used SNAT ports | Public load balancer | Standard Load Balancer reports the number of SNAT ports that are utilized per backend instance. |
 | Data path availability | Public and internal load balancer |  Standard Load Balancer continuously exercises the data path from within a region to the load balancer front end, all the way to the SDN stack that supports your virtual machine. As long as healthy instances remain, the measurement follows the same path as your application's load-balanced traffic. The data path that your customer's use is also validated. The measurement is invisible to your application and doesn't interfere with other operations. |
+
+  >[!NOTE]
+  >Data Path Availability metric may take up to 10 minutes to appear in Azure Monitor metrics after a load balancer is created or updated. 
 
 ### Global load balancer metrics
 

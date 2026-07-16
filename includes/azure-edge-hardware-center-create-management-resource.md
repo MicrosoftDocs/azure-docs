@@ -4,6 +4,7 @@ ms.service: azure-databox
 ms.topic: include
 ms.date: 06/29/2022
 ms.author: alkohli
+ms.custom: sfi-image-nochange
 ---
 
 To create a management resource for a device ordered through the Azure Edge Hardware Center, do these steps:

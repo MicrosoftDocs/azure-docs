@@ -2,12 +2,12 @@
 title: 'View effective routes of a virtual hub: Azure Virtual WAN | Microsoft Docs'
 description: Learn how to view effective routes for a virtual hub in Azure Virtual WAN.
 services: virtual-wan
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 07/28/2023
-ms.author: cherylmc
+ms.author: duau
 ---
 
 # View virtual hub effective routes

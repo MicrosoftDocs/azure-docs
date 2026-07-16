@@ -4,7 +4,7 @@ description: Learn about the services provided by Azure Communication Services.
 author: sroons
 ms.author: serooney
 ms.service: azure-communication-services
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/01/2024
 ms.custom: template-concept
 ---

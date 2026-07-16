@@ -4,8 +4,9 @@ description: Use security controls built in into Azure Spring Apps Service.
 author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
-ms.topic: conceptual
-ms.date: 06/27/2024
+ms.topic: reference
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java
 ---
 

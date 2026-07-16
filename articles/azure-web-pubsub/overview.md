@@ -25,7 +25,7 @@ These drawbacks are the primary motivations that drive developers to look for al
 With the recent surge in interest in AI, Web PubSub has become an invaluable tool to developers building AI-enabled applications for token streaming. The service is battle-tested to scale to tens of millions of concurrent connections and offers ultra-low latency.
 
 ### Delivering real-time updates
-Any app scenario where updates at the data resource need to be delivered to other components across network can benefit from using Azure Web PubSub. As the name suggests, the service facilities the communication between a publisher and subscribers. A publisher is a component that publishes data updates. A subscriber is a component that subscribes to data updates.
+Any app scenario where updates at the data resource need to be delivered to other components across network can benefit from using Azure Web PubSub. As the name suggests, the service facilitates the communication between a publisher and subscribers. A publisher is a component that publishes data updates. A subscriber is a component that subscribes to data updates.
 
 Azure Web PubSub service is used in a multitude of industries and app scenarios where data is time-sensitive. Here's a partial list of some common use cases.
 
@@ -71,14 +71,15 @@ There are many different ways to program with Azure Web PubSub service, as some 
 - **Use provided SDKs to manage the WebSocket connections in self-host app servers** - Azure Web PubSub service provides SDKs in C#, JavaScript, Java and Python to manage the WebSocket connections easily, including broadcast messages to the connections, add connections to some groups, or close the connections, etc.
 - **Send messages from server to clients via REST API** - Azure Web PubSub service provides REST API to enable applications to post messages to clients connected, in any REST capable programming languages.
 
-## Quick start
-
-> [!div class="nextstepaction"]
-> [Play with chat demo](https://azure.github.io/azure-webpubsub/demos/chat)
-
-> [!div class="nextstepaction"]
-> [Build a chat app](tutorial-build-chat.md)
 
 ## Next steps
+### 1. Try a live demo
+The quickest way to experience the service is to explore one of our interactive demos. No setup required!  
+> [!div class="nextstepaction"]
+> [Play with a chat demo app](https://azure.github.io/azure-webpubsub/demos/chat)
 
-[!INCLUDE [next step](includes/include-next-step.md)]
+### 2. Explore service features in the Azure portal  
+Next, get hands-on with key features of the service using [playground](./quickstarts-livetry.md). This lets you experiment directly in the Azure portal—no code or local setup needed.
+
+### 3. Build your own app locally
+Ready to see how the service fits into your project? Follow our [quickstart guide](./quickstarts-pubsub-among-clients.md) to spin up a local app and try out the core messaging patterns supported by Azure Web PubSub.

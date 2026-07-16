@@ -3,17 +3,23 @@ title: Technical and feature overview - Azure Active Directory B2C
 description: An in-depth introduction to the features and technologies in Azure Active Directory B2C. Azure Active Directory B2C has high availability globally. 
 author: garrodonnell
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: overview
 ms.date: 01/10/2025
 ms.author: godonnell
 ms.subservice: b2c
+ms.custom: sfi-image-nochange
 
 #Customer intent: As an IT admin or developer, I need to understand in more detail the technical aspects and features of Azure AD B2C and how it can help me build a customer-facing application.
 
 ---
 
 # Technical and feature overview of Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-identity-protection-retirement](../../includes/active-directory-b2c-identity-protection-retirement.md)]
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 
 This article is a companion to [About Azure Active Directory B2C](overview.md) and provides a more in-depth introduction to the service. We will discuss here the primary resources you work with in the service, its features and learn how they enable you to provide a fully custom identity experience for customers in your applications.
 

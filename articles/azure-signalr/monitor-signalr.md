@@ -3,7 +3,7 @@ title: Monitor Azure SignalR Service
 description: Start here to learn how to monitor Azure SignalR Service.
 ms.date: 03/21/2024
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: how-to
 author: vicancy
 ms.author: lianwei
 ms.service: azure-signalr-service

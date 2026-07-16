@@ -1,12 +1,13 @@
 ---
 title: MABS (Azure Backup Server) V3 UR1 protection matrix
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server protects.
-ms.date: 11/23/2024
+ms.date: 03/09/2026
 ms.topic: reference
 ms.custom: engagement-fy24, linux-related-content
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a backup administrator, I want to review the protection matrix for Azure Backup Server, so that I can ensure all critical workloads and data types are supported for backup and recovery in my environment.
 ---
 
 # MABS (Azure Backup Server) V3 UR1 (and later) protection matrix
@@ -85,6 +86,9 @@ For on-premises or hosted environments that you can't upgrade or migrate to Azur
 |Workload |Version |Azure Backup Server installation |Azure Backup Server |Protection and recovery |
 |------------|-----------|---------------|--------------|--------------|
 |Servers (64-bit) | Windows Server 2008 R2 SP1, Windows Server 2008 SP2 (You need to install [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616)) | Physical server <br><br> Hyper-V virtual machine <br><br> VMware virtual machine | Volume, share, folder, file, system state/bare metal |
+
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
+
 
 ## Cluster support
 
@@ -166,4 +170,6 @@ MABS doesn't support protecting the following data types:
 
 ## Next steps
 
-* [Support matrix for backup with Microsoft Azure Backup Server or System Center DPM](backup-support-matrix-mabs-dpm.md)
+- [Support matrix for backup with Microsoft Azure Backup Server or System Center DPM](backup-support-matrix-mabs-dpm.md).
+- [Manage telemetry settings in MABS](manage-telemetry.md).
+- [Azure Backup Server V3 RTM protection matrix](microsoft-azure-backup-server-protection-v3.md).

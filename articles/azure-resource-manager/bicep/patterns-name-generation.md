@@ -1,11 +1,9 @@
----
+﻿---
 title: Name generation pattern
 description: Describes the name generation pattern.
-author: johndowns
-ms.author: jodowns
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 04/28/2025
+ms.date: 12/22/2025
 ---
 
 # Name generation pattern
@@ -66,3 +64,4 @@ The following example generates the names for two storage accounts for a differe
 ## Next steps
 
 [Learn about the shared variable file pattern.](patterns-shared-variable-file.md)
+

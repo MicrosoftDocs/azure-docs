@@ -1,121 +1,223 @@
 ---
-title: Configure Vaulted Backup for Azure Data Lake Storage using Azure Portal (preview)
-description: Learn how to configure vaulted backup for Azure Data Lake Storage (preview) using Azure portal.
+title: Configure Vaulted Backup  for Azure Data Lake Storage using Azure portal, PowerShell, or Azure CLI
+description: Learn how to configure vaulted backup for Azure Data Lake Storage using Azure portal, PowerShell, or Azure CLI.
 ms.topic: how-to
-ms.date: 04/16/2025
-author: jyothisuri
-ms.author: jsuri
+ms.service: azure-backup
+ms.custom:
+  - ignite-2025
+  - devx-track-azurepowershell-azurecli, devx-track-azurecli, references_regions
+zone_pivot_groups: backup-client-portal-powershell-cli
+ms.date: 11/18/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to configure vaulted backup for Azure Data Lake Storage, so that I can ensure data protection and recovery capabilities are in place for my storage accounts.
 ---
 
-# Configure vaulted backup for Azure Data Lake Storage using Azure portal (preview)
+# Configure vaulted backup for Azure Data Lake Storage
 
-This article describes how to configure vaulted backup for Azure Data Lake Storage (preview) using Azure portal.
+::: zone pivot="client-portal"
+
+This article describes how to configure vaulted backups for Azure Data Lake Storage using Azure portal.
 
 ## Prerequisites
 
-Before you configure backup for Azure Data Lake Storage, ensure the following prerequisites are met:
+Before you configure vaulted backup for Azure Data Lake Storage, ensure the following prerequisites are met:
 
 - The storage account must be in a [supported region and of the required types](azure-data-lake-storage-backup-support-matrix.md).
 - The target account mustn't have containers with the  names same as the containers in a recovery point; otherwise, the restore operation fails.
+- Identify or [create a Backup vault](create-manage-backup-vault.md#create-backup-vault) in the same region as the Azure Data Lake Storage account.
+- [Create a backup policy for Azure Data Lake Storage](azure-data-lake-storage-backup-create-policy-quickstart.md?pivots=client-portal) that defines the backup schedule and retention range.
+- [Grant permissions to the Backup vault on storage accounts](azure-data-lake-storage-backup-tutorial.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
 
 >[!Note]
->Vaulted backup restores are only possible to a different storage account.
+>- This feature is currently available in specific regions only. See the [supported regions](azure-data-lake-storage-backup-support-matrix.md#supported-regions).
+>- Vaulted backup restores are only possible to a different storage account.
 
 For more information about the supported scenarios, limitations, and availability, see the [support matrix](azure-data-lake-storage-backup-support-matrix.md).
 
-## Create a Backup vault
 
-To back up Azure Data Lake Storage, ensure you have a Backup Vault in the same region. You can use an existing vault, or [create a new one](create-manage-backup-vault.md#create-backup-vault).
+[!INCLUDE [How to configure backup for Azure Data Lake Storage](../../includes/azure-data-lake-storage-configure-backup.md)]
 
-## Create a backup policy for Azure Data Lake Storage (preview)
 
-A backup policy defines the schedule and frequency for backing up Azure Data Lake Storage. You can either create a backup policy from the Backup vault, or create it on the go during the backup configuration.
+Learn how to [monitor backup jobs](azure-data-lake-storage-backup-tutorial.md#monitor-an-azure-data-lake-storage-backup-job).
 
-To create a backup policy for Azure Data Lake Storage from the Backup vault, follow these steps:
+::: zone-end
 
-1. In the [Azure portal](https://portal.azure.com/), go to the **Backup vault** > **Backup policies**, and then select **+ Add**.
-1. On the **Create Backup Policy** pane, on the **Basics** tab, provide a name for the new policy on **Policy name**, and then select **Datasource type** as **Azure Data Lake Storage (Preview)**.
 
-   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/create-policy.png" alt-text="Screenshot shows how to start creating a backup policy." lightbox="./media/azure-data-lake-storage-configure-backup/create-policy.png":::
+::: zone pivot="client-powershell"
 
-1. On the **Schedule + retention** tab, under the **Backup schedule** section, set the **Backup Frequency** as **Daily** or **Weekly** and the schedule for creating recovery points for vaulted backups.
-1. Under the **Add retention** section, edit the default retention rule or add new rules to specify the retention of recovery points.
-1. Select **Review + create**.
-1. After the review succeeds, select **Create**.
+This article describes how to configure vaulted backups for Azure Data Lake Storage using PowerShell.
 
-### Grant permissions to the Backup vault on storage accounts
+## Prerequisites
 
-A Backup vault needs specific permissions on the storage account for backup operations. The **Storage Account Backup Contributor** role consolidates these permissions for easy assignment. We recommend you to grant this role to the Backup vault before configuring backup.
+Before you configure vaulted backup for Azure Data Lake Storage, ensure that the following prerequisites are met:
 
->[!Note]
->You can also perform the role assignment while configuring backup.
+- Install the Azure PowerShell version Az 14.6.0. Learn [how to install Azure PowerShell](/powershell/azure/install-az-ps).
+- Identify or [create a Backup vault](backup-blobs-storage-account-ps.md?tabs=operational-backup#create-a-backup-vault) to configure Azure Data Lake Storage backup.
+- Review the [supported scenarios](azure-data-lake-storage-backup-support-matrix.md) for Azure Data Lake Storage backup.
+- [Create a backup policy for Azure Data Lake Storage](azure-data-lake-storage-backup-create-policy-quickstart.md?pivots=client-powershell) that defines the backup schedule and retention range.
 
-To assign the required role for storage accounts that you want to protect, follow these steps:
+## Configure vaulted backup for the Azure Data Lake Storage using PowerShell
 
->[!Note]
->You can also assign the roles to the vault at the Subscription or Resource Group levels according to your convenience.
+After the vault and backup policy are created, configure vaulted  backup for Azure Data Lake Storage by reviewing the following sections:
 
-1. In the [Azure portal](https://portal.azure.com/), go to the storage account, and then select **Access Control (IAM)**.
-1. On the **Access Control (IAM)** pane, select **Add role assignments** to assign the required role.
+1. Fetch the ARM ID of the storage account containing the Data Lake Storage to be protected
+1. Grant permissions to the Backup vault
+1. Trigger the request for backup configuration
 
-   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/add-role-assignments.png" alt-text="Screenshot shows how to start assigning roles to the Backup vault." lightbox="./media/azure-data-lake-storage-configure-backup/add-role-assignments.png":::
+### Fetch the ARM ID of the storage account containing the Data Lake Storage to be protected
 
-1. On the **Add role assignment** pane, do the following steps:
+The Azure Resource Manager (ARM) ID of the storage account is required to configure vaulted backup for Azure Data Lake Storage. This ID identifies the storage account that contains the Data Lake Storage you want to protect. For example, use the storage account *`PSTestSA`* in the resource group `adlsrg` in a different subscription.
 
-   1. **Role**: Select **Storage Account Backup Contributor**.
-   1. **Assign access to**: Select **User, group, or service principal**.
-   1. **Members**: Click **+ Select members** and search for the Backup vault you created, and then select it from the search result to back up blobs in the underlying storage account.
+To fetch the ARM ID of the storage account, run the following example cmdlet:
 
-1. Select **Save** to finish the role assignment.
- 
->[!Note]
-> The role assignment might take up to **30 minutes** to take effect.
+```azurepowershell-interactive
+$SAId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/adlsrg/providers/Microsoft.Storage/storageAccounts/PSTestSA"
+```
 
-## Configure backup for the Azure Data Lake Storage (preview)
+### Grant permissions to the Backup vault on the storage account
 
-You can configure backup on multiple Azure Data Lake Storage.
+The Backup vault requires permissions on the storage account to enable backups on Data Lake Storage present within the storage account. The system-assigned managed identity of the vault is used for assigning such permissions.
 
-To configure backup, follow these steps:
+You need to assign the required permissions via Azure role-based access control (RBAC) to the created vault (represented by vault Managed System Identity (MSI)) and the relevant storage account.
 
-1. In the [Azure portal](https://portal.azure.com/), go to the **Backup vault**, and then select **+ Backup**. 
-1. On the **Configure Backup** pane, on the **Basics** tab, review the **Datasource type** is selected as **Azure Data Lake Storage (preview)**.
-1. On the **Backup policy** tab, under **Backup policy**, select the policy you want to use for data retention, and then select **Next**.
-   If you want to create a new backup policy, select **Create new**. learn how to [create a backup policy](#create-a-backup-policy-for-azure-data-lake-storage-preview).
- 
-1. On the **Datasources** tab, Select**Add**. 
+[Learn how to grant permissions to the Backup vault using Azure portal for Azure Data Lake Storage](azure-data-lake-storage-backup-tutorial.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
 
-   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/add-resource-for-backup.png" alt-text="Screenshot shows how to add resources for backup." lightbox="./media/azure-data-lake-storage-configure-backup/add-resource-for-backup.png":::
+### Trigger the request for vaulted backup configuration
 
-1. On the **Select storage account container** pane, provide the **Backup instance name**, and then click **select** under **Storage account**.
+After all the relevant permissions are set, configure Azure Date Lake Storage vaulted backup by running the following cmdlets:
 
-   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/specify-backup-instance-name.png" alt-text="Screenshot shows how to provide the backup instance name." lightbox="./media/azure-data-lake-storage-configure-backup/specify-backup-instance-name.png":::
+1. Create a new backup configuration object to specify the set of containers you want to back up. 
 
-1. On the **Select hierarchical namespace enabled storage account** pane, select the storage accounts with Azure Data Lake Storage across subscriptions from the list that are in the region same as the vault.
+   To back up all containers, pass the *`-IncludeAllContainer`* parameter. For specific containers, pass the list of containers to the *`-VaultedBackupContainer`* parameter.
+    ```azurepowershell-interactive
+    $backupConfig=New-AzDataProtectionBackupConfigurationClientObject -DatasourceType AzureDataLakeStorage -IncludeAllContainer -StorageAccountResourceGroupName "StorageRG" -StorageAccountName "testpscmd"
+    ```
 
-   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/select-storage-account.png" alt-text="Screenshot shows the selection of storage accounts." lightbox="./media/azure-data-lake-storage-configure-backup/select-storage-account.png":::
+1. Prepare the request by using the relevant vault, policy, storage account, and the backup configuration object you created using the [`Initialize-AzDataProtectionBackupInstance`](/powershell/module/az.dataprotection/initialize-azdataprotectionbackupinstance) cmdlet.
 
-1. On the **Select storage account container** pane, you can back up all containers or select specific ones.
+    ```azurepowershell-interactive
+    $instance=Initialize-AzDataProtectionBackupInstance -DatasourceType AzureDataLakeStorage -DatasourceLocation $TestBkpVault.Location -PolicyId $adlsBkpPol.Id -DatasourceId $SAId -BackupConfiguration $backupConfig
+    ```
 
-   After you add the resources, backup readiness validation starts. If the required roles are assigned, the  validation succeeds with the **Success** message.
+1. Submit the request to trigger backup configuration using the [`New-AzDataProtectionBackupInstance`](/powershell/module/az.dataprotection/new-azdataprotectionbackupinstance) cmdlet.
 
-   :::image type="content" source="./media/azure-data-lake-storage-configure-backup/role-assign-message-success.png" alt-text="Screenshot shows the success message for role assignments." lightbox="./media/azure-data-lake-storage-configure-backup/role-assign-message-success.png":::
+    ```azurepowershell-interactive
+    New-AzDataProtectionBackupInstance -ResourceGroupName "StorageRG" -VaultName $TestBkpVault.Name -BackupInstance $instance
+    ```
 
-   If access permissions are missing, error messages appear. See the [prerequisites](#prerequisites).
+::: zone-end
 
-   Validation errors appear if the selected storage accounts don't have the **Storage Account Backup Contributor** role. Review the error messages and take necessary actions.
 
-   | Error | Cause | Recommended action |
-   | --- | --- | --- |
-   | **Role assignment not done** | The **Storage account backup contributor** role and the other required roles for the storage account to the vault are not assigned. | Select the roles, and then select **Assign missing roles** to automatically assign the required role to the Backup vault and trigger an auto revalidation. <br><br> If the role propagation takes more than **10 minutes**, then the validation might fail. In this scenario, you need to wait for a few minutes and select Revalidate to retry validation. <br><br> You need to assign the following types of permissions for various operations: <br><br> - **Resource-level** permissions: For backing up a single account within a resource group. <br> - **Resource group** or **Subscription-level** permissions: For backing up multiple accounts within a resource group. <br> - **Higher-level** permissions: For reducing the number of role assignments needed. <br><br> Note that the maximum count of role assignments supported at the subscription level is **4,000**. Learn more [about Azure Role-Based Access Control Limits](/azure/role-based-access-control/troubleshoot-limits). |
-   | **Insufficient permissions for role assignment** | The vault doesn't have the required role to configure backups, and you don't have enough permissions to assign the required role. | Download the role assignment template, and then share with users with permissions to assign roles for storage accounts. |
- 
-1. Review the configuration details, and then select **Configure Backup**.
+::: zone pivot="client-cli"
 
-You can track the progress of the backup configuration under **Backup instances**. After the configuration of backup is complete, Azure Backup triggers the backup operation as per the backup policy schedule to create the recovery points.
+This article describes how to configure vaulted backups for Azure Data Lake Storage using Azure CLI.
+
+## Prerequisites
+
+Before you configure vaulted backup for Azure Data Lake Storage, ensure that the following prerequisites are met:
+
+- Identify or [create a Backup vault](backup-blobs-storage-account-cli.md?tabs=operational-backup#create-a-backup-vault) to configure Azure Data Lake Storage backup.
+- Review the [supported scenarios](azure-data-lake-storage-backup-support-matrix.md) for Azure Data Lake Storage backup.
+- [Create a backup policy for Azure Data Lake Storage](azure-data-lake-storage-backup-create-policy-quickstart.md?pivots=client-cli) that defines the backup schedule and retention range.
+
+## Configure vaulted backup for the Azure Data Lake Storage using Azure CLI
+
+After the vault and backup policy are created, configure vaulted backup for Azure Data Lake Storage by reviewing the following sections:
+
+1. Fetch the ARM ID of the storage account containing the Data Lake Storage to be protected
+1. Grant permissions to the Backup vault
+1. Trigger the request for backup configuration
+
+>[!Important]
+>After a storage account is configured for Data Lake Storage  backup, a few capabilities, such as **change feed** and **delete lock**, are affected. [Learn more](blob-backup-configure-manage.md?tabs=vaulted-backup#effects-on-backed-up-storage-accounts).
+
+### Fetch the ARM ID of the storage account containing the Data Lake Storage to be protected
+
+The Azure Resource Manager (ARM) ID of the storage account is required to configure vaulted backup for Azure Data Lake Storage. This ID identifies the storage account that contains the Data Lake Storage you want to protect. For example, use the storage account *`CLITestSA`* in the resource group `adlsrg` in a different subscription present in the `Southeast Asia` region.
+
+TO fetch the ARM ID of the storage account, run the following example command:
+
+```azurecli-interactive
+"/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourcegroups/adlsrg/providers/Microsoft.Storage/storageAccounts/CLITestSA"
+```
+
+### Grant permissions to the Backup vault on the storage account
+
+The Backup vault requires permissions on the storage account to enable backups on Data Lake Storage present within the storage account. The system-assigned managed identity of the vault is used for assigning such permissions.
+
+You need to assign the required permissions via Azure role-based access control (RBAC) to the created vault (represented by vault Managed System Identity (MSI)) and the relevant storage account.
+
+[Learn how to grant permissions to the Backup vault using Azure portal for Azure Data Lake Storage](azure-data-lake-storage-backup-tutorial.md#grant-permissions-to-the-backup-vault-on-storage-accounts).
+
+### Trigger the request for vaulted backup configuration
+
+After all the relevant permissions are set, configure Azure Date Lake Storage vaulted backup by running the following example cmdlets:
+
+1. Prepare the request by using the relevant vault, policy, storage account, and the backup configuration object you created using the [`az dataprotection backup-instance initialize`](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-initialize) command.
+
+    ```azurecli-interactive
+    az dataprotection backup-instance initialize --datasource-type AzureDataLakeStorage  -l southeastasia --policy-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupPolicies/AdlsPolicy1" --datasource-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourcegroups/adlsrg/providers/Microsoft.Storage/storageAccounts/CLITestSA" > backup_instance.json
+    ```
+
+1. Submit the request to trigger backup configuration using the [`az dataprotection backup-instance create`](/cli/azure/dataprotection/backup-instance#az-dataprotection-backup-instance-create) command.
+
+    ```azurecli-interactive
+    az dataprotection backup-instance create -g adlsrg--vault-name TestBkpVault --backup-instance backup_instance.json
+    ```
+
+   The following example JSON configures an Azure Data Lake Storage backup for a specified storage account with specified policy and container list.
+
+    ```JSON
+    {
+        "properties": {
+            "friendlyName": " adlsbackup",
+            "dataSourceInfo": {
+                "resourceID": "/subscriptions/ xxxxxxx-xxxx-xxxx-xxxx /resourceGroups/adlsrg/providers/Microsoft.Storage/storageAccounts/adlsbackup",
+                "resourceUri": "/subscriptions/ xxxxxxx-xxxx-xxxx-xxxx /resourceGroups/adlsrg/providers/Microsoft.Storage/storageAccounts/adlsbackup",
+                "datasourceType": "Microsoft.Storage/storageAccounts/adlsBlobServices",
+                "resourceName": " adlsbackup",
+                "resourceType": "Microsoft.Storage/storageAccounts",
+                "resourceLocation": "francesouth",
+                "objectType": "Datasource"
+            },
+            "policyInfo": {
+                "policyId": "/subscriptions/ xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/adlsrg/providers/Microsoft.DataProtection/backupVaults/ TestBkpVault/backupPolicies/AdlsPolicy1",
+                "policyParameters": {
+                    "backupDatasourceParametersList": [
+                        {
+                            "containersList": [
+                                "container7",
+                                "container8"
+                            ],
+                            "objectType": "AdlsBlobBackupDatasourceParameters"
+                        }
+                    ]
+                }
+            },
+            "protectionStatus": {
+                "status": "ProtectionConfigured"
+            },
+            "currentProtectionState": "ProtectionConfigured",
+            "provisioningState": "Succeeded",
+            "objectType": "BackupInstance"
+        },
+        "id": "/subscriptions/ xxxxxxxx-xxxx-xxxx-xxxx /resourceGroups/adlsrg/providers/Microsoft.DataProtection/backupVaults/ TestBkpVault/backupInstances/adlsbackup",
+        "name": " adlsbackup",
+        "type": "Microsoft.DataProtection/backupVaults/backupInstances"
+    }
+
+    ```
+
+::: zone-end
+
 
 ## Next steps
 
-[Restore Azure Data Lake Storage using Azure portal (preview)](azure-data-lake-storage-restore.md).
+- [Restore Azure Data Lake Storage using Azure portal](azure-data-lake-storage-restore.md).
+- [Manage vaulted backup for Azure Data Lake Storage using Azure portal](azure-data-lake-storage-backup-manage.md).
+- [Troubleshoot Azure Data Lake Storage backup](azure-data-lake-storage-backup-troubleshoot.md). 
  
+
 
 

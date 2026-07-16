@@ -6,7 +6,7 @@ description: Learn how to write your first Azure AD B2C custom policy. Configure
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
@@ -21,6 +21,7 @@ ms.subservice: b2c
 ---
 
 # Write your first Azure Active Directory B2C custom policy - Hello World! 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 In your application, you can use user flows that enable users to sign up, sign in, or manage their profile. When user flows don't cover all your business specific needs, you can use [custom policies](custom-policy-overview.md). 
 

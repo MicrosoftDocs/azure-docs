@@ -3,7 +3,7 @@ title: Bicep safe-dereference operator
 description: Describes Bicep safe-dereference operator.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 10/30/2025
 ---
 
 # Bicep safe-dereference operator
@@ -31,7 +31,7 @@ param storageAccountSettings array = []
 param storageCount int
 param location string = resourceGroup().location
 
-resource storage 'Microsoft.Storage/storageAccounts@2023-04-01' = [for i in range(0, storageCount): {
+resource storage 'Microsoft.Storage/storageAccounts@2025-06-01' = [for i in range(0, storageCount): {
   name: storageAccountSettings[?i].?name ?? 'defaultname'
   location: storageAccountSettings[?i].?location ?? location
   kind: storageAccountSettings[?i].?kind ?? 'StorageV2'

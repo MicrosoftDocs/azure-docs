@@ -1,14 +1,14 @@
 ---
-title: Manage Network Watcher Agent VM extension - Linux
+title: Manage Network Watcher Agent VM Extension - Linux
 description: Learn about the Network Watcher Agent virtual machine extension for Linux virtual machines and how to install and uninstall it.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 07/16/2024
+ms.date: 09/23/2025
 ms.custom: devx-track-arm-template, linux-related-content
 
-#CustomerIntent: As an Azure administrator, I want to install Network Watcher Agent VM extension and manage it so that I can use Network watcher features to diagnose and monitor my Linux virtual machines (VMs).
+# Customer intent: As an Azure administrator, I want to install and manage the Network Watcher Agent extension on my Linux VMs so that I can utilize network monitoring and diagnostic features effectively.
 ---
 
 # Manage Network Watcher Agent virtual machine extension for Linux
@@ -85,7 +85,7 @@ Network Watcher Agent extension for Linux can be installed on the following Linu
 | CentOS <sup>1</sup> | 6.10 and 7 |
 | Debian | 7 and 8 |
 | openSUSE Leap | 42.3+ |
-| Oracle Linux | 6.10 <sup>2</sup>, 7 and 8+ |
+| Oracle Linux | 6.10 <sup>2</sup>, 7, 8 and 9+ |
 | Red Hat Enterprise Linux (RHEL) | 6.10 <sup>3</sup>, 7, 8 and 9.2 |
 | Rocky Linux | 9.1 |
 | SUSE Linux Enterprise Server (SLES) | 12 and 15 (SP2, SP3, and SP4) |
@@ -96,6 +96,9 @@ Network Watcher Agent extension for Linux can be installed on the following Linu
 <sup>2</sup> [Extended life cycle (ELS) support](https://www.oracle.com/a/ocom/docs/linux/oracle-linux-extended-support-ds.pdf) for Oracle Linux version 6.X ended on [July 1, 2024](https://www.oracle.com/a/ocom/docs/elsp-lifetime-069338.pdf).
 
 <sup>3</sup> [Extended life cycle (ELS) support](https://www.redhat.com/en/resources/els-datasheet) for Red Hat Enterprise Linux 6.X ended on [June 30, 2024]( https://access.redhat.com/product-life-cycles/?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204).
+
+> [!NOTE]
+> Internet Control Message Protocol (ICMP) monitoring is currently unsupported in the Network Watcher Agent on Oracle Linux due to known kernel-level limitations specific to the distro.
 
 ## Extension schema
 

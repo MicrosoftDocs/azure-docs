@@ -2,7 +2,7 @@
 title: Azure Policy definitions denyAction effect
 description: Azure Policy definitions denyAction effect determines how compliance is managed and reported.
 ms.date: 03/04/2025
-ms.topic: conceptual
+ms.topic: reference
 ---
 
 # Azure Policy definitions denyAction effect
@@ -76,7 +76,7 @@ Example: Deny any delete calls targeting database accounts that have a tag envir
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review the [Azure Policy definition structure](definition-structure-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).

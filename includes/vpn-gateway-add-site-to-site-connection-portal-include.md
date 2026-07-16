@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: vpn-gateway
  ms.topic: include
  ms.date: 08/13/2024
- ms.author: cherylmc
+ ms.author: duau
 ---
 1. In the portal, go to the virtual network gateway and open it.
 1. On the page for the gateway, select **Connections**.

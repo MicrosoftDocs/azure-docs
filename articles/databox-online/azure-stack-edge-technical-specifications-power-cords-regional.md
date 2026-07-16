@@ -2,12 +2,12 @@
 title: Azure Stack Edge power cord specifications
 description: Learn about the technical specifications for Azure Stack Edge power cords.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 03/20/2025
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge power cord specifications

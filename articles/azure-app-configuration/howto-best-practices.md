@@ -4,9 +4,11 @@ description: Learn best practices while using Azure App Configuration. Topics co
 services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
-ms.topic: conceptual
-ms.date: 03/10/2025
+ms.topic: concept-article
+ms.date: 11/21/2025
 ms.author: zhenlwa
+ms.custom:
+  - build-2025
 ---
 
 # Azure App Configuration best practices
@@ -40,7 +42,7 @@ The following example demonstrates how to implement key-value composition in a .
 
 ```csharp
 configBuilder.AddAzureAppConfiguration(options => {
-    options.Connect(new Uri("<your-app-config-endpoint>"), new DefaultAzureCredential())
+    options.Connect(new Uri("<AppConfigurationEndpoint>"), new DefaultAzureCredential())
            // Load all keys that start with `TestApp:` and compose with two different labels
            .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
            .Select(keyFilter: "TestApp:*", labelFilter: "Development");
@@ -53,16 +55,16 @@ configBuilder.AddAzureAppConfiguration(options => {
 
 Azure App Configuration supports dynamic configuration refresh without requiring an application restart. The [App Configuration providers](./configuration-provider-overview.md) can monitor configuration changes using two approaches:
 
-#### Monitoring all selected keys
+### Monitoring all selected keys
 
 In this approach, the provider monitors all selected keys. If a change is detected in any of the selected key-values, the entire configuration is reloaded. This approach ensures immediate updates without requiring additional key modifications.
 
-Here's an example using .NET:
+#### [.NET](#tab/dotnet)
 
 ```csharp
 configBuilder.AddAzureAppConfiguration(options =>
 {
-    options.Connect(new Uri("<your-app-config-endpoint>"), new DefaultAzureCredential())
+    options.Connect(new Uri("<AppConfigurationEndpoint>"), new DefaultAzureCredential())
            // Load all keys that start with `TestApp:` and have no label
            .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
            .ConfigureRefresh(refreshOptions =>
@@ -73,16 +75,89 @@ configBuilder.AddAzureAppConfiguration(options =>
 });
 ```
 
-#### Monitoring a sentinel key
+#### [Spring](#tab/spring)
+
+```yaml
+spring:
+  config:
+    import: azureAppConfiguration
+  cloud:
+    azure:
+      appconfiguration:
+        stores:
+          - endpoint: <AppConfigurationEndpoint>
+            monitoring:
+              enabled: true
+```
+
+#### [JavaScript](#tab/javascript)
+
+```javascript
+const appConfig = await load(endpoint, credential, {
+    // Load all keys that start with `TestApp:` and have no label
+    selectors: [{ keyFilter: "TestApp:*" }],
+    refreshOptions: {
+        // Trigger full configuration refresh when any selected key changes
+        enabled: true
+    }
+});
+```
+
+#### [Python](#tab/python)
+
+The Azure App Configuration provider for Python doesn't support monitoring all selected keys for changes. You can only monitor individual keys. For more information, see [Monitoring a sentinel key](#monitoring-a-sentinel-key).
+
+#### [Go](#tab/go)
+
+```golang
+options := &azureappconfiguration.Options{
+    // Load all keys that start with `TestApp` and have no label
+    Selectors: []azureappconfiguration.Selector{
+        {
+            KeyFilter: "TestApp*",
+        },
+    },
+    RefreshOptions: azureappconfiguration.KeyValueRefreshOptions{
+        // Trigger full configuration refresh when any selected key changes
+        Enabled:  true,
+    },
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
+
+#### [Kubernetes](#tab/kubernetes)
+
+```yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <AppConfigurationEndpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    # Load all keys that start with `TestApp` and have no label
+    selectors:
+      - keyFilter: TestApp*
+    refresh:
+      # Trigger full configuration refresh when any selected key changes
+      enabled: true
+```
+
+---
+
+### Monitoring a sentinel key
 
 Alternatively, you can monitor an individual key, often referred to as the *sentinel key*. This approach is useful when updating multiple key-values. By updating the sentinel key only after all other configuration changes are completed, you ensure your application reloads configuration just once, maintaining consistency.
 
-Here's an example using .NET:
+#### [.NET](#tab/dotnet)
 
 ```csharp
 configBuilder.AddAzureAppConfiguration(options =>
 {
-    options.Connect(new Uri("<your-app-config-endpoint>"), new DefaultAzureCredential())
+    options.Connect(new Uri("<AppConfigurationEndpoint>"), new DefaultAzureCredential())
            // Load all keys that start with `TestApp:` and have no label
            .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
            .ConfigureRefresh(refreshOptions =>
@@ -92,6 +167,97 @@ configBuilder.AddAzureAppConfiguration(options =>
            });
 });
 ```
+
+#### [Spring](#tab/spring)
+
+```yaml
+spring:
+  config:
+    import: azureAppConfiguration
+  cloud:
+    azure:
+      appconfiguration:
+        stores:
+          - endpoint: <AppConfigurationEndpoint>
+            monitoring:
+              enabled: true
+              triggers:
+                - key: SentinelKey
+```
+
+#### [JavaScript](#tab/javascript)
+
+```javascript
+const appConfig = await load(endpoint, credential, {
+    // Load all keys that start with `TestApp:` and have no label
+    selectors: [{ keyFilter: "TestApp:*" }],
+    refreshOptions: {
+        // Trigger full configuration refresh only if the `SentinelKey` changes
+        enabled: true,
+        watchedSettings: [{ key: "SentinelKey" }]
+    }
+});
+```
+
+#### [Python](#tab/python)
+
+```python
+config = load(
+    endpoint,
+    credential,
+    # Trigger a refresh only if the `SentinelKey` changes
+    refresh_on=[WatchedKey(key="SentinelKey")]
+)
+```
+
+#### [Go](#tab/go)
+
+```golang
+options := &azureappconfiguration.Options{
+    // Load all keys that start with `TestApp` and have no label
+    Selectors: []azureappconfiguration.Selector{
+        {
+            KeyFilter: "TestApp*",
+        },
+    },
+    RefreshOptions: azureappconfiguration.KeyValueRefreshOptions{
+        // Trigger full configuration refresh only if the `SentinelKey` changes
+        Enabled:  true,
+        WatchedSettings: []azureappconfiguration.WatchedSetting{
+            {
+                Key: "SentinelKey",
+            },
+        },
+    },
+}
+
+appConfig, err := azureappconfiguration.Load(ctx, authOptions, options)
+```
+
+#### [Kubernetes](#tab/kubernetes)
+
+```yaml
+apiVersion: azconfig.io/v1
+kind: AzureAppConfigurationProvider
+metadata:
+  name: appconfigurationprovider-sample
+spec:
+  endpoint: <AppConfigurationEndpoint>
+  target:
+    configMapName: configmap-created-by-appconfig-provider
+  configuration:
+    # Load all keys that start with `TestApp` and have no label
+    selectors:
+      - keyFilter: TestApp*
+    refresh:
+      # Trigger full configuration refresh only if the `SentinelKey` changes
+      enabled: true
+      monitoring:
+        keyValues:
+          - key: SentinelKey
+```
+
+---
 
 Both approaches are available through App Configuration providers across supported languages and platforms.
 
@@ -169,11 +335,25 @@ Applications often rely on configuration to start, making Azure App Configuratio
 
 When you use App Configuration in client applications, ensure that you consider two major factors. First, if you're using the connection string in a client application, you risk exposing the access key of your App Configuration store to the public. Second, the typical scale of a client application might cause excessive requests to your App Configuration store, which can result in overage charges or throttling. For more information about throttling, see the [FAQ](./faq.yml#are-there-any-limits-on-the-number-of-requests-made-to-app-configuration).
 
-To address these concerns, we recommend that you use a proxy service between your client applications and your App Configuration store. The proxy service can securely authenticate with your App Configuration store without a security issue of leaking authentication information. You can build a proxy service by using one of the App Configuration provider libraries, so you can take advantage of built-in caching and refresh capabilities for optimizing the volume of requests sent to App Configuration. For more information about using App Configuration providers, see articles in Quickstarts and Tutorials. The proxy service serves the configuration from its cache to your client applications, and you avoid the two potential issues that are discussed in this section.
+### Recommended approach: Azure Front Door integration
+
+App Configuration can be integrated with Azure Front Door to provide secure, scalable configuration delivery through Azure's global CDN network. Azure Front Door uses Managed Identity to authenticate with App Configuration, while millions of client application instances retrieve settings anonymously through edge servers. CDN caching reduces direct requests to App Configuration, helping prevent throttling and overage charges. It also adds resilience with automatic failover and geo-redundancy through Azure Front Door’s infrastructure. To implement this approach, see [Load Configuration from Azure Front Door in Client Applications](./concept-hyperscale-client-configuration.md).
+
+### Alternative approach: Custom proxy service
+
+If Azure Front Door integration doesn't meet your requirements, you can build a custom proxy service between your client applications and your App Configuration store. The proxy service can securely authenticate with your App Configuration store without a security issue of leaking authentication information. You can build a proxy service by using one of the [App Configuration provider libraries](./configuration-provider-overview.md), so you can take advantage of built-in caching and refresh capabilities for optimizing the volume of requests sent to App Configuration. For more information about using App Configuration providers, see articles in Get started. The proxy service serves the configuration from its cache to your client applications, and you avoid the two potential issues that are discussed in this section.
+
+### Security considerations
+
+When surfacing configuration to client applications, configuration values will be visible to end users. Care should be taken to avoid unintended exposure of sensitive data. For example, user and group names in feature flag targeting settings may be considered EUII (End User Identifiable Information). To mitigate this risk:
+
+- Use a separate App Configuration store dedicated to client application configuration.
+- Store only non-sensitive settings in the client-facing store.
+- Segment configuration using strict filtering mechanisms like key prefixes, labels, or tags to limit exposed configuration.
 
 ## Multitenant applications in App Configuration
 
-A multitenant application is built on an architecture where a shared instance of your application serves multiple customers or tenants. For example, you may have an email service that offers your users separate accounts and customized experiences. Your application usually manages different configurations for each tenant. Here are some architectural considerations for [using App Configuration in a multitenant application](/azure/architecture/guide/multitenant/service/app-configuration).
+A multitenant application is built on an architecture where a shared instance of your application serves multiple customers or tenants. For example, you may have an email service that offers your users separate accounts and customized experiences. Your application usually manages different configurations for each tenant. Here are some architectural considerations for [using App Configuration in a multitenant application](/azure/architecture/guide/multitenant/service/app-configuration). You can also reference the [example code for multitenant application setup](https://github.com/Azure/AppConfiguration/blob/main/examples/DotNetCore/MultiTenantApplicationSetup/README.md).
 
 ## Configuration as Code
 
@@ -185,6 +365,7 @@ Configuration as code is a practice of managing configuration files under your s
 
 This model allows you to include validation and testing steps before committing data to App Configuration. If you use multiple App Configuration stores, you can also push the configuration data to them incrementally or all at once.
 
-## Next steps
+## Next step
 
-* [Keys and values](./concept-key-value.md) 
+> [!div class="nextstepaction"]
+> [Keys and values](./concept-key-value.md) 

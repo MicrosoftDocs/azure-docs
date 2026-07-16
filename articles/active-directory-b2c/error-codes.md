@@ -6,7 +6,7 @@ description: A list of the error codes that can be returned by the Azure Active 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 03/13/2025
@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # Error codes: Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 The following errors can be returned by the Azure Active Directory B2C service.
 

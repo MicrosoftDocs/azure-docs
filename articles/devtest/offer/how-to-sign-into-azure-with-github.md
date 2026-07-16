@@ -3,7 +3,7 @@ title: Sign into Azure Dev/Test with your GitHub credentials
 description: Sign into an individual Monthly Azure Credit Subscription using GitHub credentials.
 ms.author: amast
 author: rigel512
-ms.date: 10/18/2023
+ms.date: 07/10/2026
 ms.topic: how-to
 ms.service: visual-studio-family
 ms.subservice: subscriptions
@@ -24,7 +24,7 @@ We're centered around developers, both as individuals working in teams and organ
 
 GitHub is one of the largest developer communities. For millions of developers around the world, their GitHub identity is a critical aspect of their digital life. Recognizing that, we’re excited to announce improvements that help GitHub users get started with our developer services, including Monthly Azure Credits for Visual Studio Subscribers.  
 
-## Your GitHub credentials can now log you in to Microsoft services  
+## Sign in to Microsoft services by using your GitHub credentials  
 
 We're enabling developers to sign in with their existing GitHub account to Microsoft online services. Using your GitHub credentials, you can sign in via OAuth anywhere a personal Microsoft account does, including Azure Credit Subscriptions and Visual Studio.  
 
@@ -34,9 +34,9 @@ After signing into GitHub and authorizing the Microsoft application, you'll get 
 
 [Azure Credit Subscription for Visual Studio Subscribers](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers) offers a suite of services to create, deploy, and manage applications on your preferred platforms and devices. Use your credits in Azure for learning, development, and test services, plus collaboration tools and access to Azure DevOps.  
 
-Support for GitHub authentication makes it easier to experiment with Azure services. Choose from Virtual Machines, Websites, SQL Databases, and Mobile Services. Use [Azure Virtual Desktop](../../virtual-desktop/overview.md) to deploy and manage hundreds of VMs for development and testing purposes.  
+Support for GitHub authentication makes it easier to experiment with Azure services. Choose from Virtual Machines, Websites, SQL Databases, and Mobile Services. Use [Azure Virtual Desktop](/azure/virtual-desktop/overview) to deploy and manage hundreds of VMs for development and testing purposes.  
 
-To get started with the Azure Monthly Credit Subscription using your GitHub account, select “Sign in using GitHub” on any [Microsoft sign in page](https://login.microsoftonline.com)  
+To get started with the Azure Monthly Credit Subscription using your GitHub account, select **Sign in with GitHub** during the sign-in process.  
 
 ![Screenshot of the sign in options page.](media/how-to-sign-into-azure-with-github/sign-in.png "Sign in options page.")  
 

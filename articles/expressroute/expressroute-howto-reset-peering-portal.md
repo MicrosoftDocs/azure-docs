@@ -1,12 +1,12 @@
 ---
 title: 'Azure ExpressRoute: Reset circuit peerings by using the Azure portal'
 description: Learn how to disable and enable peerings of an Azure ExpressRoute circuit by using the Azure portal.
-services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 06/30/2023
+ms.date: 03/11/2026
 ms.author: duau
+ms.custom: sfi-image-nochange
 ---
 
 # Reset ExpressRoute circuit peerings by using the Azure portal
@@ -46,5 +46,5 @@ You can reset the Microsoft peering and the Azure private peering on an ExpressR
 
 To troubleshoot ExpressRoute problems, see the following articles:
 
-* [Verifying ExpressRoute connectivity](expressroute-troubleshooting-expressroute-overview.md)
-* [Troubleshooting network performance](expressroute-troubleshooting-network-performance.md)
+* [Verifying ExpressRoute connectivity](/troubleshoot/azure/expressroute/expressroute-troubleshooting-expressroute-overview)
+* [Troubleshooting network performance](/troubleshoot/azure/expressroute/expressroute-troubleshooting-network-performance)

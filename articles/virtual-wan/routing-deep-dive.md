@@ -8,6 +8,7 @@ ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 03/26/2025
 ms.author: jomore
+ms.custom: sfi-image-nochange
 ---
 
 # Virtual WAN routing deep dive
@@ -25,6 +26,9 @@ In each hub, the VPN and SDWAN appliances serve a dual purpose: on one side they
 All VNet and branch connections are associated and propagating to the default route table. Although the hubs are secured (there is an Azure Firewall deployed in every hub), they aren't configured to secure private or Internet traffic. Doing so would result in all connections propagating to the `None` route table, which would remove all non-static routes from the `Default` route table and defeat the purpose of this article since the effective route blade in the portal would be almost empty (except for the static routes to send traffic to the Azure Firewall).
 
 :::image type="content" source="./media/routing-deep-dive/virtual-wan-routing-deep-dive-scenario-1.png" alt-text="Diagram that shows a Virtual WAN design with two ExpressRoute circuits and two V P N branches." :::
+
+> [!NOTE]
+> In the diagrams throughout this article, each network entity is assigned a distinct BGP Autonomous System Number (ASN). VPN Branch 1 uses ASN 65501, while SDWAN Branch 4 uses ASN 65504. The different ASNs reflect the different connectivity types (site-to-site VPN vs. integrated SDWAN NVA) and follow a numbering convention based on the branch number. Other ASNs shown include 65012 for the NVA in VNet 12, 65102 for the SDWAN NVA in Hub 2, and 65001 for the ExpressRoute circuits.
 
 > [!IMPORTANT]
 > The previous diagram shows two secured virtual hubs. This topology is supported with Routing Intent. For more information, see [How to configure Virtual WAN Hub routing intent and routing policies][virtual-wan-intent].

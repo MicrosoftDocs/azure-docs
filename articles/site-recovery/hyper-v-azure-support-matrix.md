@@ -3,9 +3,11 @@ title: Support for disaster recovery of Hyper-V VMs to Azure with Azure Site Rec
 description: Summarizes the supported components and requirements for Hyper-V VM disaster recovery to Azure with Azure Site Recovery
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 12/19/2024
-author: ankitaduttaMSFT
-ms.author: ankitadutta
+ms.date: 05/05/2026
+author: Jeronika-MS
+ms.author: v-gajeronika
+ms.custom: references_regions
+# Customer intent: As a IT admin managing on-premises Hyper-V VMs, I want to implement disaster recovery to Azure, so that I can ensure business continuity and data protection in case of on-premises failures.
 ---
 
 
@@ -38,6 +40,7 @@ Hyper-V (running with Virtual Machine Manager) | Virtual Machine Manager 2022  (
 
 ## Replicated VMs
 
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 The following table summarizes VM support. Site Recovery supports any workloads running on a supported operating system.
 
@@ -109,7 +112,7 @@ Multi-path (MPIO). Tested with:<br></br> Microsoft DSM, EMC PowerPath 5.7 SP4, E
 VMDK | NA | NA
 VHD/VHDX | Yes | Yes
 Generation 2 VM | Yes | Yes
-EFI/UEFI<br></br>The migrated VM in Azure will be automatically converted to a BIOS boot VM. The VM should be running Windows Server 2012 and later only. The OS disk should have up to five partitions or fewer and the size of OS disk should be less than 2 TB.| Yes | Yes
+EFI/UEFI<br></br>The migrated VM in Azure will be automatically converted to a BIOS boot VM. The VM should be running Windows Server 2012 and later only. The OS disk should have up to four (4) partitions or fewer and the size of OS disk should be less than 2 TB.| Yes | Yes
 Shared cluster disk | No | No
 Encrypted disk | No | No
 NFS | NA | NA
@@ -126,6 +129,8 @@ Exclude disk | Yes | Yes
 Multi-path (MPIO) | Yes | Yes
 
 ## Azure Storage
+
+[!INCLUDE [hyper-v-to-azure-region-limitations.md](./includes/hyper-v-to-azure-region-limitations.md)]
 
 **Component** | **Hyper-V with Virtual Machine Manager** | **Hyper-V without Virtual Machine Manager**
 --- | --- | ---

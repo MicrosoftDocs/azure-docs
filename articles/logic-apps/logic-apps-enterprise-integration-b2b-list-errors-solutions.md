@@ -6,8 +6,8 @@ ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 02/20/2025
+ms.topic: concept-article
+ms.date: 07/01/2025
 ---
 
 # B2B errors and solutions for Azure Logic Apps

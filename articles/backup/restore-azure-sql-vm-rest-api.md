@@ -2,10 +2,11 @@
 title: Restore SQL server databases in Azure VMs with REST API
 description: Learn how to use REST API to restore SQL server databases in Azure VM from a restore point created by Azure Backup
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 02/13/2026
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to restore SQL Server databases in Azure VMs using the REST API, so that I can efficiently manage backup and recovery operations without using the portal."
 ---
 
 # Restore SQL Server databases in Azure VMs with REST API
@@ -17,8 +18,7 @@ By the end of this article, you'll learn how to perform the following operations
 - View the restore points for a backed-up SQL database.
 - Restore a full SQL database.
 
->[!Note]
->See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
+To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 ## Prerequisites
 
@@ -492,7 +492,9 @@ Sample request body to restore the disks of a VM to the secondary region is as f
 
 ## Next steps
 
+Manage SQL server databases in Azure VMs with [Azure portal](manage-monitor-sql-database-backup.md), [Azure CLI](backup-azure-sql-manage-cli.md), [REST API](manage-azure-sql-vm-rest-api.md).
+
 For more information on the Azure Backup REST APIs, see the following documents:
 
-- [Azure Recovery Services provider REST API](/rest/api/recoveryservices/)
-- [Get started with Azure REST API](/rest/api/azure/)
+- [Azure Recovery Services provider REST API](/rest/api/recoveryservices/).
+- [Get started with Azure REST API](/rest/api/azure/).

@@ -8,6 +8,7 @@ ms.author: mbender
 ms.date: 01/08/2025
 ms.service: azure-virtual-network
 ms.topic: how-to
+# Customer intent: "As a cloud engineer, I want to deploy a dual stack Virtual Machine Scale Set with IPv6 in an Azure virtual network, so that I can ensure my applications are ready for modern internet standards and efficient load balancing."
 ---
 
 # Deploy virtual machine scale sets with IPv6 in Azure
@@ -82,4 +83,4 @@ The only step that is different from individual VMs is creating the network inte
 To deploy a dual stack (IPv4 + IPv6) Virtual Machine Scale Set with dual stack external Load Balancer and virtual network view sample template [here](https://azure.microsoft.com/resources/templates/ipv6-in-vnet-vmss/).
 ## Next steps
 
-To learn more about IPv6 support in Azure virtual networks, see [What is IPv6 for Azure Virtual Network?](ipv6-overview.md).
+To learn more about IPv6 support in Azure virtual networks, see [What is IPv6 for Azure Virtual Network?](ipv6-overview.md)

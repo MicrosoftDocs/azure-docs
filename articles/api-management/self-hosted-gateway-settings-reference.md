@@ -2,12 +2,10 @@
 title: Reference - Self-hosted gateway container settings - Azure API Management
 description: Reference for the required and optional settings to configure the Azure API Management self-hosted gateway.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 04/12/2024
-ms.author: danlep
 ---
 
 # Reference: Self-hosted gateway container configuration settings
@@ -71,8 +69,8 @@ This guidance helps you provide the required information to define how to authen
 
 | Name                    | Description              | Required | Default           | Availability |
 |-------------------------|------------------------|----------|-------------------| ----|
-| k8s.ingress.enabled     | Enable Kubernetes Ingress integration. | No | `false` | v1.2+ |
-| k8s.ingress.namespace   | Kubernetes namespace to watch Kubernetes Ingress resources in. | No | `default` | v1.2+ |
+| k8s.ingress.enabled     | Enable Kubernetes Ingress integration. | No | `false` | v2.0+ |
+| k8s.ingress.namespace   | Kubernetes namespace to watch Kubernetes Ingress resources in. | No | `default` | v2.0+ |
 | k8s.ingress.dns.suffix  | DNS suffix to build DNS hostname for services to send requests to. | No | `svc.cluster.local` | v2.4+ |
 | k8s.ingress.config.path | Path to Kubernetes configuration (Kubeconfig). | No | N/A | v2.4+ |
 

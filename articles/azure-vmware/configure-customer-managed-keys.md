@@ -3,7 +3,8 @@ title: Configure CMK encryption at rest in Azure VMware Solution
 description: Learn how to encrypt data in Azure VMware Solution with customer-managed keys by using Azure Key Vault.
 ms.topic: how-to 
 ms.custom: devx-track-azurecli, engagement-fy23
-ms.date: 4/12/2024
+ms.date: 2/09/2026
+# Customer intent: As a cloud administrator, I want to configure customer-managed key encryption for my Azure VMware Solution, so that I can securely manage the encryption keys and control access to sensitive data at rest.
 ---
 
 # Configure customer-managed key encryption at rest in Azure VMware Solution
@@ -18,7 +19,7 @@ When you manage your own encryption keys, you can:
 - Centrally manage the lifecycle of CMKs.
 - Revoke Azure access to the KEK.
 
-The CMKs feature supports the following key types and their key sizes:
+CMK feature supports the following key types and their key sizes:
 
 - **RSA**: 2048, 3072, 4096
 - **RSA-HSM**: 2048, 3072, 4096
@@ -134,7 +135,7 @@ Go to your Key Vault instance and provide access to the SDDC on Key Vault by usi
     Option 1:
 
     1. Under **Encryption key**, choose **select from Key Vault**.
-    1. Select the encryption type. Then select the **Select Key Vault and key** option.
+    1. Select the encryption type, then select the **Select Key Vault and key** option.
     1. Select the **Key Vault and key** from the dropdown. Then choose **Select**.
     
     Option 2:
@@ -203,7 +204,7 @@ If you accidentally delete your key in the key vault, the private cloud can't pe
 
 ### Restore key vault permission
 
-If you have a private cloud that has lost access to the CMK, check if Managed System Identity (MSI) requires permissions in the key vault. The error notification returned from Azure might not correctly indicate MSI requiring permissions in the key vault as the root cause. Remember, the required permissions are `get`, `wrapKey`, and `unwrapKey`. See step 4 in [Prerequisites](#prerequisites).
+If you have a private cloud that lost access to the CMK, check if Managed System Identity (MSI) requires permissions in the key vault. The error notification returned from Azure might not correctly indicate MSI requiring permissions in the key vault as the root cause. Remember, the required permissions are `get`, `wrapKey`, and `unwrapKey`. See step 4 in [Prerequisites](#prerequisites).
 
 ### Fix an expired key
 

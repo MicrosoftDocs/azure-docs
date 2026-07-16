@@ -2,12 +2,12 @@
 title: 'Generate and export certificates for User VPN: Linux - OpenSSL'
 description: Learn how to create a self-signed root certificate, export the public key, and generate client certificates using OpenSSL for Virtual WAN User VPN connections.
 titleSuffix: Azure Virtual WAN
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 03/20/2025
-ms.author: cherylmc
+ms.author: duau
 ---
 # User VPN - Generate and export certificates - Linux - OpenSSL
 

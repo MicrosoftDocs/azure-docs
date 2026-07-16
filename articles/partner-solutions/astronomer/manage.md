@@ -1,7 +1,8 @@
 ---
 title: Manage an Astro resource through the Azure portal
 description: This article describes management functions for Astro on the Azure portal.
-
+author: praveenrajap
+ms.author: praveenrajap
 ms.topic: how-to
 ms.custom:
   - ignite-2023
@@ -53,6 +54,14 @@ Choose a Microsoft Entra account for the single sign-on. Once consent is provide
 ## Delete an Astro resource
 
 [!INCLUDE [delete-resource](../includes/delete-resource.md)]
+
+## Get support
+
+Contact [Astronomer](https://support.astronomer.io) for customer support. 
+
+You can also request support in the Azure portal from the [resource overview](#resource-overview).  
+
+Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [log a support request in the Astronomer portal](https://support.astronomer.io). 
 
 ## Next steps
 

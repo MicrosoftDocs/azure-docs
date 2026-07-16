@@ -7,8 +7,10 @@ manager: rdeltcheva
 ms.author: depadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/29/2025
+ms.custom: sfi-image-nochange
+# Customer intent: As a SAP workload administrator, I want to develop a comprehensive disaster recovery strategy on Azure so that I can ensure business continuity and minimize downtime in the event of a disaster affecting my SAP applications.
 ---
 
 # Disaster recovery overview and infrastructure guidelines for SAP workload
@@ -64,7 +66,7 @@ Organizations should plan and design a DR strategy for their entire IT landscape
 
 ## Infrastructure components of DR solution for SAP workload
 
-An SAP workload running on Azure uses different infrastructure components to run a business solution. To plan DR for such solution, it's essential that all infrastructure components configured in the primary region are available, and can be configured in the DR region as well. Following infrastructure components should be factored in when designing DR solution for SAP workload on Azure.
+An SAP workload running on Azure uses different infrastructure components to run a business solution. To plan DR for such solution, it's essential that all infrastructure components configured in the primary region are available and can be configured in the DR region as well. Following infrastructure components should be factored in when designing DR solution for SAP workload on Azure.
 
 - Network
 - Compute
@@ -124,7 +126,7 @@ An SAP workload running on Azure uses different infrastructure components to run
 
 - Different native Azure storage services (like Azure Files, Azure NetApp Files) might not be not available in all regions. So to have similar SAP setup on the DR region after failover, ensure the respective storage service is offered in DR site. For more information, check [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/).
 
-- If you're using zone redundancy storage (ZRS) for Azure Files, and Azure Shared Disk in your primary region, and you want to maintain same ZRS redundancy option in DR region as well, refer to [Premium file shares ZRS support]([Azure Files zone-redundant storage (ZRS) support for premium file shares | Microsoft Learn](../../storage/files/redundancy-premium-file-shares.md)), and [ZRS for managed disks](/azure/virtual-machines/disks-redundancy#zone-redundant-storage-for-managed-disks) document for ZRS support in Azure regions.
+- If you're using zone redundancy storage (ZRS) for Azure Files, and Azure Shared Disk in your primary region, and you want to maintain same ZRS redundancy option in DR region as well, refer to [Azure Files SSD ZRS support]([Azure Files zone-redundant storage (ZRS) support for SSD file shares | Microsoft Learn](../../storage/files/redundancy-premium-file-shares.md)), and [ZRS for managed disks](/azure/virtual-machines/disks-redundancy#zone-redundant-storage-for-managed-disks) document for ZRS support in Azure regions.
 
 - If using [availability zones for disaster recovery](../../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md), keep in mind the following points:
 

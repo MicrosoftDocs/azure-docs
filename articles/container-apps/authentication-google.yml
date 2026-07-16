@@ -5,7 +5,7 @@ metadata:
   description: Learn to use the built-in Google authentication provider in Azure Container Apps.
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 11/18/2024
+  ms.date: 03/23/2026
   ms.service: azure-container-apps
   ms.topic: how-to
   ms.custom:
@@ -46,9 +46,9 @@ procedureSection:
 
           The secret will be stored as a [secret](manage-secrets.md) in your container app.
       - |
-        If you're configuring the first identity provider for this application, you'll also be prompted with a **Container Apps authentication settings** section. Otherwise, you may move on to the next step.
+        If you're configuring the first identity provider for this application, you're prompted with a **Container Apps authentication settings** section. Otherwise, you may move on to the next step.
 
-          These options determine how your application responds to unauthenticated requests. The default selections redirect all requests to sign in with this new provider. You can change customize this behavior now or adjust these settings later from the main **Authentication** screen by choosing **Edit** next to **Authentication settings**. To learn more about these options, see [Authentication flow](authentication.md#authentication-flow).
+          These options determine how your application responds to unauthenticated requests. The default selections redirect all requests to sign in with this new provider. You can change or customize this behavior now or adjust these settings later from the main **Authentication** screen by choosing **Edit** next to **Authentication settings**. To learn more about these options, see [Authentication flow](authentication.md#authentication-flow).
       - |
         Select **Add**.
 

@@ -13,6 +13,8 @@ ms.author: stefanazaric
 
 # Query CSV files
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you'll learn how to query a single CSV file using serverless SQL pool in Azure Synapse Analytics. CSV files may have different formats: 
 
 - With and without a header row

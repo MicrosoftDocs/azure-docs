@@ -1,9 +1,11 @@
----
+﻿---
 title: Tag resources, resource groups, and subscriptions with Bicep
 description: Shows how to use Bicep to apply tags to Azure resources.
-ms.topic: conceptual
-ms.custom: devx-track-bicep
-ms.date: 09/26/2024
+ms.topic: article
+ms.custom:
+  - devx-track-bicep
+  - build-2025
+ms.date: 09/15/2025
 ---
 
 # Apply tags with Bicep
@@ -136,8 +138,27 @@ resource applyTags 'Microsoft.Resources/tags@2021-04-01' = {
 }
 ```
 
+## Read Tags
+
+You can read existing tags with the following approaches.
+
+> [!WARNING]
+> The `tags` property on the `Microsoft.Resources/tags` resource is not set if there are no tags set.
+> To avoid errors, ensure you use the safe-dereference operator (`.?`) on `properties`.
+
+```Bicep
+resource readTags 'Microsoft.Resources/tags@2021-04-01' existing = {
+  name: 'default'
+}
+var tagValue = readTags.properties?.tags?.myTag
+
+// Equivalent to above:
+var tagValue2 = reference(subscriptionResourceId('Microsoft.Resources/tags', 'default'), '2021-04-01', 'Full').properties.?tags.?myTag2
+```
+
 ## Next steps
 
 * For a list of resource types that support tags, see [Tag support for Azure resources](tag-support.md).
 * For recommendations on how to implement a tagging strategy, see [Resource naming and tagging decision guide](/azure/cloud-adoption-framework/decision-guides/resource-tagging/?toc=/azure/azure-resource-manager/management/toc.json).
 * For tag recommendations and limitations, see [Use tags to organize your Azure resources and management hierarchy](tag-resources.md).
+

@@ -29,7 +29,8 @@ You've added a time window filter for your *Beta* feature flag in the prerequisi
 When you create a feature manager, the built-in feature filters are automatically added to its feature filter collection.
 
 ``` javascript
-const fm = new FeatureManager(ffProvider);
+const fm = new FeatureManager(
+    new ConfigurationMapFeatureFlagProvider(appConfig));
 ```
 
 ## Time window filter in action

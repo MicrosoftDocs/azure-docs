@@ -6,7 +6,7 @@ description: Set up sign-in for a specific Microsoft Entra organization in Azure
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 01/27/2025
@@ -20,6 +20,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Set up sign-in for a specific Microsoft Entra organization in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article shows you how to enable sign-in for users from a specific Microsoft Entra organization using a user flow in Azure AD B2C.
 

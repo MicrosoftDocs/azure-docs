@@ -1,53 +1,52 @@
 ---
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 01/12/2024
+ms.date: 11/19/2025
 ms.topic: include
 ms.service: dev-box
 ---
 
-## Attach a network connection to a dev center
+## Attach and remove network connections
 
-You can attach existing network connections to a dev center. You must attach a network connection to a dev center before you can use it in projects to create dev box pools.
+Network connections enable dev boxes to connect to existing virtual networks. The location or Azure region of the network connection determines where associated dev boxes are hosted.
 
-Network connections enable dev boxes to connect to existing virtual networks. The location, or Azure region, of the network connection determines where associated dev boxes are hosted.
+If you have an existing network connection you want to use with Microsoft Dev Box, you must attach it to a dev center before you can use it for dev box projects and pools. You can attach multiple network connections to a dev center.
 
-To attach a network connection to a dev center in Microsoft Dev Box:
+### Attach a network connection to a dev center
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+To attach a network connection to a dev center:
 
-1. In the search box, enter **dev centers**. In the list of results, select **Dev centers**.
+1. In the [Azure portal](https://portal.azure.com), go to the page for the dev center you want to attach the network connection to.
+1. On the dev center page, select **Networking** under **Dev box configuration** in the left navigation menu.
+1. On the **Networking** page, select **Add**.
 
-1. Select the dev center that you created, and then select **Networking**.
+   :::image type="content" source="../media/how-to-manage-network-connection/select-add-network-connection.png" alt-text="Screenshot that shows how to select Add to attach a network connection to a dev center.":::
 
-1. Select **+ Add**.
+1. On the **Add network connection** pane, select the network connection you want to use, and then select **Add**:
 
-1. On the **Add network connection** pane, select the network connection that you created earlier, and then select **Add**.
+   :::image type="content" source="../media/how-to-manage-network-connection/add-network-connection.png" alt-text="Screenshot that shows the pane for selecting the network connection to add.":::
 
-   :::image type="content" source="../media/how-to-manage-network-connection/add-network-connection.png" alt-text="Screenshot that shows the pane for adding a network connection." lightbox="../media/how-to-manage-network-connection/add-network-connection.png":::
+After you attach the network connection, the Azure portal runs several health checks on the network. You can view the status of the checks on the dev center **Networking** page.
 
-After you attach a network connection, the Azure portal runs several health checks on the network. You can view the status of the checks on the resource overview page.
+:::image type="content" source="../media/how-to-manage-network-connection/network-connection-grid-populated.png" alt-text="Screenshot that shows the status of the network connections attached to the dev center.":::
 
-:::image type="content" source="../media/how-to-manage-network-connection/network-connection-grid-populated.png" alt-text="Screenshot that shows the status of a network connection." lightbox="../media/how-to-manage-network-connection/network-connection-grid-populated.png" :::
+If all the health checks pass, the network connection is added to the dev center and you can select it when you create dev box pools. Dev boxes in the pools are created and domain-joined in the virtual network location assigned to the network connection.
 
-You can add network connections that pass all health checks to a dev center and use them to create dev box pools. Dev boxes within dev box pools are created and domain joined in the location of the virtual network assigned to the network connection.
+To address health check errors and issues, see [Troubleshoot Azure network connections](/windows-365/enterprise/troubleshoot-azure-network-connection).
 
-To resolve any errors, see [Troubleshoot Azure network connections](/windows-365/enterprise/troubleshoot-azure-network-connection).
+### Remove a network connection from a dev center
 
-## Remove a network connection from a dev center
+Follow these steps to remove an attached network connection from a dev center.
 
-You can remove network connections from dev centers. Network connections can't be removed if one or more dev box pools are using them.
+> [!NOTE]
+> If the network connection is in use by one or more dev centers, you can't remove it.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
+1. In the [Azure portal](https://portal.azure.com), select the dev center that has the connection you want to remove.
+1. On the dev center page, select **Networking** under **Dev box configuration** in the left navigation menu.
+1. Select the network connection you want to remove and then select **Remove**.
 
-1. In the search box, enter **dev centers**. In the list of results, select **Dev centers**.
+   :::image type="content" source="../media/how-to-manage-network-connection/remove-network-connection.png" alt-text="Screenshot that shows how to remove a selected network connection attached to a dev center.":::
 
-1. Select the dev center that you created, and then select **Networking**.
+1. Respond **OK** to the confirmation message.
 
-1. Select the network connection that you want to remove, and then select **Remove**.
-
-   :::image type="content" source="../media/how-to-manage-network-connection/remove-network-connection.png" alt-text="Screenshot that shows the Remove button on the network connection page." lightbox="../media/how-to-manage-network-connection/remove-network-connection.png":::
-
-1. Review the warning message, and then select **OK**.
-
-After you remove a network connection, it's no longer available for use in dev box pools within the dev center.
+After you remove a network connection, it's no longer available for use by dev box pools in the dev center.

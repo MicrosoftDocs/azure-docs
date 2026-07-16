@@ -5,7 +5,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.topic: how-to
-ms.date: 11/27/2024
+ms.date: 05/22/2026
 
 # Customer intent: As a developer, I want to use ADE and `azd` together to provision application infrastructure and deploy application code to the new infrastructure.
 
@@ -15,11 +15,12 @@ ms.date: 11/27/2024
 
 In this article, you create a new environment from an existing Azure Developer CLI (`azd`) compatible template by using `azd`. You learn how to configure Azure Deployment Environments (ADE) and `azd` to work together to provision application infrastructure and deploy application code to the new infrastructure.
 
-To learn the key concepts of how `azd` and ADE work together, see [Use Azure Developer CLI with Azure Deployment Environments](concept-azure-developer-cli-with-deployment-environments.md).
+To learn the key concepts of how `azd` and ADE work together, see [Azure Developer CLI and Azure Deployment Environments](concept-azure-developer-cli-with-deployment-environments.md).
 
 ## Prerequisites
 
 - Create and configure a dev center with a project, environment types, and catalog. Use the following article as guidance:
+
    - [Quickstart: Configure Azure Deployment Environments](/azure/deployment-environments/quickstart-create-and-configure-devcenter).
 
 ## Attach Microsoft quick start catalog
@@ -40,30 +41,30 @@ For more information on tagging resources, see [Tagging resources for Azure Depl
 
    :::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/catalog-url.png" alt-text="Screenshot of Azure portal showing the catalogs attached to a dev center, with clone URL highlighted." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/catalog-url.png":::
 
-1. To view the quick start catalog in GitHub, paste the **Clone URL** into the address bar and press Enter. Or, you can use the following URL: [Microsoft quick start catalog](https://aka.ms/deployment-environments/quickstart-catalog).
+1. To view the quick start catalog in GitHub, paste the **Clone URL** into the address bar, and press **Enter**. Or, you can use the following URL: [Microsoft quick start catalog](https://aka.ms/deployment-environments/quickstart-catalog).
 
 1. In the GitHub repository, navigate to the **Environment-Definitions/ARMTemplates/Function-App-with-Cosmos_AZD-template** folder.
 
-1. Open the **environment.yaml** file. At the end of the file, you see the allowed repositories that contain sample application source code.
+1. Open the environment.yaml file. At the end of the file, you see the allowed repositories that contain sample application source code.
 
    :::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/application-source-templates.png" alt-text="Screenshot of GitHub repository, showing the environment.yaml file with source templates highlighted." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/application-source-templates.png":::
 
 1. Copy the **https://github.com/azure-samples/todo-python-mongo-swa-func** repository URL, and then navigate to the repository in GitHub.
 
-1. In the root of the repository, open the **azure.yaml** file.
+1. In the root of the repository, open the azure.yaml file.
 
 1. In the azure.yaml file, in the **services** section, you see the **web** and **API** services that are defined in the template.
 
 > [!NOTE]
-> Not all `azd` compatible catalogs use the linked templates structure shown in the example. You can use a single catalog for all your environments by including the azure.yaml file. Using multiple catalogs and code repositories allows you more flexibility in configuring secure access for platform engineers and developers. 
+> Not all `azd` compatible catalogs use the linked templates structure shown in the example. You can use a single catalog for all your environments by including the azure.yaml file. Using multiple catalogs and code repositories allows you more flexibility in configuring secure access for platform engineers and developers.
 
-If you're working with your own catalog & environment definition, you can create an azure.yaml file in the root of your repository. Use the azure.yaml file to define the services that you want to deploy to the environment.
+If you're working with your own catalog and environment definition, you can create an azure.yaml file in the root of your repository. Use the azure.yaml file to define the services that you want to deploy to the environment.
 
 ## Create an environment from an existing template
 
 Use an existing `azd` compatible template to create a new environment.
 
-### Prepare to work with `azd` 
+### Prepare to work with `azd`
 
 When you work with `azd` for the first time, there are some one-time setup tasks you need to complete. These tasks include installing the Azure Developer CLI, signing in to your Azure account, and enabling `azd` support for Azure Deployment Environments.
 
@@ -75,7 +76,7 @@ When you install `azd`, the `azd` tools are installed within an `azd` scope rath
 
 To enable Azure Developer CLI features in Visual Studio Code, install the Azure Developer CLI extension. Select the **Extensions** icon in the Activity bar, search for **Azure Developer CLI**, and then select **Install**.
 
-:::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/install-azure-developer-cli-small.png" alt-text="Screenshot of Visual Studio Code, showing the Sign in command in the command palette." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/install-azure-developer-cli-large.png":::
+:::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/install-azure-developer-cli-small.png" alt-text="Screenshot of Visual Studio Code, showing the Extensions pane with the Azure Developer CLI extension and Install highlighted." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/install-azure-developer-cli-large.png":::
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
@@ -87,13 +88,13 @@ powershell -ex AllSigned -c "Invoke-RestMethod 'https://aka.ms/install-azd.ps1' 
 
 #### Sign in with Azure Developer CLI
 
-Access your Azure resources by logging in. When you initiate a log in, a browser window opens and prompts you to log in to Azure. After you sign in, the terminal displays a message that you're signed in to Azure.
+Access your Azure resources by logging in. When you sign in, a browser window opens and prompts you to sign in to Azure. After you sign in, the terminal displays a message that you're signed in to Azure.
 
 Sign in to `azd` using the command palette:
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
-:::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/azure-developer-sign-in.png" alt-text="Screenshot of Visual Studio Code, showing the Extensions pane with the Azure Developer CLI and Install highlighted." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/azure-developer-sign-in.png":::
+:::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/azure-developer-sign-in.png" alt-text="Screenshot of Visual Studio Code, showing the Sign in command in the command palette." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/azure-developer-sign-in.png":::
 
 The output of commands issued from the command palette is displayed in an **azd dev** terminal like the following example:
 
@@ -101,7 +102,7 @@ The output of commands issued from the command palette is displayed in an **azd 
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
-Sign in to Azure at the CLI using the following command: 
+Sign in to Azure at the CLI using the following command:
 
 ```bash
  azd auth login
@@ -113,7 +114,7 @@ Sign in to Azure at the CLI using the following command:
 
 #### Enable `azd` support for ADE
 
-When `platform.type` is set to `devcenter`, all `azd` remote environment state and provisioning uses dev center components. `azd` uses one of the infrastructure templates defined in your dev center catalog for resource provisioning. In this configuration, the *infra* folder in your local templates isn't used. 
+When `platform.type` is set to `devcenter`, all `azd` remote environment state and provisioning uses dev center components. `azd` uses one of the infrastructure templates defined in your dev center catalog for resource provisioning. In this configuration, the infra folder in your local templates isn't used.
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
@@ -128,20 +129,20 @@ When `platform.type` is set to `devcenter`, all `azd` remote environment state a
 
 ### Create a new environment
 
-Now you're ready to create an environment to work in. You begin with an existing template. ADE defines the infrastructure for your application, and the `azd` template provides sample application code.
+Now you're ready to create an environment to work in. Begin with an existing template. ADE defines the infrastructure for your application, and the `azd` template provides sample application code.
 
 # [Visual Studio Code](#tab/visual-studio-code)
 
 1. In Visual Studio Code, open an empty folder.
 
 1. Open the command palette, enter *Azure Developer CLI init*, and then from the list, select **Azure Developer CLI (azd): init**.
- 
+
     :::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/command-palette-azure-developer-initialize.png" alt-text="Screenshot of the Visual Studio Code command palette with Azure Developer CLI (azd): init highlighted." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/command-palette-azure-developer-initialize.png":::
- 
+
 1. In the list of templates, select **Function-App-with-Cosmos_AZD-template**.
 
    :::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/command-palette-functionapp-template.png" alt-text="Screenshot of the Visual Studio Code command palette with a list of templates, Function App highlighted." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/command-palette-functionapp-template.png":::
-  
+
 1. In the `azd` terminal, enter an environment name.
 
    :::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/enter-environment-name.png" alt-text="Screenshot of the Azure Developer terminal, showing prompt for a new environment name." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/enter-environment-name.png":::
@@ -153,9 +154,8 @@ Now you're ready to create an environment to work in. You begin with an existing
 1. Select an environment definition.
 
    :::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/initialize-select-environment-definition.png" alt-text="Screenshot of the Azure Developer terminal, showing prompt to select an environment definition." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/initialize-select-environment-definition.png":::
- 
-   `azd` creates the project resources, including an *azure.yaml* file in the root of your project.
 
+   `azd` creates the project resources, including an azure.yaml file in the root of your project.
 
 # [Azure Developer CLI](#tab/azure-developer-cli)
 
@@ -165,8 +165,8 @@ Now you're ready to create an environment to work in. You begin with an existing
 
    ```bash
    azd template list
-   
    ```
+
    Multiple templates are available. You can select the template that best fits your needs, depending on the application you want to build and the language you want to use.
 
    :::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/developer-cli-template-list.png" alt-text="Screenshot of the Azure Developer terminal, showing the templates available." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/developer-cli-template-list.png":::
@@ -176,6 +176,7 @@ Now you're ready to create an environment to work in. You begin with an existing
    ```bash
    azd init
    ```
+
 1. In the `azd` terminal, enter an environment name.
 
    :::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/enter-environment-name.png" alt-text="Screenshot of the Azure Developer terminal, showing prompt for a new environment name." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/enter-environment-name.png":::
@@ -187,17 +188,17 @@ Now you're ready to create an environment to work in. You begin with an existing
 1. Select an environment definition.
 
    :::image type="content" source="media/how-to-configure-azure-developer-cli-deployment-environments/initialize-select-environment-definition.png" alt-text="Screenshot of the Azure Developer terminal, showing prompt to select an environment definition." lightbox="media/how-to-configure-azure-developer-cli-deployment-environments/initialize-select-environment-definition.png":::
- 
-   `azd` creates the project resources, including an *azure.yaml* file in the root of your project.
+
+   `azd` creates the project resources, including an azure.yaml file in the root of your project.
 
 ---
 
-## Configure your devcenter 
+## Configure your devcenter
 
-You can define `azd` settings for your dev centers so that you don't need to specify them each time you update an environment. In this example, you define the names of the catalog, dev center, and project that you're using for your environment. 
+You can define `azd` settings for your dev centers so that you don't need to specify them each time you update an environment. In this example, you define the names of the catalog, dev center, and project that you're using for your environment.
 
-1. In Visual Studio Code, navigate to the *azure.yaml* file in the root of your project.
- 
+1. In Visual Studio Code, navigate to the azure.yaml file in the root of your project.
+
 1. In the azure.yaml file, add the following settings:
 
    ```yaml
@@ -215,10 +216,9 @@ To learn more about the settings you can configure, see [Configure dev center se
 
 ## Provision your environment
 
-You can use `azd` to provision and deploy resources to your deployment environments using commands like `azd up` or `azd provision`. 
+You can use `azd` to provision and deploy resources to your deployment environments using commands like `azd up` or `azd provision`.
 
-To learn more about provisioning your environment, see [Work with Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration?branch=main#work-with-azure-deployment-evironments).
-
+To learn more about provisioning your environment, see [Work with Azure Deployment Environments](/azure/developer/azure-developer-cli/ade-integration#work-with-azure-deployment-environments).
 
 ## Related content
 

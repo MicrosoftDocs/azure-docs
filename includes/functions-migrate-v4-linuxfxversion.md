@@ -14,9 +14,9 @@ PowerShell apps aren't supported on Linux before Functions 4.x. This fact means 
 ::: zone-end
 ::: zone pivot="programming-language-csharp"
 ```azurecli
-az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "DOTNET|6.0"
+az functionapp config set --name <APP_NAME> --resource-group <RESOURCE_GROUP_NAME> --linux-fx-version "DOTNET|8.0"
 ```
-If you're migrating to .NET Functions isolated worker process, use either `DOTNET-ISOLATED|6.0` or `DOTNET-ISOLATED|7.0` for `--linux-fx-version`. 
+If you're migrating to .NET Functions isolated worker process, use `DOTNET-ISOLATED|8.0` for `--linux-fx-version`. 
 :::zone-end
 ::: zone pivot="programming-language-java"
 ```azurecli

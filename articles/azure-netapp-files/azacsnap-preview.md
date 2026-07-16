@@ -7,11 +7,13 @@ ms.service: azure-netapp-files
 ms.topic: reference
 ms.date: 02/01/2025
 ms.author: phjensen
+ms.custom: sfi-ropc-nochange
+# Customer intent: As a cloud administrator, I want to utilize the Azure Application Consistent Snapshot tool's preview features for backup and managed disks, so that I can ensure data integrity during snapshots and effectively manage storage options for my applications.
 ---
 
 # Preview features of the Azure Application Consistent Snapshot tool
 
-This article provides a guide on setup and usage of the new features in preview for the Azure Application Consistent Snapshot tool (AzAcSnap). For basic information about the tool, see [What is the Azure Application Consistent Snapshot tool?](./azacsnap-introduction.md).
+This article provides a guide on setup and usage of the new features in preview for the Azure Application Consistent Snapshot tool (AzAcSnap). For basic information about the tool, see [What is the Azure Application Consistent Snapshot tool?](./azacsnap-introduction.md)
 
 The preview features provided with AzAcSnap 11 are:
 

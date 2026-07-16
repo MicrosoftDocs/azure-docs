@@ -4,7 +4,7 @@ description: SSIS workloads migration assessment rules.
 author: chugugrace
 ms.author: chugu
 ms.subservice: integration-services
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/15/2024
 ---
 

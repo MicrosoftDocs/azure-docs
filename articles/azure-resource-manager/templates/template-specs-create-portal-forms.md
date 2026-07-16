@@ -3,14 +3,14 @@ title: Create portal forms for template spec
 description: Learn how to create forms that are displayed in the Azure portal forms. Use the form to deploy a template spec.
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.date: 01/30/2025
+ms.date: 05/29/2026
 ---
 
 # Tutorial: Create Azure portal forms for a template spec
 
-You can create a form that appears in the Azure portal to assist users in deploying a [template spec](template-specs.md). The form allows users to enter values that are passed as parameters to the template spec.
+You can create a *Form view* that appears in the Azure portal to assist users in deploying a [template spec](template-specs.md). A Form view is described in JSON; the Azure portal renders the form at runtime from that JSON. For a conceptual introduction to Form view independent of template specs, see [Form view overview](form-view-overview.md).
 
-When you create the template spec, you package the form and Azure Resource Manager template (ARM template) together. Deploying the template spec through the portal automatically launches the form.
+When you create the template spec, you package the Form view and Azure Resource Manager template (ARM template) together. Deploying the template spec through the portal automatically launches the form.
 
 The following screenshot shows a form opened in the Azure portal.
 
@@ -18,7 +18,7 @@ The following screenshot shows a form opened in the Azure portal.
 
 ## Prerequisites
 
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 For Azure PowerShell, use [version 6.0.0 or later](/powershell/azure/install-azure-powershell). For Azure CLI, use [version 2.24.0 or later](/cli/azure/install-azure-cli).
 
@@ -137,7 +137,7 @@ Copy this file and save it locally. This tutorial assumes you named it **keyvaul
   "resources": [
     {
       "type": "Microsoft.KeyVault/vaults",
-      "apiVersion": "2022-07-01",
+      "apiVersion": "2025-05-01",
       "name": "[parameters('keyVaultName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -167,7 +167,7 @@ Copy this file and save it locally. This tutorial assumes you named it **keyvaul
     },
     {
       "type": "Microsoft.KeyVault/vaults/secrets",
-      "apiVersion": "2022-07-01",
+      "apiVersion": "2025-05-01",
       "name": "[format('{0}/{1}', parameters('keyVaultName'), parameters('secretName'))]",
       "dependsOn": [
         "[resourceId('Microsoft.KeyVault/vaults', parameters('keyVaultName'))]"
@@ -182,7 +182,7 @@ Copy this file and save it locally. This tutorial assumes you named it **keyvaul
 
 ## Create default form
 
-The Azure portal provides a sandbox for creating and previewing forms. This sandbox can render a form from an existing ARM template. Use this default form to get started with creating a form for your template spec. For more information about the form structure, see [FormViewType](https://github.com/Azure/portaldocs/blob/main/portal-sdk/generated/dx-view-formViewType.md).
+The Azure portal provides a sandbox for creating and previewing forms. This sandbox can render a form from an existing ARM template. Use this default form to get started with creating a form for your template spec.
 
 1. Open the [Form view sandbox](https://aka.ms/form/sandbox).
 
@@ -411,4 +411,6 @@ Notice that your permission fields are now drop-downs that allow multiple values
 
 ## Next steps
 
-To learn about deploying a template spec as a linked template, see [Tutorial: Deploy a template spec as a linked template](template-specs-deploy-linked-template.md).
+- For a conceptual introduction to Form view, see [Form view overview](form-view-overview.md).
+- For the full list of supported controls, see [Form view elements](form-view-elements.md).
+- To learn about deploying a template spec as a linked template, see [Tutorial: Deploy a template spec as a linked template](template-specs-deploy-linked-template.md).

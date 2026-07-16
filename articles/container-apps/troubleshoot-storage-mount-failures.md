@@ -1,18 +1,18 @@
 ---
-title: Troubleshoot storage mount failures in Azure Container Apps
-description: Learn to troubleshoot storage mount failures in Azure Container Apps
+title: Troubleshoot Storage Mount Failures in Azure Container Apps
+description: Learn to troubleshoot storage mount failures in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 01/24/2025
+ms.date: 04/01/2026
 ms.author: cshoe
 ms.custom:
 ---
 
 # Troubleshoot storage mount failures in Azure Container Apps
 
-Azure Container Apps allow containers to interact with external storage systems, such as Azure Files, Azure Blob Storage, or Azure Managed Disks, for persisting data. These storage resources are mounted to the container's file system during container startup.
+Azure Container Apps allows containers to interact with external storage systems, such as Azure Files, Azure Blob Storage, or Azure Managed Disks, for persisting data. These storage resources are mounted to the container's file system during container startup.
 
 Storage mount failures occur when your app's container is unable to successfully mount or access required storage resources, such as volumes or file systems.
 
@@ -28,15 +28,15 @@ Storage mount failures occur when your app's container is unable to successfully
 
 ## Diagnostics
 
-The Container Apps diagnostics features an intelligent and interactive experience that helps you troubleshoot your app with no configuration required. Use the following steps to access Azure Container Apps diagnostics.
+Container Apps features an intelligent and interactive diagnostics experience that helps you troubleshoot your app with no configuration required. Use the following steps to access Container Apps diagnostics.
 
 1. Go to your container app in the Azure portal.
 
-1. Select **Diagnose and solve problems**.
+1. Select **Diagnose and solve problems** in the sidebar menu.
 
 1. Under the troubleshooting categories, select the **Availability and Performance** category tile.
 
-1. From the left navigation, select **Storage Mount Failures** to diagnose and troubleshoot the issue.
+1. Select **Storage Mount Failures** to diagnose and troubleshoot the issue.
 
     This report provides details on the issue, possible causes, and recommended resolutions.
 

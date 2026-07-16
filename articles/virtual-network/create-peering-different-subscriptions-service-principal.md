@@ -9,6 +9,7 @@ ms.custom: devx-track-azurecli
 ms.topic: how-to 
 ms.date: 11/04/2024
 #customer intent: As a network administrator, I want to connect virtual networks in different subscriptions using service principal names so that I can allow resources in different subscriptions to communicate with each other.
+# Customer intent: As a network administrator, I want to peer virtual networks across different subscriptions using service principal names, so that I can enable secure communication between resources in those networks.
 ---
 # Connect virtual networks in different subscriptions with service principal names
 
@@ -16,7 +17,7 @@ Scenarios exist where you need to connect virtual networks in different subscrip
 
 ## Prerequisites
 
-- An Azure account with two active subscriptions and two Microsoft Entra ID tenants. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with two active subscriptions and two Microsoft Entra ID tenants. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - Account permissions to create a service principal, assign app permissions, and create resources in the Microsoft Entra ID tenant associated with each subscription.
 

@@ -6,7 +6,7 @@ description: Define an OAuth2 custom error technical profile in a custom policy 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 05/07/2024
@@ -19,6 +19,8 @@ ms.subservice: b2c
 ---
 
 # Define an OAuth2 custom error technical profile in an Azure Active Directory B2C custom policy
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article describes how to handle an OAuth2 custom error with Azure Active Directory B2C (Azure AD B2C). Use this technical profile if something logic goes wrong within your policy. The technical profile returns error to your OAuth2 or OpenId Connect relying party application. Check out the [Live demo](https://github.com/azure-ad-b2c/unit-tests/tree/main/technical-profiles/oauth2-error) of the OAuth2 custom error technical profile. 
 

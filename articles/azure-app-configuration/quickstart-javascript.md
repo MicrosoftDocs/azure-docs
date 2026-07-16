@@ -20,8 +20,8 @@ This document shows examples of how to use the [Azure SDK for JavaScript](https:
 
 ## Prerequisites
 
-- An Azure account with an active subscription - [Create one for free](https://azure.microsoft.com/free/)
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An Azure account with an active subscription - [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 - [LTS versions of Node.js](https://github.com/nodejs/release#release-schedule). For information about installing Node.js either directly on Windows or using the Windows Subsystem for Linux (WSL), see [Get started with Node.js](/windows/dev-environment/javascript/nodejs-overview)
 
 ## Create a key-value
@@ -337,7 +337,7 @@ run().catch(console.error);
     If you use macOS or Linux, run the following command:
     
     ```bash
-    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_ENDPOINT='<AppConfigurationEndpoint>'
     ```
     
     ### [Connection string](#tab/connection-string)
@@ -347,7 +347,7 @@ run().catch(console.error);
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
     
     ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIG_CONNECTION_STRING "<AppConfigurationConnectionString>"
     ```
     
     If you use PowerShell, run the following command:
@@ -359,7 +359,7 @@ run().catch(console.error);
     If you use macOS or Linux, run the following command:
     
     ```bash
-    export AZURE_APPCONFIG_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_CONNECTION_STRING='<AppConfigurationConnectionString>'
     ```
     ---
 

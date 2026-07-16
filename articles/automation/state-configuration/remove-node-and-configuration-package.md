@@ -4,10 +4,14 @@ description: This article explains how to remove an Azure Automation State Confi
 titleSuffix: Azure Automation
 services: automation
 ms.subservice: desired-state-config
-ms.custom: linux-related-content
-ms.date: 10/22/2024
+ms.date: 11/17/2025
 ms.topic: how-to
 ms.service: azure-automation
+ms.author: v-rochak2
+author: RochakSingh-blr
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # How to remove a configuration and node from Automation State Configuration

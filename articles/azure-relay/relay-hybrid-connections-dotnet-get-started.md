@@ -3,7 +3,7 @@ title: Azure Relay Hybrid Connections - WebSockets in .NET
 description: This tutorial shows you how to write a C# console application for Azure Relay Hybrid Connections WebSockets.
 ms.topic: tutorial
 ms.custom: devx-track-dotnet, mode-ui, mode-api
-ms.date: 12/10/2024
+ms.date: 01/24/2026
 # Customer intent: As a developer, I would like to know how to write a C# console application for Azure Relay Hybrid Connections WebSockets.
 ---
 
@@ -25,7 +25,7 @@ In this quickstart, you take the following steps:
 To complete this tutorial, you need the following prerequisites:
 
 * [Visual Studio 2015 or later](https://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017.
-* An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create a namespace
 [!INCLUDE [relay-create-namespace-portal](./includes/relay-create-namespace-portal.md)]

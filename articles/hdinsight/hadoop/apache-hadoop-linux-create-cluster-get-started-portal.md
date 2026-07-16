@@ -4,11 +4,16 @@ description: In this quickstart, you use the Azure portal to create an HDInsight
 keywords: hadoop getting started,hadoop linux,hadoop quickstart,hive getting started,hive quickstart
 ms.service: azure-hdinsight
 ms.topic: quickstart
-ms.custom: hdinsightactive, mvc, mode-ui, linux-related-content
 author: hareshg
 ms.author: hgowrisankar
 ms.reviewer: nijelsf
 ms.date: 11/25/2024
+ms.custom:
+  - hdinsightactive
+  - mvc
+  - mode-ui
+  - linux-related-content
+  - sfi-image-nochange
 #Customer intent: As a data analyst, I need to create a Hadoop cluster in Azure HDInsight using Azure portal and run a Hive job
 ---
 
@@ -20,7 +25,7 @@ In this quickstart, you use the Azure portal to create an HDInsight Hadoop clust
 
 Currently, HDInsight comes with [seven different cluster types](../hdinsight-overview.md#cluster-types-in-hdinsight). Each cluster type supports a different set of components. All cluster types support Hive. For a list of supported components in HDInsight, see [What's new in the Apache Hadoop cluster versions provided by HDInsight?](../hdinsight-component-versioning.md)  
 
-If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create an Apache Hadoop cluster
 

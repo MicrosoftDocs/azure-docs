@@ -5,7 +5,7 @@ author: ramacg
 ms.topic: reference
 ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 05/04/2023
-ms.author: shsagir
+ms.author: spelluru
 ms.reviewer: ramacg
 zone_pivot_groups: programming-languages-set-functions-data-explorer
 ---

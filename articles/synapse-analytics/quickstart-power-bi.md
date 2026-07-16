@@ -7,14 +7,16 @@ ms.topic: quickstart
 ms.subservice: business-intelligence
 ms.date: 12/20/2024
 ms.author: harmeetgill
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 ---
 
 # Quickstart: Linking a Power BI workspace to a Synapse workspace
 
 In this quickstart, you learn how to connect a Power BI workspace to an Azure Synapse Analytics workspace to create new Power BI reports and datasets from Synapse Studio.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 

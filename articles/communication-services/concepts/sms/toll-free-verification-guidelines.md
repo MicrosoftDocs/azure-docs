@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: prakulka
 ms.date: 03/15/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: sms
 ms.custom: references_regions
@@ -102,3 +102,4 @@ Message senders are required to disclose all the types/categories of messages wi
 
 - See the [SMS FAQ](./sms-faq.md#toll-free-verification).
 - See the [SMS SDK overview](../sms/sdk-features.md).
+- For global messaging, see [Messaging Connect](../sms/messaging-connect.md).

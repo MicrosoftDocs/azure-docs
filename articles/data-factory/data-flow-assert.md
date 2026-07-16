@@ -4,8 +4,8 @@ description: Set assertions for mapping data flows
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
-ms.date: 01/05/2024
+ms.topic: feature-guide
+ms.date: 04/27/2026
 ---
 
 # Assert transformation in mapping data flow
@@ -13,6 +13,9 @@ ms.date: 01/05/2024
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+> [!TIP]
+>  The Assert transformation isn't currently supported in Dataflow Gen2. For a list of supported transformations and their equivalents, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
 
 The Assert transformation enables you to build custom rules inside your mapping data flows for data quality and data validation. You can build rules that determine whether values meet an expected value domain. Additionally, you can build rules that check for row uniqueness. The Assert transformation helps to determine if each row in your data meets a set of criteria. The Assert transformation also allows you to set custom error messages when data validation rules aren't met.
 

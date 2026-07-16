@@ -4,7 +4,7 @@ description: Get started by deploying your first function app from a Linux image
 ms.date: 12/29/2023
 ms.topic: quickstart
 ms.custom: build-2023, devx-track-azurecli, devx-track-azurepowershell, devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content, devx-track-ts
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ---
 
 # Create your first containerized Azure Functions 
@@ -14,7 +14,7 @@ In this article, you create a function app running in a Linux container and depl
 Deploying your function code to Azure Functions in a container requires [Premium plan](functions-premium-plan.md) or [Dedicated (App Service) plan](dedicated-plan.md) hosting. Completing this article incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
 
 > [!TIP]
-> When you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs, consider instead hosting your containerized function apps in Azure Container Apps. Functions provides integrated support for developing, deploying, and managing containerized function apps on Container Apps. For more information, see [Azure Container Apps hosting of Azure Functions](functions-container-apps-hosting.md). 
+> When you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs, consider instead hosting your containerized function apps in Azure Container Apps. Functions provides integrated support for developing, deploying, and managing containerized function apps on Container Apps. For more information, see [Azure Container Apps hosting of Azure Functions](../container-apps/functions-overview.md). 
 
 [!INCLUDE [functions-create-container-registry](../../includes/functions-create-container-registry.md)]
 
@@ -196,6 +196,8 @@ To avoid ongoing costs, delete the `AzureFunctionsContainers-rg` resource group 
 ```azurecli
 az group delete --name AzureFunctionsContainers-rg
 ```
+
+
 
 ## Next steps
 

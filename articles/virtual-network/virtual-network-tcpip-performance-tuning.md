@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 04/21/2025
 ms.author: allensu
+# Customer intent: "As a network administrator managing Azure VMs, I want to implement TCP/IP performance tuning techniques, so that I can optimize network throughput and minimize latency for my virtual machines."
 ---
 
 # TCP/IP performance tuning for Azure VMs
@@ -254,6 +255,12 @@ The throughput limit applies to the virtual machine. Throughput isn't affected b
 - **Protocol**: All outbound traffic over all protocols counts towards the limit.
 
 For more information, see [Virtual machine network bandwidth](./virtual-machine-network-throughput.md).
+
+### Linux Virtual Machines (VMs) Optimization
+
+Modern Linux kernels have features that can help achieving consistency and performance, sometimes required by certain workloads.
+
+For more information, see [Optimize network bandwidth on Azure VMs](/azure/virtual-network/virtual-network-optimize-network-bandwidth#linux-virtual-machines)
 
 ### Internet performance considerations
 

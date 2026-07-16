@@ -45,7 +45,7 @@ After your Azure Synapse Analytics workspace is created, you have two ways to op
 1. Go to an existing Data Lake Storage Gen2 storage account.
 1. Select **Access control (IAM)**.
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-1. Assign the following role. For more information, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For more information, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
     | Setting | Value |
     | --- | --- |
@@ -65,7 +65,7 @@ Managed identities for your Azure Synapse Analytics workspace might already have
 1. Open the [Azure portal](https://portal.azure.com) and the primary storage account chosen for your workspace.
 1. Select **Access control (IAM)**.
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-1. Assign the following role. For more information, see [Assign Azure roles by using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For more information, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
     | Setting | Value |
     | --- | --- |

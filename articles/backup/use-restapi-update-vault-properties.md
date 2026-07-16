@@ -2,17 +2,18 @@
 title: Update Recovery Services vault configuration with REST API
 description: In this article, learn how to update vault's configuration using REST API.
 ms.topic: how-to
-ms.date: 10/20/2024
+ms.date: 10/16/2025
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As an cloud administrator, I want to update the soft delete state of a Recovery Services vault using REST API, so that I can ensure immediate deletion of vaults when necessary without being hindered by soft delete settings.
 ---
 # Update Azure Recovery Services vault configurations using REST API
 
 This article describes how to update backup related configurations in Azure Recovery Services vault using REST API.
 
-## Soft delete state
+## Manage soft delete operations in Recovery Services vault
 
 Deleting backups of a protected item is a significant operation that has to be monitored. To protect against accidental deletions, Azure Recovery Services vault has a soft-delete capability. This capability allows you to restore deleted backups, if necessary, within a time period after the deletion.
 

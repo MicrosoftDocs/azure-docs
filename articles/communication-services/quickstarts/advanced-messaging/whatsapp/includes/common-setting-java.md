@@ -5,7 +5,7 @@ services: azure-communication-services
 author: shamkh
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 07/15/2024
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: shamkh
@@ -16,6 +16,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 ### Start sending messages between a business and a WhatsApp user
 
 Conversations between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways:
+
 - The business sends a template message to the WhatsApp user.
 - The WhatsApp user sends any message to the business number.
 
@@ -29,7 +30,7 @@ There are a few different options available for authenticating a Message client:
 
 To authenticate a client, you instantiate an `NotificationMessagesClient` or `MessageTemplateClient` with your connection string. You can also initialize the client with any custom HTTP client that implements the `com.azure.core.http.HttpClient` interface.
 
-For simplicity, this quickstart uses a connection string to authenticate. In production environments, we recommend using [service principals](../../../identity/service-principal.md).
+For simplicity, this article uses a connection string to authenticate. In production environments, we recommend using [service principals](../../../identity/service-principal.md).
 
 Get the connection string from your Azure Communication Services resource in the Azure portal. On the left, navigate to the `Keys` tab. Copy the `Connection string` field for the `Primary key`. The connection string is in the format `endpoint=https://{your Azure Communication Services resource name}.communication.azure.com/;accesskey={secret key}`.
 
@@ -123,25 +124,38 @@ String channelRegistrationId = "<your channel registration id GUID>";
 ```
 
 ### Set recipient list
-You need to supply a real phone number that has a WhatsApp account associated with it. This WhatsApp account receives the text and media messages sent in this quickstart.
-For this quickstart, this phone number may be your personal phone number.   
+
+You need to supply a real phone number that has a WhatsApp account associated with it, or a business-scoped user ID (BSUID). This WhatsApp account receives the text and media messages sent in this article.
+For this article, this phone number can be your personal phone number.   
 
 The recipient phone number can't be the business phone number (Sender ID) associated with the WhatsApp channel registration. The Sender ID appears as the sender of the text and media messages sent to the recipient.
 
 The phone number should include the country code. For more information on phone number formatting, see WhatsApp documentation for [Phone Number Formats](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/phone-numbers#phone-number-formats).
 
 > [!NOTE]
-> Only one phone number is currently supported in the recipient list.
+> Only one phone number or BSUID is currently supported in the recipient list.
 
 Create the recipient list like this:
 ```java
 List<String> recipientList = new ArrayList<>();
-recipientList.add("<to WhatsApp phone number>");
+recipientList.add("<to WhatsApp phone number or BSUID>");
 ```
 
-Example:
+Example using a phone number:
 ```java
 // Example only
 List<String> recipientList = new ArrayList<>();
 recipientList.add("+14255550199");
 ```
+
+Example using a BSUID:
+```java
+// Example only
+List<String> recipientList = new ArrayList<>();
+recipientList.add("US.13491208655302741918");
+```
+
+> [!NOTE]
+> Sending messages to BSUIDs will be available starting in June 2026. Until then, use phone numbers as recipients.
+
+For more information about BSUIDs, see [WhatsApp usernames and BSUIDs](../../../../concepts/advanced-messaging/whatsapp/whatsapp-username-support-overview.md).

@@ -2,12 +2,12 @@
 title: Troubleshoot virtual machine provisioning in Azure Stack Edge Pro GPU | Microsoft Docs 
 description: Describes how to troubleshoot issues that occur when provisioning a new virtual machine in Azure Stack Edge Pro GPU.
 services: databox
-author: v-dalc
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: troubleshooting
 ms.date: 08/16/2024
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Troubleshoot VM deployment in Azure Stack Edge Pro GPU
 

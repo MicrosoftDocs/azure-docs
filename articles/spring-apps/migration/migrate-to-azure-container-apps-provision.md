@@ -6,7 +6,8 @@ ms.author: karler
 ms.reviewer: dixue
 ms.service: azure-spring-apps
 ms.topic: upgrade-and-migration-article
-ms.date: 01/29/2025
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -22,7 +23,7 @@ In Azure Spring Apps, applications are deployed within a service instance, which
 
 ## Prerequisites
 
-- An active Azure subscription. If you don't have one, you can [create a free Azure account](https://azure.microsoft.com/free).
+- An active Azure subscription. If you don't have one, you can [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure CLI](/cli/azure/install-azure-cli).
 - The `Microsoft.App` resource provider is registered in your Azure subscription. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
@@ -132,13 +133,13 @@ For more information, see [Azure Container Apps planned maintenance](../../conta
 
 ### Availability zone support
 
-In most regions, Azure Spring Apps and Azure Container Apps use availability zones in regions where they're available. For a list of regions that support availability zones, see [Azure services with availability zone support](../../reliability/availability-zones-service-support.md). Azure Container Apps offers the same reliability support regardless of your plan type.
+In most regions, Azure Spring Apps and Azure Container Apps use availability zones in regions where they're available. For a list of regions that support availability zones, see [Azure services with availability zone support](/azure/reliability/availability-zones-service-support). Azure Container Apps offers the same reliability support regardless of your plan type.
 
-To enable availability zones in Azure Container Apps, you need to specify a virtual network with an available subnet when creating the container app environment. Both Azure Spring Apps and Azure Container Apps use the same parameter to enable zone redundancy. For more information on how to enable availability zones, see [Reliability in Azure Container Apps](../../reliability/reliability-azure-container-apps.md).
+To enable availability zones in Azure Container Apps, you need to specify a virtual network with an available subnet when creating the container app environment. Both Azure Spring Apps and Azure Container Apps use the same parameter to enable zone redundancy. For more information on how to enable availability zones, see [Reliability in Azure Container Apps](/azure/reliability/reliability-azure-container-apps).
 
 ### Disaster recovery
 
-Azure Spring Apps and Azure Container Apps employ a unified strategy for disaster recovery and business continuity. For more information, see the [Cross-region disaster recovery and business continuity](../../reliability/reliability-azure-container-apps.md#cross-region-disaster-recovery-and-business-continuity) section of [Reliability in Azure Container Apps](../../reliability/reliability-azure-container-apps.md).
+Azure Spring Apps and Azure Container Apps employ a unified strategy for disaster recovery and business continuity. For more information, see the [Cross-region disaster recovery and business continuity](/azure/reliability/reliability-azure-container-apps#cross-region-disaster-recovery-and-business-continuity) section of [Reliability in Azure Container Apps](/azure/reliability/reliability-azure-container-apps).
 
 ## Known limitations
 

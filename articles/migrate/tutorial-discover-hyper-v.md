@@ -6,9 +6,15 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 02/07/2025
-ms.custom: mvc, subject-rbac-steps, engagement-fy24
-#Customer intent: As a Hyper-V admin, I want to discover my on-premises servers on Hyper-V.
+ms.custom:
+  - mvc
+  - subject-rbac-steps
+  - engagement-fy24
+  - sfi-image-nochange
+  - sfi-ropc-nochange
+# Customer intent: As a Hyper-V administrator, I want to discover on-premises servers using Azure Migrate, so that I can gather performance data and prepare for migration to the cloud.
 ---
 
 # Tutorial: Discover servers running on Hyper-V with Azure Migrate: Discovery and assessment
@@ -27,7 +33,7 @@ In this tutorial, you learn how to:
 > * Start continuous discovery.
 
 > [!NOTE]
-> Tutorials show the quickest path for trying out a scenario, and use default options.  
+> Tutorials show the quickest path for trying out a scenario and use default options.  
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial/) before you begin.
 
@@ -37,52 +43,20 @@ Before you start this tutorial, check you have these prerequisites in place.
 
 **Requirement** | **Details**
 --- | ---
-**Hyper-V host** | Hyper-V hosts on which servers are located can be standalone, or in a cluster.<br/><br/> The host must be running Windows Server 2022, Windows Server 2019, or Windows Server 2016.<br/><br/> Verify inbound connections are allowed on WinRM port 5985 (HTTP), so that the appliance can connect to pull server metadata and performance data, using a Common Information Model (CIM) session.
+**Hyper-V host** | Hyper-V hosts on which servers are located can be standalone, or in a cluster.<br/><br/> The host must be running Windows Server 2025, Windows Server 2022, Windows Server 2019, or Windows Server 2016.<br/><br/> Verify inbound connections are allowed on WinRM port 5985 (HTTP), so that the appliance can connect to pull server metadata and performance data, using a Common Information Model (CIM) session.
 **Appliance deployment** | Hyper-V host needs resources to allocate a server for the appliance:<br/><br/> - 16 GB of RAM, 8 vCPUs, and around 80 GB of disk storage.<br/><br/> - An external virtual switch, and internet access on the appliance, directly or via a proxy.
 **Servers** | All Windows and Linux OS versions are supported for discovery of configuration and performance metadata. <br /><br /> For application discovery on servers, all Windows and Linux OS versions are supported. Check the [OS versions supported for agentless dependency analysis](migrate-support-matrix-hyper-v.md#dependency-analysis-requirements-agentless).<br /><br /> To discover ASP.NET web apps running on IIS web server, check [supported Windows OS and IIS versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements). For discovery of installed applications and for agentless dependency analysis, Windows servers must have PowerShell version 2.0 or later installed.<br /><br />  To discover Java web apps running on Apache Tomcat web server, check [supported Linux OS and Tomcat versions](migrate-support-matrix-vmware.md#web-apps-discovery-requirements). 
 **SQL Server access** | To discover SQL Server instances and databases, the Windows or SQL Server account [requires these permissions](migrate-support-matrix-hyper-v.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance. You can use the [account provisioning utility](least-privilege-credentials.md) to create custom accounts or use any existing account that is a member of the sysadmin server role for simplicity.
 
-## Prepare an Azure user account
-
-To create a project and register the Azure Migrate appliance, you need an account with:
-- Contributor or Owner permissions on an Azure subscription.
-- Permissions to register Microsoft Entra apps.
-
-If you just created a free Azure account, you're the owner of your subscription. If you're not the subscription owner, work with the owner to assign the permissions as follows:
-
-1. In the Azure portal, search for "subscriptions", and under **Services**, select **Subscriptions**.
-
-    :::image type="content" source="./media/tutorial-discover-hyper-v/search-subscription.png" alt-text="Screenshot of Search box to search for the Azure subscription.":::
-
-1. In the **Subscriptions** page, select the subscription in which you want to create a project.
-
-1. Select **Access control (IAM)**.
-
-1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
-
-    | Setting | Value |
-    | --- | --- |
-    | Role | Contributor or Owner |
-    | Assign access to | User |
-    | Members | azmigrateuser |
-
-    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of add role assignment page in Azure portal.":::
-
-1. To register the appliance, your Azure account needs **permissions to register Microsoft Entra apps.**
-
-1. In the portal, go to **Microsoft Entra ID** > **Users**.
-
-1. Request the tenant or global admin to assign the [Application Developer role](../active-directory/roles/permissions-reference.md#application-developer) to the account to allow Microsoft Entra app registration by users. [Learn more](../active-directory/roles/manage-roles-portal.md#assign-a-role).
+[!INCLUDE [migrate-rbac-permissions](includes/migrate-rbac-permissions.md)]
 
 ## Prepare Hyper-V hosts
 
-You can prepare Hyper-V hosts manually, or using a script. The preparation steps are summarized in the table. The script prepares these automatically.
+You can prepare Hyper-V hosts manually or using a script. The preparation steps are summarized in the table. The script prepares these automatically.
 
 **Step** | **Script** | **Manual**
 --- | --- | ---
-Verify host requirements | Checks that the host is running a supported version of Hyper-V, and the Hyper-V role.<br/><br/>Enables the WinRM service, and opens ports 5985 (HTTP) and 5986 (HTTPS) on the host (needed for metadata collection). | The host must be running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.<br/><br/> Verify inbound connections are allowed on WinRM port 5985 (HTTP), so that the appliance can connect to pull server metadata and performance data, using a Common Information Model (CIM) session.<br/><br/> The script isn't currently supported on hosts with a non-English locale.  
+Verify host requirements | Checks that the host is running a supported version of Hyper-V, and the Hyper-V role.<br/><br/>Enables the WinRM service and opens ports 5985 (HTTP) and 5986 (HTTPS) on the host (needed for metadata collection). | The host must be running Windows Server 2019, Windows Server 2016, or Windows Server 2012 R2.<br/><br/> Verify inbound connections are allowed on WinRM port 5985 (HTTP), so that the appliance can connect to pull server metadata and performance data, using a Common Information Model (CIM) session.<br/><br/> The script isn't currently supported on hosts with a non-English locale.  
 Verify PowerShell version | Checks that you're running the script on a supported PowerShell version. | Check you're running PowerShell version 4.0 or later on the Hyper-V host.
 Create an account | Verifies that you have the correct permissions on the Hyper-V host.<br/><br/> Allows you to create a local user account with the correct permissions. | Option 1: Prepare an account with Administrator access to the Hyper-V host machine.<br/><br/> Option 2: Prepare a Local Admin account, or Domain Admin account, and add the account to these groups: Remote Management Users, Hyper-V Administrators, and Performance Monitor Users.
 Enable PowerShell remoting | Enables PowerShell remoting on the host, so that the Azure Migrate appliance can run PowerShell commands on the host, over a WinRM connection. | To set up, on each host, open a PowerShell console as admin, and run this command: ``` powershell Enable-PSRemoting -force ```
@@ -116,34 +90,13 @@ SHA256 | [!INCLUDE [hyper-v-vhd.md](includes/hyper-v-vhd.md)]
 
 ### Create an account to access servers
 
-The user account on your servers must have the required permissions to initiate discovery of installed applications, agentless dependency analysis, and SQL Server instances and databases. You can provide the user account information in the appliance configuration manager. The appliance doesn't install agents on the servers.
-
-* To perform software inventory and agentless dependency analysis, create a guest user account (local or domain) on the servers. To perform web app discovery, you need an account with administrative permissions on the servers. To discover SQL Server instances and databases, the Windows or SQL Server account must be a member of the sysadmin server role or have [these permissions](./migrate-support-matrix-vmware.md#configure-the-custom-login-for-sql-server-discovery) for each SQL Server instance. Learn how to [assign the required role to the user account](/sql/relational-databases/security/authentication-access/server-level-roles).
-* For **Linux servers**, provide a sudo user account with permissions to execute ls and netstat commands or create a user account that has the CAP_DAC_READ_SEARCH and CAP_SYS_PTRACE permissions on /bin/netstat and /bin/ls files. If you're providing a sudo user account, ensure that you have enabled **NOPASSWD** for the account to run the required commands without prompting for a password every time sudo command is invoked.
-
-> [!NOTE]
-> You can add multiple server credentials in the Azure Migrate appliance configuration manager to initiate discovery of installed applications, agentless dependency analysis, and SQL Server instances and databases. You can add multiple domain, Windows (non-domain), Linux (non-domain), or SQL Server authentication credentials. Learn how to [add server credentials](add-server-credentials.md).
+You can add multiple server credentials in the Azure Migrate appliance configuration manager to initiate discovery of installed applications, agentless dependency analysis, and SQL Server instances and databases. You can add multiple domains, Windows (non-domain), Linux (non-domain), or SQL Server authentication credentials. Learn how to [add server credentials](add-server-credentials.md).
 
 ## Set up a project
 
-Set up a new project.
+To set up a new project, see, [Create and manage Azure Migrate projects](quickstart-create-project.md)
 
-1. In the Azure portal > **All services**, search for **Azure Migrate**.
-2. Under **Services**, select **Azure Migrate**.
-3. In **Get started**, select **Create project**.
-5. In **Create project**, select your Azure subscription and resource group. Create a resource group if you don't have one.
-6. In **Project Details**, specify the project name and the geography in which you want to create the project. Review supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
-
-   > [!Note]
-   > Use the **Advanced** configuration section to create an Azure Migrate project with private endpoint connectivity. [Learn more](discover-and-assess-using-private-endpoints.md#create-a-project-with-private-endpoint-connectivity). 
-
-7. Select **Create**.
-8. Wait a few minutes for the project to deploy. The **Azure Migrate: Discovery and assessment** tool is added by default to the new project.
-
-    :::image type="content" source="./media/tutorial-discover-hyper-v/added-tool.png" alt-text="Screenshot showing Azure Migrate: Discovery and assessment tool added by default.":::
-
-> [!NOTE]
-> If you have already created a project, you can use the same project to register additional appliances to discover and assess more no of servers. [Learn more](create-manage-projects.md#find-a-project).
+:::image type="content" source="./media/tutorial-discover-hyper-v/added-tool.png" alt-text="Screenshot showing Azure Migrate: Discovery and assessment tool added by default.":::
 
 ## Set up the appliance
 
@@ -158,12 +111,12 @@ This tutorial sets up the appliance on a server running in Hyper-V environment, 
 1. Provide an appliance name and generate a project key in the portal.
 1. Download a compressed Hyper-V VHD from the Azure portal.
 1. Create the appliance, and check that it can connect to Azure Migrate: Discovery and assessment.
-1. Configure the appliance for the first time, and register it with the project using the project key.
+1. Configure the appliance for the first time and register it with the project using the project key.
 
 ### 1. Generate the project key
 
 1. In **Migration goals** > **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Discover**.
-2. In **Discover Servers** > **Are your servers virtualized?**, select **Yes, with Hyper-V**.
+2. In **Discover Servers** > **Are your servers virtualized?** select **Yes, with Hyper-V**.
 3. In **1:Generate project key**, provide a name for the Azure Migrate appliance that you'll set up for discovery of servers. The name should be alphanumeric with 14 characters or fewer.
 1. Select **Generate key** to start the creation of the required Azure resources. Don't close the Discover server page during the creation of resources.
 1. After the successful creation of the Azure resources, a **project key** is generated.
@@ -171,35 +124,11 @@ This tutorial sets up the appliance on a server running in Hyper-V environment, 
 
 ### 2. Download the VHD
 
-In **2: Download Azure Migrate appliance**, select the .VHD file and select **Download**.
-
-### Verify security
-
-Check that the zipped file is secure, before you deploy it.
-
-1. On the machine to which you downloaded the file, open an administrator command window.
-
-2. Run the following PowerShell command to generate the hash for the ZIP file
-    - ```C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]```
-    - Example usage: ```C:\>Get-FileHash -Path ./AzureMigrateAppliance_v3.20.09.25.zip -Algorithm SHA256```
-
-3.  Verify the latest appliance versions and hash values:
-
-    - For the Azure public cloud:
-
-        **Scenario** | **Download** | **SHA256**
-        --- | --- | ---
-        Hyper-V (8.91 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848) | 952e493a63a45f97ecdc0945807d504f4bd2f0f4f8248472b784c3e6bd25eb13 
-
-    - For Azure Government:
-
-        **Scenario*** | **Download** | **SHA256**
-        --- | --- | ---
-        Hyper-V (85.8 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
+In **2: Download Azure Migrate appliance**, select the .VHD file and select **Download**.  Verify security by validating the SHA256 values.  
 
 ### 3. Create an appliance
 
-Import the downloaded file, and create an appliance.
+Import the downloaded file and create an appliance.
 
 1. Extract the zipped VHD file to a folder on the Hyper-V host that will host the appliance. Three folders are extracted.
 2. Open Hyper-V Manager. In **Actions**, select **Import Virtual Machine**.
@@ -215,7 +144,7 @@ Import the downloaded file, and create an appliance.
 
 ### Verify appliance access to Azure
 
-Make sure that the appliance can connect to Azure URLs [public](supported-geographies.md#public-cloud) and [government](supported-geographies.md#azure-government) clouds.
+Ensure that the appliance can connect to Azure URLs [public](supported-geographies.md#public-cloud) and [government](supported-geographies.md#azure-government) clouds.
 
 ### 4. Configure the appliance
 
@@ -226,10 +155,10 @@ Set up the appliance for the first time.
 
 1. In Hyper-V Manager > **Virtual Machines**, right-click the appliance > **Connect**.
 2. Provide the language, time zone, and password for the appliance.
-3. Open a browser on any machine that can connect to the appliance, and open the URL of the appliance web app: **https://*appliance name or IP address*: 44368**.
+3. Open a browser on any machine that can connect to the appliance and open the URL of the appliance web app: **https://*appliance name or IP address*: 44368**.
 
    Alternately, you can open the app from the appliance desktop by selecting the app shortcut.
-1. Accept the **license terms**, and read the third-party information.
+1. Accept the **license terms** and read the third-party information.
 
 #### Set up prerequisites and register the appliance
 
@@ -248,18 +177,17 @@ In the configuration manager, select **Set up prerequisites**, and then complete
     > [!NOTE]
     > This is a new user experience in Azure Migrate appliance which is available only if you have set up an appliance using the latest OVA/Installer script downloaded from the portal. The appliances which have already been registered will continue seeing the older version of the user experience and will continue to work without any issues.
 
-    1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key, and then copy the key that's shown.
-	2. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server.
-    3. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and open an Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
+1. For the appliance to run auto-update, paste the project key that you copied from the portal. If you don't have the key, go to **Azure Migrate: Discovery and assessment** > **Overview** > **Manage existing appliances**. Select the appliance name you provided when you generated the project key and then copy the key that's shown. 
+1. The appliance will verify the key and start the auto-update service, which updates all the services on the appliance to their latest versions. When the auto-update has run, you can select **View appliance services** to see the status and versions of the services running on the appliance server. 
+1. To register the appliance, you need to select **Login**. In **Continue with Azure Login**, select **Copy code & Login** to copy the device code (you must have a device code to authenticate with Azure) and go to Azure Login prompt in a new browser tab. Make sure you've disabled the pop-up blocker in the browser to see the prompt.
     
-        :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and log in.":::
+    :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Screenshot that shows where to copy the device code and log in.":::
+1. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
+	> [!NOTE]
+    > If you close the login tab accidentally without logging in, refresh the browser tab of the appliance configuration manager to display the device code and Copy code & Login button.
+1. After you successfully log in, return to the browser tab that displays the appliance configuration manager. If the Azure user account that you used to log in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
 
-    4. In a new tab in your browser, paste the device code and sign in by using your Azure username and password. Signing in with a PIN isn't supported.
-	    > [!NOTE]
-        > If you close the login tab accidentally without logging in, refresh the browser tab of the appliance configuration manager to display the device code and Copy code & Login button.
-	5. After you successfully log in, return to the browser tab that displays the appliance configuration manager. If the Azure user account that you used to log in has the required permissions for the Azure resources that were created during key generation, appliance registration starts.
-
-        After the appliance is successfully registered, to see the registration details, select **View details**.
+    After the appliance is successfully registered, to see the registration details, select **View details**.
 
 You can *rerun prerequisites* at any time during appliance configuration to check whether the appliance meets all the prerequisites.
 
@@ -275,13 +203,13 @@ If you're running VHDs on SMBs, you must enable delegation of credentials from t
 
 2. Alternatively, do this in the Local Group Policy Editor on the appliance:
     - In **Local Computer Policy** > **Computer Configuration**, select **Administrative Templates** > **System** > **Credentials Delegation**.
-    - Double-click **Allow delegating fresh credentials**, and select **Enabled**.
+    - Double-click **Allow delegating fresh credentials** and select **Enabled**.
     - In **Options**, select **Show**, and add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
     - In  **Credentials Delegation**, double-click **Allow delegating fresh credentials with NTLM-only server authentication**. Again, add each Hyper-V host you want to discover to the list, with **wsman/** as a prefix.
 
 ## Start continuous discovery
 
-Connect from the appliance to Hyper-V hosts or clusters, and start server discovery.
+Connect from the appliance to Hyper-V hosts or clusters and start server discovery.
 
 ### Provide Hyper-V host/cluster details
 
@@ -290,13 +218,13 @@ Connect from the appliance to Hyper-V hosts or clusters, and start server discov
 1. In **Step 2: Provide Hyper-V host/cluster details**, select **Add discovery source** to specify the Hyper-V host/cluster **IP address/FQDN** and the friendly name for credentials to connect to the host/cluster.
 1. You can either **Add single item** at a time or **Add multiple items** in one go. There's also an option to provide Hyper-V host/cluster details through **Import CSV**.
 
-    - If you choose **Add single item**, you need to specify friendly name for credentials and Hyper-V host/cluster **IP address/FQDN**, and select **Save**.
+    - If you choose **Add single item**, you need to specify friendly name for credentials and Hyper-V host/cluster **IP address/FQDN** and select **Save**.
     - If you choose **Add multiple items** _(selected by default)_, you can add multiple records at once by specifying Hyper-V host/cluster **IP address/FQDN** with the friendly name for credentials in the text box. **Verify** the added records and select **Save**.
     - If you choose **Import CSV**, you can download a CSV template file, populate the file with the Hyper-V host/cluster **IP address/FQDN** and friendly name for credentials. You then import the file into the appliance, **verify** the records in the file and select **Save**.
 
 1. On selecting Save, appliance will try validating the connection to the Hyper-V hosts/clusters added and show the **Validation status** in the table against each host/cluster.
     - For successfully validated hosts/clusters, you can view more details by selecting on their IP address/FQDN.
-    - If validation fails for a host, review the error by selecting on **Validation failed** in the Status column of the table. Fix the issue, and validate again.
+    - If validation fails for a host, review the error by selecting on **Validation failed** in the Status column of the table. Fix the issue and validate again.
     - To remove hosts or clusters, select **Delete**.
     - You can't remove a specific host from a cluster. You can only remove the entire cluster.
     - You can add a cluster, even if there are issues with specific hosts in the cluster.
@@ -315,7 +243,7 @@ To add server credentials:
 1. Select **Add Credentials**.
 1. In the dropdown menu, select **Credentials type**.
     
-    You can provide domain/, Windows(non-domain)/, Linux(non-domain)/, and SQL Server authentication credentials. Learn how to [provide credentials](add-server-credentials.md) and how we handle them.
+    You can provide domain/, Windows(non-domain)/, Linux(non-domain)/, Linux (SSH key based), and SQL Server authentication credentials. Learn how to [provide credentials](add-server-credentials.md) and how we handle them.
 1. For each type of credentials, enter:
     * A friendly name.
     * A username.
@@ -323,6 +251,26 @@ To add server credentials:
     Select **Save**.
 
     If you choose to use domain credentials, you also must enter the FQDN for the domain. The FQDN is required to validate the authenticity of the credentials with the Active Directory instance in that domain.
+1. For a Windows server: 
+    1. Select the source type as **Windows Server**. 
+    1. Enter a friendly name for the credentials. 
+    1. Add the username and password. 
+    1. Select **Save**. 
+1. If you use password-based authentication for a Linux server, select the source type as **Linux Server (Password-based)**. 
+    1. Enter a friendly name for the credentials. 
+    1. Add the username and password, and then select Save. 
+1. If you use SSH key-based authentication for a Linux server: 
+    1. Select the source type as **Linux Server (SSH key-based)**. 
+    1. Enter a friendly name for the credentials. 
+    1. Add the username. 
+    1. Browse and select the SSH private key file. 
+    1. Select **Save**. 
+
+    >[!Note]
+    > - Azure Migrate supports SSH private keys created using the ssh-keygen command with RSA, ECDSA, and ed25519 algorithms.
+    > - It supports SSH private key files in OpenSSH format.
+    > - It doesn't support SSH keys with a passphrase. We recommend using a key without a passphrase
+    > - It also doesn't support SSH private key files created by PuTTY.
 1. Review the [required permissions](add-server-credentials.md#required-permissions) on the account for discovery of installed applications, agentless dependency analysis, and discovery SQL Server instances and databases.
 1. To add multiple credentials at once, select **Add more** to save credentials, and then add more credentials.
     When you select **Save** or **Add more**, the appliance validates the domain credentials with the domain's Active Directory instance for authentication. Validation is made after each addition to avoid account lockouts as the appliance iterates to map credentials to respective servers.
@@ -368,7 +316,7 @@ The **Operating system license support status** column displays the support stat
 
 To view the remaining duration until end of support, that is, the number of months for which the license is valid, select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months.
 
-The **Database instances** displays the number of instances discovered by Azure Migrate. Select the number of instances to view the database instance details. The **Database instance license support status** displays the support status of the database instance. Selecting the support status opens a pane on the right, which provides clear guidance regarding actionable steps that can be taken to secure servers and databases in extended support or out of support.
+The **Database instances** display the number of instances discovered by Azure Migrate. Select the number of instances to view the database instance details. The **Database instance license support status** displays the support status of the database instance. Selecting the support status opens a pane on the right, which provides clear guidance regarding actionable steps that can be taken to secure servers and databases in extended support or out of support.
 
 To view the remaining duration until end of support, that is, the number of months for which the license is valid, select **Columns** > **Support ends in** > **Submit**. The **Support ends in** column displays the duration in months.
 

@@ -4,7 +4,7 @@ description:  Enable the use of WPF desktop application options by using several
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024
@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Enable authentication options in a WPF desktop app by using Azure AD B2C 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article describes ways you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your Windows Presentation Foundation (WPF) desktop application. 
 

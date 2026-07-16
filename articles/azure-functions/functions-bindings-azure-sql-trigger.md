@@ -9,7 +9,7 @@ ms.custom:
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 4/23/2025
+ms.date: 05/01/2026
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -43,15 +43,19 @@ Changes are processed in the order that their changes were made, with the oldest
 2. Changes are "batched" together for a row. If multiple changes are made to a row between each iteration of the loop then only a single change entry exists for that row which will show the difference between the last processed state and the current state
 3. If changes are made to a set of rows, and then another set of changes are made to half of those same rows, then the half of the rows that weren't changed a second time are processed first. This processing logic is due to the above note with the changes being batched - the trigger will only see the "last" change made and use that for the order it processes them in
 
+> [!NOTE]
+> Azure SQL change tracking can detect row-level changes in tables that use encryption technologies such as Always Encrypted or Transparent Data Encryption (TDE). However, the Azure SQL trigger doesn’t decrypt or expose encrypted column values in the change payload. The trigger can detect that a change occurred but can’t access the decrypted data for those columns.
+
 For more information on change tracking and how it's used by applications such as Azure SQL triggers, see [work with change tracking](/sql/relational-databases/track-changes/work-with-change-tracking-sql-server) .
 
 [!INCLUDE [functions-sql-database-authentication-note](../../includes/functions-sql-database-authentication-note.md)]
 
-::: zone pivot="programming-language-csharp"
+For a complete end-to-end example of using the Azure SQL trigger, see [Respond to Azure SQL Database changes using Azure Functions](scenario-database-changes-azure-sqldb.md).
 
 ## Example usage
 <a id="example"></a>
 
+::: zone pivot="programming-language-csharp"
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -175,8 +179,6 @@ namespace AzureSQL.ToDo
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-## Example usage
-<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-java).
 
@@ -294,8 +296,6 @@ public class ProductsTrigger {
 
 
 ::: zone pivot="programming-language-powershell"
-## Example usage
-<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-powershell).
 
@@ -350,8 +350,6 @@ Write-Host "SQL Changes: $changesJson"
 ```
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
-## Example usage
-<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-js).
 
@@ -407,8 +405,6 @@ module.exports = async function (context, todoChanges) {
 
 
 ::: zone pivot="programming-language-python"
-## Example usage
-<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-python).
 
@@ -444,7 +440,6 @@ The following is sample python code for the function_app.py file:
 import json
 import logging
 import azure.functions as func
-from azure.functions.decorators.core import DataType
 
 app = func.FunctionApp()
 
@@ -613,7 +608,7 @@ Here is an example local.settings.json file with the optional settings:
 
 ## Set up change tracking (required)
 
-Setting up change tracking for use with the Azure SQL trigger requires two steps.  These steps can be completed from any SQL tool that supports running queries, including [Visual Studio Code](/sql/tools/visual-studio-code/mssql-extensions), [Azure Data Studio](/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
+Setting up change tracking for use with the Azure SQL trigger requires two steps.  These steps can be completed from any SQL tool that supports running queries, including [Visual Studio Code](/sql/tools/visual-studio-code-extensions/mssql/mssql-extension-visual-studio-code), or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Enable change tracking on the SQL database, substituting `your database name` with the name of the database where the table to be monitored is located:
 
@@ -638,6 +633,37 @@ Setting up change tracking for use with the Azure SQL trigger requires two steps
 
     The trigger needs to have read access on the table being monitored for changes and to the change tracking system tables. Each function trigger has an associated change tracking table and leases table in a schema `az_func`. These tables are created by the trigger if they don't yet exist.  More information on these data structures is available in the Azure SQL binding library [documentation](https://github.com/Azure/azure-functions-sql-extension/blob/main/docs/BindingsOverview.md#internal-state-tables).
 
+
+## Grant permissions for Azure SQL trigger
+
+When using the Azure SQL trigger with Azure Functions (including when using [managed identity](functions-identity-access-azure-sql-with-managed-identity.md)), the database principal must be granted additional permissions beyond those required for input and output bindings.
+
+The `db_datareader` and `db_datawriter` roles used for input and output bindings aren't  sufficient for SQL triggers.
+
+The Azure SQL trigger relies on [SQL change tracking](#set-up-change-tracking-required) to detect changes and uses internal state tables in an `az_func` schema. To function correctly, the following permissions are required:
+
+1. Grant the identity permissions to create the schema and tables used internally by the trigger:
+
+    ```sql
+    GRANT CREATE TABLE TO [<UserOrManagedIdentity>];
+    GRANT CREATE SCHEMA TO [<UserOrManagedIdentity>];
+    ```
+
+1. Grant read access and change tracking on the monitored table:
+
+    ```sql
+    GRANT SELECT ON [<TableName>] TO [<UserOrManagedIdentity>];
+    GRANT VIEW CHANGE TRACKING ON [<TableName>] TO [<UserOrManagedIdentity>];
+    ```
+
+1. Create the `az_func` schema used internally by the trigger and grant permissions on it:
+
+    ```sql
+    CREATE SCHEMA az_func;
+    GO
+    GRANT ALTER ON SCHEMA::az_func TO [<UserOrManagedIdentity>];
+    GRANT SELECT, INSERT, UPDATE, DELETE ON SCHEMA::az_func TO [<UserOrManagedIdentity>];
+    ```
 
 ## Enable runtime-driven scaling
 

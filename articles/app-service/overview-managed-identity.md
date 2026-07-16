@@ -2,29 +2,28 @@
 title: Managed Identities
 description: Learn how managed identities work in Azure App Service and Azure Functions and how to configure a managed identity and generate a token for a back-end resource.
 ms.topic: how-to
-ms.date: 03/27/2025
+ms.date: 04/14/2026
 ms.reviewer: yevbronsh,mahender
 author: cephalin
 ms.author: cephalin
 ms.custom: devx-track-csharp, devx-track-azurepowershell, devx-track-azurecli, AppServiceConnectivity, ai-video-demo
 ai-usage: ai-assisted
 #customer intent: As an App developer, I want to understand how to manager system-assigned and user-assigned identities for apps in Azure App Service.
+ms.service: azure-app-service
 ---
 
 # Use managed identities for App Service and Azure Functions
 
 This article shows you how to create a managed identity for Azure App Service and Azure Functions applications, and how to use it to access other resources.
 
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
-
 [!INCLUDE [app-service-managed-identities](../../includes/app-service-managed-identities.md)]
 
-The managed identity configuration is specific to the slot. To configure a managed identity for a deployment slot in the portal, go to the slot first. To find the managed identity for your web app or deployment slot in your Microsoft Entra tenant from the Azure portal, search for it directly from the **Overview** page of your tenant. Usually, the slot name is similar to `<app-name>/slots/<slot-name>`.
+The managed identity configuration is specific to the slot. To configure a managed identity for a deployment slot in the portal, go to the slot first. To find the managed identity for your web app or deployment slot in your Microsoft Entra tenant from the Azure portal, search for it directly from the **Overview** page of your tenant.
 
 > [!NOTE]
 > Managed identities aren't available for [apps deployed in Azure Arc](overview-arc-integration.md).
 >
-> Because [managed identities don't support cross-directory scenarios](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant), they don't behave as expected if your app is migrated across subscriptions or tenants. To re-create the managed identities after such a move, see [Will managed identities be re-created automatically if I move a subscription to another directory?](../active-directory/managed-identities-azure-resources/managed-identities-faq.md#will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory). Downstream resources also need to have access policies updated to use the new identity.
+> Because [managed identities don't support cross-directory scenarios](/entra/identity/managed-identities-azure-resources/managed-identities-faq#can-i-use-a-managed-identity-to-access-a-resource-in-a-different-directorytenant), they don't behave as expected if your app is migrated across subscriptions or tenants. To re-create the managed identities after such a move, see [Will managed identities be re-created automatically if I move a subscription to another directory?](/entra/identity/managed-identities-azure-resources/managed-identities-faq#will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory) Downstream resources also need to have access policies updated to use the new identity.
 
 ## Prerequisites
 
@@ -77,7 +76,7 @@ Update-AzFunctionApp -ResourceGroupName <group-name> -Name <function-app-name>  
 
 # [ARM template](#tab/arm)
 
-You can use an Azure Resource Manager template to automate deployment of your Azure resources. To learn more, see [Automate resource deployment in App Service](../app-service/deploy-complex-application-predictably.md) and [Automate resource deployment in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
+You can use an Azure Resource Manager template to automate deployment of your Azure resources. To learn more, see [Automate resource deployment in App Service](/azure/app-service/quickstart-arm-template) and [Automate resource deployment in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
 
 You can create any resource of type `Microsoft.Web/sites` with an identity by including the following property in the resource definition:
 
@@ -189,7 +188,7 @@ Adding a user-assigned identity in App Service by using Azure PowerShell is curr
 
 # [ARM template](#tab/arm)
 
-You can use an Azure Resource Manager template to automate deployment of your Azure resources. To learn more, see [Automate resource deployment in App Service](../app-service/deploy-complex-application-predictably.md) and [Automate resource deployment in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
+You can use an Azure Resource Manager template to automate deployment of your Azure resources. To learn more, see [Automate resource deployment in App Service](/azure/app-service/quickstart-arm-template) and [Automate resource deployment in Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
 
 You can create any resource of type `Microsoft.Web/sites` with an identity by including the following block in the resource definition. Replace `<resource-id>` with the resource ID of the desired identity.
 
@@ -257,12 +256,12 @@ The `principalId` property is a unique identifier for the identity that's used f
 
 You need to configure the target resource to allow access from your app. For most Azure services, you configure the target resource by [creating a role assignment][role-assignment].
 
-Some services use mechanisms other than Azure role-based access control. To understand how to configure access by using an identity, refer to the documentation for each target resource. To learn more about which resources support Microsoft Entra tokens, see [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
+Some services use mechanisms other than Azure role-based access control. To understand how to configure access by using an identity, refer to the documentation for each target resource. To learn more about which resources support Microsoft Entra tokens, see [Azure services that support Microsoft Entra authentication](/entra/identity/managed-identities-azure-resources/managed-identities-status#azure-services-that-support-azure-ad-authentication).
 
 For example, if you [request a token](#connect-to-azure-services-in-app-code) to access a secret in Azure Key Vault, you must also create a role assignment that allows the managed identity to work with secrets in the target vault. Otherwise, Key Vault rejects your calls even if you use a valid token. The same is true for Azure SQL Database and other services.
 
 > [!IMPORTANT]
-> The back-end services for managed identities maintain a cache per resource URI for around 24 hours. It can take several hours for changes to a managed identity's group or role membership to take effect. It's currently not possible to force a managed identity's token to be refreshed before its expiration. If you change a managed identity's group or role membership to add or remove permissions, you might need to wait several hours for the Azure resource that's using the identity to have the correct access.
+> The back-end services for managed identities maintain a cache per resource URI for around 24 hours and can take up to that amount of time for changes to a managed identity's group or role membership to take effect. It's currently not possible to force a managed identity's token to be refreshed before its expiration. If you change a managed identity's group or role membership to add or remove permissions, you might need to wait up to around 24 hours for the Azure resource that's using the identity to have the correct access.
 >
 > For alternatives to groups or role memberships, see [Limitation of using managed identities for authorization](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization).
 
@@ -299,7 +298,7 @@ Content-Type: application/json
 }
 ```
 
-This response is the same as the [response for the Microsoft Entra service-to-service access token request](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md#successful-response). To access Key Vault, add the value of `access_token` to a client connection with the vault.
+This response is the same as the [response for the Microsoft Entra service-to-service access token request](/entra/identity-platform/v2-oauth2-client-creds-grant-flow#successful-response). To access Key Vault, add the value of `access_token` to a client connection with the vault.
 
 # [.NET](#tab/dotnet)
 
@@ -445,13 +444,13 @@ The `IDENTITY_ENDPOINT` variable is a local URL from which your app can request 
 
 > | Parameter name      | In     | Description |
 > |:--------------------|:-------|:------------|
-> | `resource`          | Query  | The Microsoft Entra resource URI of the resource for which a token should be obtained. This resource could be one of the [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication) or any other resource URI.    |
+> | `resource`          | Query  | The Microsoft Entra resource URI of the resource for which a token should be obtained. This resource could be one of the [Azure services that support Microsoft Entra authentication](/entra/identity/managed-identities-azure-resources/managed-identities-status#azure-services-that-support-azure-ad-authentication) or any other resource URI.    |
 > | `api-version`       | Query  | The version of the token API to be used. Use `2019-08-01`.   |
 > | `X-IDENTITY-HEADER` | Header | The value of the `IDENTITY_HEADER` environment variable. This header is used to help mitigate SSRF attacks. |
 > | `client_id`         | Query  | (Optional) The client ID of the user-assigned identity to be used. It can't be used on a request that includes `principal_id`, `mi_res_id`, or `object_id`. If all ID parameters  (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used. |
 > | `principal_id`      | Query  | (Optional) The principal ID of the user-assigned identity to be used. The `object_id` parameter is an alias that can be used instead. It can't be used on a request that includes `client_id`, `mi_res_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`)  are omitted, the system-assigned identity is used. |
 > | `mi_res_id`         | Query  | (Optional) The Azure resource ID of the user-assigned identity to be used. It can't be used on a request that includes `principal_id`, `client_id`, or `object_id`. If all ID parameters (`client_id`, `principal_id`, `object_id`, and `mi_res_id`) are omitted, the system-assigned identity is used. |
-
+>
 > [!IMPORTANT]
 > If you're trying to get tokens for user-assigned identities, include one of the optional properties. Otherwise, the token service tries to get a token for a system-assigned identity, which might or might not exist.
 

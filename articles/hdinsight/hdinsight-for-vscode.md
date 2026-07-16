@@ -4,10 +4,12 @@ description: Learn how to use the Spark & Hive Tools (Azure HDInsight) for Visua
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 06/13/2024
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: hgowrisankar
-ms.custom: devx-track-python
+ms.custom:
+  - devx-track-python
+  - sfi-image-nochange
 ---
 
 # Use Spark & Hive Tools for Visual Studio Code

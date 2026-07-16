@@ -2,13 +2,15 @@
 title: Review alerts on Azure Stack Edge 
 description: Describes alerts that occur on Azure Stack Edge devices.
 services: databox
-author: v-dalc
+author: sipastak
 
 ms.service: azure-stack-edge
-ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 02/04/2025
-ms.author: alkohli
+ms.author: sipastak
+ms.custom:
+  - devx-track-arm-template
+  - sfi-image-nochange
 ---
 # Review alerts on Azure Stack Edge
 

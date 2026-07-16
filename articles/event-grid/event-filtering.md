@@ -1,8 +1,9 @@
 ---
-title: Event filtering for Azure Event Grid
-description: Describes how to filter events when creating an Azure Event Grid subscription.
+title: Event Filtering in Azure Event Grid
+description: Learn how to filter events in Azure Event Grid subscriptions using event types, subject filters, and advanced operators. Optimize your event routing today.
+#customer intent: As a developer, I want to understand how to filter events in Azure Event Grid so that I can send only relevant events to my endpoint.
 ms.topic: concept-article
-ms.date: 12/12/2024
+ms.date: 02/09/2026
 # Customer intent: I want to know how to subscribe to specific events coming through Azure Event Grid. 
 ---
 
@@ -83,5 +84,5 @@ In the following example, the event subscription filters for `Microsoft.Storage.
 
 ## Next steps
 
-* To learn about filtering events with PowerShell and Azure CLI, see [Filter events for Event Grid](how-to-filter-events.md).
+* To learn about filtering events by using PowerShell and Azure CLI, see [Filter events for Event Grid](how-to-filter-events.md).
 * To quickly get started using Event Grid, see [Create and route custom events with Azure Event Grid](custom-event-quickstart.md).

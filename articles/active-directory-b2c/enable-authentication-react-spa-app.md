@@ -4,7 +4,7 @@ description:  Use the building blocks of Azure Active Directory B2C to sign in a
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024
@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Enable authentication in your own React Application by using Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article shows you how to add Azure Active Directory B2C (Azure AD B2C) authentication to your own React single-page application (SPA). Learn how to integrate a React application with the [MSAL for React](https://www.npmjs.com/package/@azure/msal-react) authentication library. 
 

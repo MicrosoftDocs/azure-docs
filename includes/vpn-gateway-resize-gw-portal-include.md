@@ -1,10 +1,10 @@
 ---
  services: vpn-gateway
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 11/20/2023
- ms.author: cherylmc
+ ms.author: duau
 ---
 
 1. Go to the **Configuration** page for your virtual network gateway.

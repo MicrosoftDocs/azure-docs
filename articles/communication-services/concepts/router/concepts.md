@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: serooney
 ms.date: 10/14/2021
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ---
 

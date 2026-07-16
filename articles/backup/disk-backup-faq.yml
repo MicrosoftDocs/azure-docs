@@ -4,9 +4,9 @@ metadata:
   description: Get answers to frequently asked questions about Azure Disk Backup
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 06/03/2024
-  author: jyothisuri
-  ms.author: jsuri
+  ms.date: 01/29/2026
+  author: AbhishekMallick-MS
+  ms.author: v-mallicka
 title: Frequently asked questions about Azure Disk Backup
 summary: |
   This article answers frequently asked questions about Azure Disk Backup. For more information on the [Azure Disk backup](disk-backup-overview.md) region availability, supported scenarios and limitations, see the [support matrix](disk-backup-support-matrix.md).
@@ -24,14 +24,14 @@ sections:
       - question: |
           How do I find the snapshot resource group that I used to configure backup for a disk?
         answer: |
-          In the **Backup Instance** screen, you can find the snapshot resource group field in the **Essentials** section. You can search and select your backup instance of  the corresponding disk from Backup center or the Backup vault.
+          In the **Backup Instance** screen, you can find the snapshot resource group field in the **Essentials** section. You can search and select your backup instance of  the corresponding disk from Resiliency or the Backup vault.
           
           ![Snapshot resource group field](./media/disk-backup-faq/snapshot-resource-group.png)
           
       - question: |
           What is a snapshot resource group?
         answer: |
-          Azure Disk Backup offers operational tier backup for managed disk. That is, the snapshots that are created during the scheduled and on-demand backup operations are stored in a resource group within your subscription. Azure Backup offers instant restore because the incremental snapshots are stored within your subscription. This resource group is known as the snapshot resource group. For more information, see [Configure backup](backup-managed-disks.md#configure-backup).
+          Azure Disk Backup offers operational tier backup for managed disk. That is, the snapshots that are created during the scheduled and on-demand backup operations are stored in a resource group within your subscription. Azure Backup offers instant restore because the incremental snapshots are stored within your subscription. This resource group is known as the snapshot resource group. For more information, see [configure Azure Disk backup](backup-managed-disks.md#configure-azure-disk-backup).
           
       - question: |
           Why must the snapshot resource group be in same subscription as that of the disk being backed up?
@@ -59,9 +59,9 @@ sections:
           Azure Backup uses [incremental snapshots](/azure/virtual-machines/disks-incremental-snapshots#restrictions) of managed disks that store only the delta changes to disks since the last snapshot on Standard HDD storage, regardless of the storage type of the parent disk. For more reliability, incremental snapshots are stored on Zone Redundant Storage (ZRS) by default in regions that support ZRS. Currently, Azure Disk Backup supports operational backups of managed disks that don't copy the backups to Backup vault storage. So the backup storage redundancy setting of the Backup vault doesn't apply to the recovery points.
           
       - question: |
-          Can I use Backup Center to configure backups and manage backup instances for Azure Disks?
+          Can I use Resiliency to configure backups and manage backup instances for Azure Disks?
         answer: |
-          Yes, Azure Disk Backup is integrated into [Backup Center](backup-center-overview.md), which provides a **single unified management experience** in Azure for enterprises to govern, monitor, operate, and analyze backups at scale. You can also use Backup vault to back up, restore, and manage the backup instances that are protected within the vault.
+          Yes, Azure Disk Backup is integrated into [Resiliency](../resiliency/resiliency-overview.md), which provides a **single unified management experience** in Azure for enterprises to govern, monitor, operate, and analyze backups at scale. You can also use Backup vault to back up, restore, and manage the backup instances that are protected within the vault.
           
       - question: |
           Why do I need to create a Backup vault and not use a Recovery Services vault?
@@ -86,7 +86,7 @@ sections:
       - question: |
           Can I back up multiple disks together?
         answer: |
-          No, point-in-time snapshots of multiple disks attached to a virtual machine isn't supported. For more information, see [Configure backup](backup-managed-disks.md#configure-backup) and to learn more about limitations, refer to the [support matrix](disk-backup-support-matrix.md).
+          No, point-in-time snapshots of multiple disks attached to a virtual machine isn't supported. For more information, see [Configure Azure Disk backup](backup-managed-disks.md#configure-azure-disk-backup) and to learn more about limitations, refer to the [support matrix](disk-backup-support-matrix.md).
           
       - question: |
           What is a target resource group?
@@ -153,4 +153,7 @@ additionalContent: |
 
   ## Next steps
   
-  - [Azure Disk Backup support matrix](disk-backup-support-matrix.md)
+  - [Azure Disk Backup support matrix](disk-backup-support-matrix.md).
+  - Back up Azure Managed Disks using [Azure portal](backup-managed-disks.md), [Azure PowerShell](backup-managed-disks-ps.md), [Azure CLI](backup-managed-disks-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-backup-disks.md).
+  - Restore Azure Managed Disks using [Azure portal](restore-managed-disks.md), [Azure PowerShell](restore-managed-disks-ps.md), [Azure CLI](restore-managed-disks-cli.md), [REST API](backup-azure-dataprotection-use-rest-api-restore-disks.md).
+  - [Manage Azure Managed Disks backups using Azure portal](manage-azure-managed-disks.md).

@@ -13,7 +13,7 @@ ms.author: nikuklic
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An active Communication Services resource. [Create a Communication Services resource](../../../quickstarts/create-communication-resource.md).
 - The fully qualified domain name (FQDN) and port number of a session border controller (SBC) in an operational telephony system.
 - The [verified domain name](../../../how-tos/telephony/domain-validation.md) of the SBC FQDN.
@@ -73,3 +73,17 @@ To delete an SBC:
 1. On the **Voice Routes** tab, review the voice routing configuration. Make changes if needed, and then select **Save**.
 
 When you remove an SBC that's associated with a voice route, you can choose a different SBC for the route on the **Voice Routes** tab. The voice route without an SBC will be deleted.
+
+## Define Caller ID
+Azure Communication Services direct routing supports advanced caller identity control for outbound calls. Caller ID override allows you to replace the caller ID for outbound calls that match a specific voice route with a configured value. When an override is defined, the specified caller ID is used for all matching calls. If no override value is configured, Azure Communication Services uses the caller ID provided at runtime when initiating the call. This capability helps ensure consistent caller identification across outbound scenarios and enables alignment with enterprise or regulatory requirements.
+[![Screenshot of Caller ID settings.](../media/voice-routing/azure-communication-services-direct-routing-caller-id.png)](../media/voice-routing/azure-communication-services-direct-routing-caller-id.png#lightbox)
+
+## Set Privacy Header
+You can control identity disclosure by configuring the SIP Privacy header that Azure Communication Services applies to outbound calls sent to your Session Border Controller (SBC). This setting is applied uniformly to all outbound calls routed through the SBC and allows you to enforce privacy behavior at the routing layer. The supported values are:
+- **ID**: which requests that the caller’s identity be withheld from the remote party,
+- **None**: which indicates that no privacy is requested and the caller’s identity may be disclosed.
+
+## Define Signaling Transfer Behavior
+In order to optimize call signaling paths, we are supporting a new transfer behaviour: Direct Transfer. When direct transfer is enabled, Azure Communication Services does not remain in the SIP signaling path after the call is successfully established. Instead, ACS sends a SIP REFER to the remote endpoint, with the Refer‑To URI pointing to your SBC. As a result, subsequent SIP signaling occurs directly between the endpoints without passing through Azure Communication Services. This behavior reduces signaling hops and allows the SBC to manage the call end‑to‑end after setup.
+
+[![Screenshot of Direct Routing settings.](../media/voice-routing/azure-communication-services-direct-routing-settings.png)](../media/voice-routing/azure-communication-services-direct-routing-settings.png#lightbox)

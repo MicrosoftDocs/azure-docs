@@ -1,12 +1,13 @@
 ---
 title: Enable zone-to-zone disaster recovery for Azure virtual machines
 description: This article describes when and how to use zone-to-zone disaster recovery for Azure virtual machines.
-author: ankitaduttaMSFT
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
 ms.date: 02/12/2025
-ms.author: ankitadutta
+ms.author: v-gajeronika
 ms.custom: references_regions
+# Customer intent: "As a cloud architect, I want to implement zone-to-zone disaster recovery for Azure virtual machines, so that I can enhance business continuity by minimizing downtime during regional outages."
 ---
 
 # Enable Azure VM disaster recovery between availability zones
@@ -32,19 +33,21 @@ Support for zone-to-zone disaster recovery is currently limited to the following
 | East US 2 | Norway East | | | Japan East |
 | South Central US | Poland Central  | | | Korea Central |
 | US Gov Virginia | Sweden Central  | | | Southeast Asia |
-| West US 2 | Switzerland North | | | |
+| West US 2 | Switzerland North | | | New Zealand North |
 | West US 3 | UK South | | | |
 || West Europe ||||
 ||Spain Central ||||
 
 When you use zone-to-zone disaster recovery, Site Recovery doesn't move or store data out of the region in which it's deployed. You can select a Recovery Services vault from a different region if you want one. The Recovery Services vault contains metadata but no actual customer data.
 
-Learn more about [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
+Learn more about [Azure regions with availability zones](/azure/reliability/availability-zones-region-support).
 
 > [!NOTE]
 > Zone-to-zone disaster recovery isn't supported for VMs that have managed disks via zone-redundant storage (ZRS).
 >
 > Regions that don't support Azure availability zones also don't support Azure Site Recovery zone-to-zone replication. For Azure Site Recovery zone-to-zone replication to work, the region must support availability zones.
+>
+> Zone-to-zone disaster recovery isn't supported for VMs with Ultra Disks.
 
 ## Using availability zones for disaster recovery
 

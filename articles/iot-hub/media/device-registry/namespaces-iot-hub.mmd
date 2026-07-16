@@ -1,0 +1,17 @@
+flowchart TD
+ subgraph s1["ADR Namespace"]
+        n1["Device 1"]
+        n2["Device 2"]
+        n8["Device 3"]
+  end
+ subgraph s2["IoT Hub instance 1 (preview)"]
+        n4["Device 1"]
+        n5["Device 2"]
+  end
+ subgraph s3["IoT Hub instance 2 (preview)"]
+        n6["Device 3"]
+  end
+    n4 --> n1
+    n5 --> n2
+    n6 --> n8
+ 

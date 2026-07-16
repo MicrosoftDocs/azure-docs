@@ -4,8 +4,9 @@ description: This article describes how to migrate SQL Server Integration Servic
 author: chugugrace
 ms.author: chugu
 ms.subservice: integration-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2024
+ms.custom: sfi-image-nochange
 ---
 # Migrate SQL Server Agent jobs to ADF with SSMS
 

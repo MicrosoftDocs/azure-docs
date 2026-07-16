@@ -2,13 +2,16 @@
 title: Create, develop, and maintain Synapse notebooks
 description: In this article, you learn how to create and develop Synapse notebooks to do data preparation and visualization.
 services: synapse analytics 
-author: JeneZhang 
+author: pimorano 
 ms.service: azure-synapse-analytics 
 ms.topic: how-to 
 ms.subservice: spark
 ms.date: 09/11/2024
-ms.author: jingzh 
-ms.custom: devx-track-python
+ms.author: pimorano 
+ms.custom:
+  - devx-track-python
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Create, develop, and maintain Synapse notebooks

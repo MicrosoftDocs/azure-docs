@@ -7,6 +7,7 @@ ms.author: sujie
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2018
+ms.custom: sfi-image-nochange
 ---
 
 # Test Stream Analytics queries locally with Visual Studio

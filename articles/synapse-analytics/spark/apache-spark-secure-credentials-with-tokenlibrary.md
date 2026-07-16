@@ -1,16 +1,16 @@
 ---
 title: Secure access credentials with Linked Services in Apache Spark for Azure Synapse Analytics
 description: This article provides concepts on how to securely integrate Apache Spark for Azure Synapse Analytics with other services using linked services and token library
-author: vijaysr
-ms.author: vijaysr
-ms.reviewer: shravan
+author: joannapea 
+ms.author: joanpo
 ms.date: 06/24/2024
 ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: overview
+zone_pivot_groups: programming-languages-spark-all-minus-sql-r
 ms.custom:
   - devx-track-python
-zone_pivot_groups: programming-languages-spark-all-minus-sql-r
+  - sfi-ropc-nochange
 ---
 
 # Secure credentials with linked services using the mssparkutils
@@ -286,7 +286,7 @@ display(df.limit(10))
 
 #### Use MSAL to acquire tokens (using custom app credentials)
 
-When the ABFS storage driver is [configured](https://hadoop.apache.org/docs/current/hadoop-azure/abfs.html) to use MSAL directly for authentications, the provider doesn't cache tokens. This can result in reliability issues. We recommend using the `ClientCredsTokenProvider` is part of the Synapse Spark.
+When the ABFS storage driver is [configured](https://hadoop.apache.org/docs/current/hadoop-azure/index.html#Configuring_ABFS) to use MSAL directly for authentications, the provider doesn't cache tokens. This can result in reliability issues. We recommend using the `ClientCredsTokenProvider` is part of the Synapse Spark.
 
 ::: zone pivot = "programming-language-scala"
 
@@ -468,7 +468,7 @@ Console.WriteLine(connectionString);
 While Azure Synapse Analytics supports various linked service connections (from pipelines and other Azure products), not all of them are supported from the Spark runtime. Here is the list of supported linked services:
 
  - Azure Blob Storage
- - Azure AI services
+ - Foundry Tools
  - Azure Cosmos DB
  - Azure Data Explorer
  - Azure Database for MySQL

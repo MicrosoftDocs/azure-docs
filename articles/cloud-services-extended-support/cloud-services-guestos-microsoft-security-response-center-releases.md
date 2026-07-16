@@ -3,12 +3,13 @@ title: List of updates applied to the Azure Guest OS | Microsoft Docs
 description: This article lists the Microsoft Security Response Center updates applied to different Azure Guest OS. See if an update applies to your Guest OS.
 services: cloud-services
 ms.subservice: guest-os-patching
-author: SivaSun
+author: srtiruma
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: azure-cloud-services-classic
-ms.topic: article
-ms.date: 04/07/2025
-ms.author: ssundara
+ms.topic: concept-article
+ms.date: 06/29/2026
+ms.update-cycle: 3650-days
+ms.author: srtiruma
 ms.custom: compute-evergreen
 ---
 
@@ -18,6 +19,463 @@ ms.custom: compute-evergreen
 > As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to your Guest OS. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## June 2026 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 26-06 | [5094122] | Latest Cumulative Update(LCU) | [5.119] | 09-Jun-26 |
+| Rel 26-06 | [5094123] | Latest Cumulative Update(LCU) | [6.95] | 09-Jun-26 |
+| Rel 26-06 | [5094128] | Latest Cumulative Update(LCU) | [7.65] | 09-Jun-26 |
+| Rel 26-06 | [5087065] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.119] | 09-Jun-26 |
+| Rel 26-06 | [5087061] | .NET Framework DotNet  | [6.95] | 09-Jun-26 |
+| Rel 26-06 | [5087068] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.65] | 09-Jun-26 |
+| Rel 26-06 | [4494175] | January '20 Microcode | [5.119] | 09-Jun-26 |
+| Rel 26-06 | [4494175] | January '20 Microcode | [6.95] | 09-Jun-26 |
+| Rel 26-06 | [5094141] | SSU LKG | [5.119] | 09-Jun-26 |
+| Rel 26-06 | [5094143] | SSU LKG | [6.95] | 09-Jun-26 |
+| Rel 26-06 | [5094147] | Servicing Stack Update | [7.65] | 09-Jun-26 |
+
+[5094122]: https://support.microsoft.com/kb/5094122
+[5094123]: https://support.microsoft.com/kb/5094123
+[5094128]: https://support.microsoft.com/kb/5094128
+[5087065]: https://support.microsoft.com/kb/5087065
+[5087061]: https://support.microsoft.com/kb/5087061
+[5087068]: https://support.microsoft.com/kb/5087068
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[5094141]: https://support.microsoft.com/kb/5094141
+[5094143]: https://support.microsoft.com/kb/5094123
+[5094147]: https://support.microsoft.com/kb/5094128
+
+[5.119]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.95]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.65]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## May 2026 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 26-05 | [5087537] | Latest Cumulative Update(LCU) | [5.118] | 12-May-26 
+| Rel 26-05 | [5087538] | Latest Cumulative Update(LCU) | [6.94] | 12-May-26  
+| Rel 26-05 | [5087545] | Latest Cumulative Update(LCU) | [7.64] | 12-May-26  
+| Rel 26-05 | [5087065] | .NET Framework DotNet | [5.118] | 12-May-26 
+| Rel 26-05 | [5087061] | .NET Framework DotNet | [6.94]  | 12-May-26  
+| Rel 26-05 | [5087068] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.64] | 12-May-26
+| Rel 26-05 | [4494175] | January '20 Microcode        | [5.118]  | 12-May-26  
+| Rel 26-05 | [4494175] | January '20 Microcode        | [6.94]   | 12-May-26 
+| Rel 26-05 | [5088064] | SSU LKG        | [5.118]   | 12-May-26 
+| Rel 26-05 | [5089760] | SSU LKG        | [6.94]   | 12-May-26 
+| Rel 26-05 | [5089140] | Servicing Stack Update | [7.64] | 12-May-26  
+
+[5087537]: https://support.microsoft.com/kb/5087537
+[5087538]: https://support.microsoft.com/kb/5087538
+[5087545]: https://support.microsoft.com/kb/5087545
+[5087065]: https://support.microsoft.com/kb/5087065
+[5087061]: https://support.microsoft.com/kb/5087061
+[5087068]: https://support.microsoft.com/kb/5087068
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[5088064]: https://support.microsoft.com/kb/5088064
+[5089760]: https://support.microsoft.com/kb/5087538
+[5089140]: https://support.microsoft.com/kb/5087545
+
+[5.118]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.94]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.64]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## April 2026 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 26-04 | [5082198] | Latest Cumulative Update(LCU) | [5.117] | 14-Apr-26 
+| Rel 26-04 | [5082123] | Latest Cumulative Update(LCU) | [6.93] | 14-Apr-26  
+| Rel 26-04 | [5082142] | Latest Cumulative Update(LCU) | [7.63] | 14-Apr-26  
+| Rel 26-04 | [5082411] | .NET Framework DotNet | [5.117] | 14-Apr-26 
+| Rel 26-04 | [5066143] | .NET Framework DotNet | [6.93]  | 14-Oct-25  
+| Rel 26-04 | [5082427] | .NET Framework DotNet | [7.63] | 14-Apr-26
+| Rel 26-04 | [4494175] | January '20 Microcode        | [5.117]  | 14-Apr-26  
+| Rel 26-04 | [4494175] | January '20 Microcode        | [6.93]   | 14-Apr-26 
+| Rel 26-04 | [5082089] | SSU LKG        | [5.117]   | 14-Apr-26 
+| Rel 26-04 | [5082118] | SSU LKG        | [6.93]   | 14-Apr-26 
+| Rel 26-04 | [5082137] | SSU LKG        | [7.63]   | 14-Apr-26 
+
+[5082198]: https://support.microsoft.com/kb/5082198
+[5082123]: https://support.microsoft.com/kb/5082123
+[5082142]: https://support.microsoft.com/kb/5082142
+[5082411]: https://support.microsoft.com/kb/5082411
+[5066143]: https://support.microsoft.com/kb/5066143
+[5082427]: https://support.microsoft.com/kb/5082427
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[5082089]: https://support.microsoft.com/kb/5082089
+[5082118]: https://support.microsoft.com/kb/5082123
+[5082137]: https://support.microsoft.com/kb/5082142
+
+[5.117]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.93]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.63]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## March 2026 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 26-03 | [5078938] | Latest Cumulative Update(LCU) | [5.116] | 10-Mar-26 
+| Rel 26-03 | [5078752] | Latest Cumulative Update(LCU) | [6.92] | 10-Mar-26  
+| Rel 26-03 | [5078766] | Latest Cumulative Update(LCU) | [7.62] | 10-Mar-26  
+| Rel 26-03 | [5066136] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.116] | 14-Oct-25 
+| Rel 26-03 | [5066143] | .NET Framework DotNet        | [6.92]  | 14-Oct-25  
+| Rel 26-03 | [5066139] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.62] | 14-Oct-25
+| Rel 26-03 | [5078763] | Servicing Stack Update       | [7.62]   | 10-Mar-26
+| Rel 26-03 | [4494175] | January '20 Microcode        | [5.116]  | 10-Mar-26  
+| Rel 26-03 | [4494175] | January '20 Microcode        | [6.92]   | 10-Mar-26 
+| Rel 26-03 | [5075902] | Feb-26 SSU LKG        | [5.116]   | 10-Mar-26 
+| Rel 26-03 | [5075903] | Feb-26 SSU LKG         | [6.92]   | 10-Mar-26
+
+[5078938]: https://support.microsoft.com/kb/5078938
+[5078752]: https://support.microsoft.com/kb/5078752
+[5078766]: https://support.microsoft.com/kb/5078766
+[5066136]: https://support.microsoft.com/kb/5066136
+[5066143]: https://support.microsoft.com/kb/5066143
+[5066139]: https://support.microsoft.com/kb/5066139
+[5078763]: https://support.microsoft.com/kb/5078766
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[5075902]: https://support.microsoft.com/kb/5075902
+[5075903]: https://support.microsoft.com/kb/5075904
+
+[5.116]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.92]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.62]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## February 2026 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 26-02 | [5075999] | Latest Cumulative Update(LCU) | [5.115] | 10-Feb-26 
+| Rel 26-02 | [5075904] | Latest Cumulative Update(LCU) | [6.91] | 10-Feb-26  
+| Rel 26-02 | [5075906] | Latest Cumulative Update(LCU) | [7.61] | 10-Feb-26  
+| Rel 26-02 | [5066136] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.115] | 14-Oct-25 
+| Rel 26-02 | [5066143] | .NET Framework DotNet        | [6.91]  | 14-Oct-25  
+| Rel 26-02 | [5066139] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.61] | 14-Oct-25
+| Rel 26-02 | [5075905] | Servicing Stack Update       | [7.61]   | 10-Feb-26
+| Rel 26-02 | [4494175] | January '20 Microcode        | [5.115]  | 10-Feb-26  
+| Rel 26-02 | [4494175] | January '20 Microcode        | [6.91]   | 10-Feb-26 
+| Rel 26-02 | [5075902] | SSU LKG        | [5.115]   | 10-Feb-26 
+| Rel 26-02 | [5075903] | SSU LKG         | [6.91]   | 10-Feb-26
+
+[5075999]: https://support.microsoft.com/kb/5075999
+[5075904]: https://support.microsoft.com/kb/5075904
+[5075906]: https://support.microsoft.com/kb/5075906
+[5066136]: https://support.microsoft.com/kb/5066136
+[5066143]: https://support.microsoft.com/kb/5066143
+[5066139]: https://support.microsoft.com/kb/5066139
+[5075905]: https://support.microsoft.com/kb/5082314
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[5075902]: https://support.microsoft.com/kb/5075902
+[5075903]: https://support.microsoft.com/kb/5075904
+
+[5.115]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.91]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.61]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## January 2026 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 26-01 | [5073722] | Latest Cumulative Update(LCU) | [5.114] | 13-Jan-26 
+| Rel 26-01 | [5073723] | Latest Cumulative Update(LCU) | [6.90] | 13-Jan-26  
+| Rel 26-01 | [5073457] | Latest Cumulative Update(LCU) | [7.60] | 13-Jan-26  
+| Rel 26-01 | [5066136] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.114] | 14-Oct-25 
+| Rel 26-01 | [5066143] | .NET Framework DotNet        | [6.90]  | 14-Oct-25  
+| Rel 26-01 | [5066139] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.60] | 14-Oct-25
+| Rel 26-01 | [5074428] | Servicing Stack Update       | [7.60]   | 13-Jan-26
+| Rel 26-01 | [4494175] | January '20 Microcode        | [5.114]  | 13-Jan-26  
+| Rel 26-01 | [4494175] | January '20 Microcode        | [6.90]   | 13-Jan-26 
+| Rel 26-01 | [5073447] | SSU LKG        | [5.114]   | 13-Jan-26 
+| Rel 26-01 | [4494175] | SSU LKG         | [6.90]   | 13-Jan-26 
+
+[5073722]: https://support.microsoft.com/kb/5073722
+[5073723]: https://support.microsoft.com/kb/5073723
+[5073457]: https://support.microsoft.com/kb/5073457
+[5066136]: https://support.microsoft.com/kb/5066136
+[5066143]: https://support.microsoft.com/kb/5066143
+[5066139]: https://support.microsoft.com/kb/5066139
+[5074428]: https://support.microsoft.com/topic/january-17-2026-kb5077800-os-build-20348-4650-out-of-band-905431bc-e40b-41bb-9896-e824042df3e8
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[5073447]: https://support.microsoft.com/kb/5073447
+[4494175]: https://support.microsoft.com/kb/4494175
+
+[5.114]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.90]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.60]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## December 2025 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 25-12 | [5071543] | Latest Cumulative Update(LCU) | [5.113] | 11-Nov-25 
+| Rel 25-12 | [5071544] | Latest Cumulative Update(LCU) | [6.89] | 11-Nov-25  
+| Rel 25-12 | [5071547] | Latest Cumulative Update(LCU) | [7.59] | 11-Nov-25  
+| Rel 25-12 | [5066136] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.113] | 14-Oct-25 
+| Rel 25-12 | [5066143] | .NET Framework DotNet        | [6.89]  | 14-Oct-25  
+| Rel 25-12 | [5066139] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.59] | 14-Oct-25
+| Rel 25-12 | [5070247] | Servicing Stack Update       | [5.113]  | 11-Nov-25  
+| Rel 25-12 | [5070248] | Servicing Stack Update       | [6.89]   | 11-Nov-25  
+| Rel 25-12 | [5068786] | Servicing Stack Update       | [7.59]   | 11-Nov-25
+| Rel 25-12 | [4494175] | January '20 Microcode        | [5.113]  | 11-Nov-25  
+| Rel 25-12 | [4494175] | January '20 Microcode        | [6.89]   | 11-Nov-25  
+
+[5071543]: https://support.microsoft.com/kb/5071543
+[5071544]: https://support.microsoft.com/kb/5071544
+[5071547]: https://support.microsoft.com/kb/5071547
+[5066136]: https://support.microsoft.com/kb/5066136
+[5066143]: https://support.microsoft.com/kb/5066143
+[5066139]: https://support.microsoft.com/kb/5066139
+[5070247]: https://support.microsoft.com/kb/5070247
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+
+[5.113]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.89]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.59]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## November 2025 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 25-11 | [5068864 ] | Latest Cumulative Update(LCU) | [5.112] | 11-Nov-25 
+| Rel 25-11 | [5068791] | Latest Cumulative Update(LCU) | [6.88] | 11-Nov-25  
+| Rel 25-11 | [5068787] | Latest Cumulative Update(LCU) | [7.58] | 11-Nov-25  
+| Rel 25-11 | [5066136] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.112] | 14-Oct-25 
+| Rel 25-11 | [5066143] | .NET Framework DotNet        | [6.88]  | 14-Oct-25  
+| Rel 25-11 | [5066139] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.58] | 14-Oct-25
+| Rel 25-11 | [5070247] | Servicing Stack Update       | [5.112]  | 11-Nov-25  
+| Rel 25-11 | [5070248] | Servicing Stack Update       | [6.88]   | 11-Nov-25  
+| Rel 25-11 | [5068786] | Servicing Stack Update       | [7.58]   | 11-Nov-25
+| Rel 25-11 | [4494175] | January '20 Microcode        | [5.112]  | 11-Nov-25  
+| Rel 25-11 | [4494175] | January '20 Microcode        | [6.88]   | 11-Nov-25  
+
+[5068864]: https://support.microsoft.com/kb/5068864
+[5068791]: https://support.microsoft.com/kb/5068791
+[5068787]: https://support.microsoft.com/kb/5068787
+[5066136]: https://support.microsoft.com/kb/5066136
+[5066143]: https://support.microsoft.com/kb/5066143
+[5066139]: https://support.microsoft.com/kb/5066139
+[5070247]: https://support.microsoft.com/kb/5070247
+[5070248]: https://support.microsoft.com/kb/5068791
+[5068786]: https://support.microsoft.com/kb/5068787
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+
+[5.112]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.88]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.58]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## October 2025 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 25-10 | [5066836] | Latest Cumulative Update(LCU) | [5.111] | 14-Oct-25 
+| Rel 25-10 | [5066586] | Latest Cumulative Update(LCU) | [6.87] | 14-Oct-25
+| Rel 25-10 | [5066782] | Latest Cumulative Update(LCU) | [7.57] | 14-Oct-25
+| Rel 25-10 | [5066143] | .NET Framework DotNet        | [6.87]  | 14-Oct-25
+| Rel 25-10 | [5066136] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.111] | 14-Oct-25
+| Rel 25-10 | [5066139] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.57] | 14-Oct-25
+| Rel 25-10 | [5066584] | Servicing Stack Update       | [5.111]  | 14-Oct-25
+| Rel 25-10 | [5066585] | Servicing Stack Update       | [6.87]   | 14-Oct-25
+| Rel 25-10 | [5066781] | Servicing Stack Update       | [7.57]   | 14-Oct-25
+| Rel 25-10 | [4494175] | January '20 Microcode        | [5.111]  | 14-Oct-25
+| Rel 25-10 | [4494175] | January '20 Microcode        | [6.87]   | 14-Oct-25 
+
+[5066836]: https://support.microsoft.com/kb/5066836
+[5066586]: https://support.microsoft.com/kb/5066586
+[5066782]: https://support.microsoft.com/kb/5066782
+[5049614]: https://support.microsoft.com/kb/5049614
+[5066143]: https://support.microsoft.com/kb/5066143
+[5066136]: https://support.microsoft.com/kb/5066136
+[5066139]: https://support.microsoft.com/kb/5066139
+[5066584]: https://support.microsoft.com/kb/5066584
+[5066585]: https://support.microsoft.com/kb/5066586
+[5066781]: https://support.microsoft.com/kb/5066586
+[4494175]: https://support.microsoft.com/kb/4494175
+
+[5.111]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.87]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.57]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## September 2025 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 25-09 | [5065427] | Latest Cumulative Update(LCU) | [5.110] | 06-Oct-25 
+| Rel 25-09 | [5065428] | Latest Cumulative Update(LCU) | [6.86] | 06-Oct-25
+| Rel 25-09 | [5065432] | Latest Cumulative Update(LCU) | [7.56] | 06-Oct-25
+| Rel 25-09 | [5049614] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.110]  | 06-Oct-25
+| Rel 25-09 | [5049608] | .NET Framework DotNet        | [6.86]  | 06-Oct-25
+| Rel 25-09 | [5049617] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.56] | 06-Oct-25
+| Rel 25-09 | [5065687] | Servicing Stack Update       | [5.110]  | 06-Oct-25
+| Rel 25-09 | [5065428] | Servicing Stack Update       | [6.86]   | 06-Oct-25
+| Rel 25-09 | [5065432] | Servicing Stack Update       | [7.56]   | 06-Oct-25
+| Rel 25-09 | [4494175] | January '20 Microcode        | [5.110]  | 06-Oct-25
+| Rel 25-09 | [4494175] | January '20 Microcode        | [6.86]   | 06-Oct-25 
+
+[5065427]: https://support.microsoft.com/kb/5065427
+[5065428]: https://support.microsoft.com/kb/5065428
+[5065432]: https://support.microsoft.com/kb/5065432
+[5049614]: https://support.microsoft.com/kb/5049614
+[5049608]: https://support.microsoft.com/kb/5049608
+[5049617]: https://support.microsoft.com/kb/5049617
+[5065687]: https://support.microsoft.com/kb/5065687
+[5065428]: https://support.microsoft.com/kb/5065428
+[5065432]: https://support.microsoft.com/kb/5065432
+[4494175]: https://support.microsoft.com/kb/4494175
+
+[5.110]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.86]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.56]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## August 2025 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 25-08 | [5063877] | Latest Cumulative Update(LCU) | [6.85] | 06-Sep-25 
+| Rel 25-08 | [5063880] | Latest Cumulative Update(LCU) | [7.55] | 06-Sep-25
+| Rel 25-08 | [5063871] | Latest Cumulative Update(LCU) | [5.109] | 06-Sep-25
+| Rel 25-08 | [5049608] | .NET Framework DotNet        | [6.85]  | 06-Sep-25
+| Rel 25-08 | [5049617] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.55] | 06-Sep-25
+| Rel 25-08 | [5062799] | Servicing Stack Update       | [5.109]  | 06-Sep-25
+| Rel 25-08 | [4494175] | January '20 Microcode        | [5.109]  | 06-Sep-25
+| Rel 25-08 | [4494175] | January '20 Microcode        | [6.85]   | 06-Sep-25 
+| Rel 25-08 | [5063880] | Servicing Stack Update       | [7.55]   | 06-Sep-25 
+| Rel 25-08 | [5063877] | Servicing Stack Update       | [6.85]   | 06-Sep-25  
+| Rel 25-08 | [5049614] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.109]  | 06-Sep-25
+
+[5063877]: https://support.microsoft.com/kb/5063877
+[5063880]: https://support.microsoft.com/kb/5063880
+[5063871]: https://support.microsoft.com/kb/5063871
+[5049608]: https://support.microsoft.com/kb/5049608
+[5049617]: https://support.microsoft.com/kb/5049617
+[5062799]: https://support.microsoft.com/kb/5062799
+[4494175]: https://support.microsoft.com/kb/4494175
+[5063880]: https://support.microsoft.com/kb/5063880
+[5063877]: https://support.microsoft.com/kb/5063877
+[5049614]: https://support.microsoft.com/kb/5049614
+
+[5.109]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.85]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.55]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## July 2025 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 25-07 | [5062560] | Latest Cumulative Update(LCU) | [5.108] | 08-Jul-25
+| Rel 25-07 | [5062557] | Latest Cumulative Update(LCU) | [6.84] | 08-Jul-25
+| Rel 25-07 | [5062572] | Latest Cumulative Update(LCU) | [7.54] | 08-Jul-25
+| Rel 25-07 | [5049608] | .NET Framework DotNet | [6.84] | 14-Jan-25
+| Rel 25-07 | [5049614] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.108] | 14-Jan-25
+| Rel 25-07 | [5049617] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.54] | 14-Jan-25
+| Rel 25-07 | [5062799] | Servicing Stack Update | [5.108] | 08-Jul-25
+| Rel 25-07 | [5062557] | Servicing Stack Update | [6.84] | 08-Jul-25
+| Rel 25-07 | [5062572] | Servicing Stack Update | [7.54] | 08-Jul-25
+| Rel 25-07 | [4494175] | January '20 Microcode | [5.108] | 01-Sep-20
+| Rel 25-07 | [4494175] | January '20 Microcode | [6.84] | 01-Sep-20
+
+[5062560]: https://support.microsoft.com/kb/5062560
+[5062557]: https://support.microsoft.com/kb/5062557
+[5062572]: https://support.microsoft.com/kb/5062572
+[5049614]: https://support.microsoft.com/kb/5049614
+[5049608]: https://support.microsoft.com/kb/5049608
+[5049617]: https://support.microsoft.com/kb/5049617
+[5062799]: https://support.microsoft.com/kb/5062799
+[5062557]: https://support.microsoft.com/kb/5062557
+[5062572]: https://support.microsoft.com/kb/5062572
+[4494175]: https://support.microsoft.com/kb/4494175
+
+[5.108]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.84]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.54]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## June 2025 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 25-06 | [5061010] | Latest Cumulative Update(LCU) | [5.107] | 10-Jun-25
+| Rel 25-06 | [5060531] | Latest Cumulative Update(LCU) | [6.83] | 10-Jun-25
+| Rel 25-06 | [5060526] | Latest Cumulative Update(LCU) | [7.53] | 10-Jun-25
+| Rel 25-06 | [5049614] | .NET Framework DotNet | [5.107] | 14-Jan-25
+| Rel 25-06 | [5049608] | .NET Framework DotNet | [6.83] | 14-Jan-25
+| Rel 25-06 | [5049617] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.53] | 14-Jan-25
+| Rel 25-06 | [5060954] | Servicing Stack Update | [5.107] | 10-Jun-25
+| Rel 25-06 | [5060531] | Servicing Stack Update | [6.83] | 10-Jun-25
+| Rel 25-06 | [5060526] | Servicing Stack Update | [7.53] | 10-Jun-25
+| Rel 25-06 | [4494175] | January '20 Microcode | [5.107] | 01-Sep-20
+| Rel 25-06 | [4494175] | January '20 Microcode | [6.83] | 01-Sep-20
+
+[5061010]: https://support.microsoft.com/kb/5061010
+[5060531]: https://support.microsoft.com/kb/5060531
+[5060526]: https://support.microsoft.com/kb/5060526
+[5049614]: https://support.microsoft.com/kb/5049614
+[5049608]: https://support.microsoft.com/kb/5049608
+[5049617]: https://support.microsoft.com/kb/5049617
+[5060954]: https://support.microsoft.com/kb/5060954
+[5060531]: https://support.microsoft.com/kb/5058392
+[5060526]: https://support.microsoft.com/kb/5058385
+[4494175]: https://support.microsoft.com/kb/4494175
+
+[5.107]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.83]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.53]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## May 2025 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 25-05 | [5058383] | Latest Cumulative Update(LCU) | [5.106] | 13-May-25
+| Rel 25-05 | [5058392] | Latest Cumulative Update(LCU) | [6.82] | 13-May-25
+| Rel 25-05 | [5058385] | Latest Cumulative Update(LCU) | [7.52] | 13-May-25
+| Rel 25-05 | [5049614] | .NET Framework DotNet | [5.106] | 14-Jan-25
+| Rel 25-05 | [5049608] | .NET Framework DotNet | [6.82] | 14-Jan-25
+| Rel 25-05 | [5049617] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.52] | 14-Jan-25
+| Rel 25-05 | [5058524] | Servicing Stack Update | [5.106] | 13-May-25
+| Rel 25-05 | [5058392] | Servicing Stack Update | [6.82] | 13-May-25
+| Rel 25-05 | [5058385] | Servicing Stack Update | [7.52] | 13-May-25
+| Rel 25-05 | [4494175] | January '20 Microcode | [5.106] | 01-Sep-20
+| Rel 25-05 | [4494175] | January '20 Microcode | [6.82] | 01-Sep-20
+
+[5058383]: https://support.microsoft.com/kb/5058383
+[5058392]: https://support.microsoft.com/kb/5058392
+[5058385]: https://support.microsoft.com/kb/5058385
+[5049614]: https://support.microsoft.com/kb/5049614
+[5049608]: https://support.microsoft.com/kb/5049608
+[5049617]: https://support.microsoft.com/kb/5049617
+[5058524]: https://support.microsoft.com/kb/5058524
+[5058392]: https://support.microsoft.com/kb/5058392
+[5058385]: https://support.microsoft.com/kb/5058385
+[4494175]: https://support.microsoft.com/kb/4494175
+
+[5.106]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.82]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.52]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## April 2025 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 25-04 | [5058921] | Latest Cumulative Update(LCU) | [5.105] | 11-Apr-25
+| Rel 25-04 | [5058922] | Latest Cumulative Update(LCU) | [6.81] | 11-Apr-25
+| Rel 25-04 | [5058920] | Latest Cumulative Update(LCU) | [7.51] | 11-Apr-25
+| Rel 25-04 | [5049614] | .NET Framework DotNet | [5.105] | 14-Jan-25
+| Rel 25-04 | [5049608] | .NET Framework DotNet | [6.81] | 14-Jan-25
+| Rel 25-04 | [5049617] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.51] | 14-Jan-25
+| Rel 25-04 | [5055661] | Servicing Stack Update | [5.105] | 08-Apr-25
+| Rel 25-04 | [5055662] | Servicing Stack Update | [6.81] | 11-Apr-25
+| Rel 25-04 | [5055668] | Servicing Stack Update | [7.51] | 11-Apr-25
+| Rel 25-04 | [4494175] | January '20 Microcode | [5.105] | 01-Sep-20
+| Rel 25-04 | [4494175] | January '20 Microcode | [6.81] | 01-Sep-20
+
+[5058921]: https://support.microsoft.com/kb/5058921
+[5058922]: https://support.microsoft.com/kb/5058922
+[5058920]: https://support.microsoft.com/kb/5058920
+[5049614]: https://support.microsoft.com/kb/5049614
+[5049608]: https://support.microsoft.com/kb/5049608
+[5049617]: https://support.microsoft.com/kb/5049617
+[5055661]: https://support.microsoft.com/kb/5055661
+[5055662]: https://support.microsoft.com/en-us/topic/april-8-2025-kb5055688-cumulative-update-for-net-framework-3-5-4-8-and-4-8-1-for-windows-server-2022-b959f161-79cf-4fc3-8e31-9f7cda818d33
+[5055668]: https://support.microsoft.com/en-us/topic/april-8-2025-kb5055688-cumulative-update-for-net-framework-3-5-4-8-and-4-8-1-for-windows-server-2022-b959f161-79cf-4fc3-8e31-9f7cda818d33
+[4494175]: https://support.microsoft.com/kb/4494175
+
+[5.105]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.81]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.51]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 
 ## March 2025 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -31,6 +489,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Rel 25-03 | [5054006] | Servicing Stack Update | [5.104] | 11-Mar-25
 | Rel 25-03 | [5054007] | Servicing Stack Update | [6.80] | 11-Mar-25
 | Rel 25-03 | [5053666] | Servicing Stack Update | [7.50] | 11-Mar-25
+| Rel 25-03 | [5055668] | January '20 Microcode | [5.104] | 01-Sep-20
 | Rel 25-03 | [4494175] | January '20 Microcode | [5.104] | 01-Sep-20
 | Rel 25-03 | [4494175] | January '20 Microcode | [6.80] | 01-Sep-20
 
@@ -41,8 +500,8 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5049608]: https://support.microsoft.com/kb/5049608
 [5049617]: https://support.microsoft.com/kb/5049617
 [5054006]: https://support.microsoft.com/kb/5054006
-[5054007]: https://support.microsoft.com/kb/5054007
-[5053666]: https://support.microsoft.com/kb/5053666
+[5054007]: https://support.microsoft.com/help/5053596
+[5053666]: https://support.microsoft.com/help/5053603
 [4494175]: https://support.microsoft.com/kb/4494175
 
 [5.104]: ./cloud-services-guestos-update-matrix.md#family-5-releases
@@ -2497,7 +2956,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 [5003711]: https://support.microsoft.com/kb/5003711
 [4494175]: https://support.microsoft.com/kb/4494175
 [4494174]: https://support.microsoft.com/kb/4494174
-[4052623]: https://support.microsoft.com/kb/4052623
+[4052623]: https://www.catalog.update.microsoft.com/Search.aspx?q=KB4052623
 [2.111]: ./cloud-services-guestos-update-matrix.md#family-2-releases
 [3.98]: ./cloud-services-guestos-update-matrix.md#family-3-releases
 [4.91]: ./cloud-services-guestos-update-matrix.md#family-4-releases
@@ -2814,7 +3273,7 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 
 [4586768]: https://support.microsoft.com/kb/4586768
 [4593226]: https://support.microsoft.com/kb/4593226
-[4052623]: https://support.microsoft.com/kb/4052623
+[4052623]: https://www.catalog.update.microsoft.com/Search.aspx?q=KB4052623
 [4578952]: https://support.microsoft.com/kb/4578952
 [4578955]: https://support.microsoft.com/kb/4578955
 [4578953]: https://support.microsoft.com/kb/4578953

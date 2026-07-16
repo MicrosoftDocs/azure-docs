@@ -10,7 +10,7 @@ ms.custom: devx-track-azurepowershell, mode-api, devx-track-dotnet
 In this quickstart, you create an event hub using Azure PowerShell.
 
 ## Prerequisites
-An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
@@ -143,7 +143,7 @@ In this article, you created the Event Hubs namespace, and used sample applicati
 - [Apache Storm (receive only)](event-hubs-storm-getstarted-receive.md)
 
 
-[create a free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[create a free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [Install and Configure Azure PowerShell]: /powershell/azure/install-az-ps
 [New-AzResourceGroup]: /powershell/module/az.resources/new-azresourcegroup
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

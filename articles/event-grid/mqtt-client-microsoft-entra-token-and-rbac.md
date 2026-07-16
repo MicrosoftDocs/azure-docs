@@ -1,7 +1,7 @@
 ---
 title: Microsoft Entra `JWT` authentication and RBAC authorization for clients with Microsoft Entra identity
 description: Describes JWT authentication and RBAC roles to authorize clients with Microsoft Entra identity to publish or subscribe MQTT messages
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: build-2024
 ms.date: 01/27/2025
 author: Connected-Seth

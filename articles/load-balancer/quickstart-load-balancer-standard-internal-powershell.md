@@ -9,6 +9,7 @@ ms.date: 07/23/2024
 ms.author: mbender
 ms.custom: devx-track-azurepowershell, mode-api, template-quickstart
 #Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
+# Customer intent: "As a cloud engineer, I want to create an internal load balancer using Azure PowerShell, so that I can effectively manage and distribute traffic to my virtual machines."
 ---
 
 # Quickstart: Create an internal load balancer to load balance virtual machines using Azure PowerShell
@@ -19,7 +20,7 @@ Get started with Azure Load Balancer creating an internal load balancer and two 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 - Azure PowerShell installed locally or Azure Cloud Shell
 
@@ -33,7 +34,7 @@ Create a resource group with [New-AzResourceGroup](/powershell/module/az.resourc
 
 ```azurepowershell-interactive
 $rg = @{
-    Name = 'CreateINTLBQS-rg'
+    Name = 'load-balancer-ps-rg'
     Location = 'westus2'
 }
 New-AzResourceGroup @rg
@@ -58,7 +59,7 @@ Use [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress)
 ```azurepowershell-interactive
 ## Create public IP address for NAT gateway and place IP in variable ##
 $gwpublicip = @{
-    Name = 'myNATgatewayIP'
+    Name = 'nat-gw-public-ip'
     ResourceGroupName = $rg.name
     Location = 'westus2'
     Sku = 'Standard'
@@ -73,7 +74,7 @@ To create a zonal public IP address in zone 1, use the following command:
 ```azurepowershell-interactive
 ## Create a zonal public IP address for NAT gateway and place IP in variable ##
 $gwpublicip = @{
-    Name = 'myNATgatewayIP'
+    Name = 'nat-gw-public-ip'
     ResourceGroupName = $rg.name
     Location = 'westus2'
     Sku = 'Standard'
@@ -106,7 +107,7 @@ $gwpublicip = New-AzPublicIpAddress @gwpublicip
 ## Create NAT gateway resource ##
 $nat = @{
     ResourceGroupName = $rg.name
-    Name = 'myNATgateway'
+    Name = 'lb-nat-gateway'
     IdleTimeoutInMinutes = '10'
     Sku = 'Standard'
     Location = 'westus2'
@@ -116,7 +117,7 @@ $natGateway = New-AzNatGateway @nat
 
 ## Create backend subnet config ##
 $subnet = @{
-    Name = 'myBackendSubnet'
+    Name = 'backend-subnet'
     AddressPrefix = '10.1.0.0/24'
     NatGateway = $natGateway
 }
@@ -131,7 +132,7 @@ $bastsubnetConfig = New-AzVirtualNetworkSubnetConfig @bastsubnet
 
 ## Create the virtual network ##
 $net = @{
-    Name = 'myVNet'
+    Name = 'lb-vnet'
     ResourceGroupName = $rg.name
     Location = 'westus2'
     AddressPrefix = '10.1.0.0/16'
@@ -141,7 +142,7 @@ $vnet = New-AzVirtualNetwork @net
 
 ## Create public IP address for bastion host. ##
 $bastionip = @{
-    Name = 'myBastionIP'
+    Name = 'lb-vnet-bastion-ip'
     ResourceGroupName = $rg.name
     Location = 'westus2'
     Sku = 'Standard'
@@ -152,7 +153,7 @@ $bastionip = New-AzPublicIpAddress @bastionip
 ## Create bastion host ##
 $bastion = @{
     ResourceGroupName = $rg.name
-    Name = 'myBastion'
+    Name = 'lb-vnet-bastion'
     PublicIpAddress = $bastionip
     VirtualNetwork = $vnet
 }
@@ -160,7 +161,7 @@ New-AzBastion @bastion -AsJob
 
 ## Create rule for network security group and place in variable. ##
 $nsgrule = @{
-    Name = 'myNSGRuleHTTP'
+    Name = 'lb-NSG-Rule'
     Description = 'Allow HTTP'
     Protocol = '*'
     SourcePortRange = '*'
@@ -175,7 +176,7 @@ $rule1 = New-AzNetworkSecurityRuleConfig @nsgrule
 
 ## Create network security group ##
 $nsg = @{
-    Name = 'myNSG'
+    Name = 'lb-NSG'
     ResourceGroupName = $rg.name
     Location = 'westus2'
     SecurityRules = $rule1
@@ -200,25 +201,25 @@ This section details how you can create and configure the following components o
 ```azurepowershell-interactive
 ## Place virtual network created in previous step into a variable. ##
 $net = @{
-    Name = 'myVNet'
+    Name = 'lb-vnet'
     ResourceGroupName = $rg.name
 }
 $vnet = Get-AzVirtualNetwork @net
 
 ## Create load balancer frontend configuration and place in variable. ##
 $lbip = @{
-    Name = 'myFrontEnd'
+    Name = 'lb-frontend'
     PrivateIpAddress = '10.1.0.4'
     SubnetId = $vnet.subnets[0].Id
 }
 $feip = New-AzLoadBalancerFrontendIpConfig @lbip
 
 ## Create backend address pool configuration and place in variable. ##
-$bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'myBackEndPool'
+$bepool = New-AzLoadBalancerBackendAddressPoolConfig -Name 'lb-backend-pool'
 
 ## Create the health probe and place in variable. ##
 $probe = @{
-    Name = 'myHealthProbe'
+    Name = 'lb-health-probe'
     Protocol = 'tcp'
     Port = '80'
     IntervalInSeconds = '360'
@@ -228,7 +229,7 @@ $healthprobe = New-AzLoadBalancerProbeConfig @probe
 
 ## Create the load balancer rule and place in variable. ##
 $lbrule = @{
-    Name = 'myHTTPRule'
+    Name = 'lb-HTTP-rule'
     Protocol = 'tcp'
     FrontendPort = '80'
     BackendPort = '80'
@@ -241,7 +242,7 @@ $rule = New-AzLoadBalancerRuleConfig @lbrule -EnableTcpReset
 ## Create the load balancer resource. ##
 $loadbalancer = @{
     ResourceGroupName = $rg.name
-    Name = 'myLoadBalancer'
+    Name = 'load-balancer'
     Location = 'westus2'
     Sku = 'Standard'
     FrontendIpConfiguration = $feip
@@ -279,21 +280,21 @@ $cred = Get-Credential
 
 ## Place virtual network created in previous step into a variable. ##
 $net = @{
-    Name = 'myVNet'
+    Name = 'lb-vnet'
     ResourceGroupName = $rg.name
 }
 $vnet = Get-AzVirtualNetwork @net
 
 ## Place the load balancer into a variable. ##
 $lb = @{
-    Name = 'myLoadBalancer'
+    Name = 'load-balancer'
     ResourceGroupName = $rg.name
 }
 $bepool = Get-AzLoadBalancer @lb  | Get-AzLoadBalancerBackendAddressPoolConfig
 
 ## Place the network security group into a variable. ##
 $sg = @{
-    Name = 'myNSG'
+    Name = 'lb-NSG'
     ResourceGroupName = $rg.name
 }
 $nsg = Get-AzNetworkSecurityGroup @sg
@@ -303,7 +304,7 @@ for ($i=1; $i -le 2; $i++)
 {
     ## Command to create network interface for VMs ##
     $nic = @{
-    Name = "myNicVM$i"
+    Name = "lb-nic-vm$i"
     ResourceGroupName = $rg.name
     Location = 'westus2'
     Subnet = $vnet.Subnets[0]
@@ -314,11 +315,11 @@ for ($i=1; $i -le 2; $i++)
 
     ## Create a virtual machine configuration for VMs ##
     $vmsz = @{
-        VMName = "myVM$i"
+        VMName = "lb-VM$i"
         VMSize = 'Standard_DS1_v2'  
     }
     $vmos = @{
-        ComputerName = "myVM$i"
+        ComputerName = "lb-VM$i"
         Credential = $cred
     }
     $vmimage = @{
@@ -339,8 +340,8 @@ for ($i=1; $i -le 2; $i++)
         VM = $vmConfig
         Zone = "$i"
     }
+    New-AzVM @vm -asjob
 }
-New-AzVM @vm -asjob
 ```
 
 The deployments of the virtual machines and bastion host are submitted as PowerShell jobs. To view the status of the jobs, use [Get-Job](/powershell/module/microsoft.powershell.core/get-job):
@@ -364,7 +365,7 @@ Use [Set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) to inst
 The extension runs `PowerShell Add-WindowsFeature Web-Server` to install the IIS webserver and then updates the Default.htm page to show the hostname of the VM:
 
 > [!IMPORTANT]
-> Ensure the virtual machine deployments have completed from the previous steps before proceeding.  Use `Get-Job` to check the status of the virtual machine deployment jobs.
+> Ensure the virtual machine deployments have completed from the previous steps before proceeding. Use `Get-Job` to check the status of the virtual machine deployment jobs.
 
 ```azurepowershell-interactive
 ## For loop with variable to install custom script extension on virtual machines. ##
@@ -375,7 +376,7 @@ for ($i=1; $i -le 2; $i++)
         ExtensionType = 'CustomScriptExtension'
         ExtensionName = 'IIS'
         ResourceGroupName = $rg.name
-        VMName = "myVM$i"
+        VMName = "lb-VM$i"
         Location = 'westus2'
         TypeHandlerVersion = '1.8'
         SettingString = '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}'
@@ -417,21 +418,21 @@ $cred = Get-Credential
 
 ## Place the virtual network into a variable. ##
 $net = @{
-    Name = 'myVNet'
+    Name = 'lb-vnet'
     ResourceGroupName = $rg.name
 }
 $vnet = Get-AzVirtualNetwork @net
 
 ## Place the network security group into a variable. ##
 $sg = @{
-    Name = 'myNSG'
+    Name = 'lb-NSG'
     ResourceGroupName = $rg.name 
 }
 $nsg = Get-AzNetworkSecurityGroup @sg
 
 ## Command to create network interface for VM ##
 $nic = @{
-    Name = "myNicTestVM"
+    Name = "lb-nic-testvm"
     ResourceGroupName = $rg.name
     Location = 'westus2'
     Subnet = $vnet.Subnets[0]
@@ -441,11 +442,11 @@ $nicVM = New-AzNetworkInterface @nic
 
 ## Create a virtual machine configuration for VMs ##
 $vmsz = @{
-    VMName = "myTestVM"
+    VMName = "lb-TestVM"
     VMSize = 'Standard_DS1_v2' 
 }
 $vmos = @{
-    ComputerName = "myTestVM"
+    ComputerName = "lb-TestVM"
     Credential = $cred
 }
 $vmimage = @{
@@ -472,21 +473,21 @@ New-AzVM @vm
 
 1. [Sign in](https://portal.azure.com) to the Azure portal.
 
-1. Find the private IP address for the load balancer on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then select **myLoadBalancer**.
+1. Find the private IP address for the load balancer on the **Overview** screen. Select **All services** in the left-hand menu, select **All resources**, and then select **load-balancer**.
 
-2. Make note or copy the address next to **Private IP Address** in the **Overview** of **myLoadBalancer**.
+1. Make note or copy the address next to **Private IP Address** in the **Overview** of **load-balancer**.
 
-3. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **myTestVM** that is located in the **CreateIntLBQS-rg** resource group.
+1. Select **All services** in the left-hand menu, select **All resources**, and then from the resources list, select **lb-TestVM** that is located in the **load-balancer-ps-rg** resource group.
 
-4. On the **Overview** page, select **Connect**, then **Bastion**.
+1. On the **Overview** page, select **Connect**, then **Bastion**.
 
-6. Enter the username and password entered during VM creation.
+1. Enter the username and password entered during VM creation.
 
-7. Open **Internet Explorer** on **myTestVM**.
+1. Open **Internet Explorer** on **lb-TestVM**.
 
-8. Enter the IP address from the previous step into the address bar of the browser. The custom IIS Web server page is displayed.
+1. Enter the IP address from the previous step into the address bar of the browser. The custom IIS Web server page is displayed.
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot of web browser showing default web page for load balanced VM" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-internal-portal/load-balancer-test.png" alt-text="Screenshot of web browser showing default web page for load balanced VM." border="true":::
    
 To see the load balancer distribute traffic across all three VMs, you can force-refresh your web browser from the test machine.
 

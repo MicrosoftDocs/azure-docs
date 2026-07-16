@@ -4,7 +4,7 @@ description: Learn about how to run Self-Hosted Integration Runtime in Windows c
 ms.author: lle
 author: lrtoyou1223
 ms.subservice: integration-runtime
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2024
 ---
 

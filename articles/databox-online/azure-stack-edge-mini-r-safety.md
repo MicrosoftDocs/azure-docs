@@ -2,12 +2,12 @@
 title: Azure Stack Edge Mini R safety guide | Microsoft Docs
 description: Describes safety conventions, guidelines, considerations, and explains how to safely install and operate your Azure Stack Edge Mini R device.
 services: databox
-author:   alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/24/2025
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge Mini R safety instructions

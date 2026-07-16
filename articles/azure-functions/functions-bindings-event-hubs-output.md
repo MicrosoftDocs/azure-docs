@@ -29,6 +29,10 @@ Make sure the required package references are in place before you try to impleme
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 # [Isolated worker model](#tab/isolated-process)
@@ -457,6 +461,8 @@ There are two options for outputting an Event Hubs message from a function:
 - **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as an Event Hubs message.
 
 - **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as an Event Hubs message.
+
+The output function parameter must be defined as `func.Out[func.EventHubEvent]` or `func.Out[List[func.EventHubEvent]]`. Refer to the [output example](#example) for details.
 
 ::: zone-end
 

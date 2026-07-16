@@ -7,6 +7,7 @@ ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 12/06/2024
 ms.custom: template-how-to
+# Customer intent: "As a network administrator, I want to manage health probes for my load balancer, so that I can ensure backend instances are monitored and remain operational."
 ---
 
 # Manage health probes for Azure Load Balancer using the Azure portal
@@ -39,7 +40,7 @@ Health probes have the following properties:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - A standard public load balancer in your subscription. For more information on creating an Azure Load Balancer, see [Quickstart: Create a public load balancer to load balance VMs using the Azure portal](quickstart-load-balancer-standard-public-portal.md). The load balancer name for the examples in this article is **myLoadBalancer**.
 

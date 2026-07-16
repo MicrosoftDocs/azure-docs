@@ -2,7 +2,7 @@
 title: Join Azure-SSIS integration runtime to a virtual network via Azure PowerShell
 description: Learn how to join Azure-SSIS integration runtime to a virtual network via Azure PowerShell. 
 ms.subservice: integration-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2024
 author: chugugrace
 ms.author: chugu 

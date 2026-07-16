@@ -1,80 +1,83 @@
 ---
 title: Azure Stream Analytics on IoT Edge
-description: Create edge jobs in Azure Stream Analytics and deploy them to devices running Azure IoT Edge.
+description: Learn about Azure Stream Analytics on IoT Edge, including common scenarios, edge job limitations, supported inputs and outputs, and runtime requirements.
 ms.service: azure-stream-analytics
 author: an-emma
 ms.author: raan
-ms.topic: conceptual
-ms.date: 12/18/2020
+ms.topic: concept-article
+ms.date: 05/20/2026
+ai-usage: ai-assisted
+
+#customer intent: As a developer or IoT architect, I want to understand what Azure Stream Analytics on IoT Edge is and how it works so that I can decide whether to use it for edge analytics scenarios.
 ---
 
 # Azure Stream Analytics on IoT Edge
- 
-Azure Stream Analytics on IoT Edge empowers developers to deploy near-real-time analytical intelligence closer to IoT devices so that they can unlock the full value of device-generated data. Azure Stream Analytics is designed for low latency, resiliency, efficient use of bandwidth, and compliance. Enterprises can deploy control logic close to the industrial operations and complement Big Data analytics done in the cloud.
 
-Azure Stream Analytics on IoT Edge runs within the [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/) framework. Once the job is created in Stream Analytics, you can deploy and manage it using IoT Hub.
+Azure Stream Analytics on IoT Edge is a lightweight version of Azure Stream Analytics that runs directly on IoT Edge devices for near-real-time analytics on device-generated data. Azure Stream Analytics on IoT Edge provides low latency, resiliency, efficient use of bandwidth, and regulatory compliance. You can deploy analytics and control logic close to industrial operations while using cloud-based Azure Stream Analytics for large-scale data processing.
 
-## Common scenarios
+Azure Stream Analytics on IoT Edge runs within the [Azure IoT Edge](/azure/iot-edge/about-iot-edge) framework. After you create a Stream Analytics job in the Azure portal, you can deploy and manage it by using IoT Hub.
 
-This section describes the common scenarios for Stream Analytics on IoT Edge. The following diagram shows the flow of data between IoT devices and the Azure cloud.
+## Common scenarios for Stream Analytics on IoT Edge
 
-:::image type="content" source="media/stream-analytics-edge/edge-high-level-diagram.png" alt-text="High level diagram of IoT Edge":::
+The following diagram shows the flow of data between IoT devices and the Azure cloud.
+
+:::image type="content" source="media/stream-analytics-edge/edge-high-level-diagram.png" alt-text="Diagram that shows the flow of data between IoT devices and the Azure cloud.":::
 
 ### Low-latency command and control
 
-Manufacturing safety systems must respond to operational data with ultra-low latency. With Stream Analytics on IoT Edge, you can analyze sensor data in near real-time, and issue commands when you detect anomalies to stop a machine or trigger alerts.
+Manufacturing safety systems must respond to operational data with ultra-low latency. By using Stream Analytics on IoT Edge, you can analyze sensor data in near real-time, and issue commands when you detect anomalies to stop a machine or trigger alerts.
 
 ### Limited connectivity to the cloud
 
-Mission critical systems, such as remote mining equipment, connected vessels, or offshore drilling, need to analyze and react to data even when cloud connectivity is intermittent. With Stream Analytics, your streaming logic runs independently of the network connectivity and you can choose what you send to the cloud for further processing or storage.
+Mission critical systems, such as remote mining equipment, connected vessels, or offshore drilling, need to analyze and react to data even when cloud connectivity is intermittent. By using Stream Analytics, your streaming logic runs independently of the network connectivity and you can choose what you send to the cloud for further processing or storage.
 
 ### Limited bandwidth
 
-The volume of data produced by jet engines or connected cars can be so large that data must be filtered or pre-processed before sending it to the cloud. Using Stream Analytics, you can filter or aggregate the data that needs to be sent to the cloud.
+The volume of data produced by jet engines or connected cars can be so large that you must filter or pre-process it before you send it to the cloud. By using Stream Analytics, you can filter or aggregate the data that you need to send to the cloud.
 
-### Compliance
+### Regulatory compliance and local data processing
 
-Regulatory compliance may require some data to be locally anonymized or aggregated before being sent to the cloud.
+Regulatory compliance might require you to locally anonymize or aggregate some data before you send it to the cloud. By using Stream Analytics on IoT Edge, you can process sensitive data on-premises and send only compliant, transformed results to the cloud.
 
 ## Edge jobs in Azure Stream Analytics
 
-Stream Analytics Edge jobs run in containers deployed to [Azure IoT Edge devices](../iot-edge/about-iot-edge.md). Edge jobs are composed of two parts:
+Stream Analytics edge jobs are containerized Stream Analytics workloads deployed to [Azure IoT Edge devices](/azure/iot-edge/about-iot-edge). Edge jobs have two parts:
 
-* A cloud part that is responsible for the job definition: users define inputs, output, query, and other settings, such as  out of order events, in the cloud.
+* A cloud part that handles the job definition: you define inputs, output, query, and other settings, such as out-of-order events, in the cloud.
 
-* A module running on your IoT devices. The module contains the Stream Analytics engine and receives the job definition from the cloud. 
+* A module running on your IoT devices. The module contains the Stream Analytics engine and receives the job definition from the cloud.
 
-Stream Analytics uses IoT Hub to deploy edge jobs to device(s). For more information, see [IoT Edge deployment](../iot-edge/module-deployment-monitoring.md).
+Stream Analytics uses IoT Hub to deploy edge jobs to devices. For more information, see [IoT Edge deployment](/azure/iot-edge/module-deployment-monitoring).
 
-:::image type="content" source="media/stream-analytics-edge/stream-analytics-edge-job.png" alt-text="Azure Stream Analytics Edge job":::
+:::image type="content" source="media/stream-analytics-edge/stream-analytics-edge-job.png" alt-text="Diagram that shows the components of an Azure Stream Analytics edge job.":::
 
 ## Edge job limitations
 
-The goal is to have parity between IoT Edge jobs and cloud jobs. Most SQL query language features are supported for both edge and cloud. However, the following features are not supported for edge jobs:
-* User-defined functions (UDF) in JavaScript. UDF are available in [C# for IoT Edge jobs](./stream-analytics-edge-csharp-udf.md) (preview).
+Stream Analytics edge jobs aim for parity between edge and cloud deployments. A cloud job is a standard Azure Stream Analytics job that runs in Azure, while an edge job runs locally on an IoT Edge device. Stream Analytics supports most SQL query language features for both edge and cloud. However, edge jobs don't support the following features:
+* User-defined functions (UDF) in JavaScript. UDFs are available in [C# for IoT Edge jobs](./stream-analytics-edge-csharp-udf.md) (preview).
 * User-defined aggregates (UDA).
-* Azure ML functions.
-* AVRO format for input/output. At this time, only CSV and JSON are supported.
-* The following  SQL operators:
-    * PARTITION BY
-    * GetMetadataPropertyValue
+* Azure Machine Learning functions.
+* AVRO format for input/output. Edge jobs support only CSV and JSON formats.
+* The following SQL operators:
+    * `PARTITION BY`
+    * `GetMetadataPropertyValue`
 * Late arrival policy
 
-### Runtime and hardware requirements
-To run Stream Analytics on IoT Edge, you need devices that can run [Azure IoT Edge](https://azure.microsoft.com/campaigns/iot-edge/). 
+## Runtime and hardware requirements
+
+To run Stream Analytics on IoT Edge, you need devices that run [Azure IoT Edge](/azure/iot-edge/about-iot-edge).
 
 Stream Analytics and Azure IoT Edge use **Docker** containers to provide a portable solution that runs on multiple host operating systems (Windows, Linux).
 
-Stream Analytics on IoT Edge is made available as Windows and Linux images, running on both x86-64 or ARM (Advanced RISC Machines) architectures. 
+Stream Analytics on IoT Edge runs as Linux images on x86-64 and ARM architectures.
 
+## Inputs and outputs for Stream Analytics edge jobs
 
-## Input and output
+Stream Analytics edge jobs get inputs and outputs from other modules running on IoT Edge devices. To connect from and to specific modules, set the routing configuration at deployment time. For more information, see [the IoT Edge module composition documentation](/azure/iot-edge/module-composition).
 
-Stream Analytics Edge jobs can get inputs and outputs from other modules running on IoT Edge devices. To connect from and to specific modules, you can set the routing configuration at deployment time. More information is described on [the IoT Edge module composition documentation](../iot-edge/module-composition.md).
+Both inputs and outputs support CSV and JSON formats.
 
-For both inputs and outputs, CSV and JSON formats are supported.
-
-For each input and output stream you create in your Stream Analytics job, a corresponding endpoint is created on your deployed module. These endpoints can be used in the routes of your deployment.
+For each input and output stream you create in your Stream Analytics job, Stream Analytics creates a corresponding endpoint on your deployed module. Use these endpoints in the routes of your deployment.
 
 Supported stream input types are:
 * Edge Hub
@@ -85,47 +88,29 @@ Supported stream output types are:
 * Edge Hub
 * SQL Database
 * Event Hub
-* Blob Storage/ADLS Gen2
+* Blob Storage/Azure Data Lake Storage Gen2
 
-Reference input supports reference file type. Other outputs can be reached using a cloud job downstream. For example, a Stream Analytics job hosted in Edge sends output to Edge Hub, which can then send output to IoT Hub. You can use a second cloud-hosted Azure Stream Analytics job with input from IoT Hub and output to Power BI or another output type.
+Reference input supports reference file type, which provides static or slow-changing data for lookups. To reach other output destinations, chain a cloud-hosted Stream Analytics job downstream. For example, a Stream Analytics job hosted on IoT Edge sends output to Edge Hub, which can then send output to IoT Hub. Use a second cloud-hosted Azure Stream Analytics job with input from IoT Hub and output to Power BI or another output type.
 
-## Azure Stream Analytics module image information 
+## Azure Stream Analytics module image information
 
-This version information was last updated on 2020-09-21:
+The following table lists the available Stream Analytics on IoT Edge module images. This version information was last updated on 2020-09-21. Check the [Microsoft Container Registry](https://mcr.microsoft.com/) for the latest available versions.
 
-- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-amd64`
-   - base image: mcr.microsoft.com/dotnet/core/runtime:2.1.13-alpine
-   - platform:
-      - architecture: amd64
-      - os: linux
- 
-- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm32v7`
-   - base image: mcr.microsoft.com/dotnet/core/runtime:2.1.13-bionic-arm32v7
-   - platform:
-      - architecture: arm
-      - os: linux
- 
-- Image: `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm64`
-   - base image: mcr.microsoft.com/dotnet/core/runtime:3.0-bionic-arm64v8
-   - platform:
-      - architecture: arm64
-      - os: linux
-      
-      
-## Get help
-For further assistance, try the [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
+| Image | Base image | Architecture | OS |
+|---|---|---|---|
+| `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-amd64` | `mcr.microsoft.com/dotnet/core/runtime:2.1.13-alpine` | amd64 | Linux |
+| `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm32v7` | `mcr.microsoft.com/dotnet/core/runtime:2.1.13-bionic-arm32v7` | arm | Linux |
+| `mcr.microsoft.com/azure-stream-analytics/azureiotedge:1.0.9-linux-arm64` | `mcr.microsoft.com/dotnet/core/runtime:3.0-bionic-arm64v8` | arm64 | Linux |
 
-## Next steps
+> [!IMPORTANT]
+> The base images listed in this table use .NET Core 2.1 and 3.0, which have reached end of life. Check the [Microsoft Container Registry](https://mcr.microsoft.com/) for updated Stream Analytics on IoT Edge images built on supported .NET versions.
 
-* [More information on Azure IoT Edge](../iot-edge/about-iot-edge.md)
-* [Stream Analytics on IoT Edge tutorial](../iot-edge/tutorial-deploy-stream-analytics.md)
+## Related content
+
+* [What is Azure IoT Edge?](/azure/iot-edge/about-iot-edge)
+* [Tutorial: Deploy Azure Stream Analytics as an IoT Edge module](/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Develop Stream Analytics Edge jobs using Visual Studio tools](./stream-analytics-tools-for-visual-studio-edge-jobs.md)
 * [Implement CI/CD for Stream Analytics using APIs](stream-analytics-cicd-api.md)
+* [Microsoft Q&A for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics)
 
-<!--Link references-->
-[stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
-[stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.introduction]: stream-analytics-introduction.md
-[stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
-[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/
+

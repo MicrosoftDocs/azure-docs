@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-virtual-wan
  ms.topic: include
  ms.date: 05/03/2023
- ms.author: cherylmc
+ ms.author: duau
 ---
 
 > [!NOTE]

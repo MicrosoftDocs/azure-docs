@@ -1,20 +1,22 @@
 ---
 title: Azure IoT Edge for Linux on Windows networking
 description: Overview of Azure IoT Edge for Linux on Windows networking between the Windows host OS and the IoT Edge for Linux on Windows (EFLOW) virtual machine.
-author: PatAltimore
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-edge
-ms.custom: linux-related-content
 services: iot-edge
-ms.topic: conceptual
-ms.date: 01/21/2025
-ms.author: patricka
+ms.topic: concept-article
+ms.date: 02/25/2026
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # IoT Edge for Linux on Windows networking
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
- This article provides information about how to configure the networking between the Windows host OS and the IoT Edge for Linux on Windows (EFLOW) virtual machine. EFLOW uses a [CBL-Mariner](https://github.com/microsoft/CBL-Mariner) Linux virtual machine in order to run IoT Edge modules. For more information about EFLOW architecture, see [What is Azure IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows.md).
+ This article provides information about how to configure the networking between the Windows host OS and the IoT Edge for Linux on Windows (EFLOW) virtual machine. EFLOW uses an [Azure Linux](https://github.com/microsoft/CBL-Mariner) Linux virtual machine in order to run IoT Edge modules. For more information about EFLOW architecture, see [What is Azure IoT Edge for Linux on Windows](./iot-edge-for-linux-on-windows.md).
 
 ## Networking
 To establish a communication channel between the Windows host OS and the EFLOW virtual machine, we use Hyper-V networking stack. For more information about Hyper-V networking, see [Hyper-V networking basics](/windows-server/virtualization/hyper-v/plan/plan-hyper-v-networking-in-windows-server#hyper-v-networking-basics). Basic networking in EFLOW is simple; it uses two parts, a virtual switch and a virtual network. 
@@ -97,7 +99,7 @@ For example, there are numerous of industrial IoT scenarios that require connect
 For more information on adding NICs, see [PowerShell functions for IoT Edge for Linux on Windows](reference-iot-edge-for-linux-on-windows-functions.md).
 
 >[!WARNING]
->When using EFLOW multiple NICs feature, you may want to set up the different routes priorities. By default, EFLOW will create one default route per *ehtX* interface assigned to the VM and assign a random priority. If all interfaces are connected to the internet, random priorities may not be a problem. However, if one of the NICs is connected to an offline network, you may want to prioritize the online NIC over the offline NIC to get the EFLOW VM connected to the internet. For more information about custom routing, see [EFLOW routing](https://github.com/Azure/iotedge-eflow/tree/main/samples/networking/routing).
+>When using EFLOW multiple NICs feature, you may want to set up the different routes priorities. By default, EFLOW will create one default route per *ethX* interface assigned to the VM and assign a random priority. If all interfaces are connected to the internet, random priorities may not be a problem. However, if one of the NICs is connected to an offline network, you may want to prioritize the online NIC over the offline NIC to get the EFLOW VM connected to the internet. For more information about custom routing, see [EFLOW routing](https://github.com/Azure/iotedge-eflow/tree/main/samples/networking/routing).
 
 ## Next steps
 

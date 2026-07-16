@@ -4,9 +4,10 @@ description: Use private endpoints to limit and secure device connectivity to yo
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/22/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-central
 services: iot-central
+ms.custom: sfi-image-nochange
 ---
 
 # Network security for IoT Central using private endpoints

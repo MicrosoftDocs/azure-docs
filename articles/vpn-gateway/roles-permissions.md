@@ -6,8 +6,9 @@ author: aybatra
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 12/4/2024
-ms.author: cherylmc
+ms.author: duau
 
+# Customer intent: As a network administrator, I want to understand the roles and permissions required for managing a VPN gateway, so that I can ensure the appropriate access and functionality for users and resources involved in VPN operations.
 ---
 # About roles and permissions for VPN 
 
@@ -77,5 +78,5 @@ To view roles and permissions for other services, see the following links:
 
 - [What is Azure Role Based Access](../role-based-access-control/overview.md)
 
-- [Azure Role Based Access Control](../role-based-access-control/role-assignments-list-portal.yml)
+- [Azure Role Based Access Control](/azure/role-based-access-control/role-assignments-list-portal)
 

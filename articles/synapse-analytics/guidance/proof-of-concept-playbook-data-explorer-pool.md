@@ -1,11 +1,11 @@
 ---
 title: "Synapse POC playbook: Big data analytics with Data Explorer pool in Azure Synapse Analytics"
 description: "A high-level methodology for preparing and running an effective Azure Synapse Analytics proof of concept (POC) project for Data Explorer pool."
-author: shsagir
-ms.author: shsagir
+author: spelluru
+ms.author: spelluru
 ms.reviewer: devsha
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/28/2022
 ---
 

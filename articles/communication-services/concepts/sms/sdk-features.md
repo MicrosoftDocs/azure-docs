@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: prakulka
 ms.date: 04/10/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: sms
 ---
@@ -46,3 +46,5 @@ The following table describes the set of features that are currently available i
 - Learn about [SMS concepts](../sms/concepts.md).
 - Get an SMS capable [phone number](../../quickstarts/telephony/get-phone-number.md).
 - [Phone number types in Azure Communication Services](../telephony/plan-solution.md).
+> [!TIP]
+> For global SMS delivery and partner-managed options, check out [Messaging Connect](../sms/messaging-connect.md).

@@ -131,7 +131,7 @@ public class Function {
             @HttpTrigger(
                 name = "req",
                 methods = {HttpMethod.GET, HttpMethod.POST},
-                authLevel = AuthorizationLevel.ANONYMOUS)
+                authLevel = AuthorizationLevel.FUNCTION)
                 HttpRequestMessage<Optional<String>> request,
             final ExecutionContext context) throws IOException{
         context.getLogger().info("Java HTTP trigger processed a request.");

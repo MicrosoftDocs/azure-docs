@@ -2,7 +2,7 @@
 title: Expose on-premises WCF REST service to clients
 description: This tutorial describes how to expose an on-premises WCF REST service to an external client by using Azure WCF Relay.
 ms.topic: tutorial
-ms.date: 12/11/2024
+ms.date: 01/24/2026
 # Customer intent: I want to know how to expose an on-premises WCF REST service to external clients using WCF Relay.
 ---
 
@@ -30,7 +30,7 @@ You do the following tasks in this tutorial:
 
 To complete this tutorial, you need the following prerequisites:
 
-* An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+* An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * [Visual Studio 2015 or later](https://www.visualstudio.com). The examples in this tutorial use Visual Studio 2019.
 * Azure SDK for .NET. Install it from the [SDK downloads page](https://azure.microsoft.com/downloads/).
 

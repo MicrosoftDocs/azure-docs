@@ -1,7 +1,7 @@
 ---
 title: Azure App Configuration as Event Grid source
 description: This article describes how to use Azure App Configuration as an Event Grid event source. It provides the schema and links to tutorial and how-to articles. 
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 12/02/2021
 ---
 

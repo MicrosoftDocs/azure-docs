@@ -2,11 +2,12 @@
 title: Header rewrite for Azure Application Gateway for Containers - Gateway API
 description: Learn how to rewrite headers in Gateway API for Application Gateway for Containers.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 11/5/2024
-ms.author: greglin
+ms.date: 10/27/2025
+ms.author: mbender
+# Customer intent: As a cloud engineer, I want to implement HTTP header rewrites in Application Gateway for Containers, so that I can modify request and response headers for backend services to better handle client requests.
 ---
 
 # Header rewrite for Azure Application Gateway for Containers - Gateway API
@@ -27,8 +28,8 @@ The following figure illustrates a request with a specific user agent being rewr
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If you're following the ALB managed deployment strategy, ensure provisioning of the [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If following the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md))
+2. If you're following the ALB managed deployment strategy, ensure provisioning of the ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)) the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate the header rewrite.
 
@@ -211,6 +212,9 @@ spec:
           port: 8080
 EOF
 ```
+
+>[!Note]
+>Modifying the `Host` header is not supported with a `requestHeaderModifier` rule. To override the `Host` value specified to the backend target, use a [URLRewrite](how-to-url-rewrite-gateway-api.md#deploy-the-required-gateway-api-resources) filter.
 
 Once the HTTPRoute resource is created, ensure the route is _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
 

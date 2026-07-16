@@ -1,12 +1,13 @@
 ---
 title: "Tutorial: Send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations"
 description: Learn how to send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations.
-author: PatAltimore
+author: dominicbetts
 ms.service: azure-iot-operations
-ms.subservice: azure-mqtt-broker
-ms.author: patricka
-ms.topic: how-to
-ms.date: 11/15/2024
+ms.subservice: azure-data-flows
+ms.author: dobett
+ms.topic: tutorial
+ms.date: 06/26/2026
+ms.custom: sfi-image-nochange
 
 #CustomerIntent: As an operator, I want to send data from an OPC UA server to Azure Data Lake Storage Gen 2 using Azure IoT Operations so that I can store the data for further analysis and processing.
 ---
@@ -20,6 +21,8 @@ However, it's also possible to send the data directly to a storage endpoint with
 This tutorial builds on the quickstart setup and demonstrates how to bifurcate the data to Azure Data Lake Storage Gen 2. This approach allows you to store the data directly in a scalable and secure data lake, which can be used for further analysis and processing.
 
 ## Prerequisites
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
 Finish the [second step of the quickstart](../get-started-end-to-end-sample/quickstart-configure.md) which gets you the data from the OPC UA server to the Azure IoT Operations MQTT broker. Make sure you can see the data in Event Hubs.
 
@@ -89,16 +92,16 @@ In the quickstart, the data that comes from the oven asset looks like:
 ```json
 {
   "Temperature": {
-    "SourceTimestamp": "2024-11-15T21:40:28.5062427Z",
-    "Value": 6416
-  },
-  "FillWeight": {
-    "SourceTimestamp": "2024-11-15T21:40:28.5063811Z",
-    "Value": 6416
+    "Value": -95.10565162951536,
+    "SourceTimestamp": "2026-06-25T21:57:35.7725686Z"
   },
   "EnergyUse": {
-    "SourceTimestamp": "2024-11-15T21:40:28.506383Z",
-    "Value": 6416
+    "Value": 223,
+    "SourceTimestamp": "2026-06-25T21:57:35.6709625Z"
+  },
+  "Weight": {
+    "Value": 260,
+    "SourceTimestamp": "2026-06-25T21:57:35.6709442Z"
   }
 }
 ```
@@ -106,7 +109,7 @@ In the quickstart, the data that comes from the oven asset looks like:
 The required schema format for Delta Lake is a JSON object that follows the Delta Lake schema serialization format. The schema should define the structure of the data, including the types and properties of each field. For more details on the schema format, see [Delta Lake schema serialization format documentation](https://github.com/delta-io/delta/blob/master/PROTOCOL.md#schema-serialization-format).
 
 > [!TIP]
-> To generate the schema from a sample data file, use the [Schema Gen Helper](https://azure-samples.github.io/explore-iot-operations/schema-gen-helper/).
+> To generate the schema from a sample data file, use the [Schema Gen Helper](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/schema-gen-helper).
 
 For this tutorial, the schema for the data looks like this:
 
@@ -123,42 +126,20 @@ For this tutorial, the schema for the data looks like this:
           "type": "struct",
           "fields": [
             {
-              "name": "SourceTimestamp",
-              "type": "timestamp",
-              "nullable": false,
+              "name": "Value",
+              "type": "double",
+              "nullable": true,
               "metadata": {}
             },
             {
-              "name": "Value",
-              "type": "integer",
-              "nullable": false,
+              "name": "SourceTimestamp",
+              "type": "timestamp",
+              "nullable": true,
               "metadata": {}
             }
           ]
         },
-        "nullable": false,
-        "metadata": {}
-      },
-      {
-        "name": "FillWeight",
-        "type": {
-          "type": "struct",
-          "fields": [
-            {
-              "name": "SourceTimestamp",
-              "type": "timestamp",
-              "nullable": false,
-              "metadata": {}
-            },
-            {
-              "name": "Value",
-              "type": "integer",
-              "nullable": false,
-              "metadata": {}
-            }
-          ]
-        },
-        "nullable": false,
+        "nullable": true,
         "metadata": {}
       },
       {
@@ -167,20 +148,42 @@ For this tutorial, the schema for the data looks like this:
           "type": "struct",
           "fields": [
             {
-              "name": "SourceTimestamp",
-              "type": "timestamp",
-              "nullable": false,
+              "name": "Value",
+              "type": "integer",
+              "nullable": true,
               "metadata": {}
             },
             {
-              "name": "Value",
-              "type": "integer",
-              "nullable": false,
+              "name": "SourceTimestamp",
+              "type": "timestamp",
+              "nullable": true,
               "metadata": {}
             }
           ]
         },
-        "nullable": false,
+        "nullable": true,
+        "metadata": {}
+      },
+      {
+        "name": "Weight",
+        "type": {
+          "type": "struct",
+          "fields": [
+            {
+              "name": "Value",
+              "type": "integer",
+              "nullable": true,
+              "metadata": {}
+            },
+            {
+              "name": "SourceTimestamp",
+              "type": "timestamp",
+              "nullable": true,
+              "metadata": {}
+            }
+          ]
+        },
+        "nullable": true,
         "metadata": {}
       }
     ]
@@ -204,6 +207,9 @@ To verify the schema is uploaded, list the schema versions using the Azure CLI.
 az iot ops schema version list -g <RESOURCE_GROUP> --schema opcua-schema --registry <REGISTRY_NAME>
 ```
 
+> [!NOTE]
+> The schema marks all fields as nullable. If you mark fields as non-nullable, a single null value or missing field in a record can cause the entire batch of data to be dropped. To learn more, see [Storage serialisation behavior](concept-schema-registry.md#storage-serialization-behavior).
+
 ## Create data flow endpoint
 
 The data flow endpoint is the destination where the data is sent. In this case, the data is sent to Azure Data Lake Storage Gen 2. The authentication method is system assigned managed identity, which you set up to have right permissions to write to the storage account.
@@ -219,7 +225,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param endpointName string = 'adls-gen2-endpoint'
 param host string = 'https://<ACCOUNT>.blob.core.windows.net'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -227,7 +233,7 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' = {
+resource adlsGen2Endpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {
@@ -257,11 +263,12 @@ az deployment group create -g <RESOURCE_GROUP> --template-file adls-gen2-endpoin
 
 To send data to Azure Data Lake Storage Gen 2, you need to create a data flow that reads data from the OPC UA server and writes it to the storage account. No transformation is needed in this case, so the data is written as-is.
 
-Create a data flow using Bicep. Replace the placeholders with your values.
+Create a data flow by using Bicep. Replace the placeholders with your values. The *adrNamespaceName* parameter is set to `myqsnamespace`, which is the default Azure Device Registry namespace created in the quickstart. If you're using a different namespace, change it accordingly.
 
 ```bicep
 // Replace with your values
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
+param adrNamespaceName string= 'myqsnamespace'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param schemaNamespace string = '<SCHEMA_NAMESPACE>'
 
@@ -274,7 +281,7 @@ param endpointName string = 'adls-gen2-endpoint'
 param containerName string = 'aiotutorial'
 param serialFormat string = 'Delta'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -283,26 +290,30 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
 }
 
 // Pointer to the default data flow profile
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource adlsEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' existing = {
+resource adlsEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' existing = {
   parent: aioInstance
   name: endpointName
 }
 
-resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' existing = {
+resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource asset 'Microsoft.DeviceRegistry/assets@2024-11-01' existing = {
+resource adrNamespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
+  name: adrNamespaceName
+}
+
+resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' existing = {
   name: assetName
 }
 
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-11-01' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-03-01' = {
   // Reference to the parent data flow profile, the default profile in this case
   // Same usage as profileRef in Kubernetes YAML
   parent: defaultDataflowProfile
@@ -318,8 +329,8 @@ resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@
         operationType: 'Source'
         sourceSettings: {
           endpointRef: defaultDataflowEndpoint.name
-          assetRef: asset.name
-          dataSources: ['azure-iot-operations/data/${assetName}']
+          assetRef: '${adrNamespace.name}/${asset.name}'
+          dataSources: ['azure-iot-operations/data/${asset.name}']
         }
       }
       // Transformation optional

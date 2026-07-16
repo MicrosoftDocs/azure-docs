@@ -6,16 +6,17 @@ author: akashdubey-ms
 services: storage
 ms.author: akashdubey
 ms.date: 03/04/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-queue-storage
 ms.custom: security-recommendations
+# Customer intent: "As a cloud security administrator, I want to implement security recommendations for Queue Storage, so that I can fulfill my organization's security obligations and protect our data assets effectively."
 ---
 
 # Security recommendations for Queue Storage
 
 This article contains security recommendations for Queue Storage. Implementing these recommendations will help you fulfill your security obligations as described in our shared responsibility model.
 
-Some of the recommendations included in this article can be automatically monitored by Microsoft Defender for Cloud. Microsoft Defender for Cloud is the first line of defense in protecting your resources in Azure. For information on Microsoft Defender for Cloud, see [What is Microsoft Defender for Cloud?](/azure/defender-for-cloud/defender-for-cloud-introduction).
+Some of the recommendations included in this article can be automatically monitored by Microsoft Defender for Cloud. Microsoft Defender for Cloud is the first line of defense in protecting your resources in Azure. For information on Microsoft Defender for Cloud, see [What is Microsoft Defender for Cloud?](/azure/defender-for-cloud/defender-for-cloud-introduction)
 
 Microsoft Defender for Cloud periodically analyzes the security state of your Azure resources to identify potential security vulnerabilities. It then provides you with recommendations on how to address them. For more information on Microsoft Defender for Cloud recommendations, see [Security recommendations in Microsoft Defender for Cloud](/azure/defender-for-cloud/review-security-recommendations).
 

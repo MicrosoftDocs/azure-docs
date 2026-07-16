@@ -17,7 +17,7 @@ This script creates an Event Grid custom topic.
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/event-grid/create-custom-topic/create-custom-topic.ps1 "Create custom topic")]
+[!code-powershell[main](~/powershell_scripts/event-grid/create-custom-topic/create-custom-topic.ps1 "Create custom topic")]
 
 ## Script explanation
 

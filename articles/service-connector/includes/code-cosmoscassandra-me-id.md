@@ -1,21 +1,20 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/31/2023
-ms.author: wchi
+ms.date: 06/17/2026
+ms.reviewer: wchi
 ---
 
 
 ### [.NET](#tab/dotnet)
 
-1. Install dependencies
+1. Install dependencies.
     ```bash
     dotnet add package CassandraCSharpDriver --version 3.19.3
     dotnet add package Azure.Identity
     ```
 
-2. Get an access token for the managed identity or service principal using client library [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get an access token for the managed identity or service principal by using Azure.Identity. Use the access token and AZURE_COSMOS_LISTKEYURL to get the password. Then use connection information from environment variables added by Service Connector to connect to Azure Cosmos DB for Cassandra. In the code below, uncomment the section for your authentication type:
 
     ```csharp
     using System;
@@ -125,7 +124,7 @@ ms.author: wchi
     </dependency>
     ```
 
-1. Get an access token for the managed identity or service principal using `azure-identity`. Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get an access token for the managed identity or service principal using `azure-identity`. Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Cassandra. When using the code below, uncomment the part of the code snippet for the authentication type you want to use. Replace `<AZURE_COSMOS_DB_ACCOUNT_LOCATION>` with the location of your Azure Cosmos DB account.
 
     ```java
     import com.datastax.oss.driver.api.core.CqlSession;
@@ -164,7 +163,9 @@ ms.author: wchi
     String token = accessToken.getToken();
 
     // Get the password.
-    HttpClient client = HttpClient.newBuilder().build();
+    HttpClient client = HttpClient.newBuilder()
+        .version(HttpClient.Version.HTTP_1_1)
+        .build();
     HttpRequest request = HttpRequest.newBuilder()
         .uri(new URI(listKeyUrl))
         .header("Authorization", "Bearer " + token)
@@ -177,9 +178,14 @@ ms.author: wchi
     
     // Connect to Azure Cosmos DB for Cassandra
     final SSLContext sc = SSLContext.getInstance("TLSv1.2");
-    CqlSession session = CqlSession.builder().withSslContext(sc)
+    sc.init(null, null, null);
+    CqlSession session = CqlSession.builder()
+        .withSslContext(sc)
         .addContactPoint(new InetSocketAddress(cassandraHost, cassandraPort)).withLocalDatacenter('datacenter1')
-        .withAuthCredentials(cassandraUsername, cassandraPassword).build();
+        .withLocalDatacenter("<AZURE_COSMOS_DB_ACCOUNT_LOCATION>") // Use the same location as your Azure Cosmos DB account
+        .withKeyspace(cassandraKeyspace)
+        .withAuthCredentials(cassandraUsername, cassandraPassword)
+        .build();
     ```
 
 ### [SpringBoot](#tab/springBoot)

@@ -6,6 +6,7 @@ ms.author: ajetasi
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 07/12/2022
+ms.custom: sfi-image-nochange
 ---
 # Set up alerts for Azure Stream Analytics jobs
 

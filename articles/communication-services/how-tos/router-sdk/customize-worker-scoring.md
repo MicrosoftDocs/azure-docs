@@ -10,6 +10,7 @@ ms.author: rsarkar
 ms.date: 02/23/2022
 ms.topic: how-to
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---	
 
 # How to customize how workers are ranked for the best worker distribution mode
@@ -84,7 +85,7 @@ The decision flow (as shown above) is as follows:
 
 Before moving on any further in the process, let us first define an Azure function that scores worker.
 > [!NOTE]
-> The following Azure function is using JavaScript. For more information, please refer to [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](../../../azure-functions/create-first-function-vs-code-node.md)
+> The following Azure function is using JavaScript. For more information, please refer to [Quickstart: Create a JavaScript function in Azure using Visual Studio Code](../../../azure-functions/how-to-create-function-vs-code.md?pivot=programming-language-javascript)
 
 Sample input for **Worker 1**
 

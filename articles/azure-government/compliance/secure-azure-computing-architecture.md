@@ -5,6 +5,7 @@ ms.topic: article
 ms.service: azure-government
 recommendations: false
 ms.date: 10/03/2022
+ms.custom: sfi-image-nochange
 ---
 
 # Secure Azure Computing Architecture (SACA)
@@ -116,7 +117,7 @@ As mentioned earlier, you can build the SACA reference by using a variety of app
     - [Azure Front Door](../../frontdoor/front-door-overview.md)
     - [Network security groups](../../virtual-network/network-security-groups-overview.md)
     - [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md)
-    - [Microsoft Sentinel](../../sentinel/overview.md)
+    - [Microsoft Sentinel](/azure/sentinel/overview)
 - Sizing
     - A sizing exercise must be completed. Look at the number of concurrent connections you might have through the SACA instance and the network throughput requirements.
     - This step is critical. It helps to size the VMs, ExpressRoute circuits, and identify the licenses that are required from the various vendors you use in your SACA deployment.
@@ -203,5 +204,5 @@ For the Citrix documentation and deployment script, see [SACA based deployment](
 - [DoD Impact Level 6](/azure/compliance/offerings/offering-dod-il6)
 - [Azure and other Microsoft cloud services compliance scope](./azure-services-in-fedramp-auditscope.md)
 - [Azure Policy overview](../../governance/policy/overview.md)
-- [Azure Policy regulatory compliance built-in initiatives](../../governance/policy/samples/index.md#regulatory-compliance)
+- [Azure Policy regulatory compliance built-in initiatives](/azure/governance/policy/samples/index#regulatory-compliance)
 - [Security control mapping with Azure landing zones](/azure/cloud-adoption-framework/ready/control-mapping/security-control-mapping)

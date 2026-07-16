@@ -5,7 +5,8 @@ ms.topic: how-to
 ms.author: tomcassidy
 author: tomvcassidy
 ms.service: azure-batch
-ms.date: 03/27/2025
+ms.date: 06/16/2026
+# Customer intent: As a cloud administrator, I want to effectively plan and manage costs for Azure Batch workloads, so that I can monitor expenses and optimize resource allocation to stay within budget while minimizing overall cloud spending.
 ---
 
 # Plan to manage costs for Azure Batch
@@ -26,7 +27,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 1. Notice that Azure Batch is a free service and that the costs associated with Azure Batch are for the underlying resources that run your workloads. When adding Azure Batch to your estimate, the pricing calculator automatically creates a selection for **Cloud Services** and **Virtual machines**. You can read more about [Azure Cloud Services](../cloud-services/cloud-services-choose-me.md) and [Azure Virtual Machines (VMs)](/azure/virtual-machines/overview) in each product's documentation. What you need to know for estimated the cost of Azure Batch is that virtual machines are the most significant resource.
 
-   Select options from the drop-downs. There are various options available to choose from. The options that have the largest impact on your estimate total are your virtual machine's operating system, the operating system license if applicable, the [VM size](/azure/virtual-machines/sizes) you select under **INSTANCE**, the number of instances you choose, and the amount of time your month your instances to run.
+   Select options from the drop-downs. There are various options available to choose from. The options that have the largest impact on your estimate total are your virtual machine's operating system, the operating system license if applicable, the [VM size](/azure/virtual-machines/sizes) you select under **INSTANCE**, the number of instances you choose, and the amount of time you want your instances to run.
 
    Notice that the total estimate changes as you select different options. The estimate appears in the upper corner and the bottom of the **Your Estimate** section.
 
@@ -36,11 +37,11 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ## Understand the full billing model for Azure Batch
 
-Azure Batch runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that there could be other additional infrastructure costs that might accrue.
+Azure Batch runs on Azure infrastructure that accrues costs when you deploy new resources. It's important to understand that other infrastructure costs might accrue.
 
 ### How you're charged for Azure Batch
 
-Azure Batch is a free service. There are no costs for Batch itself. However, there can be charges for the underlying compute resources and software licenses used to run Batch workloads. Costs may be incurred from virtual machines in a pool, data transfer from the VM, or any input or output data stored in the cloud.
+Azure Batch is a free service. There are no costs for Batch itself. However, there can be charges for the underlying compute resources and software licenses used to run Batch workloads. Costs can be incurred from virtual machines in a pool, data transfer from the VM, or any input or output data stored in the cloud.
 
 ### Costs that might accrue with Azure Batch
 
@@ -48,7 +49,7 @@ Although Batch itself is a free service, many of the underlying resources that r
 
 - [Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
     - To learn more about the costs associated with virtual machines, see the [How you're charged for virtual machines section of Plan to manage costs for virtual machines](/azure/virtual-machines/cost-optimization-plan-to-manage-costs#how-youre-charged-for-virtual-machines).
-    - Each VM in a pool created with [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration) has an associated OS disk that uses Azure-managed disks. Azure-managed disks have an additional cost, and other disk performance tiers have different costs as well.
+    - Each VM in a pool created with [Virtual Machine Configuration](nodes-and-pools.md#virtual-machine-configuration) has an associated OS disk that uses Azure managed disks. Azure managed disks have an additional cost, and other disk performance tiers have different costs as well.
 - Storage
     - When applications are deployed to Batch node virtual machines using [application packages](batch-application-packages.md), you're billed for the Azure Storage resources that your application packages consume. You're also billed for the storage of any input or output files, such as resource files and other log data.
     - In general, the cost of storage data associated with Batch is much lower than the cost of compute resources.
@@ -165,7 +166,7 @@ To determine VM utilization, you can log in to a node when running tasks to view
 
 Multiple task slots can be specified for a pool, so that the corresponding number of tasks can be run in parallel on each node. Pool task slots can be used to reduce the number of nodes used in a pool by choosing larger VM sizes and running multiple tasks in parallel on the node to ensure the node is well utilized. If nodes are underutilized, slots can be used to increase utilization. For example, for a single-threaded task application, one slot per core could be configured. It is also possible to have more slots than cores. This would be applicable if the application blocks significantly waiting for calls to external services to be returned, for one example.
 
-Setting [`taskSchedulingPolicy`](/rest/api/batchservice/pool/add#taskschedulingpolicy) to `pack` helps ensure VMs are utilized as much as possible, with scaling more easily able to remove nodes not running any tasks.
+Setting [`taskSchedulingPolicy`](/rest/api/batchservice/pools/create-pool#batchtaskschedulingpolicy) to `pack` helps ensure VMs are utilized as much as possible, with scaling more easily able to remove nodes not running any tasks.
 
 ### Use Azure Spot virtual machines
 

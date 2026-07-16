@@ -7,7 +7,9 @@ ms.author: baanders
 ms.date: 4/17/2025
 ms.topic: tutorial
 ms.service: azure-digital-twins
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -33,7 +35,7 @@ In this tutorial, you will...
 
 To complete the steps in this tutorial, you need to first complete the following prerequisites.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ### Download the sample models
 

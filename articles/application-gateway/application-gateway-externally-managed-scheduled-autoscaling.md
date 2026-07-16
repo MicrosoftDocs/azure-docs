@@ -3,12 +3,13 @@
 title: Externally managed scheduled autoscaling for Application Gateway v2
 description: This article introduces the Azure Application Standard_v2 and WAF_v2 SKU scheduled autoscaling feature.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 10/30/2023
-ms.author: greglin
+ms.author: mbender
 
+# Customer intent: As a cloud administrator, I want to implement scheduled autoscaling for Application Gateway v2 using Azure Automation, so that I can efficiently manage traffic demands and optimize resource utilization during peak and non-peak hours.
 ---
 # Schedule autoscaling for Application Gateway v2
 

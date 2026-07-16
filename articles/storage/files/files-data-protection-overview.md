@@ -1,11 +1,12 @@
 ---
-title: Data protection overview for Azure Files
+title: Data Protection Overview for Azure Files
 description: Learn how to protect your data in Azure Files. Understand the concepts and processes involved with backup and recovery of Azure file shares.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
-ms.date: 08/04/2024
+ms.date: 07/25/2025
 ms.author: kendownie
+# Customer intent: "As a systems administrator, I want to implement data protection for Azure file shares, so that I can ensure recovery from accidental loss, protect against ransomware, and maintain business continuity."
 ---
 
 # Azure Files data protection overview
@@ -21,20 +22,6 @@ Azure Files gives you many tools to protect your data, including soft delete, sh
    :::column-end:::
 :::row-end:::
 
-## Applies to
-| Management model | Billing model | Media tier | Redundancy | SMB | NFS |
-|-|-|-|-|:-:|:-:|
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v2 | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-| Microsoft.Storage | Provisioned v1 | SSD (premium) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png)|
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Local (LRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Zone (ZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | Geo (GRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Microsoft.Storage | Pay-as-you-go | HDD (standard) | GeoZone (GZRS) | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-
 ## Why you should protect your data
 
 For Azure Files, data protection refers to protecting the storage account, file shares, and data within them from being deleted or modified, and for restoring data after it's been deleted or modified.
@@ -48,7 +35,7 @@ There are several reasons why you should protect your file share data.
 - **Business continuity:** Prepare your infrastructure to be highly available for critical workloads.
 
 ## Back up and restore Azure file shares
-You can configure [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json) to back up your file shares using the Azure portal, Azure PowerShell, Azure CLI, or REST API. You can also [use Azure File Sync](#use-azure-file-sync-for-hybrid-cloud-backups) to back up on-premises file server data on an Azure file share.
+You can configure [Azure Backup](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json) to back up SMB Azure file shares by using the Azure portal, Azure PowerShell, Azure CLI, or REST API. You can also [use Azure File Sync](#use-azure-file-sync-for-hybrid-cloud-backups) to back up on-premises file server data on an SMB Azure file share.
 
 # [Azure portal](#tab/portal)
 
@@ -113,6 +100,16 @@ Storage account locks enable admins to lock the storage account to prevent users
 - **ReadOnly** lock prevents users from deleting a storage account or modifying its configuration.
 
 For more information, see [Apply an Azure Resource Manager lock to a storage account](../common/lock-account-resource.md).
+
+### Storage account recovery
+
+You can recover an accidentally deleted storage account if the following criteria are met:
+- The storage account was deleted within the past 14 days.
+- The storage account was created with the Azure Resource Manager deployment model.
+- A new storage account with the same name hasn't been created since the original account was deleted.
+- The user who is recovering the storage account must be assigned an Azure RBAC role that provides the Microsoft.Storage/storageAccounts/write permission. 
+
+Storage account recovery is a feature and can't be disabled. For more information and step-by-step instructions, see [Recover a deleted storage account](../common/storage-account-recover.md).
 
 ### Soft delete
 

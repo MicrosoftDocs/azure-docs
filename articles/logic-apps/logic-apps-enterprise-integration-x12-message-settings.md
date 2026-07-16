@@ -6,8 +6,8 @@ ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 01/04/2024
+ms.topic: concept-article
+ms.date: 07/16/2025
 ---
 
 # Reference for X12 message settings in agreements for Azure Logic Apps

@@ -1,12 +1,14 @@
----
+﻿---
 title: Migrate blueprints to deployment stacks
 description: Learn how to migrate blueprints to deployment stacks.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 11/11/2024
+ms.date: 06/26/2026
 ---
 
 # Migrate blueprints to deployment stacks
+
+[!INCLUDE [Azure Blueprints retirement note](../../../includes/blueprints-deprecation-note.md)]
 
 This article explains how to convert your Blueprint definitions and assignments into deployment stacks. Deployment stacks are new tools within the `Microsoft.Resources` namespace, bringing Azure Blueprint features into this area.
 
@@ -50,7 +52,7 @@ resource roleAssignment 'Microsoft.Authorization/roleAssignments@2022-04-01' = {
 }
 
 // Step 2 - create policy assignments
-resource policyAssignment 'Microsoft.Authorization/policyAssignments@2022-06-01' = {
+resource policyAssignment 'Microsoft.Authorization/policyAssignments@2025-03-01' = {
     name: policyAssignmentName
     scope: subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)
     properties: {
@@ -59,7 +61,7 @@ resource policyAssignment 'Microsoft.Authorization/policyAssignments@2022-06-01'
 }
 
 // Step 3 - create template artifacts via modules (or template specs)
-resource rg1 'Microsoft.Resources/resourceGroups@2021-01-01' = {
+resource rg1 'Microsoft.Resources/resourceGroups@2025-04-01' = {
   name: rgName
   location: rgLocation
 }
@@ -70,3 +72,17 @@ module vnet 'templates/bicep/vnet.bicep' = if (rgName == 'myTestRg') {
   params: { location: rgLocation }
 }
 ```
+
+## Migrate to template specs
+
+If you want to store and version your converted templates in Azure rather than deploy them
+directly, publish them as [template specs](./template-specs.md) and deploy the template spec with a
+deployment stack. Template specs replace the artifact storage and versioning role that blueprint
+definitions provided. For step-by-step instructions, see
+[Migrate Azure Blueprints to template specs](../../governance/blueprints/migrate-to-template-specs.md).
+
+## Next steps
+
+- [Azure Blueprints retirement](../../governance/blueprints/blueprint-retirement.md)
+- [Migrate Azure Blueprints to template specs](../../governance/blueprints/migrate-to-template-specs.md)
+

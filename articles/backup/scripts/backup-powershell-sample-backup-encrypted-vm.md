@@ -3,9 +3,11 @@ title: PowerShell Script Sample - Back up an Azure VM
 description: In this article, learn how to use an Azure PowerShell Script sample to back up an Azure virtual machine.
 ms.topic: sample
 ms.date: 04/30/2025
+ms.update-cycle: 1095-days
 ms.custom: mvc, devx-track-azurepowershell
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to use a PowerShell script to back up an encrypted Azure virtual machine, so that I can ensure data protection and facilitate recovery in case of data loss."
 ---
 
 # Back up an encrypted Azure virtual machine with PowerShell
@@ -20,7 +22,7 @@ This script creates a Recovery Services vault with geo-redundant storage (GRS) f
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[!code-powershell[main](../../../powershell_scripts/backup/backup-encrypted-vm/backup-encrypted-vm.ps1 "Back up encrypted virtual machine")]
+[!code-powershell[main](~/powershell_scripts/backup/backup-encrypted-vm/backup-encrypted-vm.ps1 "Back up encrypted virtual machine")]
 
 ## Clean up deployment
 

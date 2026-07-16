@@ -6,7 +6,7 @@ description: Learn how to enable JavaScript and use page layout versions in Azur
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 10/17/2024
@@ -20,6 +20,8 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Enable JavaScript and page layout versions in Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 

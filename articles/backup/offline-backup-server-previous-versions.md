@@ -2,11 +2,12 @@
 title: Offline backup for Data Protection Manager (DPM) and Microsoft Azure Backup Server (MABS) - previous versions
 description: With Azure Backup, you can send data off the network by using the Azure Import/Export service. This article explains the offline backup workflow for previous versions of DPM and Azure Backup Server.
 ms.topic: how-to
-ms.date: 10/25/2024
-author: jyothisuri
-ms.author: jsuri
+ms.date: 10/15/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.service: azure-backup
 ms.custom: engagement-fy23
+# Customer intent: "As a system administrator managing DPM and Azure Backup Server, I want to execute an offline backup process using the Azure Import/Export service, so that I can efficiently transfer large backup datasets over low-bandwidth connections without overwhelming the network."
 ---
 # Offline backup workflow for DPM and Azure Backup Server (previous versions)
 
@@ -34,7 +35,7 @@ With the offline-seeding capability of Azure Backup and the Azure Import/Export 
 > * The SATA drives are then sent to the nearest Azure datacenter.
 > * After the upload of the backup data to Azure is finished, Azure Backup copies the backup data to the backup vault and the incremental backups are scheduled.
 
-## Supported configurations
+## Supported configurations for offline backup
 
 Offline backup is supported for all deployment models of Azure Backup that back up data from on-premises to the Microsoft cloud. These models include:
 
@@ -278,6 +279,6 @@ After the import job finishes, initial backup data is available in your storage 
 
 At the time of the next scheduled backup, Azure Backup performs incremental backup over the initial backup copy.
 
-## Next step
+## Next steps
 
 * [Frequently asked questions about the Azure Import/Export service workflow](../import-export/storage-import-export-service.md).

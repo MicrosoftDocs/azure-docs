@@ -16,7 +16,7 @@ The data plane APIs are the Azure Digital Twins APIs used to manage the elements
 * `Import Jobs` - The Import Jobs API lets you manage a long running, asynchronous action to [import models, twins, and relationships in bulk](/azure/digital-twins/concepts-apis-sdks#bulk-import-with-the-import-jobs-api).
 * `Delete Jobs` - The Delete Jobs API lets you manage a long running, asynchronous action to [delete all models, twins, and relationships in an instance](/azure/digital-twins/concepts-apis-sdks#bulk-delete-with-the-delete-jobs-api).
 
-To call the APIs directly, reference the latest Swagger folder in the [data plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). This folder also includes a folder of examples that show the usage. You can also view the [data plane API reference documentation](/rest/api/azure-digitaltwins/).
+To call the APIs directly, reference the latest Swagger folder in the [data plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/DigitalTwins). This folder also includes a folder of examples that show the usage. You can also view the [data plane API reference documentation](/rest/api/azure-digitaltwins/).
 
 Here are the SDKs currently available for the Azure Digital Twins data plane APIs.
 

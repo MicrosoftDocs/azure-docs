@@ -6,6 +6,7 @@ ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 12/20/2023
 ms.author: lianwei 
+ms.custom: sfi-image-nochange
 ---
 
 # Use Azure SignalR Local Emulator for serverless development
@@ -41,7 +42,7 @@ We use [this serverless sample](https://github.com/Azure/azure-functions-signalr
     dotnet tool update -g Microsoft.Azure.SignalR.Emulator
     ```
 
-3. Run the emulator `asrs-emulator` to list all the available commands
+3. Run the emulator `asrs-emulator` to list all available commands
 
     :::image type="content" source="./media/signalr-howto-emulator/emulator-command-list.png" alt-text="Screenshot of the available commands for the emulator.":::
 
@@ -81,7 +82,7 @@ We use [this serverless sample](https://github.com/Azure/azure-functions-signalr
 
     :::image type="content" source="./media/signalr-howto-emulator/local-function.png" alt-text="Screenshot of the local serverless function is running.":::
 
-7. In the browser, navigate to `http://localhost:7071/api/index` to play with the demo.
+7. In your browser, navigate to `http://localhost:7071/api/index` to test the demo.
 
     :::image type="content" source="./media/signalr-howto-emulator/local-chat.png" alt-text="Screenshot of the serverless chat demo is running.":::
 
@@ -94,3 +95,4 @@ In this article, you learn how to use SignalR Service in your applications. Chec
 
 > [!div class="nextstepaction"]
 > [Quickstart: Create a chat room by using SignalR Service](./signalr-quickstart-dotnet-core.md)
+

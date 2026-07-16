@@ -3,7 +3,7 @@ title: 'Machine Learning with Apache Spark'
 description: This article provides a conceptual overview of the machine learning and data science capabilities available through Apache Spark on Azure Synapse Analytics.
 author: midesa
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: overview
 ms.subservice: machine-learning
 ms.date: 12/30/2024
 ms.author: midesa

@@ -1,9 +1,9 @@
----
+﻿---
 title: Outputs in Bicep
 description: Learn how to define output values in Bicep.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-bicep
-ms.date: 03/25/2025
+ms.date: 12/22/2025
 ---
 
 # Outputs in Bicep
@@ -61,13 +61,14 @@ Decorators are written in the format `@expression` and are placed above output d
 | Decorator | Apply to | Argument | Description |
 | --------- | ---- | ----------- | ------- |
 | [description](#description) | all | string | This provides descriptions for the output. |
-| [discriminator](#discriminator) | object | string | Use this decorator to ensure the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
+| [discriminator](#discriminator) | object | string | Use this decorator to ensure the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type). |
 | [maxLength](#length-constraints) | array, string | int | This provides the maximum length for string and array outputs, and the value is inclusive. |
 | [maxValue](#integer-constraints) | int | int | This provides the maximum value for the integer output, and the value is inclusive. |
 | [metadata](#metadata) | all | object | This provides custom properties to apply to the output and can include a description property that's equivalent to the description decorator. |
 | [minLength](#length-constraints) | array, string | int | This provides the minimum length for string and array outputs, and the value is inclusive. |
 | [minValue](#integer-constraints) | int | int | This provides the minimum value for the integer output, and the value is inclusive. |
 | [sealed](#sealed) | object | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [Elevate error level](./user-defined-data-types.md#elevate-error-level). |
+| [secure](#secure-outputs) | string, object | none | Marks the output as secure. The value for a secure output isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
 
 Decorators are in the [`sys` namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the `sys` namespace when using the **description** decorator.
 
@@ -150,6 +151,20 @@ When you provide a `@metadata()` decorator with a property that conflicts with a
 
 See [Elevate error level](./user-defined-data-types.md#elevate-error-level).
 
+### Secure outputs
+
+With Bicep version 0.35.1 and later, you can mark string or object outputs as secure. When an output is decorated with `@secure()`, Azure Resource Manager treats the output value as sensitive, preventing it from being logged or displayed in deployment history, Azure portal, or command-line outputs.
+
+```bicep
+@secure()
+output demoPassword string
+
+@secure()
+output demoSecretObject object
+```
+
+The `@secure()` decorator is valid only for outputs of type string or object, as these align with the [secureString](../templates/syntax.md#outputs) and [secureObject](../templates/syntax.md#outputs) types in ARM templates. To pass arrays or numbers securely, wrap them in a secureObject or serialize them as a secureString.
+
 ## Conditional output
 
 When the value to return depends on a condition in the deployment, use the `?` operator.
@@ -167,7 +182,7 @@ param deployStorage bool = true
 param storageName string
 param location string = resourceGroup().location
 
-resource myStorageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = if (deployStorage) {
+resource myStorageAccount 'Microsoft.Storage/storageAccounts@2025-06-01' = if (deployStorage) {
   name: storageName
   location: location
   kind: 'StorageV2'
@@ -203,7 +218,7 @@ param orgNames array = [
   'Coho'
 ]
 
-resource nsg 'Microsoft.Network/networkSecurityGroups@2023-11-01' = [for name in orgNames: {
+resource nsg 'Microsoft.Network/networkSecurityGroups@2025-01-01' = [for name in orgNames: {
   name: 'nsg-${name}'
   location: nsgLocation
 }]
@@ -232,7 +247,7 @@ module publicIP 'modules/public-ip-address.bicep' = {
   name: 'public-ip-address-module'
 }
 
-resource loadBalancer 'Microsoft.Network/loadBalancers@2023-11-01' = {
+resource loadBalancer 'Microsoft.Network/loadBalancers@2025-01-01' = {
   name: loadBalancerName
   location: location
   properties: {

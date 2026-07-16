@@ -6,9 +6,6 @@
     tocHref: /azure/app-service/
     topicHref: /azure/service-connector/index
   - name: Service Connector
-    tocHref: /azure/container-apps/
-    topicHref: /azure/service-connector/index
-  - name: Service Connector
     tocHref: /azure/spring-apps/
     topicHref: /azure/service-connector/index
   - name: Service Connector

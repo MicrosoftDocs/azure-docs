@@ -2,17 +2,23 @@
 title: 'Configure P2S VPN clients - certificate authentication - Azure VPN Client - Linux'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure a Linux client to connect to Azure using a point-to-site connection, Open VPN, and the Azure VPN Client for Linux.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
-ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 02/26/2025
-ms.author: cherylmc
+ms.author: duau
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
 # This disclaimer is in the "vpn-gateway-vwan-azure-vpn-client-certificate-linux" include file, so it doesn't need to be repeated in the article. "Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable."
+# Customer intent: As a Linux user, I want to configure the Azure VPN Client for certificate authentication, so that I can securely connect to my Azure virtual network using a point-to-site connection.
 ---
 
 # Configure Azure VPN Client – Certificate authentication OpenVPN – Linux (Preview)
+
+[!INCLUDE [Linux retirement](../../includes/vpn-gateway-azure-vpn-client-linux-retirement.md)]
 
 This article helps you connect to your Azure virtual network (VNet) from the Azure VPN Client for Linux using VPN Gateway point-to-site (P2S) **Certificate authentication**. The Azure VPN Client for Linux requires the OpenVPN tunnel type.
 

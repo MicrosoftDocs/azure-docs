@@ -7,8 +7,9 @@ services: azure-communication-services
 
 ms.author: prakulka
 ms.date: 03/31/2023
-ms.topic: conceptual
+ms.topic: troubleshooting-general
 ms.service: azure-communication-services
+ms.custom: sfi-ropc-nochange
 ---
 
 # Troubleshooting in Azure Communication Services
@@ -20,9 +21,9 @@ This article helps you troubleshoot issues that you might experience within your
 
 You can view the health of your Azure Communication Services solution on the [Azure Service Health portal](https://portal.azure.com/#view/Microsoft_Azure_Health/AzureHealthBrowseBlade/%7E/serviceIssues). If you experience problems with your Azure Communication Services solution, check the Service Health portal first. Then you can determine whether there's a known issue with a resolution in progress before calling support or spending time troubleshooting.
 
-[Azure Service Health portal](/azure/service-health/service-health-overview) provides a personalized view of the health of the Azure services and regions you're using. The Service Health portal is the best place to look for outages, planned maintenance activities, and other health advisories. Once you sign in, the authenticated Service Health experience knows which services and resources you currently use.
+[Azure Service Health portal](/azure/service-health/overview) provides a personalized view of the health of the Azure services and regions you're using. The Service Health portal is the best place to look for outages, planned maintenance activities, and other health advisories. Once you sign in, the authenticated Service Health experience knows which services and resources you currently use.
 
-The best way to use Service Health is to set up [Service Health alerts](/azure/service-health/service-health-overview#configure-service-health-alerts) to notify you via your preferred communication channel. You receive notices for service issues, planned maintenance, or other changes that affect your Azure services and regions.
+The best way to use Service Health is to set up [Service Health alerts](/azure/service-health/overview#using-azure-service-health) to notify you via your preferred communication channel. You receive notices for service issues, planned maintenance, or other changes that affect your Azure services and regions.
 
 If you're unable to sign in to your Service Health Portal, you can use the public facing **[Azure Status page](https://azure.status.microsoft)** to check for known issues. [Azure status overview](/azure/service-health/azure-status-overview) provides a global view of Azure services and regions from **[Azure status](https://azure.status.microsoft)**.
 
@@ -202,28 +203,43 @@ Learn how to enable and access call logs.
 
 ### JavaScript
 
-To control logging, the Calling SDK relies internally on the [@azure/logger](https://www.npmjs.com/package/@azure/logger) library.
+The client logs can help when we want to get more details while debugging an issue.
+To collect client logs, you can use [@azure/logger](https://www.npmjs.com/package/@azure/logger), which is used by WebJS calling SDK internally.
 
-To configure the log output level, use the `setLogLevel` method from the `@azure/logger` package. Create a logger and pass it into the `CallClient` constructor.
-
-```javascript
+```typescript
 import { setLogLevel, createClientLogger, AzureLogger } from '@azure/logger';
 setLogLevel('verbose');
 let logger = createClientLogger('ACS');
 const callClient = new CallClient({ logger });
-```
 
-You can use `AzureLogger` to redirect the logging output from Azure SDKs by overriding the `AzureLogger.log` method.
-
-You can log to the browser console, a file, or a buffer. You can also send to your own service. If you're going to send logs over the network to your own service, don't send a request per log line because this method adversely affects browser performance. Instead, accumulate logs lines and send them in batches.
-
-```javascript
-// Redirect log output
+// Redirect ACS Calling SDK's logs
 AzureLogger.log = (...args) => {
     // To console, file, buffer, REST API, etc...
     console.log(...args); 
 };
+
+// Application logging
+logger.info('....');
 ```
+
+[@azure/logger](https://www.npmjs.com/package/@azure/logger) supports four different log levels:
+
+* verbose
+* info
+* warning
+* error
+
+For debugging purposes, `info` level logging is sufficient in most cases.
+
+In the browser environment, [@azure/logger](https://www.npmjs.com/package/@azure/logger) outputs logs to the console by default.
+You can redirect logs by overriding `AzureLogger.log` method. For more information, see [@azure/logger](/javascript/api/overview/azure/logger-readme).
+
+Your app might keep logs in memory if it has a \'download log file\' feature.
+If that is the case, you have to set a limit on the log size.
+Not setting a limit might cause memory issues on long running calls.
+
+Additionally, if you send logs to a remote service, consider mechanisms such as compression and scheduling.
+If the client has insufficient bandwidth, sending a large amount of log data in a short period of time can affect call quality.
 
 ### Native SDK (Android/iOS)
 

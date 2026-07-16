@@ -3,15 +3,25 @@ title: Troubleshooting guide for Azure Synapse Link for Azure SQL Database after
 description: Learn how to troubleshoot and configure Azure Synapse Link for Azure SQL Database after failover of an Azure SQL Database.
 author: im-microsoft
 ms.author: imotiwala
-ms.date: 08/06/2024
+ms.reviewer: wiassaf, yexu
+ms.date: 10/31/2025
 ms.service: azure-synapse-analytics
 ms.subservice: synapse-link
 ms.topic: how-to
+ms.update-cycle: 1825-days
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot: Azure Synapse Link for Azure SQL Database after failover of an Azure SQL Database
 
 This article is a guide to troubleshoot and configure Azure Synapse Link for Azure SQL Database after failover of an Azure SQL Database. This article applies only to databases in Azure SQL Database. 
+
+> [!IMPORTANT]
+> **Mirroring to Microsoft Fabric is now available.** Mirroring to Fabric provides all the capabilities of Azure Synapse Link with better analytical performance, the ability to unify your data estate with OneLake in Fabric, and open access to your data in Delta Parquet format. Instead of Azure Synapse Link, use Fabric Mirroring. 
+>
+> With Mirroring to Microsoft Fabric, you can continuously replicate your existing data estate directly into OneLake in Fabric, including data from SQL Server 2016+, Azure SQL Database, Azure SQL Managed Instance, Cosmos DB, Oracle, Snowflake, and more. 
+> 
+> For more information, see [Microsoft Fabric mirrored databases](/fabric/database/mirrored-database/overview).
 
 ## Symptom
 

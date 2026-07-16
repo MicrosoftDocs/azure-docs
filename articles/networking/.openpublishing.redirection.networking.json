@@ -7,7 +7,7 @@
         },
         {
             "source_path_from_root": "/articles/networking/cli-samples.md",
-            "redirect_url": "/azure/networking/fundamentals/networking-overview",
+            "redirect_url": "/azure/networking/networking-overview",
             "redirect_document_id": false
         },
         {
@@ -60,11 +60,7 @@
             "redirect_url": "/azure/networking/connectivity-interoperability-preface",
             "redirect_document_id": false
         },
-        {
-            "source_path_from_root": "/articles/networking/networking-overview.md",
-            "redirect_url": "/azure/networking/fundamentals/networking-overview",
-            "redirect_document_id": false
-        },
+
         {
             "source_path_from_root": "/articles/networking/networking-virtual-datacenter.md",
             "redirect_url": "/azure/architecture/vdc/networking-virtual-datacenter",
@@ -72,7 +68,7 @@
         },
         {
             "source_path_from_root": "/articles/networking/powershell-samples.md",
-            "redirect_url": "/azure/networking/fundamentals/networking-overview",
+            "redirect_url": "/azure/networking/networking-overview",
             "redirect_document_id": false
         },
         {
@@ -129,6 +125,31 @@
         {
             "source_path_from_root": "/articles/networking/scripts/virtual-network-cli-sample-route-traffic-through-nva.md",
             "redirect_url": "/azure/virtual-network/tutorial-create-route-table-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/fundamentals/index.yml",
+            "redirect_url": "/azure/networking",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/fundamentals/networking-overview.md",
+            "redirect_url": "/azure/networking/networking-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/fundamentals/architecture-guides.md",
+            "redirect_url": "/azure/networking/architecture-guides",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/fundamentals/resource-graph-samples.md",
+            "redirect_url": "/azure/networking/resource-graph-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/networking/fundamentals/lumenisity-patent-list.md",
+            "redirect_url": "/azure/networking/lumenisity-patent-list",
             "redirect_document_id": false
         }
     ]

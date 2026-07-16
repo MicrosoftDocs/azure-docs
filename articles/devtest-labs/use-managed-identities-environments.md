@@ -19,9 +19,6 @@ As a lab owner, you can choose to grant the lab's system-assigned identity permi
 > [!IMPORTANT]
 > Currently, a single user-assigned identity is supported per lab. 
 
-
-[!INCLUDE [direct-azure-deployment-environments](includes/direct-azure-deployment-environments.md)]  
-
 ## Prerequisites
 
 - [Create, list, delete, or assign a role to a user-assigned managed identity using the Azure portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md). 

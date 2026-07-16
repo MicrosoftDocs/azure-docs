@@ -72,3 +72,8 @@ In this quickstart you learned how to:
 >
 > [!div class="nextstepaction"]
 > [Get started with calling in applications](../voice-video-calling/getting-started-with-calling.md)
+>
+> [!div class="nextstepaction"]
+> [Send SMS globally with Messaging Connect](../../concepts/sms/messaging-connect.md)
+
+

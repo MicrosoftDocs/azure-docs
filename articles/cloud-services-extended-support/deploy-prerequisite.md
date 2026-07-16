@@ -1,12 +1,14 @@
 ---
 title: Prerequisites for deploying Cloud Services (extended support)
 description: Learn about the prerequisites for deploying Azure Cloud Services (extended support).
-ms.topic: article
-ms.service: azure-cloud-services-extended-support
+ms.topic: concept-article
+ms.service: azure-cloud-services-classic
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+ms.update-cycle: 1095-days
+ms.custom: sfi-ropc-nochange, cloud-services-extended-support
 # Customer intent: As a cloud solutions architect, I want to understand the prerequisites for deploying cloud services with extended features, so that I can properly prepare configurations, eliminate deprecated components, and set up access controls for successful deployments.
 ---
 

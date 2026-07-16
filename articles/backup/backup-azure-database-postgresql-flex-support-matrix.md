@@ -2,11 +2,12 @@
 title: Azure Database for PostgreSQL- Flexible server support matrix
 description: Provides a summary of support settings and limitations of Azure Database for PostgreSQL- Flexible server backup.
 ms.topic: reference
-ms.date: 04/30/2025
+ms.date: 10/13/2025
 ms.custom: references_regions, ignite-2024
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a database administrator, I want to understand the backup support matrix for Azure Database for PostgreSQL - Flexible Server so that I can effectively manage backup operations and ensure compliance with backup limitations and scenarios.
 ---
 
 # Support matrix for Azure Database for PostgreSQL- Flexible Server
@@ -15,7 +16,7 @@ You can use [Azure Backup](./backup-overview.md) to protect Azure Database for P
 
 ## Supported regions
 
-Azure Database for PostgreSQL - Flexible server backup is generally available in the following regions: East Asia, Central India, Southeast Asia, UK South, and UK West. However, this feature is currently in preview for other regions.
+Vaulted backup for PostgreSQL – flexible server is generally available in all public cloud regions and sovereign regions.
 
 ## Support scenarios
 
@@ -26,8 +27,8 @@ Consider the following support scenarios when you back up Azure Database for Pos
 - For vaulted backups, entire server is backed up with all databases. Backup of specific databases isn't supported.
 - Vaulted backups are supported for server size **<= 1 TB**. If backup is configured on server size larger than 1 TB, the backup operation fails.
 - PostgreSQL - Flexible servers encrypted by Customer Managed Key are supported.
-- Private endpoint-enabled Azure Database for PostgreSQL - Flexible servers can be backed up by allowing trusted Microsoft services in the network settings.
 - Backups for PostgreSQL Flexible servers exclude databases owned by `azuresu` or `azure_pg_admin`, including the native PostgreSQL database. So, databases with these owners can't be backed up or restored.
+- Recommended frequency for restore operations is once a day. Multiple restore operations triggered in a day can fail.
 
 ## Limitation
 
@@ -36,7 +37,7 @@ Azure Database for PostgreSQL – Flexible Server backups include the following 
 - Vaulted backup doesn't support storage in archive tier.
 - Vaulted backup isn't supported on replicas; backup can be configured only on primary servers.
 - For restore operation, item level recovery (recovery of specific databases) isn't supported.
-- Only one weekly backup is currently supported. If multiple vaulted backups are scheduled in a week, only the first backup operation of the week is executed, and the subsequent backup jobs in the same week fail.”
+- For vaulted backups, only one weekly backup is currently supported. If multiple vaulted backups are scheduled in a week, only the first backup operation of the week is executed, and the subsequent backup jobs in the same week fail.”
 - Vaulted backups don't support tables containing a row with **BYTEA length exceeding 500 MB**.
 - Vaulted backups support full backups only; incremental or differential backups aren't supported.
 

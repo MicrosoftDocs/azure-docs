@@ -6,7 +6,7 @@ description: Custom policy reference for phone number claims transformations in 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024
@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # Define phone number claims transformations in Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article provides reference and examples for using the phone number claims transformations in Azure Active Directory B2C (Azure AD B2C) custom policy. For more information about claims transformations in general, see [ClaimsTransformations](claimstransformations.md).
 

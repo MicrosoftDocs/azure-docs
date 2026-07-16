@@ -6,11 +6,13 @@ ms.author: ajagadish
 ms.date: 02/04/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: azure-synapse
 ---
 
 # Manage and monitor workload importance in dedicated SQL pool for Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Manage and monitor dedicated SQL pool request level importance in Azure Synapse using DMVs and catalog views.
 

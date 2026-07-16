@@ -22,7 +22,7 @@ In Azure Virtual Network Manager, you can deploy [security admin rules](./concep
 
 To complete this article, you need the following resources:
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - An Azure Virtual Network Manager instance. If you don't have an instance, see [Create an Azure Virtual Network Manager instance](create-virtual-network-manager-portal.md).
 

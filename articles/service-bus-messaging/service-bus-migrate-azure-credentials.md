@@ -1,21 +1,20 @@
 ---
-title: Migrate applications to use passwordless authentication with Azure Service Bus
-titleSuffix: Azure Service Bus
-description: Learn to migrate existing Service Bus applications away from connection strings to use Microsoft Entra ID and Azure RBAC for enhanced security.
-author: alexwolfmsft
-ms.author: alexwolf
+title: Migrate an application to use passwordless connections with Azure Service Bus
+titleSuffix: Azure Event Hubs
+description: Learn to migrate existing Service Bus applications away from connection strings and use Microsoft Entra ID and Azure Role Based Access Control (RBAC) for enhanced security.
 ms.reviewer: randolphwest
-ms.date: 06/12/2023
+ms.date: 07/25/2025
 ms.topic: how-to
-ms.custom:
-- devx-track-csharp
-- devx-track-azurecli
-- devx-track-azurepowershell
-- passwordless-dotnet
-- passwordless-go
-- passwordless-java
-- passwordless-js
-- passwordless-python
+ms.custom: 
+  - sfi-ropc-nochange
+  - devx-track-csharp
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - passwordless-dotnet
+  - passwordless-go
+  - passwordless-java
+  - passwordless-js
+  - passwordless-python
 ---
 
 # Migrate an application to use passwordless connections with Azure Service Bus
@@ -24,7 +23,7 @@ Application requests to Azure Service Bus must be authenticated using either acc
 
 ## Security risks associated with access keys
 
-The following code example demonstrates how to connect to Azure Service Bus using a connection string that includes an access key. When you create a Service Bus, Azure generates these keys and connection strings automatically. Many developers gravitate towards this solution because it feels familiar to options they've worked with in the past. If your application currently uses connection strings, consider migrating to passwordless connections using the steps described in this document.
+The following code example demonstrates how to connect to Azure Service Bus using a connection string that includes an access key. When you create a Service Bus, Azure generates these keys and connection strings automatically. Many developers gravitate towards this solution because it feels familiar to options they worked with in the past. If your application currently uses connection strings, consider migrating to passwordless connections using the steps described in this document.
 
 ## [.NET](#tab/dotnet)
 
@@ -91,7 +90,7 @@ client = ServiceBusClient(
 
 ---
 
-Connection strings should be used with caution. Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if an account key is accidentally checked into source control, sent through an unsecure email, pasted into the wrong chat, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use passwordless connections.
+Connection strings should be used with caution. Developers must be diligent to never expose the keys in an unsecure location. Anyone who gains access to the key is able to authenticate. For example, if an account key is accidentally checked into source control, sent through an unsecure email, or viewed by someone who shouldn't have permission, there's risk of a malicious user accessing the application. Instead, consider updating your application to use passwordless connections.
 
 ## Migrate to passwordless connections
 
@@ -99,7 +98,7 @@ Connection strings should be used with caution. Developers must be diligent to n
 
 ## Steps to migrate an app to use passwordless authentication
 
-The following steps explain how to migrate an existing application to use passwordless connections instead of a key-based solution. You'll first configure a local development environment, and then apply those concepts to an Azure app hosting environment. These same migration steps should apply whether you're using access keys directly, or through connection strings.
+The following steps explain how to migrate an existing application to use passwordless connections instead of a key-based solution. You first configure a local development environment, and then apply those concepts to an Azure app hosting environment. These same migration steps should apply whether you're using access keys directly, or through connection strings.
 
 ### Configure roles and users for local development authentication
 
@@ -298,11 +297,11 @@ Next, update your code to use passwordless connections.
 
 #### Run the app locally
 
-After making these code changes, run your application locally. The new configuration should pick up your local credentials, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure will allow your app to connect to the Azure service locally.
+After making these code changes, run your application locally. The new configuration should pick up your local credentials, such as the Azure CLI, Visual Studio, or IntelliJ. The roles you assigned to your local dev user in Azure allows your app to connect to the Azure service locally.
 
 ### Configure the Azure hosting environment
 
-Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services after it's deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Service Bus.
+Once your application is configured to use passwordless connections and runs locally, the same code can authenticate to Azure services when deployed to Azure. For example, an application deployed to an Azure App Service instance that has a managed identity enabled can connect to Azure Service Bus.
 
 #### Create the managed identity using the Azure portal
 
@@ -405,7 +404,7 @@ az aks update \
 
 #### Assign roles to the managed identity
 
-Next, you need to grant permissions to the managed identity you created to access your Service Bus. You can do this by assigning a role to the managed identity, just like you did with your local development user.
+Next, you need to grant permissions to the managed identity you created to access your Service Bus. Assign a role to the managed identity, just like you did with your local development user.
 
 ### [Service Connector](#tab/assign-role-service-connector)
 

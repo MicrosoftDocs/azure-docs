@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 320">
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#666"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#388e3c"/>
+    </marker>
+    <marker id="arrow-purple" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#7b1fa2"/>
+    </marker>
+  </defs>
+
+  <rect width="600" height="320" fill="#fafafa" rx="6"/>
+
+  <!-- Start -->
+  <rect x="30" y="20" width="150" height="44" rx="22" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.5"/>
+  <text x="105" y="38" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#0d47a1" font-weight="600">Agent needs to</text>
+  <text x="105" y="52" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#0d47a1" font-weight="600">perform action</text>
+
+  <!-- Arrow down -->
+  <path d="M105 64 L105 90" stroke="#666" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Decision diamond -->
+  <path d="M105 95 L195 145 L105 195 L15 145 Z" fill="#fff3e0" stroke="#f57c00" stroke-width="1.5"/>
+  <text x="105" y="136" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#e65100" font-weight="600">Managed identity</text>
+  <text x="105" y="150" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#e65100" font-weight="600">has RBAC role?</text>
+
+  <!-- YES path (right) -->
+  <path d="M195 145 L260 145" stroke="#388e3c" stroke-width="2" fill="none" marker-end="url(#arrow-green)"/>
+  <text x="228" y="138" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#388e3c" font-weight="700">YES</text>
+
+  <rect x="265" y="122" width="140" height="46" rx="6" fill="#e8f5e9" stroke="#388e3c" stroke-width="1.5"/>
+  <text x="335" y="142" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#2e7d32" font-weight="600">Use managed</text>
+  <text x="335" y="156" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#2e7d32" font-weight="600">identity</text>
+
+  <!-- Arrow from YES to end -->
+  <path d="M405 145 L450 145" stroke="#388e3c" stroke-width="1.5" fill="none" marker-end="url(#arrow-green)"/>
+
+  <!-- NO path (down) -->
+  <path d="M105 195 L105 225" stroke="#7b1fa2" stroke-width="2" fill="none" marker-end="url(#arrow-purple)"/>
+  <text x="118" y="215" font-family="Segoe UI, Arial" font-size="10" fill="#7b1fa2" font-weight="700">NO</text>
+
+  <rect x="30" y="230" width="150" height="46" rx="6" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1.5"/>
+  <text x="105" y="249" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#4a148c" font-weight="600">Request user</text>
+  <text x="105" y="263" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#4a148c" font-weight="600">permissions (OBO)</text>
+
+  <!-- Arrow from NO to end -->
+  <path d="M180 253 L450 253" stroke="#7b1fa2" stroke-width="1.5" fill="none" marker-end="url(#arrow-purple)"/>
+
+  <!-- End box -->
+  <rect x="455" y="118" width="120" height="158" rx="6" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.5"/>
+  <text x="515" y="142" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#0d47a1" font-weight="600">Action</text>
+  <text x="515" y="158" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" fill="#0d47a1" font-weight="600">performed</text>
+  <line x1="470" y1="170" x2="560" y2="170" stroke="#1976d2" stroke-width="0.5" opacity="0.4"/>
+  <text x="515" y="190" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#555">Restart service</text>
+  <text x="515" y="206" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#555">Scale resources</text>
+  <text x="515" y="222" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#555">Query logs</text>
+  <text x="515" y="238" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#555">Modify config</text>
+  <text x="515" y="254" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#555">Read metrics</text>
+</svg>

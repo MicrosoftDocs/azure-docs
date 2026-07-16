@@ -8,9 +8,9 @@ metadata:
   description: Azure IoT Edge extends IoT Hub. Analyze device data locally instead of in the cloud to send less data to the cloud, react to events quickly, and operate offline.
   ms.service: azure-iot-edge
   ms.topic: landing-page
-  author: PatAltimore
-  ms.author: patricka
-  ms.date: 03/31/2025
+  author: sethmanheim
+  ms.author: sethm
+  ms.date: 02/19/2026
   ms.custom: e2e-hybrid
 
 landingContent:

@@ -3,11 +3,12 @@ author: KarlErickson
 ms.author: xiada
 ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 08/31/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 <!--
-For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure Portal or AZD.
+For clarity of structure, a separate markdown file is used to describe how to clean up resources using Azure portal or AZD.
 
 [!INCLUDE [clean-up-resources-portal-or-azd](includes/quickstart-deploy-web-app/clean-up-resources.md)]
 

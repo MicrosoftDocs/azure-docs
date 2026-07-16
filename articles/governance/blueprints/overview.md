@@ -131,9 +131,23 @@ blueprint parameters, then the parameters are defined during the assignment proc
 
 ## Permissions in Azure Blueprints
 
-To use blueprints, you must be granted permissions through [Azure role-based access
-control (Azure RBAC)](../../role-based-access-control/overview.md). To read or view a blueprint in Azure
-portal, your account must have read access to the scope where the blueprint definition is located.
+Manage blueprint permissions through [Azure role-based access
+control (Azure RBAC)](../../role-based-access-control/overview.md).
+
+You don't need a dedicated Azure RBAC permission to read or view a blueprint definition. Blueprint
+definitions are intended to be discoverable by the principals they govern, so any authenticated principal in
+the tenant can list and read management group-scoped blueprint definitions, their versions, and their
+artifacts - including through the REST API - even without a role assignment on that management group. Reading a
+blueprint definition that's stored at a subscription requires read access to that subscription. Creating,
+publishing, assigning, updating, and deleting blueprints always require the permissions described in this
+article.
+
+> [!IMPORTANT]
+> Because any authenticated principal in the tenant can read blueprint definitions, don't store
+> secrets or other sensitive information directly in a blueprint definition or in its parameter
+> `defaultValue`s. For secrets, use `secureString` or `secureObject` parameters backed by [Azure Key Vault
+> references](./concepts/parameters.md#using-securestring-and-secureobject-parameters), which keep the secret
+> value in Key Vault instead of in the blueprint.
 
 To create blueprints, your account needs the following permissions:
 
@@ -199,6 +213,19 @@ The following overview of Azure Blueprints is from Azure Fridays. For video down
 on Channel 9.
 
 > [!VIDEO https://www.youtube.com/embed/cQ9D-d6KkMY]
+
+## Azure Blueprints retirement
+
+Azure Blueprints (Preview) is being retired on **January 31, 2027**, with a phased retirement
+beginning July 31, 2026. Migrate your blueprint definitions and assignments to
+[Azure Deployment Stacks](../../azure-resource-manager/bicep/deployment-stacks.md) (recommended) and
+[template specs](../../azure-resource-manager/bicep/template-specs.md) before the retirement date.
+For the phased timeline, impact, and migration guidance, see:
+
+- [Azure Blueprints retirement](./blueprint-retirement.md)
+- [Azure Blueprints retirement FAQ](./blueprint-retirement-faq.md)
+- [Migrate Azure Blueprints to template specs](./migrate-to-template-specs.md)
+- [Migrate to deployment stacks](../../azure-resource-manager/bicep/migrate-blueprint.md)
 
 ## Next steps
 

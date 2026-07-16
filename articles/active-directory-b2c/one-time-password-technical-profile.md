@@ -6,7 +6,7 @@ description: Learn how to set up a one-time password (OTP) scenario by using Azu
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024
@@ -20,6 +20,8 @@ ms.custom: "b2c-support"
 ---
 
 # Define a one-time password technical profile in an Azure AD B2C custom policy
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

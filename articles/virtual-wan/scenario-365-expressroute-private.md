@@ -8,7 +8,8 @@ author: floklaffenbach
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 03/26/2025
-ms.author: flofox
+ms.author: duau
+ms.custom: sfi-image-nochange
 
 ---
 # Scenario: Connect to Microsoft 365 via Virtual WAN using ExpressRoute private peering

@@ -3,13 +3,14 @@ title: Upload a blob with JavaScript or TypeScript
 titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the JavaScript client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.date: 03/25/2025
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer using JavaScript or TypeScript, I want to upload blobs to Azure Storage so that I can manage data efficiently and utilize various upload methods suited to different data types and requirements.
 ---
 
 # Upload a blob with JavaScript or TypeScript
@@ -123,6 +124,40 @@ The following code example shows how to set values for [BlockBlobParallelUploadO
 
 To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads with JavaScript](storage-blobs-tune-upload-download-javascript.md).
 
+### Specify data transfer validation on upload
+
+[!INCLUDE [storage-dev-guide-transfer-validation](../../../includes/storage-dev-guides/storage-dev-guide-transfer-validation.md)]
+
+Transfer validation options can be defined at the client level using [BlobClientConfig](/javascript/api/@azure/storage-blob/blobclientconfig), which applies validation options to all methods called from a [BlobClient](/javascript/api/@azure/storage-blob/blobclient) instance.  Alternatively, you can override transfer validation options at the operation level via options, such as [BlobUploadOptions](/javascript/api/@azure/storage-blob/blobuploadoptions).
+
+### [JavaScript](#tab/javascript)
+
+```javascript
+const blobServiceClient = new BlobServiceClient(
+   `https://${account}.blob.core.windows.net`,
+   new DefaultAzureCredential(),
+   {
+     uploadContentChecksumAlgorithm: "StorageCrc64",
+     downloadContentChecksumAlgorithm: "StorageCrc64",
+   }
+);
+```
+
+### [TypeScript](#tab/typescript)
+
+```typescript
+ const blobServiceClient: BlobServiceClient = new BlobServiceClient(
+   `https://${account}.blob.core.windows.net`,
+   new DefaultAzureCredential(),
+   {
+     uploadContentChecksumAlgorithm: "StorageCrc64",
+     downloadContentChecksumAlgorithm: "StorageCrc64",
+   },
+);
+```
+
+---
+
 ### Upload a block blob with index tags
 
 Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data.
@@ -188,3 +223,4 @@ View code samples from this article (GitHub):
 - [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)
 
 [!INCLUDE [storage-dev-guide-next-steps-javascript](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-javascript.md)]
+

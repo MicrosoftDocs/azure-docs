@@ -3,11 +3,11 @@ metadata:
   title: Azure Private DNS FAQ
   description: In this article, learn frequently asked questions about Azure Private DNS
   services: dns
-  author: greg-lindsay
+  author: asudbring
   ms.service: azure-dns
   ms.topic: faq
   ms.date: 09/23/2024
-  ms.author: greglin
+  ms.author: allensu
 title: Azure Private DNS FAQ
 summary: The following are frequently asked questions about Azure private DNS.
 
@@ -43,6 +43,11 @@ sections:
           Yes. You must have write operation permission on the virtual networks and the private DNS zone. The write permission can be granted to several Azure roles. For example, the Classic Network Contributor Azure role has write permissions to virtual networks and Private DNS zones Contributor role has write permissions on the private DNS zones. For more information on Azure roles, see [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
 
       - question: |
+          Can a virtual network that belongs to a different tenant be linked to a private zone?
+        answer: |
+          Yes. You must have write operation permission on the virtual networks and the private DNS zone in both tenants. The write permission can be granted to several Azure roles. For example, the Classic Network Contributor Azure role has write permissions to virtual networks and Private DNS zones Contributor role has write permissions on the private DNS zones. For more information on Azure roles, see [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md).
+
+      - question: |
           What causes the automatically registered virtual machine DNS records in a private zone be created or deleted?
         answer: |
           When you start a virtual machine within a linked virtual network with autoregistration enabled, DNS records are automatically created for that virtual machine. When you stop a virtual machine and it is deallocated, the autoregistered DNS records are removed.
@@ -66,6 +71,11 @@ sections:
           What happens when I try to manually create a new DNS record into a private zone that has the same hostname as an automatically registered existing virtual machine in a linked virtual network?
         answer: |
           You try to manually create a new DNS record into a private zone that has the same hostname as an existing, automatically registered virtual machine in a linked virtual network. When you do, the new DNS record overwrites the automatically registered virtual machine record. If you try to delete this manually created DNS record from the zone again, the delete succeeds. The automatic registration happens again as long as the virtual machine still exists and has a private IP attached to it. The DNS record is re-created automatically in the zone.
+
+      - question: |
+          What happens to auto-registered DNS records if I disable auto-registration on a virtual network link?
+        answer: |
+          Disabling auto-registration on an existing virtual network link immediately deletes all DNS records that were automatically registered through that link. Virtual machines will lose private DNS resolution until records are re-created manually or auto-registration is re-enabled
 
       - question: |
           What happens when we unlink a linked virtual network from a private zone? Will the automatically registered virtual machine records from the virtual network be removed from the zone too?

@@ -1,12 +1,15 @@
 ---
-title: Integrate Azure Event Hubs with Azure Private Link Service
-description: This article describes how to allow access to your Event Hubs namespace only via private endpoints by using the Azure Private Link Service.
-ms.date: 07/31/2024
+title: Restrict Event Hubs Namespace to Private Endpoints
+description: Learn how to securely integrate Azure Event Hubs with Azure Private Link Service to enable private endpoint access and enhance your network security.
+#customer intent: As an IT admin, I want to configure Azure Private Link for my Event Hubs namespace so that I can ensure secure communication within my virtual network.
+ms.date: 01/30/2026
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 # customer intent: As an IT admin, I want to restrict access to an Event Hubs namespace to a private endpoint in a virtual network. 
 ---
 
 # Allow access to Azure Event Hubs namespaces via private endpoints 
+
 Azure Private Link Service enables you to access Azure Services (for example, Azure Event Hubs, Azure Storage, and Azure Cosmos DB) and Azure hosted customer/partner services over a **private endpoint** in your virtual network.
 
 A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your virtual network, effectively bringing the service into your virtual network. All traffic to the service is routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
@@ -14,9 +17,9 @@ A private endpoint is a network interface that connects you privately and secure
 For more information, see [What is Azure Private Link?](../private-link/private-link-overview.md)
 
 ## Important points
+
 - This feature isn't supported in the **basic** tier.
 - Enabling private endpoints can prevent other Azure services from interacting with Event Hubs. Requests that are blocked include those from other Azure services, from the Azure portal, from logging and metrics services, and so on. As an exception, you can allow access to Event Hubs resources from certain **trusted services** even when private endpoints are enabled. For a list of trusted services, see [Trusted services](#trusted-microsoft-services).
-- Specify **at least one IP rule or virtual network rule** for the namespace to allow traffic only from the specified IP addresses or subnet of a virtual network. If there are no IP and virtual network rules, the namespace can be accessed over the public internet (using the access key). 
 
 ## Add a private endpoint using Azure portal
 
@@ -38,23 +41,38 @@ When creating a namespace, you can either allow public only (from all networks) 
 
 If you select the **Private access** option on the **Networking** page of the namespace creation wizard, you can add a private endpoint on the page by selecting **+ Private endpoint** button. See the next section for the detailed steps for adding a private endpoint. 
 
-:::image type="content" source="./media/private-link-service/create-namespace-private-access.png" alt-text="Screenshot showing the Networking page of the Create namespace wizard with Private access option selected.":::
+:::image type="content" source="./media/private-link-service/create-namespace-private-access.png" alt-text="Screenshot showing the Networking page of the Create namespace wizard with Private access option selected." lightbox="./media/private-link-service/create-namespace-private-access.png":::
 
 
 ### Configure private access for an existing namespace
 If you already have an Event Hubs namespace, you can create a private link connection by following these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com). 
-2. In the search bar, type in **event hubs**.
-3. Select the **namespace** from the list to which you want to add a private endpoint.
-1. On the **Networking** page, for **Public network access**, select **Disabled** if you want the namespace to be accessed only via private endpoints. 
-1. For **Allow trusted Microsoft services to bypass this firewall**, select **Yes** if you want to allow [trusted Microsoft services](#trusted-microsoft-services) to bypass this firewall. 
+#### Disable public access
 
-    :::image type="content" source="./media/private-link-service/public-access-disabled.png" alt-text="Screenshot of the Networking page with public network access as Disabled." lightbox="./media/private-link-service/public-access-disabled.png":::
-1. Switch to the **Private endpoint connections** tab. 
-1. Select the **+ Private Endpoint** button at the top of the page.
+Disable public access to your Event Hubs namespace to allow access only via private endpoints.
 
-    :::image type="content" source="./media/private-link-service/private-link-service-3.png" lightbox="./media/private-link-service/private-link-service-3.png" alt-text="Networking page - Private endpoint connections tab - Add private endpoint link.":::
+1. Navigate to your **Event Hubs namespace** in the [Azure portal](https://portal.azure.com).
+1. Select **Networking** under **Settings** on the left menu. 
+1. On the **Networking** page, select **Manage** under **Public network access**.
+
+    :::image type="content" source="./media/event-hubs-firewall/manage-public-network-access.png" alt-text="Screenshot showing the Public access page with Manage button highlighted." lightbox="./media/event-hubs-firewall/enable-selected-networks.png":::     
+1. On the **Public network access** page, select **Disable** to restrict inbound access while allowing outbound access. In the pop-up, select **Proceed** to confirm.
+
+    :::image type="content" source="./media/private-link-service/disable-public-access.png" alt-text="Screenshot showing the Public network access page with Disable option selected." lightbox="./media/private-link-service/disable-public-access.png":::
+1. On the **Public network access** page, select **Save** at the bottom of the page.
+
+    :::image type="content" source="./media/private-link-service/disable-public-access-main.png" alt-text="Screenshot showing the Public network access page with Disable option selected in the main page." lightbox="./media/private-link-service/disable-public-access-main.png":::
+1. In the **Exception** section, specify whether you want to **allow trusted Microsoft services to access this resource**. See [Trusted Microsoft services](#trusted-microsoft-services) for details.
+
+
+#### Add a private endpoint
+
+Now, add a private endpoint to your Event Hubs namespace by following these steps:
+
+1. On the **Networking** page, switch to the **Private access** tab. 
+1. Select the **Create private Endpoint** button at the top of the page.
+
+    :::image type="content" source="./media/private-link-service/private-access-create-endpoint.png" alt-text="Networking page - Private endpoint connections tab - Add private endpoint link." lightbox="./media/private-link-service/private-access-create-endpoint.png":::
 7. On the **Basics** page, follow these steps: 
     1. Select the **Azure subscription** in which you want to create the private endpoint. 
     2. Select the **resource group** for the private endpoint resource.
@@ -63,10 +81,10 @@ If you already have an Event Hubs namespace, you can create a private link conne
     1. Select a **region** for the private endpoint. Your private endpoint must be in the same region as your virtual network, but can be in a different region from the private link resource that you're connecting to. 
     1. Select **Next: Resource >** button at the bottom of the page.
 
-        :::image type="content" source="./media/private-link-service/create-private-endpoint-basics-page.png" alt-text="Screenshot showing the Basics page of the Create private endpoint wizard.":::
+        :::image type="content" source="./media/private-link-service/create-private-endpoint-basics-page.png" alt-text="Screenshot showing the Basics page of the Create private endpoint wizard." lightbox="./media/private-link-service/create-private-endpoint-basics-page.png":::
 8. On the **Resource** page, review settings, and select **Next: Virtual Network**.  
 
-    :::image type="content" source="./media/private-link-service/create-private-endpoint-resource-page.png" alt-text="Screenshot showing the Resource page of the Create private endpoint wizard.":::        
+    :::image type="content" source="./media/private-link-service/create-private-endpoint-resource-page.png" alt-text="Screenshot showing the Resource page of the Create private endpoint wizard." lightbox="./media/private-link-service/create-private-endpoint-resource-page.png":::
 9. On the **Virtual Network** page, you select the subnet in a virtual network to where you want to deploy the private endpoint. 
     1. Select a **virtual network**. Only virtual networks in the currently selected subscription and location are listed in the drop-down list. 
     2. Select a **subnet** in the virtual network you selected. 
@@ -75,15 +93,15 @@ If you already have an Event Hubs namespace, you can create a private link conne
     1. For **Application security group**, select an existing application security group or create one that's to be associated with the private endpoint. 
     1. Select **Next: DNS >** button at the bottom of the page. 
 
-        :::image type="content" source="./media/private-link-service/create-private-endpoint-configuration-page.png" alt-text="Screenshot showing the Virtual Network page of the Create private endpoint wizard.":::        
+        :::image type="content" source="./media/private-link-service/create-private-endpoint-configuration-page.png" alt-text="Screenshot showing the Virtual Network page of the Create private endpoint wizard." lightbox="./media/private-link-service/create-private-endpoint-configuration-page.png":::
 10. On the **DNS** page, select whether you want the private endpoint to be integrated with a private DNS zone, and then select **Next: Tags**. 
 1. On the **Tags** page, create any tags (names and values) that you want to associate with the private endpoint resource. Then, select **Review + create** button at the bottom of the page. 
 1. On the **Review + create**, review all the settings, and select **Create** to create the private endpoint.
     
-    ![Screenshot that shows the Review + create page.](./media/private-link-service/create-private-endpoint-review-create-page.png)
+    :::image type="content" source="./media/private-link-service/create-private-endpoint-review-create-page.png" alt-text="Screenshot that shows the Review + create page.":::
 12. Confirm that you see the private endpoint connection you created shows up in the list of endpoints. Refresh the page and switch to the **Private endpoint connections** tab. In this example, the private endpoint is auto-approved because you connected to an Azure resource in your directory and you have sufficient permissions. 
 
-    ![Screenshot that shows the Private endpoint connections page with the newly created private endpoint.](./media/private-link-service/private-endpoint-created.png)
+    :::image type="content" source="./media/private-link-service/private-endpoint-created.png" alt-text="Screenshot showing the Private endpoint connections page with the newly created private endpoint." lightbox="./media/private-link-service/private-endpoint-created.png":::
 
 [!INCLUDE [event-hubs-trusted-services](./includes/event-hubs-trusted-services.md)]
 
@@ -200,11 +218,10 @@ There are four provisioning states:
 5. Go to the appropriate following section based on the operation you want to: approve, reject, or remove.
 
 ### Approve a private endpoint connection
+
 1. If there are any connections that are pending, you see a connection listed with **Pending** in the provisioning state. 
 2. Select the **private endpoint** you wish to approve
 3. Select the **Approve** button.
-
-    :::image type="content" source="./media/private-link-service/approve-private-endpoint.png" alt-text="Screenshot that shows the Private endpoint connections tab with the Approve button highlighted.":::
 4. On the **Approve connection** page, add a comment (optional), and select **Yes**. If you select **No**, nothing happens. 
 5. You should see the status of the private endpoint connection in the list changed to **Approved**. 
 
@@ -212,13 +229,13 @@ There are four provisioning states:
 
 1. If there are any private endpoint connections you want to reject, whether it's a pending request or existing connection, select the connection and select the **Reject** button.
 
-    :::image type="content" source="./media/private-link-service/private-endpoint-reject-button.png" alt-text="Screenshot that shows the Private endpoint connections tab with the Reject button highlighted.":::
+    :::image type="content" source="./media/private-link-service/private-endpoint-reject-button.png" alt-text="Screenshot that shows the Private endpoint connections tab with the Reject button highlighted." lightbox="./media/private-link-service/private-endpoint-reject-button.png":::
 2. On the **Reject connection** page, enter a comment (optional), and select **Yes**. If you select **No**, nothing happens. 
 3. You should see the status of the private endpoint connection in the list changed to **Rejected**. 
 
-### Remove a private endpoint connection
+### Delete a private endpoint connection
 
-1. To remove a private endpoint connection, select it in the list, and select **Remove** on the toolbar.
+1. To delete a private endpoint connection, select it in the list, and select **Delete** on the toolbar.
 2. On the **Delete connection** page, select **Yes** to confirm the deletion of the private endpoint. If you select **No**, nothing happens.
 3. You should see the status changed to **Disconnected**. Then, the endpoint disappears from the list.
 

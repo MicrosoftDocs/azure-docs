@@ -18,8 +18,8 @@ The following command adds a configured custom DNS name to an App Service app.
 ```azurecli 
 az webapp config hostname add \
     --webapp-name <app-name> \
-    --resource-group <resource_group_name> \
-    --hostname <fully_qualified_domain_name>
+    --resource-group <resource-group-name> \
+    --hostname <fully-qualified-domain-name>
 ``` 
 
 For more information, see [Map a custom domain to a web app](../articles/app-service/scripts/cli-configure-custom-domain.md).
@@ -29,10 +29,10 @@ For more information, see [Map a custom domain to a web app](../articles/app-ser
 The following command adds a configured custom DNS name to an App Service app.
 
 ```powershell  
-$subscriptionId = "<subscription_ID>"
-$resourceGroup = "<resource_group>"
-$appName = "<app_name>"
-$hostname = "<fully_qualified_domain_name>"
+$subscriptionId = "<subscription-ID>"
+$resourceGroup = "<resource-group-name>"
+$appName = "<app-name>"
+$hostname = "<fully-qualified-domain-name>"
 $apiVersion = "2024-04-01"
  
 $restApiPath = "/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Web/sites/{2}/hostNameBindings/{3}?api-version={4}" `

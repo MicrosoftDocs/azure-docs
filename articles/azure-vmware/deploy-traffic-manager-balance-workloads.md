@@ -3,9 +3,12 @@ title: Deploy Traffic Manager to balance Azure VMware Solution workloads
 description: Learn how to integrate Traffic Manager with Azure VMware Solution to balance application workloads across multiple endpoints in different regions.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/22/2024
-ms.custom: engagement-fy23
+ms.date: 3/04/2026
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 
+# Customer intent: As a cloud architect, I want to deploy Traffic Manager with Azure VMware Solution to balance application workloads, so that I can ensure optimal performance and availability across multiple regions.
 ---
 
 # Deploy Azure Traffic Manager to balance Azure VMware Solution workloads
@@ -18,7 +21,7 @@ The diagram shows how Traffic Manager provides load balancing for the applicatio
 
 :::image type="content" source="media/traffic-manager/traffic-manager-topology.png" alt-text="Diagram of the Azure Traffic Manager integration with Azure VMware Solution." lightbox="media/traffic-manager/traffic-manager-topology.png" border="false":::
 
-Before you begin, review the [Prerequisites](#prerequisites) list, then go through the following procedures:
+Before you start, review the [Prerequisites](#prerequisites) list, then go through the following procedures:
 
 > [!div class="checklist"]
 > * Verify configuration of your application gateways and the NSX segment
@@ -66,7 +69,7 @@ The following steps verify the configuration of your application gateways.
 
 The following steps verify the configuration of the NSX segment in the Azure VMware Solution environment.
 
-1. Select **Segments** to view your configured segments.  You see Contoso-segment1 connected to Contoso-T01 gateway, a Tier-1 flexible router.
+1. Select **Segments** to view your configured segments. You see Contoso-segment1 connected to Contoso-T01 gateway, a Tier-1 flexible router.
 
    :::image type="content" source="media/traffic-manager/nsx-t-segment-azure-vmware-solution.png" alt-text="Screenshot showing segment profiles in NSX Manager." lightbox="media/traffic-manager/nsx-t-segment-azure-vmware-solution.png":::    
 

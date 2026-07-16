@@ -1,13 +1,16 @@
 ---
 title: Quickstart - Create Intel SGX VM in the Azure Marketplace
 description: Get started with your deployments by learning how to quickly create an Intel SGX VM with Marketplace.
-author: ju-shim
-ms.service: azure-virtual-machines
-ms.subservice: azure-confidential-computing
+author: iamwilliew
+ms.service: azure-confidential-computing
 ms.topic: quickstart
 ms.date: 11/01/2021
-ms.author: jushiman
-ms.custom: mode-other, linux-related-content
+ms.author: wwilliams
+ms.custom:
+  - mode-other
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: "As a cloud engineer, I want to deploy an Intel SGX VM from the Azure Marketplace, so that I can utilize secure computing capabilities for my applications."
 ---
 
 # Quickstart: Create Intel SGX VM in the Azure Marketplace
@@ -16,7 +19,7 @@ This tutorial guides you through the process of deploying Intel SGX VMs using Az
 
 ## Prerequisites
 
-If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/) before you begin.
+If you don't have an Azure subscription, [create an account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 > [!NOTE]
 > Free trial accounts do not have access to the VMs in this tutorial. Please upgrade to a Pay-As-You-Go subscription.

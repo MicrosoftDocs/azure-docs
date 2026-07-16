@@ -1,16 +1,17 @@
 ---
 title: Common Issues - Fetching Resource
-description: Azure CycleCloud common issue - Fetching Resources
+description: Troubleshoot resource-fetching and staging errors in Azure CycleCloud, such as socket-closed urlopen failures.
 author: adriankjohnson
-ms.date: 11/15/2019
+ms.date: 06/19/2026
+ms.topic: troubleshooting-problem-resolution
 ms.author: adjohnso
 ---
-# Common Issues: Fetching Resources
+# Common issues: Fetching resources
 
-## Possible Error Messages
+## Possible error messages
 
 - `Staging Resources (urlopen error [Errno 104] Socket closed)`
 
 ## Resolution
 
-This is usually due to a network error. Click on the "retry" link to see it was an intermittent issue. Check the Azure network status if the problem isn't resolved via retry.
+This error usually happens because of a network error. Select **retry** to see if it's an intermittent issue. Check the Azure network status if retry doesn't resolve the problem.

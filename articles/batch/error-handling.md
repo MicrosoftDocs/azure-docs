@@ -1,8 +1,9 @@
 ---
 title: Error handling and detection in Azure Batch
 description: Learn about error handling in Batch service workflows from a development standpoint.
-ms.topic: article
-ms.date: 04/13/2023
+ms.topic: concept-article
+ms.date: 05/19/2026
+# Customer intent: "As a cloud developer, I want to understand error handling and detection in Batch service workflows, so that I can effectively troubleshoot and resolve application and task failures in my cloud-based solutions."
 ---
 
 # Error handling and detection in Azure Batch
@@ -24,7 +25,7 @@ For detailed information about specific error codes, see [Batch status and error
 
 During execution, an application might produce diagnostic output. You can use this output to troubleshoot issues. The Batch service writes standard output and standard error output to the *stdout.txt* and *stderr.txt* files in the task directory on the compute node. For more information, see [Files and directories in Batch](files-and-directories.md).
 
-To download these output files, use the Azure portal or one of the Batch SDKs. For example, to retrieve files for troubleshooting purposes, use [ComputeNode.GetNodeFile](/dotnet/api/microsoft.azure.batch.computenode) and [CloudTask.GetNodeFile](/dotnet/api/microsoft.azure.batch.cloudtask) in the Batch .NET library.
+To download these output files, use the Azure portal or one of the Batch SDKs. For example, to retrieve files for troubleshooting purposes, use [BatchClient.GetNodeFile](/dotnet/api/azure.compute.batch.batchclient) in the Azure.Compute.Batch library.
 
 ## Task errors
 
@@ -83,13 +84,13 @@ It's also possible for an intermittent issue to cause a task to stop responding 
 
 ## Connect to compute nodes
 
-You can perform debugging and troubleshooting by signing in to a compute node remotely. Use the Azure portal to download a Remote Desktop Protocol (RDP) file for Windows nodes, and obtain Secure Shell (SSH) connection information for Linux nodes. You can also download this information using the [Batch .NET](/dotnet/api/microsoft.azure.batch.computenode) or [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh) APIs.
+You can perform debugging and troubleshooting by signing in to a compute node remotely. Use the Azure portal to download a Remote Desktop Protocol (RDP) file for Windows nodes, and obtain Secure Shell (SSH) connection information for Linux nodes. You can also download this information using the [Azure.Compute.Batch](/dotnet/api/azure.compute.batch.batchclient) or [Batch Python](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh) APIs.
 
 To connect to a node via RDP or SSH, first create a user on the node. Use one of the following methods:
 
 - The [Azure portal](https://portal.azure.com)
 - Batch REST API: [adduser](/rest/api/batchservice/computenode/adduser)
-- Batch .NET API: [ComputeNode.CreateComputeNodeUser](/dotnet/api/microsoft.azure.batch.computenode)
+- Azure.Compute.Batch API: [BatchClient.CreateNodeUserAsync](/dotnet/api/azure.compute.batch.batchclient)
 - Batch Python module: [add_user](batch-linux-nodes.md#connect-to-linux-nodes-using-ssh)
 
 If necessary, [configure or disable access to compute nodes](pool-endpoint-configuration.md).
@@ -103,21 +104,21 @@ Your Batch client application or service can examine the metadata of failed task
 Restarting a node sometimes fixes latent issues, such as stuck or crashed processes. If your pool uses a start task, or your job uses a job preparation task, a node restart executes these tasks.
 
 - Batch REST API: [reboot](/rest/api/batchservice/computenode/reboot)
-- Batch .NET API: [ComputeNode.Reboot](/dotnet/api/microsoft.azure.batch.computenode.reboot)
+- Azure.Compute.Batch API: [BatchClient.RebootNodeAsync](/dotnet/api/azure.compute.batch.batchclient)
 
 ### Reimage node
 
 Reimaging a node reinstalls the operating system. Start tasks and job preparation tasks rerun after the reimaging happens.
 
 - Batch REST API: [reimage](/rest/api/batchservice/computenode/reimage)
-- Batch .NET API: [ComputeNode.Reimage](/dotnet/api/microsoft.azure.batch.computenode.reimage)
+- Azure.Compute.Batch API: [BatchClient.ReimageNodeAsync](/dotnet/api/azure.compute.batch.batchclient)
 
 ### Remove node from pool
 
 Removing the node from the pool is sometimes necessary. 
 
-- Batch REST API: [removenodes](/rest/api/batchservice/pool/remove-nodes)
-- Batch .NET API: [PoolOperations](/dotnet/api/microsoft.azure.batch.pooloperations)
+- Batch REST API: [removenodes](/rest/api/batchservice/pools/remove-nodes)
+- Azure.Compute.Batch API: [BatchClient pool methods](/dotnet/api/azure.compute.batch.batchclient)
 
 ### Disable task scheduling on node
 
@@ -126,9 +127,9 @@ Disabling task scheduling on a node effectively takes the node offline. Batch as
 For example, disable task scheduling on the node. Then, sign in to the node remotely. Examine the event logs, and do other troubleshooting. After you solve the problems, enable task scheduling again to bring the node back online. 
 
 - Batch REST API: [enablescheduling](/rest/api/batchservice/computenode/enablescheduling)
-- Batch .NET API: [ComputeNode.EnableScheduling](/dotnet/api/microsoft.azure.batch.computenode.enablescheduling)
+- Azure.Compute.Batch API: [BatchClient.EnableNodeSchedulingAsync](/dotnet/api/azure.compute.batch.batchclient)
 
-You can use these actions to specify Batch handles tasks currently running on the node. For example, when you disable task scheduling with the Batch .NET API, you can specify an enum value for [DisableComputeNodeSchedulingOption](/dotnet/api/microsoft.azure.batch.common.disablecomputenodeschedulingoption). You can choose to:
+You can use these actions to specify Batch handles tasks currently running on the node. For example, when you disable task scheduling with the Azure.Compute.Batch API, you can specify an enum value for [BatchNodeDisableSchedulingOption](/dotnet/api/azure.compute.batch.batchnodedisableschedulingoption). You can choose to:
 
 - Terminate running tasks: `Terminate`
 - Requeue tasks for scheduling on other nodes: `Requeue`

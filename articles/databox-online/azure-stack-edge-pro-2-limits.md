@@ -2,12 +2,12 @@
 title: Azure Stack Edge Pro 2 limits for device and service
 description: Learn about limits and recommended sizes as you deploy and operate Azure Stack Edge Pro 2, including service limits, device limits, and storage limits.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
-ms.topic: article
+ms.topic: concept-article
 ms.date: 02/09/2022
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge Pro 2 limits

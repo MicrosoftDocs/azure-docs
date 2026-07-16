@@ -1,11 +1,13 @@
 ---
 title: Move Azure VMware Solution subscription to another subscription
 description: This article describes how to move Azure VMware Solution subscription to another subscription. You might move your resources for various reasons, such as billing.  
-ms.custom: "subject-moving-resources, engagement-fy23"
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/19/2023
-
+ms.date: 03/13/2026
+ms.custom:
+  - subject-moving-resources
+  - engagement-fy23
+  - sfi-image-nochange
 # Customer intent: As an Azure service administrator, I want to move my Azure VMware Solution subscription to another subscription.
 ---
 
@@ -18,7 +20,7 @@ This article describes how to move an Azure VMware Solution subscription to anot
 You should have at least contributor rights on both **source** and **target** subscriptions.
 
 >[!IMPORTANT]
->VNet and VNet gateway can't be moved from one subscription to another. Additionally, moving your subscriptions has no impact on the management and workloads, like the vCenter Server, NSX-T Data Center, vSAN, and workload virtual machines.
+>Virtual network and virtual network gateway can't be moved from one subscription to another. Additionally, moving your subscriptions has no effect on the management and workloads, like the vCenter Server, NSX-T Data Center, vSAN, and workload virtual machines.
 
 ## Prepare and move
 

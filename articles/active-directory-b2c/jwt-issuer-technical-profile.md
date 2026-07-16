@@ -6,7 +6,7 @@ description: Define a technical profile for a JSON web token (JWT) issuer in a c
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 02/19/2025
@@ -19,6 +19,8 @@ ms.subservice: b2c
 ---
 
 # Define a technical profile for a JWT issuer in an Azure Active Directory B2C custom policy
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

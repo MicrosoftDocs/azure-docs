@@ -12,7 +12,7 @@ Resources that are non-compliant to policies with `deployIfNotExists` or `modify
 
 ## How remediation access control works
 
-When Azure Policy starts a template deployment when evaluating `deployIfNotExists` policies or modifies a resource when evaluating `modify` policies, it does so using a [managed identity](/entra/identity/managed-identities-azure-resources/overview) associated with the policy assignment. Note that while the assignment's identity is used for resource deployment or modification, it is not used for evaluation of the policy definition and its existence condition. Policy evalutation uses the identity of the caller that initiated the API request.
+When Azure Policy starts a template deployment when evaluating `deployIfNotExists` policies or modifies a resource when evaluating `modify` policies, it does so using a [managed identity](/entra/identity/managed-identities-azure-resources/overview) associated with the policy assignment. Note that while the assignment's identity is used for resource deployment or modification, it is not used for evaluation of the policy definition and its existence condition. Policy evaluation uses the identity of the caller that initiated the API request.
 
 Policy assignments use managed identities for Azure resource authorization during remediation. You can use either a system-assigned managed identity created by the policy service or a user-assigned identity provided by the user. The managed identity needs to be assigned the minimum Azure role-based access control (Azure RBAC) role required to remediate resources. If the managed identity is missing roles, an error is displayed in the portal during the assignment of the policy or an initiative. When you use the portal, Azure Policy automatically grants the managed identity the listed roles once assignment starts. When you use an Azure software development kit (SDK), the roles must manually be granted to the managed identity. The _location_ of the managed identity doesn't affect its operation with Azure Policy.
 
@@ -341,7 +341,7 @@ For more remediation commands and examples, see the [az policy remediation](/cli
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review the [Azure Policy definition structure](../concepts/definition-structure-basics.md).
 - Review [Understanding policy effects](../concepts/effect-basics.md).
 - Understand how to [programmatically create policies](programmatically-create.md).

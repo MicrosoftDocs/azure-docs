@@ -5,7 +5,7 @@ services: azure-communication-services
 author: shamkh
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 07/15/2024
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: shamkh
@@ -17,7 +17,7 @@ zone_pivot_groups: acs-js-csharp-java-python
 
 The Messages SDK uses the `NotificationMessagesClient` to send messages. The `NotificationMessagesClient` method authenticates using your connection string acquired from Azure Communication Services resource in the Azure portal. For more information about connection strings, see [access-your-connection-strings-and-service-endpoints](../../../create-communication-resource.md#access-your-connection-strings-and-service-endpoints).
 
-[!INCLUDE [Authenticate the client ](./authenticate-notification-messages-client-net.md)]
+[!INCLUDE [Authenticate the client](./authenticate-notification-messages-client-net.md)]
 
 ### Set channel registration ID   
 
@@ -32,7 +32,7 @@ var channelRegistrationId = new Guid("<your channel registration ID GUID>");
 
 ### Set recipient list
 
-You need to supply an active phone number associated with a WhatsApp account. This WhatsApp account receives the template, text, and media messages sent in this quickstart.
+You need to supply an active phone number associated with a WhatsApp account, or a business-scoped user ID (BSUID). This WhatsApp account receives the template, text, and media messages sent in this quickstart.
 
 For this example, you can use your personal phone number.   
 
@@ -41,22 +41,34 @@ The recipient phone number can't be the business phone number (Sender ID) associ
 The phone number must include the country code. For more information about phone number formatting, see WhatsApp documentation for [Phone Number Formats](https://developers.facebook.com/docs/whatsapp/cloud-api/reference/phone-numbers#phone-number-formats).
 
 > [!NOTE]
-> Only one phone number is currently supported in the recipient list.
+> Only one phone number or BSUID is currently supported in the recipient list.
 
 Create the recipient list like this:
 ```csharp
-var recipientList = new List<string> { "<to WhatsApp phone number>" };
+var recipientList = new List<string> { "<to WhatsApp phone number or BSUID>" };
 ```
 
-Example:
+Example using a phone number:
 ```csharp
 // Example only
 var recipientList = new List<string> { "+14255550199" };
 ```
 
+Example using a BSUID:
+```csharp
+// Example only
+var recipientList = new List<string> { "US.13491208655302741918" };
+```
+
+> [!NOTE]
+> Sending messages to BSUIDs will be available starting in June 2026. Until then, use phone numbers as recipients.
+
+For more information about BSUIDs, see [WhatsApp usernames and BSUIDs](../../../../concepts/advanced-messaging/whatsapp/whatsapp-username-support-overview.md).
+
 ### Start sending messages between a business and a WhatsApp user
 
 Conversations between a WhatsApp Business Account and a WhatsApp user can be initiated in one of two ways:
+
 - The business sends a template message to the WhatsApp user.
 - The WhatsApp user sends any message to the business number.
 

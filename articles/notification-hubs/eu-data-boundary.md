@@ -4,7 +4,7 @@ description: Learn about the EU data boundary capabilities of Azure Notification
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-notification-hubs
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/01/2023
 ---
 

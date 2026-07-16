@@ -3,8 +3,9 @@ title: Analyze Logs and Metrics in Azure Spring Apps
 description: Learn how to analyze diagnostics data in Azure Spring Apps
 author: KarlErickson
 ms.service: azure-spring-apps
-ms.topic: conceptual
-ms.date: 06/27/2024
+ms.topic: how-to
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.custom: devx-track-java
 ---
@@ -28,7 +29,7 @@ Using the diagnostics functionality of Azure Spring Apps, you can analyze logs a
 Choose the log category and metric category you want to monitor.
 
 > [!TIP]
-> If you just want to stream your logs, you can use the Azure CLI command [az spring app logs](/cli/azure/spring/app#az-spring-app-logs).
+> If you just want to stream your logs, you can use the Azure CLI command `az spring app logs`.
 
 ## Logs
 

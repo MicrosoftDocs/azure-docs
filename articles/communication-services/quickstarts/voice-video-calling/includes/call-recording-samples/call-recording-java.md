@@ -3,7 +3,9 @@ author: dbasantes
 ms.service: azure-communication-services
 ms.date: 06/11/2023
 ms.topic: include
-ms.custom: public_preview
+ms.custom:
+  - public_preview
+  - sfi-ropc-nochange
 ---
 
 ## Sample Code
@@ -19,20 +21,22 @@ You can download the sample app from [GitHub](https://github.com/Azure-Samples/c
 
 ## Before you start
 
-Call Recording APIs exclusively use the `serverCallId` to initiate recording. There are a couple of methods you can use to fetch the `serverCallId` depending on your scenario:
+Call Recording APIs use the `callConnectionId` or `serverCallId`to initiate recording. There are a couple of methods you can use to fetch the these IDs depending on your scenario:
 
-### Call Automation scenarios
+### How to fetch callConnectionId
+
+When using [Call Automation](../../../call-automation/callflows-for-customer-interactions.md), you will receive the `callConnectionId` from the response event from a `createCall`, `answer`, or `connect` requests when initiating the call.
+
+### How to fetch serverCallId
 
 When using [Call Automation](../../../call-automation/callflows-for-customer-interactions.md), you have two options to get the `serverCallId`:
 
-1. Once a call is created, a `serverCallId` is returned as a property of the `CallConnected` event after a call is established. Learn how to [Get CallConnected event](../../../call-automation/callflows-for-customer-interactions.md?pivots=programming-language-java#update-programcs) from Call Automation SDK.
+1. When you establish a call, it returns a `serverCallId` as a property of the `CallConnected` event after a call is established. Learn how to [Get CallConnected event](../../../call-automation/callflows-for-customer-interactions.md?pivots=programming-language-csharp#update-programcs) from Call Automation SDK.
 
-2.  Once you answer the call or a call is created the `serverCallId` is returned as a property of the `AnswerCallResult` or `CreateCallResult` API responses respectively.
+2. When you answer the call or a call is created, it returns the `serverCallId` as a property of the `AnswerCallResult` or `CreateCallResult` API responses respectively.
 
-### Calling SDK scenarios
 
-When using [Calling Client SDK](../../get-started-with-video-calling.md), you can retrieve the `serverCallId` by using the `getServerCallId` method on the call.
-
+When using [Calling Client SDK](../../get-started-with-video-calling.md), you can retrieve the `serverCallId` by using the `getServerCallId` method on the call. 
 Use this example to learn how to [Get serverCallId](../../get-server-call-id.md) from the Calling Client SDK. 
 
 Let's get started with a few simple steps.
@@ -51,13 +55,13 @@ CallAutomationClient callAutomationClient = new CallAutomationClientBuilder()
 
 ## 2. Start recording session with StartRecordingOptions using `startWithResponse` API
 
-Use the `serverCallId` received during initiation of the call.
+Use the `callConnectionId` or `serverCallId` received during initiation of the call.
 - Use `RecordingContent` to pass the recording content type. Use `AUDIO`.
 - Use `RecordingChannel` to pass the recording channel type. Use `MIXED` or `UNMIXED`.
 - Use `RecordingFormat` to pass the format of the recording. Use `WAV`.
 
 ```java
-StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<serverCallId>"))
+StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<callConnectionId> or <serverCallId>"))
                     .setRecordingChannel(RecordingChannel.UNMIXED)
                     .setRecordingFormat(RecordingFormat.WAV)
                     .setRecordingContent(RecordingContent.AUDIO)
@@ -89,7 +93,7 @@ Start recording using your designated Azure Blob Storage to store the recorded f
 > **Recordings must be resumed for recording file to be generated.**
 
 ```java
-StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<serverCallId>"))
+StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<<callConnectionId> or serverCallId>"))
                     .setRecordingChannel(RecordingChannel.UNMIXED)
                     .setRecordingFormat(RecordingFormat.WAV)
                     .setRecordingContent(RecordingContent.AUDIO)
@@ -107,7 +111,7 @@ Response<RecordingStateResult> response = callAutomationClient.getCallRecording(
 To produce unmixed audio recording files, you can use the `AudioChannelParticipantOrdering` functionality to specify which user you want to record on channel 0. The rest of the participants are assigned to a channel as they speak. If you use `RecordingChannel.Unmixed` but don't use `AudioChannelParticipantOrdering`, Call Recording assigns channel 0 to the first participant speaking. 
 
 ```java
-StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<serverCallId>"))
+StartRecordingOptions recordingOptions = new StartRecordingOptions(new ServerCallLocator("<<callConnectionId> or serverCallId>"))
                     .setRecordingChannel(RecordingChannel.UNMIXED)
                     .setRecordingFormat(RecordingFormat.WAV)
                     .setRecordingContent(RecordingContent.AUDIO)

@@ -9,8 +9,10 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 05/25/2022
 ms.topic: include
-ms.custom: include file
 ms.author: peiliu
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 Get started with Azure Communication Services by using the Communication Services C# SMS SDK to send SMS messages.
@@ -22,7 +24,7 @@ Completing this article incurs a small cost of a few USD cents or less in your A
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The latest version of [.NET Core SDK](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 - An SMS-enabled telephone number, short code, or alphanumeric sender ID. [Get a phone number](../../telephony/get-phone-number.md).
@@ -150,6 +152,44 @@ Make these replacements in the code:
 The `enableDeliveryReport` parameter is an optional parameter that you can use to configure delivery reporting. This functionality is useful when you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure delivery reporting for your SMS messages.
 
 You can use the `Tag` parameter to apply a tag to the delivery report.
+
+## Send SMS globally with Messaging Connect
+
+[!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include.md)]
+
+If you're using a phone number provisioned via Messaging Connect, you can send SMS messages using the standard Azure Communication Services SDK. The only difference is that you must include the `MessagingConnect` object to specify the partner name and API key.
+
+```csharp
+Response<IReadOnlyList<SmsSendResult>> response = smsClient.Send(
+    from: "<from-messaging-connect-number>",
+    to: new string[] { "<to-phone-number-1>", "<to-phone-number-2>" },
+    message: "Weekly Promotion!",
+    options: new SmsSendOptions(enableDeliveryReport: true) // OPTIONAL
+    {
+        Tag = "marketing", // custom tags
+        MessagingConnect = new MessagingConnectOptions("<partner-api-key>", "infobip")
+    });
+
+IEnumerable<SmsSendResult> results = response.Value;
+foreach (SmsSendResult result in results)
+{
+    Console.WriteLine($"Sms id: {result.MessageId}");
+    Console.WriteLine($"Send Result Successful: {result.Successful}");
+}
+```
+Replace these values:
+
+- `<from-messaging-connect-number>`: The phone number acquired through Messaging Connect and linked to your ACS resource.
+- `<to-phone-number-1>` and `<to-phone-number-2>`: The recipient phone numbers.
+- `<partner-api-key>`: The API key from your Messaging Connect partner (e.g., Infobip).
+
+> [!TIP]
+> Want to learn more about global messaging? Check out the [Messaging Connect page](../../../concepts/sms/messaging-connect.md)
+
+> [!WARNING]
+> Phone numbers must follow the E.164 international standard format (for example, +14255550123). The `<rom-messaging-connect-number>` must be a Messaging Connect number or a Dynamic Alpha Sender ID (for example, CONTOSO) already provisioned and synced to your ACS resource.
+
+The `enableDeliveryReport` parameter is an optional parameter that you can use to configure delivery reporting. This functionality is useful when you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure delivery reporting for your SMS messages. You can use the `Tag` parameter to apply a tag to the delivery report.
 
 ## Run the code
 

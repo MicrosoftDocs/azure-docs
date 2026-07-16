@@ -2,13 +2,13 @@
 title: Create certificates for Azure Stack Edge Pro GPU via Azure PowerShell | Microsoft Docs
 description: Describes how to create certificates for Azure Stack Edge Pro GPU device using Azure PowerShell cmdlets.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.custom: devx-track-azurepowershell
 ms.topic: article
 ms.date: 06/01/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Use certificates with Azure Stack Edge Pro GPU device
 

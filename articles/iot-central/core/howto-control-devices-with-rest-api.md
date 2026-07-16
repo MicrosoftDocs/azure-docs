@@ -3,7 +3,7 @@ title: Use the REST API to manage devices in Azure IoT Central
 description: How to use the IoT Central REST API to control devices in an application by using properties and commands.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/14/2024
+ms.date: 09/29/2025
 ms.topic: how-to
 ms.service: azure-iot-central
 services: iot-central
@@ -34,7 +34,7 @@ To learn how to control devices by using the IoT Central UI, see
 
 ## Components and modules
 
-Components let you group and reuse device capabilities. To learn more about components and device models, see the [IoT Plug and Play modeling guide](../../iot/concepts-modeling-guide.md).
+Components let you group and reuse device capabilities. To learn more about components and device models, see the [IoT Plug and Play modeling guide](/previous-versions/azure/iot/concepts-modeling-guide).
 
 Not all device templates use components. The following screenshot shows the device template for a simple [thermostat](https://github.com/Azure/iot-plugandplay-models/blob/main/dtmi/com/example/thermostat-2.json) where all the capabilities are defined in a single interface called the **Root component**:
 
@@ -168,6 +168,8 @@ The response to this request looks like the following example:
 > To access the telemetry from a component in a module, use `/api/devices/{deviceId}/modules/{moduleName}/components/{componentName}/telemetry/{telemetryName}`.
 
 ## Read properties
+
+The following examples use _device twins_ to read property values from a device. To learn about device twins and the role of the `$metadata` field, see [Get started with device twins](../../iot-hub/how-to-device-twins.md).
 
 Use the following request to retrieve the property values from a device that doesn't use components. In this example, the device is called `thermostat-01`:
 
@@ -305,6 +307,8 @@ The response to this request looks like the following example:
 > To access the properties from a component in a module, use `/devices/{deviceId}/modules/{moduleName}/components/{componentName}/properties`.
 
 ## Write properties
+
+The following examples use _device twins_ to write property values to a device. To learn about device twins and the role of the `$metadata` field, see [Get started with device twins](../../iot-hub/how-to-device-twins.md).
 
 Some properties are writable. In the example thermostat model, the `targetTemperature` property is a writable property.
 

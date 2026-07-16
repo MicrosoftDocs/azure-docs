@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: krkutser
 ms.date: 03/30/2023
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.custom: references_regions
 ---
@@ -22,7 +22,7 @@ Use the following tables to find all the relevant information on number availabi
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
 | Toll-Free   |General Availability  | General Availability | General Availability | General Availability\* |
-| Local       | Public Preview       | Public Preview       | General Availability | General Availability\* |
+| Local       | General Availability (via 10DLC)      | General Availability (via 10DLC)     | General Availability | General Availability\* |
 | Short code       |General Availability                    |General Availability                    | - | - |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
@@ -45,9 +45,9 @@ More details on eligible subscription types are as follows:
 | Country/Region |
 | :---------- |
 |Canada|
-|United States|
+|United States (excl. Puerto Rico)|
 
-## Azure subscription billing locations where United States phone numbers are available for calling
+## Azure subscription billing locations where United States local and toll-free phone numbers are available
 
 | Country/Region |
 | :---------- |
@@ -79,3 +79,4 @@ For more information about Azure Communication Services telephony options, see:
 
 - [Learn more about Telephony](../telephony/telephony-concept.md)
 - Get a Telephony capable [phone number](../../quickstarts/telephony/get-phone-number.md)
+

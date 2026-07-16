@@ -1,10 +1,7 @@
 ---
 title: High availability for Azure Cache for Redis
 description: Learn about Azure Cache for Redis high availability features and options
-
-
-
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/05/2024
 appliesto:
   - ✅ Azure Cache for Redis
@@ -12,6 +9,8 @@ appliesto:
 ms.custom: references_regions
 ---
 # High availability and disaster recovery
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 As with any cloud systems, unplanned outages can occur that result in a virtual machines (VM) instance, an Availability Zone, or a complete Azure region going down. We recommend customers have a plan in place to handle zone or regional outages.
 
@@ -67,7 +66,7 @@ Applicable tiers: **Standard**, **Premium**, **Enterprise**, **Enterprise Flash*
 
 Recommended for: **High availability**, **Disaster recovery - intra region**
 
-Azure Cache for Redis supports zone redundant configurations in the Standard, Premium, and Enterprise tiers. A [zone redundant cache](cache-how-to-zone-redundancy.md) can place its nodes across different [Azure Availability Zones](../reliability/availability-zones-overview.md) in the same region. It eliminates data center or Availability Zone outage as a single point of failure and increases the overall availability of your cache.
+Azure Cache for Redis supports zone redundant configurations in the Standard, Premium, and Enterprise tiers. A [zone redundant cache](cache-how-to-zone-redundancy.md) can place its nodes across different [Azure Availability Zones](/azure/reliability/availability-zones-overview) in the same region. It eliminates data center or Availability Zone outage as a single point of failure and increases the overall availability of your cache.
 
 If a cache is configured to use two or more zones as described earlier in the article, the cache nodes are created in different zones. When a zone goes down, cache nodes in other zones are available to keep the cache functioning as usual.
 
@@ -103,32 +102,32 @@ When a data node becomes unavailable or a network split happens, a failover simi
 
 Zone-redundant Premium, Standard tier caches are available in the following regions:
 
-| Americas | Europe | Middle East | Africa | Asia Pacific |
-|---|---|---|---|---|
-| Brazil South | France Central | Qatar Central | South Africa North | Australia East |
-| Canada Central | Italy North | UAE North | | Central India |
-| Central US |  Germany West Central | Israel Central | | Japan East |
-| East US | Norway East | | | |
-| East US 2 | North Europe  | | | Southeast Asia |
-| South Central US | UK South | | | East Asia |
-| US Gov Virginia | West Europe  | | | China North 3 |
-| West US 2 | Sweden Central | | |Korea Central  | 
-| West US 3 | Switzerland North | | | New Zealand North |
-| Mexico Central | Poland Central ||||
-||Spain Central ||||
+| Americas         | Europe               | Middle East    | Africa             | Asia Pacific      |
+|------------------|----------------------|----------------|--------------------|-------------------|
+| Brazil South     | France Central       | Qatar Central  | South Africa North | Australia East    |
+| Canada Central   | Italy North          | UAE North      |                    | Central India     |
+| Central US       | Germany West Central | Israel Central |                    | Indonesia Central |
+| Chile Central    | Norway East          |                |                    | Japan East        |
+| East US          | North Europe         |                |                    | Japan West        |
+| East US 2        | UK South             |                |                    | Southeast Asia    |
+| South Central US | West Europe          |                |                    | East Asia         |
+| US Gov Virginia  | Sweden Central       |                |                    | China North 3     |
+| West US 2        | Switzerland North    |                |                    | Korea Central     |
+| West US 3        | Poland Central       |                |                    | Malaysia West     |
+| Mexico Central   | Spain Central        |                |                    | New Zealand North |
 
 Zone-redundant Enterprise and Enterprise Flash tier caches are available in the following regions:
 
-| Americas | Europe | Middle East | Africa | Asia Pacific |
-|---|---|---|---|---|
-| Canada Central* | North Europe | | | Australia East |
-| Central US* | UK South | | | Central India |
-| East US | West Europe | | | Southeast Asia |
-| East US 2 | | | | Japan East* |
-| South Central US | | | | East Asia* |
-| West US 2 | | | | |
-| West US 3 | | | | |
-| Brazil South | | | | |
+| Americas         | Europe       | Middle East | Africa | Asia Pacific   |
+|------------------|--------------|-------------|--------|----------------|
+| Canada Central*  | North Europe |             |        | Australia East |
+| Central US*      | UK South     |             |        | Central India  |
+| East US          | West Europe  |             |        | Southeast Asia |
+| East US 2        |              |             |        | Japan East*    |
+| South Central US |              |             |        | East Asia*     |
+| West US 2        |              |             |        |                |
+| West US 3        |              |             |        |                |
+| Brazil South     |              |             |        |                |
 
 \* Enterprise Flash tier not available in this region.
 

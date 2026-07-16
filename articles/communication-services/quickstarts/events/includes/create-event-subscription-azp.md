@@ -2,13 +2,13 @@
 author: pgrandhi
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 01/26/2024
+ms.date: 06/28/2024
 ms.author: pgrandhi
 ---
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An [Azure Communication Services resource](../../create-communication-resource.md).
 - To receive events, create a Webhook. See [Webhook Event Delivery](/azure/event-grid/webhook-event-delivery).
 

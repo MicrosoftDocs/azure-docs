@@ -12,6 +12,8 @@ ms.custom: azure-synapse
 
 # Design tables using dedicated SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article provides key introductory concepts for designing tables in dedicated SQL pool.
 
 ## Determine table category

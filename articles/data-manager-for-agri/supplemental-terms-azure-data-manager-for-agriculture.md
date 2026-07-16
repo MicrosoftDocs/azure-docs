@@ -5,7 +5,7 @@ description: Provides Azure Data Manager for Agriculture specific terms of use.
 author: BlackRider97
 ms.author: ramithar # Microsoft employees only
 ms.date: 5/23/2023
-ms.topic: conceptual
+ms.topic: legal
 ms.service: azure-data-manager-agriculture
 ---
 

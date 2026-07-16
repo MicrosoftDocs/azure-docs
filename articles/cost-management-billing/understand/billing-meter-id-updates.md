@@ -2,11 +2,11 @@
 title: Azure billing meter ID updates
 titleSuffix: Microsoft Cost Management
 description: Learn about how Azure billing meter ID updates might affect your Azure consumption and billing.
-author: maddieminn
+author: vikramdesai01
 ms.reviewer: kyleikeda
 ms.service: cost-management-billing
 ms.subservice: common
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/28/2025
 ms.author: kyleikeda
 ---

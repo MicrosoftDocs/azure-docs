@@ -2,11 +2,11 @@
 title: 'Microsoft Entra tenant for User VPN connections: Microsoft Entra authentication -OpenVPN'
 description: You can use Azure Virtual WAN User VPN (point-to-site) to connect to your VNet using Microsoft Entra authentication
 titleSuffix: Azure Virtual WAN
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 10/08/2024
-ms.author: cherylmc
+ms.author: duau
 
 #Note that Audience values are not sensitive data. 
 ---

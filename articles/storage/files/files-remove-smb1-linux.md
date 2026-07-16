@@ -7,9 +7,12 @@ ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 02/23/2023
 ms.author: kendownie
+# Customer intent: "As a system administrator, I want to disable SMB 1 on Linux clients, so that I can enhance security by using only modern and secure SMB protocols for file sharing."
 ---
 
 # Disable SMB 1 on Linux clients
+
+**Applies to:** :heavy_check_mark: SMB file shares
 
 Many organizations and internet service providers (ISPs) block the port that SMB uses to communicate, port 445. This practice originates from security guidance about legacy and deprecated versions of the SMB protocol. Although SMB 3.x is an internet-safe protocol, older versions of SMB, especially SMB 1, aren't. SMB 1, also known as CIFS (Common Internet File System), is included with many Linux distributions.
 

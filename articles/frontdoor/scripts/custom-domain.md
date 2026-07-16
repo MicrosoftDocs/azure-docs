@@ -5,14 +5,17 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: sample
-ms.date: 11/18/2024
+ms.date: 05/04/2026
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
 ---
 
 # Azure Front Door: Deploy custom domain
 
+**Applies to:** :heavy_check_mark: Front Door (classic)
+
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../../includes/front-door-classic-retirement.md)]
+
 This Azure CLI script example demonstrates how to deploy a custom domain name and TLS certificate on an Azure Front Door front-end. The script automates the provisioning of Azure Front Door with a custom domain name (hosted by Azure DNS) and a TLS certificate.
 
 > [!IMPORTANT]
@@ -28,19 +31,19 @@ This Azure CLI script example demonstrates how to deploy a custom domain name an
 
 ### Getting started
 
-The script will:
+The script:
 
-1. Create a resource group.
-1. Create a storage account to host a single-page application (SPA).
-1. Enable SPA hosting on the storage account.
-1. Upload a "Hello world!" `index.html` file.
-1. Create a Front Door profile.
-1. Create a DNS alias for the Apex that resolves to the Front Door.
-1. Create a CNAME for the `adverify` hostname.
-1. Create a Front Door front-end endpoint for the custom domain.
-1. Add a route from the custom domain front-end to the SPA origin.
-1. Add a routing rule to redirect HTTP to HTTPS.
-1. Enable HTTPS with a Front Door managed certificate.
+1. Creates a resource group.
+1. Creates a storage account to host a single-page application (SPA).
+1. Enables SPA hosting on the storage account.
+1. Uploads a "Hello world!" `index.html` file.
+1. Creates a Front Door profile.
+1. Creates a DNS alias for the Apex that resolves to the Front Door.
+1. Creates a CNAME for the `adverify` hostname.
+1. Creates a Front Door front-end endpoint for the custom domain.
+1. Adds a route from the custom domain front-end to the SPA origin.
+1. Adds a routing rule to redirect HTTP to HTTPS.
+1. Enables HTTPS with a Front Door managed certificate.
 
 ### Run the script
 
@@ -75,6 +78,3 @@ This script uses the following commands. Each command in the table links to comm
 | [az network dns record-set](/cli/azure/network/dns/record-set) | Manages DNS records and record sets. |
 | [az network front-door](/cli/azure/network/front-door) | Manages Front Doors. |
 
-## Next steps
-
-For more information on Azure CLI, see [Azure CLI documentation](/cli/azure).

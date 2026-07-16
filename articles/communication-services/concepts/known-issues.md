@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: micahvivion
 ms.date: 02/24/2024
-ms.topic: conceptual
+ms.topic: troubleshooting-known-issue
 ms.service: azure-communication-services
 ms.custom:
 zone_pivot_groups: acs-plat-web-native

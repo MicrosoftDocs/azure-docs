@@ -22,7 +22,7 @@ This quickstart shows you how to authorize access to the Identity and SMS SDKs f
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free)
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An active Azure Communication Services resource, see [create a Communication Services resource](../create-communication-resource.md) if you do not have one.
 - To send an SMS you will need a [Phone Number](../telephony/get-phone-number.md).
 - A setup Service Principal for a development environment, see [Authorize access with service principal](./service-principal.md?pivots=platform-azcli)

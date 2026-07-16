@@ -1,5 +1,5 @@
 ---
-title: "include file"
+title: "Include file"
 description: "include file"
 services: app-service
 author: cephalin
@@ -12,13 +12,13 @@ ms.custom: "include file, devx-track-azurecli"
 
 Create a [web app](../articles/app-service/overview.md) in the `myAppServicePlan` App Service plan. 
 
-In the Cloud Shell, you can use the [`az webapp create`](/cli/azure/webapp#az-webapp-create) command. In the following example, replace `<app-name>` with a globally unique app name (valid characters are `a-z`, `0-9`, and `-`). 
+In the Cloud Shell, you can use the [`az webapp create`](/cli/azure/webapp#az-webapp-create) command. In the following example, replace `<app-name>` with a globally unique app name. (Valid characters are `a-z`, `0-9`, and `-`.) 
 
 ```azurecli-interactive
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --deployment-local-git
 ```
 
-When the web app has been created, the Azure CLI shows output similar to the following example:
+When the web app creation completes, the Azure CLI shows output similar to the following example:
 
 <pre>
 Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.scm.azurewebsites.net/&lt;app-name&gt;.git'
@@ -38,5 +38,5 @@ Local git is configured with url of 'https://&lt;username&gt;@&lt;app-name&gt;.s
 </pre>
 
 > [!NOTE]
-> The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL as you need it later.
+> The URL of the Git remote is shown in the `deploymentLocalGitUrl` property, with the format `https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git`. Save this URL because you need it later.
 >

@@ -1,8 +1,9 @@
 ---
-author: jianleishen
+author: simplywilson
 ms.topic: include
 ms.date: 11/09/2018
-ms.author: jianleishen
+ms.author: tinglee
+ms.custom: sfi-image-nochange
 ---
 ## Create a self-hosted integration runtime
 

@@ -3,12 +3,14 @@ title: Migrate VPN gateways from Classic to Resource Manager
 titleSuffix: Azure VPN Gateway
 description: Learn about migrating VPN Gateway resources from the classic deployment model to the Resource Manager deployment model.
 services: vpn-gateway
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 08/21/2024
-ms.author: cherylmc
+ms.author: duau
+ms.custom: sfi-image-nochange
 
+# Customer intent: As a network administrator, I want to migrate VPN gateways from the classic deployment model to the Resource Manager model, so that I can improve manageability and leverage enhanced features without downtime during the migration process.
 ---
 # VPN Gateway classic to Resource Manager migration
 
@@ -26,7 +28,7 @@ Once the VNet migration is completed, Azure will attempt to complete the remaind
 The Resource Manager model is different from the classic model and is composed of virtual network gateways, local network gateways and connection resources. These represent the VPN gateway itself, the local-site representing on premises address space and connectivity between the two respectively. Once migration is completed, your gateways won't be available in the classic model and all management operations on virtual network gateways, local network gateways, and connection objects must be performed using the Resource Manager model.
 
 ## Locating a classic VPN gateway 
-To locate a classic VPN gateway via PowerShell, you will need to install the Azure PowerShell Service Management module. Start here: [Installing the Azure PowerShell Service Management module](/powershell/azure/servicemanagement/install-azure-ps). To view classic resources, you will need co-admin or owner permissions. You can't use Az cmdlets to access classic resources. 
+To locate a classic VPN gateway via PowerShell, you will need to install the Azure PowerShell Service Management module. Start here: [Installing the Azure PowerShell Service Management module](https://www.powershellgallery.com/packages/Azure/). To view classic resources, you will need co-admin or owner permissions. You can't use Az cmdlets to access classic resources. 
 
 
 To locate a classic VPN gateway via Azure portal, open the portal and search for "Virtual network(classic)". Select your classic virtual network and navigate to the gateway blade to find your classic virtual network gateway. 

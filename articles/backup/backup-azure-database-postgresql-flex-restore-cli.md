@@ -2,11 +2,12 @@
 title: Restore Azure Database for PostgreSQL - Flexible Server using Azure CLI
 description: Learn how to restore Azure Database for PostgreSQL - Flexible Server using Azure CLI.
 ms.topic: how-to
-ms.date: 02/18/2025
+ms.date: 01/20/2026
 ms.service: azure-backup
 ms.custom: devx-track-azurecli, ignite-2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a database administrator, I want to restore an Azure Database for PostgreSQL - Flexible Server using Azure CLI, so that I can recover data from backups to a specified storage account safely and efficiently.
 ---
 
 # Restore Azure Database for PostgreSQL - Flexible Servers using Azure CLI
@@ -28,7 +29,7 @@ Before you restore from Azure Database for PostgreSQL – Flexible Server backup
 >[!Note]
 > Backup data is stored in the Backup vault as a blob within the Microsoft tenant. During a restore operation, the backup data is copied from one storage account to another across tenants. 
 
- ## Set up permissions for restore
+ ## Set up permissions for PostgreSQL – Flexible Server restore
 
 Backup vault uses managed identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the Azure PostgreSQL – Flexible Server to which the database should be restored.
 
@@ -36,7 +37,7 @@ To assign the relevant permissions for vault's system-assigned managed identity 
 
 To restore the recovery point as files to a storage account, the **Backup vault's system-assigned managed identity** needs access on the **target storage account**.
 
-## Fetch the relevant recovery point
+## Fetch the relevant recovery point for PostgreSQL – Flexible Server
 
 To list all backup instances within a vault, use the [`az dataprotection backup-instance list`](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az-dataprotection-backup-instance-list) command. Then fetch the relevant instance using the [`az dataprotection backup-instance show`](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az-dataprotection-backup-instance-show) command. Alternatively, for at-scale scenarios, you can list backup instances across vaults and subscriptions by using the [`az dataprotection backup-instance list-from-resourcegraph`](/cli/azure/dataprotection/backup-instance?view=azure-cli-latest&preserve-view=true#az-dataprotection-backup-instance-list-from-resourcegraph) command.
 
@@ -155,7 +156,7 @@ az dataprotection recovery-point list --backup-instance-name testpostgresql-empd
 
 ```
 
-## Prepare the restore request
+## Prepare the PostgreSQL – Flexible Server restore request
 
 You can restore the recovery point for a PostgreSQL – Flexible server database as files only.
 
@@ -198,7 +199,7 @@ pg_restore -h <hostname> -U <username> -j <Num of parallel jobs> -Fd -C -d <data
 
 If you have more than one database to restore, rerun the earlier command for each database. Also, by using multiple concurrent jobs `-j`, you can reduce the restore time for a large database on a **multi-vCore target server**. The number of jobs can be equal to or less than the number of `vCPUs` allocated for the target server.
 
-## Trigger the restore
+## Trigger the restore for PostgreSQL – Flexible Server
 
 To trigger the restore operation with the prepared request, use the [`az dataprotection backup-instance restore trigger`](/cli/azure/dataprotection/backup-instance/restore?view=azure-cli-latest&preserve-view=true#az-dataprotection-backup-instance-restore-trigger) command.
 
@@ -207,7 +208,7 @@ az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name
 
 ```
 
-## Track jobs
+## Track jobs for PostgreSQL – Flexible Server restore
 
 Track all jobs using the [`az dataprotection job list`](/cli/azure/dataprotection/job?view=azure-cli-latest&preserve-view=true#az-dataprotection-job-list) command. You can list all jobs and fetch a particular job detail.
 
@@ -218,6 +219,6 @@ az dataprotection job list-from-resourcegraph --datasource-type AzureDatabaseFor
 
 ```
 
-## Next steps
+## Next step
 
 [Troubleshoot common errors for backup and restore operations for Azure Database for PostgreSQL - Flexible Server](backup-azure-database-postgresql-flex-troubleshoot.md).

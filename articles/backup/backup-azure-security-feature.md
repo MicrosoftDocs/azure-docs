@@ -3,10 +3,12 @@ title: Security features that protect hybrid backups
 description: Learn how to use security features in Azure Backup to make backups more secure
 ms.reviewer: utraghuv
 ms.topic: how-to
-ms.date: 09/10/2024
+ms.date: 06/19/2026
+ms.update-cycle: 1095-days
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a data administrator, I want to implement enhanced security features for hybrid backups, so that I can protect against data loss and unauthorized access during critical operations."
 ---
 
 # Security features to help protect hybrid backups that use Azure Backup
@@ -60,8 +62,8 @@ If security features setting is enabled, Azure Backup retains deleted backup dat
 
 For **Azure Recovery Services agent** users:
 
-1. If the computer where backups were happening is still available, reprotect the deleted data sources, and use the [Recover data to the same machine](backup-azure-restore-windows-server.md#use-instant-restore-to-recover-data-to-the-same-machine) in Azure Recovery Services, to recover from all the old recovery points.
-2. If this computer isn't available, use [Recover to an alternate machine](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine) to use another Azure Recovery Services computer to get this data.
+1. If the computer where backups were happening is still available, reprotect the deleted data sources, and use the [Recover data to the same machine](backup-azure-restore-windows-server.md#recover-data-to-the-same-machine-using-instant-restore) in Azure Recovery Services, to recover from all the old recovery points.
+2. If this computer isn't available, use [Recover to an alternate machine](backup-azure-restore-windows-server.md#restore-data-to-an-alternate-machine-using-instant-restore) to use another Azure Recovery Services computer to get this data.
 
 For **Azure Backup Server** users:
 
@@ -99,6 +101,11 @@ To receive this PIN:
 3. Under **Security PIN**, select **Generate**. This opens a pane that contains the PIN to be entered in the Azure Recovery Services agent user interface.
     This PIN is valid for only five minutes, and it gets generated automatically after that period.
 
+### Save and manage MARS agent passphrase in Azure Key Vault
+
+Azure Backup provides the option to save and manage the MARS agent passphrase in Azure Key Vault by using Azure portal, PowerShell, and CLI. This feature allows secure storage of the encryption passphrase used for backup and restore operations, eliminating the need to maintain it in external locations while enabling controlled access through Key Vault permissions. [Learn how to configure the Recovery Services vault to save the MARS agent passphrase in Azure Key Vault and manage it for backup and restore operations](save-backup-passphrase-securely-in-azure-key-vault.md).
+
+
 ### Maintain a minimum retention range
 
 To ensure that there are always a valid number of recovery points available, the following checks have been added:
@@ -110,7 +117,7 @@ To ensure that there are always a valid number of recovery points available, the
 
 ## Notifications for critical operations
 
-Typically, when a critical operation is performed, the subscription admin is sent an email notification with details about the operation. You can configure additional email recipients for these notifications by using the Azure portal.
+Typically, when a critical operation is performed, the subscription admin is sent as an email notification with details about the operation. You can configure additional email recipients for these notifications by using the Azure portal.
 
 The security features mentioned in this article provide defense mechanisms against targeted attacks. More importantly, if an attack happens, these features give you the ability to recover your data.
 
@@ -132,7 +139,7 @@ This feature is supported with MARS agent version *2.0.9250.0* and higher from D
 
 The following table lists the disallowed operations on DPM connected to an immutable Recovery:
 
-| Operation on Immutable vault | Result with DPM 2022 UR1, MABS v4, and latest MARS agent.    <br><br>   With DPM 2022 UR2 or MABS v4 UR1, you can select the option to retain online recovery points by policy when stopping protection or removing a data source from a protection group from the console.   | Result with older DPM/MABS and or MARS agent |
+| Operation on Immutable vault | Result with DPM 2022 UR1, MABS v4, and latest MARS agent.    <br><br>   With DPM 2022 UR2 or MABS v4 UR1, you can select the option to retain online recovery points by policy when stopping protection or removing a data source from a protection group from the console.   | Result with older DPM/MABS and/or MARS agent |
 | --- | --- | --- |
 | **Remove Data Source from protection group configured for online backup** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault. | 130001: Microsoft Azure Backup encountered an internal error. |
 | **Stop protection with delete data** | 81001: The backup item(s) can't be deleted because it has active recovery points, and the selected vault is an immutable vault.    <br><br>   With DPM 2022 UR2 or MABS v4 UR1, you can select the option to retain online recovery points by policy when stopping protection or removing a data source from a protection group from the console.    | 130001: Microsoft Azure Backup encountered an internal error. |

@@ -4,7 +4,7 @@ description: Learn how to scale an Azure Web PubSub Service instance to add or r
 author: biqian
 ms.service: azure-web-pubsub
 ms.topic: how-to
-ms.date: 12/19/2023
+ms.date: 02/10/2026
 ms.author: biqian 
 ms.custom: devx-track-azurecli
 ---
@@ -19,8 +19,16 @@ The scale settings take a few minutes to apply. In rare cases, it may take aroun
 For information about the pricing and capacities of individual Web PubSub Service, see [Azure Web PubSub Service Pricing Details](https://azure.microsoft.com/pricing/details/web-pubsub/).  
 
 > [!NOTE]
-> Changing Web PubSub Service from **Free** tier to **Standard** or **Premium** tier or vice versa, the public service IP will be changed and it usually takes 30-60 minutes to propagate the change to DNS servers across the entire internet. Changing tiers between  **Standard** and **Premium** will not change the public IP.
-> Your service might be unreachable before DNS gets updated. Generally it’s not recommended to change your pricing tier too often.
+> Scaling Azure SignalR Service between different pricing tiers may result in service downtime.
+> The downtime behavior varies by tier combination and is summarized in the table.
+>
+> | Scale Scenario | Downtime Expected |
+> |--|--|
+> | Free ↔ Standard / Premium | Yes |
+> | Standard_S1 ↔ Premium_P1 | No |
+> | Premium_P1 ↔ Premium_P2 | No |
+>
+> For scale scenarios where downtime is expected, the downtime occurs because the **public service IP address changes** during the scaling operation. This IP change typically takes **30–60 minutes** to propagate across DNS servers globally, during which the service may be temporarily unreachable. Generally it’s not recommended to change your pricing tier too often.
 
 
 ## Scale up on Azure portal
@@ -73,10 +81,10 @@ The new Premium_P2 SKU is designed to facilitate extensive scalability for high-
 
 You can scale up the SKU to Premium_P2 using Azure portal or Azure CLI.
 
-The Premium_P2 tier uses a different architecture internally to manage a large amount of underlying resources. Thus, it's expected that scaling operations of this tier might take longer compared to those in smaller SKUs.
+The Premium_P2 tier uses a different architecture internally to manage a large amount of underlying resources. Thus, it's expected that scaling operations of this tier might take longer compared to those tiers in smaller SKUs.
 
 > [!NOTE]
-> Be aware that there is a default quota limit capping the number of Web PubSub units at **150** per subscription per region. This is a soft limit and can be increased upon request. To do so, simply submit a support ticket to request an adjustment to this quota.
+> There is a default quota limit capping the number of Web PubSub units at **150** per subscription per region. This is a soft limit and can be increased upon request. To do so, simply submit a support ticket to request an adjustment to this quota.
 
 ## Next steps
 

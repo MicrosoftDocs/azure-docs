@@ -114,7 +114,7 @@ The first layer of controls for remote access is to apply a remote access policy
 
 The second layer of controls is to apply a set of group policy objects that prevent copy and paste through remote desktop. A network policy could be implemented to not allow outbound services from the environment such as FTP and RDP services out of the environment. User-defined routing could force all Azure network traffic back to on-premises, but the routing couldn't account for all URLs that might allow uploading of data unless controlled through a proxy to scan content and sessions. Public IPs could be restricted within the virtual network supporting DevTest Labs to not allow bridging of an external network resource.
 
-Ultimately, the same type of restrictions needs to be applied across the organization, which would have to also account for all possible methods of removable media or external URLs that could accept a post of content. Consult with your security professional to review and implement a security policy. For more recommendations, see [Microsoft Cyber Security](https://www.microsoft.com/security/default.aspx?&WT.srch=1&wt.mc_id=AID623240_SEM_sNYnsZDs).
+Ultimately, the same type of restrictions needs to be applied across the organization, which would have to also account for all possible methods of removable media or external URLs that could accept a post of content. Consult with your security professional to review and implement a security policy. For more recommendations, see [Microsoft Cyber Security](https://www.microsoft.com/security).
 
 ## Application migration and integration
 Once your development/test lab environment has been established, you need to think about the following questions:

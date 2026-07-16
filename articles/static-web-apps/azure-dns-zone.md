@@ -2,11 +2,11 @@
 title: Delegate domain to Azure DNS 
 description: Create an Azure DNS zone for a custom domain in Azure Static Web Apps
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 02/14/2021
-ms.author: wujia
+ms.author: jikunchen
 ---
 
 # Set up an Azure DNS zone for Azure Static Web Apps

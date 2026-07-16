@@ -2,10 +2,10 @@
 title: Handle SMS events
 titleSuffix: Azure Communication Services
 description: This article describes how to handle Azure Communication Services events. See how to create, receive, and subscribe to SMS and delivery report events.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 05/25/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
@@ -13,6 +13,7 @@ ms.subservice: sms
 ms.custom:
    - mode-other
    - kr2b-contr-experiment
+   - sfi-image-nochange
 ---
 # Handle SMS events
 
@@ -24,7 +25,7 @@ Completing this article incurs a small cost of a few USD cents or less in your A
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A Communication Services resource. For detailed information, see [Create an Azure Communication Services resource](../create-communication-resource.md).
 - An SMS-enabled telephone number. [Get a phone number](../telephony/get-phone-number.md).
 

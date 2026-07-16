@@ -3,9 +3,13 @@ title: Troubleshoot network connectivity issues | Microsoft Docs
 description: Provides troubleshooting tips for common errors in using Azure Migrate with private endpoints.
 author: vijain
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: troubleshooting
 ms.date: 09/09/2024
-ms.custom: engagement-fy25
+ms.custom:
+  - engagement-fy25
+  - sfi-image-nochange
+# Customer intent: "As a cloud operations engineer, I want to troubleshoot network connectivity issues with private endpoints in Azure Migrate, so that I can ensure seamless data migration and application performance."
 ---
 
 # Troubleshoot network connectivity
@@ -326,7 +330,7 @@ This error might occur if the export/import/download request was not initiated f
 
 **Option 1** _(recommended)_:
   
-To resolve this error, retry the import/export/download operation from a client residing in a virtual network that is connected to Azure over a private link. You can open the Azure portal in your on-premises network or your appliance VM and retry the operation.
+To resolve this error, retry the import/export/download operation from a client residing in a virtual network that is connected to Azure over a private link. You can go to the Azure portal in your on-premises network or your appliance VM and retry the operation.
 
 **Option 2**:
 

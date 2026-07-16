@@ -1,9 +1,8 @@
 ---
 title: Use Azure IoT Edge device local storage from a module
 description: Use environment variables and create options to enable module access to IoT Edge device local storage.
-author: PatAltimore
-
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 03/19/2025
 ms.topic: concept-article
 ms.service: azure-iot-edge
@@ -88,7 +87,7 @@ On version 1.4 and newer, there's no need for manually setting ownership or perm
 
 If your custom module requires access to persistent storage on the host file system, use the module's create options to bind a storage folder in module container to a folder on the host machine.
 
-You can use a bind mount or a volume mount. A bind mount allows you to specify a host directory to be mounted into the module container. A volume mount allows you to specify a volume that is managed by Docker. For more information about when to use bind mounts or volume mounts, see the Docker documentation for [volume mounts](https://docs.docker.com/engine/storage/volumes) and [bind mounts](https://docs.docker.com/storage/bind-mounts).
+You can use a bind mount or a volume mount. A bind mount allows you to specify a host directory to be mounted into the module container. A volume mount allows you to specify a volume that is managed by Docker. For more information about when to use bind mounts or volume mounts, see the Docker documentation for [volume mounts](https://docs.docker.com/engine/storage/volumes) and [bind mounts](https://docs.docker.com/engine/storage/bind-mounts/).
 
 The following example shows how to use a bind mount in the module's create options:
 
@@ -108,7 +107,7 @@ The following example shows how to use a bind mount in the module's create optio
 }
 ```
 
-Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path. Refer to the [Docker Engine Mount specification](https://any-api.com/docker_com/engine/docs/Definitions/Mount) for option details.
+Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both values must be an absolute path. Refer to the [Docker Engine storage documentation](https://docs.docker.com/engine/storage/bind-mounts/) for option details.
 
 ### Host system permissions
 
@@ -129,4 +128,4 @@ If you want to share files between modules across generations, they must not con
 
 ## Next steps
 
-For an additional example of accessing host storage from a module, see [Store data at the edge with Azure Blob Storage on IoT Edge](how-to-store-data-blob.md).
+For more information about storage options, see [Azure Blob Storage documentation](/azure/storage/blobs/storage-blobs-overview).

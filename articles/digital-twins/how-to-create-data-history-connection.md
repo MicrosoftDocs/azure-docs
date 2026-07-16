@@ -7,7 +7,9 @@ ms.author: baanders
 ms.date: 03/07/2025
 ms.topic: how-to
 ms.service: azure-digital-twins
-ms.custom: devx-track-azurecli
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Create a data history connection for Azure Digital Twins
@@ -22,7 +24,7 @@ This article shows how to set up a working data history connection between Azure
 It also contains a sample twin graph that you can use to see the historized graph updates in Azure Data Explorer. 
 
 >[!TIP]
->Although this article uses the Azure portal, you can also work with data history using the [2022-05-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/stable/2022-05-31) version of the rest APIs.
+>Although this article uses the Azure portal, you can also work with data history using the [2022-05-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/DigitalTwins/stable/2022-05-31) version of the rest APIs.
 
 ## Prerequisites
 

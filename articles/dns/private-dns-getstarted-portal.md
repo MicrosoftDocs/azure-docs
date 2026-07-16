@@ -2,13 +2,16 @@
 title: Quickstart - Create an Azure private DNS zone using the Azure portal
 description: In this quickstart, you create and test a private DNS zone and record in Azure DNS. This article is a step-by-step guide to create and manage your first private DNS zone and record using the Azure portal.
 services: dns
-author: greg-lindsay
-ms.author: greglin
-ms.date: 01/09/2025
+author: asudbring
+ms.author: allensu
+ms.date: 02/26/2026
 ms.topic: quickstart
 ms.service: azure-dns
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
+# Customer intent: "As a network administrator, I want to create a private DNS zone in Azure, so that I can manage hostname resolution for resources within my private virtual networks."
 ---
 
 # Quickstart: Create an Azure private DNS zone using the Azure portal
@@ -35,7 +38,7 @@ In this article, a virtual machine is used in a single virtual network. The virt
 
 ## Prerequisites
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 If you prefer, you can complete this quickstart using [Azure PowerShell](private-dns-getstarted-powershell.md) or [Azure CLI](private-dns-getstarted-cli.md).
 
@@ -105,14 +108,18 @@ Now, create a virtual machine to test autoregistgration in your private DNS zone
 4. Select ***(US) West US** for the **Region**.
 5. Enter a name for the administrator user name.
 6. Enter a password and confirm the password.
-7. For **Public inbound ports**, select **Allow selected ports**, and then select **RDP (3389)** for **Select inbound ports**.
+7. For **Public inbound ports**, select **None**.
 8. Accept the other defaults for the page and then click **Next: Disks >**.
 9. Accept the defaults on the **Disks** page, then click **Next: Networking >**.
 10. Make sure that **myAzureVNet** is selected for the virtual network.
-11. Accept the other defaults for the page, and then click **Next: Management >**.
-12. For **Boot diagnostics**, select **Disable**, accept the other defaults, and then select **Review + create**.
-13. Review the settings and then click **Create**. It will take a few minutes for the virtual machine allocation to complete.
-14. Search for and select **Virtual machines** and then verify that the VM status is **Running**. If it isn't running, start the virtual machine.
+11. For **Public IP**, select **None**.
+12. Accept the other defaults for the page, and then click **Next: Management >**.
+13. For **Boot diagnostics**, select **Disable**, accept the other defaults, and then select **Review + create**.
+14. Review the settings and then click **Create**. It will take a few minutes for the virtual machine allocation to complete.
+15. Search for and select **Virtual machines** and then verify that the VM status is **Running**. If it isn't running, start the virtual machine.
+
+> [!NOTE]
+> The default rules of the network security group block all inbound access from the internet, including RDP. To connect to the virtual machine, use Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion with default settings](../bastion/quickstart-host-portal.md).
 
 ## Review autoregistration
 

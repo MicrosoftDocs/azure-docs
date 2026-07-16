@@ -68,7 +68,7 @@ Follow these steps to add required code snippets to the Main function of your `P
 The Messages SDK allows Contoso to send WhatsApp text messages, which initiated WhatsApp users initiated. To send a text message, you need:
 - [Authenticated NotificationMessagesClient](#authenticate-the-client)
 - [WhatsApp channel ID](#set-channel-registration-id)
-- [Recipient phone number in E16 format](#set-recipient-list)
+- [Recipient phone number in E16 format or BSUID](#set-recipient-list)
 - Message body/text to be sent
 
 In this example, we reply to the WhatsApp user with the text: `"Thanks for your feedback.\n From Notification Messaging SDK."`
@@ -89,7 +89,7 @@ Response<SendMessageResult> sendTextMessageResult =
 The Messages SDK enables Contoso to send WhatsApp media messages to WhatsApp users. To send an embedded media message, you need:
 - [Authenticated NotificationMessagesClient](#authenticate-the-client).
 - [WhatsApp channel ID](#set-channel-registration-id).
-- [Recipient phone number in E16 format](#set-recipient-list).
+- [Recipient phone number in E16 format or BSUID](#set-recipient-list).
 - URI of the image Media.
 
 > [!IMPORTANT]
@@ -116,7 +116,7 @@ var imageResponse = await notificationMessagesClient.SendAsync(imageNotification
 The Messages SDK enables Contoso to send WhatsApp media messages to WhatsApp users. To send an embedded media message, you need:
 - [Authenticated NotificationMessagesClient](#authenticate-the-client).
 - [WhatsApp channel ID](#set-channel-registration-id).
-- [Recipient phone number in E16 format](#set-recipient-list).
+- [Recipient phone number in E16 format or BSUID](#set-recipient-list).
 - URI of the document Media.
 
 Assemble the document content:
@@ -141,7 +141,7 @@ var documentResponse = await notificationMessagesClient.SendAsync(documentNotifi
 The Messages SDK enables Contoso to send WhatsApp media messages to WhatsApp users. To send an embedded media message, you need:
 - [Authenticated NotificationMessagesClient](#authenticate-the-client).
 - [WhatsApp channel ID](#set-channel-registration-id).
-- [Recipient phone number in E16 format](#set-recipient-list).
+- [Recipient phone number in E16 format or BSUID](#set-recipient-list).
 - URI of the video media.
 
 Assemble the video message:
@@ -165,7 +165,7 @@ var videoResponse = await notificationMessagesClient.SendAsync(videoNotification
 The Messages SDK enables Contoso to send WhatsApp media messages to WhatsApp users. To send an embedded media message, you need:
 - [Authenticated NotificationMessagesClient](#authenticate-the-client).
 - [WhatsApp channel ID](#set-channel-registration-id).
-- [Recipient phone number in E16 format](#set-recipient-list).
+- [Recipient phone number in E16 format or BSUID](#set-recipient-list).
 - URI of the audio media.
 
 Assemble the audio message:

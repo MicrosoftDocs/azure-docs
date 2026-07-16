@@ -37,7 +37,7 @@ The following table illustrates the client-side failover and geo disaster recove
 2. Create and configure your **secondary** Event Grid resource.
 3. Keep in mind both resources must have the same configuration, subresources and capabilities enabled.
 4. Event Grid resources must be hosted in different regions.
-5. If the Event Grid resource has dependant resources like a storage resource for dead-lettering you should use the same region used in the secondary Event Grid resource.
+5. If the Event Grid resource has dependent resources like a storage resource for dead-lettering you should use the same region used in the secondary Event Grid resource.
 6. Ensure your endpoints are regularly tests to provide warranty your recovery plan resources are in place and functioning correctly.
 
 ## Basic client-side failover implementation sample for custom topics
@@ -68,12 +68,12 @@ namespace EventGridFailoverPublisher
         static async Task Main(string[] args)
         {
             // TODO: Enter the endpoint each topic. You can find this topic endpoint value
-            // in the "Overview" section in the "Event Grid topics" page in Azure Portal..
+            // in the "Overview" section in the "Event Grid topics" page in Azure portal.
             string primaryTopic = "https://<primary-topic-name>.<primary-topic-region>.eventgrid.azure.net/api/events";
             string secondaryTopic = "https://<secondary-topic-name>.<secondary-topic-region>.eventgrid.azure.net/api/events";
 
             // TODO: Enter topic key for each topic. You can find this in the "Access Keys" section in the
-            // "Event Grid topics" page in Azure Portal.
+            // "Event Grid topics" page in Azure portal.
             string primaryTopicKey = "<your-primary-topic-key>";
             string secondaryTopicKey = "<your-secondary-topic-key>";
 

@@ -4,8 +4,8 @@ description: Set up Backup and replication for Apache HBase and Apache Phoenix i
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date:  01/02/2025
 ---

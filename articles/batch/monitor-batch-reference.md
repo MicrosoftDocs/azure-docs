@@ -5,6 +5,7 @@ ms.date: 04/02/2025
 ms.custom: horz-monitor
 ms.topic: reference
 ms.service: azure-batch
+# Customer intent: As a system administrator, I want to access monitoring data for Azure Batch resources, so that I can effectively track performance and troubleshoot issues in my batch processing environments.
 ---
 
 # Azure Batch monitoring data reference

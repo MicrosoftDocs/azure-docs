@@ -2,15 +2,18 @@
 title: Add API connectors to sign up user flows
 description: Configure an API connector to be used in a sign-up user flow.
 
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.subservice: b2c
 ms.topic: how-to
 ms.date: 01/24/2024
 author: garrodonnell
 ms.author: godonnell
 manager: CelesteDG
-ms.custom: it-pro, b2c-support
 zone_pivot_groups: b2c-policy-type
+ms.custom:
+  - it-pro
+  - b2c-support
+  - sfi-image-nochange
 
 #Customer Intent: As a developer or IT administrator, I want to use API connectors to integrate sign-up user flows with REST APIs to customize the sign-up experience and integrate with external systems.
 
@@ -18,9 +21,11 @@ zone_pivot_groups: b2c-policy-type
 
 # Add an API connector to a sign-up user flow
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-As a developer or IT administrator, you can use API connectors to integrate your sign-up user flows with REST APIs to customize the sign-up experience and integrate with external systems. At the end of this walkthrough, you'll be able to create an Azure AD B2C user flow that interacts with [REST API services](api-connectors-overview.md) to modify your sign-up experiences. 
+As a developer or IT administrator, you can use API connectors to integrate sign-up user flows with REST APIs, enabling customization of the sign-up experience and integration with external systems. At the end of this walkthrough, you'll be able to create an Azure AD B2C user flow that interacts with [REST API services](api-connectors-overview.md) to modify your sign-up experiences. 
 
 ::: zone pivot="b2c-user-flow"
 You can create an API endpoint using one of our [samples](api-connector-samples.md#api-connector-rest-api-samples).
@@ -155,7 +160,7 @@ Content-type: application/json
 }
 ```
 
-The exact claims sent to the API depend on the information is provided by the identity provider. 'email' is always sent.
+The exact claims sent to the API depend on the information provided by the identity provider. 'email' is always sent.
 
 ### Expected response types from the web API at this step
 
@@ -510,7 +515,7 @@ Add the validation technical profile reference to the sign-up technical profile,
             <OutputClaim ClaimTypeReferenceId="reenterPassword" Required="true"/>
             <OutputClaim ClaimTypeReferenceId="displayName"/>
             <OutputClaim ClaimTypeReferenceId="givenName"/>
-            <OutputClaim ClaimTypeReferenceId="surName"/>
+            <OutputClaim ClaimTypeReferenceId="surname"/>
             <!-- Required to present the text box to collect the data from the user -->
             <OutputClaim ClaimTypeReferenceId="loyaltyId"/>
             <!-- Required to pass the promoCode returned from "REST-ValidateProfile" 

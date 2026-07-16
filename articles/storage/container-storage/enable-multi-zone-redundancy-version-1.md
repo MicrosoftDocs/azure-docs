@@ -1,0 +1,92 @@
+---
+title: Enable multi-zone redundancy in Azure Container Storage (version 1.x.x)
+description: Improve stateful application availability by enabling storage redundancy across multiple availability zones in Azure Container Storage (version 1.x.x). Use multi-zone storage pools and zone-redundant storage (ZRS) disks.
+author: khdownie
+ms.service: azure-container-storage
+ms.topic: how-to
+ms.date: 09/03/2025
+ms.author: kendownie
+# Customer intent: As a cloud engineer, I want to enable multi-zone storage redundancy in Azure Container Storage (version 1.x.x), so that I can enhance the availability of my stateful applications running in a multi-zone Kubernetes environment.
+---
+
+# Enable multi-zone storage redundancy in Azure Container Storage (version 1.x.x)
+
+You can improve stateful application availability by using multi-zone storage pools and zone-redundant storage (ZRS) disks when using Azure Container Storage (version 1.x.x) in a multi-zone Azure Kubernetes Service (AKS) cluster. To create an AKS cluster that uses availability zones, see [Use availability zones in Azure Kubernetes Service](/azure/aks/availability-zones).
+
+> [!IMPORTANT]
+> This article covers features and capabilities available in Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available.
+
+## Prerequisites
+
+[!INCLUDE [container-storage-prerequisites](../../../includes/container-storage-prerequisites.md)]
+
+- You need an AKS cluster with a node pool of at least three virtual machines (VMs) for the cluster nodes, each with a minimum of four virtual CPUs (vCPUs).
+
+## Create a multi-zone storage pool
+
+In your storage pool definition, you can specify the zones where you want your storage capacity to be distributed. The total storage pool capacity is distributed evenly across the zones you specify. For example, with two zones, each zone gets half of the storage pool capacity. With three zones, each zone gets one-third of the total capacity. Azure Container Storage provisions the corresponding storage in each zone. This approach is useful when you run workloads that provide application-level replication, such as Cassandra.
+
+If there are no nodes available in a specified zone, Azure Container Storage provisions the capacity when a node is available in that zone. Persistent volumes (PVs) can only be created from storage pool capacity from one zone.
+
+Valid values for `zones` are:
+
+- [""]
+- ["1"]
+- ["2"]
+- ["3"]
+- ["1", "2"]
+- ["1", "3"]
+- ["2", "3"]
+- ["1", "2", "3"]
+
+Follow these steps to create a multi-zone storage pool that uses Azure Disks. For `zones`, choose a valid value.
+
+1. Use your favorite text editor to create a YAML manifest file such as `code acstor-multizone-storagepool.yaml`.
+
+1. Paste in the following code and save the file. The storage pool **name** value can be whatever you want. For **storage**, specify the amount of storage capacity for the pool in Gi or Ti.
+
+   ```yml
+   apiVersion: containerstorage.azure.com/v1
+   kind: StoragePool
+   metadata:
+     name: azuredisk
+     namespace: acstor
+   spec:
+     zones: ["1", "2", "3"]
+     poolType:
+       azureDisk: {}
+     resources:
+       requests:
+         storage: 1Ti
+   ```
+
+1. Apply the YAML manifest file to create the multi-zone storage pool.
+   
+   ```azurecli-interactive
+   kubectl apply -f acstor-multizone-storagepool.yaml 
+   ```
+
+## Use zone-redundant storage (ZRS) disks
+
+If your workload requires storage redundancy, you can leverage disks that use [zone-redundant storage](/azure/virtual-machines/disks-deploy-zrs), which copies your data synchronously across three Azure availability zones in the primary region.
+
+You can specify the disk `skuName` as either `StandardSSD_ZRS` or `Premium_ZRS` in your storage pool definition, as in the following example.
+
+   ```yml
+   apiVersion: containerstorage.azure.com/v1
+   kind: StoragePool
+   metadata:
+     name: azuredisk
+     namespace: acstor
+   spec:
+     poolType:
+       azureDisk:
+         skuName: Premium_ZRS
+     resources:
+       requests:
+         storage: 1Ti
+   ```
+
+## See also
+
+- [What is Azure Container Storage (version 1.x.x)?](container-storage-introduction-version-1.md)

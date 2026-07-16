@@ -1,4 +1,4 @@
----
+﻿---
 title: Billing roles for Microsoft Customer Agreements - Azure
 description: Learn about billing roles for billing accounts in Azure for Microsoft Customer Agreements.
 author: jkinma39
@@ -6,8 +6,10 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/22/2025
+ms.date: 06/25/2026
 ms.author: jkinma
+ms.custom: sfi-ga-nochange
+service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
 # Understand Microsoft Customer Agreement administrative roles in Azure
@@ -22,25 +24,26 @@ Watch the [Manage access to your MCA billing account](https://www.youtube.com/wa
 
 ## Billing role definitions
 
-The following table describes the billing roles you use to manage your billing account, billing profiles, and invoice sections.
+The following table describes the billing roles you use to manage your billing account, billing profiles, and invoice sections. Permissions granted at the billing account level have the highest level of permission and will inherit permission on all billing groups and invoice sections under that billing account. These inherited permissions cannot be removed at the lower level as they are linked to the role granted at the higher level. If a user only needs access to a specific billing profile or invoice section, grant permission at that level rather than providing access at the billing account scope.
 
-|Role|Description|
-|---|---|
-|Billing account owner |Manage everything for billing account|
-|Billing account contributor|Manage everything except permissions on the billing account|
-|Billing account reader|Read-only view of everything on billing account|
-|Billing profile owner|Manage everything for billing profile|
-|Billing profile contributor|Manage everything except permissions on the billing profile|
-|Billing profile reader|Read-only view of everything on billing profile|
-|Invoice manager|View and pay invoices for billing profile|
-|Invoice section owner|Manage everything on invoice section|
-|Invoice section contributor|Manage everything except permissions on the invoice section|
-|Invoice section reader|Read-only view of everything on the invoice section|
-|Azure subscription creator|Create Azure subscriptions|
+
+|Role|Description|Role ID|
+|---|---|---|
+|Billing account owner |Manage everything for billing account|50000000-aaaa-bbbb-cccc-100000000000|
+|Billing account contributor|Manage everything except permissions on the billing account|50000000-aaaa-bbbb-cccc-100000000001|
+|Billing account reader|Read-only view of everything on billing account|50000000-aaaa-bbbb-cccc-100000000002|
+|Billing profile owner|Manage everything for billing profile|40000000-aaaa-bbbb-cccc-100000000000|
+|Billing profile contributor|Manage everything except permissions on the billing profile|40000000-aaaa-bbbb-cccc-100000000001 |
+|Billing profile reader|Read-only view of everything on billing profile|40000000-aaaa-bbbb-cccc-100000000002|
+|Invoice manager|View and pay invoices for billing profile|40000000-aaaa-bbbb-cccc-100000000004|
+|Invoice section owner|Manage everything on invoice section|30000000-aaaa-bbbb-cccc-100000000000 |
+|Invoice section contributor|Manage everything except permissions on the invoice section|30000000-aaaa-bbbb-cccc-100000000001|
+|Invoice section reader|Read-only view of everything on the invoice section|30000000-aaaa-bbbb-cccc-100000000002|
+|Azure subscription creator|Create Azure subscriptions|30000000-aaaa-bbbb-cccc-100000000006 |
 
 ## Billing account roles and tasks
 
-A billing account is created when you sign up to use Azure. You use your billing account to manage invoices, payments, and track costs. Roles on the billing account have the highest level of permissions and users in these roles get visibility into the cost and billing information for your entire account. Assign these roles only to users that need to view invoices, and track costs for your entire account like member of the finance and the accounting teams. For more information, see [Understand billing account](../understand/mca-overview.md#your-billing-account).
+A billing account is created when you sign up to use Azure. You use your billing account to manage invoices, payments, and track costs. Roles on the billing account have the highest level of permissions and users in these roles get visibility into the cost and billing information for your entire account. Assign these roles only to users that need to view invoices, and track costs for your entire account like member of the finance and the accounting teams.   For more information, see [Understand billing account](../understand/mca-overview.md#your-billing-account).
 
 The following tables show what role you need to complete tasks in the context of the billing account.
 
@@ -179,9 +182,11 @@ The following tables show what role you need to complete tasks in the context of
 |---|---|---|---|---|---|---|---|---|---|---|---|
 |View all Azure subscriptions for invoice section|✔|✔|✔|✘|✔|✔|✔|✔|✔|✔|✔|
 |Create Azure subscriptions|✔|✔|✘|✔|✔|✔|✘|✘|✔|✔|✘|
-|Cancel Azure subscriptions|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|
+|Cancel Azure subscriptions|✘|✘|✘|✔¹|✘|✘|✘|✘|✘|✘|✘|
 |Change invoice section for the Azure subscription|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 |Request billing ownership of subscriptions from users in other billing accounts|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
+
+¹ Azure subscription creator can only cancel the subscriptions they created.
 
 ## Subscription billing roles and tasks
 
@@ -193,7 +198,9 @@ The following table shows what role you need to complete tasks in the context of
 |Update cost center for the subscription|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 |Change invoice section for the subscription|✔|✔|✘|✘|✔|✔|✘|✘|✔|✔|✘|
 |Change billing profile for the subscription|✘|✘|✘|✘|✔|✔|✘|✘|✔|✔|✘|
-|Cancel Azure subscriptions|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|✘|
+|Cancel Azure subscriptions|✘|✘|✘|✔¹|✘|✘|✘|✘|✘|✘|✘|
+
+¹ Azure subscription creator can only cancel the subscriptions they created.
 
 ## Manage billing roles in the Azure portal
 
@@ -209,6 +216,9 @@ To assign billing roles, you might need to use a specific navigation path in the
    :::image type="content" border="true" source="./media/understand-mca-roles/billing-add-admin.png" alt-text="Screenshot that shows adding an admin to a billing account." lightbox="./media/understand-mca-roles/billing-add-admin.png":::
 6. To remove access for a user, select the user with the role assignment you want to remove. At the top of the page, select **Remove**.  
    :::image type="content" border="true" source="./media/understand-mca-roles/billing-remove-admin.png" alt-text="Screenshot that shows removing an admin from a billing account." lightbox="./media/understand-mca-roles/billing-remove-admin.png":::
+
+>[!NOTE]
+> You'll need to keep one user with “This scope” permissions. Removing the last user with this scope is not allowed.
 
 ## Check access to a Microsoft Customer Agreement
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

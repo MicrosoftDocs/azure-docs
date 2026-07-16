@@ -6,9 +6,10 @@ services: storage
 author: akashdubey-ms
 
 ms.service: azure-table-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/09/2023
 ms.author: akashdubey
+# Customer intent: "As a cloud administrator, I want to authorize access to Azure table resources using Microsoft Entra ID and Azure RBAC, so that I can manage permissions securely and efficiently for users and applications accessing data."
 ---
 
 # Authorize access to tables using Microsoft Entra ID
@@ -58,7 +59,7 @@ Azure RBAC provides built-in roles for authorizing access to table data using Mi
 - [Storage Table Data Contributor](../../role-based-access-control/built-in-roles.md#storage-table-data-contributor): Use to grant read/write/delete permissions to Table storage resources.
 - [Storage Table Data Reader](../../role-based-access-control/built-in-roles.md#storage-table-data-reader): Use to grant read-only permissions to Table storage resources.
 
-To learn how to assign an Azure built-in role to a security principal, see [Assign an Azure role for access to table data](assign-azure-role-data-access.md). To learn how to list Azure RBAC roles and their permissions, see [List Azure role definitions](../../role-based-access-control/role-definitions-list.yml).
+To learn how to assign an Azure built-in role to a security principal, see [Assign an Azure role for access to table data](assign-azure-role-data-access.md). To learn how to list Azure RBAC roles and their permissions, see [List Azure role definitions](/azure/role-based-access-control/role-definitions-list).
 
 For more information about how built-in roles are defined for Azure Storage, see [Understand role definitions](../../role-based-access-control/role-definitions.md#control-and-data-actions). For information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md).
 

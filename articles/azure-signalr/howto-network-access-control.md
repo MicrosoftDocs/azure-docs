@@ -5,7 +5,7 @@ description: Configure network access control for your Azure SignalR Service.
 services: signalr
 author: vicancy
 ms.service: azure-signalr-service
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/29/2023
 ms.author: lianwei
 ---

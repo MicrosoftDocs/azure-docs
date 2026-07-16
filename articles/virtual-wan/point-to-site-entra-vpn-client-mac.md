@@ -5,8 +5,8 @@ description: Learn how to configure the Azure VPN Client on macOS for Virtual WA
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/07/2025
-ms.author: cherylmc
-author: cherylmc
+ms.author: duau
+author: duongau
 ---
 
 # Configure Azure VPN Client - Microsoft Entra ID authentication - macOS

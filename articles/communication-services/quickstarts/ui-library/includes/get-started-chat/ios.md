@@ -1,6 +1,6 @@
 ---
-author: Leah-Xia-Microsoft
-ms.author: leahxia
+author: awang119
+ms.author: awang119
 ms.date: 01/04/2023
 ms.topic: include
 ms.service: azure-communication-services
@@ -12,7 +12,7 @@ Get the sample iOS application at [Azure Samples iOS SDK for chat](https://githu
 
 ## Prerequisites
 
-- An Azure account and an active Azure subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and an active Azure subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532) 13 or later and a valid developer certificate installed in your keychain. [CocoaPods](https://cocoapods.org/) must also be installed to fetch dependencies.
 - A deployed [Azure Communication Services resource](../../../create-communication-resource.md). Note the endpoint URL.
 - An Azure Communication Services [access token](../../../identity/quick-create-identity.md) and user identifier.
@@ -49,7 +49,7 @@ In Xcode, create a new project.
     
     target 'UILibraryQuickStart' do
         use_frameworks!
-        pod 'AzureCommunicationUIChat', '1.0.0-beta.4'
+        pod 'AzureCommunicationUIChat', '1.0.0-beta.5'
     end
     ```
 
@@ -57,11 +57,13 @@ In Xcode, create a new project.
 
 1. In Xcode, open the generated *xcworkspace* file.
 
-### Turn off Bitcode
+### Turn off User Script Sandboxing
 
-In the Xcode project, under **Build Settings**, set the **Enable Bitcode** option to **No**. To find the setting, change the filter from **Basic** to **All** or use the search bar.
+Some of the scripts within the linked libraries write files during the build process. To enable file writing, disable the User Script Sandboxing in Xcode.
 
-:::image type="content" source="../../media/xcode-bitcode-option.png" alt-text="Screenshot that shows the Build Settings option to turn off Bitcode.":::
+In the Xcode project, under **Build Settings**, set the **User Script Sandboxing** option to **No**. To find the setting, change the filter from **Basic** to **All** or use the search bar.
+
+:::image type="content" source="../../media/xcode-sandbox-option.png" alt-text="Screenshot that shows the Build Settings option to turn off User Script Sandboxing.":::
 
 ## Initialize the composite
 
@@ -83,9 +85,11 @@ To initialize the composite:
             super.viewDidLoad()
     
             let button = UIButton()
-            button.contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
+            var configuration = UIButton.Configuration.filled()
+            configuration.contentInsets = NSDirectionalEdgeInsets(top: 10.0, leading: 20.0, bottom: 10.0, trailing: 20.0)
+            configuration.baseBackgroundColor = .systemBlue
+            button.configuration = configuration
             button.layer.cornerRadius = 10
-            button.backgroundColor = .systemBlue
             button.setTitle("Start Experience", for: .normal)
             button.addTarget(self, action: #selector(startChatComposite), for: .touchUpInside)
     

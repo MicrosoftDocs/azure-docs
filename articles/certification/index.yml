@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Edge Secured-core Documentation
-summary: Edge Secured-core is a security certification for devices running a full operating system.
+summary: Edge Secured-core is a security standard for devices running a full operating system.
 
 metadata:
-  title: Edge Secured-core program
-  description: Edge Secured-core is a security certification for devices running a full operating system. 
+  title: Edge Secured-core standard
+  description: Edge Secured-core is a security standard for devices running a full operating system. 
   ms.service: azure-certified-device
   ms.topic: landing-page
   author: sufenfong
@@ -19,10 +19,8 @@ landingContent:
       links:
       - text: What is Edge Secured-core?
         url: overview.md
-      - text: Program requirements
-        url: ./program-requirements-edge-secured-core.md
-      - text: Get your device certified
-        url: ./edge-secured-core-get-certified.md       
+      - text: Requirements
+        url: ./requirements-edge-secured-core.md
       - text: List of certified devices
         url: ./edge-secured-core-devices.md
       - text: Validate Edge Secured-core device

@@ -1,11 +1,11 @@
 ---
 title: Migrate Bing Maps Find a Location by Query API to Azure Maps Get Geocoding API
 titleSuffix: Microsoft Azure Maps
-description: Learn how to Migrate the Bing Maps Find a Location by Query API to the Azure Maps Get Geocoding API.
+description: Learn how to migrate the Bing Maps Find a Location by Query API to the Azure Maps Get Geocoding API.
 author: pbrasil
 ms.author: peterbr 
 ms.date: 05/16/2024
-ms.topic: how-to
+ms.topic: upgrade-and-migration-article
 ms.service: azure-maps
 ms.subservice: search
 ---
@@ -26,7 +26,7 @@ This article explains how to migrate the Bing Maps [Find a Location by Query] AP
 - Bing Maps Find a Location by Query API returns coordinates in latitude/longitude format, while Azure Maps Get Geocoding API returns coordinates in longitude/latitude format, as defined by the [GeoJSON] format.
 - Bing Maps Find a Location by Query API supports XML and JSON response format. Azure Maps Get Geocoding API supports GeoJSON.
 - Unlike Bing Maps Find a Location by Query API, Azure Maps Get Geocoding API has a `view` input parameter, which is a string that represents an [ISO 3166-1 Alpha-2 region/country code]. The `view` input parameter alters geopolitical disputed borders and labels to align with the specified user region. For more information, see [URI Parameters].
-- Unlike Bing Maps Find a Location by Query API, Azure Maps Get Geocoding API doesn’t currently support address geocoding for China, Japan, or South Korea.
+- Unlike Bing Maps Find a Location by Query API, Azure Maps Get Geocoding API doesn’t currently support address geocoding in China.
 - Unlike Bing Maps for Enterprise, Azure Maps is a global service that supports specifying a geographic scope, allowing limits to data residency to the European (EU) or United States (US) geographic areas (geos). All requests (including input data) are processed exclusively in the specified geographic area. For more information, see [geographic scope].
 
 ## Security and authentication
@@ -40,12 +40,12 @@ The following table lists the Bing Maps _Find a Location by Query_ request param
 | Bing Maps request parameter | Bing Maps request parameter alias  | Azure Maps request parameter | Required in Azure Maps  | Azure Maps data type  | Description|
 |-----------------------------|------------------------------------|------------------------------|-------------------------|-----------------------|------------|
 | culture | c | Request Header:  Accept-Language   | False | string | As specified in the Azure Maps [request header], `culture` defines the language used in search results when using the Azure Maps Get Geocoding API. For more information, see [Supported Languages].|
-| include | incl    | Not needed  | Not needed     | Not needed | In Bing Maps Find a Location by Query API, the `include` input parameter is required to get a two-letter ISO country code for the location result in the response (_include=ciso2_) and to specify that the response shows how the query string was parsed into address values (_include=queryParse_). In Azure Maps Get Geocoding API, the two-letter ISO country code is returned by default and doesn’t support a queryParse equivalent. |
+| include | incl    | Not needed  | Not needed     | Not needed | In Bing Maps Find a Location by Query API, the `include` input parameter is required to get a two-letter ISO country code for the location result in the response (_include=ciso2_) and to specify that the response shows how the query string was parsed into address values (_include=queryParse_). In Azure Maps Get Geocoding API, the two-letter ISO country code is returned by default and doesn't support a queryParse equivalent. |
 | includeNeighborhood  | inclnb  | Not needed  | Not needed     | Not needed | In Azure Maps Get Geocoding API, neighborhood info is returned in the response by default, when available.  |
 | maxResults | maxRes  | top    | False | Integer (int32)  | In Azure Maps Get Geocoding API, the default number of responses returned is 5. The minimum is 1 and the maximum is 20. |
 | query | q | query  | True | string | |
 | userIp  | uip     | Not supported | Not supported  | Not supported    | |
-| userLocation | ul | coordinates  | False | number[] | In Azure Maps Get Geocoding API, coordinates on the earth specified as in longitude and latitude format (longitude,latitude). When you specify this parameter, the user’s location is taken into account, and the results returned are more relevant to the user.   |
+| userLocation | ul | coordinates  | False | number[] | In Azure Maps Get Geocoding API, coordinates on the earth specified as in longitude and latitude format (longitude,latitude). When you specify this parameter, the user's location is taken into account, and the results returned are more relevant to the user.   |
 | userMapView | umv     | bbox   | False | number[] | A rectangular area on the earth defined as a bounding box object. The sides of the rectangles are defined by longitude and latitude values (longitude1,latitude1,longitude2,latitude2). Use the following syntax to specify a bounding box:<br><br>West Longitude, South Latitude, East Longitude, North Latitude<br><br>When you specify this parameter, the geographical area is taken into account when computing the results of a location query.  |
 | userRegion | ur | view   | False | string | A string that represents an [ISO 3166-1 Alpha-2 region/country code]. This alters geopolitical disputed borders and labels to align with the specified user region. By default, the View parameter is set to _Auto_ even if not defined in the request.<br><br>For more information on available views, see [Supported Views]. |
 
@@ -106,7 +106,7 @@ The following JSON sample shows what is returned in the body of the HTTP respons
 { 
     "authenticationResultCode": "ValidCredentials", 
     "brandLogoUri": "https://dev.virtualearth.net/Branding/logo_powered_by.png", 
-    "copyright": "Copyright © 2024 Microsoft and its suppliers. All rights reserved. This API cannot be accessed and the content and any results may not be used, reproduced or transmitted in any manner without express written permission from Microsoft Corporation.", 
+    "copyright": "Copyright &copy; 2024 Microsoft and its suppliers. All rights reserved. This API cannot be accessed and the content and any results may not be used, reproduced or transmitted in any manner without express written permission from Microsoft Corporation.", 
     "resourceSets": [ 
         { 
             "estimatedTotal": 1, 

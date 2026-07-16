@@ -2,16 +2,17 @@
 title: Azure API Management workspaces preview - breaking changes (March 2025)
 description: Azure API Management is removing support for preview workspaces. If your service uses preview workspaces, migrate your workspaces to the generally available version.
 services: api-management 
-author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 04/16/2025
-ms.author: danlep
+ms.date: 08/19/2025
 ---
 
 # Workspaces breaking changes, part 2 (March 2025)
 
 [!INCLUDE [api-management-availability-premium](../../../includes/api-management-availability-premium.md)]
+
+> [!IMPORTANT]
+> In August 2025, we announced that some of the workspaces-related breaking changes described in this article have been rescinded. [See the announcement for details](https://aka.ms/apim/workspaces/built-in-gateway-changes)
 
 > [!IMPORTANT]
 > These breaking changes apply only to *preview* workspaces in Azure API Management. If you created workspaces after the generally available release in August 2024 and use workspaces with workspace gateways, your workspaces shouldn't be affected by these changes.

@@ -5,11 +5,12 @@ ms.topic: quickstart
 ms.date: 04/03/2025
 ms.custom: devx-track-terraform
 ms.service: windows
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 #customer intent: As a Terraform user, I want to see how to configure Azure Backup to run a backup on demand by creating and configuring an Azure virtual network, subnet, public IP, network security group, network interface, storage account, Backup recovery services vault, and Backup policy.
 content_well_notification: 
   - AI-contribution
+# Customer intent: As a Terraform user, I want to configure Azure Backup for my virtual machine, so that I can ensure my data is protected and easily recoverable when needed.
 ---
 
 # Quickstart: Back up a virtual machine in Azure with Terraform
@@ -35,7 +36,7 @@ In this article, you learn how to:
 
 ## Prerequisites
 
-- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Create an Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 
 ## Implement the Terraform code

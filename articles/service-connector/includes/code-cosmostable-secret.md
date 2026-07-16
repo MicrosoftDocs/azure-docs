@@ -1,10 +1,9 @@
 ---
-author: wchigit
 description: code sample
 ms.service: service-connector
 ms.topic: include
-ms.date: 12/04/2023
-ms.author: wchi
+ms.date: 06/17/2026
+ms.reviewer: wchi
 ---
 
 ### [.NET](#tab/dotnet)
@@ -15,7 +14,7 @@ ms.author: wchi
     dotnet add package Azure.Data.Tables
     ```
 
-2. Get the connection string from the environment variable added by Service Connector.
+1. Get the connection string from the environment variable added by Service Connector.
 
     ```csharp
     using Azure.Data.Tables;
@@ -72,7 +71,7 @@ ms.author: wchi
     ```bash
     go get github.com/Azure/azure-sdk-for-go/sdk/data/aztables
     ```
-2. Get the connection string from the environment variable added by Service Connector.
+1. Get the connection string from the environment variable added by Service Connector.
     ```go
     import (
         "github.com/Azure/azure-sdk-for-go/sdk/data/aztables"

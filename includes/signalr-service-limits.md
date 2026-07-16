@@ -30,6 +30,6 @@ To request an update to your subscription's default limits, open a support ticke
 
 For more information about how connections and messages are counted, see [Messages and connections in Azure SignalR Service](../articles/azure-signalr/signalr-concept-messages-and-connections.md).
 
-If your requirements exceed the limits, switch from Free tier to Standard tier and add units. For more information, see [How to scale an Azure SignalR Service instance?](../articles/azure-signalr/signalr-howto-scale-signalr.md). 
+If your requirements exceed the limits, switch from Free tier to Standard tier and add units. For more information, see [How to scale an Azure SignalR Service instance?](../articles/azure-signalr/signalr-howto-scale-signalr.md) 
 
 If your requirements exceed the limits of a single instance, add instances. For more information, see [How to enable Geo-Replication in Azure SignalR Service](../articles/azure-signalr/howto-enable-geo-replication.md).

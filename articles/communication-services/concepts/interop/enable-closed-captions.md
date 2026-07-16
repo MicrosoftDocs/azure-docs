@@ -5,7 +5,7 @@ description: Conceptual information about closed captions in Teams interop scena
 author: Kunaal
 ms.service: azure-communication-services
 ms.subservice: calling
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 03/22/2023
 ms.author: kpunjabi
 ms.custom: public_preview
@@ -27,7 +27,7 @@ In this document, we're going to be looking at specifically Teams interoperabili
 | Enable captions in Teams meeting | ✔︎ | ✔︎ | ✔︎ | 
 | Enable captions in Teams call | ✔︎ | ✔︎ | ✔︎ | 
 
-*✕ = not supprted in current release.*
+*✕ = not supported in current release.*
 
 ### Translated Captions
 

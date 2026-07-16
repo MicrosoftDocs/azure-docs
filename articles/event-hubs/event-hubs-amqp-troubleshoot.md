@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot AMQP errors in Azure Event Hubs | Microsoft Docs
 description: Provides a list of AMQP errors you may receive when using Azure Event Hubs, and cause of those errors.
-ms.topic: article
+ms.topic: error-reference
 ms.date: 09/20/2021
 ---
 

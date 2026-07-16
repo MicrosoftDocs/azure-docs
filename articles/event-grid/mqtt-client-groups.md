@@ -1,7 +1,7 @@
 ---
 title: 'Azure Event Grid namespace MQTT client groups'
 description: 'Describes MQTT client group configuration.'
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - build-2023
   - ignite-2023

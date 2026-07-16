@@ -1,11 +1,13 @@
 ---
 title: Switch replication appliance in Azure Site Recovery - Modernized
+ms.reviewer: v-gajeronika
 description: This article describes show to switch between different replication appliances while replicating VMware VMs to Azure in Azure Site Recovery- Modernized
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 07/08/2024
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.date: 12/08/2025
+ms.author: v-gajeronika
+author: Jeronika-MS
+# Customer intent: "As a cloud administrator managing VMware VMs, I want to switch replication appliances in Azure Site Recovery, so that I can enhance resiliency and load balance my replication processes seamlessly."
 ---
 
 # Switch Azure Site Recovery replication appliance
@@ -24,7 +26,7 @@ Typically, in the classic architecture, if you need to maintain the resiliency o
 This modernized application resilience introduces a better way to make your appliances more resilient. If your replication appliance burns down or you need to balance the machines running on an appliance, just spin up another replication appliance and switch all your machines to the new appliance.
 
 
-## Consideration for switching replication appliance
+## Considerations for switching replication appliance
 
 You can switch replication appliance in the following scenarios:
 
@@ -48,11 +50,11 @@ As an example, here's the scenario where replication appliance 1 (RA1) has becom
 
    The list of available appliances and their health is displayed. For example, RA2 is healthy here.
 
-   ![Healthy replication appliances list](./media/switch-replication-appliance-modernized/appliance-health.png)
+   :::image type="content" source="./media/switch-replication-appliance-modernized/appliance-health.png" alt-text="Screenshot of healthy replication appliances list.":::
 
 2. Select the replication appliance (RA1) and select  **Switch appliance**.
 
-   ![Select replication appliance to switch](./media/switch-replication-appliance-modernized/select-switch-appliance.png)
+   :::image type="content" source="./media/switch-replication-appliance-modernized/select-switch-appliance.png" alt-text="Screenshot of select replication appliance to switch.":::
 
 
 3. Under  **Select machines**, select the machines that you want to failover to another replication appliance (RA2). Select **Next**.
@@ -60,20 +62,21 @@ As an example, here's the scenario where replication appliance 1 (RA1) has becom
    >[!NOTE]
    > Only those machine which have been protected by the current appliance will be visible in the list. Failed over machines will not be present here  
 
-    ![Select machines for switching](./media/switch-replication-appliance-modernized/select-machines.png)
+    :::image type="content" source="./media/switch-replication-appliance-modernized/select-machines.png" alt-text="Screenshot of select machines for switching.":::
 
 4. Under **Source settings**  page, for each of the selected machines, select a different replication appliance.
 
-   ![Source settings for replication appliance](./media/switch-replication-appliance-modernized/source-settings.png)
+   :::image type="content" source="./media/switch-replication-appliance-modernized/source-settings.png" alt-text="Screenshot of source settings for replication appliance.":::
 
    >[!NOTE]
    > If your current appliance has burnt down, then you will be required to select the credentials to access the machines. Otherwise, the field will be disabled.
 
 5. Review the selection and then select **Switch appliance**.
 
-   ![review replication appliance](./media/switch-replication-appliance-modernized/review-switch-appliance.png)
+   :::image type="content" source="./media/switch-replication-appliance-modernized/review-switch-appliance.png" alt-text="Screenshot of review replication appliance.":::
 
    Once the resync is complete, the replication status turns healthy for the VMs that are moved to a new appliance.
 
 ## Next steps
+
 Set up disaster recovery of [VMware VMs](vmware-azure-set-up-replication-tutorial-modernized.md) to Azure.

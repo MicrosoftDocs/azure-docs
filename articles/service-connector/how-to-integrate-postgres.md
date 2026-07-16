@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 03/14/2025
+ms.date: 11/21/2025
 ---
 
 # Integrate Azure Database for PostgreSQL with Service Connector
@@ -18,7 +18,6 @@ This article covers supported authentication methods, clients, and sample code y
 Service Connector can be used to connect the following compute services to Azure Database for PostgreSQL:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps

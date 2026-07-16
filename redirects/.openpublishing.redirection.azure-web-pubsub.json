@@ -9,7 +9,12 @@
             "source_path_from_root": "/articles/azure-web-pubsub/quickstarts-pubsub-among-mqtt-clients.md",
             "redirect_url": "/articles/azure-web-pubsub/howto-mqtt-pubsub-among-mqtt-clients.md",
             "redirect_document_id": false
-        }
+        },
+        {
+            "source_path_from_root": "/articles/azure-web-pubsub/concept-availability-zones.md",
+            "redirect_url": "/azure/reliability/reliability-web-pubsub?toc=/azure/azure-web-pubsub/toc.json",
+            "redirect_document_id": false
+        },
     ]
 }
 

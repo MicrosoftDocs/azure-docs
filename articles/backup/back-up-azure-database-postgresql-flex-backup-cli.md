@@ -2,11 +2,12 @@
 title: Back up Azure Database for PostgreSQL - Flexible Server using Azure CLI
 description: Learn how to back up Azure Database for PostgreSQL - Flexible Server using Azure CLI.
 ms.topic: how-to
-ms.date: 02/28/2025
+ms.date: 01/19/2026
 ms.custom: devx-track-azurecli, ignite-2024
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to back up Azure Database for PostgreSQL - Flexible Server using Azure CLI, so that I can ensure data protection and recovery options for my database workloads."
 ---
 
 # Back up Azure Database for PostgreSQL - Flexible Server using Azure CLI
@@ -17,7 +18,7 @@ This article describes how to back up Azure Database for PostgreSQL - Flexible S
 
 Before you back up Azure Database for PostgreSQL - Flexible Server, review the [supported scenarios and limitations for backing up Azure Database for PostgreSQL - Flexible Servers](backup-azure-database-postgresql-flex-support-matrix.md).
 
-## Create a Backup vault
+## Create a Backup vault for PostgreSQL - Flexible Server backup
 
 Backup vault is a storage entity in Azure. This stores the backup data for new workloads that Azure Backup supports. For example, Azure Database for PostgreSQL – Flexible servers, blobs in a storage account, and Azure Disks. Backup vaults help to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
 
@@ -56,7 +57,7 @@ az dataprotection backup-vault create -g testBkpVaultRG --vault-name TestBkpVaul
 
 ```
 
-## Configure backup
+## Configure backup for PostgreSQL - Flexible Server
 
 Before you configure protection for the database, ensure that you [create a Backup policy](quick-backup-postgresql-flexible-server-cli.md#create-a-backup-policy). Once the vault and policy are created, protect the Azure Database for PostgreSQL - Flexible Server by following these steps:
 
@@ -97,7 +98,7 @@ Once all the relevant permissions are set, configure the backup by running the f
     az dataprotection backup-instance create --resource-group testBkpVaultRG --vault-name TestBkpVault TestBkpvault --backup-instance .\OSSBkpInstance.JSON
     ```
 
-## Run an on-demand backup
+## Run an on-demand backup for PostgreSQL - Flexible Server
 
 Specify a retention rule while you trigger backup. To view the retention rules in policy, go to the **policy JSON** file for retention rules. In the following example, there are two retention rules with names **Default** and **Monthly**. Let's use the **Monthly rule** for the on-demand backup.
 
@@ -220,7 +221,7 @@ To trigger an on-demand backup, use the [`az dataprotection backup-instance adho
 az dataprotection backup-instance adhoc-backup --name "ossrg-empdb11" --rule-name "Monthly" --resource-group testBkpVaultRG --vault-name TestBkpVault
 ```
 
-## Track jobs
+## Track jobs for PostgreSQL - Flexible Server backup
 
 Track all jobs using the [`az dataprotection job list`](/cli/azure/dataprotection/job?view=azure-cli-latest&preserve-view=true#az-dataprotection-job-list) command. You can list all jobs and fetch a particular job detail.
 
@@ -230,6 +231,6 @@ You can also use Az.ResourceGraph to track all jobs across all Backup vaults. Us
 az dataprotection job list-from-resourcegraph --datasource-type AzureDatabaseForPostgreSQLFlexibleServer --status Completed
 ```
 
-## Next steps
+## Next step
 
 - [Restore Azure Database for PostgreSQL - Flexible Server using Azure CLI](backup-azure-database-postgresql-flex-restore-cli.md).

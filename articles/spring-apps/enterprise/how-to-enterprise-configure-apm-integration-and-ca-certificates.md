@@ -7,8 +7,13 @@ ms.author: karler
 ms.reviewer: fenzho
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 08/29/2024
-ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # How to configure APM integration and CA certificates

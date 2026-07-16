@@ -2,12 +2,12 @@
 title: Iceberg format in Azure Data Factory
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This topic describes how to deal with Iceberg format in Azure Data Factory and Azure Synapse Analytics.
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/12/2024
-ms.author: jianleishen
+ms.author: tinglee
 ---
 
 # Iceberg format in Azure Data Factory and Azure Synapse Analytics

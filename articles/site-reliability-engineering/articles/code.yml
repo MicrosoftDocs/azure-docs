@@ -3,12 +3,12 @@ metadata:
   title: "FAQ"
   titleSuffix: Azure
   description: FAQ
-  author: dnblankedelman
-  manager: ScottCa
+  author: orin-thomas
+  manager: rclaus
   ms.service: site-reliability-engineering
   ms.topic: faq
   ms.date: 09/14/2020
-  ms.author: dnb
+  ms.author: orthomas
 title: "Frequently asked questions: Do I need to know how to code to get involved with SRE?"
 summary: |
   When individuals are considering getting involved in SRE and teams are thinking about bringing in SRE practices, a common question that comes up is "Do you need to know how to code?"

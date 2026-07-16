@@ -1,0 +1,39 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/web-application-firewall/ag/web-application-firewall-troubleshoot.md",
+            "redirect_url": "/troubleshoot/azure/web-application-firewall/web-application-firewall-troubleshoot",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/web-application-firewall/afds/resource-manager-template-samples.md",
+            "redirect_url": "https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-waf-managed/",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/web-application-firewall/ag/powershell-samples.md",
+            "redirect_url": "/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/web-application-firewall/ag/resource-manager-template-samples.md",
+            "redirect_url": "/azure/web-application-firewall/ag/quick-create-template",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/web-application-firewall/ag/whats-new.md",
+            "redirect_url": "/azure/web-application-firewall/ag/ag-overview#whats-new",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/web-application-firewall/scripts/waf-custom-rules-powershell.md",
+            "redirect_url": "/azure/web-application-firewall/ag/configure-waf-custom-rules",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/web-application-firewall/waf-cdn-create-portal.md",
+            "redirect_url": "/azure/web-application-firewall/cdn/cdn-overview",
+            "redirect_document_id": false
+        }
+    ]
+}

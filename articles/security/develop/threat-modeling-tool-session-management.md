@@ -3,8 +3,8 @@ title: Session Management - Microsoft Threat Modeling Tool - Azure | Microsoft D
 description: Learn about session management mitigation for threats exposed in the Threat Modeling Tool. See mitigation information and view code examples.
 services: security
 author: jegeib
-ms.service: information-protection
-ms.subservice: aiplabels
+ms.service: azure-information-protection
+ms.subservice: azure-information-protection-policy
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib

@@ -7,6 +7,7 @@ ms.topic: concept-article
 ms.date: 04/21/2025
 ms.author: avirupcha
 ms.custom: references_regions
+# Customer intent: "As a network administrator, I want to stream virtual machine network traffic using a TAP configuration, so that I can analyze and monitor network performance effectively with a partner solution."
 ---
 
 # Virtual network TAP
@@ -22,13 +23,13 @@ The following diagram shows how virtual network TAP works. You can add a TAP con
 
 ## Prerequisites
 
-Before you can create a virtual network TAP, ensure you've received the confirmation email that you're enrolled in the preview. You must have one or more virtual machines created with [Azure Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and a partner solution for aggregating the TAP traffic in the same Azure region. If you don't have a  partner solution in your virtual network, see [partner solutions](#virtual-network-tap-partner-solutions) to deploy one. 
+You must have one or more virtual machines created with [Azure Resource Manager](../azure-resource-manager/management/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json), and a partner solution for aggregating the TAP traffic in the same Azure region. If you don't have a  partner solution in your virtual network, see [partner solutions](#virtual-network-tap-partner-solutions) to deploy one.
 
 You can use the same virtual network TAP resource to aggregate traffic from multiple network interfaces in the same or different subscriptions. If the monitored network interfaces are in different subscriptions, the subscriptions must be associated to the same Microsoft Entra tenant. Additionally, the monitored network interfaces, and the destination endpoint for aggregating the TAP traffic can be in peered virtual networks in the same region. If you're using this deployment model, ensure that the [virtual network peering](virtual-network-peering-overview.md) is enabled before you configure virtual network TAP.
 
 ## Permissions
 
-The accounts you use to apply TAP configuration on network interfaces must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the necessary actions from the following table:
+The accounts you use to apply TAP configuration on network interfaces must be assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned as the necessary actions from the following table:
 
 | Action | Name |
 |---|---|
@@ -36,27 +37,37 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 | Microsoft.Network/networkInterfaces/read | Required to read the network interface resource on which the TAP is configured |
 | Microsoft.Network/tapConfigurations/* | Required to create, update, read, and delete the TAP configuration on a network interface |
 
-## Public preview limitations
-Following are limitations during our preview.
-- Virtual network TAP only supports virtual machine's (VM) network interface as a mirroring source.
-- Virtual network TAP supports Load Balancer or VM's network interface as a destination resource for mirrored traffic.
-- Virtual network doesn't support Live Migration. VM set as source for virtual network TAP will have live migration disabled.
-- VMs behind a Standard Load Balancer with Floating IP enabled can't be set as a mirroring source.
-- VMs behind Basic Load Balancer can't be set as a mirroring source.
-- Virtual network doesn't support mirroring of inbound Private Link Service traffic.
-- VMs in a virtual network with encryption enabled can't be set as mirroring source.
-- Virtual network TAP doesn't support IPv6.
-- When a VM is added or removed as a source, the VM might experience network downtime (up to 60 seconds).
+## Limitations
+- Virtual Network TAP supports only virtual machine (VM) network interfaces as traffic mirroring sources.
+- Mirrored traffic can be sent only to a load balancer or a VM network interface.
+- VMs behind a Basic Load Balancer cannot be configured as a mirroring source. Basic Load Balancer is being deprecated.
+- Inbound traffic from Private Link Service is not supported for mirroring.
+- VMs in a virtual network with encryption enabled cannot be configured as mirroring sources.
+- Virtual Network TAP does not support IPv6 or SWIFT.
+- Virtual WAN (vWAN) peering is not supported between the source and destination virtual networks used with VTAP. Direct virtual network peering must be used instead.
+
+### Public Preview limitations
+- v6 VM SKUs are not supported as source VMs.
+- Before adding a VM as a source, you must first deploy a Virtual Network TAP resource, and then stop (deallocate) and start the source VM. This is required only once per VM that will be used as a source. If this step is not completed, you may receive an error indicating that the NIC is not on fastpath.
+- When a VM is added or removed as a source, the VM may experience network downtime of up to 60 seconds.
+- Live Migration is not supported for source VMs. Live Migration will be disabled for any VM configured as a source.
 
 ## Supported Regions
-
 - Asia East
-- US West Central
-
-### Coming soon
-
-- UK South (May 5)
-- US East (May 15)
+- Southeast Asia
+- Canada Central
+- West Europe
+- Germany West Central
+- Central India
+- Korea Central
+- UAE North
+- UK South
+- Central US
+- Central US EUAP
+- East US
+- East US 2
+- East US 2 EUAP
+- West US 3
 
 ## Virtual network TAP partner solutions
 
@@ -65,7 +76,6 @@ Following are limitations during our preview.
 |Partner|Product|
 |-------------|----------|
 |**Gigamon**|[GigaVUE Cloud Suite for Azure](https://www.gigamon.com/solutions/cloud/public-cloud/gigavue-cloud-suite-azure.html)|
-|**cPacket**|[cPacket Cloud Suite](https://www.cpacket.com/cloud)|
 |**Keysight**|[CloudLens](https://www.keysight.com/us/en/products/network-visibility/cloud-visibility/cloudlens-software-suite.html)|
 
 ### Security analytics, network/application performance management
@@ -77,13 +87,15 @@ Following are limitations during our preview.
 |**Corelight**|[Corelight Open NDR Platform](https://corelight.com/solutions/why-open-ndr)|
 |**Vectra**|[Vectra NDR](https://www.vectra.ai/products/ndr)|
 |**Fortinet**|[FortiNDR Cloud](https://www.fortinet.com/products/network-detection-and-response)|
-||[FortiGate VM](https://azuremarketplace.microsoft.com/en/marketplace/apps/fortinet.fortinet_fortigate-vm_v5?tab=Overview)|
+||[FortiGate VM](https://marketplace.microsoft.com/en-us/search/products?search=FortiGate%20VM&page=1)|
+|**cPacket**|[cPacket Cloud Suite](https://www.cpacket.com/cloud)|
 |**TrendMicro**|[Trend Vision One™ Network Security](https://www.trendmicro.com/en_ca/business/products/network.html)|
-|**Extrahop**|[Reveal(x)](https://www.extrahop.com/platform/revealx)|
+|**Extrahop**|[Reveal(x)](https://www.extrahop.com/resources/datasheets/extrahop-revealx)|
+|**Progress**|[Flowmon](https://www.progress.com/blogs/azure-vtap)|
 |**Bitdefender**|[GravityZone Extended Detection and Response for Network](https://www.bitdefender.com/en-us/business/products/gravityzone-xdr)|
 |**eSentire**|[eSentire MDR](https://www.esentire.com/how-we-do-it/signals/mdr-for-network)|
 |**LinkShadow**|[LinkShadow NDR](https://www.linkshadow.com/products/network-detection-and-response)|
-|**AttackFence**|[AttackFence NDR](https://www.attackfence.com/products/ndr)|
+|**AttackFence**|[AttackFence NDR](https://www.attackfence.com/ndr)|
 |**Arista Networks**|[Arista NDR](https://www.arista.com/en/products/network-detection-and-response)|
 
 ## Next Steps

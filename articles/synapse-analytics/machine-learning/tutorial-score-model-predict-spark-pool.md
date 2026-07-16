@@ -22,7 +22,7 @@ In this tutorial, you'll learn how to:
 > [!div class="checklist"]
 > - Predict scores for data in a serverless Apache Spark pool using machine learning models which are trained outside Synapse and registered in Azure Machine Learning or Azure Data Lake Storage Gen2.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 
@@ -188,9 +188,9 @@ Make sure all prerequisites are in place before following these steps for using 
 
    columns = [<comma_separated_model_input_column_name>] # for ex. df["empid","empname"]
 
-   tranformer = model.create_transformer().setInputCols(columns).setOutputCol("PREDICT")
+   transformer = model.create_transformer().setInputCols(columns).setOutputCol("PREDICT")
 
-   tranformer.transform(df).show()
+   transformer.transform(df).show()
    ```
 
 ## Sklearn example using PREDICT

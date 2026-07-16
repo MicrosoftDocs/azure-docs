@@ -1,7 +1,7 @@
 ---
 title: Microsoft Teams events in Azure Event Grid
 description: This article describes Microsoft Teams events in Azure Event Grid.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 06/06/2022
 ---
 

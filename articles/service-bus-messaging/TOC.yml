@@ -52,6 +52,8 @@
         href: service-bus-quickstart-topics-subscriptions-portal.md
       - name: Azure CLI
         href: service-bus-tutorial-topics-subscriptions-cli.md
+      - name: Azure PowerShell
+        href: service-bus-tutorial-topics-subscriptions-powershell.md
       - name: ARM template
         href: service-bus-resource-manager-namespace-topic.md
     - name: Publish and subscribe for messages
@@ -116,6 +118,8 @@
       href: message-transfers-locks-settlement.md
     - name: Dead-letter queues
       href: service-bus-dead-letter-queues.md
+    - name: Prevent message loss and duplicates
+      href: service-bus-message-loss-and-duplicates.md
     - name: Message deferral
       href: message-deferral.md
     - name: Prefetch messages
@@ -126,10 +130,10 @@
       href: service-bus-transactions.md
     - name: Optimize performance
       href: service-bus-performance-improvements.md
-    - name: Geo-Disaster Recovery
-      href: service-bus-geo-dr.md
     - name: Geo-Replication
       href: service-bus-geo-replication.md
+    - name: Geo-Disaster Recovery (metadata only)
+      href: service-bus-geo-dr.md
     - name: Asynchronous messaging and high availability
       href: service-bus-async-messaging.md
     - name: Handling outages and disasters
@@ -156,6 +160,8 @@
         href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/ServiceBusCopyToEventHub
       - name: Acquire messages from Event Hubs
         href: https://github.com/Azure-Samples/azure-messaging-replication-dotnet/tree/main/functions/config/EventHubCopyToServiceBus
+  - name: Reliability
+    href: /azure/reliability/reliability-service-bus?toc=/azure/service-bus-messaging/TOC.json
   - name: Security
     items:
     - name: Security baseline
@@ -176,6 +182,10 @@
       href: ./security-controls-policy.md
     - name: Network security
       href: network-security.md
+    - name: Confidential computing
+      href: confidential-computing.md
+    - name: Network security perimeter
+      href: network-security-perimeter.md
   - name: Integration with other services
     items:
     - name: Azure Service Bus and Azure Event Grid integration
@@ -192,6 +202,8 @@
         href: java-message-service-20-entities.md
       - name: Java Message Service (JMS) Developer guide
         href: jms-developer-guide.md
+      - name: Choose between JMS and native SDK (Java)
+        href: service-bus-jms-versus-native-sdk.md
       - name: Messages, payloads, and serialization
         href: service-bus-messages-payloads.md
       - name: Message sequencing and timestamps
@@ -299,6 +311,8 @@
     items:
     - name: Troubleshooting guide
       href: service-bus-troubleshooting-guide.md
+    - name: Handle timeouts and configure retries
+      href: service-bus-timeouts-retries.md
     - name: SDK troubleshooting guide
       href: https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/TROUBLESHOOTING.md
     - name: Resource Manager exceptions
@@ -381,7 +395,7 @@
   - name: Build your skills with Microsoft Learn training
     href: /training/browse/?products=azure-service-bus
   - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=enterprise-integration
+    href: https://azure.microsoft.com/updates?filters=%5B%22Service+Bus%22%5D
   - name: Blog
     href: /archive/blogs/servicebus/
   - name: Microsoft Q&A question page
@@ -397,4 +411,4 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azureservicebus
   - name: Videos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=service-bus
+    href: /shows/mvp-azure/?terms=service%20bus

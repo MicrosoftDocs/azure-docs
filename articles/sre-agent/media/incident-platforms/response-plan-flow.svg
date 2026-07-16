@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280">
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#0078d4"/>
+    </marker>
+    <marker id="arrow-gray" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#666"/>
+    </marker>
+  </defs>
+  
+  <rect width="700" height="280" fill="#fafafa"/>
+  
+  <!-- Title -->
+  <text x="350" y="25" text-anchor="middle" font-family="Segoe UI, Arial" font-size="14" font-weight="600" fill="#333">How Response Plans Work</text>
+  
+  <!-- Incoming Incidents -->
+  <rect x="20" y="100" width="100" height="80" rx="8" fill="#ffcdd2" stroke="#c62828" stroke-width="2" filter="url(#shadow)"/>
+  <text x="70" y="130" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="600" fill="#b71c1c">Incoming</text>
+  <text x="70" y="145" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" font-weight="600" fill="#b71c1c">Incidents</text>
+  <text x="70" y="165" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#c62828">P1, P2, P3...</text>
+  
+  <!-- Arrow to Filter -->
+  <path d="M120 140 L155 140" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Filter Box -->
+  <rect x="165" y="60" width="140" height="160" rx="8" fill="#fff3e0" stroke="#f57c00" stroke-width="2" filter="url(#shadow)"/>
+  <text x="235" y="85" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="600" fill="#e65100">Filter Rules</text>
+  <line x1="175" y1="95" x2="295" y2="95" stroke="#f57c00" stroke-width="1"/>
+  
+  <!-- Filter criteria -->
+  <text x="180" y="115" font-family="Segoe UI, Arial" font-size="10" fill="#bf360c">• Priority: P1, P2</text>
+  <text x="180" y="132" font-family="Segoe UI, Arial" font-size="10" fill="#bf360c">• Service: web-prod</text>
+  <text x="180" y="149" font-family="Segoe UI, Arial" font-size="10" fill="#bf360c">• Title contains:</text>
+  <text x="185" y="163" font-family="Segoe UI, Arial" font-size="9" fill="#bf360c" font-style="italic">"CPU", "memory"</text>
+  
+  <!-- Match indicator -->
+  <rect x="175" y="175" width="120" height="35" rx="4" fill="#c8e6c9" stroke="#388e3c" stroke-width="1"/>
+  <text x="235" y="197" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" fill="#2e7d32">✓ Match → Process</text>
+  
+  <!-- Arrow to Mode Selection -->
+  <path d="M305 140 L345 140" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Mode Selection Box -->
+  <rect x="355" y="60" width="140" height="160" rx="8" fill="#e3f2fd" stroke="#1976d2" stroke-width="2" filter="url(#shadow)"/>
+  <text x="425" y="85" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="600" fill="#0d47a1">Autonomy Level</text>
+  <line x1="365" y1="95" x2="485" y2="95" stroke="#1976d2" stroke-width="1"/>
+  
+  <!-- Autonomous option -->
+  <rect x="365" y="105" width="120" height="45" rx="4" fill="#ff8f00" filter="url(#shadow)"/>
+  <text x="425" y="123" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" font-weight="600" fill="white">Autonomous</text>
+  <text x="425" y="138" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="white">Agent acts directly</text>
+  
+  <!-- Review option -->
+  <rect x="365" y="160" width="120" height="45" rx="4" fill="#e8f5e9" stroke="#388e3c" stroke-width="1"/>
+  <text x="425" y="178" text-anchor="middle" font-family="Segoe UI, Arial" font-size="10" font-weight="600" fill="#2e7d32">Review</text>
+  <text x="425" y="193" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#388e3c">Human approves</text>
+  
+  <!-- Arrow to Custom Instructions -->
+  <path d="M495 140 L535 140" stroke="#0078d4" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  
+  <!-- Custom Instructions Box -->
+  <rect x="545" y="60" width="140" height="160" rx="8" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" filter="url(#shadow)"/>
+  <text x="615" y="85" text-anchor="middle" font-family="Segoe UI, Arial" font-size="12" font-weight="600" fill="#6a1b9a">Instructions</text>
+  <line x1="555" y1="95" x2="675" y2="95" stroke="#7b1fa2" stroke-width="1"/>
+  
+  <!-- Instructions content -->
+  <text x="560" y="115" font-family="Segoe UI, Arial" font-size="9" fill="#4a148c" font-style="italic">"Check AppInsights</text>
+  <text x="560" y="128" font-family="Segoe UI, Arial" font-size="9" fill="#4a148c" font-style="italic">first, then verify</text>
+  <text x="560" y="141" font-family="Segoe UI, Arial" font-size="9" fill="#4a148c" font-style="italic">deployment logs..."</text>
+  
+  <!-- Custom prompts -->
+  <rect x="555" y="155" width="120" height="55" rx="4" fill="#e1bee7" stroke="#7b1fa2" stroke-width="1"/>
+  <text x="615" y="173" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#4a148c">+ Specific runbooks</text>
+  <text x="615" y="186" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#4a148c">+ Team context</text>
+  <text x="615" y="199" text-anchor="middle" font-family="Segoe UI, Arial" font-size="9" fill="#4a148c">+ Escalation paths</text>
+  
+  <!-- Bottom summary -->
+  <rect x="165" y="240" width="520" height="30" rx="6" fill="#e8f5e9" stroke="#43a047" stroke-width="2"/>
+  <text x="425" y="260" text-anchor="middle" font-family="Segoe UI, Arial" font-size="11" fill="#2e7d32">Response Plan = Filter + Autonomy + Custom Instructions → Tailored incident handling</text>
+</svg>

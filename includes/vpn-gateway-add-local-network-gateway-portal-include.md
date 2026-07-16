@@ -1,9 +1,10 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 08/21/2024
- ms.author: cherylmc
+ ms.author: duau
+ ms.custom: sfi-image-nochange
 ---
 
 Configuration considerations:

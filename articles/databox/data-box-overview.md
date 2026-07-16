@@ -8,14 +8,26 @@ ms.service: azure-databox
 ms.topic: overview
 ms.date: 03/04/2025
 ms.author: shaas
-ms.custom: references_regions
 zone_pivot_groups: data-box-sku
+ms.custom:
+  - references_regions
+  - sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand what Data Box is and how it works so I can use it to import on-premises data into Azure or export data from Azure.
+# Customer intent: "As a data administrator, I want to leverage Azure Data Box for transferring large volumes of data into and out of Azure, so that I can efficiently manage data migrations and backups in scenarios with limited network connectivity."
 ---
 # What is Azure Data Box?
 
 :::zone pivot="dbx-ng"
-The Microsoft Azure Data Box cloud solution lets you send terabytes of data into and out of Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you a proprietary Data Box storage device. These storage devices come in two variations having a maximum usable storage capacity of 120 TB and 525 TB respectively. These are transported to your data center through a regional carrier. These devices have a rugged casing to protect and secure data during the transit. 
+
+:::row:::
+    :::column:::
+        [![2-Minute demonstration video introducing Azure Data Box - click to play!](media/data-box-overview/video-background.png)](https://youtu.be/trBZN7hVeOE)
+    :::column-end:::
+    :::column:::
+        The Microsoft Azure Data Box cloud solution lets you send terabytes of data into and out of Azure in a quick, inexpensive, and reliable way. The secure data transfer is accelerated by shipping you a proprietary Data Box storage device.         
+    :::column-end:::
+:::row-end:::
+These storage devices come in two variations having a maximum usable storage capacity of 120 TB and 525 TB respectively. These are transported to your data center through a regional carrier. These devices have a rugged casing to protect and secure data during the transit. 
 :::zone-end
 
 :::zone pivot="dbx"
@@ -66,8 +78,13 @@ Azure providers and non-Azure providers can ingest data from Azure Data Box. The
 
 You can use your Data Box data with many non-Azure service providers. For instance:
 
-- **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)** - allows you to back up and replicate large amounts of data from your Hyper-V machine to your Data Box.
-- **[Commvault](/azure/storage/solution-integration/validated-partners/backup-archive-disaster-recovery/commvault/commvault-solution-guide)** - leverages Azure Data Box to migrate petabyte scale backup and archive data from on-premises to Azure for network constrained environments.
+- **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html)** - Veeam leverages Azure Data Box to help seed backup repository data to Azure Blob. Veeam offers data protection for various on-premises and cloud-based workloads, including Hyper-V VMs, Azure Local, VMware vSphere VMs, Nutanix AHV, Proxmox, agent-based backup for Windows and Linux, cloud-based backup for Azure VMs, and much more.
+	
+- **[Commvault](/azure/storage/solution-integration/validated-partners/backup-archive-disaster-recovery/commvault/commvault-solution-guide)** - Commvault® supports Microsoft Azure Data Box, enabling enterprise customers to accelerate data movement to and from Azure with optimal security, speed, and control. Whether migrating data to Azure for backup or recovering from it during a disaster scenario, Commvault’s tight integration with Azure Data Box delivers unmatched flexibility in bandwidth-constrained or high-volume environments.
+	
+- **[OpenText](https://www.carbonite.com/resources/datasheet/carbonite-migrate-for-microsoft-azure-data-box)** - By integrating OpenText Migrate and Availability with Azure Data Box, organizations can significantly enhance their data onboarding process to Azure. This enables a hybrid approach of offline data seeding to Azure and then followed by delta synchronization with OpenText solutions for a seamless cutover.
+
+
 ## Benefits
 
 Data Box is designed to move large amounts of data to Azure with little to no impact to network. The solution has the following benefits:
@@ -104,6 +121,7 @@ The Data Box device has the following features in this release.
 | RAID Configuration                                      | RAID 5  |
 | Storage capacity                                        | SKU 1 - 120 TB usable (150 TB raw) <br> SKU 2 - 525 TB usable (600 TB raw)   |
 | Power rating                                            | The power supply unit is rated for 1300 W. <br> Typically, the unit draws 384 W.|
+| Power Cable                                             | IEC C13 standard compliant power cable <br> The device is certified to operate within a 110V to 220V range.|
 | Network interfaces                                      | 2 X 10-GbE interface - MGMT, DATA 3. <br> MGMT - for management, not user configurable, used for initial setup <br> DATA3 - for data, user configurable, and is dynamic by default <br> MGMT and DATA 3 can also work as 1 GbE <br> 2 X 100-GbE interface(QSFP28) - DATA 1, DATA 2 <br> Both are for data, can be configured as dynamic (default) or static |
 | Data transfer                                      | Both import and export are supported.  |
 | Data transfer media                                     | RJ45, QSFP28 copper |

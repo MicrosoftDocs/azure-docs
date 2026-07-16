@@ -6,9 +6,10 @@ author: stevenmatthew
 
 ms.service: azure-data-box-disk
 ms.custom: linux-related-content
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/18/2024
 ms.author: shaas
+# Customer intent: As a systems administrator, I want to review the system and software requirements for Azure Data Box Disk, so that I can ensure my environment is properly configured for deployment and data transfer.
 ---
 
 ::: zone target="docs"
@@ -104,9 +105,9 @@ The following table contains supported storage types for Data Box Disks.
 | **Storage account** | **Supported access tiers** |
 | --- | --- |
 | Classic Standard | |
-| General-purpose v1 Standard  | Hot, Cool |
+| General-purpose v1 Standard  | Hot, Cool, Cold, Archive |
 | General-purpose v1 Premium   |  |
-| General-purpose v2 Standard<sup>*</sup> | Hot, Cool |
+| General-purpose v2 Standard<sup>*</sup> | Hot, Cool, Cold, Archive |
 | General-purpose v2 Premium   |  |
 | Blob storage account | |
 | Block Blob storage Premium | |

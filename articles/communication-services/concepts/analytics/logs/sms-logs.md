@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: mkhribech
 ms.date: 04/14/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: data
 ---
@@ -32,7 +32,7 @@ Each Azure resource requires its own diagnostic setting, which defines the follo
 Complete these instructions to configure your Azure Monitor resource to start creating logs and metrics for your Communications Services. For detailed documentation about using Diagnostic Settings across all Azure resources, see: [Enable logging in Diagnostic Settings](../enable-logging.md).
 
 > [!NOTE]
-> T to enable the logs for SMS, under diagnostic setting name select **SMS Operational**.
+> To enable the logs for SMS, under diagnostic setting name select **SMS Operational**.
 
 ## **Overview**
 
@@ -89,9 +89,9 @@ Communication Services offers the following types of logs:
 | `SdkType` | The SDK type used in the request. |
 | `PlatformType` | The platform type used in the request. |
 | `Method` | The method used in the request. |
-|`NumberType`| The type of number, the SMS message is being sent from. It can be either **LongCodeNumber**, **ShortCodeNumber**, or **DynamicAlphaSenderID**.|
-|`MessageID`| Represents the unique messageId generated for every outgoing and incoming message. Find the MessageId in the SMS API response object. |
-|`Country`| Represents the countries/regions where SMS messages are sent to or received from. |
+| `NumberType` | The type of number, the SMS message is being sent from. It can be either **LongCodeNumber**, **ShortCodeNumber**, or **DynamicAlphaSenderID**.|
+| `MessageID` | Represents the unique message ID generated for every outgoing and incoming message. Find the MessageId in the SMS API response object. The format of message ID returned by this API is considered an internal implementation detail and is subject to change without notice. Clients must treat message ID as opaque identifiers and must not parse, infer structure, or build logic based on their format or content.|
+| `Country` | Represents the countries/regions where SMS messages are sent to or received from. |
 
 #### Example SMS sent log
 
@@ -118,7 +118,7 @@ Communication Services offers the following types of logs:
         "SdkType": "azsdk-net-Communication.Sms",
         "PlatformType": "Microsoft Windows 10.0.17763",
         "Method": "POST",
-        "MessageId": "Outgoing_20230118181300ff00e5c9-876d-4958-86e3-4637484fe5bd_noam",
+        "MessageId": "ff00e5c9-876d-4958-86e3-4637484fe5bd",
         "Country": "US"
       }
     ]
@@ -149,7 +149,7 @@ Communication Services offers the following types of logs:
         "SdkType": "",
         "PlatformType": "",
         "Method": "POST",
-        "MessageId": "Outgoing_20230118181300ff00e5c9-876d-4958-86e3-4637484fe5bd_noam",
+        "MessageId": "ff00e5c9-876d-4958-86e3-4637484fe5bd",
         "Country": "US"
       }
     ]
@@ -180,7 +180,7 @@ Communication Services offers the following types of logs:
         "SdkType": "",
         "PlatformType": "",
         "Method": "POST",
-        "MessageId": "Incoming_2023011818121211c6ee31-63fe-477c-8d51-f800543c6694",
+        "MessageId": "11c6ee31-63fe-477c-8d51-f800543c6694",
         "Country": "US"
       }
     ]

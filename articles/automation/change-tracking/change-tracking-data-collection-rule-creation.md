@@ -2,9 +2,9 @@
 title: Script sample - Create a data collection rule in change tracking.
 description: Learn about how to create a data collection rule
 ms.topic: sample
-ms.date: 11/15/2024
-author: SnehaSudhirG
-ms.author: sudhirsneha
+ms.date: 11/14/2025
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 
@@ -404,5 +404,5 @@ Save the above script on your machine with a name as *CtDcrCreation.json*. For m
 
 ## Next steps
 
-[Learn more](manage-change-tracking-monitoring-agent.md) on Manage change tracking and inventory using Azure Monitoring Agent (Preview).
+Learn more about [Tutorials - Change a workspace and configure Data Collection Rule](/azure/azure-change-tracking-inventory/tutorial-change-workspace-configure-data-collection-rule?tabs=windows%2Csa-mi).
  

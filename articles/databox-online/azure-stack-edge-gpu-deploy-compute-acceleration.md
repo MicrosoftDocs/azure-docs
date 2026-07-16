@@ -2,12 +2,12 @@
 title: Use compute acceleration GPU or VPU on Azure Stack Edge devices for Kubernetes deployments| Microsoft Docs
 description: Describes how to use compute acceleration GPU or VPU on your Azure Stack Edge Pro GPU, Azure Stack Edge Pro R or Azure Stack Edge Mini Ri for Kubernetes deployments.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/26/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Use compute acceleration on Azure Stack Edge Pro GPU for Kubernetes deployment

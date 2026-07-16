@@ -1,14 +1,15 @@
 ---
-title: Custom topics in Azure Event Grid
-description: This article describes custom topics or topics in Azure Event Grid. A topic provides an endpoint where the source can send events. 
+title: Custom Topics in Azure Event Grid Explained
+description: This article describes custom topics or topics in Azure Event Grid. A topic provides an endpoint where the source can send events.
+#customer intent: As a developer, I want to understand what custom topics are in Azure Event Grid so that I can decide how to use them in my application architecture.
 ms.topic: concept-article
-ms.date: 12/13/2024
+ms.date: 02/17/2026
 # Customer intent: I want to what topic in Azure Event Grid are. 
 ---
 
 # Custom topics in Azure Event Grid
 
-An Event Grid topic provides an endpoint where the source sends events. The publisher creates an Event Grid topic, and decides whether an event source needs one topic or more than one topic. A topic is used for a collection of related events. To respond to certain types of events, subscribers decide which topics to subscribe to.
+An Event Grid topic provides an endpoint where the source sends events. The publisher creates an Event Grid topic, and decides whether an event source needs one topic or more than one topic. Use a topic for a collection of related events. To respond to certain types of events, subscribers decide which topics to subscribe to.
 
 **Custom topics** are application and third-party topics. When you create or are given access to a custom topic, you see that custom topic in your subscription. Custom topics support [push delivery](push-delivery-overview.md). Consult [when to use pull or push delivery](pull-delivery-overview.md#when-to-use-push-delivery-vs-pull-delivery) to help you decide if push delivery is the right approach given your requirements.
 
@@ -16,13 +17,13 @@ When designing your application, you have to decide how many topics to create. F
 
 ## Event schema
 
-Custom topics supports two types of event schemas: Cloud events and Event Grid schema.
+Custom topics support two types of event schemas: CloudEvents and Event Grid schema.
 
-### Cloud event schema
+### CloudEvents schema
 
 In addition to its [default event schema](event-schema.md), Azure Event Grid natively supports events in the [JSON implementation of CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) and [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/) is an [open specification](https://github.com/cloudevents/spec/blob/v1.0/spec.md) for describing event data.
 
-CloudEvents simplifies interoperability by providing a common event schema for publishing and consuming events. This schema allows for uniform tooling, standard ways of routing & handling events, and a common way to deserialize your events. With a common schema, you can more easily integrate work across platforms.
+CloudEvents simplifies interoperability by providing a common event schema for publishing and consuming events. This schema allows for uniform tooling, standard ways of routing and handling events, and a common way to deserialize your events. With a common schema, you can more easily integrate work across platforms.
 
 > [!NOTE]
 > For more information, see [Cloud event schema](cloud-event-schema.md).

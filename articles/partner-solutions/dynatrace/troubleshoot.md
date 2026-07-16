@@ -1,9 +1,10 @@
 ---
 title: Troubleshooting Azure Native Dynatrace Service
 description: This article provides information about troubleshooting Dynatrace for Azure 
-
-ms.topic: conceptual
-ms.date: 06/20/2024
+author: praveenrajap
+ms.author: praveenrajap
+ms.topic: troubleshooting-general
+ms.date: 02/02/2026
 
 ---
 
@@ -25,18 +26,18 @@ If those options don't solve the problem, contact [Dynatrace support](https://s
 
 ## Logs not being emitted or limit reached issue
 
-- Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs.  For more information, see [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
+- Resource doesn't support sending logs. Only resource types with monitoring log categories can be configured to send logs. For more information, see [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 
 - Limit of five diagnostic settings reached. This displays the message of Limit reached against the resource. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings?tabs=portal) You can go ahead and remove the other destinations to make sure each resource is sending data to at max five destinations.
 
-- Export of Metrics data isn't supported currently by the partner solutions under Azure Monitor diagnostic settings. 
+- The partner solutions under Azure Monitor diagnostic settings don't currently support export of Metrics data.
 
 ## Single sign-on errors
 
 - **Single sign-on configuration indicates lack of permissions**
-  - Occurs when the user that is trying to configure single sign-on doesn't have Manage users permissions for the Dynatrace account. For a description of how to configure this permission, see [here](https://www.dynatrace.com/support/help/shortlink/azure-native-integration#setup).
+  - Occurs when the user that's trying to configure single sign-on doesn't have Manage users permissions for the Dynatrace account. Find a description of [how to configure this permission here](https://www.dynatrace.com/support/help/shortlink/azure-native-integration#setup).
 - **Unable to save single sign-on settings**
-  - Error happens when there's another Enterprise app that is using the Dynatrace SAML identifier. To find which app is using it, select **Edit** on the Basic **SAML** configuration section. To resolve this issue, either disable the other app or use the other app as the Enterprise app to set up SAML SSO.
+  - Error happens when there's another Enterprise app that's using the Dynatrace SAML identifier. To find which app is using it, select **Edit** on the Basic **SAML** configuration section. To fix this issue, either disable the other app or use the other app as the Enterprise app to set up SAML SSO.
 
 - **App not showing in Single sign-on settings page**
   - First, search for application ID. If no result is shown, check the SAML settings of the app. The grid only shows apps with correct SAML settings.
@@ -47,7 +48,7 @@ If those options don't solve the problem, contact [Dynatrace support](https://s
 
 ## Diagnostic settings are active even after disabling the Dynatrace resource or applying necessary tag rules
 
-If logs are being emitted and diagnostic settings remain active on monitored resources even after the Dynatrace resource is disabled or tag rules have been modified to exclude certain resources, it's likely that there's a delete lock applied to the resource(s) or the resource group containing the resource. This lock prevents the cleanup of the diagnostic settings, and hence, logs continue to be forwarded for those resources. To resolve this, remove the delete lock from the resource or the resource group. If the lock is removed after the Dynatrace resource is deleted, the diagnostic settings have to be cleaned up manually to stop log forwarding.
+If logs are being emitted and diagnostic settings remain active on monitored resources even after the Dynatrace resource is disabled or tag rules have been modified to exclude certain resources, it's likely that there's a delete lock applied to the resource(s) or the resource group containing the resource. This lock prevents the cleanup of the diagnostic settings, and hence, logs continue to be forwarded for those resources. To fix this, remove the delete lock from the resource or the resource group. If the lock is removed after the Dynatrace resource is deleted, the diagnostic settings have to be cleaned up manually to stop log forwarding.
 
 [!INCLUDE [diagnostic-settings](../includes/diagnostic-settings.md)]
 
@@ -65,6 +66,6 @@ If logs are being emitted and diagnostic settings remain active on monitored res
 
     > [!div class="nextstepaction"]
     > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Dynatrace.Observability%2Fmonitors)
-
+    >
     > [!div class="nextstepaction"]
     > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/dynatrace.dynatrace_portal_integration?tab=Overview)

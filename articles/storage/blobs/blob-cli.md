@@ -10,6 +10,7 @@ ms.topic: how-to
 ms.date: 06/11/2024
 ms.devlang: azurecli
 ms.custom: devx-track-azurecli
+# Customer intent: As a data engineer using the Azure CLI, I want to efficiently manage block blobs, including uploading, downloading, and deleting data, so that I can optimize storage management and ensure reliable data operations within my Azure environment.
 ---
 
 # Manage block blobs with Azure CLI

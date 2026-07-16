@@ -7,7 +7,7 @@ manager: koagbakp
 services: azure-communication-services
 ms.author: maniss
 ms.date: 09/30/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ---
 

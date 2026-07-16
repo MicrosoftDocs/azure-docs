@@ -4,8 +4,9 @@ description: Learn about creating custom connectors in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, daviburg, apseth, psrivas, azla
-ms.topic: conceptual
-ms.date: 02/19/2025
+ms.topic: concept-article
+ms.update-cycle: 1095-days
+ms.date: 07/10/2026
 # Customer intent: As a developer, I want learn about the capability to create custom connectors with operations that I can use in my Azure Logic Apps workflows.
 ---
 

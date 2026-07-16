@@ -6,7 +6,7 @@ author: n0elleli
 ms.author: noelleli
 ms.subservice: data-movement
 ms.custom:
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 07/29/2024
 ---
 

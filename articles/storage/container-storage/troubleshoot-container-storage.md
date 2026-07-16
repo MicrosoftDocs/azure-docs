@@ -1,16 +1,20 @@
 ---
-title: Troubleshoot Azure Container Storage
-description: Troubleshoot common problems with Azure Container Storage, including installation and storage pool issues.
+title: Troubleshoot Azure Container Storage (version 1.x.x)
+description: Troubleshoot common problems with Azure Container Storage (version 1.x.x), including installation and storage pool issues.
 author: khdownie
 ms.service: azure-container-storage
 ms.date: 10/15/2024
 ms.author: kendownie
 ms.topic: how-to
+# Customer intent: "As a cloud administrator managing Azure Container Storage (version 1.x.x), I want to troubleshoot installation and storage pool issues, so that I can ensure successful deployment and optimal performance."
 ---
 
-# Troubleshoot Azure Container Storage
+# Troubleshoot Azure Container Storage (version 1.x.x)
 
-[Azure Container Storage](container-storage-introduction.md) is a cloud-based volume management, deployment, and orchestration service built natively for containers. Use this article to troubleshoot common issues with Azure Container Storage and find resolutions to problems.
+Azure Container Storage is a cloud-based volume management, deployment, and orchestration service built natively for containers. Use this article to troubleshoot common issues with Azure Container Storage (version 1.x.x) and find resolutions to problems.
+
+> [!IMPORTANT]
+> This article applies to Azure Container Storage (version 1.x.x). [Azure Container Storage (version 2.x.x)](container-storage-introduction.md) is now available.
 
 ## Troubleshoot installation issues
 
@@ -28,7 +32,7 @@ az aks update -n <cluster-name> -g <resource-group> --enable-azure-container-sto
 
 ### Azure Container Storage fails to install due to Azure Policy restrictions
 
-Azure Container Storage might fail to install if Azure Policy restrictions are in place. Specifically, Azure Container Storage relies on privileged containers. You may  configure Azure Policy to block privileged containers. When they're blocked, the installation of Azure Container Storage might time out or fail, and you might see errors in the `gatekeeper-controller` logs such as:
+Azure Container Storage might fail to install if Azure Policy restrictions are in place. Specifically, Azure Container Storage relies on privileged containers. You may configure Azure Policy to block privileged containers. When they're blocked, the installation of Azure Container Storage might time out or fail, and you might see errors in the `gatekeeper-controller` logs such as:
 
 ```output
 $ kubectl logs -n gatekeeper-system deployment/gatekeeper-controller
@@ -73,8 +77,7 @@ $ az aks nodepool list -g $resourceGroup --cluster-name $clusterName --query "[]
 
 ```
 
-You can remove these taints temporarily to unblock and configure them back after you install and enable successfully. You can go to Azure Portal > AKS cluster > Node pools, click your node pool, remove the taints in "Taints and labels
-" section. Or you can use the following command to remove taints and confirm the change.
+You can remove these taints temporarily to unblock and configure them back after you install and enable successfully. You can go to Azure portal > AKS cluster > Node pools, select your node pool, and remove the taints in the **Taints and labels** section. Or you can use the following command to remove taints and confirm the change.
 
 ```bash
 $ az aks nodepool update -g $resourceGroup --cluster-name $clusterName --name $nodePoolName --node-taints ""
@@ -96,6 +99,16 @@ Retry the installing or enabling after you remove node taints successfully. Afte
 If you try to install Azure Container Storage with Ephemeral Disk, specifically with local NVMe on a cluster where the virtual machine (VM) SKU doesn't have NVMe drives, you get the following error message: *Cannot set --storage-pool-option as NVMe as none of the node pools can support ephemeral NVMe disk*.
 
 To remediate, create a node pool with a VM SKU that has NVMe drives and try again. See [storage optimized VMs](/azure/virtual-machines/sizes-storage).
+
+### Prometheus operator conflict in Azure Container Storage
+
+Azure Container Storage uses the Prometheus Operator and its deployment to collect metrics for internal support and troubleshooting. If your Kubernetes cluster already has a Prometheus Operator installed, both operators might attempt to provision the PromCluster custom resource, which can lead to conflicts or installation issues.
+
+To avoid conflicts, you can either exclude the acstor namespace from your existing Prometheus configuration or disable Azure Container Storage metrics collection by running the following command. Replace `<cluster_name>` and `<resource_group_name>` with your own values.
+
+```azurecli
+az k8s-extension update --cluster-type managedClusters --cluster-name <cluster_name> --resource-group <resource_group_name> --name azurecontainerstorage --config base.metrics.enablePrometheusStack=false
+```
 
 ## Troubleshoot storage pool issues
 
@@ -191,7 +204,7 @@ When disabling a storage pool type via `az aks update --disable-azure-container-
 
 *Disabling Azure Container Storage for storage pool type `<storage-pool-type>` forcefully deletes all the storage pools of the same type and it affects the applications using these storage pools. Forceful deletion of storage pools can also lead to leaking of storage resources which are being consumed. Do you want to validate whether any of the storage pools of type `<storage-pool-type>` are being used before disabling Azure Container Storage? (Y/n)*
 
-If you select Y, an automatic validation runs to ensure that there are no persistent volumes created from the storage pool. Selecting n bypasses this validation and disables the storage pool type, deleting any existing storage pools and potentially affecting your application.
+If you select Y, an automatic validation runs to ensure there are no persistent volumes created from the storage pool. Selecting n bypasses this validation and disables the storage pool type, deleting any existing storage pools and potentially affecting your application.
 
 ## Troubleshoot volume issues
 
@@ -252,11 +265,11 @@ Azure Container Storage uses `etcd`, a distributed, reliable key-value store, to
 
 Run the following command to get a list of pods.
 
-```azurecli-interactive
+```azurecli
 kubectl get pods
 ```
 
-You may see output similar to the following.
+You should see output similar to this example.
 
 ```output
 NAME     READY   STATUS              RESTARTS   AGE 
@@ -265,7 +278,7 @@ fiopod   0/1     ContainerCreating   0          25m
 
 Describe the pod:
 
-```azurecli-interactive
+```azurecli
 kubectl describe pod fiopod
 ```
 
@@ -287,11 +300,11 @@ Warning  FailedAttachVolume  3m8s (x6 over 23m)  attachdetach-controller  Attach
 
 You can also run the following command to check the status of `etcd` instances:
 
-```azurecli-interactive
+```azurecli
 kubectl get pods -n acstor | grep "^etcd"
 ```
 
-You should see output similar to the following, with all instances in the Running state:
+You should see output similar to this example, with all instances in the Running state:
 
 ```output
 etcd-azurecontainerstorage-bn89qvzvzv                            1/1     Running   0               4d19h

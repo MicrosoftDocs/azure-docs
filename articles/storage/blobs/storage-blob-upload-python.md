@@ -3,14 +3,15 @@ title: Upload a blob with Python
 titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the Python client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 03/25/2025
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: python
 ms.custom: devx-track-python, devguide-python
+# Customer intent: As a Python developer, I want to upload blobs to my cloud storage using the Python client library, so that I can efficiently manage and store data for my applications.
 ---
 
 # Upload a block blob with Python

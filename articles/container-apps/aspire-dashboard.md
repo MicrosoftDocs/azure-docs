@@ -4,14 +4,17 @@ description: Use real time log data with Aspire Dashboard in Azure Container App
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.custom: devx-track-azurecli, devx-track-dotnet
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-dotnet
+  - build-2025
 ms.topic: how-to
-ms.date: 1/14/2025
+ms.date: 05/02/2025
 ms.author: cshoe
 zone_pivot_groups: azure-azd-cli-portal
 ---
 
-# Read real time app data with Aspire Dashboard in Azure Container Apps (preview)
+# Read real time app data with Aspire Dashboard in Azure Container Apps
 
 The [Aspire Dashboard](/dotnet/aspire/fundamentals/dashboard/overview) displays live data about how applications and other resources are running within an environment.
 
@@ -52,6 +55,9 @@ You can enable the Aspire Dashboard on any existing container app using the foll
 
 You can also find the Aspire Dashboard settings by browsing to your Container Apps environment and selecting *Monitoring* > *Logging options*.
 
+>[!NOTE]
+> Custom domains aren't supported for accessing the Aspire Dashboard. You must use the default domain name provided by Azure Container Apps, such as: `https://<DOTNET_COMPONENT_NAME>.ext.<CLUSTER_NAME>.<REGION>.azurecontainerapps.io`
+
 ::: zone-end
 
 ::: zone pivot="azurecli"
@@ -66,6 +72,9 @@ az containerapp env dotnet-component create \
 ```
 
 The `create` command returns the dashboard URL that you can open in a browser.
+
+>[!NOTE]
+> Custom domains aren't supported for accessing the Aspire Dashboard. You must use the default domain name provided by Azure Container Apps, such as: `https://<DOTNET_COMPONENT_NAME>.ext.<CLUSTER_NAME>.<REGION>.azurecontainerapps.io`
 
 ::: zone-end
 
@@ -82,6 +91,9 @@ azd up
 
 The `up` command returns the dashboard URL that you can open in a browser.
 
+>[!NOTE]
+> Custom domains aren't supported for accessing the Aspire Dashboard. You must use the default domain name provided by Azure Container Apps, such as: `https://<DOTNET_COMPONENT_NAME>.ext.<CLUSTER_NAME>.<REGION>.azurecontainerapps.io`
+
 ::: zone-end
 
 ## Troubleshooting
@@ -97,7 +109,7 @@ Refer to the following items if you have issues enabling your dashboard:
     This issue occurs because security group permissions do not propagate to the Container App Environment. To solve this problem, make sure you explicitly give yourself a *Contributor* or *Owner* role on your Container Apps environment. This can be done through the following steps:
   
     - **Navigate to the Resource:**
-        - Open the Azure Portal and search for your container app environment.
+        - Open the Azure portal and search for your container app environment.
     - **Access the Access Control (IAM) Blade:**
         - Click on _Access Control (IAM)_ for the container app environment.
     - **Verify Existing Role Assignments:**
@@ -112,6 +124,7 @@ Refer to the following items if you have issues enabling your dashboard:
   - **Verify Dashboard Access:**
     - Test by attempting to access the Aspire dashboard. If you continue to get the error, please reach out to our team.
 
+- Custom domains aren't supported for accessing the Aspire Dashboard. You must use the default domain name provided by Azure Container Apps, such as: `https://<DOTNET_COMPONENT_NAMNE>.ext.<CLUSTER_NAME>.<REGION>.azurecontainerapps.io`
 
 ## Related content
 

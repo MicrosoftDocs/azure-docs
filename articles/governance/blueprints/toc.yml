@@ -5,6 +5,18 @@
   - name: What is Azure Blueprints?
     displayName: templates, policy, definition, assignment, rbac
     href: ./overview.md
+  - name: Azure Blueprints retirement
+    displayName: deprecation, retire, retirement, timeline, deployment stacks, template specs, phased
+    href: ./blueprint-retirement.md
+  - name: Retirement FAQ
+    displayName: faq, frequently asked questions, deny assignment, locks, data retention
+    href: ./blueprint-retirement-faq.md
+  - name: Migrate to template specs
+    displayName: migrate, migration, template specs, export, deployment stacks
+    href: ./migrate-to-template-specs.md
+  - name: Migrate to deployment stacks
+    displayName: migrate, migration, deployment stacks, bicep, deny settings
+    href: ../../azure-resource-manager/bicep/migrate-blueprint.md
 - name: Quickstarts
   expanded: true
   items:

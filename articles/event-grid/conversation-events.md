@@ -1,7 +1,7 @@
 ---
 title: Microsoft 365 Group Conversations events
 description: This article describes Microsoft 365 Group Conversations event types and provides event samples.
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 12/6/2023
 ---
 

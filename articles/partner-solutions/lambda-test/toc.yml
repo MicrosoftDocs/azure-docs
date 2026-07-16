@@ -1,11 +1,13 @@
 items:
-- name: LambdaTest - HyperExecute (preview) Documentation
+- name: LambdaTest - HyperExecute Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is LambdaTest - HyperExecute (preview)?
+  - name: What is LambdaTest - HyperExecute?
     href: overview.md 
+  - name: FAQ
+    href: faq.yml
 - name: Quickstart
   expanded: true
   items:
@@ -16,3 +18,5 @@ items:
   items:
   - name: Manage your resource
     href: manage.md
+  - name: Get support
+    href: https://www.lambdatest.com/contact-us

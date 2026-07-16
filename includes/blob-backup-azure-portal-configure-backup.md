@@ -2,7 +2,7 @@
 author: AbhishekMallick-MS
 ms.service: azure-backup
 ms.topic: include
-ms.date: 12/19/2024
+ms.date: 11/25/2025
 ms.author: v-abhmallick
 ---
 
@@ -12,7 +12,7 @@ You can use a single backup policy to back up one or more storage accounts to th
 
 To configure backup for storage accounts, follow these steps:
 
-1. Go to **Business Continuity Center** > **Overview**, and then select **+ Configure protection**.
+1. Go to **Resiliency** > **Overview**, and then select **+ Configure protection**.
 
    :::image type="content" source="./media/blob-backup-azure-portal-configure-backup/start-vaulted-backup.png" alt-text="Screenshot shows how to initiate vaulted blob backup.":::
 
@@ -42,7 +42,7 @@ To configure backup for storage accounts, follow these steps:
    >[!Note]
    >The **Backup readiness** column shows if the Backup vault has enough permissions to configure backups for each storage account.
 
-   1. The number of containers to be backed up is less than *100* in case of vaulted backups. By default, all containers are selected; however, you can exclude containers that shouldn't be backed up. If your storage account has *>100* containers, you must exclude containers to reduce the count to *100 or below*.
+   1. The number of containers to be backed up is less than *1000* in case of vaulted backups. By default, all containers are selected; however, you can exclude containers that shouldn't be backed up. If your storage account has *>1000* containers, you must exclude containers to reduce the count to *1000 or below*.
 
       >[!Note]
       >In case of vaulted backups, the storage accounts to be backed up must contain at least *1 container*. If the selected storage account doesn't contain any containers or if no containers are selected, you may get an error while configuring backups.
@@ -59,6 +59,8 @@ To configure backup for storage accounts, follow these steps:
 
         >[!Note]
         >The template contains details for selected storage accounts only. If there are multiple users that need to assign roles for different storage accounts, you can select and download different templates accordingly.
+
+   1. To configure the backup operation with a storage account in a different subscription (Cross Subscription Backup), choose the alternate subscription from the **Subscription** filter. The storage accounts from the selected subscription appear.
 
 6. To assign the required roles, select the storage accounts, and then select **Download role assignment template** to download the template. Once the role assignments are complete, select **Revalidate** to validate the permissions again, and then configure backup.
 

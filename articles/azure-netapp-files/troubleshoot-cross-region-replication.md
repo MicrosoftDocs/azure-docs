@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot cross-region replication errors for Azure NetApp Files | Microsoft Docs
+title: Troubleshoot cross-region replication errors for Azure NetApp Files
 description: Describes error messages and resolutions that can help you troubleshoot cross-region replication issues for Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
@@ -7,6 +7,7 @@ ms.service: azure-netapp-files
 ms.topic: troubleshooting
 ms.date: 04/28/2025
 ms.author: anfdocs
+# Customer intent: As a cloud administrator, I want to troubleshoot cross-region replication errors for managed file services, so that I can ensure data availability and maintain uninterrupted replication processes.
 ---
 # Troubleshoot cross-region replication errors
 
@@ -17,7 +18,7 @@ This article describes error messages and resolutions that can help you troubles
 |     Error message    |     Resolution    |
 |-|-|
 | `Volume {0} cannot be used as source because it is already in replication` | You cab't   create a replication with a source volume that is already in a data replication relationship.    |
-| `Peered region '{0}' is not accepted` | You can't create replication between unpaired regions. Review [supported regional pairs](cross-region-replication-introduction.md#supported-region-pairs). |
+| `Peered region '{0}' is not accepted` | You can't create replication between unpaired regions. Review [supported regional pairs](replication.md#supported-region-pairs). |
 | `RemoteVolumeResource '{0}' of wrong type '{1}'` | Validate that the remote resource ID is a volume resource ID.    |
 
 ## Errors authorizing volume  
@@ -77,14 +78,14 @@ This article describes error messages and resolutions that can help you troubles
 
 | Error message | Resolution |
 |-|-|
-|   Attempt to resize a source volume is failing with the error `"PoolSizeTooSmall","message":"Pool size too small for total volume size."`  |  Ensure you have enough space available in the capacity pools for both the source and the destination volumes of cross-region replication. When you resize the source volume, the destination volume is automatically resized. If the capacity pool hosting the destination volume doesn’t have enough available space, resizing both the source and the destination volumes will fail. See [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume) for details.   |
+|   Attempt to resize a source volume is failing with the error `"PoolSizeTooSmall","message":"Pool size too small for total volume size."`  |  Ensure you have enough space available in the capacity pools for both the source and the destination volumes of cross-region replication. When you resize the source volume, the destination volume is automatically resized. If the capacity pool hosting the destination volume doesn’t have enough available space, resizing both the source and the destination volumes will fail. See [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-replication-destination-volume) for details.   |
 
 ## Next steps  
 
-* [Cross-region replication](cross-region-replication-introduction.md)
-* [Requirements and considerations for using cross-region replication](cross-region-replication-requirements-considerations.md)
+* [Cross-region replication](replication.md)
+* [Requirements and considerations for using cross-region replication](replication-requirements.md)
 * [Create volume replication](cross-region-replication-create-peering.md)
 * [Display health status of replication relationship](cross-region-replication-display-health-status.md)
 * [Manage disaster recovery](cross-region-replication-manage-disaster-recovery.md)
-* [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-cross-region-replication-destination-volume)
+* [Resize a cross-region replication destination volume](azure-netapp-files-resize-capacity-pools-or-volumes.md#resize-a-replication-destination-volume)
 * [Test disaster recovery for Azure NetApp Files](test-disaster-recovery.md)

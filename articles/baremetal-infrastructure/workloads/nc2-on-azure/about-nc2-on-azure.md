@@ -2,15 +2,16 @@
 title: About Nutanix Cloud Clusters on Azure
 author: jjaygbay1
 ms.author: jacobjaygbay
-description: Learn about Nutanix Cloud Clusters on Azure and the benefits it offers.
+description: Learn about Nutanix Cloud Clusters on Azure and the benefits it offers (obsolete).
 ms.topic: overview
-ms.subservice: baremetal-nutanix
+ms.subservice: nutanix
 ms.custom: engagement-fy23
 ms.date: 03/28/2025
-ms.service: azure-baremetal-infrastructure
+ms.service: baremetal-infrastructure-azure
+# Customer intent: "As a cloud architect, I want to leverage Nutanix Cloud Clusters on Azure, so that I can seamlessly manage hybrid workloads and optimize resource provisioning while utilizing existing skills and licenses."
 ---
 
-# About Nutanix Cloud Clusters on Azure
+# About Nutanix Cloud Clusters on Azure (obsolete)
 
 In this article, we'll give an overview of the features BareMetal Infrastructure offers for Nutanix workloads.
 
@@ -67,9 +68,7 @@ Under the Azure Hybrid Benefit terms NC2 on Azure should be considered a Dedicat
 - [Windows Server Product Terms](https://www.microsoft.com/licensing/terms/productoffering/WindowsServerStandardDatacenterEssentials/EAEAS) 
 - [Azure Product Terms](https://www.microsoft.com/licensing/terms/productoffering/MicrosoftAzure/EAEAS)
 
-There's no current product integration where you can choose Azure Hybrid Benefit for VMs in NC2 on Azure. 
-
-For any additional questions on Azure Hybrid Benefit, contact your Microsoft Account Executive. 
+Currently, it is not possible to specify the use of Azure Hybrid Benefit in NC2 on Azure. For any additional questions on Azure Hybrid Benefit, contact your Microsoft Account Executive. 
 
 ### No-cost Extended Security Updates (ESU) for Windows Server
 Windows virtual machines (VMs) hosted in Azure, including NC2 on Azure, are eligible for Extended Security Updates (ESUs) free of charge. 
@@ -104,7 +103,11 @@ On-premises Nutanix environments require the Nutanix customer to support all the
 
 Microsoft manages the Azure BareMetal specialized compute hardware and its data and control plane platform for underlay network. Microsoft supports if the customers plan to bring their existing Azure Subscription, virtual network, vWAN, etc.
 
-Nutanix covers the life-cycle management of Nutanix software (MCM, Prism Central/Element, etc.) and their licenses.
+
+Nutanix covers the deployment of Nutanix software (Prism Central/Element, AHV, AOS, etc.) and their licenses.
+
+Customers are responsible for the lifecycle management of the Nutanix software after their deployment is successful.
+
 
 **Monitoring and remediation**
 

@@ -2,26 +2,25 @@
 title: Azure API Management policy reference - llm-semantic-cache-store
 description: Reference for the llm-semantic-cache-store policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
 ms.custom:
 ms.topic: reference
-ms.date: 12/13/2024
-ms.author: danlep
+ms.date: 06/02/2026
+ms.update-cycle: 180-days
 ---
 
 # Cache responses to large language model API requests
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
-The `llm-semantic-cache-store` policy caches responses to chat completion API requests to a configured external cache. Response caching reduces bandwidth and processing requirements imposed on the backend Azure OpenAI API and lowers latency perceived by API consumers.
+The `llm-semantic-cache-store` policy caches responses to chat completion API requests to a configured external cache. Response caching reduces bandwidth and processing requirements imposed on the backend language model API and lowers latency perceived by API consumers.
 
 > [!NOTE]
 > * This policy must have a corresponding [Get cached responses to large language model API requests](llm-semantic-cache-lookup-policy.md) policy. 
-> * For prerequisites and steps to enable semantic caching, see [Enable semantic caching for Azure OpenAI APIs in Azure API Management](azure-openai-enable-semantic-caching.md). 
-> * Currently, this policy is in preview.
+> * For prerequisites and steps to enable semantic caching, see [Enable semantic caching for LLM APIs in Azure API Management](azure-openai-enable-semantic-caching.md). 
+> * Because semantic caching returns responses based on similarity (not exact match), it can surface responses that are incorrect, outdated, or unsafe for the current request. Evaluate this feature carefully for your workload and include safeguards.
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -30,7 +29,7 @@ The `llm-semantic-cache-store` policy caches responses to chat completion API re
 ## Policy statement
 
 ```xml
-<llm-semantic-cache-store duration="seconds"/>
+<llm-semantic-cache-store duration="seconds" cache-response="true | false" />
 ```
 
 
@@ -39,18 +38,19 @@ The `llm-semantic-cache-store` policy caches responses to chat completion API re
 | Attribute         | Description                                            | Required | Default |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 | duration         | Time-to-live of the cached entries, specified in seconds. Policy expressions are allowed.    | Yes      | N/A               |
-
+| cache-response         | Set to `true` to cache the current HTTP response. If the attribute is omitted, only HTTP responses with the status code `200 OK` are cached. Policy expressions are allowed.   | No      | `false`            |
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) outbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) outbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ### Usage notes
 
 - This policy can only be used once in a policy section.
 - If the cache lookup fails, the API call that uses the cache-related operation doesn't raise an error, and the cache operation completes successfully. 
+- [!INCLUDE [api-management-cache-rate-limit](../../includes/api-management-cache-rate-limit.md)]
 
 ## Examples
 

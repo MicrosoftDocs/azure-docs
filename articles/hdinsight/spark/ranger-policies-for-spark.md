@@ -7,6 +7,7 @@ author: abhishjain002
 ms.author: abhishjain
 ms.reviewer: sairamyeturi
 ms.date: 02/14/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Configure Apache Ranger policies for Spark SQL in HDInsight with Enterprise Security Package

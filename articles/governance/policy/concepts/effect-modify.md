@@ -2,7 +2,7 @@
 title: Azure Policy definitions modify effect
 description: Azure Policy definitions modify effect determines how compliance is managed and reported.
 ms.date: 03/04/2025
-ms.topic: conceptual
+ms.topic: reference
 ---
 
 # Azure Policy definitions modify effect
@@ -63,7 +63,7 @@ The `details` property of the `modify` effect has all the subproperties that def
 
 - `roleDefinitionIds` (required)
   - This property must include an array of strings that match role-based access control role ID accessible by the subscription. For more information, see [remediation - configure the policy definition](../how-to/remediate-resources.md#configure-the-policy-definition).
-  - The role defined must include all operations granted to the [Contributor](../../../role-based-access-control/built-in-roles.md#contributor) role.
+  - The role defined must include all operations granted to the [Contributor/Tag Contributor](../../../role-based-access-control/built-in-roles.md#contributor) role.
 - `conflictEffect` (optional)
   - Determines which policy definition "wins" if more than one policy definition modifies the same
     property or when the `modify` operation doesn't work on the specified alias.
@@ -197,7 +197,7 @@ Example 3: Ensure that a storage account doesn't allow blob public access, the `
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review the [Azure Policy definition structure](definition-structure-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).
 - Learn how to [get compliance data](../how-to/get-compliance-data.md).

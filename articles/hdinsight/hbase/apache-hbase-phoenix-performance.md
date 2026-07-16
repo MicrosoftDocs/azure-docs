@@ -4,8 +4,8 @@ description: Best practices to optimize Apache Phoenix performance for Azure HDI
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date:  01/02/2025
 ---

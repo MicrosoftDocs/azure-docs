@@ -1,12 +1,15 @@
 ---
-title: Delete backups of an Azure NetApp Files volume  | Microsoft Docs
+title: Delete backups of an Azure NetApp Files volume
 description: Describes how to delete individual backups that you no longer need to keep for a volume.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 02/18/2025
+ms.date: 05/16/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+# Customer intent: As a cloud administrator, I want to delete unnecessary backups of an Azure NetApp Files volume, so that I can free up storage space and potentially reduce costs associated with backups.
 ---
 # Delete backups of a volume 
 
@@ -16,10 +19,14 @@ By design, Azure NetApp Files prevents you from deleting the latest backup. If t
 
 Deleting the latest backup is permitted only when either of the following conditions are met:
 
-*    The volume has been deleted.
-*    The latest backup is the only remaining backup for the deleted volume.
+* There's no backup policy assigned to the volume. 
+* The volume has been deleted.
+* The latest backup is the only remaining backup for the deleted volume.
 
-If you need to delete backups to free up space, select an older backup from the **Backups** list to delete.
+If you need to delete backups to free up space, select an older backup from the **Backups** list to delete. The impact of deleting a backup on billing depends on the backup and might marginally reduce costs. Backups are incremental, meaning unchanged data isn't backed up again. This efficient data management results in multiple incremental, small backups. Cost reduction depends on the size of the backup deleted. Deleting larger backups results in greater cost savings.
+
+The first backup contains all data that was on the volume at the time the backup was created. For more information about backups, see [Understand Azure NetApp Files backups](backup-introduction.md) and [Requirements and considerations for Azure NetApp Files backup](backup-requirements-considerations.md).
+
 
 > [!NOTE]
 > Deleting the last backup on a volume removes the reference point for future incremental backups.

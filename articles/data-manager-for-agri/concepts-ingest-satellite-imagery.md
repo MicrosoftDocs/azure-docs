@@ -4,7 +4,7 @@ description: Get step-by-step guidance on how to ingest satellite data.
 author: BlackRider97
 ms.author: ramithar
 ms.service: azure-data-manager-agriculture
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/17/2023
 ms.custom: template-concept
 show_latex: true
@@ -94,7 +94,7 @@ While Azure Data Manager for Agriculture is in preview, it supports ingesting da
 
 ### Sentinel-2
 
-[Sentinel-2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2) is a satellite constellation that the European Space Agency (ESA) launched under the Copernicus mission. This constellation has a pair of satellites and carries a multispectral instrument (MSI) payload that samples 13 spectral bands: four bands at 10 m, six bands at 20 m, and three bands at 60-m spatial resolution.  
+[Sentinel-2](https://www.esa.int/Applications/Observing_the_Earth/Copernicus/Sentinel-2) is a satellite constellation that the European Space Agency (ESA) launched under the Copernicus mission. This constellation has a pair of satellites and carries a multispectral instrument (MSI) payload that samples 13 spectral bands: four bands at 10 m, six bands at 20 m, and three bands at 60-m spatial resolution.  
 
 Sentinel-2 has two products:
 

@@ -2,12 +2,15 @@
 title: Copy data from or to MongoDB Atlas
 description: Learn how to copy data from MongoDB Atlas to supported sink data stores, or from supported source data stores to MongoDB Atlas, using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: jianleishen
-ms.author: jianleishen
+author: simplywilson
+ms.author: tinglee
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.custom: synapse
-ms.date: 09/20/2023
+ms.topic: how-to
+ms.date: 12/25/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Copy data from or to MongoDB Atlas using Azure Data Factory or Synapse Analytics
@@ -15,6 +18,10 @@ ms.date: 09/20/2023
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from and to a MongoDB Atlas database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric MongoDB Atlas connector documentation](/fabric/data-factory/connector-mongodb-atlas-overview).
+
 
 ## Supported capabilities
 
@@ -243,6 +250,28 @@ To achieve such schema-agnostic copy, skip the "structure" (also called *schema*
 ## Schema mapping
 
 To copy data from MongoDB Atlas to tabular sink or reversed, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
+
+## Data type mapping for MongoDB Atlas
+
+When copying data from MongoDB Atlas, the following mappings are used from MongoDB Atlas data types to interim data types used by the service internally. See [Schema and data type mappings](copy-activity-schema-and-type-mapping.md) to learn about how copy activity maps the source schema and data type to the sink.
+
+| MongoDB Atlas data type | Interim service data type |
+| ------ | ------ |
+| Date | String |
+| ObjectId | String |
+| Decimal128 | String |
+| TimeStamp | The most significant 32 bits -> Int64<br>The least significant 32 bits -> Int64 |
+| String | String |
+| Double | String |
+| Int32 | String |
+| Int64 | String |
+| Boolean | Boolean |
+| Null | Null |
+| JavaScript | String |
+| Regular Expression | String |
+| Min key | Int64 |
+| Max key | Int64 |
+| Binary | String |
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
