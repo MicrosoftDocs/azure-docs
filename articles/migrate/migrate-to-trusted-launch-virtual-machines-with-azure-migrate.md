@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.date: 03/16/2026
+ms.update-cycle: 1825-days
 ms.custom: engagement-fy26
 # Customer intent: "As an IT administrator, I want to migrate servers to Azure Trusted Launch Virtual Machines or Confidential Virtual Machines so that I can ensure enhanced security for my Virtual Machines."
 ---
