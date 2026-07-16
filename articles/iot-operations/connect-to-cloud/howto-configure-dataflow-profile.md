@@ -224,13 +224,13 @@ To learn how to configure these diagnostic settings, see [ProfileDiagnostics](/r
 
 # [Azure CLI](#tab/azure-cli)
 
-Use the [az iot ops dataflow profile update](/cli/azure/iot/ops/dataflow/profile#az-iot-ops-dataflow-profile-update) command to update the diagnostics settings of a data flow profile:
+Use the [az iot ops dataflow profile update](/cli/azure/iot/ops/dataflow/profile#az-iot-ops-dataflow-profile-update) command to update the diagnostic settings of a data flow profile:
 
 ```azurecli
 az iot ops dataflow profile update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <ProfileName> --log-level <level>
 ```
 
-Here's an example command to set the log level to `debug` for data flow profile `my-dataflow-profile`:
+Here's an example command that sets the log level to `debug` for data flow profile `my-dataflow-profile`:
 
 ```azurecli
 az iot ops dataflow profile update --resource-group myResourceGroup --instance myAioInstance --name my-dataflow-profile --log-level debug
