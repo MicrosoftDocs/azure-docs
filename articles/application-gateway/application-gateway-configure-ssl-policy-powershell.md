@@ -119,7 +119,7 @@ CipherSuites:
 
 ## Configure a custom TLS policy
 
-When configuring a custom TLS policy, you pass the following parameters: PolicyType, MinProtocolVersion, CipherSuite, and ApplicationGateway. If you attempt to pass other parameters, you get an error when creating or updating the Application Gateway. The following example sets a custom TLS policy on an application gateway. It sets the minimum protocol version to `TLSv1_2` and enables the following cipher suites:
+When you configure a custom TLS policy, provide the following parameters: `PolicyType`, `MinProtocolVersion`, `CipherSuite`, and `ApplicationGateway`. If you try to provide other parameters, you get an error when creating or updating the Application Gateway. The following example sets a custom TLS policy on an application gateway. It sets the minimum protocol version to `TLSv1_2` and enables the following cipher suites:
 
 * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
