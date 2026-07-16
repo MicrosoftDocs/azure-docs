@@ -67,7 +67,7 @@ For more information, see [URL Path Based Routing overview](url-route-overview.m
 
 ## Multiple-site hosting
 
-Multiple-site hosting lets you configure routing based on host name or domain name for more than one web application on the same application gateway — up to 100+ websites, each directed to its own backend pool. You can also host subdomains of the same parent domain and define wildcard host names, with up to five host names per listener.
+Multiple-site hosting lets you configure routing based on host name or domain name for more than one web application on the same application gateway. You can host more than 100 websites, each directed to its own backend pool. You can also host subdomains of the same parent domain and define wildcard host names, with up to five host names per listener.
 
 For a detailed explanation and examples, see [Application Gateway multiple site hosting](multiple-site-overview.md) and the [multi-site listener details in Application Gateway components](application-gateway-components.md#listeners). For wildcard host names, see [wildcard host names in listener](multiple-site-overview.md#wildcard-host-names-in-listener).
 
