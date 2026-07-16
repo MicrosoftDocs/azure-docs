@@ -5,7 +5,7 @@ description: Configure Nok Nok S3 Authentication Suite with Azure AD B2C to enab
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 12/09/2024
 ms.author: gasinh

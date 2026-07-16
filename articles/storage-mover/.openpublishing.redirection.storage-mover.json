@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/storage-mover/cloud-to-cloud-private-network-configs.md",
+            "redirect_url": "/azure/storage-mover/storage-mover/cloud-to-cloud-private-network-configuration",
+            "redirect_document_id": false
+        }
+    ]
+}

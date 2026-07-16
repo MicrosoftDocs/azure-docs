@@ -3,7 +3,7 @@ title: What is Resiliency?
 description: Resiliency is a cloud-native unified business continuity and disaster recovery (BCDR) management platform in Azure that enables you to manage your protection estate across solutions and environments.
 ms.topic: overview
 ms.service: resiliency
-ms.date: 11/19/2025
+ms.date: 06/02/2026
 ms.custom:
   - mvc
   - ignite-2023
@@ -15,8 +15,6 @@ ms.author: v-mallicka
  
 Resiliency in Azure is a cloud-native unified experience for resiliency posture management that enables you to manage your protection estate across solutions and environments. It provides a unified experience with consistent views, seamless navigation, and supporting information to provide a holistic view of your resiliency estate for better discoverability with the ability to do core activities.
 
-[!INCLUDE [Resiliency rebranding announcement updates.](../../includes/resiliency-announcement.md)]
-
 ## Expanded scope and capabilities of Resiliency in Azure
 
 Azure Business Continuity Center (ABCC) is now Resiliency in Azure, indicating a broader scope and expanded capabilities. The platform, originally focused on backup and disaster recovery, now includes built-in resiliency experiences that integrate Zone Resiliency and High Availability, Backup & Disaster Recovery, and Ransomware Protection within a single solution.
@@ -26,10 +24,10 @@ Resiliency in Azure consolidates all aspects of resiliency into one platform:
 - **Infrastructure Resiliency**: Protect from infrastructure outages with zone resiliency.
 - **Data Resiliency**: Ensure backup and disaster recovery meet Recovery Point Objective (RPO)/Recovery Time Objective (RTO).
 - **Cyber Recovery**: Secure backups and enable at-scale recovery during cyberattacks.
+- **Zonal resiliency (preview): Offers integrated experiences such as [zone down drill](availability-zone-down-drills-about.md), [goals and recommendations](goals-recommendations-about.md), and a [recovery orchestration plan](recovery-orchestration-plan-about.md) to ensure ongoing resilience of your applications.
 
 Existing Azure Business Continuity Center capabilities continue to be available. Resiliency in Azure can be used to manage backup and disaster recovery at scale from a single interface across environments and solutions. It allows configuration of backups and replication, defining protection policies, monitoring operations, and reviewing configurations. Security features include immutability, soft delete, Multi-user authorization, Private endpoint, Customer Managed keys (CMK), and the Threat Detection for Virtual Machines (VMs) to help protect datasources from ransomware.
 
-To try out the Zone Resiliency feature, fill out [this enrollment form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbR9NW9IkjD2RCnDQwsmIfABFUNU5MWUVaN1FWWDYxMFY1VTNBM1FPVDM3OC4u&route=shorturl).
 
 ## Why should I use Resiliency in Azure?
 

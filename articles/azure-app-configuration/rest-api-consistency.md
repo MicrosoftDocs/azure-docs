@@ -52,5 +52,5 @@ If you omit the `Sync-Token` header from the request, it's possible for the serv
 The server might respond with multiple synchronization tokens for a single request. To keep real-time consistency for the next request, the client must respond with all of the received synchronization tokens. Multiple header values must be comma-separated.
 
 ```http
-Sync-Token: <token1-id>=<value>,<token2-id>=<value>
+Sync-Token: <Token1Id>=<value>,<Token2Id>=<value>
 ```

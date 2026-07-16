@@ -24,6 +24,9 @@ highlightedContent:
     - title: Understanding the Storage Mover resource hierarchy
       itemType: concept
       url: resource-hierarchy.md
+    - title: Customer-initiated disaster recovery
+      itemType: how-to-guide
+      url: customer-initiated-disaster-recovery.md
     - title: Download the Storage Mover agent
       itemType: download
       url: https://aka.ms/StorageMover/agent

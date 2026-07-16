@@ -23,7 +23,7 @@ ms.custom: template-overview
 
 Microsoft Azure provides multiple offerings for running and managing SAP systems, ranging from traditional Azure Virtual Machine deployments to top-level Azure services and integrated tools that extend SAP capabilities across the Microsoft ecosystem.
 
-## Key Terminology
+## Key terminology
 
 - **SAP Workload**: SAP applications, databases, and supporting infrastructure components
 - **Azure Center for SAP**: Native Azure service making SAP a top-level workload
@@ -33,9 +33,9 @@ Microsoft Azure provides multiple offerings for running and managing SAP systems
 - **SAP Landscape**: Complete SAP environment including all system components
 - **Azure-Native**: Services built specifically for Azure platform integration
 
-## SAP on Azure Service Categories
+## SAP on Azure service categories
 
-### Core SAP on Azure Services
+### Core SAP on Azure services
 
 | Service Category | Primary Use Case | Deployment Model | Management Level |
 |-----------------|------------------|------------------|------------------|
@@ -45,7 +45,7 @@ Microsoft Azure provides multiple offerings for running and managing SAP systems
 | **Monitoring Solutions** | SAP landscape monitoring | Azure-native monitoring | Hybrid management |
 
 
-### SAP on Azure VM Workloads
+### SAP on Azure VM workloads
 
 **Service Overview**: Run SAP workloads on Azure Virtual Machines with certified configurations  
 **Certification Status**: Azure is certified for multiple SAP products including SAP HANA and SAP NetWeaver  
@@ -116,7 +116,7 @@ Microsoft Azure provides multiple offerings for running and managing SAP systems
 
 **Reference**: [Azure Monitor for SAP solutions](monitor/about-azure-monitor-sap-solutions.md)
 
-## Microsoft Services Integration
+## Microsoft services integration
 
 ### SAP integration with Microsoft services
 
@@ -141,7 +141,7 @@ Microsoft Azure provides multiple offerings for running and managing SAP systems
 
 **Reference**: [SAP Integration with Microsoft Services](workloads/integration-get-started.md)
 
-## Infrastructure & Compute Services
+## Infrastructure & compute services
 
 ### Azure Dedicated Hosts
 
@@ -164,9 +164,9 @@ Microsoft Azure provides multiple offerings for running and managing SAP systems
 
 **Reference**: [Azure Dedicated Hosts](/azure/virtual-machines/dedicated-hosts)
 
-## Storage Services
+## Storage services
 
-### Enterprise Storage Solutions
+### Enterprise storage solutions
 
 | Storage Service | Optimized For | Performance Characteristics | Use Cases |
 |----------------|---------------|---------------------------|-----------|
@@ -199,11 +199,11 @@ Microsoft Azure provides multiple offerings for running and managing SAP systems
 - Cross-platform file sharing capabilities
 - Integration with Azure security and compliance features
 
-**Reference**: [Azure Files](/azure/storage/files/) | [Using Azure Premium Files NFS and SMB for SAP](/azure/sap/workloads/planning-guide-storage-azure-files)
+**Reference**: [Azure Files](/azure/storage/files/) | [Using Azure Files SSD NFS and SMB for SAP](/azure/sap/workloads/planning-guide-storage-azure-files)
 
-## Security & Compliance
+## Security & compliance
 
-### Security Management Services
+### Security management services
 
 | Security Service | Primary Function | SAP Integration Points |
 |-----------------|------------------|----------------------|
@@ -253,9 +253,9 @@ For more information, see the [SAP integration with Microsoft services](workload
 
 **Reference**: [Microsoft Defender for Cloud](/azure/defender-for-cloud/)
 
-## Backup & Disaster Recovery
+## Backup & disaster recovery
 
-### Data Protection Services
+### Data protection services
 
 | Service | Backup Capabilities | Recovery Features | SAP-Specific Benefits |
 |---------|-------------------|------------------|----------------------|
@@ -302,9 +302,9 @@ For more information, see the [SAP integration with Microsoft services](workload
 
 **Reference**: [Azure Site Recovery](/azure/site-recovery/site-recovery-sap)
 
-## Analytics & AI Integration
+## Analytics & AI integration
 
-### Data Analytics Platform Services
+### Data analytics platform services
 
 | Analytics Service | Core Capability | SAP Integration Scenarios |
 |-------------------|----------------|--------------------------|
@@ -351,9 +351,9 @@ For more information, see the [SAP integration with Microsoft services](workload
 
 **Reference**: [Microsoft Fabric](/azure/sap/workloads/extract-sap-data#sap-data-extraction-tools-and-solutions)
 
-## DevOps & Management
+## DevOps & management
 
-### Development and Operations Services
+### Development and operations services
 
 | DevOps Service | Primary Function | SAP Application |
 |----------------|------------------|----------------|
@@ -381,7 +381,7 @@ For more information, see the [SAP integration with Microsoft services](workload
 
 **Reference**: [Azure DevOps](/azure/sap/automation/configure-devops?tabs=linux)
 
-#### Infrastructure as Code
+#### Infrastructure as code
 
 **Service Overview**: Template-based infrastructure provisioning for consistent SAP deployments  
 **Template Types**: Azure Resource Manager templates and Bicep language support  
@@ -420,9 +420,9 @@ For more information, see the [SAP integration with Microsoft services](workload
 
 **Reference**: [Governance disciplines for SAP on Azure](/azure/cloud-adoption-framework/scenarios/sap/eslz-security-governance-and-compliance#compliance-and-governance-design-recommendations)
 
-## Service Selection Decision Matrix
+## Service selection decision matrix
 
-### Deployment Approach Selection
+### Deployment approach selection
 
 | Requirement | VM Workloads | Azure Center for SAP | Automation Framework |
 |-------------|--------------|---------------------|---------------------|
@@ -434,7 +434,7 @@ For more information, see the [SAP integration with Microsoft services](workload
 
 **Legend**: ✓ = Strong fit, ○ = Partial fit, ✗ = Not suitable
 
-### Monitoring and Analytics Selection
+### Monitoring and analytics selection
 
 | Use Case | Azure Monitor for SAP | Azure Synapse | Microsoft Fabric |
 |----------|----------------------|----------------|------------------|
@@ -444,28 +444,28 @@ For more information, see the [SAP integration with Microsoft services](workload
 | **Real-time Analytics** | ✓ Operational | ✓ Advanced | ✓ Advanced |
 | **SAP-Native Integration** | ✓ Optimized | ○ Standard | ○ Standard |
 
-## Next Steps Decision Path
+## Next steps decision path
 
-### 1. Assessment Phase
+### 1. Assessment phase
 - **Evaluate current SAP landscape** and migration requirements
 - **Identify integration needs** with existing Microsoft services
 - **Determine compliance and security requirements**
 
-### 2. Service Selection Phase
+### 2. Service selection phase
 - **Choose core hosting approach**: VM workloads vs. Azure Center for SAP
 - **Select supporting services** based on requirements matrix
 - **Plan integration architecture** with Microsoft ecosystem
 
-### 3. Implementation Phase
+### 3. Implementation phase
 - **Start with pilot deployment** using selected services
 - **Implement monitoring and security** configurations
 - **Establish DevOps and governance** procedures
 
-## Additional Resources
+## Additional resources
 
 - [SAP solutions on Azure](https://azure.microsoft.com/solutions/sap/)
 - [Get started with SAP and Azure integration scenarios](workloads/integration-get-started.md)
 
-## Reference Links
+## Reference links
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533

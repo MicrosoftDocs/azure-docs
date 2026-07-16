@@ -6,7 +6,7 @@ author: gargi-sinha
 ms.author: gasinh
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.subservice: b2c
 ms.topic: how-to
 ms.date: 06/21/2024

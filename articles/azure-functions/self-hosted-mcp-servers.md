@@ -11,7 +11,7 @@ ms.custom:
 ai-usage: ai-assisted
 ms.collection: 
   - ce-skilling-ai-copilot 
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 
 #customer intent: As a developer, I want to understand how to host a self-hosted MCP server on Azure Functions so that I can leverage the platform's capabilities for my application.
 ---
@@ -176,6 +176,7 @@ The ability to host your own SDK-based MCP servers in Functions is currently in 
 ::: zone pivot="programming-language-java"
 Not yet available.
 ::: zone-end 
+
 
 ## Related articles
 

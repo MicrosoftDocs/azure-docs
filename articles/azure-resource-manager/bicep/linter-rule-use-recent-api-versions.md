@@ -3,7 +3,7 @@ title: Linter rule - use recent API versions
 description: Linter rule - use recent API versions
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 10/30/2025
+ms.date: 06/03/2026
 ---
 
 # Linter rule - use recent API versions
@@ -19,7 +19,10 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 `use-recent-api-versions`
 
-The rule includes a configuration property named `maxAllowedAgeInDays`, with a default value of **730** days (equivalent to two years). A value of **0** indicates that the API version must be the latest version available not in preview or the latest preview version if only previews are available.
+The rule includes two configuration properties:
+
+- `maxAgeInDays` with a default value of **730** days (equivalent to two years). A value of **0** indicates that the API version must be the latest version available not in preview or the latest preview version if only previews are available.
+- `gracePeriodInDays` with a default value of **90** days. A new API version can take time to be fully deployed across all Azure regions. This configuration property specifies the number of days to wait after an API version is published before recommending it. A value of **0** indicates no waiting period, meaning all available versions are shown.
 
 ## Solution
 

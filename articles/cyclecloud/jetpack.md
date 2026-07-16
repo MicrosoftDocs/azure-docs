@@ -3,7 +3,8 @@ title: Jetpack Reference
 description: Read reference information about the Jetpack tool in Azure CycleCloud. Jetpack provides node configuration, distributed synchronization, and HealthCheck.
 author: dougclayton
 ms.author: doclayto
-ms.date: 09/23/2025
+ms.date: 06/19/2026
+ms.topic: reference
 ---
 
 # Jetpack
@@ -102,7 +103,7 @@ jetpack autoscale --file=custom-autoscale.json
 
 Use `jetpack config` to fetch information that CycleCloud passes into a VM. It exposes:
 
-* all the system properties made available via [Ohai](https://docs.chef.io/ohai/)
+* all the system properties made available via [Ohai](https://docs.chef.io/client/19/features/ohai/)
 * a subset of the VM's [Azure metadata](/azure/virtual-machines/windows/instance-metadata-service)
 * information about the parent CycleCloud cluster.
 

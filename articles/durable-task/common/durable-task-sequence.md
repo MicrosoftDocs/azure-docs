@@ -16,7 +16,7 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
-Function chaining is a pattern where you run a sequence of functions in order. It's common to pass the output of one function to the input of the next. This article describes the chaining sequence you build when you complete the Durable Functions quickstart ([C#](../../azure-functions/durable-functions/durable-functions-isolated-create-first-csharp.md), [JavaScript](../../azure-functions/durable-functions/quickstart-js-vscode.md), [TypeScript](../../azure-functions/durable-functions/quickstart-ts-vscode.md), [Python](../../azure-functions/durable-functions/quickstart-python-vscode.md), [PowerShell](../../azure-functions/durable-functions/quickstart-powershell-vscode.md), or [Java](../../azure-functions/durable-functions/quickstart-java.md)). Learn more in [Durable Functions overview](what-is-durable-task.md).
+Function chaining is a pattern where you run a sequence of functions in order. It's common to pass the output of one function to the input of the next. This article describes the chaining sequence you build when you complete the Durable Functions quickstart ([C#](../durable-functions/durable-functions-isolated-create-first-csharp.md), [JavaScript](../durable-functions/quickstart-js-vscode.md), [TypeScript](../durable-functions/quickstart-ts-vscode.md), [Python](../durable-functions/quickstart-python-vscode.md), [PowerShell](../durable-functions/quickstart-powershell-vscode.md), or [Java](../durable-functions/quickstart-java.md)). Learn more in [Durable Functions overview](what-is-durable-task.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -34,9 +34,9 @@ Function chaining is a pattern where you run a sequence of activities in order. 
 
 This article describes these functions in the sample app:
 
-* `E1_HelloSequence`: An [orchestrator function](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-trigger) that calls `E1_SayHello` multiple times in sequence. It stores each output and records the results.
-* `E1_SayHello`: An [activity function](../../azure-functions/durable-functions/durable-functions-bindings.md#activity-trigger) that adds "Hello" to the start of a string.
-* `HttpStart`: An HTTP-triggered [durable client](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client) function that starts an instance of the orchestrator.
+* `E1_HelloSequence`: An [orchestrator function](../durable-functions/durable-functions-bindings.md#orchestration-trigger) that calls `E1_SayHello` multiple times in sequence. It stores each output and records the results.
+* `E1_SayHello`: An [activity function](../durable-functions/durable-functions-bindings.md#activity-trigger) that adds "Hello" to the start of a string.
+* `HttpStart`: An HTTP-triggered [durable client](../durable-functions/durable-functions-bindings.md#orchestration-client) function that starts an instance of the orchestrator.
 
 ::: zone-end
 
@@ -121,7 +121,6 @@ The `context` object contains a `df` durable orchestration context object that l
 #### function.json
 
 If you use Visual Studio Code or the Azure portal for development, here's the content of the *function.json* file for the orchestrator function. Most orchestrator *function.json* files look almost exactly like this.
-
 [!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/function.json)]
 
 The important thing is the `orchestrationTrigger` binding type. All orchestrator functions must use this trigger type.
@@ -132,7 +131,6 @@ The important thing is the `orchestrationTrigger` binding type. All orchestrator
 #### \_\_init\_\_.py
 
 Here is the orchestrator function:
-
 [!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_HelloSequence/\_\_init\_\_.py)]
 
 All Python orchestration functions must include the [`durable-functions` package](https://pypi.org/project/azure-functions-durable). It's a library that enables you to write Durable Functions in Python. Two key differences between an orchestrator function and other Python functions:
@@ -148,7 +146,23 @@ PowerShell sample isn't available yet.
 
 # [Java](#tab/java)
 
-Java sample isn't available yet.
+The following Java orchestrator runs the function chaining pattern by calling `SayHello` three times in sequence:
+
+```java
+@FunctionName("HelloCities")
+public List<String> runOrchestrator(
+        @DurableOrchestrationTrigger(name = "context") TaskOrchestrationContext ctx,
+        final ExecutionContext context) {
+    context.getLogger().info("Saying hello.");
+    List<String> outputs = new ArrayList<>();
+    outputs.add(ctx.callActivity("SayHello", "Tokyo", String.class).await());
+    outputs.add(ctx.callActivity("SayHello", "Seattle", String.class).await());
+    outputs.add(ctx.callActivity("SayHello", "London", String.class).await());
+    return outputs;
+}
+```
+
+Sample source: [HelloCities Java sample](https://github.com/Azure/azure-functions-durable-extension/tree/dev/test/e2e/Apps/BasicJava/src/main/java/com/function/HelloCities.java).
 
 ---
 
@@ -294,7 +308,6 @@ Activities use the `ActivityTrigger` attribute. Use `IDurableActivityContext` fo
 `E1_SayHello` formats a greeting string.
 
 Instead of binding to `IDurableActivityContext`, bind directly to the type passed into the activity function. For example:
-
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs?range=34-38)]
 
 # [JavaScript](#tab/javascript)
@@ -339,7 +352,6 @@ Unlike the orchestration function, an activity function doesn't need special set
 #### E1_SayHello/function.json
 
 The *function.json* file for the activity function `E1_SayHello` is similar to that of `E1_HelloSequence` except that it uses an `activityTrigger` binding type instead of an `orchestrationTrigger` binding type.
-
 [!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/function.json)]
 
 > [!NOTE]
@@ -348,7 +360,6 @@ The *function.json* file for the activity function `E1_SayHello` is similar to t
 The implementation of `E1_SayHello` is a relatively trivial string formatting operation.
 
 #### E1_SayHello/\_\_init\_\_.py
-
 [!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/E1_SayHello/\_\_init\_\_.py)]
 
 Unlike the orchestrator function, an activity function needs no special setup. The input passed to it by the orchestrator function is directly accessible as the parameter to the function.
@@ -359,7 +370,19 @@ PowerShell sample coming soon.
 
 # [Java](#tab/java)
 
-Java sample coming soon.
+The following Java activity function is used by the chaining orchestrator:
+
+```java
+@FunctionName("SayHello")
+public String sayHello(
+        @DurableActivityTrigger(name = "name") String name,
+        final ExecutionContext context) {
+    context.getLogger().info("Saying hello to " + name + ".");
+    return "Hello " + name + "!";
+}
+```
+
+Sample source: [HelloCities Java sample](https://github.com/Azure/azure-functions-durable-extension/tree/dev/test/e2e/Apps/BasicJava/src/main/java/com/function/HelloCities.java).
 
 ---
 
@@ -560,13 +583,11 @@ Use `df.getClient` to get a `DurableClient` object. Use the client to start an o
 # [Python](#tab/python)
 
 #### HttpStart/function.json
-
 [!code-json[Main](~/samples-durable-functions-python/samples/function_chaining/HttpStart/function.json)]
 
 To interact with orchestrators, the function must include a `durableClient` input binding.
 
 #### HttpStart/\_\_init\_\_.py
-
 [!code-python[Main](~/samples-durable-functions-python/samples/function_chaining/HttpStart/\_\_init\_\_.py)]
 
 Use the `DurableOrchestrationClient` constructor to create a Durable Functions client. Use the client to start an orchestration and return an HTTP response that includes URLs to check the status of the new orchestration.
@@ -577,7 +598,23 @@ PowerShell sample coming soon.
 
 # [Java](#tab/java)
 
-Java sample coming soon.
+Use an HTTP-triggered client function to start the Java chaining orchestration:
+
+```java
+@FunctionName("StartOrchestration")
+public HttpResponseMessage startOrchestration(
+        @HttpTrigger(name = "req", methods = {HttpMethod.GET, HttpMethod.POST}, authLevel = AuthorizationLevel.ANONYMOUS)
+        HttpRequestMessage<Optional<String>> request,
+        @DurableClientInput(name = "durableContext") DurableClientContext durableContext,
+        final ExecutionContext context) {
+    DurableTaskClient client = durableContext.getClient();
+    String instanceId = client.scheduleNewOrchestrationInstance("HelloCities");
+    context.getLogger().info("Started orchestration with ID = '" + instanceId + "'.");
+    return durableContext.createCheckStatusResponse(request, instanceId);
+}
+```
+
+Sample source: [HelloCities Java sample](https://github.com/Azure/azure-functions-durable-extension/tree/dev/test/e2e/Apps/BasicJava/src/main/java/com/function/HelloCities.java).
 
 ---
 

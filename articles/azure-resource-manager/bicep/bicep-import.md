@@ -4,8 +4,7 @@ description: This article describes how to import shared functionality and names
 ms.topic: article
 ms.custom:
   - devx-track-bicep
-  - build-2025
-ms.date: 12/22/2025
+ms.date: 06/08/2026
 ---
 
 # Imports in Bicep
@@ -15,6 +14,9 @@ This article describes the syntax you use to export and import shared functional
 ## Export variables, types, and functions
 
 The `@export()` decorator indicates that another file can import a specific statement. This decorator is only valid on [`type`](./user-defined-data-types.md), [`var`](./variables.md), and [`func`](./user-defined-functions.md) statements. Variable statements marked with `@export()` must be compile-time constants.
+
+> [!NOTE]
+> You can't import parameter values by using the `import`statement. To reuse parameter values from another parameters file, use `extends` and access inherited values by using `base.<parameterName>`. For more information, see [Extend parameters file](./bicep-extend.md).
 
 The syntax for exporting functionality for use in other Bicep files is:
 

@@ -326,4 +326,4 @@ Verify the autoscaling is functioning correctly in the deployed solution.
 - [Durable Task Scheduler overview](../scheduler/durable-task-scheduler.md)
 - [Quickstart: Deploy a Durable Task SDK app to Azure Container Apps](quickstart-container-apps-durable-task-sdk.md)
 - [Set scaling rules in Azure Container Apps](/azure/container-apps/scale-app)
-- [Host a Durable Functions app with MSSQL backend in Azure Container Apps](../../azure-functions/durable-functions/durable-functions-mssql-container-apps-hosting.md)
+- [Host a Durable Functions app with MSSQL backend in Azure Container Apps](../durable-functions/durable-functions-mssql-container-apps-hosting.md)

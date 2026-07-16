@@ -3,12 +3,10 @@ title: Configure OAuth 2.0 in the Developer Portal Test Console
 titleSuffix: Azure API Management
 description: Learn how to set up OAuth 2.0 user authorization for the test console in Azure API Management developer portal.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/06/2026
-ms.author: danlep
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange

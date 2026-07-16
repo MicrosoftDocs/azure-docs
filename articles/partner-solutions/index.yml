@@ -79,11 +79,6 @@ productDirectory:
       links:
         - url: ./mongo-db/overview.md
           text: A fully managed document database with native vector search support for AI applications.    
-    - title: Neon Serverless Postgres
-      imageSrc: ./media/index/neon.svg
-      links:
-        - url: ./neon/overview.md
-          text: A serverless Postgres solution that uses the principles of serverless computing to provide scalable and flexible database services.
     - title: New Relic
       imageSrc: ./media/index/new-relic.svg
       links:

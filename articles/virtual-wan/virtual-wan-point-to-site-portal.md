@@ -3,11 +3,11 @@
 title: 'Tutorial: Create a User VPN connection to Azure using Azure Virtual WAN - Certificate or  RADIUS authentication'
 description: In this tutorial, learn how to use Azure Virtual WAN to create a User VPN (point-to-site) connection to Azure.
 services: virtual-wan
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: tutorial
 ms.date: 12/12/2024
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 
 ---

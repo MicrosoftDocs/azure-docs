@@ -7,6 +7,8 @@
     href: save-compute-costs-reservations.md
 - name: Concepts
   items:
+  - name: How reservation and pre-purchase plan benefits are applied
+    href: benefit-application-order.md
   - name: Instance size flexibility
     href: instance-size-flexibility.md
   - name: VM instance size flexibility (Virtual Machines)
@@ -33,6 +35,8 @@
       href: /azure/azure-vmware/reserved-instance?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cosmos DB
       href: understand-cosmosdb-reservation-charges.md
+    - name: Azure DocumentDB
+      href: azure-documentdb.md
     - name: Azure Cosmos DB for PostgreSQL
       href: /azure/cosmos-db/postgresql/resources-pricing?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Database for PostgreSQL
@@ -113,6 +117,8 @@
       href: /azure/azure-netapp-files/reservations?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Microsoft Foundry
       href: microsoft-foundry.md
+    - name: Azure DocumentDB
+      href: azure-documentdb.md
     - name: Azure VMware Solution
       href: /azure/azure-vmware/reserved-instance?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Cosmos DB
@@ -133,6 +139,10 @@
       href: /azure/defender-for-cloud/prepurchase-plan?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Disk Storage
       href: /azure/virtual-machines/disks-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: GitHub AI Credits Pre-Purchase
+      href: github-ai-credits-pre-purchase-plan.md
+    - name: GitHub Pre-Purchase
+      href: github-pre-purchase.md
     - name: Microsoft Agent Pre-Purchase
       href: agent-pre-purchase.md
     - name: Microsoft Fabric

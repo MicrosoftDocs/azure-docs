@@ -83,10 +83,10 @@
       href: automation-secure-asset-encryption.md
     - name: Management of Azure Automation data
       href: automation-managing-data.md
-  - name: High availability
+  - name: Reliability
     items:
-    - name: Availability zones
-      href: automation-availability-zones.md
+    - name: Reliability in Azure Automation
+      href: /azure/reliability/reliability-automation?toc=/azure/automation/TOC.json
     - name: Disaster recovery for Automation accounts
       href: automation-disaster-recovery.md
 - name: How-to guides
@@ -299,6 +299,8 @@
     href: troubleshoot/desired-state-configuration.md
   - name: Data to Collect when Opening a Case for Microsoft Azure Automation
     href: troubleshoot/collect-data-microsoft-azure-automation-case.md
+- name: Retirements
+  href: automation-runtime-retirement-policy.md
 - name: Reference
   items:
   - name: Azure CLI

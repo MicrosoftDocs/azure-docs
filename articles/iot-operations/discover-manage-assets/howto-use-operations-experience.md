@@ -3,6 +3,7 @@ title: Manage resources in the operations experience UI
 description: Use the operations experience web UI to manage resources such as your asset and device configurations.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: how-to
 ms.date: 09/08/2025
 

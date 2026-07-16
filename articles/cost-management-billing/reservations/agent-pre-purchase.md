@@ -24,6 +24,12 @@ Your Microsoft Agent prepurchase plan automatically uses your ACUs to pay for el
 :::image type="content" source="./media/agentprepurchase/services-covered-screenshot-v3.jpg" alt-text="Screenshot showing services covered by Microsoft Agent prepurchase plan." lightbox="./media/agentprepurchase/services-covered-screenshot-v3.jpg":::
 
 
+## Video overview
+
+The following video provides an overview of the Microsoft Agent Pre-Purchase Plan and how it can help optimize your costs:
+
+> [!VIDEO https://www.youtube.com/embed/0-RN85uZzTY]
+
 ## Prerequisites
 
 To buy a prepurchase plan, you must have one of the following Azure subscriptions and roles:
@@ -53,6 +59,9 @@ Consider a hypothetical scenario where your organization plans to use:
 - **Potential savings: $1,000 (approximately 5% discount)**
 
 This example demonstrates how the prepurchase plan can provide cost savings for organizations with predictable AI workload usage patterns.
+
+> [!NOTE]
+> Pre-purchase plan discounts don't combine with other discounts you might have. If you have additional discounts, the pre-purchase plan discount is applied independently, which may result in a lower effective discount rate than the listed tier percentage. Factor in your existing discounts when estimating savings.
 
 ## Purchase Microsoft Agent Prepurchase Plan commit units
 

@@ -60,9 +60,6 @@ If you're enabling write-back on the external origin volume:
 
 You can't use cache volumes if the following features are configured on the origin or cache: 
 
->[!NOTE]
-> File Access Logs (FAL) for cache volumes isn't currently supported. Although diagnostic settings might be available for cache volumes, enabling diagnostic settings on a cache volume to configure File Access Logs has no effect.
-
 #### Unsupported features
 
 The following features can't be used with Azure NetApp Files cache volumes:
@@ -85,6 +82,7 @@ The following features are supported with cache volumes:
 * Lightweight Directory Access Protocol (LDAP)
 * NFSv3 and NFSv4.1, SMB, and dual-protocol (NFS and SMB)
 * Kerberos
+* File access logs 
 
 >[!NOTE]
 >You can't transition noncustomer managed key cache volumes to customer managed key.

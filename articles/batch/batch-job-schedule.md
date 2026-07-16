@@ -2,15 +2,15 @@
 title: Schedule Batch jobs for efficiency
 description: Learn how to schedule Batch jobs to manage your tasks, prioritize jobs to run first, and minimize resource usage.
 ms.topic: how-to
-ms.date: 03/21/2025
+ms.date: 06/16/2026
 # Customer intent: "As a cloud operations manager, I want to schedule Batch jobs efficiently, so that I can prioritize tasks and optimize resource usage while managing dependencies and minimizing costs."
 ---
 
 # Schedule Batch jobs for efficiency
 
-Scheduling Batch jobs lets you prioritize the jobs you want to run first, while taking into account [task dependencies](batch-task-dependencies.md). You can also make sure to use the least amount of resources. Nodes can be decommissioned when not needed, and tasks that are dependent on other tasks are spun up just in time to optimize the workflows. Since only one job at a time runs, jobs can be set to autocomplete, and a new one doesn't start until the previous one completes.
+Scheduling Batch jobs lets you prioritize the jobs you want to run first, while taking into account [task dependencies](batch-task-dependencies.md). You can also make sure to use the least amount of resources. Nodes can be decommissioned when not needed, and tasks that are dependent on other tasks are spun up just in time to optimize the workflows. Because only one job at a time runs, jobs can be set to autocomplete, and a new one doesn't start until the previous one completes.
 
-The tasks you schedule using the job manager task are associated with a job. The job manager task will create tasks for the job. To do so, the job manager task needs to authenticate with the Batch account. Use the *AZ_BATCH_AUTHENTICATION_TOKEN* access token. The token allows access to the rest of the job.
+The tasks you schedule using the job manager task are associated with a job. The job manager task creates tasks for the job. To do so, the job manager task needs to authenticate with the Batch account. Use the *AZ_BATCH_AUTHENTICATION_TOKEN* access token. The token allows access to the rest of the job.
 
 To manage a job using the Azure CLI, see [az batch job-schedule](/cli/azure/batch/job-schedule). You can also create job schedules in the Azure portal.
 

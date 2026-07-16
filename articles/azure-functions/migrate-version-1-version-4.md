@@ -4,7 +4,7 @@ description: This article shows you how to migrate your existing function apps r
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 07/31/2023
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ms.custom:
   - template-how-to-pattern
   - devx-track-extended-java
@@ -545,6 +545,7 @@ To update your project to Azure Functions 4.x:
 [!INCLUDE [functions-migrate-v4](../../includes/functions-migrate-v4.md)]
 
 ::: zone-end
+
 
 ## Behavior changes after version 1.x
 

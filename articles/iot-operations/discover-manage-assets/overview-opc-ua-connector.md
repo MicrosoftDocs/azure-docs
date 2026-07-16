@@ -3,6 +3,7 @@ title: Connect and control industrial assets using the connector for OPC UA
 description: Use the connector for OPC UA to connect to OPC UA servers and exchange messages and data with the MQTT broker in a Kubernetes cluster.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.subservice: azure-opcua-connector
 ms.topic: overview
 ms.date: 11/04/2025
@@ -22,7 +23,7 @@ The write capability is useful in scenarios where latency, autonomy, or local de
 The connector for OPC UA is an optional part of Azure IoT Operations. The connector for OPC UA connects to OPC UA servers to retrieve data that it publishes to topics in the MQTT broker and write data based in values from an MQTT broker topic subscription. The connector for OPC UA enables your industrial OPC UA environment to ingress data into your local workloads running on a Kubernetes cluster, and into your cloud workloads.
 
 > [!TIP]
-> If you didn't include the connector for OPC UA when you deployed Azure IoT Operations, you can add it to your existing instance from the Azure portal. For instructions, see [Manage components using the Azure portal](../deploy-iot-ops/howto-manage-update-uninstall.md#manage-instance-components).
+> If you didn't include the connector for OPC UA when you deployed Azure IoT Operations, you can add it to your existing instance from the Azure portal. For instructions, see [Manage components using the Azure portal](../manage-iot-ops/howto-manage-update-uninstall.md#manage-instance-components).
 
 The connector for OPC UA is a client application that runs as a middleware service in Azure IoT Operations. The connector for OPC UA connects to OPC UA servers, lets you browse the server address space, monitor data changes and events in connected assets, and write data to nodes in the server address space. Operations teams and developers use the connector for OPC UA to streamline the task of connecting OPC UA assets to their industrial solution at the edge.
 
@@ -276,7 +277,7 @@ For example:
 | `-1` | 1000 | Connector default behavior |
 | `0` | 1000 | No key frames |
 | `1` | 1000 | Key frame every one second |
-| `10` | 500 | Key frame every five seconds |
+| `10` | 5000 | Key frame every five seconds |
 
 For the key frame count setting, choose:
 
@@ -291,7 +292,7 @@ To learn more about configuring key frames, see [Add a dataset to an asset](howt
 
 ## How does it relate to Azure IoT Operations?
 
-The connector for ONVIF is part of Azure IoT Operations. You deploy the connector to an Arc-enabled Kubernetes cluster on the edge as part of an Azure IoT Operations deployment. The connector interacts with other Azure IoT Operations elements, such as:
+The connector for OPC UA is part of Azure IoT Operations. You deploy the connector to an Arc-enabled Kubernetes cluster on the edge as part of an Azure IoT Operations deployment. The connector interacts with other Azure IoT Operations elements, such as:
 
 - [Assets and devices](./concept-assets-devices.md)
 - [The MQTT broker](../connect-to-cloud/overview-dataflow.md)

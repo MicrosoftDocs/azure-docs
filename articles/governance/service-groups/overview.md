@@ -12,7 +12,7 @@ ms.custom:
 
 # What are Azure Service Groups?
 
-Azure Service Groups let you create flexible, custom groupings of your Azure resources — across subscriptions and resource groups — without changing your existing resource hierarchy. Think of them as a way to build virtual folders of resources for specific teams, projects, or workloads, giving each group its own view and access controls with minimal permissions.
+Azure Service Groups allow you create flexible, custom groupings of your Azure resources — across subscriptions and resource groups — without changing your existing resource hierarchy. Think of them as a way to build virtual folders of resources for specific teams, projects, or workloads, giving each group its own view and access controls with minimal permissions.
 
 Service Groups are ideal for scenarios requiring cross-boundary grouping, minimal permissions, and aggregations of data across resources. These features empower teams to create tailored resource collections that align with operational, organizational, or persona-based needs. This article helps give you an overview of what Service Groups are, the scenarios to use them for, and important facts.
 
@@ -26,7 +26,8 @@ Service Groups solve a common challenge: your Azure resource hierarchy (Manageme
 
 - A **platform team** needs to see all networking resources across dozens of subscriptions.
 - A **project lead** wants a single dashboard for resources spanning production, staging, and development environments.
-- A **compliance officer** needs to track a set of regulated resources regardless of where they live.
+- An **application engineer** needs to track a set of resources for lifecycle and management.
+  
 
 With Service Groups, you can create these views without reorganizing your subscriptions or requesting broad permissions. Resources can belong to **multiple** service groups simultaneously, and access on service groups doesn't grant access to the underlying resources.
 
@@ -40,17 +41,16 @@ With Service Groups, you can create these views without reorganizing your subscr
 | **Permission inheritance** | Only between parent/child service groups | Yes — to subscriptions and resources | Yes — to resources | No |
 | **Cross-subscription** | Yes | N/A (above subscription level) | No | Yes (if applied manually) |
 
-Use **Service Groups** when you need to create views across multiple subscriptions without affecting governance policies. Use **Management Groups** for applying policies and RBAC across subscriptions. Use **Resource Groups** for managing the lifecycle of closely related resources. Use **Tags** for metadata and cost allocation.
+Use **Service Groups** when you need to create views across multiple subscriptions without affecting governance policies. Use **Management Groups** for applying policies and RBAC across subscriptions. Use **Resource Groups** for managing the lifecycle of closely related resources. Use **Tags** for metadata.
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- To create a service group under the root, you need permissions at the tenant level. See [The Root Service Group](#the-root-service-group) for details on elevating access.
 - Review the [Role Based Access Controls](#role-based-access-controls) section to understand which built-in roles are available.
 
 
 ## Key capabilities
-- **Multiple Hierarchies**: Service Groups enable scenarios where the resources can be grouped in different views for multiple purposes.
+- **Multiple Hierarchies**: Service Groups enable scenarios where the resources can be grouped in different topologies for multiple purposes.
 - **Flexible Membership**: Service Groups allow resources from different subscriptions to be grouped together, providing a unified view and management capabilities. They also allow the grouping of subscriptions, resource groups, and resources. The same resources can be connected to many different service groups allowing different customer personas and scenarios to be created and used. 
 - **Low Privilege Management**: Service Groups are designed to operate with minimal permissions, ensuring that users can manage resources without needing excessive access rights.
 
@@ -60,7 +60,7 @@ Customers can create many different views that support how they organize their r
 
 * Unified View of Resources
    * Organizations with multiple applications and environments can use Service Groups to create a centralized view of resource information across different environments. Member resources or resource containers from various environments within different management groups or subscriptions can be linked to a single Service Group, providing a unified reference point for resource details.
-   * Since Service Groups don’t inherit permissions from their members, customers can apply least-privilege principles to assign permissions on the Service Groups that allow viewing of resource information. This capability enables scenarios where two users can access the same Service Group, but only one is allowed to see certain resources.
+   * Since Service Groups don’t inherit permissions from their members, customers can apply least-privilege principles to assign permissions on the Service Groups that allow viewing of resource information. This capability enables scenarios where two users can access the same Service Group, but only one is allowed to access/alter certain resources.
         
 * Creating Inventory
     * Customers can connect resources to the Service Groups to get a consolidated view of all the resources of a particular type or function in the entire environment.
@@ -74,14 +74,14 @@ Customers can create many different views that support how they organize their r
 
 
 ## How it works
-Azure Service Groups are a parallel tenant level hierarchy that allows the grouping of resources. The separation from Management Groups, Subscriptions, and Resource Groups allows Service Groups to be connected many times to different resources and resource containers without impacting the existing structures. 
+Azure Service Groups are a tenant level hierarchy that allows the grouping of resources. The separation from Management Groups, Subscriptions, and Resource Groups allows Service Groups to be connected many times to different resources and resource containers without impacting the existing structures. 
 
 Information about Service Groups 
 * A Service Group is created within the Microsoft.Management Resource Provider.  
 * Service Groups allow self nesting to create up to 10 "levels" of grouping depth. Nesting can be managed via the 'parent' property within the Service Group resource. 
 * Role assignments on the Service Group can be inherited to the **child Service Groups only**. There's **no inheritance** through the memberships to the resources or resource containers.
 * There's a limit of 2000 service group members coming from within the same subscription. 
-* Within the Preview window, there's a limit of 10,000 Service Groups in a single tenant.   
+* There's a limit of 10,000 Service Groups in a single tenant.   
 * Service Groups and Service Group Member IDs support up to 250 characters. They can be alphanumeric and special characters: - _ ( ). ~
 * Service Groups require a globally unique ID. Two Microsoft Entra tenants can't have a Service Group with identical IDs.
 * Membership to Service Groups are managed by the 'Microsoft.Relationship/ServiceGroupMember' on the desired member (a resource, resource group, or subscription) while targeting the desired Service Group. 
@@ -97,14 +97,6 @@ This table shows a summary of the differences between the groups.
 
 [!INCLUDE [scenario-comparison](../includes/scenario-comparison.md)]
 
-## Important facts about service groups
-
-- A single tenant can support 10,000 service groups.
-- Service group tree can support up to 10 levels of depth.
-  This limit doesn't include the root level.
-- Each service group can have many children.
-- A single service group name/ID can be up to 250 characters.
-- There are no limits of number of members of service groups, but there's a limit of 2,000 relationships (including ServiceGroupMember) within a subscription
 
 ## The Root Service Group 
 

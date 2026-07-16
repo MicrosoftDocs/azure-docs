@@ -109,7 +109,7 @@ The following limits apply at the classic file share level. All classic file sha
 
 - **SSD provisioned v1 storage accounts**: You can't provision more storage than the storage account supports, but you can provision more IOPS or throughput than the storage account supports. If the total usage of IOPS or throughput exceeds the storage account's limits, the storage account throttles requests.
 
-- **HDD pay-as-you-go storage accounts**: You can create an unlimited number of classic file shares. While each classic file share can theoretically consume up to the storage account's limit for IOPS and throughput, if the combined usage of all the resources in the storage account (classic file shares, blob containers, tables, and queues) exceeds those limits, the storage account throttles requests. Today, all pay-as-you-go Azure file shares can grow up to 100 TiB. The *large file share* feature in Azure Files is a legacy setting that enabled pay-as-you-go file shares to grow beyond 5 TiB. If you have an old storage account that predates the introduction of this feature, you might need to [increase your file share quota](modify-file-share.md#change-the-cost-and-performance-characteristics-of-a-pay-as-you-go-classic-file-share).
+- **HDD pay-as-you-go storage accounts**: You can create an unlimited number of classic file shares. While each classic file share can theoretically consume up to the storage account's limit for IOPS and throughput, if the combined usage of all the resources in the storage account (classic file shares, blob containers, tables, and queues) exceeds those limits, the storage account throttles requests. Today, all pay-as-you-go Azure file shares can grow up to 100 TiB. The *large file share* feature in Azure Files is a legacy setting that enabled pay-as-you-go file shares to grow beyond 5 TiB. If you have an old storage account that predates the introduction of this feature, you might need to [increase your file share quota](modify-file-share.md#pay-as-you-go-billing-model).
 
 | Attribute | SSD provisioned v2 | HDD provisioned v2 | SSD provisioned v1 | HDD pay-as-you-go |
 |-|-|-|-|-|
@@ -137,9 +137,11 @@ File scale targets apply to individual files stored in classic file shares. Your
 | Attribute | SSD value (includes both provisioned v2 and provisioned v1) | HDD value (includes both provisioned v2 and pay-as-you-go) |
 |-|-|-|
 | Maximum file size | 4 TiB | 4 TiB |
-| Maximum data IOPS per file | 8,000 IOPS | 1,000 IOPS |
-| Maximum throughput per file | 1,024 MiB / sec | 60 MiB / sec |
-| Hard link limit per file (NFS only) | 178 | N/A |
+| Maximum data IOPS per file | 12,000 IOPS | 1,000 IOPS |
+| Maximum read throughput per file (multi-client) | Up to 10,240 MiB / sec | Up to account limit |
+| Maximum read throughput per file | SMB: ~3 GiB/s, NFS: ~2 GiB/s | 60 MiB / sec |
+| Maximum write throughput per file | SMB: ~2 GiB/s, NFS: ~1.5 GiB/s | 60 MiB / sec |
+| Hard link limit per file | 178 | N/A |
 | Maximum concurrent handles for root directory | 10,000 handles | 10,000 handles |
 | Maximum concurrent handles per file and directory | 2,000 handles | 2,000 handles |
 
@@ -195,11 +197,13 @@ File scale targets apply to individual files stored in a file share. Your abilit
 | Attribute | SSD value |
 |-|-|
 | Maximum file size | 4 TiB |
-| Maximum data IOPS per file | 8,000 IOPS |
-| Maximum throughput per file | 1,024 MiB / sec |
+| Maximum data IOPS per file | 12,000 IOPS |
+| Maximum read throughput per file (multi-client) | Up to 10,240 MiB / sec |
+| Maximum read throughput per file | ~2 GiB/s |
+| Maximum write throughput per file | ~1.5 GiB/s |
 | Hard link limit per file | 178 |
-| Maximum concurrent handles for root directly | 10,000 handles |
-| Maximum concurrent handles per file and directly | 2,000 handles |
+| Maximum concurrent handles for root directory | 10,000 handles |
+| Maximum concurrent handles per file and directory | 2,000 handles |
 
 ## See also
 

@@ -32,12 +32,13 @@ As a Node.js developer, you might also be interested in one of the following art
 
 The following table shows each version of the Node.js programming model along with its supported versions of the Azure Functions runtime and Node.js.
 
-| [Programming Model Version](https://www.npmjs.com/package/@azure/functions?activeTab=versions) | Support Level | [Functions Runtime Version](./functions-versions.md) | [Node.js Version](https://github.com/nodejs/release#release-schedule) | Description                                                                                                   |
-|------------------------------------------------------------------------------------------------|---------------|------------------------------------------------------|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| 4.x                                                                                            | GA            | 4.25+                                                | 22.x 20.x, 18.x                                                            | Supports a flexible file structure and code-centric approach to triggers and bindings.                        |
-| 3.x                                                                                            | GA            | 4.x                                                  | 20.x, 18.x, 16.x, 14.x                                                | Requires a specific file structure with your triggers and bindings declared in a "function.json" file         |
-| 2.x                                                                                            | n/a           | 3.x                                                  | 14.x, 12.x, 10.x                                                      | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
-| 1.x                                                                                            | n/a           | 2.x                                                  | 10.x, 8.x                                                             | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
+| [Programming Model Version](https://www.npmjs.com/package/@azure/functions?activeTab=versions) | Support Level | [Functions Runtime Version](./functions-versions.md) | [Node.js Version](https://github.com/nodejs/release#release-schedule) | Description |
+|---|---|---|---|---|
+| 4.x | GA | 4.25+ | 24.x, 22.x | Supports a flexible file structure and code-centric approach to triggers and bindings. |
+| 3.x | GA | 4.x | 24.x, 22.x | Requires a specific file structure with your triggers and bindings declared in a "function.json" file |
+
+> [!NOTE]
+> Node.js 24 doesn't support 32-bit platforms. When you use Node.js 24 in Azure Functions, your function app must run as a 64-bit app. For Windows function apps, make sure that the app isn't configured to use a 32-bit worker process.
 
 ## Folder structure
 

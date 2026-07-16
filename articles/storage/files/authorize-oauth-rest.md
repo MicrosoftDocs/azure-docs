@@ -17,7 +17,7 @@ ms.custom:
 
 :heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the `Microsoft.Storage` resource provider
 
-:heavy_multiplication_x: **Doesn't apply to:** File shares created with the `Microsoft.FileShares` resource provider (preview)
+:heavy_multiplication_x: **Doesn't apply to:** File shares created with the `Microsoft.FileShares` resource provider
 
 By using Azure Files OAuth over REST, users and applications can get admin-level read and write access to Azure file shares through the [OAuth](https://oauth.net/) authentication protocol. This access method uses Microsoft Entra ID for REST API-based access.
 

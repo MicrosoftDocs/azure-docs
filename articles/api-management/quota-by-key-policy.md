@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - quota-by-key | Microsoft Docs
 description: Reference for the quota-by-key policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 05/06/2025
-ms.author: danlep
 ---
 # Set usage quota by key
 

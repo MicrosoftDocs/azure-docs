@@ -295,6 +295,8 @@
         href: control-plane-security.md
       - name: Understand data encryption in Azure NetApp Files
         href: understand-data-encryption.md
+      - name: Understand AES in Azure NetApp Files
+        href: understand-advanced-encryption-standard.md  
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-netapp-files-security-baseline?toc=/azure/azure-netapp-files/TOC.json
   - name: Solutions and benefits
@@ -549,8 +551,6 @@
       items: 
         - name: Manage cache volumes 
           href: configure-cache-volumes.md
-        - name: Manage file access logs in Azure NetApp Files cache volumes
-          href: manage-file-access-logs-cache-volumes.md  
         - name: Change the service level of an Azure NetApp Files cache volume
           href: change-cache-volume-service-level.md
         - name: Break file locks for an Azure NetApp Files cache volume 
@@ -595,6 +595,8 @@
       href: troubleshoot-user-access-ldap.md
     - name: Troubleshoot file locks
       href: troubleshoot-file-locks.md
+    - name: Troubleshoot SMB authentication and CIFS password reset failures
+      href: troubleshoot-authentication-password-reset-failure.md
 - name: FAQs
   items:
   - name: Networking FAQs
@@ -621,6 +623,8 @@
     href: faq-security.md
   - name: Integration FAQs
     href: faq-integration.md
+  - name: AES FAQs
+    href: faq-advanced-encryption-standard.md  
 - name: Reference
   items:
   - name: REST

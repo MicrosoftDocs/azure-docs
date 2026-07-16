@@ -6,7 +6,7 @@ description: Define an OAuth2 custom error technical profile in a custom policy 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 05/07/2024
