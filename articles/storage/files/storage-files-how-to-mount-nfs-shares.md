@@ -86,7 +86,7 @@ Follow these steps to mount a file share created with the Microsoft.FileShares r
 
 #### Mount an NFS share by using the NFS client mount at the command line
 
-You can also mount the file share by using the NFS client mount at the command line. Select the tab below for your Linux distribution to see the commands you need to run. Replace `<your-subscription-id>`, `<your-resource-group>` and `<your-file-share-name>` with your information.
+You can also mount the file share by using the NFS client mount at the command line. Select the tab below for your Linux distribution to see the commands you need to run. Replace `<your-subscription-id>`, `<your-resource-group>`, and `<your-file-share-name>` with your information.
 
 ```bash
 # Customize these placeholders:
