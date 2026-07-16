@@ -144,6 +144,9 @@ To set up secrets management:
 
     ---
 
+    > [!NOTE]
+    > On an Azure Kubernetes Service (AKS) cluster that uses its own OIDC issuer, the `secretsync enable` command might fail with the error `No issuerUrl is available. Check cluster config.` because the connected cluster's `oidcIssuerProfile.issuerUrl` isn't populated. In that case, add the `--self-hosted-issuer true` parameter to the command so that it uses the cluster's self-hosted OIDC issuer for federation. The same parameter is available on the [az iot ops identity assign](/cli/azure/iot/ops/identity#az-iot-ops-identity-assign) command in the next section.
+
 Now that secret synchronization setup is complete, you can refer to [Manage secrets for your Azure IoT Operations deployment](./howto-manage-secrets.md) to learn how to use secrets with Azure IoT Operations.
 
 ## Set up a user-assigned managed identity for cloud connections
@@ -201,7 +204,7 @@ Some Azure IoT Operations components, like data flow endpoints, use a user-assig
 1. Restart the schema registry pods to apply the new identity. 
 
    ```azurecli
-   kubectl delete pods adr-schema-registry-0 adr-schema-registry-1 -n azure-iot-operations
+   kubectl rollout restart statefulset adr-schema-registry -n azure-iot-operations
    ```
 
 Now you can use this managed identity in data flow endpoints for cloud connections.

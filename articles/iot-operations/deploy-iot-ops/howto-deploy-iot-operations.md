@@ -139,7 +139,7 @@ A cluster host:
 1. Restart the schema registry pods to apply the new identity. 
 
    ```azurecli
-   kubectl delete pods adr-schema-registry-0 adr-schema-registry-1 -n azure-iot-operations
+   kubectl rollout restart statefulset adr-schema-registry -n azure-iot-operations
    ```
 
 1. Once all of the Azure CLI commands complete successfully, you can close the **Install Azure IoT Operations** wizard.
