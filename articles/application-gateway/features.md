@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 05/12/2026
+ms.date: 07/16/2026
 ms.author: mbender
 # Customer intent: "As a web application administrator, I want to configure and manage an application gateway, so that I can optimize traffic distribution, enhance security, and ensure high availability for my web applications."
 ---
