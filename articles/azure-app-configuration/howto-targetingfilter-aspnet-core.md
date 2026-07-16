@@ -200,7 +200,7 @@ In this section, you create a web application that allows users to sign in and u
 
     :::code language="html" source="../../includes/azure-app-configuration-navbar.md" range="15-38" highlight="13-17":::
 
-1. Open *Program.cs*, and add `app.UseAuthentication();` before line `app.UseAuthorization();`. This middleware validates the authentication cookie issued by Identity, enabling users to sign in after registering an account in the web app.
+1. Open *Program.cs*, and add `app.UseAuthentication();` before the line `app.UseAuthorization();`. This middleware validates the authentication cookie that Identity issues, so users can sign in after registering an account in the web app.
 
 ## Enable targeting for the web application
 
