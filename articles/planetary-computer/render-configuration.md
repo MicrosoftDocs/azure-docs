@@ -233,7 +233,7 @@ For more information about color correction, see the [TiTiler documentation](htt
 
 ### 8. Configuring the Explorer Time Slider (Data Cubes)
 
-To enable the Explorer's time slider for a data cube render option, add an `info_options` field to your render configuration object. `info_options` is a URL query-string, in the same format as `options`, that the Explorer forwards to the Tiler's `/info` endpoint for each visible STAC item. The Explorer uses the returned band descriptions to build the slider's tick positions, so the slider reflects what the Tiler can serve. This field is valid only for `raster-tile` render options.
+To enable the Explorer's time slider for a data cube render option, add an `info_options` field to your render configuration object. `info_options` is a URL query string, in the same format as `options`, that the Explorer forwards to the Tiler's `/info` endpoint for each visible STAC item. The Explorer uses the returned band descriptions to build the slider's tick positions, so the slider reflects what the Tiler can serve. This field is valid only for `raster-tile` render options.
 
 Author `info_options` as the discovery-relevant subset of `options`: typically the `assets` parameter and, for NetCDF, HDF5, and Zarr, `subdataset_name`. Omit styling and slicing parameters such as `rescale`, `colormap_name`, `datetime`, `sel`, and `sel_method` because they don't affect band discovery. When you enable the slider, also remove any `datetime=` from `options`, otherwise the pinned value overrides the slider.
 
