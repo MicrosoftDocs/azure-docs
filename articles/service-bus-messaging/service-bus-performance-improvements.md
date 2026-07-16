@@ -63,11 +63,11 @@ Service Bus operates several background processes that can affect compute utiliz
 1. Deduplication and look back time window.
 1. Forward to (forwarding from one entity to another).
 
-If your application uses any of the above features and you aren't receiving the expected throughput, review the following resource-utilization guidance.
+If your application uses any of the preceding features and you aren't receiving the expected throughput, review the following resource-utilization guidance.
 
 #### Monitor CPU and memory usage
 
-Both **CPU** and **memory** are critical resources for a Service Bus Premium namespace, so you should monitor and scale on both. Review the namespace's utilization metrics in Azure Monitor and, when needed, add [messaging units](service-bus-premium-messaging.md). You can also configure Azure Monitor to [automatically scale the namespace](automate-update-messaging-units.md).
+Both **CPU** and **memory** are critical resources for a Service Bus Premium namespace, so monitor and scale on both. Review the namespace's utilization metrics in Azure Monitor and, when needed, add [messaging units](service-bus-premium-messaging.md). You can also configure Azure Monitor to [automatically scale the namespace](automate-update-messaging-units.md).
 
 Use the following thresholds as a starting point for when to scale up:
 
