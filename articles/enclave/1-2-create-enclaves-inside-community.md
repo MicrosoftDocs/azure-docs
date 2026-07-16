@@ -24,7 +24,7 @@ In this tutorial, you:
 
 Complete [Tutorial 1-1: Deploy a community](./1-1-create-community.md) before you start this tutorial. You need:
 
-- An existing Azure Enclave community named `fabrikam`.
+- An existing Azure Enclave community named `cmt-fabrikam`.
 - A resource group named `myResourceGroup` for the enclave resource.
 - Permissions to create Azure Enclave resources in the target subscription and resource group.
 - Access to the Azure portal.
@@ -52,7 +52,7 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
    - `Resource Group`: `myResourceGroup`
    - `Enclave name`: `ve-Enclave-WebApp`
    - `Region`: `East US`
-   - `Community`: Select the `fabrikam` community that you created in [Tutorial 1-1: Deploy a community](./1-1-create-community.md).
+   - `Community`: Select the `cmt-fabrikam` community that you created in [Tutorial 1-1: Deploy a community](./1-1-create-community.md).
    - `Dedicated hub`: Select `Create new`
        - `Hub name`: Enter `dh-fabrikam-eastus` and then select `Save`
 
@@ -122,7 +122,7 @@ Enclave deployments can take around 30-45 minutes to complete. After deployment 
 
 ## Validate the deployment
 
-After the enclave resources are created, you can view them in the Azure portal from the `fabrikam` community.
+After the enclave resources are created, you can view them in the Azure portal from the `cmt-fabrikam` community.
 
 [ ![Screenshot showing created enclaves on listed on enclaves page.](./media/tutorial-step-two-azure-enclave-page-enclaves-list-both-deployed.png) ](./media/tutorial-step-two-azure-enclave-page-enclaves-list-both-deployed.png#lightbox)
 
@@ -130,7 +130,7 @@ Confirm that:
 
 - `Enclave-WebApp` and `Enclave-DMZ` appear on the `Enclaves` page.
 - Each enclave shows `Status` as `Succeeded`.
-- Each enclave is associated with the `fabrikam` community.
+- Each enclave is associated with the `cmt-fabrikam` community.
 
 Select an enclave name to view and manage the enclave.
 

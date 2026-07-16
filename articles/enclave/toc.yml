@@ -52,7 +52,7 @@
       href: what-transit-hub.md
     - name: "What is a dedicated hub?"
       href: what-dedicated-hub.md
-  - name: Azure Enclave Concepts
+  - name: Azure Enclave concepts
     items:
     - name: "What is the service catalog?"
       href: what-service-catalog.md
@@ -90,8 +90,8 @@
     href: 1-6-monitor-your-enclaves.md
   - name: Host a publicly accessible application in an Azure Enclave
     href: 1-7-host-publicly-accessible-application-azure-enclave.md
-  - name: Migrate workload resources
-    href: 1-8-migrate-workload-resources.md
+  - name: Require approvals with Azure Enclave resources
+    href: 3-1-approvals-azure-enclave.md
 - name: Tutorial - Create a complex workload architecture
   items:
   - name: Plan your architecture for Azure Virtual Desktop and AKS workloads

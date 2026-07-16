@@ -377,6 +377,12 @@ All other limits for the ExpressRoute gateway, the ExpressRoute circuit, and the
 ### Can I use Azure Firewall with FastPath?
 Yes. To support traffic traversing from on-premises to Azure workloads via Azure Firewall, it should be deployed in same VNET as ExpressRoute Gateway and UDR has to be configured on the Gateway Subnet.
 
+### How do I enable FastPath for Virtual WAN?
+
+If you're using ExpressRoute FastPath with Azure Virtual WAN, FastPath is enabled by default for ExpressRoute direct circuits connected to Virtual WAN ExpressRoute Gateways deployed with a minimum of 5 scale units. No additional configuration is required.
+
+For Virtual WAN-specific eligibility and supported scenarios, see [ExpressRoute FastPath in Virtual WAN](../virtual-wan/virtual-wan-expressroute-about.md#expressroute-fastpath-in-virtual-wan).
+
 ## ExpressRoute premium
 
 ### What is ExpressRoute premium?

@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/10/2026
+ms.date: 07/13/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure a local storage data flow endpoint so that I can create a data flow.
@@ -176,7 +176,7 @@ When you configure your local storage data flow endpoint, input the PVC name und
 
 To write your data to the cloud, follow the instructions in [Cloud ingest edge volumes configuration](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes) to create a PVC and attach a subvolume for the cloud destination that you want.
 
-To configure cloud ingest, your cluster must have secure settings enabled. The cloud ingest feature relies on [workload identity federation](../deploy-iot-ops/howto-enable-secure-settings.md#enable-the-cluster-for-secure-settings).
+To configure cloud ingest, your cluster must have secure settings enabled. The cloud ingest feature relies on [workload identity federation](../secure-iot-ops/howto-enable-secure-settings.md#enable-the-cluster-for-secure-settings).
 
 > [!IMPORTANT]
 > Don't forget to create the subvolume after you create the PVC. Otherwise, the data flow fails to start and the logs show a "read-only file system" error.
