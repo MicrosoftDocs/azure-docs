@@ -48,7 +48,7 @@ SSL-Policies
 
 - We recommend using TLS 1.2 as this version will be mandated in the future.
 - You don't have to configure client authentication on an SSL profile to associate it to a listener. You can have only client authentication or listener-specific SSL policy configured, or both configured in your SSL profile.
-- **Example scenario**: If you're currently using SSL Policy and SSL Profile with legacy policies/ciphers, upgrading to a new Predefined or Custom v2 policy for any component requires upgrading the other configuration as well. You can use the new predefined policies, a Custom v2 policy, or a combination.
+- **Example scenario**: If you're currently using SSL Policy and SSL Profile with legacy policies or ciphers, upgrading to a new Predefined or Custom v2 policy for any component requires upgrading the other configuration as well. You can use the new predefined policies, a Custom v2 policy, or a combination.
 
 SSL-Policies
 To set up a listener-specific SSL policy, you need to first go to the **SSL settings** tab in the Azure portal and create a new SSL profile. When you create an SSL profile, you see two tabs: **Client Authentication** and **SSL Policy**. The **SSL Policy** tab is used to configure a listener-specific SSL policy. The **Client Authentication** tab is where you upload client certificates for mutual authentication. For more information, see [Configuring mutual authentication](./mutual-authentication-portal.md).
