@@ -75,12 +75,12 @@ Select-AzSubscription -Subscription "<sub name>"
 
 ## Specify the HTTP header rewrite rule configuration
 
-In this example, we modify a redirection URL by rewriting the location header in the HTTP response whenever the location header contains a reference to azurewebsite.net. To do this modification, we add a condition to evaluate whether the location header in the response contains azurewebsite.net. We use the pattern `(https?)://.*azurewebsite.net(.*)$`. And we use `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` as the header value. This value replaces *azurewebsite.net* with *contoso.com* in the location header.
+In this example, we modify a redirection URL by rewriting the location header in the HTTP response whenever the location header contains a reference to azurewebsites.net. To do this modification, we add a condition to evaluate whether the location header in the response contains azurewebsites.net. We use the pattern `(https?)://.*azurewebsites.net(.*)$`. And we use `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` as the header value. This value replaces *azurewebsites.net* with *contoso.com* in the location header.
 
 ```azurepowershell
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"
 $actionSet = New-AzApplicationGatewayRewriteRuleActionSet -ResponseHeaderConfiguration $responseHeaderConfiguration
-$condition = New-AzApplicationGatewayRewriteRuleCondition -Variable "http_resp_Location" -Pattern "(https?):\/\/.*azurewebsite\.net(.*)$" -IgnoreCase
+$condition = New-AzApplicationGatewayRewriteRuleCondition -Variable "http_resp_Location" -Pattern "(https?):\/\/.*azurewebsites\.net(.*)$" -IgnoreCase
 $rewriteRule = New-AzApplicationGatewayRewriteRule -Name LocationHeader -ActionSet $actionSet -Condition $condition
 $rewriteRuleSet = New-AzApplicationGatewayRewriteRuleSet -Name LocationHeaderRewrite -RewriteRule $rewriteRule
 ```
