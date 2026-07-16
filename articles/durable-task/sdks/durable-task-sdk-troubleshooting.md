@@ -59,7 +59,7 @@ This article helps you diagnose and fix common issues when building applications
 These SDKs connect to the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) backend and run on any hosting platform, including Azure Container Apps, Kubernetes, and VMs.
 
 > [!NOTE]
-> This guide covers the **portable Durable Task SDKs**. For issues specific to the Durable Task Scheduler service, see [Troubleshoot the Durable Task Scheduler](../scheduler/troubleshoot-durable-task-scheduler.md). For issues specific to the Durable Functions extension, see [Durable Functions troubleshooting guide](../../azure-functions/durable-functions/durable-functions-troubleshooting-guide.md).
+> This guide covers the **portable Durable Task SDKs**. For issues specific to the Durable Task Scheduler service, see [Troubleshoot the Durable Task Scheduler](../scheduler/troubleshoot-durable-task-scheduler.md). For issues specific to the Durable Functions extension, see [Durable Functions troubleshooting guide](../durable-functions/durable-functions-troubleshooting-guide.md).
 
 > [!TIP]
 > The [Durable Task Scheduler monitoring dashboard](../scheduler/durable-task-scheduler-dashboard.md) is useful for inspecting orchestration status, viewing execution history, and identifying failures. Use it alongside this guide to speed up troubleshooting.

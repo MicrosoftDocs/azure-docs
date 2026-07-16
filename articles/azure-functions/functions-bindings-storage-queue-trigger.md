@@ -32,6 +32,10 @@ Azure Queue storage scaling decisions for the Consumption and Premium plans are 
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 Use the queue trigger to start a function when a new item is received on a queue. The queue message is provided as input to the function.

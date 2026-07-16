@@ -1,12 +1,12 @@
 ---
 title: Include file
 description: Include file
-author: SoniaLopezBravo
+author: sethmanheim
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 06/25/2025
-ms.author: sonialopez
+ms.author: sethm
 ms.custom: include file
 ---
 

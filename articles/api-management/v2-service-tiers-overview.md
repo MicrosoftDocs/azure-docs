@@ -2,12 +2,10 @@
 title: Azure API Management - V2 Tiers
 description: Introduction to key scenarios, capabilities, and concepts of the v2 tiers (SKUs) of the Azure API Management service. 
 services: api-management
-author: dlepow
  
 ms.service: azure-api-management
 ms.topic: concept-article
-ms.date: 04/28/2026
-ms.author: danlep
+ms.date: 05/20/2026
 ms.custom:
   - references_regions
   - build-2025
@@ -25,7 +23,7 @@ The following v2 tiers are generally available:
 
 * **Standard v2** - Standard v2 is a production-ready tier with support for network-isolated backends.
 
-* **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation, scaling for high volume workloads, availability zones, and workspaces. [Read the blog post](https://techcommunity.microsoft.com/blog/integrationsonazureblog/announcing-the-general-availability-ga-of-the-premium-v2-tier-of-azure-api-manag/4471499) announcing general availability.
+* **Premium v2** - Premium v2 offers enterprise features including full virtual network isolation, scaling for high volume workloads, and availability zones. [Read the blog post](https://techcommunity.microsoft.com/blog/integrationsonazureblog/announcing-the-general-availability-ga-of-the-premium-v2-tier-of-azure-api-manag/4471499) announcing general availability.
 
 ## Key capabilities
 
@@ -33,7 +31,7 @@ The following v2 tiers are generally available:
 
 * **Simplified networking** - The Standard v2 and Premium v2 tiers provide [networking options](#networking-options) to isolate API Management's inbound and outbound traffic.
 
-* **More options for production workloads** - The v2 tiers all come with an SLA. 
+* **More options for production workloads** - The v2 tiers all come with an SLA and support [workspaces](workspaces-overview.md) for delegation of API management across teams. 
 
 * **Developer portal options** - Enable the [developer portal](api-management-howto-developer-portal.md) when you're ready to let API consumers discover your APIs. 
 
@@ -78,7 +76,6 @@ The following features are currently unavailable in the v2 tiers.
 
 **Infrastructure and configuration**
 * Multi-region deployment 
-* Multiple custom domain names 
 * Sending events to Event Grid
 * Event Hubs event metrics
 * API Management service configuration using Git

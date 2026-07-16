@@ -6,7 +6,7 @@ description: Learn how to integrate with SendGrid to customize the verification 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 02/21/2025

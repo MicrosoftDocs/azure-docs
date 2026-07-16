@@ -17,13 +17,13 @@ Blob soft delete protects an individual blob, snapshot, or version from accident
 
 ## Recommended data protection configuration
 
-Blob soft delete is part of a comprehensive data protection strategy for blob data. For optimal protection for your blob data, Microsoft recommends enabling all of the following data protection features:
+Blob soft delete is part of a comprehensive in-account data protection strategy for blob data. For optimal protection of your blob data, Microsoft recommends enabling the following data protection features:
 
-- Container soft delete, to restore a container that has been deleted. To learn how to enable container soft delete, see [Enable and manage soft delete for containers](soft-delete-container-enable.md).
-- Blob versioning, to automatically maintain previous versions of a blob. When blob versioning is enabled, you can restore an earlier version of a blob to recover your data if it's erroneously modified or deleted. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md).
 - Blob soft delete, to restore a blob, snapshot, or version that has been deleted. To learn how to enable blob soft delete, see [Enable and manage soft delete for blobs](soft-delete-blob-enable.md).
 
-To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
+- Container soft delete, to restore a container that has been deleted. To learn how to enable container soft delete, see [Enable and manage soft delete for containers](soft-delete-container-enable.md).
+
+For protection against broader data loss scenarios such as accidental account deletion or ransomware, consider enabling Azure Backup in addition to in-account features. To learn more about Microsoft's recommendations for data protection, see [Data protection overview](data-protection-overview.md).
 
 > [!CAUTION]
 > After you enable blob versioning for a storage account, every write operation to a blob in that account results in the creation of a new version. For this reason, enabling blob versioning may result in additional costs. To minimize costs, use a lifecycle management policy to automatically delete old versions. For more information about lifecycle management, see [Optimize costs by automating Azure Blob Storage access tiers](./lifecycle-management-overview.md).

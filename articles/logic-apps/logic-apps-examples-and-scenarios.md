@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: concept-article
-ms.date: 07/18/2025
+ms.update-cycle: 1095-days
+ms.date: 07/10/2026
 ---
 
 # Common scenarios, examples, tutorials, and walkthroughs for Azure Logic Apps

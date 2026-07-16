@@ -216,6 +216,7 @@ Steps:
 
 
 ## <a id="troubleshooting"></a> Troubleshoot
+### Error: RequestTimeout during restore
 A restore operation can result in a deployment failure based on a "RequestTimeout" exception. 
 
 :::image type="content" source="../media/sql-pools/restore-sql-pool-troubleshooting-failed.png" alt-text="Screenshot from resource group deployments dialog of a timeout exception.":::
@@ -223,6 +224,13 @@ A restore operation can result in a deployment failure based on a "RequestTimeou
 This timeout can be ignored. Review the dedicated SQL pool page in the Azure portal and it might still have status of "Restoring" and eventually will transition to "Online". 
 
 :::image type="content" source="../media/sql-pools/restore-sql-pool-troubleshooting-restoring.png" alt-text="Screenshot of SQL pool dialog with the status that shows restoring.":::
+
+### Error: "ValidationFailed: The provided resource ID is not valid for this operation. Please use a SQL pool resource"
+If you receive this error, verify that:
+1. The resource ID refers to a dedicated SQL pool in an Azure Synapse workspace.
+1. The resource is a SQL pool or recoverable SQL pool.
+1. The resource ID is correct and corresponds to the intended source SQL pool.
+
 
 ## Related content
 

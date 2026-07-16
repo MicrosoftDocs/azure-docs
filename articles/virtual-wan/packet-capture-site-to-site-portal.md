@@ -3,12 +3,12 @@ title: 'Configure a packet capture for S2S VPN connections using the Azure porta
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure site-to-site packet capture for Azure Virtual WAN using the portal
 services: virtual-wan
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 11/21/2023
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 
 ---

@@ -13,7 +13,7 @@ ms.author: kendownie
 
 :heavy_check_mark: **Applies to:** Classic SMB file shares created with the Microsoft.Storage resource provider
 
-:heavy_multiplication_x: **Doesn't apply to:** All NFS file shares including file shares created with the Microsoft.FileShares resource provider (preview) or classic file shares created with the Microsoft.Storage resource provider
+:heavy_multiplication_x: **Doesn't apply to:** All NFS file shares including file shares created with the Microsoft.FileShares resource provider or classic file shares created with the Microsoft.Storage resource provider
 
 This migration article is one of several that apply to the keywords NAS, Azure File Sync, and Azure Data Box. Check if this article applies to your scenario:
 

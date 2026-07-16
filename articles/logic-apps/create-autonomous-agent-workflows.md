@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewers: estfan, divswa, krmitta, LogicApps
 ms.topic: how-to
 ms.collection: ce-skilling-ai-copilot
-ms.date: 02/12/2026
+ms.date: 04/12/2026
 ms.update-cycle: 180-days
 # Customer intent: As an AI integration developer who uses Azure Logic Apps, I want to build workflows that complete tasks using AI agent loops, large language models (LLMs), natural language, and other AI capabilities without human interactions in my integration solutions.
 ---
@@ -106,7 +106,7 @@ Based on whether you want to create a Consumption or Standard logic app, the fol
     >
     > Use this authentication option only for the examples in this guide, exploratory scenarios, nonproduction scenarios, or if your organization's policy specifies that you can't use managed identity authentication.
     >
-    > In general, make sure that you secure and protect sensitive data and personal data, such as credentials, secrets, access keys, connection strings, certificates, thumbprints, and similar information by using the highest available or supported level of security. Don't hardcode sensitive data, share with other users, or save in plain text anywhere that others can access. Set up a plan to rotate or revoke secrets if they become compromised.
+    > In general, make sure that you secure and protect sensitive data and personal data, such as credentials, secrets, access keys, connection strings, certificates, thumbprints, and similar information by using the highest available or supported level of security. Don't hardcode sensitive data, share secrets with other users, or save them in plain text anywhere that others can access. Set up a plan to rotate or revoke secrets if they become compromised.
     >
     > For more information, see:
     >
@@ -150,7 +150,7 @@ To open this partial workflow, follow these steps:
 
    The designer shows a partial workflow with the trigger named **When an HTTP request is received**. Under the trigger, an empty **Agent** action named **Default Agent** appears. For this scenario, you don't need any other trigger setup.
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start-consumption.png" alt-text="Screenshot shows workflow designer with a Request trigger and an empty Default Agent action." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start-consumption.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start-consumption.png" alt-text="Screenshot shows workflow designer with a Request trigger and an empty Default Agent loop action." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start-consumption.png":::
 
 1. Continue to the next section to set up your agent loop.
 
@@ -178,7 +178,7 @@ To create a workflow with an empty **Agent** action, follow these steps:
 
       The designer opens and shows a partial workflow, which includes an empty **Agent** action that you need to set up later.
 
-      :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start-standard.png" alt-text="Screenshot shows workflow designer with Add a trigger and empty Agent action." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start-standard.png":::
+      :::image type="content" source="media/create-autonomous-agent-workflows/agent-workflow-start-standard.png" alt-text="Screenshot shows workflow designer with Add a trigger and empty Agent loop action." lightbox="media/create-autonomous-agent-workflows/agent-workflow-start-standard.png":::
 
    Before you can save your workflow, you must complete the following setup tasks for the **Agent** action:
 
@@ -196,7 +196,7 @@ To create a workflow with an empty **Agent** action, follow these steps:
 
       This example uses the **Request** trigger named **When an HTTP request is received**. For this article, you don't need any other trigger setup.
 
-      :::image type="content" source="media/create-autonomous-agent-workflows/request-trigger.png" alt-text="Screenshot shows workflow designer with Request trigger and Agent action." lightbox="media/create-autonomous-agent-workflows/request-trigger.png":::
+      :::image type="content" source="media/create-autonomous-agent-workflows/request-trigger.png" alt-text="Screenshot shows workflow designer with Request trigger and Agent loop action." lightbox="media/create-autonomous-agent-workflows/request-trigger.png":::
 
 1. Skip the next section so you can set up your agent loop with an AI model.
 
@@ -218,7 +218,7 @@ To create a workflow with an empty **Agent** action, follow these steps:
 
    The designer opens and shows a partial workflow that starts with the **Add trigger** prompt and an empty **Default Agent** action that you need to set up later.
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/workflow-start-standard-visual-studio-code.png" alt-text="Screenshot shows workflow designer with Add trigger prompt and an empty Default Agent action." lightbox="media/create-autonomous-agent-workflows/workflow-start-standard-visual-studio-code.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/workflow-start-standard-visual-studio-code.png" alt-text="Screenshot shows workflow designer with Add trigger prompt and an empty Default Agent loop action." lightbox="media/create-autonomous-agent-workflows/workflow-start-standard-visual-studio-code.png":::
 
 1. Continue to the next section to set up your agent loop.
 
@@ -246,7 +246,7 @@ If you have an existing **Stateful** workflow, you can add an **Agent** action t
 >
 > In a Standard workflow, the designer toolbar also shows a red dot on the **Errors** button. The designer alerts you to this error condition because the agent loop requires setup before you can save any changes. However, you don't have to set up the agent loop now. You can continue to create your workflow. Just remember to set up the agent loop before you save your workflow.
 >
-> :::image type="content" source="media/create-autonomous-agent-workflows/error-missing-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar and Errors button with red dot and error in the agent action information pane." lightbox="media/create-autonomous-agent-workflows/error-missing-agent-settings.png":::
+> :::image type="content" source="media/create-autonomous-agent-workflows/error-missing-agent-settings.png" alt-text="Screenshot shows workflow designer toolbar and Errors button with red dot and error in the agent loop action information pane." lightbox="media/create-autonomous-agent-workflows/error-missing-agent-settings.png":::
 
 <a name="agent-model"></a>
 
@@ -313,11 +313,11 @@ To view the model that your agent loop uses, follow these steps:
 
 ---
 
-## Rename the agent loop
+## Rename the agent loop action
 
 Update the agent loop name to clearly identify the agent's purpose by following these steps:
 
-1. On the designer, select the agent action title bar to open the information pane.
+1. On the designer, select the agent loop action title bar to open the information pane.
 
 1. On the information pane, select the agent loop name, and enter the new name, such as `Weather agent`.
 
@@ -327,7 +327,7 @@ Update the agent loop name to clearly identify the agent's purpose by following 
 
 ## Set up agent loop instructions
 
-The agent loop requires instructions that describe the roles that the agent loop can play and the tasks that the agent loop can perform. To help the agent loop learn and understand these responsibilities, you can also include the following information:
+The agent loop requires instructions that describe the roles that the agent loop can play and the tasks that the agent loop can perform. To help the agent loop learn and understand these responsibilities, include the following information:
 
 - Workflow structure
 - Available actions
@@ -438,6 +438,24 @@ To make sure your workflow doesn't have errors at this stage, follow these steps
 
 ---
 
+## Create or connect to a knowledge base
+
+Optionally, in Standard agentic workflows, to help your agent loop answer questions and complete tasks related to a specific domain, create a *knowledge base* or connect to an existing knowledge base for your agent loop to use. A knowledge base is a logical *container* that organizes related knowledge sources such as documents or files.
+
+Your organization generates data from documents, spreadsheets, APIs, and internal systems. When you use the Knowledge Base-as-a-Service (KBaaS) capability in Azure Logic Apps, you can convert this content into structured and more searchable information that your agent loop can use.
+
+1. [Meet the prerequisites to create a knowledge base](create-knowledge-base-agentic-workflow.md#prerequisites).
+
+1. Return to the workflow designer and select the agent loop title bar.
+
+1. On the agent loop information pane, on the **Parameters** tab, in the **Knowledge base** section, select **Create**.
+
+1. Follow the steps to [create the knowledge base connection](create-knowledge-base-agentic-workflow.md#create-connection).
+
+1. Follow the steps to [add knowledge artifacts to the knowledge base](create-knowledge-base-agentic-workflow.md#add-knowledge-artifacts).
+
+1. Follow the steps to [add the knowledge base as a tool for your agent loop](create-knowledge-base-agentic-workflow.md#add-knowledge-base-as-tool).
+
 <a name="create-tool-weather"></a>
 
 ## Create a 'Get weather' tool
@@ -452,7 +470,7 @@ In this example, the agent loop needs a tool that gets the weather forecast. You
 
    This example uses the **MSN Weather** action named **Get current weather**.
 
-   After you select the action, both the **Tool** container and the selected action appear in the agent action on the designer. Both information panes also open at the same time.
+   After you select the action, both the **Tool** container and the selected action appear in the agent loop action on the designer. Both information panes also open at the same time.
 
    :::image type="content" source="media/create-autonomous-agent-workflows/added-tool-get-current-weather.png" alt-text="Screenshot shows workflow designer with the renamed agent loop, which contains a tool that includes the action named Get current weather." lightbox="media/create-autonomous-agent-workflows/added-tool-get-current-weather.png":::
 
@@ -588,13 +606,13 @@ For many scenarios, an agent loop needs more than one tool. In this example, the
 
 To build this tool, follow these steps:
 
-1. On the designer, in the agent action, next to the existing tool, select the plus sign (**+**) to add an action.
+1. On the designer, in the agent loop action, next to the existing tool, select the plus sign (**+**) to add an action.
 
 1. On the **Add an action** pane, follow these [general steps](/azure/logic-apps/create-workflow-with-trigger-or-action#add-action) to select another action for your new tool.
 
    This example uses the **Outlook.com** action named **Send an email (V2)**.
 
-   Like before, after you select the action, both the new **Tool** and action appear inside the agent action on the designer. Both information panes open at the same time.
+   Like before, after you select the action, both the new **Tool** and action appear inside the agent loop action on the designer. Both information panes open at the same time.
 
    :::image type="content" source="media/create-autonomous-agent-workflows/added-tool-send-email.png" alt-text="Screenshot shows workflow designer with Weather agent, Get weather tool, and new tool with action named Send an email (V2)." lightbox="media/create-autonomous-agent-workflows/added-tool-send-email.png":::
 
@@ -614,7 +632,7 @@ Except for the different agent parameters to set up for the **Send an email (V2)
 
    The action needs three agent parameters named **To**, **Subject**, and **Body**. For the action's Swagger definition, see [**Send an email (V2)**](/connectors/outlook/#send-an-email-(v2)).
 
-   When you're done, the example action uses the previously defined agent parameters as shown in the following image:
+   When you finish, the example action uses the previously defined agent parameters as shown in the following image:
 
    :::image type="content" source="media/create-autonomous-agent-workflows/send-email-action.png" alt-text="Screenshot shows the information pane for the action named Send an email V2, plus the previously defined agent parameters named To, Subject, and Body." lightbox="media/create-autonomous-agent-workflows/send-email-action.png":::
 
@@ -660,7 +678,7 @@ For this example, follow these steps:
 
    The finished **Get subscribers** tool looks like the following example:
 
-   :::image type="content" source="media/create-autonomous-agent-workflows/get-subscribers-tool-complete.png" alt-text="Screenshot shows the agent action and finished Get subscribers tool." lightbox="media/create-autonomous-agent-workflows/get-subscribers-tool-complete.png":::
+   :::image type="content" source="media/create-autonomous-agent-workflows/get-subscribers-tool-complete.png" alt-text="Screenshot shows the agent loop action and finished Get subscribers tool." lightbox="media/create-autonomous-agent-workflows/get-subscribers-tool-complete.png":::
 
 1. Save your workflow, then test the workflow to make sure everything works the way that you expect.
 

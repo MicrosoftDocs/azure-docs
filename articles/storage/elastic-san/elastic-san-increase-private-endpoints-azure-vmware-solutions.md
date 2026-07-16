@@ -3,7 +3,7 @@ title: Increase Private Endpoints for Azure VMware Solution Datastores
 description: Update Azure VMware Solution generation 1 datastores to use the recommended number of private endpoints. Learn how to migrate VMs and templates.
 ms.service: azure-elastic-san-storage
 author: shaynasrag
-ms.author: shaynasrag
+ms.author: ssragovicz
 ms.reviewer: rogarana
 ms.date: 04/23/2026
 ms.topic: how-to

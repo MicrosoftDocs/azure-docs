@@ -2,11 +2,11 @@
 title: Troubleshoot the Shopify connector
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Shopify connector in Azure Data Factory and Azure Synapse Analytics. 
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 03/30/2026
-ms.author: jianleishen
+ms.author: tinglee
 ms.custom: has-adal-ref, synapse
 ---
 

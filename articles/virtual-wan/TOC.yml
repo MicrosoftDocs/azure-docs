@@ -192,6 +192,14 @@
     href: about-client-address-pools.md
   - name: About global and hub profiles
     href: global-hub-profile.md
+  - name: Gateway root certificate migration
+    items:
+    - name: About gateway root certificate migration
+      href: point-to-site-about-gateway-certificate-migration.md
+    - name: Update a VPN Client profile
+      href: ../vpn-gateway/point-to-site-user-vpn-profile-update.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
+  - name: Migrate from the Azure VPN Client for Linux
+    href: azure-vpn-client-linux-retirement.md
   - name: Configure P2S - Certificate authentication
     items:
     - name: P2S server configuration
@@ -292,10 +300,14 @@
     items:
     - name: About user groups and client address pools
       href: user-groups-about.md
-    - name: Configure user groups for address pools
-      href: user-groups-create.md
-    - name: RADIUS - Configure NPS and user groups
-      href: user-groups-radius.md
+    - name: Configure user groups and address pools
+      items:
+      - name: Azure Portal
+        href: user-groups-create.md
+      - name: Azure PowerShell
+        href: point-to-site-user-groups-powershell.md
+      - name: RADIUS - Configure NPS and user groups
+        href: user-groups-radius.md
   - name: Configure Always On tunnels
     items:
     - name: User tunnel - Windows clients

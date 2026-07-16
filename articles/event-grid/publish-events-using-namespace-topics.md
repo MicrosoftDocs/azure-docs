@@ -1,11 +1,12 @@
 ---
-title: "Quickstart: Publish and Consume Events Using Namespace Topics"
-description: Learn how to publish events to Azure Event Grid in the CloudEvents JSON format and consume those events by using the pull delivery model.
+title: "Quickstart: Publish and consume events using namespace topics"
+description: Publish events to Azure Event Grid namespace topics in CloudEvents JSON format and consume them by using the pull delivery model.
 ms.topic: quickstart
 ms.custom: ignite-2023, devx-track-azurecli, build-2024
 ms.author: robece
 author: robece
-ms.date: 06/23/2025
+ms.date: 06/11/2026
+ai-usage: ai-assisted
 #customer intent: As a developer, I want to use the pull delivery model to publish and consume events using Azure Event Grid.
 ---
 
@@ -106,7 +107,7 @@ Create an event subscription setting its delivery mode to *queue*, which support
 
 ## Send events to your topic
 
-Send a sample event to the namespace topic by following steps in this section. 
+Follow the steps in this section to send a sample event to the namespace topic.
 
 ### List namespace access keys
 
@@ -146,7 +147,7 @@ Send a sample event to the namespace topic by following steps in this section.
 
 ### Receive the event
 
-You receive events from Event Grid using an endpoint that refers to an event subscription. 
+To receive events from Event Grid, use an endpoint that refers to an event subscription.
 
 1. Compose the endpoint by running the following command:
 
@@ -170,13 +171,13 @@ After you receive an event, you pass that event to your application for processi
    lockToken="<paste-the-lock-token-here>"
    ```
 
-1. Build the acknowledge operation payload, which specifies the lock token for the event you want to be acknowledged.
+1. Build the acknowledge operation payload, which specifies the lock token for the event you want to acknowledge.
 
    ```azurecli-interactive
    acknowledge_request_payload=' { "lockTokens": ["'$lockToken'"]} '
    ```
 
-1. Proceed with building the string with the acknowledge operation URI:
+1. Build the acknowledge operation URI string:
 
    ```azurecli-interactive
    acknowledge_operation_uri="https://"$(az eventgrid namespace show -g $resource_group -n $namespace --query "topicsConfiguration.hostname" --output tsv)"/topics/"$topic/eventsubscriptions/$event_subscription:acknowledge?api-version=2023-06-01-preview
@@ -188,12 +189,12 @@ After you receive an event, you pass that event to your application for processi
    curl -X POST -H "Content-Type: application/json" -H "Authorization:SharedAccessKey $key" -d "$acknowledge_request_payload" $acknowledge_operation_uri
    ```
 
-   If the acknowledge operation is executed before the lock token expires (300 seconds as set when we created the event subscription), you should see a response like the following example:
+   If the acknowledge operation completes before the lock token expires (300 seconds as specified when you created the event subscription), you should see a response like the following example:
 
    ```json
    {"succeededLockTokens":["CiYKJDQ4NjY5MDEyLTk1OTAtNDdENS1BODdCLUYyMDczNTYxNjcyMxISChDZae43pMpE8J8ovYMSQBZS"],"failedLockTokens":[]}
    ```
 
-## Next step
+## Related content
 
-To learn more about pull delivery model, see [Pull delivery with HTTP](pull-delivery-overview.md).
+- [Pull delivery with HTTP](pull-delivery-overview.md)

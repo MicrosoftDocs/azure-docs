@@ -2,7 +2,8 @@
 title: Configuring Autoscaling
 description: Learn how to configure autoscaling on Azure CycleCloud clusters. Scaling lets you easily increase or decrease a resource to accommodate heavier or lighter loads.
 author: adriankjohnson
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: adjohnso
 ---
 

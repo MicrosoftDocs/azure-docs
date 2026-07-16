@@ -5,7 +5,7 @@ author: svaldesgzz
 ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: overview
-ms.date: 12/08/2025
+ms.date: 06/11/2026
 ---
 
 # What is Azure Extended Zones?
@@ -37,11 +37,11 @@ The following diagram shows how Azure services are deployed at the Azure Extende
 
 :::image type="content" source="./media/overview/azure-extended-zone-services.png" alt-text="Diagram that shows available Azure services at an extended zone." lightbox="./media/overview/azure-extended-zone-services.png":::
 
-The following table lists key services that are available in extended zones.
+The following table lists key services that are available in extended zones. Azure Extended Zones continues to expand the set of supported services and features. Refer to this article periodically for the latest list.
 
 | Service category | Available Azure services and features |
 | ------------------ | ------------------- |
-| Compute | [Azure Kubernetes Service](/azure/aks/extended-zones?tabs=azure-resource-manager)* <br> [Azure Virtual Desktop](/azure/virtual-desktop/azure-extended-zones)* <br> [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) <br> [Azure Virtual Machines](/azure/virtual-machines/overview) (general purpose: A, B, D, E, and F series and GPU NVadsA10 v5 series**) |
+| Compute | [Azure Kubernetes Service](/azure/aks/extended-zones?tabs=azure-resource-manager)† <br> [Azure Virtual Desktop](/azure/virtual-desktop/azure-extended-zones)* <br> [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) <br> [Azure Virtual Machines](/azure/virtual-machines/overview) (general purpose: A, B, D, E, and F series and GPU NVadsA10 v5 series**) |
 | Networking | [Distributed denial of service](../ddos-protection/ddos-protection-overview.md) (Standard protection) <br> [Azure ExpressRoute](../expressroute/expressroute-introduction.md) <br> [Azure Private Link](../private-link/private-link-overview.md) <br> [Azure Standard Load Balancer](../load-balancer/load-balancer-overview.md) <br> [Standard public IP](../virtual-network/ip-services/public-ip-addresses.md) <br> [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) <br> [Azure Virtual Networks peering](../virtual-network/virtual-network-peering-overview.md) <br> Azure Firewall (API version) |
 | Storage | [Managed disks](/azure/virtual-machines/managed-disks-overview) <br> - Premium SSD <br> - Standard SSD <br> [Premium page blobs](../storage/blobs/storage-blob-pageblob-overview.md) <br> [Premium block blobs](../storage/blobs/storage-blob-block-blob-premium.md) <br> [Premium files](../storage/files/storage-files-introduction.md) <br> [Azure Data Lake Storage Gen2 hierarchical namespace](../storage/blobs/data-lake-storage-namespace.md) <br>Data Lake Storage Gen2 flat namespace <br> [Change feed](/azure/cosmos-db/change-feed) <br> Blob features <br> - [Secure File Transfer Protocol](../storage/blobs/secure-file-transfer-protocol-support.md) <br> - [Network File System](../storage/files/files-nfs-protocol.md) |
 | Business continuity and disaster recovery | [Azure Site Recovery](../site-recovery/site-recovery-overview.md)* (extended zone to parent region) <br> [Azure Backup](../backup/backup-overview.md) |
@@ -51,6 +51,8 @@ The following table lists key services that are available in extended zones.
 \* Although these services are generally available in Azure regions, they're currently in preview in extended zones.
 
 \** [Learn more about sizes for virtual machines in Azure](/azure/virtual-machines/sizes/overview?tabs=breakdownseries%2Cgeneralsizelist%2Ccomputesizelist%2Cmemorysizelist%2Cstoragesizelist%2Cgpusizelist%2Cfpgasizelist%2Chpcsizelist). You can obtain a detailed VM list in the Azure Extended Zones environment.
+
+\† Azure Kubernetes Service (AKS) is generally available in Azure Extended Zones for **public clusters** and **private clusters**.
 
 ## Supported software development companies
 

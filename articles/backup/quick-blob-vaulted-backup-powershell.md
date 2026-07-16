@@ -4,6 +4,7 @@ description: In this Quickstart, learn how to configure vaulted backup for Azure
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/17/2025
+ms.update-cycle: 1095-days
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 author: AbhishekMallick-MS
 ms.author: v-mallicka

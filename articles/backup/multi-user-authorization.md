@@ -242,21 +242,7 @@ Once you have enabled MUA, the operations in scope will be restricted on the vau
 
 Depicted below is an illustration of what happens when the Backup admin tries to perform such a protected operation (For example, disabling immutability is depicted here. Other protected operations have a similar experience). The following steps are performed by a Backup admin without required permissions.
 
-To disable immutability, follow these steps:
-
-1. Go to the **Recovery Services vault** > **Properties**.
-1. On the **Properties** pane, under **Immutable vault**, select **Settings**.
-1. On the **Immutable Vault** pane, disable Immutability by clearing the **Enable vault immutability** checkbox.
-
-   You're informed that this is a protected operation, and you need to verify their access to the Resource Guard.
-1. Select the directory containing the Resource Guard and Authenticate yourself. 
-
-   >[!Note]
-   >This action isn't required if the Resource Guard is in the same directory as the vault.
-
-1. Select **Apply**. 
-
-   The request fails with an error you don't have sufficient permissions on the Resource Guard to perform this operation.
+[Learn how to disable immutability in a Recovery Services vault](backup-azure-immutable-vault-how-to-manage.md?tabs=recovery-services-vault#disable-immutability).
 
 <a name='authorize-critical-protected-operations-using-azure-active-directory-privileged-identity-management'></a>
 

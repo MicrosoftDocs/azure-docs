@@ -6,7 +6,7 @@ description: Provide sign-up and sign-in to customers with Mobile ID in your app
 author: garrodonnell
 manager: celestedg
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 04/08/2022

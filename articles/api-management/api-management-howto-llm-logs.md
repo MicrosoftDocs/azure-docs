@@ -2,11 +2,9 @@
 title: Set Up Logging for Language Model APIs
 titleSuffix: Azure API Management
 description: Enable logging for language model APIs in Azure API Management to track token usage, prompts, and completions for billing and auditing.
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 04/24/2026
-ms.author: danlep
+ms.date: 06/12/2026
 ai-usage: ai-assisted
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
@@ -46,6 +44,9 @@ Enable a diagnostic setting to log requests that the gateway processes for large
 - Optionally, the request and response messages: prompt and completion
 
   Azure Monitor splits large requests and responses into multiple log entries with sequence numbers for later reconstruction, if needed.
+
+> [!NOTE]
+> API Management captures token usage data from the response of the language model API. In scenarios where token usage is missing (such as a broken stream or terminated connection), token usage might not be logged or is inaccurate. 
 
 Follow these steps to enable a diagnostic setting that directs language model API logs to a Log Analytics workspace. For more information, see [Enable diagnostic setting for Azure Monitor logs](monitor-api-management.md#enable-diagnostic-setting-for-azure-monitor-logs).
 

@@ -17,7 +17,7 @@ This script creates an Event Grid subscription to the events for a Blob storage 
 
 ## Sample script - stable
 
-[!code-powershell[main](../../../powershell_scripts/event-grid/subscribe-to-blob-storage/subscribe-to-blob-storage.ps1 "Subscribe to Blob storage")]
+[!code-powershell[main](~/powershell_scripts/event-grid/subscribe-to-blob-storage/subscribe-to-blob-storage.ps1 "Subscribe to Blob storage")]
 
 ## Script explanation
 

@@ -223,10 +223,6 @@ additionalContent:
         # Card
         - title: Operate and monitor
           links:
-            - text: Run Command
-              url: using-run-command.md
-            - text: Use Set-ToolsRepo Run Command
-              url: use-set-toolsrepo-run-command.md
             - text: Configure VMware Syslogs
               url: configure-vmware-syslogs.md
             - text: Send syslogs to log management solutions via Azure Logic Apps
@@ -237,3 +233,14 @@ additionalContent:
               url: configure-azure-vmware-solution-metrics.md
             - text: Arc-enabled Azure VMware Solution
               url: deploy-arc-for-azure-vmware-solution.md
+        # Card
+        - title: Run Command
+          links:
+            - text: Run Command
+              url: using-run-command.md
+            - text: Execute Run Command
+              url: troubleshoot-run-command.md
+            - text: Run Command Management Package Esxtop Cmdlet
+              url: run-command-esxtop.md
+            - text: Run Command Management Set-ToolsRepo Cmdlet
+              url: use-set-toolsrepo-run-command.md

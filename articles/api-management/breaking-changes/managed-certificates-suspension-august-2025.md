@@ -2,12 +2,10 @@
 title: Azure API Management - Managed certificates suspension for custom domains (August 2025)
 description: Azure API Management is temporarily suspending creation of managed certificates for custom domains from August 15, 2025 to June 30, 2026 due to industry-wide changes in domain validation.
 services: api-management
-author: dlepow
 ms.service: azure-api-management
 ms.topic: reference
 ai-usage: ai-assisted
 ms.date: 04/03/2026
-ms.author: danlep
 ---
 
 # Creation of managed certificates temporarily suspended for custom domains (August 2025 - June 2026)

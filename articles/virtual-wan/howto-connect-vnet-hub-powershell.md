@@ -2,12 +2,12 @@
 title: 'Connect a VNet to a Virtual WAN hub - PowerShell'
 titleSuffix: Azure Virtual WAN
 description: Learn how to connect a VNet to a Virtual WAN hub using PowerShell.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/15/2023
-ms.author: cherylmc
+ms.author: duau
 ---
 # Connect a virtual network to a Virtual WAN hub - PowerShell
 

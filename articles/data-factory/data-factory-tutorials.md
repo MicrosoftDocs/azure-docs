@@ -6,7 +6,7 @@ ms.author: whhender
 ms.reviewer: makromer
 ms.topic: get-started
 ms.subservice: authoring
-ms.date: 04/22/2025
+ms.date: 06/17/2026
 ---
 
 # Azure Data Factory tutorials
@@ -75,8 +75,6 @@ Search the table of contents to the side for the full list of tutorials.
 
 [HDI Spark transformations](tutorial-transform-data-spark-portal.md)
 
-[Hive transformations](tutorial-transform-data-hive-virtual-network-portal.md)
-
 ## Pipelines
 
 [Control flow](tutorial-control-flow-portal.md)
@@ -87,11 +85,7 @@ Search the table of contents to the side for the full list of tutorials.
 
 [SSIS integration runtime](tutorial-deploy-ssis-packages-azure.md)
 
-## Data share
-
-[Data integration with Azure Data Share](lab-data-flow-data-share.md)
-
 ## Data lineage
 
-[Microsoft Purview](turorial-push-lineage-to-purview.md)
+[Microsoft Purview](tutorial-push-lineage-to-purview.md)
 

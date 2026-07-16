@@ -1,4 +1,4 @@
----
+﻿---
 title: EA tasks in a Microsoft Customer Agreement - Azure
 description: Learn how to complete Enterprise Agreement tasks in your new billing account.
 author: jkinma39
@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: concept-article
-ms.date: 01/14/2026
+ms.date: 06/25/2026
 ms.author: jkinma
 ms.custom:
 - build-2025

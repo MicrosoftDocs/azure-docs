@@ -47,7 +47,7 @@ LRS is a good choice for the following scenarios:
 - If your application stores data that can be easily reconstructed if data loss occurs.
 - If your application is restricted to replicating data only within a country or region due to data governance requirements. In some cases, the paired regions across which the data is geo-replicated might be in another country or region. For more information, see [Azure region pairs and nonpaired regions](/azure/reliability/regions-paired).
 
-LRS is supported in all Azure regions for HDD (standard) file shares. For a list of regions that support LRS for SSD (premium) file shares, see [LRS support for SSD file shares](redundancy-premium-file-shares.md#lrs-support-for-ssd-azure-file-shares).
+LRS is supported in all Azure regions for HDD (standard) file shares. For a list of regions that support LRS for SSD (premium) file shares, see [LRS support for SSD file shares](redundancy-premium-file-shares.md#lrs-support-for-ssd-classic-file-shares).
 
 ### Zone-redundant storage
 
@@ -73,7 +73,7 @@ ZRS provides excellent performance, low latency, and resiliency for your data if
 ZRS is supported for both SSD and HDD file shares. To see which regions support ZRS for each media tier, refer to the following resources:
 
 - **HDD file shares**: See the availability zone support column in the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1).
-- **SSD file shares**: See [ZRS support for SSD file shares](redundancy-premium-file-shares.md#zrs-support-for-ssd-azure-file-shares).
+- **SSD file shares**: See [ZRS support for SSD file shares](redundancy-premium-file-shares.md#zrs-support-for-ssd-classic-file-shares).
 
 ## Redundancy in a secondary region
 
@@ -111,7 +111,7 @@ The following diagram shows how your data is replicated with GZRS:
 
 :::image type="content" source="media/storage-redundancy/geo-zone-redundant-storage.png" alt-text="Diagram showing how data is replicated with GZRS.":::
 
-To determine if a region supports GZRS, see [Azure regions that support GZRS](../common/storage-redundancy.md#supported-storage-account-types). To support GZRS, a region must support availability zones and have a paired region.
+To determine if a region supports GZRS, see the [Azure regions list](/azure/reliability/regions-list?tabs=all#azure-regions-list-1). To support GZRS, a region must support availability zones and have a paired region.
 
 ### Snapshot and sync frequency
 

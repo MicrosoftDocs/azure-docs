@@ -2,11 +2,9 @@
 title: Advanced Request Throttling with Azure API Management
 description: Learn how to create and apply flexible quota and rate limiting policies by using Azure API Management.
 services: api-management
-author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/01/2026
-ms.author: danlep
 
 #customer intent: As an API provider, I want to create and apply quota and rate limiting so that I can protect my APIs from abuse and/or create value for different API product tiers.
 ---
@@ -119,7 +117,7 @@ This technique enables the developer's client application to determine how to cr
 
 ## Considerations for multiple regions or gateways
 
-Rate limiting policies like `rate-limit`, `rate-limit-by-key`, and `llm-token-limit` use counters at the level of the API Management gateway. Therefore, in [multi-region deployments](api-management-howto-deploy-multi-region.md) of API Management, each regional gateway has a separate counter, and rate limits are enforced separately for each region. Similarly, in API Management instances with [workspaces](workspaces-overview.md), limits are enforced separately for each workspace gateway. 
+Rate limiting policies like `rate-limit`, `rate-limit-by-key`, and `llm-token-limit` use counters at the level of the API Management gateway. Therefore, in [multi-region deployments](api-management-howto-deploy-multi-region.md) of API Management, each regional gateway has a separate counter, and rate limits are enforced separately for each region. Similarly, in API Management instances with [workspaces](workspaces-overview.md) that are associated with workspace gateway resources, limits are enforced separately for each workspace gateway. Workspaces that use the service's default managed gateway share rate limit counters with other workspaces and service-level APIs on that gateway.
 
 Quota policies like `quota` and `quota-by-key` are global, which means that a single counter is used at the level of the API Management instance. 
 

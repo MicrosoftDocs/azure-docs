@@ -40,7 +40,7 @@ The `up` command can create resources, or it can use existing ones, including:
 - A Container Apps environment and Log Analytics workspace.
 - Your container app.
 
-If you need to customize the Container Apps environment, first use the `az containerapp env create` command to create and customize your environment. When you then run the `up` command, use the `--environment` option to specify the customized environment.
+If you need to customize the Container Apps environment, first use the [`az containerapp env create`](/cli/azure/containerapp/env#az-containerapp-env-create) command to create and customize your environment. When you run the `up` command, use the `--environment` option to specify the customized environment.
 
 If you don't specify an existing environment, the `up` command looks for one in your resource group. If the command finds an environment, it uses that environment. If the command doesn't find an environment, it creates one that includes a Log Analytics workspace.
 
@@ -120,7 +120,7 @@ You can use the following example code to deploy a container app from local sour
 ```azurecli
     az containerapp up \
       --name <CONTAINER_APP_NAME> \
-      --source <SOURCE_DIRECTORY>\
+      --source <SOURCE_DIRECTORY> \
       --ingress external 
 ```
 
@@ -188,7 +188,7 @@ az containerapp up \
   --repo <GITHUB_REPOSITORY_URL> \
   --service-principal-client-id "$SERVICE_PRINCIPAL_CLIENT_ID" \
   --service-principal-client-secret "$SERVICE_PRINCIPAL_CLIENT_SECRET" \
-  --service-principal-tenant-id "$AZURE_TENANT_ID"
+  --service-principal-tenant-id "$AZURE_TENANT_ID" \
   --ingress external 
 ```
 
@@ -204,7 +204,7 @@ The `az containerapp up` command provides a streamlined way to create and deploy
 - Secrets: [`az containerapp secret set`](/cli/azure/containerapp/secret#az-containerapp-secret-set)
 - Transport protocols: [`az containerapp ingress update`](/cli/azure/containerapp/ingress#az-containerapp-ingress-update)
 
-If you want to customize other settings for your container app, such as resource or scaling settings, first use the `up` command to deploy your container app. Then use the `az containerapp update` command to change these settings. The `az containerapp up` command isn't an abbreviation for the `az containerapp update` command. 
+If you want to customize other settings for your container app, such as resource or scaling settings, first use the `up` command to deploy your container app. Then use the [`az containerapp update`](/cli/azure/containerapp#az-containerapp-update) command to change these settings. The `az containerapp up` command isn't an abbreviation for the `az containerapp update` command. 
 
 ## Next step
 

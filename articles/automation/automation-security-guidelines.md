@@ -82,3 +82,4 @@ Review the Azure Policy recommendations for Azure Automation and act as appropri
 * To learn how to use Azure role-based access control (Azure RBAC), see [Manage role permissions and security in Azure Automation](./automation-role-based-access-control.md).
 * For information on how Azure protects your privacy and secures your data, see [Azure Automation data security](./automation-managing-data.md).
 * To learn about configuring the Automation account to use encryption, see [Encryption of secure assets in Azure Automation](./automation-secure-asset-encryption.md).
+* For information on runtime version support, retirement, and security updates, see [Language runtime support and retirement policy for Azure Automation](automation-runtime-retirement-policy.md).
