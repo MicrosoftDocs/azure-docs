@@ -1,13 +1,13 @@
 ---
 title: Azure Compute Fleet overview
 description: Learn about Azure Compute Fleet and how to accelerate your access to Azure's capacity.
-author: shandilvarun
-ms.author: vashan
+author: fitzgeraldsteele
+ms.author: fisteele
 ms.topic: overview
 ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
-ms.date: 10/29/2025
+ms.date: 07/16/2026
 ms.reviewer: wwilliams
 # Customer intent: As a cloud administrator, I want to deploy and manage multiple virtual machines efficiently using an automated compute resource management tool, so that I can optimize resource allocation based on cost and capacity while ensuring high availability for my workloads.
 ---
@@ -41,7 +41,6 @@ Using Azure Compute Fleet, you can:
 
 - Compute Fleet launches a combination of VM types that have their own considerations. For more information, see [Spot VMs](/azure/virtual-machines/spot-vms) and [Virtual Machines](/azure/virtual-machines/overview) for details. 
 - Compute Fleet is currently available through [ARM template](quickstart-create-rest-api.md) and in [Azure portal](quickstart-create-portal.md).
-- Compute Fleet is available in all Azure public regions, except those located in the China.
 - Compute Fleet can span across multiple-regions.
 
 ## Configure your Compute Fleet 
