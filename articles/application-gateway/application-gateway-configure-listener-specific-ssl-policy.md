@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 07/09/2025
+ms.date: 07/16/2026
 ms.author: mbender
 # Customer intent: As a cloud administrator, I want to configure listener-specific SSL policies on my Application Gateway, so that I can enhance security and performance by applying different SSL settings for each listener based on my application requirements.
 ---
