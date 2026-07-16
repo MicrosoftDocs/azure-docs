@@ -7,6 +7,7 @@ ms.manager: ronai
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
+ms.update-cycle: 1095-days
 ms.date: 05/09/2025
 ms.custom:
   - vmware-scenario-422
