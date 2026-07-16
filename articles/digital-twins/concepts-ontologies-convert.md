@@ -46,7 +46,7 @@ There's a sample application available that converts an RDF-based model file to 
 
 The sample application has been validated for the [Brick](https://ontology.brickschema.org/) schema and can be extended for other schemas in the building industry (such as [Building Topology Ontology (BOT)](https://w3c-lbd-cg.github.io/bot/), [Semantic Sensor Network](https://www.w3.org/TR/vocab-ssn/), or [buildingSmart Industry Foundation Classes (IFC)](https://technical.buildingsmart.org/standards/ifc/ifc-schema-specifications/)).
 
-The sample is a [.NET Core command-line application called RdfToDtdlConverter](/samples/azure-samples/rdftodtdlconverter/digital-twins-model-conversion-samples/).
+The sample is a [.NET Core command-line application called RdfToDtdlConverter](https://github.com/Azure-Samples/RdfToDtdlConverter).
 
 To download the code to your machine, select the **Browse code** button underneath the title on the sample page, which will take you to the GitHub repo for the sample. Select the **Code** button and **Download ZIP** to download the sample as a .zip file called *RdfToDtdlConverter-main.zip*. You can then unzip the file and explore the code.
 

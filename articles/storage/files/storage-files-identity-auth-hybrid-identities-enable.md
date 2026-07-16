@@ -34,9 +34,9 @@ Before you enable Microsoft Entra Kerberos authentication over SMB for Azure fil
 
 You need the following minimum prerequisites. Without these prerequisites, you can't authenticate by using Microsoft Entra ID.
 
-- Your Azure storage account can't authenticate with both Entra ID and a second method like AD DS or Microsoft Entra Domain Services. If you already chose another identity source for your storage account, you must disable it before enabling Microsoft Entra Kerberos.
+- Your Azure storage account can't authenticate with both Microsoft Entra ID and a second method like AD DS or Microsoft Entra Domain Services. If you already chose another identity source for your storage account, you must disable it before enabling Microsoft Entra Kerberos.
 
-- If you want to authenticate hybrid identities, you also need AD DS and either [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync). You must create these accounts in Active Directory and sync them to Entra ID. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Entra ID. This requirement doesn't apply to cloud-only identities.
+- If you want to authenticate hybrid identities, you also need AD DS and either [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync). You must create these accounts in Active Directory and sync them to Microsoft Entra ID. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Microsoft Entra ID. This requirement doesn't apply to cloud-only identities.
 
 - The WinHTTP Web Proxy Auto-Discovery Service (`WinHttpAutoProxySvc`) is required, and must be in the running state. For security reasons, you can optionally [disable Web Proxy Auto-Discovery (WPAD)](/troubleshoot/windows-server/networking/disable-http-proxy-auth-features#how-to-disable-wpad) via registry keys. However, you shouldn't disable the entire `WinHttpAutoProxySvc` service, as it is responsible for a host of other functionalities, including Kerberos Key Distribution Center Proxy (KDC Proxy) requests.
 
@@ -56,7 +56,7 @@ You need the following minimum prerequisites. Without these prerequisites, you c
 
 The standard Microsoft Entra Kerberos authentication flow described in this article requires the following prerequisites. If some or all of your client machines don't meet these prerequisites, you can still enable Microsoft Entra Kerberos authentication for SMB file shares, but you need to [configure a cloud trust](storage-files-identity-auth-hybrid-cloud-trust.md) to allow these clients to access file shares.
 
-To use Entra Kerberos authentication for cloud-only identities, use one of the following operating systems:
+To use Microsoft Entra Kerberos authentication for cloud-only identities, use one of the following operating systems:
 
   - **Windows 11 Enterprise/Pro single or multi-session**. For the best experience, use at least:
     - Windows 11 version 26H1 or newer, with at least [KB5079489](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079489-os-build-28000-1764-preview-cd374a56-9657-43fb-9ebe-40cb693d8d10) (OS build 28000.1764 or later)
@@ -64,7 +64,7 @@ To use Entra Kerberos authentication for cloud-only identities, use one of the f
     - Windows 11 version 24H2 with at least [KB5079391](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079391-os-builds-26200-8116-and-26100-8116-preview-7c9e2275-b9ba-4068-aeb0-23da42b81d3b) (OS build 26100.8116 or later)
   - **Windows Server 2025** with the latest cumulative updates installed.
 
-To use Entra Kerberos authentication for hybrid identities, use one of the following operating systems:
+To use Microsoft Entra Kerberos authentication for hybrid identities, use one of the following operating systems:
 
   - **Windows 11 Enterprise/Pro single or multi-session**. For the best experience, use at least:
     - Windows 11 version 26H1 or newer, with at least [KB5079489](https://support.microsoft.com/en-us/topic/march-26-2026-kb5079489-os-build-28000-1764-preview-cd374a56-9657-43fb-9ebe-40cb693d8d10) (OS build 28000.1764 or later)
@@ -75,7 +75,7 @@ To use Entra Kerberos authentication for hybrid identities, use one of the follo
   - **Windows Server 2022** with the latest cumulative updates installed, especially the [KB5007254 - 2021-11 Cumulative Update Preview for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/november-22-2021-kb5007254-os-build-20348-380-preview-9a960291-d62e-486a-adcc-6babe5ae6fc1).
 
 
-For information about how to create and configure a Windows VM and sign in by using Entra ID-based authentication, see [Sign in to Windows virtual machine in Azure using Microsoft Entra ID and Azure Role Based Access Control](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows).
+For information about how to create and configure a Windows VM and sign in by using Microsoft Entra ID-based authentication, see [Sign in to Windows virtual machine in Azure using Microsoft Entra ID and Azure Role Based Access Control](/entra/identity/devices/howto-vm-sign-in-azure-ad-windows).
 
 Clients must be Microsoft Entra joined or [Microsoft Entra hybrid joined](/entra/identity/devices/hybrid-join-plan). They can't be joined to Microsoft Entra Domain Services or joined to AD only.
 
@@ -85,52 +85,48 @@ Microsoft Entra Kerberos support for hybrid identities is available for all regi
 
 Azure RBAC support for specific users and groups for cloud-only identities with Microsoft Entra Kerberos is currently available only for the following subset of regions in the Azure Public cloud.
 
-- Asia East
 - Australia Central
 - Australia Central 2
 - Australia East (SSD/premium only)
-- Australia Southeast
+- Australia Southeast (SSD/premium only)
 - Austria East
 - Belgium Central
-- Brazil Southeast (SSD/premium only)
+- Brazil South (SSD/premium only)
+- Brazil Southeast
 - Canada Central (SSD/premium only)
 - Canada East (SSD/premium only)
-- Chile Central (HDD/standard only)
+- Chile Central
 - Denmark East (SSD/premium only)
-- East Asia (SSD/premium only)
+- East Asia
 - France Central (SSD/premium only)
 - France South
 - Germany North
-- Germany West Central
-- India Central
+- Germany West Central (SSD/premium only)
+- India Central (SSD/premium only)
 - India South (SSD/premium only)
 - India South Central (SSD/premium only)
 - India West
 - Indonesia Central
-- Italy North (SSD/premium only)
-- Japan East
+- Italy North
+- Japan East (SSD/premium only)
 - Japan West
-- Jio India Central
-- Jio India West
-- Korea Central
+- Korea Central (SSD/premium only)
 - Korea South
-- Malaysia South (HDD/standard only)
 - Malaysia West (SSD/premium only)
 - Mexico Central
-- New Zealand North
+- New Zealand North (SSD/premium only)
 - North Europe (SSD/premium only)
-- Norway East
+- Norway East (SSD/premium only)
 - Norway West
 - Poland Central (SSD/premium only)
 - Qatar Central
 - South Africa North (SSD/premium only)
 - South Africa West (SSD/premium only)
+- Southeast Asia (SSD/premium only)
 - Spain Central
 - Sweden Central (SSD/premium only)
-- Sweden South (HDD/standard only)
 - Switzerland North
 - Switzerland West
-- Taiwan North
 - UAE Central
 - UAE North
 - UK South (SSD/premium only)
@@ -217,7 +213,7 @@ az storage account update --name <storageAccountName> --resource-group <resource
 
 ## Grant admin consent to the new service principal
 
-After enabling Microsoft Entra Kerberos authentication, grant admin consent to the new Entra application registered in your Entra tenant. This service principal is autogenerated and isn't used for authorization to the file share, so don't make any edits to the service principal other than those documented here. If you do, you might get an error.
+After enabling Microsoft Entra Kerberos authentication, grant admin consent to the new Microsoft Entra application registered in your Entra tenant. This service principal is autogenerated and isn't used for authorization to the file share, so don't make any edits to this autogenerated service principal other than those documented here. If you do, you might get an error.
 
 You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps:
 
@@ -278,7 +274,7 @@ Use one of the following three methods:
 Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/CloudKerberosTicketRetrievalEnabled](/windows/client-management/mdm/policy-csp-kerberos#cloudkerberosticketretrievalenabled), set to 1
 
 > [!NOTE]
-> When configuring **CloudKerberosTicketRetrievalEnabled** through Intune, use the **Settings Catalog** instead of the OMA-URI method. The OMA-URI method doesn't work on Azure Virtual Desktop multisession devices. Azure Virtual Desktop multisession is a common deployment scenario for Entra Kerberos with hybrid identities, including configurations involving Entra ID Join, FSLogix, and Azure Files.
+> When configuring **CloudKerberosTicketRetrievalEnabled** through Intune, use the **Settings Catalog** instead of the OMA-URI method. The OMA-URI method doesn't work on Azure Virtual Desktop multisession devices. Azure Virtual Desktop multisession is a common deployment scenario for Microsoft Entra Kerberos with hybrid identities, including configurations involving Microsoft Entra ID Join, FSLogix, and Azure Files.
 
 # [Group Policy](#tab/gpo)
 
@@ -430,7 +426,7 @@ az storage account update --name <storageaccountname> --resource-group <resource
 
 ## Debugging
 
-If needed, run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic checks on your Microsoft Entra ID configuration with the signed in Entra ID user. The Entra checks that are part of this cmdlet are supported on the [AzFilesHybrid PowerShell module](https://www.powershellgallery.com/packages/AzFilesHybrid/) beginning with version 0.3.0+. This cmdlet works for Microsoft Entra Kerberos and AD DS authentication but doesn't work for Microsoft Entra Domain Services enabled storage accounts. For more information on the checks performed in this cmdlet, see [Unable to mount Azure file shares with Microsoft Entra Kerberos](/troubleshoot/azure/azure-storage/files/security/files-troubleshoot-smb-authentication?tabs=azure-portal#unable-to-mount-azure-file-shares-with-microsoft-entra-kerberos).
+If needed, run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic checks on your Microsoft Entra ID configuration with the signed in Microsoft Entra ID user. The Entra checks that are part of this cmdlet are supported on the [AzFilesHybrid PowerShell module](https://www.powershellgallery.com/packages/AzFilesHybrid/) beginning with version 0.3.0+. This cmdlet works for Microsoft Entra Kerberos and AD DS authentication but doesn't work for Microsoft Entra Domain Services enabled storage accounts. For more information on the checks performed in this cmdlet, see [Unable to mount Azure file shares with Microsoft Entra Kerberos](/troubleshoot/azure/azure-storage/files/security/files-troubleshoot-smb-authentication?tabs=azure-portal#unable-to-mount-azure-file-shares-with-microsoft-entra-kerberos).
 
 ## Next steps
 

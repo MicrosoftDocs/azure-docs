@@ -1,10 +1,10 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: vpn-gateway
 ms.custom: devx-track-azurepowershell
  ms.topic: include
  ms.date: 03/22/2024
- ms.author: cherylmc
+ ms.author: duau
 ---
 
 When you generate VPN client configuration files, the value for '-AuthenticationMethod' is 'EapTls'. Generate the VPN client configuration files using the following command:

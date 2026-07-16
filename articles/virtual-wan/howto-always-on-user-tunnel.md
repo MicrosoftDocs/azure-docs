@@ -3,12 +3,12 @@ title: 'Configure an Always-On VPN user tunnel'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure an Always On VPN user tunnel for your Virtual WAN.
 services: virtual-wan
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 11/21/2023
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # Configure an Always On VPN user tunnel for Virtual WAN

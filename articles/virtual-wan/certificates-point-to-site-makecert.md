@@ -2,11 +2,11 @@
 title: 'Generate & export certificates for P2S User VPN: MakeCert'
 titleSuffix: Azure Virtual WAN
 description: Learn how to create a self-signed root certificate for User VPN, export a public key, and generate client certificates using MakeCert.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/20/2025
-ms.author: cherylmc
+ms.author: duau
 
 ---
 # Generate and export certificates for User VPN P2S connections using MakeCert

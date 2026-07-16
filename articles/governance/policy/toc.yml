@@ -1,3 +1,4 @@
+items:
 - name: Azure Policy documentation
   href: index.yml
 - name: Overview
@@ -331,6 +332,9 @@
   - name: Author policies for array properties
     displayName: array property, alias, aliases, in, notIn, type, defaultValue
     href: ./how-to/author-policies-for-arrays.md
+  - name: Use requestContext().identity in policy rules
+    displayName: requestContext, identity, caller identity, idtyp, appid, acrs
+    href: ./how-to/using-request-context-identity.md
   - name: Export Azure Policy resources
     displayName: github, json, definition
     href: ./how-to/export-resources.md

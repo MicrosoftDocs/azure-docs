@@ -2,11 +2,11 @@
 title: 'Configure custom IPsec/IKE connection policies for S2S VPN & VNet-to-VNet: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure IPsec/IKE custom policy for S2S or VNet-to-VNet connections with Azure VPN Gateways using the Azure portal.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 12/02/2024
-ms.author: cherylmc
+ms.author: duau
 # Customer intent: "As a network administrator, I want to configure custom IPsec/IKE policies for Site-to-Site and VNet-to-VNet connections, so that I can enhance the security and performance of our VPN gateways."
 ---
 

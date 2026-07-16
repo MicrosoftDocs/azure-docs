@@ -30,8 +30,6 @@ items:
         href: agent-identity.md
       - name: Security overview
         href: security-overview.md
-      - name: Network integration
-        href: network-integration.md
       - name: Tool access policies
         href: tool-access-policies.md
       - name: Run modes
@@ -150,6 +148,8 @@ items:
             href: docsguide.md
           - name: Favorites and Mine filter
             href: favorites-mine-filter.md
+          - name: Network integration
+            href: network-integration.md
       - name: Measure & govern
         items:
           - name: Operations Hub
