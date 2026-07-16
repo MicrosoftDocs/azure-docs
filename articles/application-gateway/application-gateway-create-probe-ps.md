@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 07/09/2020
+ms.date: 07/16/2026
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 # Customer intent: "As a cloud administrator, I want to create and manage custom health probes for an application gateway using PowerShell, so that I can ensure optimal health monitoring of my backend services and improve application reliability."
