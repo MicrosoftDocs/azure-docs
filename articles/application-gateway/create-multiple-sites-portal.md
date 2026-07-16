@@ -27,6 +27,9 @@ In this tutorial, you learn how to:
 > * Create routing rules
 > * Edit hosts file for name resolution
 
+> [!TIP]
+> This tutorial shares its base application gateway setup with [Create an application gateway with TLS termination by using the Azure portal](create-ssl-portal.md). Use that tutorial if you want TLS termination instead of multiple-site hosting.
+
 :::image type="content" source="./media/create-multiple-sites-portal/scenario.png" alt-text="Diagram showing multi-site application gateway." lightbox="./media/create-multiple-sites-portal/scenario.png":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
@@ -56,7 +59,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
      :::image type="content" source="./media/create-multiple-sites-portal/application-gateway-create-basics.png" alt-text="Screenshot showing Create application gateway page.":::
 
-2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
+2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
 
     Under **Configure virtual network**, select **Create new** to create a new virtual network. In the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets:
 

@@ -24,6 +24,9 @@ In this tutorial, you learn how to:
 > * Create the virtual machines used as backend servers
 > * Test the application gateway
 
+> [!TIP]
+> This tutorial shares its base application gateway setup with [Create an application gateway that hosts multiple web sites by using the Azure portal](create-multiple-sites-portal.md). Use that tutorial if you want multiple-site hosting instead of TLS termination.
+
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
