@@ -83,13 +83,14 @@ When Virtual WAN is configured in forced tunnel mode, the highest priority defau
 
 :::image type="content" source="./media/about-internet-routing/force-tunnel.png" alt-text="Screenshot that shows forced tunnel." lightbox="./media/about-internet-routing/force-tunnel.png":::
 
-Forced tunneling instructs Virtual WAN to expect Internet traffic to be routed to a designated next hop instead of directly to the Internet. 
+Forced tunneling instructs Virtual WAN to expect internet traffic to be routed to a designated next hop instead of directly to the internet. 
 
-The following table describes the behavior of the platform when the hub is configured in forced tunnel modea and all 0.0.0.0/0 route advertisements are withdrawn from on-premises and all 0.0.0.0/0 static routes are removed from the Virtual Network connection.
+The following table describes the behavior of the platform when the hub is configured in forced tunnel mode and all 0.0.0.0/0 route advertisements are withdrawn from on-premises and all 0.0.0.0/0 static routes are removed from the Virtual Network connection.
+
 
 |Next hop security solution| Behavior|
 |--|--|
-|Azure Firewall| **No public IP addresses assigned to Azure Firewall:** Internet traffic is processed by Azure Firewall and blackholed.<br> **At least one public IP address assigned to Azure Firewall:** Internet traffic will be processed by Azure Firewall and routed to the Internet using the Azure Firewall public IP address.|
+|Azure Firewall| **No public IP addresses assigned to Azure Firewall:** Azure Firewall processes internet traffic and blackholes it.<br> **At least one public IP address assigned to Azure Firewall:** Azure Firewall processes internet traffic and routes it to the internet by using the Azure Firewall public IP address.|
 |NVA in the hub| If the NVA in the hub is configured to route Internet traffic through the NVA's internal interface, Internet traffic will be dropped by the platform. Packets are not processed by the NVA. |
 |SaaS solution| If the SaaS solution is configured to route Internet traffic through the SaaS solution's internal interface, Internet traffic will be processed by the SaaS solution and blackholed.|
 
