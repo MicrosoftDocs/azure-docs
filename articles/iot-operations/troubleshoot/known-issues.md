@@ -468,3 +468,39 @@ Log signature: Azure portal message `Fetch broker authentications: Failed to fet
 When you configure a broker listener in the Azure portal and select a value in the "Authentication" dropdown, the portal tries to fetch the list of broker authentications. The portal displays the error message `Fetch broker authentications: Failed to fetch broker authentications`.
 
 To workaround this issue, upgrade to the 2603 release.
+
+## Federated identity issues
+
+This section lists current known issues for federated identity.
+
+### Federated identity credential issuer mismatch can cause Secret Sync authentication failures
+
+---
+
+Issue ID: 1190
+
+---
+
+Log signature similar to: AADSTS700211: No matching federated identity record found for presented assertion issuer 'https://northamerica.oic.prod-arc.azure.com/1f5f7baf-633d-4eb5-9be1-8cf1e9c6fcc9/f512e8f6-0c47-48a1-91f3-aeb5422dd766'. Please check your federated identity credential Subject, Audience and Issuer against the presented assertion.
+
+---
+
+The `az iot ops secretsync enable` command creates a federated identity credential (FIC) on the user-assigned managed identity that Azure IoT Operations uses to access Azure Key Vault. In some deployments, the command configures the FIC issuer URL with a trailing slash ('/'); however, the cluster-issued service account tokens contain an iss (issuer) claim without the trailing slash.
+
+Microsoft Entra ID requires the FIC issuer value to exactly match the token's iss claim. When the values differ, federated authentication fails and Azure IoT Operations can't exchange the Kubernetes service account token for a Microsoft Entra token. As a result, Secret Sync might receive authentication errors (for example, HTTP 401 responses when retrieving secrets from Azure Key Vault).
+
+Because the issue affects token exchange during secret retrieval, the failure typically does not occur when you run `az iot ops secretsync enable`. Instead, it surfaces later when Azure IoT Operations attempts to access a secret, which can make the root cause difficult to identify.
+
+This issue occurs only in some cluster configurations. Most deployments are not affected.
+
+Workaround: After you run `az iot ops secretsync enable`, verify that the issuer configured on the federated identity credential isn't terminiated with a slash. If it is, update the federated identity credential to remove the trailing slash. As a best practice, perform this validation during setup to help avoid difficult-to-diagnose authentication failures later.
+
+With Azure CLI, use the following commands to view and/or update the federated identity credential issuer value:
+
+```azurecli
+az identity federated-credential show --name <FIC_NAME> --identity-name <MANAGED_IDENTITY_NAME> --resource-group <RESOURCE_GROUP_NAME>
+
+az identity federated-credential update --name <FIC_NAME> --identity-name <MANAGED_IDENTITY_NAME> --resource-group <RESOURCE_GROUP_NAME> --issuer <NEW_ISSUER_URL_WITHOUT_TRAILING_SLASH>
+```
+
+In the Azure portal, you can view and modify the federated identity credential issuer value by navigating to the user-assigned managed identity used by Azure IoT Operations, selecting **Federated Identity Credentials**, selecting the credential, and checking or modifying the **Cluster Issuer URL** value.
