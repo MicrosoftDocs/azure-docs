@@ -5,6 +5,7 @@ ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 09/26/2024
 ms.reviewer: v-uhabiba
+ms.update-cycle: 1825-days
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange

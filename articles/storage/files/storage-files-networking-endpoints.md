@@ -78,11 +78,11 @@ If you're using classic file shares in a storage account:
 
 On the **Resource** page, select **Microsoft.Storage/storageAccounts** from the drop-down menu for **Resource type**. For **Resource**, select the specific storage account you want to connect to. For **Target sub-resource**, select `file`. Then select **Next: Virtual Network**.
 
+:::image type="content" source="media/storage-files-networking-endpoints/private-endpoint-resources.png" alt-text="Screenshot showing how to select the resource type, resource, and target sub-resource for the new private endpoint." lightbox="media/storage-files-networking-endpoints/private-endpoint-resources.png":::
+
 If you're using file shares created with the Microsoft.FileShares resource provider:
 
 On the **Resource** page, select **Microsoft.FileShares/fileShares** from the drop-down menu for **Resource type**. For **Resource**, select the specific file share you want to connect to. The target sub-resource auto-populates with `FileShare`. Then select **Next: Virtual Network**.
-
-:::image type="content" source="media/storage-files-networking-endpoints/private-endpoint-resources.png" alt-text="Screenshot showing how to select the resource type, resource, and target sub-resource for the new private endpoint." lightbox="media/storage-files-networking-endpoints/private-endpoint-resources.png":::
 
 The **Virtual Network** page allows you to select the specific virtual network and subnet you want to add your private endpoint to. Select dynamic or static IP address allocation for the new private endpoint. If you select static, you also need to provide a name and a private IP address. You can also optionally specify an application security group. When you're finished, select **Next: DNS**.
 
@@ -709,6 +709,7 @@ For classic file shares, follow these steps to restrict the public endpoint to s
 1. Under **Virtual networks**, select **Add a virtual network** > **Add existing virtual network** to select the virtual network that should be allowed to access the storage account through the public endpoint. Select a virtual network and a subnet for that virtual network, and then select **Enable**. If you want to create a new virtual network for this purpose, select **Add a virtual network** > **Add new virtual network**, provide the details, and then select **Create**.
 1. Under **IPv4 Addresses**, specify any public internet IP addresses that you want to be able to access the storage account.
 1. Select the **Allow trusted Microsoft services to access this resource** checkbox to allow trusted first-party Microsoft services such as Azure File Sync to access the storage account.
+1. Select **Save**.
 
 :::image type="content" source="media/storage-files-networking-endpoints/restrict-public-endpoint.png" alt-text="Screenshot showing how to restrict the public endpoint to specific networks." lightbox="media/storage-files-networking-endpoints/restrict-public-endpoint.png":::
 
