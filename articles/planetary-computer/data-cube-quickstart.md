@@ -46,13 +46,16 @@ Remembering that a standard Render Configuration argument in JSON format looks l
     "id": "prK1950-06-30",
     "name": "prK1950-06-30",
     "type": "raster-tile",
-    "options": "assets=pr-kerchunk&subdataset_name=pr&rescale=0,0.01&colormap_name=viridis&datetime=1950-06-30",
-    "minZoom": 1
+    "options": "assets=pr-kerchunk&subdataset_name=pr&rescale=0,0.01&colormap_name=viridis",
+    "minZoom": 1,
+    "info_options": "assets=pr-kerchunk&subdataset_name=pr"
   }
 ]
 ```
 
 The `options` field is where you'll want to utilize the cloud optimized, Kerchunk asset, as opposed to the original asset listed in the STAC Item. You'll also need to include the `subdataset_name` argument, which is the name of the variable you want to render.
+
+The `info_options` field enables the Explorer's time slider for this collection. It uses the same URL query-string format as `options`, but it should include only the parameters needed for `/info` discovery, typically `assets` and `subdataset_name`. Omit styling and slicing parameters such as `rescale`, `colormap_name`, and `datetime`. When you want the slider to remain active, don't pin `datetime=...` in `options`, because a hard-coded value overrides the slider. If you omit `info_options`, the Explorer falls back to reading time bounds from STAC item metadata (`cube:dimensions`, `start_datetime`, `end_datetime`).
 
 #### Render configuration for GRIB2 assets
 
@@ -66,10 +69,13 @@ The `options` field for the Render Configuration of GRIB2 assets look similar to
     "description": "A sample render configuration. Update `options` below.",
     "type": "raster-tile",
     "options": "assets=data&subdataset_bands=1&colormap_name=winter&rescale=0,10",
-    "minZoom": 1
+    "minZoom": 1,
+    "info_options": "assets=data"
  }
 ]
 ```
+
+For GRIB2, set `info_options` to the asset key used in `options`. Adding `info_options` enables the Explorer's time slider, which discovers the available GRIB band/message indices directly from the Tiler's `/info` endpoint. If your GRIB collection exposes multiple render configurations for different assets, add `info_options` to each render option that should drive a slider.
 
 #### Render configuration for Zarr assets
 
