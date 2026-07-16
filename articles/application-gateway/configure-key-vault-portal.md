@@ -116,7 +116,7 @@ You'll create the application gateway using the tabs on the **Create an applicat
     
     **Application gateway name**: Enter *_myAppGateway_* for the name of the application gateway.
 
-2. Application Gateway needs a virtual network with two subnets: one for the application gateway and one for the backend servers. In this example, you create a new virtual network while creating the application gateway. For general guidance on the baseline gateway and virtual network setup, see the [Application Gateway portal quickstart](quick-create-portal.md).
+1. Application Gateway needs a virtual network with two subnets: one for the application gateway and one for the backend servers. In this example, you create a new virtual network while creating the application gateway. For general guidance on the baseline gateway and virtual network setup, see the [Application Gateway portal quickstart](quick-create-portal.md).
 
     > [!Note]
     > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
