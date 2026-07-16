@@ -2,7 +2,7 @@
 title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
 description: Learn about troubleshooting tips and recommendations for a few issues that you see when using Azure Service Bus.
 ms.topic: article
-ms.date: 07/17/2025
+ms.date: 07/15/2026
 ms.custom:
   - build-2025
 ---
@@ -30,6 +30,48 @@ To troubleshoot:
 - See if your network is blocking specific IP addresses. For details, see [What IP addresses do I need to allow?](/azure/service-bus-messaging/service-bus-faq#what-ip-addresses-do-i-need-to-add-to-allowlist-)
 - If applicable, verify the proxy configuration. For details, see: [Configuring the transport](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample13_AdvancedConfiguration.md#configuring-the-transport)
 - For more information about troubleshooting network connectivity, see: [Connectivity, certificate, or timeout issues](#connectivity-certificate-or-timeout-issues).
+
+### Message send or receive is timing out
+Most send and receive timeouts are transient and recover on their own. A smaller number point to conditions on the service side that are worth checking. This section helps you tell the two apart and choose the right response.
+
+#### Transient timeouts recover automatically
+A transient timeout is a brief interruption, for example a momentary network blip, a link that's being reestablished, or a short-lived spike in load. The client libraries automatically retry transient failures, including timeouts, using the built-in [retry policy](/azure/architecture/best-practices/retry-service-specific#service-bus). The default policy retries up to three times with exponential back-off and a per-attempt timeout (`TryTimeout`) of 60 seconds, so most transient timeouts clear on their own with no action from you.
+
+To let the SDK do this work for you:
+
+- Keep the default retry policy. It gives the SDK room to recover transient failures for you. Lowering the maximum retry count or `TryTimeout` reduces that room, so keep the defaults unless you have a specific reason to change them.
+- A `ServiceBusException` with a `Reason` of `ServiceTimeout` (or the equivalent transient error in your SDK) is safe to retry, so let the SDK retry it or retry the operation yourself.
+- A single timeout that succeeds on the next call can be expected and needs no action.
+
+#### When to check the service side
+If timeouts continue across retries and client restarts rather than clearing on their own, it's worth checking the health of the service. Two patterns are worth looking for:
+
+- **An unresponsive entity.** A single queue, topic, or subscription stops responding while the rest of the namespace continues to work. Send and receive operations against that one entity time out even though connectivity to the namespace is healthy.
+- **A rise in internal server errors.** Requests across the namespace begin returning internal server errors, for example a `ServiceBusException` with a `Reason` of `ServiceCommunicationProblem`, or an AMQP `amqp:internal-error`. A sustained rise, as opposed to the occasional retryable error, points to a service-side condition.
+
+To confirm and get help:
+
+- Open the **Resource health** page for your namespace in the Azure portal to check the health that the service reports. For more information, see [Resource health](#resource-health).
+- In Azure Monitor, watch the **Server Errors** metric. A sustained rise in server errors points to the service side rather than your client. For the metric definitions, see [Monitoring Azure Service Bus data reference](monitor-service-bus-reference.md).
+- If you also see a rise in the **Throttled Requests** metric, the namespace is reaching its throughput or resource limits. That's a capacity condition rather than a service fault, so address it by reducing load or scaling up, for example by adding messaging units on the Premium tier. For more information, see [Throttling in Azure Service Bus](service-bus-throttling.md).
+- Confirm the client isn't the cause by working through [Connectivity, certificate, or timeout issues](#connectivity-certificate-or-timeout-issues).
+- If Resource health reports a problem, the platform detects it and works to mitigate it. The SDK automatically reconnects through brief interruptions, but a longer service-side event can exceed the retry limits, so have your application retry or resume processing once the service recovers. Monitor Resource health until it does.
+- If Resource health shows the namespace as healthy but you still see a single unresponsive entity or a sustained rise in server errors, open a support request so the team can investigate the service side.
+
+#### Set how long a receive waits
+How long a receive call waits for a message before it returns depends on the SDK. If a receive waits longer than you expect, it's usually because no wait limit is set rather than a problem with the service.
+
+- In the .NET, Java, and JavaScript libraries, a receive is bounded by default. The maximum wait time defaults to 60 seconds, after which the call returns an empty result if no message arrived.
+- In the Python library, `max_wait_time` defaults to `None`, so the call waits until a message arrives or the connection is closed. Set a `max_wait_time` value to bound it.
+- In the Go library, `ReceiveMessages` takes its timeout from the `context.Context` that you pass in, and it waits until at least one message arrives or the context is canceled. Pass a context with a deadline to set how long a receive waits:
+
+    ```go
+    ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+    defer cancel()
+    messages, err := receiver.ReceiveMessages(ctx, 10, nil)
+    ```
+
+In Go and Python, setting a context deadline (Go) or a `max_wait_time` value (Python) gives you predictable receive behavior.
 
 ### Secure socket layer (SSL) handshake failures
 This error can occur when an intercepting proxy is used. To verify, We recommend that you test the application in the host environment with the proxy disabled.
