@@ -75,7 +75,7 @@ Select-AzSubscription -Subscription "<sub name>"
 
 ## Specify the HTTP header rewrite rule configuration
 
-In this example, we modify a redirection URL by rewriting the location header in the HTTP response whenever the location header contains a reference to azurewebsites.net. To do this modification, we add a condition to evaluate whether the location header in the response contains azurewebsites.net. We use the pattern `(https?)://.*azurewebsites.net(.*)$`. And we use `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` as the header value. This value replaces *azurewebsites.net* with *contoso.com* in the location header.
+In this example, you modify a redirection URL by rewriting the location header in the HTTP response whenever the location header contains a reference to `azurewebsites.net`. To make this modification, add a condition to evaluate whether the location header in the response contains `azurewebsites.net`. Use the pattern `(https?)://.*azurewebsites.net(.*)$`. Use `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` as the header value. This value replaces *azurewebsites.net* with *contoso.com* in the location header.
 
 ```azurepowershell
 $responseHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "Location" -HeaderValue "{http_resp_Location_1}://contoso.com{http_resp_Location_2}"
