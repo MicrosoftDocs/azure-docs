@@ -43,6 +43,11 @@ The rate limit thresholds aren't always enforced exactly as defined, so it shoul
 
 The  sliding window algorithm blocks all matching traffic for the first window in which the threshold is exceeded, and then throttles traffic in future windows. Use caution when defining thresholds when configuring wide-matching rules with either *GeoLocation* or *None* as the *GroupByVariables*. Incorrectly configured thresholds could lead to frequent short outages for matching traffic.
 
+> [!NOTE] 
+> Depending on its the autoscaling configuration, the Application Gateway v2 can run multiple instances.  When multiple instances are active, incoming requests are distributed among them, and each instance maintains its own rate-limit count.
+> For example, with a limit of 400 requests per client IP per minute, 500 requests might be divided between two instances as 270 and 230. Neither instance reaches the limit, so the WAF allows the requests even though the combined total exceeds 400.
+> The configured threshold should not be treated as a strict gateway-wide limit when multiple instances are active.
+
 ## Next step
 
 > [!div class="nextstepaction"]
