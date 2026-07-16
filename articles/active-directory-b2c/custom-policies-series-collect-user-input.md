@@ -6,7 +6,7 @@ description: Learn how to collect user inputs from a user and manipulate them by
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements

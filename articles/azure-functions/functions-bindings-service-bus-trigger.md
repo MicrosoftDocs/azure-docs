@@ -379,6 +379,39 @@ def main(msg: azf.ServiceBusMessage) -> str:
 ---
 
 ::: zone-end  
+::: zone pivot="programming-language-go"
+
+The following example shows an Azure Service Bus queue trigger function that logs incoming messages:
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	"github.com/azure/azure-functions-golang-worker/sdk/bindings"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.ServiceBusQueue("serviceBusQueueTrigger", processMessage,
+		sdk.WithQueueName("myqueue"),
+		sdk.WithConnection("ServiceBusConnection"),
+	)
+	worker.Start(app)
+}
+
+func processMessage(ctx context.Context, msg bindings.ServiceBusMessage) error {
+	log.Printf("Service Bus queue trigger processed message: %s", msg.Body)
+  log.Printf("Message ID: %s", msg.MessageId)
+	return nil
+}
+```
+
+::: zone-end  
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
@@ -626,7 +659,7 @@ Poison message handling can't be controlled or configured in Azure Functions. Se
 
 ## PeekLock behavior
 
-The Functions runtime receives a message in [PeekLock mode](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode).
+The Functions runtime receives a message in [PeekLock mode](../service-bus-messaging/service-bus-performance-improvements.md#service-bus-receive-modes).
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-java,programming-language-python,programming-language-powershell"
  By default, the runtime calls `Complete` on the message if the function finishes successfully, or calls `Abandon` if the function fails. You can disable automatic completion through with the [`autoCompleteMessages` property in `host.json`][host-json-autoComplete].

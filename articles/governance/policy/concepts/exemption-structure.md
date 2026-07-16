@@ -128,7 +128,7 @@ The follow resource selectors `kinds` are supported in the policy exemptions obj
 - groupPrincipalId: the list of the allowed security group IDs can be exempt in the request. A resource selector can contain multiple selectors. To be applicable to a resource selector, a resource must meet requirements specified by all its selectors. Further, up to 10 resourceSelectors can be specified in a single assignment. In-scope resources are evaluated when they satisfy any one of these resource selectors.
 
 
-### Identity based exemptions (preview)
+### Identity based exemptions
 
 You can leverage selector kinds userPrincipalId and groupPrincipalId within the exemption structure to enable a specific service principal, MSI, user, or security group to bypass a policy assignment's enforcement.
 

@@ -93,7 +93,6 @@ The data type you specify for the parameter is the internal service type that ma
 ## Related content
 See the following articles that explain how to transform data in other ways: 
 
-* [U-SQL Activity](transform-data-using-data-lake-analytics.md)
 * [Hive Activity](transform-data-using-hadoop-hive.md)
 * [Pig Activity](transform-data-using-hadoop-pig.md)
 * [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)

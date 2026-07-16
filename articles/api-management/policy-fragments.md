@@ -2,12 +2,10 @@
 title: Reuse Policy Configurations in API Management | Microsoft Docs
 description: Learn how to create and manage reusable policy fragments, XML snippets that contain policy configurations, in Azure API Management.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 02/10/2026
-ms.author: danlep
 
 #customer intent: As an API developer, I want to learn how to create and manage policy fragments so that I can reuse policy configurations.
 ---

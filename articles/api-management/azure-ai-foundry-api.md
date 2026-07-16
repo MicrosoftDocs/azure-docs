@@ -2,8 +2,6 @@
 title: Import a Microsoft Foundry API - Azure API Management
 description: How to import an API from Microsoft Foundry as a REST API in Azure API Management.
 ms.service: azure-api-management
-author: dlepow
-ms.author: danlep
 ms.topic: how-to
 ms.date: 03/30/2026
 ms.update-cycle: 180-days

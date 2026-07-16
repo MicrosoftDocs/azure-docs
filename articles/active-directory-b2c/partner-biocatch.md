@@ -5,7 +5,7 @@ description: Tutorial to configure Azure Active Directory B2C with BioCatch to i
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 06/21/2024
 

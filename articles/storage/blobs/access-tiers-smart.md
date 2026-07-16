@@ -29,7 +29,8 @@ Access behavior, performance characteristics, and SLAs of the underlying capacit
 
 ## Known issues and considerations
 
-- Smart tier is **generally available** in nearly all public regions with zonal redundancies. The Azure regions Israel Central, Qatar Central, and UAE North remain in **Public Preview**.
+- Smart tier is **generally available** in all public cloud regions with zonal redundancies.
+
 - Smart tier is in **Public Preview** for the Azure Government cloud regions as well as Microsoft Azure operated by 21Vianet (Azure in China).
 - **Redundancy conversions** to non-zone redundant (LRS or GRS) accounts aren't supported. 
 - When a GZRS account **fails over**, convert the LRS account to zone-redundant within **60 days** to continue smart tier support.
@@ -45,7 +46,7 @@ You can move objects out of smart tier by setting a different online tier or cha
 To set the default access tier setting for a storage account, see [Set a blob's access tier](access-tiers-online-manage.md).
 
 > [!NOTE]
-> In regions where smart tier remains in Public Preview (Israel Central, Qatar Central, UAE North, Azure Government, and Azure operated by 21Vianet), enable access by registering the "Smart Tier (account level)" preview feature in the Azure portal [preview features blade](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal/).
+> In clouds where smart tier remains in Public Preview (Azure Government, and Azure operated by 21Vianet), enable access by registering the "Smart Tier (account level)" preview feature in the Azure portal [preview features blade](/azure/azure-resource-manager/management/preview-features?tabs=azure-portal/).
 
 #### [Portal](#tab/azure-portal)
 
@@ -163,11 +164,17 @@ For more information, see [Monitoring Azure Blob Storage](/azure/storage/blobs/m
 
 
 ## Client tooling
-The Azure portal supports smart tier. Smart tier requires the following minimum version of the REST API.
+The Azure portal supports smart tier. Smart tier requires the following minimum version of the REST, SDK, and Tools.
 
 | Environment | Minimum version |
 |---|---|
 | [REST API](/rest/api/storageservices/blob-service-rest-api)| 2025-08-01 |
+| [.NET](/dotnet/api/overview/azure/resourcemanager.storage-readme) | 1.7.0 |
+| [Java](/java/api/overview/azure/resourcemanager-storage-readme) | 2.56.0 |
+| [Python](/python/api/overview/azure/mgmt-storage-readme) | 25.0.0 |
+| [JavaScript](/javascript/api/overview/azure/arm-storage-readme) | 20.0.0 |
+| [PowerShell (Az.Storage)](/powershell/module/az.storage) | 9.7.0 |
+| [Azure CLI](/cli/azure/storage) | 2.87.0 |
 
 
 ## Next steps

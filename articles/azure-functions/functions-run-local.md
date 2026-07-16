@@ -3,9 +3,10 @@ title: Develop Azure Functions Locally by using Core Tools
 description: Learn how to code and test Azure Functions from the command prompt or terminal on your local computer before you deploy them to run them on Azure Functions.
 ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: how-to
-ms.date: 03/19/2026
+ms.date: 05/29/2026
 zone_pivot_groups: programming-languages-set-functions
 ms.custom:
+  - build-2026
   - devx-track-csharp
   - 80e4ff38-5174-43
   - devx-track-extended-java
@@ -18,7 +19,9 @@ ms.custom:
 
 # Develop Azure Functions locally by using Core Tools
 
-Azure Functions Core Tools lets you develop and test your functions on your local computer. When you're ready, you can also use Core Tools to deploy your code project to Azure and work with application settings.
+[!INCLUDE [functions-cli-version-comparison](../../includes/functions-cli-version-comparison.md)]
+
+Azure Functions Core Tools (v4 of func.exe) lets you develop and test your functions on your local computer. When you're ready, you can also use Core Tools to deploy your code project to Azure and work with application settings.
 
 ::: zone pivot="programming-language-csharp"
 You're viewing the C# version of this article. Make sure to select your preferred Functions programming language at the top of the article.
@@ -403,6 +406,15 @@ mvn azure-functions:deploy
 
 When you run this command, Azure resources are created during the initial deployment based on the settings in your _pom.xml_ file. For more information, see [Deploy the function project to Azure](how-to-create-function-azure-cli.md?pivots=programming-language-java#deploy-the-function-project-to-azure).
 ::: zone-end  
+::: zone pivot="programming-language-go"
+To publish your local Go code to a function app in Azure, use the [`func azure functionapp publish`](./functions-core-tools-reference.md#func-azure-functionapp-publish) command, as in the following example:
+
+```console
+func azure functionapp publish <FunctionAppName>
+```
+
+This command builds, packages, and deploys your Go project to `<FunctionAppName>`.
+::: zone-end
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"  
 The following considerations apply to this kind of deployment:
 
@@ -544,9 +556,11 @@ This section doesn't apply to version 1.x of the Functions runtime. In version 1
 ::: zone pivot="programming-language-csharp"
 For C# class library projects, add references to the specific NuGet packages for the binding extensions required by your functions. C# script (.csx) project must use [extension bundles](extension-bundles.md).
 ::: zone-end
-::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
-Functions provides _extension bundles_ to make is easy to work with binding extensions in your project. Extension bundles, which are versioned and defined in the host.json file, install a complete set of compatible binding extension packages for your app. Your *host.json* file should already have extension bundles enabled. If for some reason you need to add or update the extension bundle in the *host.json* file, see [Extension bundles](extension-bundles.md).
+::: zone pivot="programming-language-go,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
+Functions provides _extension bundles_ to make it easy to work with binding extensions in your project. Extension bundles, which are versioned and defined in the host.json file, install a complete set of compatible binding extension packages for your app. Your *host.json* file should already have extension bundles enabled. If for some reason you need to add or update the extension bundle in the *host.json* file, see [Extension bundles](extension-bundles.md).
+::: zone-end
 
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 If you must use a binding extension or an extension version not in a supported bundle, you need to manually install extensions. For such rare scenarios, see the [`func extensions install`](./functions-core-tools-reference.md#func-extensions-install) command.
 ::: zone-end
 

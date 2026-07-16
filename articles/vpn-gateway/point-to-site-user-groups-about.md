@@ -2,8 +2,8 @@
 title: 'About User Groups and IP Address Pools for Point-to-Site Connections'
 titleSuffix: Azure VPN Gateway
 description: Learn about using user groups to assign IP addresses from specific address pools based on identity or authentication credentials for VPN Gateway point-to-site connections.
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 05/06/2026

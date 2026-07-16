@@ -2,12 +2,10 @@
 title: How to use role-based access control in Azure API Management | Microsoft Docs
 description: Learn how to use the built-in roles and create custom roles in Azure API Management
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 05/12/2026
-ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -51,7 +49,7 @@ A workspace collaborator must be assigned both a workspace-scoped role and a ser
 | API Management Service Workspace API Developer    | service    |   Has read access to tags and products and write access to allow: <br/><br/> ▪️ Assigning  APIs to products<br/> ▪️ Assigning tags to products and APIs<br/><br/> This role should be assigned on the service scope. |
 |  API Management Service Workspace API Product Manager  | service    | Has the same access as API Management Service Workspace API Developer as well as read access to users and write access to allow assigning users to groups. This role should be assigned on the service scope.      |
 
-Depending on how workspace collaborators use or manage the workspace, we recommend also assigning one of the following Azure-provided RBAC roles at the scope of the [workspace gateway](workspaces-overview.md#workspace-gateway): **Reader**, **Contributor**, or **Owner**.
+If the workspace is associated with a workspace gateway resource, we recommend also assigning one of the following Azure-provided RBAC roles at the scope of the [workspace gateway](workspaces-overview.md#workspace-gateway): **Reader**, **Contributor**, or **Owner**.
 
 ## Built-in developer portal roles
 

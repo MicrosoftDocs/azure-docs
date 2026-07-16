@@ -2,11 +2,11 @@
 title: 'About NAT (Network Address Translation) on VPN Gateway'
 titleSuffix: Azure VPN Gateway
 description: Learn about NAT (Network Address Translation) in Azure VPN to connect networks with overlapping address spaces.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 10/16/2024
-ms.author: cherylmc
+ms.author: duau
 ms.custom: template-concept
 # Customer intent: As a network administrator, I want to configure NAT on a VPN gateway, so that I can connect multiple networks with overlapping IP addresses and avoid communication failures.
 ---

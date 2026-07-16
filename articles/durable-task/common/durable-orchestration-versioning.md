@@ -88,7 +88,7 @@ Use `azure-functions-durable` version [1.5.0](https://pypi.org/project/azure-fun
 
 # [PowerShell](#tab/powershell)
 
-Use `AzureFunctions.PowerShell.Durable.SDK` version [2.2.0](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK/2.2.0) or later. Ensure you're using the standalone [Durable Functions PowerShell SDK](../../azure-functions/durable-functions/durable-functions-powershell-v2-sdk-migration-guide.md).
+Use `AzureFunctions.PowerShell.Durable.SDK` version [2.2.0](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK/2.2.0) or later. Ensure you're using the standalone [Durable Functions PowerShell SDK](../durable-functions/durable-functions-powershell-v2-sdk-migration-guide.md).
 
 # [Java](#tab/java)
 
@@ -1161,8 +1161,8 @@ To check for running instances, use the `DurableTaskClient` to list orchestratio
 
 ::: zone pivot="durable-functions"
 
-- [Zero-downtime deployment strategies](../../azure-functions/durable-functions/durable-functions-zero-downtime-deployment.md)
-- [Versioning strategies in Durable Functions](../../azure-functions/durable-functions/durable-functions-versioning.md)
+- [Zero-downtime deployment strategies](../durable-functions/durable-functions-zero-downtime-deployment.md)
+- [Versioning strategies in Durable Functions](../durable-functions/durable-functions-versioning.md)
 - [Eternal orchestrations](durable-task-eternal-orchestrations.md)
 - [Instance management](durable-task-instance-management.md)
 

@@ -7,9 +7,9 @@ ms.subservice: security-fundamentals
 ms.custom: devx-track-extended-java
 ms.topic: concept-article
 ms.date: 04/29/2026
-ms.author: sarahlipsey
-author: shlipsey3
-manager: pmwongera
+author: msmbaldwin
+ms.author: mbaldwin
+manager: femila
 ms.reviewer: quentinb
 ---
 # Azure Certificate Authority details

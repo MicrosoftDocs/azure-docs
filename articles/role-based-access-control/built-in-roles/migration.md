@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -569,6 +569,344 @@ Grants required access to the system assigned managed identity of Azure Migrate 
     }
   ],
   "roleName": "Azure Migrate Service Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Local Migrate Execute Expert
+
+Grants restricted access on an Azure Local based Azure Migrate project to only perform migration related operations, including replication, execution of migrations, tracking and monitoring of migration progress, and initiation of agentless migrations.
+
+Includes an ABAC condition to constrain role assignments.
+
+[Learn more](/azure/migrate/prepare-azure-accounts)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/write | Creates or updates a resource group. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/locations/read | Gets the list of locations supported. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/checkResourceName/action | Check the resource name for validity. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deploymentScripts/write | Creates or updates a deployment script |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deploymentScripts/read | Gets or lists deployment scripts |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/links/write | Creates or updates a resource link. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/locks/write | Add locks at the specified scope. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/locks/delete | Delete locks at the specified scope. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Migrate](../permissions/migration.md#microsoftmigrate)/*/read |  |
+> | Microsoft.ApplicationMigration/*/read |  |
+> | [Microsoft.OffAzure](../permissions/migration.md#microsoftoffazure)/*/read |  |
+> | Microsoft.MySQLDiscovery/*/read |  |
+> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/*/read |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/*/write |  |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/listKeys/action | Returns the access keys for the specified storage account. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/links/read | Gets or lists resource links. |
+> | Microsoft.DependencyMap/*/read |  |
+> | Microsoft.DependencyMap/maps/*/action |  |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/*/Read |  |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/LogicalNetworks/join/action | Joins logical networks resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/NetworkInterfaces/* |  |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/VirtualHardDisks/* |  |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/VirtualMachines/Write | Creates/Updates virtual machine resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/VirtualMachineInstances/Write | Creates/Updates virtual machine instance resource |
+> | Microsoft.DataReplication/*/read |  |
+> | Microsoft.DataReplication/replicationVaults/protectedItems/* |  |
+> | Microsoft.DataReplication/replicationVaults/replicationExtensions/* |  |
+> | Microsoft.DataReplication/replicationVaults/replicationPolicies/* |  |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/read | Gets an Custom Location resource |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/read | Gets extension instance resource. |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/appliances/read | Gets an Appliance resource |
+> | **NotActions** |  |
+> | [Microsoft.OffAzure](../permissions/migration.md#microsoftoffazure)/hypervSites/machines/inventoryinsights/pendingupdates/* |  |
+> | [Microsoft.OffAzure](../permissions/migration.md#microsoftoffazure)/hypervSites/machines/inventoryinsights/vulnerabilities/* |  |
+> | [Microsoft.OffAzure](../permissions/migration.md#microsoftoffazure)/serverSites/machines/inventoryinsights/pendingupdates/* |  |
+> | [Microsoft.OffAzure](../permissions/migration.md#microsoftoffazure)/serverSites/machines/inventoryinsights/vulnerabilities/* |  |
+> | [Microsoft.OffAzure](../permissions/migration.md#microsoftoffazure)/vmwareSites/machines/inventoryinsights/vulnerabilities/* |  |
+> | [Microsoft.OffAzure](../permissions/migration.md#microsoftoffazure)/vmwareSites/machines/inventoryinsights/pendingupdates/* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+> | **Actions** |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+> | **Condition** |  |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{17d1049b-9a84-46fb-8f53-869881c3d3ab, ba92f5b4-2d11-453d-a403-e96b0029c9fe})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{17d1049b-9a84-46fb-8f53-869881c3d3ab, ba92f5b4-2d11-453d-a403-e96b0029c9fe})) | Add or remove role assignments for the following roles:<br/>Storage Account Contributor<br/>Storage Blob Data Contributor |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants restricted access on an Azure Local based Azure Migrate project to only perform migration related operations, including replication, execution of migrations, tracking and monitoring of migration progress, and initiation of agentless migrations.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/1cfa4eac-9a23-481c-a793-bfb6958e836c",
+  "name": "1cfa4eac-9a23-481c-a793-bfb6958e836c",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/write",
+        "Microsoft.Resources/subscriptions/locations/read",
+        "Microsoft.Resources/checkResourceName/action",
+        "Microsoft.Resources/deployments/validate/action",
+        "Microsoft.Resources/deploymentScripts/write",
+        "Microsoft.Resources/deploymentScripts/read",
+        "Microsoft.Resources/links/write",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Authorization/locks/write",
+        "Microsoft.Authorization/locks/delete",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Migrate/*/read",
+        "Microsoft.ApplicationMigration/*/read",
+        "Microsoft.OffAzure/*/read",
+        "Microsoft.MySQLDiscovery/*/read",
+        "Microsoft.Support/*",
+        "Microsoft.Storage/storageAccounts/*/read",
+        "Microsoft.Storage/storageAccounts/*/write",
+        "Microsoft.Storage/storageAccounts/listKeys/action",
+        "Microsoft.Resources/links/read",
+        "Microsoft.DependencyMap/*/read",
+        "Microsoft.DependencyMap/maps/*/action",
+        "Microsoft.AzureStackHCI/*/Read",
+        "Microsoft.AzureStackHCI/LogicalNetworks/join/action",
+        "Microsoft.AzureStackHCI/NetworkInterfaces/*",
+        "Microsoft.AzureStackHCI/VirtualHardDisks/*",
+        "Microsoft.AzureStackHCI/VirtualMachines/Write",
+        "Microsoft.AzureStackHCI/VirtualMachineInstances/Write",
+        "Microsoft.DataReplication/*/read",
+        "Microsoft.DataReplication/replicationVaults/protectedItems/*",
+        "Microsoft.DataReplication/replicationVaults/replicationExtensions/*",
+        "Microsoft.DataReplication/replicationVaults/replicationPolicies/*",
+        "Microsoft.ExtendedLocation/customLocations/read",
+        "Microsoft.KubernetesConfiguration/extensions/read",
+        "Microsoft.ResourceConnector/appliances/read"
+      ],
+      "notActions": [
+        "Microsoft.OffAzure/hypervSites/machines/inventoryinsights/pendingupdates/*",
+        "Microsoft.OffAzure/hypervSites/machines/inventoryinsights/vulnerabilities/*",
+        "Microsoft.OffAzure/serverSites/machines/inventoryinsights/pendingupdates/*",
+        "Microsoft.OffAzure/serverSites/machines/inventoryinsights/vulnerabilities/*",
+        "Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/vulnerabilities/*",
+        "Microsoft.OffAzure/vmwareSites/machines/inventoryinsights/pendingupdates/*"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    },
+    {
+      "actions": [
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": [],
+      "conditionVersion": "2.0",
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{17d1049b-9a84-46fb-8f53-869881c3d3ab, ba92f5b4-2d11-453d-a403-e96b0029c9fe})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{17d1049b-9a84-46fb-8f53-869881c3d3ab, ba92f5b4-2d11-453d-a403-e96b0029c9fe}))"
+    }
+  ],
+  "roleName": "Azure Local Migrate Execute Expert",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Azure Local Migrate Owner
+
+Grants full access to create and manage Azure Local based Azure Migrate projects including appliance-based discovery and execution of migrations; Also grants ability to assign Azure Migrate Local specific roles in Azure RBAC
+
+Includes an ABAC condition to constrain role assignments.
+
+[Learn more](/azure/migrate/prepare-azure-accounts)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/write | Creates or updates a resource group. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/locations/read | Gets the list of locations supported. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/checkResourceName/action | Check the resource name for validity. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/validate/action | Validates a deployment. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deploymentScripts/write | Creates or updates a deployment script |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deploymentScripts/read | Gets or lists deployment scripts |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/links/write | Creates or updates a resource link. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/locks/write | Add locks at the specified scope. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/locks/delete | Delete locks at the specified scope. |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Migrate](../permissions/migration.md#microsoftmigrate)/* |  |
+> | Microsoft.ApplicationMigration/* |  |
+> | [Microsoft.OffAzure](../permissions/migration.md#microsoftoffazure)/* |  |
+> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
+> | Microsoft.MySQLDiscovery/* |  |
+> | Microsoft.DependencyMap/* |  |
+> | [Microsoft.KeyVault](../permissions/security.md#microsoftkeyvault)/vaults/* |  |
+> | [Microsoft.KeyVault](../permissions/security.md#microsoftkeyvault)/checkNameAvailability/read | Checks that a key vault name is valid and is not in use |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/read | Read any Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/write | Writes an Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/delete | Deletes an Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/register/action | Registers the subscription for the Microsoft.HybridCompute Resource Provider |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/write | Creates a virtual network subnet or updates an existing virtual network subnet |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/join/action | Joins a virtual network. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/join/action | Joins a virtual network. Not Alertable. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/read | Gets an private endpoint resource. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/write | Creates a new private endpoint, or updates an existing private endpoint. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/privateDnsZoneGroups/write | Puts a Private DNS Zone Group |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsZones/write | Create or update a Private DNS zone within a resource group. Note that this command cannot be used to create or update virtual network links or record sets within the zone. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsZones/virtualNetworkLinks/write | Create or update a Private DNS zone link to virtual network. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsZones/join/action | Joins a Private DNS Zone |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateDnsZones/A/write | Create or update a record set of type 'A' within a Private DNS zone. The records specified will replace the current records in the record set. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/register/action | Registers the subscription |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/privateDnsZoneGroups/read | Gets a Private DNS Zone Group |
+> | [Microsoft.Storage](../permissions/storage.md#microsoftstorage)/storageAccounts/* | Create and manage storage accounts |
+> | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/register/action | Registers the subscription for the Microsoft.GuestConfiguration resource provider. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/register/action | Register the subscription for Microsoft.HybridConnectivity |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/vaults/* |  |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/register/action | Registers subscription for given Resource Provider |
+> | [Microsoft.RecoveryServices](../permissions/management-and-governance.md#microsoftrecoveryservices)/operations/read | Operation returns the list of Operations for a Resource Provider |
+> | Microsoft.DataReplication/*/read |  |
+> | Microsoft.DataReplication/register/action | Registers the subscription for the Microsoft.DataReplication resource provider |
+> | Microsoft.DataReplication/replicationFabrics/* |  |
+> | Microsoft.DataReplication/replicationVaults/* |  |
+> | [Microsoft.KeyVault](../permissions/security.md#microsoftkeyvault)/register/action | Registers a subscription |
+> | Microsoft.AzureArcData/register/action | Register the subscription for Microsoft.AzureArcData |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/links/read | Gets or lists resource links. |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/*/Read |  |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/LogicalNetworks/join/action | Joins logical networks resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/NetworkInterfaces/* |  |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/VirtualHardDisks/* |  |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/VirtualMachines/Write | Creates/Updates virtual machine resource |
+> | [Microsoft.AzureStackHCI](../permissions/hybrid-multicloud.md#microsoftazurestackhci)/VirtualMachineInstances/Write | Creates/Updates virtual machine instance resource |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/read | Gets an Custom Location resource |
+> | [Microsoft.KubernetesConfiguration](../permissions/hybrid-multicloud.md#microsoftkubernetesconfiguration)/extensions/read | Gets extension instance resource. |
+> | [Microsoft.ResourceConnector](../permissions/hybrid-multicloud.md#microsoftresourceconnector)/appliances/read | Gets an Appliance resource |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+> | **Actions** |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+> | **Condition** |  |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{7859c0b0-0bb9-4994-bd12-cd529af7d646, 1cfa4eac-9a23-481c-a793-bfb6958e836c, 17d1049b-9a84-46fb-8f53-869881c3d3ab, ba92f5b4-2d11-453d-a403-e96b0029c9fe, ba480ccd-6499-4709-b581-8f38bb215c63})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{7859c0b0-0bb9-4994-bd12-cd529af7d646, 1cfa4eac-9a23-481c-a793-bfb6958e836c, 17d1049b-9a84-46fb-8f53-869881c3d3ab, ba92f5b4-2d11-453d-a403-e96b0029c9fe, ba480ccd-6499-4709-b581-8f38bb215c63})) | Add or remove role assignments for the following roles:<br/>Azure Migrate Decide and Plan Expert<br/>Azure Local Migrate Execute Expert<br/>Storage Account Contributor<br/>Storage Blob Data Contributor<br/>Azure Migrate Service Reader |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants full access to create and manage Azure Local based Azure Migrate projects including appliance-based discovery and execution of migrations; Also grants ability to assign Azure Migrate Local specific roles in Azure RBAC",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/fd8ea4d5-6509-4db0-bada-356ab233b4fb",
+  "name": "fd8ea4d5-6509-4db0-bada-356ab233b4fb",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/write",
+        "Microsoft.Resources/subscriptions/read",
+        "Microsoft.Resources/subscriptions/locations/read",
+        "Microsoft.Resources/checkResourceName/action",
+        "Microsoft.Resources/deployments/validate/action",
+        "Microsoft.Resources/deploymentScripts/write",
+        "Microsoft.Resources/deploymentScripts/read",
+        "Microsoft.Resources/links/write",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Authorization/locks/write",
+        "Microsoft.Authorization/locks/delete",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Migrate/*",
+        "Microsoft.ApplicationMigration/*",
+        "Microsoft.OffAzure/*",
+        "Microsoft.Support/*",
+        "Microsoft.MySQLDiscovery/*",
+        "Microsoft.DependencyMap/*",
+        "Microsoft.KeyVault/vaults/*",
+        "Microsoft.KeyVault/checkNameAvailability/read",
+        "Microsoft.HybridCompute/machines/read",
+        "Microsoft.HybridCompute/machines/write",
+        "Microsoft.HybridCompute/machines/delete",
+        "Microsoft.HybridCompute/register/action",
+        "Microsoft.Network/virtualNetworks/read",
+        "Microsoft.Network/virtualNetworks/subnets/write",
+        "Microsoft.Network/virtualNetworks/subnets/join/action",
+        "Microsoft.Network/virtualNetworks/join/action",
+        "Microsoft.Network/privateEndpoints/read",
+        "Microsoft.Network/privateEndpoints/write",
+        "Microsoft.Network/privateEndpoints/privateDnsZoneGroups/write",
+        "Microsoft.Network/privateDnsZones/write",
+        "Microsoft.Network/privateDnsZones/virtualNetworkLinks/write",
+        "Microsoft.Network/privateDnsZones/join/action",
+        "Microsoft.Network/privateDnsZones/A/write",
+        "Microsoft.Network/register/action",
+        "Microsoft.Network/virtualNetworks/subnets/read",
+        "Microsoft.Network/privateEndpoints/privateDnsZoneGroups/read",
+        "Microsoft.Storage/storageAccounts/*",
+        "Microsoft.GuestConfiguration/register/action",
+        "Microsoft.HybridConnectivity/register/action",
+        "Microsoft.RecoveryServices/vaults/*",
+        "Microsoft.RecoveryServices/register/action",
+        "Microsoft.RecoveryServices/operations/read",
+        "Microsoft.DataReplication/*/read",
+        "Microsoft.DataReplication/register/action",
+        "Microsoft.DataReplication/replicationFabrics/*",
+        "Microsoft.DataReplication/replicationVaults/*",
+        "Microsoft.KeyVault/register/action",
+        "Microsoft.AzureArcData/register/action",
+        "Microsoft.Resources/links/read",
+        "Microsoft.AzureStackHCI/*/Read",
+        "Microsoft.AzureStackHCI/LogicalNetworks/join/action",
+        "Microsoft.AzureStackHCI/NetworkInterfaces/*",
+        "Microsoft.AzureStackHCI/VirtualHardDisks/*",
+        "Microsoft.AzureStackHCI/VirtualMachines/Write",
+        "Microsoft.AzureStackHCI/VirtualMachineInstances/Write",
+        "Microsoft.ExtendedLocation/customLocations/read",
+        "Microsoft.KubernetesConfiguration/extensions/read",
+        "Microsoft.ResourceConnector/appliances/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    },
+    {
+      "actions": [
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": [],
+      "conditionVersion": "2.0",
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{7859c0b0-0bb9-4994-bd12-cd529af7d646, 1cfa4eac-9a23-481c-a793-bfb6958e836c, 17d1049b-9a84-46fb-8f53-869881c3d3ab, ba92f5b4-2d11-453d-a403-e96b0029c9fe, ba480ccd-6499-4709-b581-8f38bb215c63})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{7859c0b0-0bb9-4994-bd12-cd529af7d646, 1cfa4eac-9a23-481c-a793-bfb6958e836c, 17d1049b-9a84-46fb-8f53-869881c3d3ab, ba92f5b4-2d11-453d-a403-e96b0029c9fe, ba480ccd-6499-4709-b581-8f38bb215c63}))"
+    }
+  ],
+  "roleName": "Azure Local Migrate Owner",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

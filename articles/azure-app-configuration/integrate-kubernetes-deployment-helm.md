@@ -186,11 +186,13 @@ settings:
 
 First, download the configuration from App Configuration to a *myConfig.yaml* file. Use a key filter to only download those keys that start with **settings.**. If in your case the key filter is not sufficient to exclude keys of Key Vault references, you may use the argument **--skip-keyvault** to exclude them.
 
+In the following examples, replace the placeholder text _`<AppConfigurationStoreName>`_ with the name of your App Configuration store.
+
 > [!TIP]
 > Learn more about the [export command](/cli/azure/appconfig/kv#az-appconfig-kv-export).
 
 ```azurecli-interactive
-az appconfig kv export -n myAppConfiguration -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
+az appconfig kv export -n <AppConfigurationStoreName> -d file --path myConfig.yaml --key "settings.*"  --separator "." --format yaml
 ```
 
 Next, download secrets to a file called *mySecrets.yaml*. The command-line argument **--resolve-keyvault** resolves the Key Vault references by retrieving the actual values in Key Vault. You'll need to run this command with credentials that have access permissions to the corresponding Key Vault.
@@ -199,7 +201,7 @@ Next, download secrets to a file called *mySecrets.yaml*. The command-line argum
 > As this file contains sensitive information, keep the file with care and clean up when it's not needed anymore.
 
 ```azurecli-interactive
-az appconfig kv export -n myAppConfiguration -d file --path mySecrets.yaml --key "secrets.*" --separator "." --resolve-keyvault --format yaml
+az appconfig kv export -n <AppConfigurationStoreName> -d file --path mySecrets.yaml --key "secrets.*" --separator "." --resolve-keyvault --format yaml
 ```
 
 Use helm upgrade's **-f** argument to pass in the two configuration files you've created. They'll override the configuration values defined in *values.yaml* with the values exported from App Configuration.
@@ -211,7 +213,7 @@ helm upgrade --install -f myConfig.yaml -f mySecrets.yaml "example" ./mychart
 You can also use the **--set** argument for helm upgrade to pass literal key-values. Using the **--set** argument is a good way to avoid persisting sensitive data to disk.
 
 ```powershell
-$secrets = az appconfig kv list -n myAppConfiguration --key "secrets.*" --resolve-keyvault --query "[*].{name:key, value:value}" | ConvertFrom-Json
+$secrets = az appconfig kv list -n <AppConfigurationStoreName> --key "secrets.*" --resolve-keyvault --query "[*].{name:key, value:value}" | ConvertFrom-Json
 
 foreach ($secret in $secrets) {
   $keyvalues += $secret.name + "=" + $secret.value + ","

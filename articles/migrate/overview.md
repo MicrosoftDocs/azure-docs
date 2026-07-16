@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.reviewer: v-uhabiba
 ms.topic: concept-article
 ms.date: 11/04/2025
+ms.update-cycle: 1825-days
 monikerRange: migrate 
 # Customer intent: Customers want to leverage Azure Migrate’s Wave Planning to simplify large-scale cloud migrations. They’re looking for a structured way to break down complex projects, reduce risks, maintain business continuity, and track progress using integrated planning and execution tools.
 ---

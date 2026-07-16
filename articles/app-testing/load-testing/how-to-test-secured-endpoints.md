@@ -4,7 +4,7 @@ description: Learn how to load test authenticated endpoints with Azure Load Test
 author: nandinimurali
 ms.author: nandinim
 services: load-testing
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.topic: how-to 
 ms.date: 09/18/2023
 ms.custom: template-how-to

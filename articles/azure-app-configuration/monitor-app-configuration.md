@@ -88,13 +88,13 @@ Resource Logs (including audit logs and HTTP request logs) aren't collected and 
 1. If your identity is associated with more than one subscription, then set your active subscription to the subscription of the App Configuration store that you want to enable logs for.
 
     ```Azure CLI
-    az account set --subscription <your-subscription-id>
+    az account set --subscription <SubscriptionId>
     ```
 
 1. Enable logs by using the az monitor [diagnostic-settings create command](/cli/azure/monitor/diagnostic-settings#az-monitor-diagnostic-settings-create).
 
     ```Azure CLI
-    az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <app-configuration-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
+    az monitor diagnostic-settings create --name <DiagnosticSettingName> --workspace <LogAnalyticsWorkspaceResourceId> --resource <AppConfigurationResourceId> --logs '[{"category": "<CategoryName>", "enabled": true, "retentionPolicy": {"days": <RetentionDays>, "enabled": <RetentionEnabled>}}]'
     ```
 
  ### [PowerShell](#tab/PowerShell)
@@ -108,18 +108,18 @@ Resource Logs (including audit logs and HTTP request logs) aren't collected and 
 1. Set your active subscription to the subscription of the App Configuration account that you want to enable logging for.
 
     ```PowerShell
-    Set-AzContext -SubscriptionId <subscription-id>
+    Set-AzContext -SubscriptionId <SubscriptionId>
     ```
     
 1. To enable logs for a Log Analytics Workspace, use the [Set-AzDiagnosticSetting PowerShell](/previous-versions/azure/mt631625(v=azure.100)?redirectedfrom=MSDN) cmdlet. 
 
     ```PowerShell
-    Set-AzDiagnosticSetting -ResourceId <app-configuration-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true
+    Set-AzDiagnosticSetting -ResourceId <AppConfigurationResourceId> -WorkspaceId <LogAnalyticsWorkspaceResourceId> -Enabled $true
     ```
 1. Verify that your diagnostic setting is correctly set and log categories are enabled. 
 
     ```PowerShell
-    Get-AzureRmDiagnosticSetting -ResourceId <app-configuration-resource-id> 
+    Get-AzureRmDiagnosticSetting -ResourceId <AppConfigurationResourceId> 
     ```
 ---
 For more information on creating a diagnostic setting using the Azure portal, CLI, or PowerShell, see [create a diagnostic setting to collect logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings).

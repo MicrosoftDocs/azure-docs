@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 04/01/2026
+ms.date: 06/02/2026
 ai-usage: ai-assisted
 ---
 
@@ -36,6 +36,8 @@ Graph Definition → References Module → Provides Operator → Processes Data
      ↓                    ↓               ↓              ↓
 "temperature:1.0.0" → temperature.wasm → map function → °F to °C
 ```
+
+The module reference is relative to the registry endpoint host. If the module artifact is stored under a repository path, include that path in the module reference. For example, with registry endpoint host `ghcr.io`, use `azure-samples/explore-iot-operations/temperature:1.0.0` to reference `ghcr.io/azure-samples/explore-iot-operations/temperature:1.0.0`. With a flat private registry layout, `temperature:1.0.0` references `<registry-host>/temperature:1.0.0`.
 
 This separation lets you reuse the same module with different graph configurations, version modules independently, and change behavior through configuration parameters without rebuilding.
 
@@ -341,7 +343,7 @@ WASM modules run in a sandboxed environment with limited resources. Keep these g
 
 ## Versioning and CI/CD
 
-Use semantic versioning for your modules and graph definitions. The dataflow graph references artifacts by name and tag (for example, `temperature:1.0.0`), so you can update modules without changing graph definitions by pushing a new version with the same tag.
+Use semantic versioning for your modules and graph definitions. The dataflow graph references artifacts by path and tag (for example, `temperature:1.0.0` for a flat registry layout or `factory/graphs/temperature:1.0.0` for a nested repository layout). You can update modules without changing graph definitions by pushing new content to the same tag.
 
 For automated builds, a typical pipeline looks like:
 

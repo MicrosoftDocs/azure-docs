@@ -3,7 +3,7 @@ title: Authorization code flow - Azure Active Directory B2C
 description: Learn how to implement OAuth 2.0 authorization code flow in Azure AD B2C for web, mobile, and desktop apps, including setup and HTTP request examples.
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: concept-article
 ms.date: 02/17/2025
 ms.author: kengaderdus

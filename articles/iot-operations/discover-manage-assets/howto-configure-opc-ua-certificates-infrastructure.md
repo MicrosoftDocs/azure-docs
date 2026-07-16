@@ -38,6 +38,48 @@ The default deployment of the connector for OPC UA installs all the resources ne
 
 This configuration is typically sufficient for compliant and secure communication between your OPC UA servers and the connector for OPC UA in a demonstration or exploration environment. For a production environment, use [enterprise-grade application instance certificates](#configure-an-enterprise-grade-application-instance-certificate) in your deployment.
 
+## Configure a custom self-signed application instance certificate
+
+If you need more control over the application instance certificate than `cert-manager` provides, you can generate a custom self-signed certificate by using OpenSSL and register it with the connector for OPC UA. This approach is useful in test or QA environments where you need to match specific OPC UA server requirements.
+
+### Generate the certificate
+
+Use the following `openssl` command to generate a self-signed X.509 certificate with an RSA 2048-bit key pair, valid for 365 days:
+
+```bash
+openssl req -x509 -newkey rsa:2048 \
+  -keyout opcuabroker-custom-own.pem \
+  -out opcuabroker-custom-own.der \
+  -outform DER \
+  -sha256 -days 365 -noenc \
+  -subj "/CN=aio-opc-opcuabroker-custom" \
+  -addext "subjectAltName=URI:urn:microsoft.com:aio:opc:opcuabroker:custom" \
+  -addext "keyUsage=critical, nonRepudiation, digitalSignature, keyEncipherment, dataEncipherment, keyCertSign" \
+  -addext "extendedKeyUsage=critical, serverAuth, clientAuth" \
+  -addext "basicConstraints=CA:FALSE"
+```
+
+This command generates the certificate in DER format (*opcuabroker-custom-own.der*) and the private key in PEM format (*opcuabroker-custom-own.pem*). The certificate includes the OPC UA application URI as a Subject Alternative Name and the appropriate key usage extensions for server and client authentication.
+
+### Register the certificate with the connector
+
+Use the following command to upload the generated certificate and private key to the OPC UA connector instance:
+
+```azurecli
+az iot ops connector opcua client add \
+    --instance <your instance name> \
+    -g <your resource group> \
+    --public-key-file "./opcuabroker-custom-own.der" \
+    --private-key-file "./opcuabroker-custom-own.pem" \
+    --subject-name "aio-opc-opcuabroker-custom" \
+    --application-uri "urn:microsoft.com:aio:opc:opcuabroker:custom"
+```
+
+> [!IMPORTANT]
+> The `--subject-name` and `--application-uri` values **must exactly match** the corresponding values in the certificate. Specifically, the subject name must match the Common Name (`CN`) from the `-subj` parameter and the application URI must match the URI from the `subjectAltName` extension. A mismatch causes the OPC UA session establishment to fail because the OPC UA server validates that the application instance certificate matches the client's declared identity.
+
+After you register the custom certificate, don't forget to add the new certificate's public key to the trusted certificate lists of all OPC UA servers the connector needs to connect to. For more information, see [Configure your OPC UA server](#configure-your-opc-ua-server).
+
 ## Configure the trusted certificates list
 
 To connect to an OPC UA server, first you need to establish the application authentication mutual trust. To configure the trusted certificates list of the servers you want the connector for OPC UA to connect to:
@@ -334,6 +376,61 @@ az k8s-extension update --name <your instance name> `
 ```
 
 ---
+
+The following table describes these settings:
+
+| Setting | Default | Description |
+| ------- | ------- | ----------- |
+| `connectors.values.securityPki.minimumCertificateKeySize` | `2048` | The minimum RSA key size, in bits, that the connector accepts for server certificates. |
+| `connectors.values.securityPki.rejectSha1SignedCertificates` | `true` | Whether the connector rejects server certificates signed with the deprecated SHA-1 algorithm. |
+
+### Reset PKI security settings to defaults
+
+Configuration overrides applied by `az k8s-extension update --config` are sticky. Once you set them, they persist across updates. To restore the default security settings, explicitly set them back:
+
+# [Bash](#tab/bash)
+
+```bash
+az k8s-extension update --name <your instance name> \
+  --cluster-name <your cluster name> \
+  --resource-group <your resource group> \
+  --cluster-type connectedClusters \
+  --config connectors.values.securityPki.minimumCertificateKeySize=2048 \
+  --config connectors.values.securityPki.rejectSha1SignedCertificates=true
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+az k8s-extension update --name <your instance name> `
+  --cluster-name <your cluster name> `
+  --resource-group <your resource group> `
+  --cluster-type connectedClusters `
+  --config connectors.values.securityPki.minimumCertificateKeySize=2048 `
+  --config connectors.values.securityPki.rejectSha1SignedCertificates=true
+```
+
+---
+
+## Verify connector configuration after certificate changes
+
+After you update certificates or PKI security settings, verify that the connector pods pick up the new configuration. Run the following command to check the status of the connector pods:
+
+```bash
+kubectl get pods -n azure-iot-operations | grep -E "aio-opc-opc.tcp|aio-opc-opcua-commander"
+```
+
+To force the pods to reload the updated certificate and security settings, restart them:
+
+```bash
+kubectl delete pod -n azure-iot-operations $(kubectl get pods -n azure-iot-operations -o name | grep "aio-opc-opc.tcp")
+kubectl delete pod -n azure-iot-operations $(kubectl get pods -n azure-iot-operations -o name | grep "aio-opc-opcua-commander")
+```
+
+The pods are automatically recreated by their respective deployments. Verify they come back up in a `Running` state before you proceed with OPC UA connectivity tests.
+
+> [!NOTE]
+> You only need to restart pods if the connector doesn't automatically pick up the new configuration. In most cases, the connector detects certificate changes and reloads them automatically.
 
 ## Configure certificate subject alternative names
 

@@ -5,7 +5,7 @@ description: Learn how to create and read user accounts in Azure AD B2C using cu
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 03/21/2025

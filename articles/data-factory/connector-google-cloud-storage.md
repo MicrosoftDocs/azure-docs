@@ -2,11 +2,11 @@
 title: Copy data from Google Cloud Storage
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to copy data from Google Cloud Storage to supported sink data stores using Azure Data Factory or Synapse Analytics.
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.date: 03/31/2025
-ms.author: jianleishen
+ms.author: tinglee
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -17,6 +17,10 @@ ms.custom:
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to copy data from Google Cloud Storage (GCS). To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Google Cloud Storage connector documentation](/fabric/data-factory/connector-google-cloud-storage-overview).
+
 
 ## Supported capabilities
 

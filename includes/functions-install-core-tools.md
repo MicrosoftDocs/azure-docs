@@ -2,27 +2,31 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/14/2023
+ms.date: 06/25/2026
 ms.author: glenga
 ---
 
 ## Install the Azure Functions Core Tools
 
-The recommended way to install Core Tools depends on the operating system of your local development computer.
+The recommended installation method for Core Tools depends on the operating system of your local development computer.
 
 ### [Windows](#tab/windows)
 
-The following steps use a Windows installer (MSI) to install Core Tools v4.x. For more information about other package-based installers, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/v4.x/README.md#windows).
+Two primary ways to install the latest Core Tools version on Windows are:
 
-Download and run the Core Tools installer, based on your version of Windows:
+| Install method | Best for... | Install location/command |
+| ---- | ---- | ---- |
+| Windows installer (MSI) | Visual Studio or command-line development without Node.js | • [64-bit](https://go.microsoft.com/fwlink/?linkid=2174087)(recommended)<br/>• [32-bit](https://go.microsoft.com/fwlink/?linkid=2174159) |
+| `npm` package | Visual Studio Code development (used by the Azure Functions extension for updates) | • **npm**: `npm i -g azure-functions-core-tools@4 --unsafe-perm true`<br/>• **chocolatey**: `choco install azure-functions-core-tools` |
 
-- [v4.x - Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2174087) (Recommended. [Visual Studio Code debugging](../articles/azure-functions/functions-develop-vs-code.md#debugging-functions-locally) requires 64-bit.)
-- [v4.x - Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2174159)
+Considerations for installation:
 
-If you previously used Windows installer (MSI) to install Core Tools on Windows, you should uninstall the old version from Add Remove Programs before installing the latest version.
++ Choose the best method based on your local development environment and stick with that method for updates.
++ The Visual Studio Code extension for Azure Functions installs and maintains Core Tools by using `npm`. 
++ If you previously used an MSI to install Core Tools on Windows, uninstall it from Add Remove Programs before installing by using Visual Studio Code for development, which prefers `npm`. Having both installed causes version conflicts because the MSI takes precedence on PATH. To check which you have, run `where func` in a terminal.
++ To install Core Tools on [Windows Subsystem for Linux (WSL)](/windows/wsl/install), follow the instructions on the Linux tab. 
 
->[!TIP]  
->To install Core Tools on [Windows Subsystem for Linux (WSL)](/windows/wsl/install), follow the instructions on the Linux tab. 
+For more information, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/v4.x/README.md#windows).
 
 ### [macOS](#tab/macos)
 
@@ -40,16 +44,16 @@ The following steps use Homebrew to install the Core Tools on macOS.
     ```
 ### [Linux](#tab/linux)
 
-The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu/Debian Linux distribution. For other Linux distributions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/v4.x/README.md#linux).
+The following steps use [APT](https://wiki.debian.org/Apt) to install Core Tools on your Ubuntu or Debian Linux distribution. For other Linux distributions, see the [Core Tools readme](https://github.com/Azure/azure-functions-core-tools/blob/v4.x/README.md#linux).
 
-1. Install the Microsoft package repository GPG key, to validate package integrity:
+1. Install the Microsoft package repository GPG key to validate package integrity:
 
     ```bash
     curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
     sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
     ```
 
-1. Set up the APT source list before doing an APT update.
+1. Set up the APT source list before running an APT update.
 
     ##### Ubuntu
 

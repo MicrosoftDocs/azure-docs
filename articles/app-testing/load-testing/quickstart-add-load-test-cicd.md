@@ -3,7 +3,7 @@ title: 'Quickstart: Automate load tests with CI/CD'
 titleSuffix: Azure Load Testing
 description: 'Automate performance testing by adding it to your CI/CD workflows in Azure Pipelines directly from the Azure portal. Run existing load tests in your CI/CD pipelines to catch performance regressions early.'
 services: load-testing
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.topic: quickstart
 author: nandinimurali
 ms.author: nandinim

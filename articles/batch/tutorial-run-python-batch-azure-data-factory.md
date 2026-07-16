@@ -3,7 +3,7 @@ title: 'Tutorial: Run a Batch job through Azure Data Factory'
 description: Learn how to use Batch Explorer, Azure Storage Explorer, and a Python script to run a Batch workload through an Azure Data Factory pipeline.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 04/02/2025
+ms.date: 06/16/2026
 ai-usage: ai-assisted
 ms.custom:
   - mvc
@@ -43,7 +43,7 @@ Use Batch Explorer to create a pool of compute nodes to run your workload.
 1. Select your Batch account.
 1. Select **Pools** on the left sidebar, and then select the **+** icon to add a pool.
 
-   [ ![Screenshot of creating a pool in Batch Explorer.](media/run-python-batch-azure-data-factory/batch-explorer-add-pool.png)](media/run-python-batch-azure-data-factory/batch-explorer-add-pool.png#lightbox)
+   [![Screenshot of creating a pool in Batch Explorer.](media/run-python-batch-azure-data-factory/batch-explorer-add-pool.png)](media/run-python-batch-azure-data-factory/batch-explorer-add-pool.png#lightbox)
 
 1. Complete the **Add a pool to the account** form as follows:
 
@@ -61,7 +61,7 @@ Use Batch Explorer to create a pool of compute nodes to run your workload.
 Use Storage Explorer to create blob containers to store input and output files, and then upload your input files.
 
 1. Sign in to Storage Explorer with your Azure credentials.
-1. In the left sidebar, locate and expand the storage account that's linked to your Batch account. 
+1. In the left sidebar, locate and expand the storage account that's linked to your Batch account.
 1. Right-click **Blob Containers**, and select **Create Blob Container**, or select **Create Blob Container** from **Actions** at the bottom of the sidebar.
 1. Enter *input* in the entry field.
 1. Create another blob container named *output*.
@@ -69,7 +69,7 @@ Use Storage Explorer to create blob containers to store input and output files, 
 1. On the **Upload files** screen, under **Selected files**, select the ellipsis **...** next to the entry field.
 1. Browse to the location of your downloaded *iris.csv* file, select **Open**, and then select **Upload**.
 
-[ ![Screenshot of Storage Explorer with containers and blobs created in the storage account.](media/run-python-batch-azure-data-factory/storage-explorer.png)](media/run-python-batch-azure-data-factory/storage-explorer.png#lightbox)
+[![Screenshot of Storage Explorer with containers and blobs created in the storage account.](media/run-python-batch-azure-data-factory/storage-explorer.png)](media/run-python-batch-azure-data-factory/storage-explorer.png#lightbox)
 ## Develop a Python script
 
 The following Python script loads the *iris.csv* dataset file from your Storage Explorer **input** container, manipulates the data, and saves the results to the **output** container.
@@ -156,7 +156,7 @@ The Data Factory pipeline uses your Batch and Storage account names, account key
 1. Under **Factory Resources**, select the **+** icon, and then select **Pipeline**.
 1. In the **Properties** pane on the right, change the name of the pipeline to *Run Python*.
 
-   [ ![Screenshot of Data Factory Studio after you select Add pipeline.](media/run-python-batch-azure-data-factory/create-pipeline.png)](media/run-python-batch-azure-data-factory/create-pipeline.png#lightbox)
+   [![Screenshot of Data Factory Studio after you select Add pipeline.](media/run-python-batch-azure-data-factory/create-pipeline.png)](media/run-python-batch-azure-data-factory/create-pipeline.png#lightbox)
 
 1. In the **Activities** pane, expand **Batch Service**, and drag the **Custom** activity to the pipeline designer surface.
 1. Below the designer canvas, on the **General** tab, enter *testPipeline* under **Name**.

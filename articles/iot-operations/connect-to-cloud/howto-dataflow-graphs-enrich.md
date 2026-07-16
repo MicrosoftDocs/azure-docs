@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 04/02/2026
+ms.date: 06/23/2026
 ai-usage: ai-assisted
 
 ---
@@ -42,6 +42,44 @@ In the transform configuration, add a dataset. Configure:
 | **State store key** | The key where dataset records are stored. Use `as` to assign an alias (for example, `device-metadata as device`). |
 | **Match inputs** | Fields to compare: one from the source message (`$source.<field>`) and one from the dataset (`$context.<field>`). |
 | **Match expression** | A boolean expression (for example, `$1 == $2`). |
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the transform node's `configuration` in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
+
+The rules are a JSON object:
+
+```json
+{
+  "datasets": [
+    {
+      "key": "device-metadata as device",
+      "inputs": ["$source.deviceId", "$context.deviceId"],
+      "expression": "$1 == $2"
+    }
+  ],
+  "map": [
+    {
+      "inputs": ["$context(device).displayName"],
+      "output": "deviceName"
+    }
+  ]
+}
+```
+
+These rules go in the `value` field as an escaped string:
+
+```json
+"configuration": [
+  {
+    "key": "rules",
+    "value": "{\"datasets\":[{\"key\":\"device-metadata as device\",\"inputs\":[\"$source.deviceId\",\"$context.deviceId\"],\"expression\":\"$1 == $2\"}],\"map\":[{\"inputs\":[\"$context(device).displayName\"],\"output\":\"deviceName\"}]}"
+  }
+]
+```
+
+> [!TIP]
+> To generate the escaped string, save the rules to a file like `rules.json`, then run `jq -c . rules.json` and paste the single-line output into the `value` field.
 
 # [Bicep](#tab/bicep)
 
@@ -122,6 +160,29 @@ Add map rules that reference enriched fields:
 | `$context(position).WorkingHours` | `WorkingHours` |
 | `rawValue` and `$context(product).multiplier` | `adjustedValue` (expression: `$1 * $2`) |
 
+# [Azure CLI](#tab/cli)
+
+The enriched field references are part of the map rules in your `graph.json` config file. Add the rules to the transform node's `configuration` and apply the graph with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+"map": [
+  {
+    "inputs": [
+      "$context(position).WorkingHours"
+    ],
+    "output": "WorkingHours"
+  },
+  {
+    "inputs": [
+      "rawValue",
+      "$context(product).multiplier"
+    ],
+    "output": "adjustedValue",
+    "expression": "$1 * $2"
+  }
+]
+```
+
 # [Bicep](#tab/bicep)
 
 The enriched field references are part of the map rules JSON:
@@ -153,6 +214,46 @@ The enriched field references are part of the map rules JSON:
 # [Operations experience](#tab/portal)
 
 Add a filter rule with inputs `rawValue`, `$context(limits).multiplier`, and `$context(limits).baseLimit`, and expression `$1 * $2 > $3`.
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file. The rules are a JSON object:
+
+```json
+{
+  "datasets": [
+    {
+      "key": "device_limits as limits",
+      "inputs": [
+        "$source.deviceId",
+        "$context.deviceId"
+      ],
+      "expression": "$1 == $2"
+    }
+  ],
+  "filter": [
+    {
+      "inputs": [
+        "rawValue",
+        "$context(limits).multiplier",
+        "$context(limits).baseLimit"
+      ],
+      "expression": "$1 * $2 > $3"
+    }
+  ]
+}
+```
+
+Add these rules to the transform node's `configuration` in your `graph.json` as an escaped string in the `value` field, then apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+"configuration": [
+  {
+    "key": "rules",
+    "value": "{\"datasets\":[{\"key\":\"device_limits as limits\",\"inputs\":[\"$source.deviceId\",\"$context.deviceId\"],\"expression\":\"$1 == $2\"}],\"filter\":[{\"inputs\":[\"rawValue\",\"$context(limits).multiplier\",\"$context(limits).baseLimit\"],\"expression\":\"$1 * $2 > $3\"}]}"
+  }
+]
+```
 
 # [Bicep](#tab/bicep)
 
@@ -190,6 +291,44 @@ Add a filter rule with inputs `rawValue`, `$context(limits).multiplier`, and `$c
 
 Configure a branch rule with inputs `quantity`, `$context(mult).factor`, and `$context(mult).threshold`, and expression `$1 * $2 > $3`.
 
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file. The rules are a JSON object:
+
+```json
+{
+  "datasets": [
+    {
+      "key": "multipliers as mult",
+      "inputs": [
+        "$source.productCode",
+        "$context.productCode"
+      ],
+      "expression": "$1 == $2"
+    }
+  ],
+  "branch": {
+    "inputs": [
+      "quantity",
+      "$context(mult).factor",
+      "$context(mult).threshold"
+    ],
+    "expression": "$1 * $2 > $3"
+  }
+}
+```
+
+Add these rules to the transform node's `configuration` in your `graph.json` as an escaped string in the `value` field, then apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+"configuration": [
+  {
+    "key": "rules",
+    "value": "{\"datasets\":[{\"key\":\"multipliers as mult\",\"inputs\":[\"$source.productCode\",\"$context.productCode\"],\"expression\":\"$1 == $2\"}],\"branch\":{\"inputs\":[\"quantity\",\"$context(mult).factor\",\"$context(mult).threshold\"],\"expression\":\"$1 * $2 > $3\"}}"
+  }
+]
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -225,6 +364,19 @@ In map rules, use `$context(<alias>).*` to copy all top-level fields from the ma
 # [Operations experience](#tab/portal)
 
 Add a map rule with input `$context(device).*` and output `*`.
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "inputs": [
+    "$context(device).*"
+  ],
+  "output": "*"
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -268,10 +420,82 @@ In the Operations experience, create a data flow graph with enrichment:
 1. In the map rules, reference enriched fields using `$context(<alias>).<field>` syntax.
 1. Add a **destination** that sends to your output topic.
 
+# [Azure CLI](#tab/cli)
+
+The Azure CLI applies a data flow graph from a single JSON config file. Create a `graph.json` file with the graph properties. In the `graph.json` file, each transform's rules are stored in the `value` field as an escaped JSON string. For the readable form of each transform's rules, see the how-to for that transform type.
+
+```json
+{
+  "mode": "Enabled",
+  "nodes": [
+    {
+      "nodeType": "Source",
+      "name": "sensors",
+      "sourceSettings": {
+        "endpointRef": "default",
+        "dataSources": [
+          "telemetry/sensors"
+        ]
+      }
+    },
+    {
+      "nodeType": "Graph",
+      "name": "enrich-and-map",
+      "graphSettings": {
+        "registryEndpointRef": "default",
+        "artifact": "azureiotoperations/graph-dataflow-map:1.0.0",
+        "configuration": [
+          {
+            "key": "rules",
+            "value": "{\"datasets\":[{\"key\":\"device-metadata as device\",\"inputs\":[\"$source.deviceId\",\"$context.deviceId\"],\"expression\":\"$1 == $2\"}],\"map\":[{\"inputs\":[\"*\"],\"output\":\"*\"},{\"inputs\":[\"$context(device).displayName\"],\"output\":\"deviceName\"},{\"inputs\":[\"$context(device).location\"],\"output\":\"location\"}]}"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "Destination",
+      "name": "output",
+      "destinationSettings": {
+        "endpointRef": "default",
+        "dataDestination": "telemetry/enriched"
+      }
+    }
+  ],
+  "nodeConnections": [
+    {
+      "from": {
+        "name": "sensors"
+      },
+      "to": {
+        "name": "enrich-and-map"
+      }
+    },
+    {
+      "from": {
+        "name": "enrich-and-map"
+      },
+      "to": {
+        "name": "output"
+      }
+    }
+  ]
+}
+```
+
+Apply the config file. The `extendedLocation` is added automatically from the instance and resource group, so don't include it in the file.
+
+```azurecli
+az iot ops dataflowgraph apply \
+  --name enrich-example \
+  --instance <INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --config-file graph.json
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
   name: 'enrich-example'
   parent: dataflowProfile
   properties: {

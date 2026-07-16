@@ -39,6 +39,7 @@ You can collect the following metric using SAP NetWeaver Provider:
 - Transactional RFC (**transaction code - SM59**) (RFC)
 - STMS Change Transport System Metrics (**transaction code - STMS**) (RFC)
 
+> Please note: SMON metrics (as listed above) are currently not available for SAP S/4HANA 2023 SP1 and later versions. This limitation is due to an underlying issue in SAP, where the APIs used to retrieve SMON data are not supported in these versions. As a result, Azure Monitor for SAP solutions cannot collect SMON metrics for these systems. This is a known limitation and is dependent on SAP for resolution.
 
 ## Prerequisites
 

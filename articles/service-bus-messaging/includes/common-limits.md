@@ -12,7 +12,7 @@ The following limits are common across all tiers.
 | --- | --- | --- |
 | Maximum number of namespaces per Azure subscription per region | 1000 (default and maximum) | This limit is based on the `Microsoft.ServiceBus` provider, not based on the tier. Therefore, it's the total number of namespaces across all tiers. Subsequent requests for additional namespaces are rejected. |
 | Number of concurrent connections on a namespace | Net Messaging: 1,000.<br /><br />AMQP: 5,000. | Subsequent requests for additional connections are rejected. REST operations don't count toward concurrent TCP connections. |
-| Number of concurrent receive requests on a queue, topic, or subscription entity | 5,000 | Subsequent receive requests are rejected. This quota applies to the combined number of concurrent receive operations across all subscriptions on a topic. |
+| Number of concurrent receive requests on a queue, topic, or subscription entity | 5,000 | Subsequent receive requests are rejected with a server busy error. This quota applies to the combined number of concurrent receive operations across all subscriptions on a topic. For more information, see [Throttling when concurrent receive requests exceed the limit](/azure/service-bus-messaging/service-bus-throttling#throttling-when-concurrent-receive-requests-exceed-the-limit). |
 | Maximum size of any messaging entity path: queue or topic | 260 characters. | &nbsp; |
 | Maximum size of any messaging entity name: namespace, subscription, or subscription rule | 50 characters. | &nbsp; |
 | Maximum size of a message ID | 128 | &nbsp; |
