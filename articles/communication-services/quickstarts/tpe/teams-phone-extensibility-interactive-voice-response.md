@@ -19,6 +19,8 @@ After completing this quickstart, you can:
 - Play prompts and collect caller input
 - Transfer or conference the call to a person or department
 
+> [!NOTE]
+> This quickstart focuses on the Teams Auto Attendant → IVR path. The same Call Automation pattern also applies to the Teams Call Queue → IVR path. For more information, see [Transfer the call to a Teams Call Queue](#transfer-the-call-to-a-teams-call-queue) later in this article, and the Call Queue scenario in the [Teams Phone extensibility overview](../../concepts/interop/tpe/teams-phone-extensibility-overview.md).
 
 ## Prerequisites
 
@@ -187,7 +189,7 @@ await callConnection.TransferCallToParticipantAsync(transferOptions);
 Azure Communication Services can deliver call context to your IVR through the **IncomingCall** event payload:
 ### From Teams AA to IVR
 When the call is transferred to the Teams resource account associated with your ACS resource, your application receives an **IncomingCall** event (via Event Grid). The event payload exposes a customContext object (with voipHeaders and sipHeaders dictionaries) and a sibling correlationId field. Your IVR can read these for logging and event correlation.
-> [!NOTE]
+> [!IMPORTANT]
 > Teams Auto Attendant does not automatically serialize DTMF menu selections into the custom context passed to the next hop. To forward caller intent to your IVR, configure your AA call flow to populate custom context (for example, via SIP UUI headers) before the transfer. Your IVR can then read this from customContext.sipHeaders in the IncomingCall event payload. 
 
 ### Correlate Call Automation events to your business logic
