@@ -52,7 +52,7 @@ To learn how to perform the above, review the tutorial on [migrating VMware virt
 To add a scale-out appliance, follow the steps mentioned below:
 
 1. In Azure Migrate Project, go to **Execute** > **Migrations**, and select **Start execution**.
-2. In Specify intent, > What do you want to migrate, select Servers or Virtual Machines(VM). Under Where do you want to migrate to, select Azure VM.
+1. In **Specify intent**, select **Servers** or **Virtual Machines (VM)** under **What do you want to migrate**. Under **Where do you want to migrate to**, select **Azure VM**.
 1. In **How will you select workloads**, select one of the following options under **Azure migrate appliance sources**:
      - From all inventory to manually select servers
      - From an assessment to use an existing assessment
