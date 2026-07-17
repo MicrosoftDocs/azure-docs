@@ -37,12 +37,12 @@ WASM modules in Azure IoT Operations data flow graphs and connectors let you pro
 
 ## Use prebuilt modules from a public registry
 
-The fastest way to get started is to use the prebuilt sample WASM modules and graph definitions directly from the public GitHub Container Registry. This approach doesn't require setting up a private registry, ORAS CLI, or any pull/push steps.
+You can use the prebuilt sample WASM modules and graph definitions that are published to the public GitHub Container Registry (`ghcr.io`) under `azure-samples/explore-iot-operations`.
 
-To consume the samples, create an anonymous registry endpoint named `public-ghcr` that points to `ghcr.io`. For the Azure CLI and Bicep options, see [Use a public registry](howto-configure-registry-endpoint.md#use-a-public-registry).
+> [!IMPORTANT]
+> The current Azure IoT Operations runtime doesn't load modules from an anonymous `ghcr.io` registry endpoint. `ghcr.io` requires an anonymous bearer-token exchange before it serves even public artifacts, which the runtime doesn't currently perform, so the module never loads (the `aio-wasm-graph-controller` logs `Module not found locally ... skipping`). Until this is addressed, use the sample artifacts by copying them into a registry that the runtime can authenticate against - such as Azure Container Registry (ACR) - and reference them through a managed-identity endpoint. See [Use a private registry](#use-a-private-registry).
 
-> [!NOTE]
-> If the runtime can't pull from the anonymous `ghcr.io` endpoint (for example, the pull fails with a `401 Unauthorized` error), copy the sample artifacts into a registry that the runtime can authenticate against, such as Azure Container Registry (ACR), and use a managed-identity endpoint. For details, see the warning in [Use a public registry](howto-configure-registry-endpoint.md#use-a-public-registry) and [Use a private registry](#use-a-private-registry).
+To create the endpoint that points to `ghcr.io`, see [Use a public registry](howto-configure-registry-endpoint.md#use-a-public-registry).
 
 ### Available sample artifacts
 
