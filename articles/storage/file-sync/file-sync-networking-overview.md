@@ -46,7 +46,7 @@ For more information on how to configure Azure File Sync with a proxy server, se
 
 ### Configuring firewalls and service tags
 
-Many organizations isolate their file servers from most internet locations for security purposes. To use Azure File Sync in such an environment, you need to configure your firewall to allow outbound access to select Azure services. You can do this by allowing port 443 outbound access to [required cloud endpoints](file-sync-firewall-and-proxy.md#firewall) hosting those specific Azure services if your firewall supports url/domains. If it doesn't, you can retrieve the IP address ranges for these Azure services through [service tags](../../virtual-network/service-tags-overview.md).
+Many organizations isolate their file servers from most internet locations for security purposes. To use Azure File Sync in such an environment, you need to configure your firewall to allow outbound access to select Azure services. You can do this by allowing port 443 outbound access to [required cloud endpoints](file-sync-firewall-and-proxy.md#azure-file-sync-firewall-settings) hosting those specific Azure services if your firewall supports url/domains. If it doesn't, you can retrieve the IP address ranges for these Azure services through [service tags](../../virtual-network/service-tags-overview.md).
 
 Azure File Sync requires the IP address ranges for the following services, as identified by their service tags:
 
