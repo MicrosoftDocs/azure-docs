@@ -1,5 +1,6 @@
 ---
-title: Azure Front Door WebSocket
+title: WebSocket
+titleSuffix: Azure Front Door 
 description: This article describes how WebSocket work on Azure Front Door for real-time bidirectional communication between a server and client over a long running TCP connection.
 author: halkazwini
 ms.author: yuajia
@@ -66,4 +67,5 @@ After the client receives the server response, the WebSocket connection is open 
 
 - [Create an Azure Front Door profile](../create-front-door-portal.md)
 - [Routing architecture overview](../front-door-routing-architecture.md?pivots=front-door-standard-premium)
+- [Health probes](../health-probes.md)
 
