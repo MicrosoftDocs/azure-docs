@@ -41,7 +41,7 @@ When you make changes to your infrastructure, Azure Virtual Network Manager auto
 
 ## Security
 
-With Azure Virtual Network Manager, you create [security admin rules](concept-security-admins.md) to enforce security policies across virtual networks in your organization. Security admin rules take precedence over network security group (NSG) rules. For details on how Azure Virtual Network Manager evaluates security admin rules against NSGs, see [Security admin rules](concept-security-admins.md#how-security-admin-rules-and-network-security-groups-nsgs-are-evaluated).
+By using Azure Virtual Network Manager, you can create [security admin rules](concept-security-admins.md) to enforce security policies across virtual networks in your organization. Security admin rules take precedence over network security group (NSG) rules. For details on how Azure Virtual Network Manager evaluates security admin rules against NSGs, see [Security admin rules](concept-security-admins.md#how-security-admin-rules-and-network-security-groups-nsgs-are-evaluated).
 
 Common uses include:
 
