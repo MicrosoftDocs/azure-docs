@@ -15,7 +15,7 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
-Durable Functions is an extension of [Azure Functions](../../azure-functions/functions-overview.md) that adds stateful orchestration capabilities to your function app. A Durable Functions app is made up of different Azure functions, each playing a specific role: orchestrator, activity, entity, or client. These roles correspond to specialized [trigger and binding types](../../azure-functions/durable-functions/durable-functions-bindings.md) that the Durable Functions extension provides.
+Durable Functions is an extension of [Azure Functions](../../azure-functions/functions-overview.md) that adds stateful orchestration capabilities to your function app. A Durable Functions app is made up of different Azure functions, each playing a specific role: orchestrator, activity, entity, or client. These roles correspond to specialized [trigger and binding types](../durable-functions/durable-functions-bindings.md) that the Durable Functions extension provides.
 
 ::: zone-end
 
@@ -31,10 +31,10 @@ The following table summarizes the core programming components and their roles:
 
 | Component | Role | Defined by |
 | - | - | - |
-| [Orchestrator](#orchestrators) | Coordinates workflow logic | [Orchestration trigger](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-trigger) |
-| [Activity](#activities) | Performs a single unit of work | [Activity trigger](../../azure-functions/durable-functions/durable-functions-bindings.md#activity-trigger) |
-| [Entity](#entities) | Manages a small piece of state | [Entity trigger](../../azure-functions/durable-functions/durable-functions-bindings.md#entity-trigger) |
-| [Client](#client) | Starts and manages orchestrations and entities | [Durable client binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client) |
+| [Orchestrator](#orchestrators) | Coordinates workflow logic | [Orchestration trigger](../durable-functions/durable-functions-bindings.md#orchestration-trigger) |
+| [Activity](#activities) | Performs a single unit of work | [Activity trigger](../durable-functions/durable-functions-bindings.md#activity-trigger) |
+| [Entity](#entities) | Manages a small piece of state | [Entity trigger](../durable-functions/durable-functions-bindings.md#entity-trigger) |
+| [Client](#client) | Starts and manages orchestrations and entities | [Durable client binding](../durable-functions/durable-functions-bindings.md#orchestration-client) |
 
 ::: zone-end
 
@@ -64,7 +64,7 @@ Orchestrators can also interact with [entities](#entities).
 
 ::: zone pivot="durable-functions"
 
-In Durable Functions, you define an orchestrator by using the [orchestration trigger binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-trigger). The trigger provides a context object that you use to schedule tasks and receive results.
+In Durable Functions, you define an orchestrator by using the [orchestration trigger binding](../durable-functions/durable-functions-bindings.md#orchestration-trigger). The trigger provides a context object that you use to schedule tasks and receive results.
 
 ::: zone-end
 
@@ -91,7 +91,7 @@ Activities differ from orchestrators in key ways:
 
 ::: zone pivot="durable-functions"
 
-You define an activity function by using the [activity trigger binding](../../azure-functions/durable-functions/durable-functions-bindings.md#activity-trigger). The trigger provides the input that the orchestrator passed when scheduling the activity.
+You define an activity function by using the [activity trigger binding](../durable-functions/durable-functions-bindings.md#activity-trigger). The trigger provides the input that the orchestrator passed when scheduling the activity.
 
 ::: zone-end
 
@@ -120,7 +120,7 @@ Entities run operations serially: only one operation runs at a time for a given 
 
 ::: zone pivot="durable-functions"
 
-You define an entity function by using the [entity trigger binding](../../azure-functions/durable-functions/durable-functions-bindings.md#entity-trigger).
+You define an entity function by using the [entity trigger binding](../durable-functions/durable-functions-bindings.md#entity-trigger).
 
 > [!NOTE]
 > Entity functions are supported in .NET, JavaScript/TypeScript, Python, and Java, but not in PowerShell.
@@ -151,9 +151,9 @@ The client component is how you interact with orchestrations and entities from o
 
 ::: zone pivot="durable-functions"
 
-Any non-orchestrator function can act as a client function. What makes it a client is the use of the [durable client output binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client). For example, you can start an orchestration from an HTTP-triggered function, a queue-triggered function, or a timer-triggered function.
+Any non-orchestrator function can act as a client function. What makes it a client is the use of the [durable client output binding](../durable-functions/durable-functions-bindings.md#orchestration-client). For example, you can start an orchestration from an HTTP-triggered function, a queue-triggered function, or a timer-triggered function.
 
-The durable client binding also provides APIs for interacting with [entities](durable-task-entities.md), including signaling entity operations and reading entity state. For more information, see the [entity client binding](../../azure-functions/durable-functions/durable-functions-bindings.md#entity-client).
+The durable client binding also provides APIs for interacting with [entities](durable-task-entities.md), including signaling entity operations and reading entity state. For more information, see the [entity client binding](../durable-functions/durable-functions-bindings.md#entity-client).
 
 ::: zone-end
 
@@ -171,12 +171,12 @@ For detailed information on all instance management operations, including code s
 
 Get started by creating your first Durable Function app:
 
-- [C#](../../azure-functions/durable-functions/durable-functions-isolated-create-first-csharp.md)
-- [JavaScript](../../azure-functions/durable-functions/quickstart-js-vscode.md)
-- [Python](../../azure-functions/durable-functions/quickstart-python-vscode.md)
-- [TypeScript](../../azure-functions/durable-functions/quickstart-ts-vscode.md)
-- [PowerShell](../../azure-functions/durable-functions/quickstart-powershell-vscode.md)
-- [Java](../../azure-functions/durable-functions/quickstart-java.md)
+- [C#](../durable-functions/durable-functions-isolated-create-first-csharp.md)
+- [JavaScript](../durable-functions/quickstart-js-vscode.md)
+- [Python](../durable-functions/quickstart-python-vscode.md)
+- [TypeScript](../durable-functions/quickstart-ts-vscode.md)
+- [PowerShell](../durable-functions/quickstart-powershell-vscode.md)
+- [Java](../durable-functions/quickstart-java.md)
 
 > [!div class="nextstepaction"]
 > [Learn more about durable orchestrations](durable-task-orchestrations.md)

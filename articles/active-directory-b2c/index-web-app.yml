@@ -9,7 +9,7 @@ metadata:
   manager: CelesteDG
   ms.author: kengaderdus
   ms.date: 02/21/2024
-  ms.service: azure-active-directory
+  ms.service: entra-id
   ms.subservice: b2c
   ms.topic: landing-page
 

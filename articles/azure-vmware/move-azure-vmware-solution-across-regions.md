@@ -4,7 +4,7 @@ description: This article describes how to move Azure VMware Solution resources 
 ms.custom: "subject-moving-resources, engagement-fy23"
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 01/10/2025
+ms.date: 05/28/2026
 
 # Customer intent: As an Azure service administrator, I want to move my Azure VMware Solution resources from Azure Region A to Azure Region B.
 ---
@@ -23,7 +23,7 @@ The diagram shows the recommended ExpressRoute connectivity between the two Azur
 :::image type="content" source="media/move-across-regions/move-ea-csp-across-regions-2.png" alt-text="Diagram showing ExpressRoute Global Reach communication between the source and target Azure VMware Solution environments." border="false" lightbox="media/move-across-regions/move-ea-csp-across-regions-2.png":::
 
 >[!NOTE]
->You don't need to migrate any workflow back to on-premises because the traffic will flow between the private clouds (source and target):
+>You don't need to migrate any workflow back to on-premises because the traffic flows between the private clouds (source and target):
 >
 >**Azure VMware Solution private cloud (source) > ExpressRoute gateway (source) > Global Reach -> ExpressRoute gateway (target) > Azure VMware Solution private cloud (target)**
 
@@ -69,7 +69,7 @@ Back up the Azure VMware Solution (source) configuration that includes vCenter S
 
 - **Compute:** Export existing inventory configuration.
   
-- **Network and firewall policies and rules:** This is included as part of the VMware HCX Network Extension.
+- **Network and firewall policies and rules:**  Included as part of the VMware HCX Network Extension.
 
 Azure VMware Solution supports all backup solutions. You need CloudAdmin privileges to install, backup data, and restore backups. For more information, see [Backup solutions for Azure VMware Solution VMs](ecosystem-back-up-vms.md).
 
@@ -168,7 +168,7 @@ After you establish connectivity, you'll create a VMware HCX site pairing betwee
 1. Review the prepopulated sites, and then select **Continue**. 
 
    > [!NOTE]
-   > If this is your first service mesh configuration, you won't need to modify this screen.
+   > If this is your first service mesh configuration, you don't need to modify the screen.
 
 1. Select the source and remote compute profiles from the drop-down lists, and then select **Continue**.
 
@@ -186,7 +186,7 @@ After you establish connectivity, you'll create a VMware HCX site pairing betwee
   
 1. In **Advanced Configuration - Network Extension Appliance Scale Out**, review and select **Continue**. 
 
-   You can have up to eight Network Segments per appliance, but you can deploy another appliance to add another eight Network Segments. You must also have IP space to account for the more appliances, and it's one IP per appliance.  For more information, see [VMware HCX Configuration Limits](https://configmax.broadcom.com/guest?vmwareproduct=VMware%20HCX&release=VMware%20HCX&categories=41-0,42-0,43-0,44-0,45-0).
+   You can have up to eight Network Segments per appliance, but you can deploy another appliance to add another eight Network Segments. You must also have IP space to account for the more appliances, and it's one IP per appliance. For more information, see [VMware HCX Configuration Limits](https://configmax.broadcom.com/guest?vmwareproduct=VMware%20HCX&release=VMware%20HCX&categories=41-0,42-0,43-0,44-0,45-0).
    
    :::image type="content" source="media/tutorial-vmware-hcx/extend-networks-increase-vlan.png" alt-text="Screenshot that shows where to increase the VLAN count." lightbox="media/tutorial-vmware-hcx/extend-networks-increase-vlan.png":::
 
@@ -257,7 +257,7 @@ In this step, copy the source vSphere configuration and move it to the target en
 In this step, use the source NSX-T Data Center configuration to configure the target NSX-T Data Center environment.
 
 >[!NOTE]
->You'll have multiple features configured on the source NSX-T Data Center, so you must copy or read from the source NSX-T Data Center and recreate it in the target private cloud. Use L2 Extension to keep same IP address and Mac Address of the VM while migrating Source to target Azure VMware Solution Private Cloud to avoid downtime due to IP change and related configuration.
+>You have multiple features configured on the source NSX-T Data Center, so you must copy or read from the source NSX-T Data Center and recreate it in the target private cloud. Use L2 Extension to keep same IP address and Mac Address of the VM while migrating Source to target Azure VMware Solution Private Cloud to avoid downtime due to IP change and related configuration.
 
 1. [Configure NSX-T Data Center network components](tutorial-nsx-t-network-segment.md) required in the target environment under default Tier-1 gateway.
 
@@ -292,7 +292,7 @@ In this step, perform a final gateway cutover to terminate the extended networks
 >[!IMPORTANT]
 >You must do the gateway cutover post VLAN workload migration to the target Azure VMware Solution environment. Also, there shouldn't be any VM dependency on the source and target environments.
 
-Before the gateway cutover, verify all migrated workload services and performance. Once application and web service owners accept the performance (except for any latency issues), you can continue with the gateway cutover.  Once the cutover is completed, you need to modify the public DNS A and PTR records. 
+Before the gateway cutover, verify all migrated workload services and performance. Once application and web service owners accept the performance (except for any latency issues), you can continue with the gateway cutover. Once the cutover is completed, you need to modify the public DNS A and PTR records. 
 
 For VMware recommendations, see [Cutover of extended networks](https://docs.vmware.com/en/VMware-HCX/index.html).
 
@@ -314,7 +314,7 @@ Public IP is typically the destination NAT translated into the Azure firewall. W
 For this last step, verify that all the VM workloads were migrated successfully, including the network configuration. If there's no dependency, you can disconnect the HCX service mesh, site pairing, and network connectivity from the source environment. 
 
 >[!NOTE]
->Once you decommission the private cloud, you cannot undo it as the configuration and data will be lost.
+>Once you decommission the private cloud, you can't undo it as the configuration and data are lost.
 
 
 ## Next steps

@@ -1,8 +1,8 @@
 ---
 title: Common Issues - Cluster Init
-description: Azure CycleCloud common issue - Cluster Init
+description: Troubleshoot cluster-init initialization script errors in Azure CycleCloud projects and how to resolve them.
 author: adriankjohnson
-ms.date: 06/20/2023
+ms.date: 06/19/2026
 ms.update-cycle: 3650-days
 ms.author: adjohnso
 ms.topic: troubleshooting-problem-resolution

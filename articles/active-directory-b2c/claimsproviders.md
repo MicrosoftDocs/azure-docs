@@ -5,7 +5,7 @@ description: Specify the ClaimsProvider element of a custom policy in Azure Acti
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024

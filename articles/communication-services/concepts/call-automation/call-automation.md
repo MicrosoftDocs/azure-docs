@@ -93,6 +93,16 @@ These actions are performed before the destination endpoint listed in the `Incom
 
 **Connect Call** - Use the Connect Call action to connect to an ongoing call and take call actions on it. You can also use this action to connect and [manage a Rooms call programmatically](./../../quickstarts/rooms/manage-rooms-call.md), like performing PSTN dial outs for Room using your service. 
 
+> [!NOTE]
+> **Identifier formats and storage guidance**
+>
+> Azure Communication Services exposes two categories of identifiers on a call:
+>
+> - **Fixed-length GUID identifiers** — `CallConnectionId` and `CorrelationId` are GUID-formatted and have a stable, fixed length (36 characters in standard GUID string form).
+> - **Variable-length Base64-encoded identifiers** — `ServerCallId` (Call Automation, Call Recording) and `recordingId` (Call Recording) are opaque, Base64-encoded strings whose length can vary between calls and may change over time as the service evolves.
+>
+> When persisting `ServerCallId` or `recordingId`, use a **variable-length, unbounded string column**. Avoid fixed-width column types such as `VARCHAR(200)`, as the current observed length is not a contract and may grow in future releases. Treat both values as opaque tokens — do not parse, decode, or derive meaning from their contents.
+
 ### Mid-call actions
 
 Your application can perform these actions on calls that are answered or placed using Call Automation SDKs. Each mid-call action has a corresponding success or failure web hook callback event.

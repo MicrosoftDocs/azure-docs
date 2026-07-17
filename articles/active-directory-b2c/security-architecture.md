@@ -6,7 +6,7 @@ description: End to end guidance on how to secure your Azure AD B2C solution.
 author: rbinrais
 manager: RideMo
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 05/09/2023

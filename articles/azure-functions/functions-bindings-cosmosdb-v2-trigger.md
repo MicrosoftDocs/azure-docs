@@ -243,17 +243,17 @@ The preceding example uses app settings references (`%VAR_NAME%`) instead of har
 # [Functions 2.x+](#tab/functionsv2/isolated-process)
 
 The following code defines a `MyDocument` type:
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="49-58":::
-
+-->
 The following example uses an [`IReadOnlyList<T>`](/dotnet/api/system.collections.generic.ireadonlylist-1) as the Azure Cosmos DB trigger binding parameter:
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" id="docsnippet_exponential_backoff_retry_example":::
-
+-->
 This example requires the following `using` statements:
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-7":::
-
+-->
 ---
 
 ::: zone-end
@@ -454,6 +454,41 @@ Here's the Python code:
 ```
 
 ---
+
+::: zone-end  
+::: zone pivot="programming-language-go"
+
+The following example shows an Azure Cosmos DB trigger function that logs each changed document:
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	"github.com/azure/azure-functions-golang-worker/sdk/bindings"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.CosmosDB("cosmosDBTrigger", processChanges,
+		sdk.WithDatabase("mydb"),
+		sdk.WithContainer("mycontainer"),
+		sdk.WithConnection("CosmosDBConnection"),
+	)
+	worker.Start(app)
+}
+
+func processChanges(ctx context.Context, docs []bindings.CosmosDocument) error {
+	for _, doc := range docs {
+		log.Printf("Document modified: %s", doc.ID)
+	}
+	return nil
+}
+```
 
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"

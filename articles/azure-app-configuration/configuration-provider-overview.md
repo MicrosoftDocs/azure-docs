@@ -7,7 +7,7 @@ author: zhiyuanliang-ms
 ms.author: zhiyuanliang
 ms.service: azure-app-configuration
 ms.topic: overview
-ms.date: 02/23/2026
+ms.date: 06/03/2026
 #Customer intent: I want to learn about the configuration provider libraries of different languages, specifically to track their feature development status.
 ms.custom:
   - build-2025
@@ -52,7 +52,7 @@ Connection String Authentication | [GA](./reference-dotnet-provider.md#load-conf
 Entra ID Authentication | [GA](./reference-dotnet-provider.md#load-configuration) | [GA](/azure/developer/java/spring-framework/app-configuration-support#spring-cloud-azure-configuration) | GA | [GA](./reference-python-provider.md?tabs=entra-id#load-configuration) | [GA](./reference-javascript-provider.md#load-configuration) | [GA](./reference-go-provider.md#load-configuration)
 Dynamic Refresh (Poll Mode) | [GA](./reference-dotnet-provider.md#refresh-on-sentinel-key) | [GA](/azure/developer/java/spring-framework/app-configuration-support#pull-based-refresh) | GA | [GA](./reference-python-provider.md#configuration-refresh) | [GA](./reference-javascript-provider.md#refresh-on-sentinel-key) | [GA](./reference-go-provider.md#refresh-on-sentinel-key)
 Dynamic Refresh (Push Mode) | GA | [GA](/azure/developer/java/spring-framework/app-configuration-support#push-based-refresh-not-recommended) | N/A | N/A | N/A | N/A
-Dynamic Refresh (Collection Monitoring) | [GA](./reference-dotnet-provider.md#configuration-refresh) | WIP | GA | WIP | [GA](./reference-javascript-provider.md#configuration-refresh) | [GA](./reference-go-provider.md#configuration-refresh)
+Dynamic Refresh (Collection Monitoring) | [GA](./reference-dotnet-provider.md#configuration-refresh) | WIP | GA | [GA](./reference-python-provider.md#configuration-refresh) | [GA](./reference-javascript-provider.md#configuration-refresh) | [GA](./reference-go-provider.md#configuration-refresh)
 JSON Content Type Handling | [GA](./reference-dotnet-provider.md#json-content-type-handling) | [GA](/azure/developer/java/spring-framework/app-configuration-support#json) | GA | [GA](./reference-python-provider.md#json-content-type-handling) | [GA](./reference-javascript-provider.md#json-content-type-handling) | [GA](./reference-go-provider.md#json-content-type-handling)
 JSON with Comments | [GA](./reference-dotnet-provider.md#json-content-type-handling) | GA | GA | [GA](./reference-python-provider.md#json-content-type-handling) | [GA](./reference-javascript-provider.md#json-content-type-handling) | [GA](./reference-go-provider.md#json-content-type-handling)
 Configuration Setting Mapping | [GA](./reference-dotnet-provider.md#configuration-setting-mapping) | N/A | N/A | [GA](./reference-python-provider.md#configuration-setting-mapping) | N/A | N/A
@@ -64,12 +64,12 @@ Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | [GA](/azure/
 Variant Feature Flags | [GA](./reference-dotnet-provider.md#feature-flag) | GA | GA | GA | [GA](./reference-javascript-provider.md#feature-flag) | [GA](./reference-go-provider.md#feature-flags)
 Feature Flag Telemetry | [GA](./reference-dotnet-provider.md#feature-flag-telemetry) | [GA](/azure/developer/java/spring-framework/app-configuration-support#feature-flag-telemetry) | GA | [GA](./reference-python-provider.md#feature-flag-telemetry) | GA | WIP
 Key Prefix Trim | [GA](./reference-dotnet-provider.md#trim-prefix-from-keys) | [GA](/azure/developer/java/spring-framework/app-configuration-support#trimming-keys) | GA | [GA](./reference-python-provider.md#trimming-keys) | [GA](./reference-javascript-provider.md#trim-prefix-from-keys) | [GA](./reference-go-provider.md#trim-prefix-from-keys)
-Configurable Startup Time-out | [GA](./reference-dotnet-provider.md#startup-retry) | WIP | N/A | WIP | [GA](./reference-javascript-provider.md#startup-retry) | [GA](./reference-go-provider.md#startup-retry)
+Configurable Startup Time-out | [GA](./reference-dotnet-provider.md#startup-retry) | WIP | N/A | [GA](./reference-python-provider.md#startup-retry) | [GA](./reference-javascript-provider.md#startup-retry) | [GA](./reference-go-provider.md#startup-retry)
 Replica Auto Discovery | [GA](./reference-dotnet-provider.md#geo-replication) | [GA](/azure/developer/java/spring-framework/app-configuration-support#geo-replication) | GA | [GA](./reference-python-provider.md#geo-replication) | [GA](./reference-javascript-provider.md#geo-replication) | [GA](./reference-go-provider.md#geo-replication)
 Replica Failover | [GA](./reference-dotnet-provider.md#geo-replication) | [GA](/azure/developer/java/spring-framework/app-configuration-support#geo-replication) | GA | [GA](./reference-python-provider.md#geo-replication) | [GA](./reference-javascript-provider.md#geo-replication) | [GA](./reference-go-provider.md#geo-replication)
 Replica Load Balancing | [GA](./reference-dotnet-provider.md#geo-replication) | GA | GA | [GA](./reference-python-provider.md#geo-replication) | [GA](./reference-javascript-provider.md#geo-replication) | [GA](./reference-go-provider.md#geo-replication)
 Snapshots | [GA](./reference-dotnet-provider.md#snapshot) | [GA](/azure/developer/java/spring-framework/app-configuration-support#selecting-configurations) | GA | [GA](./reference-python-provider.md#load-configuration-from-snapshots) | [GA](./reference-javascript-provider.md#snapshot) | [GA](./reference-go-provider.md#snapshot)
-Snapshot Reference | [GA](./reference-dotnet-provider.md#snapshot-reference) | WIP | [GA](./reference-kubernetes-provider.md#snapshot-reference) | WIP | [GA](./reference-javascript-provider.md#snapshot-reference) | [GA](./reference-go-provider.md#snapshot-reference)
+Snapshot Reference | [GA](./reference-dotnet-provider.md#snapshot-reference) | WIP | [GA](./reference-kubernetes-provider.md#snapshot-reference) | [GA](./reference-python-provider.md#snapshot-reference) | [GA](./reference-javascript-provider.md#snapshot-reference) | [GA](./reference-go-provider.md#snapshot-reference)
 Distributed Tracing | [GA](./reference-dotnet-provider.md#distributed-tracing) | WIP | WIP | WIP | WIP | N/A
 Health Check | [GA](./reference-dotnet-provider.md#health-check) | [GA](/azure/developer/java/spring-framework/app-configuration-support#health-indicator) | WIP | WIP | WIP | N/A 
 Select by Tag Filters | [GA](./reference-dotnet-provider.md#load-specific-key-values-using-selectors) | WIP | GA | [GA](./reference-python-provider.md#tag-filters) | [GA](./reference-javascript-provider.md#tag-filters) | [GA](./reference-go-provider.md#tag-filters)

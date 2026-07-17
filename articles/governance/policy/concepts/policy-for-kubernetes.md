@@ -81,14 +81,14 @@ The Azure Policy Add-on for AKS is part of Kubernetes version 1.27 with long ter
    az aks list
    ```
 
-1. Open ports for the Azure Policy extension. The Azure Policy extension uses these domains and ports to fetch policy
+1. Open ports for the Azure Policy add-on. The Azure Policy add-on uses these domains and ports to fetch policy
    definitions and assignments and report compliance of the cluster back to Azure Policy.
 
    |Domain |Port |
    |---|---|
    |`data.policy.core.windows.net` |`443` |
    |`store.policy.core.windows.net` |`443` |
-   |`login.windows.net` |`443` |
+   |`login.microsoftonline.com` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 
 After the prerequisites are completed, install the Azure Policy Add-on in the AKS cluster
@@ -608,12 +608,16 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
-#### 1.16.1
+#### 1.15.5-1
 Introducing Validating Admission Policy (VAP) generation. [Validating Admission Policies](https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/) are Kubernetes-native validating policy resources that are evaluated in-process, allowing for reduced latency and fail-close evaluation. Azure Policies that contain Common Expression Language (CEL) will automatically generate VAPs. For more information, view the [Gatekeeper Documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/validating-admission-policy/).
-Patch CVE-2026-25679, CVE-2026-27142, CVE-2026-27139, and CVE-2026-32280.
+
+The addon is now fully FIPS-compliant.
+
+Patch CVE-2026-25679, CVE-2026-27142, CVE-2026-27139, CVE-2026-32280, CVE-2025-68121, CVE-2025-61726, CVE-2025-61728, CVE-2026-32281, CVE-2026-32283.
+
 Security improvements.
-- Released: May 2026
-- Kubernetes: 1.36+
+- Released: Jun 2026
+- Kubernetes: 1.30+
 - Gatekeeper: 3.22.1
 
 ##### Gatekeeper 3.22.1

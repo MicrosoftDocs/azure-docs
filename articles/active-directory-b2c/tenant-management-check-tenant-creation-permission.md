@@ -6,7 +6,7 @@ description: Learn how to check tenant creation permission in Azure Active Direc
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: tutorial
 ms.date: 09/11/2024

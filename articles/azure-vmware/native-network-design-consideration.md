@@ -44,6 +44,8 @@ The following functionality is limited during this time. These limitations will 
 - Virtual HUB (virtual WAN) peering: To establish a peering connection between a Gen-2 virtual network and a virtual hub (virtual WAN), the virtual hub must be in the same region as the Gen-2 virtual network. If you need to peer with a virtual hub in a different region, you need to create a Support Case through the Azure portal.
 - /32 route destination from peered Virtual Network (VNET): If you're advertising /32 routes from NSX (such as HCX MON routes or DNS forwarder routes) and need access to that /32 destination from a peered virtual network, you need to open a Support Case in the Azure portal. Connectivity to the /32 destination works correctly from within the local VNET.
 - VNET Peer Sync Subnet advertisement and Azure Route Table (UDR) association – Azure VMware Solution Gen 2 utilizes two internal architectures. The current architecture synchronizes both specific subnets and the broader Azure address space for NSX segment or subnet routes with peered Azure virtual networks. As a result, with Gen 2’s current architecture, you may need to configure Azure route tables (UDR) with more specific NSX segment subnet routes rather than using general address space routes for Azure VMware Solution workload segments.
+- Azure NAT gateway isn't supported for Gen-2 workloads.
+- Azure Subnet peering isn't supported with Gen-2 private cloud subnets.
   
 ## Unsupported integrations
 

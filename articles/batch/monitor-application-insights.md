@@ -4,7 +4,7 @@ description: Learn how to instrument an Azure Batch .NET application using the A
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
-ms.date: 11/06/2024
+ms.date: 06/16/2026
 # Customer intent: "As a developer working with Azure Batch applications, I want to integrate Application Insights to monitor and debug my application, so that I can gain insights into performance and quickly identify issues in real-time."
 ---
 
@@ -14,7 +14,7 @@ ms.date: 11/06/2024
 
 This article shows how to add and configure the Application Insights library into your Azure Batch .NET solution and instrument your application code. It also shows ways to monitor your application via the Azure portal and build custom dashboards. For Application Insights support in other languages, see the [languages, platforms, and integrations documentation](/azure/azure-monitor/app/app-insights-overview#supported-languages).
 
-A sample C# solution with code to accompany this article is available on [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). This example adds Application Insights instrumentation code to the [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) example. If you're not familiar with that example, try building and running TopNWords first. Doing this will help you understand a basic Batch workflow of processing a set of input blobs in parallel on multiple compute nodes.
+A sample C# solution with code to accompany this article is available on [GitHub](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/ApplicationInsights). This example adds Application Insights instrumentation code to the [TopNWords](https://github.com/Azure/azure-batch-samples/tree/master/CSharp/TopNWords) example. If you're not familiar with that example, try building and running TopNWords first. Doing this helps you understand a basic Batch workflow of processing a set of input blobs in parallel on multiple compute nodes.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ A sample C# solution with code to accompany this article is available on [GitHub
 - Copy the [instrumentation key](/previous-versions/azure/azure-monitor/app/create-new-resource#copy-the-instrumentation-key) from the Azure portal. You'll need this value later.
 
   > [!NOTE]
-  > You may be [charged](https://azure.microsoft.com/pricing/details/application-insights/) for data stored in Application Insights. This includes the diagnostic and monitoring data discussed in this article.
+  > You might be [charged](https://azure.microsoft.com/pricing/details/application-insights/) for data stored in Application Insights. This includes the diagnostic and monitoring data discussed in this article.
 
 ## Add Application Insights to your project
 
@@ -252,13 +252,13 @@ Now that you've configured the job and tasks to use Application Insights, run th
 
 ### View live stream data
 
-To view trace logs in your Applications Insights resource, click **Live Stream**. The following screenshot shows how to view live data coming from the compute nodes in the pool, for example the CPU usage per compute node.
+To view trace logs in your Application Insights resource, select **Live Stream**. The following screenshot shows how to view live data coming from the compute nodes in the pool, for example the CPU usage per compute node.
 
 ![Screenshot of live stream compute node data.](./media/monitor-application-insights/applicationinsightslivestream.png)
 
 ### View trace logs
 
-To view trace logs in your Applications Insights resource, click **Search**. This view shows a list of diagnostic data captured by Application Insights including traces, events, and exceptions.
+To view trace logs in your Application Insights resource, select **Search**. This view shows a list of diagnostic data captured by Application Insights including traces, events, and exceptions.
 
 The following screenshot shows how a single trace for a task is logged and later queried for debugging purposes.
 
@@ -276,8 +276,8 @@ Custom metrics are also a valuable tool in the portal. For example, you can disp
 
 To create a sample chart:
 
-1. In your Application Insights resource, click **Metrics Explorer** > **Add chart**.
-1. Click **Edit** on the chart that was added.
+1. In your Application Insights resource, select **Metrics Explorer** > **Add chart**.
+1. Select **Edit** on the chart that was added.
 1. Update the chart details as follows:
    - Set **Chart type** to **Grid**.
    - Set **Aggregation** to **Average**.
@@ -289,7 +289,7 @@ To create a sample chart:
 
 ## Monitor compute nodes continuously
 
-You may have noticed that all metrics, including performance counters, are only logged when the tasks are running. This behavior is useful because it limits the amount of
+You might have noticed that all metrics, including performance counters, are only logged when the tasks are running. This behavior is useful because it limits the amount of
 data that Application Insights logs. However, there are cases when you would always like to monitor the compute nodes. For example, they might be running background work which is not scheduled via the Batch service. In this case, set up a monitoring process to run for the life of the compute node.
 
 One way to achieve this behavior is to spawn a process that loads the Application Insights library and runs in the background. In the example, the start task loads the binaries on the machine and keeps a process running indefinitely. Configure the Application Insights configuration file for this process to emit additional data you're interested in, such as performance counters.

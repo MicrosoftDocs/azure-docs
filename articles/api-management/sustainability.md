@@ -1,11 +1,9 @@
 ---
 title: Sustainability Features in Azure API Management (Preview)
 description: Learn about gateway features in Azure API Management that help reduce carbon emissions of APIs and help customers meet their environmental sustainability goals.
-author: dlepow
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 09/30/2025
-ms.author: danlep
 ai-usage: ai-assisted
 ms.custom: references_regions
 #customer intent: As an IT admin, I want to understand how to adjust API traffic based on carbon emissions in different Azure regions so that I can reduce emissions from my services.

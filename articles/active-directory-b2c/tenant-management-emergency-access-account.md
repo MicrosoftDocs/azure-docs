@@ -5,7 +5,7 @@ description: Learn how to manage emergency access accounts in Azure AD B2C tenan
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: tutorial
 ms.date: 09/11/2024
 ms.reviewer: yoelh

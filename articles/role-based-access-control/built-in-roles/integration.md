@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -209,7 +209,7 @@ Read-only access to service and APIs
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
@@ -235,7 +235,7 @@ Read-only access to service and APIs
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
-        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*"
       ],
@@ -669,7 +669,7 @@ Allows full access to App Configuration data.
 > | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/*/delete |  |
 > | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/*/action |  |
 > | **NotDataActions** |  |
-> | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/useSasAuth/action |  |
+> | *none* |  |
 
 ```json
 {
@@ -689,9 +689,7 @@ Allows full access to App Configuration data.
         "Microsoft.AppConfiguration/configurationStores/*/delete",
         "Microsoft.AppConfiguration/configurationStores/*/action"
       ],
-      "notDataActions": [
-        "Microsoft.AppConfiguration/configurationStores/useSasAuth/action"
-      ]
+      "notDataActions": []
     }
   ],
   "roleName": "App Configuration Data Owner",
@@ -1955,7 +1953,7 @@ Lets you publish messages on topicspaces.
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/*/read |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -1978,7 +1976,7 @@ Lets you publish messages on topicspaces.
         "Microsoft.Authorization/*/read",
         "Microsoft.EventGrid/*/read",
         "Microsoft.Insights/alertRules/*",
-        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read"
       ],
       "notActions": [],
@@ -2006,7 +2004,7 @@ Lets you subscribe messages on topicspaces.
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/*/read |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -2029,7 +2027,7 @@ Lets you subscribe messages on topicspaces.
         "Microsoft.Authorization/*/read",
         "Microsoft.EventGrid/*/read",
         "Microsoft.Insights/alertRules/*",
-        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read"
       ],
       "notActions": [],
@@ -2622,8 +2620,8 @@ Lets you manage logic apps, but not change access to them.
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.ClassicStorage](../permissions/storage.md#microsoftclassicstorage)/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
-> | [Microsoft.ClassicStorage](../permissions/storage.md#microsoftclassicstorage)/storageAccounts/read | Return the storage account with the given account. |
+> | Microsoft.ClassicStorage/storageAccounts/listKeys/action |  |
+> | Microsoft.ClassicStorage/storageAccounts/read |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricAlerts/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
@@ -2949,7 +2947,8 @@ You can enable and disable the logic app, resubmit workflow runs, as well as cre
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/stop/Action | Stop a Web App |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/write | Create a new Web App or update an existing one |
 > | **NotActions** |  |
-> | *none* |  |
+> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/hostruntime/host/_master/read | Get Function App's master key for admin operations |
+> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/hostruntime/host/action | Perform Function App runtime action like sync triggers, add functions, invoke functions, delete functions etc. |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -2986,7 +2985,10 @@ You can enable and disable the logic app, resubmit workflow runs, as well as cre
         "Microsoft.Web/sites/stop/Action",
         "Microsoft.Web/sites/write"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.Web/sites/hostruntime/host/_master/read",
+        "Microsoft.Web/sites/hostruntime/host/action"
+      ],
       "dataActions": [],
       "notDataActions": []
     }

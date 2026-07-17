@@ -1,8 +1,9 @@
 ---
 title: Azure CycleCloud CLI Reference
-description: CycleCloud CLI reference 
+description: Reference for the Azure CycleCloud command-line interface (CLI), including available commands and how to use them.
 author: rokeptne
-ms.date: 06/10/2025
+ms.date: 06/19/2026
+ms.topic: reference
 ms.author: padmalathas
 ---
 

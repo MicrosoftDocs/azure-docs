@@ -25,7 +25,7 @@ ms.custom:
 
 # Tutorial: Deploy a Node.js + MongoDB web app to Azure
 
-This tutorial shows how to create a secure Node.js app in [Azure App Service](overview.md) that's connected to an [Azure DocumentDB](https://learn.microsoft.com/azure/documentdb/) database. Azure App Service provides a highly scalable, self-patching web hosting service using the Linux operating system. When you're finished, you have an Express.js app running on Azure App Service on Linux.
+This tutorial shows how to create a secure Node.js app in [Azure App Service](overview.md) that's connected to an [Azure DocumentDB](/azure/documentdb/) database. Azure App Service provides a highly scalable, self-patching web hosting service using the Linux operating system. When you're finished, you have an Express.js app running on Azure App Service on Linux.
 
 :::image type="content" source="./media/tutorial-nodejs-mongodb-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Node.js application storing data in Cosmos DB.":::
 

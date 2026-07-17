@@ -140,7 +140,7 @@ Full-stack and server-side web application templates running on Azure Container 
 | [Flask Chart API on ACA and CDN](https://github.com/pamelafox/flask-charts-api-container-app) | Pamela Fox | Python | Azure CDN | — |
 | [Flask Container with CDN](https://github.com/pamelafox/flask-gallery-container-app) | Pamela Fox | Python | Azure CDN | — |
 | [Flask Surveys Container App](https://github.com/pamelafox/flask-surveys-container-app) | Pamela Fox | Python | Azure Key Vault, Azure PostgreSQL | — |
-| [Intelligent App on Azure Container Apps and GitHub Models](https://github.com/xuhaoruins/marketingwriter) | Hao Xu | Python | — | Bicep |
+| [Intelligent App on Azure Container Apps and GitHub Models](https://github.com/haxudev/marketingwriter) | Hao Xu | Python | — | Bicep |
 | [Java Quarkus Apps on Azure Container Apps](https://github.com/Azure-Samples/java-on-aca-quarkus) | Jianguo Ma ✓ | Java | Azure PostgreSQL, Azure MySQL, Azure Monitor, Azure Managed Identity | Bicep |
 | [Jupyter Notebooks Web App on Azure Container Apps](https://github.com/savannahostrowski/jupyter-mercury-aca) | Savannah Ostrowski | Python | — | Bicep |
 | [Next.js on Container Apps](https://github.com/CMeeg/nextjs-aca) | Chris Meagher | TypeScript, Node.js | Azure CDN, Azure Application Insights | Bicep |

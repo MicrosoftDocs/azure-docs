@@ -5,7 +5,7 @@ description: Learn about policy keys in Azure AD B2C for signing and validating 
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: concept-article
 ms.date: 02/19/2025

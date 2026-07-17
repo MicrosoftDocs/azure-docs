@@ -1,8 +1,9 @@
 ---
 title: Create a Cluster
-description: Different ways of creating a cluster in cyclecloud
+description: Learn the different ways to create a cluster in Azure CycleCloud, using the CLI or a web browser from a cluster template.
 author: dpwatrous
-ms.date: 07/01/2025
+ms.date: 07/10/2026
+ms.topic: how-to
 ms.author: dawatrou
 ---
 
@@ -40,19 +41,11 @@ The parameters in the form vary based on the cluster template, but the following
 
 - **Subnet ID** controls the virtual network and subnet where nodes start. You can create new subnets through the Azure portal or CLI. The portal automatically detects new subnets after a short time.
 
-- **Max Cores** limits the number of nodes that autoscale based on the total number of running cores.
+- **Autoscaling limit** caps how far the cluster autoscales. Depending on the cluster template and node type, this limit appears as a maximum number of cores or nodes (for example, **Max Cores**, **Max HPC Cores**, or **Max Nodes**).
 
 - **Credentials** associate with a single subscription and might change the values of many other cluster options. For example, when you select credentials associated with Azure Government, you limit the available regions.
 
 - **Return Proxy** if checked, nodes communicate back to the CycleCloud application server through a proxy running on the cluster head node. Select this option if the cluster nodes can't directly access CycleCloud through the network.
-
-::: moniker range="=cyclecloud-7"
-![CycleCloud New Cluster Form](../images/version-7/create-cluster-form.png)
-::: moniker-end
-
-::: moniker range=">=cyclecloud-8"
-![CycleCloud New Cluster Form](../images/version-8/create-cluster-form.png)
-::: moniker-end
 
 ::: moniker range=">=cyclecloud-8"
 

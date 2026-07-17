@@ -6,7 +6,7 @@ description: Learn how to find your Azure AD B2C tenant name and tenant ID. Foll
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: tutorial
 ms.date: 02/19/2025

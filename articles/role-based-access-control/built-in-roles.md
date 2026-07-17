@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -288,6 +288,7 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='documentdb-account-contributor'></a>[DocumentDB Account Contributor](./built-in-roles/databases.md#documentdb-account-contributor) | Can manage Azure Cosmos DB accounts. Azure Cosmos DB is formerly known as DocumentDB. | 5bd9cd88-fe45-4216-938b-f97437e15450 |
 > | <a name='postgresql-flexible-server-long-term-retention-backup-role'></a>[PostgreSQL Flexible Server Long Term Retention Backup Role](./built-in-roles/databases.md#postgresql-flexible-server-long-term-retention-backup-role) | Role to allow backup vault to access PostgreSQL Flexible Server Resource APIs for Long Term Retention Backup. | c088a766-074b-43ba-90d4-1fb21feae531 |
 > | <a name='redis-cache-contributor'></a>[Redis Cache Contributor](./built-in-roles/databases.md#redis-cache-contributor) | Create and manage Azure Cache for Redis resources. Cannot read or write data stored in the cache. | e0f68234-74aa-48ed-b826-c38b57376e17 |
+> | <a name='semantic-reranker-user'></a>[Semantic Reranker User](./built-in-roles/databases.md#semantic-reranker-user) | Execute semantic reranking operations against registered inference accounts. This role should be assigned to users who need to run semantic reranking workloads but do not need to manage the accounts themselves. | 6c74a7c5-4a87-40f9-bb03-61e49aecbc78 |
 > | <a name='sql-db-contributor'></a>[SQL DB Contributor](./built-in-roles/databases.md#sql-db-contributor) | Lets you manage SQL databases, but not access to them. Also, you can't manage their security-related policies or their parent SQL servers. | 9b7fa17d-e63e-47b0-bb0a-15c516ac86ec |
 > | <a name='sql-managed-instance-contributor'></a>[SQL Managed Instance Contributor](./built-in-roles/databases.md#sql-managed-instance-contributor) | Lets you manage SQL Managed Instances and required network configuration, but can't give access to others. | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
 > | <a name='sql-security-manager'></a>[SQL Security Manager](./built-in-roles/databases.md#sql-security-manager) | Lets you manage the security-related policies of SQL servers and databases, but not access to them. | 056cd41c-7e88-42e1-933e-88ba6a50c9c3 |
@@ -364,6 +365,7 @@ The following table provides a brief description of each built-in role. Click th
 > [!div class="mx-tableFixed"]
 > | Built-in role | Description | ID |
 > | --- | --- | --- |
+> | <a name='azure-device-registry-administrator'></a>[Azure Device Registry Administrator](./built-in-roles/internet-of-things.md#azure-device-registry-administrator) | Azure Device Registry Administrator | 12675fd7-7f59-493f-9201-f7944860a2f1 |
 > | <a name='azure-device-registry-contributor'></a>[Azure Device Registry Contributor](./built-in-roles/internet-of-things.md#azure-device-registry-contributor) | Allows for full access to IoT devices within Azure Device Registry Namespace. | a5c3590a-3a1a-4cd4-9648-ea0a32b15137 |
 > | <a name='azure-device-registry-credentials-contributor'></a>[Azure Device Registry Credentials Contributor](./built-in-roles/internet-of-things.md#azure-device-registry-credentials-contributor) | Allows for full access to manage credentials and policies within Azure Device Registry Namespace. | 09267e11-2e06-40b5-8fe4-68cea20794c9 |
 > | <a name='azure-device-registry-onboarding'></a>[Azure Device Registry Onboarding](./built-in-roles/internet-of-things.md#azure-device-registry-onboarding) | Allows for full access to Azure Device Registry Namespace and X.509 certificate provisioning. | 547f7f0a-69c0-4807-bd9e-0321dfb66a84 |
@@ -534,6 +536,8 @@ The following table provides a brief description of each built-in role. Click th
 > | <a name='azure-migrate-execute-expert'></a>[Azure Migrate Execute Expert](./built-in-roles/migration.md#azure-migrate-execute-expert) | Grants restricted access on an Azure Migrate project to only perform migration related operations, including replication, execution of test migrations, tracking and monitoring of migration progress, and initiation of agentless and agent-based migrations. | 1cfa4eac-9a23-481c-a793-bfb6958e836b |
 > | <a name='azure-migrate-owner'></a>[Azure Migrate Owner](./built-in-roles/migration.md#azure-migrate-owner) | Grants full access to create and manage Azure Migrate projects including appliance-based discovery, creation of business case & assessment report and execution of migrations; Also grants ability to assign Azure Migrate specific roles in Azure RBAC. | fd8ea4d5-6509-4db0-bada-356ab233b4fa |
 > | <a name='azure-migrate-service-reader'></a>[Azure Migrate Service Reader](./built-in-roles/migration.md#azure-migrate-service-reader) | Grants required access to the system assigned managed identity of Azure Migrate project resource. | ba480ccd-6499-4709-b581-8f38bb215c63 |
+> | <a name='azure-local-migrate-execute-expert'></a>[Azure Local Migrate Execute Expert](./built-in-roles/migration.md#azure-local-migrate-execute-expert) | Grants restricted access on an Azure Local based Azure Migrate project to only perform migration related operations, including replication, execution of migrations, tracking and monitoring of migration progress, and initiation of agentless migrations. | 1cfa4eac-9a23-481c-a793-bfb6958e836c |
+> | <a name='azure-local-migrate-owner'></a>[Azure Local Migrate Owner](./built-in-roles/migration.md#azure-local-migrate-owner) | Grants full access to create and manage Azure Local based Azure Migrate projects including appliance-based discovery and execution of migrations; Also grants ability to assign Azure Migrate Local specific roles in Azure RBAC | fd8ea4d5-6509-4db0-bada-356ab233b4fb |
 > | <a name='migrate-arc-discovery-reader---preview'></a>[Migrate Arc Discovery Reader - Preview](./built-in-roles/migration.md#migrate-arc-discovery-reader---preview) | Read metadata of Azure Arc enabled server resources and metadata, performance and migration suitability of Arc enabled SQL server resources. Users creating Azure Migrate project that uses Arc resource discovery require this role on Arc scope of the project. To enable periodic sync, Azure Migrate project managed identity must be assigned this role. This role is in preview and subject to change. | 5d5dddae-e124-4753-972d-aae60b37deb4 |
 
 ## Monitor

@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: concept-article
-ms.date: 5/20/2026
+ms.date: 6/5/2026
 ms.author: mbender
 # Customer intent: "As a cloud architect, I want to understand the components of Application Gateway for Containers, so that I can effectively configure and manage traffic routing to backend services in my cloud deployment."
 ---
@@ -44,14 +44,18 @@ This article provides detailed descriptions and requirements for components of A
  
 #### Network Security Groups on the association subnet
 
-For associations created on or after **April 23, 2026**, Network Security Groups (NSGs) are fully supported on the Application Gateway for Containers association subnet. This includes both **inbound and outbound** rules.
+For associations created on or after **April 23, 2026**, Network Security Groups (NSGs) are fully supported on the Application Gateway for Containers association subnet, including both **inbound and outbound** rules.
 
-For associations created **before April 23, 2026**, inbound NSG rules can be configured; however, inbound traffic on **ports 80 and 443** is always allowed, regardless of the configured rules.
+"Deny all" rules are supported, but without explicit allow exceptions, they can impact traffic in the following ways:
 
-"Deny all" rules are supported on the association subnet. However, without explicit allow exceptions, these rules can affect both inbound and outbound traffic:
+- **Deny all inbound** rules will block traffic on **ports 80 and 443** unless allow rules are added, preventing access to the frontend.  
+- **Deny all inbound** rules will block the _AzureLoadBalancer_ service tag, which is created by default for NSGs. You must ensure the _AzureLoadBalancer_ tag is allowed to ensure smooth operations of your gateway.
+- **Deny all outbound** rules will block traffic from Application Gateway for Containers to your AKS cluster, including health probes. Be sure to allow outbound access to your pod IP ranges.
 
-- **Deny all inbound** rules will block traffic on ports **80 and 443** unless explicit allow rules are defined, preventing access to the frontend.
-- **Deny all outbound** rules may block traffic egressing from the proxy to the AKS cluster unless required outbound exceptions are configured.
+> [!Note]  
+> In addition to NSG rules on the association subnet, **Deny all outbound** rules on an NSG applied to the AKS subnet can block traffic from the Application Gateway for Containers ALB controller. To ensure ALB Controller can properly reconcile load balancing intent, ensure outbound traffic is allowed to [these endpoints](application-gateway-for-containers-components.md#alb-controller-outbound-connectivity).
+
+For associations created **before April 23, 2026**, inbound NSG rules can be configured; however, traffic on **ports 80 and 443** is always allowed, regardless of the rules defined.
 
 #### User defined routes on the association subnet
 
@@ -174,6 +178,12 @@ Application Gateway for Containers enforces the following timeouts as it initiat
 
 > [!NOTE]
 > Request timeout strictly enforces the request to complete in the defined time irrespective if data is actively streaming or the request is idle. For example, if you're serving large file downloads and you expect transfers to take greater than 60 seconds due to size or slow transfer rates, consider increasing the request timeout value or setting it to 0.
+
+When a request timeout is configured in more than one place, Application Gateway for Containers applies the following order of precedence:
+
+1. Gateway API HTTPRoute timeouts (`timeouts.request` and `timeouts.backendRequest`) defined on the `HTTPRouteRule` are preferred.
+2. `RoutePolicy` timeout (`routeTimeout`) is used when no Gateway API HTTPRoute timeout is defined.
+3. Default timeout values are used when neither a Gateway API HTTPRoute timeout nor a `RoutePolicy` timeout is defined.
 
 ## Connectivity
 

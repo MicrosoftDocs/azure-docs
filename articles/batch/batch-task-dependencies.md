@@ -2,14 +2,14 @@
 title: Create task dependencies to run tasks
 description: Create tasks that depend on the completion of other tasks for processing MapReduce style and similar big data workloads in Azure Batch.
 ms.topic: how-to
-ms.date: 07/01/2025
+ms.date: 06/16/2026
 ms.devlang: csharp
 ms.custom: "H1Hack27Feb2017, devx-track-csharp"
 # Customer intent: As a data engineer, I want to configure task dependencies for Azure Batch tasks, so that I can ensure tasks execute in the correct order based on the completion of parent tasks for efficient data processing workflows.
 ---
 # Create task dependencies to run tasks that depend on other tasks
 
-With Batch task dependencies, you create tasks that are scheduled for execution on compute nodes after the completion of one or more parent tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks. The final task merges the rendered frames into the complete movie only after all frames have been successfully rendered. In other words, the final task is dependent on the previous parent tasks.
+With Batch task dependencies, you create tasks that are scheduled for execution on compute nodes after the completion of one or more parent tasks. For example, you can create a job that renders each frame of a 3D movie with separate, parallel tasks. The final task merges the rendered frames into the complete movie only after all frames are successfully rendered. In other words, the final task is dependent on the previous parent tasks.
 
 Some scenarios where task dependencies are useful include:
 
@@ -20,7 +20,7 @@ Some scenarios where task dependencies are useful include:
 
 By default, dependent tasks are scheduled for execution only after the parent task has completed successfully. You can optionally specify a [dependency action](#dependency-actions) to override the default behavior and run the dependent task even if the parent task fails.
 
-In this article, we discuss how to configure task dependencies by using the [Batch .NET](/dotnet/api/azure.compute.batch) library. We first show you how to [enable task dependency](#enable-task-dependencies) on your jobs, and then demonstrate how to [configure a task with dependencies](#create-dependent-tasks). We also describe how to specify a dependency action to run dependent tasks if the parent fails. Finally, we discuss the [dependency scenarios](#dependency-scenarios) that Batch supports.
+This article describes how to configure task dependencies by using the [Batch .NET](/dotnet/api/azure.compute.batch) library. It shows how to [enable task dependency](#enable-task-dependencies) on your jobs, how to [configure a task with dependencies](#create-dependent-tasks), and how to specify a dependency action to run dependent tasks if the parent fails. It also describes the [dependency scenarios](#dependency-scenarios) that Batch supports.
 
 ## Enable task dependencies
 

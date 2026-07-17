@@ -2,11 +2,11 @@
 title: 'Remote work and point-to-site VPN gateways'
 titleSuffix: Azure VPN Gateway
 description: Learn how you can use VPN Gateway point-to-site connections in order to work remotely.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 03/31/2025
-ms.author: cherylmc
+ms.author: duau
 
 # Customer intent: As a remote worker, I want to establish a point-to-site VPN connection, so that I can securely access Azure resources and on-premises data centers from home or during travel.
 ---

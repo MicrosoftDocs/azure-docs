@@ -72,6 +72,6 @@ If EU data residency is a requirement for your organization, select **Azure Open
 ## Related content
 
 - [Agent reasoning](agent-reasoning.md)
-- [Deep context](workspace-tools.md)
+- [Deep context](agent-reasoning.md#deep-context)
 - [Audit agent actions](audit-agent-actions.md)
 - [Pricing and billing—AAU rates by model](pricing-billing.md)

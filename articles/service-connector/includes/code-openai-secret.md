@@ -1,9 +1,8 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 07/28/2025
-ms.author: wchi
+ms.date: 06/17/2026
+ms.reviewer: wchi
 ---
 
 ### [.NET](#tab/dotnet)
@@ -20,7 +19,7 @@ ms.author: wchi
     ```csharp
     using Azure.AI.OpenAI;
     
-    string endpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_BASE")
+    string endpoint = Environment.GetEnvironmentVariable("AZURE_OPENAI_BASE");
     string key = Environment.GetEnvironmentVariable("AZURE_OPENAI_KEY");
 
     AzureOpenAIClient openAIClient = new(
@@ -81,7 +80,7 @@ ms.author: wchi
     )
     ```
 
-### [NodeJS](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 1. Install the following dependencies.
 

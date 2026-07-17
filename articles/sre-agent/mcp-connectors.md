@@ -1,7 +1,7 @@
 ---
 title: MCP connectors and tools in Azure SRE Agent
 description: Extend your agent to any external system including observability platforms, source code, ticketing systems, and custom APIs which uses the Model Context Protocol.
-ms.topic: conceptual
+ms.topic: article
 ms.service: azure-sre-agent
 ms.date: 04/24/2026
 author: craigshoemaker

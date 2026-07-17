@@ -5,7 +5,7 @@ ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 09/29/2025
+ms.date: 05/28/2026
 ms.custom: sfi-image-nochange
 --- 
 
@@ -76,3 +76,4 @@ Assign this service principal the **Monitoring Reader** role on the target subsc
 - [Troubleshoot common Azure Managed Grafana issues](./troubleshoot-managed-grafana.md)
 - [Manage access and permissions for users and identities](./how-to-manage-access-permissions-users-identities.md)
 - [Manage data sources in Azure Managed Grafana](./how-to-data-source-plugins-managed-identity.md)
+- [Authenticate to Azure Managed Grafana data plane APIs with Microsoft Entra ID](./how-to-authenticate-data-plane-api.md)

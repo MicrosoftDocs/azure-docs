@@ -1,9 +1,9 @@
 ---
-author: cherylmc
+author: asudbring
 ms.service: azure-bastion
 ms.topic: include
 ms.date: 01/28/2025
-ms.author: cherylmc
+ms.author: allensu
 ---
 The **az network bastion tunnel** command is another way that you can connect to your VMs. When you use this command, you can do the following:
 

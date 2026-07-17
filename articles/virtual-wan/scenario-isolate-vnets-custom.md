@@ -3,12 +3,12 @@ title: 'Scenario: Custom isolation for VNets'
 titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN routing custom isolation scenarios to prevent specific set of VNets from being able to reach another specific set of VNets, but the VNets are required to reach all branches.
 services: virtual-wan
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 03/26/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 
 ---

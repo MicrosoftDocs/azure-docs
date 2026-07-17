@@ -37,11 +37,77 @@ You need to update the function code and add a definition to the function.json c
 
 ---
 ::: zone-end
+
+::: zone pivot="programming-language-go"
+In Go, you configure supported triggers by using the fluent registration API in your `main()` function. Each trigger type has a dedicated registration method with functional options for configuration. No separate binding configuration file is needed.
+
+The following example shows an [HTTP triggered function](functions-bindings-http-webhook-trigger.md). If you need to write to Queue Storage from a Go function, use the Azure SDK for Go directly because Queue Storage output bindings aren't currently supported by the Go worker:
+
+```go
+package main
+
+import (
+    "encoding/json"
+    "fmt"
+    "net/http"
+
+    "github.com/azure/azure-functions-golang-worker/sdk"
+    "github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+    app := sdk.FunctionApp()
+    app.HTTP("HttpExample", httpHandler,
+        sdk.WithMethods("GET", "POST"),
+        sdk.WithAuth("anonymous"),
+    )
+    worker.Start(app)
+}
+
+func httpHandler(w http.ResponseWriter, r *http.Request) {
+    name := r.URL.Query().Get("name")
+    if name == "" {
+        var body struct{ Name string }
+        json.NewDecoder(r.Body).Decode(&body)
+        name = body.Name
+    }
+    if name == "" {
+        w.WriteHeader(http.StatusBadRequest)
+        fmt.Fprint(w, "Please pass a name on the query string or in the request body.")
+        return
+    }
+    // Queue output bindings are not yet supported in the Go worker.
+    // Use the Azure SDK for Go to write to Queue Storage directly.
+    fmt.Fprintf(w, "Hello, %s!", name)
+}
+```
+
+> [!NOTE]
+> The Go worker currently supports triggers only. Input and output bindings, such as Queue Storage output bindings, aren't yet available. Use the [Azure SDK for Go](https://github.com/Azure/azure-sdk-for-go) to interact with other Azure services directly from your function code.
+
+The Go worker currently supports the following trigger types:
+
+| Trigger type | Registration method | Examples |
+|---|---|---|
+| [HTTP](functions-bindings-http-webhook-trigger.md) | `app.HTTP()` | [HTTP samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/httpTrigger) |
+| [Timer](functions-bindings-timer.md) | `app.Timer()` | [Timer samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/timerTrigger) |
+| [Azure Cosmos DB](functions-bindings-cosmosdb-v2-trigger.md) | `app.CosmosDB()` | [Cosmos DB samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/cosmosDBTrigger) |
+| [Azure Service Bus (Queue)](functions-bindings-service-bus-trigger.md) | `app.ServiceBusQueue()` | [Service Bus queue samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/serviceBusQueueTrigger) |
+| [Azure Service Bus (Topic)](functions-bindings-service-bus-trigger.md) | `app.ServiceBusTopic()` | [Service Bus topic samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/serviceBusTopicTrigger) |
+| [Event Hubs](functions-bindings-event-hubs-trigger.md) | `app.EventHub()` | [Event Hubs samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/eventHubTrigger) |
+| [Event Grid](functions-bindings-event-grid-trigger.md) | `app.EventGrid()` | [Event Grid samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/eventGridTrigger) |
+| [Blob Storage](functions-bindings-storage-blob-trigger.md) | `app.Blob()` | [Blob samples](https://github.com/Azure/azure-functions-golang-worker/tree/main/samples/blobTrigger) |
+
+For more information, see the [Go developer reference](functions-reference-go.md).
+::: zone-end
+
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 [!INCLUDE [functions-add-output-binding-example-all-langs](../../includes/functions-add-output-binding-example-all-languages.md)]
 
 Use the following table to find examples of specific binding types that you can use to guide you in updating an existing function. First, choose the language tab that corresponds to your project. 
 
 [!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
+::: zone-end
 
 ### Visual Studio Code
 

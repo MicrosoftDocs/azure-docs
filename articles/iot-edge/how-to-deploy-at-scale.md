@@ -3,7 +3,7 @@ title: Deploy modules at scale in Azure portal - Azure IoT Edge
 description: Use the Azure portal to create automatic deployments for groups of IoT Edge devices
 author: sethmanheim
 ms.author: sethm
-ms.date: 05/15/2025
+ms.date: 07/16/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -71,7 +71,7 @@ To add custom code as a module, or to manually add an Azure service module, foll
 1. In the **IoT Edge Modules** section of the page, select **Add**.
 1. Choose one of the types of modules from the drop-down menu:
 
-   * **IoT Edge Module** - You provide the module name and container image URI. For example, the image URI for the sample SimulatedTemperatureSensor module is `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.5`. For a list of Microsoft IoT Edge module images, see the [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?cat=IoT%20Edge%20Modules&alphaSort=asc&alphaSortKey=Name).
+   * **IoT Edge Module** - You provide the module name and container image URI. For example, the image URI for the sample SimulatedTemperatureSensor module is `mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.6`. For a list of Microsoft IoT Edge module images, see the [Microsoft Artifact Registry](https://mcr.microsoft.com/catalog?cat=IoT%20Edge%20Modules&alphaSort=asc&alphaSortKey=Name).
    * **Azure Stream Analytics Module** - Modules generated from an Azure Stream Analytics workload.
 
 1. If needed, repeat steps 2 and 3 to add more modules to your deployment.

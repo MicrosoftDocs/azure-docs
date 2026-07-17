@@ -192,13 +192,6 @@ All geo-redundant offerings support Microsoft-managed failover. In addition, som
 | **Customer-managed (unplanned) failover** | General-purpose v2 accounts</br> General-purpose v1 accounts</br> Legacy Blob Storage accounts | General-purpose v2 accounts |
 | **Microsoft-managed failover**            | All account types | General-purpose v2 accounts |
 
-#### Classic storage accounts
-
-> [!IMPORTANT]
-> Customer-managed failover is only supported for storage accounts deployed using the Azure Resource Manager (ARM) deployment model. The Azure Service Manager (ASM) deployment model, also known as the *classic* model, isn't supported. To make classic storage accounts eligible for customer-managed account failover, they must first be [migrated to the ARM model](classic-account-migration-overview.md). Your storage account must be accessible to perform the upgrade, so the primary region can't currently be in a failed state.
->
-> During a disaster that affects the primary region, Microsoft manages the failover for classic storage accounts. For more information, see [Microsoft-managed failover](#microsoft-managed-failover).
-
 ### Unsupported features and services
 
 The following features and services aren't supported for customer-managed failover:
@@ -215,10 +208,10 @@ The following table can be used to reference feature support.
 |----------------------------------|-----------------------|-----------------------|
 | **Azure Data Lake Storage**      | Supported             | Supported             |
 | **Change Feed**                  | Unsupported           | Supported             |
-| **Object Replication**           | Unsupported           | Unsupported           |
+| **Object Replication**           | Unsupported           |Supported|
 | **SFTP**                         | Supported             | Supported             |
 | **NFSv3**                        | GRS is unsupported    | GRS is unsupported    |
-| **Storage Actions**              | Supported<sup>1</sup> | Supported<sup>1</sup> | 
+| **Storage Actions**              | Supported<sup>1</sup> | Supported<sup>1</sup> |
 | **Point-in-time restore (PITR)** | Unsupported           | Supported             |
 
 <sup>1</sup> If you initiate a customer-managed planned or unplanned failover, storage tasks can't operate on the account until it fails back to the original primary region. [Learn more](/azure/reliability/reliability-storage-actions#cross-region-disaster-recovery-and-business-continuity).

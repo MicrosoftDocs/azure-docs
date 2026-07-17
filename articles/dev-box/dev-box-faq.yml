@@ -39,7 +39,7 @@ sections:
            - For dev box connectivity metrics, use the [Cloud PC connection quality report](/windows-365/enterprise/report-cloud-pc-connection-quality). Dev Box is built on top of Cloud PC. You can see the connectivity health of each dev box by using the Cloud PC dashboard in the Microsoft Intune admin center.  
     
       - question: Can I use a smart card, or other physical device with Dev Box?
-        answer: Yes. Dev Box users can use smart card and other devices that are connected to the physical machine. Since Dev Box uses same RDP client as Azure Virtual Desktop, you can review following documentation to learn about all the different capabilities supported by RDP client. You can also review RDP client capabilities on different operating systems. Compare [Remote Desktop client features](/previous-versions/remote-desktop-client/compare-remote-desktop-clients?pivots=azure-virtual-desktop#authentication).
+        answer: Yes. Dev Box users can use smart cards and other devices that are connected to their local machine. For supported capabilities across platforms, see [Remote Desktop client features](/previous-versions/remote-desktop-client/compare-remote-desktop-clients?pivots=azure-virtual-desktop#authentication).
 
       - question: Can I use Linux as my development environment?
         answer: Microsoft Dev Box supports Windows Subsystem for Linux (WSL) for Linux scenarios. This support allows users to use Linux environment alongside Windows tools. GitHub users who use VS Code for development can use GitHub Codespaces.  
@@ -48,7 +48,7 @@ sections:
         answer: Dev Box service is built on top of Windows 365 Enterprise and uses the same [Azure network connection health checks](/troubleshoot/windows-365/health-checks). Such health checks ensure that Dev Box provisioning is successful and end-user experiences are optimal. If a health check fails, select *view details* to see what is causing the failure and address the issue from there. For example, your network policy might block the following service URLs and ports [Network requirements for Windows 365](/windows-365/enterprise/requirements-network?tabs=enterprise%2Cent#allow-network-connectivity).
         
       - question: Can I prevent users from copying data or code from the dev box to their laptop using the clipboard? 
-        answer: You can prevent users copying data or code from the dev box to their local machine by disabling the clipboard redirection feature in the RDP client. You can manage this setting through a device configuration policy in Microsoft Intune. For more information, see [RDP device redirection settings](/windows-365/enterprise/manage-rdp-device-redirections#rdp-device-redirection-settings).
+        answer: You can prevent users from copying data or code from the dev box to their local machine by disabling clipboard redirection for Dev Box sessions. You can manage this setting through a device configuration policy in Microsoft Intune. For more information, see [RDP device redirection settings](/windows-365/enterprise/manage-rdp-device-redirections#rdp-device-redirection-settings).
 
 
 additionalContent: |

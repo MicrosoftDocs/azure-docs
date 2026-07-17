@@ -3,7 +3,7 @@ title: Enable automatic certificate rotation in a Batch pool
 description: You can create a Batch pool with a managed identity and a certificate that can automatically be renewed.
 ms.topic: concept-article
 ms.custom:
-ms.date: 04/16/2024
+ms.date: 06/16/2026
 # Customer intent: As a cloud architect, I want to enable automatic certificate rotation in a Batch pool, so that I can maintain secure application environments without manual certificate management.
 ---
 
@@ -40,7 +40,7 @@ In your key vault, assign a Key Vault access policy that allows your user-assign
 Create a Batch pool with your managed identity by using the [Batch .NET management library](/dotnet/api/overview/azure/batch#management-library). For more information, see [Configure managed identities in Batch pools](managed-identity-pools.md).
 
 > [!TIP]
-> Existing pools cannot be updated with the Key Vault VM extension. You will need to recreate your pool.
+> Existing pools can't be updated with the Key Vault VM extension. Recreate your pool.
 
 The following example uses the Batch Management REST API to create a pool. Be sure to use your certificate's **Secret Identifier** for `observedCertificates` and your managed identity's **Client ID** for `msiClientId`, replacing the example data below.
 

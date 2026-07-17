@@ -1,11 +1,9 @@
 ---
 title: Deploy Self-Hosted Gateway to Docker
 description: Learn how to deploy a self-hosted gateway component of Azure API Management to Docker
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/08/2025
-ms.author: danlep
 ---
 
 # Deploy an Azure API Management self-hosted gateway to Docker

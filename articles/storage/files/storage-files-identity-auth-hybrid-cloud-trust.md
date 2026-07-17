@@ -4,7 +4,7 @@ description: Learn how to enable Microsoft Entra Kerberos authentication over SM
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/04/2026
+ms.date: 07/16/2026
 ms.author: kendownie
 ms.custom: sfi-ga-nochange
 # Customer intent: As an IT administrator, I want to configure a cloud trust between on-premises Active Directory and Microsoft Entra ID, so that users can access SMB Azure file shares using their existing credentials in a hybrid environment.
@@ -14,13 +14,18 @@ ms.custom: sfi-ga-nochange
 
 **Applies to:** :heavy_check_mark: SMB file shares
 
-Many organizations want to use identity-based authentication for SMB Azure file shares in environments that span both on-premises Active Directory Domain Services (AD DS) and Microsoft Entra ID ([formerly Azure Active Directory](/entra/fundamentals/new-name)), but don't meet the necessary [operating system or domain prerequisites](storage-files-identity-auth-hybrid-identities-enable.md#operating-system-and-domain-prerequisites).
+Many organizations want to use identity-based authentication for SMB Azure file shares in environments that span both on-premises Active Directory Domain Services (AD DS) and Microsoft Entra ID ([formerly Azure Active Directory](/entra/fundamentals/new-name)), but don't meet the necessary [operating system or domain prerequisites](storage-files-identity-auth-hybrid-identities-enable.md#operating-system-and-domain-prerequisites). In such scenarios, you can enable Microsoft Entra Kerberos authentication for [hybrid user identities](/entra/identity/hybrid/whatis-hybrid-identity), and then establish a cloud trust between your on-premises AD DS and Entra ID to access SMB file shares by using your on-premises credentials. 
 
-In such scenarios, you can enable Microsoft Entra Kerberos authentication for hybrid user identities and then establish a cloud trust between your on-premises AD DS and Entra ID to access SMB file shares by using your on-premises credentials. This article explains how a cloud trust works, and provides instructions for setup and validation. It also includes steps to rotate a Kerberos key for your service account in Entra ID and Trusted Domain Object, and steps to remove a Trusted Domain Object and all Kerberos settings, if desired.
+Hybrid user identities are on-premises AD DS identities that are synced to Microsoft Entra ID by using either [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync).
 
-This article focuses on authenticating [hybrid user identities](/entra/identity/hybrid/whatis-hybrid-identity), which are on-premises AD DS identities that are synced to Microsoft Entra ID by using either [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync).
+A cloud trust is an incoming trust relationship in which on-premises Active Directory Domain Services trusts Microsoft Entra ID as a Kerberos Key Distribution Center (KDC). This trust relationship allows domain-joined clients to obtain Kerberos tickets from Microsoft Entra ID without requiring direct network connectivity to on-premises domain controllers.
 
-## Scenarios
+> [!NOTE]
+> Only forest trusts are supported for Azure Files. Other trust types, such as external trusts, aren't supported.
+
+This article explains how a cloud trust works, and provides instructions for setup and validation. It covers enabling Microsoft Entra Kerberos authentication, creating the Trusted Domain Object, configuring clients to retrieve Kerberos tickets, and optional steps to rotate or remove the trust. It also includes steps to rotate a Kerberos key for your service account in Entra ID and Trusted Domain Object, and steps to remove a Trusted Domain Object and all Kerberos settings, if desired.
+
+## Cloud trust scenarios
 
 The following examples describe scenarios in which you might want to configure a cloud trust:
 
@@ -45,11 +50,11 @@ Before implementing the incoming trust-based authentication flow, make sure that
 | --- | --- |
 | Client must run Windows 10, Windows Server 2012, or a higher version of Windows. | |
 | Clients must be joined to Active Directory (AD). The domain must have a functional level of Windows Server 2012 or higher. | You can determine if the client is joined to Active Directory by running the [dsregcmd command](/entra/identity/devices/troubleshoot-device-dsregcmd): `dsregcmd.exe /status` |
-| A Microsoft Entra tenant. | A Microsoft Entra Tenant is an identity security boundary that's under the control of your organization's IT department. It's an instance of Microsoft Entra ID in which information about a single organization resides. |
+| A Microsoft Entra tenant. | A Microsoft Entra tenant is an identity security boundary that's under the control of your organization's IT department. It's an instance of Microsoft Entra ID in which information about a single organization resides. |
 | An Azure subscription under the same Entra tenant you plan to use for authentication. | |
 | An Azure storage account in the Azure subscription. | An Azure storage account is a resource that acts as a container for grouping all the data services from Azure Storage, including files. |
 | [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync) must be installed. | These solutions are used in [hybrid environments](/entra/identity/hybrid/whatis-hybrid-identity) where identities exist both in Microsoft Entra ID and on-premises AD DS. |
-| If you have [application management policies](/entra/identity/enterprise-apps/configure-app-management-policies), they must allow symmetric key addition on service principals for 366 days or more. | If your policies do not allow this, you will need to [adjust the policy](/entra/identity/enterprise-apps/configure-app-management-policies#enable-a-restriction-for-all-applications) or [grant an exception](/entra/identity/enterprise-apps/configure-app-management-policies#grant-an-exception-to-a-user-or-service) for the "Storage Resource Provider" service (app ID `a6aa9161-5291-40bb-8c5c-923b567bee3b`). If using the [Entra Admin Center](https://aka.ms/app-mgmt-policy-ux), these policies are defined in the "Block password addition" and "Restrict max password lifetime" settings. If using the [Graph API](/graph/api/resources/tenantappmanagementpolicy), these policies are defined in `symmetricKeyAddition` and `symmetricKeyLifetime` restrictions on `servicePrincipalRestrictions.passwordCredentials`. |
+| If you have [application management policies](/entra/identity/enterprise-apps/configure-app-management-policies), they must allow symmetric key addition on service principals for 366 days or more. | If your policies don't allow this, you need to [adjust the policy](/entra/identity/enterprise-apps/configure-app-management-policies#enable-a-restriction-for-all-applications) or [grant an exception](/entra/identity/enterprise-apps/configure-app-management-policies#grant-an-exception-to-a-user-or-service) for the "Storage Resource Provider" service (app ID `a6aa9161-5291-40bb-8c5c-923b567bee3b`). If you're using the [Entra Admin Center](https://aka.ms/app-mgmt-policy-ux), these policies are defined in the "Block password addition" and "Restrict max password lifetime" settings. If you're using the [Graph API](/graph/api/resources/tenantappmanagementpolicy), these policies are defined in `symmetricKeyAddition` and `symmetricKeyLifetime` restrictions on `servicePrincipalRestrictions.passwordCredentials`. |
 
 ## Enable Microsoft Entra Kerberos authentication
 
@@ -62,7 +67,7 @@ You can enable Microsoft Entra Kerberos authentication on Azure Files for hybrid
 To enable Microsoft Entra Kerberos authentication by using the [Azure portal](https://portal.azure.com), follow these steps.
 
 1. Sign in to the Azure portal and select the storage account you want to enable Microsoft Entra Kerberos authentication for.
-1. Under **Data storage**, select **File shares**.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 1. Next to **Identity-based access**, select the configuration status, such as **Not configured**.
  
    :::image type="content" source="media/storage-files-identity-auth-hybrid-identities-enable/configure-identity-based-access.png" alt-text="Screenshot of the Azure portal showing file share settings for a storage account." lightbox="media/storage-files-identity-auth-hybrid-identities-enable/configure-identity-based-access.png" border="true":::
@@ -84,7 +89,7 @@ To enable Microsoft Entra Kerberos by using Azure PowerShell, run the following 
 Set-AzStorageAccount -ResourceGroupName <resourceGroupName> -StorageAccountName <storageAccountName> -EnableAzureActiveDirectoryKerberosForFile $true
 ```
 
-**Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, you also need to specify the domain name and domain GUID for your Active Directory. If you'd prefer to configure directory and file-level permissions by using icacls, you can skip this step. However, if you want to use icacls, the client needs line-of-sight to the on-premises Active Directory.
+**Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, you also need to specify the domain name and domain GUID for your Active Directory. If you'd prefer to configure directory and file-level permissions by using icacls, you can skip this step. However, if you want to use icacls, the client needs unimpeded network connectivity to the on-premises Active Directory.
 
 You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlets from an on-premises Active Directory-joined client:
 
@@ -108,7 +113,7 @@ To enable Microsoft Entra Kerberos by using Azure CLI, run the following command
 az storage account update --name <storageaccountname> --resource-group <resourcegroupname> --enable-files-aadkerb true
 ```
 
-**Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, you also need to specify the domain name and domain GUID for your Active Directory. If you'd prefer to configure directory and file-level permissions by using icacls, you can skip this step. However, if you want to use icacls, the client needs line-of-sight to the Active Directory.
+**Optional:** If you want to configure directory and file-level permissions through Windows File Explorer, you also need to specify the domain name and domain GUID for your Active Directory. If you'd prefer to configure directory and file-level permissions by using icacls, you can skip this step. However, if you want to use icacls, the client needs unimpeded network connectivity to the Active Directory.
 
 You can get this information from your domain admin or by running the following Active Directory PowerShell cmdlets from an on-premises Active Directory-joined client:
 
@@ -126,12 +131,9 @@ az storage account update --name <storageAccountName> --resource-group <resource
 
 ---
 
-> [!WARNING]
-> If you previously enabled Microsoft Entra Kerberos authentication through manual limited preview steps to store FSLogix profiles on Azure Files for Entra-joined VMs, the password for the storage account's service principal expires every six months. Once the password expires, users can't get Kerberos tickets to the file share. To mitigate this, see "Error - Service principal password has expired in Microsoft Entra ID" under [Potential errors when enabling Microsoft Entra Kerberos authentication for hybrid users](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#potential-errors-when-enabling-azure-ad-kerberos-authentication-for-hybrid-users).
-
 ### Grant admin consent to the new service principal
 
-After enabling Microsoft Entra Kerberos authentication, grant admin consent to the new Entra application registered in your Entra tenant. The process auto-generates this service principal. It's not used for authorization to the file share, so don't make any edits to the service principal other than those documented here. If you do, you might get an error.
+After enabling Microsoft Entra Kerberos authentication, grant admin consent to the new Entra application registered in your Microsoft Entra tenant. The process auto-generates this service principal. It's not used for authorization to the file share, so don't make any edits to the service principal other than those documented here. If you do, you might get an error.
 
 You can configure the API permissions from the [Azure portal](https://portal.azure.com) by following these steps:
 
@@ -164,13 +166,13 @@ For guidance on disabling MFA, see the following articles:
 
 ### Assign share-level permissions
 
-When you enable identity-based access, for each share you must assign which users and groups have access to that particular share. Once a user or group is allowed access to a share, Windows ACLs (also called NTFS permissions) on individual files and directories take over. This permission system allows for fine-grained control over permissions, similar to an SMB share on a Windows Server.
+When you enable identity-based access, for each share you must assign which users and groups have access to that particular share. After a user or group is allowed access to a share, Windows ACLs (also called NTFS permissions) on individual files and directories take over. This permission system allows for fine-grained control over permissions, similar to an SMB share on a Windows Server.
 
 To set share-level permissions, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md).
 
 ### Configure directory and file-level permissions
 
-Once share-level permissions are in place, you can assign directory and file-level permissions to the user or group. **This step requires using a device with unimpeded network connectivity to an on-premises Active Directory**.
+After share-level permissions are in place, you can assign directory and file-level permissions to the user or group. **This step requires using a device with unimpeded network connectivity to an on-premises Active Directory**.
 
 To configure directory and file-level permissions, follow the instructions in [Configure directory and file-level permissions over SMB](storage-files-identity-configure-file-level-permissions.md).
 
@@ -178,7 +180,7 @@ To configure directory and file-level permissions, follow the instructions in [C
 
 To create and configure the Entra Kerberos Trusted Domain Object, use the [Azure AD Hybrid Authentication Management](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement/) PowerShell module. By using this module, hybrid identity organizations can use modern credentials for their applications and Entra ID becomes the trusted source for both cloud and on-premises authentication.
 
-### Set up the Trusted Domain Object
+### Register the Trusted Domain Object with Microsoft Entra ID
 
 Use the Azure AD Hybrid Authentication Management PowerShell module to set up a Trusted Domain Object in the Active Directory domain and register trust information with Entra ID. This action creates an inbound trust relationship, which enables Entra ID to trust the on-premises Active Directory.
 
@@ -298,7 +300,7 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
    > 1. Run the command on root domain (include `-SetupCloudTrust` parameter).
    > 1. Run the same command on the child domain without the `-SetupCloudTrust` parameter.
 
-   After creating the Trusted Domain Object, you can check the updated Kerberos Settings by using the `Get-AzureADKerberosServer` PowerShell cmdlet, as shown in the previous step. If the `Set-AzureADKerberosServer` cmdlet runs successfully with the `-SetupCloudTrust` parameter, the `CloudTrustDisplay` field returns `Microsoft.AzureAD.Kdc.Service.TrustDisplay`, as shown in the following sample output:
+   After creating the Trusted Domain Object, you can check the updated Kerberos settings by using the `Get-AzureADKerberosServer` PowerShell cmdlet, as shown in the previous step. If the `Set-AzureADKerberosServer` cmdlet runs successfully with the `-SetupCloudTrust` parameter, the `CloudTrustDisplay` field returns `Microsoft.AzureAD.Kdc.Service.TrustDisplay`, as shown in the following sample output:
 
    ```output
    ID                  : XXXXX
@@ -367,7 +369,7 @@ Set-AzureADKerberosServer -Domain $domain `
 
 ## Remove the Trusted Domain Object
 
-You can remove the added Trusted Domain Object using the following command:
+You can remove the added Trusted Domain Object by using the following command:
 
 ```powershell
 Remove-AzureADKerberosServerTrustedDomainObject -Domain $domain `

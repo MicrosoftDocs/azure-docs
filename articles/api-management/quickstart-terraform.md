@@ -5,8 +5,6 @@ ms.topic: quickstart
 ms.service: azure-api-management
 ms.date: 08/04/2025
 ms.custom: devx-track-terraform, devx-track-azurecli, devx-track-azurepowershell
-author: TomArcherMsft
-ms.author: tarcher
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted

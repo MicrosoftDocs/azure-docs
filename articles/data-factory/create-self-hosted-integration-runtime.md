@@ -6,7 +6,7 @@ ms.subservice: integration-runtime
 ms.topic: concept-article
 author: lrtoyou1223
 ms.author: lle
-ms.date: 03/31/2025
+ms.date: 06/17/2026
 ai-usage: ai-assisted
 ms.custom:
   - synapse
@@ -32,11 +32,11 @@ A self-hosted integration runtime provides these capabilities between a cloud da
 - Use a self-hosted integration runtime to support data integration within an Azure virtual network.
 - Treat your data source as an on-premises data source that is behind a firewall, even when you use Azure ExpressRoute. Use the self-hosted integration runtime to connect the service to the data source.
 - Use the self-hosted integration runtime even if the data store is in the cloud on an Azure Infrastructure as a Service (IaaS) virtual machine.
-- Tasks might fail in a self-hosted integration runtime that you installed on a Windows server for which FIPS-compliant encryption is enabled. To work around this problem, you have two options: store credentials/secret values in an Azure Key Vault or disable FIPS-compliant encryption on the server. To disable FIPS-compliant encryption, change the following registry subkey's value from 1 (enabled) to 0 (disabled): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`. If you use the [self-hosted integration runtime as a proxy for SSIS integration runtime](./self-hosted-integration-runtime-proxy-ssis.md), FIPS-compliant encryption can be enabled and will be used when moving data from on premises to Azure Blob Storage as a staging area.
+- Tasks might fail in a self-hosted integration runtime that you installed on a Windows server for which FIPS-compliant encryption is enabled. To work around this problem, either store credentials or secret values in an Azure Key Vault, or disable FIPS-compliant encryption on the server. To disable FIPS-compliant encryption, change the following registry subkey's value from 1 (enabled) to 0 (disabled): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`. If you use the [self-hosted integration runtime as a proxy for SSIS integration runtime](./self-hosted-integration-runtime-proxy-ssis.md), FIPS-compliant encryption can be enabled and is used when moving data from on premises to Azure Blob Storage as a staging area.
 - Full licensing details are provided on the first page of the self-hosted integration runtime setup.
 
 > [!NOTE]
-> Currently self-hosted integration runtime can only be shared with multiple data factories, it can't be shared across Synapse workspaces or between data factory and Synapse workspace.
+> Currently, the self-hosted integration runtime can only be shared between data factories. It can't be shared across Synapse workspaces or between a data factory and a Synapse workspace.
 
 ## Command flow and data flow
 
@@ -66,7 +66,7 @@ Here's a high-level summary of the data-flow steps for copying with a self-hoste
 
 Installation of the self-hosted integration runtime on a domain controller isn't supported.
 
-- Self-hosted integration runtime requires a 64-bit Operating System with .NET Framework 4.7.2 or above. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
+- Self-hosted integration runtime requires a 64-bit operating system with .NET Framework 4.7.2 or later. See [.NET Framework System Requirements](/dotnet/framework/get-started/system-requirements) for details.
 - The recommended minimum configuration for the self-hosted integration runtime machine is a 2-GHz processor with 4 cores, 8 GB of RAM, and 80 GB of available hard drive space. For the details of system requirements, see [Download](https://www.microsoft.com/download/details.aspx?id=39717).
 - If the host machine hibernates, the self-hosted integration runtime doesn't respond to data requests. Configure an appropriate power plan on the computer before you install the self-hosted integration runtime. If the machine is configured to hibernate, the self-hosted integration runtime installer prompts with a message.
 - You must be an administrator on the machine to successfully install and configure the self-hosted integration runtime.
@@ -79,7 +79,7 @@ Installation of the self-hosted integration runtime on a domain controller isn't
 >[!NOTE]
 >If you're running in government cloud, review [Connect to government cloud.](../azure-government/documentation-government-get-started-connect-with-ps.md)
 
-## Setting up a self-hosted integration runtime
+## Set up a self-hosted integration runtime
 
 To create and set up a self-hosted integration runtime, use the following procedures.
 
@@ -484,7 +484,7 @@ In order to perform interactive authoring actions such as data preview and conne
 
 One required domain and port that need to be put in the allowlist of your firewall is for the communication to Azure Relay. The self-hosted integration runtime uses it for interactive authoring such as test connection, browse folder list and table list, get schema, and preview data. If you don't want to allow **.servicebus.windows.net** and would like to have more specific URLs, then you can see all the FQDNs that are required by your self-hosted integration runtime from the service portal. 
 
-#### Get URL of Azure Relay via UI:
+#### Get URL of Azure Relay via UI
 Follow these steps:
 
 1. Go to the service portal and select your self-hosted integration runtime.
@@ -498,7 +498,7 @@ Follow these steps:
 > [!NOTE]
 > For the details related to Azure Relay connections protocol, see [Azure Relay Hybrid Connections protocol](../azure-relay/relay-hybrid-connections-protocol.md).
 
-#### Get URL of Azure Relay via script:
+#### Get URL of Azure Relay via script
 
 ```powershell
 # The documentation of Synapse self hosted integration runtime (SHIR) mentions that the SHIR requires access to the Azure Service Bus IP addresses
@@ -587,7 +587,7 @@ There are two ways to store the credentials when using self-hosted integration r
 1. Store credentials locally - The credentials will be pushed to the machine where your self-hosted integration runtime is installed and be encrypted.
 
     > [!NOTE]
-    > If you prefer to store the credential locally, your need to put the domain for interactive authoring in the allowlist of your firewall and open the port. This channel also allows the self-hosted integration runtime to get the credentials. For the domain and ports required for interactive authoring, refer to [Ports and firewalls](#ports-and-firewalls)
+    > If you prefer to store the credential locally, you need to put the domain for interactive authoring in the allowlist of your firewall and open the port. This channel also allows the self-hosted integration runtime to get the credentials. For the domain and ports required for interactive authoring, refer to [Ports and firewalls](#ports-and-firewalls)
 
 If you recover your self-hosted integration runtime from a crash, you can either recover the credentials from the one you saved as a back up, or edit the linked service and let the credential be pushed to self-hosted integration runtime again. Otherwise, a pipeline using the self-hosted integration runtime  won't work due to the lack of credential.
 
@@ -597,7 +597,7 @@ You can install the self-hosted integration runtime by downloading a Managed Ide
 
 - Configure a power plan on the host machine for the self-hosted integration runtime so that the machine doesn't hibernate. If the host machine hibernates, the self-hosted integration runtime goes offline.
 - Regularly back up the credentials associated with the self-hosted integration runtime.
-- To automate self-hosted IR setup operations, refer to [Set up an existing self hosted IR via PowerShell](#setting-up-a-self-hosted-integration-runtime).
+- To automate self-hosted IR setup operations, refer to [Set up an existing self hosted IR via PowerShell](#set-up-a-self-hosted-integration-runtime).
 - Install the self-hosted integration runtime on dedicated machine(s) for better resource isolation and performance.
 
 ## Important considerations
