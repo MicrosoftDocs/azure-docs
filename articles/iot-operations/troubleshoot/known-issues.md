@@ -32,10 +32,8 @@ When you run `az iot ops upgrade` to upgrade to Azure IoT Operations 2603, the u
 - `provisioningState: Failed` on the Azure IoT Operations extension.
 - All on-cluster workloads remain healthy (no upgrade activity occurs).
 - `az iot ops upgrade` might report nothing to upgrade on subsequent attempts.
-
-#### Root cause
  
-During the upgrade, if a dependent system extension, such as `microsoft.extensiondiagnostics` experiences a transient Helm timeout, Azure Resource Manager marks it as **Failed**. Even if the extension eventually succeeds on-cluster, the cloud-side state remains **Failed**. This blocks the dependency chain — Azure Resource Manager never delivers the updated Azure IoT Operations or secret-store extension config to the cluster's config agent.
+Root cause: During the upgrade, if a dependent system extension, such as `microsoft.extensiondiagnostics` experiences a transient Helm timeout, Azure Resource Manager marks it as **Failed**. Even if the extension eventually succeeds on-cluster, the cloud-side state remains **Failed**. This blocks the dependency chain — Azure Resource Manager never delivers the updated Azure IoT Operations or secret-store extension config to the cluster's config agent.
  
 Symptoms include:
  
@@ -43,9 +41,7 @@ Symptoms include:
 - `getPendingConfigs` returns empty results
 - Extension manager never receives Helm upgrade instructions
 
-#### Workaround
- 
-The workaround is to force Azure Resource Manager to re-submit the extension specs by running a no-op update on both the Azure IoT Operations and secret-store extensions, then retrying the upgrade:
+Workaround: The workaround is to force Azure Resource Manager to re-submit the extension specs by running a no-op update on both the Azure IoT Operations and secret-store extensions, then retrying the upgrade:
  
 ```azurecli
 az k8s-extension update --name <aio-extension-name> \
@@ -473,7 +469,7 @@ To workaround this issue, upgrade to the 2603 release.
 
 This section lists current known issues for federated identity.
 
-### Federated identity credential issuer mismatch can cause Secret Sync authentication failures
+### Federated identity credential issuer mismatch can cause secret sync authentication failures
 
 ---
 
@@ -485,20 +481,25 @@ Log signature similar to: AADSTS700211: No matching federated identity record fo
 
 ---
 
-The `az iot ops secretsync enable` command creates a federated identity credential (FIC) on the user-assigned managed identity that Azure IoT Operations uses to access Azure Key Vault. In some deployments, the command configures the FIC issuer URL with a trailing slash ('/'); however, the cluster-issued service account tokens contain an iss (issuer) claim without the trailing slash.
+Azure IoT Operations encounters 401 Unauthorized errors when retrieving secrets from Azure Key Vault.
 
-Microsoft Entra ID requires the FIC issuer value to exactly match the token's iss claim. When the values differ, federated authentication fails and Azure IoT Operations can't exchange the Kubernetes service account token for a Microsoft Entra token. As a result, Secret Sync might receive authentication errors (for example, HTTP 401 responses when retrieving secrets from Azure Key Vault).
+**Root cause**: The error occurs because the federated identity credential issuer URL doesn't match the issuer (iss) claim in the Kubernetes service account token.
+
+The `az iot ops secretsync enable` command creates a federated identity credential (FIC) on the user-assigned managed identity that Azure IoT Operations uses to access Azure Key Vault. In some deployments, the command configures the FIC issuer URL with a trailing slash ('/'); however, the cluster-issued service account tokens contain an iss (issuer) claim without the trailing slash.
 
 Because the issue affects token exchange during secret retrieval, the failure typically doesn't occur when you run `az iot ops secretsync enable`. Instead, it surfaces later when Azure IoT Operations attempts to access a secret, which can make the root cause difficult to identify.
 
-This issue occurs only in some cluster configurations. Most deployments aren't affected.
+> [!NOTE]
+> This issue occurs only in some cluster configurations. Most deployments aren't affected.
 
-Workaround: After you run `az iot ops secretsync enable`, verify that the issuer configured on the federated identity credential isn't terminated with a slash. If it is, update the federated identity credential to remove the trailing slash. As a best practice, perform this validation during setup to help avoid difficult-to-diagnose authentication failures later.
+**Workaround**: Verify that the issuer URL configured on the federated identity credential isn't terminated with a slash. If it is, update the federated identity credential to remove the trailing slash.
 
-You can use the following Azure CLI commands to view and update the federated identity credential issuer value:
+You can use the Azure CLI [az identity federated-credential](/cli/azure/identity/federated-credential) commands to view and, if necessary, update the federated identity credential issuer value, for example:
 
 ```azurecli
-az identity federated-credential show --name <FIC_NAME> --identity-name <MANAGED_IDENTITY_NAME> --resource-group <RESOURCE_GROUP_NAME>
+az identity federated-credential show --name <fic-name> --identity-name <managed-identity-name> --resource-group <resource-group-name>
 
-az identity federated-credential update --name <FIC_NAME> --identity-name <MANAGED_IDENTITY_NAME> --resource-group <RESOURCE_GROUP_NAME> --issuer <NEW_ISSUER_URL_WITHOUT_TRAILING_SLASH>
+az identity federated-credential update --name <fic-name> --identity-name <managed-identity-name> --resource-group <resource-group> --issuer <new-issuer-url-without-trailing-slash>
 ```
+
+As a best practice, perform this validation during setup after you run the `az iot ops secretsync enable` command to help avoid potentially difficult-to-diagnose authentication failures later.
