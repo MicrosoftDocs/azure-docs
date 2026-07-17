@@ -200,7 +200,6 @@ Azure Maps visual isn't supported in the `Embed for your customers` create‑rep
 At this time, Azure Maps is currently available in all countries and regions except:
 
 - China
-- Korea
 - Azure Government (GCC + GCC High)
 
 For coverage details for the different Azure Maps services that power this visual, see [Geographic coverage information].
