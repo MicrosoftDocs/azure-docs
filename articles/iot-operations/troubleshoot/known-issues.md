@@ -489,13 +489,13 @@ The `az iot ops secretsync enable` command creates a federated identity credenti
 
 Microsoft Entra ID requires the FIC issuer value to exactly match the token's iss claim. When the values differ, federated authentication fails and Azure IoT Operations can't exchange the Kubernetes service account token for a Microsoft Entra token. As a result, Secret Sync might receive authentication errors (for example, HTTP 401 responses when retrieving secrets from Azure Key Vault).
 
-Because the issue affects token exchange during secret retrieval, the failure typically does not occur when you run `az iot ops secretsync enable`. Instead, it surfaces later when Azure IoT Operations attempts to access a secret, which can make the root cause difficult to identify.
+Because the issue affects token exchange during secret retrieval, the failure typically doesn't occur when you run `az iot ops secretsync enable`. Instead, it surfaces later when Azure IoT Operations attempts to access a secret, which can make the root cause difficult to identify.
 
-This issue occurs only in some cluster configurations. Most deployments are not affected.
+This issue occurs only in some cluster configurations. Most deployments aren't affected.
 
-Workaround: After you run `az iot ops secretsync enable`, verify that the issuer configured on the federated identity credential isn't terminiated with a slash. If it is, update the federated identity credential to remove the trailing slash. As a best practice, perform this validation during setup to help avoid difficult-to-diagnose authentication failures later.
+Workaround: After you run `az iot ops secretsync enable`, verify that the issuer configured on the federated identity credential isn't terminated with a slash. If it is, update the federated identity credential to remove the trailing slash. As a best practice, perform this validation during setup to help avoid difficult-to-diagnose authentication failures later.
 
-With Azure CLI, use the following commands to view and/or update the federated identity credential issuer value:
+By using Azure CLI, use the following commands to view and update the federated identity credential issuer value:
 
 ```azurecli
 az identity federated-credential show --name <FIC_NAME> --identity-name <MANAGED_IDENTITY_NAME> --resource-group <RESOURCE_GROUP_NAME>
