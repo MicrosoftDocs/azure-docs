@@ -495,7 +495,7 @@ This issue occurs only in some cluster configurations. Most deployments aren't a
 
 Workaround: After you run `az iot ops secretsync enable`, verify that the issuer configured on the federated identity credential isn't terminated with a slash. If it is, update the federated identity credential to remove the trailing slash. As a best practice, perform this validation during setup to help avoid difficult-to-diagnose authentication failures later.
 
-By using Azure CLI, use the following commands to view and update the federated identity credential issuer value:
+You can use the following Azure CLI commands to view and update the federated identity credential issuer value:
 
 ```azurecli
 az identity federated-credential show --name <FIC_NAME> --identity-name <MANAGED_IDENTITY_NAME> --resource-group <RESOURCE_GROUP_NAME>
