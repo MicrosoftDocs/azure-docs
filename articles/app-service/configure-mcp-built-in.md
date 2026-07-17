@@ -328,7 +328,7 @@ To disconnect the MCP server from API Center, delete the corresponding MCP serve
 
 - Confirm a spec is configured—either uploaded through the portal or available at the path set in `ApiSpecPath`.
 - Confirm `ToolList` isn't set to `[]`.
-- Validate the spec with an OpenAPI 3.0.x linter—operations missing required fields (such as a response schema) are skipped.
+- Validate the spec with an OpenAPI 3.0.x linter - operations missing required fields (such as a response schema) are skipped.
 
 **The MCP client gets a 401 with a `WWW-Authenticate` challenge.**
 
