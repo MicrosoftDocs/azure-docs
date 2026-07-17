@@ -78,7 +78,7 @@ The following example creates a virtual network and two subnets. One subnet is u
    ```
 
    > [!NOTE]
-   > Properly size subnets configured for an application gateway. A v1 application gateway supports up to 32 instances, while a v2 application gateway scales out to up to 125 instances. Each instance takes one IP address from the subnet, so size the subnet to accommodate the maximum scale-out for your SKU. Too small of a subnet can adversely affect scaling out an application gateway. For v2 autoscaling and instance limits, see [Scale Application Gateway v2 and WAF v2](application-gateway-autoscaling-zone-redundant.md).
+   > Properly size subnets configured for an application gateway. A v1 application gateway supports up to 32 instances, while a v2 application gateway scales out to up to 125 instances. Each instance takes one IP address from the subnet, so size the subnet to accommodate the maximum scale-out for your SKU. A subnet that's too small can adversely affect scaling out an application gateway. For v2 autoscaling and instance limits, see [Scale Application Gateway v2 and WAF v2](application-gateway-autoscaling-zone-redundant.md).
    >
 
 2. Assign an address range to be used for the backend address pool.
