@@ -5,7 +5,7 @@ author: mbender-ms
 ms.service: azure-load-balancer
 ms.author: mbender
 ms.topic: concept-article
-ms.date: 01/29/2026
+ms.date: 07/17/2026
 # Customer intent: As an cloud engineer with Basic Load Balancer services, I need guidance and direction on migrating my workloads off Basic to Standard SKUs
 ---
 
@@ -28,28 +28,7 @@ We recommend the following approach for upgrading to Standard Load Balancer:
 
 ## Basic Load Balancer SKU vs. Standard Load Balancer SKU 
 
-This section lists out some key differences between these two Load Balancer SKUs. 
-
-| Feature | Standard Load Balancer SKU | Basic Load Balancer SKU |
-| ---- | ---- | ---- |
-| **Backend type** | IP based, NIC based | NIC based |
-| **Protocol** | TCP, UDP | TCP, UDP |
-| **Backend pool endpoints** | Any virtual machines or virtual machine scale sets in a single virtual network | Virtual machines in a single availability set or virtual machine scale set |
-| **[Health probe protocol](load-balancer-custom-probe-overview.md#probe-protocol)** | TCP, HTTP, HTTPS | TCP, HTTP |
-| **[Health probe down behavior](load-balancer-custom-probe-overview.md#probe-down-behavior)** | TCP connections stay alive on an instance probe down and on all probes down | TCP connections stay alive on an instance probe down. All TCP connections end when all probes are down |
-| **Availability zones** | Zone-redundant and zonal frontends for inbound and outbound traffic | Not available |
-| **Diagnostics** | [Azure Monitor multi-dimensional metrics](load-balancer-standard-diagnostics.md) | Not supported |
-| **HA Ports** | [Available for Internal Load Balancer](load-balancer-ha-ports-overview.md) | Not available |
-| **Secure by default** | Closed to inbound flows unless allowed by a network security group. Internal traffic from the virtual network to the internal load balancer is allowed. | Open by default. Network security group optional. |
-| **Outbound Rules** | [Declarative outbound NAT configuration](load-balancer-outbound-connections.md#outboundrules) | Not available |
-| **TCP Reset on Idle** | Available on any rule | Not available |
-| **[Multiple front ends](load-balancer-multivip-overview.md)** | Inbound and [outbound](load-balancer-outbound-connections.md) | Inbound only |
-| **Management Operations** | Most operations < 30 seconds | Most operations 60-90+ seconds |
-| **SLA** | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Not available |
-| **Global Virtual Network Peering Support** | Standard ILB is supported via Global Virtual Network Peering | Not supported |
-| **[NAT Gateway Support](../virtual-network/nat-gateway/nat-overview.md)** | Both Standard ILB and Standard Public Load Balancer are supported via Nat Gateway | Not supported |
-| **[Private Link Support](../private-link/private-link-overview.md)** | Standard ILB is supported via Private Link | Not supported |
-| **[Global tier](cross-region-overview.md)** | Standard Load Balancer supports the Global tier for Public LBs enabling cross-region load balancing | Not supported |
+Before you plan your migration, review the full comparison of Basic and Standard Load Balancer features, including backend types, health probe behavior, availability zones, and SLA, in the [Load Balancer SKU comparison](skus.md#skus). Understanding these differences helps you plan for any configuration changes your workloads need after the upgrade.
 
 For information on limits, see [Load Balancer limits](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer).
 
