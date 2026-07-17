@@ -14,7 +14,7 @@ ms.custom: references_regions
 
 # Monitor and alert with LoadBalancerHealthEvent logs
 
-In this article, you learn how to monitor and alert with Azure Load Balancer health event logs. For background on what health event logs are and how they help you identify and troubleshoot load balancer health issues, see [Health event logs for Azure Load Balancer](load-balancer-health-event-logs.md).
+In this article, you learn how to monitor and alert by using Azure Load Balancer health event logs. For background on what health event logs are and how they help you identify and troubleshoot load balancer health problems, see [Health event logs for Azure Load Balancer](load-balancer-health-event-logs.md).
 
 ## Prerequisites
 
