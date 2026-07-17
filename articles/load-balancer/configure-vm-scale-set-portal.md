@@ -147,7 +147,7 @@ az vmss create \
     --backend-pool-name myBackendPool
 ```
 > [!NOTE]
-> After the scale set has been created, the backend port can't be modified for a load-balancing rule used by a health probe. For details and the workaround, see [Port forwarding and inbound NAT rules](load-balancer-standard-virtual-machine-scale-sets.md#port-forwarding-and-inbound-nat-rules).
+> After you create the scale set, you can't modify the backend port for a load-balancing rule that a health probe uses. For details and the workaround, see [Port forwarding and inbound NAT rules](load-balancer-standard-virtual-machine-scale-sets.md#port-forwarding-and-inbound-nat-rules).
 
 
 # [Azure PowerShell](#tab/powershell)
@@ -220,7 +220,7 @@ New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualN
 
 ```
 > [!NOTE]
-> After the scale set has been created, the backend port can't be modified for a load balancing rule used by a health probe. For details and the workaround, see [Port forwarding and inbound NAT rules](load-balancer-standard-virtual-machine-scale-sets.md#port-forwarding-and-inbound-nat-rules).
+> After you create the scale set, you can't modify the backend port for a load balancing rule that a health probe uses. For details and the workaround, see [Port forwarding and inbound NAT rules](load-balancer-standard-virtual-machine-scale-sets.md#port-forwarding-and-inbound-nat-rules).
 
 ## Next steps
 
