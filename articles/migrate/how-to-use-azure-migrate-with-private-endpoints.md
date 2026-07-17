@@ -2,7 +2,7 @@
 title: Use Private Endpoints
 description: Use Azure Migrate to discover, assess, and migrate servers by using Azure Private Link.
 author: vijain
-ms.author: vijain
+ms.author: v-uhabiba
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
