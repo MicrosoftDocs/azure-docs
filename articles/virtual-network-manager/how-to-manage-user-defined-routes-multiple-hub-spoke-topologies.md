@@ -119,7 +119,7 @@ In this step, you create a routing configuration containing four rule collection
 In these steps, you create routing rules in each rule collection to manage traffic between the spoke virtual networks and the Azure Firewall subnets in each region.
 
 ### Create a routing rule for spoke virtual networks in region 1
-In this step, you create a routing rule for the spoke virtual networks in region 1 allowing communication with the Azure Firewall subnet in region 1. For more background on this default-route-to-Azure-Firewall pattern, see [How to deploy hub and spoke topology with Azure Firewall](how-to-deploy-hub-spoke-topology-with-azure-firewall.md).
+In this step, you create a routing rule for the spoke virtual networks in region 1 that allows communication with the Azure Firewall subnet in region 1. For more background on this default-route-to-Azure-Firewall pattern, see [How to deploy hub and spoke topology with Azure Firewall](how-to-deploy-hub-spoke-topology-with-azure-firewall.md).
 
 1. In your network manager instance, navigate to **Configurations** under **Settings**.
 2. Select the routing configuration you created for the spoke virtual networks in region 1.
