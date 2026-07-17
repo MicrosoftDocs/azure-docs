@@ -38,7 +38,7 @@ Before you start to configure security admin rules, confirm that you've done the
     | ------- | ----- |
     | Name | Enter the name **Deny_RDP** for the rule name. |
     | Description | Enter a description about the rule. |
-    | Priority* | Enter a value between 1 and 4096 to determine the priority of the rule. The lower the value the higher the priority. Enter **1** for this example|
+    | Priority* | Enter a value between 1 and 4096 to determine the priority of the rule. The lower the value, the higher the priority. Enter **1** for this example. |
     | Action* | Select **Deny** to block traffic. For more information, see [Action](concept-security-admins.md#action)
     | Direction* | Select **Inbound** as you want to deny inbound traffic with this rule. |
     | Protocol* | Select the **TCP** protocol. HTTP and HTTPS are TCP ports. |
@@ -69,7 +69,7 @@ If you just created a new security admin configuration, make sure to deploy this
 
 ## Update existing security admin configuration
 
-- If you update the security admin configuration itself, such as changing or adding rules, you need to deploy the configuration again for the changes to take effect. This applies whether the network group has static or dynamic members.
+- If you update the security admin configuration itself, such as changing or adding rules, you need to deploy the configuration again for the changes to take effect. This requirement applies whether the network group has static or dynamic members.
 - If you only change dynamic network group membership without modifying the configuration, Azure Virtual Network Manager automatically applies the already-deployed security admin configuration to the newly matched members.
 
 ## Verify security admin rules
