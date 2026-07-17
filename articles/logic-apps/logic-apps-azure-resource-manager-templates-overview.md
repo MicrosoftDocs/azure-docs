@@ -1,11 +1,11 @@
 ---
-title: Azure Resource Manager templates for Azure Logic Apps
-description: Learn about Azure Resource Manager templates to automate deployment for Azure Logic Apps
-services: logic-apps
+title: Azure Resource Manager Templates for Workflows
+description: Learn about automating deployment for Consumption workflows in Azure Logic Apps with Azure Resource Manager templates.
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: concept-article
-ms.date: 07/01/2025
+ms.update-cycle: 1095-days
+ms.date: 07/10/2026
 ms.custom:
   - devx-track-arm-template
   - sfi-ropc-nochange

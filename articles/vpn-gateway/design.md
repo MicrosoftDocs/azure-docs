@@ -1,11 +1,11 @@
 ---
 title: 'Azure VPN Gateway topologies and design'
 description: Learn about VPN Gateway topologies and designs you can use to connect on-premises locations to virtual networks.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 01/15/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 
 # Customer intent: "As a network architect, I want to understand different VPN Gateway topologies and designs, so that I can effectively connect on-premises locations to virtual networks while ensuring optimal performance and availability."

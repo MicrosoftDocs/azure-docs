@@ -22,7 +22,7 @@ Use sub-orchestrations when you need to:
 - **Organize complex workflows:** Break a large orchestration into named, testable pieces instead of a single long function.
 
 > [!NOTE]
-> Sub-orchestrations must be defined in the same app as the parent orchestration. To call orchestrations in a different app, use the HTTP 202 polling pattern instead. For more information, see [HTTP features](../../azure-functions/durable-functions/durable-functions-http-features.md).
+> Sub-orchestrations must be defined in the same app as the parent orchestration. To call orchestrations in a different app, use the HTTP 202 polling pattern instead. For more information, see [HTTP features](../durable-functions/durable-functions-http-features.md).
 
 In this article:
 
@@ -32,7 +32,7 @@ In this article:
 ::: zone pivot="durable-functions"
 
 > [!NOTE]
-> In PowerShell, sub-orchestrations are supported only in the standalone SDK: [`AzureFunctions.PowerShell.Durable.SDK`](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK). For the differences between the standalone SDK and the legacy built-in SDK, see the [migration guide](../../azure-functions/durable-functions/durable-functions-powershell-v2-sdk-migration-guide.md).
+> In PowerShell, sub-orchestrations are supported only in the standalone SDK: [`AzureFunctions.PowerShell.Durable.SDK`](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK). For the differences between the standalone SDK and the legacy built-in SDK, see the [migration guide](../durable-functions/durable-functions-powershell-v2-sdk-migration-guide.md).
 
 ::: zone-end
 

@@ -33,7 +33,7 @@ Finish the quickstart: [Use Azure App Configuration in Azure Kubernetes Service]
     metadata:
       name: appconfigurationprovider-sample
     spec:
-      endpoint: <your-app-configuration-store-endpoint>
+      endpoint: <AppConfigurationEndpoint>
       target:
         configMapName: configmap-created-by-appconfig-provider
         configMapData: 
@@ -41,7 +41,7 @@ Finish the quickstart: [Use Azure App Configuration in Azure Kubernetes Service]
           key: mysettings.json
       auth:
         workloadIdentity:
-          managedIdentityClientId: <your-managed-identity-client-id>
+          managedIdentityClientId: <ManagedIdentityClientId>
       configuration:
         refresh:
           enabled: true

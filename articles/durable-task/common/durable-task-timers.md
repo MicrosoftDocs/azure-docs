@@ -164,7 +164,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> The preceding C# example targets Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+> The preceding C# example targets Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
 
@@ -351,7 +351,7 @@ public static async Task<bool> Run(
 ```
 
 > [!NOTE]
-> The previous C# example targets Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+> The previous C# example targets Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
 
 # [JavaScript](#tab/javascript)
 

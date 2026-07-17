@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Release notes for the Azure Maps Web SDK. 
 author: sinnypan
 ms.author: sipa
-ms.date: 05/06/2026
+ms.date: 07/01/2026
 ms.topic: reference
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -15,6 +15,14 @@ ms.subservice: web-sdk
 This document contains information about new features and other changes to the Map Control.
 
 ## v4 (next)
+
+### [4.0.0-preview.2] (CDN: June 29, 2026, npm: July 1, 2026)
+
+#### Breaking changes
+* Changed the default `language` to `auto`, which resolves to the browser's configured language instead of `NGT` when no language is set.
+
+#### Security fixes
+* Updated vulnerable transitive development dependencies, including `brace-expansion`, `serialize-javascript`, and `lodash`.
 
 ### [4.0.0-preview.1] (CDN: May 4, 2026, npm: May 6, 2026)
 
@@ -692,6 +700,7 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[4.0.0-preview.2]: https://www.npmjs.com/package/azure-maps-control/v/4.0.0-preview.2
 [4.0.0-preview.1]: https://www.npmjs.com/package/azure-maps-control/v/4.0.0-preview.1
 [3.7.4]: https://www.npmjs.com/package/azure-maps-control/v/3.7.4
 [3.7.2]: https://www.npmjs.com/package/azure-maps-control/v/3.7.2

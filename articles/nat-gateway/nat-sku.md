@@ -22,7 +22,7 @@ Azure NAT Gateway has two stock-keeping units (SKUs): Standard and StandardV2. T
 | | Dynamic port allocation | Supported | Supported |
 | | Idle timeout timer | Supported | Supported |
 | | Port reuse timer | Supported | Supported |
-| | Protocols | TCP, UDP | TCP, UDP |
+| | Protocols | TCP, UDP | TCP, UDP, ICMP Echo Request and Reply (ping) |
 | | Public IP version | IPv4 | IPv4, IPv6 |
 | | Attach point | Subnet | Subnet |
 | Scalability | Public IP addresses | 16 IPv4 addresses | 16 IPv4 addresses, 16 IPv6 addresses |

@@ -30,7 +30,7 @@ This FAQ addresses common questions about upgrading from **GPv1 standard ZRS** t
 
 ### Can I still create a new account using ZRS standard redundancy?
 
-No. Creation of new accounts using **standard ZRS on GPv1** is blocked starting **September 2025**.
+No. Creation of new accounts using **standard ZRS on GPv1** is blocked starting **September 2026**.
 
 ### How does modern ZRS differ from GPv1 standard ZRS?
 
@@ -46,6 +46,14 @@ General-purpose v2 supports:
 - Read-access geo-redundant storage (**RA-GRS**).
 - Geo-zone-redundant storage (**GZRS**).
 - Read-access geo-zone-redundant storage (**RA-GZRS**).
+
+### How can I upgrade my accounts?
+You can upgrade your accounts in the Azure portal or by using tools like Azure Policy. 
+
+> [!TIP]
+> To upgrade general-purpose v1 accounts to general-purpose v2, use the `deployIfNotExists` Azure Policy. This policy detects and identifies any general-purpose v1 accounts and enables you to perform a non-disruptive in-place upgrade of those accounts.  
+>
+> A sample policy is available here: [general-purpose v1 Azure policy](https://aka.ms/gpv1_azure_policy) 
 
 ### Does GPv1 standard ZRS support blob tiering or lifecycle management?
 

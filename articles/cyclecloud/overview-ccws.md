@@ -2,7 +2,8 @@
 title: Overview of Azure CycleCloud Workspace for Slurm
 description: In this overview, learn about Azure CycleCloud Workspace for Slurm, a solution to quickly create a ready to use Slurm based AI/HPC cluster.
 author: xpillons
-ms.date: 07/01/2025
+ms.date: 07/09/2026
+ms.topic: overview
 ms.author: padmalathas
 ---
 
@@ -46,3 +47,7 @@ Finally, in an environment with no public IP and no VPN, you need a Bastion. The
 ## Next steps
 
 * [Try Azure CycleCloud Workspace for Slurm](qs-deploy-ccws.md)
+* [Plan your CycleCloud Workspace for Slurm deployment](how-to/ccws/plan-your-deployment.md)
+* [Deploy CycleCloud Workspace for Slurm with the CLI](how-to/ccws/deploy-with-cli.md)
+* [Submit a job with Slurm](how-to/ccws/submit-job-with-slurm.md)
+* [Configure Open OnDemand](how-to/ccws/configure-open-ondemand.md)

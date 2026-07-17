@@ -12,7 +12,7 @@ ms.date: 02/21/2025
 
 # Resolve connectivity issues with the Troubleshoot and Repair tool 
 
-In this article, you learn how to troubleshoot and resolve Remote Desktop Connectivity (RDC) issues with your dev box by using the Troubleshoot and Repair tool. Because RDC issues to your dev box can be time consuming to resolve manually, use the **Troubleshoot & repair** tool in the developer portal to diagnose and repair some common dev box connectivity issues.
+This article explains how to troubleshoot and resolve dev box connectivity problems by using the Troubleshoot and Repair tool. Manually resolving connectivity problems to your dev box can take a lot of time. Use the **Troubleshoot & repair** tool in the developer portal to diagnose and fix common dev box connectivity problems.
 
 :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-troubleshoot-repair-tool.png" alt-text="Screenshot showing the Troubleshoot and repair tool in the Microsoft developer portal." lightbox="media/how-to-troubleshoot-repair-dev-box/dev-box-troubleshoot-repair-tool.png":::
 
@@ -25,9 +25,9 @@ When you run the **Troubleshoot & repair** tool, your dev box and its back-end s
 
 ## Run Troubleshoot & repair
 
-If you're unable to connect to your dev box by using a Remote Desktop Protocol (RDP) client, use the **Troubleshoot & repair** tool. 
+If you can't connect to your dev box from Windows App, use the **Troubleshoot & repair** tool. 
 
-The troubleshoot and repair process completes on average in 20 minutes, but can take up to 40 minutes. During this time, you can't use your dev box. The tool scans a list of critical components that relate to RDP connectivity, including but not limited to:
+The troubleshoot and repair process usually finishes in 20 minutes, but it can take up to 40 minutes. During this time, you can't use your dev box. The tool scans a list of critical components that relate to dev box connectivity, including but not limited to:
 - Domain join check
 - SxS stack listener readiness
 - URL accessibility check
@@ -47,9 +47,9 @@ To run the **Troubleshoot & repair** tool on your dev box, follow these steps:
  
    :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-running-tile.png" alt-text="Screenshot showing the dev box tile with the status Running." lightbox="media/how-to-troubleshoot-repair-dev-box/dev-box-running-tile.png"::: 
 
-1. If the dev box isn't running, start it, and check whether you can connect to it with RDP.
+1. If the dev box isn't running, start it, and check whether you can connect again.
 
-1. If your dev box is running and you still can't connect to it with RDP, on the more actions (**...**) menu, select **Troubleshoot & repair**.
+1. If your dev box is running and you still can't connect, on the more actions (**...**) menu, select **Troubleshoot & repair**.
 
    :::image type="content" source="media/how-to-troubleshoot-repair-dev-box/dev-box-actions-troubleshoot-repair.png" alt-text="Screenshot showing the Troubleshoot and repair option for a dev box on the more actions menu." lightbox="media/how-to-troubleshoot-repair-dev-box/dev-box-actions-troubleshoot-repair.png" :::
 
@@ -59,7 +59,7 @@ To run the **Troubleshoot & repair** tool on your dev box, follow these steps:
 
    While you wait for the process to complete, you can leave your developer portal session open, or close it and reopen it later. The troubleshoot and repair process continues in the background.
 
-1. After the RDP connectivity issue is resolved, you can connect to dev box again.
+1. After the connectivity issue is resolved, you can connect to your dev box again.
 
 ## View Troubleshoot & repair results
 

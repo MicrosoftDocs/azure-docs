@@ -2,11 +2,11 @@
 title: Configure VPN gateway for P2S RADIUS authentication - Azure portal
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure VPN Gateway server settings for point-to-site configurations using the Azure portal - RADIUS authentication.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 12/06/2024
-ms.author: cherylmc
+ms.date: 06/08/2026
+ms.author: duau
 # Customer intent: As a network administrator, I want to configure RADIUS authentication for point-to-site VPN connections, so that remote users can securely connect to the virtual network using their organizational credentials.
 ---
 

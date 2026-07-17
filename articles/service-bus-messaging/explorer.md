@@ -47,6 +47,9 @@ To use the Service Bus Explorer tool, complete the following tasks:
 
 To use the Service Bus Explorer, go to the Service Bus namespace where you want to perform data operations.
 
+> [!TIP]
+> If you see `~` (tilde) characters in entity names, the entity was created with a hierarchical name that uses `/` (forward slash) as a path separator. Azure Resource Manager displays these as `~` because it doesn't support `/` in resource names. The underlying entity name uses `/`. For details, see [Entity names with forward slashes](service-bus-resource-manager-exceptions.md#error-entity-names-with-forward-slashes).
+
 1. If you want to run operations against a queue, select **Queues** from the navigation menu. If you want to run operations against a topic (and its related subscriptions), select **Topics**. 
 
     :::image type="content" source="./media/service-bus-explorer/queue-topics-left-navigation.png" alt-text="Screenshot of left side navigation, where entity can be selected." lightbox="./media/service-bus-explorer/queue-topics-left-navigation.png":::

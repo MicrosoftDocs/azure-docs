@@ -2,7 +2,8 @@
 title: Starting a Cluster
 description: Read about how to start a cluster in Azure CycleCloud using either the UI or the CycleCloud CLI. Learn about the orchestration sequence for each cluster node.
 author: adriankjohnson
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: adjohnso
 ---
 

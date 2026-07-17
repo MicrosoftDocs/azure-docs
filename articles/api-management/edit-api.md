@@ -2,11 +2,9 @@
 title: Edit an API in the Azure portal  | Microsoft Docs
 description: Learn how to use API Management to edit an API or its swagger.
 services: api-management
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/07/2025
-ms.author: danlep
 ms.custom: sfi-image-nochange
 # Customer intent: As an API developer, I want to use API Management to edit an API or its swagger. 
 ---

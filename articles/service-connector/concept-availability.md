@@ -24,7 +24,7 @@ Microsoft is responsible for setting up availability zones and disaster recovery
 
 ## Zone redundancy
 
-Service Connector is an Azure extension resource provider that extends Azure App Service, Azure Spring Apps, and Azure Container Apps. When you use Service Connector to create a new service connection in one of these compute services, Azure provisions a connection resource as part of the top-level parent compute service.
+Service Connector is an Azure extension resource provider that extends Azure App Service, and Azure Spring Apps. When you use Service Connector to create a new service connection in one of these compute services, Azure provisions a connection resource as part of the top-level parent compute service.
 
 To enable zone redundancy for the service connection, you must enable zone redundancy for the compute service. Your service connection then also automatically becomes zone-redundant.
 
@@ -35,7 +35,7 @@ Traffic is routed to all of your available connection resources. When a zone goe
 To create a zone-redundant service connection using Service Connector, see [Create a zone-redundant service connection](#create-a-zone-redundant-service-connection).
 
 > [!NOTE]
-> To create, update, validate, and list service connections, Service Connector calls APIs from the compute service and the target service. Because Service Connector relies on the responses from both the compute service and the target service, requests to Service Connector might not succeed if the target service can't be reached in a zone-down scenario. This limitation applies to App Service, Azure Container Apps, and Azure Spring Apps.
+> To create, update, validate, and list service connections, Service Connector calls APIs from the compute service and the target service. Because Service Connector relies on the responses from both the compute service and the target service, requests to Service Connector might not succeed if the target service can't be reached in a zone-down scenario. This limitation applies to App Service and Azure Spring Apps.
 
 ## Disaster recovery and resiliency
 
@@ -80,7 +80,7 @@ Requests to service connections are impacted during a failover. Once the failove
 
 ## Create a zone-redundant service connection
 
-You can create a Service Connector zone-redundant service connection to a target resource of your choice by using Azure CLI or the Azure portal. You use the same process to create zone-redundant connections for Azure Spring Apps and Azure Container Apps compute services.
+You can create a Service Connector zone-redundant service connection to a target resource of your choice by using Azure CLI or the Azure portal. You use the same process to create zone-redundant connections for Azure Spring Apps and App Service compute services.
 
 The following steps create a zone-redundant service connection to an Azure Storage blob for Azure App Service. To enable zone redundancy for an App Service service connection, you first create a zone-redundant App Service. Because you enable zone redundancy for your App Service, the service connection is also zone redundant.
 

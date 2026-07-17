@@ -3,12 +3,10 @@ title: Configure Notifications and Email Templates
 titleSuffix: Azure API Management
 description: Learn how to configure notifications and email templates for events in Azure API Management.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 09/30/2025
-ms.author: danlep
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
@@ -21,6 +19,8 @@ ms.custom:
 > [!IMPORTANT]
 > - **Email functionality is not supported in Free Trial Azure Subscriptions.**<br/>
 This capability is fully blocked and cannot be enabled during the trial period.
+> - **Email functionality is temporarily suspended for Pay-As-You-Go (PAYG) and MSDN Azure Subscriptions.**<br/>
+Email capability is temporarily disabled for these subscription types until further notice.
 > - **Notification template customization is not supported in Pay‑As‑You‑Go (PAYG) or MSDN Azure Subscriptions.**<br/>
 These subscription types do not include the ability to modify or configure built‑in notification templates, and this limitation cannot be overridden.
 

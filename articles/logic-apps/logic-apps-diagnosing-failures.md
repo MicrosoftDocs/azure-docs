@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 05/04/2026
+ms.date: 05/27/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
@@ -143,11 +143,33 @@ Scheduling overhead exists when running actions, while waiting time between acti
 
 * Consumption workflows run on multitenant Azure Logic Apps, so other customers' workloads might negatively affect your workflow's performance.
 
-* For more predictable performance, consider creating [Standard workflows in single-tenant Azure Logic Apps (Standard)](single-tenant-overview-compare.md). You'll have more control to scale up or out to improve performance.
+* For more predictable performance, consider creating [Standard workflows in single-tenant Azure Logic Apps](single-tenant-overview-compare.md). You'll have more control to improve performance by scaling up or out.
+
+  > [!IMPORTANT]
+  >
+  > To get app level SLA for Standard workflows in production, set the **Maximum Burst** value to **2** instances or more.
+  >
+  > If your system can't scale further due to your **Maximum Burst** setting, a warning appears in the diagnostics tool named **Logic App Down or Reporting Errors**.
+  > To view this warning, follow these steps:
+  >
+  > 1. On the logic app sidebar, select **Diagnose and solve problems**.
+  > 1. In the search box, find and select **Logic App Down or Reporting Errors**.
 
 ### My action times out after 2 minutes. How can I increase the timeout value?
 
 The action timeout value can't be changed and is fixed at 2 minutes. If you're using the HTTP action, and you own the service called by the HTTP action, you can change your service to avoid the 2-minute timeout by using the asynchronous pattern. For more information, see [Perform long-running tasks with the polling action pattern](logic-apps-create-api-app.md#perform-long-running-tasks-with-the-polling-action-pattern).
+
+### Why does my host memory usage appear high without any workflows running in Azure Logic Apps (Standard)? What is using so much memory?
+
+No memory waste is happening. The host machine has an operating system (OS) and system processes that come with this OS. The Azure Logic Apps backend requires processes that handle several platform operations, security updates, and features, for example:
+
+- Application monitoring
+- Authentication
+- Job scheduling
+- Source Control Management (SCM) console for the Kudu service
+- Other important logic app features
+
+These processes continue running on App Service plans, even when no workflows are running in your logic app or when the App Service plan doesn't contain any logic app resources. The processes still consume some resources such as CPU, memory, and disk space.
 
 ### My host memory stays elevated after processing messages in Azure Logic Apps (Standard). Could this be a memory leak?
 
@@ -222,13 +244,13 @@ The following list includes possible causes for these errors and steps to help t
 
      * If the storage service has a [private endpoint](../private-link/private-endpoint-overview.md), the service resolves to the respective network interface controller (NIC) private IP addresses.
 
-  1. If the previous domain name server (DNS) queries resolve successfully, run the `psping` or `tcpping` commands to check connectivity to the storage account over port 443:
+  1. If the previous domain name server (DNS) queries resolve successfully, run the `psping` or `tcpping` commands to check connectivity for the storage account (port 443) or the file share (port 445), for example:
 
       Syntax: `psping [StorageaccountHostName] [Port] [OptionalDNSServer]`
 
       Blob: `psping {StorageaccountName}.blob.core.windows.net:443`
 
-      File: `psping {StorageaccountName}.file.core.windows.net:443`
+      File: `psping {StorageaccountName}.file.core.windows.net:445`
 
       Table: `psping {StorageaccountName}.table.core.windows.net:443`
 

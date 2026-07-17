@@ -503,6 +503,40 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 ---
 
 ::: zone-end
+::: zone pivot="programming-language-go"
+
+The following example shows an HTTP trigger function that returns a personalized greeting. The function uses standard Go `net/http` types:
+
+```go
+package main
+
+import (
+	"fmt"
+	"net/http"
+
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.HTTP("hello", hello,
+		sdk.WithMethods("GET", "POST"),
+		sdk.WithAuth("anonymous"),
+	)
+	worker.Start(app)
+}
+
+func hello(w http.ResponseWriter, r *http.Request) {
+	name := r.URL.Query().Get("name")
+	if name == "" {
+		name = "world"
+	}
+	fmt.Fprintf(w, "Hello, %s!", name)
+}
+```
+
+::: zone-end
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
@@ -1032,7 +1066,7 @@ HTTP streams are disabled by default. You need to enable this feature in your ap
 
 1. Add the `azurefunctions-extensions-http-fastapi` extension package to the `requirements.txt` file in the project, which should include at least these packages:
 
-    :::code language="text" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/requirements.txt" range="5-6" ::: 
+    :::code language="text" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_download/requirements.txt" range="5-6" :::
 
 1. Add this code to the `function_app.py` file in the project, which imports the FastAPI extension:
 
@@ -1050,7 +1084,7 @@ After you enable the HTTP streaming feature, you can create functions that strea
 
 This example is an HTTP triggered function that receives and processes streaming data from a client in real time. It demonstrates streaming upload capabilities that can be helpful for scenarios like processing continuous data streams and handling event data from IoT devices.
 
-:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_upload/function_app.py" range="5-25" ::: 
+:::code language="python" source="~/functions-python-extensions/azurefunctions-extensions-http-fastapi/samples/fastapi_samples_streaming_upload/function_app.py" range="5-25" :::
 
 ### Calling HTTP streams
 

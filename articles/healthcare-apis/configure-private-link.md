@@ -38,7 +38,7 @@ Before you create a private endpoint, create the following Azure resources:
 - [An active Azure account](https://azure.microsoft.com/free/).
 - **Resource Group** – The Azure resource group that contains the workspace, virtual network, and private endpoint.
 - [An Azure Health Data Services workspace](healthcare-apis-quickstart.md):  You need the workspace to create the private endpoint. You create the private endpoint at the workspace level, and it applies to all services within the workspace. 
-- A [FHIR service](fhir/fhir-portal-quickstart.md) or [DICOM service](dicom/deploy-dicom-services-in-azure.md) deployed in the workspace: The Azure Health Data Services resource that you want to connect to over the private endpoint. You don't need these resources to create the private endpoint, but you need them to test the private endpoint connectivity.
+- A [FHIR service](fhir/deploy-azure-portal.md) or [DICOM service](dicom/deploy-dicom-services-in-azure.md) deployed in the workspace: The Azure Health Data Services resource that you want to connect to over the private endpoint. You don't need these resources to create the private endpoint, but you need them to test the private endpoint connectivity.
 - An RBAC role with permission to create a virtual network in the resource group, such as **Owner**, **Contributor**, or **Network Contributor**. For more information, see [Manage a virtual network](../virtual-network/manage-virtual-network.yml).
 - An RBAC role with permission to create a private endpoint in your resource group or Azure Health Data Services workspace, such as **Owner**, **Contributor**, or **Healthcare APIs Contributor**. For more information, see [Private Link RBAC permissions](../private-link/rbac-permissions.md#private-endpoint). 
 

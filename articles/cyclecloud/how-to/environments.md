@@ -2,7 +2,8 @@
 title: Environment Resource
 description: Review Azure CycleCloud environments using Azure Resource Manager. Create or delete an environment for each cluster, use a preexisting environment, and more.
 author: KimliW
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: adjohnso
 ---
 

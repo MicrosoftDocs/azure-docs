@@ -24,7 +24,7 @@ Custom orchestration status lets you attach arbitrary JSON metadata to a running
 > The custom status payload is limited to 16 KB of UTF-16 JSON text. If you need a larger payload, use external storage and store a reference (such as a blob URL) in the custom status instead.
 
 ::: zone pivot="durable-functions"
-In Azure Functions, this status is available via the [HTTP GetStatus API](../../azure-functions/durable-functions/durable-functions-http-api.md#get-instance-status) or the equivalent [SDK API](durable-task-instance-management.md#query-instances) on the orchestration client object.
+In Azure Functions, this status is available via the [HTTP GetStatus API](../durable-functions/durable-functions-http-api.md#get-instance-status) or the equivalent [SDK API](durable-task-instance-management.md#query-instances) on the orchestration client object.
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
@@ -55,7 +55,7 @@ The following sample demonstrates progress sharing using the Durable Functions H
 # [C#](#tab/csharp)
 
 > [!NOTE]
-> These examples are written for Durable Functions 2.x and aren't compatible with Durable Functions 1.x. For more information about the differences between versions, see the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article.
+> These examples are written for Durable Functions 2.x and aren't compatible with Durable Functions 1.x. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -464,7 +464,7 @@ async def main(req: func.HttpRequest, starter: str) -> func.HttpResponse:
 
 # [PowerShell](#tab/powershell)
 
-Client-side polling of custom status isn't directly supported in the PowerShell SDK. Use the [HTTP status API](../../azure-functions/durable-functions/durable-functions-http-api.md#get-instance-status) or the `Get-DurableStatus` cmdlet to query orchestration status.
+Client-side polling of custom status isn't directly supported in the PowerShell SDK. Use the [HTTP status API](../durable-functions/durable-functions-http-api.md#get-instance-status) or the `Get-DurableStatus` cmdlet to query orchestration status.
 
 # [Java](#tab/java)
 
@@ -1206,7 +1206,7 @@ The Durable Task SDK is not available for PowerShell. Use [Durable Functions](wh
 
 - [Wait for external events in an orchestration](durable-task-external-events.md)
 - [Manage orchestration instances](durable-task-instance-management.md)
-- [Durable Functions HTTP API reference](../../azure-functions/durable-functions/durable-functions-http-api.md)
+- [Durable Functions HTTP API reference](../durable-functions/durable-functions-http-api.md)
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"

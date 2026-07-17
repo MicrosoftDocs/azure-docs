@@ -57,7 +57,8 @@ The name of the Service Bus namespace to create.
 ### serviceBusTopicName
 
 The name of the topic created in the Service Bus namespace.
-
+> [!NOTE]
+> If your topic name contains forward slashes (`/`), use `~` (tilde) in place of `/` in the template parameter. For example, to create a topic named `events/billing`, specify the name as `events~billing`. For details, see [Entity names with forward slashes](service-bus-resource-manager-exceptions.md#error-entity-names-with-forward-slashes).
 ```json
 "serviceBusTopicName": {
 "type": "string"

@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 05/22/2026
+ms.date: 06/10/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to create a data flow to connect data sources.
@@ -18,6 +18,7 @@ ms.custom:
 
 A data flow is the path that data takes from the source to the destination with optional transformations. You can configure the data flow by creating a *Data flow* custom resource or using the operations experience web UI. A data flow is made up of three parts: the **source**, the **transformation**, and the **destination**. 
 
+<!--
 ```mermaid
 flowchart LR
   subgraph Source
@@ -34,6 +35,7 @@ flowchart LR
   Source - -> BuiltInTransformation
   BuiltInTransformation - -> Destination
 ```
+--->
 
 :::image type="content" source="media/howto-create-dataflow/dataflow.svg" alt-text="Diagram of a data flow showing flow from source to transform then destination.":::
 
@@ -133,7 +135,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param dataflowName string = '<DATAFLOW_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -141,18 +143,18 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' existing = {
+resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
 // Pointer to the default data flow profile
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-11-01' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-03-01' = {
   // Reference to the parent data flow profile, the default profile in this case
   // Same usage as profileRef in Kubernetes YAML
   parent: defaultDataflowProfile
@@ -841,7 +843,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param dataflowName string = '<DATAFLOW_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -850,18 +852,18 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
 }
 
 // Pointer to the default data flow endpoint
-resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' existing = {
+resource defaultDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
 // Pointer to the default data flow profile
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-11-01' = {
+resource dataflow 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-03-01' = {
   // Reference to the parent data flow profile, the default profile in this case
   // Same usage as profileRef in Kubernetes YAML
   parent: defaultDataflowProfile

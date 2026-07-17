@@ -4,7 +4,7 @@ description: Learn how container apps communicate within the same environment us
 author: craigshoemaker
 ms.author: cshoe
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: article
 ms.date: 03/31/2026
 ai-usage: ai-assisted
 ---

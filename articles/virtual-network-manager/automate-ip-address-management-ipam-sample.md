@@ -33,7 +33,7 @@ The script is located in the Azure Samples repository on GitHub. You can view an
 
 ### Sample script
 
-[!Code-powershell[main](../../azure_powershell_scripts/virtual-network-manager/automate-vnet-ip-address-management.ps1?range=19-80)]
+[!Code-powershell[main](~/azure_powershell_scripts/virtual-network-manager/automate-vnet-ip-address-management.ps1?range=19-80)]
 
 ## Sign in to your Azure account and select your subscription
 

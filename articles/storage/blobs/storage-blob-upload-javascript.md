@@ -124,6 +124,40 @@ The following code example shows how to set values for [BlockBlobParallelUploadO
 
 To learn more about tuning data transfer options, see [Performance tuning for uploads and downloads with JavaScript](storage-blobs-tune-upload-download-javascript.md).
 
+### Specify data transfer validation on upload
+
+[!INCLUDE [storage-dev-guide-transfer-validation](../../../includes/storage-dev-guides/storage-dev-guide-transfer-validation.md)]
+
+Transfer validation options can be defined at the client level using [BlobClientConfig](/javascript/api/@azure/storage-blob/blobclientconfig), which applies validation options to all methods called from a [BlobClient](/javascript/api/@azure/storage-blob/blobclient) instance.  Alternatively, you can override transfer validation options at the operation level via options, such as [BlobUploadOptions](/javascript/api/@azure/storage-blob/blobuploadoptions).
+
+### [JavaScript](#tab/javascript)
+
+```javascript
+const blobServiceClient = new BlobServiceClient(
+   `https://${account}.blob.core.windows.net`,
+   new DefaultAzureCredential(),
+   {
+     uploadContentChecksumAlgorithm: "StorageCrc64",
+     downloadContentChecksumAlgorithm: "StorageCrc64",
+   }
+);
+```
+
+### [TypeScript](#tab/typescript)
+
+```typescript
+ const blobServiceClient: BlobServiceClient = new BlobServiceClient(
+   `https://${account}.blob.core.windows.net`,
+   new DefaultAzureCredential(),
+   {
+     uploadContentChecksumAlgorithm: "StorageCrc64",
+     downloadContentChecksumAlgorithm: "StorageCrc64",
+   },
+);
+```
+
+---
+
 ### Upload a block blob with index tags
 
 Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data.

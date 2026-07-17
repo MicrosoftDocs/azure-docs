@@ -362,9 +362,17 @@ For more information, see [Azure File Sync performance metrics](./file-sync-scal
 
 ## Identity
 
-The administrator who registers the server and creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service. 
+The administrator who registers the server and creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under Access Control (IAM) on the Azure portal page for the storage sync service.
 
-When assigning the Azure File Sync Administrator role, follow these steps to ensure least privilege.
+Azure File Sync also requires additional storage account permissions for cloud endpoint create and update operations. Users who previously had only storage account read permissions can no longer create or update cloud endpoints.
+
+For non-managed identity deployments, the administrator must have a role that includes:
+- Microsoft.Storage/storageAccounts/listKeys/action
+- Microsoft.Storage/storageAccounts/ListAccountSas/action
+  
+For managed identity deployments, ensure the Azure File Sync managed identity or service principal has the required storage account roles, such as Reader and Data Access or Storage File Data Privileged Contributor, as applicable.
+
+When assigning the Azure File Sync Administrator role, follow these steps to ensure least privilege for the role assignments that Azure File Sync creates on the storage account.
 
 1. Under the **Conditions** tab, select **Allow users to assign selected roles to only selected principals (fewer privileges)**.
 
@@ -399,7 +407,7 @@ Based on your organization's policy or unique regulatory requirements, you might
 - Configure Azure File Sync to support your proxy in your environment.
 - Throttle network activity from Azure File Sync.
 
-If you want to communicate with your Azure file share over SMB but port 445 is blocked, consider using SMB over QUIC. This method offers a zero-configuration VPN for SMB access to your Azure file shares through the QUIC transport protocol over port 443. Although Azure Files doesn't directly support SMB over QUIC, you can create a lightweight cache of your Azure file shares on a Windows Server 2022 Azure Edition VM by using Azure File Sync. To learn more about this option, see [SMB over QUIC](../files/storage-files-networking-overview.md#smb-over-quic).
+If you want to communicate with your Azure file share over SMB but port 445 is blocked, consider using SMB over QUIC. This method offers a zero-configuration VPN for SMB access to your Azure file shares through the QUIC transport protocol over port 443. Although Azure Files doesn't directly support SMB over QUIC, you can create a lightweight cache of your Azure file shares on a Windows Server Datacenter: Azure Edition VM by using Azure File Sync. To learn more about this option, see [SMB over QUIC](file-sync-networking-overview.md#smb-over-quic).
 
 To learn more about Azure File Sync and networks, see [Networking considerations for Azure File Sync](file-sync-networking-overview.md).
 

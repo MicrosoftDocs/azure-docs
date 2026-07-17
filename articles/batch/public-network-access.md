@@ -2,7 +2,7 @@
 title: Configure public network access with Azure Batch accounts
 description: Learn how to configure public network access with Azure Batch accounts, for example enable, disable, or manage network rules for public network access.
 ms.topic: how-to
-ms.date: 11/21/2024
+ms.date: 06/16/2026
 ms.custom: sfi-image-nochange
 # Customer intent: As a cloud administrator, I want to configure public network access for my Batch account, so that I can control which IP addresses can access the Batch endpoints for enhanced security.
 ---
@@ -44,7 +44,7 @@ You can configure public network access to Batch account endpoints with the foll
 > After adding a rule, it takes a few minutes for the rule to take effect.
 
 > [!TIP]
-> To configure IP network rules for node management endpoint, you will need to know the public IP addresses or address ranges used by Batch pool's internet outbound access. This can typically be determined with Batch pools created in [virtual network](batch-virtual-network.md) or with [specified public IP addresses](create-pool-public-ip.md).
+> To configure IP network rules for the node management endpoint, you need to know the public IP addresses or address ranges used by the Batch pool's internet outbound access. This can typically be determined with Batch pools created in [virtual network](batch-virtual-network.md) or with [specified public IP addresses](create-pool-public-ip.md).
 
 ## Disable public network access
 
@@ -56,7 +56,7 @@ Optionally, disable public network access to Batch account endpoints. Disabling 
 
 ## Restore public network access
 
-To re-enable the public network access, update the networking settings to allow public access. Enabling the public access overrides all IP network rule configurations, and will allow access from any IP addresses.
+To re-enable the public network access, update the networking settings to allow public access. Enabling the public access overrides all IP network rule configurations, and allows access from any IP address.
 
 1. In the portal, navigate to your Batch account and select **Settings > Networking**.
 1. On the **Public access** tab, select **All networks**.

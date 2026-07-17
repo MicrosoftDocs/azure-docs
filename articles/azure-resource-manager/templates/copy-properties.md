@@ -3,7 +3,7 @@ title: Define multiple instances of a property
 description: Use copy operation in an Azure Resource Manager template (ARM template) to iterate multiple times when creating a property on a resource.
 ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 04/28/2025
+ms.date: 06/26/2026
 ---
 
 # Property iteration in ARM templates

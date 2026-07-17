@@ -2,12 +2,12 @@
 metadata:
   title: FAQ for Azure Compute Fleet
   description: Get answers to the most frequently asked questions about Azure Compute Fleet.
-  author: vashan
-  ms.author: vashan
+  author: fitzgeraldsteele
+  ms.author: fisteele
   ms.topic: faq
   ms.service: azure-compute-fleet
-  ms.date: 06/19/2024
-  ms.reviewer: cynthn
+  ms.date: 07/16/2026
+  ms.reviewer: wwilliams
   ms.custom: references_regions, build-2024
 title: FAQ for Azure Compute Fleet
 summary: Get answers to the most frequently asked questions about Azure Compute Fleet.
@@ -35,7 +35,7 @@ sections:
       - question: |
           Which Azure regions support Compute Fleet? 
         answer: |
-          East US, East US2, West US, and West US2.
+          Compute Fleet is available in all Azure public cloud regions. It isn't available in Azure sovereign clouds, including the Azure Government and Azure China sovereign clouds.
       - question: |
           Which SKUs are supported for Compute Fleet? 
         answer: |

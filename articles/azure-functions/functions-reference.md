@@ -37,6 +37,9 @@ If you prefer to jump right in, you can complete a quickstart tutorial using [Vi
 ::: zone pivot="programming-language-python"
 If you prefer to jump right in, you can complete a quickstart tutorial using [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-python) or from the [command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-python).
 ::: zone-end
+::: zone pivot="programming-language-go"
+If you prefer to jump right in, you can complete a quickstart tutorial from the [command line](./how-to-create-function-azure-cli.md?pivots=programming-language-go).
+::: zone-end
 
 ## Code project
 
@@ -57,6 +60,9 @@ The way that you lay out your code project and how you indicate which methods in
 ::: zone pivot="programming-language-python"
 The way that you lay out your code project and how you indicate which methods in your project are functions depends on the development language of your project. For language-specific guidance, see the [Python developers guide](functions-reference-python.md).
 ::: zone-end
+::: zone pivot="programming-language-go"
+The way that you lay out your code project and how you indicate which methods in your project are functions depends on the development language of your project. For language-specific guidance, see the [Go developers guide](functions-reference-go.md).
+::: zone-end
 All functions must have a trigger, which defines how the function starts and can provide input to the function. Your functions can optionally define input and output bindings. These bindings simplify connections to other services without you having to work with client SDKs. For more information, see [Azure Functions triggers and bindings concepts](functions-triggers-bindings.md).
 
 Azure Functions provides a set of language-specific project and function templates that make it easy to create new code projects and add functions to your project. You can use any of the tools that support Azure Functions development to generate new apps and functions using these templates.
@@ -68,7 +74,9 @@ The following tools provide an integrated development and publishing experience 
 ::: zone pivot="programming-language-csharp"
 + [Visual Studio](./functions-develop-vs.md)
 ::: zone-end
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
 + [Visual Studio Code](./functions-develop-vs-code.md)
+::: zone-end
 
 + [Azure Functions Core Tools](./functions-develop-local.md) (command prompt)
 ::: zone pivot="programming-language-java"
@@ -201,7 +209,7 @@ The following components support identity-based connections:
 [tablesv1]: ./functions-bindings-storage-table.md#table-api-extension
 [signalr]: ./functions-bindings-signalr-service.md#install-extension
 [web-pubsub]: ./functions-bindings-web-pubsub.md#install-extension
-[durable-identity]: durable-functions/durable-functions-configure-managed-identity.md
+[durable-identity]: ../durable-task/durable-functions/durable-functions-configure-managed-identity.md
 [azuresql-identity]: ./functions-identity-access-azure-sql-with-managed-identity.md
 
 [!INCLUDE [functions-identity-based-connections-configuration](../../includes/functions-identity-based-connections-configuration.md)]

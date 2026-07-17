@@ -3,13 +3,13 @@ title: List of updates applied to the Azure Guest OS | Microsoft Docs
 description: This article lists the Microsoft Security Response Center updates applied to different Azure Guest OS. See if an update applies to your Guest OS.
 services: cloud-services
 ms.subservice: guest-os-patching
-author: kumarjai
+author: srtiruma
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
 ms.service: azure-cloud-services-classic
 ms.topic: concept-article
-ms.date: 05/22/2026
+ms.date: 06/29/2026
 ms.update-cycle: 3650-days
-ms.author: kumarjai
+ms.author: srtiruma
 ms.custom: compute-evergreen
 ---
 
@@ -19,6 +19,68 @@ ms.custom: compute-evergreen
 > As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to your Guest OS. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## June 2026 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 26-06 | [5094122] | Latest Cumulative Update(LCU) | [5.119] | 09-Jun-26 |
+| Rel 26-06 | [5094123] | Latest Cumulative Update(LCU) | [6.95] | 09-Jun-26 |
+| Rel 26-06 | [5094128] | Latest Cumulative Update(LCU) | [7.65] | 09-Jun-26 |
+| Rel 26-06 | [5087065] | .NET Framework 4.8 Security and Quality Rollup LKG | [5.119] | 09-Jun-26 |
+| Rel 26-06 | [5087061] | .NET Framework DotNet  | [6.95] | 09-Jun-26 |
+| Rel 26-06 | [5087068] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.65] | 09-Jun-26 |
+| Rel 26-06 | [4494175] | January '20 Microcode | [5.119] | 09-Jun-26 |
+| Rel 26-06 | [4494175] | January '20 Microcode | [6.95] | 09-Jun-26 |
+| Rel 26-06 | [5094141] | SSU LKG | [5.119] | 09-Jun-26 |
+| Rel 26-06 | [5094143] | SSU LKG | [6.95] | 09-Jun-26 |
+| Rel 26-06 | [5094147] | Servicing Stack Update | [7.65] | 09-Jun-26 |
+
+[5094122]: https://support.microsoft.com/kb/5094122
+[5094123]: https://support.microsoft.com/kb/5094123
+[5094128]: https://support.microsoft.com/kb/5094128
+[5087065]: https://support.microsoft.com/kb/5087065
+[5087061]: https://support.microsoft.com/kb/5087061
+[5087068]: https://support.microsoft.com/kb/5087068
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[5094141]: https://support.microsoft.com/kb/5094141
+[5094143]: https://support.microsoft.com/kb/5094123
+[5094147]: https://support.microsoft.com/kb/5094128
+
+[5.119]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.95]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.65]: ./cloud-services-guestos-update-matrix.md#family-7-releases
+
+## May 2026 Guest OS
+| Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| Rel 26-05 | [5087537] | Latest Cumulative Update(LCU) | [5.118] | 12-May-26 
+| Rel 26-05 | [5087538] | Latest Cumulative Update(LCU) | [6.94] | 12-May-26  
+| Rel 26-05 | [5087545] | Latest Cumulative Update(LCU) | [7.64] | 12-May-26  
+| Rel 26-05 | [5087065] | .NET Framework DotNet | [5.118] | 12-May-26 
+| Rel 26-05 | [5087061] | .NET Framework DotNet | [6.94]  | 12-May-26  
+| Rel 26-05 | [5087068] | .NET Framework 4.8 Security and Quality Rollup LKG | [7.64] | 12-May-26
+| Rel 26-05 | [4494175] | January '20 Microcode        | [5.118]  | 12-May-26  
+| Rel 26-05 | [4494175] | January '20 Microcode        | [6.94]   | 12-May-26 
+| Rel 26-05 | [5088064] | SSU LKG        | [5.118]   | 12-May-26 
+| Rel 26-05 | [5089760] | SSU LKG        | [6.94]   | 12-May-26 
+| Rel 26-05 | [5089140] | Servicing Stack Update | [7.64] | 12-May-26  
+
+[5087537]: https://support.microsoft.com/kb/5087537
+[5087538]: https://support.microsoft.com/kb/5087538
+[5087545]: https://support.microsoft.com/kb/5087545
+[5087065]: https://support.microsoft.com/kb/5087065
+[5087061]: https://support.microsoft.com/kb/5087061
+[5087068]: https://support.microsoft.com/kb/5087068
+[4494175]: https://support.microsoft.com/kb/4494175
+[4494175]: https://support.microsoft.com/kb/4494175
+[5088064]: https://support.microsoft.com/kb/5088064
+[5089760]: https://support.microsoft.com/kb/5087538
+[5089140]: https://support.microsoft.com/kb/5087545
+
+[5.118]: ./cloud-services-guestos-update-matrix.md#family-5-releases
+[6.94]: ./cloud-services-guestos-update-matrix.md#family-6-releases
+[7.64]: ./cloud-services-guestos-update-matrix.md#family-7-releases
 
 ## April 2026 Guest OS
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |

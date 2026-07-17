@@ -1,8 +1,9 @@
 ---
 title: Using the Azure CycleCloud REST API
-description: Examples of how to use the Azure CycleCloud REST API
+description: Learn how to use the Azure CycleCloud REST API with practical examples for automated and programmatic cluster management.
 author: mvrequa
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: adjohnso
 ---
 

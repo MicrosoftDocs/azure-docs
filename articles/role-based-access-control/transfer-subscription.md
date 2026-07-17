@@ -6,7 +6,7 @@ manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 02/12/2025
+ms.date: 06/16/2026
 ms.author: rolyon
 ---
 
@@ -91,6 +91,8 @@ Several Azure resources have a dependency on a subscription or a directory. Depe
 | Azure Databricks | Yes | No |  | Currently, Azure Databricks doesn't support moving workspaces to a new tenant. For more information, see [Manage your Azure Databricks account](/azure/databricks/administration-guide/account-settings/#move-workspace-between-tenants-unsupported). |
 | Azure Compute Gallery | Yes | Yes |  | Replicate the image versions in the gallery to other regions or [copy an image from another gallery](/azure/virtual-machines/image-version). |
 | Azure resource locks | Yes | Yes | [List resource locks](/cli/azure/resource/lock#az-resource-lock-list) | Export Azure resource locks manually using the Azure portal or [Azure CLI](/cli/azure/resource/lock). |
+| Microsoft Sentinel | Yes | Yes | [Onboard Microsoft Sentinel](/azure/sentinel/quickstart-onboard) | All Microsoft Sentinel workspaces are offboarded immediately. Onboard those workspaces to Microsoft Sentinel in the new tenant, and the workspace has the same Microsoft Sentinel data as before, as long as the re-onboarding is done within 90 days. |
+| SIEM in Microsoft Defender | Yes | Yes | [Connect Microsoft Sentinel to the Microsoft Defender portal](/unified-secops/microsoft-sentinel-onboard) | All SIEM workspaces in Microsoft Defender are disconnected immediately. Connect those workspaces to the new tenant. |
 
 
 > [!WARNING]

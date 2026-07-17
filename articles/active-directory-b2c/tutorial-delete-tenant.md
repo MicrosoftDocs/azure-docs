@@ -5,7 +5,7 @@ description: Steps describing how to delete an Azure AD B2C tenant. Learn how to
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: tutorial
 ms.date: 09/11/2024

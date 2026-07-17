@@ -3,7 +3,7 @@ title: Monitor CycleCloud clusters with Prometheus and Grafana
 description: Learn how to configure integrated monitoring for Azure CycleCloud clusters using Prometheus self-agent and Azure Managed Grafana for real-time visibility into GPU, InfiniBand, and system metrics.
 ms.service: azure-cyclecloud
 ms.topic: how-to
-ms.date: 01/22/2026
+ms.date: 06/19/2026
 author: xpillons
 ms.author: padmalathas
 ---

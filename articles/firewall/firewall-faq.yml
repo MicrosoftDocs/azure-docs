@@ -399,6 +399,10 @@ sections:
           Azure Firewall currently uses TCP/UDP source ports for outbound SNAT traffic, with no idle wait time. When a TCP/UDP connection is closed, the TCP port used is immediately seen as available for upcoming connections.
 
           As a workaround for certain architectures, you can deploy and scale with [NAT Gateway with Azure Firewall](../nat-gateway/tutorial-hub-spoke-nat-firewall.md) to provide a wider pool of SNAT ports for variability and availability.
+
+      - question: How do I resolve SNAT port exhaustion?
+        answer: |
+          You have two options. Add multiple public IP addresses to your firewall for a lower-cost solution, or use an Azure NAT Gateway for a more scalable and robust solution. For a comparison of both options, see [Best practices for Azure Firewall performance](firewall-best-practices.md#recommendations).
       
       - question: What are NAT behaviors in Azure Firewall?
         answer: |

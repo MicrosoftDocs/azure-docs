@@ -5,7 +5,7 @@ author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: concept-article
-ms.date: 02/19/2026
+ms.date: 05/26/2026
 ai-usage: ai-assisted
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: System Architecture']
 ---
@@ -21,6 +21,28 @@ Azure IoT Hub exposes various endpoints to support the devices and services that
 You can find the hostname of an IoT hub in the Azure portal, on your IoT hub's **Overview** pane. By default, the DNS name of an IoT hub looks like the following example:
 
 `{your iot hub name}.azure-devices.net`
+
+## TLS 1.3-enabled endpoints (preview)
+
+Azure IoT Hub provides additional endpoints to support TLS 1.3 with enhanced security requirements. These endpoints are available alongside the existing endpoint to allow gradual and non-disruptive adoption.
+
+There's no planned change to the existing IoT Hub endpoint (`<hub>.azure-devices.net`), commonly referred to as the *classic endpoint*. This endpoint remains fully supported, including for Private Link scenarios, and continues to be the default for existing workloads.
+
+The new endpoints are additive, not a replacement, and enable customers to adopt stronger security configurations at their own pace.
+
+### Endpoint types
+
+| Endpoint type     | Hostname                              | Protocol support                |
+|------------------|----------------------------------------|--------------------------------|
+| Classic          | `<hub>.azure-devices.net`              | TLS 1.2 (existing behavior)    |
+| Device endpoint (preview)  | `<hub>.device.azure-devices.net`       | TLS 1.2 (restricted) + TLS 1.3 |
+| Service endpoint (preview) | `<hub>.service.azure-devices.net`      | TLS 1.2 (restricted) + TLS 1.3 |
+
+### Key considerations
+
+- Existing applications and devices that use the classic endpoint keep working without any changes.
+- New endpoints support TLS 1.3 and enhanced security requirements.
+- Both endpoint models coexist to support gradual migrations with no service disruption.
 
 ## IoT Hub endpoints for development and management
 

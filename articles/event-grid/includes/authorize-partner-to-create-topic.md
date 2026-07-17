@@ -16,7 +16,7 @@ You must grant your consent to the partner to create partner topics in a resourc
 > [!IMPORTANT]
 > For a greater security stance, specify the minimum expiration time that offers the partner enough time to configure your events to flow to Event Grid and to create your partner topic. Your partner won't be able to create resources (partner topics) in your Azure subscription after the authorization expiration time. 
 
-Following example shows the way to create a partner configuration resource that contains the partner authorization. You must identify the partner by providing either its **partner registration ID** or the **partner name**. Both can be obtained from your partner, but only one of them is required. For your convenience, the following examples leave a sample expiration time in the UTC format.
+The following example shows how to create a partner configuration resource that contains the partner authorization. You identify the partner by providing either its **partner registration ID** or the **partner name**. You can get both from your partner, but only one is required. For your convenience, the following examples include a sample expiration time in UTC format.
 
 ### Azure portal
 
@@ -25,16 +25,16 @@ Following example shows the way to create a partner configuration resource that 
 1. On the **Event Grid Partner Configurations** page, select **Create Event Grid partner configuration** button on the page (or) select **+ Create** on the command bar. 
 
     :::image type="content" source="./media/subscribe-to-partner-events/partner-configurations.png" alt-text="Screenshot showing the Event Grid Partner Configurations with the list of partner configurations and a link to create a partner registration.":::    
-1. On the **Create Partner Configuration** page, do the following steps: 
+1. On the **Create Partner Configuration** page, follow these steps: 
     1. In the **Project Details** section, select the **Azure subscription** and the **resource group** where you want to allow the partner to create a partner topic. 
     1. In the **Partner Authorizations** section, specify a default expiration time for partner authorizations defined in this configuration. 
-    1. To provide your authorization for a partner to create partner topics in the specified resource group, select **+ Partner Authorization** link. 
+    1. To authorize a partner to create partner topics in the specified resource group, select the **+ Partner Authorization** link. 
     
         :::image type="content" source="./media/subscribe-to-partner-events/partner-authorization-configuration.png" alt-text="Screenshot showing the Create Partner Configuration page with the Partner Authorization link selected.":::
         
-1. On the **Add partner authorization to create resources** page, you see a list of **verified partners**. A verified partner is a partner whose identity has been validated by Microsoft. You can select a verified partner, and select **Add** button at the bottom to give the partner the authorization to add a partner topic in your resource group. This authorization is effective up to the expiration time. 
+1. On the **Add partner authorization to create resources** page, you see a list of **verified partners**. A verified partner is a partner whose identity Microsoft validated. Select a verified partner, and then select **Add** to give the partner the authorization to add a partner topic in your resource group. This authorization is effective up to the expiration time. 
 
-    You also have an option to authorize a **non-verified partner.** Unless the partner is an entity that you know well, for example, an organization within your company, it's strongly encouraged that you only work with verified partners. If the partner isn't yet verified, encourage them to get verified by asking them to contact the Event Grid team at askgrid@microsoft.com. 
+    You also have an option to authorize a **non-verified partner.** Unless the partner is an entity that you know well, for example, an organization within your company, it's strongly encouraged that you work only with verified partners. If the partner isn't yet verified, encourage them to get verified by contacting the Event Grid team at askgrid@microsoft.com. 
 
     1. To authorize a **verified partner**:
         1. Select the partner from the list.
@@ -51,8 +51,8 @@ Following example shows the way to create a partner configuration resource that 
 
             > [!IMPORTANT]          
             > Your partner won't be able to create resources (partner topics) in your Azure subscription after the authorization expiration time. 
-1. Back on the **Create Partner Configuration** page, verify that the partner is added to the partner authorization list at the bottom. 
-1. Select **Review + create** at the bottom of the page. 
+1. Back on the **Create Partner Configuration** page, verify that the partner appears in the partner authorization list. 
+1. Select **Review + create**. 
 
     :::image type="content" source="./media/subscribe-to-partner-events/create-partner-registration.png" alt-text="Screenshot showing the Create Partner Configuration page with the partner authorization you just added.":::                    
 1. On the **Review** page, review all settings, and then select **Create** to create the partner registration. 
