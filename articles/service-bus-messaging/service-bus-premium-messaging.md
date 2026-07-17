@@ -77,7 +77,7 @@ To learn how to configure a Service Bus namespace to automatically scale (increa
 >
 >  * **Reactive**: If additional workloads are identified by studying the resource usage metrics, then additional resources can be allocated to the namespace to incorporate increasing demand.
 >
-> The billing meters for Service Bus are hourly. When scaling up, you only pay for the additional resources for the hours that these were used. Because billing is hourly, any capacity you scale up to stays available for the rest of that hour at no additional charge, so a longer cool-down period lets you absorb short bursts before scaling down. For more information, see [Cost considerations for scaling](automate-update-messaging-units.md#cost-considerations-for-scaling).
+> The billing meters for Service Bus are hourly. When you scale up, you pay only for the extra resources for the hours that you use them. Because billing is hourly, any capacity you scale up to stays available for the rest of that hour at no extra charge. A longer cool-down period lets you absorb short bursts before scaling down. For more information, see [Cost considerations for scaling](automate-update-messaging-units.md#cost-considerations-for-scaling).
 >
 
 ## Get started with premium messaging

@@ -26,7 +26,7 @@ This article shows you how to automatically scale a Service Bus namespace (updat
 
 ## Cost considerations for scaling
 
-Service Bus Premium billing meters are hourly. Because you're billed for the peak number of messaging units in each hour, any capacity you scale up to stays available for the rest of that hour at no additional charge, giving you room to absorb short bursts of load before you scale back down. When you define autoscale rules, favor a longer scale-down cool-down period (more than 30 minutes) and a conservative scale-down threshold, so the namespace keeps enough capacity to absorb spikes while still reducing units when the lower load is stable. For the detailed rule settings, see [Custom autoscale - additional conditions](#custom-autoscale---additional-conditions).
+Service Bus Premium billing meters are hourly. Because you're billed for the peak number of messaging units in each hour, any capacity you scale up to stays available for the rest of that hour at no extra charge, giving you room to absorb short bursts of load before you scale back down. When you define autoscale rules, favor a longer scale-down cool-down period (more than 30 minutes) and a conservative scale-down threshold, so the namespace keeps enough capacity to absorb spikes while still reducing units when the lower load is stable. For the detailed rule settings, see [Custom autoscale - additional conditions](#custom-autoscale---additional-conditions).
 
 ## Configure by using the Azure portal
 In this section, you learn how to use the Azure portal to configure autoscaling of messaging units for a Service Bus namespace. 
