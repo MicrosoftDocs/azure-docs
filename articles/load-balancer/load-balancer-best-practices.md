@@ -74,7 +74,7 @@ To explicitly permit allowed inbound traffic, you should create Network Security
 
 ### Unblock 168.63.129.16 IP address
 
-Don't block 168.63.129.16 in any Azure network security groups or local firewall policies. Azure Load Balancer uses this IP address for health probes. For details on probe behavior and failure consequences, see [Azure Load Balancer health probe](load-balancer-custom-probe-overview.md) and [What is IP address 168.63.129.16?](../virtual-network/what-is-ip-address-168-63-129-16.md).
+Don't block 168.63.129.16 in any Azure network security groups or local firewall policies. Azure Load Balancer uses this IP address for health probes. For details on probe behavior and failure consequences, see [Azure Load Balancer health probe](load-balancer-custom-probe-overview.md) and [What is IP address 168.63.129.16?](../virtual-network/what-is-ip-address-168-63-129-16.md)
 
 ### Use outbound rules with manual port allocation
 
