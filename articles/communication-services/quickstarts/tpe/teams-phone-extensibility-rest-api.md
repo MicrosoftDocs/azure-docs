@@ -16,6 +16,8 @@ ms.subservice: identity
 
 This article describes REST API for Teams Phone extensibility.
 
+For an end-to-end walkthrough with concrete request and response examples, see [Access a user's Teams Phone separate from their Teams client](./teams-phone-extensibility-access-teams-phone.md).
+
 ## Create assignment
 
 Create an assignment to give a Teams user or Teams resource account access to the Communication Services resource.
@@ -46,6 +48,30 @@ PUT {endpoint}/access/teamsExtension/tenants/{tenantId}/assignments/{objectId}?a
 | 201 Created | [TeamsExtensionAssignmentResponse](#teamsextensionassignmentresponse) | Created - Returns the created assignment. |
 | Other Status Codes | [CommunicationErrorResponse](#communicationerrorresponse) | Error. |
 
+### Example
+
+```http
+PUT {endpoint}/access/teamsExtension/tenants/aaaabbbb-0000-cccc-1111-dddd2222eeee/assignments/aaaaaaaa-bbbb-cccc-1111-222222222222?api-version=2025-06-30
+```
+
+```json
+{
+  "principalType": "user",
+  "clientIds": ["00001111-aaaa-2222-bbbb-3333cccc4444"]
+}
+```
+
+A successful request returns `201 Created` (or `200 OK` when it updates an existing assignment):
+
+```json
+{
+  "objectId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
+  "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+  "principalType": "user",
+  "clientIds": ["00001111-aaaa-2222-bbbb-3333cccc4444"]
+}
+```
+
 ## Get assignment
 
 Get the assignment for a resource access from a Teams user or Teams resource account.
@@ -69,6 +95,23 @@ GET {endpoint}/access/teamsExtension/tenants/{tenantId}/assignments/{objectId}?a
 | 200 OK | [TeamsExtensionAssignmentResponse](#teamsextensionassignmentresponse) | Returns the assignment. |
 | Other Status Codes | [CommunicationErrorResponse](#communicationerrorresponse) | Error. |
 
+### Example
+
+```http
+GET {endpoint}/access/teamsExtension/tenants/aaaabbbb-0000-cccc-1111-dddd2222eeee/assignments/aaaaaaaa-bbbb-cccc-1111-222222222222?api-version=2025-06-30
+```
+
+A successful request returns `200 OK`:
+
+```json
+{
+  "objectId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
+  "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+  "principalType": "user",
+  "clientIds": ["00001111-aaaa-2222-bbbb-3333cccc4444"]
+}
+```
+
 ## Delete assignment
 
 Delete the assignment to remove resource access from a Teams user or Teams resource account.
@@ -91,6 +134,18 @@ DELETE {endpoint}/access/teamsExtension/tenants/{tenantId}/assignments/{objectId
 | --- | --- | --- |
 | 204 NoContent | Empty | Successful status code. |
 | Other Status Codes | [CommunicationErrorResponse](#communicationerrorresponse) | Error. |
+
+### Example
+
+```http
+DELETE {endpoint}/access/teamsExtension/tenants/aaaabbbb-0000-cccc-1111-dddd2222eeee/assignments/aaaaaaaa-bbbb-cccc-1111-222222222222?api-version=2025-06-30
+```
+
+A successful request returns `204 No Content` with an empty body:
+
+```http
+HTTP/1.1 204 NoContent
+```
 
 ## Definitions
 
