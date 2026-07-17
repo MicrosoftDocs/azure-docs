@@ -187,7 +187,7 @@ At this point, you should revalidate that the scale-out appliance is able to con
 
 ## Replicate
 
-With the scale-out appliance in place, you can now replicate 500 VMs concurrently. You can also migrate VMs in batches of 200 through the Azure portal. For more information on executing agentless migrations, see [Execute VMware agentless migrations.](./tutorial-migrate-vmware?view=migrate#execute-migrations)
+When you add the scale-out appliance, you can replicate 500 VMs at the same time. You can also migrate VMs in batches of 200 through the Azure portal. For more information about executing agentless migrations, see [Execute VMware agentless migrations](./tutorial-migrate-vmware?view=migrate#execute-migrations).
 
 The Migration tool takes care of distributing the virtual machines between the primary and scale-out appliance for replication. Once the replication is done, you can migrate the virtual machines.
 
