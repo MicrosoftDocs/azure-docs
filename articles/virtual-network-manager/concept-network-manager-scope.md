@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 07/11/2025
+ms.date: 07/17/2026
 ---
 
 # Understand and work with Azure Virtual Network Manager scopes
@@ -16,7 +16,7 @@ Azure Virtual Network Manager simplifies the management of virtual networks by o
 
 An Azure Virtual Network Manager instance, or network manager, includes the following resources:
 
-- [**Network groups**](concept-network-groups.md): Logical containers for virtual networks or subnets. You apply Azure Virtual Network Manager configurations for connectivity, security, and routing settings onto these network groups to implement desired policies at scale.
+- [**Network groups**](concept-network-groups.md): Logical containers for virtual networks. You apply Azure Virtual Network Manager configurations for connectivity, security, and routing settings onto these network groups to implement desired policies at scale.
 
 - **Configurations**: Collections of settings that can be applied at scale across network resources contained in your network groups. Azure Virtual Network Manager currently provides three types of configurations:
   - [*Connectivity configurations*](concept-connectivity-configuration.md) to create network topologies.
