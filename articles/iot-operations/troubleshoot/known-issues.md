@@ -33,7 +33,7 @@ When you run `az iot ops upgrade` to upgrade to Azure IoT Operations 2603, the u
 - All on-cluster workloads remain healthy (no upgrade activity occurs).
 - `az iot ops upgrade` might report nothing to upgrade on subsequent attempts.
  
-Root cause: During the upgrade, if a dependent system extension, such as `microsoft.extensiondiagnostics` experiences a transient Helm timeout, Azure Resource Manager marks it as **Failed**. Even if the extension eventually succeeds on-cluster, the cloud-side state remains **Failed**. This blocks the dependency chain — Azure Resource Manager never delivers the updated Azure IoT Operations or secret-store extension config to the cluster's config agent.
+Root cause: During the upgrade, if a dependent system extension, such as `microsoft.extensiondiagnostics` experiences a transient Helm timeout, Azure Resource Manager marks it as **Failed**. Even if the extension eventually succeeds on-cluster, the cloud-side state remains **Failed**. This condition blocks the dependency chain - Azure Resource Manager never delivers the updated Azure IoT Operations or secret-store extension config to the cluster's config agent.
  
 Symptoms include:
  
@@ -41,7 +41,7 @@ Symptoms include:
 - `getPendingConfigs` returns empty results
 - Extension manager never receives Helm upgrade instructions
 
-Workaround: The workaround is to force Azure Resource Manager to re-submit the extension specs by running a no-op update on both the Azure IoT Operations and secret-store extensions, then retrying the upgrade:
+Workaround: To work around this problem, force Azure Resource Manager to re-submit the extension specs by running a no-op update on both the Azure IoT Operations and secret-store extensions, and then retry the upgrade:
  
 ```azurecli
 az k8s-extension update --name <aio-extension-name> \
