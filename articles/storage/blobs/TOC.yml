@@ -80,13 +80,6 @@ items:
                 href: ../../azure-resource-manager/management/relocation/relocation-storage-account.md?toc=/azure/storage/blobs/toc.json
           - name: AzureDnsZone endpoints requirement FAQ
             href: ../common/azurednszone-endpoints-retirement-faq.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-          - name: Classic storage account retirement
-            href: ../common/classic-account-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            items:
-              - name: Understand the migration process for classic accounts
-                href: ../common/classic-account-migration-process.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Migrate a classic storage account to Resource Manager
-                href: ../common/classic-account-migrate.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Data Lake Storage
             items:
               - name: Plan to upgrade an account
