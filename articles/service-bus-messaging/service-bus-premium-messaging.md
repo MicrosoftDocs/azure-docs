@@ -3,7 +3,7 @@ title: Azure Service Bus premium messaging tier
 description: This article describes standard and premium tiers of Azure Service Bus. Compares these tiers and provides technical differences.
 ms.topic: article
 ms.custom: devx-track-extended-java
-ms.date: 05/28/2025
+ms.date: 07/17/2026
 ---
 
 # Service Bus premium messaging tier
@@ -72,7 +72,7 @@ To learn how to configure a Service Bus namespace to automatically scale (increa
 >
 >  * **Reactive**: If additional workloads are identified by studying the resource usage metrics, then additional resources can be allocated to the namespace to incorporate increasing demand.
 >
-> The billing meters for Service Bus are hourly. When scaling up, you only pay for the additional resources for the hours that these were used.
+> The billing meters for Service Bus are hourly. When scaling up, you only pay for the additional resources for the hours that these were used. Because billing is hourly, any capacity you scale up to stays available for the rest of that hour at no additional charge, so a longer cool-down period lets you absorb short bursts before scaling down. For more information, see [Cost considerations for scaling](automate-update-messaging-units.md#cost-considerations-for-scaling).
 >
 
 ## Get started with premium messaging

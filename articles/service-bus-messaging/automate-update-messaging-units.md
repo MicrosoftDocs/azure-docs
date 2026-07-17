@@ -2,7 +2,7 @@
 title: Azure Service Bus - Automatically update messaging units 
 description: This article shows you how you can use automatically update messaging units of a Service Bus namespace.
 ms.topic: how-to
-ms.date: 05/16/2022
+ms.date: 07/17/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -23,6 +23,10 @@ This article shows you how to automatically scale a Service Bus namespace (updat
 
 > [!IMPORTANT]
 > This article applies only to the **premium** tier of Azure Service Bus. 
+
+## Cost considerations for scaling
+
+Service Bus Premium billing meters are hourly. Because you're billed for the peak number of messaging units in each hour, any capacity you scale up to stays available for the rest of that hour at no additional charge, giving you room to absorb short bursts of load before you scale back down. When you define autoscale rules, favor a longer scale-down cool-down period (more than 30 minutes) and a conservative scale-down threshold, so the namespace keeps enough capacity to absorb spikes while still reducing units when the lower load is stable. For the detailed rule settings, see [Custom autoscale - additional conditions](#custom-autoscale---additional-conditions).
 
 ## Configure by using the Azure portal
 In this section, you learn how to use the Azure portal to configure autoscaling of messaging units for a Service Bus namespace. 
