@@ -122,7 +122,7 @@ In this task, you manually add three virtual networks to your network group for 
 
 ### Add a virtual network conditionally with a policy definition
 
-By using [Azure Policy](concept-azure-policy-integration.md), you define a condition to automatically add three virtual networks to your network group when the virtual network has a tag with the name `NetworkType` and the value `Production`.
+By using [Azure Policy](concept-azure-policy-integration.md), you can define a condition to automatically add three virtual networks to your network group when the virtual network has a tag with the name `NetworkType` and the value `Production`.
 
 1. From the list of network groups, select **network-group**. Under **Create policy to dynamically add members**, select **Create Azure policy**.
 
