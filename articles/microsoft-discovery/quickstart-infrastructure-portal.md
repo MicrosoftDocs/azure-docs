@@ -273,18 +273,19 @@ Repeat this process for all users who require access to agents and workflows in 
 
 ## 6. Create Chat Model Deployment
 
-Chat model deployments provision foundational language models such as GPT-4o or GPT-5 for use within the Microsoft Discovery Workspace. Agents created within projects can use these chat model deployments.
+Chat model deployments provision foundational language models such as GPT-5.4 for use within the Microsoft Discovery Workspace. Agents created within projects can use these chat model deployments.
 
 1. Go to the overview page of Microsoft Discovery workspace, created in the previous step. 
 1. Under the **Settings** tab on left navigation pane, select **Chat Model Deployments**.
-1. Select the **+ Create** option at the top
-1. Provide the **Model format** (only option available today is OpenAI) and **Model Name** in the drop-down. Use "gpt-4o" for this exercise.
+1. Select the **+ Create** option at the top.
+1. Enter the **Name** as `gpt-5-4`.
+1. Select the **Model Format** as `OpenAI` and **Model Name** as `gpt-5.4`  in the drop-down.
 1. Then select **Review + create** button at the bottom and select **Create**.
 
    :::image type="content" source="media/quickstart-infrastructure-portal/create-chat-model.jpg" alt-text="Screenshot of the Chat Model Deployment creation page." lightbox="media/quickstart-infrastructure-portal/create-chat-model.jpg":::
 
 > [!IMPORTANT]
-> If you plan to use the Discovery Engine, you must also create a chat model deployment named **gpt-5-2** using model **gpt-5.2**. The Discovery Engine requires this specific deployment for task validation. Repeat the steps with the model name `gpt-5.2` and deployment name `gpt-5-2`.
+> To use Discovery Engine and tasks within your sessions, you must use this specific deployment with name `gpt-5-4` and model name `gpt-5.4`. However, you can have additional chat model deployments for use with agents.
 
 You can provide access to users via [Role Based Access Control (RBAC)](../role-based-access-control/quickstart-assign-role-user-portal.md) at the resource group level. **Microsoft Discovery Administrator (Preview)** role is required to create projects within a workspace.
 
