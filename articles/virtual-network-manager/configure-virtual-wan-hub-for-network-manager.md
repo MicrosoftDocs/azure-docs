@@ -31,7 +31,7 @@ Before you begin, make sure you have:
 
 ### Create a network group
 
-This how-to creates the network group by using [static membership](concept-network-groups.md#static-membership). For information on defining group membership with Azure Policy, see [dynamic membership](concept-network-groups.md#dynamic-membership). Use network managers to manage connectivity to Virtual WAN for network group members.
+This how-to article shows you how to create the network group by using [static membership](concept-network-groups.md#static-membership). For information on defining group membership with Azure Policy, see [dynamic membership](concept-network-groups.md#dynamic-membership). Use network managers to manage connectivity to Virtual WAN for network group members.
 
 ### Manually add virtual networks
 
