@@ -4,7 +4,7 @@ description: Learn to automate and simplifying routing behaviors using user-defi
 author: mbender-ms
 ms.author: mbender
 ms.topic: overview 
-ms.date: 01/09/2026
+ms.date: 07/17/2026
 ms.service: azure-virtual-network-manager
 ms.custom:
   - references_regions
@@ -177,7 +177,7 @@ The following items apply when users choose to use AVNM-managed route tables.
 - Other UDRs added to a managed route table remain unaffected and won't be deleted when the routing configuration is removed. Only routes created by Azure Virtual Network Manager are removed.
 - If an Azure Virtual Network Manager managed UDR is manually edited in the route table, that route is deleted when the configuration is removed from the region.
 - Azure Virtual Network Manager doesn't interfere with your existing UDRs. It just adds the new UDRs to the current ones, ensuring your routing continues to work as it does now. Also, UDRs for specific Azure services still function along with your network manager's UDRs without encountering new limitations.
-- Azure Virtual Network Manager requires a managed resource group to store the route table. If an Azure Policy enforces specific tags or properties on resource groups, those policies must be disabled or adjusted for the managed resource group to prevent deployment issues. Furthermore, if you need to delete this managed resource group, ensure that deletion occurs before initiating any new deployments for resources within the same subscription.
+- Azure Virtual Network Manager requires a managed resource group to store the route table. For guidance on resolving Azure Policy conflicts that block managed resource group creation, see [Resource group creation fails](common-issues.md#resource-group-creation-fails). If you need to delete this managed resource group, ensure that deletion occurs before initiating any new deployments for resources within the same subscription.
 
 The following items apply when users choose to use existing route tables.
 - When a common route table is attached to subnets in different network groups/collections, rules from all collections are added to the route table.
