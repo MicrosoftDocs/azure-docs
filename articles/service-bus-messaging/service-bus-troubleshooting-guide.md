@@ -55,7 +55,7 @@ When your application authenticates with a managed identity instead of a connect
 
 This class of failure comes from token acquisition or role assignment in your host environment rather than the Service Bus client. The same causes apply across all Service Bus SDKs (.NET, Java, JavaScript, Python, and Go), because they all acquire Microsoft Entra tokens through the Azure Identity library using the credentials available in the host.
 
-To troubleshoot:
+To troubleshoot this problem:
 
 - Confirm that the identity has an Azure role assignment on the namespace, queue, or topic. Sending requires the **Azure Service Bus Data Sender** role and receiving requires the **Azure Service Bus Data Receiver** role. For steps, see [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](service-bus-managed-service-identity.md).
 - Confirm that the client requests the token scope `https://servicebus.azure.net/.default`. The issued token's `aud` (audience) claim is then `https://servicebus.azure.net`. The scope is a separate requirement from the role assignment, so verify it as well.
@@ -238,7 +238,7 @@ Service Bus endpoints (`*.servicebus.windows.net`) present a TLS certificate tha
 
 Symptoms include a TLS or SSL handshake failure, a certificate chain validation error such as "unable to get local issuer certificate", or a connection that previously worked and begins failing after a certificate rotation.
 
-To troubleshoot:
+To troubleshoot this problem:
 
 - Trust the **root** CAs rather than pinning intermediate or leaf certificates. Intermediate certificates are expected to change, so trusting the root keeps your client working across rotations. For the current root and intermediate CAs used by Azure services, see [Azure Certificate Authority details](/azure/security/fundamentals/azure-certificate-authority-details).
 - Update the operating system or runtime trust store so that it includes the current CA certificates. On Linux, update the CA bundle, for example the `ca-certificates` package. For Java, make sure the JRE `cacerts` truststore is current, because Java validates certificates against its own truststore rather than the operating system's.
