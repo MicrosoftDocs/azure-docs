@@ -80,7 +80,7 @@ ZRS is supported for both SSD and HDD file shares. To see which regions support 
 For applications requiring high durability for SMB file shares, you can choose geo-redundant storage to copy the data in your storage account to a secondary region that is hundreds of miles away from the primary region. If your storage account is copied to a secondary region, then your data is durable even in the case of a complete regional outage or a disaster in which the primary region isn't recoverable.
 
 > [!IMPORTANT]
-> Azure Files only supports geo-redundancy (GRS or GZRS) for HDD file shares. SSD file shares must use LRS or ZRS.
+> Azure Files only supports geo-redundancy (GRS or GZRS) for HDD file shares. SSD file shares must use LRS or ZRS. Additionally, unlike other Azure storage services, Azure Files doesn't support read access to data in the secondary region without initiating a failover. RA-GRS and RA-GZRS aren't supported. If you configure a storage account to use RA-GRS or RA-GZRS, file shares in that account are automatically treated as GRS or GZRS.
 
 When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and can't be changed. For more information about regions supported by Azure, see the [Azure regions list](/azure/reliability/regions-list#azure-regions-list-1).
 
