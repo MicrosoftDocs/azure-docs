@@ -273,7 +273,7 @@ Log signature similar to:
 
 Currently, ONVIF asset event destinations are only recognized at the event group or asset level. Configuring destinations at the individual event level results in log entries similar to the example, and no event data is published to the MQTT broker.
 
-Workaround: Configure the event destination at the event group or asset level instead of the individual event level. For example, using `defaultEventsDestinations` at the event group level:
+Workaround: Configure the event destination at the event group or asset level instead of the individual event level. For example, use `defaultEventsDestinations` at the event group level:
 
 ```yaml
 eventGroups:
