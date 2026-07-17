@@ -294,7 +294,7 @@ You can also use Azure Front Door logs to verify whether the edge action got exe
 
 ## Pricing
 
-Edge actions follow a simple two-part pricing model based on the number of invocations and execution time beyond 1 ms for each invocation. For details about edge actions pricing, see following table, including applicable billing meters and usage-based charges on invocations and execution time.
+Edge actions follow a simple two-part pricing model based on the number of invocations and execution time beyond 1 ms for each invocation. For details about edge actions pricing, see the following table, including applicable billing meters and usage-based charges on invocations and execution time.
 
 The following table lists the edge actions pricing, which is available in both Standard and Premium tiers:
 
@@ -303,7 +303,7 @@ The following table lists the edge actions pricing, which is available in both S
 | Invocations | $0.1 per 1 M invocations |
 | Overage execution time <sup>1</sup> | $0.00005 per second |
 
-<sup>1</sup> Cumulative additional execution time for all invocations which took more than 1 ms.
+<sup>1</sup> Cumulative additional execution time for all invocations that took more than 1 ms.
 
 For more information, see [Understanding Azure Front Door billing: Example 7](billing.md#example-7-edge-actions).
 
