@@ -87,7 +87,7 @@ The template defines multiple Azure resources:
 
 ## Clean up resources
 
-When you no longer need the resources that you created in this quickstart, delete the resource group. Doing so removes the Azure Virtual Network Manager instance, virtual networks, network groups, connectivity configurations, and all other related resources.
+When you no longer need the resources that you created in this quickstart, delete the resource group. This action removes the Azure Virtual Network Manager instance, virtual networks, network groups, connectivity configurations, and all other related resources.
 
 1. To delete the resource group, open the resource group in the Azure portal and select **Delete resource group**.
 1. Enter the name of the resource group, and then select **Delete**.
