@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.custom: devx-track-terraform
 author: mbender-ms
 ms.author: mbender
-ms.date: 02/05/2025
+ms.date: 07/17/2026
 content_well_notification: 
   - AI-contribution
 zone_pivot_groups: azure-virtual-network-manager-quickstart-options
@@ -38,7 +38,7 @@ In this article, you learn how to:
 ## Prerequisites
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
-- To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization isn't supported
+- To modify dynamic network groups, see the [required permissions](concept-azure-policy-integration.md#required-permissions).
 
 :::zone pivot="sub"
 
