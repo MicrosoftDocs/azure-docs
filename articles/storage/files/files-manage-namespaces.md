@@ -43,7 +43,7 @@ DFS Namespaces provides two main namespace types:
 To use DFS Namespaces with Azure Files and File Sync, you must have the following resources:
 
 - An Active Directory domain. This can be hosted anywhere you like, such as on-premises, in an Azure virtual machine (VM), or even in another cloud.
-- A Windows Server that can host the namespace. A common deployment pattern for DFS Namespaces is to use the Active Directory domain controller to host the namespaces, however, the namespaces can be set up from any server with the DFS Namespaces server role installed. DFS Namespaces is available on all supported Windows Server versions.
+- A Windows Server that hosts the namespace. A common deployment pattern for DFS Namespaces is to use the Active Directory domain controller to host the namespaces. However, you can set up the namespaces from any server with the DFS Namespaces server role installed. DFS Namespaces is available on all supported Windows Server versions.
 - An SMB file share hosted in a domain-joined environment, such as an Azure file share hosted within a domain-joined storage account, or a file share hosted on a domain-joined Windows File Server using Azure File Sync. For more on domain-joining your storage account, see [Identity-based authentication](storage-files-active-directory-overview.md). Windows File Servers are domain-joined the same way regardless of whether you're using Azure File Sync.
 - The SMB file shares you want to use with DFS Namespaces must be reachable from your on-premises networks. For more information, see [Networking considerations for direct access](storage-files-networking-overview.md).
 
@@ -106,7 +106,7 @@ Set-ItemProperty `
 
 ### Create DNS entries for existing file server names
 
-For DFS Namespaces to respond to existing file server names, create alias (CNAME) records for your existing file servers that point at the DFS Namespaces server name. The exact procedure for updating your DNS records may depend on what servers your organization is using and if your organization is using custom tooling to automate the management of DNS. The following steps are for the DNS server included with Windows Server and automatically used by Windows AD.
+For DFS Namespaces to respond to existing file server names, create alias (CNAME) records for your existing file servers that point at the DFS Namespaces server name. The exact procedure for updating your DNS records might depend on what servers your organization uses and if your organization uses custom tooling to automate the management of DNS. The following steps are for the DNS server included with Windows Server and automatically used by Windows AD.
 
 # [Portal](#tab/azure-portal)
 On a Windows DNS server, open the DNS management console. You can find this by selecting the **Start** button and typing **DNS**. Navigate to the forward lookup zone for your domain. For example, if your domain is `contoso.com`, the forward lookup zone can be found under **Forward Lookup Zones** > **`contoso.com`** in the management console. The exact hierarchy shown in this dialog depends on the DNS configuration for your network.
@@ -116,7 +116,7 @@ Right-click on your forward lookup zone and select **New Alias (CNAME)**. In the
 ![A screenshot depicting the **New Resource Record** for a CNAME DNS entry.](./media/files-manage-namespaces/root-consolidation-cname.png)
 
 # [PowerShell](#tab/azure-powershell)
-On a Windows DNS server, open a PowerShell session (or use PowerShell remoting) to run the following commands, populating `$oldServer` and `$dfsnServer`, with the relevant values for your environment (`$domain` will auto-populate with the domain name, but you can also manually type this out as well).
+On a Windows DNS server, open a PowerShell session (or use PowerShell remoting) to run the following commands. Populate `$oldServer` and `$dfsnServer` with the relevant values for your environment. The `$domain` variable automatically populates with the domain name, but you can also manually type this value.
 
 ```PowerShell
 # Variables
@@ -144,18 +144,18 @@ If you're using DFS Namespaces to take over an existing server name with root co
 # [Portal](#tab/azure-portal)
 To create a new namespace, open the **DFS Management** console. You can find this by selecting the **Start** button and typing **DFS Management**. The resulting management console has two sections called **Namespaces** and **Replication**, which refer to DFS Namespaces and DFS Replication (DFS-R) respectively. Azure File Sync provides a modern replication and synchronization mechanism that may be used in place of DFS-R if replication is also desired.
 
-Select the **Namespaces** section, and select the **New Namespace** button (you can also right-click the **Namespaces** section). The resulting **New Namespace Wizard** walks you through creating a namespace.
+Select the **Namespaces** section, and select the **New Namespace** button. You can also right-click the **Namespaces** section. The resulting **New Namespace Wizard** walks you through creating a namespace.
 
 The first section in the wizard requires you to pick the DFS Namespace server to host the namespace. Multiple servers can host a namespace, but you'll need to set up DFS Namespaces with one server at a time. Enter the name of the desired DFS Namespace server and select **Next**. In the **Namespace Name and Settings** section, enter the desired name of your namespace and select **Next**.
 
-The **Namespace Type** section allows you to choose between a **Domain-based namespace** and a **Stand-alone namespace**. If you intend to use DFS Namespaces to preserve an existing file server/NAS device name, you should select the standalone namespace option. For any other scenario, select a domain-based namespace. Refer to [DFS Namespaces types](#dfs-namespaces-types) for more information on choosing between namespace types.
+The **Namespace Type** section allows you to choose between a **Domain-based namespace** and a **Stand-alone namespace**. If you intend to use DFS Namespaces to preserve an existing file server/NAS device name, select the standalone namespace option. For any other scenario, select a domain-based namespace. Refer to [DFS Namespaces types](#dfs-namespaces-types) for more information on choosing between namespace types.
 
 ![A screenshot of selecting between a domain-based namespace and a standalone namespace in the **New Namespace Wizard**.](./media/files-manage-namespaces/dfs-namespace-type.png)
 
 Select the desired namespace type for your environment and select **Next**. The wizard then summarizes the namespace to be created. Select **Create** to create the namespace and **Close** when the dialog completes.
 
 # [PowerShell](#tab/azure-powershell)
-From a PowerShell session on the DFS Namespace server, run the following PowerShell commands, populating `$namespace`, `$type`, and `$takeOverName` with the relevant values for your environment.
+From a PowerShell session on the DFS Namespace server, run the following PowerShell commands. Populate `$namespace`, `$type`, and `$takeOverName` with the relevant values for your environment.
 
 ```PowerShell
 # Variables
@@ -215,7 +215,7 @@ Now that you've created a namespace, a folder, and a folder target, you should b
 
 ## Access-Based Enumeration (ABE)
 
-Using ABE to control the visibility of the files and folders in SMB Azure file shares isn't a supported scenario. ABE is a feature of DFS-N, so it's possible to configure identity-based authentication and enable ABE. However, this only applies to the DFS-N folder targets; it doesn't retroactively apply to the targeted file shares themselves. This is because DFS-N works by referral, rather than as a proxy in front of the folder target.
+Using ABE to control the visibility of the files and folders in SMB Azure file shares isn't a supported scenario. ABE is a feature of DFS-N, so you can configure identity-based authentication and enable ABE. However, this feature only applies to the DFS-N folder targets; it doesn't retroactively apply to the targeted file shares themselves. This limitation exists because DFS-N works by referral, rather than as a proxy in front of the folder target.
 
 For example, if the user types in the path `\\mydfsnserver\share`, the SMB client gets the referral of `\\mydfsnserver\share => \\server123\share` and makes the mount against the latter.
 
