@@ -116,7 +116,7 @@ Within the `properties` attribute are several nested attributes:
 | Message | A static message stating if the connectivity configuration change was successful or unsuccessful. |
 
 > [!NOTE]
-> Overlapping IP address spaces in a connected group or with an externally peered virtual network can make some addresses inaccessible. For details on this behavior, see [Limitations for connected groups](concept-limitations.md#limitations-for-connected-groups). When this occurs, logs show a "Warning" level, with the `TargetResourceIds` field indicating the IDs of VNets with overlapping address spaces and a `message` indicating that either complete or partial address spaces are inaccessible due to overlapping addresses.
+> Overlapping IP address spaces in a connected group or with an externally peered virtual network can make some addresses inaccessible. For details on this behavior, see [Limitations for connected groups](concept-limitations.md#limitations-for-connected-groups). When this condition occurs, logs show a "Warning" level, with the `TargetResourceIds` field indicating the IDs of VNets with overlapping address spaces and a `message` indicating that either complete or partial address spaces are inaccessible due to overlapping addresses.
 
 Within the `AppliedConnectivityConfigurations` attribute are several nested attributes:
 
