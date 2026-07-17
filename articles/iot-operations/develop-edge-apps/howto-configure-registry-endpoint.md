@@ -397,7 +397,7 @@ resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpo
 
 ---
 
-After you create this registry endpoint, you can reference it in your data flow graph as `registryEndpointRef: public-ghcr`. As noted in the preceding warning, the current runtime doesn't load artifacts from an anonymous `ghcr.io` endpoint; copy the samples into ACR and use a managed-identity endpoint instead.
+After you create this registry endpoint, you can reference it in your data flow graph as `registryEndpointRef: public-ghcr`. As noted in the preceding warning, the current runtime doesn't load artifacts from an anonymous `ghcr.io` endpoint. To work around this limitation, copy the samples into ACR and use a managed-identity endpoint instead.
 
 For the list of prebuilt sample WASM modules and graph definitions available under `ghcr.io/azure-samples/explore-iot-operations`, see [Use prebuilt modules from a public registry](howto-deploy-wasm-graph-definitions.md#use-prebuilt-modules-from-a-public-registry).
 

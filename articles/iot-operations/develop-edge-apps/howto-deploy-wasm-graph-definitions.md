@@ -40,7 +40,7 @@ WASM modules in Azure IoT Operations data flow graphs and connectors let you pro
 You can use the prebuilt sample WASM modules and graph definitions that are published to the public GitHub Container Registry (`ghcr.io`) under `azure-samples/explore-iot-operations`.
 
 > [!IMPORTANT]
-> The current Azure IoT Operations runtime doesn't load modules from an anonymous `ghcr.io` registry endpoint. `ghcr.io` requires an anonymous bearer-token exchange before it serves even public artifacts, which the runtime doesn't currently perform, so the module never loads (the `aio-wasm-graph-controller` logs `Module not found locally ... skipping`). Until this is addressed, use the sample artifacts by copying them into a registry that the runtime can authenticate against - such as Azure Container Registry (ACR) - and reference them through a managed-identity endpoint. See [Use a private registry](#use-a-private-registry).
+> The current Azure IoT Operations runtime doesn't load modules from an anonymous `ghcr.io` registry endpoint. `ghcr.io` requires an anonymous bearer-token exchange before it serves even public artifacts, which the runtime doesn't currently perform, so the module never loads (the `aio-wasm-graph-controller` logs `Module not found locally ... skipping`). Until this limitation is addressed, use the sample artifacts by copying them into a registry that the runtime can authenticate against - such as Azure Container Registry (ACR) - and reference them through a managed-identity endpoint. See [Use a private registry](#use-a-private-registry).
 
 To create the endpoint that points to `ghcr.io`, see [Use a public registry](howto-configure-registry-endpoint.md#use-a-public-registry).
 
