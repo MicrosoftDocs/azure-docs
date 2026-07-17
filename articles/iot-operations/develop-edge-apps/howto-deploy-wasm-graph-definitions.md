@@ -41,6 +41,9 @@ The fastest way to get started is to use the prebuilt sample WASM modules and gr
 
 To consume the samples, create an anonymous registry endpoint named `public-ghcr` that points to `ghcr.io`. For the Azure CLI and Bicep options, see [Use a public registry](howto-configure-registry-endpoint.md#use-a-public-registry).
 
+> [!NOTE]
+> If the runtime can't pull from the anonymous `ghcr.io` endpoint (for example, the pull fails with a `401 Unauthorized` error), copy the sample artifacts into a registry that the runtime can authenticate against, such as Azure Container Registry (ACR), and use a managed-identity endpoint. For details, see the warning in [Use a public registry](howto-configure-registry-endpoint.md#use-a-public-registry) and [Use a private registry](#use-a-private-registry).
+
 ### Available sample artifacts
 
 After you create the `public-ghcr` registry endpoint, reference it in your data flow graphs by using `registryEndpointRef: public-ghcr`. Because the registry endpoint host is `ghcr.io`, include the repository path `azure-samples/explore-iot-operations` in artifact references. The following sample modules and graph definitions are available:
