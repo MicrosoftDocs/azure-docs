@@ -169,7 +169,7 @@ Azure Route Server uses ASN 65515 by default. If an NVA advertises a route to Az
  
 To avoid this issue, ensure that routes advertised by NVAs do not contain Azure-reserved ASN 65515 in the AS_PATH. 
  
-Example: If an NVA advertises prefix 10.10.0.0/16 with an AS_PATH of 65001 65515, Azure Route Server drops the route because the AS_PATH already contains its own ASN (65515), which would create a potential routing loop. This behavior is consistent with standard BGP loop prevention mechanisms
+Example: If an NVA advertises prefix 10.10.0.0/16 with an AS_PATH of 65001 65515, Azure Route Server drops the route because the AS_PATH already contains its own ASN (65515), which would create a potential routing loop. This behavior is consistent with standard BGP loop prevention mechanisms.
 
 ## Limitations
 
