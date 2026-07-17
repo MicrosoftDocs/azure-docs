@@ -102,7 +102,7 @@ Follow these steps to create a diagnostic setting and send Azure Files logs and 
 1. Select a subscription and Log Analytics workspace.
 1. Select **Save** from the top menu.
 
-After you enable the diagnostic setting, Azure Files logs and metrics begin flowing into the selected workspace, and you can query them using KQL.
+After you enable the diagnostic setting, Azure Files logs and metrics begin flowing into the selected workspace, and you can query them by using KQL.
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
