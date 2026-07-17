@@ -90,9 +90,9 @@ The following table describes the behavior of the platform when the hub is confi
 
 |Next hop security solution| Behavior|
 |--|--|
-|Azure Firewall| **No public IP addresses assigned to Azure Firewall:** Azure Firewall processes internet traffic and blackholes it.<br> **At least one public IP address assigned to Azure Firewall:** Azure Firewall processes internet traffic and routes it to the internet by using the Azure Firewall public IP address.|
+|Azure Firewall| **No public IP addresses assigned to Azure Firewall:** Azure Firewall processes internet traffic and blackholes. Workloads don't have access to the internet via Azure Firewall.<br> **At least one public IP address assigned to Azure Firewall:** Azure Firewall processes internet traffic and routes it to the internet by using the Azure Firewall public IP address.|
 |NVA in the hub| If the NVA in the hub is configured to route Internet traffic through the NVA's internal interface, Internet traffic will be dropped by the platform. Packets are not processed by the NVA. |
-|SaaS solution| If the SaaS solution is configured to route Internet traffic through the SaaS solution's internal interface, Internet traffic will be processed by the SaaS solution and blackholed.|
+|SaaS solution| If the SaaS solution is configured to route internet traffic through the SaaS solution's internal interface, internet traffic is processed by the SaaS solution and blackholed. Applications don't have access to the internet via the SaaS solution.|
 
 
 ### Supported sources of the default route
