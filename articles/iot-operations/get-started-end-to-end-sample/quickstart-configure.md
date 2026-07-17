@@ -57,6 +57,9 @@ kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-ope
 
 If you're using the Codespaces environment, the required environment variables are already set and you can skip this step. Otherwise, set the following environment variables in your shell:
 
+> [!NOTE]
+> `CLUSTER_NAME` must be the name of your **Azure Arc-enabled (connected) cluster** as it appears in Azure, which the following steps use to look up the Azure IoT Operations extension. If you gave your Arc-connected cluster a different name than the underlying Kubernetes cluster (for example, on Azure Kubernetes Service), use the Arc-connected cluster name here.
+
 # [Bash](#tab/bash)
 
 ```bash
