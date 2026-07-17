@@ -392,5 +392,5 @@ additionalContent: |
 
   ## Related content
 
-  - Learn how to [create an Azure Front Door](quickstart-create-front-door.md) profile.
-  - Learn about the [Azure Front Door architecture](front-door-routing-architecture.md).
+  - [Create an Azure Front Door profile](quickstart-create-front-door.md)
+  - [Azure Front Door routing architecture](front-door-routing-architecture.md)
