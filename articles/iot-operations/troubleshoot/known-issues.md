@@ -41,8 +41,8 @@ Symptoms include:
 - `getPendingConfigs` returns empty results
 - Extension manager never receives Helm upgrade instructions
 
-Workaround: To work around this problem, force Azure Resource Manager to re-submit the extension specs by running a no-op update on both the Azure IoT Operations and secret-store extensions, and then retry the upgrade:
- 
+Workaround: Force Azure Resource Manager to re-submit the extension specs by running a no-op update on both the Azure IoT Operations and secret-store extensions, and then retry the upgrade:
+
 ```azurecli
 az k8s-extension update --name <aio-extension-name> \
     --cluster-name <cluster-name> \
@@ -190,7 +190,7 @@ Fixed in version 1.2.154 (2512) and later
 
 Users may encounter an error regarding expired webhook certificates with Akri when deleting/upgrading instances of Azure IoT Operations or performing CRUD operations on Akri resources such as *Connector* and *ConnectorTemplates* instances. 
 
-Workaround: run `kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found` to delete and restart the webhook pods to enable the pod to pick up the new certificate.
+Workaround: Run `kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found` to delete and restart the webhook pods to enable the pod to pick up the new certificate.
 
 ### Device inbound endpoints don't enforce authentication when none is specified
 
@@ -273,7 +273,7 @@ Log signature similar to:
 
 Currently, ONVIF asset event destinations are only recognized at the event group or asset level. Configuring destinations at the individual event level results in log entries similar to the example, and no event data is published to the MQTT broker.
 
-As a workaround, configure the event destination at the event group or asset level instead of the individual event level. For example, using `defaultEventsDestinations` at the event group level:
+Workaround: Configure the event destination at the event group or asset level instead of the individual event level. For example, using `defaultEventsDestinations` at the event group level:
 
 ```yaml
 eventGroups:
@@ -463,7 +463,7 @@ Log signature: Azure portal message `Fetch broker authentications: Failed to fet
 
 When you configure a broker listener in the Azure portal and select a value in the "Authentication" dropdown, the portal tries to fetch the list of broker authentications. The portal displays the error message `Fetch broker authentications: Failed to fetch broker authentications`.
 
-To workaround this issue, upgrade to the 2603 release.
+Workaround: Upgrade to the 2603 release.
 
 ## Federated identity issues
 
@@ -477,22 +477,19 @@ Issue ID: 1190
 
 ---
 
-Log signature similar to: AADSTS700211: No matching federated identity record found for presented assertion issuer 'https://northamerica.oic.prod-arc.azure.com/1f5f7baf-633d-4eb5-9be1-8cf1e9c6fcc9/f512e8f6-0c47-48a1-91f3-aeb5422dd766'. Please check your federated identity credential Subject, Audience and Issuer against the presented assertion.
+Log signature: Similar to `AADSTS700211: No matching federated identity record found for presented assertion issuer 'https://northamerica.oic.prod-arc.azure.com/1f5f7baf-633d-4eb5-9be1-8cf1e9c6fcc9/f512e8f6-0c47-48a1-91f3-aeb5422dd766'. Please check your federated identity credential Subject, Audience and Issuer against the presented assertion.`
 
 ---
 
 Azure IoT Operations encounters 401 Unauthorized errors when retrieving secrets from Azure Key Vault.
 
-**Root cause**: The error occurs because the federated identity credential issuer URL doesn't match the issuer (iss) claim in the Kubernetes service account token.
+Root cause: The error occurs because the federated identity credential issuer URL doesn't match the issuer (iss) claim in the Kubernetes service account token.
 
 The `az iot ops secretsync enable` command creates a federated identity credential (FIC) on the user-assigned managed identity that Azure IoT Operations uses to access Azure Key Vault. In some deployments, the command configures the FIC issuer URL with a trailing slash ('/'); however, the cluster-issued service account tokens contain an iss (issuer) claim without the trailing slash.
 
 Because the issue affects token exchange during secret retrieval, the failure typically doesn't occur when you run `az iot ops secretsync enable`. Instead, it surfaces later when Azure IoT Operations attempts to access a secret, which can make the root cause difficult to identify.
 
-> [!NOTE]
-> This issue occurs only in some cluster configurations. Most deployments aren't affected.
-
-**Workaround**: Verify that the issuer URL configured on the federated identity credential isn't terminated with a slash. If it is, update the federated identity credential to remove the trailing slash.
+Workaround: Verify that the issuer URL configured on the federated identity credential isn't terminated with a slash. If it is, update the federated identity credential to remove the trailing slash.
 
 You can use the Azure CLI [az identity federated-credential](/cli/azure/identity/federated-credential) commands to view and, if necessary, update the federated identity credential issuer value, for example:
 
