@@ -502,5 +502,3 @@ az identity federated-credential show --name <FIC_NAME> --identity-name <MANAGED
 
 az identity federated-credential update --name <FIC_NAME> --identity-name <MANAGED_IDENTITY_NAME> --resource-group <RESOURCE_GROUP_NAME> --issuer <NEW_ISSUER_URL_WITHOUT_TRAILING_SLASH>
 ```
-
-In the Azure portal, you can view and modify the federated identity credential issuer value by navigating to the user-assigned managed identity used by Azure IoT Operations, selecting **Federated Identity Credentials**, selecting the credential, and checking or modifying the **Cluster Issuer URL** value.
