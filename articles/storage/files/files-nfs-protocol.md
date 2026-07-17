@@ -52,7 +52,7 @@ The status of items that appear in this table might change over time as support 
 | Encryption at rest|	✔️ |
 | [Encryption in transit](encryption-in-transit-for-nfs-shares.md)| ✔️ |
 | [LRS or ZRS redundancy types](storage-files-planning.md#redundancy)|	✔️ |
-| [LRS to ZRS conversion](files-redundancy.md) (private endpoints only) | ✔️ |
+| [LRS to ZRS conversion or vice versa](files-redundancy.md) (private endpoints only) | ✔️ |
 | [GRS or GZRS redundancy types](storage-files-planning.md#redundancy)| ⛔ |
 | [Azure DNS Zone endpoints (preview)](../common/storage-account-overview.md#storage-account-endpoints) | ✔️  |
 | [Private endpoints](storage-files-networking-overview.md#private-endpoints) | ✔️  |
