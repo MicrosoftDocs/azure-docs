@@ -3,12 +3,10 @@ title: IoT Edge version history and release notes
 description: Release history and notes for IoT Edge.
 author: sethmanheim
 ms.author: sethm
-ms.date: 07/16/2026
+ms.date: 07/17/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 ---
-
-<!-- DO NOT MERGE until IoT Edge 1.6.0 LTS is generally available. Replace <RELEASE_DATE_PLACEHOLDER> with the GA release date and verify the https://github.com/Azure/azure-iotedge/releases/tag/1.6.0 links resolve before merging. -->
 
 # Azure IoT Edge versions and release notes
 
