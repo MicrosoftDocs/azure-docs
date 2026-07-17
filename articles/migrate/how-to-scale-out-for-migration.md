@@ -56,7 +56,7 @@ To add a scale-out appliance, follow the steps mentioned below:
 1. In **How will you select workloads**, select one of the following options under **Azure migrate appliance sources**:
      - From all inventory to manually select servers
      - From an assessment to use an existing assessment
-4. In Discovery method, select the appliance that matches your source environment (VMware vSphere in this case). Under Migration mode, select **Agentless migration**.
+1. In **Discovery method**, select the appliance that matches your source environment (VMware vSphere in this case). Under **Migration mode**, select **Agentless migration**.
 1. In **Scale-out Appliance**, select **Set up scale-out appliance** to start the set up for the scale-out appliance.
 
 ### Generate the Azure Migrate project key
