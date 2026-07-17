@@ -29,6 +29,11 @@
       "source_path_from_root": "/articles/sre-agent/teams-bot.md",
       "redirect_url": "/azure/sre-agent/overview",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/sre-agent/workspace-tools.md",
+      "redirect_url": "/azure/sre-agent/agent-reasoning",
+      "redirect_document_id": false
     }
   ]
 }
