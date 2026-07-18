@@ -49,7 +49,7 @@ When the above details are available, please submit them to the email address be
 
 ## For customers who pay by credit card
 
-If your payment method is a credit card and you made a full payment to Microsoft, and paid WHT to the relevant Tax authority, you must submit a WHT request to claim the refund of the tax amount.
+If you pay by credit card and make a full payment to Microsoft, and pay WHT to the relevant tax authority, you must submit a WHT request to claim a refund of the tax amount.
 
 Your WHT request must include the following items:
 
