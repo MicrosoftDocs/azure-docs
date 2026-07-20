@@ -18,7 +18,10 @@ ms.custom:
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 > [!IMPORTANT]
-> **Deprecation notice**: The MQ managed connector for Azure Logic Apps (Consumption) is being deprecated beginning August 2026. We recommend that customers migrate to the [MQ built-in connector](/azure/logic-apps/connectors/built-in/reference/mq/) for Azure Logic Apps (Standard). The existing managed connector will continue to work, but no new features or bug fixes will be added. This change will begin to happen automatically starting August 2026 — please switch to the MQ built-in connector as soon as possible.
+>
+> Starting August 2026, the MQ *managed* connector is deprecated and unavailable for use in workflows.
+>
+> The [MQ built-in connector](/azure/logic-apps/connectors/built-in/reference/mq/) in Azure Logic Apps Standard is available with better capabilities. Please migrate your workflow to use this version as soon as possible.
 
 
 This guide shows how to access an Azure-hosted or on-premises MQ server from a workflow in Azure Logic Apps using the MQ connector. You can then create automated workflows that receive and send messages stored in your MQ server. For example, your workflow can browse for a single message in a queue and then run other actions.
