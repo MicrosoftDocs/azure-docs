@@ -4,7 +4,7 @@ description: Learn how to encrypt NFS Azure file share data in transit by using 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 04/02/2026
+ms.date: 07/20/2026
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
@@ -17,7 +17,7 @@ ms.custom:
 
 **Applies to:** :heavy_check_mark: NFS file shares
 
-This article explains how you can encrypt data in transit for NFS Azure file shares. Azure Files NFSv4.1 volumes enhance network security by enabling secure TLS connections, protecting data in transit from interception, including man-in-the-middle attacks.
+This article explains how you can encrypt data in transit for NFS Azure file shares. Azure Files NFSv4.1 volumes enhance network security by enabling secure TLS connections. This encryption prevents data in transit from interception, including man-in-the-middle attacks.
 
 ## How encryption in transit works
 
@@ -31,18 +31,18 @@ The [AZNFS](https://github.com/Azure/AZNFS-mount) utility package simplifies enc
 
 - **AZNFS watchdog**: The AZNFS package runs a background job that ensures stunnel processes are running, automatically restarts terminated tunnels, and cleans up unused processes after all associated NFS mounts are unmounted.
 
-> [!IMPORTANT]
->
-> AZNFS supports the following Linux distributions:
->
-> - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS)
-> - Centos7, Centos8
-> - RedHat7, RedHat8, RedHat9, RedHat10
-> - Rocky8, Rocky9
-> - SUSE (SLES 15, SLES 16)
-> - Oracle Linux
-> - Alma Linux
-> - Azure Linux
+## Supported Linux distributions
+
+AZNFS supports the following Linux distributions:
+
+- Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS)
+- Centos7, Centos8
+- RedHat7, RedHat8, RedHat9, RedHat10
+- Rocky8, Rocky9
+- SUSE (SLES 15, SLES 16)
+- Oracle Linux
+- Alma Linux
+- Azure Linux
 
 ## Supported regions
 
@@ -66,7 +66,7 @@ You can configure **Require Encryption in Transit for NFS** for a storage accoun
 
 # [Portal](#tab/azure-portal)
 
-You can configure **Require Encryption in Transit for NFS** for a storage account in the following locations:
+You can configure **Require Encryption in Transit for NFS** for a storage account in the following locations in the Azure portal:
 
 - On the **Advanced** tab when creating a new storage account.
 - Under the **File service** section on the storage account overview blade.
@@ -209,13 +209,13 @@ export DEBIAN_FRONTEND=noninteractive
 
 To mount the NFS file share **with TLS encryption**:
 
-1. Create a directory on your client.
+Create a directory on your client.
 
 ```bash
 sudo mkdir -p /mount/<storage-account-name>/<share-name>
 ```
 
-2. Mount the NFS share by using the following cmdlet. Replace `<storage-account-name>` with your storage account name and `<share-name>` with your file share name.
+Mount the NFS share by using the following cmdlet. Replace `<storage-account-name>` with your storage account name and `<share-name>` with your file share name.
 
 ```bash
 sudo mount -t aznfs <storage-account-name>.file.core.windows.net:/<storage-account-name>/<share-name> /mount/<storage-account-name>/<share-name> -o vers=4,minorversion=1,sec=sys,nconnect=4
