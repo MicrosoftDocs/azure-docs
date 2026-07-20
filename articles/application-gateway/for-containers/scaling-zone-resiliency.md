@@ -4,7 +4,7 @@ description: This article defines Application Gateway for Containers Autoscaling
 services: application-gateway
 author: mbender-ms
 ms.custom: references_regions
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: concept-article
 ms.date: 3/12/2026
 ms.author: mbender

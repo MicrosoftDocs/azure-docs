@@ -3,7 +3,7 @@ title: Container networking with Azure Application Gateway for Containers
 description: Learn how Azure Application Gateway for Containers works with different container networking interfaces.
 services: application gateway
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: concept-article
 ms.date: 08/26/2025
 ms.author: mbender
