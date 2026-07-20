@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 manager: kumud
 ms.assetid: 866e0c30-1f33-43a5-91f0-d22f033b16c6
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: overview
 ms.date: 02/28/2026
 ms.custom: mvc
