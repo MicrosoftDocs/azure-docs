@@ -338,6 +338,9 @@ The following `Accept` headers are supported for retrieving instances within a s
 * `multipart/related; type="application/dicom"; transfer-syntax=1.2.840.10008.1.2.4.90`
 - `*/*` (when transfer-syntax isn't specified, `*` is used as default and mediaType defaults to `application/dicom`)
 
+> [!NOTE]
+> For multipart study or series retrieval from connected storage, the service omits files that were removed from the customer owned storage account and continues streaming the remaining instances.
+
 #### Retrieve an Instance
 
 The following `Accept` headers are supported for retrieving a specific instance.
