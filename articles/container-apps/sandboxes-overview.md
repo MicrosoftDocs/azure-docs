@@ -127,7 +127,7 @@ Sandboxes go through the following states:
 | Running | Actively executing, using CPU and memory |
 | Stopped | Stopped by user, API, or Lifecycle policy |
 
-When the sandbox is stopped, the operation will take and preserve a snapshot based on the Suspend Mode (see below).
+When the sandbox is stopped, the operation takes and preserves a snapshot based on the Suspend Mode (see the following section).
 
 You can configure lifecycle policies for each sandbox:
 
