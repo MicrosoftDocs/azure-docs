@@ -46,7 +46,7 @@ The key differences between the Classic and Simplified experience:
 
 **Action required**
 
-- You can continue using the classic experience for migrating the existing VMware and physical machines replications until **30 September 2026**. To modify the exising replications and for starting new replications, transition to the new, modernized (simplified) agent-based appliance.
+- You can continue using the classic experience for migrating the existing VMware and physical machines replications until **30 September 2026**. To modify the existing replications and for starting new replications, transition to the new, modernized (simplified) agent-based appliance.
 - Plan your final migrations for these machines before the retirement date. After, 30 September 2026, migration/cutover support via the classic appliance will end.
 - You won’t be able to view, manage, or perform replication & migration related operations on these machines through the Azure portal after the retirement date.
 - New features, security updates, enhancements, and mobility agent support for additional Linux distributions are available only in the simplified experience.
