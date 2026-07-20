@@ -27,7 +27,7 @@ This migration article describes the use of RoboCopy to move or migrate files to
 
 AzCopy and RoboCopy are fundamentally different tools. RoboCopy uses SMB and copies files in full fidelity, making it well-suited for migrations. See [migration basics](storage-files-migration-overview.md#migration-basics) for more information on file fidelity. AzCopy is a cloud-native tool that uses REST.
 
-The key behavioral difference: *RoboCopy /MIR* mirrors source to target; added, changed, and deleted files are all handled. *AzCopy sync* doesn't remove files deleted on the source from the target, making it incomplete for migration scenarios. For this reason, AzCopy isn't recommended for migration scenarios with Azure file shares as the target.
+The key behavioral difference: *RoboCopy /MIR* mirrors source to target. It handles added, changed, and deleted files. *AzCopy sync* doesn't remove files deleted on the source from the target, making it incomplete for migration scenarios. For this reason, don't use AzCopy for migration scenarios with Azure file shares as the target.
 
 ## Mount the Azure file share
 
@@ -108,7 +108,7 @@ Speed and success rate of a given RoboCopy run will depend on several factors:
 
 ### IOPS and bandwidth considerations
 
-In this category, you need to consider the **source storage**, the **target storage**, and the **network** connecting them. The maximum possible throughput is determined by the slowest of these three components.
+In this category, consider the **source storage**, the **target storage**, and the **network** connecting them. The slowest of these three components determines the maximum possible throughput.
 
 > [!CAUTION]
 > While copying as fast as possible is often most desirable, consider the utilization of your local network and NAS appliance for other, often business-critical tasks.
@@ -127,15 +127,15 @@ A similar line of thought applies to the IOPS observed on the NAS. The cluster s
 
 ### Processing speed
 
-RoboCopy traverses the namespace it's pointed to and evaluates each file and folder for copy, both during the initial run and on every subsequent catch-up run. These repeated runs minimize downtime and improve the overall success rate of migrated files.
+RoboCopy traverses the namespace you specify and evaluates each file and folder for copy, both during the initial run and on every subsequent catch-up run. These repeated runs minimize downtime and improve the overall success rate of migrated files.
 
-Bandwidth isn't always the most limiting factor. For large namespaces with many small files, namespace enumeration speed can have a greater impact on total copy time than throughput. Copying 1 TiB of small files takes considerably longer than copying 1 TiB of larger files. This is expected behavior.
+Bandwidth isn't always the most limiting factor. For large namespaces with many small files, namespace enumeration speed can have a greater impact on total copy time than throughput. Copying 1 TiB of small files takes considerably longer than copying 1 TiB of larger files. This difference is expected.
 
-RoboCopy supports multi-threaded copies via `/MT:n`. When provisioning a machine for RoboCopy, consider the number of processor cores (most CPUs provide two threads per core) and how many RoboCopy jobs you plan to run in parallel.
+RoboCopy supports multithreaded copies through the `/MT:n` option. When provisioning a machine for RoboCopy, consider the number of processor cores (most CPUs provide two threads per core) and how many RoboCopy jobs you plan to run in parallel.
 
-More threads copy small files considerably faster, but may not yield proportional benefits for large files; a high thread count for large files increases the probability of throughput or IOPS constraints.
+More threads copy small files considerably faster, but they might not provide proportional benefits for large files. A high thread count for large files increases the probability of throughput or IOPS constraints.
 
-For an initial RoboCopy run, start with a high thread count to saturate available network bandwidth. For subsequent /MIR runs with fewer changes, processing speed becomes the bottleneck, so match your thread count to your processor core count. Consider whether cores need to be reserved for other tasks on a production server.
+For an initial RoboCopy run, use a high thread count to saturate available network bandwidth. For subsequent `/MIR` runs with fewer changes, processing speed becomes the bottleneck, so match your thread count to your processor core count. Consider whether cores need to be reserved for other tasks on a production server.
 
 > [!TIP]
 > Rule of thumb: The first RoboCopy run (that will move a lot of data of a higher-latency network) benefits from over-provisioning the thread count (`/MT:n`). Subsequent runs will copy fewer differences, and you're more likely to shift from network throughput constrained to compute constrained. Under these circumstances, it's often better to match the RoboCopy thread count to the actually available threads on the machine. Over-provisioning in that scenario can lead to more context shifts in the processor, possibly slowing down your copy.
@@ -167,7 +167,7 @@ As you begin your migration to Azure Files, RoboCopy copies your files and folde
 If your HDD (standard) Azure file shares use the pay-as-you-go billing model, it might be difficult to estimate the number of transactions your migration will generate.
 
 - It's not possible to estimate the number of transactions based on the utilized storage capacity of the source. The number of transactions scales with the number of namespace items (files and folder) and their properties that are migrated, not their size. For example, more transactions are required to migrate 1 GiB of small files than 1 GiB of larger files.
-- To minimize downtime, you might need to run copy operations several times from source to target. All source and target items are processed during each copy operation, though subsequent runs finish faster. After the initial operations, only the differences introduced between copy runs are transported over the network. It's important to understand that although less data is being transported, the number of transactions required might remain the same.
+- To minimize downtime, you might need to run copy operations several times from source to target. Each copy operation processes all source and target items, though subsequent runs finish faster. After the initial operations, only the differences introduced between copy runs are transported over the network. It's important to understand that although less data is being transported, the number of transactions required might remain the same.
 - Copying the same file twice might not result in the same number of transactions. Processing an item migrated in a previous copy run might result in only a few read transactions. In contrast, changes to metadata or content between copy runs might require a larger number of transactions to update the target.
 
 Run some initial tests on your own data to better understand how many transactions a file migration generates.
