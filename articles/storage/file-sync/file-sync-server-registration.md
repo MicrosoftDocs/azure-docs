@@ -1,5 +1,5 @@
 ---
-title: Manage Registered Servers with Azure File Sync
+title: Manage Azure File Sync Registered Servers
 description: Learn how to register and unregister a Windows Server with an Azure File Sync Storage Sync Service.
 author: khdownie
 ms.service: azure-file-storage
@@ -10,17 +10,15 @@ ms.custom: sfi-image-nochange
 # Customer intent: "As a systems administrator, I want to register or unregister one or more Windows Servers with Azure File Sync, so that I can ensure seamless integration of on-premises file shares with cloud storage for better data accessibility and reliability."
 ---
 
-# Manage registered servers with Azure File Sync
+# Register or unregister servers with Azure File Sync
 
 Azure File Sync helps you centralize your organization's file shares in Azure Files without giving up the flexibility, performance, and compatibility of an on-premises file server. It achieves this goal by transforming your Windows Servers into a fast cache of your Azure file share.
 
-This article explains how to register and manage a server with a Storage Sync Service. For information about how to deploy Azure File Sync, see [How to deploy Azure File Sync](file-sync-deployment-guide.md).
+This article explains how to register and unregister a server with a Storage Sync Service. When you register a server with Azure File Sync, you create a trust relationship between your Windows Server and Azure. Use this trust relationship to create *server endpoints*, which represent specific folders on your Windows server that you want to sync with an Azure file share. The Azure file share you sync the server endpoint to is called a *cloud endpoint*.
 
-## Register or unregister a server with Storage Sync Service
+For information about how to deploy Azure File Sync, see [How to deploy Azure File Sync](file-sync-deployment-guide.md).
 
-When you register a server with Azure File Sync, you create a trust relationship between Windows Server and Azure. Use this trust relationship to create *server endpoints* on the server. Server endpoints represent specific folders that you want to sync with an Azure file share (also known as a *cloud endpoint*).
-
-### Prerequisites
+## Prerequisites
 
 To register a server with a Storage Sync Service, you must first prepare your server with the necessary prerequisites:
 
@@ -55,11 +53,11 @@ To register a server with a Storage Sync Service, you must first prepare your se
     </system.net>
 ```    
 
-### Register a server with Storage Sync Service
+## Register a server with Storage Sync Service
 
-Before a server can be used as a *server endpoint* in an Azure File Sync *sync group*, it must be registered with a *Storage Sync Service*. A server can only be registered with one Storage Sync Service at a time.
+Before a server can be used as a server endpoint in an Azure File Sync *sync group*, you must register it with a Storage Sync Service. A server can only be registered with one Storage Sync Service at a time.
 
-#### Install the Azure File Sync agent
+### Install the Azure File Sync agent
 
 1. [Download the Azure File Sync agent](https://go.microsoft.com/fwlink/?linkid=858257).
 
@@ -76,7 +74,7 @@ Before a server can be used as a *server endpoint* in an Azure File Sync *sync g
 > [!IMPORTANT]  
 > If the server is a member of a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster.
 
-#### Register the server by using the server registration UI
+### Register the server by using the server registration UI
 
 Follow these steps to register the server by using the server registration UI.
 
@@ -105,7 +103,7 @@ If the server is a member of a Failover Cluster, each server in the cluster must
 
 1. You might be prompted to sign into Azure again to complete the registration process.
 
-#### Register the server by using PowerShell
+### Register the server by using PowerShell
 
 You can also register a server by running the following Azure PowerShell cmdlet. Replace the placeholders with the correct values for your environment.
 
@@ -113,14 +111,14 @@ You can also register a server by running the following Azure PowerShell cmdlet.
 Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
 ```
 
-### Unregister the server with Storage Sync Service
+## Unregister a server with Storage Sync Service
 
-To unregister a server with a Storage Sync Service, complete several steps.
+To unregister a server with a Storage Sync Service, complete the following steps.
 
 > [!WARNING]  
 > Don't try to troubleshoot problems with sync, cloud tiering, or any other aspect of Azure File Sync by unregistering and registering a server, or removing and recreating the server endpoints unless a Microsoft engineer explicitly instructs you to do so. Unregistering a server and removing server endpoints is a destructive operation. Tiered files on the volumes with server endpoints aren't "reconnected" to their locations on the Azure file share after the registered server and server endpoints are recreated. This situation results in sync errors. Tiered files that exist outside a server endpoint namespace might be permanently lost. Tiered files might exist within server endpoints even if you never enabled cloud tiering.
 
-#### Recall all tiered data (optional)
+### Recall all tiered data (optional)
 
 If you want files that are currently tiered to be available after removing Azure File Sync (for example, this is a production environment, not a test environment), recall all files on each volume containing server endpoints. Disable cloud tiering for all server endpoints, and then run the following PowerShell cmdlets:
 
@@ -132,7 +130,7 @@ Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 > [!WARNING]  
 > If the local volume hosting the server endpoint doesn't have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet fails.  
 
-#### Remove the server from all sync groups
+### Remove the server from all sync groups
 
 Before unregistering the server on the Storage Sync Service, remove all server endpoints on that server. Use the Azure portal to complete this step:
 
@@ -157,7 +155,7 @@ Get-AzStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName
 }
 ```
 
-#### Unregister the server
+### Unregister the server
 
 After recalling all data and removing the server from all sync groups, unregister the server.
 
@@ -166,7 +164,7 @@ After recalling all data and removing the server from all sync groups, unregiste
 
    :::image type="content" source="media/storage-sync-files-server-registration/unregister-server.png" alt-text="Screenshot showing how to unregister a server.":::
 
-#### Unregister the server by using PowerShell
+### Unregister the server by using PowerShell
 
 You can also unregister the server by using the `Unregister-AzStorageSyncServer` PowerShell cmdlet.
 
