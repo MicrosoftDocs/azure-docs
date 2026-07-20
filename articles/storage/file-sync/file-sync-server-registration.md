@@ -107,7 +107,7 @@ If the server is a member of a Failover Cluster, each server in the cluster must
 
 1. You might be prompted to sign into Azure again to complete the registration process.
 
-# [PowerShell](#tab/powershell-register)
+# [PowerShell](#tab/azure-powershell)
 
 Run the following Azure PowerShell cmdlet. Replace the placeholders with the correct values for your environment.
 
@@ -140,14 +140,14 @@ Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 
 Before unregistering the server on the Storage Sync Service, remove all server endpoints on that server.
 
-# [Portal](#tab/portal-remove)
+# [Portal](#tab/azure-portal)
 
 1. Go to the Storage Sync Service where your server is registered.
 1. Remove all server endpoints for this server in each sync group in the Storage Sync Service. To remove server endpoints, right-click the relevant server endpoint in the sync group pane.
 
    :::image type="content" source="media/storage-sync-files-server-registration/sync-group-server-endpoint-remove.png" alt-text="Screenshot showing how to remove a server endpoint from a sync group.":::
 
-# [PowerShell](#tab/powershell-remove)
+# [PowerShell](#tab/azure-powershell)
 
 ```powershell
 Connect-AzAccount
@@ -169,14 +169,14 @@ Get-AzStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName
 
 After recalling all data and removing the server from all sync groups, unregister the server.
 
-# [Portal](#tab/portal-unregister)
+# [Portal](#tab/azure-portal)
 
 1. In the Azure portal, go to the Storage Sync Service and select **Sync** > **Registered servers**.
 1. Right-click the server you want to unregister and select **Unregister Server**.
 
    :::image type="content" source="media/storage-sync-files-server-registration/unregister-server.png" alt-text="Screenshot showing how to unregister a server.":::
 
-# [PowerShell](#tab/powershell-unregister)
+# [PowerShell](#tab/azure-powershell)
 
 > [!WARNING]  
 > Unregistering a server results in cascading deletes of all server endpoints on the server. Only run this cmdlet if you're certain that no path on the server is to be synced anymore.
