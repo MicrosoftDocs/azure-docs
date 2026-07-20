@@ -29,9 +29,9 @@ AzCopy and RoboCopy are two fundamentally different file copy tools. RoboCopy us
 
 RoboCopy, as a trusted, Windows-based copy tool, supports many migration scenarios due to its rich set of features and the ability to copy files and folders in full fidelity. See the [file fidelity section in the migration overview article](storage-files-migration-overview.md#migration-basics) to learn more about the importance of copying files at maximum possible fidelity.
 
-AzCopy, on the other hand, has only recently expanded to support file copy with some fidelity and added the first features needed to be considered as a migration tool. However, there are still gaps, and there can easily be misunderstandings of functionality when comparing AzCopy flags to RoboCopy flags.
+AzCopy, on the other hand, has expanded to support file copy with some fidelity and added the first features needed to be considered as a migration tool. However, there are still gaps, and there can easily be misunderstandings of functionality when comparing AzCopy flags to RoboCopy flags.
 
-An example: *RoboCopy /MIR* will mirror source to target - that means added, changed, and deleted files are considered. An important difference in using *AzCopy -sync* is that deleted files on the source aren't removed on the target. That makes for an incomplete differential-copy feature set. AzCopy will continue to evolve. At this time, we don't recommend using AzCopy for migration scenarios with Azure file shares as the target.
+An example: *RoboCopy /MIR* will mirror source to target - that means added, changed, and deleted files are considered. An important difference in using *AzCopy sync* is that deleted files on the source aren't removed on the target. That makes for an incomplete differential-copy feature set. AzCopy will continue to evolve. At this time, AzCopy isn't recommended for migration scenarios with Azure file shares as the target.
 
 ## Mount the Azure file share
 
@@ -83,7 +83,7 @@ In both cases, RoboCopy might report byte counts as though data was transferred.
 > [!TIP]
 > [Check out the Troubleshooting section](#troubleshoot-and-optimize) if RoboCopy is impacting your production environment, reports lots of errors, or isn't progressing as fast as expected.
 
-## User cut-over
+## Complete the migration cutover
 
 When you run the RoboCopy command for the first time, your users and applications are still accessing files on the source of your migration and potentially changing them. It's possible that RoboCopy has processed a directory, moved on to the next, and then a user on the source location adds, changes, or deletes a file that will now not be processed in this current RoboCopy run. This behavior is expected.
 
@@ -137,14 +137,14 @@ We often default to considering bandwidth as the most limiting factor in a migra
 
 The cause for this difference is the processing power needed to walk through a namespace. RoboCopy supports multi-threaded copies through the `/MT:n` parameter where **n** stands for the number of threads to be used. So when provisioning a machine specifically for RoboCopy, consider the number of processor cores and their relationship to the thread count they provide. Most common are two threads per core. The core and thread count of a machine is an important data point to decide what multi-thread values `/MT:n` you should specify. Also consider how many RoboCopy jobs you plan to run in parallel on a given machine.
 
-More threads will copy our 1 TiB example of small files considerably faster than fewer threads. At the same time, the extra resource investment on our 1 TiB of larger files may not yield proportional benefits. A high thread count will attempt to copy more of the large files over the network simultaneously. This extra network activity increases the probability of getting constrained by throughput or storage IOPS.
+More threads will copy the 1 TiB example of small files considerably faster than fewer threads. At the same time, the extra resource investment on the 1 TiB of larger files may not yield proportional benefits. A high thread count will attempt to copy more of the large files over the network simultaneously. This extra network activity increases the probability of getting constrained by throughput or storage IOPS.
 
 During a first RoboCopy into an empty target or a differential run with lots of changed files, you're likely constrained by your network throughput. Start with a high thread count for an initial run. A high thread count, even beyond your currently available threads on the machine, helps saturate the available network bandwidth. Subsequent /MIR runs are progressively impacted by processing items. Fewer changes in a differential run mean less transport of data over the network. Your speed is now more dependent on your ability to process namespace items than to move them over the network link. For subsequent runs, match your thread count value to your processor core count and thread count per core. Consider if cores need to be reserved for other tasks a production server may have.
 
 > [!TIP]
 > Rule of thumb: The first RoboCopy run (that will move a lot of data of a higher-latency network) benefits from over-provisioning the thread count (`/MT:n`). Subsequent runs will copy fewer differences, and you're more likely to shift from network throughput constrained to compute constrained. Under these circumstances, it's often better to match the RoboCopy thread count to the actually available threads on the machine. Over-provisioning in that scenario can lead to more context shifts in the processor, possibly slowing down your copy.
 
-### Avoid unnecessary work
+### Avoid namespace changes during migration
 
 Avoid large-scale changes in your namespace, such as moving files between directories, changing properties at a large scale, or changing directory and file-level permissions (NTFS ACLs). Especially ACL changes can have a high impact because they often have a cascading change effect on files lower in the folder hierarchy. Consequences can be:
 
@@ -171,10 +171,10 @@ As you begin your migration to Azure Files, RoboCopy copies your files and folde
 If your HDD (standard) Azure file shares use the pay-as-you-go billing model, it might be difficult to estimate the number of transactions your migration will generate.
 
 - It's not possible to estimate the number of transactions based on the utilized storage capacity of the source. The number of transactions scales with the number of namespace items (files and folder) and their properties that are migrated, not their size. For example, more transactions are required to migrate 1 GiB of small files than 1 GiB of larger files.
-- In order to minimize downtime, you might need to run copy operations several times from source to target. All source and target items are processed during each copy operation, though subsequent runs finish faster. After the initial operations, only the differences introduced between copy runs are transported over the network. It's important to understand that although less data is being transported, the number of transactions required might remain the same.
+- To minimize downtime, you might need to run copy operations several times from source to target. All source and target items are processed during each copy operation, though subsequent runs finish faster. After the initial operations, only the differences introduced between copy runs are transported over the network. It's important to understand that although less data is being transported, the number of transactions required might remain the same.
 - Copying the same file twice might not result in the same number of transactions. Processing an item migrated in a previous copy run might result in only a few read transactions. In contrast, changes to metadata or content between copy runs might require a larger number of transactions to update the target. Each file in your namespace might have unique requirements, resulting in a different number of transactions.
 
-It's advisable to run some initial tests on your own data to better understand how many transactions are incurred. This will give you a better idea of the total number of transactions a file migration might generate.
+Run some initial tests on your own data to better understand how many transactions are incurred. This will give you a better idea of the total number of transactions a file migration might generate.
 
 ## Next steps
 
