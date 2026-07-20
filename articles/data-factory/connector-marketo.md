@@ -5,7 +5,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 06/22/2026
-ms.update-cycle: 1095
+ms.update-cycle: 1095-days
 ms.author: makromer
 author: kromerm
 ms.custom:

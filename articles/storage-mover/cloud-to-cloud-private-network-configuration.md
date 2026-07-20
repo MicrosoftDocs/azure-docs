@@ -147,6 +147,12 @@ If you operate an SD-WAN platform in AWS (for example, FortiGate on EC2), you ca
 2. Attach WAN/LAN interfaces, associate an Elastic IP to the WAN interface, and disable source/destination checks if required by the appliance routing model.
 3. Configure security groups and route tables to allow Azure prefixes and steer traffic through the appliance.
 
+## Implementation details for AWS FSx private access (VPC endpoints)
+
+### Configure an AWS VPC endpoint (VPCE) for Amazon FSx
+
+An AWS VPC endpoint (VPCE) for FSx provides a private endpoint to an S3 service that allows your VPC to reach FSx privately. To create your FSx share and attach it to a VPC, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/getting-started.html). Make sure your share is within a VPC that has AWS connectivity and that FSx security allows secure traffic on port 445 by default.
+
 ## Implementation details for S3 private access (VPC endpoints)
 
 ### Configure an AWS VPC endpoint (VPCE) for Amazon S3

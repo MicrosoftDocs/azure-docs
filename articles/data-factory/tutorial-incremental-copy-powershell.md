@@ -1,8 +1,8 @@
 ---
 title: Incrementally copy a table using PowerShell
 description: In this tutorial, you create an Azure Data Factory pipeline that incrementally copies data from an Azure SQL database to Azure Blob storage.'
-author: dearandyxu
-ms.author: yexu
+author: kromerm
+ms.author: makromer
 ms.custom: devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 10/03/2024

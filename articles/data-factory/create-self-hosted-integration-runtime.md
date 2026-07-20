@@ -4,8 +4,8 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create a self-hosted integration runtime in Azure Data Factory and Azure Synapse Analytics, which lets pipelines access data stores in a private network.
 ms.subservice: integration-runtime
 ms.topic: concept-article
-author: lrtoyou1223
-ms.author: lle
+author: kromerm
+ms.author: makromer
 ms.date: 06/17/2026
 ai-usage: ai-assisted
 ms.custom:

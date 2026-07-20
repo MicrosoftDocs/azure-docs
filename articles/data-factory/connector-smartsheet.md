@@ -8,7 +8,7 @@ ms.subservice: data-movement
 ms.topic: how-to
 ms.custom: synapse
 ms.date: 06/22/2026
-ms.update-cycle: 1095
+ms.update-cycle: 1095-days
 ---
 
 # Transform data in Smartsheet (Preview) using Azure Data Factory or Synapse Analytics

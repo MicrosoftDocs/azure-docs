@@ -3,7 +3,7 @@ title: IoT Edge supported platforms
 description: Azure IoT Edge supported operating systems, runtimes, and container engines.
 author: sethmanheim
 ms.author: sethm
-ms.date: 02/26/2026
+ms.date: 07/16/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -55,7 +55,6 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 | Operating System | AMD64 | ARM32v7 | ARM64 | End of OS provider standard support |
 | ---------------- | ----- | ------- | ----- | -------------- |
 | [Debian 12](https://www.debian.org/releases/bookworm/) | ![Debian + AMD64](./media/support/green-check.png) | ![Debian + ARM32v7](./media/support/green-check.png) | ![Debian + ARM64](./media/support/green-check.png) | [June 2028](https://wiki.debian.org/LTS) |
-| [Debian 11](https://www.debian.org/releases/bullseye/) |  | ![Debian + ARM32v7](./media/support/green-check.png) |  | [June 2026](https://wiki.debian.org/LTS) |
 | [Red Hat Enterprise Linux 9](https://access.redhat.com/articles/3078) | ![Red Hat Enterprise Linux 9 + AMD64](./media/support/green-check.png) | | | [May 2032](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204) |
 | [Red Hat Enterprise Linux 8](https://access.redhat.com/articles/3078) | ![Red Hat Enterprise Linux 8 + AMD64](./media/support/green-check.png) | | | [May 2029](https://access.redhat.com/product-life-cycles?product=Red%20Hat%20Enterprise%20Linux,OpenShift%20Container%20Platform%204) |
 | [Ubuntu Server 24.04](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) | ![Ubuntu Server 24.04 + AMD64](./media/support/green-check.png) |  | ![Ubuntu Server 24.04 + ARM64](./media/support/green-check.png) | [June 2029](https://wiki.ubuntu.com/Releases) |
@@ -67,7 +66,7 @@ Modules built as Linux containers can be deployed to either Linux or Windows dev
 <sup>1</sup> Ubuntu Core is fully supported but the automated testing of Snaps currently happens on Ubuntu 22.04 Server LTS. 
 
 > [!NOTE]
-> Some operating systems appear in both Tier 1 and Tier 2 tables because different CPU architectures have different support levels. For example, Debian 11 is Tier 1 for ARM32v7 but Tier 2 for AMD64 and ARM64. Check both tables and match your target architecture to find the correct support tier.
+> Some operating systems appear in both Tier 1 and Tier 2 tables because different CPU architectures have different support levels. Check both tables and match your target architecture to find the correct support tier.
 
 > [!NOTE]
 > When a Tier 1 operating system reaches its end of standard support date, it's removed from the Tier 1 supported platform list. If you take no action, IoT Edge devices running on the unsupported operating system continue to work but ongoing security patches and bug fixes in the host packages for the operating system won't be available after the end of support date. To continue to receive support and security updates, we recommend that you update your host OS to a Tier 1 supported platform.
@@ -87,7 +86,6 @@ The systems listed in the following table are considered compatible with Azure I
 
 | Operating System | AMD64 | ARM32v7 | ARM64 | End of OS provider standard support |
 | ---------------- | ----- | ------- | ----- | -------------- |
-| [Debian 11](https://www.debian.org/releases/bullseye/) | ![Debian 11 + AMD64](./media/support/green-check.png) |  | ![Debian 11 + ARM64](./media/support/green-check.png) | [June 2026](https://wiki.debian.org/LTS) |
 | [Mentor Embedded Linux Flex OS](https://www.mentor.com/embedded-software/linux/mel-flex-os/) | ![Mentor Embedded Linux Flex OS + AMD64](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM32v7](./media/support/green-check.png) | ![Mentor Embedded Linux Flex OS + ARM64](./media/support/green-check.png) |  |
 | [Mentor Embedded Linux Omni OS](https://www.mentor.com/embedded-software/linux/mel-omni-os/) | ![Mentor Embedded Linux Omni OS + AMD64](./media/support/green-check.png) |  | ![Mentor Embedded Linux Omni OS + ARM64](./media/support/green-check.png) |  |
 | [Ubuntu Server 24.04](https://wiki.ubuntu.com/NobleNumbat/ReleaseNotes) |  | ![Ubuntu 24.04 + ARM32v7](./media/support/green-check.png) |  | [June 2029](https://wiki.ubuntu.com/Releases) |
@@ -105,6 +103,7 @@ The following table lists the currently supported releases. IoT Edge release ass
 
 | Release notes and assets | Type | Release date | End of support date |
 | ------------------------ | ---- | ------------ | ------------------- |
+| [1.6](https://github.com/Azure/azure-iotedge/releases/tag/1.6.0) | Long-term support (LTS) | July 2026 | November 14, 2028 |
 | [1.5](https://github.com/Azure/azure-iotedge/releases/tag/1.5.0) | Long-term support (LTS) | April 2024 | November 10, 2026 |
 
 For more information about IoT Edge version history, see [Version history](version-history.md#version-history).
@@ -116,7 +115,8 @@ IoT Edge uses the **Microsoft.Azure.Devices.Client** SDK. For more information, 
 
 | IoT Edge version | Microsoft.Azure.Devices.Client SDK version |
 |------------------|--------------------------------------------|
-| 1.5              | 1.36.x |
+| 1.6              | 1.43.x                                     |
+| 1.5              | 1.36.x                                     |
 
 ## Virtual Machines
 

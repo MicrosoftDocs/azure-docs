@@ -8,7 +8,7 @@ ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: synapse
 ms.date: 06/22/2026
-ms.update-cycle: 1095
+ms.update-cycle: 1095-days
 ---
 
 # Copy data from SAP Business Warehouse via Open Hub using Azure Data Factory or Synapse Analytics

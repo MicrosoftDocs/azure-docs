@@ -147,7 +147,7 @@ ALB Controller implements version [v1.5](https://gateway-api.sigs.k8s.io/docs/im
 | [GRPCRoute](https://gateway-api.sigs.k8s.io/reference/api-types/grpcroute/)                | Yes   | |
 | [ReferenceGrant](https://gateway-api.sigs.k8s.io/reference/api-types/referencegrant/)     | Yes   | Currently supports version v1alpha1 of this API |
 | [InferencePool](https://gateway-api-inference-extension.sigs.k8s.io/reference/spec/#inferencepool) | Yes | |
-| [InferenceObjective](https://gateway-api-inference-extension.sigs.k8s.io/guides/?h=inferenceobjective#deploy-inferenceobjective-optional) | Yes | Currently implements version v1alpha1 of this API |
+| [InferenceObjective](https://gateway-api-inference-extension.sigs.k8s.io/?h=inferenceobjective#deploy-inferenceobjective-optional) | Yes | Currently implements version v1alpha1 of this API |
 
 ### Ingress API support
 

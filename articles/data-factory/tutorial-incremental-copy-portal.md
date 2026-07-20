@@ -1,8 +1,8 @@
 ---
 title: Incrementally copy a table using Azure portal
 description: In this tutorial, you create an Azure Data Factory with a pipeline that loads delta data from a table in Azure SQL Database to Azure Blob storage.
-author: dearandyxu
-ms.author: yexu
+author: kromerm
+ms.author: makromer
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement

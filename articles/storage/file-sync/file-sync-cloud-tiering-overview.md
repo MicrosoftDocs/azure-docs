@@ -1,6 +1,6 @@
 ---
 title: Understand Azure File Sync Cloud Tiering
-description: Understand cloud tiering, an optional Azure File Sync feature. Frequently accessed files are cached locally on the server; others are tiered to Azure Files.
+description: Learn about cloud tiering, an optional Azure File Sync feature that caches frequently accessed files locally on your server and tiers infrequently accessed files to Azure Files.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
@@ -9,7 +9,7 @@ ms.author: kendownie
 # Customer intent: As a system administrator, I want to understand how Azure File Sync cloud tiering works so that I can optimize local storage use and manage file access efficiently in my organization.
 ---
 
-# Cloud tiering overview
+# Azure File Sync cloud tiering overview
 
 Cloud tiering, an optional feature of Azure File Sync, decreases the amount of local storage required while keeping the performance of an on-premises file server.
 
@@ -52,7 +52,7 @@ Typically, last access time is tracked and available. However, when you create a
 The date policy works the same way. Without a last access time, the date policy acts on the last modified time. If that's unavailable, it falls back to the create time of a file. Over time, the system observes more file access requests and automatically starts to use the self-tracked last access time.
 
 > [!NOTE]
-> Cloud tiering doesn't depend on the NTFS feature for tracking last access time. This NTFS feature is off by default. Due to performance considerations, we don't recommend that you manually enable this feature. Cloud tiering tracks last access time separately.
+> Cloud tiering doesn't depend on the NTFS feature for tracking last access time. This NTFS feature is off by default. Due to performance considerations, don't manually enable this feature. Cloud tiering tracks last access time separately.
 
 ### Considerations for choosing a cloud tiering policy
 
@@ -62,7 +62,7 @@ Cold files that are accessed less frequently are best suited to be tiered files,
 
 When a file is created or modified, you can proactively recall the file to servers that you specify. Proactive recall makes the new or modified file readily available for consumption in each specified server.
 
-For example, a globally distributed company has branch offices in the US and India. In the morning in the US, information workers create a new folder and files for a brand new project, and work all day on it. Azure File Sync syncs the folder and files to the Azure file share (cloud endpoint), which serves as the central hub between all registered servers. Information workers in India will continue working on the project in their time zone. When they arrive in the morning, the local Azure File Sync enabled server in India needs to have these new files available locally so the India team can efficiently work off of a local cache. Enabling proactive recall tells the server to download the files as soon as they're changed or created in the Azure file share, rather than waiting until a user tries to open them.
+For example, a globally distributed company has branch offices in the US and India. In the morning in the US, information workers create a new folder and files for a brand new project, and work all day on it. Azure File Sync syncs the folder and files to the Azure file share (cloud endpoint), which serves as the central hub between all registered servers. Information workers in India continue working on the project in their time zone. When they arrive in the morning, the local Azure File Sync enabled server in India needs to have these new files available locally so the India team can efficiently work from a local cache. Enabling proactive recall tells the server to download the files as soon as they're changed or created in the Azure file share, rather than waiting until a user tries to open them.
 
 If files recalled to the server aren't needed locally, the unnecessary recall can increase your egress traffic and costs. Therefore, only enable proactive recall when you know that prepopulating a server's cache with recent changes from the cloud will have a positive effect on users or applications using the files on that server.
 
@@ -74,13 +74,13 @@ For more information on proactive recall, see [Deploy Azure File Sync](file-sync
 
 Cloud tiering is the separation between namespace (the file and folder hierarchy as well as file properties) and the file content.
 
-#### Tiered file
+### Tiered file
 
 For tiered files, the size on disk is zero because the file content itself isn't being stored locally. When a file is tiered, the Azure File Sync file system filter (StorageSync.sys) replaces the file locally with a pointer called a reparse point. The reparse point represents a URL to the file in the Azure file share. A tiered file has both the `offline` attribute and the `FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS` attribute set in NTFS so that third-party applications can securely identify tiered files.
 
 ![A screenshot of a file's properties when it is tiered - namespace only.](media/storage-sync-cloud-tiering-overview/cloud-tiering-overview-2.png)
 
-#### Locally cached file
+### Locally cached file
 
 For files stored in an on-premises file server, the size on disk is about equal to the logical size of the file, because the entire file (file attributes and file content) is stored locally.
 

@@ -1233,7 +1233,7 @@ items:
     - name: Build an IVR Bot for Teams Auto Attendant
       href: quickstarts/tpe/teams-phone-extensibility-interactive-voice-response.md
     - name: REST API for Teams Phone extensibility
-      href: quickstarts/tpe/teams-phone-extensiblity-rest-api.md
+      href: quickstarts/tpe/teams-phone-extensibility-rest-api.md
 - name: Job Router
   items:
   - name: Overview

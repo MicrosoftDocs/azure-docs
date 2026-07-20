@@ -28,6 +28,8 @@ To prepare an Azure Arc-enabled Kubernetes cluster, you need:
 
 [!INCLUDE [Cluster prerequisites for Ubuntu and Tanzu](../includes/cluster-prerequisites.md)]
 
+[!INCLUDE [prereq-azure-cli-connected-k8s](../includes/prereq-azure-cli-connected-k8s.md)]
+
 * Hardware that meets the system requirements:
 
   * [Azure IoT Operations supported environments](./overview-deploy.md#supported-environments).
@@ -76,6 +78,8 @@ To prepare a TKG workload cluster, you need:
   - [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements).
     
   - [TKG standalone management cluster requirements.](https://techdocs.broadcom.com/us/en/vmware-tanzu/standalone-components/tanzu-kubernetes-grid/2-5/tkg/mgmt-reqs-index.html)
+
+[!INCLUDE [prereq-azure-cli-connected-k8s](../includes/prereq-azure-cli-connected-k8s.md)]
     
 ---
 
@@ -133,11 +137,11 @@ Connect your cluster to Azure Arc so that it can be managed remotely.
 
 1. From a machine that has `kubectl` access to your cluster, sign into Azure CLI with your Microsoft Entra user account that has the required role(s) for the Azure subscription:
 
-      ```azurecli
+   ```azurecli
    az login
    ```
 
-      If at any point you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
+   If at any point you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively by using a browser.
 
 1. After you sign in, the Azure CLI displays all of your subscriptions and indicates your default subscription with an asterisk `*`. To continue with your default subscription, select `Enter`. Otherwise, type the number of the Azure subscription that you want to use.
 
