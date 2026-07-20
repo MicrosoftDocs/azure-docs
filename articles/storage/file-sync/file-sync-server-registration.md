@@ -74,7 +74,11 @@ Before a server can be used as a server endpoint in an Azure File Sync *sync gro
 > [!IMPORTANT]  
 > If the server is a member of a Failover Cluster, the Azure File Sync agent must be installed on every node in the cluster.
 
-### Register the server by using the server registration UI
+### Register the server
+
+You can register the server by using the server registration UI or Azure PowerShell.
+
+# [Server registration UI](#tab/server-registration-ui)
 
 Follow these steps to register the server by using the server registration UI.
 
@@ -103,13 +107,15 @@ If the server is a member of a Failover Cluster, each server in the cluster must
 
 1. You might be prompted to sign into Azure again to complete the registration process.
 
-### Register the server by using PowerShell
+# [PowerShell](#tab/powershell-register)
 
-You can also register a server by running the following Azure PowerShell cmdlet. Replace the placeholders with the correct values for your environment.
+Run the following Azure PowerShell cmdlet. Replace the placeholders with the correct values for your environment.
 
 ```powershell
 Register-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
 ```
+
+---
 
 ## Unregister a server with Storage Sync Service
 
@@ -132,14 +138,16 @@ Invoke-StorageSyncFileRecall -Path <a-volume-with-server-endpoints-on-it>
 
 ### Remove the server from all sync groups
 
-Before unregistering the server on the Storage Sync Service, remove all server endpoints on that server. Use the Azure portal to complete this step:
+Before unregistering the server on the Storage Sync Service, remove all server endpoints on that server.
+
+# [Portal](#tab/portal-remove)
 
 1. Go to the Storage Sync Service where your server is registered.
 1. Remove all server endpoints for this server in each sync group in the Storage Sync Service. To remove server endpoints, right-click the relevant server endpoint in the sync group pane.
 
    :::image type="content" source="media/storage-sync-files-server-registration/sync-group-server-endpoint-remove.png" alt-text="Screenshot showing how to remove a server endpoint from a sync group.":::
 
-You can also remove server endpoints by running the following PowerShell script:
+# [PowerShell](#tab/powershell-remove)
 
 ```powershell
 Connect-AzAccount
@@ -155,18 +163,20 @@ Get-AzStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName
 }
 ```
 
+---
+
 ### Unregister the server
 
 After recalling all data and removing the server from all sync groups, unregister the server.
+
+# [Portal](#tab/portal-unregister)
 
 1. In the Azure portal, go to the Storage Sync Service and select **Sync** > **Registered servers**.
 1. Right-click the server you want to unregister and select **Unregister Server**.
 
    :::image type="content" source="media/storage-sync-files-server-registration/unregister-server.png" alt-text="Screenshot showing how to unregister a server.":::
 
-### Unregister the server by using PowerShell
-
-You can also unregister the server by using the `Unregister-AzStorageSyncServer` PowerShell cmdlet.
+# [PowerShell](#tab/powershell-unregister)
 
 > [!WARNING]  
 > Unregistering a server results in cascading deletes of all server endpoints on the server. Only run this cmdlet if you're certain that no path on the server is to be synced anymore.
@@ -175,6 +185,8 @@ You can also unregister the server by using the `Unregister-AzStorageSyncServer`
 $RegisteredServer = Get-AzStorageSyncServer -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>"
 Unregister-AzStorageSyncServer -Force -ResourceGroupName "<your-resource-group-name>" -StorageSyncServiceName "<your-storage-sync-service-name>" -ServerId $RegisteredServer.ServerId
 ```
+
+---
 
 ## Manage Azure File Sync network and storage usage
 
