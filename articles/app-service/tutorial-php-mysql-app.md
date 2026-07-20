@@ -23,7 +23,7 @@ ms.custom:
 
 # Tutorial: Deploy a PHP, MySQL, and Redis app to Azure App Service
 
-This tutorial shows how to create a secure PHP app in Azure App Service that connects to a MySQL database using Azure Database for MySQL Flexible Server. To use Azure Managed Redis, follow the [Azure Developer CLI](./tutorial-php-mysql-app?pivots=azure-developer-cli) steps. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you finish, you have a Laravel app running on Azure App Service on Linux.
+This tutorial shows how to create a secure PHP app in Azure App Service that connects to a MySQL database using Azure Database for MySQL Flexible Server. To use Azure Managed Redis, follow the [Azure Developer CLI](./tutorial-php-mysql-app.md?pivots=azure-developer-cli) steps. Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you finish, you have a Laravel app running on Azure App Service on Linux.
 
 :::image type="content" source="./media/tutorial-php-mysql-app/azure-portal-browse-app-2.png" alt-text="Screenshot of the Azure app example titled Task List showing new tasks added.":::
 
