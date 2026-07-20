@@ -95,6 +95,7 @@ The following table describes the network topologies that are supported by each 
 |On-premises connectivity via a secured hub (a firewall network virtual appliance) |Yes|Yes|
 |Connectivity from an Oracle AI Database cluster on Oracle AI Database@Azure nodes to Azure resources|Yes|Yes|
 |Connectivity to Azure Container Apps, AKS, and Serverless Apps|No|Yes|
+|Connectivity from Azure Web Apps, Azure Function Apps, Azure Container Apps, and other serverless resources|No|Yes|
 |Connectivity from Azure NetApp Files with Basic network features (ANF and Oracle AI Database@Azure must be deployed in separate VNETs)|No|Yes|
 |Connectivity from Azure NetApp Files with Standard network features (ANF and Oracle AI Database@Azure must be deployed in separate VNETs)|Yes|Yes
 
@@ -158,7 +159,7 @@ When routing traffic to Oracle AI Database@Azure through a Network Virtual Appli
 > Without these routes, outbound traffic may bypass required inspection paths or fail to reach the intended destination.
 
 > [!Note]
-> When routing traffic through a network virtual appliance or firewall from sources in the same virtual network or a peered virtual network, configure the user-defined route (UDR) with a prefix that is equal to or more specific than the delegated subnet size of the Oracle AI Database@Azure instance. Don't use a UDR prefix that is less specific than the delegated subnet size, because such routes don't take effect.
+> When routing traffic through a network virtual appliance or firewall from sources in the same virtual network or a peered virtual network, configure the user-defined route (UDR) with a prefix that is equal to or more specific than the delegated subnet size of the Oracle AI Database@Azure instance. Don't use a UDR prefix that is less specific than the delegated subnet size, because such routes won't take effect.
 > 
 > For example, if your delegated subnet is `x.x.x.x/24`, you must configure your UDR to `x.x.x.x/24` (equal) or `x.x.x.x/32` (more specific). If you configure the UDR route to be `x.x.x.x/16`, undefined behaviors such as asymmetric routing can cause a network drop at the firewall.
 
