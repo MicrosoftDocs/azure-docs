@@ -27,6 +27,8 @@ This article describes which Microsoft Teams Phone capabilities Azure Communicat
 
 The following list of capabilities is supported for scenarios where at least one phone number participates in 1:1 or group calls:
 
+**Legend:** ✔️ supported · ❌ not supported · N/A not applicable to that SDK.
+
 | **Group of features** | **Capability (from TPE perspective)** | **Client Calling SDK** | **Call Automation**  |
 | --- | --- | --- | --- |
 | Connectivity | Teams calling plans | ✔️ | ✔️ |
@@ -104,8 +106,6 @@ The following list of capabilities is supported for scenarios where at least one
 | | Replace the caller ID with Teams Phone service number | ✔️ | ✔️ |
 | Dial Plan | Outbound PSTN call from the Teams Resource account honors its assigned Dial plan policy in the Teams Admin Center | N/A | ✔️ |
 | | Outbound emergency call from the Teams user account honors its assigned dial plan policy in the Teams Admin center | ✔️ | N/A | -->
-
-\* Participants joining via phone number can't see video content. So actions involving video don't affect them but can apply when VoIP participants join.
 
 ## Next steps
 

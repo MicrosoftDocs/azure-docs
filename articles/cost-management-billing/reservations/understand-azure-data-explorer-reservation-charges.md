@@ -6,7 +6,7 @@ ms.author: primittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.topic: concept-article
-ms.date: 03/19/2026
+ms.date: 07/17/2026
 ms.custom: kr2b-contr-experiment
 ---
 

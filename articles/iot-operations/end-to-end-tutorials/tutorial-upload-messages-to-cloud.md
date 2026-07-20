@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: tutorial
 ms.custom:
   - ignite-2023
-ms.date: 11/03/2025
+ms.date: 07/16/2026
 
 #CustomerIntent: As an OT user, I want to send my OPC UA data to the cloud so that I can derive insights from it by using a tool such as Real-Time Dashboards.
 ms.service: azure-iot-operations
@@ -67,7 +67,7 @@ To create an Event Hubs namespace and an event hub, run the following Azure CLI 
 # [Bash](#tab/bash)
 
 ```bash
-az eventhubs namespace create --name ${CLUSTER_NAME:0:24} --resource-group $RESOURCE_GROUP --disable-local-auth true
+az eventhubs namespace create --name ${CLUSTER_NAME:0:24} --resource-group $RESOURCE_GROUP
 
 az eventhubs eventhub create --name destinationeh --resource-group $RESOURCE_GROUP --namespace-name ${CLUSTER_NAME:0:24} --retention-time 1 --partition-count 1 --cleanup-policy Delete
 ```
@@ -75,7 +75,7 @@ az eventhubs eventhub create --name destinationeh --resource-group $RESOURCE_GRO
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az eventhubs namespace create --name $CLUSTER_NAME.Substring(0, [MATH]::Min($CLUSTER_NAME.Length, 24)) --resource-group $RESOURCE_GROUP --disable-local-auth true
+az eventhubs namespace create --name $CLUSTER_NAME.Substring(0, [MATH]::Min($CLUSTER_NAME.Length, 24)) --resource-group $RESOURCE_GROUP
 
 az eventhubs eventhub create --name destinationeh --resource-group $RESOURCE_GROUP --namespace-name $CLUSTER_NAME.Substring(0, [MATH]::Min($CLUSTER_NAME.Length, 24)) --retention-time 1 --partition-count 1 --cleanup-policy Delete
 ```

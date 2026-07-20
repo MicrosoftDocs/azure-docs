@@ -1,16 +1,16 @@
 ---
-title: Azure Web PubSub chat hub quickstart
-description: A quickstart guide that shows how to build a real-time chat application using Azure Web PubSub chat hub. It walks through both the server-side negotiate flow and the client-side API, explaining why each step is required.
+title: Azure Web PubSub chat hub tutorial
+description: A tutorial that shows how to build a real-time chat application using Azure Web PubSub chat hub. It walks through both the server-side negotiate flow and the client-side API, explaining why each step is required.
 author: kevinguo-ed
 ms.author: kevinguo
 ms.service: azure-web-pubsub
 ms.topic: quickstart
-ms.date: 02/09/2026
+ms.date: 07/20/2026
 ---
 
-# Quickstart: Build a simple chat app with a chat hub
+# Tutorial: Build a simple chat app with a chat hub
 
-In this quickstart, you build a simple real-time chat flow using a Web PubSub chat hub.
+In this tutorial, you build a simple real-time chat flow using a Web PubSub chat hub.
 
 You:
 

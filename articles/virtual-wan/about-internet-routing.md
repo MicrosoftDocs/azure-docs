@@ -83,9 +83,17 @@ When Virtual WAN is configured in forced tunnel mode, the highest priority defau
 
 :::image type="content" source="./media/about-internet-routing/force-tunnel.png" alt-text="Screenshot that shows forced tunnel." lightbox="./media/about-internet-routing/force-tunnel.png":::
 
-Forced tunneling instructs Virtual WAN to expect Internet traffic to be routed to a designated next hop instead of directly to the Internet. Therefore, If there are no default routes learnt dynamically from on-premises or configured as a static route on Virtual Network connections, Internet traffic will be **dropped** by the Azure platform and will not be forwarded to the security solution in the hub.
+Forced tunneling instructs Virtual WAN to expect internet traffic to be routed to a designated next hop instead of directly to the internet. 
 
-The security solution in the Virtual WAN hub will **not** forward traffic to the Internet directly as a back-up path. 
+The following table describes the behavior of the platform when the hub is configured in forced tunnel mode and all 0.0.0.0/0 route advertisements are withdrawn from on-premises and all 0.0.0.0/0 static routes are removed from the Virtual Network connection.
+
+
+|Next hop security solution| Behavior|
+|--|--|
+|Azure Firewall| **No public IP addresses assigned to Azure Firewall:** Azure Firewall processes internet traffic and blackholes. Workloads don't have access to the internet via Azure Firewall.<br> **At least one public IP address assigned to Azure Firewall:** Azure Firewall processes internet traffic and routes it to the internet by using the Azure Firewall public IP address.|
+|NVA in the hub| If the NVA in the hub is configured to route Internet traffic through the NVA's internal interface, Internet traffic will be dropped by the platform. Packets are not processed by the NVA. |
+|SaaS solution| If the SaaS solution is configured to route internet traffic through the SaaS solution's internal interface, internet traffic is processed by the SaaS solution and blackholed. Applications don't have access to the internet via the SaaS solution.|
+
 
 ### Supported sources of the default route
 

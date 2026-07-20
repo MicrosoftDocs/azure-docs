@@ -29,7 +29,7 @@ This article assumes that:
 
 - You have an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - You've already created an Azure file share in a storage account which you would like to connect to from on-premises. To learn how to create an Azure file share, see [Create an Azure file share](../files/storage-how-to-create-file-share.md?toc=/azure/storage/filesync/toc.json).
-- You allow domain traffic to the following endpoints, see [Azure service endpoints](../file-sync/file-sync-firewall-and-proxy.md#firewall):
+- Allow domain traffic to the following endpoints, see [Azure service endpoints](../file-sync/file-sync-firewall-and-proxy.md#azure-file-sync-firewall-settings).
 
 Additionally:
 

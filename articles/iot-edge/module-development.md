@@ -3,7 +3,7 @@ title: Develop modules for Azure IoT Edge
 description: Develop custom modules for Azure IoT Edge that can communicate with the runtime and Azure IoT Hub. Learn how to package your program as an IoT Edge module.
 author: sethmanheim
 ms.author: sethm
-ms.date: 03/03/2026
+ms.date: 07/16/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -81,7 +81,7 @@ IoT Edge supports multiple operating systems, device architectures, and developm
 
 ### Linux
 
-For all languages in the following table, IoT Edge [supports](support.md) development for AMD64 and most ARM64 Linux containers. It also supports Debian 11 ARM32 containers.
+For all languages in the following table, IoT Edge [supports](support.md) development for AMD64 and most ARM64 Linux containers. It also supports Debian 12 ARM32 containers.
 
 | Development language | Development tools |
 | -------------------- | ----------------- |

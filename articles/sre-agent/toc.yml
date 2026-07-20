@@ -54,8 +54,6 @@ items:
         href: tools.md
       - name: Default agent override info
         href: default-agent-override-info.md
-      - name: Deep context
-        href: workspace-tools.md
       - name: Agent reasoning
         href: agent-reasoning.md
   - name: Capabilities
