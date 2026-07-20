@@ -41,6 +41,8 @@ Before you begin, prepare the following prerequisites:
 
 * **Microsoft.Authorization/roleAssignments/write** permissions at the resource group level.
 
+[!INCLUDE [prereq-azure-cli-connected-k8s](../includes/prereq-azure-cli-connected-k8s.md)]
+
 ## What problem will we solve?
 
 Azure IoT Operations is a suite of data services that run on Kubernetes clusters. You want these clusters to be managed remotely from the cloud, and able to securely communicate with cloud resources and endpoints. We address these concerns with the following tasks in this quickstart:
