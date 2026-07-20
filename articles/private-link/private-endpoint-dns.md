@@ -252,6 +252,7 @@ For Azure services, use the recommended zone names as described in the following
 > |---|---|---|---|
 > | Foundry Tools (Microsoft.CognitiveServices/accounts) | account | privatelink.cognitiveservices.azure.us | cognitiveservices.azure.us |
 > | Azure Machine Learning (Microsoft.MachineLearningServices/workspaces) | amlworkspace | privatelink.api.ml.azure.us<br/>privatelink.notebooks.usgovcloudapi.net | api.ml.azure.us<br/>notebooks.usgovcloudapi.net <br/> instances.ml.azure.us<br/>aznbcontent.net <br/> inference.ml.azure.us |
+> | Microsoft Power BI (Microsoft.PowerBI/privateLinkServicesForPowerBI) | tenant | privatelink.analysis.usgovcloudapi.net </br> privatelink.pbidedicated.usgovcloudapi.net | analysis.usgovcloudapi.net </br> pbidedicated.usgovcloudapi.net |
 
 ### Analytics
 
@@ -283,6 +284,7 @@ For Azure services, use the recommended zone names as described in the following
 > [!div class="mx-tdBreakAll"]
 > | Private link resource type | Subresource | Private DNS zone name | Public DNS zone forwarders |
 > |---|---|---|---|
+> | Azure Kubernetes Service - Kubernetes API (Microsoft.ContainerService/managedClusters) | management | privatelink.{regionName}.azmk8s.io </br> {subzone}.privatelink.{regionName}.azmk8s.io | {regionName}.azmk8s.io |
 > | Azure Container Registry (Microsoft.ContainerRegistry/registries) | registry | privatelink.azurecr.us </br> {regionName}.privatelink.azurecr.us | azurecr.us </br> {regionName}.azurecr.us |
 
 ### Databases
@@ -318,6 +320,7 @@ For Azure services, use the recommended zone names as described in the following
 > | Azure Service Bus (Microsoft.ServiceBus/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
 > | Azure Event Grid (Microsoft.EventGrid/topics) | topic | privatelink.eventgrid.azure.us | eventgrid.azure.us |
 > | Azure Event Grid (Microsoft.EventGrid/domains) | domain | privatelink.eventgrid.azure.us | eventgrid.azure.us |
+> | Azure API Management (Microsoft.ApiManagement/service) | Gateway | privatelink.azure-api.us | azure-api.us |
 > | Azure Health Data Services (Microsoft.HealthcareApis/workspaces) | healthcareworkspace | privatelink.workspace.azurehealthcareapis.us </br> privatelink.fhir.azurehealthcareapis.us </br> privatelink.dicom.azurehealthcareapis.us | workspace.azurehealthcareapis.us </br> fhir.azurehealthcareapis.us </br> dicom.azurehealthcareapis.us |
 
 ### Internet of Things (IoT)
@@ -375,7 +378,7 @@ For Azure services, use the recommended zone names as described in the following
 > |---|---|---|---|
 > | Azure Search (Microsoft.Search/searchServices) | searchService | privatelink.search.azure.us | search.azure.us |
 > | Azure Relay (Microsoft.Relay/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
-> | Azure Web Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.us </br> scm.privatelink.azurewebsites.us<sup>2</sup> | azurewebsites.us </br> scm.azurewebsites.us |
+> | Azure Web Apps / Azure Function Apps (Microsoft.Web/sites) | sites | privatelink.azurewebsites.us </br> scm.privatelink.azurewebsites.us<sup>2</sup> | azurewebsites.us </br> scm.azurewebsites.us |
 > | Azure Event Hubs (Microsoft.EventHub/namespaces) | namespace | privatelink.servicebus.usgovcloudapi.net | servicebus.usgovcloudapi.net |
 
 <sup>1</sup>To use with the IoT Hub built-in Event Hubs-compatible endpoint. For more information, see [IoT Hub support for virtual networks with Azure Private Link](../iot-hub/virtual-network-support.md#built-in-event-hubs-compatible-endpoint).
