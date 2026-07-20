@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions of Azure Web PubSub chat hub
+title: Frequently asked questions of Azure Web PubSub chat
 description: Frequently asked questions about the Azure Web PubSub chat hub, covering how it works, when to use it, and how it can be combined with standard Web PubSub hubs in real-world applications.
 author: kevinguo-ed
 ms.author: kevinguo
@@ -8,9 +8,9 @@ ms.topic: faq
 ms.date: 06/01/2026
 ---
 
-# Frequently asked questions about Web PubSub chat hub
+# Frequently asked questions about Web PubSub chat
 
-Frequently asked questions about the Azure Web PubSub chat hub, covering how it works, when to use it, and how it can be combined with standard Web PubSub hubs in real-world applications.
+Frequently asked questions about the Azure Web PubSub chat, covering how it works, when to use it, and how it can be combined with standard Web PubSub hubs in real-world applications.
 
 ## Can I use a chat hub and a standard hub together?
 
