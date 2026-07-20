@@ -26,7 +26,7 @@ For firewall configurations, use the wildcard patterns shown in the **Subdomain*
 
 |Service  |Subdomain  |
 |---------|---------|
-|[Azure Access Control Service](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/) (retired)|*.accesscontrol.windows.net|
+|[Azure Access Control Service](https://azure.microsoft.com/blog/7-month-retirement-notice-access-control-service/) (retired)|*.accesscontrol.windows.net|
 |[Microsoft Entra ID](/entra/fundamentals/whatis)|*.graph.windows.net / *.onmicrosoft.com|
 |[Azure API Management](https://azure.microsoft.com/services/api-management/)|*.azure-api.net|
 |[Azure BizTalk Services](https://azure.microsoft.com/pricing/details/biztalk-services/) (retired)|*.biztalk.windows.net|

@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: how-to
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
-ms.date: 10/27/2025
+ms.date: 07/20/2026
 
 ---
 
@@ -42,7 +42,7 @@ The MQTT broker uses a persistent volume (PV) to store data on disk. Two setting
 
 - **`maxSize`** *(required)*: Sets the maximum size of the persistent volume for storing broker data. This field is always required, even if you provide a custom volume claim. The value must be greater than 100 MB.
   
-  **Example:** `10GiB`
+  **Example:** `10Gi`
 
 - **`persistentVolumeClaimSpec`** *(optional)*: Lets you define a custom PersistentVolumeClaim (PVC) template to control how the persistent volume is provisioned. If you don't set this option, the broker creates a default PVC using the specified `maxSize` and the default storage class, which can result in suboptimal performance if the default class isn't backed by a local path provisioner.
 
@@ -87,7 +87,7 @@ To configure volume settings in the Azure portal:
     ```json
     {
       "persistence": {
-        "maxSize": "10GiB",
+        "maxSize": "10Gi",
         "persistentVolumeClaimSpec": {
           "storageClassName": "example-storage-class",
           "accessModes": [
