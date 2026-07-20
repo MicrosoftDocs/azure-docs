@@ -1,6 +1,6 @@
 ---
 title: Overview - Azure Files Authorization and Access Control
-description: Azure Files enforces authorization on user access at the share level, the directory level, and the file level. You can assign share-level permissions through Azure RBAC.
+description: Learn how Azure Files enforces authorization using Azure RBAC for share-level permissions and Windows ACLs for directory- and file-level permissions on SMB file shares.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
@@ -15,7 +15,7 @@ ms.author: kendownie
 
 Regardless of which identity source you choose for [identity-based authentication](storage-files-active-directory-overview.md) on your storage account, you need to configure authorization and access control. Azure Files enforces authorization on user access at the share level, the directory level, and the file level.
 
-You can assign share-level permissions to Microsoft Entra users or groups that are managed through [Azure RBAC](/azure/role-based-access-control/overview). With Azure RBAC, the credentials that you use for file access should be available or synced to Microsoft Entra ID. You can assign Azure built-in roles like Storage File Data SMB Share Reader to users or groups in Microsoft Entra ID to grant access to a file share.
+You can assign share-level permissions to Microsoft Entra users or groups that are managed through [Azure RBAC](/azure/role-based-access-control/overview). With Azure RBAC, the credentials that you use for file access must be available or synced to Microsoft Entra ID. You can assign Azure built-in roles such as Storage File Data SMB Share Reader to users or groups in Microsoft Entra ID to grant access to a file share.
 
 At the directory and file levels, Azure Files supports preserving, inheriting, and enforcing [Windows ACLs](/windows/win32/secauthz/access-control-lists). You can choose to keep Windows ACLs when you copy data over SMB between your existing file share and your Azure file shares. Whether you plan to enforce authorization or not, you can use Azure Files to back up ACLs along with your data.
 
@@ -25,7 +25,7 @@ After you enable an identity source on your storage account, you must do one of 
 
 - Set a [default share-level permission](storage-files-identity-assign-share-level-permissions.md#share-level-permissions-for-all-authenticated-identities) that applies to all authenticated users and groups.
 - Assign built-in Azure RBAC roles to users and groups.
-- Configure custom roles for Entra identities, and assign access rights to file shares in your storage account.
+- Configure custom roles for Microsoft Entra identities, and assign access rights to file shares in your storage account.
 
 The assigned share-level permission grants the identity access to the share only and nothing else, not even the root directory. You still need to separately configure directory-level and file-level permissions.
 
@@ -40,9 +40,9 @@ Azure Files enforces standard Windows ACLs at both the directory and file levels
 
 For more information, see [Configure directory-level and file-level permissions](storage-files-identity-configure-file-level-permissions.md).
 
-### Preserve directory and file ACLs when importing data to Azure Files
+### Preserve directory and file ACLs when migrating or copying data
 
-Azure Files supports preserving directory-level or file-level ACLs when you copy data to Azure file shares. You can copy ACLs on a directory or file to Azure file shares by using either Azure File Sync or common file-movement toolsets. For example, you can use [robocopy](/windows-server/administration/windows-commands/robocopy) with the `/copy:s` flag to copy data and ACLs to an Azure file share. ACLs are preserved by default, so you don't need to enable identity-based authentication on your storage account to preserve ACLs.
+Azure Files supports preserving directory-level or file-level ACLs when you copy data to Azure file shares. You can copy ACLs on a directory or file to Azure file shares by using Azure File Sync or common file movement tools. For example, you can use [robocopy](/windows-server/administration/windows-commands/robocopy) with the `/copy:s` flag to copy data and ACLs to an Azure file share. ACLs are preserved by default, so you don't need to enable identity-based authentication on your storage account to preserve ACLs.
 
 ## Related content
 
