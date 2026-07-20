@@ -59,6 +59,9 @@
     - name: Process real-time events
       displayName: Event Hubs, streaming, events
       href: scenario-real-time-events-processing.md
+    - name: Build a serverless workflow
+      displayName: Durable Functions, orchestration, fan-out, fan-in
+      href: scenario-build-serverless-workflow.md
     - name: Migrate Linux apps to Flex Consumption using Copilot
       href: migration/scenario-migrate-linux-consumption-to-flex.md
   - name: Developer tools
