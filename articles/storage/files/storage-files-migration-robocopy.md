@@ -131,7 +131,7 @@ RoboCopy traverses the namespace you specify and evaluates each file and folder 
 
 Bandwidth isn't always the most limiting factor. For large namespaces with many small files, namespace enumeration speed can have a greater impact on total copy time than throughput. Copying 1 TiB of small files takes considerably longer than copying 1 TiB of larger files. This difference is expected.
 
-RoboCopy supports multithreaded copies through the `/MT:n` option. When provisioning a machine for RoboCopy, consider the number of processor cores (most CPUs provide two threads per core) and how many RoboCopy jobs you plan to run in parallel.
+RoboCopy supports multithreaded copies through the `/MT:n` option, where **n** stands for the number of threads to use. When provisioning a machine for RoboCopy, consider the number of processor cores (most CPUs provide two threads per core) and how many RoboCopy jobs you plan to run in parallel.
 
 More threads copy small files considerably faster, but they might not provide proportional benefits for large files. A high thread count for large files increases the probability of throughput or IOPS constraints.
 
