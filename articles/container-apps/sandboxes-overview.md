@@ -33,7 +33,7 @@ Azure Container Apps Sandboxes provide fast, secure, ephemeral compute environme
 
 - **Scale-out**: The service bursts to thousands of concurrent sandboxes on demand.
 
-- **OCI container image support**: Use included public image or bring your own container images as sandbox root filesystems.
+- **OCI container image support**: Use the included public image or bring your own container images as sandbox root filesystems.
 
 - **Suspend and resume**: Snapshot full state including memory and disk, and resume later with sub-second restore times.
 
