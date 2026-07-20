@@ -5,7 +5,7 @@ author: vinnieangel
 ms.author: vangellotti
 ms.topic: overview
 ms.date: 03/28/2025
-ms.service: azure-education
+ms.service: azure-education-hub
 ---
 
 # What is Azure for Students Starter?
