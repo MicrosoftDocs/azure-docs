@@ -4,8 +4,8 @@ description: Learn how to configure a virtual network for standard injection of 
 ms.subservice: integration-services
 ms.topic: concept-article
 ms.date: 01/05/2024
-author: chugugrace
-ms.author: chugu 
+author: kromerm
+ms.author: makromer
 ms.custom:
   - devx-track-azurepowershell
   - sfi-image-nochange
