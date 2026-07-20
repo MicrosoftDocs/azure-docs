@@ -4,7 +4,7 @@ description: Describes how to use the local web UI to administer your Data Box a
 services: databox
 author: stevenmatthew
 
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: how-to
 ms.date: 08/31/2022
 ms.author: shaas

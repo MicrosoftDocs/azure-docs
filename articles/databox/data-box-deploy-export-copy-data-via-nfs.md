@@ -4,7 +4,7 @@ description: Learn how to copy data from your Azure Data Box via NFS
 services: databox
 author: stevenmatthew
 
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: tutorial
 ms.date: 04/04/2022
 ms.author: shaas

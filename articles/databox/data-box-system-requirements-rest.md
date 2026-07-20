@@ -4,7 +4,7 @@ description: Learn about the supported versions for APIs, SDKs, and client libra
 services: databox
 author: stevenmatthew
 
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: concept-article
 ms.date: 10/05/2020
 ms.author: shaas

@@ -4,7 +4,7 @@ description: Describes safety conventions, guidelines, and considerations, and e
 services: databox
 author: stevenmatthew
 
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: concept-article
 ms.date: 03/25/2025
 ms.author: shaas

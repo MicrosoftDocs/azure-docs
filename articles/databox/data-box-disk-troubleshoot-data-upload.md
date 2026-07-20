@@ -4,7 +4,7 @@ description: Describes review and follow-up for errors during uploads from an Az
 services: databox
 author: sipastak
 
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: troubleshooting
 ms.date: 01/24/2023
 ms.author: shaas

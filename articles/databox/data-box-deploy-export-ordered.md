@@ -4,7 +4,7 @@ description: Learn the deployment prerequisites and how to export data from an A
 services: databox
 author: stevenmatthew
 
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: how-to
 ms.date: 04/17/2025
 ms.author: shaas
