@@ -131,7 +131,7 @@ When the sandbox is stopped, the operation will take and preserve a snapshot bas
 
 You can configure lifecycle policies for each sandbox:
 
-- **Auto-suspend**: Suspend an idle sandboxes after a configurable timeout. Sandbox becomes idle when no ingress (incoming) traffic, no code execution (via execute API), no interactive shell sessions, and no file operations
+- **Auto-suspend**: Suspend an idle sandbox after a configurable timeout. A sandbox becomes idle when it has no ingress (incoming) traffic, no code execution (via execute API), no interactive shell sessions, and no file operations.
 - **Suspend Mode **: Choose between memory mode (full snapshot - disk + memory) or disk mode (preserve disk only).
 - **Auto-delete**: Automatically delete sandboxes after a specified number of days after the sandbox is stopped.
 
