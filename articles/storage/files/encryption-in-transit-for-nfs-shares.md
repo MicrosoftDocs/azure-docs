@@ -17,7 +17,7 @@ ms.custom:
 
 **Applies to:** :heavy_check_mark: NFS file shares
 
-This article explains how you can encrypt data in transit for NFS Azure file shares. Azure Files NFSv4.1 volumes enhance network security by enabling secure TLS connections. This encryption prevents data in transit from interception, including man-in-the-middle attacks.
+This article explains how to encrypt data in transit for NFS Azure file shares. Azure Files NFSv4.1 volumes enhance network security by enabling secure TLS connections. This encryption prevents data in transit from interception, including man-in-the-middle attacks.
 
 ## How encryption in transit works
 
@@ -36,9 +36,9 @@ The [AZNFS](https://github.com/Azure/AZNFS-mount) utility package simplifies enc
 AZNFS supports the following Linux distributions:
 
 - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS)
-- Centos7, Centos8
-- RedHat7, RedHat8, RedHat9, RedHat10
-- Rocky8, Rocky9
+- CentOS 7, CentOS 8
+- Red Hat 7, Red Hat 8, Red Hat 9, Red Hat 10
+- Rocky 8, Rocky 9
 - SUSE (SLES 15, SLES 16)
 - Oracle Linux
 - Alma Linux
@@ -46,7 +46,7 @@ AZNFS supports the following Linux distributions:
 
 ## Supported regions
 
-Encryption in transit for NFS is Generally Available (GA) in all regions that [support SSD Azure file shares](redundancy-premium-file-shares.md).
+Encryption in transit for NFS is generally available (GA) in all regions that [support SSD Azure file shares](redundancy-premium-file-shares.md).
 
 ## Enforce encryption in transit
 
@@ -130,7 +130,7 @@ To check if the AZNFS mount helper package is installed on your client, run the 
 systemctl is-active --quiet aznfswatchdog && echo -e "\nAZNFS mounthelper is installed! \n"
 ```
 
-If the package is installed, you'll see the message `AZNFS mounthelper is installed!`. If it isn't installed, install the AZNFS mount helper package using the appropriate command for your Linux distribution.
+If the package is installed, you see the message `AZNFS mounthelper is installed!`. If it isn't installed, install the AZNFS mount helper package by using the appropriate command for your Linux distribution.
  
 ### [Ubuntu/Debian](#tab/Ubuntu)
 ```bash
