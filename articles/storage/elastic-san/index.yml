@@ -6,7 +6,7 @@ summary: A cloud-native service that offers a scalable, cost-effective, high-per
 metadata:
   title: Azure Elastic SAN documentation
   description: Create a virtual SAN to act as the storage for multiple compute options.
-  ms.service: azure-elastic-san-storage
+  ms.service: azure-elastic-san
   ms.topic: landing-page
   author: roygara
   ms.author: rogarana

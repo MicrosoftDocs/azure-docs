@@ -2,7 +2,7 @@
 title: Azure Elastic SAN networking concepts
 description: Learn about available Azure Elastic SAN networking options, including storage service endpoints, private endpoints, and iSCSI.
 author: roygara
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 01/08/2026
 ms.author: rogarana

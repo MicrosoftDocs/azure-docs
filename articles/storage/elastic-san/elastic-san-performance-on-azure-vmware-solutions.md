@@ -4,7 +4,7 @@ description: Benchmark results and guidance for Azure Elastic SAN datastores use
 author: eshanchomsft
 ms.author: rogarana
 ms.topic: concept-article
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.date: 02/26/2026
 ---
 

@@ -2,7 +2,7 @@
 title: Azure Elastic SAN configuration best practices
 description: Learn best practices for optimizing Azure Elastic SAN performance. Get recommendations for client-side settings, MPIO, iSCSI configurations, and deployment sizing
 author: roygara
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 04/23/2026
 ms.author: rogarana
