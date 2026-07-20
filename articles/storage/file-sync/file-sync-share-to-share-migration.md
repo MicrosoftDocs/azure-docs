@@ -51,7 +51,7 @@ Follow these instructions to connect to the new Azure file share.
 
 1. [Remove the existing sever endpoint](file-sync-server-endpoint-delete.md). This will keep all the data, but will remove the association with the existing sync group and existing file share.
 
-1. If the new sync group isn't in the same storage sync service, [unregister the server](file-sync-server-registration.md#register-or-unregister-a-server-with-storage-sync-service) from that storage sync service and register it with the new service. Keep in mind that a server can only be registered with one storage sync service.
+1. If the new sync group isn't in the same storage sync service, [unregister the server](file-sync-server-registration.md#unregister-a-server-with-storage-sync-service) from that storage sync service and register it with the new service. Keep in mind that a server can only be registered with one storage sync service.
 
 1. [Create a new server endpoint](file-sync-server-endpoint-create.md#create-a-server-endpoint) in the sync group you created and connect it to the same local data.
 
