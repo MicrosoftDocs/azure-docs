@@ -29,7 +29,7 @@ Azure Container Apps Sandboxes provide fast, secure, ephemeral compute environme
 
 - **Strong isolation**: Each sandbox runs in its own secure boundary, safe for untrusted code execution.
 
-- **Scale to zero**: No CPU or Memory fees when sandboxes are stopped.
+- **Scale to zero**: You pay no CPU or memory fees when sandboxes are stopped.
 
 - **Scale-out**: The service bursts to thousands of concurrent sandboxes on demand.
 
