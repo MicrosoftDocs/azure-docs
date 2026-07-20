@@ -42,7 +42,7 @@ The key differences between the Classic and Simplified experience:
 
 - **31 March 2026**: You won't be able to start replications (Enable replication) for servers via the classic experience appliance. Existing replications can continue till the specified date (refer next point).
 - **31 May 2026**: Replication support ends on classic experience. You can perform migrations for existing replications to Azure until the retirement date, i.e. 30 September 2026, but you can't modify existing replications or start new replications.
-- **30 September 2026**: The classic experience will be fully retired. From this date forward, you won't be able to view or perform any migration related activities for these VMs still on classic experience. To continue any replications or migrations beyond this point, you’ll need to transition to the simplified experience with the enhanced new appliance.
+- **30 September 2026**: The classic experience is fully retired. From this date forward, you can't view or perform any migration related activities for these VMs still on classic experience. To continue any replications or migrations beyond this point, you need to transition to the simplified experience with the enhanced new appliance.
 
 **Action required**
 
