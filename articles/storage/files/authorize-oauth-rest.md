@@ -25,7 +25,7 @@ Users, groups, Microsoft services such as the Azure portal, and partner services
 
 You must call the REST API by using an explicit header to indicate your intent to use the additional privilege. This requirement also applies to Azure PowerShell and Azure CLI access.
 
-This article explains how to enable admin-level access to Azure file shares for specific [customer use cases](#customer-use-cases). For a more general article on identity-based authentication for users, see [Overview of Azure Files identity-based authentication](storage-files-active-directory-overview.md).
+This article explains how to enable admin-level access to Azure file shares for specific [Azure Files OAuth over REST use cases](#azure-files-oauth-over-rest-use-cases). For a more general article on identity-based authentication for users, see [Overview of Azure Files identity-based authentication](storage-files-active-directory-overview.md).
 
 ## Limitations
 
