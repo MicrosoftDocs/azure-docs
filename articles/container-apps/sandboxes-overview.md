@@ -163,7 +163,7 @@ Each sandbox is assigned a resource tier that checks its CPU, memory, and disk a
 Consider these points when working with sandboxes:
 
 - **Entra ID required**: Only Microsoft Entra ID accounts can access sandboxes. Personal Microsoft accounts aren't supported.
-- **Networking controls**: You can configure egress policies to control outbound traffic from sandboxes, including domain-based allow or deny rules and CIDR-based network rules and VNet integration.
+- **Networking controls**: You can configure egress policies to control outbound traffic from sandboxes, including domain-based allow or deny rules, CIDR-based network rules, and VNet integration.
 
 ## Sandboxes vs. dynamic sessions
 
