@@ -653,9 +653,12 @@
     - name: Overview
       displayName: AI, agent, agentic, serverless agents runtime, Foundry, MCP, connectors
       href: functions-serverless-agents-runtime.md
-    - name: Quickstart
+    - name: Get started
       displayName: AI, agent, agentic, serverless agents runtime, timer, email, connector, MCP, Foundry
       href: scenario-serverless-agents-runtime.md
+    - name: Compare agent options
+      displayName: Foundry, Copilot Studio, Scout, prompt agents, hosted agents, compare
+      href: compare-serverless-agents-runtime.md
   - name: Azure MCP server for Azure Functions
     href: /azure/developer/azure-mcp-server/services/azure-mcp-server-for-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: GitHub Copilot for Azure
