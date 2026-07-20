@@ -3,7 +3,7 @@ title: Application Gateway for Containers - Configure the inference gateway
 description: Learn how to expose a self-hosted vLLM model server through Application Gateway for Containers inference gateway by using Gateway API Inference Extension resources.
 services: application-gateway
 author: jackstromberg
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: how-to
 ms.date: 07/10/2026
 ms.author: jstrom

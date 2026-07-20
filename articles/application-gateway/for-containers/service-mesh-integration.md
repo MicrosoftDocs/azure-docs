@@ -3,7 +3,7 @@ title: Service mesh integration with Application Gateway for Containers
 description: Learn how to integrate Application Gateway for Containers with Istio service mesh for secure ingress traffic.
 services: application-gateway
 author: JackStromberg
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: how-to
 ms.date: 7/16/2026
 ms.author: jstrom
