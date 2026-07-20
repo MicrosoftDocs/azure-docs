@@ -4,7 +4,7 @@ description: This article describes the actions that students should take if the
 author: rymend
 ms.author: rymend
 ms.topic: troubleshooting
-ms.service: azure-education
+ms.service: azure-education-hub
 ms.date: 06/30/2020
 ms.custom: sfi-image-nochange
 ---

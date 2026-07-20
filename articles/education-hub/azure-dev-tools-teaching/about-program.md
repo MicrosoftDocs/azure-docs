@@ -5,7 +5,7 @@ author: denrea
 ms.author: rymend
 ms.topic: overview
 ms.date: 07/11/2025
-ms.service: azure-education
+ms.service: azure-education-hub
 ---
 
 # What is Azure Dev Tools for Teaching?
