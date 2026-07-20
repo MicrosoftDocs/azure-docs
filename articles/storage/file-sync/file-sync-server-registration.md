@@ -55,7 +55,7 @@ To register a server with a Storage Sync Service, you must first prepare your se
 
 ## Register a server with Storage Sync Service
 
-Before a server can be used as a server endpoint in an Azure File Sync *sync group*, you must register it with a Storage Sync Service. A server can only be registered with one Storage Sync Service at a time.
+Before you can use a server as a server endpoint in an Azure File Sync *sync group*, register the server with a Storage Sync Service. You can register a server with only one Storage Sync Service at a time.
 
 ### Install the Azure File Sync agent
 
@@ -76,7 +76,7 @@ Before a server can be used as a server endpoint in an Azure File Sync *sync gro
 
 ### Register the server
 
-You can register the server by using the server registration UI or Azure PowerShell.
+Register the server by using the server registration UI or Azure PowerShell.
 
 # [Server registration UI](#tab/server-registration-ui)
 
