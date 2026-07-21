@@ -34,8 +34,8 @@ When more than one policy applies to a request, the gateway evaluates all of the
 
 | Policy | Status on block |
 | --- | --- |
-| IP filtering | 403 |
 | Content safety | 400 |
+| IP filter | 403 |
 | Token rate limit | 429 (with `Retry-After`) |
 | Request rate limit | 429 (with `Retry-After`) |
 
@@ -43,7 +43,7 @@ When both a token limit and a request limit apply, a request must satisfy both.
 
 The following diagram shows where governance policies apply in the request flow.
 
-:::image type="content" source="media/ai-gateway-request-lifecycle.png" alt-text="Sequence diagram showing the gateway validate the runtime key, evaluate policies, and either forward the request to the backend and emit telemetry, or return a 403 or 429 error when a policy blocks the request." lightbox="media/ai-gateway-request-lifecycle.png":::
+:::image type="content" source="media/ai-gateway-request-lifecycle.png" alt-text="Sequence diagram showing the gateway validate the runtime key, evaluate policies, and either forward the request to the backend and emit telemetry, or return a 400, 403, or 429 error when a policy blocks the request." lightbox="media/ai-gateway-request-lifecycle.png":::
 
 To configure a policy:
 
@@ -56,10 +56,10 @@ To configure a policy:
 
 Start with these policy types:
 
+- **Content safety**: Inspect prompts, tool inputs, model outputs, or tool responses with Azure AI Content Safety. Configure category thresholds (hate, sexual, violence, self-harm) and jailbreak detection, and choose whether to block, log, or both. A blocked call returns an error to the client.
+- **IP filter**: Restrict runtime calls to approved client network ranges by IPv4 or IPv6 CIDR. Apply it globally for private applications, or to a specific tool that needs a tighter boundary.
 - **Token rate limits**: Limit prompt, completion, or total token throughput during a rolling minute. On the **Configure** step, set the token allowance and choose what the limit applies to (for example, per caller identity). Use them to protect model capacity and reduce bursts.
 - **Request rate limits**: Limit call volume during a rolling minute, applied per the dimension you choose (such as caller identity). Use them for tools that call SaaS APIs or internal systems with strict quotas.
-- **Content safety**: Inspect prompts, tool inputs, model outputs, or tool responses with Azure AI Content Safety. Configure category thresholds (hate, sexual, violence, self-harm) and jailbreak detection, and choose whether to block, log, or both. A blocked call returns an error to the client.
-- **IP filtering**: Restrict runtime calls to approved client network ranges by IPv4 or IPv6 CIDR. Apply it globally for private applications, or to a specific tool that needs a tighter boundary.
 
 Governance policies are operational controls. Token limits help reduce spikes and provide usage signals. For financial reporting, use provider billing or Azure Cost Management.
 
@@ -150,7 +150,7 @@ If calls fail with 401 errors, confirm the import uses managed identity and the 
 
 During public preview, the AI Gateway tier is available in the following Azure regions.
 
-| Geography | Preview region |
+| Geography | Region |
 | --- | --- |
 | United States | East US 2 |
 | Europe | Sweden Central |
@@ -221,7 +221,7 @@ Configure a telemetry destination in the gateway's monitoring settings. For Appl
 
 The AI Gateway tier portal can show built-in dashboards from Kusto queries against your Application Insights resource. The data stays in your subscription and uses your Azure Monitor permissions. Use dashboards to review request volume, success rate, throttles, latency, model usage, token trends, and policy outcomes.
 
-For example, this Kusto query summarizes request volume and average duration by model over the last day:
+For example, after you configure an Application Insights destination, this Kusto query summarizes request volume and average duration by model over the last day:
 
 ```kusto
 requests

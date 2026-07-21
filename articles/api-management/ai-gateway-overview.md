@@ -23,7 +23,7 @@ AI Gateway tier is a managed gateway for applications that call models and tools
 1. Authenticates the runtime access key in the `api-key` header.
 1. Evaluates the policies that apply to the target model or tool.
 1. Routes the request to the selected backend — by the `model` field for models, or the tool name for tools — using the backend credentials you configured.
-1. Returns the response and emits telemetry, such as token counts, latency, and traces.
+1. Returns the response and emits telemetry — OpenTelemetry logs and metrics such as token counts and latency.
 
 Use AI Gateway tier when you want a fully managed path for AI traffic: you don't plan or manage scale units, and provisioning takes about a minute.
 
@@ -36,14 +36,14 @@ Use AI Gateway tier to:
 - Put one gateway endpoint in front of supported AI providers.
 - Keep provider credentials hidden from applications.
 - Manage models, MCP servers, runtime access keys, policies, and monitoring.
-- Apply governance controls such as token rate limits, request rate limits, content safety, and IP filtering.
+- Apply governance controls such as token rate limits, request rate limits, content safety, and IP filters.
 - Publish approved MCP tools for AI agents.
 - Discover and use available models and tools through a self-service catalog.
 - Sign in to manage the gateway with Microsoft Entra ID.
 
 ### Choose your path
 
-- **New to AI Gateway tier?** Start with the [Quickstart](./quickstart-ai-gateway-create.md) — create a gateway, add a model, and make your first call in about 20 minutes.
+- **New to AI Gateway tier?** Start with the [Quickstart](./quickstart-ai-gateway-create.md) — create a gateway, add a model, and make your first call in about 20–30 minutes.
 - **Adding models or tools?** See [Manage models and tools](./ai-gateway-manage-models-tools.md) for Foundry and custom models, and for MCP tool servers.
 - **Running it in production?** See [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md) for policies, identity, networking, and monitoring.
 
@@ -56,7 +56,7 @@ A gateway is the runtime and management boundary for AI traffic. When you provis
 A gateway has two planes:
 
 - **Control plane** — management operations that configure providers, models, MCP servers, policies, keys, and identity. Automation uses the preview management API version `2026-05-01-preview` through Azure Resource Manager.
-- **Data plane** — the runtime endpoint that applications call. The gateway name and region form the host name `https://<gateway>.<region>.ai.gateway.azure.com`. Model requests go to `/default/models/<provider>/v1/<operation>`, and MCP tool requests go to `/default/toolservers/<server-name>/mcp`. Data-plane requests authenticate with a runtime access key in the `api-key` header, not with Azure Resource Manager tokens.
+- **Data plane** — the runtime endpoint that applications call. The gateway name and region form the host name `https://<gateway>.<region>.ai.gateway.azure.com`, where `<region>` is a slug such as `eastus2`. All OpenAI-compatible providers (Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, and OpenAI) share `/default/models/openai/v1/<operation>`; Anthropic passthrough uses `/default/models/anthropic/v1/messages`; and MCP tool requests go to `/default/toolservers/<server-name>/mcp`. Data-plane requests authenticate with a runtime access key in the `api-key` header, not with Azure Resource Manager tokens.
 
 :::image type="content" source="media/ai-gateway-architecture.png" alt-text="Diagram of applications, agents, and coding agents calling the AI Gateway tier, which authenticates the runtime key, applies policies, and emits telemetry before routing requests to model providers and MCP tool backends." lightbox="media/ai-gateway-architecture.png":::
 
@@ -80,10 +80,10 @@ A policy is a runtime governance control for AI traffic. AI Gateway tier shows c
 
 | Policy | What it controls |
 | --- | --- |
+| Content safety | Safety checks for prompts and responses. |
+| IP filter | Runtime calls from approved client network ranges. |
 | Token rate limit | Token throughput during a rolling minute. |
 | Request rate limit | Request volume during a rolling minute. |
-| Content safety | Safety checks for prompts and responses. |
-| IP filtering | Runtime calls from approved client network ranges. |
 
 ### Runtime access keys
 
@@ -128,7 +128,7 @@ Private networking includes inbound Private Link and outbound virtual network in
 
 ### When should I use AI Gateway tier instead of calling providers directly?
 
-Use AI Gateway tier when you want one governed endpoint in front of many models and tools: central runtime keys instead of provider credentials in every application, shared policies (token and request limits, content safety, IP filtering), unified telemetry, and a self-service catalog. If you call a single model from a single application and don't need governance or central credentials, calling the provider directly can be simpler.
+Use AI Gateway tier when you want one governed endpoint in front of many models and tools: central runtime keys instead of provider credentials in every application, shared policies (token and request limits, content safety, IP filters), unified telemetry, and a self-service catalog. If you call a single model from a single application and don't need governance or central credentials, calling the provider directly can be simpler.
 
 ### Should I import from Foundry or add a custom model?
 

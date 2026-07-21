@@ -32,7 +32,7 @@ Choose **Import from Foundry** when your model runs in a Microsoft Foundry or Az
 | Provider | Model information | Backend authentication | Notes |
 | --- | --- | --- | --- |
 | Microsoft Foundry | Project or resource, model deployment, endpoint, model format | API key or managed identity | Register Foundry deployments and expose them through the gateway. Grant the gateway identity access to the Foundry resource when using managed identity. |
-| Azure OpenAI | Azure OpenAI resource, deployment name, API version, endpoint | API key or managed identity | Use managed identity when your deployment and tenant configuration support it. |
+| Azure OpenAI | Azure OpenAI resource, deployment name, API version, endpoint | API key or managed identity | Added through **Import from Foundry** (covers Azure OpenAI and Azure AI Services). Use managed identity when your deployment and tenant configuration support it. |
 | AWS Bedrock | Region, model ID, endpoint or provider routing information | API key | Provide the provider key or secret during import, and rotate it according to your provider process. |
 | Google Vertex | Project, location, publisher, model ID, endpoint | API key | Provide the provider key or secret during import. |
 | OpenAI | Model name or project routing information | API key | Provide the OpenAI API key during import. |
@@ -54,7 +54,7 @@ Callers reference the model by its model name in the `model` field:
 }
 ```
 
-The `model` value is the model's name from the provider. Applications don't manage provider keys or deployment endpoints. Model names must be unique within the gateway: because OpenAI-compatible providers share one endpoint, the gateway routes by an exact match on the `model` value. If you register the same model name under two providers, give them distinct names so requests reach the intended backend.
+The `model` value is the model name registered in the gateway; it doesn't have to match the provider's own model ID. Applications don't manage provider keys or deployment endpoints. Model names must be unique within the gateway: because OpenAI-compatible providers share one endpoint, the gateway routes by an exact match on the `model` value. If you register the same model name under two providers, give them distinct names so requests reach the intended backend.
 
 To add models, open the **Models** page and select **Add models**. Choose how you want to connect.
 
@@ -119,7 +119,7 @@ curl -X POST "https://<gateway>.<region>.ai.gateway.azure.com/default/models/ant
   -d '{"model":"claude-fable-5","max_tokens":256,"messages":[{"role":"user","content":"Write a product description for a trail running backpack."}]}'
 ```
 
-The Anthropic Python SDK works when you point `base_url` at the gateway path. By default, the stock SDK sends the credential in the `x-api-key` header, so pass the gateway runtime access key in the `api-key` header by using `default_headers`. Set `model` to the Anthropic model name. The gateway keeps the backend Anthropic key and doesn't send it to clients.
+The Anthropic Python SDK works when you point `base_url` at the gateway path. By default, the stock SDK sends the credential in the `x-api-key` header, so pass the gateway runtime access key in the `api-key` header by using `default_headers`. The `api_key="unused"` value only satisfies the SDK's required argument; the gateway ignores it and injects the stored backend Anthropic key. Set `model` to the Anthropic model name.
 
 ```python
 from anthropic import Anthropic
@@ -194,13 +194,12 @@ curl "https://<gateway>.<region>.ai.gateway.azure.com/default/toolservers/<serve
 ### [Python](#tab/python)
 
 ```python
-import os
 import requests
 
 url = "https://<gateway>.<region>.ai.gateway.azure.com/default/toolservers/<server-name>/mcp"
 response = requests.post(
     url,
-    headers={"api-key": os.environ["AI_GATEWAY_API_KEY"], "Content-Type": "application/json"},
+    headers={"api-key": "<runtime-access-key>", "Content-Type": "application/json"},
     json={"jsonrpc": "2.0", "id": 1, "method": "tools/list"},
 )
 print(response.json())
@@ -208,17 +207,17 @@ print(response.json())
 
 ---
 
-If a system has a REST API but no MCP server, import its OpenAPI description. Select operations to expose as tools, edit tool names and descriptions, configure API key authentication, and create the MCP asset. The gateway maps tool calls to REST operations.
+If a system has a REST API but no MCP server, import its OpenAPI description. Select operations to expose as tools, edit tool names and descriptions, configure a supported backend authentication method, and create the MCP asset. The gateway maps tool calls to REST operations.
 
 Use the gateway for MCP servers to centralize:
 
 - **Discovery** — provide one catalog of approved MCP servers for developers and agents.
 - **Authentication** — clients authenticate to the gateway. The gateway stores backend credentials, so client configuration doesn't contain upstream secrets.
-- **Authorization** — choose which tools each server exposes. You can create read-only and full-access views through configuration.
-- **Observability** — monitor tool usage from the portal. OpenTelemetry logs and metrics cover model traffic today; telemetry for MCP tool calls is a fast follow.
+- **Tool exposure** — choose which backend operations each server publishes as tools. In preview, every runtime access key can call all published assets in the gateway.
+- **Observability** — OpenTelemetry logs and metrics cover model traffic today; telemetry for MCP tool calls is a fast follow.
 - **Governance** — apply the same policies to MCP traffic that you use for models, such as rate limits and content safety.
 
-After you create the server, configure runtime access before sharing it. Add policies such as request rate limits, token rate limits, content safety, and IP filtering based on each tool and backend.
+After you create the server, configure runtime access before sharing it. Add policies such as content safety, IP filters, and token and request rate limits, scoped to the gateway or to specific published assets.
 
 ## Related content
 

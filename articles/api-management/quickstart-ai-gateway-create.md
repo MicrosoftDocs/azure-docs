@@ -27,7 +27,7 @@ AI Gateway tier from Azure API Management is a dedicated tier for AI workloads. 
 - An Azure subscription, and permission to create resources in a resource group (for example, the **Contributor** role).
 - Access to at least one supported model provider, such as a deployed model in Microsoft Foundry or Azure OpenAI.
 - If your provider requires an API key, have the key available.
-- To run the samples: Python 3.9 or later with the OpenAI package, or Node.js 18 or later with the `openai` package.
+- To call the gateway, use curl (no installation) or an OpenAI SDK — Python 3.9 or later, or Node.js 18 or later, with the `openai` package.
 
 ## 1. Sign in to the AI Gateway tier portal
 
@@ -58,7 +58,7 @@ The fastest path is to import a model from a Microsoft Foundry resource.
 1. In the gateway, select **Models**, and then select **Add models**.
 1. Select **Import from Foundry**.
 1. On **Select resource**, choose your subscription and Foundry resource. The wizard lists the model deployments in that resource. Note the name of a chat model (this quickstart uses `gpt-5.6-sol`).
-1. On **Provider details**, enter a provider name (a short identifier shown in the Models list and in telemetry; it doesn't need to match the Foundry resource name), and choose an authentication method:
+1. On **Provider details**, enter a provider name and display name (short identifiers shown in the Models list and in telemetry; they don't need to match the Foundry resource name), and choose an authentication method:
    - **Key-based** (fastest for this quickstart): the gateway stores the provider key. No role assignment is required.
    - **Managed identity**: available when the provider supports Microsoft Entra ID authentication. Before you use it, assign the gateway identity the required backend role (for Azure OpenAI, **Cognitive Services OpenAI User**). See [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md#use-managed-identity-for-backend-authentication).
 1. Select **Create**. There's no separate validation step; the gateway sets up the connection when you create the provider.
@@ -92,6 +92,9 @@ Set these values once:
 export AI_GATEWAY_BASE_URL="https://<gateway>.<region>.ai.gateway.azure.com/default/models/openai/v1"
 export AI_GATEWAY_API_KEY="<runtime-access-key>"
 ```
+
+> [!TIP]
+> Copy the exact base URL from your gateway rather than building it by hand — the `<region>` segment is a slug such as `eastus2`, not `East US 2`.
 
 Make your first call with the client of your choice:
 
@@ -177,7 +180,7 @@ To stream, add `stream: true` and iterate the async response.
 
 ---
 
-Every response uses the OpenAI Chat Completions format, whichever provider backs the model.
+Every response from the `/chat/completions` endpoint uses the OpenAI Chat Completions format, whichever OpenAI-compatible provider backs the model.
 
 A non-streaming call returns a chat completion:
 
@@ -210,15 +213,17 @@ With streaming enabled, the gateway returns `chat.completion.chunk` events:
 }
 ```
 
+The same base URL also serves the OpenAI Responses API at `/responses`.
+
 If a request fails, the gateway returns a standard HTTP status code:
 
 | Status | Meaning | What to check |
 | --- | --- | --- |
+| 400 | Invalid request, or blocked by content safety | Check the request body; a content-safety policy can block a prompt or response. |
 | 401 | Missing or invalid runtime access key | Send the key in the `api-key` header, and confirm the key is active. |
-| 403 | Access denied | The key or backend identity isn't authorized. For managed identity, assign the **Cognitive Services OpenAI User** role to the gateway identity on the backend resource. See [Use managed identity for backend authentication](./ai-gateway-govern-secure-operate.md#use-managed-identity-for-backend-authentication). |
+| 403 | Blocked by an IP filter, or denied by the backend | Check any IP-filter policy. For managed identity, assign the **Cognitive Services OpenAI User** role to the gateway identity on the backend resource. See [Use managed identity for backend authentication](./ai-gateway-govern-secure-operate.md#use-managed-identity-for-backend-authentication). |
 | 404 | Unknown model | Confirm the `model` value matches a model name on the **Models** page. |
 | 429 | Throttled by a rate-limit policy or the backend | Review token and request rate-limit policies, and honor the `Retry-After` response header. |
-| 400 | Invalid request, or blocked by content safety | Check the request body; a content-safety policy can block a prompt or response. |
 | 5xx | Backend error | Confirm the backend provider is healthy and the provider credential is valid. |
 
 The OpenAI SDKs raise typed exceptions for these status codes, so your existing error handling works:
