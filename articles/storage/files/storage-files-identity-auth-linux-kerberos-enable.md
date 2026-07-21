@@ -48,7 +48,7 @@ sudo apt install samba winbind libpam-winbind libnss-winbind krb5-config krb5-us
 
 The `wbinfo` tool is part of the samba suite and is useful for authentication and debugging purposes, such as checking if the domain controller is reachable, checking what domain a machine is joined to, and finding information about users.
 
-Make sure that the Linux host keeps the time synchronized with the domain server. Refer to the documentation for your Linux distribution. For some distros, you can do this [using systemd-timesyncd](https://www.freedesktop.org/software/systemd/man/timesyncd.conf.html). Edit `/etc/systemd/timesyncd.conf` to include the following. Replace `ntp.server` with the same NTP server hostname or IP address that your domain server uses.
+Make sure that the Linux host keeps the time synchronized with the domain server. See the documentation for your Linux distribution. For some distros, you can do this [using systemd-timesyncd](https://www.freedesktop.org/software/systemd/man/timesyncd.conf.html). Edit `/etc/systemd/timesyncd.conf` to include the following. Replace `ntp.server` with the same NTP server hostname or IP address that your domain server uses.
 
 ```plaintext
 [Time]
@@ -118,9 +118,11 @@ The following section assumes you have an existing, on-premises AD DS. If you're
              DNS Domain: domain1.contoso.com
    ```
 
-1. If the command works, skip the following steps and proceed to the [next section](#set-up-hostname-and-fully-qualified-domain-name-fqdn).
+1. If the DNS servers contain the domain server IP addresses, proceed to [Set up hostname and FQDN](#set-up-hostname-and-fully-qualified-domain-name-fqdn). If the command doesn't produce the expected output, see [Troubleshoot domain server discovery](#troubleshoot-domain-server-discovery).
 
-1. If the command doesn't work, make sure that you can ping the domain server IP addresses.
+#### Troubleshoot domain server discovery
+
+1. Make sure that you can ping the domain server IP addresses.
 
    ```bash
    ping 10.0.2.5
@@ -194,7 +196,7 @@ The following section assumes you have an existing, on-premises AD DS. If you're
    fi 
    ```
 
-Proceed to [set up a hostname and fully qualified domain name](#set-up-hostname-and-fully-qualified-domain-name-fqdn).
+After resolving the issue, proceed to [set up a hostname and fully qualified domain name](#set-up-hostname-and-fully-qualified-domain-name-fqdn).
 
 <a name='connect-to-azure-ad-ds-and-make-sure-the-services-are-discoverable'></a>
 
@@ -250,7 +252,9 @@ Using your text editor, update the `/etc/hosts` file with the final FQDN (after 
 #then enter this value instead of localhost "ubuntuvm.contosodomain.contoso.com UbuntuVM" 
 ```
 
-Now, your hostname should resolve. You can ignore the IP address it resolves to for now. The short hostname should resolve to the FQDN.
+Now, verify that your hostname resolves correctly by running the following three commands.
+
+Use `getent hosts` to confirm the short hostname resolves to the FQDN. You can ignore the IP address that's returned.
 
 ```bash
 getent hosts contosovm
@@ -260,6 +264,8 @@ getent hosts contosovm
 127.0.0.1       contosovm.contosodomain.contoso.com contosovm
 ```
 
+Use `dnsdomainname` to confirm the domain name is configured correctly.
+
 ```bash
 dnsdomainname
 ```
@@ -267,6 +273,8 @@ dnsdomainname
 ```output
 contosodomain.contoso.com
 ```
+
+Use `hostname -f` to confirm the full FQDN is resolved.
 
 ```bash
 hostname -f
@@ -277,7 +285,7 @@ contosovm.contosodomain.contoso.com
 ```
 
 > [!NOTE]
-> Some Linux distros require you to run the `hostnamectl` command in order for `hostname -f` to be updated:
+> Some Linux distros require you to run the `hostnamectl` command for `hostname -f` to be updated:
 > 
 > `hostnamectl set-hostname contosovm.contosodomain.contoso.com`
 
@@ -354,7 +362,7 @@ sudo smbcontrol all reload-config
 Use the `net ads join` command to join the host to the domain. If the command returns an error, see [Troubleshooting samba domain members](https://wiki.samba.org/index.php/Troubleshooting_Samba_Domain_Members) to resolve the problem.
 
 ```bash
-sudo net ads join -U contososmbadmin    # user  - garead
+sudo net ads join -U contososmbadmin
 
 Enter contososmbadmin's password:
 ```
@@ -464,7 +472,7 @@ sudo pam-auth-update --enable winbind
 sudo pam-auth-update --enable mkhomedir 
 ```
 
-Ensure that the PAM authentication config has the following arguments in `/etc/pam.d/common-auth`:
+Verify that the PAM authentication config has the correct `pam_winbind.so` arguments in `/etc/pam.d/common-auth`:
 
 ```bash
 grep pam_winbind.so /etc/pam.d/common-auth
@@ -473,6 +481,8 @@ grep pam_winbind.so /etc/pam.d/common-auth
 ```output
 auth    [success=1 default=ignore]      pam_winbind.so krb5_auth krb5_ccache_type=FILE cached_login try_first_pass 
 ```
+
+If the command returns no output, re-run `sudo pam-auth-update --enable winbind` to ensure winbind is added to the PAM authentication stack.
 
 You can now sign in to this system as the domain user, either through ssh, su, or any other means of authentication.
 
@@ -489,7 +499,7 @@ contososmbadmin@contosovm:~$ id
 uid=12604(contososmbadmin) gid=10513(domain users) groups=10513(domain users),10520(group policy creator owners),10572(denied rodc password replication group),11102(dnsadmins),11104(aad dc administrators),11164(group-readwrite),11165(fileshareallaccess),12604(contososmbadmin) 
 ```
 
-## Verify configuration
+## Verify Active Directory authentication on Linux
 
 To verify that the client machine is joined to the domain, look up the FQDN of the client on the domain controller and find the DNS entry listed for this particular client. In many cases, `<dnsserver>` is the same as the domain name that the client is joined to.
 
@@ -497,7 +507,13 @@ To verify that the client machine is joined to the domain, look up the FQDN of t
 nslookup <clientname> <dnsserver>
 ```
 
-Next, use the `klist` command to view the tickets in the Kerberos cache. There should be an entry beginning with `krbtgt` that looks similar to:
+Next, run `klist` to view the tickets in the Kerberos cache:
+
+```bash
+klist
+```
+
+The output should include an entry beginning with `krbtgt` that looks similar to:
 
 ```plaintext
 krbtgt/CONTOSODOMAIN.CONTOSO.COM@CONTOSODOMAIN.CONTOSO.COM
@@ -528,7 +544,7 @@ sudo mount -t cifs $SMB_PATH $MNT_PATH -o sec=krb5,cruid=$UID,serverino,noshares
 > [!NOTE]
 > This feature only supports a server-enforced access control model that uses NT ACLs without mode bits. Linux tools that update NT ACLs are minimal, so update ACLs through Windows. Client-enforced access control (`modefromsid,idsfromsid`) and client-translated access control (`cifsacl`) models aren't currently supported.
 
-### Other mount options
+### Additional Azure Files SMB mount options for Linux
 
 #### Single-user versus multi-user mount
 
