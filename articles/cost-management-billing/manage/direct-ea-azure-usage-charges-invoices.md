@@ -6,7 +6,7 @@ ms.author: v-salin
 ms.date: 04/20/2026
 ms.topic: how-to
 ms.service: cost-management-billing
-ms.subservice: enterprise
+ms.subservice: enterprise-agreement
 ms.reviewer: v-salin
 ms.custom: sfi-image-nochange
 ---
