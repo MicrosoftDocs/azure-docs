@@ -3235,7 +3235,7 @@ And return this result: `3`
 
 ### mergeObjects
 
-Merge two JSON objects. Property names are matched without regard to case. For scalar properties, the value from the second object replaces the value from the first object. Nested objects are merged recursively, and arrays are merged by index.
+Merge two JSON objects. This function matches property names without regard to case, merges nested objects recursively, and merges arrays by index. For scalar properties, the function replaces the value from the first object with the value from the second object.
 
 ```
 mergeObjects(<object1>, <object2>)
