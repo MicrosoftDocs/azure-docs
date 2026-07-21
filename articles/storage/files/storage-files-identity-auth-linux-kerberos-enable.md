@@ -14,7 +14,7 @@ ms.author: kendownie
 
 **Applies to:** :heavy_check_mark: SMB file shares
 
-[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) for Linux virtual machines (VMs) using the Kerberos authentication protocol through the following identity sources:
+[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) for Linux virtual machines (VMs) by using the Kerberos authentication protocol through the following identity sources:
 
 - On-premises Windows Active Directory Domain Services (AD DS)
 - Microsoft Entra Domain Services
