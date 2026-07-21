@@ -8,7 +8,7 @@ ms.custom: references_regions
 **APPLIES TO: AI Gateway tier (preview)**
 
 > [!IMPORTANT]
-> API Management AI Gateway tier is currently in preview. During preview, the API Management AI Gateway tier is available in the following regions:
+> AI Gateway tier is currently in public preview. During public preview, AI Gateway tier is available in the following regions:
 > 
 > - United States - East US 2
 > - Europe - Sweden Central
