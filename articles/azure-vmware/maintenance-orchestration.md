@@ -1,18 +1,18 @@
 ---
-title: Plan self-service maintenance for Azure VMware Solution
-description: Learn how to enable self service maintenance for Azure VMware Solution.
+title: Plan maintenance for Azure VMware Solution
+description: Learn how to schedule & plan maintenance for Azure VMware Solution.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: how-to
 ms.service: azure-vmware
 ms.date: 03/17/2026
 ms.custom: engagement-fy24
-# Customer intent: As a cloud administrator, I want to reschedule planned maintenance for my Azure VMware Solution, so that I can manage my resources effectively and minimize downtime during critical business periods.
+# Customer intent: As a cloud administrator, I want to schedule & reschedule planned maintenance for my Azure VMware Solution, so that I can manage my resources effectively and minimize downtime during critical business periods.
 ---
 
-# Plan self-service maintenance for Azure VMware Solution
+# Plan maintenance for Azure VMware Solution
 
-In this article, you learn about how to use the self-service maintenance orchestration feature to schedule or reschedule planned maintenance directly from the Azure portal. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md).
+In this article, you learn how to use the maintenance orchestration feature to schedule or reschedule planned maintenance directly from the Azure portal. For more information, see [Host maintenance and lifecycle management](architecture-private-clouds.md).
 
 ## Prerequisites
 

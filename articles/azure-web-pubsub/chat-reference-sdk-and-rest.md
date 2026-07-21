@@ -22,25 +22,22 @@ Chat gives you two ways to build, depending on where your code runs:
 
 The JavaScript client SDK is published as the `@azure/web-pubsub-chat-client` npm package. It exposes
 a `ChatClient` that connects with a client access URL, then creates rooms, sends and reads messages,
-and raises events. For a walkthrough, see [Get started with Chat](chat-quickstart.md).
+and raises events. For a walkthrough, see [Get started with Azure Web PubSub chat](chat-quickstart.md).
 
-For the full API, source, and samples, see the SDK repo on GitHub:
-
-> [!div class="nextstepaction"]
-> [Chat client SDK on GitHub](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-chat-client)
+For the full API, source, and samples, [see the SDK repo on GitHub](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-chat-client).
 
 ## REST API
 
-The Chat data-plane REST API manages chat resources from your server: rooms, members, messages, users,
+Azure Web PubSub chat data-plane REST API manages chat resources from your server: rooms, members, messages, users,
 and roles. There's no dedicated Chat REST client yet, so you call these endpoints with any HTTP client.
 
-The Chat REST API lives on the same resource endpoint and hub route as the Web PubSub data-plane REST
+The chat REST API lives on the same resource endpoint and hub route as the Web PubSub data-plane REST
 API (`{endpoint}/api/hubs/{hub}/chat/...`), and it authenticates the same way as that API: with an
 access key or a Microsoft Entra ID token. For how to get the token and sign each request, see
 [Using the REST API](reference-rest-api-data-plane.md#using-rest-api).
 
 > [!NOTE]
-> For the detailed REST API specification, see the [WebPubSubChat rest api definition](https://github.com/Azure/azure-rest-api-specs/blob/9ee5902c9557817bc4a859ebc13f757515aac5d7/specification/webpubsub/data-plane/WebPubSubChat/routes.tsp).
+> For the detailed REST API specification, see the [Web PubSub chat rest api definition](/rest/api/webpubsub/dataplane/webpubsubchat/web-pub-sub-chat-service).
 
 With a bearer token from either method, you call a chat endpoint with any HTTP client. For example:
 

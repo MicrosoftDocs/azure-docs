@@ -4,7 +4,7 @@ description: Use the rules engine for Microsoft Standard Azure Content Delivery 
 services: cdn
 author: halkazwini
 ms.author: halkazwini
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: how-to
 ms.date: 02/28/2026
 ROBOTS: NOINDEX

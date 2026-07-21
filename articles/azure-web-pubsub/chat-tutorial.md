@@ -42,7 +42,7 @@ npm install express @azure/web-pubsub @azure/web-pubsub-express
 ### Client dependencies
 
 ```bash
-npm install @azure/web-pubsub-chat-client @azure/web-pubsub-client
+npm install @azure/web-pubsub-chat-client
 ```
 
 ## Step 1: Create the backend server
@@ -132,7 +132,6 @@ In production, this endpoint typically:
 ```javascript
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
-  console.log(`Event handler path: ${handler.path}`);
 });
 ```
 
@@ -145,27 +144,22 @@ On the client, fetch access URLs from the server and log in to the `demo-chat` h
 
 ```javascript
 import { ChatClient } from '@azure/web-pubsub-chat-client';
-import { WebPubSubClient } from '@azure/web-pubsub-client';
 
-// Get client access URL for Alice
-const aliceUrl = await fetch('/negotiate?userId=alice')
-  .then(r => r.json())
-  .then(d => d.url);
+// Fetch a fresh client access URL from the negotiate endpoint.
+const getClientAccessUrl = (userId) =>
+  fetch(`/negotiate?userId=${userId}`)
+    .then(r => r.json())
+    .then(d => d.url);
 
-const aliceWpsClient = new WebPubSubClient(aliceUrl);
-const alice = await ChatClient.login(aliceWpsClient);
+// Option 1: start with a one-time client access URL.
+const alice = await ChatClient.start(await getClientAccessUrl('alice'));
+console.log(`Started as: ${alice.userId}`);
 
-console.log(`${alice.userId} logged in`);
-
-// Get client access URL for Charlie
-const charlieUrl = await fetch('/negotiate?userId=charlie')
-  .then(r => r.json())
-  .then(d => d.url);
-
-const charlieWpsClient = new WebPubSubClient(charlieUrl);
-const charlie = await ChatClient.login(charlieWpsClient);
-
-console.log(`${charlie.userId} logged in`);
+// Option 2: start with a credential so the client can refresh the URL itself.
+const charlie = await ChatClient.start({
+  getClientAccessUrl: () => getClientAccessUrl('charlie'),
+});
+console.log(`Started as: ${charlie.userId}`);
 ```
 
 ### Why this step exists
@@ -181,24 +175,26 @@ The Web PubSub chat hub builds on the Web PubSub connection model. This authenti
 Register listeners to receive real-time updates.
 
 ```javascript
-alice.addListenerForNewMessage((notification) => {
-  const msg = notification.message;
+alice.on('message', (event) => {
+  const msg = event.message;
   console.log(`Alice received: ${msg.createdBy}: ${msg.content.text}`);
 });
 
-alice.addListenerForNewRoom((room) => {
-  console.log(`Alice joined room: ${room.title}`);
+alice.on('room-joined', (event) => {
+  console.log(`Alice joined room: ${event.room.title}`);
 });
 
-charlie.addListenerForNewMessage((notification) => {
-  const msg = notification.message;
+charlie.on('message', (event) => {
+  const msg = event.message;
   console.log(`Charlie received: ${msg.createdBy}: ${msg.content.text}`);
 });
 
-charlie.addListenerForNewRoom((room) => {
-  console.log(`Charlie joined room: ${room.title}`);
+charlie.on('room-joined', (event) => {
+  console.log(`Charlie joined room: ${event.room.title}`);
 });
 ```
+
+The chat client is an event emitter. In addition to `message` and `room-joined`, you can listen for `room-left`, `member-joined`, `member-left`, `started`, and `stopped`. Use `off` with the same arguments to remove a listener.
 
 ### Why this step exists
 
@@ -234,10 +230,20 @@ Rooms provide structure for chat:
 
 ## Step 7: Get message history
 
-Retrieve previous messages from a room:
+Retrieve previous messages from a room. `listRoomMessages` returns a paged async iterator, so you can iterate over every message directly:
 
 ```javascript
-const history = await alice.listRoomMessage(room.roomId, null, null);
+for await (const msg of alice.listRoomMessages(room.roomId)) {
+  console.log(`${msg.createdBy}: ${msg.content.text}`);
+}
+```
+
+Or load history one page at a time (for example, "load 50, then 50 more on scroll-up"):
+
+```javascript
+const pages = alice.listRoomMessages(room.roomId).byPage({ maxPageSize: 50 });
+const firstPage = await pages.next();
+const messages = firstPage.value ?? [];
 ```
 
 ### Why this step exists
@@ -271,8 +277,8 @@ Membership changes take effect immediately.
 When the client no longer needs to receive messages:
 
 ```javascript
-alice.stop();
-charlie.stop();
+await alice.stop();
+await charlie.stop();
 ```
 
 ## What you built

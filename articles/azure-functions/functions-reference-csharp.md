@@ -122,7 +122,7 @@ The `#r` statement is explained [later in this article](#referencing-external-as
 
 ## Connections
 
-When possible, use managed identity-based connections in your triggers and bindings. For more information, see the [Function developer guide](./functions-reference.md#connections).
+When possible, use managed identity-based connections in your triggers and bindings. For more information, see [Manage connections](manage-connections.md?tabs=identity).
 
 ## Supported types for bindings
 
