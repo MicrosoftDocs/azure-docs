@@ -600,7 +600,7 @@ Functions also support Python SDK type bindings for Azure Blob storage, which le
 
 ::: zone-end  
 
-[!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-blob-connections.md)]
+[!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-connections.md)]
 
 ## Blob name patterns
 
