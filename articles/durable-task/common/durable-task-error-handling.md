@@ -16,7 +16,7 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
-You implement Durable Functions orchestrations in code, so you use your language's built-in error handling features. Error handling and compensation don't require new concepts, but a few orchestration behaviors are worth knowing about.
+You implement Durable Functions orchestrations in code, so use your language's built-in error handling features. Error handling and compensation don't require new concepts, but a few orchestration behaviors are worth knowing about.
 
 [!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
 
@@ -24,7 +24,7 @@ You implement Durable Functions orchestrations in code, so you use your language
 
 ::: zone pivot="durable-task-sdks"
 
-Apps that use cloud services need to handle failures, and client side retries are an important part of the design. The Durable Task SDKs include support for error handling, retries, and timeouts to help you build robust workflows.
+Apps that use cloud services need to handle failures, and client-side retries are an important part of the design. The Durable Task SDKs include support for error handling, retries, and timeouts to help you build robust workflows.
 
 ::: zone-end
 
@@ -33,7 +33,7 @@ Apps that use cloud services need to handle failures, and client side retries ar
 
 ::: zone pivot="durable-functions"
 
-In Durable Functions, unhandled exceptions thrown within activity functions or sub-orchestrations are marshaled back to the orchestrator function using standardized exception types.
+In Durable Functions, the framework marshals unhandled exceptions thrown within activity functions or sub-orchestrations back to the orchestrator function by using standardized exception types.
 
 The following orchestrator function transfers funds between two accounts:
 
@@ -42,7 +42,7 @@ The following orchestrator function transfers funds between two accounts:
 <details>
 <summary><b>Isolated worker model</b></summary>
 
-In Durable Functions C# Isolated, unhandled exceptions are surfaced as [TaskFailedException](/dotnet/api/microsoft.durabletask.taskfailedexception).
+In Durable Functions C# Isolated, unhandled exceptions surface as [TaskFailedException](/dotnet/api/microsoft.durabletask.taskfailedexception).
 
 The exception message typically identifies which activity functions or sub-orchestrations caused the failure. To access more detailed error information, inspect the [FailureDetails](/dotnet/api/microsoft.durabletask.taskfailuredetails) property.
 
@@ -93,7 +93,7 @@ public static async Task Run(
 <details>
 <summary><b>In-process model</b></summary>
 
-In Durable Functions C# in-process, unhandled exceptions are thrown as [FunctionFailedException](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.functionfailedexception).
+In Durable Functions C# in-process, unhandled exceptions throw as [FunctionFailedException](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.functionfailedexception).
 
 The exception message usually includes the activity function or sub-orchestration that failed. For details, inspect `InnerException`.
 
@@ -234,10 +234,10 @@ main = df.Orchestrator.create(orchestrator_function)
 ```
 # [PowerShell](#tab/powershell)
 
-By default, cmdlets in PowerShell don't raise exceptions that can be caught using try/catch blocks. You have two options for changing this behavior:
+By default, cmdlets in PowerShell don't raise exceptions that try/catch blocks can catch. To change this behavior, use one of the following options:
 
 1. Use the `-ErrorAction Stop` flag when invoking cmdlets, such as `Invoke-DurableActivity`.
-2. Set the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) preference variable to `"Stop"` in the orchestrator function before invoking cmdlets.
+1. Set the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) preference variable to `"Stop"` in the orchestrator function before invoking cmdlets.
 
 ```powershell
 param($Context)
@@ -255,7 +255,7 @@ try {
 }
 ```
 
-For more information on error handling in PowerShell, see the [Try-Catch-Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) PowerShell documentation.
+For more information about error handling in PowerShell, see the [Try-Catch-Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) PowerShell documentation.
 
 # [Java](#tab/java)
 
@@ -694,7 +694,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
+> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
 
 </details>
 
@@ -1257,7 +1257,7 @@ public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationC
 ```
 
 > [!NOTE]
-> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
+> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
 
 </details>
 
@@ -1756,7 +1756,7 @@ Custom exception properties for `FailureDetails` aren't supported in PowerShell 
 
 # [Java](#tab/java)
 
-Custom exception properties for `FailureDetails` aren't supported in Java yet.
+Java doesn't support custom exception properties for `FailureDetails` yet.
 
 ---
 
