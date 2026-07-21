@@ -7,7 +7,7 @@ ms.author: malev
 ---
 
 > [!NOTE]
-The Essential tier is deprecated. Existing Essential instances continue to run during the transition period, but you can't create new Essential instances. The Essential tier is scheduled to retire on March 31, 2027.
+> The Essential tier is deprecated. Existing Essential instances continue to run during the transition period, but you can't create new Essential instances. The Essential tier is scheduled to retire on March 31, 2027.
 
 | Limit                                | Description                                                                                                                                                          | Essential (deprecated; existing instances only) | Standard X1            | Standard X2            |
 |--------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|------------------------|------------------------|

@@ -2,7 +2,7 @@
 title: Serverless agents runtime in Azure Functions
 description: "Learn how the Azure Functions serverless agents runtime lets you build event-driven AI agents with markdown, Functions triggers, MCP tools, connectors, sandboxed execution, and managed hosting."
 ms.topic: concept-article
-ms.date: 05/20/2026
+ms.date: 07/20/2026
 ms.update-cycle: 180-days
 ai-usage: ai-assisted
 ms.custom:
@@ -35,7 +35,7 @@ Azure Functions already provides an event-driven compute model for those operati
 
 ## Project anatomy
 
-A serverless agents app is a Python Azure Functions app with agent-specific files beside the normal Functions project files.
+A serverless agents app is a Python Azure Functions app with agent-specific files alongside the normal Functions project files.
 
 | File or folder | Required | Purpose |
 | --- | --- | --- |
@@ -253,9 +253,9 @@ The `auth.client_id` setting selects which managed identity authenticates with t
 
 ### Skills
 
-Skills are reusable prompt assets stored under `skills/`. They help keep the base agent instructions small while making domain-specific instructions available when needed. The runtime uses the [Agent Skills](https://agentskills.io/) format.
+Store reusable prompt assets under `skills/`. They help keep the base agent instructions small while making domain-specific instructions available when needed. The runtime uses the [Agent Skills](https://agentskills.io/) format.
 
-The runtime scans `skills/` in the function app project root and recursively discovers folders that contain `SKILL.md`:
+The runtime scans `skills/` in the function app project root and recursively discovers folders that contain `SKILL.md`.
 
 ```text
 skills/
@@ -265,7 +265,7 @@ skills/
     escalation-policy.md
 ```
 
-The `SKILL.md` file contains YAML front matter followed by markdown instructions:
+The `SKILL.md` file contains YAML front matter followed by markdown instructions.
 
 ```markdown
 ---
@@ -280,11 +280,11 @@ Use these skill authoring rules:
 
 + Every skill folder must contain a `SKILL.md` file.
 + The `name` and `description` fields are required.
-+ Skill names must use lowercase letters, numbers, and single hyphens. Don't use spaces, underscores, uppercase letters, leading hyphens, trailing hyphens, or repeated hyphens.
++ Use lowercase letters, numbers, and single hyphens for skill names. Don't use spaces, underscores, uppercase letters, leading hyphens, trailing hyphens, or repeated hyphens.
 + Skill names must be unique across the app.
 + The description should explain both what the skill does and when the agent should use it. The runtime loads skill names and descriptions first so the agent can decide when to load the full skill.
 + Skills can include multiple markdown files in the same skill folder. Reference supporting markdown files from `SKILL.md` by using relative links.
-+ Only markdown files are supported as skill content in the serverless agents runtime. If a skill needs executable behavior, package that code as a custom Python tool and refer to the tool by name from the skill instructions.
++ The serverless agents runtime supports only markdown files as skill content. If a skill needs executable behavior, package that code as a custom Python tool and refer to the tool by name from the skill instructions.
 
 Agents inherit all discovered skills by default. Disable or exclude skills in an agent file when a specific agent shouldn't use them:
 
@@ -329,7 +329,7 @@ system_tools:
 
 ### Custom Python tools
 
-Use custom Python tools for app-specific capabilities that don't fit MCP servers, MCP servers hosted in connector namespaces, skills, or sandboxed execution. Custom tools let you use Azure Functions and Python packages from the same function app.
+Use custom Python tools for app-specific capabilities that don't fit MCP servers, MCP servers hosted in connector namespaces, skills, or sandboxed execution. By using custom tools, you can use Azure Functions and Python packages from the same function app.
 
 Add tool files to the `tools/` folder in the function app project root:
 
@@ -341,7 +341,7 @@ tools/
 
 The runtime discovers `.py` files in `tools/` whose file names don't start with `_`. In the current preview, the runtime registers the first supported tool from each file. Use one tool per file to keep discovery predictable.
 
-You can define a tool by decorating a function with `@tool` from the runtime package:
+Define a tool by decorating a function with `@tool` from the runtime package:
 
 ```python
 from azure_functions_agents import tool
@@ -435,7 +435,7 @@ Sandboxed execution is also session-aware. When the runtime creates sandbox tool
 
 ## Built-in endpoints
 
-The runtime can expose built-in debug and composition endpoints without additional application code. Use the chat UI and chat APIs for development, testing, and diagnostics, not as the primary production application interface.
+The runtime can expose built-in debug and composition endpoints without extra application code. Use the chat UI and chat APIs for development, testing, and diagnostics, not as the primary production application interface.
 
 | Surface | Route | Azure key |
 | --- | --- | --- |
@@ -444,9 +444,9 @@ The runtime can expose built-in debug and composition endpoints without addition
 | Streaming chat API | `POST /agents/<AGENT_NAME>/chatstream` when `builtin_endpoints.chat_api: true` | Function key. |
 | MCP endpoint | `/runtime/webhooks/mcp` | `mcp_extension` system key. |
 
-Any agent file can opt in through `builtin_endpoints` settings in its front matter. The `<AGENT_NAME>` route segment is derived from the `.agent.md` file name, not the display `name` field. For example, `main.agent.md` uses `/agents/main/`.
+Any agent file can opt in through `builtin_endpoints` settings in its front matter. The `<AGENT_NAME>` route segment comes from the `.agent.md` file name, not the display `name` field. For example, `main.agent.md` uses `/agents/main/`.
 
-When hosted in Azure, the chat UI prompts for a function key before it sends messages. You can also use this key to call the HTTP chat APIs directly:
+When you host the runtime in Azure, the chat UI prompts for a function key before it sends messages. You can also use this key to call the HTTP chat APIs directly:
 
 ```azurecli
 az functionapp keys list \
@@ -481,6 +481,8 @@ Good fits include:
 + Agents that should scale to zero and use managed identity, monitoring, deployment slots, and other Azure hosting capabilities.
 
 If you only need to expose deterministic functions as tools for another AI client, the Azure Functions MCP extension might be a better starting point. For more information, see [Use AI tools and models in Azure Functions](functions-create-ai-enabled-apps.md).
+
+For a comparison with other Microsoft agent options, see [Compare the serverless agents runtime with other Microsoft agent options](compare-serverless-agents-runtime.md).
 
 ## Get started
 

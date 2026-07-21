@@ -3,7 +3,7 @@ title: MCP connectors and tools in Azure SRE Agent
 description: Extend your agent to any external system including observability platforms, source code, ticketing systems, and custom APIs which uses the Model Context Protocol.
 ms.topic: article
 ms.service: azure-sre-agent
-ms.date: 04/24/2026
+ms.date: 07/20/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -49,7 +49,10 @@ MCP supports two ways to connect your agent to external tools:
 
 ### Streamable-HTTP (remote services)
 
-Connect to any MCP server accessible through a URL. Provide the endpoint and authentication credentials - either a Bearer token or custom headers.
+Connect to any MCP server accessible through a URL. Provide the endpoint and authentication credentials - either a Bearer token or custom headers, or OAuth sign-in for servers that support spec-compliant OAuth.
+
+> [!NOTE]
+> OAuth sign-in for Streamable-HTTP MCP servers requires a public HTTPS endpoint. Non-HTTPS endpoints and non-public endpoints are rejected.
 
 ### Stdio (local processes)
 
@@ -205,6 +208,7 @@ Each MCP server has its own authentication requirements. The portal supports the
 |-------------|------------|--------------|
 | **Bearer token** | Most SaaS APIs (GitHub, Splunk, Dynatrace) | Sends token in the Authorization header |
 | **Custom headers** | APIs requiring specific headers (Datadog) | Sends arbitrary key-value headers with each request |
+| **OAuth** | Remote MCP servers that support spec-compliant OAuth (interactive sign-in) | Registers the agent dynamically, completes an authorization-code flow with PKCE, and refreshes tokens automatically. Requires a public HTTPS endpoint. |
 | **Managed identity** | Azure services via stdio connectors | Uses your agent's managed identity for Azure AD tokens |
 
 For partner connectors, the auth method is preconfigured - you just enter the credentials.

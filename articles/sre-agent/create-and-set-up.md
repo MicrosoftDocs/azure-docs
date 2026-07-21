@@ -115,7 +115,7 @@ Start with the **Quickstart** tab. Not all sources are required, although connec
 **Checkpoint:** The **Code** card shows a green checkmark and lists the connected repositories.
 
 > [!TIP]
-> Connect the repository that contains the service that you plan to investigate first. When connected, your agent immediately starts exploring the codebase and building expertise. Your agent learns your project structure, deployment configurations, and code patterns through [deep context](workspace-tools.md).
+> Connect the repository that contains the service that you plan to investigate first. When connected, your agent immediately starts exploring the codebase and building expertise. Your agent learns your project structure, deployment configurations, and code patterns through [deep context](agent-reasoning.md#deep-context).
 
 ### Add Azure resource access
 

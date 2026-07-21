@@ -190,7 +190,7 @@ GET {endpoint}/access/teamsExtension/tenants/87d349ed-44d7-43e1-9a83-5f2406dee5b
 ## Next steps
   
 > [!div class="nextstepaction"]
-> [REST API for Teams Phone extensibility](./teams-phone-extensiblity-rest-api.md)
+> [REST API for Teams Phone extensibility](./teams-phone-extensibility-rest-api.md)
 
 ## Related articles
 

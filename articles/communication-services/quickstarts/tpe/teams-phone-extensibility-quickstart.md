@@ -661,4 +661,4 @@ Response<RecordingStateResult> response = await callAutomationClient.GetCallReco
 ## Related articles
 
 - [Teams Phone extensibility overview](../../concepts/interop/tpe/teams-phone-extensibility-overview.md)
-- [REST API for Teams Phone extensibility](./teams-phone-extensiblity-rest-api.md)
+- [REST API for Teams Phone extensibility](./teams-phone-extensibility-rest-api.md)

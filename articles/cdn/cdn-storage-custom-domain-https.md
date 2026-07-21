@@ -5,7 +5,7 @@ description: Learn how to add an Azure Content Delivery Network custom domain an
 services: cdn
 author: halkazwini
 ms.author: halkazwini
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: tutorial
 ms.date: 02/28/2026
 ms.custom: mvc

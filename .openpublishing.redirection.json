@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-compute-fleet/modify-fleet.md",
+      "redirect_url": "/azure/azure-compute-fleet/managed-mode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communication-services/quickstarts/tpe/teams-phone-extensiblity-rest-api.md",
+      "redirect_url": "/azure/communication-services/quickstarts/tpe/teams-phone-extensibility-rest-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/devtest-labs/use-devtest-labs-build-release-pipelines.md",
       "redirect_url": "/previous-versions/azure/devtest-labs/use-devtest-labs-build-release-pipelines",
       "redirect_document_id": false

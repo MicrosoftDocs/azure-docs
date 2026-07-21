@@ -62,8 +62,8 @@ For a list of existing Azure Marketplace offerings in this space, visit [Azure M
 > [!NOTE]
 > The information provided here will allow you to sign up and learn about the FedRAMP compliance program. The program is designed to help Azure and Azure Government customers successfully prepare their environments for authorization and request a FedRAMP ATO. This information does not constitute an offer of any kind, and submitting the following forms in no way guarantees participation in the program. Currently, the program details shared with partners and customers are notional and subject to change without notice.
 
-- [FedRAMP training resources](https://www.fedramp.gov/assets/resources/training/100-A-FedRAMP-Training-Welcome-to-FedRAMP.pdf).
-- [FedRAMP documents and templates](https://www.fedramp.gov/rev5/documents-templates/) to help you with program requirements.
+- [FedRAMP training resources](https://www.fedramp.gov/).
+- [FedRAMP documents and templates](https://www.fedramp.gov/documents-templates/) to help you with program requirements.
 - Get familiar with the [FedRAMP Marketplace](https://marketplace.fedramp.gov/#/products).
 - Learn more about [Azure Government compliance](../documentation-government-plan-compliance.md).
  

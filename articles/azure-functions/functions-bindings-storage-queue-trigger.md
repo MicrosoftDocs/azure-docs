@@ -547,7 +547,7 @@ The following message metadata properties can be accessed from the passed bindin
 
 ::: zone-end
 
-[!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-queue-connections.md)]
+[!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-connections.md)]
 
 ## Poison messages
 
