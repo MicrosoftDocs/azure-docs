@@ -27,8 +27,6 @@ Use the **Add models** wizard to connect AI Gateway tier to Microsoft Foundry, A
 
 :::image type="content" source="media/ai-gateway-models-list.png" alt-text="The Models page listing published models with their type, publisher, provider, and runtime endpoints, plus an Add models button." lightbox="media/ai-gateway-models-list.png":::
 
-In the **Add models** wizard, Azure OpenAI and AI Services deployments are added through the **Microsoft Foundry** provider, and Anthropic is added as a **custom provider** by using Messages API passthrough.
-
 Choose **Import from Foundry** when your model runs in a Microsoft Foundry or Azure OpenAI resource — the wizard discovers the resource's deployments automatically. Choose **Add a custom model** for AWS Bedrock, Google Vertex, OpenAI, Anthropic, or any other OpenAI-compatible endpoint, where you enter the endpoint and model names yourself.
 
 | Provider | Model information | Backend authentication | Notes |

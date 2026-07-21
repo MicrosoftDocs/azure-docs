@@ -25,7 +25,7 @@ AI Gateway tier is a managed gateway for applications that call models and tools
 1. Routes the request to the selected backend — by the `model` field for models, or the tool name for tools — using the backend credentials you configured.
 1. Returns the response and emits telemetry, such as token counts, latency, and traces.
 
-Use AI Gateway tier when you want a fully managed path for AI traffic: you don't plan or manage scale units, and provisioning takes about a minute. Pricing and the business model will be announced later in the preview.
+Use AI Gateway tier when you want a fully managed path for AI traffic: you don't plan or manage scale units, and provisioning takes about a minute.
 
 ## Why use it
 
@@ -76,7 +76,7 @@ Tools are the approved operations that agents can use. Publishing tools through 
 
 ### Policies
 
-A policy is a runtime governance control for AI traffic. The AI Gateway tier shows common AI controls as cards and declarative settings in the portal, instead of requiring teams to edit XML.
+A policy is a runtime governance control for AI traffic. AI Gateway tier shows common AI controls as cards and declarative settings in the portal, instead of requiring teams to edit XML.
 
 | Policy | What it controls |
 | --- | --- |
@@ -95,7 +95,7 @@ Identity controls who can manage the gateway and how the gateway authenticates t
 
 When managed identity isn't available, provide provider keys during configuration. Prefer managed identity where available, and grant identities the minimum permissions required.
 
-### Discover and consume
+### Self-service catalog
 
 Developers browse a self-service catalog of available models and tools. Each asset includes connection details and usage instructions. Pin frequently used assets for quick access from the home page. Press Ctrl+K (⌘K on macOS) to open the command palette and jump to any asset or page.
 

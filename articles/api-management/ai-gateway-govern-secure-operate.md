@@ -16,8 +16,6 @@ Use AI Gateway tier (preview) to put common controls in front of AI models, Micr
 
 AI Gateway tier is in preview. Use it for pilots and production-like validation. Features, regions, limits, telemetry fields, and setup flows can change before general availability. The preview supports quick provisioning, but reliability is best effort. Monitor errors and keep a rollback path for critical applications.
 
-Use token and request controls to manage live traffic behavior. For detailed financial tracking, use provider billing reports or Azure Cost Management.
-
 ## Prerequisites
 
 - An AI Gateway tier instance.
@@ -201,12 +199,12 @@ DNS is a common source of issues. The gateway must resolve backend hostnames to 
 
 ## Monitoring
 
-AI Gateway emits OpenTelemetry logs and metrics for model traffic — latency, reliability, token use, policy outcomes, and model behavior. You choose where telemetry goes. Keep it in your Azure subscription, or send OpenTelemetry signals to Application Insights or another OpenTelemetry (OTLP)-compatible destination, such as Datadog, Splunk, or Grafana Cloud.
+AI Gateway tier emits OpenTelemetry logs and metrics for model traffic — latency, reliability, token use, policy outcomes, and model behavior. You choose where telemetry goes. Keep it in your Azure subscription, or send OpenTelemetry signals to Application Insights or another OpenTelemetry (OTLP)-compatible destination, such as Datadog, Splunk, or Grafana Cloud.
 
 > [!NOTE]
 > In public preview, OpenTelemetry logs and metrics cover model traffic. Telemetry for MCP tool calls is a fast follow.
 
-AI Gateway follows OpenTelemetry and the OpenTelemetry Generative AI semantic conventions where possible. Requests can include standard HTTP, network, and trace attributes. They can also include GenAI attributes with the `gen_ai.*` prefix, such as requested model, operation name, input tokens, output tokens, and finish reasons. Not every backend returns the same fields — some providers omit token counts in streaming or passthrough responses. Treat missing token attributes as unavailable, not as zero.
+AI Gateway tier follows OpenTelemetry and the OpenTelemetry Generative AI semantic conventions where possible. Requests can include standard HTTP, network, and trace attributes. They can also include GenAI attributes with the `gen_ai.*` prefix, such as requested model, operation name, input tokens, output tokens, and finish reasons. Not every backend returns the same fields — some providers omit token counts in streaming or passthrough responses. Treat missing token attributes as unavailable, not as zero.
 
 Commonly emitted GenAI attributes include:
 
@@ -221,7 +219,7 @@ Commonly emitted GenAI attributes include:
 
 Configure a telemetry destination in the gateway's monitoring settings. For Application Insights, select the resource in your subscription. For a generic OpenTelemetry (OTLP) endpoint, provide the collector URL and any required access token or headers. Use Application Insights when you want Azure-native traces, logs, Kusto queries, and Azure Monitor alerts. Use Datadog, Splunk, Grafana Cloud, or a generic OTLP collector when those are your standard operational platforms. Protect destination credentials as secrets, and monitor telemetry export failures.
 
-The AI Gateway portal can show built-in dashboards from Kusto queries against your Application Insights resource. The data stays in your subscription and uses your Azure Monitor permissions. Use dashboards to review request volume, success rate, throttles, latency, model usage, token trends, and policy outcomes.
+The AI Gateway tier portal can show built-in dashboards from Kusto queries against your Application Insights resource. The data stays in your subscription and uses your Azure Monitor permissions. Use dashboards to review request volume, success rate, throttles, latency, model usage, token trends, and policy outcomes.
 
 For example, this Kusto query summarizes request volume and average duration by model over the last day:
 

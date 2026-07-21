@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create an AI Gateway tier (preview) instance'
-description: Create an AI Gateway tier (preview) instance, add a model, generate a runtime access key, call the OpenAI-compatible endpoint, and view telemetry.
+description: Create an AI Gateway tier (preview) instance, add a model, create a runtime access key, call the OpenAI-compatible endpoint, and view telemetry.
 ms.service: azure-api-management
 author: PatAltimore
 ms.author: patricka
@@ -248,7 +248,7 @@ After you send a request, view telemetry for the gateway:
 1. Filter by model name to find traffic for `gpt-5.6-sol`.
 1. Use failures and latency charts to troubleshoot backend provider issues.
 
-Telemetry helps you understand usage across providers and applications. Callers use gateway-level runtime access keys, so you can monitor traffic without exposing provider credentials to client applications. The built-in **Monitoring** views show recent gateway traffic without any setup. To retain telemetry longer, run your own Kusto queries, or forward signals to Application Insights or another OpenTelemetry endpoint, configure a telemetry destination — see [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md#monitoring).
+Telemetry helps you understand usage across providers and applications. Callers use gateway-level runtime access keys, so you can monitor traffic without exposing provider credentials to client applications. The built-in **Monitoring** views show recent gateway traffic without any setup. To retain telemetry longer or forward it to Application Insights or another OpenTelemetry (OTLP) endpoint, configure a telemetry destination — see [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md#monitoring).
 
 ## Clean up resources
 
