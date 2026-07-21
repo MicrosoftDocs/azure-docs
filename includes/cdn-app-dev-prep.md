@@ -1,7 +1,7 @@
 ---
 author: zhangmanling
 ms.author: mazha
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: include
 ms.date: 11/21/2018
 ms.custom:
