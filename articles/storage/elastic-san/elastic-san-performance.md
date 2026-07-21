@@ -2,7 +2,7 @@
 title: Learn about Azure Elastic SAN and VM performance
 description: Learn how your workload's performance is handled by Azure Elastic SAN and Azure Virtual Machines. Understand IOPS, throughput allocation, and throttling scenarios.
 author: roygara
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.custom:
   - ignite-2023-elastic-SAN
 ms.topic: concept-article

@@ -2,7 +2,7 @@
 title: Options for using Azure Elastic SAN with Azure Kubernetes Service
 description: Learn about the deployment options you have for using Azure Elastic SAN as the backing storage for Azure Kubernetes Service.
 author: roygara
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 01/08/2026
 ms.author: rogarana
