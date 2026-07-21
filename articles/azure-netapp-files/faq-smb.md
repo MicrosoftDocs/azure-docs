@@ -195,7 +195,7 @@ No, access time isn't updated when reading files. This behavior ensures low-late
 
 ## Which Windows features aren't supported in Azure NetApp Files? 
 
-Azure NetApp Files doesn't supported the following Windows features:
+Azure NetApp Files doesn't support the following Windows features:
 
 - Encrypted File System (EFS)
 - LMHOSTS file
