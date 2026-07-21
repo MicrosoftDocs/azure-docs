@@ -1746,6 +1746,18 @@ When the activity throws an exception that matches your provider, the orchestrat
 }
 ```
 
+# [Python](#tab/python)
+
+Custom exception properties for `FailureDetails` aren't supported in Python yet.
+
+# [PowerShell](#tab/powershell)
+
+Custom exception properties for `FailureDetails` aren't supported in PowerShell yet.
+
+# [Java](#tab/java)
+
+Custom exception properties for `FailureDetails` aren't supported in Java yet.
+
 ---
 
 ::: zone-end
