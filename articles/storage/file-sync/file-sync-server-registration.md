@@ -78,7 +78,7 @@ Before you can use a server as a server endpoint in an Azure File Sync *sync gro
 
 Register the server by using the server registration UI or Azure PowerShell.
 
-# [Server registration UI](#tab/server-registration-ui)
+# [Server registration UI](#tab/azure-portal)
 
 Follow these steps to register the server by using the server registration UI.
 
