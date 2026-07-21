@@ -4,7 +4,7 @@ description: Get an introduction to Artifact Signing certificates. Learn about u
 titleSuffix: "Azure"
 author: TacoTechSharma
 ms.author: mesharm
-ms.service: trusted-signing
+ms.service: azure-artifact-signing
 ms.topic: concept-article
 ms.date: 01/06/2026
 ms.custom: template-concept

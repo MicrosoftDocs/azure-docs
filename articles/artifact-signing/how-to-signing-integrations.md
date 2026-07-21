@@ -3,7 +3,7 @@ title: Set up signing integrations to use Artifact Signing
 description: Learn how to set up signing integrations to use Artifact Signing.  
 author: TacoTechSharma
 ms.author: mesharm 
-ms.service: trusted-signing
+ms.service: azure-artifact-signing
 ms.topic: how-to
 ms.date: 05/14/2026 
 ms.custom: template-how-to-pattern 

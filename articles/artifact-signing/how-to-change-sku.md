@@ -3,7 +3,7 @@ title: Change the account SKU
 description: Learn how to change your SKU or pricing tier for an Artifact Signing account.
 author: TacoTechSharma
 ms.author: mesharm
-ms.service: trusted-signing
+ms.service: azure-artifact-signing
 ms.topic: how-to
 ms.date: 01/06/2026
 ms.custom:

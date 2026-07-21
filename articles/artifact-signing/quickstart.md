@@ -3,7 +3,7 @@ title: "Quickstart: Set up Artifact Signing"
 description: This quickstart helps you get started with using Artifact Signing to sign your files.
 author: TacoTechSharma
 ms.author: mesharm 
-ms.service: trusted-signing 
+ms.service: azure-artifact-signing
 ms.topic: quickstart 
 ms.date: 05/21/2026
 ms.custom:
