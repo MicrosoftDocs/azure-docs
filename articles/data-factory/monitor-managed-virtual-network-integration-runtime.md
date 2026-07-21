@@ -4,8 +4,8 @@ description: Learn how to monitor an integration runtime within an Azure Data Fa
 ms.subservice: monitoring
 ms.topic: how-to
 ms.date: 05/15/2024
-author: lrtoyou1223
-ms.author: lle
+author: kromerm
+ms.author: makromer
 ms.custom:
 ---
 

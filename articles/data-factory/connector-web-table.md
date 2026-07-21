@@ -7,7 +7,7 @@ ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: how-to
 ms.date: 06/22/2026
-ms.update-cycle: 1095
+ms.update-cycle: 1095-days
 ms.author: tinglee
 ---
 # Copy data from Web table by using Azure Data Factory or Synapse Analytics

@@ -292,7 +292,7 @@ Specifies the connection string for an Azure Storage account that the Functions 
 |---|------------|
 |AzureWebJobsStorage|`DefaultEndpointsProtocol=https;AccountName=...`|
 
-Instead of a connection string, you can use an identity-based connection for this storage account. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
+Instead of a connection string, you can use an identity-based connection for this storage account. For more information, see [Connecting to host storage with an identity](manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections).
 
 ## AzureWebJobsStorage__accountName
 
@@ -312,7 +312,7 @@ When using an identity-based storage connection, sets the data plane URI of the 
 |---|------------|
 |AzureWebJobsStorage__blobServiceUri|`https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`|
 
-Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
+Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections).
 
 ## AzureWebJobsStorage__clientId
 
@@ -334,7 +334,7 @@ When using an identity-based storage connection, sets the data plane URI of the 
 |---|------------|
 |AzureWebJobsStorage__queueServiceUri|`https://<STORAGE_ACCOUNT_NAME>.queue.core.windows.net`|
 
-Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
+Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections).
 
 ## AzureWebJobsStorage__tableServiceUri
 
@@ -344,7 +344,7 @@ When using an identity-based storage connection, sets data plane URI of a table 
 |---|------------|
 |AzureWebJobsStorage__tableServiceUri|`https://<STORAGE_ACCOUNT_NAME>.table.core.windows.net`|
 
-Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
+Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections).
 
 ## AzureWebJobs_TypeScriptPath
 

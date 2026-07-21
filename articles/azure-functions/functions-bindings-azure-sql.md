@@ -102,18 +102,8 @@ Add the [Azure Functions Java SQL Types package](https://mvnrepository.com/artif
 
 ::: zone-end
 
-## SQL connection string
 
-Azure SQL bindings for Azure Functions have a required property for the connection string on all bindings and triggers. These pass the connection string to the Microsoft.Data.SqlClient library and supports the connection string as defined in the [SqlClient ConnectionString documentation](/dotnet/api/microsoft.data.sqlclient.sqlconnection.connectionstring?view=sqlclient-dotnet-core-5.0&preserve-view=true#Microsoft_Data_SqlClient_SqlConnection_ConnectionString).  
-
-[!INCLUDE [functions-sql-database-authentication-note](../../includes/functions-sql-database-authentication-note.md)]
-
-Notable keywords include:
-
-- `Authentication`: allows a function to connect to Azure SQL with Microsoft Entra ID and managed identities. For more information, see [Connect a function app to Azure SQL with managed identity and SQL bindings](functions-identity-access-azure-sql-with-managed-identity.md).
-- `Command timeout`: allows a function to wait for specified amount of time in seconds before terminating a query (default 30 seconds)
-- `ConnectRetryCount`: allows a function to automatically make additional reconnection attempts, especially applicable to Azure SQL Database serverless tier (default 1)
-- `Pooling`: allows a function to reuse connections to the database, which can improve performance (default `true`). Additional settings for connection pooling include `Connection Lifetime`, `Max Pool Size`, and `Min Pool Size`. Learn more about connection pooling in the [ADO.NET documentation](/sql/connect/ado-net/sql-server-connection-pooling)
+[!INCLUDE [functions-sql-connections](../../includes/functions-sql-connections.md)]
 
 ## Considerations
 
@@ -128,9 +118,8 @@ Notable keywords include:
 
 In addition to the samples for C#, Java, JavaScript, PowerShell, and Python available in the [Azure SQL bindings GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples), more are available in Azure Samples:
 
-- [C# ToDo API sample with Azure SQL bindings](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/)
+- [ToDo API sample with Azure SQL bindings (C#)](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/)
 - [Use SQL bindings in Azure Stream Analytics](../stream-analytics/sql-database-upsert.md#option-1-update-by-key-with-the-azure-function-sql-binding)
-
 
 ## Next steps
 

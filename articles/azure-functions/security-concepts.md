@@ -132,7 +132,7 @@ Use identities in place of secrets for connecting to some resources. This approa
 
 When you write code that creates the connection to [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#services-supporting-managed-identities), you can use an identity instead of a secret or connection string. Details for both connection methods are covered in the documentation for each service.
 
-You can configure some Azure Functions binding extensions to access services by using identity-based connections. For more information, see [Configure an identity-based connection](./functions-reference.md#configure-an-identity-based-connection).
+You can configure some Azure Functions binding extensions to access services by using identity-based connections. For more information, see [Configure an identity-based connection](./manage-connections.md?pivots=functions-auth-identity&tabs=bindings#define-connections).
 
 ### Set usage quotas
 
