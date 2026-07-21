@@ -398,11 +398,15 @@ For more information and for examples, see [Handling errors in Durable Functions
 
 ::: zone pivot="durable-functions"
 
-### Critical sections (Durable Functions 2.x, currently .NET only)
+### Critical sections (Durable Functions 2.x)
 
-Orchestration instances are single-threaded, so race conditions aren't a concern *within* an orchestration. However, race conditions are possible when orchestrations interact with external systems. To mitigate race conditions when interacting with external systems, orchestrator functions can define *critical sections* by using a `LockAsync` method in .NET.
+Orchestration instances are single-threaded, so race conditions aren't a concern *within* an orchestration. However, race conditions are possible when orchestrations interact with external systems. To mitigate race conditions when interacting with external systems, orchestrator functions can define *critical sections* by using a lock. Critical sections are supported in .NET and JavaScript.
 
-The following sample code shows an orchestrator function that defines a critical section. It uses the `LockAsync` method to enter the critical section. This method requires passing one or more references to a [durable entity](durable-task-entities.md), which durably manages the lock state. Only a single instance of this orchestration can execute the code in the critical section at a time.
+The following sample code shows an orchestrator function that defines a critical section. Entering the critical section requires passing one or more references to a [durable entity](durable-task-entities.md), which durably manages the lock state. Only a single instance of this orchestration can execute the code in the critical section at a time.
+
+# [C#](#tab/csharp)
+
+Use the `LockAsync` method to enter the critical section.
 
 ```csharp
 [FunctionName("Synchronize")]
@@ -421,10 +425,50 @@ In .NET isolated worker orchestrations, use `TaskOrchestrationContext.Entities.L
 
 The `LockAsync` method acquires the durable locks and returns an `IDisposable` that ends the critical section when disposed. This `IDisposable` result can be used together with a `using` block to get a syntactic representation of the critical section. When an orchestrator function enters a critical section, only one instance can execute that block of code. Any other instances that try to enter the critical section are blocked until the previous instance exits the critical section.
 
+# [JavaScript](#tab/javascript)
+
+Use the `context.df.lock` method to enter the critical section.
+
+```javascript
+const df = require("durable-functions");
+
+df.app.orchestration("synchronize", function* (context) {
+    const lockId = new df.EntityId("LockEntity", "MyLockIdentifier");
+    const lock = yield context.df.lock(lockId);
+    try {
+        // Critical section. Only one orchestration can enter at a time.
+    } finally {
+        lock.release();
+    }
+});
+```
+
+The `context.df.lock` method acquires the durable locks and returns a `DurableLock`. Call `release` on it to end the critical section, or let the runtime release the lock automatically when the orchestration ends. When an orchestrator function enters a critical section, only one instance can execute that block of code. Any other instances that try to enter the critical section are blocked until the previous instance exits the critical section.
+
+> [!NOTE]
+> The `context.df.lock` API requires version `3.4.0` or later of the `durable-functions` npm package and version `3.13.0` or later of the `Microsoft.Azure.WebJobs.Extensions.DurableTask` extension.
+
+# [Python](#tab/python)
+
+> [!NOTE]
+> Critical sections aren't currently supported in Python.
+
+# [PowerShell](#tab/powershell)
+
+> [!NOTE]
+> Critical sections aren't currently supported in PowerShell.
+
+# [Java](#tab/java)
+
+> [!NOTE]
+> Critical sections aren't currently supported in Java.
+
+---
+
 The critical section feature is also useful for coordinating changes to durable entities. For more information about critical sections, see [Entity coordination](durable-task-entities.md#entity-coordination).
 
 > [!NOTE]
-> Critical sections are available in Durable Functions 2.x for .NET orchestrations, including both in-process and .NET isolated worker models. The API differs by model: in-process uses `IDurableOrchestrationContext.LockAsync`, while isolated uses `TaskOrchestrationContext.Entities.LockEntitiesAsync`.
+> Critical sections are available in Durable Functions 2.x for .NET and JavaScript orchestrations. For .NET, the API differs by model: in-process uses `IDurableOrchestrationContext.LockAsync`, while isolated uses `TaskOrchestrationContext.Entities.LockEntitiesAsync`.
 
 ### Calls to HTTP endpoints (Durable Functions 2.x)
 
