@@ -1433,7 +1433,7 @@ If you violate any of these rules, the runtime throws an error. The error messag
 # [Java](#tab/java)
 
 > [!NOTE]
-> Critical sections aren't currently supported in Java.
+> Java doesn't currently support critical sections.
 
 ---
 
