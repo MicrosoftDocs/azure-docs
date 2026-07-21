@@ -1398,7 +1398,7 @@ Unlike transactions, critical sections don't automatically roll back changes whe
 # [Java](#tab/java)
 
 > [!NOTE]
-> Critical sections aren't currently supported in Java.
+> Java doesn't currently support critical sections.
 
 ---
 
