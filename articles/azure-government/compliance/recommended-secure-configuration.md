@@ -10,13 +10,13 @@ ms.date:     02/06/2026
 
 # Secure Configuration Guide
 
-FedRAMP Rev 5 has mandated the following Secure Configuration Guide requirements for all Cloud Service Providers at [Secure Configuration Guide](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/).
+FedRAMP Rev 5 mandates the following secure configuration guide requirements for all cloud service providers at [Secure Configuration Guide](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/).
 
 Azure provides the instructions and guidelines for the customers to meet these requirements. Customers are responsible for ensuring that their services are configured appropriately to meet these requirements.
 
 ## Recommended secure configuration
 
-This section includes a copy of the [Recommended Secure Configuration](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/) from the Secure Configuration Guide and the recommendation and instructions for Azure.
+This section includes a copy of the [Recommended Secure Configuration](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/) from the secure configuration guide and the recommendation and instructions for Azure.
 
 ### SCG-CSO-RSC 
 
@@ -219,7 +219,7 @@ When identities, subscriptions, or resources are created, **Security defaults** 
 
 ## Enhanced capabilities
 
-The next sections are copied from the [Enhanced Capabilities](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/) in the Secure Configuration Guide and they include a response for Azure.
+The following sections are copied from the [Enhanced Capabilities](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/) in the Secure Configuration Guide. They include a response for Azure.
 
 These recommendations apply to all cloud service offerings in the FedRAMP Marketplace for enhanced capabilities related to the Secure Configuration Guide.
 
