@@ -1320,7 +1320,7 @@ module.exports = df.orchestrator(function* (context) {
 
 In JavaScript, `context.df.lock` returns a `DurableLock`. Call `release` on it to end the critical section, or let the runtime release the lock automatically when the orchestration ends.
 
-In the preceding example, an orchestrator function transfers funds from a source entity to a destination entity. The `lock` method locked both the source and destination account entities. This locking ensured that no other client could query or modify the state of either account until the orchestration logic released the lock. This behavior prevents overdrafts on the source account.
+In the preceding example, an orchestrator function transfers funds from a source entity to a destination entity. The `lock` method locks both the source and destination account entities. This locking ensures that no other client can query or modify the state of either account until the orchestration logic releases the lock. This behavior prevents overdrafts on the source account.
 
 # [Python](#tab/python)
 
