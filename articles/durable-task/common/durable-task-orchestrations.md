@@ -400,7 +400,7 @@ For more information and for examples, see [Handling errors in Durable Functions
 
 ### Critical sections (Durable Functions 2.x)
 
-Orchestration instances are single-threaded, so race conditions aren't a concern *within* an orchestration. However, race conditions are possible when orchestrations interact with external systems. To mitigate race conditions when interacting with external systems, orchestrator functions can define *critical sections* by using a lock. Critical sections are supported in .NET and JavaScript.
+Orchestration instances are single-threaded, so race conditions aren't a concern *within* an orchestration. However, race conditions are possible when orchestrations interact with external systems. To mitigate race conditions when interacting with external systems, orchestrator functions can define *critical sections* by using a lock. .NET and JavaScript support critical sections.
 
 The following sample code shows an orchestrator function that defines a critical section. Entering the critical section requires passing one or more references to a [durable entity](durable-task-entities.md), which durably manages the lock state. Only a single instance of this orchestration can execute the code in the critical section at a time.
 
