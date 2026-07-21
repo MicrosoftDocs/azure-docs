@@ -1,6 +1,6 @@
 ---
 title: Release Notes for Azure File Sync
-description: Release notes for Azure File Sync, which lets you centralize your organization's file shares in Azure Files while maintaining fast local access to frequently used data.
+description: Learn about the latest features, bug fixes, and supported agent versions in Azure File Sync release notes.
 services: storage
 author: wmgries
 ms.service: azure-file-storage
@@ -14,9 +14,7 @@ ms.custom:
 
 # Release notes for Azure File Sync
 
-Azure File Sync enables centralizing your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of a Windows file server. While some users may opt to keep a full copy of their data locally, Azure File Sync additionally has the ability to transform Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
-
-This article provides the release notes for Azure File Sync. It's important to note that major releases of Azure File Sync include service and agent improvements (for example, 18.0.0.0). Minor releases of Azure File Sync are typically for agent improvements (for example, 18.2.0.0).
+This article provides the release notes for Azure File Sync. Major releases of Azure File Sync include service and agent improvements, such as version 18.0.0.0. Minor releases typically include agent improvements, such as version 18.2.0.0.
 
 ## Supported versions
 
@@ -26,11 +24,11 @@ The following Azure File Sync agent versions are supported:
 |----|----------------------|--------------|------------------|
 | v22.4 Release - [KB5104852](https://support.microsoft.com/topic/e0e7c277-cf1b-4c65-b0b2-4f697d260bf0) |22.4.0.0| June 22, 2026 | Supported |
 | v22.3 Release - [KB5087090](https://support.microsoft.com/topic/e56f2bc6-30f3-42b6-93b3-a89429cdb88c) |22.3.0.0| April 17, 2026 | Supported |
-| V22 Release - [KB5056967](https://support.microsoft.com/topic/ded35c33-ff9c-4716-8a8d-a080d1bc067b)|22.0.0.0| December 10, 2025| Supported |
-| V21.2 Release - [KB5063825](https://support.microsoft.com/topic/6490aef8-ebae-465d-beba-718c05f8a71f)|21.2.0.0| July 08, 2025| Supported |
+| v22 Release - [KB5056967](https://support.microsoft.com/topic/ded35c33-ff9c-4716-8a8d-a080d1bc067b)|22.0.0.0| December 10, 2025| Supported |
+| v21.2 Release - [KB5063825](https://support.microsoft.com/topic/6490aef8-ebae-465d-beba-718c05f8a71f)|21.2.0.0| July 08, 2025| Supported |
 | v21.1 Release - [KB5063486](https://support.microsoft.com/topic/e0016f74-573d-492c-8bf7-c3be1e380836) |21.1.0.0 | August 11, 2025 | Supported - Security Update |
 | v20.1 Release - [KB5056953](https://support.microsoft.com/topic/6a558f5d-005d-4111-9ebd-21e5dd652d77) |20.1.0.0 | August 11, 2025 | Supported - Security Update - Agent version will expire on Oct 29,2026 |
-| V20 Release - [KB5041884](https://support.microsoft.com/topic/b92c9c6f-8232-42d3-a3e0-e6df1fce0f5e)| 20.0.0.0 | February 10, 2025 | Supported - Agent version will expire on Oct 29,2026|
+| v20 Release - [KB5041884](https://support.microsoft.com/topic/b92c9c6f-8232-42d3-a3e0-e6df1fce0f5e)| 20.0.0.0 | February 10, 2025 | Supported - Agent version expires on Oct 29, 2026|
 
 ## Unsupported versions
 
@@ -143,11 +141,11 @@ Resolves a certificate rotation issue affecting China East 2 and China North 2. 
 
 **Miscellaneous reliability and telemetry improvements for cloud tiering and sync​​​​​​​**
 
-### Evaluation Tool
+### Evaluation tool
 Before deploying Azure File Sync, you should evaluate whether it's compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported OS version. For installation and usage instructions, see [Evaluation Tool](file-sync-planning.md#evaluation-cmdlet) section in the planning guide.
 
 ### Agent installation and server configuration
-For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
+For more information about how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
 
 - The agent installation requires a restart for servers that have an existing Azure File Sync agent installation if the agent version is older than 18.2.0.0.
 - The agent installation package must be installed with elevated (admin) permissions.
@@ -183,11 +181,11 @@ A new agentVersionExpiration metric provides visibility into how many days remai
 
 **Miscellaneous reliability and telemetry improvements for cloud tiering and sync​​​​​​​**
 
-### Evaluation Tool
+### Evaluation tool
 Before deploying Azure File Sync, you should evaluate whether it's compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported OS version. For installation and usage instructions, see [Evaluation Tool](file-sync-planning.md#evaluation-cmdlet) section in the planning guide.
 
 ### Agent installation and server configuration
-For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
+For more information about how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
 
 - The agent installation requires a restart for servers that have an existing Azure File Sync agent installation if the agent version is older than 18.2.0.0.
 - The agent installation package must be installed with elevated (admin) permissions.
@@ -269,11 +267,11 @@ Azure File Sync now includes two dedicated built-in RBAC roles. [Azure File Syn
 
 Fixed an issue that caused sync download and cloud tiering failures with error code 0x80c80362 (ECS_E_ITEM_PATH_COMPONENT_HAS_ TRAILING_DOT) when a file or folder path included a trailing dot. Previously, users had to manually rename the affected item to resume sync. Azure File Sync now correctly handles path components with trailing dots, eliminating the need for manual intervention.
 
-### Evaluation Tool
+### Evaluation tool
 Before deploying Azure File Sync, you should evaluate whether it's compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported OS version. For installation and usage instructions, see [Evaluation Tool](file-sync-planning.md#evaluation-cmdlet) section in the planning guide.
 
 ### Agent installation and server configuration
-For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
+For more information about how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
 
 - The agent installation requires a restart for servers that have an existing Azure File Sync agent installation if the agent version is older than 18.2.0.0.
 - The agent installation package must be installed with elevated (admin) permissions.
@@ -360,11 +358,11 @@ For more information, see: [How to use managed identities with Azure File Sync](
 >The portal experience for general availability will gradually roll out to all regions in the coming weeks.
 
 **Miscellaneous reliability and telemetry improvements for cloud tiering and sync**
-### Evaluation Tool
+### Evaluation tool
 Before deploying Azure File Sync, you should evaluate whether it's compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported OS version. For installation and usage instructions, see [Evaluation Tool](file-sync-planning.md#evaluation-cmdlet) section in the planning guide.
 
 ### Agent installation and server configuration
-For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
+For more information about how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
 
 - The agent installation requires a restart for servers that have an existing Azure File Sync agent installation if the agent version is older than 18.2.0.0.
 - The agent installation package must be installed with elevated (admin) permissions.
@@ -458,11 +456,11 @@ The Azure File Sync agent is now supported on Windows Server 2025 (build 26100).
 
 **Miscellaneous reliability and telemetry improvements for cloud tiering and sync**
 
-### Evaluation Tool
+### Evaluation tool
 Before deploying Azure File Sync, you should evaluate whether it's compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported OS version. For installation and usage instructions, see [Evaluation Tool](file-sync-planning.md#evaluation-cmdlet) section in the planning guide.
 
 ### Agent installation and server configuration
-For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
+For more information about how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
 
 - The agent installation requires a restart for servers that have an existing Azure File Sync agent installation if the agent version is older than 18.2.0.0.
 - The agent installation package must be installed with elevated (admin) permissions.
@@ -555,11 +553,11 @@ Sync upload performance has improved, and performance numbers will be posted whe
 
 **Miscellaneous reliability and telemetry improvements for cloud tiering and sync**
 
-### Evaluation Tool
+### Evaluation tool
 Before deploying Azure File Sync, you should evaluate whether it's compatible with your system using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential issues with your file system and dataset, such as unsupported OS version. For installation and usage instructions, see [Evaluation Tool](file-sync-planning.md#evaluation-cmdlet) section in the planning guide.
 
 ### Agent installation and server configuration
-For more information on how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
+For more information about how to install and configure the Azure File Sync agent with Windows Server, see [Planning for an Azure File Sync deployment](file-sync-planning.md) and [How to deploy Azure File Sync](file-sync-deployment-guide.md).
 
 - The agent installation package must be installed with elevated (admin) permissions.
 - The agent isn't supported on Nano Server deployment option.
