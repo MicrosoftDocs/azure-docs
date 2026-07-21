@@ -198,7 +198,7 @@ To change a value's type or format, you can use these conversion functions. For 
 | [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | Return a floating point number for an input value. |
 | [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Return the integer version for a string. |
 | [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | Return the JavaScript Object Notation (JSON) type value or object for a string or XML. |
-| [parse](../logic-apps/workflow-definition-language-functions-reference.md#parse) | Return the JSON value or object for a string or XML. This function is deprecated. |
+| [parse](../logic-apps/workflow-definition-language-functions-reference.md#parse) (deprecated) | Return the JSON value or object for a string or XML. |
 | [string](../logic-apps/workflow-definition-language-functions-reference.md#string) | Return the string version for an input value. |
 | [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Return the URI-encoded version for an input value by replacing URL-unsafe characters with escape characters. |
 | [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Return the binary version for a URI-encoded string. |
