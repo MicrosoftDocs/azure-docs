@@ -4,7 +4,7 @@ description: In this quickstart, learn how to use the Azure content delivery net
 services: cdn
 author: halkazwini
 ms.author: halkazwini
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: quickstart
 ms.date: 02/28/2026
 ms.custom: mvc, mode-other
