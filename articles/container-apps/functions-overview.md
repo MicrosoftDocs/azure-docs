@@ -24,7 +24,7 @@ The Container Apps hosting model builds on the flexibility of containerized work
 - **Run Azure Functions as containers** with custom dependencies and language stacks.
 - **Scale in to zero and scale out to 1000 instances** using KEDA.
 - **[Secure networking](../container-apps/networking.md)** with full [VNet integration](../container-apps/custom-virtual-networks.md).
-- **Advanced [Container App features](../container-apps/overview.md#features)** like multi-revisions, traffic splitting, [Dapr integration](../container-apps/dapr-overview.md), and [observability components](../container-apps/observability.md).
+- **Advanced [Container App features](../container-apps/overview.md#features)** like multirevisions, traffic splitting, [Dapr integration](../container-apps/dapr-overview.md), and [observability components](../container-apps/observability.md).
 - **[Serverless and Dedicated GPU](../container-apps/gpu-serverless-overview.md)** support for compute-intensive workloads.
 - **Unified Container Apps environment** to run Functions alongside microservices, APIs, and background jobs.
 
@@ -48,7 +48,7 @@ For a complete comparison of the Functions on Container Apps against Flex Consum
 Azure Functions on Container Apps are ideal for a wide range of use cases, especially when you need event-driven execution, container flexibility, or secure integration with other services:
 
 - **Line-of-business APIs:** Package custom libraries, packages, and APIs with Azure Functions for line-of-business applications.
-- **Migration and modernization:** Migration of on-premises legacy and/or monolith applications to cloud native microservices on containers.
+- **Migration and modernization:** Migration of on-premises legacy and/or monolith applications to cloud-native microservices on containers.
 - **Event-driven processing:** Handle events from Event Grid, Service Bus, Event Hubs, and other event sources with ease of Functions programming model.
 - **AI & GPU workloads:** Serverless workload processing of videos, images, transcripts, or any other processing intensive tasks that required  GPU compute resources. For more information, see [Using serverless GPUs in Azure Container Apps](../container-apps/gpu-serverless-overview.md).
 - **Microservices:** Integrate Azure Functions with other Container Apps hosted services.
@@ -105,7 +105,7 @@ For detailed billing mechanics and examples, refer to the [Billing in Azure Cont
 
 ## Event-driven scaling
 
-Azure Functions on Container Apps support all major [language runtimes available in Azure Functions](../azure-functions/supported-languages.md), including C#, JavaScript / TypeScript (Node.js), Python, Java, PowerShell, and Custom containers (bring your own image).
+Azure Functions on Container Apps supports all major [language runtimes available in Azure Functions](../azure-functions/supported-languages.md), including C#, JavaScript / TypeScript (Node.js), Python, Java, PowerShell, and Custom containers (bring your own image).
 
 Azure Functions running on Azure Container Apps **automatically configure scaling rules** based on the event source, eliminating the need for manual KEDA scale rule definitions in the default experience. That's why the "Add scale rules" button on the Azure portal is disabled for Functions on Container Apps. However, you can still define minimum and maximum replica counts to establish scaling boundaries and maintain control over resource allocation.
 
@@ -122,9 +122,9 @@ The platform automatically translates your Functions trigger parameters (from `h
 
 **Managed identities** are supported for triggers and bindings that allow it. They're also available for:
 
-- [Default storage account](../azure-functions/functions-reference.md#connecting-to-host-storage-with-an-identity) (AzureWebJobsStorage)
+- [Default storage account](../azure-functions/manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections) (AzureWebJobsStorage)
 - [Azure Container Registry](../container-apps/managed-identity-image-pull.md) (ACR)
-- [Connecting to trigger event sources](../azure-functions/functions-reference.md#configure-an-identity-based-connection)
+- [Connecting to trigger event sources](../azure-functions/manage-connections.md?pivots=functions-auth-identity&tabs=bindings#define-connections)
 
 For unsupported triggers, use fixed replica counts (that is, set minReplicas > 0) in Azure Functions on Azure Container Apps. For more information, see the [Functions developer guide](../azure-functions/functions-reference.md).
 
@@ -165,7 +165,7 @@ Azure Functions on Container Apps integrates seamlessly with Azure’s observabi
 
 ## Environment variables
 
-Azure Functions running on Container Apps have access to system-provided environment variables. The `CONTAINER_NAME` environment variable is automatically set to the replica name for your function app. Use this variable for logging, correlation, and debugging in multi-replica scenarios.
+Azure Functions running on Container Apps have access to system-provided environment variables. The `CONTAINER_NAME` environment variable is automatically set to the replica name for your function app. Use this variable for logging, correlation, and debugging in multireplica scenario.
 
 For a full list of system-provided environment variables, see [Environment variables in Azure Container Apps](environment-variables.md).
 

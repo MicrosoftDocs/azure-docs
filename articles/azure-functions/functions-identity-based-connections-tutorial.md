@@ -14,7 +14,7 @@ ms.custom:
 
 # Tutorial: Create a function app that connects to Azure services using identities instead of secrets
 
-This tutorial shows you how to configure a function app using Microsoft Entra identities instead of secrets or connection strings, where possible. Using identities helps you avoid accidentally leaking sensitive secrets and can provide better visibility into how data is accessed. To learn more about identity-based connections, see [configure an identity-based connection](functions-reference.md#configure-an-identity-based-connection).
+This tutorial shows you how to configure a function app using Microsoft Entra identities instead of secrets or connection strings, where possible. Using identities helps you avoid accidentally leaking sensitive secrets and can provide better visibility into how data is accessed. To learn more about identity-based connections, see [Manage connections](manage-connections.md?tabs=identity).
 
 While the procedures shown work generally for all languages, this tutorial currently supports C# class library functions on Windows specifically.
 
@@ -43,7 +43,9 @@ By understanding how to use identities instead of secrets when you can, and to u
 
 ## Create a function app that uses Key Vault for necessary secrets
 
-Azure Files is an example of a service that doesn't yet support Microsoft Entra authentication for Server Message Block (SMB) file shares. Azure Files is the default file system for Windows deployments on Premium and Consumption plans. While we could [remove Azure Files entirely](./storage-considerations.md#create-an-app-without-azure-files), doing so introduces limitations you might not want. Instead, you move the Azure Files connection string into Azure Key Vault. That way it's centrally managed, with access controlled by the identity.
+[!INCLUDE [function-azure-files-limitation](../../includes/function-azure-files-limitation.md)]
+
+For more information, see [Create an app without Azure Files](storage-considerations.md#create-an-app-without-azure-files). 
 
 ### Create an Azure Key Vault
 
@@ -287,14 +289,14 @@ Similar to the steps you previously followed with the user-assigned identity and
 1. On the **Add role assignment** screen, select **Review + assign**. Review the configuration, and then select **Review + assign**.
 
 > [!TIP]
-> If you intend to use the function app for a blob-triggered function, you will need to repeat these steps for the **Storage Account Contributor** and **Storage Queue Data Contributor** roles over the account used by AzureWebJobsStorage. To learn more, see [Blob trigger identity-based connections](./functions-bindings-storage-blob-trigger.md#identity-based-connections).
+> If you intend to use the function app for a blob-triggered function, you must repeat these steps for the **Storage Account Contributor** and **Storage Queue Data Contributor** roles in the default host storage account. To learn more, see [Grant permissions to an identity](manage-connections.md#grant-permissions-to-an-identity).
 
 ### Edit the AzureWebJobsStorage configuration
 
 Next you update your function app to use its system-assigned identity when it uses the blob service for host storage.
 
 > [!IMPORTANT]
-> The `AzureWebJobsStorage` configuration is used by some triggers and bindings, and those extensions must be able to use identity-based connections, too. Apps that use blob triggers or event hub triggers may need to update those extensions. Because no functions have been defined for this app, there isn't a concern yet. To learn more about this requirement, see [Connecting to host storage with an identity](./functions-reference.md#connecting-to-host-storage-with-an-identity).
+> The `AzureWebJobsStorage` configuration is used by some triggers and bindings, and those extensions must be able to use identity-based connections, too. Apps that use blob triggers or event hub triggers may need to update those extensions. Because no functions have been defined for this app, there isn't a concern yet. To learn more about this requirement, see [Connecting to host storage with an identity](manage-connections.md?tabs=host%2Cidentity#define-connections).
 >
 > Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption. When you enable identity-based connections for `AzureWebJobsStorage` in Linux Consumption, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md). 
 

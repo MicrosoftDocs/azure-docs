@@ -94,7 +94,7 @@ For scenarios that use Azure role-based access control (RBAC), you can customize
 
 Azure Functions requires a [host storage connection (`AzureWebJobsStorage`)][host-storage-identity] for several of its core behaviors. When you call `AddAzureFunctionsProject<TProject>()` in your app host project, an `AzureWebJobsStorage` connection is created by default and provided to the Functions project. This default connection uses the Azure Storage emulator for local development runs and automatically provisions a storage account when it's deployed. For more control, you can replace this connection by calling `.WithHostStorage()` on the Functions project resource.
 
-The default permissions that Aspire sets for the host storage connection depends on whether you call `WithHostStorage()` or not. Adding `WithHostStorage()` removes a [Storage Account Contributor] assignment. The following table lists the default permissions that Aspire sets for the host storage connection:
+The default permissions that Aspire sets for the host storage connection depend on whether you call `WithHostStorage()` or not. Adding `WithHostStorage()` removes a [Storage Account Contributor] assignment. The following table lists the default permissions that Aspire sets for the host storage connection:
 
 | Host storage connection | Default roles                                                                                   |
 |-------------------------|-----------------------------------------------------------------------------------------------------------|
@@ -160,7 +160,7 @@ builder.AddAzureFunctionsProject<Projects.MyFunctionsProject>("MyFunctionsProjec
 
 If you want both Aspire client integrations and the system of triggers and bindings to use a connection, you can configure both `WithReference()` and `WithEnvironment()`.
 
-For some resources, the structure of a connection might be different between when you run it locally and when you publish it to Azure. In the previous example, `otherIntegration` could be a resource that runs as an emulator, so `ConnectionStringExpression` would return an emulator connection string. However, when the resource is published, Aspire might set up an identity-based connection, and `ConnectionStringExpression` would return the service's URI. In this case, to set up [identity-based connections for Azure Functions](./functions-reference.md#configure-an-identity-based-connection), you might need to provide a different environment variable name.
+For some resources, the structure of a connection might be different between when you run it locally and when you publish it to Azure. In the previous example, `otherIntegration` could be a resource that runs as an emulator, so `ConnectionStringExpression` would return an emulator connection string. However, when the resource is published, Aspire might set up an identity-based connection, and `ConnectionStringExpression` would return the service's URI. In this case, to set up [identity-based connections for Azure Functions](./manage-connections.md?pivots=functions-auth-identity&tabs=bindings#define-connections), you might need to provide a different environment variable name.
 
 The following example uses `builder.ExecutionContext.IsPublishMode` to conditionally add the necessary suffix:
 
@@ -374,11 +374,11 @@ Consider the following points when you're evaluating the integration of Azure Fu
 
   In many other Azure Functions contexts, you might include direct integration with Application Insights by registering the worker service. We don't recommend this kind of integration in Aspire. It can lead to runtime errors with version 2.22.0 of `Microsoft.ApplicationInsights.WorkerService`, though version 2.23.0 addresses this problem. When you're using Aspire, remove any direct Application Insights integrations from your Functions project.
 
-- For Functions projects enlisted into a Aspire orchestration, most of the application configuration should come from the Aspire app host project. Avoid setting things in `local.settings.json`, other than the `FUNCTIONS_WORKER_RUNTIME` setting. If you set the same environment variable in `local.settings.json` and Aspire, the system uses the Aspire version.
+- For Functions projects enlisted into an Aspire orchestration, most of the application configuration should come from the Aspire app host project. Avoid setting things in `local.settings.json`, other than the `FUNCTIONS_WORKER_RUNTIME` setting. If you set the same environment variable in `local.settings.json` and Aspire, the system uses the Aspire version.
 
 - Don't configure the Azure Storage emulator for any connections in `local.settings.json`. Many Functions starter templates include the emulator as a default for `AzureWebJobsStorage`. However, emulator configuration can prompt some developer tooling to start a version of the emulator that can conflict with the version that Aspire uses.
 
-[host-storage-identity]: ./functions-reference.md#connecting-to-host-storage-with-an-identity
+[host-storage-identity]: ./manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections
 
 [Microsoft.Azure.Functions.Worker]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/
 [Microsoft.Azure.Functions.Worker.Sdk]: https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk/

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, niding, azla
 ms.topic: reference
-ms.date: 10/06/2025
+ms.date: 07/21/2026
 ---
 
 # Reference guide to functions in expressions for workflows in Azure Logic Apps and Power Automate
@@ -114,6 +114,7 @@ To work with strings, you can use these string functions and also some [collecti
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Return a string in lowercase format. |
 | [toUpper](../logic-apps/workflow-definition-language-functions-reference.md#toUpper) | Return a string in uppercase format. |
 | [trim](../logic-apps/workflow-definition-language-functions-reference.md#trim) | Remove leading and trailing whitespace from a string, and return the updated string. |
+| [trimByteOrderMark](../logic-apps/workflow-definition-language-functions-reference.md#trimByteOrderMark) | Remove a byte order mark from the beginning of a string or binary content. |
 
 <a name="collection-functions"></a>
 
@@ -161,6 +162,7 @@ To work with conditions, compare values and expression results, or evaluate vari
 | [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Check whether the first value is less than or equal to the second value. |
 | [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | Check whether an expression is false. |
 | [or](../logic-apps/workflow-definition-language-functions-reference.md#or) | Check whether at least one expression is true. |
+| [strongEquals](../logic-apps/workflow-definition-language-functions-reference.md#strongEquals) | Check whether values of the same type are equivalent. |
 
 <a name="conversion-functions"></a>
 
@@ -179,6 +181,7 @@ To change a value's type or format, you can use these conversion functions. For 
 | [array](../logic-apps/workflow-definition-language-functions-reference.md#array) | Return an array from a single specified input. For multiple inputs, see [createArray](../logic-apps/workflow-definition-language-functions-reference.md#createArray). |
 | [base64](../logic-apps/workflow-definition-language-functions-reference.md#base64) | Return the base64-encoded version for a string. |
 | [base64ToBinary](../logic-apps/workflow-definition-language-functions-reference.md#base64ToBinary) | Return the binary version for a base64-encoded string. |
+| [base64ToJson](../logic-apps/workflow-definition-language-functions-reference.md#base64ToJson) | Return the JSON value for a base64-encoded string. |
 | [base64ToString](../logic-apps/workflow-definition-language-functions-reference.md#base64ToString) | Return the string version for a base64-encoded string. |
 | [binary](../logic-apps/workflow-definition-language-functions-reference.md#binary) | Return the binary version for an input value. |
 | [bool](../logic-apps/workflow-definition-language-functions-reference.md#bool) | Return the Boolean version for an input value. |
@@ -190,10 +193,12 @@ To change a value's type or format, you can use these conversion functions. For 
 | [decodeBase64](../logic-apps/workflow-definition-language-functions-reference.md#decodeBase64) | Return the string version for a base64-encoded string. |
 | [decodeDataUri](../logic-apps/workflow-definition-language-functions-reference.md#decodeDataUri) | Return the binary version for a data URI. |
 | [decodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#decodeUriComponent) | Return a string that replaces escape characters with decoded versions. |
+| [encodeBase64](../logic-apps/workflow-definition-language-functions-reference.md#encodeBase64) | Return the base64-encoded version for a string. |
 | [encodeUriComponent](../logic-apps/workflow-definition-language-functions-reference.md#encodeUriComponent) | Return a string that replaces URL-unsafe characters with escape characters. |
 | [float](../logic-apps/workflow-definition-language-functions-reference.md#float) | Return a floating point number for an input value. |
 | [int](../logic-apps/workflow-definition-language-functions-reference.md#int) | Return the integer version for a string. |
 | [json](../logic-apps/workflow-definition-language-functions-reference.md#json) | Return the JavaScript Object Notation (JSON) type value or object for a string or XML. |
+| [parse](../logic-apps/workflow-definition-language-functions-reference.md#parse) (deprecated) | Return the JSON value or object for a string or XML. |
 | [string](../logic-apps/workflow-definition-language-functions-reference.md#string) | Return the string version for an input value. |
 | [uriComponent](../logic-apps/workflow-definition-language-functions-reference.md#uriComponent) | Return the URI-encoded version for an input value by replacing URL-unsafe characters with escape characters. |
 | [uriComponentToBinary](../logic-apps/workflow-definition-language-functions-reference.md#uriComponentToBinary) | Return the binary version for a URI-encoded string. |
@@ -253,6 +258,7 @@ For the full reference about each function, see the
 | [min](../logic-apps/workflow-definition-language-functions-reference.md#min) | Return the lowest value from a set of numbers or an array. |
 | [mod](../logic-apps/workflow-definition-language-functions-reference.md#mod) | Return the remainder from dividing two numbers. |
 | [mul](../logic-apps/workflow-definition-language-functions-reference.md#mul) | Return the product from multiplying two numbers. |
+| [pow](../logic-apps/workflow-definition-language-functions-reference.md#pow) | Return a number raised to a specified power. |
 | [rand](../logic-apps/workflow-definition-language-functions-reference.md#rand) | Return a random integer from a specified range. |
 | [range](../logic-apps/workflow-definition-language-functions-reference.md#range) | Return an integer array that starts from a specified integer. |
 | [sub](../logic-apps/workflow-definition-language-functions-reference.md#sub) | Return the result from subtracting the second number from the first number. |
@@ -280,6 +286,7 @@ For the full reference about each function, see the
 | [dayOfWeek](../logic-apps/workflow-definition-language-functions-reference.md#dayOfWeek) | Return the day of the week component from a timestamp. |
 | [dayOfYear](../logic-apps/workflow-definition-language-functions-reference.md#dayOfYear) | Return the day of the year component from a timestamp. |
 | [formatDateTime](../logic-apps/workflow-definition-language-functions-reference.md#formatDateTime) | Return the date from a timestamp. |
+| [formatTimeSpan](../logic-apps/workflow-definition-language-functions-reference.md#formatTimeSpan) | Return a time span in the specified format. |
 | [getFutureTime](../logic-apps/workflow-definition-language-functions-reference.md#getFutureTime) | Return the current timestamp plus the specified time units. See also [addToTime](../logic-apps/workflow-definition-language-functions-reference.md#addToTime). |
 | [getPastTime](../logic-apps/workflow-definition-language-functions-reference.md#getPastTime) | Return the current timestamp minus the specified time units. See also [subtractFromTime](../logic-apps/workflow-definition-language-functions-reference.md#subtractFromTime). |
 | [parseDateTime](../logic-apps/workflow-definition-language-functions-reference.md#parseDateTime) | Return the timestamp from a string that contains a timestamp. |
@@ -360,6 +367,11 @@ For the full reference about each function, see the
 | --------------------- | ---- |
 | [addProperty](../logic-apps/workflow-definition-language-functions-reference.md#addProperty) | Add a property and its value, or name-value pair, to a JSON object, and return the updated object. |
 | [coalesce](../logic-apps/workflow-definition-language-functions-reference.md#coalesce) | Return the first non-null value from one or more parameters. |
+| [decodeXmlName](../logic-apps/workflow-definition-language-functions-reference.md#decodeXmlName) | Decode an XML element name. |
+| [decodeXmlValue](../logic-apps/workflow-definition-language-functions-reference.md#decodeXmlValue) | Decode an XML element value. |
+| [encodeXmlName](../logic-apps/workflow-definition-language-functions-reference.md#encodeXmlName) | Encode a string as an XML element name. |
+| [encodeXmlValue](../logic-apps/workflow-definition-language-functions-reference.md#encodeXmlValue) | Encode a string as an XML element value. |
+| [mergeObjects](../logic-apps/workflow-definition-language-functions-reference.md#mergeObjects) | Merge two JSON objects. |
 | [removeProperty](../logic-apps/workflow-definition-language-functions-reference.md#removeProperty) | Remove a property from a JSON object and return the updated object. |
 | [setProperty](../logic-apps/workflow-definition-language-functions-reference.md#setProperty) | Set the value for a JSON object's property and return the updated object. |
 | [xpath](../logic-apps/workflow-definition-language-functions-reference.md#xpath) | Check XML for nodes or values that match an XPath (XML Path Language) expression, and return the matching nodes or values. |
@@ -926,6 +938,40 @@ base64ToBinary('aGVsbG8=')
 ```
 
 For example, suppose you're using an HTTP action to send a request. You can use `base64ToBinary()` to convert a base64-encoded string to binary data and send that data using the `application/octet-stream` content type in the request.
+
+<a name="base64ToJson"></a>
+
+### base64ToJson
+
+Return the JSON value for a base64-encoded string.
+
+```
+base64ToJson('<value>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*value*> | Yes | String | The base64-encoded JSON string to decode and parse |
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*json-value*> | JSON | The JSON value represented by the base64-encoded string |
+
+*Example*
+
+This example converts the base64-encoded JSON string to a JSON object:
+
+```
+base64ToJson('eyJuYW1lIjoiQWxpY2UifQ==')
+```
+
+And returns this result:
+
+```json
+{
+   "name": "Alice"
+}
+```
 
 <a name="base64ToString"></a>
 
@@ -1699,6 +1745,58 @@ decodeUriComponent('https%3A%2F%2Fcontoso.com')
 
 And returns this result: `"https://contoso.com"`
 
+<a name="decodeXmlName"></a>
+
+### decodeXmlName
+
+Decode an XML element name.
+
+```
+decodeXmlName('<name>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*name*> | Yes | String | The XML element name to decode |
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*decoded-name*> | String | The decoded XML element name |
+
+*Example*
+
+```
+decodeXmlName('data_x002F_value')
+```
+
+And returns this result: `"data/value"`
+
+<a name="decodeXmlValue"></a>
+
+### decodeXmlValue
+
+Decode an XML element value.
+
+```
+decodeXmlValue('<value>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*value*> | Yes | String | The XML element value to decode |
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*decoded-value*> | String | The decoded XML element value |
+
+*Example*
+
+```
+decodeXmlValue('&lt;value&gt;')
+```
+
+And returns this result: `"<value>"`
+
 <a name="div"></a>
 
 ### div
@@ -1738,6 +1836,32 @@ div(11.0,5)
 
 ## E
 
+<a name="encodeBase64"></a>
+
+### encodeBase64
+
+Return the base64-encoded version for a string. This function is an alias for [base64()](#base64).
+
+```
+encodeBase64('<value>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*value*> | Yes | String | The string to encode |
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*base64-string*> | String | The base64-encoded version for the input string |
+
+*Example*
+
+```
+encodeBase64('hello')
+```
+
+And returns this result: `"aGVsbG8="`
+
 <a name="encodeUriComponent"></a>
 
 ### encodeUriComponent
@@ -1771,6 +1895,58 @@ encodeUriComponent('https://contoso.com')
 ```
 
 And returns this result: `"https%3A%2F%2Fcontoso.com"`
+
+<a name="encodeXmlName"></a>
+
+### encodeXmlName
+
+Encode a string as an XML element name.
+
+```
+encodeXmlName('<name>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*name*> | Yes | String | The string to encode as an XML element name |
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*encoded-name*> | String | The encoded XML element name |
+
+*Example*
+
+```
+encodeXmlName('data/value')
+```
+
+And returns this result: `"data_x002F_value"`
+
+<a name="encodeXmlValue"></a>
+
+### encodeXmlValue
+
+Encode a string as an XML element value.
+
+```
+encodeXmlValue('<value>')
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*value*> | Yes | String | The string to encode as an XML element value |
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*encoded-value*> | String | The encoded XML element value |
+
+*Example*
+
+```
+encodeXmlValue('<value>')
+```
+
+And returns this result: `"&lt;value&gt;"`
 
 <a name="empty"></a>
 
@@ -2116,6 +2292,38 @@ Suppose that you want to format the number `17.35`. This example formats the num
 ```
 formatNumber(17.35, 'C2', 'is-IS')
 ```
+
+<a name="formatTimeSpan"></a>
+
+### formatTimeSpan
+
+Return a time span in the specified format.
+
+```
+formatTimeSpan('<timeSpan>', '<format>', '<locale>'?)
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*timeSpan*> | Yes | String | The time span to format |
+| <*format*> | Yes | String | A [standard or custom TimeSpan format string](/dotnet/standard/base-types/standard-timespan-format-strings). |
+| <*locale*> | No | String | The locale to use. If unspecified, the invariant culture is used. If *locale* isn't valid, an error is generated. |
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*formatted-time-span*> | String | The time span in the specified format and locale, if specified. |
+
+*Examples*
+
+```
+formatTimeSpan('4.20:00:00', '%d')
+formatTimeSpan('1:00:00.11', 'g', 'de-DE')
+```
+
+And return these results:
+
+* First example: `"4"`
+* Second example: `"1:00:00,11"`
 
 ## G
 
@@ -3023,6 +3231,43 @@ max(createArray(1, 2, 3))
 
 And return this result: `3`
 
+<a name="mergeObjects"></a>
+
+### mergeObjects
+
+Merge two JSON objects. This function matches property names without regard to case, merges nested objects recursively, and merges arrays by index. For scalar properties, the function replaces the value from the first object with the value from the second object.
+
+```
+mergeObjects(<object1>, <object2>)
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*object1*> | Yes | Object | The base JSON object |
+| <*object2*> | Yes | Object | The JSON object to merge with the base object |
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*merged-object*> | Object | The merged JSON object |
+
+*Example*
+
+```
+mergeObjects(json('{"name":"Alice","address":{"city":"Seattle"}}'), json('{"address":{"country":"USA"}}'))
+```
+
+And returns this result:
+
+```json
+{
+   "name": "Alice",
+   "address": {
+      "city": "Seattle",
+      "country": "USA"
+   }
+}
+```
+
 <a name="min"></a>
 
 ### min
@@ -3377,6 +3622,12 @@ parameters('fullName')
 
 And returns this result: `"Sophia Owen"`
 
+<a name="parse"></a>
+
+### parse (deprecated)
+
+This function is deprecated, so use [json()](#json) instead.
+
 <a name="parseDateTime"></a>
 
 ### parseDateTime
@@ -3407,6 +3658,33 @@ parseDateTime('21052019', 'fr-fr', 'ddMMyyyy') // Returns '2019-05-21T00:00:00.0
 parseDateTime('20190521', 'fr-fr', 'yyyyMMdd') // Returns '2019-05-21T00:00:00.0000000'.
 parseDateTime('10/20/2014 15h', 'en-US', 'MM/dd/yyyy HH\h') // Returns '2014-10-20T15:00:00.0000000'.
 ```
+
+<a name="pow"></a>
+
+### pow
+
+Return a number raised to a specified power.
+
+```
+pow(<base>, <exponent>)
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*base*> | Yes | Integer or Float | The base number |
+| <*exponent*> | Yes | Integer or Float | The power to which to raise the base number |
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*result*> | Float | The result of raising the base number to the specified power |
+
+*Example*
+
+```
+pow(2, 10)
+```
+
+And returns this result: `1024.0`
 
 ## R
 
@@ -4150,6 +4428,32 @@ string( { "name": "Sophie Owen" } )
 
 And returns this result: `"{ \\"name\\": \\"Sophie Owen\\" }"`
 
+<a name="strongEquals"></a>
+
+### strongEquals
+
+Check whether two or more values of the same type are equivalent. This function accepts a mix of integer and floating-point numbers, and it accepts null values when compared with nullable values. Unlike [equals()](#equals), this function returns an error when the values have different types.
+
+```
+strongEquals(<value1>, <value2>, ...)
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*value1*>, <*value2*>, ... | Yes | Any | Two or more values of the same type to compare |
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| true or false | Boolean | Return true when all values are equivalent. Return false when the values aren't equivalent. |
+
+*Example*
+
+```
+strongEquals(1, 1.0)
+```
+
+And returns this result: `true`
+
 <a name="sub"></a>
 
 ### sub
@@ -4365,6 +4669,38 @@ toUpper('Hello World')
 ```
 
 And returns this result: `"HELLO WORLD"`
+
+<a name="trimByteOrderMark"></a>
+
+### trimByteOrderMark
+
+Remove a byte order mark (BOM) from the beginning of a string or binary content.
+
+```
+trimByteOrderMark(<content>)
+```
+
+| Parameter | Required | Type | Description |
+| --------- | -------- | ---- | ----------- |
+| <*content*> | Yes | String or Binary | The content from which to remove a leading BOM |
+
+| Return value | Type | Description |
+| ------------ | ---- | ----------- |
+| <*content-without-bom*> | String or Binary | The original content without a leading BOM. If no BOM exists, the original content is returned. If the input is null, an empty string is returned. |
+
+*Example*
+
+This example removes a UTF-8 BOM before converting the XML string to XML content:
+
+```
+xml(trimByteOrderMark(concat(uriComponentToString('%EF%BB%BF'), '<produce><item>02</item></produce>')))
+```
+
+And returns this result:
+
+```xml
+<produce><item>02</item></produce>
+```
 
 <a name="trigger"></a>
 

@@ -146,6 +146,8 @@ The binding supports these properties, which are defined in your code:
 
 See the [Example section](#example) for complete examples.
 
+[!INCLUDE [functions-openai-connections](../../includes/functions-openai-connections.md)]
+
 ## Related content
 
 + [Assistant samples](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/assistant)

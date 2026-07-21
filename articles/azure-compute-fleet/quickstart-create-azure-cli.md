@@ -1,11 +1,11 @@
 ---
 title: Create an Azure Compute Fleet using Azure CLI
 description: Learn how to create an Azure Compute Fleet using Azure CLI.
-author: ykh015
-ms.author: yakhande
+author: fitzgeraldsteele
+ms.author: fisteele
 ms.topic: how-to
 ms.service: azure-compute-fleet
-ms.date: 05/09/2025
+ms.date: 07/19/2026
 ms.reviewer: wwilliams
 ms.custom: devx-track-azurecli
 # Customer intent: As a cloud administrator, I want to create and deploy a Compute Fleet using Azure CLI, so that I can efficiently manage my virtual machine resources and optimize workloads.
@@ -109,4 +109,4 @@ To avoid Azure charges, you should clean up unneeded resources. When you no long
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Learn how to modify a Compute Fleet.](modify-fleet.md)
+> [Learn about Managed mode for Azure Compute Fleet.](managed-mode.md)

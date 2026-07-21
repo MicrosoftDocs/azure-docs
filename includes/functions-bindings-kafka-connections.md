@@ -2,14 +2,19 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 12/11/2025
+ms.date: 07/07/2026
 ms.author: glenga
-ms.custom: sfi-ropc-nochange
 ---
 
 ## Connections
 
-Store all connection information required by your triggers and bindings in application settings, not in the binding definitions in your code. This guidance applies to credentials, which you should never store in your code.
+The Kafka binding extension doesn't support managed identity connections. You must use one of these methods to authenticate your Kafka connections:
+
++ **[Key Vault reference](/azure/key-vault/general/overview)**: Store your Kafka credentials (passwords, API keys, certificates) in Azure Key Vault and reference them from your app settings. Your function app connects to Key Vault using managed identities. For more information, see [Define Key Vault connections](../articles/azure-functions/manage-connections.md?pivots=functions-auth-keyvault&tabs=bindings#define-connections).
++ **[App Configuration reference](../articles/azure-app-configuration/quickstart-azure-functions-csharp.md)**: Store connection settings in Azure App Configuration, which can also reference Key Vault for secrets. For more information, see [Azure App Configuration](../articles/azure-functions/manage-connections.md#azure-app-configuration).
++ **Shared secret**: Store credentials directly in app settings (encrypted at rest). For more information, see [Define shared secret connections](../articles/azure-functions/manage-connections.md?pivots=functions-auth-secret&tabs=bindings#define-connections).
+
+To learn more about connection security, see [Manage connections in Azure Functions](../articles/azure-functions/manage-connections.md).
 
 > [!IMPORTANT]
 > Credential settings must reference an [application setting](../articles/azure-functions/functions-how-to-use-azure-function-app-settings.md#settings). Don't hard-code credentials in your code or configuration files. When running locally, use the [local.settings.json file](../articles/azure-functions/functions-develop-local.md#local-settings-file) for your credentials, and don't publish the local.settings.json file.

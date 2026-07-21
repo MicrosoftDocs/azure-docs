@@ -542,7 +542,7 @@ Refer to the [output example](#example) for details.
 
 ::: zone-end  
 
-[!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-blob-connections.md)]
+[!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-connections.md)]
 
 ## Exceptions and return codes
 
