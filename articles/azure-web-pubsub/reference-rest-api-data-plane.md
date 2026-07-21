@@ -70,4 +70,4 @@ You could also use **Role Based Access Control (RBAC)** to authorize the request
 | Operation Group                                             | Description                                                              |
 | ----------------------------------------------------------- | ------------------------------------------------------------------------ |
 | [Service Status](/rest/api/webpubsub/dataplane/webpubsub/get-service-status/get-service-status)  | Provides operations to check the service status                          |
-| [Hub Operations](/rest/api/webpubsub/controlplane/web-pub-sub-hubs) | Provides operations to manage the connections and send messages to them. |
+| [REST Operations](/rest/api/webpubsub/dataplane/webpubsub/operation-groups) | Provides operations to manage the connections and send messages to them. |
