@@ -2,7 +2,7 @@
 description: Learn how to recover container data
 title: Recovering Fluid data
 ms.date: 06/22/2022
-ms.service: azure-fluid
+ms.service: fluid-framework
 ms.topic: reference
 ---
 

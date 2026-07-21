@@ -3,7 +3,7 @@ title: Azure Fluid Relay limits
 description: Limits and throttles applied in Azure Fluid Relay.
 ms.date: 08/19/2021
 ms.topic: reference
-ms.service: azure-fluid
+ms.service: fluid-framework
 ---
 
 # Azure Fluid Relay limits

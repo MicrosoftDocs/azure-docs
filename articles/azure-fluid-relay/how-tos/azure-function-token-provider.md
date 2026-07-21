@@ -3,7 +3,7 @@ title: "How to: Write a TokenProvider with an Azure Function"
 description: How to write a custom token provider as an Azure Function and deploy it.
 ms.date: 02/05/2023
 ms.topic: article
-ms.service: azure-fluid
+ms.service: fluid-framework
 fluid.url: https://fluidframework.com/docs/build/tokenproviders/
 ---
 
