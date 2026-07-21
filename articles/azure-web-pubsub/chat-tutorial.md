@@ -152,20 +152,16 @@ const aliceUrl = await fetch('/negotiate?userId=alice')
   .then(r => r.json())
   .then(d => d.url);
 
-const aliceWpsClient = new WebPubSubClient(aliceUrl);
-const alice = await ChatClient.login(aliceWpsClient);
-
-console.log(`${alice.userId} logged in`);
+const aliceWpsClient = await ChatClient.start(aliceUrl);
+console.log(`Started as: ${aliceWpsClient.userId}`);
 
 // Get client access URL for Charlie
 const charlieUrl = await fetch('/negotiate?userId=charlie')
   .then(r => r.json())
   .then(d => d.url);
 
-const charlieWpsClient = new WebPubSubClient(charlieUrl);
-const charlie = await ChatClient.login(charlieWpsClient);
-
-console.log(`${charlie.userId} logged in`);
+const charlieWpsClient = await ChatClient.start(charlieUrl);
+console.log(`Started as: ${charlieWpsClient.userId}`);
 ```
 
 ### Why this step exists
