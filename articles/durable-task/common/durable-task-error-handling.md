@@ -1756,7 +1756,7 @@ Custom exception properties for `FailureDetails` aren't supported in PowerShell 
 
 # [Java](#tab/java)
 
-Custom exception properties for `FailureDetails` aren't supported in Java yet.
+Java doesn't support custom exception properties for `FailureDetails` yet.
 
 ---
 
