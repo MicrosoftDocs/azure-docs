@@ -6,7 +6,7 @@ ms.author: primittal
 ms.date: 07/17/2026
 ms.topic: tutorial
 ms.service: cost-management-billing
-ms.subservice: ahb
+ms.subservice: azure-hybrid-benefit
 ms.reviewer: primittal
 #customer intent: As a billing administrator, I want to learn how to assign SQL Server licenses in Azure using centrally managed Azure Hybrid Benefit.
 ---

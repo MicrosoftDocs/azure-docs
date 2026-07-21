@@ -6,7 +6,7 @@ metadata:
   title: Azure Hybrid Benefit documentation
   description: Azure Hybrid Benefit is an Azure discount that lets you allocate your on-premises core-based Windows Server and SQL Server licenses with active Software Assurance (or subscription) to Azure. It allows you to significantly reduce the costs of running your workloads in the cloud. In the Azure portal, you can now centrally manage your Azure Hybrid Benefit for SQL Server by assigning licenses to the scope of an entire Azure subscription or overall billing account.
   ms.service: cost-management-billing
-  ms.subservice: ahb
+  ms.subservice: azure-hybrid-benefit
   ms.topic: landing-page
   author: pri-mittal
   ms.author: primittal
