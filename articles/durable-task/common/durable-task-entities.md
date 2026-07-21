@@ -1325,7 +1325,7 @@ In the preceding example, an orchestrator function transfers funds from a source
 # [Python](#tab/python)
 
 > [!NOTE]
-> Critical sections aren't currently supported in Python.
+> Python doesn't currently support critical sections.
 
 # [PowerShell](#tab/powershell)
 
