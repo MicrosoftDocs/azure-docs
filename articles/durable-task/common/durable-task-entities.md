@@ -250,7 +250,7 @@ public class Counter : TaskEntity<int>
 
 # [JavaScript](#tab/javascript)
 
-Durable entities are available in JavaScript in version `1.3.0` and later of the `durable-functions` npm package. This example shows the `Counter` entity implemented as a durable function in JavaScript.
+JavaScript supports durable entities starting with version `1.3.0` of the `durable-functions` npm package. This example shows the `Counter` entity implemented as a durable function in JavaScript.
 
 **Counter/function.json**
 
@@ -292,7 +292,7 @@ module.exports = df.entity(function(context) {
 
 # [Python](#tab/python)
 
-The following code is the `Counter` entity implemented as a durable function written in Python.
+The following code shows the `Counter` entity implemented as a durable function written in Python.
 
 ```python
 import azure.functions as func
@@ -315,11 +315,11 @@ def Counter(context):
 
 # [PowerShell](#tab/powershell)
 
-Entity functions aren't currently supported in PowerShell.
+PowerShell doesn't currently support entity functions.
 
 # [Java](#tab/java)
 
-Durable Functions for Java (from version 1.9.0) supports defining entities using a class-based syntax. You can extend the `AbstractTaskEntity<TState>` base class to define your entity.
+Starting with version 1.9.0, Durable Functions for Java supports defining entities by using a class-based syntax. You can extend the `AbstractTaskEntity<TState>` base class to define your entity.
 
 The following example shows a `Counter` entity implemented as a durable function in Java.
 
@@ -377,7 +377,7 @@ public String counterEntity(
 
 # [C#](#tab/csharp)
 
-The Durable Task SDK for .NET supports defining entities using a class-based syntax. You can implement the `TaskEntity<TState>` base class to define your entity.
+The Durable Task SDK for .NET supports defining entities using a class-based syntax. Implement the `TaskEntity<TState>` base class to define your entity.
 
 The following example shows a `Counter` entity implemented using the Durable Task SDK:
 
@@ -427,7 +427,7 @@ public class EntityOrchestration : TaskOrchestrator<string, int>
 
 # [JavaScript](#tab/javascript)
 
-The Durable Task SDK for JavaScript/TypeScript supports defining entities using a class-based syntax. You can extend the `TaskEntity<TState>` base class to define your entity.
+The Durable Task SDK for JavaScript/TypeScript supports defining entities using a class-based syntax. Extend the `TaskEntity<TState>` base class to define your entity.
 
 The following example shows a `Counter` entity implemented using the Durable Task SDK:
 
@@ -500,7 +500,7 @@ with DurableTaskSchedulerWorker(
 
 # [PowerShell](#tab/powershell)
 
-PowerShell support for durable entities is not yet available. Check back for future updates.
+PowerShell support for durable entities isn't yet available. Check back for future updates.
 
 # [Java](#tab/java)
 
@@ -605,7 +605,7 @@ The following examples show how to access entities.
 
 ::: zone pivot="durable-functions"
 
-To access entities from an ordinary Azure Function, which is also known as a client function, use the [entity client binding](../durable-functions/durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function signaling an entity using this binding.
+To access entities from an ordinary Azure Function, which is also known as a client function, use the [entity client binding](../durable-functions/durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function signaling an entity by using this binding.
 
 # [C#](#tab/csharp)
 
@@ -673,7 +673,7 @@ async def http_set(req: func.HttpRequest, client):
 
 # [PowerShell](#tab/powershell)
 
-Entity functions aren't currently supported in PowerShell.
+PowerShell doesn't currently support entity functions.
 
 # [Java](#tab/java)
 
@@ -740,7 +740,7 @@ client.signal_entity(entity_id, "add", 1)
 
 # [PowerShell](#tab/powershell)
 
-PowerShell support for durable entities is not yet available. Check back for future updates.
+PowerShell support for durable entities isn't yet available. Check back for future updates.
 
 # [Java](#tab/java)
 
@@ -831,7 +831,7 @@ async def http_read(req: func.HttpRequest, client):
 
 # [PowerShell](#tab/powershell)
 
-Entity functions aren't currently supported in PowerShell.
+PowerShell doesn't currently support entity functions.
 
 # [Java](#tab/java)
 
@@ -904,7 +904,7 @@ if state is not None:
 
 # [PowerShell](#tab/powershell)
 
-PowerShell support for durable entities is not yet available. Check back for future updates.
+PowerShell support for durable entities isn't yet available. Check back for future updates.
 
 # [Java](#tab/java)
 
@@ -922,7 +922,7 @@ if (entityMetadata != null) {
 
 ::: zone-end
 
-Entity state queries are sent to the durable tracking store and return the entity's most recently persisted state. This state is always a "committed" state, that is, it's never a temporary intermediate state assumed in the middle of executing an operation. But this state can be stale compared to the entity's in-memory state. Only orchestrations can read an entity's in-memory state, as described in the following section.
+Entity state queries go to the durable tracking store and return the entity's most recently persisted state. This state is always a "committed" state, so it's never a temporary intermediate state assumed in the middle of executing an operation. But this state can be stale compared to the entity's in-memory state. Only orchestrations can read an entity's in-memory state, as described in the following section.
 
 ### Example: orchestration signals and calls an entity
 
@@ -1000,7 +1000,7 @@ def orchestrator(context: df.DurableOrchestrationContext):
 
 # [PowerShell](#tab/powershell)
 
-Entity functions aren't currently supported in PowerShell.
+PowerShell doesn't currently support entity functions.
 
 # [Java](#tab/java)
 
@@ -1032,7 +1032,7 @@ Only orchestrations can call entities and get a response, which can be a return 
 
 ::: zone pivot="durable-task-sdks"
 
-Orchestrators can access entities using the context's Entities API:
+Orchestrators can access entities by using the context's Entities API:
 
 # [C#](#tab/csharp)
 
@@ -1093,7 +1093,7 @@ def counter_orchestration(ctx: task.OrchestrationContext, entity_key: str):
 
 # [PowerShell](#tab/powershell)
 
-PowerShell support for durable entities is not yet available. Check back for future updates.
+PowerShell support for durable entities isn't yet available. Check back for future updates.
 
 # [Java](#tab/java)
 
@@ -1181,7 +1181,7 @@ case "add":
 
 # [PowerShell](#tab/powershell)
 
-Entity functions aren't currently supported in PowerShell.
+PowerShell doesn't currently support entity functions.
 
 # [Java](#tab/java)
 
@@ -1280,7 +1280,7 @@ public static async Task<bool> TransferFundsAsync(
 
 In .NET, `LockAsync` returns `IDisposable`. Disposing it ends the critical section. Use it with a `using` block to represent the critical section.
 
-In the preceding example, an orchestrator function transfers funds from a source entity to a destination entity. The `LockAsync` method locked both the source and destination account entities. This locking ensured that no other client could query or modify the state of either account until the orchestration logic exited the critical section at the end of the `using` statement. This behavior prevents overdrafts on the source account.
+In the preceding example, an orchestrator function transfers funds from a source entity to a destination entity. The `LockAsync` method locks both the source and destination account entities. This locking ensures that no other client can query or modify the state of either account until the orchestration logic exits the critical section at the end of the `using` statement. This behavior prevents overdrafts on the source account.
 
 # [JavaScript](#tab/javascript)
 
@@ -1320,12 +1320,12 @@ module.exports = df.orchestrator(function* (context) {
 
 In JavaScript, `context.df.lock` returns a `DurableLock`. Call `release` on it to end the critical section, or let the runtime release the lock automatically when the orchestration ends.
 
-In the preceding example, an orchestrator function transfers funds from a source entity to a destination entity. The `lock` method locked both the source and destination account entities. This locking ensured that no other client could query or modify the state of either account until the orchestration logic released the lock. This behavior prevents overdrafts on the source account.
+In the preceding example, an orchestrator function transfers funds from a source entity to a destination entity. The `lock` method locks both the source and destination account entities. This locking ensures that no other client can query or modify the state of either account until the orchestration logic releases the lock. This behavior prevents overdrafts on the source account.
 
 # [Python](#tab/python)
 
 > [!NOTE]
-> Critical sections aren't currently supported in Python.
+> Python doesn't currently support critical sections.
 
 # [PowerShell](#tab/powershell)
 
@@ -1335,7 +1335,7 @@ In the preceding example, an orchestrator function transfers funds from a source
 # [Java](#tab/java)
 
 > [!NOTE]
-> Critical sections aren't currently supported in Java.
+> Java doesn't currently support critical sections.
 
 ---
 
@@ -1388,7 +1388,7 @@ Unlike transactions, critical sections don't automatically roll back changes whe
 # [Python](#tab/python)
 
 > [!NOTE]
-> Critical sections aren't currently supported in Python.
+> Python doesn't currently support critical sections.
 
 # [PowerShell](#tab/powershell)
 
@@ -1398,32 +1398,32 @@ Unlike transactions, critical sections don't automatically roll back changes whe
 # [Java](#tab/java)
 
 > [!NOTE]
-> Critical sections aren't currently supported in Java.
+> Java doesn't currently support critical sections.
 
 ---
 
 ### Critical section rules
 
-Unlike low-level locking primitives in most programming languages, critical sections are *guaranteed not to deadlock*. To prevent deadlocks, we enforce the following restrictions:
+Unlike low-level locking primitives in most programming languages, critical sections *guarantee no deadlock*. To prevent deadlocks, the system enforces the following restrictions:
 
-* Critical sections can't be nested.
-* Critical sections can't create suborchestrations.
-* Critical sections can call only the entities they lock.
-* Critical sections can't call the same entity using multiple parallel calls.
-* Critical sections can signal only entities outside the lock set.
+* You can't nest critical sections.
+* You can't create suborchestrations in critical sections.
+* You can only call the entities that you lock in critical sections.
+* You can't call the same entity by using multiple parallel calls in critical sections.
+* You can only signal entities outside the lock set in critical sections.
 
 # [C#](#tab/csharp)
 
-Any violations of these rules cause a runtime error, such as `LockingRulesViolationException` in .NET, which includes a message that explains what rule was broken.
+If you violate any of these rules, the runtime throws an error, such as `LockingRulesViolationException` in .NET. The error message explains what rule was broken.
 
 # [JavaScript](#tab/javascript)
 
-Any violations of these rules cause a runtime error, which includes a message that explains what rule was broken.
+If you violate any of these rules, the runtime throws an error. The error message explains what rule was broken.
 
 # [Python](#tab/python)
 
 > [!NOTE]
-> Critical sections aren't currently supported in Python.
+> Python doesn't currently support critical sections.
 
 # [PowerShell](#tab/powershell)
 
@@ -1433,7 +1433,7 @@ Any violations of these rules cause a runtime error, which includes a message th
 # [Java](#tab/java)
 
 > [!NOTE]
-> Critical sections aren't currently supported in Java.
+> Java doesn't currently support critical sections.
 
 ---
 
