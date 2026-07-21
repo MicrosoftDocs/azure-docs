@@ -23,36 +23,33 @@ AI Gateway tier from Azure API Management is a dedicated tier for AI workloads. 
 
 ## Prerequisites
 
-- An Azure subscription.
-- Permission to create API Management resources in a resource group, such as **Contributor** or a custom role with the same permissions.
-- Permission to sign in with Microsoft Entra ID.
+- An Azure account with **Microsoft Entra ID**. Access to the AI Gateway tier preview is currently limited to Azure users who sign in with Microsoft Entra ID.
+- An Azure subscription, and permission to create resources in a resource group (for example, the **Contributor** role).
 - Access to at least one supported model provider, such as a deployed model in Microsoft Foundry or Azure OpenAI.
 - If your provider requires an API key, have the key available.
-- Python 3.9 or later and the OpenAI Python package, if you want to run the Python sample.
+- To run the samples: Python 3.9 or later with the OpenAI package, or Node.js 18 or later with the `openai` package.
 
-## 1. Provision an AI Gateway tier instance
+## 1. Sign in to the AI Gateway tier portal
 
-1. In the Azure portal, search for **API Management**.
-1. Select **Create**.
-1. For **Tier** or **SKU**, select **AI Gateway (preview)**.
-1. Select a subscription and resource group, and choose a supported preview region (**East US 2** or **Sweden Central**).
-1. Enter a gateway name. The name and region become part of the runtime endpoint:
+The AI Gateway tier portal is a standalone web experience — you don't use the Azure portal.
+
+1. Go to the AI Gateway tier portal at `ai.gateway.azure.com`.
+1. Select **Sign in** and authenticate with Microsoft Entra ID.
+
+You use the portal to manage models, MCP servers, runtime access keys, policies, and monitoring, based on your Entra ID permissions. Runtime callers don't sign in to the portal — they call the gateway with runtime access keys that you create later.
+
+## 2. Create a gateway
+
+1. In the portal, select **Create gateway**. To use an existing gateway instead, select it and skip to the next step.
+1. Enter a **Name**. The name and region become part of the runtime endpoint:
 
    `https://<gateway>.<region>.ai.gateway.azure.com`
 
-1. Configure identity. In most cases, enable a system-assigned managed identity so the gateway can authenticate to supported Azure backends.
-1. Review the settings, and then select **Create**.
+1. Select your **Subscription** and a supported preview region (**East US 2** or **Sweden Central**).
+1. Optionally set the **Resource group** under **Advanced**. By default, the portal creates one for you.
+1. Select **Create**. Activation typically takes under a minute.
 
-Provisioning creates a dedicated AI Gateway tier resource in your subscription. You don't choose capacity or add scale units before you add models. Management operations use the preview control plane API version `2026-05-01-preview`. Runtime requests use the gateway host name, not Azure Resource Manager.
-
-## 2. Sign in and open the gateway
-
-1. After deployment completes, go to the AI Gateway tier instance.
-1. In the gateway resource, select **Open portal**.
-1. Sign in with Microsoft Entra ID.
-1. Select the gateway you created.
-
-Use the Azure portal to provision the gateway and configure identity and networking. Use the AI Gateway tier portal (select **Open portal**) to manage models, MCP servers, runtime access keys, policies, and monitoring. The AI Gateway tier portal uses your Entra ID permissions to configure gateway resources. Runtime callers don't need Azure portal access. They call the gateway with runtime access keys that you create later.
+The gateway is a dedicated resource in your Azure subscription. You don't choose capacity or add scale units before you add models. For automation, the preview management API version is `2026-05-01-preview`; runtime requests use the gateway host name, not Azure Resource Manager.
 
 ## 3. Add a model
 

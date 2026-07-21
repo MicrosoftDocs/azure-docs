@@ -118,7 +118,7 @@
       items:
       - name: Import agent-to-agent (A2A) API
         href: agent-to-agent-api.md
-  - name: AI Gateway tiers
+  - name: AI Gateway tier
     items:
     - name: Overview
       href: ai-gateway-overview.md

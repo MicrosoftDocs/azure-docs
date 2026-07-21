@@ -92,7 +92,7 @@ Client applications include the runtime access key in the `api-key` header. Don'
 
 ## Use managed identity for backend authentication
 
-Configure managed identity so AI Gateway tier can authenticate to supported model and MCP server backends without storing API keys. Using managed identity to access models and MCP servers is a new public preview capability. Prefer managed identity where supported because it reduces backend key management. It removes key rotation from gateway configuration and lets you manage access with Azure RBAC. AI Gateway tier supports system-assigned and user-assigned managed identities. Manage them on the **Managed identities** page in the AI Gateway tier portal, or from the gateway's **Identity** settings in the Azure portal.
+Configure managed identity so AI Gateway tier can authenticate to supported model and MCP server backends without storing API keys. Using managed identity to access models and MCP servers is available in public preview. Prefer managed identity where supported because it reduces backend key management. It removes key rotation from gateway configuration and lets you manage access with Azure RBAC. AI Gateway tier supports system-assigned and user-assigned managed identities. Manage them on the **Managed identities** page in the AI Gateway tier portal.
 
 :::image type="content" source="media/ai-gateway-managed-identities.png" alt-text="The Managed identities page in the AI Gateway tier portal, showing a system-assigned identity toggle and a section for attaching user-assigned identities." lightbox="media/ai-gateway-managed-identities.png":::
 
@@ -106,9 +106,9 @@ Before you configure backend authentication, make sure you have these items:
 - Permission to assign Azure RBAC roles on the backend resource.
 - Azure CLI 2.57.0 or later.
 
-To enable a system-assigned identity, open the gateway in the Azure portal. Select **Identity**, set **System assigned** status to **On**, save, and copy the **Object (principal) ID**.
+To enable a system-assigned identity, open the **Managed identities** page in the AI Gateway tier portal. On **Configure identities**, turn on the **System-assigned identity**, and then copy its **Object (principal) ID**.
 
-To enable a user-assigned identity, create the identity in the same tenant as the gateway and backend resource. Then select **Identity** > **User assigned** > **Add** on the gateway. Copy the managed identity's **Client ID** and **Object (principal) ID**. The gateway uses the client ID to request a token. Azure RBAC uses the principal ID.
+To enable a user-assigned identity, create the identity in the same tenant as the gateway and backend resource. On the **Managed identities** page, select **User-assigned** > **Add identity**, and choose it. Copy the managed identity's **Client ID** and **Object (principal) ID**. The gateway uses the client ID to request a token. Azure RBAC uses the principal ID.
 
 Grant the gateway identity access to each backend resource at the narrowest practical scope. In most cases, use the individual Foundry or Azure OpenAI resource.
 
@@ -157,7 +157,7 @@ During public preview, the AI Gateway tier is available in the following Azure r
 | United States | East US 2 |
 | Europe | Sweden Central |
 
-Region availability can vary by subscription, cloud, capacity, feature flag, and preview enrollment. If your target region isn't available in the Azure portal or deployment tools, select another supported preview region or contact your Microsoft representative.
+Region availability can vary by subscription, cloud, capacity, feature flag, and preview enrollment. If your target region isn't available in the portal or deployment tools, select another supported preview region or contact your Microsoft representative.
 
 Choose the region that best matches your users, applications, AI backends, and network dependencies. If the gateway routes to Azure OpenAI, Microsoft Foundry, model endpoints, APIs, or MCP servers, consider those locations too. Data residency depends on the full request path, not only the gateway region. Review where each component is deployed, including the gateway, AI backends, tools, logging destinations, managed identities, and client applications.
 
@@ -201,7 +201,10 @@ DNS is a common source of issues. The gateway must resolve backend hostnames to 
 
 ## Monitoring
 
-AI Gateway emits observability data for traffic, latency, reliability, token use, policy outcomes, and model behavior. You choose where telemetry goes. Keep it in your Azure subscription, or send OpenTelemetry signals to Application Insights or another OpenTelemetry (OTLP)-compatible destination, such as Datadog, Splunk, or Grafana Cloud.
+AI Gateway emits OpenTelemetry logs and metrics for model traffic — latency, reliability, token use, policy outcomes, and model behavior. You choose where telemetry goes. Keep it in your Azure subscription, or send OpenTelemetry signals to Application Insights or another OpenTelemetry (OTLP)-compatible destination, such as Datadog, Splunk, or Grafana Cloud.
+
+> [!NOTE]
+> In public preview, OpenTelemetry logs and metrics cover model traffic. Telemetry for MCP tool calls is a fast follow.
 
 AI Gateway follows OpenTelemetry and the OpenTelemetry Generative AI semantic conventions where possible. Requests can include standard HTTP, network, and trace attributes. They can also include GenAI attributes with the `gen_ai.*` prefix, such as requested model, operation name, input tokens, output tokens, and finish reasons. Not every backend returns the same fields — some providers omit token counts in streaming or passthrough responses. Treat missing token attributes as unavailable, not as zero.
 

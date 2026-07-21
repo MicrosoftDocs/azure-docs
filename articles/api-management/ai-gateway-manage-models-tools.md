@@ -198,7 +198,7 @@ Use the gateway for MCP servers to centralize:
 - **Discovery** — provide one catalog of approved MCP servers for developers and agents.
 - **Authentication** — clients authenticate to the gateway. The gateway stores backend credentials, so client configuration doesn't contain upstream secrets.
 - **Authorization** — choose which tools each server exposes. You can create read-only and full-access views through configuration.
-- **Observability** — capture telemetry for each tool call and capability listing.
+- **Observability** — monitor tool usage from the portal. OpenTelemetry logs and metrics cover model traffic today; telemetry for MCP tool calls is a fast follow.
 - **Governance** — apply the same policies to MCP traffic that you use for models, such as rate limits and content safety.
 
 After you create the server, configure runtime access before sharing it. Add policies such as request rate limits, token rate limits, content safety, and IP filtering based on each tool and backend.

@@ -14,7 +14,7 @@ ms.date: 06/29/2026
 
 AI Gateway tier (preview) from Azure API Management is a fully managed gateway for AI workloads. It gives teams one place to publish, secure, govern, and observe access to AI models and Model Context Protocol (MCP) tools.
 
-AI Gateway tier is in public preview. Preview features, regions, service limits, APIs, and pricing can change before general availability.
+AI Gateway tier is in public preview. Preview features, regions, service limits, and APIs can change before general availability. Pricing and the business model will be announced later in the preview.
 
 ## What is AI Gateway tier?
 
@@ -25,7 +25,7 @@ AI Gateway tier is a managed gateway for applications that call models and tools
 1. Routes the request to the selected backend — by the `model` field for models, or the tool name for tools — using the backend credentials you configured.
 1. Returns the response and emits telemetry, such as token counts, latency, and traces.
 
-Use AI Gateway tier when you want a fully managed path for AI traffic: you don't plan or manage scale units, provisioning takes about a minute, and billing is consumption-based with a free tier to get started.
+Use AI Gateway tier when you want a fully managed path for AI traffic: you don't plan or manage scale units, and provisioning takes about a minute. Pricing and the business model will be announced later in the preview.
 
 ## Why use it
 
@@ -102,9 +102,9 @@ During public preview, you can provision AI Gateway tier in these regions:
 | United States | East US 2 |
 | Europe | Sweden Central |
 
-## What's new in public preview
+## Capabilities in public preview
 
-The public preview includes these capabilities.
+Along with the core model, tool, policy, and monitoring features, the public preview includes these capabilities.
 
 ### Anthropic Messages passthrough
 
@@ -112,7 +112,7 @@ Anthropic Messages passthrough lets applications send native Anthropic Messages 
 
 ### Managed identity for backend authentication
 
-Managed identity lets AI Gateway tier authenticate to supported model and MCP server backends without customer-managed secrets. This is a new public preview capability. It aligns backend authentication with Azure identity practices and reduces key management work.
+Managed identity lets AI Gateway tier authenticate to supported model and MCP server backends without customer-managed secrets. It aligns backend authentication with Azure identity practices and reduces key management work.
 
 ### Private networking
 
@@ -134,7 +134,7 @@ AI Gateway tier is in public preview, so availability is best effort and has no 
 
 ### How is pricing handled during preview?
 
-AI Gateway tier includes a free tier to get started. Usage beyond the free tier is billed based on consumption. You might also pay for related resources, such as model providers, Application Insights, networking, and observability platforms. For current meters and the free-tier allowance, see the Azure API Management pricing page.
+Pricing and the business model for AI Gateway tier will be announced later in the preview. You might also pay for related resources that you use with the gateway, such as model providers, Application Insights, networking, and observability platforms.
 
 ### Which regions are available?
 
