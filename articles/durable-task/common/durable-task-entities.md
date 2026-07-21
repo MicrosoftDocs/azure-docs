@@ -1335,7 +1335,7 @@ In the preceding example, an orchestrator function transfers funds from a source
 # [Java](#tab/java)
 
 > [!NOTE]
-> Critical sections aren't currently supported in Java.
+> Java doesn't currently support critical sections.
 
 ---
 
