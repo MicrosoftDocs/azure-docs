@@ -1423,7 +1423,7 @@ If you violate any of these rules, the runtime throws an error. The error messag
 # [Python](#tab/python)
 
 > [!NOTE]
-> Critical sections aren't currently supported in Python.
+> Python doesn't currently support critical sections.
 
 # [PowerShell](#tab/powershell)
 
