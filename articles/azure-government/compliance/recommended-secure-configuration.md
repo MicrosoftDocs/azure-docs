@@ -10,13 +10,13 @@ ms.date:     02/06/2026
 
 # Secure Configuration Guide
 
-FedRAMP Rev 5 has mandated the following Secure Configuration Guide requirements for all Cloud Service Providers at [Secure Configuration Guide](https://www.fedramp.gov/docs/rev5/balance/secure-configuration-guide/).
+FedRAMP Rev 5 mandates the following secure configuration guide requirements for all cloud service providers at [Secure Configuration Guide](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/).
 
 Azure provides the instructions and guidelines for the customers to meet these requirements. Customers are responsible for ensuring that their services are configured appropriately to meet these requirements.
 
 ## Recommended secure configuration
 
-This section includes a copy of the [Recommended Secure Configuration](https://www.fedramp.gov/docs/rev5/balance/secure-configuration-guide/#recommended-secure-configuration) from the Secure Configuration Guide and the recommendation and instructions for Azure.
+This section includes a copy of the [Recommended Secure Configuration](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/) from the secure configuration guide and the recommendation and instructions for Azure.
 
 ### SCG-CSO-RSC 
 
@@ -154,7 +154,7 @@ More detailed instructions to securely access, configure, operate, and decommiss
 
 ## Use instructions
 
-This section includes a copy of the [Use Instructions](https://www.fedramp.gov/docs/rev5/balance/secure-configuration-guide/#use-instructions) from the Secure Configuration Guide and a response for Azure.
+This section includes a copy of the [Use Instructions](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/) from the Secure Configuration Guide and a response for Azure.
 
 ### SCG-CSO-AUP
 
@@ -171,7 +171,7 @@ Azure supports SCG-CSO-AUP by including Azure's response to the Secure Configura
 
 ## Public guidance
 
-This section includes a copy of the [Public Guidance](https://www.fedramp.gov/docs/rev5/balance/secure-configuration-guide/#public-guidance) from the Secure Configuration Guide and a response for Azure.
+This section includes a copy of the [Public Guidance](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/) from the Secure Configuration Guide and a response for Azure.
 
 ### SCG-CSO-PUB
 
@@ -185,7 +185,7 @@ This article is the Azure Secure Configuration Guide and it is available publicl
 
 ## Secure defaults
 
-This section includes a copy of the [Secure Defaults](https://www.fedramp.gov/docs/rev5/balance/secure-configuration-guide/#secure-defaults) from the Secure Configuration Guide and a response for Azure.
+This section includes a copy of the [Secure Defaults](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/) from the Secure Configuration Guide and a response for Azure.
 
 ### SCG-CSO-SDF
 
@@ -219,13 +219,13 @@ When identities, subscriptions, or resources are created, **Security defaults** 
 
 ## Enhanced capabilities
 
-The next sections are copied from the [Enhanced Capabilities](https://www.fedramp.gov/docs/rev5/balance/secure-configuration-guide/#enhanced-capabilities) in the Secure Configuration Guide and they include a response for Azure.
+The following sections are copied from the [Enhanced Capabilities](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/) in the Secure Configuration Guide. They include a response for Azure.
 
 These recommendations apply to all cloud service offerings in the FedRAMP Marketplace for enhanced capabilities related to the Secure Configuration Guide.
 
 ### Comparison capability
 
-This section includes a copy of the [Comparison Capability](https://www.fedramp.gov/docs/rev5/balance/secure-configuration-guide/#comparison-capability) from the Secure Configuration Guide and a response for Azure.
+This section includes a copy of the [Comparison Capability](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/) from the Secure Configuration Guide and a response for Azure.
 
 #### SCG-ENH-CMP
 
@@ -316,7 +316,7 @@ For hybrid and cloud resources:
 
 ### Export capability
 
-This section includes a copy of the [Export Capability](https://www.fedramp.gov/docs/rev5/balance/secure-configuration-guide/#export-capability) from the Secure Configuration Guide and a response for Azure.
+This section includes a copy of the [Export Capability](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/) from the Secure Configuration Guide and a response for Azure.
 
 #### SCG-ENH-EXP
 
@@ -458,7 +458,7 @@ These provide **100% environment configuration** in machine‑readable form.
 
 ### API capability
 
-This section includes a copy of the [API Capability](https://www.fedramp.gov/docs/rev5/balance/secure-configuration-guide/#api-capability) from the Secure Configuration Guide and a response for Azure.
+This section includes a copy of the [API Capability](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/) from the Secure Configuration Guide and a response for Azure.
 
 #### SCG-ENH-API
 
@@ -599,7 +599,7 @@ Supports automated:
 
 ### Machine-readable guidance
 
-This section includes a copy of the [Machine-Readable Guidance](https://www.fedramp.gov/docs/rev5/balance/secure-configuration-guide/#machine-readable-guidance) from the Secure Configuration Guide and a response for Azure.
+This section includes a copy of the [Machine-Readable Guidance](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/) from the Secure Configuration Guide and a response for Azure.
 
 #### SCG-ENH-MRG
 
@@ -694,7 +694,7 @@ Using the machine‑readable feeds of the preceding methods, external tools can:
 
 ### Versioning and release history
 
-This section includes a copy of the [Versioning and Release History](https://www.fedramp.gov/docs/rev5/balance/secure-configuration-guide/#versioning-and-release-history) from the Secure Configuration Guide and a response for Azure.
+This section includes a copy of the [Versioning and Release History](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/) from the Secure Configuration Guide and a response for Azure.
 
 #### SCG-ENH-VRH
 
@@ -795,4 +795,4 @@ ARG enables diffs:
 
 ## Related content
 
-[Secure Configuration Guide](https://www.fedramp.gov/docs/rev5/balance/secure-configuration-guide/)
+[Secure Configuration Guide](https://www.fedramp.gov/2026/providers/rev5/rules/secure-configuration-guide/)
