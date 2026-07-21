@@ -14,7 +14,7 @@ ms.custom:
 
 # Release notes for Azure File Sync
 
-This article provides the release notes for Azure File Sync. Major releases of Azure File Sync include service and agent improvements (for example, 18.0.0.0). Minor releases are typically for agent improvements (for example, 18.2.0.0).
+This article provides the release notes for Azure File Sync. Major releases of Azure File Sync include service and agent improvements, such as version 18.0.0.0. Minor releases typically include agent improvements, such as version 18.2.0.0.
 
 ## Supported versions
 
@@ -28,7 +28,7 @@ The following Azure File Sync agent versions are supported:
 | v21.2 Release - [KB5063825](https://support.microsoft.com/topic/6490aef8-ebae-465d-beba-718c05f8a71f)|21.2.0.0| July 08, 2025| Supported |
 | v21.1 Release - [KB5063486](https://support.microsoft.com/topic/e0016f74-573d-492c-8bf7-c3be1e380836) |21.1.0.0 | August 11, 2025 | Supported - Security Update |
 | v20.1 Release - [KB5056953](https://support.microsoft.com/topic/6a558f5d-005d-4111-9ebd-21e5dd652d77) |20.1.0.0 | August 11, 2025 | Supported - Security Update - Agent version will expire on Oct 29,2026 |
-| v20 Release - [KB5041884](https://support.microsoft.com/topic/b92c9c6f-8232-42d3-a3e0-e6df1fce0f5e)| 20.0.0.0 | February 10, 2025 | Supported - Agent version will expire on Oct 29,2026|
+| v20 Release - [KB5041884](https://support.microsoft.com/topic/b92c9c6f-8232-42d3-a3e0-e6df1fce0f5e)| 20.0.0.0 | February 10, 2025 | Supported - Agent version expires on Oct 29, 2026|
 
 ## Unsupported versions
 
