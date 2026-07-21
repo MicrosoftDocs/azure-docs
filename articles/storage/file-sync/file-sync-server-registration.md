@@ -27,32 +27,32 @@ To register a server with a Storage Sync Service, you must first prepare your se
 * Ensure that the server is connected to the internet and that Azure is accessible.
 * Disable the IE Enhanced Security Configuration for administrators by using the Server Manager UI.
     
-    ![Server Manager UI with the IE Enhanced Security Configuration highlighted.](media/storage-sync-files-server-registration/server-manager-ie-config.png)
+    ![Screenshot of Server Manager UI with the IE Enhanced Security Configuration highlighted.](media/storage-sync-files-server-registration/server-manager-ie-config.png)
 
 * Ensure that the Azure PowerShell module is installed on your server. If your server is a member of a Failover Cluster, every node in the cluster requires the Az module. For details on how to install the Az module, see [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell). Use the newest version of the Az PowerShell module to register or unregister a server. If the Az package is already installed on this server and the PowerShell version on this server is 5.x or greater, you can use the `Update-Module` cmdlet to update this package.
 
 * If you use a network proxy server in your environment, configure proxy settings on your server for the sync agent to use.
-    1. Determine your proxy IP address and port number
+    1. Determine your proxy IP address and port number.
     1. Edit these two files:
         * C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config
         * C:\Windows\Microsoft.NET\Framework\v4.0.30319\Config\machine.config
-    1. Add the lines in Figure 1 under `/System.ServiceModel` in the two files. Change `127.0.0.1:8888` to the correct IP address and port number.
-    1. Set the WinHTTP proxy settings via command line:
+    1. Add the lines in Figure 1 under `/System.ServiceModel` in the two machine.config files. Change `127.0.0.1:8888` to the correct IP address and port number.
+
+       ```xml
+           Figure 1:
+           <system.net>
+               <defaultProxy enabled="true" useDefaultCredentials="true">
+                   <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
+               </defaultProxy>
+           </system.net>
+       ```   
+
+    1. Set the WinHTTP proxy settings by using the command line:
         * Show the proxy:   `netsh winhttp show proxy`
         * Set the proxy:    `netsh winhttp set proxy 127.0.0.1:8888`
         * Reset the proxy:  `netsh winhttp reset proxy`
-        * If you set up this proxy after the agent is installed, restart the sync agent:
-            `net stop filesyncsvc`
+        * If you set up this proxy after the agent is installed, restart the sync agent: `net stop filesyncsvc`
     
-```xml
-    Figure 1:
-    <system.net>
-        <defaultProxy enabled="true" useDefaultCredentials="true">
-            <proxy autoDetect="false" bypassonlocal="false" proxyaddress="http://127.0.0.1:8888" usesystemdefault="false" />
-        </defaultProxy>
-    </system.net>
-```    
-
 ## Register a server with Storage Sync Service
 
 Before you can use a server as a server endpoint in an Azure File Sync *sync group*, register the server with a Storage Sync Service. You can register a server with only one Storage Sync Service at a time.
