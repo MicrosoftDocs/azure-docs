@@ -1418,7 +1418,7 @@ Any violations of these rules cause a runtime error, such as `LockingRulesViolat
 
 # [JavaScript](#tab/javascript)
 
-Any violations of these rules cause a runtime error, which includes a message that explains what rule was broken.
+If you violate any of these rules, the runtime throws an error. The error message explains what rule was broken.
 
 # [Python](#tab/python)
 
