@@ -38,7 +38,7 @@ Some Data plane APIs require Grafana Server Admin permissions and can't be calle
 
 * An Azure Managed Grafana workspace can use only one managed identity: user-assigned or system-assigned.
 
-* [Git Sync](how-to-create-dashboard.md#manage-dashboards-as-code-with-git-sync) supports GitHub repositories only, with up to 10 repositories and 1,000 resources per repository.
+* [Git Sync](how-to-create-dashboard.md#manage-dashboards-as-code-with-git-sync) requires Grafana version 13 or later and supports GitHub repositories only, with up to 10 repositories and 1,000 resources per repository.
 
 ### Current User authentication
 
