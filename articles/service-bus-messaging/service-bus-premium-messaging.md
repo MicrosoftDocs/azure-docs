@@ -4,7 +4,7 @@ description: Learn how Azure Service Bus premium tier provides dedicated resourc
 #customer intent: As a solutions architect, I want to understand the differences between Service Bus Premium and Standard tiers so that I can choose the right tier for my application
 ms.topic: concept-article
 ms.custom: devx-track-extended-java
-ms.date: 07/15/2026
+ms.date: 07/21/2026
 author: spelluru
 ms.author: spelluru
 ai-usage: ai-assisted
@@ -37,7 +37,7 @@ Service Bus offers three tiers that differ in the capabilities they provide:
 
 - **Basic** - Supports queues only.
 - **Standard** - Adds topics and subscriptions, sessions, transactions, and duplicate detection, on shared capacity billed per operation.
-- **Premium** - Provides dedicated [messaging units](#how-many-messaging-units-are-needed) with resource isolation for predictable throughput and latency, [large messages](#large-messages-support) up to 100 MB, [virtual network integration and Private Link](private-link-service.md), and [Geo-Replication](service-bus-geo-replication.md).
+- **Premium** - Provides dedicated [messaging units](#how-many-messaging-units-are-needed) with resource isolation for predictable throughput and latency, [large messages](#large-messages-support) up to 100 MB, [virtual network integration and Private Link](private-link-service.md), [Geo-Replication](service-bus-geo-replication.md), and [Java Message Service (JMS) 2.0](#java-message-service-jms-support-in-service-bus) support.
 
 For a full comparison of features and pricing across all tiers, see [Service Bus pricing](https://azure.microsoft.com/pricing/details/service-bus/). To move an existing namespace, see [Migrate Standard to Premium](service-bus-migrate-standard-premium.md) - a Basic namespace migrates to Premium by way of Standard.
 
