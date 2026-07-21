@@ -24,11 +24,11 @@ This article describes how to grant consent to a server to receive calls directe
 
 - A Microsoft Entra ID tenant with users that have a Teams license. For more information, see [Teams license requirements](../eligible-teams-licenses.md).
 
-- Users must be enabled for Teams. To enable a user for Teams, open the Microsoft 365 admin center > **Users** > **Active Users**. Then search for the affected user account. Click on **Edit** to change their details. Go to **License and Apps**, then select the drop-down arrow from **Apps** and select **Enable Microsoft Teams**.
+- Users must be enabled for Teams. To enable a user for Teams, open the Microsoft 365 admin center > **Users** > **Active Users**. Then search for the affected user account. Select **Edit** to change their details. Go to **License and Apps**, select the drop-down arrow from **Apps**, and select **Enable Microsoft Teams**.
 
 ## Provide server consent
 
-The Azure Communication Services Resource Owner needs to run the following API operations. The resource owner need to provide consent for authorizing calls to the Azure Communication Services Resource from the Teams Resource Account. You can call the API using any REST tool or programmatically. The API supports GET, PUT, PATCH, and DELETE operations.  
+The Azure Communication Services resource owner needs to run the following API operations. The resource owner needs to provide consent for authorizing calls to the Azure Communication Services resource from the Teams Resource Account. You can call the API by using any REST tool or programmatically. The API supports GET, PUT, PATCH, and DELETE operations.  
 
 
 1. The `{YOUR-ACS-RESOURCE-ENDPOINT}` in the request URI (RURI) path is the Azure Communication Services Resource fully qualified domain name (FQDN) from Azure.
@@ -71,7 +71,7 @@ Use the Azure Communication Services calling SDK to extend your Teams Phone syst
 
 Users must be authenticated through a Microsoft Entra ID application with the Azure Communication Service `TeamsExtension.ManageCalls` permission. If you don't have an existing application for this quickstart, you can create a new application registration.
 
-Configure the following application setting:
+Configure the following application settings:
 
 - The _Supported account types_ property defines whether the application is single-tenant (Accounts in this organizational directory only) or multitenant (Accounts in any organizational directory). Choose the option that fits your scenario.
 
@@ -190,9 +190,10 @@ GET {endpoint}/access/teamsExtension/tenants/87d349ed-44d7-43e1-9a83-5f2406dee5b
 ## Next steps
   
 > [!div class="nextstepaction"]
-> [REST API for Teams Phone extensibility](./teams-phone-extensiblity-rest-api.md)
+> [REST API for Teams Phone extensibility](./teams-phone-extensibility-rest-api.md)
 
 ## Related articles
 
 - [Teams Phone extensibility overview](../../concepts/interop/tpe/teams-phone-extensibility-overview.md)
 - [Teams Phone System extensibility quick start](./teams-phone-extensibility-quickstart.md)
+- [Answer Teams Phone calls from Call Automation](./teams-phone-extensibility-answer-teams-calls.md)

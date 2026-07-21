@@ -109,8 +109,8 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 **Response status code**
 
-* 200 (OK)  The request is success. It will fetch list of ports.
-* 4XX (Bad Request)  One of validations failed – for example: Provider subid isn't valid.
+* 200 (OK) The request is successful. It fetches the list of ports.
+* 4XX (Bad Request) One of the validations failed. For example: Provider subscription ID isn't valid.
 
 ### To get a list of all port pairs by location
 
@@ -152,8 +152,8 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 **Response status code**
 
-* 200 (OK) The request is success. It will fetch list of ports.
-* 4XX (Bad Request) One of validations failed – for example: Provider subid isn't valid or location isn't valid.
+* 200 (OK) The request is successful. It fetches the list of ports.
+* 4XX (Bad Request) One of the validations failed. For example: Provider subscription ID isn't valid or location isn't valid.
 
 ### To get a specific port pair using the port pair descriptor ID.
 
@@ -196,9 +196,9 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 **Status code	description**
 
-* 200 (OK) The request is success. It will fetch port detail.
+* 200 (OK) The request is successful. It fetches the port detail.
 * 204 The port pair with the mentioned descriptor ID isn't available.
-* 4XX (Bad Request) One of validations failed – For example: Provider subid isn't valid.
+* 4XX (Bad Request) One of the validations failed. For example: Provider subscription ID isn't valid.
 
 ### Move a target ExpressRoute Circuit to a specific port pair
 

@@ -2,13 +2,13 @@
 title: Copy data to Search index
 description: Learn about how to push or copy data to an Azure search index using the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.custom: synapse
 ms.date: 06/22/2026
-ms.update-cycle: 1095
+ms.update-cycle: 1095-days
 ---
 
 # Copy data to an Azure AI Search index using Azure Data Factory or Synapse Analytics

@@ -1,7 +1,7 @@
 ---
 author: halkazwini
 ms.author: halkazwini
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: include
 ms.date: 10/29/2024
 ms.custom: include file

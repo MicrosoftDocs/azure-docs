@@ -66,8 +66,8 @@ landingContent:
             url: concept-connectivity-configuration.md
       - linkListType: how-to-guide
         links:
-          - text: Create a hub-and-spoke topology
-            url: how-to-create-hub-and-spoke.md
+          - text: Create a mesh or hub-and-spoke topology
+            url: how-to-create-network-manager-topologies.md
            
   # Card
   - title: Security

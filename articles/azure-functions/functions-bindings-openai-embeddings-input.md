@@ -186,6 +186,8 @@ Changing the default embeddings `model` changes the way that embeddings are stor
 
 When calculating the maximum character length for input chunks, consider that the maximum input tokens allowed for second-generation input embedding models like `text-embedding-ada-002` is `8191`. A single token is approximately four characters in length (in English), which translates to roughly 32,000 (English) characters of input that can fit into a single chunk.
 
+[!INCLUDE [functions-openai-connections](../../includes/functions-openai-connections.md)]
+
 ## Related content
 
 + [Embeddings samples](https://github.com/Azure/azure-functions-openai-extension/tree/main/samples/embeddings)

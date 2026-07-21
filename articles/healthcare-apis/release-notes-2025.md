@@ -236,7 +236,7 @@ Added validation to ensure the HTTP method in the Request component of the trans
 
 #### 100 items limit on include and revinclude searches
 
-The FHIR® server has a limit of 100 items on `include` and `revinclude` searches. A recent update fixed an issue where this limit wasn't being applied in specific conditions. Customers will receive a warning and truncated results if the limit is exceeded. Details on limits can be found in the [Overview of FHIR search](./fhir/overview-of-search.md#search-result-parameters). To manage this, use the `_count` parameter to reduce the number of returned results. In the short term, we plan to increase the limit to 1000
+The FHIR® server has a limit of 100 items on `include` and `revinclude` searches. A recent update fixed an issue where this limit wasn't being applied in specific conditions. Customers will receive a warning and truncated results if the limit is exceeded. Details on limits can be found in the [Overview of FHIR search](./fhir/overview-of-search.md#fhir-search-result-parameters). To manage this, use the `_count` parameter to reduce the number of returned results. In the short term, we plan to increase the limit to 1000
 
 ### Bug Fixes
 

@@ -9,8 +9,7 @@ ms.date: 06/17/2026
 zone_pivot_groups: storage-mover-multicloud
 ---
 
-# Migrate multicloud data from S3 sources using Azure Storage Mover private connections
-
+# Migrate multicloud data from external sources using Azure Storage Mover private connections
 
 :::zone pivot="aws"
 
@@ -147,6 +146,12 @@ If you operate an SD-WAN platform in AWS (for example, FortiGate on EC2), you ca
 1. Launch the NVA from AWS Marketplace and size the instance for required throughput.
 2. Attach WAN/LAN interfaces, associate an Elastic IP to the WAN interface, and disable source/destination checks if required by the appliance routing model.
 3. Configure security groups and route tables to allow Azure prefixes and steer traffic through the appliance.
+
+## Implementation details for AWS FSx private access (VPC endpoints)
+
+### Configure an AWS VPC endpoint (VPCE) for Amazon FSx
+
+An AWS VPC endpoint (VPCE) for FSx provides a private endpoint to an S3 service that allows your VPC to reach FSx privately. To create your FSx share and attach it to a VPC, see the [AWS documentation](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/getting-started.html). Make sure your share is within a VPC that has AWS connectivity and that FSx security allows secure traffic on port 445 by default.
 
 ## Implementation details for S3 private access (VPC endpoints)
 

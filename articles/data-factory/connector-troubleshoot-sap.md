@@ -2,12 +2,12 @@
 title: Troubleshoot the SAP Table, SAP Business Warehouse Open Hub, and SAP ODP connectors
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the SAP Table, SAP Business Warehouse Open Hub, and SAP ODP connectors in Azure Data Factory and Azure Synapse Analytics. 
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 06/22/2026
-ms.update-cycle: 1095
-ms.author: jianleishen
+ms.update-cycle: 1095-days
+ms.author: tinglee
 ms.custom: has-adal-ref, synapse
 ---
 

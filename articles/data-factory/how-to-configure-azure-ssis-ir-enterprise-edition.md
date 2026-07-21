@@ -4,8 +4,8 @@ description: "This article describes the features of Enterprise Edition for the 
 ms.subservice: integration-services
 ms.topic: how-to
 ms.date: 05/15/2024
-author: chugugrace
-ms.author: chugu
+author: kromerm
+ms.author: makromer
 ---
 # Provision Enterprise Edition for the Azure-SSIS Integration Runtime
 

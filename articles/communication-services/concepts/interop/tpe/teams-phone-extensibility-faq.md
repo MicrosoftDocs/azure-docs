@@ -39,7 +39,7 @@ This feature is available in all supported countries by Microsoft Teams for user
 
 ## Which Microsoft Teams licenses are required for Teams users who want to benefit from TPE based solutions?
 
-- Teams Phone License: Required essential for any agent using either a CCaaS client based on Azure Communication Services Calling SDK or a Teams client. The Teams Phone license enables the use of Teams Phone capabilities.
+- Teams Phone License: Required for any agent using either a CCaaS client based on Azure Communication Services Calling SDK or a Teams client. The Teams Phone license enables the use of Teams Phone capabilities.
 - Resource Account License: Included in the Teams Phone license and is necessary for managing resource accounts used in call automation and other functionalities.
 - Enterprise Voice: Users must be Enterprise Voice enabled to ensure they can make and receive calls using the Teams Phone system.
 - Calling Plan (or similar connectivity option): Applies to customers making outbound calls.
@@ -60,7 +60,7 @@ Teams users need to ensure they enable one of the following options: Teams calli
 
 ## Can we expect a new business model for Teams Phone extensibility?
 
-The business model for TPE is consistent with Azure Communication Services regular business model. ISVs or developers are charged on pay-as-you-go model to benefit from Azure Communication Services Calling SDK for Custom Teams Endpoint (CTE) pricing per minute. When customers consume Azure Consumer Services recording, AI Action API, or any other value added service. For more information, see [Azure Communication Services pricing](https://azure.microsoft.com/pricing/details/communication-services/). Developers aren't charged for the PSTN usage because it uses the Teams users connectivity plans and licenses.
+The business model for TPE is consistent with Azure Communication Services regular business model. ISVs or developers are charged on pay-as-you-go model to benefit from Azure Communication Services Calling SDK for Custom Teams Endpoint (CTE) pricing per minute. Customers are also charged when they consume Azure Communication Services recording, AI Action API, or any other value-added service. For more information, see [Azure Communication Services pricing](https://azure.microsoft.com/pricing/details/communication-services/). Developers aren't charged for the PSTN usage because it uses the Teams users connectivity plans and licenses.
 
 ## How can I monitor and debug calling issues?
 
@@ -70,6 +70,12 @@ For TPE calls, we provide access to telemetry details similar to what is offered
 
 When a recording is started or paused in a call that includes a PSTN user and a Teams or Dual Persona user, the PSTN user will hear an announcement indicating the change. This is due to compliance requirements on Teams to ensure that all participants are aware of the recording status.
 If a partner wishes to disable these announcements, they may submit a request via this [form](https://forms.microsoft.com/r/6vW9Fc7RT8), which will be reviewed and processed promptly.
+
+## How do Microsoft Purview Information Barriers (IB) apply to Teams Phone extensibility?
+
+TPE calls are handled by a CCaaS server-side application acting through a Teams Resource Account (a bot endpoint). As noted in [Information Barriers and Microsoft Teams](/purview/information-barriers-teams), IB doesn't evaluate communications initiated by bots, Microsoft Entra apps, or APIs, so TPE calls fall outside IB policy enforcement by design.
+
+IB does still affect TPE on user discovery: when enabled, it prevents lookups and discovery, so users or agents aren't visible in the CCaaS application's people picker (for consult, transfer, or add-participant) when the caller's IB policy doesn't allow it.
 
 ## How can I report issues related to TPE calls?
 

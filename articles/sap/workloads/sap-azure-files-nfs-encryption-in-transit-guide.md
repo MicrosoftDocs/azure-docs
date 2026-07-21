@@ -171,7 +171,7 @@ eite10app1:~ #
 
 These mounting details indicate that the client(VM) is connected through the local port 127.0.0.1, not an external network. The stunnel process listens on 127.0.0.1 (localhost) for incoming NFS traffic from the NFS client (the VM). Stunnel then intercepts this traffic and securely forwards it over TLS to the Azure Files NFS server on Azure.
 
-For more information, refer to the [Verify that the in-transit data encryption succeeded](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-3--verify-that-the-in-transit-data-encryption-succeeded) section for further checks.
+For more information, see the [Verify that the in-transit data encryption succeeded](../../storage/files/encryption-in-transit-for-nfs-shares.md#step-3-verify-that-the-in-transit-data-encryption-succeeded) section.
 
 ## Next steps
 

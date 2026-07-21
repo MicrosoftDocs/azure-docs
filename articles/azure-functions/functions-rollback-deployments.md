@@ -1,5 +1,5 @@
 ---
-title: Recover a deploment to a Flex Consumption plan in Azure Functions
+title: Recover a deployment to a Flex Consumption plan in Azure Functions
 description: Learn how to recover from a bad deployment to an app running in the Flex Consumption plan by rolling back or rolling forward through your deployment process.
 #customer intent: As a developer, I want to roll back or forward a Flex Consumption function app deployment so that I can quickly recover from a bad release.
 ms.topic: how-to
@@ -84,7 +84,7 @@ Pay attention to these considerations when working with programmatic configurati
 
 - For optimal security, follow these guidelines for your connections:
 
-    - **Use managed identity connections wherever possible.** Set up [identity-based connections](functions-reference.md#configure-an-identity-based-connection) for host storage (`AzureWebJobsStorage`), deployment storage, and trigger/binding connections. For more information, see [Configure deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
+    - **Use managed identity connections wherever possible.** Set up [identity-based connections](manage-connections.md?pivots=functions-auth-identity&tabs=bindings#define-connections) for host storage (`AzureWebJobsStorage`), deployment storage, and trigger/binding connections. For more information, see [Configure deployment settings](flex-consumption-how-to.md#configure-deployment-settings).
      
         - **Use Key Vault references when secrets are unavoidable.** Key Vault securely stores your secrets. Instead of storing secrets directly, you can use a reference to securely access the required secret at runtime. For more information, see [Use Key Vault references](../app-service/app-service-key-vault-references.md?toc=/azure/azure-functions/toc.json).
 

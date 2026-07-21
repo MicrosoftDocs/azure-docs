@@ -3,7 +3,7 @@ title: Deploy Azure IoT Edge modules at scale using Azure CLI
 description: Deploy Azure IoT Edge modules at scale using Azure CLI to automate, monitor, and manage device deployments efficiently.
 author: sethmanheim
 ms.author: sethm
-ms.date: 04/01/2026
+ms.date: 07/16/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom:
@@ -59,7 +59,7 @@ Here's a basic deployment manifest with one module as an example.
             "edgeAgent": {
               "type": "docker",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
+                "image": "mcr.microsoft.com/azureiotedge-agent:1.6",
                 "createOptions": "{}"
               }
             },
@@ -68,19 +68,19 @@ Here's a basic deployment manifest with one module as an example.
               "status": "running",
               "restartPolicy": "always",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
+                "image": "mcr.microsoft.com/azureiotedge-hub:1.6",
                 "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
               }
             }
           },
           "modules": {
             "SimulatedTemperatureSensor": {
-              "version": "1.5",
+              "version": "1.6",
               "type": "docker",
               "status": "running",
               "restartPolicy": "always",
               "settings": {
-                "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.5",
+                "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.6",
                 "createOptions": "{}"
               }
             }
@@ -129,13 +129,13 @@ Here's a basic layered deployment manifest with one module as an example.
       "$edgeAgent": {
         "properties.desired.modules.SimulatedTemperatureSensor": {
           "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.5",
+            "image": "mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.6",
               "createOptions": "{}"
           },
           "type": "docker",
           "status": "running",
           "restartPolicy": "always",
-          "version": "1.5"
+          "version": "1.6"
         }
       },
       "$edgeHub": {

@@ -40,7 +40,7 @@ This 2606.03 Azure Operator Service Manager release bundles together changes acr
 * Release Date: 2026-06-30
 * R2D Approvals: 240920
 * NFO Release Version: 3.0.3462-255
-* RP Release Version:  1.0.3447-575 or later
+* RP Release Version: 1.0.3464-580
 * CLI Extension Release Version: [2.0.0b6](https://github.com/Azure/azure-cli-extensions/blob/main/src/aosm/HISTORY.rst)
 * Is NFO update required: YES, Update only
 * Dependency Versions: Go/1.26.4 - Helm/3.18.4 - Azure Linux 3.0.20260517
@@ -50,10 +50,13 @@ The following bug fixes, defect resolutions, or usability improvements are deliv
 * NFO - [523366] Fix delete failure propagation by using delete operationId.
 * NFO - [532657] Fix refuse operation on component CR with stale deletionTimestamp.
 * NFO - [537357] Parameterize NFO controller manager resource allocation during installation.
+* RP - [2875423] Set SNS orchestration timeout for delete actions to maximum 2h25m.
 
 ### Release updates to improve security
 * NFO - [531790] CFS Network Isolation for NFO Pipelines.
 * NFO - [536344] Upgrade go runtime to 1.26.4.
+* RP - [2879109] SFI: MSRC vulberability fix.
+* RP - [2825307] SFI: 1ES open source vulnerabilities
 * CVE - A total of 17 direct CVEs are resolved.
 
 ## Release notes for all releases 

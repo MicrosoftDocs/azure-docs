@@ -2,11 +2,11 @@
 metadata:
   title: FAQ for Azure Compute Fleet
   description: Get answers to the most frequently asked questions about Azure Compute Fleet.
-  author: vashan
-  ms.author: vashan
+  author: fitzgeraldsteele
+  ms.author: fisteele
   ms.topic: faq
   ms.service: azure-compute-fleet
-  ms.date: 06/19/2024
+  ms.date: 07/20/2026
   ms.reviewer: wwilliams
   ms.custom: references_regions, build-2024
 title: FAQ for Azure Compute Fleet
@@ -35,7 +35,7 @@ sections:
       - question: |
           Which Azure regions support Compute Fleet? 
         answer: |
-          East US, East US2, West US, and West US2.
+          Compute Fleet is available in all Azure public cloud regions. It isn't available in Azure sovereign clouds, including the Azure Government and Azure China sovereign clouds.
       - question: |
           Which SKUs are supported for Compute Fleet? 
         answer: |
@@ -51,15 +51,27 @@ sections:
       - question: |
           How many VM sizes/SKU types can I add while configuring the Compute Fleet? 
         answer: |
-          You can add a minimum  of 3 and maximum of 10 VM sizes to deploy Compute Fleet for Spot using the capacity preference *Maintain*. However, there's no minimum number for Standard VMs. The maximum you can add is 15. 
+          You can specify between 1 and 10 VM sizes (SKUs) in a single Compute Fleet request. 
       - question: |
           How long is my Compute Fleet request active? 
         answer: |
-          Compute Fleet requests are active for a year (365 days).
+          Compute Fleet requests are active for a year (365 days). In Launch mode, the fleet automatically deletes itself after a short period (about 5 hours) while the VMs it created persist.
       - question: |
           Can I delete my Compute Fleet request? 
         answer: |
-          Yes, you can delete your Compute Fleet request at any time. All VMs running inside the fleet are deleted. 
+          Yes, you can delete your Compute Fleet request at any time. All VMs running inside the fleet are deleted. VMs created in Launch mode are standalone and continue running after the fleet object is removed; delete them separately with standard VM APIs.
+      - question: |
+          What is Launch mode in Compute Fleet?
+        answer: |
+          Launch mode provisions VMs in a single fleet request and then hands off control. The fleet object self-deletes after provisioning while the VMs persist and are managed by you or your orchestrator with standard VM APIs.
+      - question: |
+          In Launch mode, how do I get the resource IDs of the VMs that were created?
+        answer: |
+          Use the Fleet List VMs API (`GET .../fleets/{fleetName}/virtualMachines`) to retrieve each VM's name, resource ID, and provisioning status. This is the recommended way to discover the created VMs and monitor asynchronous provisioning. For more information, see [Retrieve and monitor VMs](launch-mode.md#retrieve-and-monitor-vms).
+      - question: |
+          Can I modify a Compute Fleet created in Launch mode?
+        answer: |
+          No. You can't update the capacity or VM configuration of a Launch mode fleet after creation. Create a new fleet request to use different settings.
       - question: |
           What happens if I don't delete the Compute Fleet with Spot VMs, after workload completion? 
         answer: |
@@ -80,6 +92,3 @@ sections:
           Can a Compute Fleet resource be moved ? 
         answer: |
           No. Compute Fleet doesn't currently support that capability. If you need to move, you can consider deleting it and using the Azure Resource Manager template to create another one in another location, subscription, or resource group.
-
-
-

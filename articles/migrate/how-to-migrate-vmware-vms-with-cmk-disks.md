@@ -5,6 +5,7 @@ author: habibaum
 ms.author: v-uhabiba 
 ms.topic: how-to
 ms.date: 05/09/2025
+ms.update-cycle: 365-days
 ms.custom: vmware-scenario-422, devx-track-azurepowershell, engagement-fy25
 
 # Customer intent: "As a cloud administrator, I want to migrate VMware virtual machines to Azure with server-side encryption and customer-managed keys, so that I can ensure data security and compliance during the migration process."

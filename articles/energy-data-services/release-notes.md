@@ -5,7 +5,7 @@ author: bharathim
 ms.author: bselvaraj
 ms.service: azure-data-manager-energy
 ms.topic: article
-ms.date: 09/20/2022
+ms.date: 07/13/2026
 ms.custom: template-concept
 ---
 
@@ -21,6 +21,10 @@ Azure Data Manager for Energy is updated on an ongoing basis. To stay up to date
 
 This page is updated with the details about the upcoming release approximately a week before the actual deployment.
 <hr width = 100%>
+
+## July 2026
+### Manifest Ingestion by Reference DAG - Generally Available
+Manifest Ingestion by Reference DAG is now generally available on Azure Data Manager for Energy. This capability supports ingestion of a large number of records by referencing a large manifest uploaded to the Dataset service for processing.
 
 ## June 2026
 ### Compliant with M26 OSDU® release

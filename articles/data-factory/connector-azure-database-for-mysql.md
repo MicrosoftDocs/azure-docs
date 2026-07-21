@@ -2,12 +2,12 @@
 title: Copy and transform data in Azure Database for MySQL
 description: Learn how to copy and transform data in Azure Database for MySQL using Azure Data Factory or Synapse Analytics pipelines.
 titleSuffix: Azure Data Factory & Azure Synapse
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 06/22/2026
-ms.update-cycle: 1095
+ms.update-cycle: 1095-days
 ms.custom:
   - synapse
   - sfi-image-nochange

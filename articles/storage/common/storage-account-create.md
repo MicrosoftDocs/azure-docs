@@ -632,4 +632,3 @@ You can also delete the resource group. This action deletes the storage account 
 - [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md)
 - [Move a storage account to another region](storage-account-move.md)
 - [Recover a deleted storage account](storage-account-recover.md)
-- [Migrate a classic storage account](classic-account-migrate.md)

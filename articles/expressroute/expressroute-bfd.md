@@ -53,6 +53,9 @@ router bgp 65020
       neighbor 192.168.15.18 soft-reconfiguration inbound
    exit-address-family
 ```
+> [!NOTE]
+> Due to differences in handling between device vendors, it is recommended to disable BFD echo mode for ExpressRoute connections.
+>
 
 >[!NOTE]
 >To enable BFD under an already existing private or Microsoft peering, you'll need to reset the peering. For IPv4 peering, this will need to be done on Circuits configured with private peering before August 2018 and Microsoft peering before January 2020. For IPv6 peering, this will need to be done on Circuits configured before November 2025. Peerings configured after these dates will have BFD enabled by default. See [Reset ExpressRoute peerings](./expressroute-howto-reset-peering.md). While configuring BFD on your primary and secondary devices is optional, the BFD configuration on the Azure devices for new peerings is not optional and cannot be removed.

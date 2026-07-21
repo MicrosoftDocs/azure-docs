@@ -54,7 +54,7 @@ The agent builds an investigation plan and executes it step by step. You can wat
 
 **Phase 1: Read context:** The agent reads the knowledge files it built during onboarding, including architecture docs, team context, and runbooks, to orient itself.
 
-**Phase 2: Explore code:** When you use [deep context](workspace-tools.md), the agent reads source files from your connected repository. It searches for code paths related to the issue, identifies error handlers, and traces the call chain.
+**Phase 2: Explore code:** When you use [deep context](agent-reasoning.md#deep-context), the agent reads source files from your connected repository. It searches for code paths related to the issue, identifies error handlers, and traces the call chain.
 
 :::image type="content" source="media/first-investigation/agent-investigating-1.png" alt-text="Screenshot of the agent reading source code files and identifying a memory leak in CartController.cs." lightbox="media/first-investigation/agent-investigating-1.png":::
 
@@ -84,7 +84,7 @@ The agent builds an investigation plan and executes it step by step. You can wat
 
 ## Related content
 
-- [Workspace tools](workspace-tools.md): How the agent reads, searches, and edits code.
+- [Deep context](agent-reasoning.md#deep-context): How the agent reads, searches, and understands code.
 - [Root cause analysis](root-cause-analysis.md): How the agent identifies root causes.
 - [Complete your setup](complete-setup.md): Connect any data sources you skipped.
 - [Ask the agent for help](ask-agent.md): More examples of what you can ask.
