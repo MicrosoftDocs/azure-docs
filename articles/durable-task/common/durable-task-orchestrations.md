@@ -461,7 +461,7 @@ The `context.df.lock` method acquires the durable locks and returns a `DurableLo
 # [Java](#tab/java)
 
 > [!NOTE]
-> Critical sections aren't currently supported in Java.
+> Java doesn't currently support critical sections.
 
 ---
 
