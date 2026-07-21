@@ -4,7 +4,7 @@ description: "Discover what durable entities are and how to use them to manage s
 author: cgillum
 ms.topic: overview
 ms.service: durable-task
-ms.date: 05/19/2026
+ms.date: 07/21/2026
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
@@ -1227,12 +1227,16 @@ public class AccountEntity extends AbstractTaskEntity<Integer> {
 
 Sometimes you need to coordinate operations across multiple entities. For example, in a banking application, entities can represent individual bank accounts. When you transfer funds from one account to another, you need to make sure the source account has enough funds. You also need to update both accounts as one consistent operation.
 
-### Example: Transfer funds (C#)
+### Example: Transfer funds
 
-The following example code transfers funds between two account entities by using an orchestrator function. To coordinate entity updates, use the `LockAsync` method to create a _critical section_ in the orchestration.
+The following example code transfers funds between two account entities by using an orchestrator function. To coordinate entity updates, use a lock to create a _critical section_ in the orchestration.
 
 > [!NOTE]
 > For simplicity, this example reuses the `Counter` entity defined previously. In a real application, it's better to define a more detailed `BankAccount` entity.
+
+# [C#](#tab/csharp)
+
+Use the `LockAsync` method to create the critical section.
 
 ```csharp
 // This is a method called by an orchestrator function
@@ -1278,10 +1282,69 @@ In .NET, `LockAsync` returns `IDisposable`. Disposing it ends the critical secti
 
 In the preceding example, an orchestrator function transfers funds from a source entity to a destination entity. The `LockAsync` method locked both the source and destination account entities. This locking ensured that no other client could query or modify the state of either account until the orchestration logic exited the critical section at the end of the `using` statement. This behavior prevents overdrafts on the source account.
 
+# [JavaScript](#tab/javascript)
+
+Use the `context.df.lock` method to create the critical section.
+
+```javascript
+const df = require("durable-functions");
+
+// This is an orchestrator function
+module.exports = df.orchestrator(function* (context) {
+    const { sourceId, destinationId, transferAmount } = context.df.getInput();
+    const sourceEntity = new df.EntityId("Counter", sourceId);
+    const destinationEntity = new df.EntityId("Counter", destinationId);
+
+    // Create a critical section to avoid race conditions.
+    // No operations can be performed on either the source or
+    // destination accounts until the lock is released.
+    const lock = yield context.df.lock(sourceEntity, destinationEntity);
+    try {
+        const sourceBalance = yield context.df.callEntity(sourceEntity, "get");
+
+        if (sourceBalance >= transferAmount) {
+            yield context.df.callEntity(sourceEntity, "add", -transferAmount);
+            yield context.df.callEntity(destinationEntity, "add", transferAmount);
+
+            // the transfer succeeded
+            return true;
+        } else {
+            // the transfer failed due to insufficient funds
+            return false;
+        }
+    } finally {
+        lock.release();
+    }
+});
+```
+
+In JavaScript, `context.df.lock` returns a `DurableLock`. Call `release` on it to end the critical section, or let the runtime release the lock automatically when the orchestration ends.
+
+In the preceding example, an orchestrator function transfers funds from a source entity to a destination entity. The `lock` method locked both the source and destination account entities. This locking ensured that no other client could query or modify the state of either account until the orchestration logic released the lock. This behavior prevents overdrafts on the source account.
+
+# [Python](#tab/python)
+
+> [!NOTE]
+> Critical sections aren't currently supported in Python.
+
+# [PowerShell](#tab/powershell)
+
+> [!NOTE]
+> Critical sections aren't currently supported in PowerShell.
+
+# [Java](#tab/java)
+
+> [!NOTE]
+> Critical sections aren't currently supported in Java.
+
+---
+
 > [!NOTE]
 > When an orchestration ends, either normally or with an error, any critical sections in progress end implicitly, and the system releases all locks.
 
 ### Critical section behavior
+
+# [C#](#tab/csharp)
 
 The `LockAsync` method creates a critical section in an orchestration. These critical sections prevent other orchestrations from making overlapping changes to a specified set of entities. Internally, the `LockAsync` API sends "lock" operations to the entities and returns after it receives a "lock acquired" response from each entity. Both lock and unlock are built-in operations supported by all entities.
 
@@ -1294,6 +1357,51 @@ Locks on entities are durable, so they persist even if the executing process is 
 
 Unlike transactions, critical sections don't automatically roll back changes when errors occur. Instead, write error handling, such as rollback or retry, for example by catching errors or exceptions. This design choice is intentional. Automatically rolling back all the effects of an orchestration is difficult or impossible in general, because orchestrations might run activities and make calls to external services that can't be rolled back. Also, attempts to roll back might themselves fail and require further error handling.
 
+# [JavaScript](#tab/javascript)
+
+The `context.df.lock` method creates a critical section in an orchestration. These critical sections prevent other orchestrations from making overlapping changes to a specified set of entities. Internally, the `lock` API sends "lock" operations to the entities and returns a `DurableLock` after it receives a "lock acquired" response from each entity. Both lock and unlock are built-in operations supported by all entities.
+
+> [!NOTE]
+> The `context.df.lock` API requires version `3.4.0` or later of the `durable-functions` npm package and version `3.13.0` or later of the `Microsoft.Azure.WebJobs.Extensions.DurableTask` extension.
+
+To end the critical section, call `release` on the returned `DurableLock`, or let the runtime release the lock automatically when the orchestration ends. Releasing the lock as soon as the critical work finishes lets other orchestrations acquire it sooner. Use `context.df.isLocked` to check whether a lock is currently held.
+
+```javascript
+const lock = yield context.df.lock(sourceEntity, destinationEntity);
+try {
+    yield context.df.callEntity(sourceEntity, "add", -amount);
+    yield context.df.callEntity(destinationEntity, "add", amount);
+} finally {
+    lock.release();
+}
+```
+
+Other clients can't run operations on an entity while it's locked. This behavior ensures that only one orchestration instance can lock an entity at a time. If a caller tries to invoke an operation on an entity while it's locked by an orchestration, that operation is placed in a pending operation queue. No pending operations are processed until after the holding orchestration releases its lock.
+
+> [!NOTE]
+> This behavior is slightly different from synchronization primitives used in most programming languages. Entities don't require all callers to explicitly acquire a lock. If any caller locks an entity, all other operations on that entity are blocked and queued behind that lock.
+
+Locks on entities are durable, so they persist even if the executing process is recycled. The system persists locks as part of an entity's durable state.
+
+Unlike transactions, critical sections don't automatically roll back changes when errors occur. Instead, write error handling, such as rollback or retry, for example by catching errors. This design choice is intentional. Automatically rolling back all the effects of an orchestration is difficult or impossible in general, because orchestrations might run activities and make calls to external services that can't be rolled back. Also, attempts to roll back might themselves fail and require further error handling.
+
+# [Python](#tab/python)
+
+> [!NOTE]
+> Critical sections aren't currently supported in Python.
+
+# [PowerShell](#tab/powershell)
+
+> [!NOTE]
+> Critical sections aren't currently supported in PowerShell.
+
+# [Java](#tab/java)
+
+> [!NOTE]
+> Critical sections aren't currently supported in Java.
+
+---
+
 ### Critical section rules
 
 Unlike low-level locking primitives in most programming languages, critical sections are *guaranteed not to deadlock*. To prevent deadlocks, we enforce the following restrictions:
@@ -1304,7 +1412,30 @@ Unlike low-level locking primitives in most programming languages, critical sect
 * Critical sections can't call the same entity using multiple parallel calls.
 * Critical sections can signal only entities outside the lock set.
 
+# [C#](#tab/csharp)
+
 Any violations of these rules cause a runtime error, such as `LockingRulesViolationException` in .NET, which includes a message that explains what rule was broken.
+
+# [JavaScript](#tab/javascript)
+
+Any violations of these rules cause a runtime error, which includes a message that explains what rule was broken.
+
+# [Python](#tab/python)
+
+> [!NOTE]
+> Critical sections aren't currently supported in Python.
+
+# [PowerShell](#tab/powershell)
+
+> [!NOTE]
+> Critical sections aren't currently supported in PowerShell.
+
+# [Java](#tab/java)
+
+> [!NOTE]
+> Critical sections aren't currently supported in Java.
+
+---
 
 ::: zone-end
 
