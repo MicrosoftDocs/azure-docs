@@ -38,93 +38,13 @@ You must set these options during deployment and can't change them later.
 
 ### Volume and volume size
 
-The MQTT broker uses a persistent volume (PV) to store data on disk. Two settings control how this volume is provisioned:
+[!INCLUDE [Azure IoT Operations MQTT broker persistent volume settings](../includes/mqtt-broker-persistent-volume-settings.md)]
 
-- **`maxSize`** *(required)*: Sets the maximum size of the persistent volume for storing broker data. This field is always required, even if you provide a custom volume claim. The value must be greater than 100 MB.
-  
-  **Example:** `10Gi`
-
-- **`persistentVolumeClaimSpec`** *(optional)*: Lets you define a custom PersistentVolumeClaim (PVC) template to control how the persistent volume is provisioned. If you don't set this option, the broker creates a default PVC using the specified `maxSize` and the default storage class, which can result in suboptimal performance if the default class isn't backed by a local path provisioner.
-
-> [!IMPORTANT]
-> When you specify `persistentVolumeClaimSpec`, the access mode must be set to `ReadWriteOncePod`.
-
-# [Azure portal](#tab/portal)
-
-
-To configure volume settings in the Azure portal:
-
-1. During IoT Operations deployment, navigate to the **MQTT Broker** configuration section.
-2. In the **Data Persistence** settings:
-    - Set the **Maximum Size** for the persistent volume (required).
-    - Optionally configure **Persistent Volume Claim Spec** settings for custom storage class requirements.
-
-    :::image type="content" source="media/howto-broker-persistence/data-persistence-deploy.png" alt-text="[Screenshot showing data persistence options during deployment in the Azure portal]":::
-
-# [Azure CLI](#tab/azurecli)
-
-1. To deploy the MQTT broker with the minimum required settings to enable disk persistence, use the `az iot ops create` command.
-
-    ```azurecli
-    az iot ops create --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP_NAME> --name <INSTANCE_NAME> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID> --ns-resource-id <NAMESPACE_RESOURCE_ID> --persist-max-size 10Gi
-    ```
-
-1. To deploy the MQTT broker with disk persistence, custom persistent volume claim, and custom persist mode settings, add the `--persist-pvc-sc` and `--persist-mode` flags to the `az iot ops create` command.
-
-    ```azurecli
-    az iot ops create --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP_NAME> --name <INSTANCE_NAME> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID> --ns-resource-id <NAMESPACE_RESOURCE_ID> --persist-max-size 10Gi --persist-pvc-sc <MYSTORAGECLASS> --persist-mode retain=All stateStore=None
-    ```
-
-
-1. If you want to use a custom broker configuration file, add the `--broker-config-file` flag and include the persistence settings in the JSON file.
-
-    ```azurecli
-    az iot ops create --broker-config-file <BROKER_CONFIG_FILE>.json --cluster <CLUSTER_NAME> --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP_NAME> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID>
-    ```
-
-    The following is an example JSON snippet to include in your custom broker configuration file to set up persistence with a maximum size of 10 GiB and a custom storage class.
-    
-    ```json
-    {
-      "persistence": {
-        "maxSize": "10Gi",
-        "persistentVolumeClaimSpec": {
-          "storageClassName": "example-storage-class",
-          "accessModes": [
-            "ReadWriteOncePod"
-          ]
-        }
-      }
-    }
-    ```
-
----
+[!INCLUDE [Azure IoT Operations MQTT broker configure persistence](../includes/mqtt-broker-configure-persistence.md)]
 
 ### Encryption
 
-To protect data, the MQTT broker encrypts all persistence data on disk by default using strong AES-256-GCM encryption. This ensures that even if an attacker gains access to the underlying volume, sensitive broker state or session data remains protected.
-
-Encryption is optional and is on by default. You can turn off encryption if you need to. Encryption protects data at rest only; data in memory isn't encrypted. Using encryption has minimal performance cost, but key rotation isn't supported yet.
-
-# [Azure portal](#tab/portal)
-
-Encryption is enabled by default when deploying using the Azure portal. You can disable encryption in the broker configuration file if you deploy using Azure CLI.
-
-# [Azure CLI](#tab/azurecli)
-
-To disable encryption using Azure CLI, add the following to your Broker configuration file when using the `--broker-config-file` flag with the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command:
-
-```json
-{
-  "persistence": {
-    "encryption": {
-      "mode": "Disabled"
-    }
-  }
-}
-```
-
----
+[!INCLUDE [Azure IoT Operations MQTT broker persistence encryption](../includes/mqtt-broker-persistence-encryption.md)]
 
 ## Runtime configuration options
 
