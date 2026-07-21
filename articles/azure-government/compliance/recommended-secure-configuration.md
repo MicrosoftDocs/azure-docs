@@ -171,7 +171,7 @@ Azure supports SCG-CSO-AUP by including Azure's response to the Secure Configura
 
 ## Public guidance
 
-This section includes a copy of the [Public Guidance](https://www.fedramp.gov/2026/reference/secure-configuration-guide/#public-guidance) from the Secure Configuration Guide and a response for Azure.
+This section includes a copy of the [Public Guidance](https://www.fedramp.gov/2026/reference/secure-configuration-guide/#public-secure-configuration-guidance) from the Secure Configuration Guide and a response for Azure.
 
 ### SCG-CSO-PUB
 
