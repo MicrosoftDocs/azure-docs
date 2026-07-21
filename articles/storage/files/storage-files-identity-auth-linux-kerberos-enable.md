@@ -1,11 +1,11 @@
 ---
-title: Use Kerberos Authentication for Linux Clients with Azure Files
+title: Kerberos Authentication for Linux Clients with Azure Files
 description: Learn how to enable identity-based Kerberos authentication for Linux clients over Server Message Block (SMB) for Azure Files using on-premises Active Directory Domain Services (AD DS) or Microsoft Entra Domain Services.
 author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 03/03/2026
+ms.date: 07/21/2026
 ms.author: kendownie
 # Customer intent: "As a Linux administrator, I want to enable Kerberos authentication for accessing Azure file shares, so that I can securely manage file access using Active Directory and streamline authentication processes for users."
 ---
@@ -14,14 +14,14 @@ ms.author: kendownie
 
 **Applies to:** :heavy_check_mark: SMB file shares
 
-For more information on supported options and considerations, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md).
-
-[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) for Linux virtual machines (VMs) using the Kerberos authentication protocol through the following methods:
+[Azure Files](storage-files-introduction.md) supports identity-based authentication over Server Message Block (SMB) for Linux virtual machines (VMs) using the Kerberos authentication protocol through the following identity sources:
 
 - On-premises Windows Active Directory Domain Services (AD DS)
 - Microsoft Entra Domain Services
 
 To use AD DS, you must sync your AD DS to Microsoft Entra ID by using [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis).
+
+For more information on supported options and considerations, see [Overview of Azure Files identity-based authentication options for SMB access](storage-files-active-directory-overview.md).
 
 > [!NOTE]
 > This article uses Ubuntu for the example steps. Similar configurations work for RHEL and SLES clients, allowing you to mount Azure file shares using Active Directory.
