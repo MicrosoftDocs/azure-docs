@@ -41,6 +41,12 @@ Use AI Gateway tier to:
 - Discover and use available models and tools through a self-service catalog.
 - Sign in to manage the gateway with Microsoft Entra ID.
 
+### Choose your path
+
+- **New to AI Gateway tier?** Start with the [Quickstart](./quickstart-ai-gateway-create.md) — create a gateway, add a model, and make your first call in about 20 minutes.
+- **Adding models or tools?** See [Manage models and tools](./ai-gateway-manage-models-tools.md) for Foundry and custom models, and for MCP tool servers.
+- **Running it in production?** See [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md) for policies, identity, networking, and monitoring.
+
 ## Key concepts
 
 ### Gateway

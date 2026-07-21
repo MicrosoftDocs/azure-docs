@@ -84,30 +84,48 @@ Runtime access keys are created at the gateway level and grant access to every m
 
 ## 5. Call the gateway
 
-The AI Gateway tier exposes an OpenAI-compatible endpoint. Use the gateway base URL and pass the model name in the `model` field.
+The gateway exposes an OpenAI-compatible endpoint. Point any OpenAI client at the gateway base URL, send your runtime access key in the `api-key` header, and pass the model name in the `model` field.
 
-### Python
-
-Install the OpenAI client:
-
-```bash
-pip install openai
-```
-
-Set environment variables:
+Set these values once:
 
 ```bash
 export AI_GATEWAY_BASE_URL="https://<gateway>.<region>.ai.gateway.azure.com/default/models/openai/v1"
 export AI_GATEWAY_API_KEY="<runtime-access-key>"
 ```
 
-The gateway expects your runtime access key in the `api-key` header. The OpenAI SDK requires the `api_key` argument, but the gateway doesn't use it — pass a placeholder for `api_key` and set the real key through `default_headers`. This keeps the SDK from sending an `Authorization: Bearer` header that the gateway doesn't expect. Run this Python sample:
+Make your first call with the client of your choice:
+
+### [curl](#tab/curl)
+
+```bash
+curl "$AI_GATEWAY_BASE_URL/chat/completions" \
+  -H "Content-Type: application/json" \
+  -H "api-key: $AI_GATEWAY_API_KEY" \
+  -d '{
+    "model": "gpt-5.6-sol",
+    "messages": [
+      { "role": "system", "content": "You are a helpful assistant." },
+      { "role": "user", "content": "Give me three benefits of using an AI gateway." }
+    ]
+  }'
+```
+
+To stream tokens as server-sent events, add `"stream": true` to the request body.
+
+### [Python](#tab/python)
+
+Install the client with `pip install openai`.
 
 ```python
 import os
 from openai import OpenAI
 
-client = OpenAI(base_url=os.environ["AI_GATEWAY_BASE_URL"], api_key="unused", default_headers={"api-key": os.environ["AI_GATEWAY_API_KEY"]})
+# The gateway reads the api-key header, not the api_key argument.
+client = OpenAI(
+    base_url=os.environ["AI_GATEWAY_BASE_URL"],
+    api_key="unused",
+    default_headers={"api-key": os.environ["AI_GATEWAY_API_KEY"]},
+)
 
 response = client.chat.completions.create(
     model="gpt-5.6-sol",
@@ -116,11 +134,10 @@ response = client.chat.completions.create(
         {"role": "user", "content": "Give me three benefits of using an AI gateway."},
     ],
 )
-
 print(response.choices[0].message.content)
 ```
 
-To stream tokens as they're generated, set `stream=True` and iterate the response:
+To stream tokens as they're generated, add `stream=True` and iterate the response:
 
 ```python
 stream = client.chat.completions.create(
@@ -132,17 +149,14 @@ for chunk in stream:
     print(chunk.choices[0].delta.content or "", end="", flush=True)
 ```
 
-### Node.js
+### [Node.js](#tab/node)
 
-Install the OpenAI package:
-
-```bash
-npm install openai
-```
+Install the package with `npm install openai`.
 
 ```javascript
 import OpenAI from "openai";
 
+// The gateway reads the api-key header, not the apiKey argument.
 const client = new OpenAI({
   baseURL: process.env.AI_GATEWAY_BASE_URL,
   apiKey: "unused",
@@ -156,41 +170,16 @@ const response = await client.chat.completions.create({
     { role: "user", content: "Give me three benefits of using an AI gateway." },
   ],
 });
-
 console.log(response.choices[0].message.content);
 ```
 
-### curl
+To stream, add `stream: true` and iterate the async response.
 
-```bash
-curl "https://<gateway>.<region>.ai.gateway.azure.com/default/models/openai/v1/chat/completions" \
-  -H "Content-Type: application/json" \
-  -H "api-key: <runtime-access-key>" \
-  -d '{
-    "model": "gpt-5.6-sol",
-    "messages": [
-      { "role": "system", "content": "You are a helpful assistant." },
-      { "role": "user", "content": "Give me three benefits of using an AI gateway." }
-    ]
-  }'
-```
+---
 
-To stream the response as server-sent events, set `"stream": true` in the request body:
+Every response uses the OpenAI Chat Completions format, whichever provider backs the model.
 
-```bash
-curl "https://<gateway>.<region>.ai.gateway.azure.com/default/models/openai/v1/chat/completions" \
-  -H "Content-Type: application/json" \
-  -H "api-key: <runtime-access-key>" \
-  -d '{
-    "model": "gpt-5.6-sol",
-    "stream": true,
-    "messages": [
-      { "role": "user", "content": "Stream a short greeting." }
-    ]
-  }'
-```
-
-A successful response uses the OpenAI chat completions format:
+A non-streaming call returns a chat completion:
 
 ```json
 {
@@ -208,6 +197,19 @@ A successful response uses the OpenAI chat completions format:
 }
 ```
 
+With streaming enabled, the gateway returns `chat.completion.chunk` events:
+
+```json
+{
+  "id": "chatcmpl-...",
+  "object": "chat.completion.chunk",
+  "model": "gpt-5.6-sol",
+  "choices": [
+    { "index": 0, "delta": { "content": "Hello" }, "finish_reason": null }
+  ]
+}
+```
+
 If a request fails, the gateway returns a standard HTTP status code:
 
 | Status | Meaning | What to check |
@@ -218,6 +220,24 @@ If a request fails, the gateway returns a standard HTTP status code:
 | 429 | Throttled by a rate-limit policy or the backend | Review token and request rate-limit policies, and honor the `Retry-After` response header. |
 | 400 | Invalid request, or blocked by content safety | Check the request body; a content-safety policy can block a prompt or response. |
 | 5xx | Backend error | Confirm the backend provider is healthy and the provider credential is valid. |
+
+The OpenAI SDKs raise typed exceptions for these status codes, so your existing error handling works:
+
+```python
+from openai import AuthenticationError, RateLimitError, APIStatusError
+
+try:
+    response = client.chat.completions.create(
+        model="gpt-5.6-sol",
+        messages=[{"role": "user", "content": "Hello"}],
+    )
+except AuthenticationError:
+    ...  # 401 — check the api-key header and that the key is active
+except RateLimitError:
+    ...  # 429 — back off and honor the Retry-After header
+except APIStatusError as e:
+    ...  # inspect e.status_code for 400, 403, 404, or 5xx
+```
 
 ## 6. See telemetry
 

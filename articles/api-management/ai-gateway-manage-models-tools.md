@@ -184,12 +184,31 @@ Agents call the MCP server at:
 
 Send the runtime access key in the `api-key` header. Point any MCP-compatible client or agent framework at this URL. For example, list the available tools with a JSON-RPC `tools/list` request:
 
+### [curl](#tab/curl)
+
 ```bash
 curl "https://<gateway>.<region>.ai.gateway.azure.com/default/toolservers/<server-name>/mcp" \
   -H "Content-Type: application/json" \
   -H "api-key: <runtime-access-key>" \
   -d '{ "jsonrpc": "2.0", "id": 1, "method": "tools/list" }'
 ```
+
+### [Python](#tab/python)
+
+```python
+import os
+import requests
+
+url = "https://<gateway>.<region>.ai.gateway.azure.com/default/toolservers/<server-name>/mcp"
+response = requests.post(
+    url,
+    headers={"api-key": os.environ["AI_GATEWAY_API_KEY"], "Content-Type": "application/json"},
+    json={"jsonrpc": "2.0", "id": 1, "method": "tools/list"},
+)
+print(response.json())
+```
+
+---
 
 If a system has a REST API but no MCP server, import its OpenAPI description. Select operations to expose as tools, edit tool names and descriptions, configure API key authentication, and create the MCP asset. The gateway maps tool calls to REST operations.
 
