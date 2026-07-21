@@ -14,4 +14,4 @@ This policy works with LLM APIs added to API Management that conform to one of t
 
 * OpenAI Chat Completions or Responses API
 * Anthropic Messages API (currently supported in API Management v2 tiers)
-* Google Vertex AI API
+* Google Vertex AI API (using the OpenAI Chat Completions schema)
