@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: estfan, niding, azla
 ms.topic: reference
-ms.date: 07/09/2026
+ms.date: 07/21/2026
 ---
 
 # Reference guide to functions in expressions for workflows in Azure Logic Apps and Power Automate
