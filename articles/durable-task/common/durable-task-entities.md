@@ -1330,7 +1330,7 @@ In the preceding example, an orchestrator function transfers funds from a source
 # [PowerShell](#tab/powershell)
 
 > [!NOTE]
-> Critical sections aren't currently supported in PowerShell.
+> PowerShell doesn't currently support critical sections.
 
 # [Java](#tab/java)
 
