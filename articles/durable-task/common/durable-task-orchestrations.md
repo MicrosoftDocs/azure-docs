@@ -451,7 +451,7 @@ The `context.df.lock` method acquires the durable locks and returns a `DurableLo
 # [Python](#tab/python)
 
 > [!NOTE]
-> Critical sections aren't currently supported in Python.
+> Python doesn't currently support critical sections.
 
 # [PowerShell](#tab/powershell)
 
