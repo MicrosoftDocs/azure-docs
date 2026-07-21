@@ -27,6 +27,9 @@ Add the following domains to your firewall allow list for both HTTP and WebSocke
 | `api.loganalytics.io` | Log Analytics query API |
 | `api.loganalytics.azure.com` | Log Analytics query API (Azure domain) |
 | `*.ods.opinsights.azure.com` | Log Analytics workspace data ingestion |
+| `management.azure.com` | Azure Resource Manager (ARM) API |
+| `login.microsoftonline.com` | Microsoft Entra ID authentication |
+| `*.login.microsoft.com` | Microsoft Entra ID authentication (regional endpoints) |
 
 > [!WARNING]
 > Zscaler and some corporate proxies block `*.azuresre.ai` by default. If the portal doesn't load or the chat interface is unresponsive:
