@@ -80,7 +80,7 @@ Callers pass the model name in the `model` field of OpenAI-compatible requests. 
 
 :::image type="content" source="media/quickstart-ai-gateway-create/ai-gateway-runtime-keys.png" alt-text="The Keys page listing API keys that grant runtime access to every asset in the gateway, with a Create API key button." lightbox="media/quickstart-ai-gateway-create/ai-gateway-runtime-keys.png":::
 
-Runtime access keys are created at the gateway level and grant access to every model and tool in the gateway. Treat them like secrets. Store keys in a secret store for applications, rotate them regularly, and revoke keys that are no longer needed.
+Create runtime access keys at the gateway level. These keys grant access to every model and tool in the gateway. Treat them like secrets. Store keys in a secret store for applications, rotate them regularly, and revoke keys that are no longer needed.
 
 ## 5. Call the gateway
 
@@ -94,7 +94,7 @@ export AI_GATEWAY_API_KEY="<runtime-access-key>"
 ```
 
 > [!TIP]
-> Copy the exact base URL from your gateway rather than building it by hand — the `<region>` segment is a slug such as `eastus2`, not `East US 2`.
+> Copy the exact base URL from your gateway rather than building it by hand. The `<region>` segment is a slug such as `eastus2`, not `East US 2`.
 
 Make your first call with the client of your choice:
 
@@ -253,7 +253,7 @@ After you send a request, view telemetry for the gateway:
 1. Filter by model name to find traffic for `gpt-5.6-sol`.
 1. Use failures and latency charts to troubleshoot backend provider issues.
 
-Telemetry helps you understand usage across providers and applications. Callers use gateway-level runtime access keys, so you can monitor traffic without exposing provider credentials to client applications. The built-in **Monitoring** views show recent gateway traffic without any setup. To retain telemetry longer or forward it to Application Insights or another OpenTelemetry (OTLP) endpoint, configure a telemetry destination — see [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md#monitoring).
+Telemetry helps you understand usage across providers and applications. Callers use gateway-level runtime access keys, so you can monitor traffic without exposing provider credentials to client applications. The built-in **Monitoring** views show recent gateway traffic without any setup. To retain telemetry longer or forward it to Application Insights or another OpenTelemetry (OTLP) endpoint, configure a telemetry destination - see [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md#monitoring).
 
 ## Clean up resources
 

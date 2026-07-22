@@ -67,21 +67,21 @@ AI Gateway tier gives platform teams one governed runtime boundary for apps, mod
 
 ### Gateway
 
-A gateway is the runtime and management boundary for AI traffic — a dedicated Azure resource you provision in about a minute, with no scale units to plan. Applications call one gateway endpoint with a runtime access key instead of calling each provider or tool backend directly, and you manage the models, tools, policies, keys, and identity for it in one place.
+A gateway is the runtime and management boundary for AI traffic. It's a dedicated Azure resource that you can provision in about a minute, with no scale units to plan. Applications call one gateway endpoint with a runtime access key instead of calling each provider or tool backend directly. You manage the models, tools, policies, keys, and identity for it in one place.
 
 :::image type="content" source="media/ai-gateway-overview/ai-gateway-architecture.png" alt-text="Diagram of applications, agents, and coding agents calling the AI Gateway tier, which authenticates the runtime key, applies policies, and emits telemetry before routing requests to model providers and MCP tool backends." lightbox="media/ai-gateway-overview/ai-gateway-architecture.png":::
 
 ### Models
 
-A model is a provider's model you publish through the gateway; applications select it by name in the request's `model` field. All OpenAI-compatible providers (Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, and OpenAI) share one endpoint, `.../models/openai/v1`, and the gateway routes by an exact match on `model` — so give each model a unique name. Anthropic uses a custom provider with Messages API passthrough at `.../models/anthropic/v1/messages`. The gateway holds backend credentials, so applications never handle provider keys.
+A model is a provider's model that you publish through the gateway. Applications select it by name in the request's `model` field. All OpenAI-compatible providers (Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, and OpenAI) share one endpoint, `.../models/openai/v1`. The gateway routes by an exact match on `model`, so give each model a unique name. Anthropic uses a custom provider with Messages API passthrough at `.../models/anthropic/v1/messages`. The gateway holds backend credentials, so applications never handle provider keys.
 
 ### MCP servers and tools
 
-An MCP server is one governed endpoint (`.../toolservers/<server-name>/mcp`) that agents call to reach tools. It federates one or more backends from four sources — a remote **MCP server** (by URL), an **OpenAPI spec**, a **built-in connector** (more than 1,000 SaaS apps, with no server to host), or a **Foundry Toolbox** — and each backend's operations become tools. You choose how the gateway authenticates to each backend: **None**, **API Key**, **OAuth 2.0**, or **Managed identity**.
+An MCP server is one governed endpoint (`.../toolservers/<server-name>/mcp`) that agents call to reach tools. It federates one or more backends from four sources: a remote **MCP server** (by URL), an **OpenAPI spec**, a **built-in connector** (more than 1,000 SaaS apps, with no server to host), or a **Foundry Toolbox**. Each backend's operations become tools. You choose how the gateway authenticates to each backend: **None**, **API Key**, **OAuth 2.0**, or **Managed identity**.
 
 ### Policies
 
-A policy is a runtime guardrail you configure as a card in the portal — no XML.
+A policy is a runtime guardrail that you configure as a card in the portal - no XML.
 
 | Policy | What it controls |
 | --- | --- |
@@ -92,11 +92,11 @@ A policy is a runtime guardrail you configure as a card in the portal — no XML
 
 ### Identity and access keys
 
-Administrators sign in to manage the gateway with Microsoft Entra ID. Applications authenticate with **runtime access keys** — created on the portal's **Keys** page (**Create API key**) and sent in the `api-key` header. A key is gateway-scoped: it reaches every model and tool. For backends, the gateway uses managed identity where available (so no secrets are stored) or a provider key you supply. Issue one key per application and environment, and grant every identity least privilege.
+Administrators sign in to manage the gateway by using Microsoft Entra ID. Applications authenticate with **runtime access keys** - create these keys on the portal's **Keys** page (**Create API key**) and send them in the `api-key` header. A key is gateway-scoped: it reaches every model and tool. For backends, the gateway uses managed identity where available (so no secrets are stored) or a provider key that you supply. Issue one key per application and environment, and grant every identity least privilege.
 
 ### Self-service catalog
 
-Developers discover models and tools in a self-service catalog — each with connection details and samples — pin favorites, and jump anywhere with the Ctrl+K (⌘K on macOS) command palette.
+Developers discover models and tools in a self-service catalog - each with connection details and samples - pin favorites, and jump anywhere with the Ctrl+K (⌘K on macOS) command palette.
 
 ## Regional availability
 
