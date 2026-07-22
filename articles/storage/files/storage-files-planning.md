@@ -18,7 +18,7 @@ You can deploy [Azure Files](storage-files-introduction.md) in two ways: by dire
 
 - **Cache Azure file shares on-premises with Azure File Sync** (SMB only): [Azure File Sync](../file-sync/file-sync-introduction.md) enables you to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms an on-premises (or cloud) Windows Server into a quick cache of your SMB Azure file share.
 
-This article primarily addresses deployment considerations for deploying an Azure file share to be directly mounted by an on-premises or cloud client. If you plan to use Azure File Sync, see [Planning for an Azure File Sync deployment](../file-sync/file-sync-planning.md).
+This article primarily addresses deployment considerations for deploying an Azure file share to be directly mounted by an on-premises or cloud client. If you plan to use Azure File Sync, see [Plan for an Azure File Sync deployment](../file-sync/file-sync-planning.md).
 
 ## Management concepts
 
@@ -253,7 +253,7 @@ Back up your Azure file shares by using [share snapshots](./storage-snapshots-fi
 
 [Azure Backup for SMB Azure file shares](../../backup/azure-file-share-backup-overview.md?toc=/azure/storage/files/toc.json) handles the scheduling and retention of snapshots. Its grandfather-father-son (GFS) capabilities mean that you can take daily, weekly, monthly, and yearly snapshots, each with their own distinct retention period. Azure Backup also orchestrates the enablement of soft delete and takes a delete lock on a storage account as soon as any file share within it is configured for backup. Azure Backup provides certain key monitoring and alerting capabilities that allow customers to have a consolidated view of their backup estate.
 
-You can perform both item-level and share-level restores in the Azure portal using Azure Backup. Choose the restore point (a particular snapshot), the particular file or directory if relevant, and then the location (original or alternate) you wish to restore to. The backup service handles copying the snapshot data over and shows your restore progress in the portal.
+You can perform both item-level and share-level restores in the Azure portal using Azure Backup. Choose the restore point (a particular snapshot), the particular file or directory if relevant, and then the location (original or alternate) you want to restore to. The backup service handles copying the snapshot data over and shows your restore progress in the portal.
 
 ### Protect Azure Files with Microsoft Defender for Storage
 
