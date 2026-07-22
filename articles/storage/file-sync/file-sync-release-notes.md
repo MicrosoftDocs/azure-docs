@@ -69,7 +69,7 @@ You can now enable a set of preconfigured recommended alerts for your Storage Sy
 
  **Miscellaneous reliability and telemetry improvements for cloud tiering and sync**
 - Improved the performance of directory enumeration on the server, delivering roughly a 25% speedup when scanning large directory structures.
-- Local changes on the server are now detected and synced promptly, even while a large enumeration is in progress.
+- The agent now detects and syncs local changes on the server promptly, even while a large enumeration is in progress.
 - Addressed corner-case conditions that could leave stale entries in the sync database. The agent now improves handling of files that are briefly in use during sync for more consistent sync behavior.
 
 ### Evaluation tool
