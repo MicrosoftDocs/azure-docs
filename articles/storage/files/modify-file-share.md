@@ -455,7 +455,7 @@ To delete a file share (Microsoft.FileShares) by using the Azure portal, follow 
 
 # [PowerShell](#tab/azure-powershell)
 
-To delete a file share (Microsoft.FileShares) by using Azure PowerShell, run the following command. Replace the variables with your intended values.
+To delete a file share (Microsoft.FileShares) by using Azure PowerShell, run the following command. Replace the variables with your values.
 
 ```powershell
 # To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0
