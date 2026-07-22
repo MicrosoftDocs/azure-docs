@@ -34,7 +34,7 @@ When more than one policy applies to a request, the gateway evaluates all of the
 
 | Policy | Status on block |
 | --- | --- |
-| Content safety | 403 |
+| Content safety | 400 |
 | IP filter | 403 |
 | Token rate limit | 429 (with `Retry-After`) |
 | Request rate limit | 429 (with `Retry-After`) |

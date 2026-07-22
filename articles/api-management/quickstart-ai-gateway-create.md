@@ -222,8 +222,8 @@ If a request fails, the gateway returns a standard HTTP status code:
 | Status | Meaning | What to check |
 | --- | --- | --- |
 | 400 | Invalid request | Check the request body. |
+| 400 | Blocked by content safety or an IP filter, or denied by the backend | A content-safety policy can block a prompt or response; also check any IP-filter policy. For managed identity, assign the **Foundry User** role to the gateway identity on the backend resource. See [Use managed identity for backend authentication](./ai-gateway-govern-secure-operate.md#use-managed-identity-for-backend-authentication). |
 | 401 | Missing or invalid runtime access key | Send the key in the `api-key` header, and confirm the key is active. |
-| 403 | Blocked by content safety or an IP filter, or denied by the backend | A content-safety policy can block a prompt or response; also check any IP-filter policy. For managed identity, assign the **Foundry User** role to the gateway identity on the backend resource. See [Use managed identity for backend authentication](./ai-gateway-govern-secure-operate.md#use-managed-identity-for-backend-authentication). |
 | 404 | Unknown model | Confirm the `model` value matches a model name on the **Models** page. |
 | 429 | Throttled by a rate-limit policy or the backend | Review token and request rate-limit policies, and honor the `Retry-After` response header. |
 | 5xx | Backend error | Confirm the backend provider is healthy and the provider credential is valid. |
