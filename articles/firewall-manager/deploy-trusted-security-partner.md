@@ -25,8 +25,8 @@ Integrated third-party Security as a service (SECaaS) partners are now available
 Skip this section if you're deploying a third-party provider into an existing hub.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In **Search**, type **Firewall Manager** and select it under **Services**.
-3. Navigate to **Overview**. Select **View secured virtual hubs**.
+2. In **Search**, type **Network Security** and select it under **Services**.
+3. Navigate to **Secure your resources**. Select **Virtual hubs**.
 4. Select **Create new secured virtual hub**.
 5. Enter your subscription and resource group, select a supported region, and add your hub and virtual WAN information. 
 6. Select **Include VPN gateway to enable Security Partner Providers**.
@@ -44,7 +44,7 @@ Skip this section if you're deploying a third-party provider into an existing hu
 
 The VPN gateway deployment can take more than 30 minutes.
 
-To verify that the hub has been created, navigate to Azure Firewall Manager->Overview->View secured virtual hubs. You see the security partner provider name and the security partner status as **Security Connection Pending**.
+To verify that the hub has been created, navigate to Network Security->Secure your resources->Virtual hubs. You see the security partner provider name and the security partner status as **Security Connection Pending**.
 
 Once the hub is created and the security partner is set up, continue on to connect the security provider to the hub.
 
