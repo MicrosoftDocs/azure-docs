@@ -39,7 +39,6 @@ Read [Plan to deploy Azure Files](../files/storage-files-planning.md) and [Plan 
 
 - The following Windows updates must be installed on the Windows Server instance:
 
-  - Windows Server 2012 R2: [KB5021653](https://support.microsoft.com/topic/kb5021653-out-of-band-update-for-windows-server-2012-r2-november-17-2022-8e6ec2e9-6373-46d7-95bc-852f992fd1ff)
   - Windows Server 2016: [KB5040562](https://support.microsoft.com/topic/kb5040562-servicing-stack-update-for-windows-10-version-1607-and-server-2016-july-9-2024-281c97b9-c566-417e-8406-a84efd30f70c)
   - Windows Server 2019: [KB5005112](https://support.microsoft.com/topic/kb5005112-servicing-stack-update-for-windows-10-version-1809-august-10-2021-df6a9e0d-8012-41f4-ae74-b79f1c1940b2) and [KB5040430](https://support.microsoft.com/topic/july-9-2024-kb5040430-os-build-17763-6054-0bb10c24-db8c-47eb-8fa9-9ebc06afa4e7)
 
@@ -71,15 +70,7 @@ For managed identity deployments, ensure the Azure File Sync managed identity or
   > [!NOTE]
   > The only scenario that Azure File Sync supports is a Windows Server failover cluster with clustered disks. For more information, see [Failover clustering](file-sync-planning.md#failover-clustering).
 
-- Although you can manage cloud resources by using the Azure portal, PowerShell cmdlets provide advanced functionality for registered servers. You run these cmdlets locally in either PowerShell 5.1 or PowerShell 6+. On Windows Server 2012 R2, you can verify that you're running at least PowerShell 5.1.\* by checking the value of the `PSVersion` property of the `$PSVersionTable` object:
-
-  ```powershell
-  $PSVersionTable.PSVersion
-  ```
-
-  If your `PSVersion` value is less than `5.1.*`, you need to upgrade by downloading and installing [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
-
-  You can use PowerShell 6+ with any supported system and download it via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell).
+- Although you can manage cloud resources by using the Azure portal, PowerShell cmdlets provide advanced functionality for registered servers. You run these cmdlets locally in either PowerShell 5.1 or PowerShell 6+. You can use PowerShell 6+ with any supported system and download it via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell).
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -110,12 +101,10 @@ For managed identity deployments, ensure the Azure File Sync managed identity or
    
   1. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privileged Contributor**, and **Storage Account Contributor** roles, and then select **Save**.
  
-
 - You need at least one supported instance of Windows Server to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Considerations for Windows file servers](file-sync-planning.md#considerations-for-windows-file-servers).
 
 - The following Windows updates must be installed on the Windows Server instance:
 
-  - Windows Server 2012 R2: [KB5021653](https://support.microsoft.com/topic/kb5021653-out-of-band-update-for-windows-server-2012-r2-november-17-2022-8e6ec2e9-6373-46d7-95bc-852f992fd1ff)
   - Windows Server 2016: [KB5040562](https://support.microsoft.com/topic/kb5040562-servicing-stack-update-for-windows-10-version-1607-and-server-2016-july-9-2024-281c97b9-c566-417e-8406-a84efd30f70c)
   - Windows Server 2019: [KB5005112](https://support.microsoft.com/topic/kb5005112-servicing-stack-update-for-windows-10-version-1809-august-10-2021-df6a9e0d-8012-41f4-ae74-b79f1c1940b2) and [KB5040430](https://support.microsoft.com/topic/july-9-2024-kb5040430-os-build-17763-6054-0bb10c24-db8c-47eb-8fa9-9ebc06afa4e7)
 
@@ -124,19 +113,9 @@ For managed identity deployments, ensure the Azure File Sync managed identity or
   > [!NOTE]
   > The only scenario that Azure File Sync supports is a Windows Server failover cluster with clustered disks. For more information, see [Failover clustering](file-sync-planning.md#failover-clustering).
 
-- You need PowerShell 5.1 or PowerShell 6+. You can use the Az PowerShell module for Azure File Sync on any supported system, including non-Windows systems. However, the cmdlet for server registration must always be run on the Windows Server instance that you're registering. (You can do this task directly or via PowerShell remoting.)
+- You need PowerShell 5.1 or PowerShell 6+. You can use the Az PowerShell module for Azure File Sync on any supported system, including non-Windows systems. However, the cmdlet for server registration must always be run on the Windows Server instance that you're registering. (You can do this task directly or via PowerShell remoting.) You can use PowerShell 6+ with any supported system and download it via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell).
 
-  On Windows Server 2012 R2, verify that you're running at least PowerShell 5.1.\* by checking the value of the `PSVersion` property of the `$PSVersionTable` object:
-
-  ```powershell
-  $PSVersionTable.PSVersion
-  ```
-
-  If your `PSVersion` value is less than `5.1.*`, you need to upgrade by downloading and installing [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
-
-  You can use PowerShell 6+ with any supported system and download it via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell).
-
-- If you opted to use PowerShell 5.1, ensure that at least .NET 4.7.2 is installed. [Learn more about .NET Framework versions and dependencies](/dotnet/framework/migration-guide/versions-and-dependencies) on your system.
+- If you use PowerShell 5.1, ensure that at least .NET 4.7.2 is installed. [Learn more about .NET Framework versions and dependencies](/dotnet/framework/migration-guide/versions-and-dependencies) on your system.
 
   If you're installing .NET 4.7.2+ on Windows Server Core, you must install with the `quiet` and `norestart` flags, or the installation will fail. For example, if you're installing .NET 4.8, the command looks like the following example:
 
@@ -185,7 +164,6 @@ When assigning the Azure File Sync Administrator role, follow these steps to ens
 
 - The following Windows updates must be installed on the Windows Server instance:
 
-  - Windows Server 2012 R2: [KB5021653](https://support.microsoft.com/topic/kb5021653-out-of-band-update-for-windows-server-2012-r2-november-17-2022-8e6ec2e9-6373-46d7-95bc-852f992fd1ff)
   - Windows Server 2016: [KB5040562](https://support.microsoft.com/topic/kb5040562-servicing-stack-update-for-windows-10-version-1607-and-server-2016-july-9-2024-281c97b9-c566-417e-8406-a84efd30f70c)
   - Windows Server 2019: [KB5005112](https://support.microsoft.com/topic/kb5005112-servicing-stack-update-for-windows-10-version-1809-august-10-2021-df6a9e0d-8012-41f4-ae74-b79f1c1940b2) and [KB5040430](https://support.microsoft.com/topic/july-9-2024-kb5040430-os-build-17763-6054-0bb10c24-db8c-47eb-8fa9-9ebc06afa4e7)
 
@@ -226,15 +204,7 @@ When assigning the Azure File Sync Administrator role, follow these steps to ens
      The installed extension 'storagesync' is experimental and not covered by customer support. Please use with discretion.
      ```
 
-- Although you can manage cloud resources by using the Azure CLI, PowerShell cmdlets provide advanced functionality for registered servers. You run these cmdlets locally in either PowerShell 5.1 or PowerShell 6+. On Windows Server 2012 R2, you can verify that you're running at least PowerShell 5.1.\* by checking the value of the `PSVersion` property of the `$PSVersionTable` object:
-
-  ```powershell
-  $PSVersionTable.PSVersion
-  ```
-
-  If your `PSVersion` value is less than `5.1.*`, you need to upgrade by downloading and installing [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616). The appropriate package to download and install for Windows Server 2012 R2 is **Win8.1AndW2K12R2-KB\*\*\*\*\*\*\*-x64.msu**.
-
-  You can use PowerShell 6+ with any supported system and download it via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell).
+- Although you can manage cloud resources by using the Azure CLI, PowerShell cmdlets provide advanced functionality for registered servers. You run these cmdlets locally in either PowerShell 5.1 or PowerShell 6+. You can use PowerShell 6+ with any supported system and download it via its [GitHub page](https://github.com/PowerShell/PowerShell#get-powershell).
 
 ---
 
@@ -420,7 +390,11 @@ Run the following PowerShell code to download the appropriate version of the Azu
 $osver = [System.Environment]::OSVersion.Version
 
 # Download the appropriate version of the Azure File Sync agent for your OS.
-if ($osver.Equals([System.Version]::new(10, 0, 20348, 0))) {
+if ($osver.Equals([System.Version]::new(10, 0, 26100, 0))) {
+    Invoke-WebRequest `
+        -Uri https://aka.ms/afs/agent/Server2025 `
+        -OutFile "StorageSyncAgent.msi" 
+} elseif ($osver.Equals([System.Version]::new(10, 0, 20348, 0))) {
     Invoke-WebRequest `
         -Uri https://aka.ms/afs/agent/Server2022 `
         -OutFile "StorageSyncAgent.msi" 
@@ -432,12 +406,8 @@ if ($osver.Equals([System.Version]::new(10, 0, 20348, 0))) {
     Invoke-WebRequest `
         -Uri https://aka.ms/afs/agent/Server2016 `
         -OutFile "StorageSyncAgent.msi" 
-} elseif ($osver.Equals([System.Version]::new(6, 3, 9600, 0))) {
-    Invoke-WebRequest `
-        -Uri https://aka.ms/afs/agent/Server2012R2 `
-        -OutFile "StorageSyncAgent.msi" 
 } else {
-    throw [System.PlatformNotSupportedException]::new("Azure File Sync is only supported on Windows Server 2012 R2, Windows Server 2016, Windows Server 2019 and Windows Server 2022")
+    throw [System.PlatformNotSupportedException]::new("Azure File Sync is only supported on Windows Server 2025, Windows Server 2022, Windows Server 2019, and Windows Server 2016")
 }
 
 # Install the .msi file. Start-Process is used for PowerShell blocks until the operation is complete.
