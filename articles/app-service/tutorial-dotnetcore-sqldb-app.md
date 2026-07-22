@@ -76,7 +76,7 @@ azd up
 
 ## 1. Run the sample
 
-First, you set up a sample data-driven app as a starting point. For your convenience, the [sample repository](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore), includes a [dev container](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers) configuration. The dev container has everything you need to develop an application, including the database and all environment variables needed by the sample application. The dev container can run in a [GitHub codespace](https://docs.github.com/codespaces/about-codespaces/what-are-codespaces), which means you can run the sample on any computer with a web browser.
+First, set up a sample data-driven app as a starting point. For your convenience, the [sample repository](https://github.com/Azure-Samples/msdocs-app-service-sqldb-dotnetcore) includes a [dev container](https://docs.github.com/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers) configuration. The dev container has everything you need to develop an application, including the database and all environment variables needed by the sample application. The dev container can run in a [GitHub codespace](https://docs.github.com/codespaces/about-codespaces/what-are-codespaces), which means you can run the sample on any computer with a web browser.
 
 :::row:::
     :::column span="2":::
@@ -127,7 +127,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 2. Create App Service and database
 
-In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure SQL Database. For the creation process, you'll specify:
+In this step, you create the Azure resources. The steps in this tutorial create a set of secure-by-default resources that include App Service and Azure SQL Database. For the creation process, specify:
 
 * The **Name** for the web app. It's used as part of the DNS name for your app.
 * The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
@@ -152,7 +152,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 :::row:::
     :::column span="2":::
         **Step 2: Configure the new app**
-        In the **Create Web App** page, fill out the form as follows.
+        In **Create Web App**, fill out the form as follows.
         1. *Name*: **msdocs-core-sql-XYZ**. A resource group named **msdocs-core-sql-XYZ_group** will be generated for you.
         1. *Runtime stack*: **.NET 8 (LTS)**.
         1. *Operating System*: **Linux**.
@@ -384,7 +384,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 4:**
         1. Select the **Source Control** extension.
-        1. In the textbox, type a commit message like `Configure Azure database connection`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
+        1. In the text box, type a commit message like `Configure Azure database connection`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
         1. Select **Commit**, then confirm with **Yes**.
         1. Select **Sync changes 1**, then confirm with **OK**.
     :::column-end:::
@@ -528,7 +528,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 
 ## 2. Create Azure resources and deploy a sample app
 
-In this step, you create the Azure resources and deploy a sample app to App Service on Linux. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure SQL Database, and optionally Azure Managed Redis.
+In this step, you create the Azure resources and deploy a sample app to App Service on Linux. The steps in this tutorial create a set of secure-by-default resources that include App Service, Azure SQL Database, and optionally Azure Managed Redis.
 
 The dev container already has the [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) (AZD).
 
@@ -558,7 +558,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     azd up
     ```  
 
-    The `azd up` command takes about 7 minutes to complete (the Azure Managed Redis takes the most time). It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command takes about seven minutes to complete (the Azure Managed Redis takes the most time). It also compiles and deploys your application code, but you need to modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deployed application.
 
     This AZD template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
