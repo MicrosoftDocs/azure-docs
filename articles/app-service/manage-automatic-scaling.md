@@ -192,7 +192,7 @@ If your web app returns a 5xx status, these endpoint pings might result in inter
 
 ### Can I use App Service Health Check with automatic scaling?
 
-Yes. [Health Check](monitor-instances-health-check.md) and automatic scaling can be enabled together, and you don't need to disable Health Check when you turn on automatic scaling for your web app.
+Yes. You can enable [Health Check](monitor-instances-health-check.md) and automatic scaling together. You don't need to disable Health Check when you turn on automatic scaling for your web app.
 
 ### How do I track the number of scaled-out instances during the automatic scaling event?
 
