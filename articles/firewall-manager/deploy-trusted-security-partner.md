@@ -44,7 +44,7 @@ Skip this section if you're deploying a third-party provider into an existing hu
 
 The VPN gateway deployment can take more than 30 minutes.
 
-To verify that the hub has been created, navigate to Network Security->Secure your resources->Virtual hubs. You see the security partner provider name and the security partner status as **Security Connection Pending**.
+To verify that the hub is created, go to **Network Security** > **Secure your resources** > **Virtual hubs**. You see the security partner provider name and the security partner status as **Security Connection Pending**.
 
 Once the hub is created and the security partner is set up, continue on to connect the security provider to the hub.
 
