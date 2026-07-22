@@ -249,6 +249,12 @@
             "source_path_from_root": "/articles/azure-vmware/azure-vmware-solution-private-cloud-maintenance-best-practices.md",
             "redirect_url": "/azure/azure-vmware/azure-vmware-solution-private-cloud-maintenance",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-vmware/self-service-maintenance-orchestration.md",
+            "redirect_url": "/azure/azure-vmware/maintenance-orchestration",
+            "redirect_document_id": false
         }
+
     ]
 }

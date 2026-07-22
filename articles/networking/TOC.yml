@@ -14,7 +14,7 @@
   - name: Hybrid connectivity overview
     href: hybrid-connectivity/hybrid-connectivity.md?toc=/azure/networking/toc.json
   - name: Network monitoring and management overview
-    href: monitoring-management/index.yml?toc=/azure/networking/toc.json
+    href: monitoring-management/network-monitoring-management-overview.md?toc=/azure/networking/toc.json
 
 - name: Networking fundamentals
   items:
@@ -275,7 +275,7 @@
 - name: Monitor and manage
   items:
   - name: Network monitoring and management overview
-    href: monitoring-management/index.yml?toc=/azure/networking/toc.json
+    href: monitoring-management/network-monitoring-management-overview.md?toc=/azure/networking/toc.json
   - name: Network Watcher
     href: ../network-watcher/network-watcher-overview.md?toc=/azure/networking/toc.json
   - name: Network insights
