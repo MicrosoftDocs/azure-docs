@@ -2,11 +2,11 @@
 title: What is a network security perimeter?
 titleSuffix: Azure Private Link
 description: Learn how Azure Network Security Perimeter secures PaaS resources with logical network boundaries. Control public access, prevent data exfiltration, and manage access rules for Storage, Azure AI Search, and Key Vault.
-author: mbender-ms
-ms.author: mbender
+author: asudbring
+ms.author: allensu
 ms.service: azure-private-link
 ms.topic: overview
-ms.date: 03/22/2026
+ms.date: 07/08/2026
 ms.custom:
   - references_regions, ignite-2024
   - ai-gen-docs-bap
@@ -43,6 +43,7 @@ A network security perimeter includes the following components:
 | **Profile** | Collection of access rules that apply on resources associated with the profile. |
 | **Access rule**| Inbound and outbound rules for resources in a perimeter to allow access outside the perimeter. |
 | **Resource association** | Perimeter membership for a PaaS resource. |
+| **Network identifier** | A public IP address or prefix associated with a service endpoint subnet, enabling network security perimeter to identify and authorize inbound traffic from IaaS resources. Used with [standard service endpoint](service-endpoint-standard-overview.md). |
 | **Diagnostics settings** | Extension resource hosted by Microsoft Insights to collect logs & metrics for all resources in the perimeter. |
 
 > [!NOTE]
@@ -86,7 +87,9 @@ Network security perimeter provides a secure perimeter for communication of PaaS
 
 When a network security perimeter is created and the PaaS resources are associated with the perimeter in enforced mode, all public traffic is denied by default thus preventing data exfiltration outside the perimeter.  
 
-Access rules can be used to approve public inbound and outbound traffic outside the perimeter. Public inbound access can be approved using Network and Identity attributes of the client such as source IP addresses, subscriptions. Public outbound access can be approved using FQDNs (Fully Qualified Domain Names) of the external destinations. 
+Access rules can be used to approve public inbound and outbound traffic outside the perimeter. Public inbound access can be approved using Network and Identity attributes of the client such as source IP addresses, subscriptions. Public outbound access can be approved using FQDNs (Fully Qualified Domain Names) of the external destinations.
+
+With [standard service endpoint](service-endpoint-standard-overview.md), network security perimeter can also authorize inbound traffic by using *network identifiers* — public IP addresses or prefixes associated with service endpoint subnets. This approach provides scalable, identity-based IaaS-to-PaaS connectivity without requiring individual IP-based access rules. 
 
 For example, upon creating a network security perimeter and associating a set of PaaS resources with the perimeter like Azure Key Vault and Azure Storage in enforced mode, all incoming and outgoing public traffic is denied to these PaaS resources by default. To allow any access outside the perimeter, necessary access rules can be created. Within the same perimeter, profiles can be created to group PaaS resources with similar set of inbound and outbound access requirements.
 
