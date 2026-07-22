@@ -149,6 +149,60 @@ parameters:
   initialStorageTiB: "10"
 ```
 
+### Create a storage class with private endpoint
+
+A private endpoint enables you to connect to your Elastic SAN volume group over a private IP address within your virtual network. For using private endpoint, the kubelet managed identity must have **Network Contributor** role assigned to the AKS managed resource group to allow the SAN CSI driver to create and manage private endpoints during volume provisioning.
+
+Run the following commands to assign **Network Contributor** role to your AKS Managed Identity. Remember to replace `<resource-group>`, `<cluster-name>`, `<azure-subscription-id>` and  `<your-node-resource-group>` with your own values. 
+
+```azurecli
+export AKS_MI_OBJECT_ID=$(az aks show --name <cluster-name> --resource-group <resource-group> --query "identityProfile.kubeletidentity.objectId" -o tsv)
+az role assignment create --assignee $AKS_MI_OBJECT_ID --role "Network Contributorr" --scope "/subscriptions/<azure-subscription-id><your-node-resource-group>"
+```
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: azuresan-csi
+provisioner: san.csi.azure.com
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+allowVolumeExpansion: true
+parameters:
+  volumegroup: "esan-vg"
+  networkEndpointType: "privateEndpoint"  
+```
+
+> [!NOTE]
+> The network endpoint type is determined at volume group creation time and can't be changed later. If a volume group is created using the default service endpoint configuration, it can't be used with a StorageClass that requests private endpoint. Similarly, a volume group created with private endpoint can't be used with service endpoint-based StorageClasses.
+
+### Create a storage class to provision Elastic SAN in a different subscription
+
+Azure Container Storage supports provisioning and attaching volumes from an Elastic SAN located in a different subscription than the AKS cluster. This enables scenarios where compute and storage are isolated across subscriptions for compliance, governance, or shared infrastructure models.
+
+Before using cross-subscription provisioning, ensure the following:
+
+- The target subscription contains an existing resource group for Elastic SAN resources.
+- The AKS cluster kubelet managed identity has one of the following roles on the target resource group:
+  - Contributor
+  - Azure Container Storage Operator
+- Network connectivity between the AKS cluster and the Elastic SAN is properly configured especially for private endpoint scenarios.
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: azuresan-csi
+provisioner: san.csi.azure.com
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+allowVolumeExpansion: true
+parameters:
+  subscriptionId: <external-subcriptionId> # Target subscription Id for which you have admin access
+  resourceGroup: <external-rg>  # Existing resource group in target subscription
+```
+
 ## Pre-provisioned Elastic SAN and volume groups
 
 You can precreate an Elastic SAN or an Elastic SAN and volume group, then reference those resources in the storage class.

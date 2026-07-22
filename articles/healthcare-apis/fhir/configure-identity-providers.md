@@ -1,5 +1,5 @@
 ---
-title: Configure multiple service identity providers for the FHIR service in Azure Health Data Services
+title: Configure multiple service identity providers for the FHIR service
 description: Learn how to configure multiple identity providers for the FHIR service in Azure Health Data Services by using OpenID Connect and SMART on FHIR v1 Scopes.
 services: healthcare-apis
 author: namalu
@@ -7,20 +7,21 @@ ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.custom: devx-track-arm-template
 ms.topic: tutorial
-ms.date: 08/12/2025
+ms.date: 06/04/2026
 ms.author: namalu
 ---
 
 # Configure multiple service identity providers
 
-In addition to [Microsoft Entra ID](/entra/fundamentals/whatis), you can configure up to two additional identity providers for a FHIR&reg; service, whether the service already exists or is newly created. 
+In addition to [Microsoft Entra ID](/entra/fundamentals/whatis), you can configure up to two more identity providers for a FHIR&reg; service, whether the service already exists or is newly created. 
 
 ## Identity providers prerequisite
-Identity providers must support OpenID Connect (OIDC), and must be able to issue JSON Web Tokens (JWT) with a `fhirUser` claim, a `azp` or `appid` claim, and an `scp` claim with [SMART on FHIR v1 Scopes](https://www.hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-clinical-data).
 
-## Enable additional identity providers with Azure Resource Manager (ARM)
+Identity providers must support OpenID Connect (OIDC) and be able to issue JSON Web Tokens (JWT) with a `fhirUser` claim, a `azp` or `appid` claim, and an `scp` claim with [SMART on FHIR v1 Scopes](https://www.hl7.org/fhir/smart-app-launch/1.0.0/scopes-and-launch-context/index.html#scopes-for-requesting-clinical-data).
 
-Add the `smartIdentityProviders` element to the FHIR service `authenticationConfiguration` to enable additional identity providers. The `smartIdentityProviders` element is optional. If you omit it, the FHIR service uses Microsoft Entra ID to authenticate requests.
+## Enable identity providers with Azure Resource Manager (ARM)
+
+Add the `smartIdentityProviders` element to the FHIR service `authenticationConfiguration` to enable more identity providers. The `smartIdentityProviders` element is optional. If you omit it, the FHIR service uses Microsoft Entra ID to authenticate requests.
 
 
 | **Element** | **Type** | **Description** |
@@ -56,13 +57,13 @@ Add the `smartIdentityProviders` element to the FHIR service `authenticationConf
 }
 ```
 
-#### Configure the `smartIdentityProviders` array
+### Configure the `smartIdentityProviders` array
 
-If you don't need any identity providers beside Microsoft Entra ID, set the `smartIdentityProviders` array to null, or omit it from the provisioning request. Otherwise, include at least one valid identity provider configuration object in the array. You can configure up to two additional identity providers.
+If you don't need any identity providers beside Microsoft Entra ID, set the `smartIdentityProviders` array to null, or omit it from the provisioning request. Otherwise, include at least one valid identity provider configuration object in the array. You can configure up to two more identity providers.
 
-#### Specify the `authority`
+### Specify the `authority`
 
-You must specify the `authority` string for each identity provider you configure. The `authority` string is the token authority that issues the access tokens for the identity provider. The FHIR service rejects requests with a `401 Unauthorized` error code if the `authority` string is invalid or incorrect.
+Specify the `authority` string for each identity provider you configure. The `authority` string is the token authority that issues the access tokens for the identity provider. The FHIR service rejects requests with a `401 Unauthorized` error code if the `authority` string is invalid or incorrect.
 
 Before you make a provisioning request, validate the `authority` string by checking the openid-connect configuration endpoint. Append **/.well-known/openid-configuration** to the end of the `authority` string and paste it in your browser. You should see the expected configuration. If you don't, the string has a problem.
 
@@ -72,29 +73,25 @@ Example:
 https://yourIdentityProvider.com/authority/v2.0/.well-known/openid-configuration
 ```
 
-#### Configure the `applications` array
+### Configure the `applications` array
 
-You must include at least one application configuration and can add up to 25 applications in the `applications` array. Each application configuration has values that validate access token claims, and an array that defines the permissions for the application to access FHIR resources.
+Include at least one application configuration. You can add up to 25 applications in the `applications` array. Each application configuration has values that validate access token claims, and an array that defines the permissions for the application to access FHIR resources.
 
-#### Identify the application with the `clientId` string
+### Identify the application with the `clientId` string
 
 The identity provider defines the application with a unique identifier called the `clientId` string (or application ID). The FHIR service validates the access token by checking the `authorized party` (azp) or `application id` (appid) claim against the `clientId` string. If the `clientId` string and the token claim don't match exactly, the FHIR service rejects the request with a `401 Unauthorized` error code.
 
-#### Validate the access token with the `audience` string
+### Validate the access token with the `audience` string
 
 The `aud` claim in an access token identifies the intended recipient of the token. The `audience` string is the unique identifier for the recipient. The FHIR service validates the access token by checking the `audience` string against the `aud` claim. If the `audience` string and the `aud` claim don't match exactly, the FHIR service rejects requests with a `401 Unauthorized` error code.
 
-#### Specify the permissions with the `allowedDataActions` array
+### Specify the permissions with the `allowedDataActions` array
 
-Include at least one permission string in the `allowedDataActions` array. You can include any valid permission strings. Avoid duplicates.
+Include the permission string in the `allowedDataActions` array. The only allow permission string currently supported is `Read`, which allows the application to perform resource `GET` requests. If the `allowedDataActions` array is empty or doesn't contain valid permission strings, the FHIR service rejects requests with a `403 Forbidden` error code.
 
-| **Valid permission string** | **Description** |
-|---|---|
-| Read | Allows resource `GET` requests. |
+## Related articles
 
-## Next steps
-
-[Use Azure Active Directory B2C to grant access to the FHIR service](azure-ad-b2c-setup.md)
+[Use Microsoft Entra External ID to grant access to the FHIR service](azure-entra-external-id-setup.md)
 
 [Troubleshoot identity provider configuration](troubleshoot-identity-provider-configuration.md)
 

@@ -6,7 +6,7 @@ description: Common questions about the retirement of Azure CDN Standard from Mi
 services: front-door
 author: halkazwini
 ms.author: halkazwini
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: faq
 ms.date: 03/31/2026
 ms.custom: ai-usage

@@ -3,26 +3,18 @@ items:
   href: index.yml
 - name: Overview
   items:
-- name: What is Azure IoT?
-  href: iot-introduction.md
-- name: Secure your solution
-  href: iot-overview-security.md
-- name: Choose an Azure IoT service
-  href: iot-services-and-technologies.md
-- name: Best practices for namespaces
-  href: iot-device-registry-namespace-guidance.md
-- name: Best practices for schema registries
-  href: iot-device-registry-schema-registry-guidance.md
-- name: IoT device development
-  href: iot-overview-device-development.md
-- name: Deliver industrial solutions
-  items:
-  - name: Implement industrial IoT reference solution
-    href: tutorial-iot-industrial-solution-architecture.md
-  - name: Connect on-premises SAP system to Azure
-    href: howto-connect-on-premises-sap-to-azure.md
-  - name: Enable industrial dataspace in Azure
-    href: howto-iot-industrial-dataspaces.md
+  - name: What is Azure IoT?
+    href: iot-introduction.md
+  - name: Secure your solution
+    href: iot-overview-security.md
+  - name: Choose an Azure IoT service
+    href: iot-services-and-technologies.md
+  - name: Best practices for namespaces
+    href: iot-device-registry-namespace-guidance.md
+  - name: Best practices for schema registries
+    href: iot-device-registry-schema-registry-guidance.md
+  - name: IoT device development
+    href: iot-overview-device-development.md
 - name: References
   items:
   - name: Support and help options

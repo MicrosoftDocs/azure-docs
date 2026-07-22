@@ -27,10 +27,14 @@ For information on setup and configuration details of the Azure OpenAI extension
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"  
 This example shows how to perform a semantic search on a file.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="76-82"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/rag-aisearch/csharp-ooproc/FilePrompt.cs" range="76-82":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
@@ -178,6 +182,8 @@ The binding supports these properties, which are defined in your code:
 ## Usage
 
 See the [Example section](#example) for complete examples.
+
+[!INCLUDE [functions-openai-connections](../../includes/functions-openai-connections.md)]
 
 ## Related content
 

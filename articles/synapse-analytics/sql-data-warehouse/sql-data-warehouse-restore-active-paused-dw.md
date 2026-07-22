@@ -22,7 +22,7 @@ In this article, you learn how to restore an existing dedicated SQL pool (former
 
 ## Before you begin
 
-1. **Verify your DTU capacity.** Each pool is hosted by a [logical SQL server](/azure/azure-sql/database/logical-servers) (for example, `myserver.database.windows.net`) which has a default DTU quota. Verify the server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
+1. **Verify your DTU capacity.** Each pool is hosted by a [logical SQL server](../sql/logical-servers.md) (for example, `myserver.database.windows.net`) which has a default DTU quota. Verify the server has enough remaining DTU quota for the database being restored. To learn how to calculate DTU needed or to request more DTU, see [Request a DTU quota change](sql-data-warehouse-get-started-create-support-ticket.md).
 
 1. Make sure to [install Azure PowerShell](/powershell/azure/?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 

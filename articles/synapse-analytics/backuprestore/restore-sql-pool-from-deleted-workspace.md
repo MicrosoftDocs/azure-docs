@@ -88,7 +88,16 @@ The following sample script accomplishes these steps:
 
 ## <a id="troubleshooting"></a> Troubleshoot
 
-If "An unexpected error occurred while processing the request." message is received, the original database might not have any recovery points available due to the original workspace being short lived. Typically this is when the workspace existed for less than one hour.
+### Error: "An unexpected error occurred while processing the request."
+
+If this message is received, the original database might not have any recovery points available due to the original workspace being short lived. Typically this is when the workspace existed for less than one hour.
+
+### Error: "ValidationFailed: The provided resource ID is not valid for this operation. Please use a SQL pool resource"
+If you receive this error, verify that:
+1. The resource ID refers to a dedicated SQL pool in an Azure Synapse workspace.
+1. The resource is a SQL pool or recoverable SQL pool.
+1. The resource ID is correct and corresponds to the intended source SQL pool.
+
 
 ## Related content
 

@@ -2,12 +2,10 @@
 title: Defend API Management Against DDoS Attacks 
 description: Learn how to protect your API Management instance in an external virtual network against volumetric and protocol DDoS attacks by using Azure DDoS Protection.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 04/17/2025
-ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
 # Defend your Azure API Management instance against DDoS attacks

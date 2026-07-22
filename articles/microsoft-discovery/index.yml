@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Microsoft Discovery documentation
-summary: Microsoft Discovery is an extensible platform that brings together agentic orchestration, advanced reasoning, a graph-based knowledge foundation, and high-performance computing for scientific research and R&D workflows.
+summary: Microsoft Discovery is an extensible platform that brings together agentic orchestration, advanced reasoning, a graph-based knowledge foundation, and high-performance computing for scientific research and R&D workflows. These articles cover the Microsoft Discovery enterprise platform unless otherwise noted, visit GitHub for app-specific guidance.
 
 metadata:
   title: Microsoft Discovery documentation
@@ -9,7 +9,7 @@ metadata:
   ms.service: azure
   ms.topic: landing-page
   ms.author: mukeshdua
-  ms.date: 04/17/2026
+  ms.date: 05/29/26
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -20,12 +20,15 @@ landingContent:
         links:
           - text: What is Microsoft Discovery?
             url: overview-what-is-microsoft-discovery.md
-          - text: Service architecture overview
-            url: overview-service-architecture.md
           - text: Key scenarios
             url: overview-key-scenarios.md
-          - text: Microsoft Discovery Studio
-            url: concept-studio.md
+          - text: Microsoft Discovery and the Microsoft Discovery app
+            url: concept-discovery-and-discovery-app.md
+          - text: Microsoft Discovery app GitHub
+            url: https://github.com/microsoft/discovery
+          - text: Service architecture overview
+            url: overview-service-architecture.md
+
 
   - title: Get started
     linkLists:
@@ -37,8 +40,6 @@ landingContent:
             url: quickstart-infrastructure-bicep.md
           - text: Run your first agent and investigation
             url: quickstart-agents-studio.md
-          - text: Add agents using bundles
-            url: quickstart-agents-bundles.md
 
   - title: Agents and investigations
     linkLists:
@@ -118,3 +119,10 @@ landingContent:
         links:
           - text: REST API
             url: /rest/api/discovery/
+
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Tutorials & how-to videos
+            url: tutorial-howto-videos.md

@@ -1,8 +1,8 @@
 ---
-author: ProfessorKendrick
+author: pavanatgit
 ms.topic: include
 ms.date: 03/31/2026
-ms.author: kkendrick
+ms.author: plekkala
 ---
 
 - An Azure account with an active subscription is required. If you don't have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).

@@ -1,7 +1,7 @@
 ---
 title: ServiceNow incident indexing in Azure SRE Agent
 description: Learn how Azure SRE Agent indexes ServiceNow incidents with real-time scanning, connectivity validation, and automated investigation.
-ms.topic: conceptual
+ms.topic: article
 ms.date: 04/15/2026
 author: craigshoemaker
 ms.author: cshoe
@@ -98,7 +98,7 @@ Use the following table to select the right authentication method for your envir
 For OAuth, the redirect URL follows the pattern `https://logic-apis-{region}.consent.azure-apim.net/redirect`. Register this URL in your ServiceNow OAuth Application Registry before authorizing.
 
 > [!NOTE]
-> For step-by-step setup instructions for both authentication methods, see [Tutorial: Connect to ServiceNow in Azure SRE Agent](connect-servicenow.md).
+> For step-by-step setup instructions for both authentication methods, see [Set up ServiceNow incident indexing in Azure SRE Agent](setup-servicenow-indexing.md).
 
 ## Scanner behavior
 
@@ -126,7 +126,7 @@ The following table compares manual ServiceNow incident management with agent-as
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Connect to ServiceNow](connect-servicenow.md)
+> [Connect to ServiceNow](setup-servicenow-indexing.md)
 
 ## Related content
 

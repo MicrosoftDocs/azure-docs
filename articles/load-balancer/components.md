@@ -55,7 +55,7 @@ You can define the unhealthy threshold for your health probes. When a probe fail
 
 Load balancer provides different health probe types for endpoints: TCP, HTTP, and HTTPS. [Learn more about Load Balancer Health probes](load-balancer-custom-probe-overview.md).
 
-Basic load balancer doesn't support HTTPS probes. Basic load balancer closes all TCP connections (including established connections).
+Basic load balancer doesn't support HTTPS probes. When all probes are down, Basic load balancer closes all TCP connections (including established connections).
 
 ## Load Balancer rules
 

@@ -28,6 +28,8 @@ Open-source Redis can run in many compute environments. Common examples include:
 
 If you have such a cache, you may be able to move it to Azure Managed Redis with minimal interruption or downtime.
 
+To plan to migrate an AWS workload to Azure, see [Migrate databases from Amazon Web Services to Azure](/azure/migration/migrate-databases-from-aws), which includes [example migration scenarios](/azure/migration/migrate-databases-from-aws#migration-scenarios) that might align to your use case.
+
 If you're looking to move from one Azure region to another, you [Move Azure Managed Redis instances to different regions](../../azure-cache-for-redis/cache-moving-resources.md).
 
 ## Migration options

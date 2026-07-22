@@ -1,6 +1,8 @@
 ---
 title: "Create a Confluent Cloud Resource - Azure PowerShell"
 description: Learn how to begin using Apache Kafka & Apache Flink on Confluent Cloud by creating an instance via Azure PowerShell.
+ms.author: praveenrajap
+author: praveenrajap
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 09/17/2025

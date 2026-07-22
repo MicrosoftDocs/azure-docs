@@ -1,6 +1,6 @@
 ---
 title: Azure Synapse Runtime for Apache Spark 3.4 
-description: New runtime is in GA stage. Try it and use Spark 3.4.1, Python 3.10, Delta Lake 2.4.
+description: New runtime is in EOS stage. Try it and use Spark 3.4.1, Python 3.10, Delta Lake 2.4.
 author: ms-arali
 ms.author: arali
 ms.service: azure-synapse-analytics
@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 ms.date: 11/17/2023 
 ---
 
-# Azure Synapse Runtime for Apache Spark 3.4 (EOSA)
+# Azure Synapse Runtime for Apache Spark 3.4 (deprecated)
 
-> [!WARNING]
-> End of Support Announcement
-> - End of support announced for Azure Synapse Runtime for Apache Spark 3.4.
-> - Azure Synapse Runtime for Apache Spark 3.4 will be deprecated March 31, 2026. 
+> [!CAUTION]
+> Azure Synapse Runtime for Apache Spark 3.4 reached end of support on March 31, 2026. Although existing workloads may continue to run for a limited period beyond this date, the runtime is no longer supported and no longer receives bug fixes, security updates, or vulnerability remediations. As a result, workloads running on Spark 3.4 are exposed to increasing operational and security risks over time.
+>
+> In addition, the phased disablement of Spark 3.4 jobs will begin shortly, and there is no guarantee that Spark 3.4 workloads will continue to run in the future. To minimize disruption and remain on a supported platform, **We strongly recommend you upgrade your Apache Spark 3.4 based workloads to [Azure Synapse Runtime for Apache Spark 3.5 (GA)](./apache-spark-35-runtime.md)** as soon as possible.
 
 Azure Synapse Analytics supports multiple runtimes for Apache Spark. This document covers the runtime components and versions for the Azure Synapse Runtime for Apache Spark 3.4.
 

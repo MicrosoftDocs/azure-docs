@@ -1,11 +1,11 @@
 ---
 title: Retrieval-Augmented Generation (RAG) with Azure Files
 description: Learn how to build retrieval-augmented generation (RAG) pipelines over documents stored in Azure Files, using either Azure-native AI services or non-Microsoft open-source AI tooling for orchestration, embeddings, and vector search.
-author: ftrichardson1
+author: khdownie
 ms.service: azure-file-storage
 ms.topic: overview
 ms.date: 04/09/2026
-ms.author: t-flynnr
+ms.author: kendownie
 ms.custom: devx-track-python
 ---
 

@@ -29,17 +29,6 @@ After the replication is enabled, wait for 30 minutes for all the tables to repl
 
 This section applies to source systems where you configured Data Factory for data extraction. You need to run two pipelines to copy the data from the SAP system to your Silver lakehouse. Open the Azure portal, and go to the resource group that you created when you created the source system. Then open the Data Factory resource and start the studio from the overview page. Follow the steps in the next section to start data replication.
 
-#### Extract field metadata
-
-Before you start extracting data, you need to process field metadata from the source system to ensure correct data mapping. This pipeline copies the table schema from the DD03ND table in the SAP system to the Microsoft Fabric SQL database:
-
-1. Open Data Factory and go to the **Get field metadata** pipeline.
-1. Select **Add Trigger** to start the processing.
-
-   :::image type="content" source="./media/run-extraction-data-processing/get-field-meta-data.png" alt-text="Screenshot that shows how to trigger the Get field metadata pipeline." lightbox="./media/run-extraction-data-processing/get-field-meta-data.png":::
-
-1. Extraction takes a couple of minutes, and it fills a metadata table. After the process is finished, you can start data extraction.
-
 #### Extract and process data
 
 Start extracting data from the SAP system to the Silver lakehouse. This pipeline copies the data from the SAP system to the Silver lakehouse in Fabric. To start data extraction, follow these steps:
@@ -66,6 +55,13 @@ After your SAP data is replicated to the mirroring database, you need to run pip
 
 1. `bps_om_b2s_orchestration_pipeline`: This pipeline copies the data from your mirrored database to the Silver lakehouse. After this pipeline is finished, you can see data in your Silver lakehouse.
 1. `bps_orchestration_pipeline_full_processing`: This pipeline processes and copies data from the Silver lakehouse to the Gold lakehouse. After this pipeline is finished, refresh your semantic model so that you can view data in your Power BI reports.
+
+### SAP S/4 HANA data processing with SAP Datasphere
+
+After you replicate your SAP data to the lakehouse by using shortcuts, run pipelines to process the data. Because Business Process Solutions uses a medallion architecture, the data flows from Bronze to Silver to Gold layers. Run the pipelines in the following order:
+
+1. `bps_datasphere_b2s_orchestration_pipeline`: This pipeline copies the data from your bronze lakehouse to the Silver lakehouse. When this pipeline finishes, you can see data in your Silver lakehouse.
+1. `bps_orchestration_pipeline_full_processing`: This pipeline processes and copies data from the Silver lakehouse to the Gold lakehouse. When this pipeline finishes, refresh your semantic model so that you can view data in your Power BI reports.
 
 ### SAP ECC data processing with open mirroring
 

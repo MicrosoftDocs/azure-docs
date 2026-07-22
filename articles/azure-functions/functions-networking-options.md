@@ -136,7 +136,7 @@ Considerations for the Flex Consumption plan:
 * The app and the virtual network must be in the same region.
 * Ensure that the `Microsoft.App` Azure resource provider is enabled for your subscription by [following these instructions](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider). This is needed for subnet delegation. The Azure portal and Azure CLI enforce this registration when you create a Flex Consumption app, since virtual network integration can be enabled at any point after your app is created.
 * The subnet delegation required when running in a Flex Consumption plan is `Microsoft.App/environments`. This differs from the Elastic Premium and Dedicated (App Service) plans, which have a different delegation requirement.
-* You can plan for 40 IP addresses to be used at the most for one function app, even if the app scales beyond 40. For example, if you have 15 Flex Consumption function apps that are integrated in the same subnet, you must plan for 15x40 = 600 IP addresses used at the most. This limit is subject to change and isn't enforced.
+* Refer to the [Subnets](#subnets) section for Flex Consumption specific sizing considerations.
 * The subnet can't already be in use for other purposes (like private or service endpoints, or [delegated](../virtual-network/subnet-delegation-overview.md) to any other hosting plan or service). While you can share the same subnet with multiple Flex Consumption apps, the networking resources are shared across these function apps, which can lead to one app impacting the performance of others on the same subnet.
 * You can't share the same subnet between a Container Apps environment and a Flex Consumption app.
 * The Flex Consumption plan currently doesn't support subnets with names that contain underscore (`_`) characters.
@@ -457,19 +457,9 @@ When you restrict access to your function app with private endpoints or any othe
 
 [!INCLUDE [app-service-web-vnet-troubleshooting](../../includes/app-service-web-vnet-troubleshooting.md)]
 
-### Network troubleshooter
+### Use Application Insights to investigate networking issues
 
-You can also use the Network troubleshooter to resolve connection issues. To open the network troubleshooter, go to the app in the Azure portal. Select **Diagnostic and solve problem**, and then search for **Network troubleshooter**.
-
-**Connection issues** - It checks the status of the virtual network integration, including checking if the Private IP has been assigned to all instances of the plan and the DNS settings. If a custom DNS isn't configured, default Azure DNS is applied. The troubleshooter also checks for common Function app dependencies including connectivity for Azure Storage and other binding dependencies.
-
-:::image type="content" source="./media/functions-networking-options/network-troubleshooter-function-app.png" alt-text="Screenshot that shows running troubleshooter for connection issues.":::
-
-**Configuration issues** - This troubleshooter checks if your subnet is valid for virtual network integration.
-
-:::image type="content" source="./media/functions-networking-options/network-troubleshooter-configuration-function-app.png" alt-text="Screenshot that shows running troubleshooter for configuration issues.":::
-
-**Subnet/VNet deletion issue** - This troubleshooter checks if your subnet has any locks and if it has any unused Service Association Links that might be blocking the deletion of the VNet/subnet.
+For Flex Consumption apps, Application Insights is the first place to look when you see DNS failures, dependency timeouts, or other connectivity symptoms. The `traces`, `exceptions`, and `dependencies` tables show what your code observed at runtime, which helps you separate application failures from platform or network issues. For tables, when to use each, and starter Kusto queries, see [Troubleshoot networking issues with Application Insights](./flex-consumption-how-to.md#troubleshoot-networking-issues-with-application-insights).
 
 ## Related articles
 

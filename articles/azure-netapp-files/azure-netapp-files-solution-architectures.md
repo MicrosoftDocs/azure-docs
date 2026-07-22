@@ -8,7 +8,7 @@ ms.custom:
   - linux-related-content
   - build-2025
 ms.topic: concept-article
-ms.date: 04/02/2026
+ms.date: 05/25/2026
 ms.author: anfdocs
 # Customer intent: As a cloud architect, I want to implement Azure NetApp Files to migrate and run mission-critical applications, so that I can ensure high performance, scalability, and security for diverse workloads in the cloud.
 ---
@@ -41,6 +41,7 @@ This section provides references for solutions for Linux OSS applications and da
 ### Oracle
 
 * [Oracle Database with Azure NetApp Files - Azure Example Scenarios](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)
+* [Optimize Oracle workloads on Azure with Azure NetApp Files](https://techcommunity.microsoft.com/blog/azurestorageblog/optimize-oracle-workloads-on-azure-with-azure-netapp-files/4532644)
 * [Oracle VM images and their deployment on Microsoft Azure: Shared storage configuration options](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
 * [Oracle On Azure IaaS Recommended Practices For Success](https://github.com/Azure/Oracle-Workloads-for-Azure/blob/main/Oracle%20on%20Azure%20IaaS%20Recommended%20Practices%20for%20Success.pdf)
 * [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)
@@ -160,6 +161,7 @@ This section provides references to SAP on Azure solutions.
 
 * [Attach Azure NetApp Files datastores to Azure VMware Solution hosts](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md)
 * [Attach Azure NetApp Files to Azure VMware Solution VMs - Guest OS Mounts](../azure-vmware/netapp-files-with-azure-vmware-solution.md)
+* [Boost performance with NFS nconnect on Azure NetApp Files datastores for Azure VMware Solution](https://techcommunity.microsoft.com/blog/AzureStorageBlog/boost-performance-with-nfs-nconnect-on-azure-netapp-files-datastores-for-azure-v/4528858)
 * [Deploy disaster recovery using JetStream DR software](../azure-vmware/deploy-disaster-recovery-using-jetstream.md)
 * [Disaster Recovery with Azure NetApp Files, JetStream DR and AVS (Azure VMware Solution)](https://www.jetstreamsoft.com/portal/jetstream-knowledge-base/disaster-recovery-with-azure-netapp-files-jetstream-dr-and-avs-azure-vmware-solution/) - Jetstream
 * [Enable App Volume Replication for Horizon VDI on Azure VMware Solution using Azure NetApp Files](https://techcommunity.microsoft.com/t5/azure-migration-and/enable-app-volume-replication-for-horizon-vdi-on-azure-vmware/ba-p/3798178)
@@ -206,6 +208,8 @@ This section provides references for High Performance Computing (HPC) solutions.
 
 ### Electronic design automation (EDA)
 
+* [From Scale to Breakthrough: Azure NetApp Files Sets a New Cloud Benchmark for EDA Performance](https://techcommunity.microsoft.com/blog/azurestorageblog/from-scale-to-breakthrough-azure-netapp-files-sets-a-new-cloud-benchmark-for-eda/4520890)
+* [Azure NetApp Files for EDA workloads: From revolution to breakthrough at scale](https://azure.microsoft.com/blog/azure-netapp-files-for-eda-workloads-from-revolution-to-breakthrough-at-scale/)
 * [Validating Scalable EDA Storage Performance - Azure NetApp Files and SPECstorage Solution 2020](https://techcommunity.microsoft.com/blog/azurearchitectureblog/validating-scalable-eda-storage-performance-azure-netapp-files-and-specstorage-s/4459517)
 * [EDA workloads on Azure NetApp Files - Performance Best Practice](https://techcommunity.microsoft.com/t5/azure-global/eda-workloads-on-azure-netapp-files-performance-best-practice/ba-p/2119979)
 * [Benefits of using Azure NetApp Files for electronic design automation](solutions-benefits-azure-netapp-files-electronic-design-automation.md)

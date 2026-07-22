@@ -14,7 +14,7 @@ ms.service: azure-file-storage
 
 :heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
 
-:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider (preview)
+:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider
 
 [!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
@@ -29,6 +29,10 @@ The following table lists the metrics available for the Microsoft.Storage/storag
 
 ### Supported metrics for Microsoft.Storage/storageAccounts/fileServices
 The following table lists the metrics available for the Microsoft.Storage/storageAccounts/fileServices resource type.
+
+> [!NOTE]
+> The File Capacity and File Count metrics are emitted hourly, but they aren't refreshed every hour. A background process recomputes these metrics and updates them multiple times a day. The timing and frequency of updates might vary from day to day based on operational factors.
+
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
 [!INCLUDE [Microsoft.Storage/storageAccounts/fileServices](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-storage-storageaccounts-fileservices-metrics-include.md)]
 

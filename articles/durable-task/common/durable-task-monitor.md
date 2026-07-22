@@ -39,17 +39,17 @@ The Durable Task SDKs example demonstrates job status monitoring with configurab
 
 # [C#](#tab/csharp)
 
-* [Complete the quickstart article](../../azure-functions/durable-functions/durable-functions-isolated-create-first-csharp.md)
+* [Complete the quickstart article](../durable-functions/durable-functions-isolated-create-first-csharp.md)
 * [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-extension/tree/main/samples/precompiled)
 
 # [JavaScript](#tab/javascript)
 
-* [Complete the quickstart article](../../azure-functions/durable-functions/quickstart-js-vscode.md)
+* [Complete the quickstart article](../durable-functions/quickstart-js-vscode.md)
 * [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-js/tree/main/samples)
 
 # [Python](#tab/python)
 
-* [Complete the quickstart article](../../azure-functions/durable-functions/quickstart-python-vscode.md)
+* [Complete the quickstart article](../durable-functions/quickstart-python-vscode.md)
 * [Clone or download the samples project from GitHub](https://github.com/Azure/azure-functions-durable-python/tree/main/samples/)
 
 # [PowerShell](#tab/powershell)

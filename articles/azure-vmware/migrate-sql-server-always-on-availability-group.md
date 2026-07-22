@@ -5,7 +5,7 @@ author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 01/08/2025
+ms.date: 05/28/2026
 ms.custom: engagement-fy23
 # Customer intent: As a database administrator, I want to migrate an SQL Server Always On Availability Group to Azure VMware Solution, so that I can leverage the cloud for better scalability and reliability while minimizing downtime during the transition.
 ---
@@ -26,7 +26,7 @@ The following are the prerequisites to migrating your SQL Server instance to Azu
 - Back up the virtual machine or virtual machines hosting SQL Server.
 - Remove the virtual machine from any VMware vSphere Distributed Resource Scheduler (DRS) groups and rules.
 - VMware HCX must be configured between your on-premises datacenter and the Azure VMware Solution private cloud that runs the migrated workloads. For more information on how to configure HCX, see [Azure VMware Solution documentation](install-vmware-hcx.md).
-- Ensure that all the network segments in use by SQL Server and workloads using it are extended into your Azure VMware Solution private cloud. To verify this step, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
+- Ensure all the network segments in use by SQL Server and workloads using it are extended into your Azure VMware Solution private cloud. To verify this step, see [Configure VMware HCX network extension](configure-hcx-network-extension.md).
 
 Either VMware HCX over VPN or ExpressRoute connectivity can be used as the networking configuration for the migration.
 
@@ -50,7 +50,7 @@ The following table indicates the estimated downtime for migration of each SQL S
 
 | **Scenario** | **Downtime expected** | **Notes** |
 |:---|:-----|:-----|
-| **SQL Server standalone instance** | Low | Migration is done using VMware vMotion, the database is available during migration time, but it isn't recommended to commit any critical data during it. |
+| **SQL Server standalone instance** | Low | Migration is done using VMware vMotion. The database is available during migration time, but the recommendation is to not commit any critical data during it. |
 | **SQL Server Always On Availability Group** | Low | The primary replica will always be available during the migration of the first secondary replica and the secondary replica will become the primary after the initial failover to Azure. |
 | **SQL Server Always On Failover Cluster Instance** | High | All nodes of the cluster are shut down and migrated using VMware HCX Cold Migration. Downtime duration depends upon database size and private network speed to Azure cloud. |
 
@@ -93,11 +93,11 @@ For details about configuring and managing the quorum, see [Failover Clustering 
    - Keep **Same format as source**.
    - Select **vMotion** as **Migration profile**. 
    - In **Extended Options** select **Migrate Custom Attributes**.
-   - Verify that on-premises network segments have the correct remote stretched segment in Azure.
-   - Select **Validate** and ensure that all checks are completed with pass status. The most common error is related to the storage configuration. Verify again that there are no virtual SCSI controllers have the physical sharing setting. 
+   - Verify on-premises network segments have the correct remote stretched segment in Azure.
+   - Select **Validate** and ensure all checks are completed with pass status. The most common error is related to the storage configuration. Verify that there are no virtual SCSI controllers have the physical sharing setting. 
    - Select **Go** to start the migration. 
 1. Once the migration is completed, access the migrated replica and verify connectivity with the rest of the members in the availability group.
-1. In SQL Server Management Studio, open the **Availability Group Dashboard** and verify that the replica appears as **Online**. 
+1. In SQL Server Management Studio, open the **Availability Group Dashboard** and verify the replica appears as **Online**. 
       :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-2.png" alt-text="Diagram showing Always On Availability Group Dashboard." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-2.png":::
  
    - **Data Loss** status in the **Failover Readiness** column is expected since the replica is out-of-sync with the primary during the migration. 
@@ -116,17 +116,17 @@ For details about configuring and managing the quorum, see [Failover Clustering 
     :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-5.png" alt-text="Diagram showing Availability Group Always On operation review." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-5.png":::
 
  
-1. Monitor the progress of the failover in the next screen, select **Close** when the operation is finished.
-    :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-6.png" alt-text="Diagram showing that SQL Server Always On cluster successfully finished." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-6.png"::: 
+1. Monitor the progress of the failover in the next screen. Select **Close** when the operation is finished.
+    :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-6.png" alt-text="Diagram showing the SQL Server Always On cluster successfully finished." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-6.png"::: 
 
 
-1. Refresh the **Object Explorer** view in SQL Server Management Studio (SSMS), verify that the migrated instance is now the primary replica.
+1. Refresh the **Object Explorer** view in SQL Server Management Studio (SSMS). Verify the migrated instance is now the primary replica.
 1. Repeat steps 1 to 6 for the rest of the replicas of the availability group.
    
     >[!Note]
-    > Migrate one replica at a time and verify that all changes are synchronized back to the replica after each migration. Do not migrate all the replicas at the same time using **HCX Bulk Migration**. 
+    > Migrate one replica at a time and verify all changes are synchronized back to the replica after each migration. Do not migrate all the replicas at the same time using **HCX Bulk Migration**. 
 1. After the migration of all the replicas is completed, access your Always On availability group with **SQL Server Management Studio**.
-   - Open the Dashboard and verify there's no data loss in any of the replicas and that all are in a     **Synchronized** state.
+   - Open the Dashboard and verify there's no data loss in any of the replicas and all are in a **Synchronized** state.
     :::image type="content" source="media/sql-server-hybrid-benefit/sql-always-on-7.png" alt-text="Diagram showing availability Group Dashboard with new primary replica and all migrated secondary replicas in synchronized state." border="false" lightbox="media/sql-server-hybrid-benefit/sql-always-on-7.png":::
    - Edit the **Properties** of the availability group and set **Failover Mode** to **Automatic** in all replicas.
     

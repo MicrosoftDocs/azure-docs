@@ -41,3 +41,6 @@
 /articles/sentinel @thomps23
 /articles/defender-for-iot @thomps23
 /articles/external-attack-surface-management @thomps23
+
+# Bicep docs content ownership - auto-request review on Bicep PRs
+/articles/azure-resource-manager/bicep/ @torreymicrosoft

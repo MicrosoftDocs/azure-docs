@@ -1,11 +1,11 @@
 ---
 title: Build a RAG pipeline using Azure Files with Haystack and Qdrant
 description: Learn how to build a retrieval-augmented generation (RAG) pipeline that queries documents stored in Azure Files using Haystack for orchestration and Qdrant as the vector database.
-author: ftrichardson1
+author: khdownie
 ms.service: azure-file-storage
 ms.topic: tutorial
 ms.date: 04/09/2026
-ms.author: t-flynnr
+ms.author: kendownie
 ms.devlang: python
 ms.custom: devx-track-python
 ---

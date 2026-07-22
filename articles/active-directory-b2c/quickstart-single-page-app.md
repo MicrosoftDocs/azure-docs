@@ -5,7 +5,7 @@ description: In this Quickstart, run a sample single-page application that uses 
 
 author: garrodonnell
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: quickstart
 ms.date: 02/23/2023

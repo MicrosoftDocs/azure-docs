@@ -11,7 +11,7 @@ ms.devlang: csharp
 
 # Tutorial: Use identity-based connections instead of secrets with triggers and bindings
 
-This tutorial shows you how to configure Azure Functions to connect to Azure Service Bus queues by using managed identities, instead of secrets stored in the function app settings. The tutorial is a continuation of the [Create a function app without default storage secrets in its definition][previous tutorial] tutorial. To learn more about identity-based connections, see [Configure an identity-based connection.](functions-reference.md#configure-an-identity-based-connection).
+This tutorial shows you how to configure Azure Functions to connect to Azure Service Bus queues by using managed identities, instead of secrets stored in the function app settings. The tutorial is a continuation of the [Create a function app without default storage secrets in its definition][previous tutorial] tutorial. To learn more about identity-based connections, see [Manage connections](manage-connections.md?tabs=identity).
 
 While the procedures shown work generally for all languages, this tutorial currently supports C# class library functions on Windows specifically.
 
@@ -158,7 +158,7 @@ Now that you've prepared the function app to connect to the Service Bus namespac
     This code sample updates the queue name to `myinputqueue`, which is the same name as you queue you created earlier. It also sets the name of the Service Bus connection to `ServiceBusConnection`. This name is the Service Bus namespace used by the identity-based connection `ServiceBusConnection__fullyQualifiedNamespace` you configured in the portal.
 
 > [!NOTE]  
-> If you try to run your functions now using `func start`, you'll receive an error. This is because you don't have an identity-based connection defined locally. If you want to run your function locally, set the app setting `ServiceBusConnection__fullyQualifiedNamespace` in `local.settings.json` as you did in [the previous section](#connect-to-the service-bus-in-your-function-app). In addition, you need to assign the role to your developer identity. For more information, see [local development with identity-based connections](./functions-reference.md#local-development-with-identity-based-connections).
+> If you try to run your functions now using `func start`, you'll receive an error. This is because you don't have an identity-based connection defined locally. If you want to run your function locally, set the app setting `ServiceBusConnection__fullyQualifiedNamespace` in `local.settings.json` as you did in [the previous section](#connect-to-the service-bus-in-your-function-app). In addition, you need to assign the role to your developer identity. For more information, see [Define connections](manage-connections.md?tabs=identity#define-connections).
 
 > [!NOTE]
 > When using [Azure App Configuration](../../articles/azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](/azure/key-vault/general/overview) to provide settings for Managed Identity connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.

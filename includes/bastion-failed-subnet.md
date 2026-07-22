@@ -1,9 +1,9 @@
 ---
-author: cherylmc
+author: asudbring
 ms.service: azure-bastion
 ms.topic: include
 ms.date: 01/21/2025
-ms.author: cherylmc
+ms.author: allensu
 ---
 
 If you get a message that says "Failed to add subnet", you need to add the **AzureBastionSubnet** subnet to your virtual network before deploying Bastion. Go to the **Subnets** page for your virtual network and add the AzureBastionSubnet. The subnet name must be **AzureBastionSubnet**. The subnet address range that you specify must be /26 or larger (for example, /25 or /24). After adding this subnet to your virtual network, you can deploy Bastion.

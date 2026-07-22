@@ -18,14 +18,14 @@ ms.custom:
 
 [!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
-Create an dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics using Azure PowerShell.
+Create a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics using Azure PowerShell.
 
 ## Prerequisites
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 > [!IMPORTANT]
-> Creating a dedicated SQL pool (formerly SQL DW) may result in a new billable service.  For more information, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
+> Creating a dedicated SQL pool (formerly SQL DW) may result in a new billable service. For more information, see [Azure Synapse Analytics pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
@@ -80,7 +80,7 @@ New-AzResourceGroup -Name $resourcegroupname -Location $location
 
 ## Create a server
 
-Create a [logical SQL server](/azure/azure-sql/database/logical-servers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) using the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) command. A server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin user named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these pre-defined values as desired.
+Create a [logical SQL server](../sql/logical-servers.md) using the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) command. A server contains a group of databases managed as a group. The following example creates a randomly named server in your resource group with an admin user named `ServerAdmin` and a password of `ChangeYourAdminPassword1`. Replace these predefined values as desired.
 
 ```powershell
 New-AzSqlServer -ResourceGroupName $resourcegroupname `
@@ -102,12 +102,12 @@ New-AzSqlServerFirewallRule -ResourceGroupName $resourcegroupname `
 ```
 
 > [!NOTE]
-> SQL endpoints communicate over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 may not be allowed by your network's firewall. If so, you won't be able to connect to your server unless your IT department opens port 1433.
+> SQL endpoints communicate over port 1433. If you're trying to connect from within a corporate network, outbound traffic over port 1433 might not be allowed by your network's firewall. If so, you won't be able to connect to your server unless your IT department opens port 1433.
 >
 
 ## Create a dedicated SQL pool (formerly SQL DW)
 
-The following example creates a dedicated SQL pool (formerly SQL DW) using the previously defined variables.  It specifies the service objective as DW100c, which is a lower-cost starting point for your dedicated SQL pool (formerly SQL DW).
+The following example creates a dedicated SQL pool (formerly SQL DW) using the previously defined variables. It specifies the service objective as DW100c, which is a lower-cost starting point for your dedicated SQL pool (formerly SQL DW).
 
 ```powershell
 New-AzSqlDatabase `
@@ -130,8 +130,8 @@ Required Parameters are:
 
 Optional Parameters are:
 
-* **CollationName**: The default collation if not specified is SQL_Latin1_General_CP1_CI_AS. Collation can't be changed on a database.
-* **MaxSizeBytes**: The default max size of a database is 240TB. The max size limits rowstore data. There is unlimited storage for columnar data.
+* **CollationName**: The default collation if not specified is `SQL_Latin1_General_CP1_CI_AS`. Collation can't be changed on a database.
+* **MaxSizeBytes**: The default max size of a database is 240 TB. The max size limits rowstore data. There's unlimited storage for columnar data.
 
 For more information on the parameter options, see [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
 

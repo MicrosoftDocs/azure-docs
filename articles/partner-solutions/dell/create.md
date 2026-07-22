@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Create a Dell PowerScale Resource"
 description: Learn how to create a resource for Dell PowerScale by using the Azure portal.
-author: ProfessorKendrick
-ms.author: kkendrick
+author: agrimayadav
+ms.author: agrimayadav
 ms.topic: quickstart
 ms.date: 03/24/2026
 

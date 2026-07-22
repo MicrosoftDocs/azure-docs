@@ -60,34 +60,55 @@ The condition preview feature also appears in the **Add Assignment** pane. Befor
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the add assignment pane.](../media/storage-tasks/storage-task-best-practices/add-assignment-pane.png)
 
+### Use mock runs to validate before executing at scale
+
+Before enabling a task assignment that targets a large number of blobs, consider running a **mock run** first. While the condition preview feature is useful for spot-checking your conditions against a small sample, a mock run provides a full-scale simulation across all blobs in scope.
+
+A mock run:
+
+- Scans and evaluates every blob that matches your prefix filters - not just a limited sample.
+- Generates a detailed report listing each blob that matched the conditions and what operations would have been performed.
+- Doesn't modify any data, making it safe to use in production storage accounts.
+
+This approach is especially important when your task includes irreversible operations. Running a mock run first helps prevent unintended misconfigurations.
+
+**Recommended workflow:**
+
+1. Design and preview your conditions by using the condition preview feature in the Azure portal.
+1. Create a mock run assignment to validate the conditions against the full blob set.
+1. Review the mock run report to confirm the correct blobs would be targeted.
+1. If results are satisfactory, transition the mock run assignment to a real run (run once or recurring), or create a new real run assignment.
+
+For step-by-step instructions, see [Create and use a mock run](storage-task-mock-run.md).
+
 ## Scale and performance
 
-Enable storage tasks one at a time. Apply techniques to optimize conditions and task assignment scheduling. 
+Enable storage tasks one at a time. Apply techniques to optimize conditions and task assignment scheduling.
 
-### Enable a single storage task assignment at a time
+### Enable one storage task assignment at a time
 
-Storage Actions currently supports the execution of one storage task assignment at a time on a storage account. If two storage tasks are assigned to an account and enabled simultaneously, the first task is executed while the second task is queued until the first task completes. This applies to both single-run and recurrent scheduled task assignments.
+Storage Actions currently supports executing one storage task assignment at a time on a storage account. If you assign and enable two storage tasks to an account simultaneously, the first task runs while the second task waits until the first task finishes. This rule applies to both single-run and recurrent scheduled task assignments.
 
-For scheduled task assignments, if the previous task iteration is still in progress, new iterations are skipped. The next scheduled task will only run at its designated trigger time after the previous task completes. When scheduling recurrent tasks, consider the scale implications where task assignments applied to large storage accounts might take longer to complete. Therefore, it's advisable to schedule them such that each task run can finish before the next iteration to prevent skipping subsequent iterations.
+For scheduled task assignments, if the previous task iteration is still in progress, new iterations are skipped. The next scheduled task runs at its designated trigger time after the previous task finishes. When scheduling recurrent tasks, consider the scale implications where task assignments applied to large storage accounts might take longer to complete. Therefore, schedule them such that each task run finishes before the next iteration to prevent skipping subsequent iterations.
 
-For single-run task assignments, if a parallel task is already in progress, the new task execution is deferred for 60 minutes plus extra random minutes before attempting again. In general, to avoid confusion regarding which task assignment is being executed, Microsoft recommends enabling only one task assignment at a time.
+For single-run task assignments, if a parallel task is already in progress, the new task execution is deferred for 60 minutes plus extra random minutes before attempting again. In general, to avoid confusion about which task assignment is being executed, enable only one task assignment at a time.
 
-### Workarounds on scale limits
+### Workarounds for scale limits
 
-Storage Actions have defined scale limits. See [Scale limits](storage-task-known-issues.md#scale-limits)
+Storage Actions have defined scale limits. See [Scale limits](storage-task-known-issues.md#scale-limits).
 
 To optimize the management of scale limits, consider implementing the following workarounds:
 
-1. **Task segmentation by prefix**: Instead of assigning a single task to process all blobs in a storage account, create multiple tasks, each responsible for a specific filtered subset of blobs based on their prefixes. This segmentation approach distributes the workload more evenly and helps stay within scale limits. You can add filters during task assignment as shown:
+1. **Task segmentation by prefix**: Instead of assigning a single task to process all blobs in a storage account, create multiple tasks, each responsible for a specific filtered subset of blobs based on their prefixes. This segmentation approach distributes the workload more evenly and helps you stay within scale limits. You can add filters during task assignment as shown:
 
    > [!div class="mx-imgBorder"]
    > ![Screenshot that shows the filter objects section of the add assignment pane.](../media/storage-tasks/storage-task-best-practices/add-assignment-pane-filter-objects-section.png)
 
-2. **Staggered scheduling**: Schedule tasks to run at different times, especially for large-scale operations. By staggering the execution times, you avoid concurrent tasks that could breach concurrency limits and cause task execution contention.
+1. **Staggered scheduling**: Schedule tasks to run at different times, especially for large-scale operations. By staggering the execution times, you avoid concurrent tasks that could breach concurrency limits and cause task execution contention.
 
-3. **Incremental processing**: Break down large tasks into smaller, incremental steps. This method ensures that each task segment can complete within the given limits, reducing the risk of incomplete operations.
+1. **Incremental processing**: Break down large tasks into smaller, incremental steps. This method ensures that each task segment completes within the given limits, reducing the risk of incomplete operations.
 
-4. **Monitoring and adjust**: Regularly monitor task performance and progress. Adjust the task conditions / prefixes and schedules as necessary to ensure efficient processing within scale limits.
+1. **Monitoring and adjust**: Regularly monitor task performance and progress. Adjust the task conditions, prefixes, and schedules as necessary to ensure efficient processing within scale limits.
 
 By employing these strategies, you can effectively manage and work around the imposed scale limits, ensuring smooth and efficient task executions.
 

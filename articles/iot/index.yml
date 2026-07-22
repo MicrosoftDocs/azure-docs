@@ -11,7 +11,7 @@ metadata:
   ms.topic: hub-page
   author: dominicbetts
   ms.author: dobett
-  ms.date: 05/02/2025
+  ms.date: 05/19/2026
 
 highlightedContent:
   items:
@@ -28,107 +28,102 @@ highlightedContent:
       itemType: overview
       url: ../iot-hub/iot-concepts-and-iot-hub.md
     # Card
-    - title: Azure IoT architectures
-      itemType: architecture
-      url: /azure/architecture/browse/?azure_categories=iot
-    # Card
-    - title: IoT Operations quickstart
-      itemType: get-started
-      url: ../iot-operations/get-started-end-to-end-sample/quickstart-deploy.md
-    # Card
-    - title: IoT Hub quickstart
-      itemType: get-started
-      url: ../iot-hub/quickstart-send-telemetry-cli.md
-   # Card
-    - title: Azure IoT training
-      itemType: training
-      url: /training/browse/?products=azure&term=iot
-    # Card
     - title: Azure IoT code samples
       itemType: sample
       url: /samples/browse/?term=iot
 
 # conceptualContent section
 conceptualContent:
-  title: Get started building your IoT solution
-  summary: Azure IoT offers you services and technologies to build edge-based, cloud-based, and hybrid IoT solutions.
+  title: Build your IoT solution
+  summary: Azure IoT offers services and technologies to build edge-based, cloud-based, and hybrid IoT solutions.
   items:
     # Card
-    - title: Device development
+    - title: Azure IoT Operations (edge-based)
+      summary: Run IoT workloads on Kubernetes-enabled edge environments.
       links:
-        - url: ./iot-overview-device-development.md
-          itemType: overview
-          text: Introduction to IoT device development
-        - url: ../iot-hub/iot-sdks.md#device-sdks
-          itemType: reference
-          text: Device SDKs reference
-        - url: ../iot-hub/iot-hub-devguide-sdks.md
-          itemType: concept
-          text: Device development for IoT Hub
-        - url: /previous-versions/azure/iot/tutorial-send-telemetry-iot-hub
-          itemType: tutorial
-          text: Send sensor data from a device to an Azure IoT hub
-
-    # Card
-    - title: Device connectivity
-      links:
+        - url: ../iot-operations/get-started-end-to-end-sample/quickstart-deploy.md
+          itemType: get-started
+          text: "Quickstart: Codespaces environment in the cloud"
+        - url: https://github.com/Azure-Samples/explore-iot-operations/blob/main/quickstart/readme.md
+          itemType: get-started
+          text: "Quickstart: Local deployment on your hardware"
+        - url: ../iot-operations/deploy-iot-ops/overview-deploy.md
+          itemType: deploy
+          text: Deploy Azure IoT Operations to your cluster
         - url: ../iot-operations/end-to-end-tutorials/tutorial-add-assets.md
           itemType: tutorial
           text: Connect OPC UA assets to Azure IoT Operations
-        - url: ../iot-hub/iot-mqtt-connect-to-iot-hub.md
-          itemType: concept
-          text: MQTT support in Azure IoT Hub
-        - url: ../iot-edge/about-iot-edge.md
-          itemType: overview
-          text: Connect IoT Edge devices to IoT Hub
+        - url: https://github.com/Azure/azure-iot-operations/releases
+          itemType: whats-new
+          text: "Azure IoT Operations release notes on GitHub"
     # Card
-    - title: Device management and control
+    - title: Azure IoT Hub (cloud-based)
+      summary: Connect, monitor, and manage IoT devices through a cloud-hosted message hub.
       links:
-        - url: ../iot-operations/discover-manage-assets/overview-manage-assets.md
-          itemType: concept
-          text: What is device management in Azure IoT Operations?
-        - url: https://github.com/Azure/iot-operations-sdks/tree/main
-          itemType: reference
-          text: Command and control with Azure IoT Operations SDKs (preview)
-        - url: ../iot-hub/iot-hub-device-management-overview.md
-          itemType: concept
-          text: What is device management with IoT Hub
-        - url: ../iot-hub-device-update/understand-device-update.md
-          itemType: concept
-          text: What is Device Update for IoT Hub?
-    # Card
-    - title: Process and route messages
-      links:
-        - url: ../iot-operations/connect-to-cloud/overview-dataflow.md
-          itemType: concept
-          text: Process and route data with data flows in Azure IoT Operations
-        - url: ../iot-operations/manage-mqtt-broker/overview-broker.md
-          itemType: concept
-          text: Azure IoT Operations built-in local MQTT broker
+        - url: ../iot-hub/iot-hub-what-is-new.md
+          itemType: whats-new
+          text: What's new in Azure IoT Hub
         - url: ../iot-hub/iot-hub-devguide-messages-d2c.md
           itemType: concept
           text: IoT Hub message routing
-        - url: ../iot-hub/iot-hub-message-enrichments-overview.md
+        - url: ../iot-hub/iot-hub-device-management-overview.md
           itemType: concept
-          text: IoT Hub message enrichments
+          text: Device management with IoT Hub
+        - url: ../iot-hub/iot-mqtt-connect-to-iot-hub.md
+          itemType: concept
+          text: MQTT support in Azure IoT Hub
     # Card
-    - title: Extend your IoT solution
+    - title: Azure Device Registry
+      summary: A unified service for managing devices and assets across both Azure IoT Hub and Azure IoT Operations.
       links:
-        - url: ../iot-operations/connect-to-cloud/howto-configure-dataflow-endpoint.md
-          itemType: how-to-guide
-          text: Configure data flow endpoints in Azure IoT Operations
+        - url: ../iot-hub/iot-hub-device-registry-overview.md
+          itemType: overview
+          text: What is Azure Device Registry?
+        - url: ./iot-device-registry-namespace-guidance.md
+          itemType: concept
+          text: Best practices for namespaces
+    # Card
+    - title: Azure IoT Operations capabilities
+      summary: Process data at the edge with MQTT broker, dataflows, and edge applications.
+      links:
+        - url: ../iot-operations/connect-to-cloud/overview-dataflow.md
+          itemType: concept
+          text: Process and route data with dataflows
+        - url: ../iot-operations/manage-mqtt-broker/overview-broker.md
+          itemType: concept
+          text: Built-in local MQTT broker
         - url: ../iot-operations/create-edge-apps/edge-apps-overview.md
           itemType: how-to-guide
-          text: Develop applications for Azure IoT Operations
-        - url: ../iot-hub/iot-sdks.md#iot-hub-service-sdks
-          itemType: reference
-          text: Service SDKs for IoT Hub
+          text: Develop edge applications
+        - url: ../iot-operations/discover-manage-assets/overview-manage-assets.md
+          itemType: concept
+          text: Manage assets in Azure IoT Operations
     # Card
-    - title: Analyze and visualize IoT data
+    - title: IoT Hub companion services
+      summary: Extend IoT Hub with device provisioning, over-the-air updates, and edge runtime.
       links:
-        - url: ../iot-operations/end-to-end-tutorials/tutorial-get-insights.md
-          itemType: tutorial
-          text: Get insights from your processed data in Azure IoT Operations
-        - url: ../iot-hub/iot-hub-live-data-visualization-in-power-bi.md
-          itemType: how-to-guide
-          text: Visualize real-time sensor data from IoT Hub using Power BI
+        - url: ../iot-dps/about-iot-dps.md
+          itemType: overview
+          text: What is IoT Hub Device Provisioning Service?
+        - url: ../iot-hub-device-update/understand-device-update.md
+          itemType: overview
+          text: What is Device Update for IoT Hub?
+        - url: ../iot-edge/about-iot-edge.md
+          itemType: overview
+          text: What is Azure IoT Edge?
+    # Card
+    - title: Plan and secure your IoT solution
+      summary: Choose the right services, understand security, and explore reference architectures.
+      links:
+        - url: ./iot-overview-security.md
+          itemType: overview
+          text: Secure your IoT solution
+        - url: /azure/architecture/browse/?azure_categories=iot
+          itemType: architecture
+          text: Azure IoT reference architectures
+        - url: ./iot-overview-device-development.md
+          itemType: overview
+          text: IoT device development overview
+        - url: ../iot-hub/iot-sdks.md#device-sdks
+          itemType: reference
+          text: Device SDKs reference

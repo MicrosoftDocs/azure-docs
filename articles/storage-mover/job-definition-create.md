@@ -5,7 +5,7 @@ author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
 ms.topic: how-to
-ms.date: 10/30/2023
+ms.date: 05/11/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -45,15 +45,13 @@ The following are the prerequisites to the definition the migration of your sour
 - **Accessible endpoints.**<br/>
   The below endpoints must be accessible from the agent.
 
-|Source protocol   |Target                               |Azure Endpoint                                        |Description                    |
-|------------------|-------------------------------------|------------------------------------------------------|-------------------------------|
-|SMB 2.x, 3.x mount     |Azure file share (SMB)               |`< your-storage-account-name>.file.core.windows.net`  |Azure Files endpoint.          |
-|NFS 3, 4 mount     |Azure file share (NFS)               |`< your-storage-account-name>.file.core.windows.net`  |Azure Files endpoint.          |
-|SMB 2.x, 3.x mount     |Azure file share (SMB)               |`<your-keyvault-name>.vault.azure.net`                |Azure Key Vault endpoint.       |
-|SMB 2.x, 3.x mount   |Azure blob storage container         |`< your-storage-account-name>.blob.core.windows.net`  |Azure Blob container endpoint. |
-|NFS 3, 4 mount   |Azure blob storage container         |`< your-storage-account-name>.blob.core.windows.net`  |Azure Blob container endpoint. |
- 
-
+|Source protocol    |Target                         |Azure Endpoint                                        |Description                     |
+|-------------------|-------------------------------|------------------------------------------------------|--------------------------------|
+|SMB 2.x, 3.x mount | Azure file share (SMB)        | `<your-storage-account-name>.file.core.windows.net`  | Azure Files endpoint.          |
+|NFS 3, 4 mount     | Azure file share (NFS)        | `<your-storage-account-name>.file.core.windows.net`  | Azure Files endpoint.          |
+|SMB 2.x, 3.x mount | Azure file share (SMB)        | `<your-keyvault-name>.vault.azure.net`               | Azure Key Vault endpoint.      |
+|SMB 2.x, 3.x mount | Azure blob storage container  | `< your-storage-account-name>.blob.core.windows.net` | Azure Blob container endpoint. |
+|NFS 3, 4 mount     | Azure blob storage container  | `< your-storage-account-name>.blob.core.windows.net` | Azure Blob container endpoint. |
 
 ## Create and start a job definition
 
@@ -75,7 +73,7 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
    :::image type="content" source="media/job-definition-create/project-selected-sml.png" alt-text="Screen capture of the Project Explorer's Overview tab within the Azure portal highlighting the use of filters." lightbox="media/job-definition-create/project-selected-lrg.png":::
 
-1. In the **Basics** tab of the **Create a migration job** window, enter a value in the required **Name** field. You can also add an optional description value of less than 1024 characters. Finally, in the **Migration agent** section, select the agent to perform the data migration and then select **Next** to open the **Source** tab. You should choose an agent located as near your data source as possible. The selected agent should also have resources appropriate to the size and complexity of the job. You can assign a different agent to your job at a later time if desired.
+1. In the **Basics** tab of the **Create a migration job** window, enter a value in the required **Name** field. You can also add an optional description value of less than 1024 characters. Next, select the appropriate migration type. Storage Mover supports *on-premises*, *multicloud*, and *Azure-to-Azure* migration types. Finally, in the **Migration agent** section, select the agent to perform the data migration and then select **Next** to open the **Source** tab. You should choose an agent located as near your data source as possible. The selected agent should also have resources appropriate to the size and complexity of the job. You can assign a different agent to your job at a later time if desired.
 
    :::image type="content" source="media/job-definition-create/tab-basics-sml.png" alt-text="Screen capture of the migration job's Basics tab, showing the location of the data fields." lightbox="media/job-definition-create/tab-basics-lrg.png":::
 
@@ -143,6 +141,20 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 
    After viewing the effects of the copy mode and migration outcomes, select **Next** to review the values from the previous tabs.
 
+1. Within the **Schedule** tab:
+
+    - Select a **Migration Frequency** option. To run your migration jobs manually, select the *No schedule* button. Otherwise, select either *One-time* or *Recurring*.
+    - Select a **Start date** and **Start time** in Coordinated Universal Time (UTC). The start date can be set up to 90 days from the creation date. For example, if you create the schedule on October 31, 2026, you can select any *Start date* between October 31 and January 29, 2026.
+    - For recurring schedules, select a **Frequency** value of *Daily*, *Weekly*, or *Monthly*, and then select the days that apply. Selected values are highlighted.
+    - Select an *end date* value within the **Until** field. You can update the end date later, but the **Until** value must always remain within a year of schedule's created date. The one-year limit is based on the creation date, not the selected *Start date*. For example, if you create a schedule on October 31, 2026, the latest possible end date (*Until*) is October 31, 2027.
+
+    :::image type="content" source="media/job-definition-create/create-job-scheduling-settings-sml.png" alt-text="Screenshot of the job scheduling settings in Azure Storage Mover." lightbox="media/job-definition-create/create-job-scheduling-settings-lrg.png":::
+
+    > [!NOTE]
+    > For recurring schedules, the end date must be within one year of the date on which the schedule was created. You can update the end date later, but it must stay within a one-year window.
+
+    - Select **Next** to advance to the *Review* tab
+
 1. Review the settings for job name and description, and source and target storage endpoint settings. Use the **Previous** and **Next** options to navigate through the tabs and correct any mistakes, if needed. Finally, select **Create** to provision the job definition.
 
    :::image type="content" source="media/job-definition-create/review-sml.png" alt-text="Screen capture of the Review tab illustrating the location of the fields and settings." lightbox="media/job-definition-create/review-lrg.png":::
@@ -150,8 +162,8 @@ Refer to the [resource naming convention](../azure-resource-manager/management/r
 1. Navigate to the Project explorer page within the Azure portal to view a list of available projects. Select a project and you will see a list of jobs. Select a job and select **Start job**.
 
 > [!NOTE]
-- Currently, only one job can be run on a given agent at a time. If there is already another job in running state, starting of another job will fail. Mover agent puts a marker file on target share or container when it starts a job (file name "").
-- User can have only one job running at given time for a target container or share. If you are running multiple agents, you cannot use it to run job against same target share or container. The job that runs later will get error "Failed to claim the target: Target is busy" (Error AZSM1027)
+> - Currently, only one job can be run on a given agent at a time. If there is already another job in running state, starting of another job will fail. Mover agent puts a marker file on target share or container when it starts a job (file name "").
+> - User can have only one job running at given time for a target container or share. If you are running multiple agents, you cannot use it to run job against same target share or container. The job that runs later will get error "Failed to claim the target: Target is busy" (Error AZSM1027)
 
 
 ### [PowerShell](#tab/powershell)

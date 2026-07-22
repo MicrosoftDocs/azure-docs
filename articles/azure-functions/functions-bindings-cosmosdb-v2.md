@@ -55,7 +55,7 @@ The process for installing the extension varies depending on the extension versi
 
 _This section describes using a [class library](./functions-dotnet-class-library.md). For [C# scripting], you would need to instead [install the extension bundle][Update your extensions], version 4.x._
 
-This version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
+This version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./manage-connections.md?pivots=functions-auth-identity&tabs=bindings#define-connections). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
 
 This version also changes the types that you can bind to, replacing the types from the v2 SDK `Microsoft.Azure.DocumentDB` with newer types from the v3 SDK [Microsoft.Azure.Cosmos](/azure/cosmos-db/sql/sql-api-sdk-dotnet-standard). Learn more about how these new types are different and how to migrate to them from the [SDK migration guide](/azure/cosmos-db/migrate-dotnet-v3), [trigger](./functions-bindings-cosmosdb-v2-trigger.md), [input binding](./functions-bindings-cosmosdb-v2-input.md), and [output binding](./functions-bindings-cosmosdb-v2-output.md) examples.
 
@@ -69,7 +69,7 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 # [Extension 4.x+](#tab/extensionv4/isolated-process)
 
-This version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
+This version of the Azure Cosmos DB bindings extension introduces the ability to [connect using an identity instead of a secret](./manage-connections.md?pivots=functions-auth-identity&tabs=bindings#define-connections). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
 
 Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.CosmosDB/), version 4.x.
 
@@ -90,13 +90,17 @@ Add the extension to your project by installing the [NuGet package](https://www.
 
 ::: zone-end  
 
-::: zone pivot="programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"  
+::: zone pivot="programming-language-go,programming-language-javascript,programming-language-typescript,programming-language-python,programming-language-java,programming-language-powershell"
 
 [!INCLUDE [functions-install-extension-bundle](../../includes/functions-install-extension-bundle.md)]
 ::: zone-end
 ::: zone pivot="programming-language-java"   
 [!INCLUDE [functions-cosmosdb-extension-java-note](../../includes/functions-cosmosdb-extension-java-note.md)]
 ::: zone-end  
+
+::: zone pivot="programming-language-go"
+Register Azure Cosmos DB triggers in code by using `app.CosmosDB()`. Azure Cosmos DB input and output bindings aren't currently supported by the Go worker; use the Azure SDK for Go directly when you need to read or write documents outside the trigger payload.
+::: zone-end
 ::: zone pivot="programming-language-csharp"
 
 ## Binding types

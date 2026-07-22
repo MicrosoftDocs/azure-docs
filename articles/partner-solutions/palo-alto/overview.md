@@ -1,6 +1,8 @@
 ---
 title: What is Cloud NGFW by Palo Alto Networks?
 description: Learn about using Cloud NGFW (Next-Generation Firewall) by Palo Alto Networks from Azure Marketplace.
+author: BNandiniMSFT
+ms.author: bnandini
 ms.topic: overview
 ms.date: 02/13/2026
 ---

@@ -19,9 +19,13 @@ The current Azure Storage Mover release supports full-fidelity migrations for sp
 
 |Source protocol        |Target                                                | Comments                                                                                |
 |-----------------------|------------------------------------------------------|-----------------------------------------------------------------------------------------|
-| AWS S3                | Azure blob container                         | AWS (Amazon Web Services) S3 buckets with Glacier or Glacier Deep Archive storage classes can't be migrated. |
+| AWS S3                | Azure blob container                         | AWS (Amazon Web Services) S3 buckets with Glacier or Glacier Deep Archive storage classes can't be migrated and need to be restored for Mover to migrate them. |
+| AWS FSx – SMB (Preview) | Azure Files SMB | Requires private network connectivity to the FSx SMB share and SMB credentials with access to the source share. |
+| GCS S3 (Preview)        | Azure blob container                       | Ensure the GCS bucket is accessible through the S3-compatible API before migration. You must restore objects in archival storage classes before migration. |
+| Azure blob container  | Azure blob container       | Blob containers can be in two different subscriptions and storage accounts but must be within the same tenant. Supported containers include those with Flatnamespace (FNS) and Hierarchical Namespace Service (HNS) feature enabled. The migration uses the ADLS Gen2 REST API set. |   
+| Azure blob container  | Azure blob container       | Blob containers can be in two different subscriptions and storage accounts but have to be within the same tenant. Containers with Flatnamespace (FNS) and Hierarchical Namespace Service (HNS) feature enabled are supported and the ADLS Gen2 REST API set is used for migration. |   
 | SMB 2.x and 3.x mount   | Azure file share (SMB) | SMB 1.x sources and NFS Azure file shares are currently not supported.                  |
 | SMB 2.x and 3.x mount | Azure blob container                         | Containers with Flatnamespace (FNS) and Hierarchical Namespace Service (HNS) feature enabled are supported and the ADLS Gen2 REST API set is used for migration. |
-| NFS 3 and 4 mount       | Azure blob container                         | Containers with Flatnamespace (FNS) and Hierarchical Namespace Service (HNS) feature enabled are supported and the ADLS Gen2 REST API set is used for migration. |
+| NFS 3 and 4 mount     | Azure file share (NFS 4.1)        | NFS Azure file shares support NFS v3 and v4 source. |
 | NFS 3 and 4 mount     | Azure file share (NFS 4.1)        | NFS Azure file shares is supported with NFS v3/4 source |                
 

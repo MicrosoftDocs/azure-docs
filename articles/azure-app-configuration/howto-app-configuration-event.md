@@ -34,21 +34,21 @@ Event Grid topics are Azure resources, and must be placed in an Azure resource g
 
 Create a resource group with the [az group create](/cli/azure/group) command. 
 
-The following example creates a resource group named `<resource_group_name>` in the *westus* location.  Replace `<resource_group_name>` with a unique name for your resource group.
+The following example creates a resource group named _`<ResourceGroupName>`_ in the *westus* location.  Replace _`<ResourceGroupName>`_ with a unique name for your resource group.
 
 ```azurecli-interactive
-az group create --name <resource_group_name> --location westus
+az group create --name <ResourceGroupName> --location westus
 ```
 
 ## Create an App Configuration store
 
-Replace `<appconfig_name>` with a unique name for your configuration store, and `<resource_group_name>` with the resource group you created earlier. The name must be unique because it is used as a DNS name.
+Replace _`<AppConfigurationStoreName>`_ with a unique name for your configuration store, and _`<ResourceGroupName>`_ with the resource group you created earlier. The name must be unique because it is used as a DNS name.
 
 ```azurecli-interactive
 az appconfig create \
-  --name <appconfig_name> \
+  --name <AppConfigurationStoreName> \
   --location westus \
-  --resource-group <resource_group_name> \
+  --resource-group <ResourceGroupName> \
   --sku free
 ```
 
@@ -56,18 +56,18 @@ az appconfig create \
 
 Before subscribing to the topic, let's create the endpoint for the event message. Typically, the endpoint takes actions based on the event data. To simplify this quickstart, you deploy a [pre-built web app](https://github.com/Azure-Samples/azure-event-grid-viewer) that displays the event messages. The deployed solution includes an App Service plan, an App Service web app, and source code from GitHub.
 
-Replace `<your-site-name>` with a unique name for your web app. The web app name must be unique because it's part of the DNS entry.
+Replace _`<SiteName>`_ with a unique name for your web app. The web app name must be unique because it's part of the DNS entry.
 
 ```azurecli-interactive
-$sitename=<your-site-name>
+$sitename=<SiteName>
 
 az deployment group create \
-  --resource-group <resource_group_name> \
+  --resource-group <ResourceGroupName> \
   --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
   --parameters siteName=$sitename hostingPlanName=viewerhost
 ```
 
-The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: `https://<your-site-name>.azurewebsites.net`
+The deployment may take a few minutes to complete. After the deployment has succeeded, view your web app to make sure it's running. In a web browser, navigate to: `https://<SiteName>.azurewebsites.net`
 
 You should see the site with no messages currently displayed.
 
@@ -75,17 +75,17 @@ You should see the site with no messages currently displayed.
 
 ## Subscribe to your App Configuration store
 
-You subscribe to a topic to tell Event Grid which events you want to track and where to send those events. The following example subscribes to the App Configuration you created, and passes the URL from your web app as the endpoint for event notification. Replace `<event_subscription_name>` with a name for your event subscription. For `<resource_group_name>` and `<appconfig_name>`, use the values you created earlier.
+You subscribe to a topic to tell Event Grid which events you want to track and where to send those events. The following example subscribes to the App Configuration you created, and passes the URL from your web app as the endpoint for event notification. Replace _`<EventSubscriptionName>`_ with a name for your event subscription. For _`<ResourceGroupName>`_ and _`<AppConfigurationStoreName>`_, use the values you created earlier.
 
 The endpoint for your web app must include the suffix `/api/updates/`.
 
 ```azurecli-interactive
-appconfigId=$(az appconfig show --name <appconfig_name> --resource-group <resource_group_name> --query id --output tsv)
+appconfigId=$(az appconfig show --name <AppConfigurationStoreName> --resource-group <ResourceGroupName> --query id --output tsv)
 endpoint=https://$sitename.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \
   --source-resource-id $appconfigId \
-  --name <event_subscription_name> \
+  --name <EventSubscriptionName> \
   --endpoint $endpoint
 ```
 
@@ -95,10 +95,10 @@ View your web app again, and notice that a subscription validation event has bee
 
 ## Trigger an App Configuration event
 
-Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. Create a key-value using the `<appconfig_name>` from earlier.
+Now, let's trigger an event to see how Event Grid distributes the message to your endpoint. Create a key-value using the _`<AppConfigurationStoreName>`_ from earlier.
 
 ```azurecli-interactive
-az appconfig kv set --name <appconfig_name> --key Foo --value Bar --yes
+az appconfig kv set --name <AppConfigurationStoreName> --key Foo --value Bar --yes
 ```
 
 You've triggered the event, and Event Grid sent the message to the endpoint you configured when subscribing. View your web app to see the event you just sent.
@@ -123,10 +123,10 @@ You've triggered the event, and Event Grid sent the message to the endpoint you 
 ## Clean up resources
 If you plan to continue working with this App Configuration and event subscription, do not clean up the resources created in this article. If you do not plan to continue, use the following command to delete the resources you created in this article.
 
-Replace `<resource_group_name>` with the resource group you created above.
+Replace _`<ResourceGroupName>`_ with the resource group you created above.
 
 ```azurecli-interactive
-az group delete --name <resource_group_name>
+az group delete --name <ResourceGroupName>
 ```
 
 ## Next steps

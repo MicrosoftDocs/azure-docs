@@ -4,6 +4,7 @@ ms.author: cwatson
 ms.service: azure-device-registry
 ms.topic: include
 ms.date: 11/07/2025
+ms.service: azure-iot-operations
 ---
 
 The following table lists the limits that apply to the Azure Device Registry resources. Azure Device Registry is used with Azure IoT Hub (preview) and Azure IoT Operations.

@@ -2,6 +2,8 @@
 metadata:
   title: Azure Native Arize AI Cloud Service frequently asked questions
   description: Answers to common questions about using Azure Native Arize AI Cloud Service for AI observability and evaluation.
+  author: shijojoy
+  ms.author: shijoy
   ai-usage: ai-generated
   ms.topic: faq
   ms.date: 12/18/2025

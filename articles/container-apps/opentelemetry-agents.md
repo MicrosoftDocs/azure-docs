@@ -25,7 +25,7 @@ This article shows you how to set up and configure an OpenTelemetry agent for yo
 
 OpenTelemetry agents live within your container app environment. You configure agent settings via an ARM template or Bicep calls to the environment, or through the CLI, or through Terraform (via the [AzAPI provider](https://registry.terraform.io/providers/Azure/azapi/latest/docs)).
 
-Each endpoint type (Azure Monitor Application Insights, DataDog, and OTLP) has specific configuration requirements.
+Each endpoint type (Azure Monitor Application Insights, Datadog, and OTLP) has specific configuration requirements.
 
 ## Prerequisites
 
@@ -52,9 +52,25 @@ The following table shows you what type of data you can send to each destination
 
 | Destination | Logs | Metrics | Traces |
 |---|------|---------|--------|
-| [Azure App Insights](/azure/azure-monitor/app/app-insights-overview) | Yes | No | Yes |
-| [Datadog](https://datadoghq.com/) | Yes | Yes | Yes |
-| [OpenTelemetry](https://opentelemetry.io/) protocol (OTLP) configured endpoint | Yes | Yes | Yes |
+| [Azure Monitor Application Insights](/azure/azure-monitor/app/app-insights-overview) | Yes | No | Yes |
+| [Datadog](./opentelemetry-export-datadog.md) | Yes | Yes | Yes |
+| [Dynatrace](./opentelemetry-export-dynatrace.md) | Yes | Yes | Yes |
+| [New Relic](./opentelemetry-export-new-relic.md) | Yes | Yes | Yes |
+| [Elastic](./opentelemetry-export-elastic.md) | Yes | Yes | Yes |
+| [OpenTelemetry Protocol (OTLP)-compatible endpoint](#otlp-endpoint) | Yes | Yes | Yes |
+
+## Export destination guides
+
+Use the following guides for destination-specific setup and validation details.
+
+| Destination | Guide |
+|---|---|
+| Datadog | [Export OpenTelemetry data to Datadog in Azure Container Apps](./opentelemetry-export-datadog.md) |
+| Dynatrace | [Export OpenTelemetry data to Dynatrace in Azure Container Apps](./opentelemetry-export-dynatrace.md) |
+| New Relic | [Export OpenTelemetry data to New Relic in Azure Container Apps](./opentelemetry-export-new-relic.md) |
+| Elastic | [Export OpenTelemetry data to Elastic in Azure Container Apps](./opentelemetry-export-elastic.md) |
+| Azure Monitor Application Insights | [Azure Monitor Application Insights](#azure-monitor-application-insights) |
+| Other OTLP-compatible endpoints | [OTLP endpoint](#otlp-endpoint) |
 
 ## Azure Monitor Application Insights
 
@@ -167,6 +183,8 @@ resource "azapi_update_resource" "app_insights_open_telemetry_integration" {
 ## Datadog
 
 You don't need to run the Datadog agent in your container app if you enable the managed OpenTelemetry agent for your environment.
+
+For a detailed walkthrough, see [Export telemetry data from Azure Container Apps managed OpenTelemetry agent to Datadog](opentelemetry-export-datadog.md).
 
 The OpenTelemetry agent configuration requires a value for `site` and `key` from your Datadog instance. Gather these values from your Datadog instance according to this table:
 
@@ -537,8 +555,8 @@ To configure an agent, use the `destinations` array to define which agents your 
 |---|---|
 | Select a data type. | You can configure logs, metrics, and/or traces individually. |
 | Enable or disable any data type. | You can choose to send only traces and no other data. |
-| Send one data type to multiple endpoints. | You can send logs to both DataDog and an OTLP-configured endpoint. |
-| Send different data types to different locations. | You can send traces to an OTLP endpoint and metrics to DataDog. |
+| Send one data type to multiple endpoints. | You can send logs to both Datadog and an OTLP-configured endpoint. |
+| Send different data types to different locations. | You can send traces to an OTLP endpoint and metrics to Datadog. |
 | Disable sending all data types. | You can choose to not send any data through the OpenTelemetry agent. |
 
 ### By endpoint
@@ -549,7 +567,7 @@ To configure an agent, use the `destinations` array to define which agents your 
 The following example ARM template shows how to use an OTLP endpoint named `customDashboard`. It sends:
 - traces to app insights and `customDashboard`
 - logs to app insights and `customDashboard`
-- metrics to DataDog and `customDashboard`
+- metrics to Datadog and `customDashboard`
 
 ```json
 {

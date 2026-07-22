@@ -20,7 +20,7 @@ This article focuses on the two consumption plans because billing in these plans
 
 [!INCLUDE [functions-consumption-plans-compare-tabs](../../includes/functions-consumption-plans-compare-tabs.md)]
 
-Durable Functions can also run in both of these plans. For more information about the cost considerations when using Durable Functions, see [Durable Functions billing](./durable-functions/durable-functions-billing.md).
+Durable Functions can also run in both of these plans. For more information about the cost considerations when using Durable Functions, see [Durable Functions billing](../durable-task/durable-functions/durable-functions-billing.md).
 
 ## Consumption-based costs
 

@@ -2,8 +2,8 @@
 title: Schedule and broadcast jobs (Java)
 titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDK for Java to create backend service application code for job scheduling.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.devlang: java
 ms.topic: include

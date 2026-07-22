@@ -5,8 +5,8 @@
 
 title: Troubleshoot storage-related errors when importing updates in Device Update for IoT Hub
 description: How to troubleshoot storage-related errors when importing updates
-author: dominicbetts
-ms.author: dobett
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot
 ms.topic: error-reference
 ms.date:     12/11/2024

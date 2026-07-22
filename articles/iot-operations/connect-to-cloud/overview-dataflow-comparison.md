@@ -1,8 +1,8 @@
 ---
 title: Data flows vs. data flow graphs
 description: Understand the differences between data flows and data flow graphs in Azure IoT Operations, and choose the right approach for your scenario.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article
@@ -36,7 +36,7 @@ Data flow graphs support MQTT, Kafka, and OpenTelemetry endpoints.
 | Transforms | Map, filter, enrich | Map, filter, branch, concatenate, window (aggregation), enrich |
 | Branch and merge | Not supported | Branch on conditions, merge with concatenate |
 | Time-based aggregation | Not supported | Tumbling windows with avg, min, max, count |
-| Endpoint support (source) | MQTT, Kafka | MQTT, Kafka, OpenTelemetry |
+| Endpoint support (source) | MQTT, Kafka | MQTT, Kafka |
 | Endpoint support (destination) | MQTT, Kafka, ADLS, Fabric, ADX, local storage, OpenTelemetry | MQTT, Kafka, OpenTelemetry |
 | Dynamic destination topics | `${inputTopic}` (source topic passthrough) | `$metadata.topic` + `${outputTopic}` (content-based routing) |
 | Schema | On source and transformation | On node connections |

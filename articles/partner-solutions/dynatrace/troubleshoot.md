@@ -1,7 +1,8 @@
 ---
 title: Troubleshooting Azure Native Dynatrace Service
 description: This article provides information about troubleshooting Dynatrace for Azure 
-
+author: praveenrajap
+ms.author: praveenrajap
 ms.topic: troubleshooting-general
 ms.date: 02/02/2026
 

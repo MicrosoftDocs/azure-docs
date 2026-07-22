@@ -6,7 +6,7 @@ description: Learn how to set up a custom policy so users can change their passw
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 02/19/2025

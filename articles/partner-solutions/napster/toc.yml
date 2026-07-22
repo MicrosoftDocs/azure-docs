@@ -1,0 +1,23 @@
+items:
+- name: Napster Companion API – Azure Native Integrations Documentation
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is Napster Companion API – Azure Native Integrations?
+    href: overview.md
+  - name: Napster Companion API resources and developer tools
+    href: tools.md
+  - name: FAQ
+    href: faq.yml
+
+- name: Quickstarts
+  expanded: true
+  items:
+  - name: Create a Napster Companion API resource
+    href: create.md
+- name: How to
+  items:
+  - name: Manage your Napster Companion API resource
+    href: manage.md
+  - name: Troubleshoot a resource
+    href: /troubleshoot/azure/partner-solutions/marketplace-purchases-errors

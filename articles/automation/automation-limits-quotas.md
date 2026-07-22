@@ -19,7 +19,7 @@ This article provides steps to view the current limits and request for quota inc
 - Contributor role for Azure Automation account.
 
 > [!NOTE]
-> Free subscriptions including [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota changes.
+> Free subscriptions including [Azure Free Account](https://azure.microsoft.com/pricing/offers/ms-azr-0044p?cid=msft_learn) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota changes.
 
 ## View current limits and request for quota changes
 

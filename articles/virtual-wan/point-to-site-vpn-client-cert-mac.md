@@ -1,11 +1,11 @@
 ---
 title: 'Configure P2S User VPN native VPN client - certificate authentication - macOS'
 description: Learn how to configure the VPN client for Virtual WAN User VPN configurations that use certificate authentication and IKEv2. This article applies to macOS.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 02/04/2025
-ms.author: cherylmc
+ms.author: duau
 ---
 
 # Configure P2S User VPN clients: certificate authentication - native VPN client - macOS

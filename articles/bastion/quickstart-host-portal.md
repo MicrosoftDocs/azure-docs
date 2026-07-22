@@ -2,11 +2,11 @@
 title: 'Quickstart: Deploy Azure Bastion from the Azure portal'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion from the Azure portal using default settings, custom configuration, or the free Developer SKU.
-author: cherylmc
+author: asudbring
 ms.service: azure-bastion
 ms.topic: quickstart
 ms.date: 01/20/2026
-ms.author: cherylmc
+ms.author: allensu
 ms.custom: references_regions
 
 # Customer intent: As a cloud administrator, I want to deploy Azure Bastion from the Azure portal, so that I can securely access virtual machines without requiring public IP addresses.
@@ -65,8 +65,6 @@ When you deploy Bastion using the **Deploy Bastion** option, Bastion deploys aut
 The following diagram shows the dedicated deployment architecture used by the Default settings options.
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram that shows the Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
-
-**Default values:**
 
 **To deploy Bastion with default settings:**
 

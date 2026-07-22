@@ -2,11 +2,10 @@
 title: Connect to Foundry Tools with other Azure services
 titleSuffix: Service Connector
 description: Learn how to integrate Foundry Tools into your application with Service Connector by using supported authentication methods and clients.
-author: wchigit
-ms.author: wchi
+ms.reviewer: wchi
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/05/2026
+ms.date: 06/17/2026
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 ---
@@ -20,7 +19,6 @@ In this article, we cover the supported authentication methods and clients that 
 Service Connector can be used to connect the following compute services to Foundry Tools:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps

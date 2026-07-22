@@ -17,6 +17,43 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
+## July 2026 
+
+* [Support for DNS server, LDAP port, User DN, Group DN, and Netgroup DN](configure-directory-server.md) (preview)
+
+    Azure NetApp Files now supports additional LDAP connection configuration options for NFS volumes, including custom LDAP ports, customer-specified DNS servers, and configurable User DN, Group DN, and Netgroup DN values. These enhancements improve compatibility with a broader range of LDAP directory service deployments and provide greater flexibility when integrating Azure NetApp Files with existing enterprise directory environments. 
+## June 2026
+
+* [Azure NetApp Files migration assistant portal experience](migrate-volumes.md?tabs=portal) is now generally available (GA)
+
+    Azure NetApp Files [migration assistant](migrate-data.md) enables you to accelerate and simplify migrations of business-critical applications and data to Azure. Migration assistant offers efficient and cost-effective data migration, leveraging ONTAP's built-in replication engine for seamless transition from on-premises storage or Cloud Volumes ONTAP to Azure NetApp Files. It's a storage-efficient data transfer that reduces network transfer costs for both baseline and incremental updates. Migration assistant also offers a low cutover/downtime window, ensuring faster and more efficient final updates, minimizing disruption to operations. Volume migration using migration assistant includes source volume snapshots for primary data protection, and directory and file metadata maintaining security attributes.
+    
+* [Azure NetApp Files support for NFS nconnect on Azure VMware Solution](performance-azure-vmware-solution-datastore.md) is now generally available (GA)
+
+    Azure NetApp Files now supports the NFS nconnect mount option on Azure VMware Solution (AVS), enabling each AVS ESXi host to establish up to four parallel TCP connections (nconnect=4) to a single Azure NetApp Files NFS datastore. This added network parallelism increases the amount of I/O that can be processed concurrently, delivering higher aggregate throughput and IOPS per datastore compared to a single-connection configuration. By increasing per-datastore performance, nconnect=4 can reduce the need to provision and manage multiple datastores to scale performance, simplifying Azure VMware Solution storage design while still supporting performance intensive workloads such as databases. No changes are required to virtual machines or applications once the datastore is mounted with the option. For more information, see [Attach Azure NetApp Files datastores to Azure VMware Solution hosts](../azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts.md) and [Azure VMware Solution datastore performance considerations for Azure NetApp Files](performance-azure-vmware-solution-datastore.md). 
+
+## May 2026 
+
+* [Object REST API](object-rest-api-access-configure.md) is now generally available (GA)
+
+    The Azure NetApp Files [object REST API](object-rest-api-introduction.md) bridges the gap between traditional file-based storage and modern cloud services, enabling you to use your existing data in new ways. With the object REST API, you can seamlessly integrate Azure NetApp Files data with Microsoft Fabric, Foundry Tools, and other Azure and ISV offerings without the need to move or replicate data. This unlocks new use cases such as advanced analytics, machine learning, and real-time business intelligence, while reducing costs and accelerating innovation.
+
+    The object REST API introduces native S3-compatible read/write access, allowing modern applications to interact with your data directly and efficiently. Enterprises benefit from simplified integration, enhanced productivity, and improved data security, as data remains in place and protected by Azure NetApp Files' robust security measures. This feature is ideal for organizations looking to leverage AI-driven insights, streamline workflows, and maintain compliance with industry standards.
+
+* [Azure NetApp Files cache volumes](configure-cache-volumes.md) is now generally available (GA)
+
+    Azure NetApp Files now support cache volumes, which are cloud-based caches of an external origin volume, containing only the most actively accessed data on the volume. This brings data and files closer to the user for faster throughput with a smaller footprint. Azure NetApp Files cache volumes simplify file distribution, reduces WAN latency, and lowers WAN/ExpressRoute bandwidth costs.
+
+* [Support for Red Hat IdM, Oracle Unified Directory (OUD), and bind distinguished name authentication](configure-directory-server.md) (preview)
+ 
+    Azure NetApp Files now supports Red Hat IdM and Oracle Unified Directory, enabling seamless integration with widely used enterprise directory services. This capability allows organizations to leverage their existing LDAP-based identity infrastructure for authentication and access control providing simplified identity management, enhanced security and compliance, and improved scalability. This feature is ideal for enterprises-grade LDAP service with advanced scalability and security features. This feature is available in all Azure NetApp Files supported regions. This feature in currently in preview.
+
+    This enhancement also supports bind distinguished name (Bind DN) authentication for additional LDAP services. When you provide Bind DN credentials during the LDAP configuration, the password is stored in Azure Key Vault. Azure NetApp Files service retrieves the password from the Azure Key Vault when establishing LDAP connections. 
+ 
+* [Azure NetApp Files now supports files up to 64TiB on regular Azure NetApp Files volumes](azure-netapp-files-resource-limits.md) is now generally available (GA)
+
+   To support seamless migration and operation of workloads that use large files including Azure VMware Solution (AVS) virtual machines with large VMDK disks, [Azure NetApp Files now supports file sizes of up to 64 TiB for regular volumes](azure-netapp-files-resource-limits.md). This enhancement enables the migration of on premises workloads with large virtual machine disks to Azure VMware Solution and supports ongoing operation of data intensive workloads in Azure. The capability is available in all Azure NetApp Files enabled regions across the Flexible, Standard, Premium, and Ultra service levels.
+
 ## April 2026 
 
 * [Backup enabled by default](protect-volumes.md) (preview)
@@ -51,7 +88,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
     Large volumes operational improvement no longer requires a support ticket to increase a large volume past the 30% imposed limit. This allows customer to automate their large volume size increases without waiting for approval and human intervention.
     
-  ## January 2026
+## January 2026
 
 * [Elastic zone-redundant storage service level](elastic-zone-redundant-concept.md) (preview)
 

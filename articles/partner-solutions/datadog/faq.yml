@@ -2,6 +2,8 @@
 metadata:
   title: Datadog on Azure frequently asked questions
   description: Answers to common questions about using Datadog on Azure, including features, billing, and troubleshooting.
+  author: pdjokar96
+  ms.author: piyushdash
   ms.service: partner-services
   ms.topic: faq
   ai-usage: ai-generated

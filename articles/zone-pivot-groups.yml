@@ -1,5 +1,23 @@
 ### YamlMime:ZonePivotGroups
 groups:
+# Owner: lilyjma
+- id: connector-namespace-hosted-servers
+  title: Hosted server
+  prompt: Choose server you want to host
+  pivots:
+  - id: playwright
+    title: Playwright
+  - id: sql
+    title: Azure SQL
+# Owner: liliankasem
+- id: func-cli-versions
+  title: Choose a command-line tool
+  prompt: Choose your local development tool
+  pivots:
+  - id: func-cli-v4
+    title: Azure Functions Core Tools
+  - id: func-cli-v5
+    title: Azure Functions CLI
 # Owner: estfan
 - id: azure-logic-apps
   title: Experience
@@ -149,6 +167,24 @@ groups:
     title: Python
   - id: programming-language-typescript
     title: TypeScript
+  - id: programming-language-go
+    title: Go
+- id: programming-languages-set-functions-no-go
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
 - id: programming-languages-set-functions-temp
   title: Programming languages
   prompt: Choose a programming language
@@ -165,6 +201,8 @@ groups:
   pivots:
   - id: programming-language-csharp
     title: C#
+  - id: programming-language-go
+    title: Go
   - id: programming-language-java
     title: Java
   - id: programming-language-javascript
@@ -176,7 +214,25 @@ groups:
   - id: programming-language-typescript
     title: TypeScript
   - id: programming-language-other
-    title: Other (Go/Rust)
+    title: Other (Rust)
+- id: programming-languages-set-functions-full-no-go
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-powershell
+    title: PowerShell
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-typescript
+    title: TypeScript
+  - id: programming-language-other
+    title: Other (Rust)
 - id: programming-languages-set-functions-nodejs
   title: Programming languages
   prompt: Choose a programming language
@@ -259,6 +315,16 @@ groups:
     title: Isolated worker model
   - id: in-proc
     title: In-process model
+- id: functions-auth-method
+  title: Authentication method
+  prompt: Choose an authentication method
+  pivots:
+  - id: functions-auth-identity
+    title: Managed identity
+  - id: functions-auth-keyvault
+    title: Key Vault
+  - id: functions-auth-secret
+    title: Shared secret
 - id: reliability-functions-hosting-plan
   title: Function app hosting options for Availability Zones support
   prompt: Choose a hosting option for your function app
@@ -299,6 +365,15 @@ groups:
     title: .NET (isolated)
   - id: other
     title: non-.NET
+# Owner: hhunter-ms
+- id: dts-sandbox-languages
+  title: On-demand Sandboxes SDK
+  prompt: Choose a programming language
+  pivots:
+  - id: csharp
+    title: .NET
+  - id: python
+    title: Python
 ### end azure-functions
 #Owner: jiayma
 - id: bring-third-party-dependency-programming-functions
@@ -1482,12 +1557,16 @@ groups:
   title: API version pivots
   prompt: Choose an API version
   pivots:
-  - id: v1
-    title: "1.0"
-  - id: v23-10
-    title: "2023-10-01"
+  - id: v26-04
+    title: "2026-04-01"
+  - id: v24-09
+    title: "2024-09-01"
   - id: v23-11
     title: "2023-11-01"
+  - id: v23-10
+    title: "2023-10-01"
+  - id: v1
+    title: "1.0"
 # Owner: v-yilinhu
 - id: programming-languages-batch-linux-nodes
   title: Programming languages
@@ -1980,6 +2059,14 @@ groups:
     title: Data Box Next Gen
   - id: dbx
     title: Data Box
+- id: storage-mover-multicloud
+  title: Storage Mover multicloud migration sources
+  prompt: Select your multicloud migration source.
+  pivots:
+  - id: aws
+    title: Amazon Web Services (AWS)
+  - id: gcs
+    title: Google Cloud Storage (GCS)
 #owner: mbender
 - id: load-balancer-multiple-ip-pv
   title: Load Balancer Multiple IPs
@@ -2083,3 +2170,23 @@ groups:
     title: Windows
   - id: linux
     title: Linux
+# Owner: zamasiel
+- id: sap-ha-nfs-solution
+  title: Azure NFS Hosting Option
+  prompt: Choose your Azure NFS Hosting Solution
+  pivots:
+  - id: azurefiles
+    title: NFS on Azure Files
+  - id: anf
+    title: Azure NetApp Files
+# Owner: duongau
+- id: networking-scenario
+  title: Choose your scenario
+  prompt: Select the migration scenario that matches your project
+  pivots:
+  - id: lift-shift
+    title: Lift and shift
+  - id: modernize
+    title: Migrate and modernize
+  - id: cross-cloud
+    title: Cross-cloud

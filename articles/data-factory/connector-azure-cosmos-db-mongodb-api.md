@@ -2,8 +2,8 @@
 title: Copy data from Azure Cosmos DB for MongoDB
 description: Learn how to copy data from supported source data stores to or from Azure Cosmos DB for MongoDB to supported sink stores using Azure Data Factory or Synapse Analytics pipelines.
 titleSuffix: Azure Data Factory & Azure Synapse
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 12/25/2025
@@ -18,6 +18,10 @@ ms.custom:
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from and to Azure Cosmos DB for MongoDB. The article builds on [Copy Activity](copy-activity-overview.md), which presents a general overview of Copy Activity.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Azure Cosmos DB for MongoDB connector documentation](/fabric/data-factory/connector-azure-cosmos-db-for-mongodb-overview).
+
 
 >[!NOTE]
 >This connector only supports copy data to/from Azure Cosmos DB for MongoDB. For Azure Cosmos DB for NoSQL, refer to the [Azure Cosmos DB for NoSQL connector](connector-azure-cosmos-db.md). Other API types are not currently supported.

@@ -42,10 +42,15 @@ These changes are applied only when the VM is configured for Azure-orchestrated 
 Group Policy can override or conflict with Update Manager settings. This behavior is especially important for:
 
 - **Automatic updates**: If Group Policy enforces a different `AUOptions` value, Update Manager might not be able to control update timing.
-- **Reboot behavior**: Even if Update Manager is set to **Never Reboot**, Group Policy or registry keys can still trigger reboots.
+- **Reboot behavior**: If Update Manager is set to **Never Reboot**, Group Policy or registry keys can still trigger reboots. If Update Manager is set to **Always Reboot**, Group Policy or registry keys can prevent reboots from occurring.
+
 - **Microsoft Update source**: Group Policy might restrict updates to WSUS or block Microsoft Update, which can cause Update Manager deployments to fail.
 
-If you use Group Policy, a best practice is to ensure that it aligns with the intended behavior of Update Manager. Avoid setting conflicting values in **Configure Automatic Updates** or **No auto-restart with logged on users**.
+If you use Group Policy, a best practice is to ensure that it aligns with the intended behavior of Update Manager. Avoid setting conflicting values in the following policies:
+
+- **Configure Automatic Updates**
+- **No auto-restart with logged on users**
+- **Always automatically restart at the scheduled time**.
 
 ## How to enable Microsoft Update
 

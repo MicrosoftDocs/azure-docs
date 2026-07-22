@@ -1,0 +1,34 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/logic-apps/connector-namespace/connector-namespace-hosted-mcp.md",
+            "redirect_url": "/azure/connector-namespace/connector-namespace-hosted-mcp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/connector-namespace/connector-namespace-overview.md",
+            "redirect_url": "/azure/connector-namespace/connector-namespace-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/connector-namespace/create-connector-namespace-connection.md",
+            "redirect_url": "/azure/connector-namespace/create-connector-namespace-connection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/connector-namespace/create-connector-namespace.md",
+            "redirect_url": "/azure/connector-namespace/create-connector-namespace",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/connector-namespace/hosted-mcp-dev-guide.md",
+            "redirect_url": "/azure/connector-namespace/hosted-mcp-dev-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/logic-apps/connector-namespace/hosted-mcp-quickstart.md",
+            "redirect_url": "/azure/connector-namespace/hosted-mcp-quickstart",
+            "redirect_document_id": false
+        }
+    ]
+}

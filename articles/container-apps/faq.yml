@@ -76,6 +76,29 @@ sections:
         answer: |
           Azure Container Apps doesn't move or store customer data out of the deployed region.
 
+  - name: Environment management
+    questions:
+      - question: |
+          How do I restore an archived Container Apps environment?
+        answer: |
+          You can restore an archived environment by updating its environment mode to workload profiles using the Azure CLI. The operation can take 15-30 minutes to complete.
+
+          First, add and update the `containerapp` extension to ensure you're using the latest version:
+
+            ```azurecli
+            az extension add --name containerapp
+            az extension update --name containerapp
+            ```
+
+          Then restore the environment by setting its environment mode to `workloadprofiles`:
+
+            ```azurecli
+            az containerapp env update \
+              --environment-mode workloadprofiles \
+              --name $ENV_NAME \
+              --resource-group $RG
+            ```
+
   - name: Quotas
     questions:
       - question: |

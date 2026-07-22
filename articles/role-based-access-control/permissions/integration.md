@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -24,6 +24,7 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | --- | --- |
 > | `Microsoft.ApiCenter/register/action` | Register Microsoft.ApiCenter resource provider for the subscription. |
 > | `Microsoft.ApiCenter/unregister/action` | Unregister Microsoft.ApiCenter resource provider for the subscription. |
+> | `Microsoft.ApiCenter/checkNameAvailability/action` | Checks whether the specified API Center service name is available in the region. |
 > | `Microsoft.ApiCenter/deletedServices/read` | Returns paginated collection of deleted services. |
 > | `Microsoft.ApiCenter/deletedServices/read` | Returns the deleted service. |
 > | `Microsoft.ApiCenter/deletedServices/delete` | Purge the soft deleted service. |
@@ -46,6 +47,8 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | `Microsoft.ApiCenter/services/apis/versions/securityRequirements/read` | List the security requirements for the workspace. |
 > | `Microsoft.ApiCenter/services/apis/versions/securityRequirements/delete` | Delete the security requirement for the workspace. |
 > | `Microsoft.ApiCenter/services/apis/versions/securityRequirements/getCredentials/action` | Get the credentials for the security requirement. |
+> | `Microsoft.ApiCenter/services/dataApiSettings/write` | Creates or updates the DataAPI settings configuration for the catalog. |
+> | `Microsoft.ApiCenter/services/dataApiSettings/read` | Returns the DataAPI settings for the catalog. Synthesizes permissive defaults when no document exists. |
 > | `Microsoft.ApiCenter/services/eventGridFilters/read` | Returns paginated collection of the Event Grid filters. |
 > | `Microsoft.ApiCenter/services/eventGridFilters/read` | Returns the details of the specified Event Grid filter. |
 > | `Microsoft.ApiCenter/services/eventGridFilters/write` | Creates or updates specified Event Grid filter. |
@@ -56,13 +59,37 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | `Microsoft.ApiCenter/services/metadataSchemas/read` | Checks if specified metadataSchema exists |
 > | `Microsoft.ApiCenter/services/metadataSchemas/delete` | Deletes specified metadataSchema. |
 > | `Microsoft.ApiCenter/services/operationResults/read` | Checks status of a long running operation |
-> | `Microsoft.ApiCenter/services/workspace/importApiSource/action` | Imports resources from one or more API sources. |
+> | `Microsoft.ApiCenter/services/workspaces/importApiSource/action` | Imports resources from one or more API sources. |
 > | `Microsoft.ApiCenter/services/workspaces/linkApiSource/action` | Links an API source. |
 > | `Microsoft.ApiCenter/services/workspaces/write` | Creates or updates specified workspace. |
 > | `Microsoft.ApiCenter/services/workspaces/read` | Returns paginated collection of workspaces. |
 > | `Microsoft.ApiCenter/services/workspaces/read` | Returns the details of the specified workspace. |
 > | `Microsoft.ApiCenter/services/workspaces/read` | Checks if specified workspace exists |
 > | `Microsoft.ApiCenter/services/workspaces/delete` | Deletes specified workspace. |
+> | `Microsoft.ApiCenter/services/workspaces/agentEvaluationConfigurations/write` | Creates or updates specified agent evaluation configuration. |
+> | `Microsoft.ApiCenter/services/workspaces/agentEvaluationConfigurations/read` | Returns paginated collection of agent evaluation configurations. |
+> | `Microsoft.ApiCenter/services/workspaces/agentEvaluationConfigurations/read` | Returns the details of the specified agent evaluation configuration. |
+> | `Microsoft.ApiCenter/services/workspaces/agentEvaluationConfigurations/read` | Checks if specified agent evaluation configuration exists |
+> | `Microsoft.ApiCenter/services/workspaces/agentEvaluationConfigurations/delete` | Deletes specified agent evaluation configuration. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/write` | Creates or updates specified agent. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/read` | Returns paginated collection of agents. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/read` | Returns the details of the specified agent. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/read` | Checks if specified agent exists |
+> | `Microsoft.ApiCenter/services/workspaces/agents/delete` | Deletes specified agent. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/write` | Creates or updates specified agent version. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/read` | Returns paginated collection of agent versions. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/read` | Returns the details of the specified agent version. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/read` | Checks if specified agent version exists |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/delete` | Deletes specified agent version. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/write` | Creates or updates the metadata for the definition agent artifact. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/write` | Creates or updates the A2A agent card artifact. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/read` | Returns paginated collection of agent artifacts. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/read` | Returns the details of the specified agent artifact. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/read` | Checks if specified agent artifact exists |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/delete` | Deletes specified agent artifact. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/write` | Uploads a single file for the specified agent artifact. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/write` | Uploads a single file for the specified agent artifact via JSON inline content. |
+> | `Microsoft.ApiCenter/services/workspaces/agents/versions/artifacts/read` | Returns the base64-encoded file for the specified agent artifact (3 MiB). |
 > | `Microsoft.ApiCenter/services/workspaces/analyzerConfig/analysisExecutions/read` | Get analysis executions of  a particular analyzer configuration |
 > | `Microsoft.ApiCenter/services/workspaces/analyzerConfigs/write` | Creates or updates specified analyzer configuration. |
 > | `Microsoft.ApiCenter/services/workspaces/analyzerConfigs/read` | Returns the details of the specified analyzer configuration. |
@@ -110,11 +137,13 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | `Microsoft.ApiCenter/services/workspaces/environments/write` | Create or update environment |
 > | `Microsoft.ApiCenter/services/workspaces/environments/delete` | Deletes specified environment. |
 > | `Microsoft.ApiCenter/services/workspaces/environments/read` | Returns specified environment. |
-> | `Microsoft.ApiCenter/services/workspaces/languageModels/write` | Creates or updates specified language model. |
-> | `Microsoft.ApiCenter/services/workspaces/languageModels/read` | Returns paginated collection of language models. |
-> | `Microsoft.ApiCenter/services/workspaces/languageModels/read` | Returns the details of the specified language model. |
-> | `Microsoft.ApiCenter/services/workspaces/languageModels/read` | Checks if specified language model exists |
-> | `Microsoft.ApiCenter/services/workspaces/languageModels/delete` | Deletes specified language model. |
+> | `Microsoft.ApiCenter/services/workspaces/mcpRegistries/read` | Gets the MCP registry configuration for a workspace. |
+> | `Microsoft.ApiCenter/services/workspaces/mcpRegistries/write` | Creates or updates the MCP registry configuration for a workspace. |
+> | `Microsoft.ApiCenter/services/workspaces/models/write` | Creates or updates specified model. |
+> | `Microsoft.ApiCenter/services/workspaces/models/read` | Returns paginated collection of models. |
+> | `Microsoft.ApiCenter/services/workspaces/models/read` | Returns the details of the specified model. |
+> | `Microsoft.ApiCenter/services/workspaces/models/read` | Checks if specified model exists |
+> | `Microsoft.ApiCenter/services/workspaces/models/delete` | Deletes specified model. |
 > | `Microsoft.ApiCenter/services/workspaces/plugins/read` | Returns paginated collection of plugins |
 > | `Microsoft.ApiCenter/services/workspaces/plugins/write` | Create or update plugin |
 > | `Microsoft.ApiCenter/services/workspaces/plugins/delete` | Deletes specified plugin. |
@@ -125,6 +154,11 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | `Microsoft.ApiCenter/services/workspaces/resourceLinks/read` | Lists resource links with optional filters. |
 > | `Microsoft.ApiCenter/services/workspaces/resourceLinks/delete` | Deletes specified Resource Link. |
 > | `Microsoft.ApiCenter/services/workspaces/resourceLinks/read` | Checks if specified Resource Link exists. |
+> | `Microsoft.ApiCenter/services/workspaces/skillEvaluationConfigurations/write` | Creates or updates specified skill evaluation configuration. |
+> | `Microsoft.ApiCenter/services/workspaces/skillEvaluationConfigurations/read` | Returns paginated collection of skill evaluation configurations. |
+> | `Microsoft.ApiCenter/services/workspaces/skillEvaluationConfigurations/read` | Returns the details of the specified skill evaluation configuration. |
+> | `Microsoft.ApiCenter/services/workspaces/skillEvaluationConfigurations/read` | Checks if specified skill evaluation configuration exists |
+> | `Microsoft.ApiCenter/services/workspaces/skillEvaluationConfigurations/delete` | Deletes specified skill evaluation configuration. |
 > | `Microsoft.ApiCenter/services/workspaces/skills/write` | Creates or updates specified skill. |
 > | `Microsoft.ApiCenter/services/workspaces/skills/read` | Returns paginated collection of skills. |
 > | `Microsoft.ApiCenter/services/workspaces/skills/read` | Returns the details of the specified skill. |
@@ -136,6 +170,13 @@ Azure service: [Azure API Center](/azure/api-center/overview)
 > | `Microsoft.ApiCenter/services/workspaces/skills/artifacts/read` | Checks if specified skill artifact exists |
 > | `Microsoft.ApiCenter/services/workspaces/skills/artifacts/delete` | Deletes specified skill artifact. |
 > | `Microsoft.ApiCenter/services/workspaces/skills/artifacts/write` | Uploads a single file for the specified skill artifact. |
+> | `Microsoft.ApiCenter/services/workspaces/skills/artifacts/write` | Uploads a single file for the specified skill artifact via JSON inline content. |
+> | `Microsoft.ApiCenter/services/workspaces/skills/artifacts/read` | Returns the base64-encoded file for the specified skill artifact (3 MiB). |
+> | `Microsoft.ApiCenter/services/workspaces/skills/versions/write` | Creates or updates specified skill version. |
+> | `Microsoft.ApiCenter/services/workspaces/skills/versions/read` | Returns paginated collection of skill versions. |
+> | `Microsoft.ApiCenter/services/workspaces/skills/versions/read` | Returns the details of the specified skill version. |
+> | `Microsoft.ApiCenter/services/workspaces/skills/versions/read` | Checks if specified skill version exists |
+> | `Microsoft.ApiCenter/services/workspaces/skills/versions/delete` | Deletes specified skill version. |
 > | **DataAction** | **Description** |
 > | `Microsoft.ApiCenter/services/workspaces/search/action` | Search workspace for relevant results. |
 > | `Microsoft.ApiCenter/services/workspaces/apis/read` | Read APIs from an API Center. |
@@ -185,6 +226,12 @@ Azure service: [API Management](/azure/api-management/)
 > | `Microsoft.ApiManagement/service/users/action` | Register a new user |
 > | `Microsoft.ApiManagement/service/notifications/action` | Sends notification to a specified user |
 > | `Microsoft.ApiManagement/service/validatePolicies/action` | Validates Tenant Policy Restrictions |
+> | `Microsoft.ApiManagement/service/agents/read` | Lists a collection of agents in the specified service instance. or Gets the details of the agent specified by its identifier. |
+> | `Microsoft.ApiManagement/service/agents/write` | Creates or Updates an agent. or Updates an existing agent. |
+> | `Microsoft.ApiManagement/service/agents/delete` | Deletes the specified agent. |
+> | `Microsoft.ApiManagement/service/aigatewaytenants/read` | Lists a collection of AI Gateway tenants in the specified service instance. or Gets the details of the AI Gateway tenant specified by its identifier. |
+> | `Microsoft.ApiManagement/service/aigatewaytenants/write` | Creates or Updates an AI Gateway tenant. or Updates an existing AI Gateway tenant. |
+> | `Microsoft.ApiManagement/service/aigatewaytenants/delete` | Deletes the specified AI Gateway tenant. |
 > | `Microsoft.ApiManagement/service/apis/read` | Lists all APIs of the API Management service instance. or Gets the details of the API specified by its identifier. |
 > | `Microsoft.ApiManagement/service/apis/write` | Creates new or updates existing specified API of the API Management service instance. or Updates the specified API of the API Management service instance. |
 > | `Microsoft.ApiManagement/service/apis/delete` | Deletes the specified API of the API Management service instance. |
@@ -258,6 +305,7 @@ Azure service: [API Management](/azure/api-management/)
 > | `Microsoft.ApiManagement/service/backends/write` | Creates or Updates a backend. or Updates an existing backend. |
 > | `Microsoft.ApiManagement/service/backends/delete` | Deletes the specified backend. |
 > | `Microsoft.ApiManagement/service/backends/reconnect/action` | Notifies the APIM proxy to create a new connection to the backend after the specified timeout. If no timeout was specified, timeout of 2 minutes is used. |
+> | `Microsoft.ApiManagement/service/backends/listSecrets/action` | Gets the secrets of the backend specified by its identifier. |
 > | `Microsoft.ApiManagement/service/caches/read` | Lists a collection of all external Caches in the specified service instance. or Gets the details of the Cache specified by its identifier. |
 > | `Microsoft.ApiManagement/service/caches/write` | Creates or updates an External Cache to be used in Api Management instance. or Updates the details of the cache specified by its identifier. |
 > | `Microsoft.ApiManagement/service/caches/delete` | Deletes specific Cache. |
@@ -318,6 +366,14 @@ Azure service: [API Management](/azure/api-management/)
 > | `Microsoft.ApiManagement/service/loggers/read` | Lists a collection of loggers in the specified service instance. or Gets the details of the logger specified by its identifier. |
 > | `Microsoft.ApiManagement/service/loggers/write` | Creates or Updates a logger. or Updates an existing logger. |
 > | `Microsoft.ApiManagement/service/loggers/delete` | Deletes the specified logger. |
+> | `Microsoft.ApiManagement/service/modelProviders/read` | Lists a collection of model providers in the specified service instance. or Gets the details of the model provider specified by its identifier. |
+> | `Microsoft.ApiManagement/service/modelProviders/write` | Creates or Updates a model provider. or Updates an existing model provider. |
+> | `Microsoft.ApiManagement/service/modelProviders/delete` | Deletes the specified model provider. |
+> | `Microsoft.ApiManagement/service/modelProviders/listCredentials/action` | Returns credential metadata for a model provider. |
+> | `Microsoft.ApiManagement/service/modelProviders/models/read` | Lists a collection of models under a specific model provider. or Gets the details of the model specified by its identifier. |
+> | `Microsoft.ApiManagement/service/modelProviders/models/write` | Creates or Updates a model. or Updates an existing model. |
+> | `Microsoft.ApiManagement/service/modelProviders/models/delete` | Deletes the specified model. |
+> | `Microsoft.ApiManagement/service/models/read` | Lists all models across all model providers. |
 > | `Microsoft.ApiManagement/service/namedValues/read` | Lists a collection of named values defined within a service instance. or Gets the details of the named value specified by its identifier. |
 > | `Microsoft.ApiManagement/service/namedValues/write` | Creates or updates named value. or Updates the specific named value. |
 > | `Microsoft.ApiManagement/service/namedValues/delete` | Deletes specific named value from the API Management service instance. |
@@ -493,6 +549,11 @@ Azure service: [API Management](/azure/api-management/)
 > | `Microsoft.ApiManagement/service/tenants/keys/delete` | Delete key. This operation can be used to delete key. |
 > | `Microsoft.ApiManagement/service/tenants/keys/regeneratePrimaryKey/action` | Regenerate primary key |
 > | `Microsoft.ApiManagement/service/tenants/keys/regenerateSecondaryKey/action` | Regenerate secondary key |
+> | `Microsoft.ApiManagement/service/toolServers/read` | Lists a collection of tool servers in the specified service instance. or Gets the details of the tool server specified by its identifier. |
+> | `Microsoft.ApiManagement/service/toolServers/write` | Creates or Updates a tool server. or Updates an existing tool server. |
+> | `Microsoft.ApiManagement/service/toolServers/delete` | Deletes the specified tool server. |
+> | `Microsoft.ApiManagement/service/toolServers/listSecrets/action` | Returns the secret subtrees (header values, oauth2.clientSecret, openApi.specSource.contentBase64) for each endpoint on the tool server, keyed by namespace. Intended for round-trip add/edit/remove-endpoint scenarios where the caller needs the existing credentials to merge back into a subsequent PUT/PATCH. |
+> | `Microsoft.ApiManagement/service/toolServers/endpoints/oauth2/action` | Mints PKCE state and returns the IdP authorize URL plus redirect URI for the operator-driven OAuth 2.0 Authorization Code dance.<br>or Clears the persisted refresh_token and bumps the OAuth2 configVersion.<br>Idempotent; does not call the IdP. |
 > | `Microsoft.ApiManagement/service/users/read` | Lists a collection of registered users in the specified service instance. or Gets the details of the user specified by its identifier. |
 > | `Microsoft.ApiManagement/service/users/write` | Creates or Updates a user. or Updates the details of the user specified by its identifier. |
 > | `Microsoft.ApiManagement/service/users/delete` | Deletes specific user. |
@@ -552,6 +613,7 @@ Azure service: [API Management](/azure/api-management/)
 > | `Microsoft.ApiManagement/service/workspaces/backends/write` | Creates or Updates a Api Version Set. or Updates the details of the backend specified by its identifier. |
 > | `Microsoft.ApiManagement/service/workspaces/backends/delete` | Deletes specific Api Version Set. |
 > | `Microsoft.ApiManagement/service/workspaces/backends/reconnect/action` | Notifies the APIM proxy to create a new connection to the backend after the specified timeout. If no timeout was specified, timeout of 2 minutes is used. |
+> | `Microsoft.ApiManagement/service/workspaces/backends/listSecrets/action` | Gets the secrets of the backend specified by its identifier. |
 > | `Microsoft.ApiManagement/service/workspaces/certificates/read` | Lists a collection of all certificates in the specified workspace or Gets the details of the certificate specified by its identifier. |
 > | `Microsoft.ApiManagement/service/workspaces/certificates/write` | Creates or updates the certificate being used for authentication with the backend. |
 > | `Microsoft.ApiManagement/service/workspaces/certificates/delete` | Deletes specific certificate. |
@@ -565,9 +627,20 @@ Azure service: [API Management](/azure/api-management/)
 > | `Microsoft.ApiManagement/service/workspaces/groups/users/read` | Lists a collection of user entities associated with the group. |
 > | `Microsoft.ApiManagement/service/workspaces/groups/users/write` | Add existing user to existing group |
 > | `Microsoft.ApiManagement/service/workspaces/groups/users/delete` | Remove existing user from existing group. |
+> | `Microsoft.ApiManagement/service/workspaces/languageModels/read` | Lists a collection of language models. or Gets the details of the language model. |
+> | `Microsoft.ApiManagement/service/workspaces/languageModels/write` | Creates or Updates a language model. or Updates an existing language model. |
+> | `Microsoft.ApiManagement/service/workspaces/languageModels/delete` | Deletes the specified language model. |
 > | `Microsoft.ApiManagement/service/workspaces/loggers/read` | Lists a collection of loggers in the specified workspace. or Gets the details of the logger specified by its identifier. |
 > | `Microsoft.ApiManagement/service/workspaces/loggers/write` | Creates or Updates a logger. or Updates an existing logger. |
 > | `Microsoft.ApiManagement/service/workspaces/loggers/delete` | Deletes the specified logger. |
+> | `Microsoft.ApiManagement/service/workspaces/modelProviders/read` | Lists a collection of model providers under a workspace. or Gets the details of the model provider specified by its identifier. |
+> | `Microsoft.ApiManagement/service/workspaces/modelProviders/write` | Creates or Updates a model provider. or Updates an existing model provider. |
+> | `Microsoft.ApiManagement/service/workspaces/modelProviders/delete` | Deletes the specified model provider. |
+> | `Microsoft.ApiManagement/service/workspaces/modelProviders/listCredentials/action` | Returns metadata describing the configured credentials of a Custom-kind model provider without revealing secret values. |
+> | `Microsoft.ApiManagement/service/workspaces/modelProviders/models/read` | Lists a collection of models under a specific model provider. or Gets the details of the model specified by its identifier. |
+> | `Microsoft.ApiManagement/service/workspaces/modelProviders/models/write` | Creates or Updates a model under a model provider. or Updates an existing model. |
+> | `Microsoft.ApiManagement/service/workspaces/modelProviders/models/delete` | Deletes the specified model. |
+> | `Microsoft.ApiManagement/service/workspaces/models/read` | Lists all models across all model providers in a workspace. |
 > | `Microsoft.ApiManagement/service/workspaces/namedValues/read` | Lists a collection of named values defined within a service instance. or Gets the details of the named value specified by its identifier. |
 > | `Microsoft.ApiManagement/service/workspaces/namedValues/write` | Creates or updates named value. or Updates the specific named value. |
 > | `Microsoft.ApiManagement/service/workspaces/namedValues/delete` | Deletes specific named value from the API Management service instance. |
@@ -631,6 +704,11 @@ Azure service: [API Management](/azure/api-management/)
 > | `Microsoft.ApiManagement/service/workspaces/tags/productLinks/read` | Lists a collection of Tag-product links in the specified service instance. or Get Tag-product details. |
 > | `Microsoft.ApiManagement/service/workspaces/tags/productLinks/write` | Creates or Updates a Tag-product link. |
 > | `Microsoft.ApiManagement/service/workspaces/tags/productLinks/delete` | Delete Tag-product link. |
+> | `Microsoft.ApiManagement/service/workspaces/toolServers/read` | Lists a collection of tool servers under a workspace. or Gets the details of the tool server specified by its identifier. |
+> | `Microsoft.ApiManagement/service/workspaces/toolServers/write` | Creates or Updates a tool server. or Updates an existing tool server. |
+> | `Microsoft.ApiManagement/service/workspaces/toolServers/delete` | Deletes the specified tool server. |
+> | `Microsoft.ApiManagement/service/workspaces/toolServers/listSecrets/action` | Returns the secret subtrees (header values, oauth2.clientSecret, openApi.specSource.contentBase64) for each endpoint on the tool server, keyed by namespace. Intended for round-trip add/edit/remove-endpoint scenarios where the caller needs the existing credentials to merge back into a subsequent PUT/PATCH. |
+> | `Microsoft.ApiManagement/service/workspaces/toolServers/endpoints/oauth2/action` | Mints PKCE state and returns the IdP authorize URL plus redirect URI for the operator-driven OAuth 2.0 Authorization Code dance.<br>or Clears the persisted refresh_token and bumps the OAuth2 configVersion.<br>Idempotent; does not call the IdP. |
 > | **DataAction** | **Description** |
 > | `Microsoft.ApiManagement/service/gateways/getConfiguration/action` | Fetches configuration for specified self-hosted gateway |
 > | `Microsoft.ApiManagement/service/workspaces/kubernetesManaged/agent/syncConfiguration/action` | Syncs configuration from Kubernetes clusters by using an agent for specified Kubernetes-managed workspace |
@@ -765,7 +843,7 @@ Azure service: [Azure Communication Services](/azure/communication-services/over
 
 ## Microsoft.DurableTask
 
-Azure service: [Durable Functions](/azure/azure-functions/durable-functions/durable-functions-overview)
+Azure service: [Durable Functions](/azure/durable-task/durable-functions/durable-functions-overview)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -792,6 +870,9 @@ Azure service: [Durable Functions](/azure/azure-functions/durable-functions/dura
 > | `Microsoft.DurableTask/schedulers/taskhubs/write` | Create or Update Durable Task Scheduler Task Hub |
 > | `Microsoft.DurableTask/schedulers/taskhubs/delete` | Delete Durable Task Scheduler Task Hub |
 > | `Microsoft.DurableTask/schedulers/taskhubs/read` | Read Durable Task Scheduler Task Hub |
+> | `Microsoft.DurableTask/schedulers/transparentDataEncryptions/write` | Create or Replace a Durable Task Scheduler Transparent Data Encryptiony |
+> | `Microsoft.DurableTask/schedulers/transparentDataEncryptions/delete` | Delete a Durable Task Scheduler Transparent Data Encryptiony |
+> | `Microsoft.DurableTask/schedulers/transparentDataEncryptions/read` | Read a Durable Task Scheduler Transparent Data Encryptiony |
 > | **DataAction** | **Description** |
 > | `Microsoft.DurableTask/schedulers/taskhubs/orchestrations/read` | Gets or list orchestrations metadata, including payloads |
 > | `Microsoft.DurableTask/schedulers/taskhubs/orchestrations/manage/action` | Manages orchestrations |
@@ -1272,6 +1353,16 @@ Azure service: [Logic Apps](/azure/logic-apps/)
 > | Action | Description |
 > | --- | --- |
 > | `Microsoft.Logic/register/action` | Registers the Microsoft.Logic resource provider for a given subscription. |
+> | `Microsoft.Logic/automationProjects/read` | Reads the automation project. |
+> | `Microsoft.Logic/automationProjects/write` | Writes the automation project. |
+> | `Microsoft.Logic/automationProjects/delete` | Deletes the automation project. |
+> | `Microsoft.Logic/automationProjects/applications/read` | Reads the automation project application. |
+> | `Microsoft.Logic/automationProjects/applications/write` | Writes the automation project application. |
+> | `Microsoft.Logic/automationProjects/applications/delete` | Deletes the automation project application. |
+> | `Microsoft.Logic/automationProjects/applications/operationStatuses/read` | Reads the automation project application operation status. |
+> | `Microsoft.Logic/automationProjects/operationStatuses/read` | Reads the automation project operation status. |
+> | `Microsoft.Logic/automationProjects/principals/read` | Reads the automation project principal. |
+> | `Microsoft.Logic/automationProjects/principals/write` | Writes the automation project principal. |
 > | `Microsoft.Logic/businessprocesses/read` | Reads the business process. |
 > | `Microsoft.Logic/businessprocesses/write` | Writes the business process. |
 > | `Microsoft.Logic/businessprocesses/delete` | Deletes the business process. |

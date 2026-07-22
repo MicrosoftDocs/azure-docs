@@ -1,7 +1,7 @@
 ---
 title: Rendering overview
 description: Introduction of using Azure for rendering and an overview of Azure Batch rendering capabilities
-ms.date: 07/01/2025
+ms.date: 06/16/2026
 ms.topic: how-to
 # Customer intent: "As a media production manager, I want to utilize Azure's rendering capabilities, so that I can efficiently scale my rendering workflows and reduce project turnaround times while managing costs."
 ---
@@ -12,7 +12,7 @@ Rendering is the process of taking 3D models and converting them into 2D images.
 
 The rendering workload is heavily used for special effects (VFX) in the Media and Entertainment industry. Rendering is also used in many other industries such as advertising, retail, oil and gas, and manufacturing.
 
-The process of rendering is computationally intensive; there can be many frames/images to produce and each image can take many hours to render.  Rendering is therefore a perfect batch processing workload that can use Azure to run many renders in parallel and utilize a wide range of hardware, including GPUs.
+The process of rendering is computationally intensive; there can be many frames/images to produce and each image can take many hours to render. Rendering is therefore a perfect batch processing workload that can use Azure to run many renders in parallel and use a wide range of hardware, including GPUs.
 
 ## Why use Azure for rendering?
 
@@ -29,7 +29,7 @@ For many reasons, rendering is a workload perfectly suited for Azure:
   * Cater for bursts due to unexpected changes; scale higher if there are unexpected changes late in a project and those changes need to be processed on a tight schedule.
 * Choose from a wide selection of hardware according to application, workload, and timeframe:
   * There’s a wide selection of hardware available in Azure that can be allocated and managed with Batch.
-  * Depending on the project, the requirement may be for the best price/performance or the best overall performance. Different scenes and/or rendering applications can have different memory requirements. Some rendering applications can use GPUs for the best performance or certain features. 
+  * Depending on the project, the requirement might be for the best price/performance or the best overall performance. Different scenes and/or rendering applications can have different memory requirements. Some rendering applications can use GPUs for the best performance or certain features.
 * Low-priority or [Azure Spot VMs](https://azure.microsoft.com/pricing/spot/) reduce cost:
   * Low-priority and Spot VMs are available for a large discount compared to standard VMs and are suitable for some job types.
   
@@ -45,11 +45,11 @@ Azure infrastructure and services are used to create a hybrid environment where 
 
 ## No existing render farm
 
-Client workstations may be performing rendering, but the rendering load is increasing and it's taking too long to solely use workstation capacity.
+Client workstations might be performing rendering, but the rendering load is increasing and it's taking too long to solely use workstation capacity.
 
 There are two main options available:
 
-* Deploy an on-premises render manager, such as Royal Render, and configure a hybrid environment to use Azure when further capacity or performance is required. A render manager is specially tailored for rendering workloads and will include plug-ins for the popular client applications, enabling easy submission of rendering jobs.
+* Deploy an on-premises render manager, such as Royal Render, and configure a hybrid environment to use Azure when further capacity or performance is required. A render manager is specially tailored for rendering workloads and includes plug-ins for the popular client applications, enabling easy submission of rendering jobs.
 
 * A custom solution using Azure Batch to allocate and manage the compute capacity and providing the job scheduling to run the render jobs.
 

@@ -3,7 +3,7 @@ title: Generate load from multiple regions
 titleSuffix: Azure Load Testing
 description: Simulate realistic user load by running multi-region load tests using JMeter and Locust in Azure App Testing.
 services: load-testing
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.author: nicktrog
 ms.custom: references_regions, build-2024
 author: ntrogh

@@ -1103,7 +1103,7 @@ The STAC Collection configuration defines the core metadata for this NAIP collec
       "roles": [
         "metadata"
       ],
-      "title": "FGDC Metdata"
+      "title": "FGDC Metadata"
     },
     "thumbnail": {
       "type": "image/jpeg",

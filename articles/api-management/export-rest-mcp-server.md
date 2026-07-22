@@ -1,11 +1,9 @@
 ---
 title: Expose REST API as MCP server - Azure API Management
 description: Learn how to expose a REST API in Azure API Management as an MCP server, enabling API operations as tools accessible via the Model Context Protocol (MCP).
-author: dlepow
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 04/28/2026
-ms.author: danlep
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
 ms.custom:

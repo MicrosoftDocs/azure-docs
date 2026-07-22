@@ -189,7 +189,7 @@ $img = <image-name>
 
 $lb = Get-AzLoadBalancer -ResourceGroupName $rsg -Name $lbn
 
-New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualNetworkName $vnt -SubnetName $sub -LoadBalancerName $lb -UpgradePolicyMode $pol
+New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualNetworkName $vnt -SubnetName $sub -LoadBalancerName $lb.Name -UpgradePolicyMode $pol
 
 ```
 
@@ -216,7 +216,7 @@ $img = "Ubuntu2204"
 
 $lb = Get-AzLoadBalancer -ResourceGroupName $rsg -Name $lbn
 
-New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualNetworkName $vnt -SubnetName $sub -LoadBalancerName $lb -UpgradePolicyMode $pol -BackendPoolName $bep -ImageName $img
+New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualNetworkName $vnt -SubnetName $sub -LoadBalancerName $lb.Name -UpgradePolicyMode $pol -BackendPoolName $bep -ImageName $img
 
 ```
 > [!NOTE]

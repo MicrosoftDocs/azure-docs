@@ -28,7 +28,7 @@ After you create a workspace, you can:
 
 Before you begin, make sure the following requirements are met:
 
-- An active [Azure subscription](https://aka.ms/discovery/publicpreviewportal) that is enabled for Microsoft Discovery **Public Preview** support.
+- An active [Azure subscription](https://portal.azure.com) that is enabled for Microsoft Discovery **Public Preview** support.
 - **Microsoft Discovery Platform Administrator (Preview)** role or **Owner** role on the resource group.
 - A virtual network with the required subnets (`workspaceSubnet`, `privateEndpointSubnet`, `agentSubnet`). For more information, see [Quickstart: Get started with Microsoft Discovery Infrastructure](quickstart-infrastructure-portal.md#c-create-a-virtual-network-and-subnets).
 - A **user-assigned managed identity (UAMI)** with the required role assignments. For more information, see [Create a User Assigned Managed Identity (UAMI)](quickstart-infrastructure-portal.md#d-create-a-user-assigned-managed-identity-uami).
@@ -40,7 +40,7 @@ For a complete step-by-step guide to creating a workspace along with all prerequ
 
 The following steps summarize the workspace creation process:
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter **Microsoft Discovery Workspaces**.
 1. Select **+ Create**.
 1. On the **Basics** tab, specify:
@@ -78,7 +78,7 @@ You can attach additional supercomputers to a workspace or detach existing ones.
 
 #### Attach a supercomputer
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter **Microsoft Discovery Workspaces** and select your workspace.
 1. In the left navigation pane, under **Settings**, select **Supercomputers**.
 1. Select **Add Supercomputer**.
@@ -87,7 +87,7 @@ You can attach additional supercomputers to a workspace or detach existing ones.
 
 #### Detach a supercomputer
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter **Microsoft Discovery Workspaces** and select your workspace.
 1. In the left navigation pane, under **Settings**, select **Supercomputers**.
 1. Select the supercomputer you want to detach.
@@ -101,7 +101,7 @@ You can attach additional supercomputers to a workspace or detach existing ones.
 
 You can enable or disable public network access for a workspace after creation.
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter **Microsoft Discovery Workspaces** and select your workspace.
 1. In the left navigation pane, under **Settings**, select **Networking**.
 1. Select **Enable from all networks** or **Disabled** based on your requirements.
@@ -118,7 +118,7 @@ The workspace overview in the Azure portal provides access to the key resources 
 
 To view the supercomputers attached to your workspace:
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter **Microsoft Discovery Workspaces** and select your workspace.
 1. In the left navigation pane, under **Settings**, select **Supercomputers**.
 
@@ -152,7 +152,7 @@ Before you delete a workspace, ensure the following:
 
 To delete a workspace:
 
-1. Sign in to the [Azure portal](https://aka.ms/discovery/publicpreviewportal).
+1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In the search bar, enter **Microsoft Discovery Workspaces** and select your workspace.
 1. On the **Overview** page, select **Delete**.
 1. Confirm the deletion by typing the workspace name.

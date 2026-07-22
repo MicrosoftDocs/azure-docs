@@ -103,7 +103,7 @@ Not all types of subscriptions support billing ownership transfer. You can trans
 
 | Offer Name (subscription type) | Microsoft Offer ID |
 |---|---|
-| [Pay-as-you-go](https://azure.microsoft.com/offers/ms-azr-0003p/) | MS-AZR-0003P |
+| [Pay-as-you-go](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn) | MS-AZR-0003P |
 | [Visual Studio Enterprise subscribers](https://azure.microsoft.com/offers/ms-azr-0063p/)¹ | MS-AZR-0063P |
 | [Visual Studio Professional subscribers](https://azure.microsoft.com/offers/ms-azr-0059p/)¹ | MS-AZR-0059P |
 | [Action Pack](https://azure.microsoft.com/offers/ms-azr-0025p/)¹ | MS-AZR-0025P¹ |

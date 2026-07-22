@@ -226,6 +226,9 @@ To create a replica-scoped volume and mount it in a container, deploy a new revi
 
 You can mount a file share from [Azure Files](../storage/files/index.yml) as a volume in a container.
 
+> [!IMPORTANT]
+> Azure Container Apps supports only *classic* Azure file shares, which are created within a storage account (the `Microsoft.Storage/storageAccounts/fileServices/shares` resource type). Container Apps doesn't support the newer `Microsoft.FileShares` top-level resource type. If you try to mount a `Microsoft.FileShares` resource, the operation fails. To create a supported file share, see [Create a classic Azure file share](../storage/files/create-classic-file-share.md).
+
 Azure Files storage has the following characteristics:
 
 * Files written under the mount location are persisted to the file share.
@@ -242,7 +245,7 @@ In the Azure portal, open your **Container App**.
 In the left navigation pane, under **Settings**, select **Storage mounts**.  
 
 From here you can add a new mount:  
-1. Choose the storage type (**Azure File share** or **Azure Blob**).  
+1. Choose **Azure File share** as the storage type.  
 2. Provide the required configuration (storage account, share name, access mode).  
 3. Save the mount.  
 4. Create and **deploy** a new revision of your container app to apply the changes.
@@ -260,7 +263,7 @@ From here you can add a new mount:
 | Requirement | Instructions |
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
-| Azure Storage account | [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-cli#create-a-storage-account). |
+| Azure Storage account | [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-cli#create-a-storage-account) with a [classic Azure file share](../storage/files/create-classic-file-share.md). |
 | Azure Container Apps environment | [Create a container apps environment](environment.md). |
 
 ### Configuration

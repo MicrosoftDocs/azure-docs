@@ -1,11 +1,11 @@
 ---
 title: 'Configure P2S Azure VPN Client - Microsoft Entra ID authentication - macOS'
 description: Learn how to configure macOS client computers to connect to Azure using the Azure VPN Client. These steps are for gateways configured to use Microsoft Entra ID authentication.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 02/10/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 # Customer intent: "As a macOS user, I want to configure my client to connect to Azure using P2S VPN with Microsoft Entra ID authentication, so that I can securely access the Azure virtual network."
 ---

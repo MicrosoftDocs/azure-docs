@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-signalr-service
 ms.topic: reference
-ms.date: 06/09/2022
+ms.date: 06/04/2026
 ---
 
 # Azure SignalR Service data plane REST API - v1-preview
@@ -15,7 +15,7 @@ This article contains the obsoleted v1-preview version REST APIs for Azure Signa
 ## Available APIs
 
 | API | Path |
-| ---- | ---------- | 
+| ---- | ---------- |
 | [post /api/v1-preview/hub/{hub}/user/{id}](#post-apiv1-previewhubhubuserid) | `POST /api/v1-preview/hub/{hub}/user/{id}` |
 | [post /api/v1-preview/hub/{hub}/users/{userList}](#post-apiv1-previewhubhubusersuserlist) | `POST /api/v1-preview/hub/{hub}/users/{userList}` |
 | [post /api/v1-preview/hub/{hub}](#post-apiv1-previewhubhub) | `POST /api/v1-preview/hub/{hub}` |
@@ -34,7 +34,7 @@ Send a message to a single user.
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| id | path | Target user Id. | Yes | string |
+| id | path | Target user ID. | Yes | string |
 | message | body |  | Yes | [Message](#message) |
 
 ##### Responses
@@ -55,7 +55,7 @@ Send a message to multiple users.
 | Name | Located in | Description | Required | Schema |
 | ---- | ---------- | ----------- | -------- | ---- |
 | hub | path | Target hub name, which should start with alphabetic characters and only contain alpha-numeric characters or underscore. | Yes | string |
-| userList | path | Comma-separated list of user Ids. | Yes | string |
+| userList | path | Comma-separated list of user IDs. | Yes | string |
 | message | body |  | Yes | [Message](#message) |
 
 ##### Responses

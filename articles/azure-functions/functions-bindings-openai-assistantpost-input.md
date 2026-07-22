@@ -28,10 +28,14 @@ For information on setup and configuration details of the Azure OpenAI extension
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"  
 This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="58-68"::: 
+:::code language="csharp" source="~/functions-openai-extension/samples/assistant/csharp-ooproc/AssistantApis.cs" range="58-68":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"
@@ -167,6 +171,8 @@ The binding supports these properties, which are defined in your code:
 ## Usage
 
 See the [Example section](#example) for complete examples. 
+
+[!INCLUDE [functions-openai-connections](../../includes/functions-openai-connections.md)]
 
 ## Related content
 

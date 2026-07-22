@@ -1,13 +1,13 @@
 ---
 title: Configure MQTT broker authorization
 description: Configure MQTT broker authorization using BrokerAuthorization.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 04/30/2026
+ms.date: 07/10/2026
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ms.service: azure-iot-operations
@@ -50,7 +50,7 @@ The following example shows how to create a BrokerAuthorization resource by usin
 1. In the Azure portal, go to your IoT Operations instance.
 1. Under **Components**, select **MQTT Broker**.
 1. Select the **Authorization** tab.
-1. Choose an existing authentication policy or create a new one by selecting **Create authorization policy**.
+1. Choose an existing authorization policy or create a new one by selecting **Create authorization policy**.
 
     :::image type="content" source="media/howto-configure-authorization/authorization-rules.png" alt-text="Screenshot that shows using the Azure portal to create broker authorization rules." lightbox="media/howto-configure-authorization/authorization-rules.png":::
 
@@ -70,36 +70,36 @@ In this example, assume a configuration file named `my-authz-policy.json` with t
     "cache": "Enabled",
     "rules": [
       {
-        "brokerResources": [
-          {
-            "clientIds": [],
-            "method": "Connect",
-            "topics": []
-          },
-          {
-            "clientIds": [],
-            "method": "Publish",
-            "topics": [
-              "odd-numbered-orders"
-            ]
-          },
-          {
-            "clientIds": [],
-            "method": "Subscribe",
-            "topics": [
-              "orders"
-            ]
-          }
-        ],
         "principals": {
+          "clientIds": [
+            "temperature-sensor",
+            "humidity-sensor"
+          ],
           "attributes": [
             {
-              "group": "authz-sat"
+              "city": "seattle",
+              "organization": "contoso"
             }
-          ],
-          "clientIds": [],
-          "usernames": []
-        }
+          ]
+        },
+        "brokerResources": [
+          {
+            "method": "Connect"
+          },
+          {
+            "method": "Publish",
+            "topics": [
+              "/sensor/{principal.clientId}",
+              "/sensor/{principal.attributes.organization}"
+            ]
+          },
+          {
+            "method": "Subscribe",
+            "topics": [
+              "/commands/{principal.attributes.organization}"
+            ]
+          }
+        ]
       }
     ]
   }
@@ -121,7 +121,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -129,12 +129,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2024-11-01' = {
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2026-03-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -226,7 +226,7 @@ To create this BrokerAuthorization resource, apply the YAML manifest to your Kub
 
 ---
 
-This broker authorization allows clients with the client IDs `temperature-sensor` or `humidity-sensor`, or clients with the attributes `organization`, with the values `contoso` and `city`, and with the value `seattle`, to:
+This broker authorization rule grants clients with the client IDs `temperature-sensor` or `humidity-sensor`, or clients with the attributes `organization` with the value `contoso` and `city` with the value `seattle`, the ability to:
 
 - Connect to the broker.
 - Publish messages to topics scoped with their client IDs and organization. For example:
@@ -358,7 +358,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -366,12 +366,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2024-11-01' = {
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2026-03-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -583,7 +583,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -591,12 +591,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2024-11-01' = {
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2026-03-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -939,7 +939,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -947,12 +947,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2024-11-01' = {
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2026-03-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -1074,7 +1074,7 @@ To reduce authorization overhead on high-throughput topics, enable in-memory cac
 
 # [Azure CLI](#tab/cli)
 
-Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-port-add) command to disable authorization for a port. To disable authentication, don't include the `--authz-ref` parameter.
+Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-port-add) command to disable authorization for a port. To disable authorization, don't include the `--authz-ref` parameter.
 
 ```azurecli
 az iot ops broker listener port add --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --listener <ListenerName> --port <ListenerServicePort>

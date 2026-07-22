@@ -3,9 +3,10 @@ title: Known Issues
 description: Known issues for the MQTT broker, connector for OPC UA, OPC PLC simulator, data flows, and operations experience web UI.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
-ms.date: 04/17/2026
+ms.date: 07/01/2026
 ---
 
 # Known issues for Azure IoT Operations
@@ -133,6 +134,10 @@ N/A
 
 ---
 
+Fixed in release 2605 and later
+
+---
+
 The connector doesn't receive a notification when device credentials stored in Azure Key Vault are updated. As a result, the connector continues to use the old credentials until it's restarted.
 
 Workaround: Restart the connector to force it to retrieve the updated credentials from Azure Key Vault.
@@ -190,6 +195,27 @@ Fixed in version 1.2.154 (2512) and later
 Users may encounter an error regarding expired webhook certificates with Akri when deleting/upgrading instances of Azure IoT Operations or performing CRUD operations on Akri resources such as *Connector* and *ConnectorTemplates* instances. 
 
 Workaround: run `kubectl delete pod -n azure-iot-operations aio-akri-webhook-0 --ignore-not-found` to delete and restart the webhook pods to enable the pod to pick up the new certificate.
+
+### Device inbound endpoints don't enforce authentication when none is specified
+
+---
+
+Issue ID: 7337
+
+---
+
+Log signature: N/A
+
+---
+
+The Azure Device Registry Device resource schema lists certificate-based (X.509) authentication as the default authentication method for an inbound endpoint. However, the authentication property itself is nullable, so it's possible to create a device inbound endpoint without specifying any authentication method.
+
+When authentication is omitted, the implied default of X.509 certificates isn't applied at runtime. The device inbound endpoint is created with no authentication enforced.
+
+Recommendations:
+
+- Always communicate with device inbound endpoints over an authenticated protocol.
+- Explicitly configure certificate-based authentication, or another supported authentication method, in the authentication property of every inbound endpoint. Don't rely on the schema default — it isn't applied implicitly.
 
 ## Connector for OPC UA issues
 
@@ -275,6 +301,39 @@ eventGroups:
         ttl: 5
       target: Mqtt
 ```
+
+## Connector for MQTT issues
+
+### MQTT connector template version mismatch during update
+
+---
+
+Issue ID: 1533
+
+---
+
+Log signature: N/A
+
+---
+
+When updating to version 2605, existing MQTT connector templates may display mismatched metadata versions in the portal. To resolve, delete and recreate the connector template. Alternatively, use the Azure CLI to update the connector.
+
+### MQTT connector can't connect to external MQTT brokers that have private IP addresses
+
+---
+
+Issue ID: 7791
+
+---
+
+Log signature: N/A
+
+---
+
+Starting in release 2605, the MQTT connector can't connect to external MQTT brokers that have private IP addresses.  
+
+This issue is scheduled to be fully resolved in release 2607.
+
 
 ## Data flows issues
 

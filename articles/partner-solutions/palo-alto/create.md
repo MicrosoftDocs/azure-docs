@@ -1,7 +1,8 @@
 ---
 title: Create a Cloud Next-Generation Firewall (NGFW) by Palo Alto Networks
 description: Learn how to use the Azure portal to create a Cloud NGFW (Next-Generation Firewall) by Palo Alto Networks.
-
+author: BNandiniMSFT
+ms.author: bnandini
 ms.custom: references_regions
 ms.topic: quickstart
 ms.date: 06/27/2025

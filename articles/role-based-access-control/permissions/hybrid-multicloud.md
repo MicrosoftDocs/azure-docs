@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -111,6 +111,7 @@ Azure service: [Azure Local](/azure-stack/hci/)
 > | `Microsoft.AzureStackHCI/EdgeMachines/Delete` | Deletes EdgeMachine resource |
 > | `Microsoft.AzureStackHCI/EdgeMachines/Read` | Gets EdgeMachines resources |
 > | `Microsoft.AzureStackHCI/EdgeMachines/Write` | Creates or updates EdgeMachine resource |
+> | `Microsoft.AzureStackHCI/EdgeMachines/RefreshSecuritySettings/Action` | Triggers an on-demand sync of EdgeMachine SecuritySettings compliance status from Guest Configuration RP, creating the SecuritySettings child resource if it does not already exist. |
 > | `Microsoft.AzureStackHCI/EdgeMachines/Validate/Action` | Validates EdgeMachine Resources |
 > | `Microsoft.AzureStackHCI/EdgeMachines/Disks/Read` | Gets EdgeMachine Disk resources |
 > | `Microsoft.AzureStackHCI/EdgeMachines/Disks/Jobs/Read` | Reads EdgeMachine Disk Job Resource |
@@ -130,6 +131,13 @@ Azure service: [Azure Local](/azure-stack/hci/)
 > | `Microsoft.AzureStackHCI/EdgeMachines/NetworkAdapters/Jobs/Read` | Reads EdgeMachine Network Adapter Job Resource |
 > | `Microsoft.AzureStackHCI/EdgeMachines/NetworkAdapters/Jobs/Write` | Writes EdgeMachine Network Adapter Job Resource |
 > | `Microsoft.AzureStackHCI/EdgeMachines/NetworkAdapters/Jobs/Delete` | Deletes EdgeMachine Network Adapter Job Resource |
+> | `Microsoft.AzureStackHCI/EdgeMachines/SecuritySettings/Read` | Gets EdgeMachine SecuritySettings |
+> | `Microsoft.AzureStackHCI/EdgeMachines/SecuritySettings/Write` | Creates or updates SecuritySettings resource for EdgeMachine |
+> | `Microsoft.AzureStackHCI/EdgeMachines/SecuritySettings/Delete` | Deletes SecuritySettings resource for EdgeMachine |
+> | `Microsoft.AzureStackHCI/EdgeMachines/SecuritySettings/Refresh/Action` | Triggers an on-demand sync of EdgeMachine SecuritySettings compliance status from Guest Configuration RP. |
+> | `Microsoft.AzureStackHCI/EdgeMachines/Updates/Read` | Reads EdgeMachine Updates Resource |
+> | `Microsoft.AzureStackHCI/EdgeMachines/Updates/Write` | Writes EdgeMachine Updates Resource |
+> | `Microsoft.AzureStackHCI/EdgeMachines/Updates/Delete` | Deletes EdgeMachine Updates Resource |
 > | `Microsoft.AzureStackHCI/EdgeMachines/Volumes/Read` | Gets EdgeMachine Volume resources |
 > | `Microsoft.AzureStackHCI/GalleryImages/Delete` | Deletes gallery images resource |
 > | `Microsoft.AzureStackHCI/GalleryImages/Write` | Creates/Updates gallery images resource |
@@ -138,6 +146,7 @@ Azure service: [Azure Local](/azure-stack/hci/)
 > | `Microsoft.AzureStackHCI/loadBalancers/Write` | Creates/Updates loadBalancers resource |
 > | `Microsoft.AzureStackHCI/loadBalancers/Read` | Gets/Lists loadBalancers resource |
 > | `Microsoft.AzureStackHCI/loadBalancers/Delete` | Delete loadBalancers resource |
+> | `Microsoft.AzureStackHCI/loadBalancers/join/action` | Join loadBalancers resource |
 > | `Microsoft.AzureStackHCI/Locations/ValidateOwnershipVouchers/Action` | Validates ownership vouchers for Azure Stack HCI resources |
 > | `Microsoft.AzureStackHCI/LogicalNetworks/Delete` | Deletes logical networks resource |
 > | `Microsoft.AzureStackHCI/LogicalNetworks/Write` | Creates/Updates logical networks resource |
@@ -187,6 +196,7 @@ Azure service: [Azure Local](/azure-stack/hci/)
 > | `Microsoft.AzureStackHCI/VirtualMachineInstances/Restart/Action` | Restarts virtual machine instance resource |
 > | `Microsoft.AzureStackHCI/VirtualMachineInstances/Start/Action` | Starts virtual machine instance resource |
 > | `Microsoft.AzureStackHCI/VirtualMachineInstances/Stop/Action` | Stops virtual machine instance resource |
+> | `Microsoft.AzureStackHCI/VirtualMachineInstances/PowerOff/Action` | Powers off virtual machine instance resource |
 > | `Microsoft.AzureStackHCI/VirtualMachineInstances/Pause/Action` | Pauses virtual machine instance resource |
 > | `Microsoft.AzureStackHCI/VirtualMachineInstances/Save/Action` | Saves virtual machine instance resource |
 > | `Microsoft.AzureStackHCI/VirtualMachineInstances/Delete` | Deletes virtual machine instance resource |
@@ -296,6 +306,7 @@ Azure service: [Azure Arc](/azure/azure-arc/)
 > | `Microsoft.HybridCompute/privateLinkScopes/read` | Read any Azure Arc privateLinkScopes |
 > | `Microsoft.HybridCompute/privateLinkScopes/write` | Writes an Azure Arc privateLinkScopes |
 > | `Microsoft.HybridCompute/privateLinkScopes/delete` | Deletes an Azure Arc privateLinkScopes |
+> | `Microsoft.HybridCompute/privateLinkScopes/enableHybridConnectivity/action` | Enable Hybrid Connectivity on Azure Arc privateLinkScopes |
 > | `Microsoft.HybridCompute/privateLinkScopes/networkSecurityPerimeterAssociationProxies/read` | Reads any Azure Arc networkSecurityPerimeterAssociationProxies |
 > | `Microsoft.HybridCompute/privateLinkScopes/networkSecurityPerimeterAssociationProxies/write` | Writes an Azure Arc networkSecurityPerimeterAssociationProxies |
 > | `Microsoft.HybridCompute/privateLinkScopes/networkSecurityPerimeterAssociationProxies/delete` | Deletes an Azure Arc networkSecurityPerimeterAssociationProxies |

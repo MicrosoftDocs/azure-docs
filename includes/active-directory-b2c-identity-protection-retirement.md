@@ -1,6 +1,6 @@
 ---
 author: garrodonnell
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.subservice: b2c
 ms.topic: include
 ms.date: 03/09/2026

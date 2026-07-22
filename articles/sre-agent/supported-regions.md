@@ -3,7 +3,7 @@ title: Supported Regions for Azure SRE Agent
 description: Find Azure regions where Azure SRE Agent is available and learn how to check region availability for your subscription.
 ms.topic: reference
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 07/15/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -21,9 +21,15 @@ The following table lists the Azure regions where you can deploy Azure SRE Agent
 
 | Region | Canonical name | Geographic area |
 |---|---|---|
-| East US 2 | `eastus2` | United States |
-| Sweden Central | `swedencentral` | Europe |
 | Australia East | `australiaeast` | Asia Pacific |
+| Canada Central | `canadacentral` | Canada |
+| East US 2 | `eastus2` | United States |
+| France Central | `francecentral` | Europe |
+| Korea Central | `koreacentral` | Asia Central |
+| South Africa North | `southafricanorth` | Africa |
+| Southeast Asia | `southeastasia` | Asia Pacific |
+| Sweden Central | `swedencentral` | Europe |
+| UK South | `uksouth` | Europe |
 
 ## Check your available regions
 

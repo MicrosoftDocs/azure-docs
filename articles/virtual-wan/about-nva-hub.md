@@ -5,7 +5,7 @@ description: Learn about Network Virtual Appliances in a Virtual WAN hub.
 author: wtnlee
 ms.service: azure-virtual-wan
 ms.topic: concept-article
-ms.date: 12/10/2024
+ms.date: 05/26/2026
 ms.author: wellee
 ms.custom: references_regions
 # Customer intent: As someone with a networking background, I want to learn about Network Virtual Appliances in a Virtual WAN hub.
@@ -34,8 +34,13 @@ Deploying NVAs into a Virtual WAN hub provides the following benefits:
 ## <a name="partners"></a> Partners
 
 The following tables describe the Network Virtual Appliances that are eligible to be deployed in the Virtual WAN hub and the relevant use cases (connectivity and/or firewall). The Virtual WAN NVA Vendor Identifier column corresponds to the NVA Vendor that is displayed in Azure portal when you deploy a new NVA or view existing NVAs deployed in the Virtual hub.
+
+> [!NOTE]
+> New deployments of VMware SD-WAN in Azure Virtual WAN will be blocked at the end of June 2026. While existing deployments will continue to work, use Arista Velocloud SD-WAN for new NVA deployments.
+
  
 [!INCLUDE [NVA partners](../../includes/virtual-wan-nva-hub-partners.md)]
+
 
 ## Basic use cases
 

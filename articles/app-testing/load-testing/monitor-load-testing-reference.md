@@ -4,7 +4,7 @@ description: Important reference material needed when you monitor Azure Load Tes
 author: Sachid26
 ms.topic: reference
 ms.author: sacsharm
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.custom: subject-monitoring
 ms.date: 06/02/2023
 ---

@@ -1,6 +1,8 @@
 ---
 title: Manage an Informatica resource through the Azure portal
-description: Learn how to manage the Informatica Intelligent Data Management Cloud Azure Native Service through the Azure portal. 
+description: Learn how to manage the Informatica Intelligent Data Management Cloud Azure Native Service through the Azure portal.
+author: pavanatgit
+ms.author: plekkala
 ms.topic: how-to
 ms.date: 03/31/2026
 #customer intent: As a developer, I want to use the Azure portal to manage single sign-on for my Informatica IDMC service and how to remove a deployment.

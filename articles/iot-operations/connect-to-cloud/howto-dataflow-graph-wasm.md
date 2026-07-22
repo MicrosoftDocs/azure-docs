@@ -1,12 +1,12 @@
 ---
 title: Use WASM transforms in data flow graphs
 description: Learn how to build and deploy custom WebAssembly transforms in data flow graphs in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 03/25/2026
+ms.date: 06/23/2026
 ai-usage: ai-assisted
 
 ---
@@ -26,9 +26,9 @@ Azure IoT Operations [data flow graphs](concept-dataflow-graphs.md) include buil
 
 ## Prerequisites
 
-- Deploy an Azure IoT Operations instance on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 - Configure a registry endpoint to access WASM modules and graph definitions. You have two options:
-  - **Quick start with public registry**: Create a registry endpoint pointing to `ghcr.io/azure-samples/explore-iot-operations` with anonymous authentication. For instructions, see [Use prebuilt modules from a public registry](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md#use-prebuilt-modules-from-a-public-registry).
+  - **Quick start with public registry**: Create a registry endpoint for `ghcr.io` with anonymous authentication. For instructions, see [Use prebuilt modules from a public registry](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md#use-prebuilt-modules-from-a-public-registry).
   - **Private registry**: Set up your own container registry and push the sample modules by following guidance in [Deploy WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md).
 
 > [!NOTE]
@@ -53,7 +53,7 @@ The following examples show how to configure WASM data flow graphs for common sc
 
 ## Example 1: Basic deployment with one WASM module
 
-This example converts temperature data from Fahrenheit to Celsius by using a WASM module. The [temperature module source code](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/temperature) is available on GitHub. If you followed the example steps in [Deploy WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md), the `graph-simple:1.0.0` graph definition and precompiled `temperature:1.0.0` module are already in your container registry.
+This example converts temperature data from Fahrenheit to Celsius by using a WASM module. The [temperature module source code](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/wasm/operators/temperature) is available on GitHub. If you followed the example steps in [Deploy WebAssembly (WASM) modules and graph definitions](../develop-edge-apps/howto-deploy-wasm-graph-definitions.md), the `graph-simple:1.0.0` graph definition and precompiled `temperature:1.0.0` module are already in your container registry. The sample graph artifact path is `azure-samples/explore-iot-operations/graph-simple:1.0.0`. Use this path for the public GHCR samples or when you copy the sample artifacts to your own registry using the same repository path.
 
 ### How it works
 
@@ -66,16 +66,18 @@ The [graph definition](https://github.com/Azure-Samples/explore-iot-operations/b
 For more information about how the simple graph definition works and its structure, see [Example 1: Simple graph definition](../develop-edge-apps/howto-configure-wasm-graph-definitions.md#example-1-simple-graph-definition).
 
 Input format:
+
 ```json
 {"temperature": {"value": 100.0, "unit": "F"}}
 ```
 
 Output format:
+
 ```json
 {"temperature": {"value": 37.8, "unit": "C"}}
 ```
 
-The following configuration creates a data flow graph that uses this temperature conversion pipeline. The data flow graph references the `graph-simple:1.0.0` YAML graph definition and pulls the temperature module from your container registry.
+The following configuration creates a data flow graph that uses this temperature conversion pipeline. The data flow graph references the `graph-simple:1.0.0` YAML graph definition and pulls the temperature module from your container registry. The Azure sample graph is stored under the `azure-samples/explore-iot-operations` repository path, so include that path in the `artifact` value.
 
 ### Configure the data flow graph
 
@@ -121,6 +123,82 @@ This separation lets you deploy the same graph definition with different endpoin
 1. In the data flow diagram, select **Destination** to configure the destination node.
 1. Select **Save** under the data flow graph name to save the data flow graph.
 
+> [!NOTE]
+> The artifact reference is relative to the registry endpoint host. For the public GHCR samples, the registry endpoint host is `ghcr.io`, so use `azure-samples/explore-iot-operations/graph-simple:1.0.0`. Use the same artifact path if you copied the sample artifacts to your own registry under the same repository path. For your own flat private registry layout, use a flat artifact reference such as `graph-simple:1.0.0`.
+
+# [Azure CLI](#tab/cli)
+
+The Azure CLI applies a data flow graph from a single JSON config file. Create a `graph.json` file with the graph properties:
+
+```json
+{
+  "mode": "Enabled",
+  "requestDiskPersistence": "Disabled",
+  "nodes": [
+    {
+      "nodeType": "Source",
+      "name": "temperature-source",
+      "sourceSettings": {
+        "endpointRef": "default",
+        "dataSources": [
+          "sensor/temperature/raw"
+        ]
+      }
+    },
+    {
+      "nodeType": "Graph",
+      "name": "temperature-processor",
+      "graphSettings": {
+        "registryEndpointRef": "<REGISTRY_ENDPOINT_NAME>",
+        "artifact": "azure-samples/explore-iot-operations/graph-simple:1.0.0",
+        "configuration": [
+          {
+            "key": "key1",
+            "value": "example-value"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "Destination",
+      "name": "temperature-destination",
+      "destinationSettings": {
+        "endpointRef": "default",
+        "dataDestination": "sensor/temperature/processed"
+      }
+    }
+  ],
+  "nodeConnections": [
+    {
+      "from": {
+        "name": "temperature-source"
+      },
+      "to": {
+        "name": "temperature-processor"
+      }
+    },
+    {
+      "from": {
+        "name": "temperature-processor"
+      },
+      "to": {
+        "name": "temperature-destination"
+      }
+    }
+  ]
+}
+```
+
+Apply the config file. The `extendedLocation` is added automatically from the instance and resource group, so don't include it in the file.
+
+```azurecli
+az iot ops dataflowgraph apply \
+  --name <GRAPH_NAME> \
+  --instance <INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --config-file graph.json
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -129,7 +207,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param dataflowGraphName string = '<GRAPH_NAME>'
 param registryEndpointName string = '<REGISTRY_ENDPOINT_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2025-10-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -137,12 +215,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-10-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
   parent: defaultDataflowProfile
   name: dataflowGraphName
   extendedLocation: {
@@ -168,7 +246,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
         name: 'temperature-processor'
         graphSettings: {
           registryEndpointRef: registryEndpointName
-          artifact: 'graph-simple:1.0.0'
+          artifact: 'azure-samples/explore-iot-operations/graph-simple:1.0.0'
           configuration: [
             {
               key: 'key1'
@@ -234,7 +312,7 @@ spec:
       name: temperature-processor
       graphSettings:
         registryEndpointRef: <REGISTRY_ENDPOINT_NAME>
-        artifact: graph-simple:1.0.0
+        artifact: azure-samples/explore-iot-operations/graph-simple:1.0.0
         configuration:
           - key: key1
             value: example-value
@@ -353,7 +431,7 @@ The graph uses specialized modules from the collection of [Rust operators](https
 
 ### Configure the complex data flow graph
 
-This configuration implements the multi-sensor processing workflow by using the `graph-complex:1.0.0` YAML graph definition. Notice how the data flow graph deployment is similar to [Example 1](#example-1-basic-deployment-with-one-wasm-module) - both use the same three-node pattern (source, graph processor, destination) even though the processing logic is different.
+This configuration implements the multi-sensor processing workflow by using the `graph-complex:1.0.0` YAML graph definition. The sample graph artifact path is `azure-samples/explore-iot-operations/graph-complex:1.0.0`. Notice how the data flow graph deployment is similar to [Example 1](#example-1-basic-deployment-with-one-wasm-module) - both use the same three-node pattern (source, graph processor, destination) even though the processing logic is different.
 
 This similarity occurs because the data flow graph resource acts as a host environment that loads and executes graph definitions. The actual processing logic resides in the graph definition (`graph-simple:1.0.0` or `graph-complex:1.0.0`), which contains the YAML specification of operations and connections between WASM modules. The data flow graph resource provides the runtime infrastructure to pull the graph definition, instantiate the modules, and route data through the defined workflow.
 
@@ -395,6 +473,85 @@ This similarity occurs because the data flow graph resource acts as a host envir
 1. In the data flow diagram, select **Destination** to configure the destination node.
 1. Select **Save** under the data flow graph name to save the data flow graph.
 
+# [Azure CLI](#tab/cli)
+
+The Azure CLI applies a data flow graph from a single JSON config file. Create a `graph.json` file with the graph properties:
+
+```json
+{
+  "mode": "Enabled",
+  "requestDiskPersistence": "Disabled",
+  "nodes": [
+    {
+      "nodeType": "Source",
+      "name": "sensor-source",
+      "sourceSettings": {
+        "endpointRef": "default",
+        "dataSources": [
+          "sensor/temperature/raw",
+          "sensor/humidity/raw",
+          "sensor/images/raw"
+        ]
+      }
+    },
+    {
+      "nodeType": "Graph",
+      "name": "sensor-processor",
+      "graphSettings": {
+        "registryEndpointRef": "<REGISTRY_ENDPOINT_NAME>",
+        "artifact": "azure-samples/explore-iot-operations/graph-complex:1.0.0",
+        "configuration": [
+          {
+            "key": "snapshot_topic",
+            "value": "sensor/images/raw"
+          },
+          {
+            "key": "key1",
+            "value": "example-value"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "Destination",
+      "name": "analytics-destination",
+      "destinationSettings": {
+        "endpointRef": "default",
+        "dataDestination": "analytics/sensor/processed"
+      }
+    }
+  ],
+  "nodeConnections": [
+    {
+      "from": {
+        "name": "sensor-source"
+      },
+      "to": {
+        "name": "sensor-processor"
+      }
+    },
+    {
+      "from": {
+        "name": "sensor-processor"
+      },
+      "to": {
+        "name": "analytics-destination"
+      }
+    }
+  ]
+}
+```
+
+Apply the config file. The `extendedLocation` is added automatically from the instance and resource group, so don't include it in the file.
+
+```azurecli
+az iot ops dataflowgraph apply \
+  --name <COMPLEX_GRAPH_NAME> \
+  --instance <INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --config-file graph.json
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -403,7 +560,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param dataflowGraphName string = '<COMPLEX_GRAPH_NAME>'
 param registryEndpointName string = '<REGISTRY_ENDPOINT_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2025-10-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -411,12 +568,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-10-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
+resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
   parent: defaultDataflowProfile
   name: dataflowGraphName
   extendedLocation: {
@@ -444,7 +601,7 @@ resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfile
         name: 'sensor-processor'
         graphSettings: {
           registryEndpointRef: registryEndpointName
-          artifact: 'graph-complex:1.0.0'
+          artifact: 'azure-samples/explore-iot-operations/graph-complex:1.0.0'
           configuration: [
             {
               key: 'snapshot_topic'
@@ -514,7 +671,7 @@ spec:
       name: sensor-processor
       graphSettings:
         registryEndpointRef: <REGISTRY_ENDPOINT_NAME>
-        artifact: graph-complex:1.0.0
+        artifact: azure-samples/explore-iot-operations/graph-complex:1.0.0
         configuration:
           - key: snapshot_topic
             value: sensor/images/raw
@@ -675,10 +832,20 @@ When you create or edit a data flow graph, in the **Data flow properties** pane,
 
 :::image type="content" source="media/howto-create-dataflow-graph/select-mode.png" alt-text="Screenshot of the operations experience interface showing how to enable or disable mode configuration." lightbox="media/howto-create-dataflow-graph/select-mode.png":::
 
+# [Azure CLI](#tab/cli)
+
+Set `mode` at the top level of your `graph.json` config file, then apply the graph with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "mode": "Enabled"
+}
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
   // ... other properties
   properties: {
     mode: 'Enabled'  // or 'Disabled'
@@ -714,17 +881,30 @@ When you create or edit a data flow graph, in the **Data flow properties** pane,
 > You can only choose the data flow profile when creating a data flow graph. You can't change the data flow profile after the data flow graph is created.
 > If you want to change the data flow profile of an existing data flow graph, delete the original data flow graph and create a new one with the new data flow profile.
 
+# [Azure CLI](#tab/cli)
+
+The profile isn't part of the `graph.json` config file. Instead, select it with the `--profile` parameter when you apply the graph with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply). If you omit `--profile`, the graph uses the `default` profile:
+
+```azurecli
+az iot ops dataflowgraph apply \
+  --name <GRAPH_NAME> \
+  --instance <INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --profile <PROFILE_NAME> \
+  --config-file graph.json
+```
+
 # [Bicep](#tab/bicep)
 
 In Bicep, specify the profile by creating the data flow graph as a child resource of the profile:
 
 ```bicep
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-10-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
   parent: defaultDataflowProfile  // This establishes the profile relationship
   // ... other properties
 }
@@ -762,10 +942,20 @@ The setting accepts `Enabled` or `Disabled`, with `Disabled` as the default.
 
 When you create or edit a data flow graph, in the **Data flow properties** pane, in **Request data persistence** check **Yes** to set the request disk persistence to **Enabled**. If you leave it unchecked, the setting is **Disabled**.
 
+# [Azure CLI](#tab/cli)
+
+Set `requestDiskPersistence` at the top level of your `graph.json` config file, then apply the graph with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply). The setting accepts `Enabled` or `Disabled`, with `Disabled` as the default:
+
+```json
+{
+  "requestDiskPersistence": "Enabled"
+}
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
   // ... other properties
   properties: {
     requestDiskPersistence: 'Enabled'
@@ -830,6 +1020,25 @@ The data sources array allows you to subscribe to multiple topics without modify
 
 In the data flow diagram, select **Source** to configure the source node. Under **Source details**, select **Data flow Endpoint**, then use the **Topic(s)** field to specify the MQTT topic filters to subscribe to for incoming messages. Add multiple MQTT topics by selecting **Add row** and entering a new topic.
 
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this source node to the `nodes` array in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "nodeType": "Source",
+  "name": "sensor-data-source",
+  "sourceSettings": {
+    "endpointRef": "default",
+    "dataSources": [
+      "sensor/+/temperature",
+      "sensor/+/humidity"
+    ],
+    "assetRef": "weather-station-asset"
+  }
+}
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -875,6 +1084,31 @@ The configuration array allows you to customize module behavior without rebuildi
 # [Operations experience](#tab/portal)
 
 In the data flow diagram, select **Add graph transform (optional)** to add a graph processing node. In the **Graph selection** pane, select the desired graph artifact, either simple or complex graph, and select **Apply**. You can configure some graph operator settings by selecting the graph node in the diagram.
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this graph processing node to the `nodes` array in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "nodeType": "Graph",
+  "name": "temperature-processor",
+  "graphSettings": {
+    "registryEndpointRef": "my-acr-endpoint",
+    "artifact": "temperature-converter:2.1.0",
+    "configuration": [
+      {
+        "key": "temperature_lower_bound",
+        "value": "-40"
+      },
+      {
+        "key": "temperature_upper_bound",
+        "value": "3422"
+      }
+    ]
+  }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -928,13 +1162,11 @@ You pass the configuration key-value pairs to the WASM module at runtime. The mo
 
 #### Destination nodes
 
-Destination nodes define where processed data is sent. They connect to data flow endpoints that send data to MQTT brokers, cloud storage, or other systems. Each destination node specifies:
+Destination nodes define where processed data is sent. They connect to data flow endpoints that send data to MQTT brokers or other systems. Each destination node specifies:
 
 - Endpoint reference that points to a configured data flow endpoint.
 - Data destination as the specific topic, path, or location for output data.
 - Output schema settings (optional) that define serialization format and schema validation.
-
-For storage destinations like Azure Data Lake or Fabric OneLake, you can specify output schema settings to control how data is serialized and validated.
 
 > [!NOTE]
 > Currently, only MQTT, Kafka, and OpenTelemetry endpoints are supported as data destinations for data flow graphs. For more information, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
@@ -946,19 +1178,30 @@ For storage destinations like Azure Data Lake or Fabric OneLake, you can specify
 1. Select **Proceed** to configure the destination.
 1. Enter the **required settings** for the destination, including the topic or table to send the data to. The portal automatically interprets the data destination field based on the endpoint type. For example, if the data flow endpoint is an MQTT endpoint, the destination details page prompts you to enter the topic.
 
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this destination node to the `nodes` array in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "nodeType": "Destination",
+  "name": "output",
+  "destinationSettings": {
+    "endpointRef": "default",
+    "dataDestination": "processed-data/temperature",
+  }
+}
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
 {
   nodeType: 'Destination'
-  name: 'cloud-storage-destination'
+  name: 'output'
   destinationSettings: {
-    endpointRef: 'azure-storage-endpoint'
+    endpointRef: 'default'
     dataDestination: 'processed-data/temperature'
-    outputSchemaSettings: {
-      serializationFormat: 'Parquet'
-      schemaRef: 'temperature-output-schema:1'
-    }
   }
 }
 ```
@@ -967,13 +1210,10 @@ For storage destinations like Azure Data Lake or Fabric OneLake, you can specify
 
 ```yaml
 - nodeType: Destination
-  name: cloud-storage-destination
+  name: output
   destinationSettings:
-    endpointRef: azure-storage-endpoint
+    endpointRef: default
     dataDestination: processed-data/temperature
-    outputSchemaSettings:
-      serializationFormat: Parquet
-      schemaRef: temperature-output-schema:1
 ```
 
 ---
@@ -986,6 +1226,35 @@ Node connections define the data flow path between nodes. Each connection specif
 
 The operations experience automatically creates node connections when you select the graph processing node. You can't modify the connections after the graph is created.
 
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the `nodeConnections` array in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+"nodeConnections": [
+  {
+    "from": {
+      "name": "sensor-data-source",
+      "schema": {
+        "schemaRef": "aio-sr://sensor-input-schema:1",
+        "serializationFormat": "Json"
+      }
+    },
+    "to": {
+      "name": "temperature-processor"
+    }
+  },
+  {
+    "from": {
+      "name": "temperature-processor"
+    },
+    "to": {
+      "name": "output"
+    }
+  }
+]
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -994,7 +1263,7 @@ nodeConnections: [
     from: {
       name: 'sensor-data-source'
       schema: {
-        schemaRef: 'sensor-input-schema:1'
+        schemaRef: 'aio-sr://sensor-input-schema:1'
         serializationFormat: 'Json'
       }
     }
@@ -1007,7 +1276,7 @@ nodeConnections: [
       name: 'temperature-processor'
     }
     to: {
-      name: 'cloud-storage-destination'
+      name: 'output'
     }
   }
 ]
@@ -1020,14 +1289,14 @@ nodeConnections:
   - from:
       name: sensor-data-source
       schema:
-        schemaRef: sensor-input-schema:1
+        schemaRef: aio-sr://sensor-input-schema:1
         serializationFormat: Json
     to:
       name: temperature-processor
   - from:
       name: temperature-processor
     to:
-      name: cloud-storage-destination
+      name: output
 ```
 
 ---
@@ -1055,16 +1324,6 @@ Kafka endpoints can serve as both sources and destinations. They connect to Kafk
 - **Confluent Cloud**
 
 For detailed configuration information, see [Configure Azure Event Hubs and Kafka data flow endpoints](howto-configure-kafka-endpoint.md).
-
-#### Storage endpoints
-
-Storage endpoints can only serve as destinations. They connect to cloud storage systems for long-term data retention and analytics:
-
-- **Azure Data Lake Storage**
-- **Microsoft Fabric OneLake** 
-- **Local storage**
-
-Storage endpoints typically require output schema settings to define data serialization format.
 
 #### Registry endpoints
 

@@ -2,8 +2,8 @@
 title: Copy data from and to Salesforce V2
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Salesforce V2 to supported sink data stores or from supported source data stores to Salesforce V2 by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.custom: synapse
@@ -16,6 +16,10 @@ ms.date: 03/23/2026
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from and to Salesforce. It builds on the [Copy Activity overview](copy-activity-overview.md) article that presents a general overview of the copy activity.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Salesforce connector documentation](/fabric/data-factory/connector-salesforce-objects-overview).
+
 
 > [!IMPORTANT]
 > The Salesforce V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Salesforce connector](#differences-between-salesforce-and-salesforce-legacy) from V1 to V2.

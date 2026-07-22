@@ -37,7 +37,7 @@ Orchestrations can wait and listen for external events. This feature is often us
 ## Wait for external events
 
 ::: zone pivot="durable-functions"
-The *"wait-for-external-event"* API of the [orchestration trigger binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-trigger) allows an orchestrator function to asynchronously wait and listen for an event delivered by an external client. The listening orchestrator function declares the *name* of the event and the *shape of the data* it expects to receive.
+The *"wait-for-external-event"* API of the [orchestration trigger binding](../durable-functions/durable-functions-bindings.md#orchestration-trigger) allows an orchestrator function to asynchronously wait and listen for an event delivered by an external client. The listening orchestrator function declares the *name* of the event and the *shape of the data* it expects to receive.
 ::: zone-end
 
 ::: zone pivot="durable-task-sdks"
@@ -101,7 +101,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> If you're using Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. Check out the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article for more version-specific details.
+> If you're using Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. Check out the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article for more version-specific details.
 
 # [JavaScript](#tab/javascript)
 
@@ -309,7 +309,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> Using Durable Functions 1.x? Swap in `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. See the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article to learn about other version differences.
+> Using Durable Functions 1.x? Swap in `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. See the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article to learn about other version differences.
 
 # [JavaScript](#tab/javascript)
 
@@ -550,7 +550,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> If you're running Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. Head over to [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) for a full breakdown of version differences.
+> If you're running Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. Head over to [Durable Functions versions](../durable-functions/durable-functions-versions.md) for a full breakdown of version differences.
 
 In .NET, if the event payload cannot be converted into the expected type `T`, an exception is thrown.
 
@@ -742,7 +742,7 @@ External events have an _at-least-once_ delivery guarantee. This means that, und
 ## Send events
 
 ::: zone pivot="durable-functions"
-You can use the *"raise-event"* API defined by the [orchestration client](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-client) binding to send an external event to an orchestration. You can also use the built-in [raise event HTTP API](../../azure-functions/durable-functions/durable-functions-http-api.md#raise-event) to send an external event to an orchestration.
+You can use the *"raise-event"* API defined by the [orchestration client](../durable-functions/durable-functions-bindings.md#orchestration-client) binding to send an external event to an orchestration. You can also use the built-in [raise event HTTP API](../durable-functions/durable-functions-http-api.md#raise-event) to send an external event to an orchestration.
 
 A raised event includes an `instanceID`, an `eventName`, and `eventData` as parameters. Orchestrator functions handle these events using the [`wait-for-external-event`](#wait-for-external-events) APIs. The `eventName` must match on both the *sending* and *receiving* ends in order for the event to be processed. The event data must also be JSON-serializable.
 
@@ -802,7 +802,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> For Durable Functions 1.x, use the `OrchestrationClient` attribute and `DurableOrchestrationClient` parameter type instead. Check the [Durable Functions versions](../../azure-functions/durable-functions/durable-functions-versions.md) article for all version-specific changes.
+> For Durable Functions 1.x, use the `OrchestrationClient` attribute and `DurableOrchestrationClient` parameter type instead. Check the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article for all version-specific changes.
 
 # [JavaScript](#tab/javascript)
 

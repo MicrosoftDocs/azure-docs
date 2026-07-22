@@ -1,6 +1,8 @@
 ---
 title: Overview of Azure Native Integrations
 description: Learn about Azure Native Integrations, including their features and supported solution areas.
+author: pavanatgit
+ms.author: plekkala
 ms.topic: overview
 ms.date: 08/06/2025
 ai-usage: ai-assisted

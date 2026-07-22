@@ -32,11 +32,11 @@ This article explains how to enable management actions, execute actions on asset
 
 ## Prerequisites
 
-- A deployed [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md) instance on an Arc-connected cluster.
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 - The Azure CLI with the `azure-iot-ops` extension installed. To install or update the extension, run:
 
   ```azurecli
-  az extension add --upgrade -n azure-iot-ops
+  az extension add --upgrade --name azure-iot-ops
   ```
 
 ## Enable management actions

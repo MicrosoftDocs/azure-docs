@@ -23,7 +23,7 @@ In this tutorial, you'll learn how to:
 
 Before you start, you must meet these requirements:
 
-* [Python 3.7 or above](https://www.python.org/downloads). To check the full list of supported Python versions in Azure Functions, see the [Python developer guide](functions-reference-python.md#supported-python-versions).
+* [Python 3.10 or above](https://www.python.org/downloads). To check the full list of supported Python versions in Azure Functions, see the [Python developer guide](functions-reference-python.md#supported-python-versions).
 
 * The [Azure Functions Core Tools](functions-run-local.md#v2), version 4.0.5095 or later, which supports using the extension with the [v2 Python programming model](./functions-reference-python.md). Check your version with `func --version`.
 

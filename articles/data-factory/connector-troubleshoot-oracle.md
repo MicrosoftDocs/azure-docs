@@ -2,11 +2,11 @@
 title: Troubleshoot the Oracle connector
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Oracle connector in Azure Data Factory and Azure Synapse Analytics. 
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 06/04/2025
-ms.author: jianleishen
+ms.author: tinglee
 ms.custom: has-adal-ref, synapse
 ---
 

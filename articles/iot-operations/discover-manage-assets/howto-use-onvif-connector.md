@@ -4,8 +4,9 @@ description: Use the operations experience web UI to discover and configure asse
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-akri
 ms.topic: how-to
-ms.date: 05/07/2026
+ms.date: 05/28/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can discover and use media streams from an ONVIF compliant camera.
@@ -69,6 +70,8 @@ This article describes how to use the operations experience web UI and Azure CLI
 
 [!INCLUDE [enable-resource-sync-rules](../includes/enable-resource-sync-rules.md)]
 
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
 An ONVIF compliant camera that you can reach from your Azure IoT Operations cluster.
@@ -90,11 +93,11 @@ The connector enables support for the following capabilities:
 - Imaging control such as filters and receiving motion and tampering events.
 - Controlling device PTZ.
 
-## Deploy the connector for ONVIF
+### ONVIF connector template instance
 
-[!INCLUDE [deploy-connectors-simple](../includes/deploy-connectors-simple.md)]
+Before an OT user can create a device that uses the connector for ONVIF, an IT administrator must add an ONVIF connector template instance to your Azure IoT Operations instance. To learn more, see [Create and manage connector template instances](howto-manage-connector-templates.md).
 
-### Configure a certificate trust list for the connector
+## Configure a certificate trust list for the connector
 
 [!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
 
@@ -139,12 +142,20 @@ To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
 Deploy the following Bicep template to create a device with an inbound endpoint for the connector for ONVIF. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
 
 ```bicep
-param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param adrNamespaceName string = '<AIO_NAMESPACE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource device 'Microsoft.DeviceRegistry/namespaces/devices@2025-10-01' = {
+resource adrNamespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
+  name: adrNamespaceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource device 'Microsoft.DeviceRegistry/namespaces/devices@2026-04-01' = {
   name: 'onvif-connector'
-  parent: namespace
+  parent: adrNamespace
   location: resourceGroup().location
   extendedLocation: {
     type: 'CustomLocation'

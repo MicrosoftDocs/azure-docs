@@ -2,12 +2,10 @@
 title: Protect APIs in API Management with Defender for APIs 
 description: Learn how to enable advanced API security features in Azure API Management by using Microsoft Defender for Cloud.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/10/2025
-ms.author: danlep
 ms.custom: sfi-image-nochange
 # Customer intent: As an API admin, I want to enable advanced API security features in API Management by using Defender for Cloud.
 ---

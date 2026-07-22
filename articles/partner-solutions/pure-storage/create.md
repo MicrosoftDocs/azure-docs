@@ -1,8 +1,8 @@
 ---
 title: "Quickstart: Create an Azure Native Pure Storage Cloud Resource"
 description: Learn how to create a resource for Pure Storage Cloud by using the Azure portal.
-author: ProfessorKendrick
-ms.author: kkendrick
+author: Reshmi-Sriram
+ms.author: reshmisriram
 ms.topic: quickstart
 ms.date: 12/10/2025
 

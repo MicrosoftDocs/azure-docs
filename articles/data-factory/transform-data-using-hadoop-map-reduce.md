@@ -121,7 +121,6 @@ You can specify any arguments for the MapReduce program in the **arguments** sec
 ## Related content
 See the following articles that explain how to transform data in other ways:
 
-* [U-SQL activity](transform-data-using-data-lake-analytics.md)
 * [Hive activity](transform-data-using-hadoop-hive.md)
 * [Pig activity](transform-data-using-hadoop-pig.md)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)

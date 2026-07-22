@@ -8,6 +8,7 @@ ms.reviewer: v-uhabiba
 ms.topic: concept-article
 ms.date: 11/04/2025
 monikerRange: migrate 
+ms.update-cycle: 1825-days
 # Customer intent: As a cloud migration specialist, this article help understand and clarify common questions about using Azure Migrate Wave Planning for migration projects.
 ---
 

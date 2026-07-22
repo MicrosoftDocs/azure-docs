@@ -1,8 +1,8 @@
 ---
 title: Secure MQTT broker communication by using BrokerListener
 description: Understand how to use the BrokerListener resource to secure MQTT broker communications, including authorization, authentication, and TLS.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
@@ -76,7 +76,7 @@ Be careful when you modify the default listener by using Bicep. Don't change the
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -84,12 +84,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource defaultListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-11-01' = {
+resource defaultListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-03-01' = {
   parent: defaultBroker
   name: 'default'
   extendedLocation: {
@@ -206,7 +206,7 @@ To create a new listener, specify the following settings:
 This example shows how to create a new listener with the `LoadBalancer` service type. The BrokerListener resource defines two ports that accept MQTT connections from clients.
 
 - The first port listens on port 1883 without TLS and authentication. This setup is suitable for testing only. [Don't use this configuration in production](./howto-test-connection.md#only-turn-off-tls-and-authentication-for-testing).
-- The second port listens on port 8883 with TLS and authentication enabled. Only [authenticated clients with a Kubernetes service account token](./howto-configure-authentication.md#default-brokerauthentication-resource) can connect. TLS is set to [automatic mode](#enable-tls-automatic-certificate-management-for-a-port), using cert-manager to manage the server certificate from the [default issuer](../secure-iot-ops/howto-manage-certificates.md#default-self-signed-issuer-and-root-ca-certificate-for-tls-server-certificates). This setup is closer to a production configuration.
+- The second port listens on port 8883 with TLS and authentication enabled. Only [authenticated clients with a Kubernetes service account token](./howto-configure-authentication.md#default-brokerauthentication-resource) can connect. TLS is set to [automatic mode](#enable-tls-automatic-certificate-management-for-a-port), using cert-manager to manage the server certificate from the [default issuer](../deploy-iot-ops/howto-bring-your-own-issuer.md#default-self-signed-issuer-and-root-ca-certificate). This setup is closer to a production configuration.
 
 # [Portal](#tab/portal)
 
@@ -308,7 +308,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param listenerName string = '<LISTENER_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -316,12 +316,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-11-01' = {
+resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-03-01' = {
   parent: defaultBroker
   name: listenerName
   extendedLocation: {
@@ -641,7 +641,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param listenerName string = 'aio-broker-loadbalancer-tls'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -649,12 +649,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-11-01' = {
+resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-03-01' = {
   parent: defaultBroker
   name: listenerName
   extendedLocation: {
@@ -759,7 +759,7 @@ Remember to specify authentication methods if needed.
 
 ### Default root CA and issuer
 
-To help you get started, IoT Operations is deployed with a default "quickstart" CA certificate and issuer for TLS server certificates. You can use this issuer for development and testing. For more information, see [Default root CA and issuer for TLS server certificates](../secure-iot-ops/howto-manage-certificates.md#default-self-signed-issuer-and-root-ca-certificate-for-tls-server-certificates).
+To help you get started, IoT Operations is deployed with a default "quickstart" CA certificate and issuer for TLS server certificates. You can use this issuer for development and testing. For more information, see [Default root CA and issuer for TLS server certificates](../deploy-iot-ops/howto-bring-your-own-issuer.md#default-self-signed-issuer-and-root-ca-certificate).
 
 For production, you must configure a CA issuer with a certificate from a trusted CA, as described in the previous sections.
 
@@ -869,7 +869,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param listenerServiceName string = 'mqtts-endpoint'
 param listenerName string = '<LISTENER_NAME>' // Match the SAN in the server certificate
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -877,12 +877,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-11-01' = {
+resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-03-01' = {
   parent: defaultBroker
   name: listenerName
   extendedLocation: {

@@ -1,8 +1,9 @@
 ---
 title: Common Issues - Credentials Resource
-description: Azure CycleCloud common issue - Credential Resources
+description: Troubleshoot Azure credential resource errors in Azure CycleCloud, including invalid account credentials during staging.
 author: adriankjohnson
-ms.date: 06/30/2025
+ms.date: 06/19/2026
+ms.topic: troubleshooting-problem-resolution
 ms.update-cycle: 3650-days
 ms.author: adjohnso
 ms.service: azure-cyclecloud

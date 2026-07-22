@@ -192,6 +192,7 @@ This section shows the configurable runtime settings for each supported language
 | `WILDFLY_VERSION` | Read-only. For JBoss Enterprise Application Platform (EAP) Linux apps, the WildFly version. |
 | `TOMCAT_VERSION` | Read-only. For Linux Tomcat apps, the Tomcat version. |
 | `JBOSS_HOME` | Read-only. For JBoss EAP (Linux) apps, the path of the WildFly installation. |
+| `WEBSITE_AUTOCONFIGURE_DATABASE` | For Linux Java apps (Tomcat and JBoss), set to `true` to have App Service automatically create a JNDI data source for each app setting that contains a valid JDBC connection string for an Oracle, SQL Server, PostgreSQL, or MySQL database. For Tomcat, the data source is added to the server's *context.xml* file; for JBoss, it's added to the JBoss server. In both cases, the data source is named after the app setting, with the suffix `_DS`. For more information, see [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](configure-language-java-data-sources.md). |
 | `AZURE_JETTY9_CMDLINE` | Read-only. For native Windows apps, the command-line arguments for starting Jetty 9. |
 | `AZURE_JETTY9_HOME` | Read-only. For native Windows apps, the path to the Jetty 9 installation. |
 | `AZURE_JETTY93_CMDLINE` | Read-only. For native Windows apps, specifies the command-line arguments for starting Jetty 9.3. |
@@ -387,7 +388,7 @@ WEBSITE_DISABLE_PRELOAD_HANG_MITIGATION
 |-|-|
 | `WEBSITE_INSTANCE_ID` | Read-only. Unique ID of the current VM instance, when the app is scaled out to multiple instances. |
 | `WEBSITE_IIS_SITE_NAME` | Deprecated. Use `WEBSITE_INSTANCE_ID`. |
-| `WEBSITE_DISABLE_OVERLAPPED_RECYCLING` | Overlapped recycling ensures that before the current VM instance of an app is shut down, a new VM instance starts. In some cases, it can cause file locking issues. You can try turning it off by setting to `1`. |
+| `WEBSITE_DISABLE_OVERLAPPED_RECYCLING` | Overlapped recycling ensures that before the current VM instance of an app is shut down, a new VM instance of an app starts. In some cases, it can cause file locking issues. You can try turning it off by setting to `1`. <br/><br/> Note: Its effect is limited to overlapped worker process recycling within a VM instance, not to VM-level instance replacement. This configuration does <i>not</i> guarantee that only one VM instance exists or runs at a time during scale up/down or platform-initiated maintenance -- multiple VM instances may still exist concurrently, even when this setting is enabled.|
 | `WEBSITE_DISABLE_CROSS_STAMP_SCALE` | By default, apps are allowed to scale across stamps if they use Azure Files or a Docker container. Set to `1` or `true` to disable cross-stamp scaling within the app's region. The default is `0`. Custom Docker containers that set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `true` or `1` can't scale cross-stamps because their content isn't completely encapsulated in the Docker container. |
 
 ## Logging

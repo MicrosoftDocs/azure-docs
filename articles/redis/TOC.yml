@@ -51,6 +51,8 @@ items:
             href: /azure/architecture/best-practices/caching?toc=/azure/redis-cache/toc.json
           - name: Azure Managed Redis architecture
             href: architecture.md
+          - name: Best practices for the Flash Optimized tier
+            href: best-practices-flash-optimized.md
           - name: Create and manage with Azure PowerShell
             href: how-to-manage-redis-cache-powershell.md
           - name: Create and manage a cache with Azure CLI
@@ -101,6 +103,8 @@ items:
         items:
           - name: Microsoft Entra ID for authentication
             href: entra-for-authentication.md
+          - name: Custom data access permissions
+            href: configure-access-permissions.md
       - name: Reliability
         items:
           - name: Reliability in Azure Managed Redis

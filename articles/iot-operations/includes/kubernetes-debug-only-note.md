@@ -5,6 +5,7 @@ author: dominicbetts
 ms.topic: include
 ms.date: 04/02/2026
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.custom:
   - include file
 ---

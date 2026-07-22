@@ -6,6 +6,9 @@ items:
       - name: What is Microsoft Discovery?
         href: overview-what-is-microsoft-discovery.md
         displayName: Microsoft Discovery, services, overview, introduction
+      - name: Microsoft Discovery & the Microsoft Discovery app
+        href: concept-discovery-and-discovery-app.md
+        displayName: Microsoft Discovery, services, app, overview
       - name: Service architecture overview
         href: overview-service-architecture.md
         displayName: Microsoft Discovery, service architecture, resource model, workspace, supercomputer, project
@@ -17,9 +20,6 @@ items:
         displayName: Microsoft Discovery, Studio, web interface, investigations
   - name: Quickstarts
     items:
-      - name: v1 to v2 transition guidance
-        href: concept-v1-to-v2-transition-guide.md
-        displayName: Microsoft Discovery, v1, v2, migration, transition, resources
       - name: Quickstart - Deploy infrastructure using Azure portal
         href: quickstart-infrastructure-portal.md
         displayName: Microsoft Discovery, quickstart, infrastructure, portal, getting started
@@ -29,9 +29,6 @@ items:
       - name: Quickstart - First set of Agent and investigation
         href: quickstart-agents-studio.md
         displayName: Microsoft Discovery, quickstart, project, studio, getting started
-      - name: Quickstart - Add agents using bundles
-        href: quickstart-agents-bundles.md
-        displayName: Microsoft Discovery, quickstart, agents, bundles, hello discovery, getting started
   - name: Plan and prepare
     items:
       - name: Onboarding prerequisites
@@ -42,6 +39,9 @@ items:
           - name: Role assignments
             href: concept-role-assignments.md
             displayName: Microsoft Discovery, RBAC, role assignments, permissions, access control
+          - name: Assign persona roles with a PowerShell script
+            href: how-to-assign-persona-roles.md
+            displayName: Microsoft Discovery, RBAC, persona, Platform Administrator, Scientist, PowerShell, Set-DiscoveryRoleAssignments, onboarding
           - name: Resource Naming
             href: concept-resource-naming.md
             displayName: Microsoft Discovery, resource naming conventions, best practices, organization
@@ -85,16 +85,22 @@ items:
           - name: Projects and Investigations
             href: concept-projects-investigations.md
             displayName: Microsoft Discovery, projects, investigations, workspace, research, organization
+          - name: GitHub Copilot & Microsoft Discovery
+            href: concept-copilot.md
+            displayName: Microsoft Discovery, projects, investigations, GitHub Copilot
       - name: Agents
         items:
           - name: Discovery Agent concepts
             href: concept-discovery-agent.md
-            displayName: Discovery Agent, prompt agent, workflow agent, multi-agent orchestration
+            displayName: Discovery Agent, prompt agent, Discovery app, Microsoft Discovery, multi-agent orchestration
           - name: Discovery Agent types
             href: concept-discovery-agent-types.md
-            displayName: Discovery Agent, agent types, prompt agent, workflow agent, orchestration
+            displayName: Discovery Agent, agent types, prompt agent, Discovery app, Discovery Engine, orchestration
       - name: Tools & Models
         items:
+          - name: Discovery Supercomputer and model execution
+            href: concept-supercomputer.md
+            displayName: Microsoft Discovery, Supercomputer, tools, workloads, infrastructure
           - name: Tools and model integration
             href: concept-tools-model-integration.md
             displayName: Microsoft Discovery, tools, model integration, action-based tools, code-environment based tools, OpenAPI, MCP
@@ -123,18 +129,19 @@ items:
           - name: Responsible AI in Microsoft Discovery
             href: concept-responsible-ai.md
             displayName: Microsoft Discovery, responsible AI, safety, limitations, best practices, evaluations
+          - name: Platform card
+            href: concept-platform-card.md
+            displayName: Microsoft Discovery, platform card, responsible AI, intended uses, target users, capabilities
+          - name: Code of conduct
+            href: concept-code-of-conduct.md
+            displayName: Microsoft Discovery, responsible AI, code of conduct
   - name: How-tos
     items:
-      - name: Migration
-        items:
-          - name: Collect v1 resource configurations
-            href: how-to-collect-v1-configurations.md
-            displayName: Microsoft Discovery, v1, v2, migration, export, tools, agents, workflows, collect
-          - name: Recreate resources in v2
-            href: how-to-recreate-v2-resources.md
-            displayName: Microsoft Discovery, v1, v2, migration, recreate, tools, agents, workflows, bookshelves
       - name: Identity & Access
         items:
+          - name: Assign persona roles with a PowerShell script
+            href: how-to-assign-persona-roles.md
+            displayName: Microsoft Discovery, RBAC, persona, Platform Administrator, Scientist, PowerShell, Set-DiscoveryRoleAssignments, onboarding
           - name: Configure managed identities
             href: how-to-configure-managed-identity.md
             displayName: Microsoft Discovery, managed identity, UAMI, role assignments, authentication
@@ -156,7 +163,7 @@ items:
         items:
           - name: Create agents
             href: how-to-agent-creation.md
-            displayName: Microsoft Discovery, agents, prompt agent, workflow agent, create, author
+            displayName: Microsoft Discovery, agents, prompt agent, Discovery app, create, author
           - name: Select models for agents
             href: how-to-select-models-for-agents.md
             displayName: Microsoft Discovery, model selection, GPT-5, OpenAI, agent model, cost, performance
@@ -196,6 +203,9 @@ items:
           - name: Debug task execution
             href: how-to-debug-task-execution.md
             displayName: debug, troubleshoot, stuck tasks, validation, errors
+          - name: Use GitHub Copilot in Microsoft Discovery
+            href: how-to-copilot.md
+            displayName: Microsoft Discovery, GitHub Copilot
       - name: Tools
         items:
           - name: Plan tool requirements
@@ -252,6 +262,9 @@ items:
         displayName: Microsoft Discovery, billing, pricing, User Messages, cost management
   - name: Tutorials
     items:
+      - name: Tutorials & how-to videos
+        href: tutorial-howto-videos.md
+        displayName: tutorial, Discovery app, workspace creation, bookshelf creation, agent creation, tasks, engine
       - name: "Tutorial: Discovery Mode"
         href: tutorial-discovery-mode.md
         displayName: tutorial, Discovery Mode, first investigation, getting started

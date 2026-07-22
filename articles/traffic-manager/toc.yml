@@ -45,6 +45,8 @@
           href: traffic-manager-geographic-regions.md
     - name: Security
       items:
+        - name: Secure Traffic Manager deployment
+          href: secure-traffic-manager.md
         - name: Security baseline
           href: /security/benchmark/azure/baselines/traffic-manager-security-baseline?toc=/azure/traffic-manager/toc.json
         - name: Network security blog
@@ -61,8 +63,8 @@
       href: traffic-manager-traffic-view-overview.md
     - name: Metrics and alerts
       href: traffic-manager-metrics-alerts.md
-    - name: Reliability and disaster recovery
-      href: ../networking/disaster-recovery-dns-traffic-manager.md
+    - name: Reliability
+      href: /azure/reliability/reliability-traffic-manager?toc=/azure/traffic-manager/toc.json
     - name: How Traffic Manager works
       href: traffic-manager-how-it-works.md
     - name: FAQs

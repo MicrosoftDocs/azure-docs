@@ -1,12 +1,12 @@
 ---
 title: Configure data flow endpoints for Azure Data Explorer
 description: Learn how to configure data flow endpoints for Azure Data Explorer in Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/12/2025
+ms.date: 07/15/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for Azure Data Explorer in Azure IoT Operations so that I can send data to Azure Data Explorer.
@@ -18,7 +18,10 @@ To send data to Azure Data Explorer in Azure IoT Operations, you can configure a
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 - An **Azure Data Explorer cluster**. Follow the **Full cluster** steps in the [Quickstart: Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-and-database). The *free cluster* option doesn't work for this scenario.
 
 
@@ -51,12 +54,14 @@ To send data to Azure Data Explorer in Azure IoT Operations, you can configure a
 
 To configure a data flow endpoint for Azure Data Explorer, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
 
+[!INCLUDE [data-flow-graph-uami-usage](../includes/data-flow-graph-uami-usage.md)]
+
 After the Azure Data Explorer database is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to write to the database.
 
 If using system-assigned managed identity, in Azure portal, go to your Azure IoT Operations instance and select **Overview**. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
 
 1. In your Azure Data Explorer database (not cluster), under **Overview** select **Permissions** > **Add** and then select **Ingestor** as the role. This gives the managed identity the necessary permissions to write to the Azure Data Explorer database. To learn more, see [Role-based access control](/kusto/access-control/role-based-access-control?view=azure-data-explorer&preserve-view=true&branch=main).
-1. Search for the name of your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) or the system-assigned managed identity. For example, *azure-iot-operations-xxxx7*.
+1. Search for the name of your [user-assigned managed identity set up for cloud connections](../secure-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections) or the system-assigned managed identity. For example, *azure-iot-operations-xxxx7*.
 1. Then, select **Select**.
 
 ## Create data flow endpoint for Azure Data Explorer
@@ -84,7 +89,7 @@ If using system-assigned managed identity, in Azure portal, go to your Azure IoT
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create adls](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-adx) command to create or replace an Azure Data Explorer data flow endpoint.
+Use the [az iot ops dataflow endpoint create adx](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-adx) command to create or replace an Azure Data Explorer data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint create adx --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host <ClusterName> --database <DatabaseName>
@@ -145,13 +150,13 @@ param endpointName string = '<ENDPOINT_NAME>'
 param hostName string = 'https://<cluster>.<region>.kusto.windows.net'
 param databaseName string = '<DATABASE_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' = {
+resource adxEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {
@@ -232,7 +237,7 @@ In the operations experience data flow endpoint settings page, select the **Basi
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create adls](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-adx) command to create or replace an Azure Data Explorer data flow endpoint.
+Use the [az iot ops dataflow endpoint create adx](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-adx) command to create or replace an Azure Data Explorer data flow endpoint.
 
 ```azurecli
 az iot ops dataflow endpoint create adx --auth-type SystemAssignedManagedIdentity --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host <ClusterName> --database <DatabaseName>
@@ -317,7 +322,7 @@ In most cases, you don't need to specify other settings. This configuration crea
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create adls](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-adx) command to create or replace an Azure Data Explorer data flow endpoint with system-assigned managed identity.
+Use the [az iot ops dataflow endpoint create adx](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-adx) command to create or replace an Azure Data Explorer data flow endpoint with system-assigned managed identity.
 
 ```azurecli
 az iot ops dataflow endpoint create adx --auth-type SystemAssignedManagedIdentity --audience https://<cluster>.<region>.kusto.windows.net --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host <cluster>.<region>.kusto.windows.net --database <DatabaseName>
@@ -398,7 +403,7 @@ dataExplorerSettings:
 
 ### User-assigned managed identity
 
-To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../secure-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../secure-iot-ops/howto-enable-secure-settings.md).
 
 Before you configure the data flow endpoint, assign a role to the user-assigned managed identity that grants permission to write to the Azure Data Explorer database:
 
@@ -418,7 +423,7 @@ Enter the user assigned managed identity client ID and tenant ID in the appropri
 
 #### Create or replace
 
-Use the [az iot ops dataflow endpoint create adls](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-adx) command to create or replace an Azure Data Explorer data flow endpoint with user-assigned managed identity.
+Use the [az iot ops dataflow endpoint create adx](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-adx) command to create or replace an Azure Data Explorer data flow endpoint with user-assigned managed identity.
 
 ```azurecli
 az iot ops dataflow endpoint create adx --auth-type UserAssignedManagedIdentity --client-id <ClientId> --tenant-id <TenantId> --scope <Scope> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --host <cluster>.<region>.kusto.windows.net --database <DatabaseName>

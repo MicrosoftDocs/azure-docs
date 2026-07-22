@@ -29,7 +29,7 @@ Follow these steps to complete a failover for Azure File Sync:
 
 The Azure portal displays only the control plane location for Storage Sync. It doesn't expose the data plane endpoint. You can validate that servers are pointing to the correct region by working with Microsoft Support.
 
-## Customer-managed planned failover (preview) 
+## Customer-managed planned failover
 
 Customer-managed planned failover can also be utilized in multiple scenarios, including planned disaster recovery testing, a proactive approach to large scale disasters, or to recover from nonstorage related outages. 
 

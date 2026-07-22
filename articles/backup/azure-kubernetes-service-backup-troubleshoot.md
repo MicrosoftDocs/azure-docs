@@ -3,6 +3,7 @@ title: Troubleshoot Azure Kubernetes Service backup
 description: Symptoms, causes, and resolutions of the Azure Kubernetes Service backup and restore operations.
 ms.topic: troubleshooting
 ms.date: 06/18/2025
+ms.update-cycle: 1095-days
 ms.service: azure-backup
 ms.custom:
   - ignite-2023

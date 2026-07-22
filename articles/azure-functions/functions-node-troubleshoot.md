@@ -74,7 +74,7 @@ If you get the following error in your function app logs:
 > System.Private.CoreLib: Exception while executing function: Functions.httpTrigger1. System.Private.CoreLib: Result: Failure
 > Exception: undici_1.Request is not a constructor
 
-Make sure you're using Node.js version 18.x or higher.
+Make sure you're using Node.js version 22.x or higher.
 
 ## Failed to detect the Azure Functions runtime
 

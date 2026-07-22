@@ -1,13 +1,11 @@
 ---
 title: How to Delegate User Registration and Product Subscription
 description: Learn how to delegate user registration and product subscription to a third party in the Azure API Management developer portal.
-author: dlepow
 services: api-management
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/24/2025
-ms.author: danlep
 ---
 
 # How to delegate user registration and product subscription

@@ -3,7 +3,7 @@ title: Properties of the Azure IoT Edge agent and hub module twins
 description: Review the specific properties and their values for the edgeAgent and edgeHub module twins
 author: sethmanheim
 ms.author: sethm
-ms.date: 03/04/2026
+ms.date: 06/16/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -117,6 +117,15 @@ The module twin for an IoT Edge hub is called **$edgeHub**. It coordinates commu
 | `routes.{routeName}` | A string representing an IoT Edge hub route. For more information, see [Declare routes](module-composition.md#declare-routes). | The `routes` element can be present but empty. |
 | `storeAndForwardConfiguration.timeToLiveSecs` | The device time in seconds that IoT Edge hub keeps messages if disconnected from routing endpoints, whether IoT Hub or a local module. This time persists over any power offs or restarts. For more information, see [Offline capabilities](offline-capabilities.md#time-to-live). | Yes |
 
+### EdgeHub environment variables
+
+You can tune some IoT Edge hub behaviors by setting environment variables on the `$edgeHub` module in the deployment manifest. The following variables control how the IoT Edge hub refreshes its device scope cache, which it uses to authenticate downstream devices and modules locally.
+
+| Environment variable | Description |
+| -------------------- | ----------- |
+| `DeviceScopeCacheRefreshRateSecs` | How often, in seconds, the IoT Edge hub refreshes its cache of the devices and modules in its scope by enumerating them from IoT Hub. The default is `3600` (one hour). On a hub with many IoT Edge devices, the combined scope refresh operations from all devices can contribute significantly to the hub's identity operation usage. Increasing this value reduces that load proportionally. For more information, see [IoT Hub identity operation quota is exceeded on a large fleet](troubleshoot-common-errors.md#iot-hub-identity-operation-quota-is-exceeded-on-a-large-fleet). |
+| `DeviceScopeCacheRefreshDelaySecs` | The minimum time, in seconds, that the IoT Edge hub waits before refreshing a single identity again on demand. The default is `120`. This setting limits how often the same identity is refreshed in rapid succession when clients connect. |
+
 ## EdgeHub reported properties
 
 | Property | Description |
@@ -124,12 +133,23 @@ The module twin for an IoT Edge hub is called **$edgeHub**. It coordinates commu
 | `lastDesiredVersion` | This integer refers to the last version of the desired properties processed by the IoT Edge hub. |
 | `lastDesiredStatus.code` | The status code referring to last desired properties seen by the IoT Edge hub. Allowed values: `200` Success, `400` Invalid configuration, `500` Failed. |
 | `lastDesiredStatus.description` | Text description of the status. |
-| `clients` | All clients connected to edgeHub with the status and last connected time. Example: `"clients": { "device2/SimulatedTemperatureSensor": { "status": "Connected", "lastConnectedTimeUtc": "2022-11-17T21:49:16.4781564Z" } }`. |
+| `clients` | All clients connected to edgeHub with the status and last connected time. Example: `"clients": { "device2/SimulatedTemperatureSensor": { "status": "Connected", "lastConnectedTimeUtc": "2022-11-17T21:49:16.4781564Z" } }`. For details about which connections appear in this property, see [Which connections appear in `clients`](#which-connections-appear-in-clients). |
 | `clients.{device or moduleId}.status` | The connectivity status of this device or module. Possible values: **connected** or **disconnected**. Only module identities can be in disconnected state. Downstream devices connecting to IoT Edge hub appear only when connected. |
 | `clients.{device or moduleId}.lastConnectTime` | Last time the device or module connected. |
 | `clients.{device or moduleId}.lastDisconnectTime` | Last time the device or module disconnected. |
 | `schemaVersion` | Schema version of reported properties. |
 | `version` | Version of the image. For example: `"version": { "version": "1.2.7", "build": "50979330", "commit": "d3ec971caa0af0fc39d2c1f91aef21e95bd0c03c" }`. | 
+
+### Which connections appear in `clients`
+
+The `clients` reported property lists every separate logical connection the local edgeHub serves, except its own `$edgeHub` identity. Specifically:
+
+- **Modules on the same edge device** appear as `<deviceId>/<moduleName>`. This includes `$edgeAgent`, because the local edgeAgent connects through the local edgeHub.
+- **Downstream IoT Edge child devices** appear as `<childDeviceId>/$edgeHub` and `<childDeviceId>/$edgeAgent`. There's no bare `<childDeviceId>` entry. The child's `$edgeHub` connection is the "device's own connection" referenced in [Number of connected clients in gateway hierarchy](iot-edge-limits-and-restrictions.md#number-of-connected-clients-in-gateway-hierarchy).
+- **Downstream leaf devices** (non-IoT Edge devices) appear as `<deviceId>` with no module suffix.
+- The local edgeHub's own identity (`<deviceId>/$edgeHub`) is intentionally omitted to avoid self-reference.
+
+When a module disconnects, its entry remains in `clients` with status `Disconnected`. When a downstream device disconnects, its entry is removed from `clients`. The visible entries equal the count budgeted against `MaxConnectedClients`. There's no hidden additional connection.
 
 ## Next steps
 

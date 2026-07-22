@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - xml-to-json | Microsoft Docs
 description: Reference for the xml-to-json policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 09/06/2024
-ms.author: danlep
 ---
 
 # Convert XML to JSON

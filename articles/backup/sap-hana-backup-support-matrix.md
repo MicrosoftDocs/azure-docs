@@ -2,7 +2,7 @@
 title: SAP HANA Backup support matrix
 description: In this article, learn about the supported scenarios and limitations when you use Azure Backup to back up SAP HANA databases on Azure VMs.
 ms.topic: reference
-ms.date: 02/16/2026
+ms.date: 07/16/2026
 ms.custom: references_regions 
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -27,17 +27,17 @@ Azure Backup supports the backup of SAP HANA databases to Azure. This article su
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **Topology**               | SAP HANA running in Azure Linux  VMs only                    | HANA Large Instances (HLI)                                   |
 | **Regions**                   | **Americas** – Central US, East US 2, East US, North Central US, South Central US, West US 2, West US 3, West Central US, West US, Canada Central, Canada East, Brazil South <br> **Asia Pacific** – Australia Central, Australia Central 2, Australia East, Australia Southeast, Japan East, Japan West, Korea Central, Korea South, East Asia, Southeast Asia, Central India, South India, West India, China East, China East 2, China East 3, China North, China North 2, China North 3 <br> **Europe** – West Europe, North Europe, France Central, UK South, UK West, Germany North, Germany West Central, Switzerland North, Switzerland West, Central Switzerland North, Norway East, Norway West, Sweden Central, Sweden South <br> **Africa / ME** - South Africa North, South Africa West, UAE North, UAE Central  <BR>  **Azure Government regions** | France South, Germany Central, Germany Northeast, US Gov IOWA |
-| **OS versions**            | SLES 12 with SP2, SP3, SP4, and SP5; SLES 15 with SP0, SP1, SP2, SP3, SP4, SP5, SP6, and SP7 <br><br>  RHEL 8.1, 8.2, 8.4, 8.6, 8.8, 8.10, 9.0, 9.2, 9.4, and 9.6               |                                             |
+| **OS versions**            | SLES 12 with SP2, SP3, SP4, and SP5; SLES 15 with SP0, SP1, SP2, SP3, SP4, SP5, SP6, and SP7 <br><br>  RHEL 8.1, 8.2, 8.4, 8.6, 8.8, 8.10, 9.0, 9.2, 9.4, 9.6, and 9.8               |                                             |
 | **HANA versions**          | SDC on HANA 1.x, MDC on HANA 2.x SPS 04, SPS 05 Rev <= 59, SPS 06 (validated for encryption enabled scenarios as well), SPS 07, and SPS 08.      |                                                            |
 | **Encryption** | SSLEnforce, HANA data encryption |            |
 | **HANA Instances**         | - A single SAP HANA instance on a  single Azure VM – scale up only. <br><br> - Multiple SAP HANA instances on a  single VM. You can protect only one of these multiple instances at a time. |                            |
 | **HANA database types**    | Single Database Container (SDC)  ON 1.x, Multi-Database Container (MDC) on 2.x | MDC in HANA 1.x                                              |
 | **HANA database size**     | HANA database of size upto 40 TB (this isn't the memory size of the HANA system).               |                                                              |
-| **Backup types**           | Full, Differential, Incremental and Log backups, Snapshots |                                      |
+| **Backup types**           | Full, Differential, Incremental and Log backups, Snapshots (Standard policy: Generally Available; Enhanced policy: Preview) |                                      |
 | **Restore types**          | Refer to the SAP HANA Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) to learn about the supported restore types |                                                              |
 | **Cross Subscription Restore** | Supported via the Azure portal and Azure CLI. [Learn more](sap-hana-database-restore.md#cross-subscription-restore). |          |
 | **Number of full backups per day**     |   One scheduled backup.  <br><br>   Three on-demand backups. <br><br> We recommend not to trigger more than three backups per day. However, to allow user retries in case of failed attempts, hard limit for on-demand backups is set to nine attempts.  |
-| **HANA deployments** | HANA System Replication (HSR) <br><br> HANA Scale-out system i.e one HANA system distributed across multiple nodes(PREVIEW)|           |
+| **HANA deployments** | HANA System Replication (HSR), including instance snapshot backups (Preview, supported only with Enhanced policy) <br><br> HANA Scale-out system i.e one HANA system distributed across multiple nodes (Preview)|           |
 | **Special configurations** |                                                              | SAP HANA + Dynamic Tiering <br>  Cloning through LaMa        |
 | **Compression** | You can enable HANA Native compression via the Backup policy. [See the SAP HANA document](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/86943e9f8d5343c59577755edff8296b.html). |       |
 | **Multi-streaming backup** | You can increase your streaming backup throughput from *420 MBps* to *1.5 GBps*. [Learn more](#support-for-multistreaming-data-backups). |      |

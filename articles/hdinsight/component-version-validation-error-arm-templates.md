@@ -5,8 +5,8 @@ ms.service: azure-hdinsight
 ms.custom: devx-track-arm-template
 ms.topic: troubleshooting-known-issue
 ms.date: 03/26/2024
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ---
 

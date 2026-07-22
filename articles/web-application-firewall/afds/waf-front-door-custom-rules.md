@@ -39,7 +39,7 @@ You can control access with a custom WAF rule that defines a priority number, a 
 
 - **Match condition**
 
-  Defines a match variable, an operator, and a match value. Each rule can contain multiple match conditions. A match condition might be based on geo-location, client IP addresses (CIDR), size, or string match. String match can be against a list of match variables.
+  Defines a match variable, an operator, and a match value. Each rule can contain multiple match conditions. A match condition might be based on geo-location, client IP addresses (CIDR), size, AS Number, Client Fingerprint, Service Tag, or string match. String match can be against a list of match variables.
   - **Match variable**
     - RequestMethod
     - QueryString

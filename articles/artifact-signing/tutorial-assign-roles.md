@@ -15,7 +15,7 @@ Artifact Signing uses [Azure role-based access control (RBAC)](../role-based-acc
 
 | Role Name                                 | Purpose                                                                                          | Notes                                                                                      |
 |-------------------------------------------|--------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------|
-| **Artifact Signing Identity Verifier**     | Required to manage identity validation requests                                                  | Can only be used in the Azure portal—not supported via Azure CLI                          |
+| **Artifact Signing Identity Verifier**     | Required to manage identity validation requests                                                  | Available only in the Azure portal; not supported via the Azure CLI. Users assigned this role must already have at least the Reader role at the subscription scope. |
 | **Artifact Signing Certificate Profile Signer** | Required to successfully sign using Azure Artifact Signing                                        | Necessary for signing operations; works with both Azure CLI and portal                    |
 
 

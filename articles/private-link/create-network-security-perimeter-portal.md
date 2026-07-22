@@ -2,11 +2,11 @@
 title: Quickstart - Create a network security perimeter - Azure portal
 titleSuffix: Azure Private Link
 description: Learn how to create a network security perimeter for an Azure resource using the Azure portal. This example demonstrates the creation of a network security perimeter for an Azure Key Vault.
-author: mbender-ms
-ms.author: mbender
+author: asudbring
+ms.author: allensu
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 08/01/2025
+ms.date: 07/08/2026
 #CustomerIntent: As a network administrator, I want to create a network security perimeter for an Azure resource in the Azure portal, so that I can control the network traffic to and from the resource.
 # Customer intent: As a network administrator, I want to create a network security perimeter for an Azure Key Vault in the Azure portal, so that I can manage and control network traffic securely for the resource.
 ---
@@ -104,6 +104,11 @@ When you no longer need a network security perimeter and associated resources, y
 1. Verify the resource group is no longer listed in the **Resource groups** window.
 
 [!INCLUDE [network-security-perimeter-delete-resources](../../includes/network-security-perimeter-delete-resources.md)]
+
+## Related content
+
+- [Standard service endpoint overview](./service-endpoint-standard-overview.md)
+- [Configure a standard service endpoint in the Azure portal](./configure-service-endpoint-standard-portal.md)
 
 ## Next steps
 

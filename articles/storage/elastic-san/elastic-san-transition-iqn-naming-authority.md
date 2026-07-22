@@ -16,7 +16,8 @@ Elastic SAN volume groups issue a unique identifier called an iSCSI Qualified na
 
 ## Regional availability
 
-The `net.azure.storage` naming authority is currently available in East Asia, Canada Central, South Central US, and West Central US.
+The `net.azure.storage` naming authority is currently available in Australia East, Canada Central, Canada East, Central US, East US, East US 2, Germany West Central, North Europe, Southeast Asia, Sweden Central, UK South, UK West, West Europe, West US 2, and West US 3.
+
 
 ## Prerequisites
 

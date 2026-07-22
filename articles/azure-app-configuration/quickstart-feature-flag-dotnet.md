@@ -50,7 +50,7 @@ Your app uses an environment variable to establish the connection to App Configu
 - If you use Command Prompt, run the following command:
 
   ```console
-  setx Endpoint "<endpoint-of-your-app-configuration-store>"
+  setx Endpoint "<AppConfigurationEndpoint>"
   ```
 
   Close and reopen Command Prompt so that the change takes effect. Verify that the environment variable is set by printing its value to the console.
@@ -58,7 +58,7 @@ Your app uses an environment variable to establish the connection to App Configu
 - If you use Windows PowerShell, run the following command:
 
   ```azurepowershell
-  [System.Environment]::SetEnvironmentVariable("Endpoint", "<endpoint-of-your-app-configuration-store>", "User")
+  [System.Environment]::SetEnvironmentVariable("Endpoint", "<AppConfigurationEndpoint>", "User")
   ```
 
 ### [Connection string](#tab/connection-string)
@@ -68,7 +68,7 @@ Your app uses an environment variable to establish the connection to App Configu
 - If you use Command Prompt, run the following command:
 
   ```console
-  setx ConnectionString "<connection-string-of-your-app-configuration-store>"
+  setx ConnectionString "<AppConfigurationConnectionString>"
   ```
 
   Close and reopen Command Prompt so that the change takes effect. Verify that the environment variable is set by printing its value to the console.
@@ -76,7 +76,7 @@ Your app uses an environment variable to establish the connection to App Configu
 - If you use Windows PowerShell, run the following command:
 
   ```azurepowershell
-  [System.Environment]::SetEnvironmentVariable("ConnectionString", "<connection-string-of-your-app-configuration-store>", "User")
+  [System.Environment]::SetEnvironmentVariable("ConnectionString", "<AppConfigurationConnectionString>", "User")
   ```
 
 ---

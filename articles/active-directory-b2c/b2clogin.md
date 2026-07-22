@@ -6,7 +6,7 @@ description: Learn how to update redirect URLs in Azure AD B2C applications to u
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 02/26/2025

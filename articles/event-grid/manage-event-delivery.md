@@ -153,5 +153,5 @@ New-AzEventGridSubscription `
 
 ## Related content
 
-* For a sample application that uses an Azure Function app to process dead letter events, see [Azure Event Grid Dead Letter Samples for .NET](https://azure.microsoft.com/resources/samples/event-grid-dotnet-handle-deadlettered-events/).
+* For a sample application that uses an Azure Function app to process dead letter events, see [Azure Event Grid Dead Letter Samples for .NET](https://github.com/Azure-Samples/event-grid-dotnet-handle-deadlettered-events).
 * For information about event delivery and retries, [Event Grid message delivery and retry](delivery-and-retry.md).

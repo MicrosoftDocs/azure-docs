@@ -4,8 +4,8 @@ description: Learn how to configure the properties of the Azure-SSIS Integration
 ms.date: 01/05/2024
 ms.topic: how-to
 ms.subservice: integration-services
-author: chugugrace
-ms.author: chugu
+author: kromerm
+ms.author: makromer
 ---
 # Configure the Azure-SSIS Integration Runtime for high performance
 

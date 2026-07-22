@@ -282,7 +282,7 @@ sections:
 
           If using an SMB client, you can use an SMB copy tool such as `Robocopy`, `Diskboss`, or even Windows File Explorer drag-and-drop to copy data onto the device.
 
-          If using an NFS client, you can use [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.first-world.info/).
+          If using an NFS client, you can use [rsync](https://rsync.samba.org/), [FreeFileSync](https://www.freefilesync.org/), [Unison](https://www.cis.upenn.edu/~bcpierce/unison/), or [Ultracopier](https://ultracopier.herman-brule.com/).
 
           For more information, go to [Tutorial: Copy data to Azure Data Box](data-box-deploy-copy-data.md) or [Tutorial: Copy data to Azure Data Box Heavy](data-box-heavy-deploy-copy-data.md).
 

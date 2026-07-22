@@ -15,10 +15,10 @@ ms.reviewer: dineshm
 
 You can synchronize local storage with Azure Blob storage by using the AzCopy v10 command-line utility.
 
-You can synchronize the contents of a local file system with a blob container. You can also synchronize containers and virtual directories with one another. Synchronization is one-way. In other words, you choose which of these two endpoints is the source and which one is the destination. Synchronization also uses server to server APIs. The examples presented in this section also work with accounts that have a hierarchical namespace.
+You can synchronize the contents of a local file system with a blob container. You can also synchronize containers and virtual directories with one another. Synchronization is one-way. In other words, you choose which of these two endpoints is the source and which one is the destination. Synchronization also uses server-to-server APIs. The examples presented in this section also work with accounts that have a hierarchical namespace.
 
 > [!NOTE]
-> The current release of AzCopy doesn't synchronize between other sources and destinations (for example: File storage or Amazon Web Services (AWS) S3 buckets).
+> The current release of AzCopy only supports synchronizing local storage with Azure Blob storage. It doesn't synchronize blob containers with other sources and destinations, such as Azure Files or Amazon Web Services (AWS) S3 buckets.
 
 To see examples for other types of tasks such as uploading files, downloading blobs, or copying blobs between accounts, see the links presented in the [Next Steps](#next-steps) section of this article.
 
@@ -36,6 +36,8 @@ See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download
 [!INCLUDE [Azcopy sync command general guidelines](../../../includes/azure-storage-azcopy-sync-guidelines.md)]
 
 - To prevent accidental deletions, make sure to enable the [soft delete](../blobs/soft-delete-blob-overview.md) feature before you use the `--delete-destination=prompt|true` flag.
+
+- When copying blobs between storage accounts, AzCopy converts uppercase characters in metadata names to lowercase. This behavior aligns with HTTP protocol specifications.
 
 ## Update a container with changes to a local file system
 

@@ -2,12 +2,10 @@
 title: Include file
 description: Notes about 'apic-extension' Azure CLI extension installation.
 services: api-center
-author: dlepow
 
 ms.service: azure-api-center
 ms.topic: include
 ms.date: 02/20/2026
-ms.author: danlep
 ms.custom: Include file
 ---
 

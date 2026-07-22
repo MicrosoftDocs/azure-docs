@@ -7,7 +7,7 @@ ms.devlang: powershell
 ms.custom:
   - devx-track-dotnet
   - build-2025
-ms.date: 05/08/2025
+ms.date: 05/20/2026
 # Customer intent: As a PowerShell developer, I want to understand Azure Functions so that I can leverage the full power of the platform.
 ---
 
@@ -391,19 +391,16 @@ The following table shows the PowerShell versions available to each major versio
 
 | Functions version | PowerShell version                               | .NET version  | 
 |-------------------|--------------------------------------------------|---------------|
+| 4.x | PowerShell 7.6 (preview, Windows only) | .NET 10 |
 | 4.x | PowerShell 7.4 | .NET 8 |
-| 4.x | PowerShell 7.2 (support ending) | .NET 6 |
 
 You can see the current version by printing `$PSVersionTable` from any function.
 
 To learn more about Azure Functions runtime support policy, refer to this [article](./language-support-policy.md)
 
-> [!NOTE]
-> Support for PowerShell 7.2 in Azure Functions ends on November 8, 2024. You might have to resolve some breaking changes when upgrading your PowerShell 7.2 functions to run on PowerShell 7.4. Follow this [migration guide](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4) to upgrade to PowerShell 7.4.
-
 ### Running local on a specific version
 
-When you run PowerShell functions locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "7.4"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7.4, your local.settings.json file looks like the following example:
+When you run PowerShell functions locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "7.6"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7.6, your local.settings.json file looks like the following example:
 
 ```json
 {
@@ -411,19 +408,23 @@ When you run PowerShell functions locally, you need to add the setting `"FUNCTIO
   "Values": {
     "AzureWebJobsStorage": "",
     "FUNCTIONS_WORKER_RUNTIME": "powershell",
-    "FUNCTIONS_WORKER_RUNTIME_VERSION" : "7.4"
+    "FUNCTIONS_WORKER_RUNTIME_VERSION" : "7.6"
   }
 }
 ```
 
 > [!NOTE]
-> In PowerShell Functions, the value "~7" for FUNCTIONS_WORKER_RUNTIME_VERSION refers to "7.0.x". We don't automatically upgrade PowerShell Function apps that have "~7" to "7.4". Going forward, for PowerShell Function Apps, we require that apps specify both the major and minor version they want to target. It's necessary to mention "7.4" if you want to target "7.4.x"
+> PowerShell 7.6 requires .NET 10 and is only supported on Windows. To target PowerShell 7.4 instead, set the value to `"7.4"`.
+>
+> In PowerShell Functions, the value "~7" for FUNCTIONS_WORKER_RUNTIME_VERSION refers to "7.0.x". We don't automatically upgrade PowerShell Function apps that have "~7" to "7.4". Going forward, for PowerShell Function Apps, we require that apps specify both the major and minor version they want to target. It's necessary to mention "7.4" or "7.6" if you want to target those versions.
 
 ### Changing the PowerShell version
 
-Take these considerations into account before you migrate your PowerShell function app to PowerShell 7.4:
+Take these considerations into account before you change the PowerShell version for your function app:
 
-- Because the migration might introduce breaking changes in your app, review this [migration guide](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4) before upgrading your app to PowerShell 7.4.
+- PowerShell 7.6 is currently in preview and is only supported on Windows hosting plans (Premium, Dedicated, and Consumption). It requires .NET 10.
+
+- Because the migration might introduce breaking changes in your app, review this [migration guide](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4) before upgrading your app to PowerShell 7.4 or later.
 
 - Make sure that your function app is running on the latest version of the Functions runtime in Azure, which is version 4.x. For more information, see [View the current runtime version](set-runtime-version.md#view-the-current-runtime-version).
 
@@ -451,7 +452,7 @@ Set-AzResource -ResourceId "/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RES
 
 ```
 
-Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<FUNCTION_APP>` with the ID of your Azure subscription, the name of your resource group and function app, respectively. Also, replace `<VERSION>` with `7.4`. You can verify the updated value of the `powerShellVersion` setting in `Properties` of the returned hash table. 
+Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<FUNCTION_APP>` with the ID of your Azure subscription, the name of your resource group and function app, respectively. Also, replace `<VERSION>` with `7.6` or `7.4`. You can verify the updated value of the `powerShellVersion` setting in `Properties` of the returned hash table. 
 
 ---
 

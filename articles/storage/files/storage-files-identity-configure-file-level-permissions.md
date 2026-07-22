@@ -19,7 +19,7 @@ Before you can configure directory-level and file-level permissions, you must [a
 
 Consult the following table to determine which tool can be used to configure ACLs for which authentication type.
 
-| Tool                            | AD DS (Hybrid)           | Entra Domain Services (Hybrid) | Entra Kerberos (Hybrid)  | Entra Kerberos (Cloud-only, preview) |
+| Tool                            | AD DS (Hybrid)           | Entra Domain Services (Hybrid) | Entra Kerberos (Hybrid)  | Entra Kerberos (Cloud-only) |
 |---------------------------------|:------------------------:|:------------------------------:|:------------------------:|:------------------------------------:|
 | Windows File Explorer           | :heavy_check_mark:       | :heavy_check_mark:             | :heavy_check_mark:       | ⛔             |
 | icacls                          | :heavy_check_mark:       | :heavy_check_mark:             | :heavy_check_mark:       | ⛔             |
@@ -28,7 +28,7 @@ Consult the following table to determine which tool can be used to configure ACL
 
 To configure ACLs by using Windows File Explorer or icacls, you need a client machine running Windows. You also need to mount the file share with admin-level access. If the identity source for your storage account is Active Directory Domain Services (AD DS) or Microsoft Entra Kerberos, this machine must have unimpeded network connectivity to an on-premises Active Directory. If the identity source is Microsoft Entra Domain Services, the machine must have unimpeded network connectivity to the domain controllers for the domain that Microsoft Entra Domain Services manages; these domain controllers are located in Azure.
 
-To use the Azure portal or the PowerShell `RestSetAcls` module, there's no dependency on domain controllers. However, the identities must be hybrid or cloud-only (preview). For `RestSetAcls`, you need a client machine running Windows.
+To use the Azure portal or the PowerShell `RestSetAcls` module, there's no dependency on domain controllers. However, the identities must be hybrid or cloud-only. For `RestSetAcls`, you need a client machine running Windows.
 
 ## How Azure RBAC and Windows ACLs work together
 
@@ -51,7 +51,7 @@ The following table shows how share-level permissions and Windows ACLs work toge
    | **NTFS - Full**         | Access denied | Read                       | Read, Write, Delete      | Read, Write, Delete, Apply permissions to anyone's folders/files |
 
 
-To configure ACLs by using identity-based authentication instead of a storage account key (recommended), you'll need an additional RBAC role: [Storage File Data SMB Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin). This role grants share-level access and the `takeOwnership` permission, which allows a user to take ownership of any file or directory by using the Windows `takeown` command, even if there's no existing ACL entry. After taking ownership, the user can modify ACLs. For details, see [Use the Windows permission model for SMB admin](#use-the-windows-permission-model-for-smb-admin).
+To configure ACLs by using identity-based authentication instead of a storage account key (recommended), you need an additional RBAC role: [Storage File Data SMB Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin). This role grants share-level access and the `takeOwnership` permission, which allows a user to take ownership of any file or directory by using the Windows `takeown` command, even if there's no existing ACL entry. After taking ownership, the user can modify ACLs. For details, see [Use the Windows permission model for SMB admin](#use-the-storage-file-data-smb-admin-role-to-mount-the-share).
 
 ## Supported Windows ACLs
 
@@ -89,7 +89,7 @@ You have two options for mounting the file share with admin-level access:
 
 If a user has the Full Control ACL and the [Storage File Data SMB Share Elevated Contributor](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-share-elevated-contributor) role (or a custom role with the required permissions), they can configure ACLs without using the Windows permission model for SMB admin or the storage account key.
 
-### Use the Windows permission model for SMB admin
+### Use the Storage File Data SMB Admin role to mount the share
 
 Use the Windows permission model for SMB admin instead of the storage account key. This feature enables you to assign the built-in RBAC role [Storage File Data SMB Admin](/azure/role-based-access-control/built-in-roles/storage#storage-file-data-smb-admin) to admin users, so they can mount the share using identity-based authentication and configure ACLs.
 
@@ -123,7 +123,7 @@ To use the Windows permission model for SMB admin, follow these steps:
 ### Mount the file share by using your storage account key (not recommended)
 
 > [!WARNING]
-> If possible, use the [Windows permission model for SMB admin](#use-the-windows-permission-model-for-smb-admin) to mount the share instead of using the storage account key.
+> If possible, use the [Windows permission model for SMB admin](#use-the-storage-file-data-smb-admin-role-to-mount-the-share) to mount the share instead of using the storage account key.
 
 Sign in to a domain-joined device or a device that has unimpeded network connectivity to the domain controllers. Sign in as a Microsoft Entra user if your identity source is Microsoft Entra Domain Services.
 
@@ -135,11 +135,11 @@ Use the `net use` command to mount the share at this stage and not PowerShell. I
 net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:localhost\<YourStorageAccountName> <YourStorageAccountKey>
 ```
 
-## Configure Windows ACLs
+## Configure Windows ACLs for Azure file shares
 
 The process for configuring Windows ACLs varies depending on whether you're authenticating hybrid or cloud-only identities:
 
-- For cloud-only identities (preview), you must use the Azure portal or PowerShell. Windows File Explorer and icacls aren't currently supported for cloud-only identities.
+- For cloud-only identities, you must use the Azure portal or PowerShell. Windows File Explorer and icacls aren't currently supported for cloud-only identities.
 
 - For hybrid identities, you can configure Windows ACLs by using icacls, or you can use Windows File Explorer. If the identity source for your storage account is Microsoft Entra Kerberos, you can also use the Azure portal or `RestSetAcls` PowerShell module.
 
@@ -192,7 +192,7 @@ To configure ACLs by using Windows File Explorer, follow these steps:
 
 ### Configure Windows ACLs by using the Azure portal
 
-If you configure Microsoft Entra Kerberos as the identity source for your storage account, you can configure Windows ACLs for each Entra user or group by using the Azure portal. This method works for both hybrid and cloud-only identities only when Microsoft Entra Kerberos is the identity source.
+If you configure Microsoft Entra Kerberos as the identity source for your storage account, you can configure Windows ACLs for each Microsoft Entra user or group by using the Azure portal. This method works for both hybrid and cloud-only identities only when Microsoft Entra Kerberos is the identity source.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -208,7 +208,7 @@ If you configure Microsoft Entra Kerberos as the identity source for your storag
 
 1. The pane shows the available users and groups. You can optionally add a new user or group. Select the pencil icon at the far right of any user or group to add or edit permissions for the user or group to access the specified file or directory.
 
-   :::image type="content" source="media/configure-file-level-permissions/users-and-groups.png" alt-text="Screenshot of the Azure portal that shows a list of Entra users and groups." lightbox="media/configure-file-level-permissions/users-and-groups.png" border="true":::
+   :::image type="content" source="media/configure-file-level-permissions/users-and-groups.png" alt-text="Screenshot of the Azure portal that shows a list of Microsoft Entra users and groups." lightbox="media/configure-file-level-permissions/users-and-groups.png" border="true":::
 
 1. Edit the permissions. **Deny** always takes precedence over **Allow** when both are set. When neither is set, default permissions are inherited.
 
@@ -228,6 +228,8 @@ $AccountKey = "<storage-account-key>" # replace with the storage account key
 $context = New-AzStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey 
 Add-AzFileAce -Context $context -FileShareName test -FilePath "/" -Type Allow -Principal "testUser@contoso.com" -AccessRights Read,Synchronize -InheritanceFlags ObjectInherit,ContainerInherit 
 ```
+
+In this example, `-Type Allow` creates an allow access control entry (ACE) for the specified user. The `-AccessRights Read,Synchronize` parameter grants read access along with the Synchronize permission, which is commonly included with file system permissions. The `-InheritanceFlags ObjectInherit,ContainerInherit` parameter propagates the ACE to both files (ObjectInherit) and subdirectories (ContainerInherit) under the specified path.
 
 ## Next step
 

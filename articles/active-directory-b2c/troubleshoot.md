@@ -5,7 +5,7 @@ description: Learn about approaches to solving errors when working with custom p
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: troubleshooting
 ms.date: 01/11/2024

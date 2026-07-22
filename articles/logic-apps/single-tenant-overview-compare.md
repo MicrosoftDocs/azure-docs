@@ -6,7 +6,7 @@ ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: concept-article
-ms.date: 09/03/2025
+ms.date: 05/07/2026
 ---
 
 # Differences between Standard single-tenant logic apps versus Consumption multitenant logic apps
@@ -296,6 +296,8 @@ For the **Standard** logic app workflow, the following capabilities are differen
     * The built-in action, [Inline Code](logic-apps-add-run-inline-code.md), is renamed **Inline Code Operations**, no longer requires an integration account, and has [updated limits](logic-apps-limits-and-config.md).
 
     * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
+
+    * In Standard stateless workflows, triggers don't support changing the trigger concurrency.
  
     * A Standard workflow can have only one trigger and doesn't support multiple triggers.
 
@@ -309,7 +311,7 @@ For the **Standard** logic app workflow, the following capabilities are differen
 
 * **Trigger history and run history**: For a **Standard** logic app workflow, trigger history and run history in the Azure portal appears at the workflow level, not the logic app resource level. For more information, review [Create single-tenant based workflows using the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
-* **Terraform templates**: You can't use these templates with a **Standard** logic app resource for complete infrastructure deployment. For more information, see [What is Terraform on Azure](/azure/developer/terraform/overview)?
+* **Terraform**: You can deploy Standard logic app resource infrastructure using the [AzAPI Terraform provider](/azure/developer/terraform/overview-azapi-provider), which has feature parity with ARM templates and Bicep. For a recommended module-based approach, see the [Azure Verified Modules (AVM) for Logic Apps Standard](https://github.com/Azure/terraform-azurerm-avm-res-web-site). For AVM support boundaries, see [Module support](https://azure.github.io/Azure-Verified-Modules/help-support/module-support/).
 
 * **Incoming client certificate**: **Standard** logic apps don't support incoming client certificates, and no client certificate setting exists for the logic app in the Azure portal. If you use ARM template deployment, make sure that you don't enable client certificates.
 

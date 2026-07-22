@@ -41,6 +41,9 @@ Before you enable Microsoft Entra Domain Services over SMB for Azure file shares
 
     It typically takes about 15 minutes for a Microsoft Entra Domain Services deployment to complete. Verify that the health status of Microsoft Entra Domain Services shows **Running**, with password hash synchronization enabled, before proceeding to the next step.
 
+    > [!NOTE]
+    > Remember to check the health of Entra Domain Services after deployment and resolve any critical or warning alerts in the health dashboard. See [Check the health of a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/check-health).
+
 1.  **Domain-join a VM with Microsoft Entra Domain Services.**
 
     To access an Azure file share by using Entra credentials from a VM, your VM must be domain-joined to Microsoft Entra Domain Services. For more information, see [Join a Windows Server virtual machine to a Microsoft Entra Domain Services managed domain](/entra/identity/domain-services/join-windows-vm). Microsoft Entra Domain Services authentication over SMB with Azure file shares is supported only on Windows VMs running OS versions later than Windows 7 or Windows Server 2008 R2, or on [Linux VMs](storage-files-identity-auth-linux-kerberos-enable.md) running Ubuntu 18.04+ or an equivalent RHEL or SLES VM.
@@ -76,7 +79,7 @@ You can enable Microsoft Entra Domain Services authentication over SMB only afte
 To enable Microsoft Entra Domain Services authentication over SMB by using the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. In the Azure portal, go to your existing storage account, or [create a storage account](../common/storage-account-create.md).
-1. Select **Data storage** > **File shares**.
+1. From the service menu, under **Data storage**, select **Classic file shares**.
 1. In the **File share settings** section, select **Identity-based access: Not configured**.
 
     :::image type="content" source="media/storage-files-identity-auth-domain-services-enable/enable-entra-storage-account-identity.png" alt-text="Screenshot of the file shares pane in your storage account, identity-based access is highlighted." lightbox="media/storage-files-identity-auth-domain-services-enable/enable-entra-storage-account-identity.png":::

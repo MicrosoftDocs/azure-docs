@@ -2,11 +2,11 @@
 title: Create custom app ID for P2S VPN Microsoft Entra ID authentication
 titleSuffix: Azure Virtual WAN
 description: Learn how to create or modify a custom audience App ID or upgrade an existing custom App ID to the new Microsoft-registered Azure VPN Client app values for Azure Virtual WAN.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 02/25/2025
-ms.author: cherylmc
+ms.author: duau
 ---
 
 # Create or modify a custom audience app ID for User VPN Microsoft Entra ID authentication
@@ -20,6 +20,12 @@ This article provides high-level steps. The screenshots to register an applicati
 * This article assumes that you already have a Microsoft Entra tenant and the permissions to create an Enterprise Application, typically the [Cloud Application Administrator role](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator) or higher. For more information, see [Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant) and [Assign user roles with Microsoft Entra ID](/entra/fundamentals/users-assign-role-azure-portal).
 
 * We recommend that you use the audience value `c632b3df-fb67-4d84-bdcf-b95ad541b5c8` to configure your custom app. This value has global consent, which means you don't need to manually register it to provide consent for your organization.
+
+> [!IMPORTANT]
+>Manually registered Azure VPN Clients used for Point-to-Site (P2S) connections with Microsoft Entra ID authentication will retire on March 31, 2028 in Azure Public Cloud, and on March 31, 2029 in Azure Government and Microsoft Azure operated by 21Vianet clouds. \
+>After these dates, manually registered clients will no longer function, and only Microsoft-registered VPN clients will be supported after the retirement dates.
+>
+>To avoid any service disruption, [migrate manually registered VPN clients](point-to-site-entra-gateway-update.md) to a Microsoft-registered VPN client for point-to-site connections with Microsoft Entra ID authentication before the applicable retirement dates.
 
   1. To grant admin consent for your organization, modify the following command to contain the desired `client_id` value. See the [table](../vpn-gateway/point-to-site-about.md#entra-id) for additional supported values.
 

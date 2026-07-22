@@ -31,6 +31,8 @@ Cosmos DB scaling decisions for the Consumption and Premium plans are done via t
 
 ::: zone-end
 
+For a complete end-to-end example of using the Azure Cosmos DB trigger, see [Respond to database changes in Azure Cosmos DB using Azure Functions](scenario-database-changes-azure-cosmosdb.md).
+
 ## Example
 
 ::: zone pivot="programming-language-csharp"
@@ -241,17 +243,17 @@ The preceding example uses app settings references (`%VAR_NAME%`) instead of har
 # [Functions 2.x+](#tab/functionsv2/isolated-process)
 
 The following code defines a `MyDocument` type:
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="49-58":::
-
+-->
 The following example uses an [`IReadOnlyList<T>`](/dotnet/api/system.collections.generic.ireadonlylist-1) as the Azure Cosmos DB trigger binding parameter:
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" id="docsnippet_exponential_backoff_retry_example":::
-
+-->
 This example requires the following `using` statements:
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-7":::
-
+-->
 ---
 
 ::: zone-end
@@ -454,6 +456,41 @@ Here's the Python code:
 ---
 
 ::: zone-end  
+::: zone pivot="programming-language-go"
+
+The following example shows an Azure Cosmos DB trigger function that logs each changed document:
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	"github.com/azure/azure-functions-golang-worker/sdk/bindings"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.CosmosDB("cosmosDBTrigger", processChanges,
+		sdk.WithDatabase("mydb"),
+		sdk.WithContainer("mycontainer"),
+		sdk.WithConnection("CosmosDBConnection"),
+	)
+	worker.Start(app)
+}
+
+func processChanges(ctx context.Context, docs []bindings.CosmosDocument) error {
+	for _, doc := range docs {
+		log.Printf("Document modified: %s", doc.ID)
+	}
+	return nil
+}
+```
+
+::: zone-end  
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
@@ -522,7 +559,7 @@ Use the `@CosmosDBTrigger` annotation on parameters that read data from Azure Co
 |**name** | The name of the function. |
 |**databaseName**  | The name of the Azure Cosmos DB database with the container being monitored. |
 |**containerName** | The name of the container being monitored. |
-|**leaseConnectionStringSetting** | (Optional) The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account that holds the lease container. <br><br> When not set, the `Connection` value is used. This parameter is automatically set when the binding is created in the portal. The connection string for the leases container must have write permissions.|
+|**leaseConnectionStringSetting** | (Optional) The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account that holds the lease container. <br><br> When not set, the `connection` value is used. This parameter is automatically set when the binding is created in the portal. The connection string for the leases container must have write permissions.|
 |**leaseDatabaseName** | (Optional) The name of the database that holds the container used to store leases. When not set, the value of the `databaseName` setting is used. |
 |**leaseContainerName** | (Optional) The name of the container used to store leases. When not set, the value `leases` is used. |
 |**createLeaseContainerIfNotExists** | (Optional) When set to `true`, the leases container is automatically created when it doesn't already exist. The default value is `false`. When using Microsoft Entra identities if you set the value to `true`, creating containers isn't [an allowed operation](/azure/cosmos-db/troubleshoot-forbidden#nondata-operations-arent-allowed) and your function app isn't allowed to start.|

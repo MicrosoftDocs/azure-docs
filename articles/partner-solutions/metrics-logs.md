@@ -1,8 +1,10 @@
 ---
 title: Azure Native Integrations monitoring overview
 description: "Overview of metrics and logs for Azure Native Integrations and key operational considerations."
+author: pavanatgit
+ms.author: plekkala
 ms.topic: overview
-ms.date: 12/01/2025
+ms.date: 05/25/2026
 ai-usage: ai-assisted
 
 #customer intent: As a cloud operator, I want to understand what telemetry partner integrations collect so that I can plan monitoring and governance.
@@ -15,13 +17,11 @@ Monitoring and observability are essential for managing modern cloud environment
 
 ## Metrics
 
-Quantitative data that reflects the performance and health of your Azure resources.
+Metrics are collected for all Azure resources by default. Optionally, you can limit metrics collection for specific resources using include/exclude tags.
+
+For Virtual Machines, Virtual Machine Scale Sets, and App Service Plans, the tag criteria apply to platform metrics. This tag criterion doesn't impact metrics collected using agents installed on these resources.
 
 For metrics, the system automatically creates a system managed identity and assigns it the Monitoring Reader role, which is required for data collection. If you remove this identity or role assignment, metric collection stops.
-
-You can enable your partner resource to collect metrics for all Azure resources within any linked subscriptions. Optionally, you can limit metric collection for Azure Virtual Machines and App Service plans by attaching Azure tags to your resources.
-
-For metrics, the system automatically creates a system managed identity and associates it with the resource on Azure. The setup process provides the Monitoring Reader role to the system managed identity. This role gives the partner service the ability to pull metrics for resources in your subscription from Azure Monitor.
 
 > [!WARNING]
 > If you remove the system managed identity or the Monitoring Reader role assignment, the partner can't collect metrics from your Azure resources.
@@ -32,15 +32,23 @@ Virtual machines, Virtual Machine Scale Sets, and App Service plans with include
 
 If there's a conflict between inclusion and exclusion rules, exclusion takes priority. You can't limit metric collection for other resource types.
 
-For example, if you configure a tag rule in which only virtual machines, Virtual Machine Scale Sets, and App Service plans tagged with True are included, only resources with this tag send metrics to the partner. All other virtual machines, Virtual Machine Scale Sets, and App Service plans are excluded from metrics collection.
+#### Example
+
+The following tag rule sends metrics to the partner only from virtual machines, Virtual Machine Scale Sets, and App Service plans tagged `Datadog = True`:
+
+| Action | Tag key | Tag value |
+|--------|---------|-----------|
+| Include | `Datadog` | `True` |
+
+If you don't add any tag rules, the partner collects metrics from all virtual machines, Virtual Machine Scale Sets, and App Service plans in the subscription.
 
 ## Logs
 
 Logs provide detailed records of activity and events within your Azure environment. These logs provide valuable insights for monitoring, troubleshooting, and auditing. With Azure Native Integrations, you can collect and forward various types of logs from your Azure resources directly to the partner service based on configurable tag-based rules. For a complete list of supported log categories, see [Supported Resource log categories for Azure Monitor](/azure/azure-monitor/reference/logs-index).
 
-The inclusion and exclusion tags determine which logs for all defined sources are sent to partner resources. By default, you collect logs for all resources.
+By default, platform logs (Azure resource logs) for all resources in the subscription are enabled and sent to the partner. The inclusion and exclusion tags determine which logs for all defined sources are sent to partner resources.
 
-The tag rules match the tags that are available on Azure resources in your subscription. If you select Include and add tags that match resources for your subscription, they're in scope for monitoring. By default, platform resource logs are enabled.
+The tag rules match the tags that are available on Azure resources in your subscription. If you select Include and add tags that match resources for your subscription, they're in scope for monitoring.
 
 ### Tag rules for sending logs
 
@@ -48,6 +56,17 @@ The tag rules match the tags that are available on Azure resources in your subsc
 - Azure resources with exclude tags don't send logs.
 
 If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
+
+#### Example
+
+The following tag rule sends logs to the partner only from Azure resources tagged `Datadog = True`:
+
+| Action | Tag key | Tag value |
+|--------|---------|-----------|
+| Include | `Datadog` | `True` |
+
+> [!TIP]
+> Changes to tag rules take effect within a few minutes. Diagnostic settings are automatically added to newly matching resources and removed from resources that no longer match.
 
 ### Azure activity logs
 

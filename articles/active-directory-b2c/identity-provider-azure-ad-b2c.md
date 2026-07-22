@@ -6,7 +6,7 @@ description: Provide sign-up and sign-in to customers with Azure AD B2C accounts
 author: garrodonnell
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 10/11/2024

@@ -1,9 +1,8 @@
 ---
 title: Troubleshoot private connectivity for Azure IoT Operations
 description: Diagnose and resolve DNS, Private Endpoint, RBAC, and connectivity issues for Azure IoT Operations in private network deployments.
-author: sethmanheim
-ms.subservice: layered-network-management
-ms.author: sethm
+author: david-emakenemi
+ms.author: demakenemi
 ms.topic: troubleshooting
 ms.date: 03/25/2026
 
@@ -25,7 +24,7 @@ After disabling public access on any Azure resource (Storage, Key Vault, Event G
    az iot ops check
    ```
 
-   All checks should pass. A warning about missing dataflows is expected if you haven't created any yet.
+   All checks should pass. A warning about missing dataflows is expected if you didn't create any yet.
 
 1. **Verify all pods are running:**
 
@@ -55,7 +54,7 @@ After disabling public access on any Azure resource (Storage, Key Vault, Event G
 
 **Symptom:** `nslookup <service>.vault.azure.net` (or `.blob.core.windows.net`) returns a public IP.
 
-**Cause:** The Private DNS Zone isn't linked to your VNet, or the DNS zone group wasn't created for the Private Endpoint.
+**Cause:** You didn't link the Private DNS Zone to your VNet, or you didn't create the DNS zone group for the Private Endpoint.
 
 **Fix:**
 - Verify the Private DNS Zone exists: `az network private-dns zone list --resource-group <resource-group>`

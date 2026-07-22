@@ -2,16 +2,16 @@
 title: 'About Site-to-site VPN Connections with Certificate Authentication'
 titleSuffix: Azure VPN Gateway
 description: Learn about site-to-site VPN connections with certificate authentication.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: concept-article
 ms.date: 02/24/2026
-ms.author: cherylmc
+ms.author: duau
 
 # Customer intent: "As a network engineer, I want to understand how to establish a secure site-to-site VPN connection using certificate authentication, so that I can securely connect my on-premises network to my Azure virtual network."
 ---
 
-# About site-to-site VPN connections with certificate authentication - Preview
+# About site-to-site VPN connections with certificate authentication
 
 This article helps you understand site-to-site (S2S) VPN gateway connections between your on-premises network and an Azure virtual network that use X.509 certificate-based authentication. Certificate authentication provides stronger security compared to preshared keys (PSK) for VPN connections.
 
@@ -23,8 +23,7 @@ Site-to-site certificate authentication relies on both inbound, and outbound cer
 :::image type="content" source="./media/site-to-site-certificate-authentication/certificate-diagram.png" alt-text="Diagram that shows site-to-site VPN gateway cross-premises connections using certificates." lightbox="./media/site-to-site-certificate-authentication/certificate-diagram.png":::
 
 > [!IMPORTANT]
-> Site-to-site certificate authentication is currently in Preview.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Site-to-site certificate authentication is supported only in the Azure public cloud.
 
 ## Certificates
 
@@ -76,8 +75,8 @@ The outbound certificate flow is Azure to on-premises.
 The inbound flow is on-premises to Azure.
 
 * The public portion of the inbound certificate chain (.cer files) is uploaded to and configured within the VPN connection settings in Azure.
-* The on-premises VPN device presents its own leaf certificate, signed by its corresponding Root CA.
-* Azure validates the incoming certificate by checking the full certificate chain against the configured inbound Root CA and intermediate certificates. Azure will only accept the remote device as a trusted peer if the chain is valid.
+* The on-premises VPN device presents its own leaf certificate, signed by its corresponding root CA.
+* Azure validates the incoming certificate by checking the full certificate chain against the configured inbound root CA and intermediate certificates. Azure only accepts the remote device as a trusted peer if the chain is valid.
 
 ## Next steps
 
@@ -85,3 +84,4 @@ To create a site-to-site VPN connection using certificate authentication, see th
 
 * [Configure a site-to-site VPN with certificate authentication - Azure portal](site-to-site-certificate-authentication-gateway-portal.md)
 * [Configure a site-to-site VPN with certificate authentication - Azure PowerShell](site-to-site-certificate-authentication-gateway-powershell.md)
+* [Configure a site-to-site VPN with certificate authentication - Azure CLI](site-to-site-certificate-authentication-gateway-cli.md)

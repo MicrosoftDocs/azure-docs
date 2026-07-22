@@ -3,8 +3,8 @@ title: Use Apache Spark REST API to submit remote jobs to an Entra enabled HDIns
 description: Learn how to Use Apache Spark REST API to submit remote jobs to an Entra enabled HDInsight Spark cluster
 ms.service: azure-hdinsight
 ms.topic: how-to
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 03/19/2025
 ---

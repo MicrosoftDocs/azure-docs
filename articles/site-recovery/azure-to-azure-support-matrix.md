@@ -2,7 +2,7 @@
 title: Support Matrix for Azure VM Disaster Recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: concept-article
-ms.date: 05/05/2026
+ms.date: 05/25/2026
 ms.service: azure-site-recovery
 author: Jeronika-MS
 ms.author: v-gajeronika
@@ -399,12 +399,13 @@ Data disk: Standard storage account | Supported. |
 Data disk: Premium storage account | Supported. | If a VM has disks spread across Premium and Standard storage accounts, you can select a different target storage account for each disk to ensure that you have the same storage configuration in the target region.
 Managed disk: Standard | Supported in Azure regions in which Site Recovery is supported. |
 Managed disk: Premium | Supported in Azure regions in which Site Recovery is supported. |
-Disk subscription limits | Up to 3,000 (1,200 in case of Trusted VMs) protected disks per subscription. | Ensure that the source or target subscription doesn't have more than 3,000 (1,200 in case of Trusted VMs) Site Recovery-protected disks (both data and OS).
+Disk subscription limits | Up to 3,000 (1,200 if Trusted VMs) protected disks per subscription. | Ensure that the source or target subscription doesn't have more than 3,000 (1,200 if Trusted VMs) Site Recovery-protected disks (both data and OS).
 Standard SSD | Supported. |
 Redundancy | Locally redundant storage (LRS), ZRS, and geo-redundant storage (GRS) are supported.
 Cool and hot storage | Not supported. | VM disks aren't supported on cool or hot storage.
 Storage Spaces | Supported. |
-NVMe storage interface (preview) | Supported | Supported for Azure-to-Azure for Windows for Gen2 VMs such as Da/Ea/Fa v6-series, Ebsv5/Ebdsv5, and others that use NVMe interface. Ephemeral OS disks and local NVMe disks aren't supported. |
+NVMe storage interface | Supported | Supported for Azure-to-Azure for Windows, Linux (RHEL 9, SLES 15, Ubuntu 24) for Gen2 VMs such as Da/Ea/Fa v6-series, Ddsv6, Edsv6, Ebsv5/Ebdsv5, and others that use NVMe interface. Ephemeral OS disks and local NVMe disks aren't supported. <br><br> Note: NVMe support for Linux VMs is in Preview.|
+Performance Plus disk  | Supported | For VMs using Premium SSD, Standard SSD, Standard HDD disks. Ensure that you use only premium storage accounts during replication. | 
 Mixed controller VMs (SCSI + NVMe) | Not Supported | VMs SKUs such as Lsv3 aren't supported |
 Encryption at host | Not supported. | The VM is protected, but the failed-over VM doesn't have encryption at host enabled. For more information, see [Enable end-to-end encryption by using encryption at host](/Azure/virtual-machines/disks-enable-host-based-encryption-portal).
 Encryption at rest (SSE) | Supported. | SSE is the default setting on storage accounts.
@@ -430,7 +431,7 @@ Azure Storage firewalls for virtual networks | Supported. | If you want to restr
 General-purpose V2 storage accounts (hot and cool tiers) | Supported. | Transaction costs increase substantially compared to general-purpose V1 storage accounts.
 Generation 2 (UEFI boot) | Supported.
 Managed shared disk| Supported. |
-Managed Premium SSD v2| Supported. | Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Premium SSD v2 disks can't be supported. 
+Managed Premium SSD v2| Supported. | Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Premium SSD v2 disks can't be supported. __This SKU supports only new replications. Disks must be PV2 from the enable time. Upgrading from PV1 to PV2 for an existing replication job isn't supported and requires re-enabling replication.__
 Ultra Disks | Supported. | Zonal Disaster Recovery isn't supported. Since block blob storage accounts aren't supported in China North and China East regions, Site Recovery for Ultra Disks can't be supported.
 Secure transfer option | Supported.
 Write accelerator enabled disks | Not supported.

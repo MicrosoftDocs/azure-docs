@@ -3,12 +3,12 @@ title: Release Notes for AppCAT 7
 description: Azure Migrate application and code assessment tool - release notes.
 author: KarlErickson
 ms.author: karler
-ms.reviewer: brborges
+ms.reviewer: seal
 ms.service: azure-java
 ms.subservice: java-fundamentals
 ms.custom: devx-track-java, build-2025
 ms.topic: overview
-ms.date: 06/27/2025
+ms.date: 06/24/2026
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
 
@@ -17,6 +17,13 @@ ms.date: 06/27/2025
 This article provides the release notes for Azure Migrate application and code assessment for Java (AppCAT 7). It includes information about new features, bug fixes, and known issues.
 
 ## Release history
+
+### 7.7.0.10
+
+This release contains the following features and enhancements:
+- Add openjdk25 capability entry.
+- Strip pre-release label before dependency version check.
+- Fix transitive dependency location resolution.
 
 ### 7.7.0.9
 
@@ -172,6 +179,10 @@ This release is based on a different set of components of the Konveyor project.
 - A new engine based on the [Konveyor Analyzer LSP](https://github.com/konveyor/analyzer-lsp) project, with a CLI based on the [Konveyor Kantra](https://github.com/konveyor/kantra/) project.
 
 ## Known issues
+
+### 7.7.0.10
+
+- An error in the **Watcher Error** channel on Windows: `Windows system assumed buffer larger than it is, events have likely been missed`. This error message appears on the command line during long-running jobs on Windows.
 
 ### 7.7.0.9
 

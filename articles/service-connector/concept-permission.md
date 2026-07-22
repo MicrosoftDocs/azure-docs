@@ -49,29 +49,6 @@ The following permissions apply to service connections for Azure app-related ser
 |`Microsoft.AppConfiguration/configurationStores/ListKeys/action`|List the API keys for the specified configuration store.|
 |`Microsoft.AppConfiguration/configurationStores/read`|Get the properties of the specified configuration store or list all the configuration stores under the specified resource group or subscription.|
 
-### Azure Container Apps
-
-
-| Action | Description |
-| --- | --- |
-|`Microsoft.App/containerApps/read`|Get a container app.|
-|`Microsoft.App/containerApps/write`|Create or update a container app.|
-|`Microsoft.App/containerApps/listsecrets/action`|List secrets of a container app.|
-|`Microsoft.App/managedEnvironments/read`|Get a managed environment.|
-|`Microsoft.App/locations/managedEnvironmentOperationStatuses/read`|Get a managed environment long running operation status.|
-|`microsoft.app/locations/containerappoperationstatuses/read`|Get a container app long running operation status.|
-|`microsoft.app/locations/containerappoperationresults/read`|Get a container app long running operation result.|
-|`microsoft.app/locations/managedenvironmentoperationresults/read`|Get a managed environment long running operation result.|
-
-### Azure Container Apps Distributed Application Runtime (Dapr)
-
-
-| Action | Description |
-| --- | --- |
-|`Microsoft.App/managedEnvironments/daprComponents/read`|Read a managed environment Dapr component.|
-|`Microsoft.App/managedEnvironments/daprComponents/write`|Create or update a managed environment Dapr component.|
-|`Microsoft.App/managedEnvironments/daprComponents/delete`|Delete a managed environment Dapr component.|
-
 ### Azure Cache for Redis (Basic/Standard/Premium)
 
 

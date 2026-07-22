@@ -48,13 +48,12 @@ Changes are processed in the order that their changes were made, with the oldest
 
 For more information on change tracking and how it's used by applications such as Azure SQL triggers, see [work with change tracking](/sql/relational-databases/track-changes/work-with-change-tracking-sql-server) .
 
-[!INCLUDE [functions-sql-database-authentication-note](../../includes/functions-sql-database-authentication-note.md)]
-
-::: zone pivot="programming-language-csharp"
+For a complete end-to-end example of using the Azure SQL trigger, see [Respond to Azure SQL Database changes using Azure Functions](scenario-database-changes-azure-sqldb.md).
 
 ## Example usage
 <a id="example"></a>
 
+::: zone pivot="programming-language-csharp"
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -178,8 +177,6 @@ namespace AzureSQL.ToDo
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
-## Example usage
-<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-java).
 
@@ -297,8 +294,6 @@ public class ProductsTrigger {
 
 
 ::: zone pivot="programming-language-powershell"
-## Example usage
-<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-powershell).
 
@@ -353,8 +348,6 @@ Write-Host "SQL Changes: $changesJson"
 ```
 ::: zone-end
 ::: zone pivot="programming-language-javascript"
-## Example usage
-<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-js).
 
@@ -410,8 +403,6 @@ module.exports = async function (context, todoChanges) {
 
 
 ::: zone pivot="programming-language-python"
-## Example usage
-<a id="example"></a>
 
 More samples for the Azure SQL trigger are available in the [GitHub repository](https://github.com/Azure/azure-functions-sql-extension/tree/main/samples/samples-python).
 
@@ -694,6 +685,8 @@ Note that these retries are outside the built-in idle connection retry logic tha
 If an exception occurs in the user function when processing changes then the batch of rows currently being processed are retried again in 60 seconds. Other changes are processed as normal during this time, but the rows in the batch that caused the exception are ignored until the timeout period has elapsed.
 
 If the function execution fails five times in a row for a given row then that row is completely ignored for all future changes. Because the rows in a batch aren't deterministic, rows in a failed batch might end up in different batches in subsequent invocations. This means that not all rows in the failed batch will necessarily be ignored. If other rows in the batch were the ones causing the exception, the "good" rows might end up in a different batch that doesn't fail in future invocations.
+
+[!INCLUDE [functions-sql-connections](../../includes/functions-sql-connections.md)]
 
 ## Next steps
 

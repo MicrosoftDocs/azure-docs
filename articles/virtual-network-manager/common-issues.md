@@ -7,7 +7,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 11/05/2025
+ms.date: 07/14/2026
 ms.custom: template-concept
 ---
 
@@ -26,6 +26,10 @@ You need to check the regions where the virtual networks are located. The config
 
 To resolve this issue, add the region where the virtual network is located to the configuration. 
 
+### I deployed a configuration in the Azure portal, but the status still shows as “Not deployed”. Did my deployment fail?
+
+Not necessarily. After a deployment or configuration commit completes, the status updates in the portal can take time. To see the correct, updated status, manually refresh the portal page or wait. The status should then reflect the actual deployment state.
+
 ### Configuration isn't deployed
 
 You need to deploy the configuration after you create or modify it. The configuration is only applied to the virtual networks after you deploy it.
@@ -34,7 +38,7 @@ To resolve this issue, deploy the configuration after you create or modify it.
 
 ### Configuration changes didn't have enough time to apply
 
-You need to wait for the configuration changes to apply. The time it takes for the configuration changes to apply after you commit the configuration is around 15-20 minutes. When there's an update to your network group membership, it takes about 10 minutes for the changes to reflect.
+You need to wait for the configuration changes to apply. The base time to apply a configuration after you commit it is a few minutes. The time to update network group membership varies by membership type: manually added members update immediately, conditionally added members in environments with fewer than 1,000 subscriptions update within a few minutes, and conditionally added members in environments with more than 1,000 subscriptions are notified by Azure Policy within a 24-hour window, after which the configuration applies in a few minutes. For more information, see [Deployment latency and timing](concept-deployments.md#deployment-latency-and-timing).
 
 ### Updated configuration changes aren't reflected in AVNM
 
@@ -50,7 +54,7 @@ In a hub-and-spoke topology, if you enable the option to *use the hub as a gatew
 
 ### Members in the network group can't communicate with each other
 
-If you want members in the network group to communicate with each other across regions in a hub and spoke topology configuration, you need to enable the global Mesh option.
+If you want members in the network group to communicate with each other across regions in a hub and spoke topology configuration, you need to enable the global mesh option.
 
 ## Resource group creation fails
 
@@ -96,7 +100,7 @@ The portal interface highlights which virtual networks are inactive for high sca
 
 :::image type="content" source="media/common-issues/verify-high-scale-private-endpoints.png" alt-text="Screenshot of enablement of high scale endpoints in network manager.":::
 
-For information on how to enable high scale private endpoints, see [Enable high-scale connectivity in Azure Virtual Network Manager connected groups](concept-connectivity-configuration.md#enable-high-scale-connectivity-in-azure-virtual-network-manager-connected-groups).
+For information on how to enable high scale private endpoints, see [Enable high-scale private endpoints in Azure Virtual Network Manager connected groups](concept-connectivity-configuration.md#enable-high-scale-private-endpoints-in-azure-virtual-network-manager-connected-groups).
 
 ## Next steps
 

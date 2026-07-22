@@ -1,8 +1,8 @@
 ---
-author: ProfessorKendrick
+author: pavanatgit
 ms.topic: include
 ms.date: 02/18/2025
-ms.author: kkendrick
+ms.author: plekkala
 ---
 
 If your organization uses Microsoft Entra ID as its identity provider, you can establish single sign-on from the Azure portal:

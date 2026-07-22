@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.topic: concept-article
-ms.date: 08/21/2024
+ms.date: 05/21/2026
 ---
 
 # Azure Web PubSub service internals
@@ -288,9 +288,6 @@ The service provides REST APIs for the server to do connection management.
 The detailed REST API protocol is defined [here][rest].
 
 ### Event listener
-
-> [!NOTE]
-> Event listener feature is in preview.
 
 The event listener listens to the incoming client events. Each event listener contains a filter to specify which kinds of events it concerns, an endpoint about where to send the events to.
 

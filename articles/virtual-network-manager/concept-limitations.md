@@ -46,7 +46,6 @@ This article provides an overview of the current limitations when you're using [
   * This default is a soft limit and can be adjusted by submitting a request using [this form](https://forms.office.com/r/xXxYrQt0NQ).
 
 * The following BareMetal Infrastructures aren't supported in connected group:
-  * [Azure NetApp Files](../azure-netapp-files/index.yml)
   * [Azure VMware Solution](../azure-vmware/index.yml)
   * [Nutanix Cloud Clusters on Azure](../baremetal-infrastructure/workloads/nc2-on-azure/about-nc2-on-azure.md)
   * [Oracle Database@Azure](../oracle/oracle-db/oracle-database-what-is-new.md)

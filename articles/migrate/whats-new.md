@@ -7,7 +7,7 @@ ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
-ms.date: 02/24/2025
+ms.date: 05/07/2026
 ms.custom: mvc, engagement-fy25
 # Customer intent: As a cloud architect, I want to stay updated on the latest features and enhancements in Azure Migrate, so that I can optimize on-premises migration strategies and ensure successful transitions to the Azure platform.
 ---
@@ -16,9 +16,14 @@ ms.custom: mvc, engagement-fy25
 
 [Azure Migrate](migrate-services-overview.md) helps you discover, assess, and migrate on-premises servers, apps, and data to the Azure cloud platform. This article summarizes new releases and features in Azure Migrate.
 
+## Update (June 2026)
+
+- Public preview: Azure Migrate now **integrates with GitHub Copilot modernization CLI** (public preview) to deliver **at scale code insights**. This capability brings together Azure Migrate’s portfolio-level discovery and assessment with GitHub Copilot’s context-aware code analysis. The shared workflow helps migration admins and app developers collaborate more effectively while adhering to organizational security guidelines. Teams can assess multiple applications at once, evaluate Azure compatibility, and make informed refactor-versus-replatform decisions. They can also act on code-fix recommendations and effort estimates to plan modernization with greater confidence and predictability. [Learn more](/azure/migrate/add-copilot-code-insights)
+
+
 ## Update (May 2026)
 
-- Public preview: Azure Migrate now supports **automatic discovery of applications** by grouping workloads discovered through the Collector, Appliance, or CSV import. Each application represents a logical grouping of servers and their workloads. Azure Migrate identifies these groups using server naming patterns, inferred environments, and server roles. [Learn more](define-manage-applications.md#auto-discovered-applications).
+- Public preview: Azure Migrate now supports **automatic discovery of applications** by grouping workloads discovered through the Collector, Appliance, or CSV import. Each application represents a logical grouping of servers and their workloads. Azure Migrate identifies these groups using server naming patterns, inferred environments, and server roles. [Learn more](define-manage-applications.md#auto-discover-applications).
 
 
 ## Update (April 2026)
@@ -253,7 +258,7 @@ The RVTools XLSX (preview) file import now reads storage data, when available, f
 
 ## Update (January 2023)
 
-- Envision savings with the [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plan-compute) option. An Azure savings plan for compute is now available for an Azure Migrate business case, Azure VM assessment, Azure SQL assessment, and Azure App Service assessment.
+- Envision savings with the [Azure savings plan for compute](https://azure.microsoft.com/pricing/offers/savings-plans?cid=msft_learn) option. An Azure savings plan for compute is now available for an Azure Migrate business case, Azure VM assessment, Azure SQL assessment, and Azure App Service assessment.
 - Support is available for the export of a business case report into an .xlsx workbook from the portal. [Learn more](common-questions-business-case.md#how-can-i-export-the-business-case).
 - Azure Migrate is now supported in Sweden geography. [Learn more](supported-geographies.md#public-cloud).
 
@@ -416,7 +421,6 @@ Azure Migrate supports deployments in Microsoft Azure Government:
 - You can migrate VMware VMs, Hyper-V VMs, and physical servers to Azure.
 - For VMware migration, you can use agentless or agent-based migration. [Learn more](server-migrate-overview.md).
 - You can [review supported geographies and regions](supported-geographies.md#azure-government) for Azure Government.
-- [Agent-based dependency analysis](concepts-dependency-visualization.md#agent-based-analysis) isn't supported in Azure Government.
 - Features in preview are supported in Azure Government, [agentless dependency analysis](concepts-dependency-visualization.md#agentless-analysis), and [application discovery](how-to-discover-applications.md).
 
 ## Update (March 2020)

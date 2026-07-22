@@ -73,7 +73,6 @@ continueOnStepFailure | Whether to continue execution of other steps in the Mach
 See the following articles that explain how to transform data in other ways:
 
 * [Execute Data Flow activity](control-flow-execute-data-flow-activity.md)
-* [U-SQL activity](transform-data-using-data-lake-analytics.md)
 * [Hive activity](transform-data-using-hadoop-hive.md)
 * [Pig activity](transform-data-using-hadoop-pig.md)
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md)

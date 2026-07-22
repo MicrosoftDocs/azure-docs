@@ -1,12 +1,13 @@
 ---
 title: Use mTLS in Azure Container Apps
-description: Learn to use mTLS in Azure Container Apps.
+description: Learn to use mTLS in Azure Container Apps. Using mTLS-enabled applications to provide increased security in your applications.
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 01/22/2025
+ms.date: 03/20/2026
 ms.author: cshoe
+#customer intent: As an application developer using Azure Container Apps, I want to use the mTLS extension to provide authentication between client and server.
 ---
 
 # Use mTLS in Azure Container Apps
@@ -17,8 +18,8 @@ In Azure Container Apps, all incoming requests pass through Envoy before being r
 
 To build an mTLS application in Azure Container Apps, you need to:
 
-1. Configure Azure Container Apps to require client certificates from peers.
-2. Extract `X.509` Certificates from requests.
+- Configure Azure Container Apps to require client certificates from peers.
+- Extract `X.509` Certificates from requests.
 
 This article describes how to handle peer mTLS handshake certificates by extracting the `X.509` certificate from the client.
 
@@ -26,11 +27,11 @@ This article describes how to handle peer mTLS handshake certificates by extract
 
 Use the following steps to configure your container app to require client certificates:
 
-1. Open your container app in the Azure portal.
-1. Under *Settings*, select **Ingress**.
-1. Select the **Enabled** option.
-1. For *ingress type*, select **HTTP**.
-1. Under *Client certificate mode*, select **Require**.
+1. In the [Azure portal](https://portal.azure.com), open your container app.
+1. In the left menu, select **Networking** > **Ingress**.
+1. Under **Enable ingress for applications that need an HTTP or TCP endpoint.**, enable **Ingress**.
+1. For **Ingress type**, select **HTTP**.
+1. Under **Client certificate mode**, select **Require**.
 1. Select **Save** to apply the changes.
 
 For more information about configuring client certificate authentication in Azure Container Apps, see [Configure client certificate authentication in Azure Container Apps](client-certificate-authorization.md).

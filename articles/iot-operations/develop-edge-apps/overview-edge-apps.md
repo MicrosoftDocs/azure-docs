@@ -1,11 +1,12 @@
 ---
 title: Highly available edge applications for Azure IoT Operations
 description: Learn how to develop highly available edge applications that work with Azure IoT Operations.
-author: sethmanheim
+author: dominicbetts
 ms.subservice: azure-mqtt-broker
-ms.author: sethm
+ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: concept-article
-ms.date: 4/17/2025
+ms.date: 06/10/2026
 
 #CustomerIntent: As a developer, I want understand how to develop highly available edge applications for my Azure IoT Operations solution.
 

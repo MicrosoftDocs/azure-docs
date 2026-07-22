@@ -4,7 +4,7 @@ metadata:
   description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 02/16/2026
+  ms.date: 07/16/2026
   author: AbhishekMallick-MS
   ms.author: v-mallicka
   ms.custom:
@@ -160,7 +160,9 @@ sections:
           Does HSR support database instances backup using snapshots?
 
         answer: |
-          Currently, only Backint-based backups are supported for HSR. Snapshots aren't yet.
+          Yes. Azure Backup supports database instance snapshot backups in Preview for HSR-enabled SAP HANA systems when you use the **Enhanced (Preview)** snapshot backup policy.
+
+          Snapshot backup also has a **Standard** policy subtype (Generally Available), but HSR snapshot support is currently available only with the **Enhanced (Preview)** policy.
 
       - question: |
           Do I need to run the instance re-detection only on the server marked "Ready", or also on the one marked "Not Ready"?

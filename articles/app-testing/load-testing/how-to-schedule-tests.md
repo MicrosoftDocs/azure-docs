@@ -3,7 +3,7 @@ title: Define schedules on load tests
 titleSuffix: Azure Load Testing
 description: 'Learn how to schedule load tests with Azure Load Testing. Scheduling tests allows you to run tests at a later time or run at a regular cadence.'
 services: load-testing
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.author: nandinim
 author: nandinimurali
 ms.date: 10/09/2024

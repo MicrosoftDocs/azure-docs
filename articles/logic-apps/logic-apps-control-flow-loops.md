@@ -315,6 +315,22 @@ The **Until** action stops execution based on the optional **Count** and **Timeo
 | **Count** | The maximum number of iterations that run before the loop exits. <br><br>For the default and maximum limits on the number of **Until** actions that a workflow can have, see [Concurrency, looping, and debatching limits](logic-apps-limits-and-config.md#looping-debatching-limits). |
 | **Timeout** | The maximum amount of time that the **Until** action, including all iterations, runs before the loop exits. This value is specified in [ISO 8601 format](https://en.wikipedia.org/wiki/ISO_8601) and is evaluated for each iteration. <br><br>If any action in the loop takes longer than the timeout limit, the current iteration doesn't stop. However, the next iteration doesn't start because the timeout limit condition is met. <br><br>For the default and maximum limits on the **Timeout** value, see [Concurrency, looping, and debatching limits](logic-apps-limits-and-config.md#looping-debatching-limits). |
 
+### Review run history for Until loop iterations
+
+When you view the run history for a workflow that includes an **Until** loop, the detailed status and results for actions inside the loop are available only after the entire loop completes its run. While the **Until** loop is still executing its iterations, the loop action shows the **Running** status, but you can't expand or traverse the individual iteration results until the loop exits.
+
+The loop exits when one of the following conditions is met:
+
+- The specified expression evaluates to **true**.
+- The loop reaches the **Count** limit.
+- The loop reaches the **Timeout** limit.
+
+After the loop completes, you can select the **Until** action in run history to view each iteration and the status of the child actions within that iteration.
+
+> [!NOTE]
+>
+> If your **Until** loop runs for an extended period, you must wait for the loop to fully complete before you can inspect the run history for the results from individual iterations. To monitor long running, in-progress loops, consider adding logging or notification actions inside the loop that independently emit status, for example, by sending a message to a queue or updating a variable that a parallel branch can read.
+
 <a name="until-json"></a>
 
 ## "Until" definition (JSON)

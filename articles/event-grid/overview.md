@@ -62,7 +62,7 @@ Highlights of MQTT messaging support in Event Grid:
 - [HTTP Publish](mqtt-http-publish.md): Enables devices and services to send MQTT messages to Event Grid over HTTPS, which simplifies integration with non-MQTT clients.
 - [MQTT Retain](mqtt-retain.md): Ensures that the last known message on a topic is automatically delivered to new subscribers, which enables instant state synchronization.
 - **Shared subscriptions**: Enables multiple clients to consume messages from a single subscription as a group, with the broker distributing messages across them for load-balanced, scalable processing.
-- **Subscription identifiers (preview)**: Allows MQTT 5 clients to tag each subscription with a unique numeric ID, which simplifies identifying which subscription a received message matches when a client manages multiple subscriptions.
+- **Subscription identifiers**: Allows MQTT 5 clients to tag each subscription with a unique numeric ID, which simplifies identifying which subscription a received message matches when a client manages multiple subscriptions.
 
 For more information about the MQTT broker, see the following articles:
 

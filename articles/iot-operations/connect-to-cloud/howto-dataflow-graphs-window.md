@@ -1,12 +1,12 @@
 ---
 title: Aggregate data over time in data flow graphs
 description: Learn how to compute averages, sums, min/max, counts, and other aggregations over tumbling time windows in Azure IoT Operations data flow graphs.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 04/02/2026
+ms.date: 06/23/2026
 ai-usage: ai-assisted
 
 ---
@@ -19,8 +19,15 @@ A window transform collects messages over a fixed time interval and produces a s
 
 ## Prerequisites
 
-- An Azure IoT Operations instance deployed on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 - A default registry endpoint named `default` that points to `mcr.microsoft.com` is automatically created during deployment.
+
+## Scaling limitation for stateful graphs
+
+> [!IMPORTANT]
+> Data flow graphs that contain a window transform are *stateful*—each instance accumulates messages independently. When the data flow profile has an instance count greater than one, messages are distributed across instances through [shared subscriptions](howto-configure-dataflow-source.md#shared-subscriptions). Because each instance maintains its own aggregation state and the instances don't share state with each other, each instance only sees a subset of the messages. This means aggregation results such as averages, sums, and counts are computed over a partial data set and are incorrect.
+>
+> To ensure correct aggregation results, set the data flow profile [instance count](howto-configure-dataflow-profile.md#scaling) to **1** for any data flow graph that uses a window transform.
 
 ## When to use a window transform
 
@@ -47,6 +54,33 @@ The delay step controls how long each tumbling window lasts. The configuration k
 # [Operations experience](#tab/portal)
 
 In the window transform configuration, set the **Window duration** in seconds. For example, set it to `30` for a 30-second tumbling window.
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the window transform node's `configuration` in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
+
+The rules are a JSON object:
+
+```json
+{
+  "type": "duration",
+  "delaySeconds": 30
+}
+```
+
+These rules go in the `value` field as an escaped string:
+
+```json
+"configuration": [
+  {
+    "key": "delay",
+    "value": "{\"type\":\"duration\",\"delaySeconds\":30}"
+  }
+]
+```
+
+> [!TIP]
+> To generate the escaped string, save the rules to a file like `rules.json`, then run `jq -c . rules.json` and paste the single-line output into the `value` field.
 
 # [Bicep](#tab/bicep)
 
@@ -90,6 +124,33 @@ In the window transform configuration, add accumulation rules. For each rule, sp
 | **Input** | The field to aggregate (for example, `temperature`). |
 | **Output** | The output field name (for example, `avgTemperature`). |
 | **Expression** | The aggregation function (for example, `average($1)`). |
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the window transform node's `configuration` in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply).
+
+The rules are a JSON object:
+
+```json
+{
+  "accumulate": [
+    {
+      "inputs": ["temperature"],
+      "output": "avgTemperature",
+      "expression": "average($1)"
+    }
+  ]
+}
+```
+
+These rules go in the `value` field as an escaped string:
+
+```json
+{
+  "key": "rules",
+  "value": "{\"accumulate\":[{\"inputs\":[\"temperature\"],\"output\":\"avgTemperature\",\"expression\":\"average($1)\"}]}"
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -152,6 +213,21 @@ You can combine multiple aggregation functions in a single expression:
 # [Operations experience](#tab/portal)
 
 Add a rule with inputs `temperature` and `humidity`, and expression `average($1) + max($2)`.
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+{
+  "inputs": [
+    "temperature",
+    "humidity"
+  ],
+  "output": "tempHumidityIndex",
+  "expression": "average($1) + max($2)"
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -224,10 +300,86 @@ In the Operations experience, create a data flow graph with a window transform:
 1. Add a **window** transform. Set the window duration to 30 seconds. Configure accumulation rules for average, min, max, count, and range on the `temperature` field.
 1. Add a **destination** that sends to `telemetry/aggregated`.
 
+# [Azure CLI](#tab/cli)
+
+The Azure CLI applies a data flow graph from a single JSON config file. Create a `graph.json` file with the graph properties. In the `graph.json` file, each transform's rules are stored in the `value` field as an escaped JSON string. For the readable form of each transform's rules, see the how-to for that transform type.
+
+```json
+{
+  "mode": "Enabled",
+  "nodes": [
+    {
+      "nodeType": "Source",
+      "name": "sensors",
+      "sourceSettings": {
+        "endpointRef": "default",
+        "dataSources": [
+          "telemetry/temperature"
+        ]
+      }
+    },
+    {
+      "nodeType": "Graph",
+      "name": "aggregate",
+      "graphSettings": {
+        "registryEndpointRef": "default",
+        "artifact": "azureiotoperations/graph-dataflow-window:1.0.0",
+        "configuration": [
+          {
+            "key": "delay",
+            "value": "{\"type\":\"duration\",\"delaySeconds\":30}"
+          },
+          {
+            "key": "rules",
+            "value": "{\"accumulate\":[{\"inputs\":[\"temperature\"],\"output\":\"avgTemperature\",\"expression\":\"average($1)\"},{\"inputs\":[\"temperature\"],\"output\":\"minTemperature\",\"expression\":\"min($1)\"},{\"inputs\":[\"temperature\"],\"output\":\"maxTemperature\",\"expression\":\"max($1)\"},{\"inputs\":[\"temperature\"],\"output\":\"readingCount\",\"expression\":\"count($1)\"},{\"inputs\":[\"temperature\"],\"output\":\"tempRange\",\"expression\":\"max($1) - min($1)\"}]}"
+          }
+        ]
+      }
+    },
+    {
+      "nodeType": "Destination",
+      "name": "output",
+      "destinationSettings": {
+        "endpointRef": "default",
+        "dataDestination": "telemetry/aggregated"
+      }
+    }
+  ],
+  "nodeConnections": [
+    {
+      "from": {
+        "name": "sensors"
+      },
+      "to": {
+        "name": "aggregate"
+      }
+    },
+    {
+      "from": {
+        "name": "aggregate"
+      },
+      "to": {
+        "name": "output"
+      }
+    }
+  ]
+}
+```
+
+Apply the config file. The `extendedLocation` is added automatically from the instance and resource group, so don't include it in the file.
+
+```azurecli
+az iot ops dataflowgraph apply \
+  --name temperature-window \
+  --instance <INSTANCE_NAME> \
+  --resource-group <RESOURCE_GROUP> \
+  --config-file graph.json
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
   name: 'temperature-window'
   parent: dataflowProfile
   properties: {

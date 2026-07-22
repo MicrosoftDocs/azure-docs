@@ -1,12 +1,12 @@
 ---
 title: Data flow graphs overview
 description: Learn about data flow graphs in Azure IoT Operations, including built-in transforms for mapping, filtering, branching, windowing, and enrichment.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 04/02/2026
+ms.date: 06/19/2026
 ai-usage: ai-assisted
 
 ---
@@ -38,13 +38,7 @@ For new projects that use supported endpoint types, we recommend data flow graph
 
 Each transform is a pre-built processing step that you configure with rules and chain with other transforms inside a `DataflowGraph` resource.
 
-| Transform | What it does | Learn more |
-|-----------|-------------|------------|
-| **Map** | Rename, restructure, compute, and copy fields | [Transform data with map](howto-dataflow-graphs-map.md) |
-| **Filter** | Drop messages that match a condition | [Filter and route data](howto-dataflow-graphs-filter-route.md) |
-| **Branch** | Route each message to a `true` or `false` path based on a condition | [Filter and route data](howto-dataflow-graphs-filter-route.md#branch-transform) |
-| **Concatenate** | Merge two or more paths back into one | [Filter and route data](howto-dataflow-graphs-filter-route.md#merge-paths-with-concatenate) |
-| **Window** | Collect messages over a time interval, then aggregate | [Aggregate data over time](howto-dataflow-graphs-window.md) |
+[!INCLUDE [dataflow-graphs-built-in-transforms](../includes/dataflow-graphs-built-in-transforms.md)]
 
 All transforms share an [expression language](concept-dataflow-graphs-expressions.md) for operators, functions, and field references. You can also [enrich](howto-dataflow-graphs-enrich.md) messages with external data from a state store in map, filter, and branch transforms.
 
@@ -80,7 +74,7 @@ In the Operations experience:
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
   name: 'temperature-conversion'
   parent: dataflowProfile
   properties: {
@@ -202,7 +196,13 @@ Common causes of processing errors:
 - An expression references an incompatible data type (for example, using a JSON object in arithmetic).
 - A state store used for enrichment is unreachable.
 
-To monitor for processing errors, check the pod logs for the data flow graph or use the metrics endpoints. For more information, see [Configure observability and monitoring](../configure-observability-monitoring/howto-configure-observability.md).
+To monitor for processing errors, check the pod logs for the data flow graph or use the metrics endpoints. For more information, see [Configure observability and monitoring](../deploy-iot-ops/howto-configure-observability.md).
+
+## Scaling limitation for stateful graphs
+
+Data flow graphs that contain stateful transforms, such as [window](howto-dataflow-graphs-window.md), must run with a [data flow profile instance count](howto-configure-dataflow-profile.md#scaling) of **1**. When the instance count is greater than one, incoming messages are distributed across instances through [shared subscriptions](howto-configure-dataflow-source.md#shared-subscriptions). Because each instance maintains its own aggregation state and the instances don't communicate state with each other, each instance only sees a fraction of the messages. This causes aggregation results like averages, sums, and counts to be computed over incomplete data.
+
+Stateless data flow graphs (those that use only map, filter, branch, and concat transforms) can safely use higher instance counts to increase throughput.
 
 ## Performance guidance
 
@@ -211,13 +211,6 @@ Each transform in the pipeline adds processing overhead. Keep these guidelines i
 - **Prefer fewer transforms with more rules.** If you have many transformation rules that operate on the same structure, put them in a single map transform rather than creating separate transforms for each rule.
 - **Use multiple transforms when the logic is distinct.** Separate transforms make sense when different processing steps are fundamentally different (filtering vs. mapping vs. aggregating).
 - **Keep related rules together.** A single map transform can handle field renaming, restructuring, computed fields, and metadata transformations all at once.
-
-## Prerequisites
-
-To use data flow graphs, you need:
-
-- An Azure IoT Operations instance deployed on an Arc-enabled Kubernetes cluster. For more information, see [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
-- The default registry endpoint that points to `mcr.microsoft.com`, which is created automatically during deployment.
 
 ## Next steps
 

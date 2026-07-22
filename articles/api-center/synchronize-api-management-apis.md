@@ -89,11 +89,6 @@ You can integrate an API Management instance by using the portal or the Azure CL
 
 Run the [az apic integration create apim](/cli/azure/apic/integration/create#az-apic-integration-create-apim) command to integrate an API Management instance to your API center. 
 
-> [!NOTE]
->
-> * This command is only available in the preview version of the APIC extension.
-> * Install the new preview version before using this command.
-
 * Provide the names of the resource group, API center, and integration.  
 
 * If the API Management instance and the API center are in the same resource group, you can provide the API Management instance name as the value of `azure-apim`. Otherwise, provide the Azure resource ID. 

@@ -1,11 +1,11 @@
 ---
 title: Build a RAG pipeline using Azure Files with LlamaIndex and Weaviate
 description: Learn how to build a retrieval-augmented generation (RAG) pipeline that queries documents stored in Azure Files using LlamaIndex for orchestration and Weaviate as the vector database.
-author: ftrichardson1
+author: khdownie
 ms.service: azure-file-storage
 ms.topic: tutorial
 ms.date: 04/09/2026
-ms.author: t-flynnr
+ms.author: kendownie
 ms.devlang: python
 ms.custom: devx-track-python
 ---

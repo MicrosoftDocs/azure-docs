@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 04/30/2026
+ms.date: 05/12/2026
 ms.author: mbender
 ms.custom:
   - build-2025
@@ -46,7 +46,7 @@ The default affinity cookie name is *ApplicationGatewayAffinity* and you can cha
 
 ### Connection draining
 
-Connection draining helps you gracefully remove backend pool members during planned service updates. It applies to backend instances that are explicitly removed from the backend pool.
+Connection draining helps you gracefully remove backend pool members during planned service updates, rolling deployments, scale-in events, or gateway configuration updates. Use connection draining to reduce intermittent 502 errors and connection loss when backend instances are explicitly removed from the backend pool.
 
 You can apply this setting to all backend pool members by enabling Connection Draining in the Backend Setting. It ensures that all deregistering instances in a backend pool don't receive any new requests/connections while maintaining the existing connections until the configured timeout value. This process is also true for WebSocket connections.
 
@@ -59,6 +59,12 @@ The only exception to this process are requests bound for deregistering instance
 
 > [!NOTE]
 > There's a limitation where a configuration update will terminate ongoing connections after the connection draining timeout. To address this limitation, you must increase the connection draining timeout in the backend settings to a value higher than the max expected client download time. 
+
+To update the connection draining timeout with Azure CLI, run `az network application-gateway http-settings update` and set `--connection-draining-timeout` on the backend HTTP settings. A value of 0 disables connection draining, and values from 1 to 3,600 seconds enable it.
+
+
+> [!NOTE]
+> If you observe intermittent 502 errors during deployments, rolling updates, or scale-in events, the connection draining timeout might be too short. Increase `--connection-draining-timeout` to a value greater than your maximum expected client transfer time.
 
 ### Protocol
 
@@ -184,7 +190,7 @@ This capability establishes direct, one-to-one mapping between frontend and back
 > - **NTLM/Kerberos Support**: NTLM and Kerberos passthrough authentication require a one-to-one mapping between frontend and backend connections to preserve session integrity. Turn on Dedicated Backend Connection to support these protocols.
 > - **Legacy clients**: Legacy clients like MSIE6 or applications using older User‑Agent signatures can’t fully support modern HTTP features and connection management behaviors. To improve reliability and help prevent issues such as incomplete or corrupted responses, Azure Application Gateway applies additional compatibility handling by default. When the Dedicated Backend Connection feature is enabled, this compatibility handling can result in differences in connection behavior for legacy clients with NTLM, potentially leading to connectivity inconsistencies. For optimal reliability and predictable behavior, it's recommended to use modern, standards‑compliant clients or upgrade legacy clients where possible.
 > - **Capacity planning**: Dedicated backend connection leads to an increase in the number of backend connections and hence could require more resources to support the increased concurrent connections on Application Gateway and the backend servers. On Application Gateway, increase the instance count or enable autoscale to accommodate the load.
-> - **SNAT port consumption**: When the backend is a remote server, each client connection consumes a dedicated SNAT port, which increases the risk of SNAT port exhaustion. For guidance, see [architecture best practices](https://github.com/MJyot/azure-docs-pr/blob/main/azure/well-architected/service-guides/azure-application-gateway#design-checklist).
+> - **SNAT port consumption**: When the backend is a remote server, each client connection consumes a dedicated SNAT port, which increases the risk of SNAT port exhaustion. For guidance, see [architecture best practices](/azure/well-architected/service-guides/azure-application-gateway#workload-design-checklist).
 > - **Protocol support**: Dedicated Backend Connection isn't supported with HTTP/2.
 
 **Troubleshooting 4xx Errors with Dedicated Backend Connections**

@@ -4,7 +4,7 @@ description: Learn how to control access to Azure Files by assigning share-level
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/17/2026
+ms.date: 05/14/2026
 ms.author: kendownie 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps, devx-track-azurecli
 ms.devlang: azurecli
@@ -25,13 +25,14 @@ Most users assign share-level permissions to specific Microsoft Entra users or g
 
 Use a [default share-level permission](#share-level-permissions-for-all-authenticated-identities) to grant role-based access to all authenticated identities in these scenarios:
 
-- You're using Microsoft Entra Kerberos to authenticate cloud-only identities (preview).
 - You can't sync your on-premises Active Directory Domain Services (AD DS) deployment to Microsoft Entra ID. Assigning a default share-level permission works around the sync requirement because you don't need to specify the permission to identities in Microsoft Entra ID. Then you can use Windows ACLs for granular permission enforcement on your files and directories.
   
   Identities that are tied to an Active Directory but aren't syncing to Microsoft Entra ID can also use the default share-level permission. This condition can include standalone Managed Service Accounts (sMSAs), group Managed Service Accounts (gMSAs), and computer accounts.
+
 - The on-premises AD DS deployment that you're using is synced to a Microsoft Entra ID deployment that's different from the one where the file share is deployed.
   
   This condition is typical when you're managing multitenant environments. By using a default share-level permission, you bypass the requirement for a Microsoft Entra ID [hybrid identity](/entra/identity/hybrid/whatis-hybrid-identity). You can still use Windows ACLs on your files and directories for granular permission enforcement.
+
 - You prefer to enforce authentication only by using Windows ACLs at the file and directory levels.
 
 ## Azure RBAC roles for Azure Files
@@ -55,16 +56,18 @@ Several built-in Azure role-based access control (RBAC) roles are intended for u
 
 ## Share-level permissions for specific Microsoft Entra users or groups
 
-If you intend to use a specific Microsoft Entra user or group to access Azure file share resources, that identity must be a [hybrid identity](/entra/identity/hybrid/whatis-hybrid-identity) that exists in both on-premises AD DS and Microsoft Entra ID. Cloud-only identities must use a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
+To access Azure file share resources, use a specific Microsoft Entra user or group as the identity. This identity can be either a cloud-only identity (Microsoft Entra ID only) or a [hybrid identity](/entra/identity/hybrid/whatis-hybrid-identity) that exists in both on-premises AD DS and Microsoft Entra ID.
 
-For example, if you have a user in Active Directory named user1@onprem.contoso.com and you sync to Microsoft Entra ID as user1@contoso.com by using Microsoft Entra Connect Sync or Microsoft Entra Connect Cloud Sync, the user must have the share-level permissions assigned to user1@contoso.com to access the file share. The same concept applies to groups and service principals.
+Assigning specific share-level permissions to cloud-only identities is currently supported only for Microsoft Entra Kerberos authentication in a [subset of Azure public cloud regions](storage-files-identity-auth-hybrid-identities-enable.md#regional-availability-for-microsoft-entra-kerberos). If the region you want to deploy in isn't supported, reach out to the [Azure Files team](mailto:azurefiles@microsoft.com) for assistance or use a [default share-level permission](#share-level-permissions-for-all-authenticated-identities).
+
+For hybrid identities, if you have a user in Active Directory named user1@onprem.contoso.com and you sync to Microsoft Entra ID as user1@contoso.com by using Microsoft Entra Connect Sync or Microsoft Entra Connect Cloud Sync, the user must have the share-level permissions assigned to user1@contoso.com to access the file share. The same concept applies to groups and service principals.
 
 > [!IMPORTANT]
 > Assign permissions by explicitly declaring actions and data actions instead of using a wildcard (\*) character.
 >
 > If a custom role definition for a data action contains a wildcard character, all identities assigned to that role are granted access for all possible data actions. This access includes any new data action added to the platform. The additional access and permissions granted through new actions or data actions might be unwanted behavior for customers who use wildcards.
 
-For share-level permissions to work, you must take the following actions:
+For share-level permissions to work for hybrid identities, you must take the following actions:
 
 - If your identity source is AD DS or Microsoft Entra Kerberos, sync the users *and* the groups from your local Active Directory deployment to Microsoft Entra ID by using either [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync). Microsoft Entra Cloud Sync is a lightweight agent that you can install from the Microsoft Entra admin center.
 - Add Active Directory-synced groups to the RBAC role so they can access your storage account.
@@ -92,7 +95,7 @@ To assign an Azure role to a Microsoft Entra identity by using the [Azure portal
 
 1. Keep **Assign access to** at the default setting: **Microsoft Entra user, group, or service principal**. Select the target Microsoft Entra identity by name or email address.
 
-   The selected Microsoft Entra identity must be a hybrid identity and can't be a cloud-only identity. This requirement means that the same identity is also represented in AD DS.
+   The selected Microsoft Entra identity must be a hybrid identity and can't be a cloud-only identity. This requirement means that the same Microsoft Entra identity is also represented in AD DS.
 
 1. Select **Save** to complete the role assignment operation.
 
@@ -140,7 +143,7 @@ The default share-level permission is set to **None** at initialization. This se
 
 To configure default share-level permissions on your storage account by using the [Azure portal](https://portal.azure.com), follow these steps:
 
-1. In the Azure portal, go to the storage account that contains your file shares and select **Data storage** > **File shares**.
+1. In the Azure portal, go to the storage account that contains your file shares. From the service menu, under **Data storage**, select **Classic file shares**.
 
 1. You must enable an identity source on your storage account before assigning default share-level permissions. If you already enabled an identity source, select **Configured** next to **Identity-based access**, and proceed to the next step. Otherwise, select **Not configured**, select **Set up** under the desired identity source, and enable the identity source.
 
@@ -183,13 +186,13 @@ az storage account update --name $storageAccountName --resource-group $resourceG
 
 ---
 
-## What happens if you use both configurations
+## Behavior when both permission types are assigned
 
 You can assign permissions to all authenticated Microsoft Entra users and to specific Microsoft Entra users or groups. When you use this configuration, a specific user or group gets the higher-level permission between the default share-level permission and the RBAC assignment.
 
-For example, suppose you grant a user the Storage File Data SMB Reader role on the target file share. You also grant the default share-level permission Storage File Data SMB Share Elevated Contributor to all authenticated users. With this configuration, that particular user has Storage File Data SMB Share Elevated Contributor access to the file share. Higher-level permissions always take precedence.
+For example, suppose you grant a user the Storage File Data SMB Share Reader role on the target file share. You also grant the default share-level permission Storage File Data SMB Share Elevated Contributor to all authenticated users. With this configuration, that particular user has Storage File Data SMB Share Elevated Contributor access to the file share. Higher-level permissions always take precedence.
 
-## Understanding group-based access for non-synced users
+## Group-based access for non-synced AD DS users
 
 This section applies only to storage accounts that use AD DS authentication.
 

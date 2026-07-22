@@ -5,7 +5,7 @@ keywords: TLS/SSL certificate installation, Azure security, HTTPS setup, custom 
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 04/15/2026
+ms.date: 06/04/2026
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
@@ -50,9 +50,6 @@ If you want to help secure a custom domain in a TLS binding, the certificate mus
 
 * Contain an [extended key usage](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Extensions_informing_a_specific_usage_of_a_certificate) for server authentication (OID = 1.3.6.1.5.5.7.3.1).
 * Be signed by a trusted certificate authority.
-
-> [!NOTE]
-> **Elliptic Curve Cryptography (ECC) certificates** work with App Service when uploaded as a PFX, but currently can't be imported from Key Vault. They aren't covered by this article. For the exact steps to create ECC certificates, work with your certificate authority.
 
 After you add a private certificate to an app, the certificate is stored in a deployment unit that's bound to the App Service plan's resource group, region, and operating system (OS) combination. Internally, it's called a *webspace*. That way, the certificate is accessible to other apps in the same resource group, region, and OS combination. Private certificates uploaded or imported to App Service are shared with app services in the same deployment unit.
 
@@ -379,7 +376,11 @@ This capability is supported for Windows container apps only in multitenant App 
 
 ### Can I load a private CA certificate in my App Service trusted root store?
 
-You can load your own CA certificate into the trusted root store in [App Service Environment version 3](./environment/overview-certificates.md). You can't modify the list of trusted root certificates in App Service (multitenant). For more information on App Service multitenant versus single tenant, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
+In App Service (multitenant), uploading a private CA certificate as a public certificate does not add it to the platform-managed trusted root store. 
+
+If you need to load a CA certificate into the App Service trusted root store, you can do that in App Service Environment version 3 (ASE v3). For more information, see [App Service Environment v3 certificates](./environment/overview-certificates.md).
+
+For a comparison of multitenant App Service and ASE, see [App Service Environment v3 and App Service public multitenant comparison](./environment/ase-multi-tenant-comparison.md).
 
 ### Can App Service certificates be used for other services?
 

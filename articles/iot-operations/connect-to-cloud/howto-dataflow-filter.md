@@ -1,8 +1,8 @@
 ---
 title: Filter data in a data flow
 description: Filter messages in a data flow based on conditions using Azure IoT Operations.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to

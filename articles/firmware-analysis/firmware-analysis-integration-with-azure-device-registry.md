@@ -3,7 +3,7 @@ title: Firmware analysis integration with Azure Device Registry
 description: Learn about how firmware analysis results are mapped to deployed devices and assets in Azure Device Registry.
 author: karengu0
 ms.author: karenguo
-ms.topic: conceptual
+ms.topic: article
 ms.date: 04/10/2026
 ms.service: azure
 ---

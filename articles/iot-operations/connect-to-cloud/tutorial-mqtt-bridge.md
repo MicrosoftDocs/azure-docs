@@ -1,12 +1,12 @@
 ---
 title: "Tutorial: Bi-directional MQTT bridge to Azure Event Grid"
 description: Learn how to create a bi-directional MQTT bridge to Azure Event Grid using Azure IoT Operations data flows.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: tutorial
-ms.date: 05/21/2025
+ms.date: 06/10/2026
 
 #CustomerIntent: As an operator, I want to understand how to create a bi-directional MQTT bridge to Azure Event Grid so that I can send and receive messages between devices and services.
 ms.custom:
@@ -19,7 +19,10 @@ In this tutorial, you set up a bi-directional MQTT bridge between an Azure IoT O
 
 ## Prerequisites
 
-- **Azure IoT Operations**. See [Deploy Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
 - **Data flow profile**. See [Configure data flow profile](howto-configure-dataflow-profile.md).
 
 ## Set environment variables
@@ -275,10 +278,10 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
-resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' = {
+resource remoteMqttBrokerDataflowEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
   parent: aioInstance
   name: 'eventgrid'
   extendedLocation: {
@@ -347,14 +350,14 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2024-11-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
-resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-11-01' = {
+resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-03-01' = {
   parent: defaultDataflowProfile
   name: 'local-to-remote'
   extendedLocation: {
@@ -400,7 +403,7 @@ resource dataflow_1 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflow
     ]
   }
 } 
-resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2024-11-01' = {
+resource dataflow_2 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflows@2026-03-01' = {
   parent: defaultDataflowProfile
   name: 'remote-to-local'
   extendedLocation: {
@@ -632,4 +635,4 @@ In this tutorial, you learned how to configure Azure IoT Operations for bi-direc
 * About [BrokerListener resource](../manage-mqtt-broker/howto-configure-brokerlistener.md)
 * [Configure authorization for a BrokerListener](../manage-mqtt-broker/howto-configure-authorization.md)
 * [Configure authentication for a BrokerListener](../manage-mqtt-broker/howto-configure-authentication.md)
-* [Configure TLS with automatic certificate management](../manage-mqtt-broker/howto-configure-tls-auto.md)
+* [Configure TLS with automatic certificate management](../manage-mqtt-broker/howto-configure-brokerlistener.md)

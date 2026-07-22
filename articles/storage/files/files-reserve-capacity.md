@@ -16,7 +16,7 @@ recommendations: false
 
 :heavy_check_mark: **Applies to:** Classic file shares created with the Microsoft.Storage resource provider with either the provisioned v1 or pay-as-you-go billing models
 
-:heavy_multiplication_x: **Doesn't apply to:** All file shares using the provisioned v2 billing model including file shares created with the Microsoft.FileShares resource provider (preview) or classic file shares created with the Microsoft.Storage resource provider
+:heavy_multiplication_x: **Doesn't apply to:** All file shares using the provisioned v2 billing model including file shares created with the Microsoft.FileShares resource provider or classic file shares created with the Microsoft.Storage resource provider
 
 You can save money on the storage costs for Azure file shares with Azure Files Reservations. Azure Files Reservations (also referred to as *reserved instances*) offer you a discount on capacity for storage costs when you commit to a Reservation for either one year or three years. A Reservation provides a fixed amount of storage capacity for the term of the Reservation.
 

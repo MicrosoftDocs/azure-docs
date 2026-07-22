@@ -100,6 +100,9 @@ Set the `AzureWebJobsSecretStorageType` environment variable to control where th
 | **Azure Key Vault** | `keyvault` | No - trigger creation manually | Key Vault instance | Centralized governance, compliance auditing |
 | **Azure Blob Storage** | `blob` | Yes | Storage account | Legacy apps or existing `AzureWebJobsStorage` account |
 
+> [!NOTE]
+> For Functions on Azure Container Apps, the platform defaults to `containerapp` (Container Apps secret store) when `AzureWebJobsSecretStorageType` isn't explicitly set. You don't need to configure a backend unless you want to use Key Vault or Blob Storage instead.
+
 > [!WARNING]
 > Don't set `AzureWebJobsSecretStorageType` to `files`. On Azure Container Apps, the file system is **ephemeral**, so host keys stored with the `files` backend are lost every time the app scales to zero, restarts, or deploys a new revision. Always use one of the three production backends listed above.
 
@@ -308,6 +311,9 @@ az containerapp revision restart \
 ## Configure Blob Storage
 
 The Blob Storage backend enables the runtime to auto-generate and manage access keys. Use this option when you already have a storage account for `AzureWebJobsStorage` and don't need centralized governance.
+
+> [!NOTE]
+> **Encryption at rest:** When you inspect the blob content (for example, `azure-webjobs-secrets/<app>/host.json`), you may see `"encrypted": false` in the JSON payload. This flag indicates that the Functions host didn't apply its own host-level encryption to the key values before writing them to storage. However, this doesn't mean your secrets are stored unencrypted. [Azure Storage Service Encryption](/azure/storage/common/storage-service-encryption) automatically encrypts all blob data at rest using AES-256 encryption. The entire blob payload, including your key values, is encrypted transparently by the storage layer. Host-level encryption is primarily needed for backends like the local file system that don't provide their own encryption at rest.
 
 1. Enable managed identity on your container app (if not already enabled):
 

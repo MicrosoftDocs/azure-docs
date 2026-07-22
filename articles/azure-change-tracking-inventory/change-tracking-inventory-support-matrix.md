@@ -1,10 +1,10 @@
 ---
 title: Azure Change Tracking and Inventory Support Matrix
 description: Get a summary of support settings and limitations for enabling Azure Change Tracking and Inventory and tracking changes.
-services: automation
-ms.date: 12/03/2025
+ms.date: 05/25/2025
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
+ms.update-cycle: 1095-days
 ms.author: v-rochak2
 author: RochakSingh-blr
 #customer intent: As a customer, I want to understand the supported operating systems and identify the supported regions for Azure Change Tracking and Inventory so that I can ensure compatibility with my environment.
@@ -57,7 +57,7 @@ Change Tracking and Inventory supports recursion, which you can use to specify w
 
 ## Change Tracking and Inventory data collection
 
-The following table shows the data collection frequency for the types of changes Change Tracking and Inventory supports. Inventory logs are populated every 10 hours by default for all data types. When a change is registered for any of the data types, the inventory and change logs are generated for this instance.
+The following table shows the data collection frequency for the types of changes Change Tracking and Inventory supports. Inventory logs (ConfigurationData) are populated during scheduled inventory cycles. When a change is detected, it is recorded only in the ConfigurationChange table. ConfigurationData isn’t updated between scheduled inventory scans.
 
 | Change type | Frequency |
 | --- | --- |

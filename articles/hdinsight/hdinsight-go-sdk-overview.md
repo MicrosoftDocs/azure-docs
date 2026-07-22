@@ -5,8 +5,8 @@ ms.service: azure-hdinsight
 ms.topic: reference
 ms.custom: devx-track-azurecli, devx-track-go
 ms.devlang: golang
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: hgowrisankar
 ms.date: 07/12/2024
 ---

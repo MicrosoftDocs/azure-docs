@@ -462,7 +462,7 @@ Check that you're currently signed in with a user that is assigned a role that h
 
 The currently signed in user has a role assignment with the following criteria:
 
-- Role includes a [Microsoft.Storage](resource-provider-operations.md#microsoftstorage) data action
+- Role includes a [Microsoft.Storage](permissions/storage.md#microsoftstorage) data action
 - Role assignment includes an ABAC condition that uses a [GUID comparison operators](conditions-format.md#guid-comparison-operators)
 
 **Solution 2**

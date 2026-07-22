@@ -2,7 +2,7 @@
 title: Bicep CLI commands 
 description: Learn about the commands that you can use in the Bicep CLI. These commands include building JSON Azure Resource Manager templates from Bicep.
 ms.topic: reference
-ms.date: 04/09/2026
+ms.date: 05/14/2026
 ms.custom: devx-track-azurecli, devx-track-bicep, devx-track-arm-template
 ---
 
@@ -150,7 +150,6 @@ The `console` command is available in Bicep CLI v0.42.1 or later. It provides an
 The `console` command has these limitations:
 
 * No support for expressions requiring Azure context, e.g. `resourceGroup()`
-* No support for for-loop expressions, e.g. `[for i in range(0, x): i]`
 * No persistent state between console sessions
 * No completions support
 

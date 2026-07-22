@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 07/22/2025
+ms.date: 07/08/2026
 ms.author: allensu
 ms.custom: sfi-image-nochange
 # Customer intent: "As a network administrator, I want to configure service endpoints in Azure virtual networks, so that I can ensure secure, direct connectivity to Azure services and optimize routing while minimizing management complexity."
@@ -18,6 +18,9 @@ Azure virtual network service endpoints provide secure and direct connectivity t
 
 > [!NOTE]
 > Microsoft recommends use of Azure Private Link and private endpoints for secure and private access to services hosted on the Azure platform. Azure Private Link deploys a network interface into a virtual network of your choosing for Azure services such as Azure Storage or Azure SQL. For more information, see [Azure Private Link](../private-link/private-link-overview.md) and [What is a private endpoint?](../private-link/private-endpoint-overview.md)
+
+> [!TIP]
+> For large-scale architectures that need centralized access control across multiple virtual networks, consider [standard service endpoint](../private-link/service-endpoint-standard-overview.md). Standard service endpoint extends classic service endpoints with network identifiers and network security perimeter integration, enabling scalable IaaS-to-PaaS connectivity.
 
 Service endpoints are available for the following Azure services and regions. The *Microsoft.\** resource is in parenthesis. Enable this resource from the subnet side while configuring service endpoints for your service:
 
@@ -49,6 +52,8 @@ Service endpoints are available for the following Azure services and regions. Th
 
 **Public Preview**
 
+- **[Standard service endpoint](../private-link/service-endpoint-standard-overview.md)**: Extends service endpoints with network identifiers and network security perimeter integration. Available for Azure Storage (*Microsoft.Storage*), Azure Key Vault (*Microsoft.KeyVault*), Azure SQL Database (*Microsoft.Sql* — preview), and Azure Cosmos DB (*Microsoft.AzureCosmosDB* — preview).
+
 For the most up-to-date notifications, check the [Azure Virtual Network updates](https://azure.microsoft.com/updates/?product=virtual-network) page.
 
 ## Key benefits
@@ -73,7 +78,7 @@ Service endpoints provide the following benefits:
 
 - For Azure Data Lake Storage (ADLS) Gen 1, the virtual network Integration capability is only available for virtual networks within the same region. Virtual network integration for ADLS Gen1 uses the virtual network service endpoint security between your virtual network and Microsoft Entra ID to generate extra security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access. The *Microsoft.AzureActiveDirectory* tag listed under services supporting service endpoints is used only for supporting service endpoints to ADLS Gen 1. Microsoft Entra ID doesn't support service endpoints natively. For more information about Azure Data Lake Store Gen 1 virtual network integration, see [Network security in Azure Data Lake Storage Gen1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
-- A virtual network can be associated with up to 200 different subscriptions and regions by each supported service with active virtual network rules configured.
+- A virtual network can be associated with up to 500 different subscriptions and regions by each supported service with active virtual network rules configured.
 
 ## Secure Azure services to virtual networks
 
@@ -180,6 +185,8 @@ For FAQs, see [Virtual Network Service Endpoint FAQs](./virtual-networks-faq.md#
 - [Secure an Azure Synapse Analytics to a virtual network](/azure/azure-sql/database/vnet-service-endpoint-rule-overview?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 
 - [Compare Private Endpoints and Service Endpoints](./vnet-integration-for-azure-services.md#compare-private-endpoints-and-service-endpoints)
+
+- [Standard service endpoint overview](../private-link/service-endpoint-standard-overview.md)
 
 - [Virtual Network Service Endpoint Policies](./virtual-network-service-endpoint-policies-overview.md)
 

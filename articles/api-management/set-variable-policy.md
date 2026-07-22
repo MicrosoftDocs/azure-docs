@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - set-variable | Microsoft Docs
 description: Reference for the set-variable policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 07/23/2024
-ms.author: danlep
 ---
 
 # Set variable
@@ -43,7 +41,9 @@ Expressions used in the `set-variable` policy must return one of the following b
 
 -   System.Boolean
 -   System.SByte
+-   System.SByte[]
 -   System.Byte
+-   System.Byte[]
 -   System.UInt16
 -   System.UInt32
 -   System.UInt64

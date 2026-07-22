@@ -1,6 +1,8 @@
 ---
 title: Manage an Informatica serverless runtime environment through the Azure portal
-description: Learn how to use the management functions for an Informatica serverless runtime environment on the Azure portal. 
+description: Learn how to use the management functions for an Informatica serverless runtime environment on the Azure portal.
+author: pavanatgit
+ms.author: plekkala 
 ms.topic: how-to
 ms.date: 03/31/2026
 #customer intent: As a developer, I want to manage my serverless runtime environments in an Intelligent Data Management Cloud organization.

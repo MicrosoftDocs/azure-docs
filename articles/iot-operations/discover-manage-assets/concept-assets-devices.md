@@ -3,6 +3,7 @@ title: Assets and Devices
 description: Understand the Azure Device Registry resources that define assets and devices.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 #ms.subservice:
 ms.topic: concept-article
 ms.date: 04/22/2026
@@ -67,7 +68,7 @@ Each inbound endpoint has properties like:
 
 *Connector templates* define the types of inbound endpoints available to operational technology (OT) users. For example, the Open Network Video Interface Forum (ONVIF) connector template defines the required properties for creating an inbound endpoint that connects to an ONVIF-compliant camera. Other built-in connector templates include OPC UA, media, MQTT, HTTP/REST, and server-sent events (SSE).
 
-An IT user adds connector templates in the Azure portal. After the IT user adds a connector template, an OT user can create devices with inbound endpoints of that type in the operations experience web UI.
+An IT user adds connector templates in the Azure portal or by using the Azure CLI. After the IT user adds a connector template, an OT user can create devices with inbound endpoints of that type in the operations experience web UI.
 
 ## Assets
 

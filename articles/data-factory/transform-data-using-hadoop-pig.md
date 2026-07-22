@@ -77,7 +77,6 @@ To use an HDInsight Pig activity to a pipeline, complete the following steps:
 ## Related content
 See the following articles that explain how to transform data in other ways: 
 
-* [U-SQL activity](transform-data-using-data-lake-analytics.md)
 * [Hive activity](transform-data-using-hadoop-hive.md)
 * [MapReduce activity](transform-data-using-hadoop-map-reduce.md)
 * [Hadoop Streaming activity](transform-data-using-hadoop-streaming.md)

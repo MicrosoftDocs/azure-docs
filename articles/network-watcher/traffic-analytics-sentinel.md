@@ -14,7 +14,7 @@ ms.date: 03/16/2026
 
 Traffic Analytics in Azure Network Watcher processes and aggregates virtual network flow logs to provide visibility into network flows, traffic patterns, and potential security risks. It enriches flow data with threat intelligence, geolocation attributes, and topology context to help identify anomalies and evaluate exposure across your environment.
 
-Traffic Analytics supports integration with Microsoft Sentinel. Microsoft Sentinel is a scalable, cloud-native Security Information and Event Management (SIEM) solution that provides cost-efficient security monitoring across multicloud and multiplatform environments. Microsoft Sentinel uses [ASIM-based parsers](/azure/sentinel/normalization-about-schemas) to normalize incoming data, allowing Traffic Analytics flow data to be transformed into the required schema for correlation, investigation, and threat detection.
+Traffic Analytics supports integration with Microsoft Sentinel. Microsoft Sentinel is a scalable, cloud-native Security Information and Event Management (SIEM) solution that provides cost-efficient security monitoring across multicloud and multiplatform environments. Microsoft Sentinel uses [ASIM-based parsers](/azure/sentinel/normalization-about-schemas) to normalize incoming data, allowing enriched virtual network flow logs to be transformed into the required schema for correlation, investigation, and threat detection.
 
 Together, Traffic Analytics and Microsoft Sentinel enable both proactive monitoring and reactive investigation. Flow-level telemetry highlights unexpected communication paths, unusual traffic volumes, and indicators of compromise, allowing you to detect deviations from baseline behavior and investigate events with reliable and structured insights.
 

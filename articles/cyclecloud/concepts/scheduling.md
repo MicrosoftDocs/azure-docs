@@ -1,8 +1,9 @@
 ---
 title: Azure CycleCloud Scheduling Concepts
-description: CycleCloud's scheduling concepts
+description: Learn how scheduling and autoscaling work in Azure CycleCloud and how it integrates with your chosen HPC scheduler.
 author: adriankjohnson
-ms.date: 03/27/2023
+ms.date: 06/19/2026
+ms.topic: concept-article
 ms.update-cycle: 3650-days
 ms.author: adjohnso
 ms.custom: compute-evergreen

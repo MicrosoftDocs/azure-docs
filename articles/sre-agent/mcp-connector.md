@@ -3,7 +3,7 @@ title: "Tutorial: Set Up the MCP Connector in Azure SRE Agent"
 description: Connect your SRE agent to external tools using the Model Context Protocol (MCP), then select tools for your agent to use directly in chat.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 03/18/2026
+ms.date: 07/20/2026
 ms.custom: mcp, model context protocol, connector, tools, extension, wildcard, add all tools
 author: craigshoemaker
 ms.author: cshoe
@@ -28,7 +28,7 @@ In this tutorial, you learn how to:
 - An active Azure SRE agent
 - An MCP server endpoint URL (browse available servers at [Azure MCP Center](https://mcp.azure.com))
 - Network access between your agent and the MCP server
-- Authentication credentials for the MCP server (API key, OAuth token, or managed identity, depending on the server)
+- Authentication information for the MCP server (API key, OAuth sign-in for supported remote servers, OAuth token, or managed identity, depending on the server)
 
 > [!TIP]
 > For your first MCP connector, try one of the verified servers from [Azure MCP Center](https://mcp.azure.com). Many provide simple setup instructions and work out of the box.
@@ -41,7 +41,7 @@ Register the MCP server as a connector in the SRE Agent portal.
 1. Navigate to **Builder** > **Connectors**.
 1. Select **+ Add connector**.
 1. Select **MCP Server** as the connector type.
-1. Enter the MCP server URL and the required authentication. The authentication method varies by server (API key, OAuth token, or managed identity).
+1. Enter the MCP server URL and the required authentication. The authentication method varies by server (API key, OAuth sign-in for supported remote servers, OAuth token, or managed identity). For details, see [Authentication](mcp-connectors.md#authentication).
 1. Select **Add**.
 
 You should see your connector appear in the connectors list. The status shows **Initializing** briefly, then changes to **Connected** (green checkmark). The connection name shown in the list is your **connection ID**, which you use when referencing tools.

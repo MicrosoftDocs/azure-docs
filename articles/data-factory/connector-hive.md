@@ -2,18 +2,22 @@
 title: Copy data from Hive
 description: Learn how to copy data from Hive to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: how-to
 ms.date: 08/19/2025
-ms.author: jianleishen
+ms.author: tinglee
 ---
 
 # Copy and transform data from Hive using Azure Data Factory 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Hive. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Hive LLAP connector documentation](/fabric/data-factory/connector-hive-llap-overview).
+
 
 > [!IMPORTANT]
 > The Hive connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Hive connector](#differences-between-hive-version-20-and-version-10) from version 1.0 to 2.0.

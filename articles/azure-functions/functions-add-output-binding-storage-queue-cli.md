@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python, typescript
 ms.custom: devx-track-python, mode-other, devx-track-extended-java, devx-track-js, devx-track-ts
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ---
 
 # Connect Azure Functions to Azure Storage using command line tools
@@ -37,7 +37,7 @@ Before you begin, you must complete the article, [Quickstart: Create an Azure Fu
 ### Retrieve the Azure Storage connection string
 
 >[!IMPORTANT]
->This article currently shows how to connect to your Azure Storage account by using the connection string, which contains a shared secret key. Using a connection string makes it easier for you to verify data updates in the storage account. For the best security, you should instead use managed identities when connecting to your storage account. For more information, see [Connections](./functions-reference.md#connections) in the Developer Guide.
+>This article currently shows how to connect to your Azure Storage account by using the connection string, which contains a shared secret key. Using a connection string makes it easier for you to verify data updates in the storage account. For the best security, you should instead use managed identities when connecting to your storage account. For more information, see [Manage connections](./manage-connections.md?tabs=identity).
 
 Earlier, you created an Azure Storage account for function app's use. The connection string for this account is stored securely in app settings in Azure. By downloading the setting into the *local.settings.json* file, you can use the connection to write to a Storage queue in the same account when running the function locally.
 
@@ -100,7 +100,7 @@ With the queue binding defined, you can now update your function to receive the 
 [!INCLUDE [functions-add-output-binding-java-test-cli](../../includes/functions-add-output-binding-java-test-cli.md)]
 ::: zone-end
 
-Observe that you *don't* need to write any code for authentication, getting a queue reference, or writing data. All these integration tasks are conveniently handled in the Azure Functions runtime and queue output binding.
+Observe that you *don't* need to write any code for authentication, obtain a queue reference, or write data. All these integration tasks are conveniently handled in the Azure Functions runtime and queue output binding.
 
 [!INCLUDE [functions-run-function-test-local-cli](../../includes/functions-run-function-test-local-cli.md)]
 

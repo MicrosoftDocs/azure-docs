@@ -4,7 +4,7 @@ description: "Discover what durable entities are and how to use them to manage s
 author: cgillum
 ms.topic: overview
 ms.service: durable-task
-ms.date: 04/22/2026
+ms.date: 05/19/2026
 ms.author: azfuncdf
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
@@ -32,13 +32,13 @@ Entities define operations that read and update small pieces of state, called *d
 
 ::: zone pivot="durable-functions"
 
-Entity functions and related features are available in [Durable Functions 2.0](../../azure-functions/durable-functions/durable-functions-versions.md#migrate-from-1x-to-2x) and later.
+Entity functions and related features are available in [Durable Functions 2.0](../durable-functions/durable-functions-versions.md#migrate-from-1x-to-2x) and later.
 
 | Programming language | Support for durable entities |
 | -------------------- | ---------------------------- |
 | .NET isolated | ✅ |
 | .NET in-process | ✅ |
-| Java | ❌ |
+| Java | ✅ |
 | Python | ✅ |
 | JavaScript | ✅ |
 | PowerShell | ❌ |
@@ -137,7 +137,7 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-For more information, see [Function-based syntax](../../azure-functions/durable-functions/durable-functions-dotnet-entities.md#function-based-syntax).
+For more information, see [Function-based syntax](../durable-functions/durable-functions-dotnet-entities.md#function-based-syntax).
 
 </details>
 
@@ -169,7 +169,7 @@ public class Counter
 
 This entity stores state in a `Counter` object that holds the current counter value. Durable Functions serializes and deserializes this object by using the [Json.NET](https://www.newtonsoft.com/json) library.
 
-For more information, see [Defining entity classes](../../azure-functions/durable-functions/durable-functions-dotnet-entities.md#define-entity-classes).
+For more information, see [Defining entity classes](../durable-functions/durable-functions-dotnet-entities.md#define-entity-classes).
 
 </details>
 
@@ -319,7 +319,55 @@ Entity functions aren't currently supported in PowerShell.
 
 # [Java](#tab/java)
 
-Entity functions aren't currently supported in Java.
+Durable Functions for Java (from version 1.9.0) supports defining entities using a class-based syntax. You can extend the `AbstractTaskEntity<TState>` base class to define your entity.
+
+The following example shows a `Counter` entity implemented as a durable function in Java.
+
+**Entity class:**
+
+```java
+import com.microsoft.durabletask.AbstractTaskEntity;
+import com.microsoft.durabletask.TaskEntityOperation;
+
+public class CounterEntity extends AbstractTaskEntity<Integer> {
+
+    public void add(int value) {
+        this.state += value;
+    }
+
+    public void subtract(int value) {
+        this.state -= value;
+    }
+
+    public int get() {
+        return this.state;
+    }
+
+    public void reset() {
+        this.state = 0;
+    }
+
+    @Override
+    protected Integer initializeState(TaskEntityOperation operation) {
+        return 0;
+    }
+
+    @Override
+    protected Class<Integer> getStateType() {
+        return Integer.class;
+    }
+}
+```
+
+**Entity function:**
+
+```java
+@FunctionName("Counter")
+public String counterEntity(
+    @DurableEntityTrigger(name = "req") String req) {
+    return EntityRunner.loadAndRun(req, CounterEntity::new);
+}
+```
 
 ---
 
@@ -557,12 +605,12 @@ The following examples show how to access entities.
 
 ::: zone pivot="durable-functions"
 
-To access entities from an ordinary Azure Function, which is also known as a client function, use the [entity client binding](../../azure-functions/durable-functions/durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function signaling an entity using this binding.
+To access entities from an ordinary Azure Function, which is also known as a client function, use the [entity client binding](../durable-functions/durable-functions-bindings.md#entity-client). The following example shows a queue-triggered function signaling an entity using this binding.
 
 # [C#](#tab/csharp)
 
 > [!NOTE]
-> For simplicity, the following examples show the loosely typed syntax for accessing entities. In general, [access entities through interfaces](../../azure-functions/durable-functions/durable-functions-dotnet-entities.md#access-entities-through-interfaces) because they provide more type checking.
+> For simplicity, the following examples show the loosely typed syntax for accessing entities. In general, [access entities through interfaces](../durable-functions/durable-functions-dotnet-entities.md#access-entities-through-interfaces) because they provide more type checking.
 
 **In-process:**
 
@@ -629,7 +677,32 @@ Entity functions aren't currently supported in PowerShell.
 
 # [Java](#tab/java)
 
-Entity functions aren't currently supported in Java.
+```java
+@FunctionName("SignalCounter")
+public HttpResponseMessage signalCounter(
+    @HttpTrigger(name = "req", methods = {HttpMethod.POST},
+        authLevel = AuthorizationLevel.ANONYMOUS)
+    HttpRequestMessage<Void> request,
+    @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+
+    String entityKey = request.getQueryParameters().getOrDefault("key", "myCounter");
+    String operation = request.getQueryParameters().getOrDefault("op", "add");
+    String valueStr = request.getQueryParameters().getOrDefault("value", "1");
+
+    EntityInstanceId entityId = new EntityInstanceId("Counter", entityKey);
+
+    if ("reset".equals(operation)) {
+        durableContext.signalEntity(entityId, operation);
+    } else {
+        int value = Integer.parseInt(valueStr);
+        durableContext.signalEntity(entityId, operation, value);
+    }
+
+    return request.createResponseBuilder(HttpStatus.ACCEPTED)
+        .body("Signal sent: " + operation + " on entity '" + entityKey + "'")
+        .build();
+}
+```
 
 ---
 
@@ -762,7 +835,32 @@ Entity functions aren't currently supported in PowerShell.
 
 # [Java](#tab/java)
 
-Entity functions aren't currently supported in Java.
+```java
+@FunctionName("GetCounter")
+public HttpResponseMessage getCounter(
+    @HttpTrigger(name = "req", methods = {HttpMethod.GET},
+        authLevel = AuthorizationLevel.ANONYMOUS)
+    HttpRequestMessage<Void> request,
+    @DurableClientInput(name = "durableContext") DurableClientContext durableContext) {
+
+    String entityKey = request.getQueryParameters().getOrDefault("key", "myCounter");
+    EntityInstanceId entityId = new EntityInstanceId("Counter", entityKey);
+
+    EntityMetadata metadata = durableContext.getEntityMetadata(entityId, true);
+
+    if (metadata == null) {
+        return request.createResponseBuilder(HttpStatus.NOT_FOUND)
+            .body("Entity '" + entityKey + "' not found")
+            .build();
+    }
+
+    Integer state = metadata.readStateAs(Integer.class);
+    return request.createResponseBuilder(HttpStatus.OK)
+        .header("Content-Type", "application/json")
+        .body("{\"key\": \"" + entityKey + "\", \"value\": " + state + "}")
+        .build();
+}
+```
 
 ---
 
@@ -830,7 +928,7 @@ Entity state queries are sent to the durable tracking store and return the entit
 
 ::: zone pivot="durable-functions"
 
-Orchestrator functions can access entities by using APIs on the [orchestration trigger binding](../../azure-functions/durable-functions/durable-functions-bindings.md#orchestration-trigger). The following example code shows an orchestrator function calling and signaling a `Counter` entity.
+Orchestrator functions can access entities by using APIs on the [orchestration trigger binding](../durable-functions/durable-functions-bindings.md#orchestration-trigger). The following example code shows an orchestrator function calling and signaling a `Counter` entity.
 
 # [C#](#tab/csharp)
 
@@ -906,11 +1004,29 @@ Entity functions aren't currently supported in PowerShell.
 
 # [Java](#tab/java)
 
-Entity functions aren't currently supported in Java.
+```java
+@FunctionName("CounterOrchestration")
+public String counterOrchestration(
+    @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+
+    String entityKey = ctx.getInput(String.class);
+    EntityInstanceId entityId = new EntityInstanceId("Counter", entityKey);
+
+    // Signal entity operations (fire-and-forget)
+    ctx.signalEntity(entityId, "add", 10);
+    ctx.signalEntity(entityId, "add", 5);
+    ctx.signalEntity(entityId, "subtract", 3);
+
+    // Call entity and wait for result
+    int value = ctx.callEntity(entityId, "get", Integer.class).await();
+
+    return "Counter '" + entityKey + "' final value: " + value;
+}
+```
 
 ---
 
-Only orchestrations can call entities and get a response, which can be a return value or an exception. Client functions that use the [client binding](../../azure-functions/durable-functions/durable-functions-bindings.md#entity-client) can only signal entities.
+Only orchestrations can call entities and get a response, which can be a return value or an exception. Client functions that use the [client binding](../durable-functions/durable-functions-bindings.md#entity-client) can only signal entities.
 
 ::: zone-end
 
@@ -1069,7 +1185,37 @@ Entity functions aren't currently supported in PowerShell.
 
 # [Java](#tab/java)
 
-Entity functions aren't currently supported in Java.
+The following example shows entity-to-entity signaling. When a large deposit occurs, the `Account` entity signals an `Audit` entity to record the transaction.
+
+```java
+public class AccountEntity extends AbstractTaskEntity<Integer> {
+    private static final int LARGE_TRANSACTION_THRESHOLD = 500;
+
+    public void deposit(int amount) {
+        this.state += amount;
+        String key = this.context.getId().getKey();
+
+        // Entity signals another entity: notify the audit entity of large deposits
+        if (amount >= LARGE_TRANSACTION_THRESHOLD) {
+            EntityInstanceId auditEntityId = new EntityInstanceId("Audit", "ledger");
+            String message = String.format("Large deposit of %d into account '%s'", amount, key);
+            this.context.signalEntity(auditEntityId, "record", message);
+        }
+    }
+
+    // ... other operations ...
+
+    @Override
+    protected Integer initializeState(TaskEntityOperation operation) {
+        return 0;
+    }
+
+    @Override
+    protected Class<Integer> getStateType() {
+        return Integer.class;
+    }
+}
+```
 
 ---
 
@@ -1185,7 +1331,7 @@ Key differences include:
 ::: zone pivot="durable-functions"
 
 > [!div class="nextstepaction"]
-> [Read the developer guide to durable entities in .NET](../../azure-functions/durable-functions/durable-functions-dotnet-entities.md)
+> [Read the developer guide to durable entities in .NET](../durable-functions/durable-functions-dotnet-entities.md)
 
 > [!div class="nextstepaction"]
 > [Learn about task hubs](durable-task-hubs.md)

@@ -23,7 +23,7 @@ This article helps you create an assignment, and then enable that assignment to 
 
 Create an assignment for each storage account you want to target. A storage task can contain up to 50 assignments.
 
-> [!NOTE] 
+> [!NOTE]
 > In the current release, you can target only storage accounts that are in the same region as the storage tasks.
 
 ## [Portal](#tab/azure-portal)
@@ -83,7 +83,13 @@ For a description of each property, see [Assignment settings](storage-task-assig
 
 ### Define the trigger
 
-In the **Trigger details** section, select how often you'd like this task to run. You can choose to run this task only once, or run the task recurring. If you decide to run this task on a recurring basis, choose a start and end time and specify the number of days in between each run. You can also specify where you'd like to store the execution reports.
+In the **Trigger details** section, select how you'd like this task to run. You can choose from the following run types:
+
+- **Run once**: Execute the task a single time.
+- **Recurrent run**: Run the task on a recurring schedule. Choose a start and end time and specify the number of days between each run.
+- **Mock run**: Simulate the task execution without performing any operations on blobs. A mock run scans and evaluates blobs against the task conditions and produces a detailed report showing which blobs matched and what operations would have been performed. No data is modified. For more information, see [Create and use a mock run](storage-task-mock-run-create.md).
+
+For all run types, specify where you'd like to store the execution reports.
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot of the Triggers section of the Add assignment pane.](../media/storage-tasks/storage-task-assignment-create/assignment-trigger.png)

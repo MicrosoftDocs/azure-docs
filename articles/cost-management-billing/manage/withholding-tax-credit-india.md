@@ -1,12 +1,12 @@
 ---
-title: Request a credit for Withholding Tax on your account (India customers) - Azure
-description: Learn how to request a credit on your account for Withholding Tax you paid. This article only applies to customers in India.
+title: Request a credit for Withholding Tax on your account (Global customers) - Azure
+description: 'Learn how to request a credit on your account for Withholding Tax you paid. '
 author: lindseyshep
-ms.reviewer: jkinma
+ms.reviewer: jkinma39
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 04/29/2026
+ms.date: 07/16/2026
 ms.author: jkinma
 ms.custom: references_regions
 service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
@@ -49,7 +49,7 @@ When the above details are available, please submit them to the email address be
 
 ## For customers who pay by credit card
 
-If your payment method is a credit card and you made a full payment to Microsoft, and also paid WHT to the relevant Tax authority, or Income Tax Department in India, you must submit a WHT request to claim the refund of the tax amount.
+If you pay by credit card and make a full payment to Microsoft, and pay WHT to the relevant tax authority, you must submit a WHT request to claim a refund of the tax amount.
 
 Your WHT request must include the following items:
 
@@ -57,21 +57,9 @@ Your WHT request must include the following items:
 
 - Customers in India: A digitally signed TDS Certificate (Form 16A) issued by the Indian Income Tax Department (provided by the customer)
 
-- All other customers: A signed or scanned copy of the Withholding Tax Certificate or Receipt
+Submit the WHT request by opening a ticket with Microsoft support.
 
-When the above details are available, please submit them to the email address below based on your country/region: 
-
-|Country/Region| Email address|
-| -------- | -------- |
-|Europe, Middle East, and Africa| wocsemea@microsoft.com|
-|North America|wocs-na@microsoft.com|
-|Asia-Pacific|wocsapac@microsoft.com|
-|India|wocs-in@microsoft.com |
-|Japan|wocsjpncoll@microsoft.com |
-|Mexico|msccmx@microsoft.com |
-|Brazil|msftccbz@microsoft.com |
-|Central America, Caribbean, and Colombia|mscnm@microsoft.com |
-|Cono Sur|msccarg@microsoft.com |
+ 
 
 ## Timelines to send TDS Certificate with Withholding Tax Credit form
 
@@ -103,9 +91,7 @@ After your claim is approved, it’s reflected in the next billing cycle. The WH
 **For customers paying by credit card:** After your claim is approved, your overpayment is refunded to your credit card.
 
 > [!IMPORTANT]
->
 > - If changes are required, the approval process might take longer because of the corrections that must be made and then resubmitted.
-> - If you have questions about the WHT request process, please open a ticket with Microsoft support.
 
 ## Related content
 

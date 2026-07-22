@@ -23,6 +23,15 @@ When a NAT gateway resource is associated with an Azure Firewall subnet, all out
 
 There’s no double NAT with this architecture. Azure Firewall instances send the traffic to NAT gateway using their private IP address rather than Azure Firewall public IP address.
 
+## Choose between multiple public IP addresses and NAT Gateway
+
+When your firewall runs low on SNAT ports, you can either add multiple public IP addresses or use a NAT gateway:
+
+- **Add multiple public IP addresses** when you're cost sensitive and your scale needs are moderate. Each public IP address adds 2,496 SNAT ports, and you can associate up to 250. For steps, see [Deploy an Azure Firewall with multiple public IP addresses](deploy-multi-public-ip-powershell.md).
+- **Use a NAT gateway** (described in this article) when you need a more scalable and robust solution. It provides up to 64,512 SNAT ports per public IP address and dynamically allocates them across the subnet.
+
+For a full comparison of advantages and disadvantages, see [Best practices for Azure Firewall performance](firewall-best-practices.md#recommendations).
+
 > [!NOTE]
 > Deploying NAT gateway with a zone redundant firewall isn't a recommended deployment option, as Standard NAT gateway doesn't support zone-redundant deployments. StandardV2 NAT Gateway does support zone-redundant deployments. For a step-by-step tutorial, see [Integrate Azure Firewall with NAT Gateway V2](integrate-with-nat-gateway-v2.md). For more information about SKU differences, see [NAT Gateway SKUs](/azure/nat-gateway/nat-sku).
 > Azure NAT Gateway isn't supported in the secured virtual hub (vWAN) architecture. To use in a vWAN architecture, NAT Gateway must be configured directly to the spoke virtual networks associated with the secured virtual hub (vWAN). For detailed guidance on integrating NAT gateway with Azure Firewall in a hub and spoke network architecture, refer to the [NAT gateway and Azure Firewall integration tutorial](../virtual-network/nat-gateway/tutorial-hub-spoke-nat-firewall.md). For more information about Azure Firewall architecture options, see [What are the Azure Firewall Manager architecture options?](../firewall-manager/vhubs-and-vnets.md)

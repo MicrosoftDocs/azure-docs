@@ -1,7 +1,8 @@
 ---
 title: Manage settings for your Dynatrace resource via Azure portal
 description: Manage settings, view resources, reconfigure metrics/logs, and more for your Dynatrace resource via Azure portal.
-
+author: praveenrajap
+ms.author: praveenrajap
 ms.topic: how-to
 ms.date: 10/21/2025
 

@@ -1,13 +1,15 @@
 ---
-title: How to use the media connector
-description: Use the operations experience web UI to configure assets and devices for connections to media sources.
+title: Configure the media connector for Azure IoT Operations
+description: Configure assets and devices in Azure IoT Operations to capture snapshots and video clips from media sources such as IP cameras.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-akri
 ms.topic: how-to
-ms.date: 04/30/2026
+ms.date: 05/28/2026
+ai-usage: ai-assisted
 
-#CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access snapshots and videos from a media source such as a IP video camera.
+#CustomerIntent: As an industrial edge IT or operations user, I want to configure my Azure IoT Operations environment so that I can access snapshots and videos from a media source such as an IP video camera.
 ---
 
 # Configure the media connector
@@ -50,7 +52,9 @@ This article explains how to use the media connector to perform tasks such as:
 
 ## Prerequisites
 
-To configure devices and assets, you need a running instance of Azure IoT Operations.
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
@@ -109,21 +113,20 @@ The connector supports username and password authentication when it connects to 
 
 Follow the steps in [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md) to add secrets for username and password in Azure Key Vault, project them into Kubernetes cluster, and reference them from your `Device inbound endpoint` device configuration.
 
-It also supports username and password authentication when it connects to a northbound media server for streamconfiguration task type `stream-to-rtsps`.
+It also supports username and password authentication when it connects to a northbound media server for `streamconfiguration` task type `stream-to-rtsps`.
 
-Follow the steps in [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md) to add secrets for username and password in Azure Key Vault, project them into Kubernetes cluster, and reference them by following the steps in `Create a connector template instance` in [Build and deploy Akri connectors](../develop-edge-apps/howto-develop-akri-connectors.md) reference the secrets in the runtimeConfiguration section under managedConfigurationSettings as secrets. The value of `secretAlias` is the value set in the streamconfiguration, the value of `secretRef` is the name of the secret CR created, and the value of `secretKey` is the key inside the secret identifying the entry which holds the value.
+Follow the steps in [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md) to add secrets for username and password in Azure Key Vault and project them into Kubernetes cluster. Then follow the steps in [Reference runtime secrets](howto-manage-connector-templates.md#reference-runtime-secrets) to reference the secrets in the connector template instance. The value of `secretAlias` is the value set in the `streamconfiguration`, the value of `secretRef` is the name of the secret CR created, and the value of `secretKey` is the key inside the secret identifying the entry which holds the value.
 
->[!NOTE]
+> [!NOTE]
 > Ensure you always use `stream-to-rtsps` when using authentication for the northbound media server to prevent sending credentials as clear text over the wire.
 
-Media connector supports certificate validation of the southbound media source and the northbound media server certificate, when TLS is used for the connection. Media connector does not support mutual TLS to connect.
+Media connector supports certificate validation of the southbound media source and the northbound media server certificate when TLS is used for the connection. Media connector does not support mutual TLS to connect.
 
-The southbound media source endpoint is configured in the `address` field of the device inbound endpoint. The trust bundle which should be used for the certificate validation has to be configured via the connector template instance. Please follow the steps in `Create a connector template instance` in [Build and deploy Akri connectors](../develop-edge-apps/howto-develop-akri-connectors.md) reference the secret containing the trust bundle in the runtimeConfiguration section under managedConfigurationSettings under trustSettings as trustListSecretRef.
+The southbound media source endpoint is configured in the `address` field of the device inbound endpoint. The trust bundle to use for certificate validation must be configured by using the connector template instance. Follow the steps in [Reference trust settings](howto-manage-connector-templates.md#reference-trust-settings) to reference the secret containing the trust bundle in the connector template instance.
 
-The northbound media server endpoint is configured via the destination of the streamconfiguration with task type `stream-to-rtsp` or `stream-to-rtsps`. For `stream-to-rtsps` the trust bundle to be used for certificate validation has to be configured via the `mediaServerCertificateRef` in the stream configuration. Please follow the same process as described above for username and password to define the secret which contains the trust bundle.
+The northbound media server endpoint is configured by using the destination of the `streamconfiguration` with task type `stream-to-rtsp` or `stream-to-rtsps`. For `stream-to-rtsps` the trust bundle to use for certificate validation must be configured by using the `mediaServerCertificateRef` in the stream configuration. Follow the process as described previously for username and password to define the secret which contains the trust bundle.
 
 [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications) shows how to add secrets for TLS certificates in Azure Key Vault, project them into Kubernetes cluster.
-
 
 #### Username and password authentication
 
@@ -156,7 +159,7 @@ When you use TLS, the media connector validates the certificates of both the sou
 
 To configure the trust bundle:
 
-- **Southbound media source**: The endpoint is set in the `address` field of the device inbound endpoint. Configure the trust bundle in the connector template instance, in the `runtimeConfiguration.managedConfigurationSettings.trustSettings.trustListSecretRef` field. To learn more, see *Create a connector template instance* in [Build and deploy Akri connectors](../develop-edge-apps/howto-develop-akri-connectors.md).
+- **Southbound media source**: The endpoint is set in the `address` field of the device inbound endpoint. Configure the trust bundle in the connector template instance, in the `runtimeConfiguration.managedConfigurationSettings.trustSettings.trustListSecretRef` field. To learn more, see [Reference trust settings](howto-manage-connector-templates.md#reference-trust-settings).
 
 - **Northbound media server**: The endpoint is set in the destination of a `stream-to-rtsp` or `stream-to-rtsps` `streamconfiguration`. For `stream-to-rtsps`, configure the trust bundle in the `mediaServerCertificateRef` field of the stream configuration. Use the same secret-creation process as for username and password.
 
@@ -176,11 +179,11 @@ Example uses of the media connector include:
 
 - Proxy a live video stream from a camera to an RTSP/RTSPS endpoint that an operator provides. The operator can configure a media server, which does expose such an endpoint and transcode/transform the stream based on the operators requirements. This media server is not part of the media connector.
 
-## Deploy the media connector
+### Media connector template instance
 
-[!INCLUDE [deploy-connectors](../includes/deploy-connectors.md)]
+Before an OT user can create a device that uses the media connector, an IT administrator must add a media connector template instance to your Azure IoT Operations instance. If you save snapshots or video clips to storage, the IT administrator must also attach a persistent volume claim to the template. To learn more, see [Create and manage connector template instances](howto-manage-connector-templates.md) and [Configure a persistent volume claim for the media connector](howto-manage-connector-templates.md#configure-a-persistent-volume-claim-for-the-media-connector).
 
-### Configure a certificate trust list for the connector
+## Configure a certificate trust list for the connector
 
 [!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
 
@@ -227,20 +230,20 @@ To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
 Deploy the following Bicep template to create a device with an inbound endpoint for the media connector. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
 
 ```bicep
-param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param adrNamespaceName string = '<AIO_NAMESPACE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
-  name: aioNamespaceName
+resource adrNamespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
+  name: adrNamespaceName
 }
 
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
 
-resource device 'Microsoft.DeviceRegistry/namespaces/devices@2025-10-01' = {
-  name: 'media-connector'
-  parent: namespace
+resource device 'Microsoft.DeviceRegistry/namespaces/devices@2026-04-01' = {
+  name: 'media-connector-bicep'
+  parent: adrNamespace
   location: resourceGroup().location
   extendedLocation: {
     type: 'CustomLocation'
@@ -252,7 +255,7 @@ resource device 'Microsoft.DeviceRegistry/namespaces/devices@2025-10-01' = {
         assigned: {}
       }
       inbound: {
-        'media-connector-0': {
+        'media-connector-bicep-0': {
           endpointType: 'Microsoft.Media'
           address: 'rtsp://samplecamera:554/stream1'
         }
@@ -315,10 +318,14 @@ To define an asset that publishes an image snapshot from the media source to the
 
 # [Azure CLI](#tab/cli)
 
-Run the following command:
+Run the following commands:
 
 ```azurecli
-az iot ops ns asset media create --name mymediaasset --instance {your instance name}  -g {your resource group name} --device media-connector-cli --endpoint media-connector-cli-0 --task-type snapshot-to-mqtt --task-format jpeg --snapshots-per-sec 0.25 --stream-dest topic="azure-iot-operations/data/snapshots" qos=Qos1 retain=Never ttl=60
+# Create the asset
+az iot ops ns asset media create --name my-media-source-cli --instance {your instance name}  -g {your resource group name} --device media-connector-cli --endpoint media-connector-cli-0
+
+# Add a stream to the asset
+az iot ops ns asset media stream add --asset my-media-source-cli --instance {your instance name}  -g {your resource group name} --name snapshotmqtt --task-type snapshot-to-mqtt --format jpeg --snapshots-per-sec 0.25 --destination topic="azure-iot-operations/data/snapshots" qos=Qos1 retain=Never ttl=60 --disable-autostart false
 ```
 
 To learn more, see [az iot ops ns asset media](/cli/azure/iot/ops/ns/asset/media).
@@ -329,38 +336,38 @@ To learn more, see [az iot ops ns asset media](/cli/azure/iot/ops/ns/asset/media
 Deploy the following Bicep template to create an asset that publishes snapshots from the device shown previously to an MQTT topic. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
 
 ```bicep
-param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param adrNamespaceName string = '<AIO_NAMESPACE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
-  name: aioNamespaceName
+resource adrNamespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
+  name: adrNamespaceName
 }
 
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
 
-resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' = {
-  name: 'mymediaasset'
-  parent: namespace
+resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
+  name: 'my-media-source-bicep'
+  parent: adrNamespace
   location: resourceGroup().location
   extendedLocation: {
     type: 'CustomLocation'
     name: customLocation.id
   }
   properties: {
-    displayName: 'mymediaasset'
+    displayName: 'my-media-source-bicep'
     description: 'An example media asset'
     enabled: true
 
     deviceRef: {
-      deviceName: 'media-connector'
-      endpointName: 'media-connector-0'
+      deviceName: 'media-connector-bicep'
+      endpointName: 'media-connector-bicep-0'
     }
     streams: [
 
       {
-        name: 'snapshotstream'
+        name: 'mysnapshots-bicep'
         streamConfiguration: '{"taskType": "snapshot-to-mqtt","autostart":true, "format": "jpeg","snapshotsPerSecond": 0.25}'
         destinations: [
           {
@@ -393,9 +400,7 @@ The following steps show you how to run the **mosquitto_sub** tool in the cluste
 To save the payload of a single message, use a command like the following example:
 
 ```bash
-mosquitto_sub --host aio-broker --port 18883 --topic "azure-iot-operations/data/my-camera/#" -C 1 -F %p --cafile /var/run/certs/
-ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat) > image1.
-jpeg
+mosquitto_sub --host aio-broker --port 18883 --topic "azure-iot-operations/data/my-camera/#" -C 1 -F %p --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat) > image1.jpeg
 ```
 
 The following screenshot shows the topic name that uses the asset name and stream name:
@@ -404,86 +409,83 @@ The following screenshot shows the topic name that uses the asset name and strea
 
 ## Add a stream to save a video clip
 
-In this section, you add a stream to the asset that saves video clips from the media source to the file system.
+In this section, you add a stream to the asset that saves video clips from the media source to the file system. This section assumes that you configured Azure Container Storage enabled by Azure Arc with a subvolume called `ingestSubDir` and mounted the persistent volume claim to the connector template instance at `/data`. To learn more, see [Configure a persistent volume claim for the media connector](howto-manage-connector-templates.md#configure-a-persistent-volume-claim-for-the-media-connector).
 
-# [Operations experience](#tab/portal)
+### Azure CLI
 
-1. In the operations experience web UI, select **Assets** in the left navigation pane. Then select the `my-media-source` asset you created in the previous section.
-
-1. Select **Streams** and then select **Add stream** to add a stream to the asset.
-
-1. Add a name for the stream, such as `myclips`. Set **Storage** as the destination and add a path such as `myclips` to use to save the clips. Select `clip-to-fs` as the task type.
-
-    :::image type="content" source="media/howto-use-media-connector/add-clip-stream.png" alt-text="Screenshot that shows how to add a clip stream." lightbox="media/howto-use-media-connector/add-clip-stream.png":::
-
-    Select **Add** to save the stream.
-
-1. The new stream is listed in the asset's **Streams** page:
-
-    :::image type="content" source="media/howto-use-media-connector/media-connector-streams.png" alt-text="Screenshot that shows the list of streams for the media connector asset." lightbox="media/howto-use-media-connector/media-connector-streams.png":::
-
-# [Azure CLI](#tab/cli)
-
-Run the following command:
+To use the Azure CLI, run the following command to add a new stream called `clipstream` to the asset:
 
 ```azurecli
-az iot ops ns asset media stream add --asset mymediaasset --instance {your instance name}  -g {your resource group name} --name clipStream --task-type clip-to-fs --format mp4 --duration 30 --path /data/clips
+az iot ops ns asset media stream add --asset my-media-source-cli --instance {your instance name}  -g {your resource group name} --name clipstream --task-type clip-to-fs --format mkv --duration 30 --dest path=/data/ingestSubDir/clips --disable-autostart false
 ```
 
-# [Bicep](#tab/bicep)
+### Bicep
 
-Deploy the following Bicep template to create an asset that saves video clips from the device shown previously to local storage. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
+To use a Bicep template:
+
+Deploy the following Bicep template. The template redeploys the `my-media-source-bicep` asset with both the original snapshot stream and the new clip stream, because Bicep declares the full asset resource. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
 
 ```bicep
-param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param adrNamespaceName string = '<AIO_NAMESPACE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
-  name: aioNamespaceName
+resource adrNamespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
+  name: adrNamespaceName
 }
 
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
 
-resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' = {
-  name: 'mymediaasset2'
-  parent: namespace
+resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
+  name: 'my-media-source-bicep'
+  parent: adrNamespace
   location: resourceGroup().location
   extendedLocation: {
     type: 'CustomLocation'
     name: customLocation.id
   }
   properties: {
-    displayName: 'mymediaasset2'
+    displayName: 'my-media-source-bicep'
     description: 'An example media asset'
     enabled: true
 
     deviceRef: {
-      deviceName: 'media-connector'
-      endpointName: 'media-connector-0'
+      deviceName: 'media-connector-bicep'
+      endpointName: 'media-connector-bicep-0'
     }
     streams: [
-
+      {
+        name: 'mysnapshots-bicep'
+        streamConfiguration: '{"taskType": "snapshot-to-mqtt","autostart":true, "format": "jpeg","snapshotsPerSecond": 0.25}'
+        destinations: [
+          {
+            target: 'Mqtt'
+            configuration: {
+                topic: 'azure-iot-operations/data/snapshots'
+                qos: 'Qos1'
+                retain: 'Never'
+                ttl: 60
+              }
+          }
+        ]
+      }
       {
         name: 'clipstream'
-        streamConfiguration: '{"taskType": "clip-to-fs","autostart":true, "duration": 30}'
+        streamConfiguration: '{"taskType": "clip-to-fs","autostart":true, "format": "mkv","duration": 30}'
         destinations: [
           {
             target: 'Storage'
             configuration: {
-                path: 'data/clips'
+                path: '/data/ingestSubDir/clips'
               }
           }
         ]
       }
     ]
-
   }
 }
 ```
-
----
 
 ### Verify the saved messages
 
@@ -492,13 +494,13 @@ The following steps assume that you configured a persistent volume claim (PVC) t
 | Setting | Value |
 | ------- | ----- |
 | Storage container | `pvc` |
-| Edge sub volume path | `exampleSubDir` |
+| Edge sub volume path | `ingestSubDir` |
 | Connector template mount path | `/data` |
-| Stream path in operations experience | `/data/exampleSubDir/clips` |
+| Stream path in operations experience | `/data/ingestSubDir/clips` |
 
 > [!IMPORTANT]
 > The mount path must start with the '/' character.
 
-After the connector captures the clips, it uploads them to the `/pvc/clips` folder in your container:
+After the connector captures the clips, it uploads them to the `/clips` folder in your storage container:
 
-:::image type="content" source="media/howto-use-media-connector/captured-streams.png" alt-text="Screenshot that shows the captured streams in Blob storage.":::
+:::image type="content" source="media/howto-use-media-connector/captured-streams.png" alt-text="Screenshot that shows the captured streams in Blob storage." lightbox="media/howto-use-media-connector/captured-streams.png":::

@@ -34,6 +34,7 @@ The following table describes the configuration settings of a storage task assig
 | Filter by | Required | Option to either filter objects by using a prefix or to run the task against the entire storage account. |
 | Include blob prefixes | Required | The string prefix that is used to narrow the scope of blobs that are evaluated by the task. This field is required only if you choose to filter by using a blob prefix. |
 | Exclude blob prefixes | Optional | The string prefix that is used to exclude blobs that are evaluated by the task. Exclude blob prefixes must not be a superset beyond the scope of the include blob prefix. |
+| Run type | Required | The type of run to perform. Choose **Run once** to execute the task a single time, **Recurrent run** to run on a schedule, or **Mock run** to simulate the task without performing any operations. A mock run scans and evaluates blobs against the task conditions and generates a report, but does not modify any data. |
 | Run frequency | Required | Option to either run the task one time or multiple times. | 
 | Start from | Required | The date and time to begin running the task. Applicable only when scheduling a task to run multiple times. |
 | End by | Required | The date and time stop running the task. Applicable only when scheduling a task to run multiple times. |
@@ -51,6 +52,18 @@ After you save the assignment, the managed identity is validated to ensure that 
 ## Network access to storage accounts
 
 You must grant access to trusted Azure services in the network settings of each target storage account. To learn more, see [Grant access to trusted Azure services](../../storage/common/storage-network-security.md#grant-access-to-trusted-azure-services).
+
+## Mock runs
+
+A mock run is a special type of task assignment run that simulates task execution without performing any operations on your blobs. When a mock run executes, it scans all blobs in scope, evaluates them against the task conditions, and generates a detailed report showing which blobs matched and what operations would have been performed — all without modifying any data.
+
+Mock runs follow the same lifecycle as run-once assignments:
+
+*   Before execution, all assignment properties are editable.
+*   While in progress, you can only disable the assignment to stop the run.
+*   After completion, you can transition the assignment to a run-once or recurring run, but you cannot restart the mock run.
+
+For step-by-step instructions on creating a mock run, see [Create and use a mock run](storage-task-mock-run.md).
 
 ## See also
 

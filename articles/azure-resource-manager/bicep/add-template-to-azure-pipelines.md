@@ -1,9 +1,11 @@
 ---
 title: 'Quickstart: Integrate Bicep with Azure Pipelines'
-description: This quickstart explains how to use Bicep and `.bicepparam` files to configure continuous integration and continuous deployments in Azure Pipelines, plus how to use an Azure CLI task to deploy a `.bicepparam` file.
+description: This quickstart explains how to use Bicep and `.bicepparam` files to configure continuous integration and continuous deployments in Azure Pipelines by using the Bicep Deploy task, the Azure Resource Manager template deployment task, or an Azure CLI task.
+author: torreymicrosoft
+ms.author: torreyt
 ms.topic: quickstart
 ms.custom: devx-track-bicep, devx-track-azurecli
-ms.date: 12/10/2025
+ms.date: 06/11/2026
 ---
 
 # Quickstart: Integrate Bicep with Azure Pipelines
@@ -44,7 +46,89 @@ You need a ['.bicepparam' file](/azure/azure-resource-manager/bicep/parameter-fi
 
 ## Deploy Bicep files
 
-You can use an Azure Resource Group deployment task or an Azure CLI task to deploy a Bicep file.
+You can deploy a Bicep file by using the Bicep Deploy task, the Azure Resource Manager template deployment task, or an Azure CLI task. The Bicep Deploy task is the recommended option for new pipelines.
+
+### Use Bicep Deploy task
+
+The [Bicep Deploy task](/azure/devops/pipelines/tasks/reference/bicep-deploy-v0) (`BicepDeploy@0`) is a first-party task that's purpose-built for Bicep. It deploys `.bicep` and `.bicepparam` files directly without precompiling them to JSON ARM templates, and it automatically downloads and caches the Bicep CLI. The task supports:
+
+- **Standard deployments** at resource group, subscription, management group, and tenant scopes.
+- **[Deployment stacks](./deployment-stacks.md)**, including deny settings and actions on unmanaged resources, so you can manage a collection of resources as a single unit.
+- **[What-if operations](./deploy-what-if.md)** to preview changes before you apply them.
+- **Validation** of Bicep templates before deployment.
+- **Output masking** for sensitive outputs such as secrets and connection strings.
+
+The task runs on an [Azure Pipelines agent](/azure/devops/pipelines/agents/agents) — the computing infrastructure with installed agent software that runs your pipeline jobs — and requires agent software version 2.144.0 or later. [Microsoft-hosted agents](/azure/devops/pipelines/agents/hosted) are kept up to date automatically and always meet this requirement. If you run the task on a [self-hosted agent](/azure/devops/pipelines/agents/agents#install), make sure the agent is on version 2.144.0 or later.
+
+#### Deploy a Bicep file
+
+1. Replace your starter pipeline with the following YAML. It uses the Bicep Deploy task to deploy a Bicep and `.bicepparam` file to an existing resource group.
+
+    ```yml
+    trigger:
+    - main
+
+    name: Deploy Bicep files
+
+    parameters:
+    - name: azureServiceConnection
+      type: string
+      default: '<your-connection-name>'
+
+    variables:
+      vmImageName: 'ubuntu-latest'
+      subscriptionId: '<your-subscription-id>'
+      resourceGroupName: 'exampleRG'
+      templateFile: './main.bicep'
+      parametersFile: './main.bicepparam'
+
+    pool:
+      vmImage: $(vmImageName)
+
+    steps:
+    - task: BicepDeploy@0
+      inputs:
+        azureResourceManagerConnection: '${{ parameters.azureServiceConnection }}'
+        type: 'deployment'
+        operation: 'create'
+        scope: 'resourceGroup'
+        subscriptionId: '$(subscriptionId)'
+        resourceGroupName: '$(resourceGroupName)'
+        name: 'DeployPipelineTemplate'
+        templateFile: '$(templateFile)'
+        parametersFile: '$(parametersFile)'
+    ```
+
+1. Update the values of `azureServiceConnection`, `subscriptionId`, and `resourceGroupName`.
+1. Verify you have a valid `main.bicep` file in your repo.
+1. Verify you have a valid `main.bicepparam` file in your repo that contains a [`using`](/azure/azure-resource-manager/bicep/bicep-using) statement.
+1. Verify the target resource group already exists. The Bicep Deploy task deploys resources into an existing resource group at the `resourceGroup` scope; it doesn't create the resource group for you.
+1. Select **Save**. The build pipeline runs automatically. Go back to the summary for your build pipeline, and watch the status.
+
+For the full list of task inputs, see the [Bicep Deploy task reference](/azure/devops/pipelines/tasks/reference/bicep-deploy-v0).
+
+#### Deploy a deployment stack
+
+To manage your resources as a [deployment stack](./deployment-stacks.md) instead of a standard deployment, set `type` to `deploymentStack` and provide the deployment stack inputs. The following step creates or updates a deployment stack, deletes resources that are removed from the template, and blocks out-of-band writes and deletes to managed resources:
+
+```yml
+steps:
+- task: BicepDeploy@0
+  inputs:
+    azureResourceManagerConnection: '${{ parameters.azureServiceConnection }}'
+    type: 'deploymentStack'
+    operation: 'create'
+    name: 'production-stack'
+    scope: 'resourceGroup'
+    subscriptionId: '$(subscriptionId)'
+    resourceGroupName: '$(resourceGroupName)'
+    templateFile: '$(templateFile)'
+    parametersFile: '$(parametersFile)'
+    actionOnUnmanageResources: 'delete'
+    denySettingsMode: 'denyWriteAndDelete'
+```
+
+To preview the changes a deployment stack makes before you apply them, set `operation` to `whatIf`. For more information about the what-if operation, see [Preview changes with what-if](./deploy-what-if.md).
 
 ### Use Azure Resource Manager template deployment task
 

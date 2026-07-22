@@ -2,11 +2,11 @@
 title: 'Configure P2S VPN clients: certificate authentication: Azure VPN client: Windows'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure VPN clients for P2S configurations that use certificate authentication. This article applies to Windows and the Azure VPN client.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 07/03/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 # Customer intent: "As a network engineer, I want to configure the Azure VPN Client for point-to-site connections using certificate authentication, so that I can securely connect to the virtual network and manage remote access effectively."
 ---

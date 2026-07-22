@@ -7,7 +7,7 @@ ms.author: alittleton
 ms.service: azure-nat-gateway 
 ms.topic: how-to 
 ms.customs: references_regions 
-ms.date: 01/13/2026  
+ms.date: 05/15/2026
 
 #customer intent: "As a cloud engineer who uses Azure NAT Gateway, I need guidance on migrating my workloads from the Standard SKU to the StandardV2 SKU so that I can take advantage of zone redundancy with higher throughput." 
 ---
@@ -49,21 +49,7 @@ Before you migrate to a StandardV2 NAT gateway, make sure that your specific sce
   * Malaysia West
   * Qatar Central
   * Sweden South
-  * West Central US
   * West India
-
-* A StandardV2 NAT gateway doesn't support and can't be attached to delegated subnets for the following services:
-
-  * Azure SQL Managed Instance
-  * Azure Container Instances
-  * Azure Database for PostgreSQL
-  * Azure Database for MySQL
-  * Azure Data Factory (data movement)
-  * Microsoft Power Platform
-  * Azure Stream Analytics
-  * Azure Container Apps
-  * Web Apps feature of Azure App Service
-  * Azure DNS Private Resolver
 
 ## Known issues
 
@@ -71,8 +57,6 @@ Before you migrate to a StandardV2 NAT gateway, make sure that your specific sce
 
   * Load balancer outbound rules to provide outbound connectivity for both IPv4 and IPv6 traffic
   * A Standard NAT gateway to provide outbound connectivity for IPv4 traffic and load balancer outbound rules for IPv6 traffic
-
-* Attaching a StandardV2 NAT gateway to an empty subnet created before April 2025 without any virtual machines (VMs) might cause the virtual network to go into a failed state. To return the virtual network to a successful state, remove the StandardV2 NAT gateway, create and add a VM to the subnet, and then reattach the StandardV2 NAT gateway.
 
 * Existing outbound connections that use a load balancer or instance-level public IPs on a VM instance might be interrupted when you attach a Standard or StandardV2 NAT gateway to the subnet. New connections use the NAT gateway.
 

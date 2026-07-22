@@ -2,7 +2,7 @@
 title: "Durable Task Extension for Microsoft Agent Framework"
 description: Use the Durable Task extension for Microsoft Agent Framework to build fault-tolerant AI agents with persistent sessions and automatic checkpointing. Get started now.
 author: greenie-msft
-ms.topic: conceptual
+ms.topic: article
 ms.date: 05/04/2026
 ms.author: nigreenf
 zone_pivot_groups: agent-framework-approach

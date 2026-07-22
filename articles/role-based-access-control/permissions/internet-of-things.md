@@ -6,7 +6,7 @@ ms.topic: generated-reference
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 04/09/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -336,6 +336,13 @@ Azure service: [Device Update for IoT Hub](/azure/iot-hub-device-update/)
 > | `Microsoft.DeviceUpdate/accounts/privateEndpointConnections/write` | Creates or updates a Device Update Private Endpoint Connection |
 > | `Microsoft.DeviceUpdate/accounts/privateEndpointConnections/delete` | Deletes a Device Update Private Endpoint Connection |
 > | `Microsoft.DeviceUpdate/accounts/privateLinkResources/read` | Returns the list of Device Update Private Link Resources |
+> | `Microsoft.DeviceUpdate/linkedAccounts/read` | Returns the list of Linked Accounts |
+> | `Microsoft.DeviceUpdate/linkedAccounts/write` | Creates or updates a Linked Account |
+> | `Microsoft.DeviceUpdate/linkedAccounts/delete` | Deletes a Linked Account |
+> | `Microsoft.DeviceUpdate/linkedAccounts/linkInitiate/action` | Initiate account linking. Validates and persists binding, sets linkingState to InProgress |
+> | `Microsoft.DeviceUpdate/linkedAccounts/linkNotify/action` | Notify linking state change (commit, fail, or namespaceDeleted) |
+> | `Microsoft.DeviceUpdate/linkedAccounts/linkPreflight/action` | Preflight check for account linking readiness. No state change |
+> | `Microsoft.DeviceUpdate/linkedAccounts/linkUpdate/action` | Update linking properties (e.g., identity rotation) |
 > | `Microsoft.DeviceUpdate/locations/operationStatuses/read` | Gets an Operation Status |
 > | `Microsoft.DeviceUpdate/locations/operationStatuses/write` | Updates an Operation Status |
 > | `Microsoft.DeviceUpdate/operations/read` | Lists Device Update Operations |
@@ -431,10 +438,16 @@ Azure service: Microsoft.Edge
 > | `Microsoft.Edge/configTemplates/read` | List by subscription |
 > | `Microsoft.Edge/configTemplates/linkToHierarchies/action` | Apply a Config Template to a particular hierarchy node |
 > | `Microsoft.Edge/configTemplates/unLinkFromHierarchies/action` | Remove a Config Template from a particular hierarchy node |
-> | `Microsoft.Edge/configTemplates/configTemplateMetadatas/read` | List by ConfigTemplate |
+> | `Microsoft.Edge/configTemplates/configTemplateMetadatas/write` | Update a ConfigTemplateMetadata Resource |
+> | `Microsoft.Edge/configTemplates/configTemplateMetadatas/delete` | Delete a ConfigTemplateMetadata Resource |
+> | `Microsoft.Edge/configTemplates/configTemplateMetadatas/write` | Create or update a ConfigTemplateMetadata Resource |
 > | `Microsoft.Edge/configTemplates/configTemplateMetadatas/read` | Get a ConfigTemplateMetadata Resource |
-> | `Microsoft.Edge/configTemplates/versions/read` | List Config Template Version Resources |
+> | `Microsoft.Edge/configTemplates/configTemplateMetadatas/read` | List by ConfigTemplate |
 > | `Microsoft.Edge/configTemplates/versions/read` | Get a Config Template Version Resource |
+> | `Microsoft.Edge/configTemplates/versions/read` | List Config Template Version Resources |
+> | `Microsoft.Edge/configTemplates/versions/write` | Create or update a Config Template Version Resource |
+> | `Microsoft.Edge/configTemplates/versions/delete` | Delete a Config Template Version Resource |
+> | `Microsoft.Edge/configTemplates/versions/write` | Update a Config Template Version Resource |
 > | `Microsoft.Edge/configTemplates/versions/configTemplateSchemas/read` | List by ConfigTemplateVersion |
 > | `Microsoft.Edge/configTemplates/versions/configTemplateSchemas/read` | Get a ConfigTemplateSchema Resource |
 > | `Microsoft.Edge/configurationReferences/read` | List ConfigurationReference resources by parent |
@@ -632,6 +645,12 @@ Azure service: Microsoft.Edge
 > | `Microsoft.Edge/solutionBindings/deploy/action` | Post request to deploy |
 > | `Microsoft.Edge/solutionBindings/publish/action` | Post request to publish |
 > | `Microsoft.Edge/solutionBindings/resolveConfiguration/action` | Post request to resolve configuration |
+> | `Microsoft.Edge/solutionDeployments/write` | update a SolutionDeployment Resource |
+> | `Microsoft.Edge/solutionDeployments/delete` | Delete a SolutionDeployment Resource |
+> | `Microsoft.Edge/solutionDeployments/write` | Create or update a SolutionDeployment Resource |
+> | `Microsoft.Edge/solutionDeployments/read` | Get a SolutionDeployment Resource |
+> | `Microsoft.Edge/solutionDeployments/read` | List by specified resource group |
+> | `Microsoft.Edge/solutionDeployments/read` | List by subscription |
 > | `Microsoft.Edge/solutionTemplates/createVersion/action` | Create a Solution Template Version Resource |
 > | `Microsoft.Edge/solutionTemplates/deprecate/action` | Deprecate resource |
 > | `Microsoft.Edge/solutionTemplates/removeVersion/action` | Remove Solution Template Version Resource |
@@ -644,9 +663,12 @@ Azure service: Microsoft.Edge
 > | `Microsoft.Edge/solutionTemplates/versions/deprecate/action` | Deprecate resource |
 > | `Microsoft.Edge/solutionTemplates/versions/bulkDeploySolution/action` | Post request for bulk deploy |
 > | `Microsoft.Edge/solutionTemplates/versions/bulkPublishSolution/action` | Post request for bulk publish |
-> | `Microsoft.Edge/solutionTemplates/versions/read` | List Solution Template Version Resources |
-> | `Microsoft.Edge/solutionTemplates/versions/read` | Get a Solution Template Version Resource |
 > | `Microsoft.Edge/solutionTemplates/versions/bulkReviewSolution/action` | Post request for bulk review |
+> | `Microsoft.Edge/solutionTemplates/versions/read` | Get a Solution Template Version Resource |
+> | `Microsoft.Edge/solutionTemplates/versions/read` | List Solution Template Version Resources |
+> | `Microsoft.Edge/solutionTemplates/versions/write` | Create or update a Solution Template Version Resource |
+> | `Microsoft.Edge/solutionTemplates/versions/delete` | Delete a Solution Template Version Resource |
+> | `Microsoft.Edge/solutionTemplates/versions/write` | Update a Solution Template Version Resource |
 > | `Microsoft.Edge/solutionTemplates/versions/solutionSchemas/read` | List by SolutionTemplateVersion |
 > | `Microsoft.Edge/solutionTemplates/versions/solutionSchemas/read` | Get a SolutionSchema Resource |
 > | `Microsoft.Edge/targets/deploy/action` | Post request to deploy |
@@ -752,9 +774,9 @@ Azure service: Microsoft.EdgeMarketplace
 > | `Microsoft.EdgeMarketplace/offers/read` | Get a Offer |
 > | `Microsoft.EdgeMarketplace/offers/read` | List Offer resources by parent |
 > | `Microsoft.EdgeMarketplace/operations/read` | read operations |
-> | `Microsoft.EdgeMarketplace/publishers/read` | List Publisher resources by parent |
-> | `Microsoft.EdgeMarketplace/publishers/read` | List Publisher resources in subscription |
+> | `Microsoft.EdgeMarketplace/publishers/read` | List Publisher resources by subscription ID |
 > | `Microsoft.EdgeMarketplace/publishers/read` | Get a Publisher |
+> | `Microsoft.EdgeMarketplace/publishers/read` | List Publisher resources by parent |
 
 ## Microsoft.IoTCentral
 

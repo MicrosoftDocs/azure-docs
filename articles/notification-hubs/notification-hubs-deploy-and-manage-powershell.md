@@ -156,7 +156,7 @@ Some ready-made scripts are also available for download:
 
 [Purchase Options]: https://azure.microsoft.com/pricing/purchase-options/
 [Member Offers]: https://azure.microsoft.com/pricing/member-offers/
-[Free Trial]: https://azure.microsoft.com/pricing/free-trial/
+[Free Trial]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [Install and configure Azure PowerShell]: /powershell/azure/
 [.NET API for Notification Hubs]: /dotnet/api/overview/azure/notification-hubs
 [Get-AzServiceBusNamespace]: /powershell/module/az.servicebus/get-azservicebusnamespace

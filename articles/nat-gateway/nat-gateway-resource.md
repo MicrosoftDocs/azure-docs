@@ -99,7 +99,10 @@ After you deploy a NAT gateway, you can't change the zone selection.
 
 ## Protocols
 
-A NAT gateway interacts with IP and IP transport headers of UDP and TCP flows. A NAT gateway is agnostic to application-layer payloads. Other IP protocols, such as ICMP, aren't supported.
+A NAT gateway interacts with IP and IP transport headers of UDP and TCP flows. A NAT gateway is agnostic to application-layer payloads. StandardV2 NAT Gateway also supports ICMP Echo Request and Echo Reply (ping). Other ICMP message types aren't supported.
+
+> [!NOTE]
+> Azure StandardV2 NAT Gateway supports outbound Internet Control Message Protocol (ICMP) Echo Request and Echo Reply (ping) for both IPv4 and IPv6. This capability is provided by default and requires no additional configuration. You can use the ping tool (ICMP Echo) to validate outbound connectivity and quickly diagnose reachability issues from your workloads. For steps to validate connectivity, see [Validate NAT gateway connectivity](/azure/nat-gateway/troubleshoot-nat#validate-nat-gateway-connectivity).
 
 ## TCP reset
 
@@ -181,7 +184,7 @@ A StandardV2 NAT gateway can process up to 10 million packets per second. A Stan
   
   To upgrade a public IP address from Basic to Standard, see [Upgrade a Basic public IP address to Standard](../virtual-network/ip-services/public-ip-basic-upgrade-guidance.md).
 
-* Azure NAT Gateway doesn't support ICMP.
+* Azure StandardV2 NAT Gateway supports outbound ICMP Echo Request and Echo Reply traffic (ping) for IPv4 and IPv6 scenarios. Other ICMP message types aren't supported.
 
 * IP fragmentation isn't available for Azure NAT Gateway.
 

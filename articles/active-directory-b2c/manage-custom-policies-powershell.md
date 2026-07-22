@@ -5,7 +5,7 @@ description: Use the Microsoft Graph PowerShell cmdlets for programmatic managem
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.custom: no-azure-ad-ps-ref
 ms.topic: how-to
 ms.date: 01/11/2024

@@ -37,7 +37,7 @@ You don't need to add custom instrumentation to your orchestrator or activity co
 
 ::: zone pivot="durable-functions"
 
-- An Azure Functions project with the [Durable Functions extension](../../azure-functions/durable-functions/durable-functions-versions.md) version 2.13.0 or later.
+- An Azure Functions project with the [Durable Functions extension](../durable-functions/durable-functions-versions.md) version 2.13.0 or later.
 - [Durable Task Scheduler](../scheduler/durable-task-scheduler.md) configured as the storage back end for your function app.
 - An OpenTelemetry-compatible back end for viewing traces (Application Insights, Jaeger, or another OTLP collector).
 
@@ -587,7 +587,7 @@ Each span includes attributes like `durabletask.type`, `durabletask.task.name`, 
 
 ::: zone pivot="durable-functions"
 
-- [Diagnostics in Durable Functions](../../azure-functions/durable-functions/durable-functions-diagnostics.md)
+- [Diagnostics in Durable Functions](../durable-functions/durable-functions-diagnostics.md)
 - [Durable Task Scheduler dashboard](../scheduler/durable-task-scheduler-dashboard.md)
 - [Troubleshoot Durable Task Scheduler](../scheduler/troubleshoot-durable-task-scheduler.md)
 

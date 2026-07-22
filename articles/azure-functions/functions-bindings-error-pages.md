@@ -352,6 +352,25 @@ public void run(
 
 ::: zone-end
 
+::: zone pivot="programming-language-go"
+In Go, configure retries when you register the function by using `sdk.WithRetry` and `sdk.RetryOptions`:
+
+```go
+minimumInterval := 10 * time.Second
+maximumInterval := 15 * time.Minute
+
+app.Timer("TimerTriggerGo", timerHandler,
+    sdk.WithSchedule("0 */5 * * * *"),
+    sdk.WithRetry(&sdk.RetryOptions{
+        MaxRetryCount:   5,
+        MinimumInterval: &minimumInterval,
+        MaximumInterval: &maximumInterval,
+        Strategy:        sdk.ExponentialBackoff,
+    }),
+)
+```
+::: zone-end
+
 ## Binding error codes
 
 When you're integrating with Azure services, errors might originate from the APIs of the underlying services. Information that relates to binding-specific errors is available in the "Exceptions and return codes" sections of the following articles:

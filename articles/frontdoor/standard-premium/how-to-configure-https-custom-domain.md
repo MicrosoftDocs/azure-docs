@@ -14,6 +14,8 @@ ms.custom: sfi-image-nochange
 
 # Configure HTTPS on an Azure Front Door custom domain
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 Azure Front Door enables secure Transport Layer Security (TLS) delivery to your applications by default when you use your own custom domains. To learn more about custom domains, including how custom domains work with HTTPS, see [Domains in Azure Front Door](../domain.md).
 
 Azure Front Door supports Azure-managed certificates and customer-managed certificates. In this article, you learn how to configure both types of certificates for your Azure Front Door custom domains.

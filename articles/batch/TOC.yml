@@ -106,6 +106,9 @@
     href: best-practices.md
   - name: Quotas and limits
     href: batch-quota-limit.md
+  - name: Capacity planning
+    displayName: capacity, quota planning, allocation, sizing, autoscale, headroom
+    href: batch-capacity-planning.md
   - name: Supported VM sizes
     href: batch-pool-vm-sizes.md
   - name: Reliability in Azure Batch
@@ -142,7 +145,7 @@
       href: account-move.md
     - name: Rotate Batch account keys
       href: account-key-rotation.md
-    - name: Associate Batch accounts with network security perimeter
+    - name: Associate Batch accounts with network security perimeter (preview)
       href: network-security-perimeter.md
   - name: Authenticate with Microsoft Entra ID
     items:
@@ -220,6 +223,9 @@
     - name: Use Azure Spot VMs
       displayName: preempted, surplus, capacity
       href: batch-spot-vms.md
+    - name: Use temporary NVMe disks
+      displayName: nvme, temp, temporary
+      href: batch-nvme-temporary.md
     - name: Checking for pool and node errors
       displayName: troubleshoot, failure
       href: batch-pool-node-error-checking.md

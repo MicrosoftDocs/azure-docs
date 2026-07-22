@@ -88,18 +88,19 @@ You can also easily choose an Azure Firewall as the next hop by selecting **Impo
 
 :::image type="content" source="media/how-to-deploy-user-defined-routes/add-routing-rule-azure-firewall.png" alt-text="Screenshot of routing rule with Azure Firewall option.":::
 
-### Use more user-defined routes in a single route table
+### Use user-defined routes in a single route table
 
-In Azure Virtual Network Manager UDR management, users can now create up to 1,000 user-defined routes in a single route table, compared to the traditional 400-route limit. This higher limit enables more complex routing configurations, such as directing traffic from on-premises data centers through a firewall to each spoke virtual network in a hub-and-spoke topology. This expanded capacity is especially useful for managing traffic inspection and security across large-scale network architectures with numerous spokes.
+Azure Virtual Network Manager enables more complex routing configurations, such as directing traffic from on-premises data centers through a firewall to each spoke virtual network in a hub-and-spoke topology. 
 
-In a hub-and-spoke topology, it's common for users to require that network traffic be inspected or filtered by a firewall located in the hub virtual network before reaching any spoke virtual networks. Azure Virtual Network Manager supports up to 1,000 spoke virtual networks and allows you to configure the route table associated with the gateway subnet to include up to 1,000 user-defined routes. To set this up, follow these steps:
+In a hub-and-spoke topology, it's common for users to require that network traffic be inspected or filtered by a firewall located in the hub virtual network before reaching any destination. To set this up, follow these steps:
+
 1. Create an Azure Virtual Network Manager instance.
 1. Create a network group and include the gateway subnet in this network group.
 1. Establish a routing configuration and create a rule collection, setting the target network group as the one created in Step 2.
 1. Define a routing rule by adding the address spaces of the spoke virtual networks. Set the next hop to "virtual appliance" and specify the firewall's IP address as the next hop address.
 1. Deploy this routing configuration in the region where the gateway subnet is located.
 
-This method allows the route table of the gateway subnet to accommodate up to 1,000 user-defined routes. When adding a new spoke virtual network, simply include its address spaces in the existing rule and redeploy the routing configuration.
+When adding a new spoke virtual network, simply include its address spaces in the existing rule and redeploy the routing configuration.
 
 ## Common routing scenarios with UDR management
 

@@ -47,7 +47,7 @@ $AppInfo
 
 ## Choose your target .NET version
 
-On version 4.x of the Functions runtime, your .NET function app targets .NET 6 or .NET 8 when using the in-process model.
+On version 4.x of the Functions runtime, your .NET function app targets .NET 8 when using the in-process model.
 
 [!INCLUDE [functions-dotnet-migrate-v4-versions](../../includes/functions-dotnet-migrate-v4-versions.md)]
 

@@ -37,6 +37,8 @@ You must strongly consider the following facts regarding the storage accounts us
 
   - Monitor both control plane activity (such as retrieving keys) and data plane operations (such as writing to a blob) in your storage account. Consider maintaining storage logs in a location other than Azure Storage. For more information, see [Storage logs](#storage-logs). 
 
+- If you use [Durable Functions](../durable-task/durable-functions/durable-functions-overview.md), the task hub storage is especially security-sensitive because write access to it can be used to alter application behavior, including triggering arbitrary code execution. For more information, see [Secure your task hub storage](../durable-task/durable-functions/durable-functions-serialization-and-persistence.md#secure-your-task-hub-storage).
+
 ## Storage account requirements
 
 Storage accounts that you create during the function app creation process in the Azure portal work with the new function app. When you choose to use an existing storage account, the list provided doesn't include certain unsupported storage accounts. The following restrictions apply to storage accounts used by your function app. Make sure an existing storage account meets these requirements:
@@ -63,7 +65,7 @@ The storage account must be accessible to the function app. If you need to use a
 
 ### Storage account connection setting
 
-By default, function apps configure the `AzureWebJobsStorage` connection as a connection string stored in the [AzureWebJobsStorage application setting](./functions-app-settings.md#azurewebjobsstorage). You can also [configure AzureWebJobsStorage to use an identity-based connection](functions-reference.md#connecting-to-host-storage-with-an-identity) without a secret.
+By default, function apps configure the `AzureWebJobsStorage` connection as a connection string stored in the [AzureWebJobsStorage application setting](./functions-app-settings.md#azurewebjobsstorage). You can also [configure AzureWebJobsStorage to use an identity-based connection](manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections) without a secret.
 
 Function apps running in a Consumption plan (Windows only) or an Elastic Premium plan (Windows or Linux) can use Azure Files to store the images required to enable dynamic scaling. For these plans, set the connection string for the storage account in the [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](./functions-app-settings.md#website_contentazurefileconnectionstring) setting and the name of the file share in the [WEBSITE_CONTENTSHARE](./functions-app-settings.md#website_contentshare) setting. This value is usually the same account used for `AzureWebJobsStorage`. You can also [create a function app that doesn't use Azure Files](#create-an-app-without-azure-files), but scaling might be limited.
 
@@ -132,7 +134,7 @@ Use the following table to determine which function trigger best fits your needs
 
 ### In-region data residency
 
-When all customer data must remain within a single region, the storage account associated with the function app must be one with [in-region redundancy](../storage/common/storage-redundancy.md). An in-region redundant storage account also must be used with [Azure Durable Functions](./durable-functions/durable-functions-azure-storage-provider.md#storage-account-selection).
+When all customer data must remain within a single region, the storage account associated with the function app must be one with [in-region redundancy](../storage/common/storage-redundancy.md). An in-region redundant storage account also must be used with [Azure Durable Functions](../durable-task/durable-functions/durable-functions-azure-storage-provider.md#storage-account-selection).
 
 Other platform-managed customer data is only stored within the region when hosting in an internally load-balanced App Service Environment (ASE). To learn more, see [ASE zone redundancy](../app-service/environment/zone-redundancy.md#in-region-data-residency).
 
@@ -185,7 +187,7 @@ You must manually update the deployment package and maintain the deployment pack
 You should also note the following considerations:
 
 - The app can't use version 1.x of the Functions runtime.
-- Your app can't rely on a shared writeable file system.
+- Your app can't rely on a shared writable file system.
 - Portal editing isn't supported.
 - Log streaming experiences in clients such as the Azure portal default to file system logs. You should instead rely on Application Insights logs.
 

@@ -299,7 +299,7 @@ To remove all existing external identity sources at once, run the Remove-Externa
 1. To see the progress, check **Notifications** or the **Run Execution Status** pane.
 
 > [!WARNING]
-> If you don't provide a value for **DomainName**, all external identity sources are removed. Run the cmdlet Update-IdentitySourceCredential only after the password is rotated in the domain controller.
+> Run the cmdlet Update-IdentitySourceCredential only after the password is rotated in the domain controller.
 
 ## Renew existing certificates for LDAPS identity source
 

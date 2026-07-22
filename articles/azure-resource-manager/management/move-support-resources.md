@@ -1,7 +1,7 @@
 ﻿---
 title: Azure resource types for move operations
 description: Lists the Azure resource types that can be moved to a new resource group, subscription, or region.
-ms.date: 10/26/2025
+ms.date: 05/26/2026
 ms.topic: article
 ms.custom: tbd
 ---
@@ -1817,9 +1817,9 @@ Moves between resource groups and subscriptions are supported for APIs that use 
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
 > | sqlvirtualmachinegroups | **No** | **No** | No |
-> | sqlvirtualmachines | **No** | **No** | No |
+> | sqlvirtualmachines | **Yes** | **Yes** | No |
 
-If you need to move your SQL virtual machines resource, first delete the [SQL IaaS Agent extension](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm#delete-the-extension) from the virtual machine, move the virtual machine to a different resource group or subscription, and then [re-register](/azure/azure-sql/virtual-machines/windows/sql-agent-extension-manually-register-single-vm#register-with-extension) your SQL Server VM with the SQL IaaS Agent extension again. 
+When moving a virtual machine registered with the SQL IaaS Agent extension, include the associated `Microsoft.SqlVirtualMachine/sqlVirtualMachines` resource in the same move request as the `Microsoft.Compute/virtualMachines` resource. Region move isn't supported for SQL virtual machines.
 
 ## Microsoft.Storage
 
@@ -2052,4 +2052,3 @@ Third-party services don't support move operations at this time.
 - For commands to move resources, see [Move Azure resources to a new resource group or subscription](move-resource-group-and-subscription.md).
 - [Learn more](../../resource-mover/overview.md) about the Azure Resource Mover service.
 - To get the same data as a file of comma-separated values, download [move-support-resources.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources.csv) for resource group and subscription move support. If you need those properties and support for how to move regions, download [move-support-resources-with-regions.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/move-support-resources-with-regions.csv).
-

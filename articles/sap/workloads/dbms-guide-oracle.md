@@ -59,7 +59,7 @@ When you install or migrate existing SAP on Oracle systems to Azure, follow this
 
   * Set Linux HugePages to 75% of physical RAM size.
   * Set SGA to 90% of HugePage size.
-  * Set the Oracle parameter `USE_LARGE_PAGES = ONLY`. The value `ONLY` is preferred over the value `TRUE` because the value `ONLY` is supposed to deliver more consistent and predictable performance. The value `TRUE` might allocate both large 2-MB and standard 4-K pages. The value `ONLY` always forces large 2-MB pages. If the number of available HugePages isn't sufficient or isn't correctly configured, the database instance fails to start with the following error code:
+  * Set the Oracle parameter `USE_LARGE_PAGES = ONLY`. The value `ONLY` is preferred over the value `TRUE` because the value `ONLY` is supposed to deliver more consistent and predictable performance. The value `TRUE` might allocate both large 2 MB and standard 4-K pages. The value `ONLY` always forces large 2 MB pages. If the number of available HugePages isn't sufficient or isn't correctly configured, the database instance fails to start with the following error code:
 
   ```error
   ora-27102 :  out of memory Linux_x86_64 Error 12 : can't allocate memory
@@ -67,7 +67,7 @@ When you install or migrate existing SAP on Oracle systems to Azure, follow this
 
   If you encounter insufficient contiguous memory, you might need to restart Oracle Linux or reconfigure the OS HugePage parameters.
 
-* Locate Oracle Home outside of the "root" volume or disk. Use a separate disk or Azure NetApp Files volume. The disk holding the Oracle Home should be 64 gigabytes in size or larger.
+* Locate Oracle Home outside of the "root" volume or disk. Use a separate disk or Azure NetApp Files volume. The disk holding the Oracle Home should be 64 GB in size or larger.
 * Note that the size of the boot disk for large high-performance Oracle database servers is important. At a minimum, use a P10 disk for M-series or E-series. Don't use small disks, such as P4 or P6. A small disk can cause performance issues.
 * Enable Accelerated Networking on all VMs. Upgrade to the latest Oracle Linux release if there are any problems when you enable Accelerated Networking.
 * Check for updates in this documentation and the SAP Note [2039619 - SAP Applications on Microsoft Azure using the Oracle Database: Supported Products and Versions](https://launchpad.support.sap.com/#/notes/2039619).

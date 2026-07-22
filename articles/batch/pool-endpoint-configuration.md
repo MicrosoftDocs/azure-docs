@@ -2,7 +2,7 @@
 title: Configure node endpoints in Azure Batch pool
 description: How to configure node endpoints such as access to SSH or RDP ports on compute nodes in an Azure Batch pool.
 ms.topic: how-to
-ms.date: 03/06/2026
+ms.date: 05/19/2026
 # Customer intent: As an IT administrator, I want to configure remote access endpoints for compute nodes in an Azure Batch pool, so that I can control external connectivity while ensuring security and compliance in my environment.
 ---
 
@@ -40,101 +40,97 @@ Each NAT pool configuration includes one or more [network security group (NSG) r
 
 The following C# snippet shows how to configure the RDP endpoint on compute nodes in a Windows pool to allow RDP access only from IP address _198.168.100.7_. The second NSG rule denies traffic that doesn't match the IP address.
 
-```csharp
-using System;
-using Azure.Core;
-using Azure.Identity;
-using Azure.ResourceManager.Batch;
-using Azure.ResourceManager.Batch.Models;
+```C# Snippet:endpoint_config_basic
+ArmClient armClient = new ArmClient(new DefaultAzureCredential());
 
-namespace AzureBatch
-{
-    public void SetPortsPool()
-    {
-        // get your azure access token, for more details of how Azure SDK get your access token, please refer to https://learn.microsoft.com/en-us/dotnet/azure/sdk/authentication?tabs=command-line
-        TokenCredential cred = new DefaultAzureCredential();
+        ResourceIdentifier batchAccountResourceId =
+            BatchAccountResource.CreateResourceIdentifier("subscriptionId", "resourceGroupName", "accountName");
+        BatchAccountResource batchAccount = armClient.GetBatchAccountResource(batchAccountResourceId);
 
-        // authenticate your client
-        ArmClient client = new ArmClient(cred);
+        BatchAccountPoolCollection poolCollection = batchAccount.GetBatchAccountPools();
 
-        // this example assumes you already have this BatchAccountResource created on azure
-        // for more information of creating BatchAccountResource, please refer to the document of BatchAccountResource
-        string subscriptionId = "12345678-1234-1234-1234-123456789012";
-        string resourceGroupName = "default-azurebatch-japaneast";
-        string accountName = "sampleacct";
-        ResourceIdentifier batchAccountResourceId = BatchAccountResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, accountName);
-        BatchAccountResource batchAccount = client.GetBatchAccountResource(batchAccountResourceId);
-
-        // get the collection of this BatchAccountPoolResource
-        BatchAccountPoolCollection collection = batchAccount.GetBatchAccountPools();
-
-        // invoke the operation
-        string poolName = "testpool";
-        BatchAccountPoolData pool = new BatchAccountPoolData
+        BatchAccountPoolData poolData = new BatchAccountPoolData()
         {
-            VmSize = "STANDARD_D4",
-            DeploymentVmConfiguration = new BatchVmConfiguration(new BatchImageReference
+            VmSize = "Standard_D2_v2",
+            DeploymentConfiguration = new BatchDeploymentConfiguration()
             {
-                Publisher = "MicrosoftWindowsServer",
-                Offer = "WindowsServer",
-                Sku = "2016-Datacenter-SmallDisk",
-                Version = "latest",
-            }, "batch.node.windows amd64"),
-            NetworkConfiguration = new BatchNetworkConfiguration
+                VmConfiguration = new BatchVmConfiguration(
+                    imageReference: new BatchImageReference()
+                    {
+                        Publisher = "canonical",
+                        Offer = "0001-com-ubuntu-server-jammy",
+                        Sku = "22_04-lts",
+                        Version = "latest"
+                    },
+                    nodeAgentSkuId: "batch.node.ubuntu 22.04")
+            },
+            ScaleSettings = new BatchAccountPoolScaleSettings()
             {
-                EndpointConfiguration = new PoolEndpointConfiguration(new BatchInboundNatPool[]
+                FixedScale = new BatchAccountFixedScaleSettings() { TargetDedicatedNodes = 2 }
+            },
+            NetworkConfiguration = new BatchNetworkConfiguration()
+            {
+                EndpointInboundNatPools =
                 {
-                    new BatchInboundNatPool("RDP", BatchInboundEndpointProtocol.Tcp, 3389, 7500, 8000)
+                    new BatchInboundNatPool(
+                        name: "RDP",
+                        protocol: BatchInboundEndpointProtocol.Tcp,
+                        backendPort: 3389,
+                        frontendPortRangeStart: 7500,
+                        frontendPortRangeEnd: 8000)
                     {
                         NetworkSecurityGroupRules =
-                            {
-                                new BatchNetworkSecurityGroupRule(179, BatchNetworkSecurityGroupRuleAccess.Allow, "198.168.100.7"),
-                                new BatchNetworkSecurityGroupRule(180, BatchNetworkSecurityGroupRuleAccess.Deny, "*")
-                            }
+                        {
+                            new BatchNetworkSecurityGroupRule(
+                                priority: 179,
+                                access: BatchNetworkSecurityGroupRuleAccess.Allow,
+                                sourceAddressPrefix: "198.168.100.7"),
+                            new BatchNetworkSecurityGroupRule(
+                                priority: 180,
+                                access: BatchNetworkSecurityGroupRuleAccess.Deny,
+                                sourceAddressPrefix: "*")
+                        }
                     }
                 }
-            )
+            }
         };
 
-        ArmOperation<BatchAccountPoolResource> lro = await collection.CreateOrUpdateAsync(WaitUntil.Completed, poolName, data);
-        BatchAccountPoolResource result = lro.Value;
-
-        // the variable result is a resource, you could call other operations on this instance as well
-        // but just for demo, we get its data from this resource instance
-        BatchAccountPoolData resourceData = result.Data;
-    }
-}
+        ArmOperation<BatchAccountPoolResource> pool = await poolCollection.CreateOrUpdateAsync(
+            WaitUntil.Completed, "myPool", poolData);
 ```
 
 ## Example: Allow SSH traffic from a specific subnet
 
 The following Python snippet shows how to configure the SSH endpoint on compute nodes in a Linux pool to allow access only from the subnet _192.168.1.0/24_. The second NSG rule denies traffic that doesn't match the subnet.
 
-```python
-from azure.identity import DefaultAzureCredential
-from azure.mgmt.batch import BatchManagementClient
-from azure.mgmt.batch import models as batchmodels
+```python Snippet:endpoint_config_allow_subnet_python
+from azure.batch import models
 
-# Authenticate using DefaultAzureCredential
-credential = DefaultAzureCredential()
-subscription_id = "12345678-1234-1234-1234-123456789012"
-client = BatchManagementClient(credential, subscription_id)
-
-resource_group_name = "default-azurebatch-japaneast"
-account_name = "sampleacct"
-pool_name = "testpool"
-
-pool_parameters = batchmodels.Pool(
-    vm_size="STANDARD_D4",
-    deployment_configuration=batchmodels.DeploymentConfiguration(
-        virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
-            image_reference=batchmodels.ImageReference(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest"
-            ),
-            node_agent_sku_id="batch.node.ubuntu 22.04"
+class AzureBatch(object):
+    def set_ports_pool(self, **kwargs):
+        pool.network_configuration = models.NetworkConfiguration(
+            endpoint_configuration=models.BatchPoolEndpointConfiguration(
+                inbound_nat_pools=[models.BatchInboundNatPool(
+                    name='SSH',
+                    protocol=models.InboundEndpointProtocol.TCP,
+                    backend_port=22,
+                    frontend_port_range_start=4000,
+                    frontend_port_range_end=4100,
+                    network_security_group_rules=[
+                        models.NetworkSecurityGroupRule(
+                            priority=170,
+                            access=models.NetworkSecurityGroupRuleAccess.ALLOW,
+                            source_address_prefix='192.168.1.0/24'
+                        ),
+                        models.NetworkSecurityGroupRule(
+                            priority=175,
+                            access=models.NetworkSecurityGroupRuleAccess.DENY,
+                            source_address_prefix='*'
+                        )
+                    ]
+                )
+                ]
+            )
         )
     ),
     network_configuration=batchmodels.NetworkConfiguration(
@@ -182,69 +178,59 @@ The following C# snippet shows how to configure the RDP endpoint on compute node
 > created with this API version or later. You may still need to specify explicit deny rules to restrict access
 > from other sources.
 
-```csharp
-using System;
-using Azure.Core;
-using Azure.Identity;
-using Azure.ResourceManager.Batch;
-using Azure.ResourceManager.Batch.Models;
+```C# Snippet:endpoint_config_restrictive
+ArmClient armClient = new ArmClient(new DefaultAzureCredential());
 
-namespace AzureBatch
-{
-    public void SetPortsPool()
-    {
-        // get your azure access token, for more details of how Azure SDK get your access token, please refer to https://learn.microsoft.com/en-us/dotnet/azure/sdk/authentication?tabs=command-line
-        TokenCredential cred = new DefaultAzureCredential();
+        ResourceIdentifier batchAccountResourceId =
+            BatchAccountResource.CreateResourceIdentifier("subscriptionId", "resourceGroupName", "accountName");
+        BatchAccountResource batchAccount = armClient.GetBatchAccountResource(batchAccountResourceId);
 
-        // authenticate your client
-        ArmClient client = new ArmClient(cred);
+        BatchAccountPoolCollection poolCollection = batchAccount.GetBatchAccountPools();
 
-        // this example assumes you already have this BatchAccountResource created on azure
-        // for more information of creating BatchAccountResource, please refer to the document of BatchAccountResource
-        string subscriptionId = "12345678-1234-1234-1234-123456789012";
-        string resourceGroupName = "default-azurebatch-japaneast";
-        string accountName = "sampleacct";
-        ResourceIdentifier batchAccountResourceId = BatchAccountResource.CreateResourceIdentifier(subscriptionId, resourceGroupName, accountName);
-        BatchAccountResource batchAccount = client.GetBatchAccountResource(batchAccountResourceId);
-
-        // get the collection of this BatchAccountPoolResource
-        BatchAccountPoolCollection collection = batchAccount.GetBatchAccountPools();
-
-        // invoke the operation
-        string poolName = "testpool";
-        BatchAccountPoolData pool = new BatchAccountPoolData
+        BatchAccountPoolData poolData = new BatchAccountPoolData()
         {
-            VmSize = "STANDARD_D4",
-            DeploymentVmConfiguration = new BatchVmConfiguration(new BatchImageReference
+            VmSize = "Standard_D2_v2",
+            DeploymentConfiguration = new BatchDeploymentConfiguration()
             {
-                Publisher = "MicrosoftWindowsServer",
-                Offer = "WindowsServer",
-                Sku = "2016-Datacenter-SmallDisk",
-                Version = "latest",
-            }, "batch.node.windows amd64"),
-            NetworkConfiguration = new BatchNetworkConfiguration
+                VmConfiguration = new BatchVmConfiguration(
+                    imageReference: new BatchImageReference()
+                    {
+                        Publisher = "canonical",
+                        Offer = "0001-com-ubuntu-server-jammy",
+                        Sku = "22_04-lts",
+                        Version = "latest"
+                    },
+                    nodeAgentSkuId: "batch.node.ubuntu 22.04")
+            },
+            ScaleSettings = new BatchAccountPoolScaleSettings()
             {
-                EndpointConfiguration = new PoolEndpointConfiguration(new BatchInboundNatPool[]
+                FixedScale = new BatchAccountFixedScaleSettings() { TargetDedicatedNodes = 2 }
+            },
+            NetworkConfiguration = new BatchNetworkConfiguration()
+            {
+                EndpointInboundNatPools =
                 {
-                    new BatchInboundNatPool("RDP", BatchInboundEndpointProtocol.Tcp, 3389, 60000, 60099)
+                    new BatchInboundNatPool(
+                        name: "RDP",
+                        protocol: BatchInboundEndpointProtocol.Tcp,
+                        backendPort: 3389,
+                        frontendPortRangeStart: 60000,
+                        frontendPortRangeEnd: 60099)
                     {
                         NetworkSecurityGroupRules =
                         {
-                            new BatchNetworkSecurityGroupRule(162, BatchNetworkSecurityGroupRuleAccess.Deny, "*")
+                            new BatchNetworkSecurityGroupRule(
+                                priority: 162,
+                                access: BatchNetworkSecurityGroupRuleAccess.Deny,
+                                sourceAddressPrefix: "*")
                         }
                     }
-                })
+                }
             }
         };
 
-        ArmOperation<BatchAccountPoolResource> lro = await collection.CreateOrUpdateAsync(WaitUntil.Completed, poolName, pool);
-        BatchAccountPoolResource result = lro.Value;
-
-        // the variable result is a resource, you could call other operations on this instance as well
-        // but just for demo, we get its data from this resource instance
-        BatchAccountPoolData resourceData = result.Data;
-    }
-}
+        ArmOperation<BatchAccountPoolResource> pool = await poolCollection.CreateOrUpdateAsync(
+            WaitUntil.Completed, "myPool", poolData);
 ```
 
 ## Example: Deny all SSH traffic from the internet
@@ -257,31 +243,29 @@ The following Python snippet shows how to configure the SSH endpoint on compute 
 > created with this API version or later. You may still need to specify explicit deny rules to restrict access
 > from other sources.
 
-```python
-from azure.identity import DefaultAzureCredential
-from azure.mgmt.batch import BatchManagementClient
-from azure.mgmt.batch import models as batchmodels
+```python Snippet:endpoint_config_deny_ssh_python
+from azure.batch import models
 
-# Authenticate using DefaultAzureCredential
-credential = DefaultAzureCredential()
-subscription_id = "12345678-1234-1234-1234-123456789012"
-client = BatchManagementClient(credential, subscription_id)
-
-resource_group_name = "default-azurebatch-japaneast"
-account_name = "sampleacct"
-pool_name = "testpool"
-
-pool_parameters = batchmodels.Pool(
-    vm_size="STANDARD_D4",
-    deployment_configuration=batchmodels.DeploymentConfiguration(
-        virtual_machine_configuration=batchmodels.VirtualMachineConfiguration(
-            image_reference=batchmodels.ImageReference(
-                publisher="Canonical",
-                offer="0001-com-ubuntu-server-jammy",
-                sku="22_04-lts",
-                version="latest"
-            ),
-            node_agent_sku_id="batch.node.ubuntu 22.04"
+class AzureBatch(object):
+    def set_ports_pool(self, **kwargs):
+        pool.network_configuration = models.NetworkConfiguration(
+            endpoint_configuration=models.BatchPoolEndpointConfiguration(
+                inbound_nat_pools=[models.BatchInboundNatPool(
+                    name='SSH',
+                    protocol=models.InboundEndpointProtocol.TCP,
+                    backend_port=22,
+                    frontend_port_range_start=4000,
+                    frontend_port_range_end=4100,
+                    network_security_group_rules=[
+                        models.NetworkSecurityGroupRule(
+                            priority=170,
+                            access=models.NetworkSecurityGroupRuleAccess.DENY,
+                            source_address_prefix='Internet'
+                        )
+                    ]
+                )
+                ]
+            )
         )
     ),
     network_configuration=batchmodels.NetworkConfiguration(

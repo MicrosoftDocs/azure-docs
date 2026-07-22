@@ -54,6 +54,8 @@ When you require HTTPS, also require the latest TLS version. To learn how, see [
 
 For more information, see [Secure connections (TLS)](../app-service/overview-security.md#https-and-certificates).
 
+You only need to manage certificates when you use a custom domain name, need your function code to authenticate to an external service using a client certificate, or require mutual TLS (mTLS) from callers. The default `*.azurewebsites.net` domain already has a platform-managed certificate. Certificate behavior and limits depend on your hosting plan. For a comparison, see [Certificates](functions-scale.md#certificates).
+
 ### Function access keys
 
 Functions uses keys to make it harder to access your function endpoints. Unless you set the HTTP access level on an HTTP triggered function to `anonymous`, requests must include an access key in the request. For more information, see [Work with access keys in Azure Functions](function-keys-how-to.md).
@@ -130,7 +132,7 @@ Use identities in place of secrets for connecting to some resources. This approa
 
 When you write code that creates the connection to [Azure services that support Microsoft Entra authentication](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#services-supporting-managed-identities), you can use an identity instead of a secret or connection string. Details for both connection methods are covered in the documentation for each service.
 
-You can configure some Azure Functions binding extensions to access services by using identity-based connections. For more information, see [Configure an identity-based connection](./functions-reference.md#configure-an-identity-based-connection).
+You can configure some Azure Functions binding extensions to access services by using identity-based connections. For more information, see [Configure an identity-based connection](./manage-connections.md?pivots=functions-auth-identity&tabs=bindings#define-connections).
 
 ### Set usage quotas
 

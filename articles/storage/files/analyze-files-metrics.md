@@ -15,7 +15,7 @@ ms.custom: monitoring, devx-track-azurepowershell
 
 :heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
 
-:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider (preview)
+:heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider
 
 Understanding how to monitor file share performance is critical to ensuring that your application is running as efficiently as possible. This article shows you how to use [Azure Monitor](/azure/azure-monitor/overview) to analyze Azure Files metrics such as availability, latency, and utilization.
 

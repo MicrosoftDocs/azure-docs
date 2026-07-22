@@ -78,7 +78,7 @@ The following table shows the default and maximum values (in minutes) for specif
 | **[Container Apps](../container-apps/functions-overview.md)** | 30 | Unbounded<sup>5</sup> | 
 | **[Consumption plan](consumption-plan.md)** | 5 | 10 |  
 
-1. Regardless of the function app timeout setting, 230 seconds is the maximum amount of time that an HTTP triggered function can take to respond to a request. This limit exists because of the [default idle timeout of Azure Load Balancer](../app-service/faq-availability-performance-application-issues.yml#why-does-my-request-time-out-after-230-seconds). For longer processing times, consider using the [Durable Functions async pattern](durable-functions/durable-functions-http-features.md#async-operation-tracking) or [defer the actual work and return an immediate response](performance-reliability.md#avoid-long-running-functions).
+1. Regardless of the function app timeout setting, 230 seconds is the maximum amount of time that an HTTP triggered function can take to respond to a request. This limit exists because of the [default idle timeout of Azure Load Balancer](../app-service/faq-availability-performance-application-issues.yml#why-does-my-request-time-out-after-230-seconds). For longer processing times, consider using the [Durable Functions async pattern](../durable-task/durable-functions/durable-functions-http-features.md#async-operation-tracking) or [defer the actual work and return an immediate response](performance-reliability.md#avoid-long-running-functions).
 2. There's no maximum execution timeout duration enforced. However, the grace period given to a function execution is 60 minutes [during scale in](event-driven-scaling.md#scale-in-behaviors) for the Flex Consumption and Premium plans, and a grace period of 10 minutes is given during platform updates.
 3. Requires the App Service plan be set to [Always On](/azure/azure-functions/dedicated-plan#always-on). A grace period of 10 minutes is given during platform updates.
 4. The default timeout for version 1.x of the Functions host runtime is _unbounded_. 
@@ -127,6 +127,23 @@ Maximum instances are given on a per-function app (Consumption) or per-plan (Pre
 ## Networking features
 
 [!INCLUDE [functions-networking-features](../../includes/functions-networking-features.md)]
+
+## Certificates
+
+You need to manage certificates when you use a custom domain name with your function app, when your function code authenticates to an external service using a client certificate, or when you require mutual TLS (mTLS). The default `*.azurewebsites.net` domain already has a platform-managed certificate. The following table shows certificate support across hosting plans:
+
+| Feature | [Flex Consumption plan](flex-consumption-how-to.md#configure-site-scoped-certificates)<sup>3</sup> | [Premium plan](../app-service/configure-ssl-certificate.md) | [Dedicated plan/ASE](../app-service/configure-ssl-certificate.md) | [Container Apps] | [Consumption plan](../app-service/configure-ssl-certificate.md) |
+| --- | --- | --- | --- | --- | --- |
+| Managed certificates | ✅ <sup>2</sup> | ✅ | ✅ | ✅ | ✅ |
+| Private certificates (.pfx) | ✅ (3 per app) | ✅ (unlimited<sup>1</sup>) | ✅ (unlimited<sup>1</sup>) | [✅](../container-apps/custom-domains-certificates.md) | ✅ (unlimited<sup>1</sup>) |
+| Public certificates (.cer) | ✅ (3 per app) | ✅ (unlimited<sup>1</sup>) | ✅ (unlimited<sup>1</sup>) | ✅ | ✅ (unlimited<sup>1</sup>) |
+| Import from Key Vault<sup>2</sup> | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Certificate model | [Site-scoped](flex-consumption-how-to.md#configure-site-scoped-certificates) | [Webspace-scoped](../app-service/overview-tls.md) | [Webspace-scoped](../app-service/overview-tls.md) | [Per-environment](../container-apps/custom-domains-certificates.md) | [Webspace-scoped](../app-service/overview-tls.md) |
+| Access from code | [Per-certificate toggle](flex-consumption-how-to.md#make-a-certificate-accessible-to-your-code) | [`WEBSITE_LOAD_CERTIFICATES`](functions-app-settings.md#website_load_certificates) | [`WEBSITE_LOAD_CERTIFICATES`](functions-app-settings.md#website_load_certificates) | [Environment variables](../container-apps/certificates-overview.md) | [`WEBSITE_LOAD_CERTIFICATES`](functions-app-settings.md#website_load_certificates) |
+
+1. Subject to [App Service plan limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-app-service-limits).
+2. Certificates imported from Key Vault are automatically synced within 24 hours after renewal.
+3. Flex Consumption certificate support is currently in preview.
 
 ## Billing
 

@@ -62,7 +62,7 @@ The following table contains links to code samples for each supported language a
 | --- | --- | --- |
 | [Node.js](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device.js) | azure-iot-device-mqtt.Mqtt | azure-iot-device-mqtt.MqttWs |
 | [Java](https://github.com/Azure/azure-iot-sdk-java/blob/main/iothub/device/iot-device-samples/send-receive-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/SendReceive.java) | [IotHubClientProtocol](/java/api/com.microsoft.azure.sdk.iot.device.iothubclientprotocol).MQTT | IotHubClientProtocol.MQTT_WS |
-| [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) | [MQTT_Protocol](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothubtransportmqtt.h) | [MQTT_WebSocket_Protocol](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothubtransportmqtt_websockets.h) |
+| [C](https://github.com/Azure/azure-iot-sdk-c/tree/main/iothub_client/samples) | [MQTT_Protocol](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothubtransportmqtt.h) | [MQTT_WebSocket_Protocol](https://github.com/Azure/azure-iot-sdk-c/blob/main/iothub_client/inc/iothubtransportmqtt_websockets.h) |
 | [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples) | [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype).Mqtt | TransportType.Mqtt falls back to MQTT over WebSockets if MQTT fails. To specify MQTT over WebSockets only, use TransportType.Mqtt_WebSocket_Only |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/main/samples) | Uses MQTT by default | To create the client, add `websockets=True` in the call |
 

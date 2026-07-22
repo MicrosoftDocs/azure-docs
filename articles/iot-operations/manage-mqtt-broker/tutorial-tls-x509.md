@@ -1,19 +1,19 @@
 ---
 title: "Tutorial: Azure IoT Operations MQTT broker TLS, X.509 client authentication, and ABAC"
 description: "Learn how to configure the Azure IoT Operations MQTT broker with TLS encryption, X.509 client authentication, and attribute-based access control (ABAC) authorization."
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: tutorial
-ms.date: 11/20/2024
+ms.date: 05/18/2026
 
 #CustomerIntent: As a developer, I want to learn how to configure the Azure IoT Operations MQTT broker with TLS encryption, X.509 client authentication, and attribute-based access control (ABAC) authorization.
 ---
 
 # Tutorial: TLS, X.509 client authentication, and attribute-based access control (ABAC) authorization with Azure IoT Operations MQTT broker
 
-This tutorial guides you through setting up the Azure IoT Operations MQTT broker with TLS encryption and X.509 client authentication. It includes step-by-step instructions and scripts for creating certificates for both the broker and clients. The tutorial explains how to configure the MQTT broker with different root certificate authorities (CAs) for the client and broker. It also covers setting up an attribute-based access control (ABAC) authorization policy based on the client certificate chain. Finally, the tutorial uses the Mosquito client to test various scenarios to ensure the setup works correctly.
+This tutorial guides you through setting up the Azure IoT Operations MQTT broker with TLS encryption and X.509 client authentication. It includes step-by-step instructions and scripts for creating certificates for both the broker and clients. The tutorial explains how to configure the MQTT broker with different root certificate authorities (CAs) for the client and broker. It also covers setting up an attribute-based access control (ABAC) authorization policy based on the client certificate chain. Finally, the tutorial uses the Mosquitto client to test various scenarios to ensure the setup works correctly.
 
 The tutorial simulates an environment where Azure IoT Operations is installed in a Contoso factory, with devices manufactured by Fabrikam. To make TLS and X.509 authentication work:
 
@@ -253,9 +253,9 @@ Instead of using the external IP, we use `localhost` for the tutorial.
 > [!TIP]
 > The codespace configuration automatically sets up port forwarding for 8883. To set up other environments, see [Use port forwarding](./howto-test-connection.md#use-port-forwarding).
 
-## Use a single Mosquito client to publish messages over TLS
+## Use a single Mosquitto client to publish messages over TLS
 
-From the same folder as the certificate files: `contoso_root_ca.crt`, `thermostat.crt`, and `thermostat.key`, use Mosquito client to publish a message. The `--cafile contoso_root_ca.crt` flag is for Mosquito to perform server certificate verification.
+From the same folder as the certificate files: `contoso_root_ca.crt`, `thermostat.crt`, and `thermostat.key`, use the Mosquitto client to publish a message. The `--cafile contoso_root_ca.crt` flag is for Mosquitto to perform server certificate verification.
 
 ```sh
 mosquitto_pub -t "example/topic" -m "example temperature measurement" -i thermostat \
@@ -266,7 +266,7 @@ mosquitto_pub -t "example/topic" -m "example temperature measurement" -i thermos
 --cafile contoso_root_ca.crt
 ```
 
-The publish succeeds because Mosquito uses a client certificate that is rooted in `fabrikam_root_ca.crt`. The MQTT broker trusts this certificate because the `x509-auth` authentication policy created earlier. Additionally, the MQTT broker currently allows authenticated clients to publish to any topic.
+The publish succeeds because Mosquitto uses a client certificate that is rooted in `fabrikam_root_ca.crt`. The MQTT broker trusts this certificate because the `x509-auth` authentication policy created earlier. Additionally, the MQTT broker currently allows authenticated clients to publish to any topic.
 
 ```console
 Client thermostat sending CONNECT

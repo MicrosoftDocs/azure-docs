@@ -145,7 +145,7 @@ Back up deduplicated disks | | | ![Partially][yellow]<br/><br/> For DPM/MABS ser
 ### Additional reference
 
 - Azure VM machine: How to [create](./backup-azure-vms-first-look-arm.md#back-up-from-azure-vm-settings) and [modify](./backup-azure-manage-vms.md#manage-backup-policy-for-a-vm) policy.
-- SQL Server database in Azure VM machine: How to [create](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) and [modify](./manage-monitor-sql-database-backup.md#modify-policy) policy.
+- SQL Server database in Azure VM machine: How to [create](./backup-sql-server-database-azure-vms.md#create-a-backup-policy) and [modify](./manage-monitor-sql-database-backup.md#modify-backup-policy-for-sql-database) policy.
 - Azure File share: How to [create](./backup-afs.md) and [modify](./manage-afs-backup.md#modify-policy) policy.
 - SAP HANA: How to [create](./backup-azure-sap-hana-database.md#create-a-backup-policy) and [modify](./sap-hana-db-manage.md#change-policy) policy.
 - MARS: How to [create](./backup-windows-with-mars-agent.md#create-a-backup-policy) and [modify](./backup-azure-manage-mars.md#modify-a-backup-policy) policy.

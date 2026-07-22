@@ -4,6 +4,7 @@ description: How to automatically discover and configure OPC UA assets at the ed
 author: dominicbetts
 ms.subservice: azure-akri
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: how-to 
 ms.date: 04/02/2025
 
