@@ -15,7 +15,7 @@ ms.custom:
 
 **Applies to:** :heavy_check_mark: SMB file shares
 
-[Azure Files](storage-files-introduction.md) is Microsoft's easy-to-use cloud file system. This article shows you how to mount an SMB Azure file share on Windows and Windows Server.
+[Azure Files](storage-files-introduction.md) is Microsoft's cloud file system. This article shows you how to mount an SMB Azure file share on Windows and Windows Server.
 
 ## Ensure port 445 is open
 
@@ -99,7 +99,7 @@ You have now mounted your Azure file share.
 
 ## Mount the Azure file share using the Windows command line
 
-You can also use the `net use` command from a Windows prompt to mount the file share.
+You can also use the `net use` command from a Windows command prompt to mount the file share. Use this method as an alternative to PowerShell or the Azure portal, or when scripting from environments that support Command Prompt syntax.
 
 ### Mount the file share from a domain-joined VM
 
@@ -123,7 +123,7 @@ For example:
 net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<username@domainFQDN>
 ```
 
-If the identity source for your storage account is Microsoft Entra Domain services, you can also provide credentials such as **DOMAINNAME\username** where **DOMAINNAME** is the Microsoft Entra Domain Services domain and **username** is the identity's user name in Microsoft Entra Domain Services:
+If the identity source for your storage account is Microsoft Entra Domain Services, you can also provide credentials such as **DOMAINNAME\username** where **DOMAINNAME** is the Microsoft Entra Domain Services domain and **username** is the identity's user name in Microsoft Entra Domain Services:
 
 ```
 net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /user:<DOMAINNAME\username>
@@ -131,13 +131,13 @@ net use Z: \\<YourStorageAccountName>.file.core.windows.net\<FileShareName> /use
 
 ## Mount the Azure file share using the storage account key (not recommended)
 
-The Azure portal provides a PowerShell script that you can use to mount your file share directly to a host using the storage account key. However, use identity-based authentication instead of the storage account key for security reasons. If you must use the storage account key, follow the [mount instructions](#mount-the-azure-file-share), but under **Authentication method**, select *Storage account key*.
+The Azure portal provides a PowerShell script that you can use to mount your file share directly to a host by using the storage account key. However, use identity-based authentication instead of the storage account key for security reasons. If you must use the storage account key, follow the [mount instructions](#mount-the-azure-file-share), but under **Authentication method**, select *Storage account key*.
 
 A storage account key is an administrator key for a storage account, including administrator permissions to all files and folders within the file share you're accessing, and for all file shares and other storage resources (blobs, queues, tables, etc.) contained within your storage account. You can find your storage account key in the [Azure portal](https://portal.azure.com/) by navigating to the storage account and selecting **Security + networking** > **Access keys**, or you can use the `Get-AzStorageAccountKey` PowerShell cmdlet.
 
 ### Mount the Azure file share with File Explorer
 
-1. Open File Explorer by opening it from the Start Menu, or by pressing the Win+E shortcut.
+1. Open File Explorer from the Start menu, or press Win+E.
 
 1. Go to **This PC** on the left side of the window. This action changes the menus available in the ribbon. Under the **Computer** menu, select **Map network drive**.
 
@@ -162,11 +162,11 @@ A storage account key is an administrator key for a storage account, including a
 
 ### Access an Azure file share via its UNC path
 
-You don't need to mount the Azure file share to a drive letter to use it. You can directly access your Azure file share by using the [UNC path](/windows/win32/fileio/naming-a-file). Enter the following path into File Explorer, and be sure to replace *storageaccountname* with your storage account name and *myfileshare* with your file share name:
+You don't need to mount the Azure file share to a drive letter to use it. You can directly access your Azure file share by using the [UNC path](/windows/win32/fileio/naming-a-file). Enter the following path into File Explorer, and replace *storageaccountname* with your storage account name and *myfileshare* with your file share name:
 
 `\\storageaccountname.file.core.windows.net\myfileshare`
 
-You're prompted to sign in by using your network credentials. Sign in by using the Azure subscription under which you created the storage account and file share. If you're not prompted for credentials, add the credentials by using the following command:
+You're prompted to sign in by using your network credentials. Sign in by using the Azure subscription under which you created the storage account and file share. If you're not prompted for credentials, add the credentials from a Command Prompt by using the following command:
 
 `cmdkey /add:StorageAccountName.file.core.windows.net /user:localhost\StorageAccountName /pass:StorageAccountKey`
 
@@ -179,7 +179,7 @@ For Azure Government Cloud, change the server name to:
 If you don't want to mount Azure file shares using the suffix `file.core.windows.net`, you can modify the suffix of the storage account name associated with the Azure file share, and then add a canonical name (CNAME) record to route the new suffix to the endpoint of the storage account. The following instructions are for single-forest AD environments only. To learn how to configure AD environments that have two or more forests, see [Use Azure Files with multiple Active Directory forests](storage-files-identity-multiple-forests.md).
 
 > [!IMPORTANT]
-> If you use custom domain names with Active Directory Domain Services (AD DS), be sure to [upgrade the Kerberos encryption type](storage-files-identity-ad-ds-enable.md#enable-aes-256-encryption-recommended) for your storage account to AES-256.
+> If you use custom domain names with Active Directory Domain Services (AD DS), upgrade the [Kerberos encryption type](storage-files-identity-ad-ds-enable.md#enable-aes-256-encryption-recommended) for your storage account to AES-256.
 
 > [!NOTE]
 > Azure Files only supports configuring CNAMEs by using the storage account name as a domain prefix. If you don't want to use the storage account name as a prefix, consider using [DFS namespaces](files-manage-namespaces.md).
@@ -202,7 +202,7 @@ To use this method, complete the following steps:
 
    1. Open Active Directory DNS Manager.
    1. Go to your domain (for example, **onpremad1.com**).
-   1. Go to "Forward Lookup Zones".
+   1. Go to **Forward Lookup Zones**.
    1. Select the node named after your domain (for example, **onpremad1.com**) and right-click **New Alias (CNAME)**.
    1. For the alias name, enter your storage account name.
    1. For the fully qualified domain name (FQDN), enter **`<storage-account-name>`.`<domain-name>`**, such as **mystorageaccount.onpremad1.com**. The hostname part of the FQDN must match the storage account name. If the hostname doesn't match the storage account name, the mount fails with an access denied error.  

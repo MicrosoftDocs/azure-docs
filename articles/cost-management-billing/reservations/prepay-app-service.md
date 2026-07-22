@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 05/07/2026
+ms.date: 07/17/2026
 ms.author: primittal
 ms.custom: references_regions
 ---

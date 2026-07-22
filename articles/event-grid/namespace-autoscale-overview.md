@@ -34,7 +34,7 @@ Autoscale addresses both problems by automatically right-sizing your namespace c
 
 Autoscale is a fully managed experience. You enable it on the namespace and specify the minimum and maximum number of TUs. Event Grid handles all scaling decisions internally. You don't need to configure individual scaling rules, thresholds, or cooldown periods.
 
-You can enable autoscale by using the Azure portal, Azure CLI, Azure Resource Manager template, or REST API. For more information, see [Enable autoscale for an Event Grid namespace](namespace-enable-autoscale.md). 
+You can enable autoscale by using the Azure portal, Azure Resource Manager template, or REST API. For more information, see [Enable autoscale for an Event Grid namespace](namespace-enable-autoscale.md). 
 
 When you enable autoscale, Event Grid continuously evaluates utilization across all scaling categories. The system aggregates usage data over a lookback window and compares the highest utilization across categories against internal thresholds. Based on this evaluation, Event Grid automatically increases or decreases TUs within your configured bounds.
 

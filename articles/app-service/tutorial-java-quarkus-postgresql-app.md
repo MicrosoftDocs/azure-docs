@@ -582,7 +582,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **Azure Database for PostgreSQL flexible server**: Accessible only from within the virtual network. A database and a user are created for you on the server.
     - **Private DNS zone**: Enables DNS resolution of the PostgreSQL server in the virtual network.
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
-    - **Azure Cache for Redis**: Accessible only from behind its private endpoint.
+    - **Azure Managed Redis**: Accessible only from behind its private endpoint.
     - **Key vault**: Accessible only from behind its private endpoint. Used to manage secrets for the App Service app.
 
 1. Once provisioning finishes, find the setting `AZURE_POSTGRESQL_CONNECTIONSTRING` in the AZD output. To keep secrets safe, only the setting names are displayed. They look like this in the AZD output:

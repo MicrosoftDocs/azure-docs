@@ -3,7 +3,7 @@ title: Develop Azure IoT Edge modules using Visual Studio Code tutorial
 description: 'Develop IoT Edge modules with Visual Studio Code: Follow step-by-step instructions to create, build, and deploy modules using Azure IoT Edge tools.'
 author: sethmanheim
 ms.author: sethm
-ms.date: 02/26/2026
+ms.date: 07/16/2026
 ms.topic: tutorial
 ms.service: azure-iot-edge
 services: iot-edge
@@ -268,20 +268,20 @@ After you create the solution, these main files are in the solution:
 
 ### Set IoT Edge runtime version
 
-The latest stable IoT Edge system module version is 1.5. Set your system modules to version 1.5.
+The latest stable IoT Edge system module version is 1.6. Set your system modules to version 1.6.
 
 1. In Visual Studio Code, open the **deployment.template.json** deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to be configured on the targeted IoT Edge device.
-1. Change the runtime version for the system runtime module images `edgeAgent` and `edgeHub`. For example, if you want to use the IoT Edge runtime version 1.5, change the following lines in the deployment manifest file:
+1. Change the runtime version for the system runtime module images `edgeAgent` and `edgeHub`. For example, if you want to use the IoT Edge runtime version 1.6, change the following lines in the deployment manifest file:
 
    ```json
    "systemModules": {
        "edgeAgent": {
 
-           "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
+           "image": "mcr.microsoft.com/azureiotedge-agent:1.6",
 
        "edgeHub": {
 
-           "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
+           "image": "mcr.microsoft.com/azureiotedge-hub:1.6",
    ```
 
 ::: zone-end
@@ -1029,18 +1029,18 @@ Use the `dotnet publish` command to build the container image for Linux and amd6
 dotnet publish --os linux --arch x64 /t:PublishContainer
 ```
 
-Currently, the **iotedgedev** tool template targets .NET 7.0, which reached end of support in May 2024. Update the project to target .NET 8.0 (LTS, supported through November 2026) by editing the **filtermodule.csproj** file and changing the `TargetFramework` and `PackageReference` values. Your **filtermodule.csproj** file should look like this:
+Currently, the **iotedgedev** tool template targets an earlier .NET version that's no longer supported. Update the project to target .NET 10.0 (LTS, supported through November 2028) by editing the **filtermodule.csproj** file and changing the `TargetFramework` and `PackageReference` values. Your **filtermodule.csproj** file should look like this:
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk.Worker">
     <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
+        <TargetFramework>net10.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
     </PropertyGroup>
     <ItemGroup>
         <PackageReference Include="Microsoft.Azure.Devices.Client" Version="1.42.0" />
-        <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="10.0.0" />
     </ItemGroup>
 </Project>
 ```

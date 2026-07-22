@@ -14,7 +14,7 @@ ms.topic: faq
 
 [Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry-standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) and the [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). You can mount Azure file shares concurrently on cloud or on-premises deployments of Windows, Linux, and macOS. You also can cache Azure file shares on Windows Server machines by using Azure File Sync for fast access close to where the data is used.
 
-## Azure File Sync
+## Azure File Sync FAQ
 
 * <a id="cross-domain-sync"></a>
   **Can I have domain-joined and non-domain-joined servers in the same sync group?**  
@@ -32,13 +32,13 @@ ms.topic: faq
     The following scenarios can cause file conflicts:
     - A file is created or modified in an endpoint (for example, Server A). If the same file is modified on a different endpoint before the change on Server A is synced to that endpoint, a conflict file is created.  
     - The file existed in the Azure file share and server endpoint location prior to the server endpoint creation. If the file size and/or last modified time is different between the file on the server and Azure file share when the server endpoint is created, a conflict file is created.  
-    - Sync database was recreated due to corruption or knowledge limit reached. Once the database is recreated, sync enters a mode called reconciliation. If the file size and/or last modified time is different between the file on the server and Azure file share when reconciliation occurs, a conflict file is created. 
+    - You recreate the sync database due to corruption or knowledge limit reached. After you recreate the database, sync enters a mode called reconciliation. If the file size and last modified time are different between the file on the server and Azure file share when reconciliation occurs, a conflict file is created. 
   
-    Once the initial upload to the Azure file share is complete, Azure File Sync doesn't overwrite any files in your sync group. Instead, it uses a simple conflict-resolution strategy: it keeps both changes to files that are changed in two endpoints at the same time. The most recently written change keeps the original file name. The older file (determined by LastWriteTime) has the endpoint name and the conflict number appended to the file name. For server endpoints, the endpoint name is the name of the server. For cloud endpoints, the endpoint name is **Cloud**. The name follows this taxonomy:
+    After the initial upload to the Azure file share is complete, Azure File Sync doesn't overwrite any files in your sync group. Instead, it uses a simple conflict-resolution strategy: it keeps both changes to files that are changed in two endpoints at the same time. The most recently written change keeps the original file name. The older file (determined by LastWriteTime) has the endpoint name and the conflict number appended to the file name. For server endpoints, the endpoint name is the name of the server. For cloud endpoints, the endpoint name is **Cloud**. The name follows this taxonomy:
    
     \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
 
-    For example, the first conflict of CompanyReport.docx would become CompanyReport-CentralServer.docx if CentralServer is where the older write occurred. The second conflict would be named CompanyReport-CentralServer-1.docx. Azure File Sync supports 100 conflict files per file. Once the maximum number of conflict files is reached, the file will fail to sync until the number of conflict files is less than 100.
+    For example, the first conflict of CompanyReport.docx becomes CompanyReport-CentralServer.docx if CentralServer is where the older write occurred. The second conflict is named CompanyReport-CentralServer-1.docx. Azure File Sync supports 100 conflict files per file. After the maximum number of conflict files is reached, the file fails to sync until the number of conflict files is less than 100.
   
 * <a id="afs-tiered-files-tiering-disabled"></a>
   **I have cloud tiering disabled, why are there tiered files in the server endpoint location?**  
@@ -69,7 +69,7 @@ ms.topic: faq
 
     1. Restart the **FileSyncSvc** service.
 
-    Once configured:
+    After configuration:
 
     - New tiered files will no longer have the offline attribute.
     - Existing tiered files will be updated in the next maintenance run (occurs every 24 hours).
@@ -79,7 +79,7 @@ ms.topic: faq
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
   **Why do tiered files exist outside of the server endpoint namespace?**  
-    Prior to Azure File Sync agent version 3, Azure File Sync blocked the move of tiered files outside the server endpoint but on the same volume as the server endpoint. Copy operations, moves of non-tiered files, and moves of tiered files to other volumes were unaffected. The reason for this behavior was the implicit assumption that File Explorer and other Windows APIs have that move operations on the same volume are (nearly) instantaneous rename operations. This means moves will make File Explorer or other move methods (such as command line or PowerShell) appear unresponsive while Azure File Sync recalls the data from the cloud. Starting with [Azure File Sync agent version 3.0.12.0](../file-sync/file-sync-release-notes.md#supported-versions), Azure File Sync will allow you to move a tiered file outside of the server endpoint. We avoid the negative effects previously mentioned by allowing the tiered file to exist as a tiered file outside of the server endpoint and then recalling the file in the background. This means that moves on the same volume are instantaneous, and we do all the work to recall the file to disk after the move is complete.
+    Before Azure File Sync agent version 3, Azure File Sync blocked moving tiered files outside the server endpoint but on the same volume as the server endpoint. Copy operations, moves of non-tiered files, and moves of tiered files to other volumes weren't affected. The reason for this behavior was the implicit assumption that File Explorer and other Windows APIs have that move operations on the same volume are (nearly) instantaneous rename operations. This assumption means moves make File Explorer or other move methods (such as command line or PowerShell) appear unresponsive while Azure File Sync recalls the data from the cloud. Starting with [Azure File Sync agent version 3.0.12.0](../file-sync/file-sync-release-notes.md#supported-versions), Azure File Sync allows you to move a tiered file outside of the server endpoint. The negative effects mentioned earlier are avoided by allowing the tiered file to exist as a tiered file outside of the server endpoint and then recalling the file in the background. This approach means moves on the same volume are instantaneous, and Azure File Sync recalls the file to disk after the move is complete.
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
   **I'm having an issue with Azure File Sync on my server (sync, cloud tiering, etc.). Should I remove and recreate my server endpoint?**  
@@ -100,7 +100,7 @@ ms.topic: faq
       - In the **Select** field, type **Microsoft.StorageSync**, select the role and then select **Save**.
     
       > [!Note]  
-      > When creating the cloud endpoint, the storage sync service and storage account must be in the same Microsoft Entra tenant. Once the cloud endpoint is created, the storage sync service and storage account can be moved to different Microsoft Entra tenants.
+      > When creating the cloud endpoint, the storage sync service and storage account must be in the same Microsoft Entra tenant. After the cloud endpoint is created, you can move the storage sync service and storage account to different Microsoft Entra tenants.
     
 * <a id="afs-ntfs-acls"></a>
   **Does Azure File Sync preserve directory/file level NTFS ACLs along with data stored in Azure Files?**
@@ -117,21 +117,21 @@ ms.topic: faq
 
 * <a id="afs-dedup"></a>
  **How does volume space work for Cloud Tiering as a part of interop with Dedup?**  
-    In some cases where Dedup is installed, the available volume space can increase more than expected after dedup garbage collection is triggered. For example, let's say that the free space policy for cloud tiering is set to 20%. Azure File Sync is notified when there is low free space (let's say when free space is 19%). Tiering determines that 1% more space needs to be freed, but as a buffer we'll have 5% extra, so we'll tier up to 25% (for example, 30 GiB). The files get tiered until it reaches 30 GiB. As part of interop with Dedup, Azure File Sync initiates Garbage collection at the end of the tiering session.
+    In some cases where Dedup is installed, the available volume space can increase more than expected after Dedup garbage collection is triggered. For example, let's say that the free space policy for cloud tiering is set to 20%. Azure File Sync is notified when there is low free space (let's say when free space is 19%). Tiering determines that 1% more space needs to be freed, but as a buffer there's 5% extra, so it tiers up to 25% (for example, 30 GiB). The files get tiered until it reaches 30 GiB. As part of interop with Dedup, Azure File Sync initiates Garbage collection at the end of the tiering session.
     
 * <a id="afs-avrecalls"></a>
-  **Why is the anti virus software on the AFS server recalling tiered files?**  
-   When users access tiered files, some anti-virus (AV) software may cause unintended file recalls. This occurs if the AV software is not configured to ignore tiered files (those with the RECALL_ON_DATA_ACCESS attribute).
+  **Why is the antivirus software on the Azure File Sync server recalling tiered files?**  
+   When users access tiered files, some antivirus (AV) software might cause unintended file recalls. This problem occurs if the AV software isn't configured to ignore tiered files (those with the RECALL_ON_DATA_ACCESS attribute).
    Here's what happens:
    1. A user attempts to access a tiered file.
    2. The AV software blocks the read handle.
-   3. The AV application then performs its own read to scan the file for viruses.
+   3. The AV software then performs its own read to scan the file for viruses.
      
   This process may appear as if the AV software is recalling the tiered files, but it's actually triggered by the user's access attempt. To prevent this issue, ensure that your AV vendor configures their software to ignore scanning tiered files with the RECALL_ON_DATA_ACCESS attribute.
 
 * <a id="afs-networkconnect"></a>
-  **Can SSL inspection software block access to AFS Servers?**
-  Make sure your SSL inspection software (such as Zscaler or FortiGate) allows Azure File Sync (AFS) server endpoints to access Azure. These SSL inspection tools can override firewall settings and selectively allow traffic. Contact your network administrator to resolve this issue. Use the "testnet" command to determine if your AFS server is experiencing this problem.
+  **Can SSL inspection software block access to Azure File Sync servers?**
+  Make sure your SSL inspection software (such as Zscaler or FortiGate) allows Azure File Sync server endpoints to access Azure. These SSL inspection tools can override firewall settings and selectively allow traffic. Contact your network administrator to resolve this issue. Use the "testnet" command to determine if your Azure File Sync server is experiencing this problem.
   
 ## Security, authentication, and access control
 
@@ -145,7 +145,7 @@ ms.topic: faq
 * <a id="access-based-enumeration"></a>
 **Does Azure Files support using Access-Based Enumeration (ABE) to control the visibility of the files and folders in SMB Azure file shares?**
 
-  Using ABE with Azure Files isn't currently supported, but you can [use DFS-N with SMB Azure file shares](files-manage-namespaces.md#access-based-enumeration-abe).
+  Azure Files doesn't support using ABE, but you can [use DFS-N with SMB Azure file shares](files-manage-namespaces.md#access-based-enumeration-abe).
 
 * <a id="printer-or-scanner"></a>
 **Can I save to an Azure file share using a printer or scanner?**
@@ -206,9 +206,9 @@ Alternate data streams are preserved on-premises when Azure File Sync is used.
     Creating either a [computer account](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](/windows/win32/ad/about-service-logon-accounts) has no difference on how authentication works with Azure Files. You can make your own choice on how to represent a storage account as an identity in your AD environment. The default DomainAccountType set in `Join-AzStorageAccountForAuth` cmdlet is computer account. However, the password expiration age configured in your AD environment can be different for computer or service logon accounts, and you need to take that into consideration to [Update the password of your storage account identity in AD](./storage-files-identity-ad-ds-update-password.md).
 
 * <a id="ad-support-rest-apis"></a>
-**How to remove cached credentials with storage account key and delete existing SMB connections before initializing new connection with Microsoft Entra ID or AD credentials?**
+**How do I remove cached credentials by using the storage account key and delete existing SMB connections before initializing a new connection with Microsoft Entra ID or AD credentials?**
 
-    Follow the two step process below to remove the saved credential associated with the storage account key and remove the SMB connection:
+    Follow the two-step process to remove the saved credential associated with the storage account key and remove the SMB connection:
 
     1. Run the following command from a Windows command prompt to remove the credential. If you can't find one, it means that you haven't persisted the credential and can skip this step.
     
@@ -256,7 +256,7 @@ Alternate data streams are preserved on-premises when Azure File Sync is used.
         2. https://www.ibm.com/docs/en/ibm-mq/9.2?topic=multiplatforms-running-amqsfhac-test-message-integrity
 
 
-## Share snapshots
+## Share snapshot FAQ
 
 ### Create share snapshots
 
@@ -267,15 +267,15 @@ Alternate data streams are preserved on-premises when Azure File Sync is used.
 ### Clean up share snapshots
 * <a id="delete-share-keep-snapshots"></a>
 **Can I delete my share but not delete my share snapshots?**  
-    No. The delete file share workflow will automatically delete the snapshots when you delete the share.
+    No. The delete file share workflow automatically deletes the snapshots when you delete the share.
 
-## Billing and pricing
+## Azure Files billing and pricing
 
 * <a id="transactions-billing"></a>
 **What are transactions in Azure Files, and how are they billed?**
     Protocol transactions occur any time a user, application, script, or service interacts with Azure file shares (writing, reading, listing, deleting files, etc.). It's important to remember that some actions that you might perceive as a single operation might actually involve multiple transactions. For pay-as-you-go file shares, different types of transactions have different prices based on their impact on the file share. Transactions don't affect billing for provisioned file shares. For more information, see [Understanding billing](understanding-billing.md).
 
-## Interoperability with other services
+## Azure Files interoperability with other services
 
 * <a id="azure-files-versus-azure-netapp-files"></a>
 **What's the difference between Azure Files and Azure NetApp Files?**  
@@ -283,7 +283,7 @@ Alternate data streams are preserved on-premises when Azure File Sync is used.
 
 * <a id="cluster-witness"></a>
 **Can I use my Azure file share as a *File Share Witness* for my Windows Server Failover Cluster?**  
-    This configuration isn't currently supported for Azure Files. To learn how to set this up using Azure Blob storage, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
+    This configuration isn't supported for Azure Files. To learn how to set up this configuration by using Azure Blob storage, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
 
 ## See also
 
