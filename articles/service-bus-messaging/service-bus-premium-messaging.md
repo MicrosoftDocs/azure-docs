@@ -74,9 +74,10 @@ The number of messaging units allocated to the Service Bus premium namespace can
 There are a few factors to take into consideration when deciding the number of messaging units for your architecture:
 
 - Start with **1 or 2 messaging units** allocated to your namespace, or **1 message unit per partition**.
-- Study the CPU usage metrics within the [Resource usage metrics](monitor-service-bus-reference.md#resource-usage-metrics) for your namespace.
-  - If CPU usage is **below 20%**, you might be able to **scale down** the number of messaging units allocated to your namespace.
-  - If CPU usage is **above 70%**, your application benefits from **scaling up** the number of messaging units allocated to your namespace.
+- Check the CPU and memory usage metrics within the [Resource usage metrics](monitor-service-bus-reference.md#resource-usage-metrics) for your namespace.
+  - If CPU usage is **below 25%**, you might be able to **scale down** the number of messaging units allocated to your namespace.
+  - If CPU usage is **above 75%**, your application benefits from **scaling up** the number of messaging units allocated to your namespace.
+  - Because memory usage can rise quickly, **scale up** when memory usage is **above 60%** to help prevent interruptions to message processing.
 
 To learn how to configure a Service Bus namespace to automatically scale (increase or decrease messaging units), see [Automatically update messaging units](automate-update-messaging-units.md).
 
