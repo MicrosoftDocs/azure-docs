@@ -120,7 +120,7 @@ This behavior is by design because it helps preserve handle integrity and preven
 
 ### SMB Multichannel
 
-SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on SSD (premium) file shares only. For Windows clients, SMB Multichannel is enabled by default in all Azure regions. In most scenarios, particularly multi-threaded workloads, clients see improved performance with SMB Multichannel. However, for some specific scenarios such as single-threaded workloads or for testing purposes, you might want to disable SMB Multichannel. See [SMB Multichannel](smb-performance.md#smb-multichannel) for more details.
+SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on SSD (premium) file shares only. For Windows clients, SMB Multichannel is enabled by default in all Azure regions. In most scenarios, particularly multithreaded workloads, clients see improved performance with SMB Multichannel. However, for some specific scenarios such as single-threaded workloads or for testing purposes, you might want to disable SMB Multichannel. For more information, see [SMB Multichannel](smb-performance.md#smb-multichannel).
 
 ### Security
 
