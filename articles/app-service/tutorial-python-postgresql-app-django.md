@@ -16,14 +16,16 @@ ms.service: azure-app-service
 
 # Deploy a Python Django web app with PostgreSQL in Azure
 
-In this tutorial, you deploy a data-driven Python web app to [Azure App Service](./overview.md) that uses the [Azure Database for PostgreSQL](/azure/postgresql/) relational database service. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment. This article uses [Django](https://www.djangoproject.com/). Alternatives include [Flask](tutorial-python-postgresql-app-flask.md) or the [FastAPI tutorial](tutorial-python-postgresql-app-fastapi.md).
+In this tutorial, you deploy a data-driven Python web app to [Azure App Service](./overview.md) that uses the [Azure Database for PostgreSQL](/azure/postgresql/) relational database service. To use Azure Managed Redis, follow the [Azure Developer CLI](./tutorial-python-postgresql-app-django.md?pivots=azure-developer-cli) steps. Azure App Service supports [Python](https://www.python.org/downloads/) in a Linux server environment. This article uses [Django](https://www.djangoproject.com/). Alternatives include [Flask](tutorial-python-postgresql-app-flask.md) or the [FastAPI tutorial](tutorial-python-postgresql-app-fastapi.md).
 
 :::image type="content" border="False" source="./media/tutorial-python-postgresql-app-django/python-postgresql-app-architecture-240px.png" lightbox="./media/tutorial-python-postgresql-app-django/python-postgresql-app-architecture.png" alt-text="Diagram that shows the architecture of an App Service with a PostgreSQL database in Azure.":::
+
+::: zone pivot="azure-portal"
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> - Create a secure-by-default App Service, PostgreSQL, and Redis cache architecture.
+> - Create a secure-by-default App Service and PostgreSQL architecture.
 > - Secure connection secrets using a managed identity and Key Vault references.
 > - Deploy a sample Python app to App Service from a GitHub repository.
 > - Access App Service connection strings and app settings in the application code.
@@ -36,8 +38,6 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-::: zone pivot="azure-portal"
-
 - An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub account. you can also [get one for free](https://github.com/join).
 - Knowledge of Python with Django development.
@@ -46,6 +46,22 @@ In this tutorial, you learn how to:
 ::: zone-end
 
 ::: zone pivot="azure-developer-cli"
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> - Create a secure-by-default App Service, PostgreSQL, and Azure Managed Redis architecture.
+> - Secure connection secrets using a managed identity and Key Vault references.
+> - Deploy a sample Python app to App Service from a GitHub repository.
+> - Access App Service connection strings and app settings in the application code.
+> - Make updates and redeploy the application code.
+> - Generate database schema by running database migrations.
+> - Stream diagnostic logs from Azure.
+> - Manage the app in the Azure portal.
+> - Provision the same architecture and deploy by using Azure Developer CLI.
+> - Optimize your development workflow with GitHub Codespaces and GitHub Copilot.
+
+## Prerequisites
 
 - An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed. You can follow the steps with the [Azure Cloud Shell](https://shell.azure.com) because it already has Azure Developer CLI installed.
@@ -119,9 +135,9 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ::: zone pivot="azure-portal"  
 
-## Create App Service, database, and cache
+## Create App Service and database
 
-In this step, create the Azure resources. This tutorial creates a set of secure-by-default resources that include App Service, Azure Database for PostgreSQL, and Azure Cache. For the creation process, you specify:
+In this step, create the Azure resources. This tutorial creates a set of secure-by-default resources that include App Service and Azure Database for PostgreSQL. For the creation process, you specify:
 
 - The **Name** for the web app. It's used as part of the DNS name for your app.
 - The **Region** to run the app physically in the world. It's also part of the DNS name for your app.
@@ -150,7 +166,7 @@ Sign in to the [Azure portal](https://portal.azure.com/). Follow these steps to 
         1. *Name*: **msdocs-python-postgres-XYZ**.
         1. *Runtime stack*: **Python 3.14**.
         1. *Database*: **PostgreSQL - Flexible Server** is selected by default as the database engine. The server name and database name are also set by default to appropriate values.
-        1. *Add Azure Cache for Redis*: **Yes**.
+        1. Don't select **Create an Azure Cache for Redis**.
         1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
@@ -166,11 +182,11 @@ Sign in to the [Azure portal](https://portal.azure.com/). Follow these steps to 
         - **App Service plan**: Defines the compute resources for App Service. This instance is a Linux plan in the *Basic* tier.
         - **App Service**: Represents your app and runs in the App Service plan.
         - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
-        - **Private endpoint**: Access endpoint for the Redis cache in the virtual network.
+        - **Private endpoint**: Access endpoint for the database in the virtual network.
         - **Network interfaces**: Private IP addresses, one for each of the private endpoints.
         - **Azure Database for PostgreSQL flexible server**: Accessible only from within the virtual network. Deployment creates a database and a user on the server.
         - **Azure Cache for Redis**: Accessible only from its private network.
-        - **Private DNS zones**: Enables DNS resolution of the database server the Redis cache in the virtual network.
+        - **Private DNS zones**: Enables DNS resolution of the database server in the virtual network.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-3.png" alt-text="Screenshot that shows the deployment process completed (Django)." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-create-app-postgres-3.png":::
@@ -188,7 +204,7 @@ The deployment process generates the connectivity variables for you as [app sett
         1. Select **AZURE_POSTGRESQL_CONNECTIONSTRING**. 
         1. In **Add/Edit application setting**, in the **Value** field, find the *password=* part at the end of the string.
         1. Copy the password string after *password=* for use later.
-        This app setting lets you connect to the Postgres database and the Redis cache secured behind private endpoints. The secrets are saved directly in the App Service app, which isn't the best approach. You'll change this configuration. You also add a `SECRET_KEY` setting, which your Django app requires.
+        This app setting lets you connect to the Postgres database behind private endpoints. The secrets are saved directly in the App Service app, which isn't the best approach. You'll change this configuration. You also add a `SECRET_KEY` setting, which your Django app requires.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-1.png" alt-text="Screenshot that shows how to see the value of an app setting." lightbox="./media/tutorial-python-postgresql-app-django/azure-portal-secure-connection-secrets-1.png":::
@@ -265,22 +281,7 @@ The deployment process generates the connectivity variables for you as [app sett
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7: Configure the Redis connector to use Key Vault secrets** 
-        1. In the **Service Connectors** page, select the checkbox next to the Cache for Redis connector, then select **Edit**.
-        1. Select **Authentication**.
-        1. Select **Store Secret in Key Vault**.
-        1. Under **Key Vault Connection**, select the key vault you created. 
-        1. Select **Next: Networking**.
-        1. Select **Configure firewall rules to enable access to target service**. The app creation process already secured the SQL database with a private endpoint.
-        1. Select **Save**. Wait until the **Update succeeded** notification appears.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-7.png" alt-text="Screenshot that shows how to edit the Cache for Redis service connector with a key vault connection." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-7.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 8: Verify the Key Vault integration**
+        **Step 7: Verify the Key Vault integration**
         1. From the left menu, select **Settings > Environment variables** again.
         1. Next to **AZURE_POSTGRESQL_PASSWORD**, select **Show value**. The value should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
         1. To verify the Redis connection string, select **Show value** next to **AZURE_REDIS_CONNECTIONSTRING**.
@@ -291,7 +292,7 @@ The deployment process generates the connectivity variables for you as [app sett
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 9:** The sample application reads the SECRET_KEY environment variable to set the [required SECRET_KEY setting](https://docs.djangoproject.com/en/5.1/ref/settings/#std-setting-SECRET_KEY). You create it as an app setting in this step.
+        **Step 8:** The sample application reads the SECRET_KEY environment variable to set the [required SECRET_KEY setting](https://docs.djangoproject.com/en/5.1/ref/settings/#std-setting-SECRET_KEY). You create it as an app setting in this step.
         1. In the **App settings** tab, select **Add**.
         1. Set **Name** to *SECRET_KEY*.
         1. Set **Value** to a long random string.
@@ -361,8 +362,6 @@ In this section, configure GitHub deployment using GitHub Actions. It's one of m
         1. Ask, "*@workspace How does the app connect to the database and redis?*" Copilot might give you some explanation about how the settings are configured in *azureproject/development.py* and *azureproject/production.py*. 
         1. Ask, "*@workspace In production mode, my app is running in an App Service web app, which uses Azure Service Connector to connect to a PostgreSQL flexible server using the Django client type. What are the environment variable names I need to use?*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps following and even tell you to make the change in the *azureproject/production.py* file. 
         1. Open *azureproject/production.py* in the explorer and add the code suggestion.
-        1. Ask, "@workspace My App Service app also uses Azure Service Connector to connect to a Cache for Redis using the Django client type. What are the environment variable names I need to use?" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps following and even tell you to make the change in the *azureproject/production.py* file. 
-        1. Add the code suggestion.
         GitHub Copilot doesn't give you the same response every time. Responses aren't always correct. You might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
     :::column:::
@@ -384,7 +383,7 @@ In this section, configure GitHub deployment using GitHub Actions. It's one of m
     :::column span="2":::
         **Step 5:**
         1. Select the **Source Control** extension.
-        1. In the textbox, type a commit message like `Configure Azure database and cache connections`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
+        1. In the textbox, type a commit message like `Configure Azure database connection`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
         1. Select **Commit**, then confirm with **Yes**.
         1. Select **Sync changes 1**, then confirm with **OK**.
     :::column-end:::
