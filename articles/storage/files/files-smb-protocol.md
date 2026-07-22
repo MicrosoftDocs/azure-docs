@@ -120,7 +120,7 @@ This behavior is by design because it helps preserve handle integrity and preven
 
 ### SMB Multichannel
 
-SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on SSD (premium) file shares only. For Windows clients, SMB Multichannel is enabled by default in all Azure regions. In most scenarios, particularly multi-threaded workloads, clients see improved performance with SMB Multichannel. However, for some specific scenarios such as single-threaded workloads or for testing purposes, you might want to disable SMB Multichannel. See [SMB Multichannel](files-smb-protocol.md#smb-multichannel) for more details.
+SMB Multichannel enables an SMB 3.x client to establish multiple network connections to an SMB file share. Azure Files supports SMB Multichannel on SSD (premium) file shares only. For Windows clients, SMB Multichannel is enabled by default in all Azure regions. In most scenarios, particularly multi-threaded workloads, clients see improved performance with SMB Multichannel. However, for some specific scenarios such as single-threaded workloads or for testing purposes, you might want to disable SMB Multichannel. See [SMB Multichannel](smb-performance.md#smb-multichannel) for more details.
 
 ### Security
 
@@ -134,7 +134,7 @@ Storage service encryption works similarly to BitLocker on Windows: it encrypts 
 
 Azure Files provides a dedicated **Require Encryption in Transit for SMB** setting that you can use to independently control whether encryption is required for SMB access to Azure file shares. This per-protocol setting gives more granular control than the storage account-level [Secure transfer required](../common/storage-require-secure-transfer.md) setting, which now applies only to REST/HTTPS traffic. For new storage accounts created by using the Azure portal, **Require Encryption in Transit for SMB** is enabled by default, so only SMB mounts that use SMB 3.x with encryption are allowed. Mounts from clients that don't support SMB 3.x with SMB channel encryption are rejected when encryption in transit is enabled. Storage accounts created by using Azure PowerShell, Azure CLI, or the FileREST API set **Require Encryption in Transit for SMB** as **Not selected** to ensure backward compatibility.
 
-For existing storage accounts, **Require Encryption in Transit for SMB** initially appears as **Not selected**. While not selected, the **Secure transfer required** setting continues to govern SMB encryption behavior. Once you explicitly configure **Require Encryption in Transit for SMB**, that setting takes precedence for SMB access, regardless of the **Secure transfer required** value.
+For existing storage accounts, **Require Encryption in Transit for SMB** initially appears as **Not selected**. While not selected, the **Secure transfer required** setting continues to govern SMB encryption behavior. After you explicitly configure **Require Encryption in Transit for SMB**, that setting takes precedence for SMB access, regardless of the **Secure transfer required** value.
 
 Azure Files supports AES-256-GCM with SMB 3.1.1 when used with Windows Server 2022 or Windows 11. SMB 3.1.1 also supports AES-128-GCM, and SMB 3.0 supports AES-128-CCM. AES-128-GCM is negotiated by default on Windows 10, version 21H1 for performance reasons.
 
@@ -142,7 +142,7 @@ You can disable encryption in transit for an Azure file share. When encryption i
 
 #### SMB security settings
 
-Azure Files exposes settings that you can toggle to make the SMB protocol more compatible or more secure, depending on your organization's requirements. By default, Azure Files is configured to be maximally compatible, so keep in mind that restricting these settings might cause some clients not to be able to connect.
+Azure Files exposes settings that you can toggle to make the SMB protocol more compatible or more secure, depending on your organization's requirements. By default, Azure Files is configured to be maximally compatible, so restricting these settings might cause some clients to be unable to connect.
 
 Azure Files exposes the following settings:
 
@@ -151,7 +151,7 @@ Azure Files exposes the following settings:
 - **Kerberos ticket encryption**: Which encryption algorithms are allowed. Supported encryption algorithms are AES-256 (strongly recommended) and RC4-HMAC.
 - **SMB channel encryption**: Which SMB channel encryption algorithms are allowed. Supported encryption algorithms are AES-256-GCM, AES-128-GCM, and AES-128-CCM. If you select only AES-256-GCM, you need to tell connecting clients to use it by opening a PowerShell terminal as administrator on each client and running `Set-SmbClientConfiguration -EncryptionCiphers "AES_256_GCM" -Confirm:$false`. Using AES-256-GCM isn't supported on Windows clients older than Windows 11/Windows Server 2022.
 
-You can view and change the SMB security settings by using the Azure portal, Azure PowerShell, or the Azure CLI. Select the desired tab to see the steps on how to get and set the SMB security settings. Note that these settings are checked when an SMB session is established and if not met, the SMB session setup fails with the error `STATUS_ACCESS_DENIED`. 
+You can view and change the SMB security settings by using the Azure portal, Azure PowerShell, or the Azure CLI. Select the desired tab to see how to get and set the SMB security settings. These settings are checked when an SMB session is established and if not met, the SMB session setup fails with the error `STATUS_ACCESS_DENIED`. 
 
 # [Portal](#tab/azure-portal)
 To view or change the SMB security settings by using the Azure portal, follow these steps:
@@ -319,10 +319,10 @@ PROTOCOLSETTINGS=$(az storage account file-service-properties show \
     --query "${QUERY}")
 
 # Replace returned values if null with default values 
-PROTOCOLSETTINGS="${protocolSettings/$REPLACESMBPROTOCOLVERSION/$DEFAULTSMBPROTOCOLVERSIONS}"
-PROTOCOLSETTINGS="${protocolSettings/$REPLACESMBCHANNELENCRYPTION/$DEFAULTSMBCHANNELENCRYPTION}"
-PROTOCOLSETTINGS="${protocolSettings/$REPLACESMBAUTHENTICATIONMETHODS/$DEFAULTSMBAUTHENTICATIONMETHODS}"
-PROTOCOLSETTINGS="${protocolSettings/$REPLACESMBKERBEROSTICKETENCRYPTION/$DEFAULTSMBKERBEROSTICKETENCRYPTION}"
+PROTOCOLSETTINGS="${PROTOCOLSETTINGS/$REPLACESMBPROTOCOLVERSION/$DEFAULTSMBPROTOCOLVERSIONS}"
+PROTOCOLSETTINGS="${PROTOCOLSETTINGS/$REPLACESMBCHANNELENCRYPTION/$DEFAULTSMBCHANNELENCRYPTION}"
+PROTOCOLSETTINGS="${PROTOCOLSETTINGS/$REPLACESMBAUTHENTICATIONMETHODS/$DEFAULTSMBAUTHENTICATIONMETHODS}"
+PROTOCOLSETTINGS="${PROTOCOLSETTINGS/$REPLACESMBKERBEROSTICKETENCRYPTION/$DEFAULTSMBKERBEROSTICKETENCRYPTION}"
 
 # Print returned settings
 echo $PROTOCOLSETTINGS
