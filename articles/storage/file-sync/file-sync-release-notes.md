@@ -100,7 +100,7 @@ For more information about how to install and configure the Azure File Sync agen
 ### Sync limitations
 The following items don't sync, but the rest of the system continues to operate normally:
 
-- Azure File Sync supports all characters that are supported by the [NTFS file system](/windows/win32/fileio/naming-a-file) except invalid surrogate pairs. See [Troubleshooting guide](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#handling-unsupported-characters) for more information.
+- Azure File Sync supports all characters that the [NTFS file system](/windows/win32/fileio/naming-a-file) supports, except invalid surrogate pairs. For more information, see [Troubleshooting guide](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#handling-unsupported-characters).
 - Paths that are longer than 2,048 characters.
 - The system access control list (SACL) portion of a security descriptor that's used for auditing.
 - Extended attributes.
