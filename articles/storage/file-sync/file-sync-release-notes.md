@@ -65,7 +65,7 @@ The following release notes are for Azure File Sync version 23.0.0.0 (released J
 ## **Improvements and issues that are fixed**
 
 **Recommended alerts**
-You can now enable a set of preconfigured recommended alerts for your Storage Sync Service to monitor sync health, server connectivity, storage availability, and agent expiration. See [Monitor Azure File Sync](/file-sync-monitoring#set-up-recommended-alerts). 
+You can now enable a set of preconfigured recommended alerts for your Storage Sync Service to monitor sync health, server connectivity, storage availability, and agent expiration. See [Monitor Azure File Sync](/azure/storage/file-sync/file-sync-monitoring#set-up-recommended-alerts). 
 
  **Miscellaneous reliability and telemetry improvements for cloud tiering and sync**
 - Improved the performance of directory enumeration on the server, delivering roughly a 25% speedup when scanning large directory structures.
