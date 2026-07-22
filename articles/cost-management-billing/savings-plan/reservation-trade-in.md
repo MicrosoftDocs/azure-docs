@@ -103,7 +103,7 @@ The new savings plan is purchased and then the traded-in reservations are cancel
 
 Money is added to the Azure Prepayment (previously called monetary commitment) for refunds if the original purchase was made using one. If the Azure Prepayment used to purchase the reservation is no longer active, then credit is added to your current enterprise agreement Azure Prepayment term. The credit is valid for 90 days from the date of refund. Unused credit expires at the end of 90 days.
 
-If the original purchase was made as an overage, the original invoice on which the reservation was purchased and all later invoices are reopened and readjusted. Microsoft issues a credit memo for the refunds.
+If the original reservation purchase was made from an overage, the refund is returned to you as a partial credit note. The refund doesn’t affect the original or later invoices.
 
 ### Microsoft Customer Agreement customers (credit card)
 
