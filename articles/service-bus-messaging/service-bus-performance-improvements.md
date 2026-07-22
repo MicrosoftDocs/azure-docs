@@ -2,7 +2,7 @@
 title: Performance Best Practices
 description: Learn best practices for optimizing Service Bus performance, including resource planning, protocol selection, client reuse, batching, and prefetching.
 ms.topic: best-practice
-ms.date: 06/12/2026
+ms.date: 07/16/2026
 ms.devlang: csharp
 ms.custom:
   - devx-track-dotnet
@@ -63,7 +63,20 @@ Service Bus operates several background processes that can affect compute utiliz
 1. Deduplication and look back time window.
 1. Forward to (forwarding from one entity to another).
 
-If your application uses any of the above features and you aren't receiving the expected throughput, you can review the **CPU usage** metrics and consider scaling up your Service Bus Premium namespace. You can also utilize Azure Monitor to [automatically scale the Service Bus namespace](automate-update-messaging-units.md). It's recommended to increase the number of Message Units (MUs) when CPU usage exceeds 70% to ensure optimal performance.
+If your application uses any of the preceding features and you aren't receiving the expected throughput, review the following resource-utilization guidance.
+
+#### Monitor CPU and memory usage
+
+Both **CPU** and **memory** are critical resources for a Service Bus Premium namespace, so monitor and scale on both. Review the namespace's utilization metrics in Azure Monitor and, when needed, add [messaging units](service-bus-premium-messaging.md). You can also configure Azure Monitor to [automatically scale the namespace](automate-update-messaging-units.md).
+
+Use the following thresholds as a starting point for when to scale up:
+
+| Resource | Scale-up guidance |
+| --- | --- |
+| CPU usage | Add messaging units when CPU usage consistently exceeds **75%**. |
+| Memory usage | Add messaging units when memory usage consistently exceeds **60%**. |
+
+Memory usage can rise quickly. To improve receive throughput, Service Bus keeps some messages in a cache and trims that cache only when memory usage reaches a high threshold (around 80%). Scaling up at 60% memory usage gives the namespace headroom and helps prevent interruptions to message processing. For guidance on setting scale-up and scale-down rules for both metrics, see [Automatically update messaging units](automate-update-messaging-units.md).
 
 ### Sharding across namespaces
 

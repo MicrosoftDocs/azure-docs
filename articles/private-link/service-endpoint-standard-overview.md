@@ -84,7 +84,7 @@ The feature is currently available in Public cloud and the following national cl
 
 ## Pricing
 
-Standard Service Endpoint is available at no charge in July 2026. Billing is expected to begin after the public preview announcement, currently targeted for September 2026.
+Standard Service Endpoint is available at no charge in July 2026. Billing is expected to begin after the public preview announcement, currently targeted for August 2026.
 
 ## Network security perimeter best practices
 
