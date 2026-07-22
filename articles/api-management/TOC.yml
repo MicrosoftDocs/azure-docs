@@ -68,8 +68,6 @@
   expanded: true
 - name: Manage AI models, tools, and agents
   items:
-  - name: Overview
-    href: ai-models-tools-agents-overview.md
   - name: V1 and V2 tiers
     items:
     - name: AI Gateway overview

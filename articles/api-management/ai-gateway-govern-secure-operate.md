@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 06/29/2026
+ms.date: 07/22/2026
 ---
 
 # Govern, secure, and operate AI Gateway tier (preview)
@@ -43,16 +43,16 @@ When both a token limit and a request limit apply, a request must satisfy both.
 
 The following diagram shows where governance policies apply in the request flow.
 
-:::image type="content" source="media/ai-gateway-request-lifecycle.png" alt-text="Sequence diagram showing the gateway validate the runtime key, evaluate policies, and either forward the request to the backend and emit telemetry, or return a 400, 403, or 429 error when a policy blocks the request." lightbox="media/ai-gateway-request-lifecycle.png":::
+:::image type="content" source="media/ai-gateway-govern-secure-operate/ai-gateway-request-lifecycle.png" alt-text="Sequence diagram showing the gateway validate the runtime key, evaluate policies, and either forward the request to the backend and emit telemetry, or return a 400, 403, or 429 error when a policy blocks the request." lightbox="media/ai-gateway-govern-secure-operate/ai-gateway-request-lifecycle.png":::
 
 To configure a policy:
 
 1. In the AI Gateway tier portal, select **Policies**, and then select **Add policy**.
-1. On **Type**, choose the policy (guardrail) you want to add — content safety, IP filter, token rate limit, or request rate limit.
+1. On **Type**, choose the policy (guardrail) you want to add - content safety, IP filter, token rate limit, or request rate limit.
 1. On **Assets**, select the models or tools the policy applies to. For a gateway-wide baseline, select all applicable assets.
 1. On **Configure**, fill in the validated fields, and then select **Create**.
 
-:::image type="content" source="media/ai-gateway-add-policy.png" alt-text="The Add policy wizard Type step, listing guardrails grouped as Security (content safety, IP filter) and Cost and rate limits (token rate limit, request rate limit), with badges showing whether each applies to models, MCP servers, or both." lightbox="media/ai-gateway-add-policy.png":::
+:::image type="content" source="media/ai-gateway-govern-secure-operate/ai-gateway-add-policy.png" alt-text="The Add policy wizard Type step, listing guardrails grouped as Security (content safety, IP filter) and Cost and rate limits (token rate limit, request rate limit), with badges showing whether each applies to models, MCP servers, or both." lightbox="media/ai-gateway-govern-secure-operate/ai-gateway-add-policy.png":::
 
 Start with these policy types:
 
@@ -92,7 +92,7 @@ Client applications include the runtime access key in the `api-key` header. Don'
 
 Configure managed identity so AI Gateway tier can authenticate to supported model and MCP server backends without storing API keys. Using managed identity to access models and MCP servers is available in public preview. Prefer managed identity where supported because it reduces backend key management. It removes key rotation from gateway configuration and lets you manage access with Azure RBAC. AI Gateway tier supports system-assigned and user-assigned managed identities. Manage them on the **Managed identities** page in the AI Gateway tier portal.
 
-:::image type="content" source="media/ai-gateway-managed-identities.png" alt-text="The Managed identities page in the AI Gateway tier portal, showing a system-assigned identity toggle and a section for attaching user-assigned identities." lightbox="media/ai-gateway-managed-identities.png":::
+:::image type="content" source="media/ai-gateway-govern-secure-operate/ai-gateway-managed-identities.png" alt-text="The Managed identities page in the AI Gateway tier portal, showing a system-assigned identity toggle and a section for attaching user-assigned identities." lightbox="media/ai-gateway-govern-secure-operate/ai-gateway-managed-identities.png":::
 
 Use a system-assigned identity when one gateway needs backend access. Use a user-assigned identity when multiple gateways need a shared identity. Use an API key when a provider doesn't support managed identity.
 
@@ -166,7 +166,7 @@ Use private networking when gateway traffic shouldn't use the public internet. P
 - **Inbound Private Link and private endpoint**: Lets clients in your virtual network, peered networks, or connected on-premises networks reach the gateway by using a private IP address.
 - **Outbound virtual network integration**: Lets the gateway call private backends, model endpoints, APIs, and MCP servers that are reachable only from your virtual network.
 
-:::image type="content" source="media/ai-gateway-networking.png" alt-text="The Networking page showing inbound settings (private endpoints and public network access) and outbound settings (public or private routing) for the gateway." lightbox="media/ai-gateway-networking.png":::
+:::image type="content" source="media/ai-gateway-govern-secure-operate/ai-gateway-networking.png" alt-text="The Networking page showing inbound settings (private endpoints and public network access) and outbound settings (public or private routing) for the gateway." lightbox="media/ai-gateway-govern-secure-operate/ai-gateway-networking.png":::
 
 Inbound and outbound networking solve different problems. Creating a private endpoint for clients to call the gateway doesn't automatically let the gateway reach private backends. Configure outbound virtual network integration separately when the gateway must reach resources in your network.
 
@@ -199,12 +199,12 @@ DNS is a common source of issues. The gateway must resolve backend hostnames to 
 
 ## Monitoring
 
-AI Gateway tier emits OpenTelemetry logs and metrics for model traffic — latency, reliability, token use, policy outcomes, and model behavior. You choose where telemetry goes. Keep it in your Azure subscription, or send OpenTelemetry signals to Application Insights or another OpenTelemetry (OTLP)-compatible destination, such as Datadog, Splunk, or Grafana Cloud.
+The AI Gateway tier emits OpenTelemetry logs and metrics for model traffic, including latency, reliability, token use, policy outcomes, and model behavior. You choose where telemetry goes. Keep it in your Azure subscription, or send OpenTelemetry signals to Application Insights or another OpenTelemetry (OTLP)-compatible destination, such as Datadog, Splunk, or Grafana Cloud.
 
 > [!NOTE]
 > In public preview, OpenTelemetry logs and metrics cover model traffic. Telemetry for MCP tool calls is a fast follow.
 
-AI Gateway tier follows OpenTelemetry and the OpenTelemetry Generative AI semantic conventions where possible. Requests can include standard HTTP, network, and trace attributes. They can also include GenAI attributes with the `gen_ai.*` prefix, such as requested model, operation name, input tokens, output tokens, and finish reasons. Not every backend returns the same fields — some providers omit token counts in streaming or passthrough responses. Treat missing token attributes as unavailable, not as zero.
+The AI Gateway tier follows OpenTelemetry and the OpenTelemetry Generative AI semantic conventions where possible. Requests can include standard HTTP, network, and trace attributes. They can also include GenAI attributes with the `gen_ai.*` prefix, such as requested model, operation name, input tokens, output tokens, and finish reasons. Not every backend returns the same fields - some providers omit token counts in streaming or passthrough responses. Treat missing token attributes as unavailable, not as zero.
 
 Commonly emitted GenAI attributes include:
 
@@ -217,7 +217,7 @@ Commonly emitted GenAI attributes include:
 | `gen_ai.usage.output_tokens` | Completion (output) token count, when the backend reports it. |
 | `gen_ai.response.finish_reasons` | Why generation stopped, such as `stop` or `length`. |
 
-Configure a telemetry destination in the gateway's monitoring settings. For Application Insights, select the resource in your subscription. For a generic OpenTelemetry (OTLP) endpoint, provide the collector URL and any required access token or headers. Use Application Insights when you want Azure-native traces, logs, Kusto queries, and Azure Monitor alerts. Use Datadog, Splunk, Grafana Cloud, or a generic OTLP collector when those are your standard operational platforms. Protect destination credentials as secrets, and monitor telemetry export failures.
+Configure a telemetry destination in the gateway's monitoring settings. For Application Insights, select the resource in your subscription. For a generic OpenTelemetry (OTLP) endpoint, provide the collector URL and any required access token or headers. Use Application Insights when you want Azure-native traces, logs, Kusto queries, and Azure Monitor alerts. Use Datadog, Splunk, Grafana Cloud, or a generic OTLP collector when those platforms are your standard operational platforms. Protect destination credentials as secrets, and monitor telemetry export failures.
 
 The AI Gateway tier portal can show built-in dashboards from Kusto queries against your Application Insights resource. The data stays in your subscription and uses your Azure Monitor permissions. Use dashboards to review request volume, success rate, throttles, latency, model usage, token trends, and policy outcomes.
 

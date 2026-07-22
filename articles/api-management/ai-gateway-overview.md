@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: PatAltimore
 ms.author: patricka
 ms.topic: overview
-ms.date: 06/29/2026
+ms.date: 07/22/2026
 ---
 
 # AI Gateway tier (preview) overview
@@ -22,7 +22,7 @@ AI Gateway tier is a managed gateway for applications that call models and tools
 
 1. Authenticates the runtime access key in the `api-key` header.
 1. Evaluates the policies that apply to the target model or tool.
-1. Routes the request to the selected backend — by the `model` field for models, or the tool name for tools — using the backend credentials you configured.
+1. Routes the request to the selected backend - by the `model` field for models, or the tool name for tools - using the backend credentials you configured.
 1. Returns the response and emits telemetry — OpenTelemetry logs and metrics such as token counts and latency.
 
 ## Why use it
@@ -41,21 +41,21 @@ AI Gateway tier gives platform teams one governed runtime boundary for apps, mod
 
 :::row:::
     :::column:::
-        :::image type="icon" source="media/icon-quickstart.png" border="false":::
+        :::image type="icon" source="media/ai-gateway-overview/icon-quickstart.png" border="false":::
 
         **[Quickstart](./quickstart-ai-gateway-create.md)**
 
         New to AI Gateway tier? Create a gateway, add a model, and make your first call in about 20–30 minutes.
     :::column-end:::
     :::column:::
-        :::image type="icon" source="media/icon-models.png" border="false":::
+        :::image type="icon" source="media/ai-gateway-overview/icon-models.png" border="false":::
 
         **[Manage models and tools](./ai-gateway-manage-models-tools.md)**
 
         Add Foundry and custom models, and publish MCP tool servers behind one governed endpoint.
     :::column-end:::
     :::column:::
-        :::image type="icon" source="media/icon-govern.png" border="false":::
+        :::image type="icon" source="media/ai-gateway-overview/icon-govern.png" border="false":::
 
         **[Govern, secure, and operate](./ai-gateway-govern-secure-operate.md)**
 
@@ -69,7 +69,7 @@ AI Gateway tier gives platform teams one governed runtime boundary for apps, mod
 
 A gateway is the runtime and management boundary for AI traffic — a dedicated Azure resource you provision in about a minute, with no scale units to plan. Applications call one gateway endpoint with a runtime access key instead of calling each provider or tool backend directly, and you manage the models, tools, policies, keys, and identity for it in one place.
 
-:::image type="content" source="media/ai-gateway-architecture.png" alt-text="Diagram of applications, agents, and coding agents calling the AI Gateway tier, which authenticates the runtime key, applies policies, and emits telemetry before routing requests to model providers and MCP tool backends." lightbox="media/ai-gateway-architecture.png":::
+:::image type="content" source="media/ai-gateway-overview/ai-gateway-architecture.png" alt-text="Diagram of applications, agents, and coding agents calling the AI Gateway tier, which authenticates the runtime key, applies policies, and emits telemetry before routing requests to model providers and MCP tool backends." lightbox="media/ai-gateway-overview/ai-gateway-architecture.png":::
 
 ### Models
 

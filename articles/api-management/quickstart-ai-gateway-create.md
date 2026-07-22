@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: PatAltimore
 ms.author: patricka
 ms.topic: quickstart
-ms.date: 06/29/2026
+ms.date: 07/22/2026
 ---
 
 # Quickstart: Create an AI Gateway tier (preview) instance
@@ -14,9 +14,9 @@ ms.date: 06/29/2026
 
 In this quickstart, you create an AI Gateway tier (preview) instance, add a chat model, create a runtime access key, call the gateway, and view telemetry.
 
-AI Gateway tier from Azure API Management is a dedicated tier for AI workloads. It gives you managed runtime endpoints for supported model providers — OpenAI-compatible Chat Completions and Responses for Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, and OpenAI, plus an Anthropic Messages API passthrough. AI Gateway tier provisions quickly, usually within a minute.
+AI Gateway tier from Azure API Management is a dedicated tier for AI workloads. It gives you managed runtime endpoints for supported model providers - OpenAI-compatible Chat Completions and Responses for Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, and OpenAI, plus an Anthropic Messages API passthrough. AI Gateway tier provisions quickly, usually within a minute.
 
-**Time to complete:** about 20–30 minutes. **You'll create:** one gateway, one chat model, one runtime access key, and one successful chat completion request.
+**Time to complete:** about 20-30 minutes. **You create:** one gateway, one chat model, one runtime access key, and one successful chat completion request.
 
 > [!NOTE]
 > AI Gateway tier is in public preview. Preview features are provided without a service-level agreement and shouldn't be used for production workloads unless your organization accepts the preview terms.
@@ -27,16 +27,16 @@ AI Gateway tier from Azure API Management is a dedicated tier for AI workloads. 
 - An Azure subscription, and permission to create resources in a resource group (for example, the **Contributor** role).
 - Access to at least one supported model provider, such as a deployed model in Microsoft Foundry or Azure OpenAI.
 - If your provider requires an API key, have the key available.
-- To call the gateway, use curl (no installation) or an OpenAI SDK — Python 3.9 or later, or Node.js 18 or later, with the `openai` package.
+- To call the gateway, use curl (no installation) or an OpenAI SDK - Python 3.9 or later, or Node.js 18 or later, with the `openai` package.
 
 ## 1. Sign in to the AI Gateway tier portal
 
-The AI Gateway tier portal is a standalone web experience — you don't use the Azure portal.
+The AI Gateway tier portal is a standalone web experience - you don't use the Azure portal.
 
 1. Go to the AI Gateway tier portal at `ai.gateway.azure.com`.
 1. Select **Sign in** and authenticate with Microsoft Entra ID.
 
-You use the portal to manage models, MCP servers, runtime access keys, policies, and monitoring, based on your Entra ID permissions. Runtime callers don't sign in to the portal — they call the gateway with runtime access keys that you create later.
+Use the portal to manage models, MCP servers, runtime access keys, policies, and monitoring, based on your Entra ID permissions. Runtime callers don't sign in to the portal - they call the gateway with runtime access keys that you create later.
 
 ## 2. Create a gateway
 
@@ -65,7 +65,7 @@ The fastest path is to import a model from a Microsoft Foundry resource.
 
 To connect a non-Foundry provider (AWS Bedrock, Google Vertex, OpenAI, or Anthropic), select **Add a custom model** instead. See [Manage models and tools](./ai-gateway-manage-models-tools.md#import-models).
 
-:::image type="content" source="media/ai-gateway-add-foundry-provider.png" alt-text="The Add Foundry provider wizard showing a selected subscription and Foundry resource with model deployments listed for import." lightbox="media/ai-gateway-add-foundry-provider.png":::
+:::image type="content" source="media/quickstart-ai-gateway-create/ai-gateway-add-foundry-provider.png" alt-text="The Add Foundry provider wizard showing a selected subscription and Foundry resource with model deployments listed for import." lightbox="media/quickstart-ai-gateway-create/ai-gateway-add-foundry-provider.png":::
 
 Callers pass the model name in the `model` field of OpenAI-compatible requests. This quickstart uses `gpt-5.6-sol`; replace it with the model you registered.
 
@@ -78,7 +78,7 @@ Callers pass the model name in the `model` field of OpenAI-compatible requests. 
 1. Select **Create**.
 1. Copy the key value and store it securely. You can't view the full key again after you leave the page.
 
-:::image type="content" source="media/ai-gateway-runtime-keys.png" alt-text="The Keys page listing API keys that grant runtime access to every asset in the gateway, with a Create API key button." lightbox="media/ai-gateway-runtime-keys.png":::
+:::image type="content" source="media/quickstart-ai-gateway-create/ai-gateway-runtime-keys.png" alt-text="The Keys page listing API keys that grant runtime access to every asset in the gateway, with a Create API key button." lightbox="media/quickstart-ai-gateway-create/ai-gateway-runtime-keys.png":::
 
 Runtime access keys are created at the gateway level and grant access to every model and tool in the gateway. Treat them like secrets. Store keys in a secret store for applications, rotate them regularly, and revoke keys that are no longer needed.
 
