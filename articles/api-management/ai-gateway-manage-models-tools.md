@@ -65,7 +65,7 @@ To add models, open the **Models** page and select **Add models**. Choose how yo
 1. On **Provider details**, enter a provider name and display name, add an optional description, and choose the authentication method - **Managed identity** (recommended, when available) or **Key-based**.
 1. Select **Create**. The gateway imports the resource's deployments as models that callers request by name.
 
-:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-add-foundry-provider.png" alt-text="The Add Foundry provider wizard showing a selected subscription and Foundry resource with its model deployments listed for import." lightbox="media/ai-gateway-add-foundry-provider.png":::
+:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-add-foundry-provider.png" alt-text="The Add Foundry provider wizard showing a selected subscription and Foundry resource with its model deployments listed for import." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-add-foundry-provider.png":::
 
 ### Add a custom model
 
@@ -172,7 +172,7 @@ To create an MCP server:
 
 There's no separate connectivity test step. The gateway sets up and checks each backend when you create the server.
 
-:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-mcp-backend-authentication.png" alt-text="The Add MCP server wizard configuring an MCP backend with a unique name, endpoint URL, and authentication options: None, API Key, OAuth 2.0, and Managed identity." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-mcp-backend-authentication.png":::
+:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-configure-backend.png" alt-text="The Add MCP server wizard configuring an MCP backend with a unique name, endpoint URL, and authentication options: None, API Key, OAuth 2.0, and Managed identity." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-configure-backend.png":::
 
 The gateway creates one MCP endpoint that federates all selected backends. Clients call the governed endpoint and authenticate with a runtime access key.
 
