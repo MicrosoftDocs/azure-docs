@@ -3,7 +3,7 @@ title: Azure Functions Flex Consumption plan hosting
 description: Running your function code in the Azure Functions Flex Consumption plan provides virtual network integration, dynamic scale (to zero), and reduced cold starts.
 ms.service: azure-functions
 ms.topic: concept-article
-ms.date: 03/18/2026
+ms.date: 07/16/2026
 ms.custom:
   - references_regions
   - build-2024
@@ -106,6 +106,13 @@ To learn how to configure always ready instances, see [Set always ready instance
 Concurrency refers to the number of parallel executions of a function on an instance of your app. You can set a maximum number of concurrent executions that each instance handles at any given time. Concurrency directly affects how your app scales. At lower concurrency levels, you need more instances to handle the event-driven demand for a function. While you can control and fine-tune the concurrency, the platform provides defaults that work for most cases. 
 
 To learn how to set concurrency limits for HTTP trigger functions, see [Set HTTP concurrency limits](flex-consumption-how-to.md#set-http-concurrency-limits). To learn how to set concurrency limits for non-HTTP trigger functions, see [Target Base Scaling](./functions-target-based-scaling.md).
+
+## Scale-out rate
+
+As demand increases, the Flex Consumption platform adds instances for you automatically. Two things shape how your app scales out: the *scale-out rate*—how fast instances are added, which the platform manages as a size-dependent curve that you don't configure—and the [maximum instance count](event-driven-scaling.md#limit-scale-out), the ceiling on how many instances your app can reach. Scaling is fast: a small app can add many instances per minute, and the platform adds instances more gradually as your app grows so that large scale-outs stay stable.
+
+If you need capacity to be available ahead of a known burst, use [always ready instances](#always-ready-instances) to pre-provision it. For the full explanation of the scale-out rate, the maximum instance count, throttling behavior, and best practices for high-rate scaling, see [Scale-out rate and throttling responses](event-driven-scaling.md#scale-out-rate-and-throttling-responses).
+
 
 ## Mount file shares
 
