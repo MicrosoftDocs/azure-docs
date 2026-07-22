@@ -922,7 +922,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 18. **[1]** Restart cluster
 
     ```bash
-# Use the --all option to restart all cluster nodes
+    # Use the --all option to restart all cluster nodes
     crm cluster restart --all
     ```
 
