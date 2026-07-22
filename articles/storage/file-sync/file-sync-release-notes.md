@@ -70,7 +70,7 @@ You can now enable a set of preconfigured recommended alerts for your Storage Sy
  **Miscellaneous reliability and telemetry improvements for cloud tiering and sync**
 - Improved the performance of directory enumeration on the server, delivering roughly a 25% speedup when scanning large directory structures.
 - Local changes on the server are now detected and synced promptly, even while a large enumeration is in progress.
-- Addressed corner-case conditions that could leave stale entries in the sync database, and improved handling of files that are briefly in use during sync, for more consistent sync behavior.
+- Addressed corner-case conditions that could leave stale entries in the sync database. The agent now improves handling of files that are briefly in use during sync for more consistent sync behavior.
 
 ### Evaluation tool
 Before deploying Azure File Sync, evaluate whether it's compatible with your system by using the Azure File Sync evaluation tool. This tool is an Azure PowerShell cmdlet that checks for potential problems with your file system and dataset, such as unsupported OS version. For installation and usage instructions, see the [Evaluation Tool](file-sync-planning.md#evaluation-cmdlet) section in the planning guide.
