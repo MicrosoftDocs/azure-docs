@@ -34,7 +34,7 @@ You can deploy Azure IoT Operations components across layers based on your archi
 - **MQTT broker** — deploy at the layers where you want to transfer, enrich, or consume data on the way toward the cloud. You don't have to deploy a broker at every layer.
 - **Data Flows** — place on nodes with enough compute resources, as this component typically uses more compute. With extra configuration, Data Flows can also route traffic east-west between components at the same or upper levels.
 
-This article uses an example where Azure IoT Operations runs on levels 2, 3, and 4. This layout is one option, not a requirement. The enterprise layer (level 4) can instead run only Envoy Proxy as an egress node, with no Azure IoT Operations components and no Arc enablement. In that variant, the topmost Azure IoT Operations instance is at level 3, and its Data Flow sends data to the cloud through the level 4 Envoy Proxy. The [tutorial](../end-to-end-tutorials/tutorial-layered-network-private-connectivity.md) uses this level 4 egress-only variant.
+This article describes an architecture where Azure IoT Operations runs on levels 2, 3, and 4. This specific architecture is one option, not a requirement. The enterprise layer (level 4) can instead run only an Envoy proxy as an egress node, with no Azure IoT Operations components and no Arc enablement. In that variant, the topmost Azure IoT Operations instance is at level 3, and its data flow sends data to the cloud through the level 4 Envoy proxy. The [tutorial](../end-to-end-tutorials/tutorial-layered-network-private-connectivity.md) uses this level 4 egress-only variant.
 
 ## How telemetry flows through layers
 
