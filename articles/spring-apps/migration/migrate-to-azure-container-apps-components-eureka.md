@@ -177,7 +177,7 @@ If you need to unbind your application from Eureka Server, see the [Unbind your 
 
 ### View the registered applications with a dashboard
 
-After you successfully create your application and bind it to the Eureka Server, you can view the registered applications through a management dashboard. For more information, see the [View the application through a dashboard](../../container-apps/java-eureka-server.md#monitor-and-operate-applications-through-a-dashboard) section of [Connect to a managed Eureka Server for Spring in Azure Container Apps](../../container-apps/java-eureka-server.md).
+After you create your application and bind it to the Eureka Server, you can view the registered applications through a management dashboard. For more information, see the [View the application through a dashboard](../../container-apps/java-eureka-server.md#monitor-and-operate-applications-through-a-dashboard) section of [Connect to a managed Eureka Server for Spring in Azure Container Apps](../../container-apps/java-eureka-server.md).
 
 The following screenshot shows an example of what the Eureka Server dashboard looks like:
 
