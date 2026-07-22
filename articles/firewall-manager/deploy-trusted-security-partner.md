@@ -26,7 +26,7 @@ Skip this section if you're deploying a third-party provider into an existing hu
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. In **Search**, type **Network Security** and select it under **Services**.
-3. Navigate to **Secure your resources**. Select **Virtual hubs**.
+1. Go to **Secure your resources**. Select **Virtual hubs**.
 4. Select **Create new secured virtual hub**.
 5. Enter your subscription and resource group, select a supported region, and add your hub and virtual WAN information. 
 6. Select **Include VPN gateway to enable Security Partner Providers**.
