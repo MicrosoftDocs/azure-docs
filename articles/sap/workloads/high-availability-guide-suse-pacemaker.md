@@ -1035,7 +1035,7 @@ If you're using fencing device, based on service principal configuration, read [
 
 Azure offers [scheduled events](/azure/virtual-machines/linux/scheduled-events). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events.
 
-Resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a node-level health attribute `#health-azure` to `-1000000`.
+Resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If the agent detects events and determines that another cluster node is available, it sets a node-level health attribute `#health-azure` to `-1000000`. 
 
 When this special cluster health attribute is set for a node, the node is considered unhealthy by the cluster and all resources are migrated away from the affected node. The location constraint ensures resources with name starting with ‘health-‘ are excluded, as the agent needs to run in this unhealthy state. Once the affected cluster node is free of running cluster resources, scheduled event can execute its action, such as restart, without risk to running resources.
 
