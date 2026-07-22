@@ -4,7 +4,7 @@ description: Learn how to deploy the Azure File Sync storage sync service by usi
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/02/2024
+ms.date: 07/22/2026
 ms.author: kendownie
 ms.devlang: azurecli
 ms.custom:
@@ -18,7 +18,7 @@ ms.custom:
 
 Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including Server Message Block (SMB), Network File System (NFS), and File Transfer Protocol over SSL/TLS (FTPS). You can have as many caches as you need across the world.
 
-We strongly recommend that you read [Plan to deploy Azure Files](../files/storage-files-planning.md) and [Plan for an Azure File Sync deployment](file-sync-planning.md) before you complete the steps in this article.
+Read [Plan to deploy Azure Files](../files/storage-files-planning.md) and [Plan for an Azure File Sync deployment](file-sync-planning.md) before you complete the steps in this article.
 
 ## Prerequisites
 
@@ -46,8 +46,8 @@ We strongly recommend that you read [Plan to deploy Azure Files](../files/storag
 - The administrator who registers the server and creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service. Azure File Sync also requires additional storage account permissions for cloud endpoint create and update operations. Users who previously had only storage account read permissions can no longer create or update cloud endpoints.
 
 For non-managed identity deployments, the administrator must have a role that includes:
-- Microsoft.Storage/storageAccounts/listKeys/action
-- Microsoft.Storage/storageAccounts/ListAccountSas/action
+- `Microsoft.Storage/storageAccounts/listKeys/action`
+- `Microsoft.Storage/storageAccounts/ListAccountSas/action`
 
 For managed identity deployments, ensure the Azure File Sync managed identity or service principal has the required storage account roles, such as Reader and Data Access or Storage File Data Privileged Contributor, as applicable.
 
@@ -55,15 +55,15 @@ For managed identity deployments, ensure the Azure File Sync managed identity or
    
   1. Under the **Conditions** tab, select **Allow users to assign selected roles to only selected principals (fewer privileges)**.
    
-  2. Click **Select Roles and Principals** and then select **Add Action** under Condition #1.
+  1. Click **Select Roles and Principals** and then select **Add Action** under Condition #1.
    
-  3. Select **Create role assignment**, and then click **Select**.
+  1. Select **Create role assignment**, and then click **Select**.
    
-  4. Select **Add expression**, and then select **Request**.
+  1. Select **Add expression**, and then select **Request**.
    
-  5. Under **Attribute Source**, select **Role Definition Id** under **Attribute**, and then select **ForAnyOfAnyValues:GuidEquals** under **Operator**.
+  1. Under **Attribute Source**, select **Role Definition Id** under **Attribute**, and then select **ForAnyOfAnyValues:GuidEquals** under **Operator**.
    
-  6. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privileged Contributor**, and **Storage Account Contributor** roles, and then select **Save**.
+  1. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privileged Contributor**, and **Storage Account Contributor** roles, and then select **Save**.
  
 
 - If you intend to use Azure File Sync with a Windows Server failover cluster, you must configure the **File Server for general use** role before you install the Azure File Sync agent on each node in the cluster. For more information on how to configure the **File Server for general use** role on a failover cluster, see [Deploy a two-node clustered file server](/windows-server/failover-clustering/deploy-two-node-clustered-file-server).
@@ -100,15 +100,15 @@ For managed identity deployments, ensure the Azure File Sync managed identity or
    
   1. Under the **Conditions** tab, select **Allow users to assign selected roles to only selected principals (fewer privileges)**.
    
-  2. Click **Select Roles and Principals** and then select **Add Action** under Condition #1.
+  1. Click **Select Roles and Principals** and then select **Add Action** under Condition #1.
    
-  3. Select **Create role assignment**, and then click **Select**.
+  1. Select **Create role assignment**, and then click **Select**.
    
-  4. Select **Add expression**, and then select **Request**.
+  1. Select **Add expression**, and then select **Request**.
    
-  5. Under **Attribute Source**, select **Role Definition Id** under **Attribute**, and then select **ForAnyOfAnyValues:GuidEquals** under **Operator**.
+  1. Under **Attribute Source**, select **Role Definition Id** under **Attribute**, and then select **ForAnyOfAnyValues:GuidEquals** under **Operator**.
    
-  6. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privileged Contributor**, and **Storage Account Contributor** roles, and then select **Save**.
+  1. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privileged Contributor**, and **Storage Account Contributor** roles, and then select **Save**.
  
 
 - You need at least one supported instance of Windows Server to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Considerations for Windows file servers](file-sync-planning.md#considerations-for-windows-file-servers).
@@ -161,7 +161,7 @@ For managed identity deployments, ensure the Azure File Sync managed identity or
   - SMB security settings must allow the SMB 3.1.1 protocol version, NTLM v2 authentication, and AES-128-GCM encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
   - **Allow storage account key access** must be set to **Enabled**. To check this setting, go to your storage account and select **Configuration** in the **Settings** section.
 
--The administrator must also have sufficient permissions on the storage account that contains the Azure file share. Storage account read-only access is insufficient. Cloud endpoint create and update operations require:
+- The administrator must also have sufficient permissions on the storage account that contains the Azure file share. Storage account read-only access isn't sufficient. Cloud endpoint create and update operations require:
 - Microsoft.Storage/storageAccounts/listKeys/action
 - Microsoft.Storage/storageAccounts/ListAccountSas/action
 
@@ -171,15 +171,15 @@ When assigning the Azure File Sync Administrator role, follow these steps to ens
    
   1. Under the **Conditions** tab, select **Allow users to assign selected roles to only selected principals (fewer privileges)**.
    
-  2. Click **Select Roles and Principals** and then select **Add Action** under Condition #1.
+  1. Click **Select Roles and Principals** and then select **Add Action** under Condition #1.
    
-  3. Select **Create role assignment**, and then click **Select**.
+  1. Select **Create role assignment**, and then click **Select**.
    
-  4. Select **Add expression**, and then select **Request**.
+  1. Select **Add expression**, and then select **Request**.
    
-  5. Under **Attribute Source**, select **Role Definition Id** under **Attribute**, and then select **ForAnyOfAnyValues:GuidEquals** under **Operator**.
+  1. Under **Attribute Source**, select **Role Definition Id** under **Attribute**, and then select **ForAnyOfAnyValues:GuidEquals** under **Operator**.
    
-  6. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privileged Contributor**, and **Storage Account Contributor** roles, and then select **Save**.
+  1. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privileged Contributor**, and **Storage Account Contributor** roles, and then select **Save**.
 
 - You need at least one supported instance of Windows Server to sync with Azure File Sync. For more information about supported versions of Windows Server and recommended system resources, see [Considerations for Windows file servers](file-sync-planning.md#considerations-for-windows-file-servers).
 
@@ -248,15 +248,15 @@ You can skip this action if you're deploying Azure File Sync on Windows Server C
 
 1. Open Server Manager.
 
-2. Select **Local Server**.
+1. Select **Local Server**.
 
     :::image type="content" source="media/storage-sync-files-deployment-guide/prepare-server-disable-ieesc-part-1.png" alt-text="Screenshot of the Local Server option in Server Manager.":::
 
-3. On the **Properties** pane, select the link for **IE Enhanced Security Configuration**.
+1. On the **Properties** pane, select the link for **IE Enhanced Security Configuration**.
 
     :::image type="content" source="media/storage-sync-files-deployment-guide/prepare-server-disable-ieesc-part-2.png" alt-text="Screenshot of the server properties in Server Manager.":::
 
-4. In the **Internet Explorer Enhanced Security Configuration** dialog, select **Off** under both **Administrators** and **Users**. Then select **OK**.
+1. In the **Internet Explorer Enhanced Security Configuration** dialog, select **Off** under both **Administrators** and **Users**. Then select **OK**.
 
     :::image type="content" source="media/storage-sync-files-deployment-guide/prepare-server-disable-ieesc-part-3.png" alt-text="Screenshot of the Internet Explorer Enhanced Security Configuration dialog with the Off option selected.":::
 
@@ -292,7 +292,7 @@ Follow the instructions for the Azure portal or PowerShell.
 
 ## <a name = "deploy-the-storage-sync-service"></a>Deploy a storage sync service
 
-The deployment of Azure File Sync starts with placing a *storage sync service* resource in a resource group of your selected subscription. You'll create a trust relationship between your servers and this resource.
+Deploying Azure File Sync starts with placing a *storage sync service* resource in a resource group of your selected subscription. This resource creates a trust relationship between your servers and itself.
 
 A server can be registered to only one storage sync service. As a result, we recommend deploying as many storage sync services as you need to separate groups of servers. Keep in mind that servers from different storage sync services can't sync with each other.
 
@@ -379,33 +379,33 @@ If you intend to use Azure File Sync with a failover cluster, the Azure File Syn
 
    Alternatively, to silently install the agent, see [How to perform a silent installation for a new Azure File Sync agent installation](file-sync-agent-silent-installation.md).
 
-2. On the welcome page, select **Next**.
+1. On the welcome page, select **Next**.
 
    :::image type="content" source="media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-1.png" alt-text="Screenshot of the File Sync Agent Setup Wizard welcome page with Next and Cancel buttons.":::
 
-3. After you review the license agreement, select the checkbox to accept it. Then select **Next**.
+1. After you review the license agreement, select the checkbox to accept it. Then select **Next**.
 
    :::image type="content" source="media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-2.png" alt-text="Screenshot of the File Sync Agent Setup Wizard page for acceptance of the license agreement.":::
 
-4. The installation path of the storage sync agent is filled in by default. You can change it to a location of your choice. However, we recommend that you leave the default path (**C:\Program Files\Azure\StorageSyncAgent**) to simplify troubleshooting and server maintenance. Select **Next** to proceed.
+1. The installation path of the storage sync agent is filled in by default. You can change it to a location of your choice. However, to simplify troubleshooting and server maintenance, don't change the default path (**C:\Program Files\Azure\StorageSyncAgent**). Select **Next** to proceed.
 
    :::image type="content" source="media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-3.png" alt-text="Screenshot of path selection in the File Sync Agent Setup Wizard.":::
 
-5. Select the proxy setting, and then select **Next**.
+1. Select the proxy setting, and then select **Next**.
 
    :::image type="content" source="media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-4.png" alt-text="Screenshot of proxy settings in the File Sync Agent Setup Wizard.":::
 
-6. Choose whether you want to use Microsoft Update to update the Azure File Sync agent, and then select **Next**.
+1. Choose whether you want to use Microsoft Update to update the Azure File Sync agent, and then select **Next**.
 
    We recommend that you enable Microsoft Update, to keep Azure File Sync up to date. All updates to the Azure File Sync agent, including feature updates and hotfixes, occur from Microsoft Update. We also recommend installing the latest update to Azure File Sync. For more information, see [Azure File Sync update policy](file-sync-planning.md#azure-file-sync-agent-update-policy).
 
    :::image type="content" source="media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-5.png" alt-text="Screenshot of the option to use Microsoft Update in the File Sync Agent Setup Wizard.":::
 
-7. Select the options for automatically updating the agent and collecting data for troubleshooting, as required. Then select **Install**.
+1. Select the options for automatically updating the agent and collecting data for troubleshooting, as required. Then select **Install**.
 
    :::image type="content" source="media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-6.png" alt-text="Screenshot of the options for automatic updates and data collection in the File Sync Agent Setup Wizard.":::
 
-8. When the installation finishes, select **Finish** to close the wizard.
+1. When the installation finishes, select **Finish** to close the wizard.
 
    :::image type="content" source="media/storage-sync-files-deployment-guide/azure-file-sync-agent-installation-7.png" alt-text="Screenshot of the completion page in the File Sync Agent Setup Wizard.":::
 
@@ -468,15 +468,15 @@ When assigning the Azure File Sync Administrator role, follow these steps to ens
  
 1. Under the **Conditions** tab, select **Allow users to assign selected roles to only selected principals (fewer privileges)**.
  
-2. Click **Select Roles and Principals** and then select **Add Action** under Condition #1.
+1. Click **Select Roles and Principals** and then select **Add Action** under Condition #1.
  
-3. Select **Create role assignment**, and then click **Select**.
+1. Select **Create role assignment**, and then click **Select**.
  
-4. Select **Add expression**, and then select **Request**.
+1. Select **Add expression**, and then select **Request**.
  
-5. Under **Attribute Source**, select **Role Definition Id** under **Attribute**, and then select **ForAnyOfAnyValues:GuidEquals** under **Operator**.
+1. Under **Attribute Source**, select **Role Definition Id** under **Attribute**, and then select **ForAnyOfAnyValues:GuidEquals** under **Operator**.
  
-6. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privileged Contributor**, and **Storage Account Contributor** roles, and then select **Save**.
+1. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privileged Contributor**, and **Storage Account Contributor** roles, and then select **Save**.
 
 It's also possible to differentiate administrators who can register servers from administrators who can also configure sync in a storage sync service. To do this differentiation, create a custom role where you list the administrators who are only allowed to register servers. Give your custom role the following permissions:
 
@@ -527,27 +527,28 @@ A *sync group* defines the sync topology for a set of files. Endpoints within a 
 The entirety of the Azure file share is synced, with one exception. A special folder, comparable to the hidden **System Volume Information** folder on an NTFS volume, is provisioned. This directory is called **.SystemShareInformation**. It contains important sync metadata that doesn't sync to other endpoints. Don't use or delete it.
 
 > [!IMPORTANT]
-> You can make changes to any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, an Azure File Sync change detection job first needs to discover the changes. A change detection job starts for a cloud endpoint only once every 24 hours. For more information, see [Frequently asked questions about Azure Files and Azure File Sync](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json#afs-change-detection).
+> You can make changes to any cloud endpoint or server endpoint in the sync group and have your files synced to the other endpoints in the sync group. If you make a change to the cloud endpoint (Azure file share) directly, an Azure File Sync change detection job first needs to discover the changes. A change detection job starts for a cloud endpoint only once every 24 hours. For more information, see [Azure File Sync change detection](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json#afs-change-detection).
 
 The administrator who creates or updates the cloud endpoint must have sufficient permissions on the storage account that contains the Azure file share that the cloud endpoint points to. Storage account read-only access is insufficient. Cloud endpoint create and update operations require the following storage account permissions:
-- Microsoft.Storage/storageAccounts/listKeys/action
-- Microsoft.Storage/storageAccounts/ListAccountSas/action
 
-Assign a role on the storage account that includes these permissions, such as Reader and Data Access or Storage Account Contributor. Configure this role under Access Control (IAM) on the Azure portal page for the storage account. Configure this role under **Access Control (IAM)** on the Azure portal page for the storage account.
+- `Microsoft.Storage/storageAccounts/listKeys/action`
+- `Microsoft.Storage/storageAccounts/ListAccountSas/action`
+
+Assign a role on the storage account that includes these permissions, such as Reader and Data Access or Storage Account Contributor. Configure this role under **Access Control (IAM)** on the Azure portal page for the storage account.
 
 When assigning the Azure File Sync Administrator role, follow these steps to ensure least privilege.
  
 1. Under the **Conditions** tab, select **Allow users to assign selected roles to only selected principals (fewer privileges)**.
  
-2. Click **Select Roles and Principals** and then select **Add Action** under Condition #1.
+1. Click **Select Roles and Principals** and then select **Add Action** under Condition #1.
  
-3. Select **Create role assignment**, and then click **Select**.
+1. Select **Create role assignment**, and then click **Select**.
  
-4. Select **Add expression**, and then select **Request**.
+1. Select **Add expression**, and then select **Request**.
  
-5. Under **Attribute Source**, select **Role Definition Id** under **Attribute**, and then select **ForAnyOfAnyValues:GuidEquals** under **Operator**.
+1. Under **Attribute Source**, select **Role Definition Id** under **Attribute**, and then select **ForAnyOfAnyValues:GuidEquals** under **Operator**.
  
-6. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privileged Contributor**, and **Storage Account Contributor** roles, and then select **Save**.
+1. Select **Add Roles**. Add **Reader and Data Access**, **Storage File Data Privileged Contributor**, and **Storage Account Contributor** roles, and then select **Save**.
 
 # [Portal](#tab/azure-portal)
 
@@ -668,15 +669,15 @@ If you want to configure Azure File Sync to work with firewall and virtual netwo
 
 1. In the Azure portal, go to the storage account that you want to help secure.
 
-2. On the left menu, under **Security + networking**, select **Networking**.
+1. On the left menu, under **Security + networking**, select **Networking**.
 
-3. Under **Public network access**, select **Enabled from selected virtual networks and IP addresses**.
+1. Under **Public network access**, select **Enabled from selected virtual networks and IP addresses**.
 
-4. Under **Firewall**, make sure that the value for **Address range** is your server's IP address or virtual network.
+1. Under **Firewall**, make sure that the value for **Address range** is your server's IP address or virtual network.
 
-5. Under **Exceptions**, make sure that **Allow Azure services on the trusted services list to access this storage account** is selected.
+1. Under **Exceptions**, make sure that **Allow Azure services on the trusted services list to access this storage account** is selected.
 
-6. Select **Save**.
+1. Select **Save**.
 
 :::image type="content" source="media/storage-sync-files-deployment-guide/update-firewall-and-vnet-settings.png" alt-text="Screenshot of configuring firewall and virtual network settings to work with Azure File sync.":::
 
