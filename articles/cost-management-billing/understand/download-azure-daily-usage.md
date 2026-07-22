@@ -9,7 +9,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 01/14/2026
+ms.date: 07/21/2026
 service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 ---
 
