@@ -45,10 +45,10 @@ Callers reference the model by its model name in the `model` field:
 }
 ```
 
-The `model` value is the model name registered in the gateway; it doesn't have to match the provider's own model ID. Applications don't manage provider keys or deployment endpoints.
+The `model` value is the model name given by the imported model.
 
 > [!NOTE]
-> Currently, every model name in the gateway must be unique across all providers. The gateway routes each request by an exact match on the `model` value, so give each model a distinct name.
+> Currently, every model name in the gateway must be unique across all providers. The gateway routes each request by an exact match on the `model` value.
 
 To add models, open the **Models** page and select **Add models**. Choose how you want to connect.
 
