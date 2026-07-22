@@ -327,10 +327,10 @@ Replace `<placeholders>` with the values for your SAP HANA installation.
 
 ## Implement HANA resource agents
 
-SUSE provides two generations of resource agents for configuring a HANA system replication HA cluster on SLES. The software packages SAPHanaSR and SAPHanaSR-angi use slightly different syntax and parameters aren't compatible. See [SUSE release notes](https://www.suse.com/releasenotes/x86_64/SLE-SAP/15-SP6/index.html#bsc-1210005) and [documentation](https://documentation.suse.com/sbp/sap-15/html/SLES4SAP-hana-angi-perfopt-15/index.html) for details and differences between SAPHanaSR and SAPHanaSR-angi. The packages are mutually exclusive, and only one can be configured on your system at a time. Use the corresponding tab below for your specific configuration.
+SUSE provides two generations of resource agents for configuring a HANA system replication HA cluster on SLES. The software packages SAPHanaSR and SAPHanaSR-angi use slightly different syntax and parameters that aren't compatible. For details and differences between SAPHanaSR and SAPHanaSR-angi, see the [SUSE release notes](https://www.suse.com/releasenotes/x86_64/SLE-SAP/15-SP6/index.html#bsc-1210005) and [documentation](https://documentation.suse.com/sbp/sap-15/html/SLES4SAP-hana-angi-perfopt-15/index.html). The packages are mutually exclusive, and you can only configure one on your system at a time. Use the corresponding tab below for your specific configuration.
 
 > [!WARNING]
-> When upgrading from SAPHanaSR to SAPHanaSR-angi, please follow the recommended procedure to ensure a smooth transition. Don't replace the package directly in an already configured cluster, as this may lead to issues. For detailed guidance, see SUSE’s blog post: [How to upgrade to SAPHanaSR-angi](https://www.suse.com/c/how-to-upgrade-to-saphanasr-angi/).
+> When upgrading from SAPHanaSR to SAPHanaSR-angi, follow the recommended procedure to ensure a smooth transition. Don't replace the package directly in an already configured cluster, as this action might cause problems. For detailed guidance, see SUSE’s blog post: [How to upgrade to SAPHanaSR-angi](https://www.suse.com/c/how-to-upgrade-to-saphanasr-angi/).
 
 1. **[A]** Install the SAP HANA high availability packages:
 
@@ -348,7 +348,7 @@ sudo zypper install SAPHanaSR-angi
 ### [SAPHanaSR](#tab/saphanasr)
 
 > [!IMPORTANT]
-> The classic `SAPHanaSR` package is not available on SLES for SAP Applications 16. If you are deploying on SLES 16, switch to the **SAPHanaSR-angi** tab.
+> The classic `SAPHanaSR` package isn't available on SLES for SAP Applications 16. If you're deploying on SLES 16, switch to the **SAPHanaSR-angi** tab.
 
 Run the following command to install the high availability packages:
 
@@ -374,7 +374,7 @@ Run the following code as \<sap-sid\>adm:
 sapcontrol -nr <instance number> -function StopSystem
 ```
 
-1. **[A]** Install the HANA system replication hooks. The hooks must be installed on both HANA database nodes.
+1. **[A]** Install the HANA system replication hooks. Install the hooks on both HANA database nodes.
 
    > [!TIP]
    > The SAPHanaSR Python hook can be implemented only for HANA 2.0. The SAPHanaSR package must be at least version 0.153.  

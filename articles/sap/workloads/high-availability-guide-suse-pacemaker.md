@@ -80,7 +80,7 @@ To use an SBD device that uses an iSCSI target server for fencing, follow the in
 
 You first need to create the iSCSI target virtual machines. You can share iSCSI target servers with multiple Pacemaker clusters.
 
-1. Deploy virtual machines with supported SLES version and connect to them via SSH. The machines don't need to be large. Virtual machine sizes Standard_E2s_v4 or Standard_D2s_v4 are sufficient. Be sure to use Premium storage for the OS disk.
+1. Deploy virtual machines with a supported SLES version and connect to them via SSH. The machines don't need to be large. Virtual machine sizes Standard_E2s_v4 or Standard_D2s_v4 are sufficient. Use Premium storage for the OS disk.
 2. On **iSCSI target virtual machines**, run the following commands:
 
    a. Update SLES.  
@@ -678,7 +678,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    CLOUD_NETCONFIG_MANAGE="no"
    ```
 
-6. **[A]** Generate SSH key pairs. Run the command on all cluster nodes to generate a default SSH key pair
+6. **[A]** Generate SSH key pairs. Run the command on all cluster nodes to generate a default SSH key pair.
 
    ```bash
    sudo ssh-keygen -t ed25519 -N "" -f /root/.ssh/id_ed25519
@@ -694,7 +694,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    # <node_2_public_key>
    ```
 
-8. **[A]** Authorize node access. Append the collected public keys from all nodes into the authorized_keys file on each node.
+8. **[A]** Authorize node access. Append the collected public keys from all nodes into the `authorized_keys` file on each node.
 
    ```bash
    sudo tee -a /root/.ssh/authorized_keys << 'EOF'
@@ -735,7 +735,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
 11. **[A]** Install the Azure Python SDK and Azure Identity Python module.
 
-    For **SLES 12 SP5**, if your `fence-agents` version is lower than `4.9.0+git.1624456340.8d746be9-3.41.3`, you need to install below additional packages.
+    For **SLES 12 SP5**, if your `fence-agents` version is lower than `4.9.0+git.1624456340.8d746be9-3.41.3`, install the following additional packages.
 
     ```bash
     # You might need to activate the public cloud extension first
@@ -873,9 +873,9 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     }
     ```
 
-17. **[A]** To prevent premature cluster rejoins caused by fast Azure VM reboots, delay the Pacemaker startup on boot using a systemd timer (`pacemaker.timer`).
+17. **[A]** To prevent premature cluster rejoins caused by fast Azure VM reboots, delay the Pacemaker startup on boot by using a systemd timer (`pacemaker.timer`).
 
-    1. Configure SBD_DELAY_START to 'no'. This step applies only when SBD is used as the fencing mechanism.
+    1. Set SBD_DELAY_START to `no`. This step applies only when SBD is the fencing mechanism.
 
         ```bash
         vi /etc/sysconfig/sbd
@@ -885,7 +885,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
         [...]
         ```
 
-    2. Create a `pacemaker.timer` unit that delays `pacemaker.service` startup.
+    1. Create a `pacemaker.timer` unit that delays `pacemaker.service` startup.
 
         ```bash
         cat <<'EOF' > /etc/systemd/system/pacemaker.timer
@@ -899,14 +899,14 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
         EOF
         ```
 
-    3. Reload systemd and enable `pacemaker.timer`.
+    1. Reload systemd and enable `pacemaker.timer`.
 
         ```bash
         systemctl daemon-reload
         systemctl enable pacemaker.timer
         ```
 
-    4. Disable the cluster services from starting on boot. `pacemaker.timer` starts `pacemaker.service` after the configured delay.
+    1. Disable the cluster services from starting on boot. `pacemaker.timer` starts `pacemaker.service` after the configured delay.
 
         ```bash
         crm cluster disable --all
@@ -921,7 +921,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 18. **[1]** Restart cluster
 
     ```bash
-    # Use --all option to restart all cluster nodes
+# Use the --all option to restart all cluster nodes
     crm cluster restart --all
     ```
 
@@ -949,7 +949,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
      params pcmk_delay_max="15" \
      op monitor interval="600" timeout="120"
 
-   # For SAP HANA scale-out only, configure stonith-sbd using following command
+   # For SAP HANA scale-out only, configure stonith-sbd by using the following command
    sudo crm configure primitive stonith-sbd stonith:fence_sbd \
      params pcmk_action_limit=-1 \
      op monitor interval="600" timeout="120"
