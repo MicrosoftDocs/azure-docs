@@ -1,12 +1,12 @@
 ---
 title: Continuous integration & delivery in Azure Synapse Analytics  
 description: Learn how to use continuous integration and continuous delivery (CI/CD) to deploy changes between environments in an Azure Synapse Analytics workspace.
-author: liudan66
+author: juluczni
 ms.service: azure-synapse-analytics
 ms.subservice: ci-cd
 ms.topic: how-to
 ms.date: 11/06/2024
-ms.author: liud 
+ms.author: juluczni
 ms.reviewer: pimorano
 ms.custom:
   - sfi-image-nochange
