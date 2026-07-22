@@ -25,13 +25,9 @@ AI Gateway tier is a managed gateway for applications that call models and tools
 1. Routes the request to the selected backend — by the `model` field for models, or the tool name for tools — using the backend credentials you configured.
 1. Returns the response and emits telemetry — OpenTelemetry logs and metrics such as token counts and latency.
 
-Use AI Gateway tier when you want a fully managed path for AI traffic: you don't plan or manage scale units, and provisioning takes about a minute.
-
 ## Why use it
 
-AI Gateway tier helps teams keep AI traffic governed. It gives platform teams a common runtime boundary for apps, models, and tools.
-
-Use AI Gateway tier to:
+AI Gateway tier gives platform teams one governed runtime boundary for apps, models, and tools. Use it to:
 
 - Put one gateway endpoint in front of supported AI providers.
 - Keep provider credentials hidden from applications.
@@ -43,40 +39,49 @@ Use AI Gateway tier to:
 
 ### Choose your path
 
-- **New to AI Gateway tier?** Start with the [Quickstart](./quickstart-ai-gateway-create.md) — create a gateway, add a model, and make your first call in about 20–30 minutes.
-- **Adding models or tools?** See [Manage models and tools](./ai-gateway-manage-models-tools.md) for Foundry and custom models, and for MCP tool servers.
-- **Running it in production?** See [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md) for policies, identity, networking, and monitoring.
+:::row:::
+    :::column:::
+        :::image type="icon" source="media/icon-quickstart.png" border="false":::
+
+        **[Quickstart](./quickstart-ai-gateway-create.md)**
+
+        New to AI Gateway tier? Create a gateway, add a model, and make your first call in about 20–30 minutes.
+    :::column-end:::
+    :::column:::
+        :::image type="icon" source="media/icon-models.png" border="false":::
+
+        **[Manage models and tools](./ai-gateway-manage-models-tools.md)**
+
+        Add Foundry and custom models, and publish MCP tool servers behind one governed endpoint.
+    :::column-end:::
+    :::column:::
+        :::image type="icon" source="media/icon-govern.png" border="false":::
+
+        **[Govern, secure, and operate](./ai-gateway-govern-secure-operate.md)**
+
+        Apply policies, identity, networking, and monitoring to run in production.
+    :::column-end:::
+:::row-end:::
 
 ## Key concepts
 
 ### Gateway
 
-A gateway is the runtime and management boundary for AI traffic. When you provision AI Gateway tier, you create a dedicated Azure resource in your subscription and resource group. Provisioning takes about a minute, and you don't plan or add scale units.
-
-A gateway has two planes:
-
-- **Control plane** — management operations that configure providers, models, MCP servers, policies, keys, and identity. Automation uses the preview management API version `2026-05-01-preview` through Azure Resource Manager.
-- **Data plane** — the runtime endpoint that applications call. The gateway name and region form the host name `https://<gateway>.<region>.ai.gateway.azure.com`, where `<region>` is a slug such as `eastus2`. All OpenAI-compatible providers (Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, and OpenAI) share `/default/models/openai/v1/<operation>`; Anthropic passthrough uses `/default/models/anthropic/v1/messages`; and MCP tool requests go to `/default/toolservers/<server-name>/mcp`. Data-plane requests authenticate with a runtime access key in the `api-key` header, not with Azure Resource Manager tokens.
+A gateway is the runtime and management boundary for AI traffic — a dedicated Azure resource you provision in about a minute, with no scale units to plan. Applications call one gateway endpoint with a runtime access key instead of calling each provider or tool backend directly, and you manage the models, tools, policies, keys, and identity for it in one place.
 
 :::image type="content" source="media/ai-gateway-architecture.png" alt-text="Diagram of applications, agents, and coding agents calling the AI Gateway tier, which authenticates the runtime key, applies policies, and emits telemetry before routing requests to model providers and MCP tool backends." lightbox="media/ai-gateway-architecture.png":::
 
 ### Models
 
-A model is a provider's model that you publish through the gateway. Applications call it by its name in the `model` field of the request. OpenAI-compatible models (Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, and OpenAI) share one runtime endpoint (`.../models/openai/v1`). The gateway routes each request to the correct backend by an exact match on the `model` value, so give each model a unique name within the gateway. The gateway handles backend credentials, so applications don't manage provider keys.
+A model is a provider's model you publish through the gateway; applications select it by name in the request's `model` field. All OpenAI-compatible providers (Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, and OpenAI) share one endpoint, `.../models/openai/v1`, and the gateway routes by an exact match on `model` — so give each model a unique name. Anthropic uses a custom provider with Messages API passthrough at `.../models/anthropic/v1/messages`. The gateway holds backend credentials, so applications never handle provider keys.
 
-Supported providers include Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, and OpenAI. Anthropic is supported through a custom provider that uses Messages API passthrough. Provider support and behavior can change during preview.
+### MCP servers and tools
 
-### MCP server, backends, and tools
-
-An MCP server is a single governed endpoint that agents call to reach tools. It federates one or more backends, and each backend exposes operations as tools that agents call. In AI Gateway tier, one MCP server can combine four kinds of backends: a remote **MCP server** (by URL), tools generated from an **OpenAPI spec**, **built-in connectors** (more than 1,000 SaaS integrations, with no server to host), and a **Foundry Toolbox** of Microsoft Foundry tools. For each backend, you choose how the gateway authenticates: **None**, **API Key**, **OAuth 2.0**, or **Managed identity**.
-
-A backend is the service behind a model or tool. It can be a provider endpoint, business API, search system, workflow endpoint, or another service exposed through MCP.
-
-Tools are the approved operations that agents can use. Publishing tools through AI Gateway tier centralizes access control, monitoring, and governance.
+An MCP server is one governed endpoint (`.../toolservers/<server-name>/mcp`) that agents call to reach tools. It federates one or more backends from four sources — a remote **MCP server** (by URL), an **OpenAPI spec**, a **built-in connector** (more than 1,000 SaaS apps, with no server to host), or a **Foundry Toolbox** — and each backend's operations become tools. You choose how the gateway authenticates to each backend: **None**, **API Key**, **OAuth 2.0**, or **Managed identity**.
 
 ### Policies
 
-A policy is a runtime governance control for AI traffic. AI Gateway tier shows common AI controls as cards and declarative settings in the portal, instead of requiring teams to edit XML.
+A policy is a runtime guardrail you configure as a card in the portal — no XML.
 
 | Policy | What it controls |
 | --- | --- |
@@ -85,19 +90,13 @@ A policy is a runtime governance control for AI traffic. AI Gateway tier shows c
 | Token rate limit | Token throughput during a rolling minute. |
 | Request rate limit | Request volume during a rolling minute. |
 
-### Runtime access keys
+### Identity and access keys
 
-A runtime access key is a gateway-scoped key that applications use to call the gateway endpoint. In the AI Gateway tier portal, these keys appear on the **Keys** page and are created with **Create API key**; applications send them in the `api-key` header. A key grants runtime access to every model and tool in the gateway, and it's separate from the Microsoft Entra ID permissions that administrators use to manage the gateway. Issue a separate key per application and environment so you can rotate and audit them independently.
-
-### Identity
-
-Identity controls who can manage the gateway and how the gateway authenticates to backends. You sign in to manage the gateway with Microsoft Entra ID. Client applications authenticate to the gateway with runtime access keys. For supported model and MCP server backends, managed identity helps you avoid storing backend secrets.
-
-When managed identity isn't available, provide provider keys during configuration. Prefer managed identity where available, and grant identities the minimum permissions required.
+Administrators sign in to manage the gateway with Microsoft Entra ID. Applications authenticate with **runtime access keys** — created on the portal's **Keys** page (**Create API key**) and sent in the `api-key` header. A key is gateway-scoped: it reaches every model and tool. For backends, the gateway uses managed identity where available (so no secrets are stored) or a provider key you supply. Issue one key per application and environment, and grant every identity least privilege.
 
 ### Self-service catalog
 
-Developers browse a self-service catalog of available models and tools. Each asset includes connection details and usage instructions. Pin frequently used assets for quick access from the home page. Press Ctrl+K (⌘K on macOS) to open the command palette and jump to any asset or page.
+Developers discover models and tools in a self-service catalog — each with connection details and samples — pin favorites, and jump anywhere with the Ctrl+K (⌘K on macOS) command palette.
 
 ## Regional availability
 
@@ -107,22 +106,6 @@ During public preview, you can provision AI Gateway tier in these regions:
 | --- | --- |
 | United States | East US 2 |
 | Europe | Sweden Central |
-
-## Capabilities in public preview
-
-Along with the core model, tool, policy, and monitoring features, the public preview includes these capabilities.
-
-### Anthropic Messages passthrough
-
-Anthropic Messages passthrough lets applications send native Anthropic Messages requests through AI Gateway tier while still using gateway governance, access control, and monitoring.
-
-### Managed identity for backend authentication
-
-Managed identity lets AI Gateway tier authenticate to supported model and MCP server backends without customer-managed secrets. It aligns backend authentication with Azure identity practices and reduces key management work.
-
-### Private networking
-
-Private networking includes inbound Private Link and outbound virtual network integration. Use these capabilities for enterprise network isolation and regulated workloads.
 
 ## Frequently asked questions
 
@@ -136,7 +119,7 @@ Import from Foundry when your model runs in a Microsoft Foundry or Azure OpenAI 
 
 ### Is AI Gateway tier ready for production?
 
-AI Gateway tier is in public preview, so availability is best effort and has no service-level agreement (SLA). Breaking changes to APIs, portal workflows, telemetry, limits, regions, or pricing can happen. Preview quotas can limit how many models, tools, and runtime access keys you create, and the request and token throughput available to you. Specific preview limits will be published before general availability; contact your Microsoft representative for the current quotas that apply to your subscription. Start with noncritical workloads, controlled pilots, and clear rollback plans.
+AI Gateway tier is in public preview: availability is best effort with no service-level agreement (SLA), and APIs, portal workflows, telemetry, limits, regions, and pricing can change. Preview quotas can cap the number of models, tools, and runtime access keys, and your request and token throughput; specific limits will be published before general availability. Start with noncritical workloads, controlled pilots, and clear rollback plans.
 
 ### How is pricing handled during preview?
 
