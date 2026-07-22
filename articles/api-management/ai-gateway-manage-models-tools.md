@@ -23,22 +23,13 @@ Use AI Gateway tier (preview) to manage the models and tools that applications a
 
 ## Import models
 
-Use the **Add models** wizard to connect AI Gateway tier to Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, OpenAI, Anthropic, or custom endpoints. For OpenAI-compatible providers, runtime callers use the base URL `https://<gateway>.<region>.ai.gateway.azure.com/default/models/openai/v1`. Anthropic uses a separate passthrough path; see [Anthropic Messages API passthrough](#anthropic-messages-api-passthrough). The connection fields that the wizard requires vary by provider.
+Use the **Add models** wizard to connect AI Gateway tier to Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, OpenAI, Anthropic, or custom endpoints. The gateway serves each model on the endpoints that its backend supports, under the prefix `https://<gateway>.azure-api.net/default/models`. The next path segment is the provider API format. For example, OpenAI-compatible models are served at `.../default/models/openai/v1` (such as `/chat/completions` and `/responses`), and Anthropic models at `.../default/models/anthropic/v1/messages`. The connection fields that the wizard requires vary by provider.
 
 :::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-models-list.png" alt-text="The Models page listing published models with their type, publisher, provider, and runtime endpoints, plus an Add models button." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-models-list.png":::
 
-Choose **Import from Foundry** when your model runs in a Microsoft Foundry or Azure OpenAI resource. The wizard automatically discovers the resource's deployments. Choose **Add a custom model** for AWS Bedrock, Google Vertex, OpenAI, Anthropic, or any other OpenAI-compatible endpoint. Enter the endpoint and model names yourself.
+Choose **Import from Foundry** when your model runs in a Microsoft Foundry resource, which includes Azure OpenAI and Azure AI Services deployments — the wizard discovers the resource's deployments automatically. Choose **Add a custom model** for AWS Bedrock, Google Vertex, OpenAI, Anthropic, or any other supported endpoint, where you enter the endpoint and model names yourself.
 
-| Provider | Model information | Backend authentication | Notes |
-| --- | --- | --- | --- |
-| Microsoft Foundry | Project or resource, model deployment, endpoint, model format | API key or managed identity | Register Foundry deployments and expose them through the gateway. Grant the gateway identity access to the Foundry resource when using managed identity. |
-| Azure OpenAI | Azure OpenAI resource, deployment name, API version, endpoint | API key or managed identity | Added through **Import from Foundry** (covers Azure OpenAI and Azure AI Services). Use managed identity when your deployment and tenant configuration support it. |
-| AWS Bedrock | Region, model ID, endpoint or provider routing information | API key | Provide the provider key or secret during import, and rotate it according to your provider process. |
-| Google Vertex | Project, location, publisher, model ID, endpoint | API key | Provide the provider key or secret during import. |
-| OpenAI | Model name or project routing information | API key | Provide the OpenAI API key during import. |
-| Anthropic | Model name and Messages API settings | API key | For native Anthropic message shapes, see [Anthropic Messages API passthrough](#anthropic-messages-api-passthrough). |
-
-Use managed identity when the provider supports Microsoft Entra ID backend authentication, such as Microsoft Foundry or Azure OpenAI. Grant the gateway identity the required role on the backend resource before import. Otherwise, provide the provider's API key or secret during import. The gateway stores and protects the credential.
+Use managed identity when the provider supports Microsoft Entra ID backend authentication, such as Microsoft Foundry. Grant the gateway identity the required role on the backend resource before import. Otherwise, provide the provider's API key or secret during import. The gateway stores and protects the credential.
 
 Callers reference the model by its model name in the `model` field:
 
@@ -54,7 +45,10 @@ Callers reference the model by its model name in the `model` field:
 }
 ```
 
-The `model` value is the model name registered in the gateway; it doesn't have to match the provider's own model ID. Applications don't manage provider keys or deployment endpoints. Model names must be unique within the gateway: because OpenAI-compatible providers share one endpoint, the gateway routes by an exact match on the `model` value. If you register the same model name under two providers, give them distinct names so requests reach the intended backend.
+The `model` value is the model name given by the imported model.
+
+> [!NOTE]
+> Currently, every model name in the gateway must be unique across all providers. The gateway routes each request by an exact match on the `model` value.
 
 To add models, open the **Models** page and select **Add models**. Choose how you want to connect.
 
@@ -64,6 +58,9 @@ To add models, open the **Models** page and select **Add models**. Choose how yo
 1. On **Select resource**, choose the subscription and Foundry resource. The wizard lists the model deployments in that resource.
 1. On **Provider details**, enter a provider name and display name, add an optional description, and choose the authentication method - **Managed identity** (recommended, when available) or **Key-based**.
 1. Select **Create**. The gateway imports the resource's deployments as models that callers request by name.
+
+> [!NOTE]
+> To use **Managed identity**, the gateway must already have a managed identity configured, and you must have permission to assign the **Foundry User** role to that identity on the Foundry resource. When you have sufficient permissions, the import wizard assigns the role for you.
 
 :::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-add-foundry-provider.png" alt-text="The Add Foundry provider wizard showing a selected subscription and Foundry resource with its model deployments listed for import." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-add-foundry-provider.png":::
 
@@ -82,7 +79,7 @@ There's no separate validation step. The gateway sets up the connection when you
 After the model is added, send a test request through the gateway endpoint:
 
 ```bash
-curl "https://<gateway>.<region>.ai.gateway.azure.com/default/models/openai/v1/chat/completions" \
+curl "https://<gateway>.azure-api.net/default/models/openai/v1/chat/completions" \
   -H "Content-Type: application/json" \
   -H "api-key: <runtime-access-key>" \
   -d '{
@@ -97,12 +94,9 @@ If you didn't create a runtime access key yet, create one from the **Keys** page
 
 ## Anthropic Messages API passthrough
 
-Most providers use the OpenAI-compatible endpoint. Anthropic uses **passthrough** mode instead. In passthrough mode, the gateway preserves the native Anthropic Messages API request and response format and forwards calls to Anthropic. Use passthrough when applications already use the Anthropic SDK or `/v1/messages`.
+Different providers expose different API formats, and the gateway serves each at its own path under `/default/models`. Anthropic models use the Anthropic Messages API in **passthrough** mode: the gateway preserves the native Anthropic Messages request and response format and forwards calls to Anthropic at `/default/models/anthropic/v1/messages`. Use it when applications already use the Anthropic SDK or `/v1/messages`.
 
-> [!NOTE]
-> Anthropic Messages API passthrough is in public preview. Only the Anthropic Messages API is supported; the gateway exposes it at `/default/models/anthropic/v1/messages`. Support can change before GA.
-
-To add Anthropic as passthrough, use **Add models** > **Add a custom model**:
+To add an Anthropic model, use **Add models** > **Add a custom model**:
 
 1. On **Provider**, enter a display name and provider name for Anthropic.
 1. On **Endpoint**, set the base endpoint URL to `https://api.anthropic.com`, set the authentication header name to `x-api-key`, and enter the Anthropic API key. The gateway stores the key and injects it on backend calls.
@@ -112,7 +106,7 @@ To add Anthropic as passthrough, use **Add models** > **Add a custom model**:
 Clients call the gateway path. The gateway stores the credential, injects the backend `x-api-key`, and forwards the caller's `anthropic-version` header to Anthropic.
 
 ```bash
-curl -X POST "https://<gateway>.<region>.ai.gateway.azure.com/default/models/anthropic/v1/messages" \
+curl -X POST "https://<gateway>.azure-api.net/default/models/anthropic/v1/messages" \
   -H "Content-Type: application/json" \
   -H "anthropic-version: 2023-06-01" \
   -H "api-key: <runtime-access-key>" \
@@ -124,7 +118,7 @@ The Anthropic Python SDK works when you point `base_url` at the gateway path. By
 ```python
 from anthropic import Anthropic
 
-client = Anthropic(api_key="unused", base_url="https://<gateway>.<region>.ai.gateway.azure.com/default/models/anthropic", default_headers={"api-key": "<runtime-access-key>"})
+client = Anthropic(api_key="unused", base_url="https://<gateway>.azure-api.net/default/models/anthropic", default_headers={"api-key": "<runtime-access-key>"})
 message = client.messages.create(model="claude-fable-5", max_tokens=256, messages=[{"role":"user","content":"Hello"}])
 print(message.content[0].text)
 ```
@@ -178,14 +172,14 @@ The gateway creates one MCP endpoint that federates all selected backends. Clien
 
 Agents call the MCP server at:
 
-`https://<gateway>.<region>.ai.gateway.azure.com/default/toolservers/<server-name>/mcp`
+`https://<gateway>.azure-api.net/default/toolservers/<server-name>/mcp`
 
 Send the runtime access key in the `api-key` header. Point any MCP-compatible client or agent framework at this URL. For example, list the available tools with a JSON-RPC `tools/list` request:
 
 ### [curl](#tab/curl)
 
 ```bash
-curl "https://<gateway>.<region>.ai.gateway.azure.com/default/toolservers/<server-name>/mcp" \
+curl "https://<gateway>.azure-api.net/default/toolservers/<server-name>/mcp" \
   -H "Content-Type: application/json" \
   -H "api-key: <runtime-access-key>" \
   -d '{ "jsonrpc": "2.0", "id": 1, "method": "tools/list" }'
@@ -196,7 +190,7 @@ curl "https://<gateway>.<region>.ai.gateway.azure.com/default/toolservers/<serve
 ```python
 import requests
 
-url = "https://<gateway>.<region>.ai.gateway.azure.com/default/toolservers/<server-name>/mcp"
+url = "https://<gateway>.azure-api.net/default/toolservers/<server-name>/mcp"
 response = requests.post(
     url,
     headers={"api-key": "<runtime-access-key>", "Content-Type": "application/json"},
@@ -214,7 +208,7 @@ Use the gateway for MCP servers to centralize:
 - **Discovery** — provide one catalog of approved MCP servers for developers and agents.
 - **Authentication** — clients authenticate to the gateway. The gateway stores backend credentials, so client configuration doesn't contain upstream secrets.
 - **Tool exposure** — choose which backend operations each server publishes as tools. In preview, every runtime access key can call all published assets in the gateway.
-- **Observability** — OpenTelemetry logs and metrics cover model traffic today; telemetry for MCP tool calls is a fast follow.
+- **Observability** — the gateway emits OpenTelemetry token usage metrics for model traffic today; telemetry for MCP tool calls is coming soon.
 - **Governance** — apply the same policies to MCP traffic that you use for models, such as rate limits and content safety.
 
 After you create the server, configure runtime access before sharing it. Add policies such as content safety, IP filters, and token and request rate limits, scoped to the gateway or to specific published assets.
