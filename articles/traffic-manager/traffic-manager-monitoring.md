@@ -198,7 +198,9 @@ See the following example:
 
 > [!NOTE]
 > Azure Traffic Manager health probes are designed to monitor endpoints that are reachable by the Traffic Manager probing infrastructure. Traffic Manager isn't designed to probe endpoints that resolve to addresses within private, non-routable, or Microsoft-internal network spaces.
+> 
 > Endpoints that resolve to addresses within these network spaces **must be configured as Always serve traffic endpoints**. Traffic Manager can't perform health validation for these endpoints and therefore can't provide health-based failover.
+> 
 > To ensure consistent behavior, Traffic Manager enforces the **Always serve traffic** configuration for endpoints that resolve to addresses within unsupported network spaces.
 
 ## Firewall Setup for Health Checks
