@@ -14,7 +14,7 @@ ms.date: 07/22/2026
 
 In this quickstart, you create an AI Gateway tier (preview) instance, add a chat model, create a runtime access key, call the gateway, and view telemetry.
 
-AI Gateway tier from Azure API Management is a dedicated tier for AI workloads. It gives you managed runtime endpoints for supported model providers - OpenAI-compatible Chat Completions and Responses for Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, and OpenAI, plus an Anthropic Messages API passthrough. AI Gateway tier provisions quickly, usually within a minute.
+AI Gateway tier from Azure API Management is a dedicated tier for AI workloads. It supports managing traffic to models — from Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, OpenAI, Anthropic, or other providers — and tools created from existing MCP servers, OpenAPI definitions, connectors, or Microsoft Foundry toolboxes. AI Gateway tier provisions quickly, usually within a minute.
 
 **Time to complete:** about 20-30 minutes. **You create:** one gateway, one chat model, one runtime access key, and one successful chat completion request.
 
@@ -41,9 +41,9 @@ Use the portal to manage models, MCP servers, runtime access keys, policies, and
 ## 2. Create a gateway
 
 1. In the portal, select **Create gateway**. To use an existing gateway instead, select it and skip to the next step.
-1. Enter a **Name**. The name and region become part of the runtime endpoint:
+1. Enter a **Name**. The name becomes part of the runtime endpoint:
 
-   `https://<gateway>.<region>.ai.gateway.azure.com`
+   `https://<gateway>.azure-api.net`
 
 1. Select your **Subscription** and a supported preview region (**East US 2** or **Sweden Central**).
 1. Optionally set the **Resource group** under **Advanced**. By default, the portal creates one for you.
@@ -60,7 +60,7 @@ The fastest path is to import a model from a Microsoft Foundry resource.
 1. On **Select resource**, choose your subscription and Foundry resource. The wizard lists the model deployments in that resource. Note the name of a chat model (this quickstart uses `gpt-5.6-sol`).
 1. On **Provider details**, enter a provider name and display name (short identifiers shown in the Models list and in telemetry; they don't need to match the Foundry resource name), and choose an authentication method:
    - **Key-based** (fastest for this quickstart): the gateway stores the provider key. No role assignment is required.
-   - **Managed identity**: available when the provider supports Microsoft Entra ID authentication. Before you use it, assign the gateway identity the required backend role (for Azure OpenAI, **Cognitive Services OpenAI User**). See [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md#use-managed-identity-for-backend-authentication).
+   - **Managed identity**: available when the provider supports Microsoft Entra ID authentication. Before you use it, assign the gateway identity the required backend role (for Microsoft Foundry, **Foundry User**). See [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md#use-managed-identity-for-backend-authentication).
 1. Select **Create**. There's no separate validation step; the gateway sets up the connection when you create the provider.
 
 To connect a non-Foundry provider (AWS Bedrock, Google Vertex, OpenAI, or Anthropic), select **Add a custom model** instead. See [Manage models and tools](./ai-gateway-manage-models-tools.md#import-models).
@@ -69,14 +69,16 @@ To connect a non-Foundry provider (AWS Bedrock, Google Vertex, OpenAI, or Anthro
 
 Callers pass the model name in the `model` field of OpenAI-compatible requests. This quickstart uses `gpt-5.6-sol`; replace it with the model you registered.
 
+> [!TIP]
+> To try the model right away, open the **Discover** page and select the model to invoke it in the built-in playground. The playground uses the gateway's built-in key, so you can explore and test added models or tools before you create a runtime access key.
+
 ## 4. Create a runtime access key
 
 1. Select **Keys**.
 1. Select **Create API key**.
 1. Enter a name, such as `quickstart-client`.
-1. Optionally set an expiration date.
 1. Select **Create**.
-1. Copy the key value and store it securely. You can't view the full key again after you leave the page.
+1. Copy the key value and store it securely. You can also view it again later on the **Keys** page.
 
 :::image type="content" source="media/quickstart-ai-gateway-create/ai-gateway-runtime-keys.png" alt-text="The Keys page listing API keys that grant runtime access to every asset in the gateway, with a Create API key button." lightbox="media/quickstart-ai-gateway-create/ai-gateway-runtime-keys.png":::
 
@@ -84,17 +86,17 @@ Create runtime access keys at the gateway level. These keys grant access to ever
 
 ## 5. Call the gateway
 
-The gateway exposes an OpenAI-compatible endpoint. Point any OpenAI client at the gateway base URL, send your runtime access key in the `api-key` header, and pass the model name in the `model` field.
+The gateway exposes the API that the backend model supports. Models from OpenAI-compatible providers — such as Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, and OpenAI — are served on an OpenAI-compatible endpoint. Point any OpenAI client at the gateway base URL, send your runtime access key in the `api-key` header, and pass the model name in the `model` field. Anthropic models use the Anthropic Messages API instead; see [Manage models and tools](./ai-gateway-manage-models-tools.md#anthropic-messages-api-passthrough).
 
 Set these values once:
 
 ```bash
-export AI_GATEWAY_BASE_URL="https://<gateway>.<region>.ai.gateway.azure.com/default/models/openai/v1"
+export AI_GATEWAY_BASE_URL="https://<gateway>.azure-api.net/default/models/openai/v1"
 export AI_GATEWAY_API_KEY="<runtime-access-key>"
 ```
 
 > [!TIP]
-> Copy the exact base URL from your gateway rather than building it by hand. The `<region>` segment is a slug such as `eastus2`, not `East US 2`.
+> Copy the exact base URL from your gateway's overview page rather than building it by hand.
 
 Make your first call with the client of your choice:
 
@@ -219,9 +221,9 @@ If a request fails, the gateway returns a standard HTTP status code:
 
 | Status | Meaning | What to check |
 | --- | --- | --- |
-| 400 | Invalid request, or blocked by content safety | Check the request body; a content-safety policy can block a prompt or response. |
+| 400 | Invalid request | Check the request body. |
 | 401 | Missing or invalid runtime access key | Send the key in the `api-key` header, and confirm the key is active. |
-| 403 | Blocked by an IP filter, or denied by the backend | Check any IP-filter policy. For managed identity, assign the **Cognitive Services OpenAI User** role to the gateway identity on the backend resource. See [Use managed identity for backend authentication](./ai-gateway-govern-secure-operate.md#use-managed-identity-for-backend-authentication). |
+| 403 | Blocked by content safety or an IP filter, or denied by the backend | A content-safety policy can block a prompt or response; also check any IP-filter policy. For managed identity, assign the **Foundry User** role to the gateway identity on the backend resource. See [Use managed identity for backend authentication](./ai-gateway-govern-secure-operate.md#use-managed-identity-for-backend-authentication). |
 | 404 | Unknown model | Confirm the `model` value matches a model name on the **Models** page. |
 | 429 | Throttled by a rate-limit policy or the backend | Review token and request rate-limit policies, and honor the `Retry-After` response header. |
 | 5xx | Backend error | Confirm the backend provider is healthy and the provider credential is valid. |
@@ -246,14 +248,13 @@ except APIStatusError as e:
 
 ## 6. See telemetry
 
-After you send a request, view telemetry for the gateway:
+AI Gateway tier emits OpenTelemetry token usage metrics. To see them, configure a telemetry destination first, and then send requests:
 
-1. Select **Monitoring**.
-1. Review request count, latency, token usage, and error rate.
-1. Filter by model name to find traffic for `gpt-5.6-sol`.
-1. Use failures and latency charts to troubleshoot backend provider issues.
+1. Configure a telemetry destination for the gateway, such as Application Insights. See [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md#monitoring).
+1. Send one or more requests through the gateway, as shown in the previous step.
+1. Open your telemetry destination to review token usage. If you use Application Insights, the portal provides a built-in token consumption dashboard.
 
-Telemetry helps you understand usage across providers and applications. Callers use gateway-level runtime access keys, so you can monitor traffic without exposing provider credentials to client applications. The built-in **Monitoring** views show recent gateway traffic without any setup. To retain telemetry longer or forward it to Application Insights or another OpenTelemetry (OTLP) endpoint, configure a telemetry destination - see [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md#monitoring).
+Because telemetry is emitted only after you connect a destination, configure monitoring before you rely on it. Token usage is currently the only metric emitted; logs, traces, and other metrics for models and tools are coming soon. Callers use gateway-level runtime access keys, so you can monitor traffic without exposing provider credentials to client applications. To configure a telemetry destination, see [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md#monitoring).
 
 ## Clean up resources
 

@@ -12,7 +12,7 @@ ms.date: 07/22/2026
 
 [!INCLUDE [api-gateway-tier-preview](./includes/preview/preview-ai-gateway-tier.md)]
 
-Use AI Gateway tier (preview) to put common controls in front of AI models, Microsoft Foundry resources, Azure OpenAI deployments, MCP servers, and tools. Platform teams can apply governance, security, network, and monitoring settings in one place while application teams keep using the assets they need.
+Use AI Gateway tier (preview) to put common controls in front of AI models, Microsoft Foundry resources, Azure OpenAI deployments, and MCP servers. Platform teams can apply governance, security, network, and monitoring settings in one place while application teams keep using the assets they need.
 
 AI Gateway tier is in preview. Use it for pilots and production-like validation. Features, regions, limits, telemetry fields, and setup flows can change before general availability. The preview supports quick provisioning, but reliability is best effort. Monitor errors and keep a rollback path for critical applications.
 
@@ -26,15 +26,15 @@ AI Gateway tier is in preview. Use it for pilots and production-like validation.
 
 ## Governance policies
 
-Governance policies protect AI traffic before requests reach backend models or tools. In preview, you configure policies through visual cards. You select a policy type, choose which models or tools it applies to, fill in validated fields, and select **Create**. You don't need to write XML, paste policy fragments, or use policy expressions.
+Governance policies protect AI traffic before requests reach backend models or tools. In preview, you configure policies as visual cards in the portal; in the control plane API, each policy is a structured JSON object. You select a policy type, choose which models or tools it applies to, fill in validated fields, and select **Create**. You don't need to write XML, paste policy fragments, or use policy expressions. Because policies are structured objects, you can audit or enforce them across a fleet of gateways with Azure Policy.
 
-You can apply policies globally to the gateway or to an individual model or tool. Use global policies for baseline controls, such as content safety for all traffic. Use asset-level policies when one model or tool has different risk, capacity, or network requirements.
+You apply each policy to the models or tools you select. To set a baseline control such as content safety, select all applicable assets. Apply narrower policies when one model or tool has different risk, capacity, or network requirements.
 
 When more than one policy applies to a request, the gateway evaluates all of them before it forwards the request to the backend. If any policy blocks the request, the gateway stops and returns an error without calling the backend:
 
 | Policy | Status on block |
 | --- | --- |
-| Content safety | 400 |
+| Content safety | 403 |
 | IP filter | 403 |
 | Token rate limit | 429 (with `Retry-After`) |
 | Request rate limit | 429 (with `Retry-After`) |
@@ -43,7 +43,7 @@ When both a token limit and a request limit apply, a request must satisfy both.
 
 The following diagram shows where governance policies apply in the request flow.
 
-:::image type="content" source="media/ai-gateway-govern-secure-operate/ai-gateway-request-lifecycle.png" alt-text="Sequence diagram showing the gateway validate the runtime key, evaluate policies, and either forward the request to the backend and emit telemetry, or return a 400, 403, or 429 error when a policy blocks the request." lightbox="media/ai-gateway-govern-secure-operate/ai-gateway-request-lifecycle.png":::
+:::image type="content" source="media/ai-gateway-govern-secure-operate/ai-gateway-request-lifecycle.png" alt-text="Sequence diagram showing the gateway validate the runtime key, evaluate policies, and either forward the request to the backend and emit telemetry, or return a 403 or 429 error when a policy blocks the request." lightbox="media/ai-gateway-govern-secure-operate/ai-gateway-request-lifecycle.png":::
 
 To configure a policy:
 
@@ -56,7 +56,7 @@ To configure a policy:
 
 Start with these policy types:
 
-- **Content safety**: Inspect prompts, tool inputs, model outputs, or tool responses with Azure AI Content Safety. Configure category thresholds (hate, sexual, violence, self-harm) and jailbreak detection, and choose whether to block, log, or both. A blocked call returns an error to the client.
+- **Content safety**: Inspect prompts, tool inputs, model outputs, or tool responses with Azure AI Content Safety. Configure category thresholds (hate, sexual, violence, self-harm), and choose whether to block, log, or both. A blocked call returns an error to the client.
 - **IP filter**: Restrict runtime calls to approved client network ranges by IPv4 or IPv6 CIDR. Apply it globally for private applications, or to a specific tool that needs a tighter boundary.
 - **Token rate limits**: Limit prompt, completion, or total token throughput during a rolling minute. On the **Configure** step, set the token allowance and choose what the limit applies to (for example, per caller identity). Use them to protect model capacity and reduce bursts.
 - **Request rate limits**: Limit call volume during a rolling minute, applied per the dimension you choose (such as caller identity). Use them for tools that call SaaS APIs or internal systems with strict quotas.
@@ -82,9 +82,8 @@ To create a runtime access key:
 1. In the AI Gateway tier portal, select **Keys**.
 1. Select **Create API key**.
 1. Enter a stable name and identify the owner.
-1. Optionally set an expiration date.
 1. Select **Create**.
-1. Copy the value immediately. The key is shown only at creation and after rotation.
+1. Copy the value for use in your application. You can view the key again later on the **Keys** page.
 
 Client applications include the runtime access key in the `api-key` header. Don't paste runtime access keys into source code, build logs, notebooks, or shared chat. Store them in your deployment platform's secret store or another approved secret manager. Use one key per application and environment. Rotate keys regularly and whenever ownership changes. If a key might be exposed, rotate or revoke it immediately and review gateway logs.
 
@@ -94,7 +93,7 @@ Configure managed identity so AI Gateway tier can authenticate to supported mode
 
 :::image type="content" source="media/ai-gateway-govern-secure-operate/ai-gateway-managed-identities.png" alt-text="The Managed identities page in the AI Gateway tier portal, showing a system-assigned identity toggle and a section for attaching user-assigned identities." lightbox="media/ai-gateway-govern-secure-operate/ai-gateway-managed-identities.png":::
 
-Use a system-assigned identity when one gateway needs backend access. Use a user-assigned identity when multiple gateways need a shared identity. Use an API key when a provider doesn't support managed identity.
+Choose system-assigned or user-assigned identities based on your needs. A system-assigned identity is tied to the gateway's lifecycle and is simple when a single gateway needs backend access. User-assigned identities give you tighter control: you can share one identity across gateways, or attach separate identities for different backends instead of using a single identity for every backend. Use an API key when a provider doesn't support managed identity.
 
 Before you configure backend authentication, make sure you have these items:
 
@@ -112,10 +111,13 @@ Grant the gateway identity access to each backend resource at the narrowest prac
 
 | Principal | Role | Scope |
 | --- | --- | --- |
-| Gateway system-assigned identity | Cognitive Services OpenAI User | Foundry or Azure OpenAI resource |
-| Gateway user-assigned identity | Cognitive Services OpenAI User | Foundry or Azure OpenAI resource |
+| Gateway system-assigned identity | Foundry User (role ID `53ca6127-db72-4b80-b1b0-d745d6d5456d`) | Foundry or Azure OpenAI resource |
+| Gateway user-assigned identity | Foundry User (role ID `53ca6127-db72-4b80-b1b0-d745d6d5456d`) | Foundry or Azure OpenAI resource |
 
-Use the following Azure CLI snippet. Replace the placeholders with your values.
+> [!NOTE]
+> When you import a model with managed identity and have sufficient permissions, the import wizard assigns this role for you. Use the following steps when you prefer to assign the role manually or through automation.
+
+Use the following Azure CLI snippet. Replace the placeholders with your values. Reference the role by its ID rather than its name.
 
 Gather these values:
 
@@ -129,7 +131,7 @@ BACKEND_RESOURCE_ID="/subscriptions/<subscription-id>/resourceGroups/<resource-g
 az role assignment create \
   --assignee-object-id "$GATEWAY_PRINCIPAL_ID" \
   --assignee-principal-type ServicePrincipal \
-  --role "Cognitive Services OpenAI User" \
+  --role "53ca6127-db72-4b80-b1b0-d745d6d5456d" \
   --scope "$BACKEND_RESOURCE_ID"
 ```
 
@@ -144,7 +146,7 @@ az role assignment list \
 
 When you import a model, choose managed identity as the backend authentication method. In the **Add models** wizard, select **Import from Foundry**, and choose the subscription, resource, and model deployment. On **Provider details**, select **Managed identity**, and then choose the system-assigned identity or a user-assigned identity attached to the gateway. Clients that call the gateway don't need backend keys.
 
-If calls fail with 401 errors, confirm the import uses managed identity and the backend accepts Entra ID authentication. If calls fail with 403 errors, confirm the identity's principal ID has the **Cognitive Services OpenAI User** role at the backend resource scope, and wait for role assignment propagation.
+If calls fail with 401 errors, confirm the import uses managed identity and the backend accepts Entra ID authentication. If calls fail with 403 errors, confirm the identity's principal ID has the **Foundry User** role at the backend resource scope, and wait for role assignment propagation.
 
 ## Regional availability
 
@@ -199,41 +201,35 @@ DNS is a common source of issues. The gateway must resolve backend hostnames to 
 
 ## Monitoring
 
-The AI Gateway tier emits OpenTelemetry logs and metrics for model traffic, including latency, reliability, token use, policy outcomes, and model behavior. You choose where telemetry goes. Keep it in your Azure subscription, or send OpenTelemetry signals to Application Insights or another OpenTelemetry (OTLP)-compatible destination, such as Datadog, Splunk, or Grafana Cloud.
+AI Gateway tier emits an OpenTelemetry token usage metric for model traffic. You choose where it goes: send the metric to Azure Application Insights or to another OpenTelemetry (OTLP)-compatible destination, such as Datadog, Splunk, or Grafana Cloud. When you use Application Insights, the portal provides a built-in token consumption dashboard.
 
 > [!NOTE]
-> In public preview, OpenTelemetry logs and metrics cover model traffic. Telemetry for MCP tool calls is a fast follow.
+> Token usage is the only metric emitted in public preview. Logs, traces, and other metrics for models and tools are coming soon.
 
-The AI Gateway tier follows OpenTelemetry and the OpenTelemetry Generative AI semantic conventions where possible. Requests can include standard HTTP, network, and trace attributes. They can also include GenAI attributes with the `gen_ai.*` prefix, such as requested model, operation name, input tokens, output tokens, and finish reasons. Not every backend returns the same fields - some providers omit token counts in streaming or passthrough responses. Treat missing token attributes as unavailable, not as zero.
+The token usage metric is a custom OpenTelemetry metric that carries a subset of the OpenTelemetry Generative AI and cloud semantic-convention attributes — for example, the model name. Not every backend reports token counts; some providers omit them in streaming or passthrough responses. Treat missing token data as unavailable, not as zero.
 
-Commonly emitted GenAI attributes include:
+The token usage metric includes attributes such as:
 
 | Attribute | Description |
 | --- | --- |
 | `gen_ai.request.model` | The model name from the request's `model` field. |
 | `gen_ai.response.model` | The model that produced the response. |
 | `gen_ai.operation.name` | The operation, such as `chat` or `responses`. |
-| `gen_ai.usage.input_tokens` | Prompt (input) token count, when the backend reports it. |
-| `gen_ai.usage.output_tokens` | Completion (output) token count, when the backend reports it. |
-| `gen_ai.response.finish_reasons` | Why generation stopped, such as `stop` or `length`. |
+| `gen_ai.token.type` | The token type, such as `prompt_tokens` or `completion_tokens_details.reasoning_tokens`. |
 
-Configure a telemetry destination in the gateway's monitoring settings. For Application Insights, select the resource in your subscription. For a generic OpenTelemetry (OTLP) endpoint, provide the collector URL and any required access token or headers. Use Application Insights when you want Azure-native traces, logs, Kusto queries, and Azure Monitor alerts. Use Datadog, Splunk, Grafana Cloud, or a generic OTLP collector when those platforms are your standard operational platforms. Protect destination credentials as secrets, and monitor telemetry export failures.
+Configure a telemetry destination in the gateway's monitoring settings. For Application Insights, select the resource in your subscription. For a generic OpenTelemetry (OTLP) endpoint, provide the collector URL and any required access token or headers. Use Datadog, Splunk, Grafana Cloud, or a generic OTLP collector when those platforms are your standard operational platforms. Protect destination credentials as secrets, and monitor telemetry export failures.
 
-The AI Gateway tier portal can show built-in dashboards from Kusto queries against your Application Insights resource. The data stays in your subscription and uses your Azure Monitor permissions. Use dashboards to review request volume, success rate, throttles, latency, model usage, token trends, and policy outcomes.
+When you send the token usage metric to Application Insights, the portal provides a built-in token consumption dashboard. You query the token metric with PromQL, whether it lands in Application Insights or another OTLP metric destination. For example, this PromQL query sums token usage by model:
 
-For example, after you configure an Application Insights destination, this Kusto query summarizes request volume and average duration by model over the last day:
-
-```kusto
-requests
-| where timestamp > ago(1d)
-| summarize count(), avg(duration) by tostring(customDimensions["gen_ai.request.model"])
+```promql
+sum by (gen_ai_request_model) (gen_ai_client_token_usage)
 ```
 
 Use model and token usage for consumption estimates, then reconcile with provider billing or Azure Cost Management exports for financial reporting.
 
-For troubleshooting, use W3C trace context. If an application sends `traceparent` and `tracestate` headers, the gateway keeps the distributed trace relationship when it exports telemetry. Also send an `x-correlation-id` header for application-level investigations. Don't put personal data, secrets, prompts, or regulated identifiers in correlation headers.
+Send an `x-correlation-id` header for application-level investigations. Don't put personal data, secrets, prompts, or regulated identifiers in correlation headers.
 
-Start with alerts you can act on, such as high 5xx rate, high P95 or P99 latency, token spikes, policy-deny spikes, backend authentication failures, throttling spikes, and telemetry export failures. Route every alert to an owner who can investigate the gateway, backend, policy, or destination configuration.
+Start with alerts you can act on, such as token usage spikes, backend authentication failures, and telemetry export failures. Route every alert to an owner who can investigate the gateway, backend, policy, or destination configuration.
 
 ## Related content
 
