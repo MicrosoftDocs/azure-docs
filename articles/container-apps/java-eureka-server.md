@@ -278,10 +278,10 @@ az containerapp update \
 
 ---
 
-## View and manage applications through a dashboard
+## Monitor and operate applications through a dashboard
 
 > [!IMPORTANT]
-> To access the dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can explicitly assign the `Owner` or `Contributor` role on the resource. You can also follow the steps to create a custom role definition and assign it to your account. This permission is **not read-only**. Anyone with dashboard access can both view and operate the apps registered to this component.
+> To access the dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can explicitly assign the `Owner` or `Contributor` role on the resource. You can also follow the steps to create a custom role definition and assign it to your account. This permission is **not read-only**. Anyone with dashboard access can both monitor and operate the apps registered to this component.
 
 > [!NOTE]
 > The dashboard isn't available in Azure operated by 21Vianet.
@@ -292,7 +292,7 @@ az containerapp update \
    az role definition create --role-definition '{
        "Name": "<YOUR_ROLE_NAME>",
        "IsCustom": true,
-       "Description": "Can access and operate applications through managed Java Component dashboards in managed environments",
+       "Description": "Can monitor and operate applications through managed Java Component dashboards in managed environments",
        "Actions": [
            "Microsoft.App/managedEnvironments/write"
        ],
