@@ -52,7 +52,7 @@ If timeouts continue across retries and client restarts rather than clearing on 
 To confirm and get help:
 
 - Open the **Resource health** page for your namespace in the Azure portal to check the health that the service reports. For more information, see [Resource health](#resource-health).
-- In Azure Monitor, watch the **Server Errors** metric. A sustained rise in server errors points to the service side rather than your client. For the metric definitions, see [Monitoring Azure Service Bus data reference](monitor-service-bus-reference.md).
+- In the Azure portal, watch the **Server Errors** metric. A sustained rise in server errors points to the service side rather than your client. For the metric definitions, see [Monitoring Azure Service Bus data reference](monitor-service-bus-reference.md).
 - If you also see a rise in the **Throttled Requests** metric, the namespace is reaching its throughput or resource limits. That's a capacity condition rather than a service fault, so address it by reducing load or scaling up, such as by adding messaging units on the Premium tier. For more information, see [Throttling in Azure Service Bus](service-bus-throttling.md).
 - Confirm the client isn't the cause by working through [Connectivity, certificate, or timeout issues](#connectivity-certificate-or-timeout-issues).
 - If Resource health reports a problem, the platform detects it and works to mitigate it. The SDK automatically reconnects through brief interruptions, but a longer service-side event can exceed the retry limits, so have your application retry or resume processing once the service recovers. Monitor Resource health until it does.
