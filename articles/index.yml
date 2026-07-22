@@ -1476,7 +1476,7 @@ additionalContent:
         # Card
         - title: Microsoft Marketplace customer documentation
           summary: Align third-party cloud and AI investments to your Microsoft contract to get the most value while increasing security and governance.
-          url: https://learn.microsoft.com/marketplace/
+          url: /marketplace/
         # Card
         - title: Azure Native ISV Services
           summary: Integrated partner solutions that you can use in Azure to enhance your cloud infrastructure.
