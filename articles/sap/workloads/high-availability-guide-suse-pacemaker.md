@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-azurepowershell, linux-related-content
-ms.date: 03/19/2026
+ms.date: 07/22/2026
 ms.author: radeltch
 # Customer intent: "As a system administrator, I want to set up Pacemaker with fencing on SUSE Linux Enterprise Server in Azure, so that I can ensure high availability and reliability for my applications running in the cloud."
 ---
@@ -917,6 +917,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
         # enabled
         # disabled
         # disabled
+        ```
 
 18. **[1]** Restart cluster
 
