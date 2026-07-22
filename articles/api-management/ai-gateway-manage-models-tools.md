@@ -172,7 +172,7 @@ To create an MCP server:
 
 There's no separate connectivity test step. The gateway sets up and checks each backend when you create the server.
 
-:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-configure-backend.png" alt-text="The Add MCP server wizard configuring an MCP backend with a unique name, endpoint URL, and authentication options: None, API Key, OAuth 2.0, and Managed identity." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-configure-backend.png":::
+:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-configure-mcp.png" alt-text="The Add MCP server wizard configuring an MCP backend with a unique name, endpoint URL, and authentication options: None, API Key, OAuth 2.0, and Managed identity." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-configure-mcp.png":::
 
 The gateway creates one MCP endpoint that federates all selected backends. Clients call the governed endpoint and authenticate with a runtime access key.
 
