@@ -18,7 +18,7 @@ ms.custom:
 
 Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including Server Message Block (SMB), Network File System (NFS), and File Transfer Protocol over SSL/TLS (FTPS). You can have as many caches as you need across the world.
 
-We strongly recommend that you read [Plan to deploy Azure Files](../files/storage-files-planning.md) and [Plan for an Azure File Sync deployment](file-sync-planning.md) before you complete the steps in this article.
+We recommend that you read [Plan to deploy Azure Files](../files/storage-files-planning.md) and [Plan for an Azure File Sync deployment](file-sync-planning.md) before you complete the steps in this article.
 
 ## Prerequisites
 
@@ -161,7 +161,7 @@ For managed identity deployments, ensure the Azure File Sync managed identity or
   - SMB security settings must allow the SMB 3.1.1 protocol version, NTLM v2 authentication, and AES-128-GCM encryption. To check the SMB security settings on the storage account, see [SMB security settings](../files/files-smb-protocol.md#smb-security-settings).
   - **Allow storage account key access** must be set to **Enabled**. To check this setting, go to your storage account and select **Configuration** in the **Settings** section.
 
--The administrator must also have sufficient permissions on the storage account that contains the Azure file share. Storage account read-only access is insufficient. Cloud endpoint create and update operations require:
+- The administrator must also have sufficient permissions on the storage account that contains the Azure file share. Storage account read-only access is insufficient. Cloud endpoint create and update operations require:
 - Microsoft.Storage/storageAccounts/listKeys/action
 - Microsoft.Storage/storageAccounts/ListAccountSas/action
 
@@ -292,7 +292,7 @@ Follow the instructions for the Azure portal or PowerShell.
 
 ## <a name = "deploy-the-storage-sync-service"></a>Deploy a storage sync service
 
-The deployment of Azure File Sync starts with placing a *storage sync service* resource in a resource group of your selected subscription. You'll create a trust relationship between your servers and this resource.
+The deployment of Azure File Sync starts with placing a *storage sync service* resource in a resource group of your selected subscription. A trust relationship is created between your servers and this resource.
 
 A server can be registered to only one storage sync service. As a result, we recommend deploying as many storage sync services as you need to separate groups of servers. Keep in mind that servers from different storage sync services can't sync with each other.
 
@@ -533,7 +533,7 @@ The administrator who creates or updates the cloud endpoint must have sufficient
 - Microsoft.Storage/storageAccounts/listKeys/action
 - Microsoft.Storage/storageAccounts/ListAccountSas/action
 
-Assign a role on the storage account that includes these permissions, such as Reader and Data Access or Storage Account Contributor. Configure this role under Access Control (IAM) on the Azure portal page for the storage account. Configure this role under **Access Control (IAM)** on the Azure portal page for the storage account.
+Assign a role on the storage account that includes these permissions, such as Reader and Data Access or Storage Account Contributor. Configure this role under **Access Control (IAM)** on the Azure portal page for the storage account.
 
 When assigning the Azure File Sync Administrator role, follow these steps to ensure least privilege.
  
