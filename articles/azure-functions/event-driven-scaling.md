@@ -1,7 +1,7 @@
 ---
 title: Event-driven Scaling in Azure Functions
 description: Explains the scaling behaviors of Consumption plan and Premium plan function apps.
-ms.date: 12/22/2025
+ms.date: 07/22/2026
 ms.topic: concept-article
 ms.service: azure-functions
 ms.custom:
@@ -91,6 +91,45 @@ $resource | Set-AzResource -Force
 ```
 
 ---
+
+## Scale-out rate and throttling responses
+
+In the Flex Consumption plan, Azure Functions scales your app out automatically as event demand increases. Two *separate* platform limits shape that scale-out, and it helps to think of them independently:
+
+* The **scale-out rate** governs *how fast* new instances are added.
+* The **maximum instance count** governs *how many* instances your app can reach.
+
+You don't configure the scale-out rate—the platform manages it for you. You do configure the [maximum instance count](#limit-scale-out). Understanding both helps you design workloads that scale smoothly and predictably.
+
+### Scale-out rate (the scale curve)
+
+Rather than adding every requested instance at once, the platform adds new instances in short, repeated bursts and decides how many an app may add during each brief interval. The size of that per-interval allowance follows a *scale curve* that depends on how many instances the app is already running:
+
+* When an app is running **only a few instances**, the allowance is at its largest, so a small app scales up very quickly and can add many instances per minute.
+* As an app grows to run **more and more instances**, the platform grants each additional batch more gradually. This deceleration keeps very large scale-outs stable and keeps a single app from destabilizing the region it shares with other apps.
+
+The scale curve applies to on-demand instances only. The exact shape and rate are managed by the platform and can change over time, so don't design against specific per-interval numbers—design for the *pattern*: fast at first, then progressively more measured at very high instance counts.
+
+[Always ready instances](flex-consumption-plan.md#always-ready-instances) aren't subject to this on-demand scale-out rate. If you need capacity ahead of a predictable burst, configure always ready instances so that capacity is already in place before the load arrives.
+
+### Maximum instance count (the ceiling)
+
+Independently of the rate, your app never scales beyond its [maximum instance count](#limit-scale-out). When an app reaches that ceiling, the platform stops adding on-demand instances no matter how much demand remains, until running instances free up. Always ready instances count toward this ceiling.
+
+You configure the maximum instance count on the app, but the platform applies it to each independently-scaling function group rather than to the app's combined instances. A *function group* is a set of functions that scale together on the same instances, as described in [per-function scaling](#per-function-scaling). Many apps scale as a single group, so the ceiling behaves like one per-app limit. An app that scales some functions on their own instances has more than one function group, and the maximum instance count applies to each group.
+
+A high maximum instance count doesn't guarantee your app reaches it: the [regional subscription memory quota](flex-consumption-plan.md#regional-subscription-memory-quotas) can cap total scale-out for all apps in a region below the sum of their configured maximums. If your app needs to scale to a large instance count, confirm the subscription quota is high enough and [request an increase](flex-consumption-plan.md#regional-subscription-memory-quotas) if needed.
+
+### Throttling responses
+
+At any moment, the platform grants the smallest allowance across all of these limits—the scale curve, the maximum instance count, and the regional memory quota. When one of them is temporarily holding scale-out back, individual scale-out requests are throttled briefly. A throttled scale-out is a transient, expected part of high-rate scaling: the platform keeps retrying automatically and your app continues to scale toward demand. You don't need to take any action for an occasional throttle.
+
+### Design for smooth scaling at high rates
+
+* Where you control the load (for example, in load tests), ramp up in stages rather than as a single instantaneous spike, so the scale curve can keep pace with demand.
+* Use [always ready instances](flex-consumption-plan.md#always-ready-instances) to pre-provision capacity for known bursts and to reduce cold starts, since they bypass the on-demand scale-out rate.
+* Right-size [concurrency](functions-concurrency.md#concurrency-in-azure-functions) so each instance does more work, which reduces the number of instances you need for a given load.
+* Set a [maximum instance count](#limit-scale-out) high enough for your peak, and confirm your [subscription memory quota](flex-consumption-plan.md#regional-subscription-memory-quotas) can support that target.
 
 ## Scale-in behaviors
 
