@@ -110,7 +110,7 @@ The **Azure Files** section allows you to choose whether to require encryption i
 
 ### Networking
 
-The networking section enables you to configure networking options. These settings are optional for creating the storage account and you can configure them later if needed. For more information about these options, see [Azure Files networking considerations](storage-files-networking-overview.md).
+The networking section enables you to configure networking options. These settings are optional for creating the storage account, and you can configure them later if needed. For more information about these options, see [Azure Files networking considerations](storage-files-networking-overview.md).
 
 ### Data protection
 
