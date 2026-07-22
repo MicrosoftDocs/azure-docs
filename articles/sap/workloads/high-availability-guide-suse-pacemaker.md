@@ -969,6 +969,8 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
      op monitor interval="600" timeout="120"
    ```
 
+    ---
+
    ```bash
    sudo crm configure property stonith-timeout=210
    sudo crm configure property stonith-enabled=true
