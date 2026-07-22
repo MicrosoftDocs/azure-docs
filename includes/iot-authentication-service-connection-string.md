@@ -1,6 +1,6 @@
 ---
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot
 ms.topic: include
 ms.date: 03/31/2025
