@@ -7,7 +7,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.date: 06/18/2024
+ms.date: 07/22/2026
 ms.author: ampatel
 ms.custom:
   - linux-related-content
@@ -451,6 +451,24 @@ Example output:
 
 File system /hana/shared/SID is necessary for both HANA operation and also for Pacemaker monitoring actions that determine HANA's state. Implement resource agents to monitor and act in case of failures. The section contains two options, one for `SAPHanaSR` and another for `SAPHanaSR-angi`.
 
+#### [SAPHanaSR-angi](#tab/saphanasr-angi)
+
+When using SAPHanaSR-angi package and resource agent, it adds a new agent SAPHanaFilesystem to monitor read/write access to /hana/shared/SID. Filesystem /hana/shared is already mounted with entries in /etc/fstab on each host. SAPHanaFilesystem and Pacemaker doesn't mount the filesystem for HANA and doesn't need any additional mount or subdirectory pre-created.
+
+1. **[1]** Configure SAPHanaFilesystem agent
+
+```bash
+# Replace <placeholders> with your instance number and HANA system ID. 
+sudo crm configure primitive rsc_SAPHanaFil_<HANA SID>_HDB<instance number> ocf:suse:SAPHanaFilesystem \
+  op start interval="0" timeout="10" \
+  op stop interval="0" timeout="20" \
+  op monitor interval="120" timeout="120" \
+  params SID="<HANA SID>" InstanceNumber="<instance number>" ON_FAIL_ACTION="fence"
+
+sudo crm configure clone cln_SAPHanaFil_<HANA SID>_HDB<instance number> rsc_SAPHanaFil_<HANA SID>_HDB<instance number> \
+  meta clone-node-max="1" interleave="true"
+```
+
 #### [SAPHanaSR](#tab/saphanasr)
 
 Create a dummy file system cluster resource. It monitors and reports failures if there's a problem accessing the NFS-mounted file system /hana/shared. That allows the cluster to trigger failover if there's a problem accessing /hana/shared. For more information, see [Handling failed NFS share in SUSE HA cluster for HANA system replication](https://www.suse.com/support/kb/doc/?id=000019904).
@@ -517,24 +535,6 @@ Create a dummy file system cluster resource. It monitors and reports failures if
    The `OCF_CHECK_LEVEL=20` attribute is added to the monitor operation so that monitor operations perform a read/write test on the file system. Without this attribute, the monitor operation only verifies that the file system is mounted. This can be a problem because when connectivity is lost, the file system might remain mounted, despite being inaccessible.
 
    The `on-fail=fence` attribute is also added to the monitor operation. With this option, if the monitor operation fails on a node, that node is immediately fenced.
-
-#### [SAPHanaSR-angi](#tab/saphanasr-angi)
-
-When using SAPHanaSR-angi package and resource agent, it adds a new agent SAPHanaFilesystem to monitor read/write access to /hana/shared/SID. Filesystem /hana/shared is already mounted with entries in /etc/fstab on each host. SAPHanaFilesystem and Pacemaker doesn't mount the filesystem for HANA and doesn't need any additional mount or subdirectory pre-created.
-
-1. **[1]** Configure SAPHanaFilesystem agent
-
-```bash
-# Replace <placeholders> with your instance number and HANA system ID. 
-sudo crm configure primitive rsc_SAPHanaFil_<HANA SID>_HDB<instance number> ocf:suse:SAPHanaFilesystem \
-  op start interval="0" timeout="10" \
-  op stop interval="0" timeout="20" \
-  op monitor interval="120" timeout="120" \
-  params SID="<HANA SID>" InstanceNumber="<instance number>" ON_FAIL_ACTION="fence"
-
-sudo crm configure clone cln_SAPHanaFil_<HANA SID>_HDB<instance number> rsc_SAPHanaFil_<HANA SID>_HDB<instance number> \
-  meta clone-node-max="1" interleave="true"
-```
 
 ---
 
