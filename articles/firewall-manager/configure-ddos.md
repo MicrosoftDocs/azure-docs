@@ -24,7 +24,7 @@ To see how this works, you create a firewall policy and then a virtual network s
 
 Use Firewall Manager to create a firewall policy.
 
-1. From the [Azure portal](https://portal.azure.com), open **Network security** -> **Firewall Manager** -> **Azure Firewall Policies**.
+1. From the [Azure portal](https://portal.azure.com), open **Network security** > **Firewall Manager** > **Azure Firewall Policies**.
 1. Select **Create**.
 1. For **Resource group**, select **Create new** and type **DDoS-Test-rg**.
 1. Under **Policy details**, **Name**, type **fw-pol-01**.
