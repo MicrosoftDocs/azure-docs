@@ -171,7 +171,7 @@ Invoke-StorageSyncCloudTiering -Path "file-or-directory-to-be-tiered"
 The easiest way to recall a file to disk is to open the file. The Azure File Sync file system filter (StorageSync.sys) seamlessly downloads the file from your Azure file share. For file types that can be partially read or streamed, such as multimedia or .zip files, simply opening a file doesn't ensure the entire file is downloaded.
 
 > [!NOTE]  
-> If a shortcut file is brought down to the server as a tiered file, there might be an issue when accessing the file over SMB. To mitigate this problem, a task runs every three days to recall any shortcut files. However, if you want shortcut files that are tiered to be recalled more frequently, create a scheduled task that runs this command at the desired frequency:
+> If you bring down a shortcut file to the server as a tiered file, you might encounter an issue when accessing the file over SMB. To mitigate this problem, a task runs every three days to recall any shortcut files. However, if you want shortcut files that are tiered to be recalled more frequently, create a scheduled task that runs this command at the desired frequency:
 > ```powershell
 > Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll" 
 > Invoke-StorageSyncFileRecall -Path "D:\path-to-your-server-endpoint" -Pattern *.lnk
