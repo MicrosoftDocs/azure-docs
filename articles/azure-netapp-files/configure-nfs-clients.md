@@ -265,20 +265,20 @@ The following example queries the AD LDAP server from Ubuntu LDAP client for an 
 
 ## NFSv4.1 with LDAP-enabled volumes
 
-When Azure NetApp Files volumes are configured with LDAP, the Linux client must be able to resolve LDAP users and groups correctly. Incorrect SSSD configuration can result in:
+When you configure Azure NetApp Files volumes with LDAP, the Linux client must resolve LDAP users and groups correctly. Incorrect SSSD configuration can result in:
 
-* Files displaying ownership as nobody
+* Files displaying ownership as `nobody`
 * UID/GID lookup failures
-* Access control issues when assigning permissions to individual users
+* Access control problems when assigning permissions to individual users
   
 Example: Unable to retrieve UNIX username for UID Unable to retrieve UID for UNIX user Unable to retrieve UNIX group name for GID
 
-If these symptoms occur:
-* Verify that the Linux client can successfully resolve LDAP users and groups and that the SSSD configuration is consistent with your LDAP deployment requirements.
-* Verify that the Linux client LDAP/SSSD configuration has the following entry:   
-  use_fully_qualified_names = False
-* Review your LDAP and SSSD configuration to ensure user and group resolution is functioning correctly.
+If you see these symptoms:
 
+* Verify that the Linux client can resolve LDAP users and groups and that the SSSD configuration matches your LDAP deployment requirements.
+* Verify that the Linux client LDAP/SSSD configuration includes the following entry:   
+  `use_fully_qualified_names = False`
+* Review your LDAP and SSSD configuration to ensure user and group resolution works correctly.
 
 ## Configure two VMs with the same hostname to access NFSv4.1 volumes 
 
