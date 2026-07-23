@@ -1,11 +1,13 @@
 ---
 title: Configure private networking for AI Gateway tier (preview)
+titleSuffix: Azure API Management
 description: Learn how to configure inbound Private Link and outbound virtual network integration for the AI Gateway tier (preview) from Azure API Management.
 ms.service: azure-api-management
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 07/22/2026
+ms.date: 07/23/2026
+ms.custom: references_regions
 ---
 
 # Configure private networking for AI Gateway tier (preview)
@@ -17,7 +19,7 @@ Use private networking when gateway traffic shouldn't use the public internet. P
 - **Inbound Private Link and private endpoint**: Lets clients in your virtual network, peered networks, or connected on-premises networks reach the gateway by using a private IP address.
 - **Outbound virtual network integration**: Lets the gateway call private backends, model endpoints, APIs, and MCP servers that are reachable only from your virtual network.
 
-:::image type="content" source="media/ai-gateway-govern-secure-operate/ai-gateway-networking.png" alt-text="The Networking page showing inbound settings (private endpoints and public network access) and outbound settings (public or private routing) for the gateway." lightbox="media/ai-gateway-govern-secure-operate/ai-gateway-networking.png":::
+:::image type="content" source="media/ai-gateway-govern-secure-operate/ai-gateway-networking.png" alt-text="Screenshot of the Networking page showing inbound settings (private endpoints and public network access) and outbound settings (public or private routing) for the gateway." lightbox="media/ai-gateway-govern-secure-operate/ai-gateway-networking.png":::
 
 Inbound and outbound networking solve different problems. Creating a private endpoint for clients to call the gateway doesn't automatically let the gateway reach private backends. Configure outbound virtual network integration separately when the gateway must reach resources in your network.
 

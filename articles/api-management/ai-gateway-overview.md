@@ -1,11 +1,13 @@
 ---
 title: AI Gateway tier (preview) overview
+titleSuffix: Azure API Management
 description: Learn how AI Gateway tier (preview) helps you publish, secure, govern, and observe access to AI models and tools.
 ms.service: azure-api-management
 author: PatAltimore
 ms.author: patricka
 ms.topic: overview
-ms.date: 07/22/2026
+ms.date: 07/23/2026
+ms.custom: references_regions
 ---
 
 # AI Gateway tier (preview) overview

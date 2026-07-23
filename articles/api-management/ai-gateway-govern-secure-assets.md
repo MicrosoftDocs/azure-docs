@@ -1,11 +1,13 @@
 ---
 title: Govern, secure, and operate AI Gateway tier (preview)
+titleSuffix: Azure API Management
 description: Learn how to govern, secure, and monitor the AI Gateway tier (preview) from Azure API Management.
 ms.service: azure-api-management
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 07/22/2026
+ms.date: 07/23/2026
+ms.custom: references_regions
 ---
 
 # Govern and secure assets in AI Gateway tier (preview)
@@ -54,7 +56,7 @@ To configure a policy:
 1. On **Assets**, select the models or tools the policy applies to. For a gateway-wide baseline, select all applicable assets.
 1. On **Configure**, fill in the validated fields, and then select **Create**.
 
-:::image type="content" source="media/ai-gateway-govern-secure-operate/ai-gateway-add-policy.png" alt-text="The Add policy wizard Type step, listing guardrails grouped as Security (content safety, IP filter) and Cost and rate limits (token rate limit, request rate limit), with badges showing whether each applies to models, MCP servers, or both." lightbox="media/ai-gateway-govern-secure-operate/ai-gateway-add-policy.png":::
+:::image type="content" source="media/ai-gateway-govern-secure-operate/ai-gateway-add-policy.png" alt-text="Screenshot of the Add policy wizard Type step, listing guardrails grouped as Security (content safety, IP filter) and Cost and rate limits (token rate limit, request rate limit), with badges showing whether each applies to models, MCP servers, or both." lightbox="media/ai-gateway-govern-secure-operate/ai-gateway-add-policy.png":::
 
 Start with these policy types:
 
@@ -98,7 +100,7 @@ Client applications include the runtime access key in the `api-key` header. Don'
 
 Configure managed identity so AI Gateway tier can authenticate to supported model and MCP server backends without storing API keys. Using managed identity to access models and MCP servers is available in public preview. Prefer managed identity where supported because it reduces backend key management. It removes key rotation from gateway configuration and lets you manage access with Azure RBAC. AI Gateway tier supports system-assigned and user-assigned managed identities. Manage them on the **Managed identities** page in the AI Gateway tier portal.
 
-:::image type="content" source="media/ai-gateway-govern-secure-operate/ai-gateway-managed-identities.png" alt-text="The Managed identities page in the AI Gateway tier portal, showing a system-assigned identity toggle and a section for attaching user-assigned identities." lightbox="media/ai-gateway-govern-secure-operate/ai-gateway-managed-identities.png":::
+:::image type="content" source="media/ai-gateway-govern-secure-operate/ai-gateway-managed-identities.png" alt-text="Screenshot of the Managed identities page in the AI Gateway tier portal, showing a system-assigned identity toggle and a section for attaching user-assigned identities." lightbox="media/ai-gateway-govern-secure-operate/ai-gateway-managed-identities.png":::
 
 Choose system-assigned or user-assigned identities based on your needs. A system-assigned identity is tied to the gateway's lifecycle and is simple when a single gateway needs backend access. User-assigned identities give you tighter control: you can share one identity across gateways, or attach separate identities for different backends instead of using a single identity for every backend. Use an API key when a provider doesn't support managed identity.
 

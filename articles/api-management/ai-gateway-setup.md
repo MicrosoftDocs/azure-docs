@@ -1,11 +1,13 @@
 ---
 title: Get started with the AI Gateway tier (preview) setup wizard
+titleSuffix: Azure API Management
 description: Use the AI Gateway tier (preview) setup wizard to import Foundry models, discover MCP servers, and configure monitoring for your gateway.
 ms.service: azure-api-management
 author: PatAltimore
 ms.author: patricka
 ms.topic: how-to
-ms.date: 06/29/2026
+ms.date: 07/23/2026
+ms.custom: references_regions
 ---
 
 # Get started with the AI Gateway tier (preview)
