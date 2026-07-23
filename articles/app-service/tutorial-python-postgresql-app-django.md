@@ -137,7 +137,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## Create App Service and database
 
-In this step, create the Azure resources. This tutorial creates a set of secure-by-default resources that include App Service and Azure Database for PostgreSQL. For the creation process, you specify:
+In this step, create the Azure resources. This tutorial creates a set of secure-by-default resources that include App Service and Azure Database for PostgreSQL. For the creation process, specify:
 
 - The **Name** for the web app. It's used as part of the DNS name for your app.
 - The **Region** to run the app physically in the world. It's also part of the DNS name for your app.
