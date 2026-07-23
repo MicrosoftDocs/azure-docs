@@ -23,7 +23,15 @@ Understanding the terminology related to performance and capacity in Azure NetAp
 - **Capacity pool**: A capacity pool is how capacity is billed in Azure NetApp Files. Capacity pools contain one or more volumes. 
 - **Volume quota**: The amount of capacity provisioned to an Azure NetApp Files volume. For Auto QoS volumes, throughput is proportional to volume size. For Manual QoS, you set the throughput independently from the volume capacity. For more information, see [QoS types for capacity pools](azure-netapp-files-understand-storage-hierarchy.md#qos_types).
 - **Throughput**: The amount of data transmitted across the wire (read/write/other) between Azure NetApp Files and the client. Throughput in Azure NetApp Files is measured in bytes per second. 
-- **Latency**: Latency is the amount of time for a storage operation to complete within storage from the time it arrives to the time it's processed and is ready to be sent back to the client. Latency in Azure NetApp Files is measured in milliseconds (ms). 
+- **Latency**: Latency is the amount of time for a storage operation to complete within storage from the time it arrives to the time it's processed and is ready to be sent back to the client. Latency in Azure NetApp Files is measured in milliseconds (ms).
+
+## Metric aggregation interval
+
+Unless otherwise specified, Azure NetApp Files metrics represent values aggregated over a five-minute collection interval. As a result, reported metric values reflect the average activity during that interval rather than instantaneous values.
+
+Because metrics are aggregated over five minutes, short-duration spikes or transient workload behavior might not be fully reflected in the displayed metric values.
+
+Metrics with different aggregation behavior explicitly describe their collection or reporting methodology in the metric definition.
 
 ## About storage performance operation metrics 
 
