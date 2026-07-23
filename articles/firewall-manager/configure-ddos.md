@@ -37,7 +37,7 @@ Use Firewall Manager to create a firewall policy.
 
 Use Firewall Manager to create a secured virtual network.
 
-1. From the [Azure portal](https://portal.azure.com), open **Network security** -> **Secure your resources** -> **Virtual Networks**.
+1. From the [Azure portal](https://portal.azure.com), open **Network security** > **Secure your resources** > **Virtual Networks**.
 1. Select **Create new Secured Virtual Network**.
 1. For **Resource group**, select **DDoS-Test-rg**.
 1. For **Region**, select **West US 2**.
