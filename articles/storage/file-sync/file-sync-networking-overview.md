@@ -11,14 +11,9 @@ ms.author: kendownie
 
 # Networking considerations for Azure File Sync
 
-You can connect to an Azure file share in two ways:
+This article covers networking considerations for Azure File Sync, which caches Azure file shares on on-premises Windows file servers. For networking considerations for a direct Azure Files deployment, see [Azure Files networking considerations](../files/storage-files-networking-overview.md?toc=/azure/storage/filesync/toc.json).
 
-1. Access the share directly through the SMB or FileREST protocols. This access pattern is primarily employed to eliminate as many on-premises servers as possible.
-2. Create a cache of the Azure file share on an on-premises server (or Azure virtual machine) with Azure File Sync, and access the file share's data from the on-premises server with your protocol of choice (SMB, NFS, FTPS, etc.). This access pattern is useful because it combines the best of both on-premises performance and cloud scale with value-added services such as Azure Backup.
-
-This article focuses on the second scenario: how to configure networking when your use case calls for using Azure File Sync to cache files on-premises rather than directly mounting the Azure file share over SMB. For more information about networking considerations for an Azure Files deployment, see [Azure Files networking considerations](../files/storage-files-networking-overview.md?toc=/azure/storage/filesync/toc.json).
-
-Networking configuration for Azure File Sync spans two different Azure objects: a Storage Sync Service and an Azure storage account. A storage account is a management construct that represents a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blobs or queues. A Storage Sync Service is a management construct that represents registered servers, which are Windows file servers with an established trust relationship with Azure File Sync, and sync groups, which define the topology of the sync relationship.
+Networking for Azure File Sync involves two Azure objects: a **Storage Sync Service** (which manages registered servers and sync groups) and an **Azure storage account** (which hosts the file shares). In most cases, no special networking configuration is needed beyond a basic internet connection, but you can configure proxy servers, firewalls, VPN or ExpressRoute tunneling, private endpoints, and SMB over QUIC.
 
 > [!IMPORTANT]
 > Azure File Sync doesn't support internet routing. The default network routing option, Microsoft routing, is supported by Azure File Sync.
@@ -30,7 +25,7 @@ To set up and use Azure Files and Azure File Sync with an on-premises Windows fi
 - The FileREST protocol, which is an HTTPS-based protocol used for accessing your Azure file share. Because the FileREST protocol uses standard HTTPS for data transfer, port 443 must be accessible outbound. Azure File Sync doesn't use the SMB protocol to transfer data between your on-premises Windows Servers and your Azure file share.
 - The Azure File Sync sync protocol, which is an HTTPS-based protocol used for exchanging synchronization knowledge, namely the version information about the files and folders between endpoints in your environment. This protocol is also used to exchange metadata about the files and folders, such as timestamps and access control lists (ACLs).
 
-Because Azure Files offers direct SMB protocol access on Azure file shares, customers often wonder if they need to configure special networking to mount the Azure file shares using SMB for the Azure File Sync agent to access. This isn't required and is actually discouraged except in administrator scenarios, due to the lack of quick change detection on changes made directly to the Azure file share. Changes might not be discovered for more than 24 hours depending on the size and number of items in the Azure file share. If you want to use the Azure file share directly instead of using Azure File Sync to cache on-premises, see [Azure Files networking overview](../files/storage-files-networking-overview.md?toc=/azure/storage/filesync/toc.json).
+Mounting the Azure file share directly over SMB for the Azure File Sync agent isn't required and is discouraged, because direct changes to the file share might not be detected for up to 24 hours. To use the file share directly without Azure File Sync, see [Azure Files networking overview](../files/storage-files-networking-overview.md?toc=/azure/storage/filesync/toc.json).
 
 Although Azure File Sync doesn't require any special networking configuration, some customers might want to configure advanced networking settings to enable the following scenarios:
 
@@ -40,7 +35,7 @@ Although Azure File Sync doesn't require any special networking configuration, s
 
 ### Configuring proxy servers
 
-Many organizations use a proxy server as an intermediary between resources inside their on-premises network and resources outside their network, such as in Azure. Proxy servers are useful for many applications such as network isolation and security, monitoring, and logging. Azure File Sync can interoperate fully with a proxy server, however you must manually configure the proxy endpoint settings for your environment with Azure File Sync. This must be done through PowerShell by using the Azure File Sync server cmdlet `Set-StorageSyncProxyConfiguration`.
+Azure File Sync can interoperate fully with a proxy server, but you must manually configure the proxy endpoint settings for your environment with Azure File Sync. This must be done through PowerShell by using the Azure File Sync server cmdlet `Set-StorageSyncProxyConfiguration`.
 
 For more information on how to configure Azure File Sync with a proxy server, see [Configuring Azure File Sync with a proxy server](file-sync-firewall-and-proxy.md).
 
@@ -77,8 +72,6 @@ To learn more about how to use the service tag API to retrieve the addresses of 
 ### Tunneling traffic over a virtual private network or ExpressRoute
 
 Some organizations require communication with Azure to go over a network tunnel, such as a VPN or ExpressRoute, for an additional layer of security or to ensure communication with Azure follows a deterministic route. 
-
-When you establish a network tunnel between your on-premises network and Azure, you're peering your on-premises network with one or more virtual networks in Azure. A [virtual network](../../virtual-network/virtual-networks-overview.md) is similar to a traditional on-premises network. Like an Azure storage account or an Azure VM, a virtual network is an Azure resource that you deploy in a resource group.
 
 Azure Files and Azure File Sync support the following mechanisms to tunnel traffic between your on-premises servers and Azure:
 
@@ -174,7 +167,7 @@ Section    : Answer
 IP4Address : 52.239.194.40
 ```
 
-This reflects the fact that the Azure Files and Azure File Sync can expose both their public endpoints and one or more private endpoints per resource. To ensure that the fully qualified domain names for your resources resolve to the private endpoints private IP addresses, you must change the configuration on your on-premises DNS servers. This can be accomplished in several ways:
+This reflects the fact that Azure Files and Azure File Sync can expose both their public endpoints and one or more private endpoints per resource. To ensure that the fully qualified domain names for your resources resolve to the private endpoint IP addresses, you must configure your on-premises DNS servers. This can be accomplished in several ways:
 
 - Modifying the hosts file on your clients to make the fully qualified domain names for your storage accounts and Storage Sync Services resolve to the desired private IP addresses. This is strongly discouraged for production environments, since you'll need to make these changes to every client that needs to access your private endpoints. Changes to your private endpoints/resources (deletions, modifications, etc.) won't be automatically handled.
 - Creating DNS zones on your on-premises servers for `privatelink.file.core.windows.net` and `privatelink.afs.azure.net` with A records for your Azure resources. This has the advantage that clients in your on-premises environment will be able to automatically resolve Azure resources without needing to configure each client. However, this solution is similarly brittle to modifying the hosts file because changes aren't reflected. Although this solution is brittle, it might be the best choice for some environments.
