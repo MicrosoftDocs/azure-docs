@@ -2,7 +2,7 @@
 title: Migrate Hyper-V VMs to Azure with the Migration and modernization tool
 description: Learn how to migrate on-premises Hyper-V VMs to Azure with the Migration and modernization tool.
 author: vijain
-ms.author: vijain
+ms.author: v-uhabiba
 ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
