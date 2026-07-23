@@ -653,6 +653,9 @@
     - name: Get started
       displayName: AI, agent, agentic, serverless agents runtime, timer, email, connector, MCP, Foundry
       href: scenario-serverless-agents-runtime.md
+    - name: Reference
+      displayName: AI, agent, agentic, serverless agents runtime, configuration, mcp.json, agents.config.yaml, tools, skills
+      href: functions-serverless-agents-runtime-reference.md
     - name: Compare agent options
       displayName: Foundry, Copilot Studio, Scout, prompt agents, hosted agents, compare
       href: compare-serverless-agents-runtime.md
@@ -705,6 +708,9 @@
       href: /java/api/overview/azure/functions/runtime
     - name: Python
       href: /python/api/azure-functions/azure.functions
+  - name: Serverless agents runtime
+    displayName: AI, agent, agentic, serverless agents runtime, configuration, mcp.json, agents.config.yaml, tools, skills
+    href: functions-serverless-agents-runtime-reference.md
   - name: App settings reference
     href: functions-app-settings.md
   - name: Triggers and bindings
