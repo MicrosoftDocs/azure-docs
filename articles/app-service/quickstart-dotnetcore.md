@@ -123,7 +123,7 @@ You can quickly deploy the ASP.NET Core sample app in this tutorial using Azure 
 ```bash
 mkdir dotnetcore-quickstart
 cd dotnetcore-quickstart
-azd init --template https://github.com/Azure-Samples/quickstart-deploy-aspnet-core-app-service.git
+azd init --template https://github.com/Azure-Samples/quickstart-deploy-aspnet-core-app-service.git .
 azd up
 ```
 

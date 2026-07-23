@@ -23,6 +23,9 @@ Traffic between your virtual network and the service travels the Microsoft backb
 > [!NOTE]
 > The feature Private Link Service Direct Connect, which allows you to connect to any privately routable destination IP address, is now in public preview. For more information and known limitations, see [Private Link Service Direct Connect](configure-private-link-service-direct-connect.md)
 
+> [!IMPORTANT]
+> Azure Private Link support over IPv6 is now in public preview in limited regions. For more information, see [Azure Private Link over IPv6 (Preview)](private-link-ipv6.md).
+
 :::image type="content" source="./media/private-link-overview/private-link-center.png" alt-text="Screenshot of Azure Private Link center in Azure portal." :::
 
 > [!NOTE]

@@ -265,7 +265,7 @@ Deployment generated the connectivity variables for you already as [app settings
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 9:** Verify the Key Vault integration.
+        **Step 8:** Verify the Key Vault integration.
         1. From the left menu, select **Settings** > **Environment variables** again.
         1. Next to **AZURE_MYSQL_PASSWORD**, select **Show value**. The value should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
     :::column-end:::

@@ -138,7 +138,7 @@ For example, to create a new broker listener with the `NodePort` service type, s
 To create a new broker listener with the `NodePort` service type, use the following Azure CLI command.
 
 ```azurecli
-az iot ops broker listener port add --service-type NodePort --nodeport <static port value>
+az iot ops broker listener port add --instance <AioInstanceName> --resource-group <ResourceGroupName> --listener <ListenerName> --port <ListenerServicePort> --service-type NodePort --nodeport <static port value>
 ```
 
 Optionally, for testing purposes only, you can use the `--add-insecure-listener` flag to create a listener without authentication and TLS. The `--add-insecure-listener` flag is only available on the instance deployment operation via the `az iot ops create` command. To add a port without authentication and TLS after deployment, you can use the `listener port add` operation as in the previous example, but omit the options for authentication or TLS.
