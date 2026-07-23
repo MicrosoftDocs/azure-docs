@@ -77,7 +77,7 @@ A model is a provider's model that you publish through the gateway. Applications
 
 ### MCP servers and tools
 
-An MCP server is one governed endpoint (`.../toolservers/<server-name>/mcp`) that agents call to reach tools. It federates one or more backends from four sources: a remote **MCP server** (by URL), an **OpenAPI spec**, a **built-in connector** (more than 1,000 SaaS apps, with no server to host), or a **Foundry Toolbox**. Each backend's operations become tools. You choose how the gateway authenticates to each backend: **None**, **API Key**, **OAuth 2.0**, or **Managed identity**.
+An MCP server is one governed endpoint (`.../toolservers/<server-name>/mcp`) that agents call to reach tools. It federates one or more backends from three sources: a remote **MCP server** (by URL), an **OpenAPI spec**, or a **built-in connector** (more than 1,000 SaaS apps, with no server to host). Each backend's operations become tools. You choose how the gateway authenticates to each backend: **None**, **API Key**, **OAuth 2.0**, or **Managed identity**.
 
 ### Policies
 

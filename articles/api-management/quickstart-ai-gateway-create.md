@@ -14,7 +14,7 @@ ms.date: 07/22/2026
 
 In this quickstart, you create an AI Gateway tier (preview) instance, add a chat model, call the gateway, create a runtime access key, and view telemetry.
 
-AI Gateway tier from Azure API Management is a dedicated tier for AI workloads. It supports managing traffic to models — from Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, OpenAI, Anthropic, or other providers — and tools created from existing MCP servers, OpenAPI definitions, connectors, or Microsoft Foundry toolboxes. AI Gateway tier provisions quickly, usually within a minute.
+AI Gateway tier from Azure API Management is a dedicated tier for AI workloads. It supports managing traffic to models — from Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, OpenAI, Anthropic, or other providers — and tools created from existing MCP servers, OpenAPI definitions, or connectors. AI Gateway tier provisions quickly, usually within a minute.
 
 **Time to complete:** about 20-30 minutes. **You create:** one gateway, one chat model, one runtime access key, and one successful chat completion request.
 

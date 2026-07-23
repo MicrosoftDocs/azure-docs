@@ -127,7 +127,7 @@ Validate timeouts and response handling before production, especially if policie
 
 ## Add MCP servers
 
-The AI Gateway tier enables platform teams to publish MCP servers behind one governed MCP endpoint. The configuration workflow is: create an MCP server, attach one or more backends, and expose selected backend capabilities as tools. A single MCP server can combine four kinds of backends: remote **MCP servers** (by URL), tools generated from an **OpenAPI spec**, **built-in connectors** for common SaaS apps (more than 1,000 prebuilt integrations, with no server to host), and a **Foundry Toolbox** of Microsoft Foundry tools.
+The AI Gateway tier enables platform teams to publish MCP servers behind one governed MCP endpoint. The configuration workflow is: create an MCP server, attach one or more backends, and expose selected backend capabilities as tools. A single MCP server can combine three kinds of backends: remote **MCP servers** (by URL), tools generated from an **OpenAPI spec**, and **built-in connectors** for common SaaS apps (more than 1,000 prebuilt integrations, with no server to host).
 
 Use MCP servers when agents need to call business systems, developer tools, knowledge stores, or internal APIs. Agents authenticate once to the gateway and don't need separate credentials for each backend. For each backend, you choose how the gateway authenticates to it: **None**, **API Key**, **OAuth 2.0**, or **Managed identity**.
 
@@ -140,16 +140,14 @@ A single MCP server federates one or more backends. Each backend contributes too
 | **MCP server** | You already host a remote MCP endpoint | MCP endpoint URL (SSE or streamable HTTP) | The remote server's tools, federated through the governed endpoint |
 | **OpenAPI spec** | You have a REST API that agents should call as tools | OpenAPI document (upload, URL, or inline paste) | MCP tools generated from the operations you select |
 | **Built-in connector** | You need a common SaaS app without hosting a server | Connector selection and connection setup | The connector's actions, exposed as MCP tools |
-| **Foundry Toolbox** | You want to reuse tools from a Microsoft Foundry toolbox | Foundry toolbox selection | The toolbox's tools, exposed through the governed endpoint |
 
-:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-mcp-sources.png" alt-text="The Add MCP server wizard Source step showing four backend types to choose from: MCP server, OpenAPI spec, Built-in connector, and Foundry Toolbox." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-mcp-sources.png":::
+:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-mcp-sources.png" alt-text="The Add MCP server wizard Source step showing three backend types to choose from: MCP server, OpenAPI spec, and Built-in connector." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-mcp-sources.png":::
 
 Each source contributes tools differently:
 
 - **MCP server** — federates the tools from a remote MCP endpoint you already host.
 - **OpenAPI spec** — turns the API operations you select into tools; the operation's summary or description becomes the tool description.
 - **Built-in connector** — uses a managed connection to a SaaS app such as Office 365, SharePoint, GitHub, or Salesforce. OAuth connectors prompt for consent when you set up the connection.
-- **Foundry Toolbox** — exposes the tools from a Microsoft Foundry toolbox through the gateway.
 
 > [!NOTE]
 > During public preview, supported transports, hosting options, and limits can vary by region. Check the preview registration details for your subscription before moving production traffic.
@@ -158,7 +156,7 @@ To create an MCP server:
 
 1. In the AI Gateway tier portal, select **MCP servers**.
 1. Select **Add MCP server**.
-1. On **Source**, pick a backend type to start: **MCP server**, **OpenAPI spec**, **Built-in connector**, or **Foundry Toolbox**. You can add more backends afterward.
+1. On **Source**, pick a backend type to start: **MCP server**, **OpenAPI spec**, or **Built-in connector**. You can add more backends afterward.
 1. Give the backend a unique name. The gateway prefixes that backend's tools with the name in the combined MCP server.
 1. Configure the backend and choose how the gateway authenticates to it: **None**, **API Key**, **OAuth 2.0**, or **Managed identity**. For **API Key**, enter the header name and value; values are encrypted at rest.
 1. To federate more services behind the same endpoint, add another backend and repeat.
@@ -169,6 +167,9 @@ There's no separate connectivity test step. The gateway sets up and checks each 
 :::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-configure-mcp.png" alt-text="The Add MCP server wizard configuring an MCP backend with a unique name, endpoint URL, and authentication options: None, API Key, OAuth 2.0, and Managed identity." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-configure-mcp.png":::
 
 The gateway creates one MCP endpoint that federates all selected backends. Clients call the governed endpoint and authenticate with a runtime access key.
+
+> [!NOTE]
+> **OAuth 2.0 backend authentication (preview limitation).** For a backend that uses **OAuth 2.0**, you complete an interactive sign-in to authorize the gateway to that backend. The gateway doesn't report a verified authorization status back to the portal, so after the sign-in window confirms completion, confirm the result in the portal when prompted. The status shown for the backend is self-reported—verify that the backend's tools appear on the MCP server, and reconnect to sign in again if they don't.
 
 Agents call the MCP server at:
 
