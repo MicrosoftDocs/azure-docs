@@ -285,7 +285,7 @@ def hello_cities(ctx: task.OrchestrationContext, _):
 
 # [PowerShell](#tab/powershell)
 
-This sample is shown for .NET, Java, and Python.
+This sample is shown for .NET, JavaScript, Java, and Python.
 
 # [Java](#tab/java)
 

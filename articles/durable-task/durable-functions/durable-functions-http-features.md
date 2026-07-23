@@ -254,6 +254,17 @@ As described in the [orchestrator code constraints](../common/durable-task-code-
 
 Starting with Durable Functions 2.0, orchestrations can natively consume HTTP APIs by using the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger).
 
+> [!NOTE]
+> Not all Consume HTTP APIs features are available in every language. The following table summarizes availability:
+>
+> | Feature | C# | JavaScript | Python | PowerShell | Java |
+> |---|---|---|---|---|---|
+> | Basic `callHttp` | ✅ | ✅ | ✅ | ❌ | ❌ |
+> | HTTP 202 auto-polling | ✅ | ❌ | ❌ | ❌ | ❌ |
+> | Managed identities | ✅ | ✅ | ✅ | ❌ | ❌ |
+>
+> For languages that don't support `callHttp`, use [activity functions](../common/programming-model-overview.md#activities) with a language-specific HTTP client library to make outbound HTTP calls.
+
 The following example code shows an orchestrator function making an outbound HTTP request:
 
 # [C# (InProc)](#tab/csharp-inproc)

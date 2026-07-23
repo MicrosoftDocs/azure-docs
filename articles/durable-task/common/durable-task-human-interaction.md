@@ -13,11 +13,11 @@ zone_pivot_groups: azure-durable-approach
 
 # Human interaction pattern
 
-The human interaction pattern describes workflows that pause and wait for input from a person before they continue. The pattern is useful for approval workflows, multifactor authentication, and any scenario where a person responds within a time limit.
+The human interaction pattern describes workflows that pause and wait for input from a person before they continue. This pattern is useful for approval workflows, multifactor authentication, and any scenario where a person responds within a time limit.
 
 At a high level, the pattern works as follows:
 
-1. The orchestrator calls an activity to notify a person (send an SMS code, email an approver, etc.).
+1. The orchestrator calls an activity to notify a person (send an SMS code, email an approver, and so on).
 1. The orchestrator starts a durable timer and simultaneously waits for an external event from the person.
 1. If the person responds before the timer fires, the orchestrator processes the response.
 1. If the timer fires first, the orchestrator handles the timeout (for example, by rejecting the request).
@@ -37,7 +37,7 @@ In this article:
 This sample shows how to build a [Durable Functions](what-is-durable-task.md) orchestration that includes human interaction. The example implements an SMS based phone verification system. It's common in phone number verification and multifactor authentication (MFA) flows.
 
 > [!NOTE]
-> Full code samples are available for C#, JavaScript, and Python. PowerShell and Java samples are not currently available.
+> Full code samples are available for C#, JavaScript, and Python. PowerShell and Java samples aren't currently available.
 
 [!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
 
@@ -141,19 +141,97 @@ Here's the code that implements the function:
 [!code-python[Main](~/samples-durable-functions-python/samples/human_interaction/E4_SmsPhoneVerification/\_\_init\_\_.py)]
 
 > [!NOTE]
-> It may not be obvious at first, but this orchestrator does not violate the [deterministic orchestration constraint](durable-task-code-constraints.md). It is deterministic because the `currentUtcDateTime` property is used to calculate the timer expiration time, and it returns the same value on every replay at this point in the orchestrator code. This behavior is important to ensure that the same `winner` results from every repeated call to `context.df.Task.any`.
+> It might not be obvious at first, but this orchestrator doesn't violate the [deterministic orchestration constraint](durable-task-code-constraints.md). It's deterministic because the `currentUtcDateTime` property calculates the timer expiration time and returns the same value on every replay at this point in the orchestrator code. This behavior ensures that every repeated call to `context.df.Task.any` results in the same `winner`.
 
 # [PowerShell](#tab/powershell)
 
-PowerShell sample coming soon.
+The orchestrator sends an SMS challenge code and waits for the user to respond. It allows up to three attempts within a 90-second timeout window.
+
+```powershell
+param($Context)
+
+$phoneNumber = $Context.Input
+
+# Step 1: Send the SMS challenge code
+$challengeCode = Invoke-DurableActivity -FunctionName 'E4_SendSmsChallenge' -Input $phoneNumber
+
+# Step 2: Wait for the user to respond with the code
+# Allow up to three attempts within a 90-second timeout window
+$authorized = $false
+$timeoutTask = Start-DurableTimer -Duration (New-TimeSpan -Seconds 90) -NoWait
+
+for ($retryCount = 0; $retryCount -lt 3; $retryCount++) {
+    $challengeResponseTask = Start-DurableExternalEventListener -EventName 'SmsChallengeResponse' -NoWait
+    $winner = Wait-DurableTask -Task @($challengeResponseTask, $timeoutTask) -Any
+
+    if ($winner -eq $timeoutTask) {
+        break
+    }
+
+    $response = Get-DurableTaskResult -Task $challengeResponseTask
+    if ($response -eq $challengeCode) {
+        $authorized = $true
+        break
+    }
+}
+
+# Cancel the timeout timer if the user was verified before it fired
+if ($authorized) {
+    Stop-DurableTimerTask -Task $timeoutTask
+}
+
+$authorized
+```
 
 # [Java](#tab/java)
 
-Java sample coming soon.
+```java
+@FunctionName("E4_SmsPhoneVerification")
+public boolean smsPhoneVerification(
+        @DurableOrchestrationTrigger(name = "ctx") TaskOrchestrationContext ctx) {
+
+    String phoneNumber = ctx.getInput(String.class);
+
+    // Step 1: Send the SMS challenge code
+    int challengeCode = ctx.callActivity(
+            "E4_SendSmsChallenge", phoneNumber, Integer.class).await();
+
+    // Step 2: Create a 90-second timeout timer
+    Duration timeout = Duration.ofSeconds(90);
+
+    // Step 3: Wait for the user to respond with the code
+    // Allow up to three attempts within the timeout window
+    boolean authorized = false;
+    Task<Void> timeoutTask = ctx.createTimer(timeout);
+
+    for (int retryCount = 0; retryCount < 3; retryCount++) {
+        Task<String> challengeResponseTask = ctx.waitForExternalEvent(
+                "SmsChallengeResponse", String.class);
+
+        Task<?> winner = ctx.anyOf(challengeResponseTask, timeoutTask).await();
+
+        if (winner == challengeResponseTask) {
+            String response = challengeResponseTask.await();
+            if (Integer.parseInt(response) == challengeCode) {
+                authorized = true;
+                break;
+            }
+        } else {
+            // Timeout expired
+            break;
+        }
+    }
+
+    return authorized;
+}
+```
+
+> [!NOTE]
+> This orchestrator is deterministic because `ctx.createTimer` and `ctx.waitForExternalEvent` produce the same results on every replay.
 
 ---
 
-Once started, this orchestrator function does the following:
+Once started, this orchestrator function performs the following steps:
 
 1. Gets a phone number to send the SMS notification to.
 1. Calls **E4_SendSmsChallenge** to send an SMS message to the user and returns the expected four-digit challenge code.
@@ -164,7 +242,7 @@ Once started, this orchestrator function does the following:
 The user receives an SMS message with a four-digit code. They have 90 seconds to send the same code to the orchestrator instance to complete verification. If they submit the wrong code, they get three more tries within the same 90-second window.
 
 > [!WARNING]
-> [Cancel timers](durable-task-timers.md) you no longer need. In the example above, the orchestration cancels the timer when it accepts a challenge response.
+> [Cancel timers](durable-task-timers.md) you no longer need. In the preceding example, the orchestration cancels the timer when it accepts a challenge response.
 
 ::: zone-end
 
@@ -446,7 +524,7 @@ The **E4_SendSmsChallenge** function uses the Twilio binding to send an SMS mess
 <details>
 <summary><b>V3 programming model</b></summary>
 
-The *function.json* file is defined like this:
+Define the *function.json* file as follows:
 
 :::code language="javascript" source="~/azure-functions-durable-js/samples/E4_SendSmsChallenge/function.json":::
 
@@ -469,7 +547,7 @@ Here's the code that generates the four-digit challenge code and sends the SMS m
 
 # [Python](#tab/python)
 
-The *function.json* file is defined like this:
+Define the *function.json* file as follows:
 
 [!code-json[Main](~/samples-durable-functions-python/samples/human_interaction/SendSMSChallenge/function.json)]
 
@@ -479,11 +557,37 @@ This code generates the four-digit challenge code and sends the SMS message:
 
 # [PowerShell](#tab/powershell)
 
-PowerShell sample coming soon.
+The activity generates a random four-digit challenge code. In a real application, this code also sends an SMS message to the specified phone number.
+
+```powershell
+param($phoneNumber)
+
+# Generate a random four-digit challenge code
+$challengeCode = Get-Random -Minimum 1000 -Maximum 10000
+
+Write-Host "Sending verification code $challengeCode to $phoneNumber."
+
+# In a real app, send the SMS here using Twilio or another provider
+$challengeCode
+```
 
 # [Java](#tab/java)
 
-Java sample coming soon.
+```java
+@FunctionName("E4_SendSmsChallenge")
+public int sendSmsChallenge(
+        @DurableActivityTrigger(name = "phoneNumber") String phoneNumber) {
+
+    // Generate a random four-digit challenge code
+    int challengeCode = ThreadLocalRandom.current().nextInt(1000, 10000);
+
+    // In a real app, send the SMS here using Twilio or another provider
+    Logger logger = Logger.getLogger("E4_SendSmsChallenge");
+    logger.info(String.format("Sending verification code %d to %s.", challengeCode, phoneNumber));
+
+    return challengeCode;
+}
+```
 
 ---
 
