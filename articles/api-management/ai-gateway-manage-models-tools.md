@@ -209,7 +209,7 @@ Use the gateway for MCP servers to centralize:
 - **Discovery** — provide one catalog of approved MCP servers for developers and agents.
 - **Authentication** — clients authenticate to the gateway. The gateway stores backend credentials, so client configuration doesn't contain upstream secrets.
 - **Tool exposure** — choose which backend operations each server publishes as tools. In preview, every runtime access key can call all published assets in the gateway.
-- **Observability** — the gateway emits OpenTelemetry token usage metrics for model traffic today; telemetry for MCP tool calls is coming soon.
+- **Observability** — the gateway emits OpenTelemetry (OTLP) token usage metrics for model traffic, which you can send to Application Insights or another OTLP destination. MCP tool traffic monitoring (request volume, latency, and errors) is available in the portal when you use Application Insights; OpenTelemetry (OTLP) export for MCP tool traffic isn't available yet.
 - **Governance** — apply the same policies to MCP traffic that you use for models, such as rate limits and content safety.
 
 After you create the server, configure runtime access before sharing it. Add policies such as content safety, IP filters, and token and request rate limits, scoped to the gateway or to specific published assets.

@@ -160,8 +160,10 @@ If calls fail with 401 errors, confirm the import uses managed identity and the 
 
 AI Gateway tier emits an OpenTelemetry token usage metric for model traffic. You choose where it goes: send the metric to Azure Application Insights or to another OpenTelemetry (OTLP)-compatible destination, such as Datadog, Splunk, or Grafana Cloud. When you use Application Insights, the portal provides a built-in token consumption dashboard.
 
+MCP tool traffic monitoring (request volume, latency, and errors) is available in the portal's monitoring views when you connect Application Insights. OpenTelemetry (OTLP) export currently covers the model token usage metric only, not MCP tool traffic.
+
 > [!NOTE]
-> Token usage is the only metric emitted in public preview. Logs, traces, and other metrics for models and tools are coming soon.
+> Token usage is the only metric exported over OpenTelemetry (OTLP) in public preview. Additional exported logs, traces, and metrics are coming soon.
 
 The token usage metric is a custom OpenTelemetry metric that carries a subset of the OpenTelemetry Generative AI and cloud semantic-convention attributes — for example, the model name. Not every backend reports token counts; some providers omit them in streaming or passthrough responses. Treat missing token data as unavailable, not as zero.
 
