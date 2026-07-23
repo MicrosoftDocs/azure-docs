@@ -171,7 +171,7 @@ For your language of choice, keep in mind the following considerations:
 
 - [Use `async` and `await`](functions-reference-node.md#use-async-and-await).
 
-- [Use multiple worker processes for CPU bound applications](functions-reference-node.md?tabs=v2#scaling-and-concurrency).
+- [Use multiple worker processes for CPU bound applications](node-scale-performance.md?tabs=v2#use-multiple-language-worker-processes).
 
 # [PowerShell](#tab/powershell)
 
