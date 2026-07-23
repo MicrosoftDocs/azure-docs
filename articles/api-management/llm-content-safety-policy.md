@@ -2,7 +2,6 @@
 title: Azure API Management policy reference - llm-content-safety
 description: Reference for the llm-content-safety policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.collection: ce-skilling-ai-copilot
@@ -10,7 +9,6 @@ ms.custom:
 ms.topic: reference
 ms.date: 05/21/2026
 ms.update-cycle: 180-days
-ms.author: danlep
 ---
 
 # Enforce content safety checks on LLM requests

@@ -6,6 +6,7 @@ ms.author: v-uhabiba
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 08/11/2025
+ms.update-cycle: 1825-days
 monikerRange:
 # Customer intent: As a cloud architect, I want to configure assessment properties for workload migration, so that I can ensure optimal resource allocation, cost management, and security compliance in Azure.
 ---

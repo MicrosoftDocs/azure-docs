@@ -46,7 +46,8 @@ For more information on how to configure Azure File Sync with a proxy server, se
 
 ### Configuring firewalls and service tags
 
-Many organizations isolate their file servers from most internet locations for security purposes. To use Azure File Sync in such an environment, you need to configure your firewall to allow outbound access to select Azure services. You can do this by allowing port 443 outbound access to [required cloud endpoints](file-sync-firewall-and-proxy.md#firewall) hosting those specific Azure services if your firewall supports url/domains. If it doesn't, you can retrieve the IP address ranges for these Azure services through [service tags](../../virtual-network/service-tags-overview.md).
+For security reasons, many organizations isolate their file servers from most internet locations. To use Azure File Sync in such an environment, you need to configure your firewall to allow outbound access to select Azure services. If your firewall supports URL or domain filtering, allow port 443 outbound access to [required cloud endpoints](file-sync-firewall-and-proxy.md#azure-file-sync-firewall-settings) that host those specific Azure services. If it doesn't, you can retrieve the IP address ranges for these Azure services through [service tags](../../virtual-network/service-tags-overview.md).
+
 
 Azure File Sync requires the IP address ranges for the following services, as identified by their service tags:
 
@@ -86,6 +87,17 @@ Azure Files and Azure File Sync support the following mechanisms to tunnel traff
     Site-to-Site (S2S) VPN connections connect your Azure virtual network and your organization's on-premises network. A S2S VPN connection enables you to configure a VPN connection once, for a VPN server or device hosted on your organization's network, rather than doing for every client device that needs to access your Azure file share. To simplify the deployment of a S2S VPN connection, see [Configure a Site-to-Site (S2S) VPN for use with Azure Files](../files/storage-files-configure-s2s-vpn.md?toc=/azure/storage/filesync/toc.json).
 
 - [ExpressRoute](../../expressroute/expressroute-introduction.md), which enables you to create a defined route (private connection) between Azure and your on-premises network that doesn't traverse the internet. Because ExpressRoute provides a dedicated path between your on-premises datacenter and Azure, ExpressRoute can be useful when network performance is a key consideration. ExpressRoute is also a good option when your organization's policy or regulatory requirements require a deterministic path to your resources in the cloud.
+
+### SMB over QUIC
+
+If port 445 is blocked in your environment, you can use [SMB over QUIC](../files/storage-files-networking-overview.md#smb-over-quic) as an alternative to VPN or ExpressRoute. SMB over QUIC uses the QUIC transport protocol over port 443, which most organizations and internet service providers (ISPs) have open to support HTTPS traffic. This feature eliminates much of the networking configuration normally required to access a file share remotely over the public internet.
+
+To use SMB over QUIC with Azure File Sync:
+
+- The Azure File Sync server endpoint must run on a Windows Server Datacenter: Azure Edition virtual machine in Azure.
+- Clients must be running Windows 11 or later.
+
+For setup and configuration details, see [SMB over QUIC](/windows-server/storage/file-server/smb-over-quic).
 
 ### Private endpoints
 

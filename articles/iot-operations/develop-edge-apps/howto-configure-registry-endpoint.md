@@ -84,7 +84,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param registryEndpointName string = '<REGISTRY_ENDPOINT_NAME>'
 param acrName string = '<YOUR_ACR_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2025-10-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -350,12 +350,27 @@ ACR is the recommended container registry for Azure IoT Operations. ACR provides
 
 ## Use a public registry
 
-You can configure a registry endpoint to point directly at a public OCI-compatible registry. This approach lets you use prebuilt WASM modules and graph definitions without setting up your own private registry, which is ideal for getting started quickly or for evaluation.
+You can configure a registry endpoint to point directly at a public OCI-compatible registry. This approach lets you reference prebuilt WASM modules and graph definitions without setting up your own private registry.
+
+> [!IMPORTANT]
+> Some public registries, including `ghcr.io`, require an authenticated token exchange before they serve even *public* artifacts. An unauthenticated (anonymous) request to `ghcr.io` returns `401 Unauthorized` with a `Www-Authenticate: Bearer` challenge, and the current Azure IoT Operations runtime doesn't perform the anonymous token exchange - so an anonymous (`Anonymous` / `--no-auth`) `ghcr.io` endpoint fails to load the artifact and the data flow graph doesn't start. To consume the public `ghcr.io` samples, use an **artifact pull secret** backed by a GitHub personal access token (PAT) with the `read:packages` scope, as shown in the following steps. (An anonymous endpoint works for registries that serve public artifacts without a token exchange, such as `mcr.microsoft.com`.)
 
 > [!NOTE]
 > The Azure portal currently only supports ACR and MCR hostnames when creating registry endpoints. To configure a registry endpoint for a public registry like ghcr.io, use Bicep or the Azure CLI instead.
 
-For example, the Azure IoT Operations sample WASM modules and graph definitions are published under `ghcr.io/azure-samples/explore-iot-operations`. Create a registry endpoint for the `ghcr.io` registry host by using anonymous authentication. Put the `azure-samples/explore-iot-operations` repository path in artifact references.
+For example, the Azure IoT Operations sample WASM modules and graph definitions are published under `ghcr.io/azure-samples/explore-iot-operations`. Create a registry endpoint for the `ghcr.io` registry host and authenticate with a GitHub PAT. Put the `azure-samples/explore-iot-operations` repository path in artifact references.
+
+First, create a Kubernetes secret that contains a GitHub username and a PAT with the `read:packages` scope:
+
+```bash
+kubectl create secret docker-registry ghcr-pull-secret \
+  --docker-server=ghcr.io \
+  --docker-username=<GITHUB_USERNAME> \
+  --docker-password=<GITHUB_PAT> \
+  -n azure-iot-operations
+```
+
+Then create the registry endpoint that references the secret.
 
 # [Azure portal](#tab/portal)
 
@@ -369,7 +384,8 @@ az iot ops registry create \
   --instance <AIO_INSTANCE_NAME> \
   --resource-group <RESOURCE_GROUP> \
   --host ghcr.io \
-  --no-auth
+  --auth-type ArtifactPullSecret \
+  --secret-ref ghcr-pull-secret
 ```
 
 # [Bicep](#tab/bicep)
@@ -385,8 +401,10 @@ resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpo
   properties: {
     host: 'ghcr.io'
     authentication: {
-      method: 'Anonymous'
-      anonymousSettings: {}
+      method: 'ArtifactPullSecret'
+      artifactPullSecretSettings: {
+        secretRef: 'ghcr-pull-secret'
+      }
     }
   }
 }
@@ -394,7 +412,9 @@ resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpo
 
 ---
 
-After you create this registry endpoint, you can reference it in your data flow graph as `registryEndpointRef: public-ghcr`. No ORAS pull/push steps are needed because the runtime pulls the artifacts directly from the public registry.
+After you create this registry endpoint, you can reference it in your data flow graph as `registryEndpointRef: public-ghcr`. The runtime uses the pull secret to authenticate to `ghcr.io` and pulls the sample artifacts directly.
+
+For the list of prebuilt sample WASM modules and graph definitions available under `ghcr.io/azure-samples/explore-iot-operations`, see [Use prebuilt modules from a public registry](howto-deploy-wasm-graph-definitions.md#use-prebuilt-modules-from-a-public-registry).
 
 > [!NOTE]
 > Public registries don't require authentication, but they may have rate limits. For production workloads, consider using a private registry like Azure Container Registry.

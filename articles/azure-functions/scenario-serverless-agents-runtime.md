@@ -1,7 +1,7 @@
 ---
 title: Build serverless agents using Azure Functions
 description: "Learn how to create and deploy serverless agents that use a model deployment, sandboxed execution, and optional MCP tools from a Microsoft 365 Outlook connector by using Azure Functions."
-ms.date: 05/20/2026
+ms.date: 07/21/2026
 ms.update-cycle: 180-days
 ms.topic: quickstart
 ai-usage: ai-assisted
@@ -21,7 +21,9 @@ In this quickstart, you deploy serverless agents to Azure Functions by using the
 
 The project uses the [Azure Functions serverless agents runtime](functions-serverless-agents-runtime.md). You define agents in markdown files, configure app-wide runtime defaults in `agents.config.yaml`, connect remote MCP servers in `mcp.json`, and deploy the app like any other function app.
 
-The template provisions a Flex Consumption function app, storage, monitoring, a Microsoft Foundry project and model deployment, an Azure Container Apps dynamic session pool, and the required identity assignments. When email delivery is enabled, it also provisions a Connector Namespace, a Microsoft 365 Outlook connection, and a managed MCP server for the connector.
+[!INCLUDE [serverless-agents-runtime-preview](../../includes/functions-serverless-agents-runtime-preview.md)]
+
+The template provisions all required Azure resources, including compute, storage, monitoring, a model deployment, a session pool, and optional connector resources for email delivery.
 
 Completing this quickstart can incur a small cost in your Azure account because the app uses the Flex Consumption plan and related Azure resources.
 
@@ -170,6 +172,7 @@ azd down
 ## Related content
 
 + [Serverless agents runtime in Azure Functions](functions-serverless-agents-runtime.md)
++ [Serverless agents runtime reference](functions-serverless-agents-runtime-reference.md)
 + [Use AI tools and models in Azure Functions](functions-create-ai-enabled-apps.md)
 + [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md)
 + [Monitor Azure Functions](monitor-functions.md)

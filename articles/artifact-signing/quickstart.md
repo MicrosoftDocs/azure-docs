@@ -26,7 +26,7 @@ You can use either the Azure portal or an Azure CLI extension to create and mana
 ## Prerequisites
 
 > [!NOTE]
-> For Public Trust certificates, Artifact Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation is not applicable to Private Trust certificates.
+> Public Trust certificates are available to organizations in the United States, Canada, the European Union, the United Kingdom, Australia, New Zealand, Japan, South Korea, Singapore, Switzerland, Norway, and Israel. Individual developers must be located in the United States or Canada. These geographic restrictions do not apply to Private Trust certificates.
 
 >[!Note]
 >  For a Public Identity for individual identity validation details are automatically sourced from your Azure billing account under the subscription used to register this resource provider. The billing account type must match the identity validation type: a billing account with an Account Type of "Individual" can only be used for individual identity validation. You cannot use an individual billing account to validate an organization identity, or vice versa.

@@ -3,12 +3,12 @@ title: Rules Development Guide for AppCAT 7
 description: Learn how to write and run custom rules for Azure Migrate application and code assessment tool.
 author: KarlErickson
 ms.author: karler
-ms.reviewer: brborges
+ms.reviewer: seal
 ms.service: azure-java
 ms.subservice: java-fundamentals
 ms.custom: devx-track-java
 ms.topic: overview
-ms.date: 06/27/2025
+ms.date: 06/24/2026
 #customer intent: As a developer, I want to assess my Java application so that I can understand its readiness for migration to Azure.
 ---
 

@@ -97,7 +97,7 @@ To support your function code, you need to create three resources:
     ::: zone-end
     ::: zone pivot="programming-language-javascript,programming-language-typescript"
     ```azurecli
-    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime node --runtime-version 20
+    az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage-account <STORAGE_NAME> --flexconsumption-location <REGION> --runtime node --runtime-version 22
     ```
     ::: zone-end
     ::: zone pivot="programming-language-python"
@@ -599,7 +599,7 @@ A customized deployment source should meet these criteria:
 
 When you configure deployment storage authentication, keep these considerations in mind:
 
-- As a security best practice, use managed identities when connecting to Azure Storage from your apps. For more information, see [Connections](./functions-reference.md#connections).
+- As a security best practice, use managed identities when connecting to Azure Storage from your apps. For more information, see [Connections](./manage-connections.md).
 - When you use a connection string to connect to the deployment storage account, the application setting that contains the connection string must already exist.
 - When you use a user-assigned managed identity, you link the provided identity to the function app. You also assign the `Storage Blob Data Contributor` role scoped to the deployment storage account to the identity.
 - When you use a system-assigned managed identity, you create an identity when a valid system-assigned identity doesn't already exist in your app. When a system-assigned identity exists, you assign the `Storage Blob Data Contributor` role scoped to the deployment storage account to the identity.

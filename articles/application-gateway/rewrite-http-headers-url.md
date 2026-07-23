@@ -129,7 +129,7 @@ Application gateway supports the following server variables:
 | received_bytes            | The length of the request (including the request line,   header, and request body). |
 | request_query             | The arguments in the request line.                           |
 | request_scheme            | The request scheme: http or https.                           |
-| request_uri               | The full original request URI (with arguments). Example:   in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam*`, request_uri value is `/article.aspx?id=123&title=fabrikam` |
+| request_uri               | The full original request URI (with arguments). Example:   in the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`, request_uri value is `/article.aspx?id=123&title=fabrikam` |
 | sent_bytes                | The number of bytes sent to a client.                        |
 | server_port               | The port of the server that accepted a request.              |
 | ssl_connection_protocol   | The protocol of an established TLS connection.               |

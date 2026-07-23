@@ -3,12 +3,10 @@ title: "Tutorial: Use revisions in API Management for safe nonbreaking API chang
 titleSuffix: Azure API Management
 description: Follow the steps of this tutorial to learn how to make nonbreaking API changes using revisions in Azure API Management.
 services: api-management
-author: dlepow
 ms.service: azure-api-management
 ms.custom: mvc, devx-track-azurecli, devdivchpfy22
 ms.topic: tutorial
 ms.date: 01/30/2026
-ms.author: danlep
 #customer intent: As a developer who works with API Management, I need to understand how to make nonbreaking revisions to an API.
 ---
 

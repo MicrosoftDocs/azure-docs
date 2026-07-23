@@ -2,11 +2,12 @@
 title: Copy data from/to SAP Cloud for Customer
 description: Learn how to copy data from SAP Cloud for Customer to supported sink data stores (or) from supported source data stores to SAP Cloud for Customer using an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: jianleishen
+author: simplywilson
 ms.author: ulrichchrist
 ms.subservice: data-movement
 ms.topic: how-to
-ms.date: 01/05/2024
+ms.date: 06/22/2026
+ms.update-cycle: 1095-days
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -44,7 +45,7 @@ Specifically, this connector enables the service to copy data from/to SAP Cloud 
 
 Use the following steps to create a linked service to SAP Cloud for Customer in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -188,9 +189,9 @@ To copy data to SAP Cloud for Customer, set the sink type in the copy activity t
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **SapCloudForCustomerSink**  | Yes |
-| writeBehavior | The write behavior of the operation. Could be “Insert”, “Update”. | No. Default “Insert”. |
-| writeBatchSize | The batch size of write operation. The batch size to get best performance may be different for different table or server. | No. Default 10. |
-| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
+| writeBehavior | The write behavior of the operation. Could be “Insert”, “Update”. | No. Default “Insert”. |
+| writeBatchSize | The batch size of write operation. The batch size to get best performance may be different for different table or server. | No. Default 10. |
+| maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
 **Example:**
 
@@ -237,14 +238,14 @@ When copying data from SAP Cloud for Customer, the following mappings are used f
 
 | SAP C4C OData Data Type | Interim service data type |
 |:--- |:--- |
-| Edm.Binary | Byte[] |
+| Edm.Binary | Byte[] |
 | Edm.Boolean | Bool |
-| Edm.Byte | Byte[] |
+| Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Double |
 | Edm.Single | Single |
-| Edm.Guid | Guid |
+| Edm.Guid | Guid |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |

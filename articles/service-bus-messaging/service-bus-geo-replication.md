@@ -30,7 +30,8 @@ This feature allows you to promote any secondary region to primary, at any time.
 > - The following features aren't currently available yet. The product team is continuously working on bringing more features and will update this list with the latest status.
 >     - Large messages aren't supported yet.
 >     - Geo-Replication on [partitioned namespaces](enable-partitions-premium.md) is still in public preview.
-> - Currently, when you perform a failover, the timer for entities that have auto-delete on idle enabled is reset and starts over. A future release fixes this behavior.
+>     - Using Geo-Replication together with a [network security perimeter](network-security-perimeter.md) isn't supported yet. You can't enable Geo-Replication on a namespace that's associated with a network security perimeter, or associate a Geo-Replication enabled namespace with one.
+> - When you perform a failover, the timer for entities that have auto-delete on idle enabled is reset and starts over.
 > - When you enable Event Grid integration on a namespace that uses Geo-Replication, note the following:
 >   - Event Grid replicates to the [geo-paired location](/azure/reliability/reliability-event-grid#set-up-disaster-recovery), not the secondary region set up for geo-replication.
 >   - [Promotion](#promotion-flow) of a secondary region for Service Bus doesn't initiate a failover of Event Grid. Consequently, after promotion, Service Bus is now running in the new primary region, but Event Grid is still running in the initial primary region.
@@ -385,21 +386,25 @@ After you break the pairing, follow the [setup](#setup) to enable Geo-Replicatio
 
 ## Private endpoints
 
-This section provides additional considerations when using Geo-Replication with namespaces that use private endpoints. For general information on using private endpoints with Service Bus, see [Integrate Azure Service Bus with Azure Private Link](private-link-service.md).
+Clients connecting to a Service Bus namespace through a [private endpoint](private-link-service.md) automatically connect to the new primary region after failover. The Service Bus namespace routes traffic to the current primary region internally, so clients don't need to know which region is primary and the private endpoint keeps working without any change. Promotion typically completes in under two minutes, during which clients may see transient errors and reconnect. Configure retry policy accordingly.
 
-When you implement Geo-Replication for a Service Bus namespace that uses private endpoints, create private endpoints for both the primary and secondary regions. Configure these endpoints against virtual networks that host both primary and secondary instances of your application. For example, if you have two virtual networks, VNET-1 and VNET-2, you need to create two private endpoints on the Service Bus namespace, using subnets from VNET-1 and VNET-2 respectively. Set up the virtual networks with [cross-region peering](/azure/virtual-network/virtual-network-peering-overview), so that clients can communicate with either of the private endpoints. Finally, manage the [DNS](/azure/private-link/private-endpoint-dns) so all clients get the DNS information that points the namespace endpoint (namespacename.servicebus.windows.net) to the IP address of the private endpoint in the current primary region.
+Private endpoints are regional resources. For high availability, deploy your application across multiple regions and create a private endpoint in each region's virtual network.
 
-> [!IMPORTANT]
-> When [promoting](#promotion-flow) a secondary region for Service Bus, update the DNS entry to point to the corresponding endpoint. If you manage your DNS on-premises to point to the private endpoint for a given namespace, you need to update your on-premises DNS server when you perform a failover.
+:::image type="content" source="./media/service-bus-geo-replication/geo-replication-private-endpoints.png" alt-text="Diagram showing two virtual networks, each with a private endpoint to the same Service Bus namespace, and an application that spans both.":::
 
-:::image type="content" source="./media/service-bus-geo-replication/geo-replication-private-endpoints.png" alt-text="Screenshot showing two VNETs with their own private endpoints and VMs connected to an on-premises instance and a Service Bus namespace.":::
+**DNS**
 
-The advantage of this approach is that failover can occur independently at the application layer or on the Service Bus namespace:
+Use one `privatelink.servicebus.windows.net` private DNS zone per region, linked to that region's virtual network only. The A record for the local private endpoint is added automatically when you attach a private DNS zone group. Each region resolves the namespace name to its local endpoint, regardless of which region is primary.
 
-- Application-only failover: In this scenario, the application moves from VNET-1 to VNET-2. Since private endpoints are configured on both VNET-1 and VNET-2 for both primary and secondary namespaces, the application continues to function seamlessly.
-- Service Bus namespace-only failover: Similarly, if the failover occurs only at the Service Bus namespace level, the application remains operational because private endpoints are configured on both virtual networks.
+If you share a single private DNS zone across both virtual networks, only one A record exists and it points to whichever endpoint was attached last. In that case, add [cross-region virtual network peering](/azure/virtual-network/virtual-network-peering-overview) so all clients can reach that endpoint.
 
-By following these guidelines, you can ensure robust and reliable failover mechanisms for your Service Bus namespaces that use private endpoints.
+For on-premises clients, resolve the namespace to the nearest region's private endpoint through conditional forwarding or a manually maintained record. Promotion doesn't require an on-premises DNS change.
+
+**Failover scenarios**
+
+- **Application-only failover.** The application moves to the other virtual network. It reaches the namespace through the local private endpoint.
+- **Namespace-only failover.** The Service Bus primary role moves. Clients keep the same connection string and local endpoint; traffic is routed to the new primary automatically.
+- **Regional outage.** The private endpoint in the affected region is unreachable. Clients with a private endpoint in a healthy region continue on the surviving region.
 
 ## Next steps
 

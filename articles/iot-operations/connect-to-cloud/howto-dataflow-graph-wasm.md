@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/16/2026
+ms.date: 06/23/2026
 ai-usage: ai-assisted
 
 ---
@@ -207,7 +207,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param dataflowGraphName string = '<GRAPH_NAME>'
 param registryEndpointName string = '<REGISTRY_ENDPOINT_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2025-10-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -215,12 +215,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-10-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
   parent: defaultDataflowProfile
   name: dataflowGraphName
   extendedLocation: {
@@ -560,7 +560,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param dataflowGraphName string = '<COMPLEX_GRAPH_NAME>'
 param registryEndpointName string = '<REGISTRY_ENDPOINT_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2025-10-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -568,12 +568,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-10-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
+resource complexDataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
   parent: defaultDataflowProfile
   name: dataflowGraphName
   extendedLocation: {
@@ -845,7 +845,7 @@ Set `mode` at the top level of your `graph.json` config file, then apply the gra
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
   // ... other properties
   properties: {
     mode: 'Enabled'  // or 'Disabled'
@@ -899,12 +899,12 @@ az iot ops dataflowgraph apply \
 In Bicep, specify the profile by creating the data flow graph as a child resource of the profile:
 
 ```bicep
-resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2025-10-01' existing = {
+resource defaultDataflowProfile 'Microsoft.IoTOperations/instances/dataflowProfiles@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
   parent: defaultDataflowProfile  // This establishes the profile relationship
   // ... other properties
 }
@@ -955,7 +955,7 @@ Set `requestDiskPersistence` at the top level of your `graph.json` config file, 
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
   // ... other properties
   properties: {
     requestDiskPersistence: 'Enabled'
@@ -1162,13 +1162,11 @@ You pass the configuration key-value pairs to the WASM module at runtime. The mo
 
 #### Destination nodes
 
-Destination nodes define where processed data is sent. They connect to data flow endpoints that send data to MQTT brokers, cloud storage, or other systems. Each destination node specifies:
+Destination nodes define where processed data is sent. They connect to data flow endpoints that send data to MQTT brokers or other systems. Each destination node specifies:
 
 - Endpoint reference that points to a configured data flow endpoint.
 - Data destination as the specific topic, path, or location for output data.
 - Output schema settings (optional) that define serialization format and schema validation.
-
-For storage destinations like Azure Data Lake or Fabric OneLake, you can specify output schema settings to control how data is serialized and validated.
 
 > [!NOTE]
 > Currently, only MQTT, Kafka, and OpenTelemetry endpoints are supported as data destinations for data flow graphs. For more information, see [Configure data flow endpoints](howto-configure-dataflow-endpoint.md).
@@ -1187,14 +1185,10 @@ The CLI applies the whole graph from one config file, so add this destination no
 ```json
 {
   "nodeType": "Destination",
-  "name": "cloud-storage-destination",
+  "name": "output",
   "destinationSettings": {
-    "endpointRef": "azure-storage-endpoint",
+    "endpointRef": "default",
     "dataDestination": "processed-data/temperature",
-    "outputSchemaSettings": {
-      "serializationFormat": "Parquet",
-      "schemaRef": "temperature-output-schema:1"
-    }
   }
 }
 ```
@@ -1204,14 +1198,10 @@ The CLI applies the whole graph from one config file, so add this destination no
 ```bicep
 {
   nodeType: 'Destination'
-  name: 'cloud-storage-destination'
+  name: 'output'
   destinationSettings: {
-    endpointRef: 'azure-storage-endpoint'
+    endpointRef: 'default'
     dataDestination: 'processed-data/temperature'
-    outputSchemaSettings: {
-      serializationFormat: 'Parquet'
-      schemaRef: 'temperature-output-schema:1'
-    }
   }
 }
 ```
@@ -1220,13 +1210,10 @@ The CLI applies the whole graph from one config file, so add this destination no
 
 ```yaml
 - nodeType: Destination
-  name: cloud-storage-destination
+  name: output
   destinationSettings:
-    endpointRef: azure-storage-endpoint
+    endpointRef: default
     dataDestination: processed-data/temperature
-    outputSchemaSettings:
-      serializationFormat: Parquet
-      schemaRef: temperature-output-schema:1
 ```
 
 ---
@@ -1249,7 +1236,7 @@ The CLI applies the whole graph from one config file, so add this to the `nodeCo
     "from": {
       "name": "sensor-data-source",
       "schema": {
-        "schemaRef": "sensor-input-schema:1",
+        "schemaRef": "aio-sr://sensor-input-schema:1",
         "serializationFormat": "Json"
       }
     },
@@ -1262,7 +1249,7 @@ The CLI applies the whole graph from one config file, so add this to the `nodeCo
       "name": "temperature-processor"
     },
     "to": {
-      "name": "cloud-storage-destination"
+      "name": "output"
     }
   }
 ]
@@ -1276,7 +1263,7 @@ nodeConnections: [
     from: {
       name: 'sensor-data-source'
       schema: {
-        schemaRef: 'sensor-input-schema:1'
+        schemaRef: 'aio-sr://sensor-input-schema:1'
         serializationFormat: 'Json'
       }
     }
@@ -1289,7 +1276,7 @@ nodeConnections: [
       name: 'temperature-processor'
     }
     to: {
-      name: 'cloud-storage-destination'
+      name: 'output'
     }
   }
 ]
@@ -1302,14 +1289,14 @@ nodeConnections:
   - from:
       name: sensor-data-source
       schema:
-        schemaRef: sensor-input-schema:1
+        schemaRef: aio-sr://sensor-input-schema:1
         serializationFormat: Json
     to:
       name: temperature-processor
   - from:
       name: temperature-processor
     to:
-      name: cloud-storage-destination
+      name: output
 ```
 
 ---
@@ -1337,16 +1324,6 @@ Kafka endpoints can serve as both sources and destinations. They connect to Kafk
 - **Confluent Cloud**
 
 For detailed configuration information, see [Configure Azure Event Hubs and Kafka data flow endpoints](howto-configure-kafka-endpoint.md).
-
-#### Storage endpoints
-
-Storage endpoints can only serve as destinations. They connect to cloud storage systems for long-term data retention and analytics:
-
-- **Azure Data Lake Storage**
-- **Microsoft Fabric OneLake** 
-- **Local storage**
-
-Storage endpoints typically require output schema settings to define data serialization format.
 
 #### Registry endpoints
 

@@ -34,7 +34,7 @@ Before you begin, upgrade the Azure Container Apps CLI extension to the required
 1. Add the Container Apps extension.
 
     ```azurecli
-    az extension add -n ContainerApp
+    az extension add -n containerapp
     ```
 
 1. Update the extension to ensure you have the latest version.

@@ -76,6 +76,11 @@ To minimize risk and ensure a smooth migration:
 1. **Validate workloads**: Post-migration to ensure functionality and billing accuracy.
 1. **Monitor usage**: After migration, keep an eye on your storage account metrics to identify any unexpected changes in usage patterns or costs.
 
+> [!TIP]
+> Migrate general-purpose v1 accounts to general-purpose v2 by using the `deployIfNotExists` Azure Policy. This policy detects and identifies any general-purpose v1 accounts and allows you to do a non-disruptive in-place upgrade of those accounts.  
+>
+> A sample policy is available here: [general-purpose v1 Azure policy](https://aka.ms/gpv1_azure_policy) 
+
 ## Identify GPv1 with ZRS accounts using Azure Resource Graph
 
 Azure Resource Graph is a powerful tool for exploring and querying your Azure resources at scale. You can use it to identify all General Purpose v1 (GPv1) and legacy Blob storage accounts in your environment and assess their configurations. This helps you plan your migration to GPv2 more effectively.

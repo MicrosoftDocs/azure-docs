@@ -1,12 +1,10 @@
 ---
 title: Azure API Management virtual network injection - network resources
 description: Learn about requirements for network resources when you deploy (inject) your API Management Developer or Premium tier instance in an Azure virtual network.
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 04/17/2025
-ms.author: danlep
 ---
 
 # Network resource requirements for API Management injection into a virtual network

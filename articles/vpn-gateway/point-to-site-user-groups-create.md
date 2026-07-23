@@ -2,8 +2,8 @@
 title: 'Assign Users IP Addresses from Defined Pools for P2S VPN Connections - PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure user groups and assign IP addresses from specific address pools based on identity or authentication credentials for VPN Gateway point-to-site (P2S) connections.
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 04/28/2026

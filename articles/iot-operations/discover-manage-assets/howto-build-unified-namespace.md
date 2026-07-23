@@ -184,11 +184,11 @@ The Azure IoT Operations namespace and the custom location must already exist in
 1. Save the following snippet as `oven.bicep`. Replace `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name:
 
     ```bicep
-    param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+    param adrNamespaceName string = '<AIO_NAMESPACE_NAME>'
     param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-    resource namespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
-      name: aioNamespaceName
+    resource adrNamespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
+      name: adrNamespaceName
     }
 
     resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
@@ -197,7 +197,7 @@ The Azure IoT Operations namespace and the custom location must already exist in
 
     resource oven 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
       name: 'oven-1'
-      parent: namespace
+      parent: adrNamespace
       location: resourceGroup().location
       extendedLocation: {
         type: 'CustomLocation'

@@ -50,7 +50,7 @@ The following table summarizes the support for different scenarios for SQL Serve
 
 _*The database size limit depends on the data transfer rate that we support and the backup time limit configuration. It’s not the hard limit. [Learn more](#backup-throughput-performance-for-sql-streaming-backup) on backup throughput performance._
 
-* SQL Server backup can be configured in the Azure portal or **PowerShell**. CLI isn't supported.
+* SQL Server backup can be configured in the Azure portal, **PowerShell**, or **Azure CLI**.
 * The solution is supported on both kinds of [deployments](../azure-resource-manager/management/deployment-models.md) - Azure Resource Manager VMs and classic VMs.
 * All backup types (full/differential/log) and recovery models (simple/full/bulk logged) are supported.
 * For **read-only** databases: full and copy-only full backups are the only supported backup types.
@@ -68,6 +68,7 @@ The following table summarizes the supported and unsupported scenarios for snaps
 
 | **Scenarios** | **Supported** | **Unsupported** |
 |----|----|----|
+| Supported Regions | Australia Central, Australia Central 2, Australia east, Canada Central, Canada East, Central US, East US2, East US, North Central US, North Europe, South Central US, UK South, West Central US, West US, West US2, West Europe, Newzealand North. | All other regions and clouds |
 | SQL Server versions | SQL Server 2016 (and higher) running on Windows Server 2016 (and higher). |  |
 | Backup types for snapshot | Snapshot Full (with or without Log backup), Snapshot-copy-only-full (Adhoc backups at database level) |  |
 | Backup configuration | Standalone instance and Always on AG |  |

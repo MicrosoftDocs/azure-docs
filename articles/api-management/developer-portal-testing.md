@@ -2,8 +2,6 @@
 title: Test the self-hosted developer portal
 titleSuffix: Azure API Management
 description: Learn how to set up unit tests and end-to-end tests for your self-hosted API Management portal.
-author: dlepow
-ms.author: danlep
 ms.date: 02/09/2026
 ms.service: azure-api-management
 ms.topic: how-to

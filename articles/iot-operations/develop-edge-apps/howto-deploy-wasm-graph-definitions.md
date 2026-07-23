@@ -24,15 +24,12 @@ Azure IoT Operations data flow graphs support WebAssembly (WASM) modules for cus
 ## Prerequisites
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
-- Configure a registry endpoint to enable your Azure IoT Operations instance to access a container registry. For more information, see [Configure registry endpoints](howto-configure-registry-endpoint.md).
+- A registry endpoint that points to the container registry you want to pull modules and graphs from. For more information, see [Configure registry endpoints](howto-configure-registry-endpoint.md). To get started without setting up your own registry, use the public `ghcr.io` sample endpoint described in [Use prebuilt modules from a public registry](#use-prebuilt-modules-from-a-public-registry).
 
-If you want to use a private registry like Azure Container Registry (ACR), you also need:
+To push your own modules and graphs to a private registry like Azure Container Registry (ACR), you also need:
 
 - Access to a container registry like ACR to store WASM modules and graphs.
-- Install the OCI Registry As Storage (ORAS) CLI to push WASM modules to the registry.
-
-> [!TIP]
-> For a quick start without setting up a private registry, you can use the prebuilt sample modules directly from the public GitHub Container Registry (ghcr.io). See [Use prebuilt modules from a public registry](#use-prebuilt-modules-from-a-public-registry) for instructions.
+- The OCI Registry As Storage (ORAS) CLI to push WASM modules to the registry.
 
 ## Overview
 
@@ -40,56 +37,14 @@ WASM modules in Azure IoT Operations data flow graphs and connectors let you pro
 
 ## Use prebuilt modules from a public registry
 
-The fastest way to get started is to use the prebuilt sample WASM modules and graph definitions directly from the public GitHub Container Registry. This approach doesn't require setting up a private registry, ORAS CLI, or any pull/push steps.
+You can use the prebuilt sample WASM modules and graph definitions that are published to the public GitHub Container Registry (`ghcr.io`) under `azure-samples/explore-iot-operations`.
 
-### Create a registry endpoint for the public registry
+> [!NOTE]
+> `ghcr.io` requires an authenticated token exchange before it serves even *public* artifacts, and the current Azure IoT Operations runtime doesn't perform the anonymous exchange. Configure the `public-ghcr` endpoint with an **artifact pull secret** backed by a GitHub personal access token (PAT) with the `read:packages` scope, rather than anonymous authentication. For the endpoint and secret steps, see [Use a public registry](howto-configure-registry-endpoint.md#use-a-public-registry).
 
-Create a registry endpoint that points to the public registry where the sample modules are hosted:
+### Available sample artifacts
 
-# [Bicep](#tab/bicep)
-
-```bicep
-resource publicRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndpoints@2026-03-01' = {
-  parent: aioInstance
-  name: 'public-ghcr'
-  extendedLocation: {
-    name: customLocation.id
-    type: 'CustomLocation'
-  }
-  properties: {
-    host: 'ghcr.io'
-    authentication: {
-      method: 'Anonymous'
-      anonymousSettings: {}
-    }
-  }
-}
-```
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1
-kind: RegistryEndpoint
-metadata:
-  name: public-ghcr
-  namespace: azure-iot-operations
-spec:
-  host: ghcr.io
-  authentication:
-    method: Anonymous
-    anonymousSettings: {}
-```
-
-Apply the manifest:
-
-```bash
-kubectl apply -f registry-endpoint.yaml
-```
-
----
-
-After you create this registry endpoint, you can reference it in your data flow graphs by using `registryEndpointRef: public-ghcr`. Because the registry endpoint host is `ghcr.io`, include the repository path `azure-samples/explore-iot-operations` in artifact references. The following sample modules and graph definitions are available:
+After you create the `public-ghcr` registry endpoint, reference it in your data flow graphs by using `registryEndpointRef: public-ghcr`. Because the registry endpoint host is `ghcr.io`, include the repository path `azure-samples/explore-iot-operations` in artifact references. The following sample modules and graph definitions are available:
 
 | Artifact | Description |
 |----------|-------------|
@@ -115,9 +70,7 @@ If you need to use custom modules or want to host your own copies of the sample 
 
 ### Set up container registry
 
-Azure IoT Operations needs a container registry to pull WASM modules and graph definitions. You can use Azure Container Registry (ACR) or another OCI-compatible registry.
-
-To create and configure an Azure Container Registry, see [Deploy Azure Container Registry](/azure/container-registry/container-registry-get-started-portal).
+Azure IoT Operations needs a container registry to pull WASM modules and graph definitions. You can use Azure Container Registry (ACR) or another OCI-compatible registry. To create an ACR instance, see [Deploy Azure Container Registry](/azure/container-registry/container-registry-get-started-portal). After the registry exists, create a registry endpoint that points at it - see [Create a registry endpoint](howto-configure-registry-endpoint.md#create-a-registry-endpoint).
 
 ## Install ORAS CLI
 
@@ -157,7 +110,7 @@ Once you have the sample modules and graphs, push them to your container registr
 
 ### Choose an artifact layout
 
-The artifact names you use when you push graphs and modules determine the module references you need inside the graph definition. The registry endpoint host is only the registry hostname.
+The artifact names you use when you push graphs and modules determine the module references you need inside the graph definition. For background on how the registry endpoint host, artifact path, and module reference relate, see [Artifact paths and graph module references](howto-configure-registry-endpoint.md#artifact-paths-and-graph-module-references).
 
 For the Azure sample graphs, preserve the sample repository path when you copy artifacts to your own registry. The graph definitions reference modules using that path:
 

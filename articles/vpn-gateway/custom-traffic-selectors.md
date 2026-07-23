@@ -2,11 +2,11 @@
 title: About custom traffic selectors
 description: Learn about custom traffic selectors for VPN Gateway.
 titleSuffix: Azure VPN Gateway
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 06/25/2025
-ms.author: cherylmc
+ms.author: duau
 ---
 # Custom traffic selectors for VPN Gateway
 

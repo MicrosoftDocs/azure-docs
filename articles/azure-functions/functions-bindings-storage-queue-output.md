@@ -609,7 +609,7 @@ The output function parameter must be defined as `func.Out[func.QueueMessage]`, 
 
 ::: zone-end  
 
-[!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-queue-connections.md)]
+[!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-connections.md)]
 
 ## Exceptions and return codes
 

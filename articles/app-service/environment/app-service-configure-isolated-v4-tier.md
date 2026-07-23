@@ -3,7 +3,7 @@ title: Configure Isolated v4 Tier
 description: Learn how to get better performance for your web, mobile, and API apps running in an App Service Environment by scaling to the new Isolated v4 pricing tier.
 keywords: app service, azure app service, scale, scalable, app service plan, app service cost, app service environment, ase
 ms.topic: how-to
-ms.date: 05/13/2026
+ms.date: 07/10/2026
 ms.author: jordanselig
 author: seligj95
 ms.custom:
@@ -87,7 +87,7 @@ Some App Service plans can't scale up to the Isolated v4 tier if the underlying 
 ## Regions
 
 > [!IMPORTANT]
-> Isolated v4 capacity is constrained at launch. You might see errors such as *"The requested SKU isn't available in the selected region"* or *"Insufficient quota"* when you try to deploy, scale, or create an App Service Environment with an Isolated v4 SKU. To request Isolated v4 capacity in your target region, [open an Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+> Isolated v4 capacity is constrained, including in the regions listed in the following list. You might see errors such as *"The requested SKU isn't available in the selected region"* or *"Insufficient quota"* when you try to deploy, scale, or create an App Service Environment with an Isolated v4 SKU. To request Isolated v4 capacity in your target region, [open an Azure support ticket](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
 Isolated v4 is available in the following regions:
 

@@ -1,6 +1,46 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-compute-fleet/modify-fleet.md",
+      "redirect_url": "/azure/azure-compute-fleet/managed-mode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communication-services/quickstarts/tpe/teams-phone-extensiblity-rest-api.md",
+      "redirect_url": "/azure/communication-services/quickstarts/tpe/teams-phone-extensibility-rest-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/devtest-labs/use-devtest-labs-build-release-pipelines.md",
+      "redirect_url": "/previous-versions/azure/devtest-labs/use-devtest-labs-build-release-pipelines",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-gpu-clustering-overview.md",
+      "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-gpu-cluster-witness-overview.md",
+      "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-gpu-cluster-failover-scenarios.md",
+      "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-gpu-kubernetes-failover-scenarios.md",
+      "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-baseline",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/databox-online/azure-stack-edge-gpu-manage-cluster.md",
+      "redirect_url": "/azure/architecture/example-scenario/hybrid/aks-baseline",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/migrate/create-project.md",
       "redirect_url": "/azure/migrate/quickstart-create-project",
       "redirect_document_id": false,
@@ -349,11 +389,6 @@
     {
       "source_path": "articles/playwright-testing/tutorial-run-end-to-end-tests.md",
       "redirect_url": "/azure/app-testing",
-      "redirect_document_id": false
-    },
-    {
-      "source_path": "articles/web-application-firewall/ag/web-application-firewall-troubleshoot.md",
-      "redirect_url": "/troubleshoot/azure/web-application-firewall/web-application-firewall-troubleshoot",
       "redirect_document_id": false
     },
     {
@@ -7014,36 +7049,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/web-application-firewall/afds/resource-manager-template-samples.md",
-      "redirect_url": "https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.cdn/front-door-premium-waf-managed/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/web-application-firewall/ag/powershell-samples.md",
-      "redirect_url": "/azure/web-application-firewall/ag/tutorial-restrict-web-traffic-powershell",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/web-application-firewall/ag/resource-manager-template-samples.md",
-      "redirect_url": "/azure/web-application-firewall/ag/quick-create-template",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/web-application-firewall/ag/whats-new.md",
-      "redirect_url": "/azure/web-application-firewall/ag/ag-overview#whats-new",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/web-application-firewall/scripts/waf-custom-rules-powershell.md",
-      "redirect_url": "/azure/web-application-firewall/ag/configure-waf-custom-rules",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/web-application-firewall/waf-cdn-create-portal.md",
-      "redirect_url": "/azure/web-application-firewall/cdn/cdn-overview",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/xplat-cli-connect.md",
       "redirect_url": "/cli/azure/authenticate-azure-cli",
       "redirect_document_id": false
@@ -7791,6 +7796,26 @@
     {
       "source_path": "articles/signups/azure-usage.md",
       "redirect_url": "/startups/microsoft-for-startups/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/enclave/1-8-migrate-workload-resources.md",
+      "redirect_url": "/azure/enclave/migrate-azure-resources-azure-enclave",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-availability-zones.md",
+      "redirect_url": "/azure/reliability/reliability-automation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-identity-based-connections-tutorial.md",
+      "redirect_url": "/azure/azure-functions/manage-connections?pivots=functions-auth-identity&tabs=host#define-connections",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-identity-based-connections-tutorial-2.md",
+      "redirect_url": "/azure/azure-functions/manage-connections?pivots=functions-auth-identity&tabs=bindings#define-connections",
       "redirect_document_id": false
     }
   ]

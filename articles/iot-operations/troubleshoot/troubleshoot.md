@@ -21,7 +21,7 @@ The troubleshooting guidance helps you diagnose and resolve issues you might enc
 
 For information about known issues and temporary workarounds, see [Known issues: Azure IoT Operations](known-issues.md).
 
-## Using health status for troubleshooting
+## Use health status for troubleshooting
 
 Azure IoT Operations provides [built-in health status reporting](../deploy-iot-ops/health-status-reporting.md) to help you understand the health of your edge workloads from the cloud. When a component reports **Degraded** or **Unavailable** health status, use the following approach to investigate and troubleshoot the issue:
 
@@ -32,9 +32,9 @@ Azure IoT Operations provides [built-in health status reporting](../deploy-iot-o
 
 ## Troubleshoot Azure IoT Operations deployment
 
-For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations `check` and `support` commands.
+For general deployment and configuration troubleshooting, use the Azure CLI IoT Operations `check` and `support` commands:
 
-[Azure CLI version 2.62.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
 - To evaluate Azure IoT Operations service deployment for health, configuration, and usability, use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check). The `check` command can help you find problems in your deployment and configuration.
 
@@ -64,13 +64,13 @@ To resolve, delete any provisioned resources associated with prior deployments i
 
 If your deployment fails with the `"code":"LinkedAuthorizationFailed"` error, the message indicates that you don't have the required permissions on the resource group containing the cluster.
 
-The following message indicates that the logged-in principal doesn't have the required permissions to deploy resources to the resource group specified in the resource sync resource ID.
+The following message indicates that the signed-in principal doesn't have the required permissions to deploy resources to the resource group specified in the resource sync resource ID.
 
 ```output
 Message: The client {principal Id} with object id {principal object Id} has permission to perform action Microsoft.ExtendedLocation/customLocations/resourceSyncRules/write on scope {resource sync resource Id}; however, it does not have permission to perform action(s) Microsoft.Authorization/roleAssignments/write on the linked scope(s) {resource sync resource group} (respectively) or the linked scope(s) are invalid.
 ```
 
-To enable resource sync, the logged-in principal must have the `Microsoft.Authorization/roleAssignments/write` permission against the resource group that resources are being deployed to. This security constraint is necessary because edge to cloud resource hydration creates new resources in the target resource group.
+To enable resource sync, the signed-in principal must have the `Microsoft.Authorization/roleAssignments/write` permission against the resource group that resources are being deployed to. This security constraint is necessary because edge to cloud resource hydration creates new resources in the target resource group.
 
 To resolve the issue elevate principal permissions.
 
@@ -140,7 +140,7 @@ Akri discovery requires that resource sync rules are enabled on your cluster. To
 Run `enable-rsync` to enable resource sync rules on your Azure IoT Operations instance. This command also sets the required permissions on the custom location:
 
 ```bash
-az iot ops enable-rsync - n <my instance> -g <my resource group>
+az iot ops enable-rsync -n <my instance> -g <my resource group>
 ```
 
 If the signed-in CLI user doesn't have permission to look up the object ID (OID) of the K8 Bridge service principal, you can provide it explicitly using the `--k8-bridge-sp-oid` parameter:
@@ -186,7 +186,7 @@ To work around this issue, update the device inbound endpoint in the operations 
 You can use the `az iot ops ns device endpoint inbound add opcua` to add endpoints to the device that automatically accept untrusted server certificates.
 
 > [!CAUTION]
-> Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
+> Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDoS attacks.
 
 ## Troubleshoot access to the operations experience web UI
 

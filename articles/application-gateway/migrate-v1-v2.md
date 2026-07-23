@@ -13,7 +13,7 @@ ms.author: mbender
 
 # Migrate Azure Application Gateway and Web Application Firewall from V1 to V2
 
-Microsoft announced the deprecation of Application Gateway V1 (Standard and Web Application Firewall) on April 28, 2023. Application Gateway V1 will retire on April 28, 2026.
+Microsoft announced the deprecation of Application Gateway V1 (Standard and Web Application Firewall) on April 28, 2023. Application Gateway V1 retired on April 28, 2026.
 
 In this article, you learn how to migrate Azure Application Gateway and Azure Web Application Firewall from V1 to V2 by using Azure PowerShell scripts. Migration has two stages: configuration migration and traffic migration. You can use the enhanced cloning script (recommended) or the legacy cloning script to clone your V1 gateway configuration to a new V2 gateway, and then redirect client traffic with minimal downtime.
 

@@ -33,9 +33,6 @@ Each profile type determines how your apps scale, the level of resource isolatio
 
 Each Container Apps environment includes a default Consumption profile. You can add Dedicated or Consumption GPU profiles and, when available, Flexible profiles to meet your application's needs.
 
-> [!NOTE]
-> The Flexible profile is currently only available in the following regions: Australia East, Brazil South, Canada Central, Canada East, Central India, East Asia, Germany West Central, Korea Central, North Europe, Southeast Asia, Sweden Central, UK West, West Central US, and West US 3.
-
 ## Workload profile form factors
 
 Different workload profile types offer different **form factors** such as general purpose, memory‑optimized, GPU, or blended.

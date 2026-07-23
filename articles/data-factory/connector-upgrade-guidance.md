@@ -1,8 +1,8 @@
 ---
 title: Connector upgrade guidance
 description: This article describes the guidance for upgrading connectors of Azure Data Factory.
-author: jianleishen
-ms.author: jianleishen
+author: simplywilson
+ms.author: tinglee
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article

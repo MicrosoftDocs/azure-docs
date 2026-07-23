@@ -2,8 +2,6 @@
 title: Discover APIs With Azure API Center MCP Server
 description: "Enable the Azure API Center MCP server so developers can discover APIs, plugins, MCP servers, and skills registered in your API center's inventory."
 #customer intent: As the administrator of an API center, I want to enable the API Center MCP server so developers can connect to the MCP Server and discover APIs and AI assets from my organization's catalog within their agent workflows.
-author: dlepow
-ms.author: danlep
 ms.date: 06/01/2026
 ms.topic: how-to
 ms.service: azure-api-center

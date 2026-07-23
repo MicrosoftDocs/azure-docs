@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/17/2026
+ms.date: 06/23/2026
 ai-usage: ai-assisted
 
 ---
@@ -801,7 +801,7 @@ az iot ops dataflowgraph apply \
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2025-10-01' = {
+resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs@2026-03-01' = {
   name: 'temperature-map-example'
   parent: dataflowProfile
   properties: {

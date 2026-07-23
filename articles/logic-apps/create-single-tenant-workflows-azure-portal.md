@@ -7,7 +7,7 @@ ms.suite: integration
 ms.reviewers: estfan, azla
 ms.collection: ce-skilling-ai-copilot
 ms.topic: how-to
-ms.date: 12/05/2025
+ms.date: 07/09/2026
 ms.update-cycle: 180-days
 ms.custom: sfi-image-nochange
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.

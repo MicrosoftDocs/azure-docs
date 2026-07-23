@@ -295,7 +295,7 @@
         href: control-plane-security.md
       - name: Understand data encryption in Azure NetApp Files
         href: understand-data-encryption.md
-      - name: Understand advanced encryption standard in Azure NetApp Files
+      - name: Understand AES in Azure NetApp Files
         href: understand-advanced-encryption-standard.md  
     - name: Security baseline
       href: /security/benchmark/azure/baselines/azure-netapp-files-security-baseline?toc=/azure/azure-netapp-files/TOC.json
@@ -595,6 +595,8 @@
       href: troubleshoot-user-access-ldap.md
     - name: Troubleshoot file locks
       href: troubleshoot-file-locks.md
+    - name: Troubleshoot SMB authentication and CIFS password reset failures
+      href: troubleshoot-authentication-password-reset-failure.md
 - name: FAQs
   items:
   - name: Networking FAQs
@@ -621,7 +623,7 @@
     href: faq-security.md
   - name: Integration FAQs
     href: faq-integration.md
-  - name: Advanced Encryption Standard FAQs
+  - name: AES FAQs
     href: faq-advanced-encryption-standard.md  
 - name: Reference
   items:

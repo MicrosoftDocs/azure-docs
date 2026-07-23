@@ -2,11 +2,11 @@
 title: 'Download global (WAN-level) or hub User VPN client configuration profiles'
 titleSuffix: Azure Virtual WAN
 description: Learn about how to generate and download global and hub-level User VPN client configuration profiles.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 11/21/2023
-ms.author: cherylmc
+ms.author: duau
 ms.custom: sfi-image-nochange
 ---
 

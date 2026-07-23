@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: reference
-ms.date: 06/15/2026
+ms.date: 06/23/2026
 ai-usage: ai-assisted
 
 ---
@@ -341,6 +341,9 @@ The primary function of escaping in a dot-notated path is to accommodate the use
 ## Wildcards
 
 Use a wildcard (`*`) in input and output paths to match multiple fields at once. This is useful when the output closely resembles the input, or when you need to apply the same transformation across many fields without listing each one.
+
+> [!IMPORTANT]
+> The wildcard examples in this section pass through whatever fields the input contains. For MQTT, Kafka, and other JSON output, this is fine. For a storage destination with Parquet or Delta serialization, the output schema must declare every leaf that the wildcard expands to. If the runtime payload contains a field that the schema doesn't declare, the record is dropped. Generate the schema from representative sample data, and see [Storage serialization behavior](concept-schema-registry.md#storage-serialization-behavior).
 
 ### Copy all fields
 

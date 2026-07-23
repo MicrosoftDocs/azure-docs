@@ -42,11 +42,11 @@ param deviceName string
 @description('The name of the device endpoint to reference.')
 param endpointName string
 
-resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
+resource namespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
   name: aioNamespace
 }
 
-resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' = {
+resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
   name: 'process-control-dataset-actions'
   parent: namespace
   location: location
@@ -177,10 +177,10 @@ param deviceName string
 @description('The name of the device endpoint to reference.')
 param endpointName string
 
-resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
+resource namespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
   name: aioNamespace
 }
-resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2025-10-01' = {
+resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
   name: 'management-actions-asset'
   parent: namespace
   location: location

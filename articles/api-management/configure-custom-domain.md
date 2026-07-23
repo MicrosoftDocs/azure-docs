@@ -3,12 +3,10 @@ title: Configure custom domain name for Azure API Management instance
 titleSuffix: Azure API Management
 description: How to configure a custom domain name and choose certificates for the endpoints of your Azure API Management instance.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 06/03/2026
-ms.author: danlep
 ms.custom:
   - engagement-fy23
   - build-2025

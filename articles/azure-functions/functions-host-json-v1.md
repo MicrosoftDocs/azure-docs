@@ -275,7 +275,7 @@ Configuration settings for [Storage queue triggers and bindings](functions-bindi
 
 ## SendGrid
 
-Configuration setting for the [SendGrind output binding](functions-bindings-sendgrid.md)
+Configuration setting for the [SendGrid output binding](functions-bindings-sendgrid.md)
 
 ```json
 {

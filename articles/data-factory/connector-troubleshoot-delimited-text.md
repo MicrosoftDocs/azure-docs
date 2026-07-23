@@ -2,11 +2,12 @@
 title: Troubleshoot the delimited text format connector
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the delimited text format connector in Azure Data Factory and Azure Synapse Analytics. 
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/20/2023
-ms.author: jianleishen
+ms.date: 06/22/2026
+ms.update-cycle: 1095-days
+ms.author: tinglee
 ms.custom: has-adal-ref, synapse
 ---
 
@@ -22,7 +23,7 @@ This article provides suggestions to troubleshoot common problems with the delim
 
 - **Cause**: When 'firstRowAsHeader' is set in the activity, the first row is used as the column name. This error means that the first row contains an empty value (for example, 'ColumnA, ColumnB').
 
-- **Recommendation**:  Check the first row, and fix the value if it is empty.
+- **Recommendation**:  Check the first row, and fix the value if it's empty.
 
 
 ## Error code: DelimitedTextMoreColumnsThanDefined

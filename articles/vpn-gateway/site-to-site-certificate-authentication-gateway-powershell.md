@@ -2,16 +2,16 @@
 title: 'Create S2S VPN Connection Between On-premises Network and Azure Virtual Network - Certificate Authentication: Azure PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure VPN Gateway server settings for site-to-site configurations - certificate authentication using PowerShell.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 02/24/2026
-ms.author: cherylmc
+ms.author: duau
 
 # Customer intent: "As a network engineer, I want to establish a secure site-to-site VPN connection using certificate authentication, so that I can securely connect my on-premises network to my Azure virtual network."
 ---
 
-# Configure a S2S VPN Gateway certificate authentication connection - PowerShell
+# Configure an S2S VPN gateway certificate authentication connection - PowerShell
 
 This article shows you how to use Azure PowerShell to create a site-to-site (S2S) VPN gateway connection between your on-premises network and an Azure virtual network using X.509 certificate-based authentication. Certificate authentication provides stronger security compared to preshared keys (PSK) for VPN connections.
 
@@ -558,3 +558,4 @@ Once your connection is complete, you can configure additional VPN Gateway setti
 * [About VPN Gateway configuration settings](vpn-gateway-about-vpn-gateway-settings.md)
 * [Configure BGP for VPN Gateway](vpn-gateway-bgp-overview.md)
 * [About highly available VPN gateway connections](vpn-gateway-highlyavailable.md)
+* [Configure a site-to-site VPN with certificate authentication - Azure CLI](site-to-site-certificate-authentication-gateway-cli.md)

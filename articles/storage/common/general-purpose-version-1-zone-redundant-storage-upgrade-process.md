@@ -48,6 +48,13 @@ To upgrade to ZRS using Azure CLI, call the following command:
 ```cli
 az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
 ```
+
+# [Azure Policy](#tab/azure-policy)
+To upgrade to a general-purpose v2 account, use a `deployIfNotExists` Azure Policy. This policy detects and identifies any general-purpose v1 storage accounts and enables you to perform a non-disruptive in-place upgrade of those accounts.  
+
+> [!TIP]
+> A sample policy is available here: [general-purpose v1 Azure policy](https://aka.ms/gpv1_azure_policy)
+
 ---
 
 ## Downtime requirements

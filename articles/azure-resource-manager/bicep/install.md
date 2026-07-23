@@ -2,7 +2,7 @@
 title: Install Bicep tools
 description: Learn how to install tools to set up Bicep development and deployment environments.
 ms.topic: how-to
-ms.date: 07/25/2025
+ms.date: 06/26/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 

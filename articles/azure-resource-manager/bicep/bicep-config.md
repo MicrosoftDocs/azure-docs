@@ -1,8 +1,8 @@
-﻿---
+---
 title: Configure your Bicep environment
 description: Learn how to configure your environment for Bicep file deployments.
 ms.topic: article
-ms.date: 10/30/2025
+ms.date: 06/26/2026
 ms.custom: devx-track-bicep
 ---
 

@@ -17,8 +17,35 @@ ms.custom:
 
 Release notes describe features, enhancements, and bug fixes released in 2026 for the FHIR&reg; service and DICOM&reg; service in Azure Health Data Services.
 
+## July 2026
+### FHIR service
+
+**Improved handling of invalid bundle types**: The FHIR service now returns proper error responses when an invalid bundle type is submitted (HTTP 400 Bad Request instead of HTTP 500 Internal Server Error).
+
+**New configuration options for date search behavior**: Added new configuration options to control date search behavior, allowing the Date Equality Rewriter to be used only when Date Containment is enabled. This provides more control over how date-based searches are optimized.
+
+**Improved search parameter statistics handling for `:missing` modifier**: Improved search parameter statistics handling for searches using the `:missing` modifier, resulting in better query performance for these types of searches.
+
+**Improved stability of standalone FHIR operations**: Improved stability of standalone FHIR operations by making them more resilient to transient database conflicts. Sporadic deadlock errors are now automatically retried instead of being returned to the caller.
+
+**Improved reliability of reindex operations for large datasets**: Improved reliability of reindex operations for large datasets by increasing timeout thresholds and fixing sliding window logic.
+
+#### Bug fixes:
+
+**Fix for `$bulk-delete` and `$bulk-update` without search parameters**: Fixed an issue where `$bulk-delete` and `$bulk-update` operations would fail when no search parameters were provided. These operations now work correctly without parameters.
+
+**Fix for iterative includes exceeding maximum count**: Fixed an issue where searches with iterative includes exceeding the maximum count would return a server error. The service now returns a proper warning instead.
+
+**Fix for search parameter delete workflow with pending delete statuses**: Fixed the search parameter delete workflow to correctly handle parameters with pending delete statuses, preventing stale search parameter data from being included in query results. For more information, see [Selectable search parameters for the FHIR service in Azure Health Data Services](./fhir/selectable-search-parameters.md#get-the-status-of-search-parameters).
+
 ## June 2026
 ### FHIR service
+
+**Bug fix for chained searches with birthdates**: A previous improvement for birthdate search performance introduced a bug in chained searches with birthdates. This issue has been fixed.
+
+**`$expand` operation returns HTTP 404 for missing ValueSet**: The `$expand` operation now correctly returns HTTP 404 (instead of HTTP 200) when the requested ValueSet isn't found, aligning with FHIR spec requirements.
+
+**Rework of search parameter concurrency handling**: To guarantee store data integrity, FHIR server implemented strict concurrency control for search parameter writes. When requests to write search parameters are sent in parallel, depending on timing, some requests might fail with concurrency conflict errors. This is because each write operation requires validation against the reference set, and concurrent modifications might lead to data integrity issues, therefore they are restricted. When writing search parameters, avoid sending multiple parallel requests. If you need to process multiple search parameters, send requests one after another, or use a single bundle call. 
 
 **Transaction bundle conflict handling**: Transaction bundle conflict handling has been improved. When concurrent transaction bundles encounter conflicts, the service now returns HTTP 409 Conflict instead of HTTP 500 Internal Server Error, allowing clients to retry appropriately.
 

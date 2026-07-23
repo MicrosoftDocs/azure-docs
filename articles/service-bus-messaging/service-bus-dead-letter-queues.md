@@ -2,7 +2,7 @@
 title: Service Bus Dead-Letter Queues
 description: Describes dead-letter queues in Azure Service Bus. Service Bus queues and topic subscriptions provide a secondary subqueue, called a dead-letter queue.
 ms.topic: concept-article
-ms.date: 06/04/2026
+ms.date: 07/16/2026
 ms.custom:
   - "fasttrack-edit, devx-track-csharp"
   - build-2025
@@ -34,6 +34,17 @@ Each queue and each subscription has its own dead-letter sub-queue. You can addr
 
 When you use the `Azure.Messaging.ServiceBus` .NET library, you don't construct this path yourself. Instead, set `ServiceBusReceiverOptions.SubQueue` to `SubQueue.DeadLetter` when you create the receiver. For an example, see [Receive messages from a dead-letter queue](#receive-messages-from-a-dead-letter-queue).
 
+## Path to the transfer dead-letter queue
+
+When a message can't be forwarded to its destination in auto forward or send via scenarios, the message is placed in the _transfer dead-letter queue_ (TDLQ) of the **source** entity that did the forwarding, not on the destination entity. Each queue or subscription that forwards messages has its own transfer dead-letter subqueue, which you can address directly by using the following syntax:
+
+```
+<queue path>/$Transfer/$DeadLetterQueue
+<topic path>/Subscriptions/<subscription path>/$Transfer/$DeadLetterQueue
+```
+
+When you use the `Azure.Messaging.ServiceBus` .NET library, set `ServiceBusReceiverOptions.SubQueue` to `SubQueue.TransferDeadLetter`. For an example, see [Receive messages from the transfer dead-letter queue](#receive-messages-from-the-transfer-dead-letter-queue).
+
 ## DLQ message count
 
 Obtaining the count of messages in the dead-letter queue at the topic level isn't applicable because messages don't sit at the topic level. Instead, when a sender sends a message to a topic, the message is forwarded to subscriptions for the topic within milliseconds and thus no longer resides at the topic level. So, you can see messages in the DLQ associated with the subscription for the topic. In the following example, [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer) shows that there are 62 messages currently in the DLQ for the subscription: test1.
@@ -61,6 +72,33 @@ When you enable dead-lettering on queues or subscriptions, all expiring messages
 ## Maximum delivery count
 
 There's a limit on the number of attempts to deliver messages for Service Bus queues and subscriptions. The default value is 10. Whenever a message is delivered under a peek-lock, but is either explicitly abandoned or the lock has expired, the delivery count on the message is incremented. When the delivery count exceeds the limit, the message is moved to the DLQ. The dead-letter reason for the message in DLQ is set to `MaxDeliveryCountExceeded`. This behavior can't be disabled, but you can set the max delivery count to a large number.
+
+## Settle messages before you close the receiver or connection
+
+In peek-lock mode, the lock on a received message is tied to the receiver and its connection. If you close the receiver or its connection before you settle a message (complete, abandon, defer, or dead-letter), the settlement doesn't reach the service, so the message stays locked until the lock expires. The service then redelivers the message, which increases its delivery count. A message that's repeatedly received but never settled is eventually moved to the dead-letter queue with the reason `MaxDeliveryCountExceeded`.
+
+To avoid this pattern:
+
+- Settle each message before you close the receiver or the `ServiceBusClient`.
+- Don't hold a received message and settle it later, after the receiver or connection might have closed. The service closes an idle connection after 10 minutes, which also releases the lock.
+- If settlement fails because the lock was lost, receive the message again and process it, rather than retrying the settlement on the original message.
+
+The following example completes each message before the receiver is closed by the `await using` block:
+
+```csharp
+await using (ServiceBusReceiver receiver = client.CreateReceiver(queueName))
+{
+    ServiceBusReceivedMessage message = await receiver.ReceiveMessageAsync();
+
+    // Process the message, then settle it while the receiver is still open.
+    await receiver.CompleteMessageAsync(message);
+}
+```
+
+Settling a message after you close the receiver throws an exception, and the message isn't settled.
+
+> [!IMPORTANT]
+> A lost lock isn't always caused by your code. Transient network failures, network outages, or the service-enforced 10-minute idle timeout can also detach the connection before you settle a message. For those cases, see [Message or session lock is lost before lock expiration time](service-bus-troubleshooting-guide.md#message-or-session-lock-is-lost-before-lock-expiration-time) in the troubleshooting guide.
 
 ## Errors while processing subscription rules
 
@@ -109,7 +147,7 @@ string description = dlqMessage.DeadLetterErrorDescription;
 await dlqReceiver.CompleteMessageAsync(dlqMessage);
 ```
 
-The same pattern works for the transfer dead-letter queue by using `SubQueue.TransferDeadLetter`.
+The same pattern works for the transfer dead-letter queue by using `SubQueue.TransferDeadLetter`. For a complete example, see [Receive messages from the transfer dead-letter queue](#receive-messages-from-the-transfer-dead-letter-queue).
 
 ## Dead-lettering in auto forward scenarios
 
@@ -123,6 +161,65 @@ Messages are sent to the dead-letter queue under the following conditions:
 
 - If the destination queue or topic is disabled, the message is sent to the transfer dead-letter queue (TDLQ) of the source queue.
 - If the destination queue or entity exceeds the entity size, the message is sent to a TDLQ of the source queue.
+
+You can check how many messages are waiting in the transfer dead-letter queue by reading the `TransferDeadLetterMessageCount` runtime property of the source entity. For more information, see [Message count details](message-counters.md).
+
+## Receive messages from the transfer dead-letter queue
+
+The transfer dead-letter queue is a sub-queue of the source entity, so you receive from it the same way you receive from a regular dead-letter queue: scope the receiver to the source queue (or the source topic subscription) and select the transfer dead-letter sub-queue.
+
+When you use the `Azure.Messaging.ServiceBus` .NET library, set `ServiceBusReceiverOptions.SubQueue` to `SubQueue.TransferDeadLetter` when you create the receiver. The library addresses the transfer dead-letter sub-queue for you.
+
+```csharp
+using Azure.Identity;
+using Azure.Messaging.ServiceBus;
+
+string fullyQualifiedNamespace = "<NAMESPACE-NAME>.servicebus.windows.net";
+
+// The source queue that forwards messages. The transfer dead-letter queue
+// lives on this entity, not on the destination.
+string sourceQueueName = "<SOURCE-QUEUE-NAME>";
+
+// 1. Create the top-level client. Passwordless authentication is recommended.
+await using var client = new ServiceBusClient(fullyQualifiedNamespace, new DefaultAzureCredential());
+
+// 2. Configure options to target the transfer dead-letter sub-queue.
+var options = new ServiceBusReceiverOptions
+{
+    SubQueue = SubQueue.TransferDeadLetter
+};
+
+// 3. Create a receiver scoped to the source entity's transfer dead-letter queue.
+//    For a subscription that forwards, use:
+//    client.CreateReceiver(topicName, subscriptionName, options).
+ServiceBusReceiver tdlqReceiver = client.CreateReceiver(sourceQueueName, options);
+
+// 4. Receive a message that failed to transfer to its destination.
+ServiceBusReceivedMessage tdlqMessage = await tdlqReceiver.ReceiveMessageAsync();
+
+// 5. Inspect why the message couldn't be transferred.
+string reason = tdlqMessage.DeadLetterReason;
+string description = tdlqMessage.DeadLetterErrorDescription;
+
+// 6. Complete the message to remove it from the transfer dead-letter queue.
+await tdlqReceiver.CompleteMessageAsync(tdlqMessage);
+```
+
+## Why did my message go to the dead-letter queue?
+
+When you find unexpected messages in the dead-letter queue, use the dead-letter reason and description on each message to identify the cause. The dead-letter reason is set on the `DeadLetterReason` property, and the system reasons are listed in [Moving messages to the DLQ](#moving-messages-to-the-dlq). The following table maps the most common causes to how you identify and prevent them.
+
+| Cause | How to identify it | How to prevent it |
+| ----- | ------------------ | ----------------- |
+| Delivery count exceeded | Reason is `MaxDeliveryCountExceeded`. | Make sure your handler settles each message, and investigate processing exceptions and messages that are received but never completed. See [Maximum delivery count](#maximum-delivery-count). |
+| Settlement after the receiver closed | Reason is `MaxDeliveryCountExceeded`, and your logs show lock-lost or receiver-closed errors when you complete messages. | Settle each message before you close the receiver or connection. See [Settle messages before you close the receiver or connection](#settle-messages-before-you-close-the-receiver-or-connection). |
+| Message expired | Reason is `TTLExpiredException`. | Increase the time to live, or process messages faster. See [Time to live](#time-to-live). |
+| Message too large | Reason is `HeaderSizeExceeded`. | Reduce the message size, or upgrade to the Premium tier for higher limits. |
+| Missing session ID | Reason is `Session ID is null`. | Set the session ID on every message you send to a session-enabled entity. |
+| Too many auto-forward hops | Reason is `MaxTransferHopCountExceeded`. | Reduce the length of the auto-forward chain to four hops or fewer. See [Dead-lettering in auto forward scenarios](#dead-lettering-in-auto-forward-scenarios). |
+| Subscription filter error | Dead-lettering on filter evaluation exceptions is enabled, and a filter rule threw an error. | Fix the filter rule, and make sure messages you send to the topic have a matching subscription. See [Errors while processing subscription rules](#errors-while-processing-subscription-rules). |
+
+For symptoms that don't map to a dead-letter reason, such as intermittent lock loss, see the [Service Bus troubleshooting guide](service-bus-troubleshooting-guide.md).
 
 ## Sending dead-lettered messages to be reprocessed
 

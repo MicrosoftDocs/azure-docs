@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: tutorial
-ms.date: 06/17/2026
+ms.date: 06/19/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -16,21 +16,17 @@ ms.custom:
 
 # Tutorial: Get insights from your processed data
 
-In this tutorial, you populate a [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to capture insights from the OPC UA data that you sent to Event Hubs in the previous tutorial. Using Microsoft Fabric Real-Time Intelligence, you bring your data from Event Hubs into Microsoft Fabric, and map it into a KQL database that can be a source for Real-Time Dashboards. Then, you build a dashboard to display that data in visual tiles that capture insights and show the values over time.
-
-These operations are the last steps in the sample end-to-end tutorial experience, which goes from deploying Azure IoT Operations at the edge through getting insights from that device data in the cloud.
+[!INCLUDE [get-insights-intro](../includes/get-insights-intro.md)]
 
 ## Prerequisites
 
-Before you begin this tutorial, you must complete [Tutorial: Send messages from assets to the cloud using a data flow](tutorial-upload-messages-to-cloud.md)
+Before you begin this tutorial, complete [Tutorial: Send messages from assets to the cloud using a data flow](tutorial-upload-messages-to-cloud.md).
 
-You also need a Microsoft Fabric subscription. In your subscription, you need access to a workspace with **Contributor** or above permissions.
-
-Additionally, your Fabric tenant must allow the creation of Real-Time Dashboards. This is a setting that can be enabled by your tenant administrator. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
+[!INCLUDE [get-insights-fabric-prerequisites](../includes/get-insights-fabric-prerequisites.md)]
 
 ## What problem will we solve?
 
-Once your OPC UA data has arrived in the cloud, you'll have a lot of information available to analyze. You might want to organize that data and create reports containing graphs and visualizations to derive insights from the data. The steps in this tutorial illustrate how you can connect that data to Real-Time Intelligence and build a Real-Time Dashboard.
+[!INCLUDE [get-insights-problem](../includes/get-insights-problem.md)]
 
 ## Ingest data into Real-Time Intelligence
 

@@ -53,18 +53,18 @@ To create an App Configuration store, start by creating a resource group for you
 
 ### Create a resource group
 
-Create a resource group named *AppConfigTestResources* in the Central US location with the [az group create](/cli/azure/group#az-group-create) command:
+Create a resource group with the [az group create](/cli/azure/group#az-group-create) command. The following example creates a resource group in the Central US region. Replace _`<ResourceGroupName>`_ with a name for your resource group.
 
 ```azurecli
-az group create --name AppConfigTestResources --location centralus
+az group create --name <ResourceGroupName> --location centralus
 ```
 
 ### Create an App Configuration store
 
-Create a new store with the [az appconfig create](/cli/azure/appconfig/#az-appconfig-create) command and replace the placeholder `<name>` with a unique resource name for your App Configuration store.
+Create a new store with the [az appconfig create](/cli/azure/appconfig/#az-appconfig-create) command and replace the placeholder _`<AppConfigurationStoreName>`_ with a unique resource name for your App Configuration store.
 
 ```azurecli
-az appconfig create --location centralus --name <name> --resource-group AppConfigTestResources
+az appconfig create --location centralus --name <AppConfigurationStoreName> --resource-group <ResourceGroupName>
 ```
 
 ---
@@ -93,10 +93,10 @@ If you're following another tutorial to use the App Configuration store, you can
 
 ### [Azure CLI](#tab/azure-cli)
 
-Add a key-value to the App Configuration store using the [az appconfig kv set](/cli/azure/appconfig/#az-appconfig-kv-set) command. Replace the placeholder `<name>` with the name of the App Configuration store:
+Add a key-value to the App Configuration store using the [az appconfig kv set](/cli/azure/appconfig/#az-appconfig-kv-set) command. Replace the placeholder _`<AppConfigurationStoreName>`_ with the name of the App Configuration store:
 
 ```azurecli
-az appconfig kv set --name <name> --key TestApp:Settings:TextAlign --value center
+az appconfig kv set --name <AppConfigurationStoreName> --key TestApp:Settings:TextAlign --value center
 ```
 
 ---
@@ -115,16 +115,16 @@ When no longer needed, delete the resource group. Deleting a resource group also
 
 1. In the Azure portal, search for and select **Resource groups**.
 
-1. Select your resource group, for instance *AppConfigTestResources*, and then select **Delete resource group**.
+1. Select the resource group you would like to delete and then select **Delete resource group**.
 
 1. Type the resource group name to verify, and then select **Delete**.
 
 ### [Azure CLI](#tab/azure-cli)
 
-Replace the placeholder `<resource-group-name>` with the name of the resource group that contains the App Configuration store:
+Replace the placeholder _`<ResourceGroupName>`_ with the name of the resource group that contains the App Configuration store:
 
 ```azurecli
-az group delete --name <resource-group-name>
+az group delete --name <ResourceGroupName>
 ```
 
 ---

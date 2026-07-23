@@ -53,24 +53,24 @@ You can use the Azure portal or the Azure CLI to retrieve past key-values.
 
 Use the Azure CLI as explained below to retrieve and restore past key-values. If you don't have the Azure CLI installed locally, you can optionally use [Azure Cloud Shell](../cloud-shell/overview.md).
 
-In the CLI, use `az appconfig revision list` to view changes or `az appconfig kv restore` to restore key-values, adding appropriate parameters. Specify the Azure App Configuration instance by providing either the store name (`--name <app-config-store-name>`) or by using a connection string (`--connection-string <your-connection-string>`). Restrict the output by specifying a specific point in time (`--datetime`), a label (`--label`), and the maximum number of items to return (`--top`).
+In the CLI, use `az appconfig revision list` to view changes or `az appconfig kv restore` to restore key-values, adding appropriate parameters. Specify the Azure App Configuration instance by providing either the store name (`--name <AppConfigurationStoreName>`) or by using a connection string (`--connection-string <AppConfigurationConnectionString>`). Restrict the output by specifying a specific point in time (`--datetime`), a label (`--label`), and the maximum number of items to return (`--top`).
 
 Retrieve all recorded changes to your key-values.
 
 ```azurecli
-az appconfig revision list --name <your-app-config-store-name>
+az appconfig revision list --name <AppConfigurationStoreName>
 ```
 
 Restore all key-values to a specific point in time.
 
 ```azurecli
-az appconfig kv restore --name <app-config-store-name> --datetime "2019-05-01T11:24:12Z"
+az appconfig kv restore --name <AppConfigurationStoreName> --datetime "2019-05-01T11:24:12Z"
 ```
 
 Restore for any label starting with v1. to a specific point in time.
 
 ```azurecli
-az appconfig kv restore --name <app-config-store-name> --label v1.* --datetime "2019-05-01T11:24:12Z"
+az appconfig kv restore --name <AppConfigurationStoreName> --label v1.* --datetime "2019-05-01T11:24:12Z"
 ```
 
 For more examples of CLI commands and optional parameters to restore key-values, go to the [Azure CLI documentation](/cli/azure/appconfig/kv).
@@ -104,36 +104,36 @@ You can also access the revision history of a specific key-value in the portal.
 
 Use the Azure CLI as explained below to retrieve and restore a single key-value. If you don't have the Azure CLI installed locally, you can optionally use [Azure Cloud Shell](../cloud-shell/overview.md).
 
-In the CLI, use `az appconfig revision list` to view changes to a key-value or use `az appconfig kv restore` to restore a key-value, adding appropriate parameters. Specify the Azure App Configuration instance by providing either the store name (`--name <app-config-store-name>`) or by using a connection string (`--connection-string <your-connection-string>`). Restrict the output by specifying a specific key (`--key`). Optionally, specify a label (`--label`), a point in time (`--datetime`), and the maximum number of items to return (`--top`).
+In the CLI, use `az appconfig revision list` to view changes to a key-value or use `az appconfig kv restore` to restore a key-value, adding appropriate parameters. Specify the Azure App Configuration instance by providing either the store name (`--name <AppConfigurationStoreName>`) or by using a connection string (`--connection-string <AppConfigurationConnectionString>`). Restrict the output by specifying a specific key (`--key`). Optionally, specify a label (`--label`), a point in time (`--datetime`), and the maximum number of items to return (`--top`).
 
 List revision history for key "color" with any labels.
 
 ```azurecli
-az appconfig revision list --name <app-config-store-name> --key color
+az appconfig revision list --name <AppConfigurationStoreName> --key color
 ```
 
 List revision history of a specific key-value with a label.
 
 ```azurecli
-az appconfig revision list --name <app-config-store-name> --key color --label test
+az appconfig revision list --name <AppConfigurationStoreName> --key color --label test
 ```
 
 List revision history of a key-value with multiple labels.
 
 ```azurecli
-az appconfig revision list --name <app-config-store-name> --key color --label test,prod,\0
+az appconfig revision list --name <AppConfigurationStoreName> --key color --label test,prod,\0
 ```
 
 Retrieve all recorded changes for the key `color` at a specific point-in-time.
 
 ```azurecli
-az appconfig revision list --name <app-config-store-name> --key color --datetime "2019-05-01T11:24:12Z" 
+az appconfig revision list --name <AppConfigurationStoreName> --key color --datetime "2019-05-01T11:24:12Z" 
 ```
 
 Retrieve the last 10 recorded changes for the key `color` at a specific point-in-time.
 
 ```azurecli
-az appconfig revision list --name <app-config-store-name> --key color --top 10 --datetime "2019-05-01T11:24:12Z" 
+az appconfig revision list --name <AppConfigurationStoreName> --key color --top 10 --datetime "2019-05-01T11:24:12Z" 
 ```
 
 For more examples and optional parameters, go to the [Azure CLI documentation](/cli/azure/appconfig/revision).

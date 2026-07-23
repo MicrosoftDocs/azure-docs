@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
-ms.date: 05/21/2026
+ms.date: 07/01/2026
 ---
 
 # Known issues for Azure IoT Operations
@@ -317,6 +317,22 @@ Log signature: N/A
 ---
 
 When updating to version 2605, existing MQTT connector templates may display mismatched metadata versions in the portal. To resolve, delete and recreate the connector template. Alternatively, use the Azure CLI to update the connector.
+
+### MQTT connector can't connect to external MQTT brokers that have private IP addresses
+
+---
+
+Issue ID: 7791
+
+---
+
+Log signature: N/A
+
+---
+
+Starting in release 2605, the MQTT connector can't connect to external MQTT brokers that have private IP addresses.  
+
+This issue is scheduled to be fully resolved in release 2607.
 
 
 ## Data flows issues

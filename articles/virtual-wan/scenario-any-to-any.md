@@ -3,12 +3,12 @@ title: 'Scenario: any-to-any'
 titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN any-to-any routing scenarios, where any spoke can reach another spoke.
 services: virtual-wan
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.topic: concept-article
 ms.date: 03/26/2025
-ms.author: cherylmc
+ms.author: duau
 ms.custom: fasttrack-edit
 
 ---

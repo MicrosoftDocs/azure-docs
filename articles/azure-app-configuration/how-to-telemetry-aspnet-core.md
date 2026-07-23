@@ -120,7 +120,7 @@ Now you'll add a custom event to track when users like a quote. You'll create a 
 1. Application Insights requires a connection string to connect to your Application Insights resource. Set the `ConnectionStrings:ApplicationInsights` as a user secret.
 
     ```dotnetcli
-    dotnet user-secrets set ConnectionStrings:ApplicationInsights "<your-Application-Insights-Connection-String>"
+    dotnet user-secrets set ConnectionStrings:ApplicationInsights "<ApplicationInsightsConnectionString>"
     ```
 
 1. After setting the environment variable, restart your terminal and rebuild and run the application.

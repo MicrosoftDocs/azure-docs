@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.date: 05/28/2026
+ms.date: 07/14/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from MQTT topics.
@@ -166,20 +166,20 @@ To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
 Deploy the following Bicep template to create a device with an inbound endpoint for the MQTT connector. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively. Adjust the endpoint address, topic filter, and topic mapping prefix to match your scenario:
 
 ```bicep
-param aioNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param adrNamespaceName string = '<AIO_NAMESPACE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource namespace 'Microsoft.DeviceRegistry/namespaces@2025-10-01' existing = {
-  name: aioNamespaceName
+resource adrNamespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
+  name: adrNamespaceName
 }
 
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
 
-resource device 'Microsoft.DeviceRegistry/namespaces/devices@2025-10-01' = {
+resource device 'Microsoft.DeviceRegistry/namespaces/devices@2026-04-01' = {
   name: 'mqtt-connector'
-  parent: namespace
+  parent: adrNamespace
   location: resourceGroup().location
   extendedLocation: {
     type: 'CustomLocation'
@@ -239,7 +239,7 @@ To use the `Username password` authentication mode, complete the following steps
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [connector-certificate-user-cli](../includes/connector-certificate-user-cli.md)]
+[!INCLUDE [connector-certificate-user-cli-no-intermediate](../includes/connector-certificate-user-cli-no-intermediate.md)]
 
 # [Bicep](#tab/bicep)
 

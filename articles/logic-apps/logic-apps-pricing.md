@@ -5,8 +5,9 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: concept-article
-ms.date: 07/18/2025
-# Customer intent: As a logic apps developer, I want to learn and understand how usage metering, billing, and pricing work in Azure Logic Apps.
+ms.update-cycle: 180-days
+ms.date: 07/10/2026
+# Customer intent: As an automation and integration developer who works in Azure Logic Apps, I want to understand how usage metering, billing, and pricing work.
 ---
 
 # Usage metering, billing, and pricing for Azure Logic Apps

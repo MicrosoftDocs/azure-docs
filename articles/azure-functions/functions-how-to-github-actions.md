@@ -340,7 +340,7 @@ Keep the following considerations in mind when using the Azure Functions action:
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Learn more about Azure and GitHub integration](/azure/developer/github/)
+- [Recover from a bad Flex Consumption plan deployment](functions-rollback-deployments.md)
+- [Learn more about Azure and GitHub integration](/azure/developer/github/)
 
 [Azure portal]: https://portal.azure.com

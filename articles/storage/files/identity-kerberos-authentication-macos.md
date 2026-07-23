@@ -28,7 +28,7 @@ Before configuring Azure Files access on macOS by using Platform SSO, complete t
 - macOS Tahoe 26.5 or later with the latest updates installed.
 - [Microsoft Intune Company Portal](/mem/intune/apps/apps-company-portal-macos) version 5.2408.0 or later installed on the device.
 - The macOS device must be enrolled in a mobile device management (MDM) solution.
-- macOS Platform SSO must already be configured and deployed to devices. If you didn't configure Platform SSO, refer to the [Platform SSO documentation](/entra/identity/devices/macos-psso) or the [Intune deployment guide](/mem/intune/configuration/platform-sso-macos) before continuing.
+- macOS Platform SSO must already be configured and deployed to devices. If you didn't configure Platform SSO, refer to the [Platform SSO documentation](/entra/identity/devices/macos-psso) for general information or the [Intune deployment guide](/mem/intune/configuration/platform-sso-macos) for step-by-step instructions before continuing.
 
 ### Azure Files requirements
 
@@ -368,14 +368,6 @@ If users are prompted to enter credentials when connecting to the Azure file sha
 
 When you deploy Kerberos SSO support by using Platform SSO, the macOS Kerberos SSO extension menu bar extra appears in the menu bar. Users don't need to interact with the menu bar extra for Kerberos SSO to work. SSO functionality operates correctly even if the menu bar extra reports "Not signed in." You can instruct users to ignore the menu bar extra.
 
-### Browser support for Kerberos SSO
-
-If your users also access on-premises web resources via Kerberos SSO, some browsers require extra configuration. These settings aren't required for SMB Azure file share access. Deploy the appropriate settings for each browser used in your environment.
-
-- **Safari**: Supports Kerberos SSO by default. No extra configuration required.
-- **Microsoft Edge**: Configure [AuthNegotiateDelegateAllowlist](/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) and [AuthServerAllowlist](/DeployEdge/microsoft-edge-policies#authserverallowlist) to include your on-premises Active Directory forest information.
-- **Google Chrome**: Configure [AuthNegotiateDelegateAllowlist](https://chromeenterprise.google/policies/#AuthNegotiateDelegateAllowlist) and [AuthServerAllowlist](https://chromeenterprise.google/policies/#AuthServerAllowlist) to include your on-premises Active Directory forest information.
-- **Mozilla Firefox**: Configure the `network.negotiate-auth.trusted-uris` and `network.automatic-ntlm-auth.trusted-uris` settings to enable Kerberos SSO support.
 
 ## Related content
 

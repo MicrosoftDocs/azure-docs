@@ -1,12 +1,12 @@
 ---
 title: Secure Your Azure Bastion Deployment
 description: Learn how to secure your Azure Bastion deployment using actionable guidance aligned to the Microsoft Cloud Security Benchmark.
-author: cherylmc
+author: asudbring
 ms.service: azure-bastion
 ms.topic: concept-article
 ms.custom: subject-security-benchmark
 ms.date: 08/28/2025
-ms.author: cherylmc
+ms.author: allensu
 ai-usage: ai-assisted
 ---
 

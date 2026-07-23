@@ -2,11 +2,11 @@
 title: Copy data to and from Oracle
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from supported source stores to an Oracle database, or from Oracle to supported sink stores, using Data Factory or Azure Synapse Analytics pipelines.
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 04/09/2026
-ms.author: jianleishen
+ms.author: tinglee
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -18,6 +18,10 @@ ms.custom:
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the copy activity in Azure Data Factory to copy data from and to an Oracle database. It builds on the [copy activity overview](copy-activity-overview.md).
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Oracle connector documentation](/fabric/data-factory/connector-oracle-database-overview).
+
 
 > [!IMPORTANT]
 > The Oracle connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Oracle connector](#upgrade-the-oracle-connector) from version 1.0 to 2.0.

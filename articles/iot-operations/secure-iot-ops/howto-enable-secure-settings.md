@@ -20,7 +20,7 @@ This article provides instructions for enabling secure settings if you didn't do
 
 * An Azure IoT Operations instance [deployed with test settings](../deploy-iot-ops/howto-deploy-iot-test-operations.md).
 
-* Azure CLI version 2.62.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
 * The latest version of the **connectedk8s** extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
@@ -28,17 +28,11 @@ This article provides instructions for enabling secure settings if you didn't do
   az extension add --upgrade --name connectedk8s
   ```
 
-* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
-
-  ```azurecli
-  az extension add --upgrade --name azure-iot-ops
-  ```
-
 ## Enable the cluster for secure settings
 
 To enable secrets synchronization for your Azure IoT Operations instance, the _OIDC issuer_ and _workload identity federation_ features must be enabled on your cluster. This configuration is required for the [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets.
 
-For Azure Kubernetes Service (AKS) clusters, the OIDC issuer and workload identity features can be enabled only at the time of cluster creation. For clusters on AKS Edge Essentials, the automated script enables these features by default. For AKS clusters on Azure Local, follow the steps to [Deploy and configure workload identity on an AKS enabled by Azure Arc cluster](/azure/aks/aksarc/workload-identity) to create a new cluster if you don't have one with the required features.
+For Azure Kubernetes Service (AKS) clusters, you can enable the OIDC issuer and workload identity features when you create the cluster or on an existing cluster. For more information, see [Deploy and configure Microsoft Entra Workload ID on an AKS cluster](/azure/aks/workload-identity-deploy-cluster). For clusters on AKS Edge Essentials, the automated script enables these features by default. For AKS clusters on Azure Local, follow the steps to [Deploy and configure workload identity on an AKS enabled by Azure Arc cluster](/azure/aks/aksarc/workload-identity) to create a new cluster if you don't have one with the required features.
 
 For k3s clusters on Kubernetes, you can update an existing cluster. To enable and configure these features, use the following steps:
 
@@ -201,7 +195,7 @@ Some Azure IoT Operations components, like data flow endpoints, use a user-assig
 1. Restart the schema registry pods to apply the new identity. 
 
    ```azurecli
-   kubectl delete pods adr-schema-registry-0 adr-schema-registry-1 -n azure-iot-operations
+   kubectl rollout restart statefulset adr-schema-registry -n azure-iot-operations
    ```
 
 Now you can use this managed identity in data flow endpoints for cloud connections.

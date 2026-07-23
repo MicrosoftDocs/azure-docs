@@ -3,13 +3,13 @@
 title: Create a point-to-site connection to Azure using PowerShell'
 description: Learn how to use Azure Virtual WAN to create a User VPN (point-to-site) connection to Azure using PowerShell.
 services: virtual-wan
-author: cherylmc
+author: duongau
 
 ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/27/2025
-ms.author: cherylmc
+ms.author: duau
 ---
 # Create a P2S User VPN connection using Azure Virtual WAN - PowerShell
 

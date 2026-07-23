@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 10/22/2024
+ms.date: 07/08/2026
 
 # CustomerIntent: As a developer, I want to understand how to use Dapr to develop distributed apps that talk with MQTT broker.
 ms.service: azure-iot-operations
@@ -19,7 +19,7 @@ To use the MQTT broker Dapr pluggable components, deploy both the pub/sub and st
 
 ## Prerequisites
 
-* Azure IoT Operations deployed - [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md)
+* An Azure Arc-enabled Kubernetes cluster with Azure IoT Operations deployed. If you don't have one, you can follow the instructions in [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) to quickly create one in GitHub Codespaces.
 * MQTT broker Dapr Components deployed - [Deploy MQTT broker Dapr Components](./howto-deploy-dapr.md)
 
 ## Creating a Dapr application

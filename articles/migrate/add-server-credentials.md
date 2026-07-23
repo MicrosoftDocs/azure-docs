@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 09/19/2025
 ms.reviewer: v-uhabiba
 ms.custom: engagement-fy25
+ms.update-cycle: 1095-days
 # Customer intent: As a cloud migration consultant, I want to provide server credentials in the configuration manager, so that I can accurately discover software inventory, web apps, and SQL Server instances to facilitate a smooth migration process.
 ---
 

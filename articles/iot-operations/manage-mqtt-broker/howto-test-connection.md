@@ -138,7 +138,7 @@ For example, to create a new broker listener with the `NodePort` service type, s
 To create a new broker listener with the `NodePort` service type, use the following Azure CLI command.
 
 ```azurecli
-az iot ops broker listener port add --service-type NodePort --nodeport <static port value>
+az iot ops broker listener port add --instance <AioInstanceName> --resource-group <ResourceGroupName> --listener <ListenerName> --port <ListenerServicePort> --service-type NodePort --nodeport <static port value>
 ```
 
 Optionally, for testing purposes only, you can use the `--add-insecure-listener` flag to create a listener without authentication and TLS. The `--add-insecure-listener` flag is only available on the instance deployment operation via the `az iot ops create` command. To add a port without authentication and TLS after deployment, you can use the `listener port add` operation as in the previous example, but omit the options for authentication or TLS.
@@ -155,7 +155,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param listenerName string = 'aio-broker-nodeport'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -163,12 +163,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource nodePortListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-11-01' = {
+resource nodePortListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-03-01' = {
   parent: defaultBroker
   name: listenerName
   extendedLocation: {
@@ -325,7 +325,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param listenerName string = 'aio-broker-loadbalancer'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -333,12 +333,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-11-01' = {
+resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-03-01' = {
   parent: defaultBroker
   name: listenerName
   extendedLocation: {
@@ -544,7 +544,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param listenerName string = '<LISTENER_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -552,12 +552,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource nodePortListener 'Microsoft.IoTOperations/instances/brokers/listeners@2024-11-01' = {
+resource nodePortListener 'Microsoft.IoTOperations/instances/brokers/listeners@2026-03-01' = {
   parent: defaultBroker
   name: listenerName
   extendedLocation: {

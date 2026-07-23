@@ -6,8 +6,9 @@ ms.author: vibansa
 ms.manager: ronai
 ms.service: azure-migrate
 ms.topic: how-to
-ms.date: 08/28/2025
+ms.date: 06/26/2026
 ms.reviewer: v-uhabiba
+ms.update-cycle: 1095-days
 ms.custom:
   - engagement-fy25
   - sfi-image-nochange
@@ -35,7 +36,7 @@ This article describes how to set up agentless dependency analysis using Azure M
 
 ## What's New?
 
-- Dependency analysis runs automatically on 3,000 servers discovered by each Azure Migrate appliance that passes the prerequisite checks. You don’t need to enable it manually anymore.
+- Dependency analysis runs automatically on 3,000 servers discovered by Azure Migrate appliance for VMware VMs that pass the prerequisite checks. You don't need to enable it manually anymore.
 - The enhanced dependency visualization helps you review dependencies gathered across servers discovered from your datacentre by Azure Migrate.
 - In the new visualization, after identifying key dependencies, you can group servers into an application by tagging them.
 ::: moniker-end
@@ -122,7 +123,7 @@ After the validation succeeds, dependency analysis are autoenabled and you see o
 - **View dependencies:** The server passed the validation checks and dependency analysis is enabled. You can select this to open the new visualization and check the server’s dependencies.
 ::: moniker range="migrate"
 
-- **Not initiated:** Dependency analysis couldn’t be enabled because Azure Migrate reached its limit of 1,000 servers per appliance for automatic enablement. If you want to run dependency analysis on specific servers, you can disable it manually on other autoenabled servers and enable it for the required ones using the PowerShell module.
+- **Not initiated:** Dependency analysis couldn't be enabled because Azure Migrate reached its limit of 3,000 servers per appliance (VMware) and 1,000 servers per appliance (Hyper-V/Physical) for automatic enablement. To run dependency analysis on specific servers, disable it manually on other autoenabled servers and enable it for the required ones by using the PowerShell module.
 - **Disabled:** You can manually disable dependency analysis on this using the portal or the PowerShell module. You can enable it again anytime using the same module. 
 
 - **Not supported**: Dependency data could not be collected as the server was discovered through CSV import.
@@ -304,7 +305,7 @@ The dependency data is exported and downloaded in a CSV format. The downloaded f
 1. The process type is set to **Resolvable** by default. This exports only resolvable connections between discovered servers. But you can change this to **All** if you want to export all connections gathered (including unresolved connections to servers which were either not discovered by Azure Migrate or errored in dependency data gathering).
 1. Select **Generate** to generate a file with the earliest available dependency data amongst the selected appliance(s) within the chosen time interval.
 
-   :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/new-export-dep.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/new-export-dep.png":::
+   :::image type="content" source="./media/how-to-create-group-machine-dependencies-agentless/new-export-dependency.png" alt-text="The screenshot illustrates the Export dependencies." lightbox="./media/how-to-create-group-machine-dependencies-agentless/new-export-dependency.png":::
 
 1. After the file is generated, select **Download** to save it.
 
@@ -580,7 +581,7 @@ In the following example, dependency analysis is being enabled on the list of se
 
 ## Visualize network connections in Power BI
 
-Azure Migrate offers a Power BI template that you can use to visualize network connections of many servers at once, and filter by process and server. To visualize, load the Power BI with dependency data as per the below instructions.
+Azure Migrate offers a [Power BI template](https://download.microsoft.com/download/1469a653-9b21-4a10-b0a4-152629377889/Azure%20Migrate%20-%20Network%20Connections.pbit) that you can use to visualize network connections of many servers at once, and filter by process and server. To visualize, load the Power BI with dependency data as per the following instructions.
 
 ### Log in to Azure
 

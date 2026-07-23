@@ -29,23 +29,9 @@ Deployment stacks provide the following benefits:
 - Efficient environment cleanup using delete flags during deployment stack updates.
 - Use of standard templates such as Bicep, ARM templates, or template specs for your deployment stacks.
 
-### Known limitations
+### Known issues and limitations
 
-- There is a limit of 800 deployment stacks that can be created within a single scope.
-- A maximum of 2,000 Deny Assignments can exist at any given scope.
-- The deployment stack doesn't manage implicitly created resources. Therefore, you can't use [deny-assignments](../../role-based-access-control/deny-assignments.md) or cleanup for these resources.
-- Deny-assignments don't support tags.
-- Deny-assignments aren't supported at the management group scope. However, they're supported in a management group stack if the deployment is pointed at the subscription scope.
-- Deployment stacks can't delete Key vault secrets. If you're removing key vault secrets from a template, make sure to also execute the deployment stack update/delete command with detach mode.
-
-### Known issues
-
-- Deleting resource groups currently bypasses deny-assignments. When you create a deployment stack in the resource group scope, the Bicep file doesn't contain the definition for the resource group. Despite the deny-assignment setting, you can delete the resource group and its contained stack. However, if a [lock](../management/lock-resources.md) is active on any resource within the group, the delete operation fails.
-- The [What-if](./deploy-what-if.md) support isn't yet available.
-- A management group-scoped stack can't deploy to another management group. It can only deploy to the management group of the stack itself or to a child subscription.
-- The Azure PowerShell command help lists a `DeleteResourcesAndResourcesGroups` value for the `ActionOnUnmanage` switch. When you use this value, the command detaches the managed resources and the resource groups. This value is removed in the next update. Don't use this value.
-- In some cases, the New and Set Azure PowerShell cmdlets might return a generic template validation error that isn't clearly actionable. This bug will be fixed in the next release. If the error isn't clear, run the cmdlet in debug mode to see a more detailed error in the raw response.
-- [Microsoft Graph provider](https://aka.ms/graphbicep) doesn't support deploy stacks.
+For known limitations, known issues, and recommended workarounds, see [Known issues for deployment stacks](./deployment-stacks-known-issues.md).
 
 ## Built-in roles
 

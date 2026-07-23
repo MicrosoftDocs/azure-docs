@@ -5,14 +5,16 @@ author: reburkea
 title: Microsoft Discovery Bookshelf & Knowledge Bases
 description: Conceptual overview of Microsoft Discovery Bookshelf service and Knowledge Bases. 
 ms.topic: concept-article
-ms.date: 05/28/2026
+ms.date: 06/30/2026
 ---
 
 # Microsoft Discovery Bookshelf
-Microsoft Discovery includes the Bookshelf, a capability that enables customers to convert their data into curated graphs known as Knowledge Bases (KBs). The key components of the Bookshelf are the Bookshelf resource and the Knowledge Bases within each Bookshelf. A Knowledge Base contains a vector database and knowledge graph of your indexed artifacts. KBs can be used by Discovery agents as grounding skills and queried by Discovery agents for various use cases, including answering questions, summarization, and reasoning.
+Microsoft Discovery includes the Bookshelf, a capability that enables customers to convert their data into curated graphs known as Knowledge Bases (KBs). The key components of the Bookshelf are the Bookshelf resource and the Knowledge Base within each Bookshelf. A Knowledge Base contains a vector database and knowledge graph of your indexed artifacts. Discovery agents can use KBs as grounding skills and query them for various use cases, including answering questions, summarization, and reasoning.
 
 ## When to use the Bookshelf
 The Bookshelf is best for reasoning over your curated, proprietary data. Knowledge Bases are especially effective when their scoped contents are thematically related and directly applicable to your Discovery workflow. For example, an Application-Specific Integrated Circuit (ASIC) design team could create a Knowledge Base with their project's hardware specifications, simulation result reports, and the latest relevant literature from the field. Querying this Knowledge Base during design workflows ensures Discovery's reasoning is grounded with previous engineering content and scientific literature. 
+
+Additionally, the Bookshelf is currently best suited for global-level queries, or queries that require synthesis, summarization, and otherwise reasoning over the entire corpus to answer. For example, "what are the themes," "what are the implications," "describe the relationships," and so on. For local-level queries, or lookup questions that one or a few specific chunks of text can answer, use Azure AI Search or other vector-based search tools. 
 
 For using data in a tool call or otherwise directly using data in Discovery, creating a Knowledge Base is often not necessary. Similarly, to search over vast repositories of data or to find resources that might be relevant to your workflow, we suggest using Azure AI Search, SharePoint Search, or similar general purpose search tools. Once you have identified the data that is most relevant to your workflow, a Knowledge Base including this curated data can help ground your Discovery workflows and derive new insights in context.
 
@@ -31,7 +33,7 @@ The Bookshelf in Microsoft Discovery uses Azure AI Search Enrichment to process 
 The Bookshelf in the Microsoft Discovery app uses different libraries to process files locally, but the end result is still a queryable knowledge graph. 
 
 ### Query
-The Bookshelf provides the query function that can be invoked by any agent running on the Microsoft Discovery platform, including your own agent.
+The Bookshelf provides the query function that any agent running on the Microsoft Discovery platform can invoke, including your own agent. Through the query and/or agent definition, you can control how query outputs are formatted. For example, you can specify your preferred verbosity, the intended style of the report, if certain information should be ranked or organized in a table, and so on. All Bookshelf query outputs display citations as clickable links to source content. 
 
 ## Known limitations
 
@@ -52,13 +54,32 @@ Incremental indexing isn't currently supported. To update Knowledge Bases, you m
 > [!NOTE]
 > Incremental indexing is a planned feature for future releases.
 
+### Local scope queries 
+
+Currently, the Bookshelf is best suited for global scope queries, not local scope queries. Your retrieval quality for local scope queries might vary.
+
+> [!NOTE]
+> Equal retrieval quality for global and local scope queries is a planned feature for future releases. 
+
 ### Scale 
 
 The Bookshelf in Microsoft Discovery currently supports Small (<200 MB of text), Medium (<500 MB of text, default size), and Large (<1 GB of text)-sized deployments. For more information on supported index sizes and the resources required to support each size, see the Bookshelf creation How To guide. Bookshelf scale in the Microsoft Discovery app is limited by your machine's compute power. 
 
-### Best practices
+## Best practices
 
-The Bookshelf is an evolving feature. Over the course of future releases, we'll improve the costs and time associated with creating Bookshelf deployments and indexing and searching over KBs. We'll also support incremental indexing and we'll take advantage of newer GPT models for search. Currently, for the best performance and to minimize costs of re-deployment, re-indexing, re-enrichment, or search, we recommend the following best practices:
+The Bookshelf is an evolving feature. Over the course of future releases, Microsoft will improve the costs and time associated with creating Bookshelf deployments and indexing and searching over KBs. The product team also plans to support incremental indexing and take advantage of newer LLMs for search. Currently, for the best performance and to minimize costs of re-deployment, re-indexing, re-enrichment, or search, follow these best practices:
 
 * Limit each Knowledge Base to Small or Medium (default)-sized deployments
 * Ensure each KB's content is thematically coherent and directly applicable to your Discovery workflow. 
+* Use generic search tools like Azure AI Search, Copilot, M365/SharePoint search, and others to broadly search your documents and help curate the subset for Bookshelf deep reasoning.
+* Use a Knowledge Base to identify what is missing from that Knowledge Base. For example, try querying "what context is missing to be able to determine \<x\>?" or "what additional information is required to assess \<y\>?" Answers to these kinds of queries can help you further curate and refine your KBs, especially as your Discovery workflows progress. 
+
+### Best practices at a glance 
+
+| Bookshelf scenario? | Data set size | Data type | Curation level | Primary use case | Recommendation | Requirements | Example |
+|---------------------|---------------|-----------|----------------|------------------|----------------|--------------|---------|
+| :ballot_box_with_check: Yes | <200 MB | Unstructured, text-based | Highly curated | Global-level reasoning | Bookshelf in the Discovery app, or Small Bookshelf enterprise deployment | Supported filetypes in Azure Blob storage or stored locally | Focused literature packet, design docs, internal whitepapers, or project-specific docs |
+| :ballot_box_with_check: Yes | ~200MB to ~500 MB | Unstructured, text-based | Curated, coherent | Global-level reasoning | Medium Bookshelf enterprise deployment | Supported filetypes in Azure Blob storage; compute, quota, and indexing time planning | Curated literature review, domain-specific corpus, or project-wide knowledge | 
+| :ballot_box_with_check: Yes | ~500 MB to ~1 GB | Unstructured, text-based | Curated, coherent | Global-level reasoning | Large Bookshelf enterprise deployment | Supported filetypes in Azure Blob storage; higher compute, quota, and indexing time planning | Large curated technical library, project-specific research corpus | 
+| :no_entry_sign: No | Any | Structured, relational data, SQL, warehouses, etc. | Schema-governed | Precise facts, aggregations, joins, metrics, analytics, calculations | Write a Discovery Agent to leverage SQL, KQL, Fabric semantic model, or Data Agent | Tables, views, and functions scoped with descriptions, joins, business terms, and example queries | "Show yield by batch," "compare experiment outcomes," "calculate inventory trend" |
+| :no_entry_sign: No | Any | Structured, CSVs, datasets, images, simulation outputs, code, model inputs/outputs | Not curated for reasoning | Input for/output from models and tools, running computations, reading/writing files | Add data to Discovery Storage Containers / Storage Assets or directly access via the model/tool | Storage Container/Storage Asset, permissions, tool bindings | Simulation inputs, generated outputs, HPC jobs, notebooks, model artifacts | 

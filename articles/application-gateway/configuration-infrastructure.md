@@ -90,7 +90,7 @@ Depending on whether you're creating new resources or using existing ones, add t
 | IP addresses | Use existing |- Microsoft.Network/publicIPAddresses/read<br>- Microsoft.Network/publicIPAddresses/join/action|
 | ApplicationGatewayWebApplicationFirewallPolicies | Create new / Update existing |- Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/write<br>-Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/read<br>- Microsoft.Network/ApplicationGatewayWebApplicationFirewallPolicies/join/action|
 
-For mo re information, see [Azure permissions for Networking](../role-based-access-control/permissions/networking.md) and [Virtual network permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
+For more information, see [Azure permissions for Networking](../role-based-access-control/permissions/networking.md) and [Virtual network permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
 
 > [!NOTE]
 > When deploying an Application Gateway as part of an [Azure Managed Application](../azure-resource-manager/managed-applications/overview.md), ensure that any deny assignments do not conflict with the RBAC Owner role assignment, as deny assignments take precedence over RBAC permissions.

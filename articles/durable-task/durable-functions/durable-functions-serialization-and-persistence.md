@@ -229,6 +229,8 @@ It's recommended to use type annotations to ensure Durable Functions serializes 
 
 For custom data types, you make JSON serialization and deserialization possible by defining class methods `to_json` and `from_json` on your data type class. Note that these methods are not called on the return value from the orchestrator function, meaning the return value has to be natively JSON-serializable. For more information, see [Bindings](durable-functions-bindings.md#python-trigger-usage).
 
+To validate deserialized payloads against an expected type and optionally opt in to a hardened strict mode, see [Migrate to type-safe serialization in Durable Functions for Python](durable-functions-python-type-safe-serialization-migrate.md).
+
 # [Java](#tab/java)
 
 Java uses the [Jackson v2.x](https://github.com/FasterXML/jackson#jackson-project-home-github) libraries for serialization and deserialization of data payloads. You can use [Jackson annotations](https://github.com/FasterXML/jackson-annotations/wiki/Jackson-Annotations) on your POJO types to customize the serialization behavior.

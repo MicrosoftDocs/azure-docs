@@ -28,7 +28,7 @@ Follow these three steps to enable hibernation:
 
 1. Enable hibernation on your dev box image.
 1. Enable hibernation on your dev box definition.
-1. Automate hibernation for pools of dev boxes by using auto-stop schedules or stopping on RDP disconnect.
+1. Automate hibernation for pools of dev boxes by using auto-stop schedules or stopping on session disconnect.
 
 ## Considerations for hibernation-enabled images
 
@@ -145,7 +145,7 @@ az devcenter admin devbox-definition update
 
 ## Enable automatic hibernation for dev boxes that have never been accessed
 
-This feature helps you minimize costs by automatically hibernating dev boxes that start but no user connects to. If a dev box starts and no one connects with RDP, it enters hibernation after the grace period you set. This setting makes sure idle dev boxes don't use resources unnecessarily, so you optimize costs and resource usage.
+This feature helps you minimize costs by automatically hibernating dev boxes that start but no user connects to. If a dev box starts and no one connects to it in an interactive session, it enters hibernation after the grace period you set. This setting helps ensure that idle dev boxes don't use resources unnecessarily, so you can optimize costs and resource usage.
 
 To set up hibernation for dev boxes that have never been accessed, you need to enable the setting in the dev box pool.
  
