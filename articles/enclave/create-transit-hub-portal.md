@@ -10,7 +10,7 @@ ms.date: 07/23/2026
 ---
 # Create a transit hub from the Azure portal
 
-A [transit hub](./what-transit-hub.md) establishes a virtual hub within a community Virtual WAN that serves as a secure connectivity path between the community and an external private network. A transit hub can be associated with a `PrivateNetwork` destination rule in a community endpoint to enable enclaves to connect to trusted private networks outside of the community boundary.
+A [transit hub](./what-transit-hub.md) creates a virtual hub within a community Virtual WAN that acts as a secure connectivity path between the community and an external private network. You can associate a transit hub with a `PrivateNetwork` destination rule in a community endpoint so enclaves can connect to trusted private networks outside of the community boundary.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a transit hub
 
-1. Navigate to an existing community in your Azure subscription. Select the `Transit hubs` tab, and then select `Create`.
+1. Go to an existing community in your Azure subscription. Select the **Transit hubs** tab, and then select **Create**.
 
 ![Screenshot showing the transit hub creation page with the create button highlighted in red.](./media/fabrikam-transit-hub-create.png)
 
@@ -38,6 +38,6 @@ Refer to this guidance for more information on the different types of transit hu
 
 ![Screenshot showing the basics input page for creating a new transit hub.](./media/create-transit-hub-tab-1-basics.png)
 
-1. Select `Next`, add any tags, and then select `Review + Create`.
+1. Select **Next**, add any tags, and then select **Review + Create**.
 
-1. Review the settings, and then select `Create`.
+1. Review the settings, and then select **Create**.
