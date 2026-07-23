@@ -17,7 +17,6 @@ This capability addresses the growing demand for secure, scalable, and intellige
 
 > [!IMPORTANT]
 > - Azure Front Door edge actions is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-> - During the preview, use the Edge Actions preview portal link [https://aka.ms/edgeaction/publicpreview](https://aka.ms/edgeaction/publicpreview) for all Edge Action operations in the Azure portal. Continue the workflow in the portal session opened by this link. This workflow includes creating and managing Edge Action resources and versions, configuring execution filters and diagnostic settings, and attaching, managing, verifying, or detaching Edge Actions from Azure Front Door routes. If you open the Azure portal directly without first using the preview portal link, you might not see Edge Action resources and Azure Front Door integration options.
 
 :::image type="content" source="media/edge-actions/edge-actions.png" alt-text="Diagram showing Azure Front Door edge actions.":::
 
@@ -88,10 +87,7 @@ When a user initiates a request to a resource that Azure Front Door fronts, the 
 
 ## Create and manage an Edge Action
 
-> [!IMPORTANT]
-> During the preview, use the Edge Actions preview portal link [https://aka.ms/edgeaction/publicpreview](https://aka.ms/edgeaction/publicpreview) for all Edge Action operations in the Azure portal. Continue the workflow in the portal session opened by this link. This workflow includes creating and managing Edge Action resources and versions, configuring execution filters and diagnostic settings, and attaching, managing, verifying, or detaching Edge Actions from Azure Front Door routes. If you open the Azure portal directly without first using the preview portal link, you might not see Edge Action resources and Azure Front Door integration options.
-
-1. Sign in to the Azure portal at [aka.ms/edgeaction/publicpreview](https://aka.ms/edgeaction/publicpreview).
+1. Sign in to the Azure portal.
 
 1. In the search box at the top of the portal, enter *Edge Actions*. Select **Edge Actions** from the search results.
 
@@ -128,9 +124,6 @@ To execute client requests successfully, each Edge Action must include at least 
 1. Select **Download code** if you want to verify the content of the JavaScript code. It downloads a ZIP folder named `EdgeActionCode`, which contains your `.js` file.
 
 ## Attach Edge Action to Azure Front Door route
-
-> [!IMPORTANT]
-> During the preview, use the Edge Actions preview portal link [https://aka.ms/edgeaction/publicpreview](https://aka.ms/edgeaction/publicpreview) for all Edge Action operations in the Azure portal. Continue the workflow in the portal session opened by this link. This workflow includes creating and managing Edge Action resources and versions, configuring execution filters and diagnostic settings, and attaching, managing, verifying, or detaching Edge Actions from Azure Front Door routes. If you open the Azure portal directly without first using the preview portal link, you might not see Edge Action resources and Azure Front Door integration options.
 
 This part of the configuration is the most important. Currently, you can invoke Edge Actions only through Azure Front Door route configurations. You can attach an Edge Action to an Azure Front Door route in three ways:
 
