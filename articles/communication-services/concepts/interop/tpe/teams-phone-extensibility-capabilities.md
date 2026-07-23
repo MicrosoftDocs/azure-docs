@@ -17,6 +17,12 @@ ms.service: azure-communication-services
 This article describes which Microsoft Teams Phone capabilities Azure Communication Services Calling and Call Automation SDKs support for Teams Phone extensibility.
 
 
+## Prerequisites
+
+- Teams users must have a Teams Phone license.
+- Teams users must be Enterprise Voice enabled.
+- Dual Persona Agents in Azure Communication Services applications support the capabilities in the following table. Teams users aren't supported.
+
 ## Teams Phone capabilities
 
 The following list of capabilities is supported for scenarios where at least one phone number participates in 1:1 or group calls:
