@@ -531,7 +531,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 
 ## Create Azure resources and deploy a sample app
 
-In this section, create the Azure resources and deploy a sample app to App Service on Linux. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure Database for PostgreSQL, and Azure Managed Redis.
+In this section, create the Azure resources and deploy a sample app to App Service on Linux. The steps in this tutorial create a set of secure-by-default resources that include App Service, Azure Database for PostgreSQL, and Azure Managed Redis.
 
 The dev container already has the [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) (AZD).
 
