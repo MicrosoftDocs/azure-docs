@@ -4,7 +4,7 @@ description: Learn how to authenticate managed identities to allow applications 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 04/20/2026
+ms.date: 07/23/2026
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
@@ -18,13 +18,13 @@ zone_pivot_groups: azure-files-windows-linux
 
 This article explains how you can use [managed identities](/entra/identity/managed-identities-azure-resources/overview) to allow Windows and Linux virtual machines (VMs) to access SMB Azure file shares by using identity-based authentication with Microsoft Entra ID.
 
-A managed identity is an identity in Microsoft Entra ID that Azure automatically manages. Typically, you use managed identities when developing cloud applications to manage the credentials for authenticating to Azure services. Azure Files now supports both application managed identities and end‑user identity-based access on the same storage account. Applications and users are independently authenticated via Microsoft Entra ID and authorized through a shared permissions model.
+A managed identity is an identity in Microsoft Entra ID that Azure automatically manages. Typically, you use managed identities when developing cloud applications to manage the credentials for authenticating to Azure services. Azure Files supports both application managed identities and end‑user identity-based access on the same storage account. Applications and users are independently authenticated via Microsoft Entra ID and authorized through a shared permissions model.
 
-By the end of this guide, you create a storage account that's ready to access with a managed identity. You also learn how to create a managed identity for a VM and generate an OAuth token for it. Then you mount a file share by using managed identity-based authentication and authorization. Using a managed identity eliminates the need to use a storage account key.
+By the end of this article, you create a storage account that's ready to access with a managed identity. You also learn how to create a managed identity for a VM and generate an OAuth token for it. Then you mount a file share by using managed identity-based authentication and authorization. Using a managed identity eliminates the need to use a storage account key.
 
 ## Why authenticate by using a managed identity?
 
-For security reasons, we don't recommend that you use storage account keys to access a file share. When you assign a managed identity to a VM or use an application identity, you can use that identity to authenticate to Azure Files.
+For security reasons, avoid using storage account keys to access a file share. When you assign a managed identity to a VM or use an application identity, you can use that identity to authenticate to Azure Files.
 
 Benefits include:
 
@@ -58,7 +58,7 @@ The clients that need to authenticate by using a managed identity shouldn't be j
 
 To authenticate a managed identity, you must enable the `SMBOAuth` property on the storage account that contains the Azure file share you want to access. We recommend creating a new storage account for this purpose, although you can use an existing storage account.
 
-To enable the `SMBOAuth` property on your storage account, use either the Azure portal or Azure PowerShell. For instructions, select the appropriate tab.
+To enable the `SMBOAuth` property on your storage account, use the Azure portal, Azure PowerShell, or Azure CLI. For instructions, select the appropriate tab.
 
 ### [Portal](#tab/portal)
 
@@ -429,7 +429,7 @@ sudo apt-get update
 sudo apt-get install -y azfilesauth
 ```
 
-### Configure authentication
+### Configure managed identity authentication
 
 You have two options for configuring authentication on Linux:
 
@@ -473,7 +473,7 @@ sudo azfilesauthmanager list
 
 ::: zone-end
 
-## Mount the file share
+## Mount the Azure file share
 
 You can now mount the file share on Windows or Linux without using a storage account key.
 
@@ -505,7 +505,7 @@ For more information, see [Mount SMB Azure file shares on Linux clients](storage
 
 ### Refresh your credentials
 
-To prevent access interruptions, you should refresh your credentials periodically. The refresh service automatically detects and renews credentials as needed.
+To prevent access interruptions, refresh your credentials periodically. The refresh service automatically detects and renews credentials as needed.
 
 After you mount the file share for the first time, start the refresh service:
 
