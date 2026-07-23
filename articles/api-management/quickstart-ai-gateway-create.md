@@ -53,14 +53,16 @@ The gateway is a dedicated resource in your Azure subscription. You don't choose
 
 ## 3. Add a model
 
-The fastest path is to import a model from a Microsoft Foundry resource.
+The fastest way to create a model is by importing it from Microsoft Foundry accounts. You can also discover and import resources across multiple subscriptions automatically using the [first-time configuration wizard that can discover Foundry accounts and MCP Servers deployed in Azure-hosted services](ai-gateway-setup.md).
+
+To import a model from Foundry:
 
 1. In the gateway, select **Models**, and then select **Add models**.
 1. Select **Import from Foundry**.
 1. On **Select resource**, choose your subscription and Foundry resource. The wizard lists the model deployments in that resource. Note the name of a chat model (this quickstart uses `gpt-5.6-sol`).
 1. On **Provider details**, enter a provider name and display name (short identifiers shown in the Models list and in telemetry; they don't need to match the Foundry resource name), and choose an authentication method:
    - **Key-based** (fastest for this quickstart): the gateway stores the provider key. No role assignment is required.
-   - **Managed identity**: available when the provider supports Microsoft Entra ID authentication. Before you use it, assign the gateway identity the required backend role (for Microsoft Foundry, **Foundry User**). See [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md#use-managed-identity-for-backend-authentication).
+   - **Managed identity**: available when the provider supports Microsoft Entra ID authentication. Before you use it, assign the gateway identity the required backend role (for Microsoft Foundry, **Foundry User**). See [Govern, secure, and operate](./ai-gateway-govern-secure-assets.md#use-managed-identity-for-backend-authentication).
 1. Select **Create**. There's no separate validation step; the gateway sets up the connection when you create the provider.
 
 To connect a non-Foundry provider (AWS Bedrock, Google Vertex, OpenAI, or Anthropic), select **Add a custom model** instead. See [Manage models and tools](./ai-gateway-manage-models-tools.md#import-models).
@@ -212,7 +214,7 @@ If a request fails, the gateway returns a standard HTTP status code:
 | Status | Meaning | What to check |
 | --- | --- | --- |
 | 400 | Invalid request | Check the request body. |
-| 400 | Blocked by content safety or an IP filter, or denied by the backend | A content-safety policy can block a prompt or response; also check any IP-filter policy. For managed identity, assign the **Foundry User** role to the gateway identity on the backend resource. See [Use managed identity for backend authentication](./ai-gateway-govern-secure-operate.md#use-managed-identity-for-backend-authentication). |
+| 400 | Blocked by content safety or an IP filter, or denied by the backend | A content-safety policy can block a prompt or response; also check any IP-filter policy. For managed identity, assign the **Foundry User** role to the gateway identity on the backend resource. See [Use managed identity for backend authentication](./ai-gateway-govern-secure-assets.md#use-managed-identity-for-backend-authentication). |
 | 401 | Missing or invalid runtime access key | Send the key in the `api-key` header, and confirm the key is active. |
 | 404 | Unknown model | Confirm the `model` value matches a model name on the **Models** page. |
 | 429 | Throttled by a rate-limit policy or the backend | Review token and request rate-limit policies, and honor the `Retry-After` response header. |
@@ -254,11 +256,11 @@ Create runtime access keys at the gateway level. These keys grant access to ever
 
 AI Gateway tier emits OpenTelemetry token usage metrics. To see them, configure a telemetry destination first, and then send requests:
 
-1. Configure a telemetry destination for the gateway, such as Application Insights. See [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md#monitoring).
+1. Configure a telemetry destination for the gateway, such as Application Insights. See [Govern, secure, and operate](./ai-gateway-govern-secure-assets.md#monitoring).
 1. Send one or more requests through the gateway, as shown earlier in [Call the gateway](#4-call-the-gateway).
 1. Open your telemetry destination to review token usage. If you use Application Insights, the portal provides a built-in token consumption dashboard.
 
-Because telemetry is emitted only after you connect a destination, configure monitoring before you rely on it. Token usage is currently the only metric emitted; logs, traces, and other metrics for models and tools are coming soon. Callers use gateway-level runtime access keys, so you can monitor traffic without exposing provider credentials to client applications. To configure a telemetry destination, see [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md#monitoring).
+Because telemetry is emitted only after you connect a destination, configure monitoring before you rely on it. Token usage is currently the only metric emitted; logs, traces, and other metrics for models and tools are coming soon. Callers use gateway-level runtime access keys, so you can monitor traffic without exposing provider credentials to client applications. To configure a telemetry destination, see [Govern, secure, and operate](./ai-gateway-govern-secure-assets.md#monitoring).
 
 ## Clean up resources
 
@@ -267,6 +269,7 @@ When you're done, delete any resources you no longer need. Remove the AI Gateway
 ## Next steps
 
 - [Add MCP tools that agents can call](./ai-gateway-manage-models-tools.md#add-mcp-servers)
-- [Apply governance policies to your models and tools](./ai-gateway-govern-secure-operate.md#governance-policies)
+- [Apply governance policies to your models and tools](./ai-gateway-govern-secure-assets.md#governance-policies)
+- [Configure private networking](./ai-gateway-configure-private-networking.md)
 - [Manage models and tools](./ai-gateway-manage-models-tools.md)
 - [AI Gateway tier overview](./ai-gateway-overview.md)

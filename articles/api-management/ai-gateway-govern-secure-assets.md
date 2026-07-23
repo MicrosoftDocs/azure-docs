@@ -1,6 +1,6 @@
 ---
 title: Govern, secure, and operate AI Gateway tier (preview)
-description: Learn how to govern, secure, network, and monitor the AI Gateway tier (preview) from Azure API Management.
+description: Learn how to govern, secure, and monitor the AI Gateway tier (preview) from Azure API Management.
 ms.service: azure-api-management
 author: PatAltimore
 ms.author: patricka
@@ -8,11 +8,11 @@ ms.topic: how-to
 ms.date: 07/22/2026
 ---
 
-# Govern, secure, and operate AI Gateway tier (preview)
+# Govern and secure assets in AI Gateway tier (preview)
 
 [!INCLUDE [api-gateway-tier-preview](./includes/preview/preview-ai-gateway-tier.md)]
 
-Use AI Gateway tier (preview) to put common controls in front of AI models, Microsoft Foundry resources, Azure OpenAI deployments, and MCP servers. Platform teams can apply governance, security, network, and monitoring settings in one place while application teams keep using the assets they need.
+Use AI Gateway tier (preview) to put common controls in front of AI models, Microsoft Foundry resources, Azure OpenAI deployments, and MCP servers. Platform teams can apply governance, security, and monitoring settings in one place while application teams keep using the assets they need. To connect the gateway to private backends and clients, see [Configure private networking](./ai-gateway-configure-private-networking.md).
 
 AI Gateway tier is in preview. Use it for pilots and production-like validation. Features, regions, limits, telemetry fields, and setup flows can change before general availability. The preview supports quick provisioning, but reliability is best effort. Monitor errors and keep a rollback path for critical applications.
 
@@ -41,6 +41,8 @@ When more than one policy applies to a request, the gateway evaluates all of the
 
 When both a token limit and a request limit apply, a request must satisfy both.
 
+Not every policy applies to every asset type. Content safety, IP filter, and request rate limits apply to both models and MCP tools. Token rate limits apply to models.
+
 The following diagram shows where governance policies apply in the request flow.
 
 :::image type="content" source="media/ai-gateway-govern-secure-operate/ai-gateway-request-lifecycle.png" alt-text="Sequence diagram showing the gateway validate the runtime key, evaluate policies, and either forward the request to the backend and emit telemetry, or return a 403 or 429 error when a policy blocks the request." lightbox="media/ai-gateway-govern-secure-operate/ai-gateway-request-lifecycle.png":::
@@ -56,22 +58,27 @@ To configure a policy:
 
 Start with these policy types:
 
-- **Content safety**: Inspect prompts, tool inputs, model outputs, or tool responses with Azure AI Content Safety. Configure category thresholds (hate, sexual, violence, self-harm), and choose whether to block, log, or both. A blocked call returns an error to the client.
-- **IP filter**: Restrict runtime calls to approved client network ranges by IPv4 or IPv6 CIDR. Apply it globally for private applications, or to a specific tool that needs a tighter boundary.
-- **Token rate limits**: Limit prompt, completion, or total token throughput during a rolling minute. On the **Configure** step, set the token allowance and choose what the limit applies to (for example, per caller identity). Use them to protect model capacity and reduce bursts.
-- **Request rate limits**: Limit call volume during a rolling minute, applied per the dimension you choose (such as caller identity). Use them for tools that call SaaS APIs or internal systems with strict quotas.
+- **Content safety**: Inspect incoming prompts and tool inputs with Azure AI Content Safety before they reach the backend. Set per-category severity thresholds (hate, sexual, violence, self-harm), and choose **4 or 8 severity levels** for finer control. Turn on **Prompt Shields** to detect jailbreak and prompt-injection attempts, and add **blocklists** to reject specific keywords or phrases (for example, competitor names or banned terms). Choose whether to block, log, or both; a blocked call returns an error to the client. Content safety requires an Azure AI Content Safety resource, which you select as the policy backend on the **Configure** step. To calibrate without rejecting legitimate traffic, start in log-only mode, tune the thresholds against real traffic, and then switch to blocking. Applies to models and MCP tools.
+- **IP filter**: Restrict runtime calls to approved client network ranges by IPv4 or IPv6 CIDR (allow or deny lists). Apply it globally for private applications, or to a specific model or tool that needs a tighter boundary. Combine it with runtime access keys for defense in depth: the key authenticates the caller and the IP range enforces a network boundary. Applies to models and MCP tools.
+- **Token rate limits**: Cap token throughput (prompt plus completion) per **minute, hour, or day**. On the **Configure** step, set the token allowance and choose the dimension the limit counts against — **caller identity** or **caller IP address**. The gateway returns `remaining-tokens` and `consumed-tokens` response headers (and `remaining-quota-tokens` for hourly or longer periods) so client applications can self-throttle before they're blocked. Use token limits to protect model capacity and smooth bursts. Applies to models.
+- **Request rate limits**: Limit call volume over a configurable window (for example, 30 seconds, 1 minute, 2 minutes, or 5 minutes), counted per **caller identity** or **caller IP address**. Use them for tools that call SaaS APIs or internal systems with strict quotas. Applies to models and MCP tools.
+
+### Layer policies for a baseline and targeted overrides
+
+Get the most out of governance by combining a broad baseline with narrower overrides:
+
+- **Set a gateway-wide baseline.** Apply content safety and an IP filter to all applicable assets so every model and tool inherits the same protection.
+- **Add targeted overrides.** Apply a token rate limit to high-cost or capacity-constrained models, and a tighter request rate limit to a specific tool that calls a rate-limited downstream API.
+- **Stack cost controls.** Apply both a token limit and a request limit to the same model when you need to protect model capacity *and* downstream systems; a request must satisfy both.
+- **Scope by identity.** Issue a separate runtime access key per application, then count rate limits by caller identity so each application gets its own budget and you can attribute usage.
 
 Governance policies are operational controls. Token limits help reduce spikes and provide usage signals. For financial reporting, use provider billing or Azure Cost Management.
 
 ## Security and identity
 
-Sign in to manage the gateway with Microsoft Entra ID. Use Entra groups instead of individual accounts where possible. Use least privilege for every identity, don't share accounts, and use one service principal or managed identity per pipeline or workload.
+Use the security capabilities in AI gateway tier to control access and secure resources.
 
-Don't store provider API keys, collector tokens, runtime access keys, or application secrets in source code, build logs, local files, or notebooks. Provide credentials only through the gateway import and key flows.
-
-For backend authentication, prefer managed identity when the backend supports it. Managed identity removes backend key storage from gateway configuration and lets you manage access with Azure RBAC on the backend resource. If a provider or legacy setup doesn't support managed identity, configure an API key. For MCP tools, OAuth is also supported.
-
-## Runtime access keys
+### Runtime access keys
 
 Runtime access keys let client applications call assets exposed by AI Gateway tier without receiving backend credentials. Client applications authenticate to the gateway with runtime access keys. A client sends a runtime access key to the gateway in the `api-key` header. The gateway validates the key, applies governance policies, and authenticates to the backend by using the configured API key, OAuth configuration for tools, or managed identity. Use runtime access keys for agent applications, evaluation harnesses, developer tools, and automation that call MCP servers, OpenAPI-generated MCP tools, model resources, or other gateway assets.
 
@@ -148,56 +155,6 @@ When you import a model, choose managed identity as the backend authentication m
 
 If calls fail with 401 errors, confirm the import uses managed identity and the backend accepts Entra ID authentication. If calls fail with 403 errors, confirm the identity's principal ID has the **Foundry User** role at the backend resource scope, and wait for role assignment propagation.
 
-## Regional availability
-
-During public preview, the AI Gateway tier is available in the following Azure regions.
-
-| Geography | Region |
-| --- | --- |
-| United States | East US 2 |
-| Europe | Sweden Central |
-
-Region availability can vary by subscription, cloud, capacity, feature flag, and preview enrollment. If your target region isn't available in the portal or deployment tools, select another supported preview region or contact your Microsoft representative.
-
-Choose the region that best matches your users, applications, AI backends, and network dependencies. If the gateway routes to Azure OpenAI, Microsoft Foundry, model endpoints, APIs, or MCP servers, consider those locations too. Data residency depends on the full request path, not only the gateway region. Review where each component is deployed, including the gateway, AI backends, tools, logging destinations, managed identities, and client applications.
-
-## Private networking
-
-Use private networking when gateway traffic shouldn't use the public internet. Private networking has two directions:
-
-- **Inbound Private Link and private endpoint**: Lets clients in your virtual network, peered networks, or connected on-premises networks reach the gateway by using a private IP address.
-- **Outbound virtual network integration**: Lets the gateway call private backends, model endpoints, APIs, and MCP servers that are reachable only from your virtual network.
-
-:::image type="content" source="media/ai-gateway-govern-secure-operate/ai-gateway-networking.png" alt-text="The Networking page showing inbound settings (private endpoints and public network access) and outbound settings (public or private routing) for the gateway." lightbox="media/ai-gateway-govern-secure-operate/ai-gateway-networking.png":::
-
-Inbound and outbound networking solve different problems. Creating a private endpoint for clients to call the gateway doesn't automatically let the gateway reach private backends. Configure outbound virtual network integration separately when the gateway must reach resources in your network.
-
-Before you configure private networking, prepare these items:
-
-- An AI Gateway tier resource in a supported preview region.
-- A virtual network with non-overlapping address space.
-- Subnets for private endpoints and outbound integration.
-- Permissions to create private endpoints and DNS resources.
-- Backend resources reachable from the integration subnet.
-
-### Inbound Private Link
-
-To set up inbound Private Link:
-
-- Create or select the client virtual network.
-- Create a private endpoint for the gateway, and approve the connection if needed.
-- Configure private DNS zones.
-- Verify that the gateway host name resolves to the private endpoint IP from a test client.
-
-If supported in your preview configuration, restrict public network access after private connectivity is confirmed.
-
-DNS is a common source of issues. Clients must resolve the gateway hostname to the private endpoint IP address. Link the required private DNS zones to the right virtual networks, or configure custom DNS forwarding.
-
-### Outbound virtual network integration
-
-To set up outbound virtual network integration, identify every backend the gateway must call. Confirm ports, protocols, and hostnames. Configure outbound VNet integration, allow traffic from the integration subnet to backend resources, and configure DNS so private backend hostnames resolve to private IP addresses. Test by invoking a route, model, tool, or MCP server operation.
-
-DNS is a common source of issues. The gateway must resolve backend hostnames to private IP addresses. Link the required private DNS zones to the right virtual networks, or configure custom DNS forwarding.
 
 ## Monitoring
 
@@ -225,6 +182,12 @@ When you send the token usage metric to Application Insights, the portal provide
 sum by (gen_ai_request_model) (gen_ai_client_token_usage)
 ```
 
+Because the metric carries the semantic-convention attributes, you can segment consumption without extra configuration. For example, group by `gen_ai_operation_name` to compare `chat` and `responses` traffic, or by `gen_ai_token_type` to separate prompt and completion tokens:
+
+```promql
+sum by (gen_ai_request_model, gen_ai_token_type) (gen_ai_client_token_usage)
+```
+
 Use model and token usage for consumption estimates, then reconcile with provider billing or Azure Cost Management exports for financial reporting.
 
 Send an `x-correlation-id` header for application-level investigations. Don't put personal data, secrets, prompts, or regulated identifiers in correlation headers.
@@ -236,3 +199,4 @@ Start with alerts you can act on, such as token usage spikes, backend authentica
 - [AI Gateway tier overview](./ai-gateway-overview.md)
 - [Quickstart: Create an AI Gateway tier instance](./quickstart-ai-gateway-create.md)
 - [Manage models and tools](./ai-gateway-manage-models-tools.md)
+- [Configure private networking](./ai-gateway-configure-private-networking.md)

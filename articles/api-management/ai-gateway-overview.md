@@ -57,7 +57,7 @@ AI Gateway tier gives platform teams one governed runtime boundary for apps, mod
     :::column:::
         :::image type="icon" source="media/ai-gateway-overview/icon-govern.png" border="false":::
 
-        **[Govern, secure, and operate](./ai-gateway-govern-secure-operate.md)**
+        **[Govern, secure, and operate](./ai-gateway-govern-secure-assets.md)**
 
         Apply policies, identity, networking, and monitoring to run in production.
     :::column-end:::
@@ -100,12 +100,16 @@ Developers discover models and tools in a self-service catalog - each with conne
 
 ## Regional availability
 
-During public preview, you can provision AI Gateway tier in these regions:
+During public preview, the AI Gateway tier is available in the following Azure regions.
 
 | Geography | Region |
 | --- | --- |
 | United States | East US 2 |
 | Europe | Sweden Central |
+
+Region availability can vary by subscription, cloud, capacity, feature flag, and preview enrollment. If your target region isn't available in the portal or deployment tools, select another supported preview region or contact your Microsoft representative.
+
+Choose the region that best matches your users, applications, AI backends, and network dependencies. If the gateway routes to Azure OpenAI, Microsoft Foundry, model endpoints, APIs, or MCP servers, consider those locations too. Data residency depends on the full request path, not only the gateway region. Review where each component is deployed, including the gateway, AI backends, tools, logging destinations, managed identities, and client applications.
 
 ## Frequently asked questions
 
@@ -135,7 +139,7 @@ You choose where telemetry goes. With Application Insights, it stays in your Azu
 
 ### Does AI Gateway tier support private networking?
 
-Yes. Inbound Private Link and outbound virtual network integration are part of the public preview. See [Govern, secure, and operate](./ai-gateway-govern-secure-operate.md) for setup, DNS, and limitations.
+Yes. Inbound Private Link and outbound virtual network integration are part of the public preview. See [Configure private networking](./ai-gateway-configure-private-networking.md) for setup, DNS, and limitations.
 
 ### Which API version should I use for automation?
 
@@ -145,4 +149,5 @@ Use the preview management API version `2026-05-01-preview`. Validate automation
 
 - [Quickstart: Create an AI Gateway tier instance](./quickstart-ai-gateway-create.md)
 - [Manage models and tools](./ai-gateway-manage-models-tools.md)
-- [Govern, secure, and operate AI Gateway tier](./ai-gateway-govern-secure-operate.md)
+- [Govern, secure, and operate AI Gateway tier](./ai-gateway-govern-secure-assets.md)
+- [Configure private networking](./ai-gateway-configure-private-networking.md)

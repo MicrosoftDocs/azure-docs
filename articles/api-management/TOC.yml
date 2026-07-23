@@ -122,10 +122,14 @@
       href: ai-gateway-overview.md
     - name: Create an instance
       href: quickstart-ai-gateway-create.md
+    - name: Set up your gateway
+      href: ai-gateway-setup.md
     - name: Manage models and tools
       href: ai-gateway-manage-models-tools.md
     - name: Govern, secure, and operate
-      href: ai-gateway-govern-secure-operate.md
+      href: ai-gateway-govern-secure-assets.md
+    - name: Configure private networking
+      href: ai-gateway-configure-private-networking.md
 - name: Create and import APIs
   items:
   - name: Add an API manually
