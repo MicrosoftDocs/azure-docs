@@ -537,6 +537,9 @@ items:
               - name: No unused parameters
                 displayName: linter
                 href: linter-rule-no-unused-parameters.md
+              - name: No unused types
+                displayName: linter
+                href: linter-rule-no-unused-types.md
               - name: No unused variables
                 displayName: linter
                 href: linter-rule-no-unused-variables.md
