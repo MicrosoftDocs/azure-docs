@@ -90,10 +90,9 @@ Repeat this procedure to create another similar virtual network in the **fw-mana
 
 Create your secured virtual hub using Firewall Manager.
 
-1. From the Azure portal home page, select **All services**.
-1. In the search box, type **Firewall Manager** and select **Firewall Manager**.
-1. On the **Firewall Manager** page under **Deployments**, select **Virtual hubs**.
-1. On the **Firewall Manager | Virtual hubs** page, select **Create new secured virtual hub**.
+1. From the Azure portal home page, in the search box, type **Network Security** and select in under **Services**.
+1. Under **Secure your resources**, select **Virtual hubs**.
+1. On the **Network Security | Virtual hubs** page, select **Create new secured virtual hub**.
 1. On the **Create new secured virtual hub** page, enter the following information:
 
     | Setting                | Value                |
@@ -132,8 +131,8 @@ Create your secured virtual hub using Firewall Manager.
 
 You can find the firewall public IP address after the deployment completes.
 
-1. Open **Firewall Manager**.
-1. Select **Virtual hubs**.
+1. Open **Network Security**.
+1. Under **secure your resources**, select **Virtual hubs**.
 1. Select **hub-01**.
 1. Select **AzureFirewall_Hub-01**.
 1. Note the public IP address to use later.
@@ -246,8 +245,8 @@ Deploy Azure Bastion in the Spoke-01 virtual network to securely connect to the 
 
 A firewall policy defines collections of rules to direct traffic on one or more Secured virtual hubs. You create your firewall policy and then secure your hub.
 
-1. From Firewall Manager, select **Azure Firewall policies**.
-1. Select **Create Azure Firewall Policy**.
+1. In **Network Security**, under **Firewall Manager**, select **Azure Firewall Policies**.
+1. Select **Create**.
 1. For **Resource group**, select **fw-manager-rg**.
 1. Under **Policy details**, for the **Name** type **Policy-01** and for **Region** select **East US**.
 1. For **Policy tier**, select **Standard**.
@@ -304,7 +303,7 @@ A firewall policy defines collections of rules to direct traffic on one or more 
 
 Associate the firewall policy with the hub.
 
-1. From Firewall Manager, select **Azure Firewall Policies**.
+1.  In **Network Security**, under **Firewall Manager**, select **Azure Firewall Policies**.
 1. Select the check box for **Policy-01**.
 1. Select **Manage associations**, **Associate hubs**.
 1. Select **hub-01**.
@@ -314,7 +313,7 @@ Associate the firewall policy with the hub.
 
 Now you must ensure that network traffic gets routed through your firewall.
 
-1. From Firewall Manager, select **Virtual hubs**.
+1. In **Network security**, under **Secure your resources**, select **Virtual Hubs**.
 1. Select **Hub-01**.
 1. Under **Settings**, select **Security configuration**.
 1. Under **Internet traffic**, select **Azure Firewall**.
