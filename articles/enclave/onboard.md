@@ -4,7 +4,8 @@ description: Get started with Azure Enclave by registering the required resource
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
-ms.date: 9/30/2025
+ms.service: azure-enclave
+ms.date: 7/20/2026
 ---
 
 # Get started with Azure Enclave
