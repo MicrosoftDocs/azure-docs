@@ -540,7 +540,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     azd up
     ```  
 
-    The `azd up` command takes about 7 minutes to complete. The command also compiles and deploys your application code. You modify your code later to work with App Service.
+    The `azd up` command takes about seven minutes to complete. The command also compiles and deploys your application code. You modify your code later to work with App Service.
 
     While it runs, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
