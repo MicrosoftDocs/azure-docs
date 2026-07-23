@@ -4,12 +4,12 @@ description: Tips and PowerShell commands to help manage cloud tiering with Azur
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 04/10/2024
+ms.date: 07/23/2026
 ms.author: kendownie
 # Customer intent: As an IT administrator, I want to manage cloud tiering settings and file exclusions in Azure File Sync, so that I can optimize storage usage and ensure important files remain accessible locally.
 ---
 
-# How to manage tiered files
+# How to manage tiered files in Azure File Sync
 
 This article provides guidance for users who have questions related to managing tiered files. For conceptual questions regarding cloud tiering, see [Azure Files FAQ](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json).
 
@@ -55,7 +55,7 @@ There are several ways to check whether a file has been tiered to your Azure fil
        If the file has a reparse point, you can expect to see **Reparse Tag Value: 0x8000001e**. This hexadecimal value is the reparse point value that's owned by Azure File Sync. The output also contains the reparse data that represents the path to your file on your Azure file share.
 
         > [!WARNING]
-        > The `fsutil reparsepoint` utility command also has the ability to delete a reparse point. Don't execute this command unless the Azure File Sync engineering team asks you to. Running this command might result in data loss.
+        > The `fsutil reparsepoint` utility command also has the ability to delete a reparse point. Don't run this command unless the Azure File Sync engineering team asks you to. Running this command might result in data loss.
 
 ## How to exclude files or folders from being tiered
 
@@ -77,7 +77,7 @@ To exclude files or folders from cloud tiering, follow these steps:
    **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder\\\\SubFolder /f**
 
    To exclude all files under a folder path that contains one or more special characters (see note below regarding escaping), (for example, D:\\+\$Folder\SubFolder), run the following command:
-   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList /t REG_SZ /d D:\\\\\\+\\\$Folder\\\\SubFolder /f****
+   **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList /t REG_SZ /d D:\\\\\\+\\\$Folder\\\\SubFolder /f**
   
    To exclude a combination of file names, file extensions and folders from tiering (for example, D:\ShareRoot\Folder1\SubFolder1,FileName.log,.txt), run the following command:  
    **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder1\\\\SubFolder1|FileName.log|.txt /f**
@@ -94,7 +94,7 @@ To exclude files or folders from cloud tiering, follow these steps:
 >
 > If you don't escape these characters, the exclusion policy won't work correctly for any folder path that contains them.
 
-### Tiered downloads
+### Tiered file downloads after exclusion
 
 When you exclude a file type or pattern, it won't be tiered from that server anymore. However, all files changed or created in a different endpoint will continue to be downloaded as tiered files and will stay tiered. These files will be recalled gradually based on exclusion policy.
 
@@ -102,7 +102,7 @@ For example, if you exclude PDF files, the PDF files that you create directly on
 
 If you don't want any files to be in a tiered state, enable [proactive recall](file-sync-cloud-tiering-overview.md#proactive-recall). This feature will prevent tiered download of all files and stop background tiering.
 
-### More information
+### More information about tiering exclusions
 
 -  If the Azure File Sync agent is installed on a Failover Cluster, you must create the **GhostingExclusionList** registry setting under `HKEY_LOCAL_MACHINE\Cluster\StorageSync\SOFTWARE\Microsoft\Azure\StorageSync`.
 	-  Example: **reg ADD "HKEY_LOCAL_MACHINE\Cluster\StorageSync\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList /t REG_SZ /d .one|.lnk|.log /f**
@@ -133,7 +133,7 @@ Example: **reg ADD "HKEY_LOCAL_MACHINE\Cluster\StorageSync\SOFTWARE\Microsoft\Az
 
 Cloud tiering uses the last access time and the access frequency of a file to determine which files should be tiered. The cloud tiering filter driver (storagesync.sys) tracks last access time and logs the information in the cloud tiering heat store. You can retrieve the heat store and save it into a CSV file by using a server-local PowerShell cmdlet.
 
-There is a single heat store for all files on the same volume. The heat store can get very large. If you only need to retrieve the "coolest" number of items, use -Limit and a number and also consider filtering by a sub path versus the volume root.
+Each volume has a single heat store for all its files. The heat store can get very large. If you only need to retrieve the "coolest" number of items, use -Limit and a number and also consider filtering by a sub path versus the volume root.
 
 - Import the PowerShell module:
     `Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'`
@@ -170,7 +170,7 @@ Invoke-StorageSyncCloudTiering -Path "file-or-directory-to-be-tiered"
 The easiest way to recall a file to disk is to open the file. The Azure File Sync file system filter (StorageSync.sys) seamlessly downloads the file from your Azure file share. For file types that can be partially read or streamed, such as multimedia or .zip files, simply opening a file doesn't ensure the entire file is downloaded.
 
 > [!NOTE]  
-> If a shortcut file is brought down to the server as a tiered file, there might be an issue when accessing the file over SMB. To mitigate this, there is a task that runs every three days that will recall any shortcut files. However, if you want shortcut files that are tiered to be recalled more frequently, create a scheduled task that runs this at the desired frequency:
+> If a shortcut file is brought down to the server as a tiered file, there might be an issue when accessing the file over SMB. To mitigate this, a task runs every three days to recall any shortcut files. However, if you want shortcut files that are tiered to be recalled more frequently, create a scheduled task that runs this at the desired frequency:
 > ```powershell
 > Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll" 
 > Invoke-StorageSyncFileRecall -Path "D:\path-to-your-server-endpoint" -Pattern *.lnk
@@ -180,7 +180,7 @@ Parameters:
 
 - `-Path` The -Path parameter in the `Invoke-StorageSyncFileRecall` command specifies where the recalled files should be restored on the local server. This path must be the server endpoint configured for Azure File Sync.
 	* If you're unsure of the server endpoint path, navigate to your Azure File Sync agent → Select your Storage Sync Service → Open your Sync Group.
-	* You can also run the following command via PowerShell:
+	* You can also run the following command in PowerShell:
  ```powershell
 Get-StorageSyncServerEndpoint
 ```
