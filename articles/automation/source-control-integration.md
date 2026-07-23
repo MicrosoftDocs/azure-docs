@@ -241,4 +241,4 @@ Currently, you can't use the Azure portal to update the PAT in source control. W
 
 ## Next steps
 
-* For information about integrating runbook source control with Visual Studio Codespaces, see [Azure Automation: Integrating Runbook Source Control using Visual Studio Codespaces](/azure/automation/source-control-integration).
+* For information about integrating runbook source control with Visual Studio Codespaces, see [Azure Automation: Integrating Runbook Source Control using Visual Studio Codespaces]( https://review.learn.microsoft.com/azure/automation/source-control-integration).
