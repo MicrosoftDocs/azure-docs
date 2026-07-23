@@ -70,7 +70,7 @@ If you just want to see the sample app in this tutorial running in Azure, just r
 dotnet tool install --global dotnet-ef
 mkdir msdocs-app-service-sqldb-dotnetcore
 cd msdocs-app-service-sqldb-dotnetcore
-azd init --template msdocs-app-service-sqldb-dotnetcore
+azd init --template msdocs-app-service-sqldb-dotnetcore .
 azd up
 ```
 
@@ -535,7 +535,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
 1. From the repository root, run `azd init`.
 
     ```bash
-    azd init --template dotnet-app-service-sqldb-infra
+    azd init --template dotnet-app-service-sqldb-infra .
     ```
 
 1. When prompted, give the following answers:
