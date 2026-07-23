@@ -201,7 +201,7 @@ You have 1 TB of storage for all the apps in your App Service Environment. An Ap
 
 ## Monitor the App Service Environment
 
-Microsoft monitors and manages the platform infrastructure in App Service Environment v3, and scales as needed. You can use Azure Monitor to view the following metrics for the front ends that serve traffic to your App Service Environment:
+Microsoft monitors and manages the platform infrastructure in App Service Environment v3, and scales it as needed. Use Azure Monitor to view the following metrics for the front ends that serve traffic to your App Service Environment:
 
 | Metric | Description | Instance-level view |
 | --- | --- | --- |
