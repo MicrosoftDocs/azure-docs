@@ -316,6 +316,71 @@ If you've selected **Full & Differential** as the restore type, do the following
     > [!NOTE]
     > In Multiple Database Container (MDC) restores, after the system database is restored to a target instance, you need to run the preregistration script again. Then the subsequent tenant database restores will succeed. To learn more, see [Troubleshoot Multiple Container Database restore](backup-azure-sap-hana-database-troubleshoot.md#multiple-container-database-mdc-restore).
 
+## Restore SAP HANA Scale-out systems (Preview)
+
+The restore process for SAP HANA scale-out systems follows the same workflow as standalone and HSR-enabled HANA systems, with additional scale-out specific prerequisites.
+
+### Prerequisites for scale-out restore
+
+In addition to the [general prerequisites](#prerequisites), ensure that you review the following prerequisites for scale-out restore operations.
+
+For same-system restore, ensure all nodes in the scale-out system are registered with the same Recovery Services vault, discovered, and in a ready state for restore.
+
+For Alternate Location Restore (ALR) to a different scale-out system, ensure all nodes in the target scale-out system are registered with the same Recovery Services vault, the scale-out preregistration script has been run on all target nodes, all target nodes have been discovered, and all target nodes are in a ready state.
+
+For more information about registering and discovering nodes, see [Back up SAP HANA Scale-out databases on Azure VMs](sap-hana-database-scale-out-backup.md#register-vms-and-discover-databases).
+
+### Restore the database to the same scale-out system
+
+To restore a database to the same scale-out system, follow these steps:
+
+1. On the **Restore** pane, under **Where and how to restore**, select **Original location** or **Alternate location** as appropriate.
+
+   If you selected **Alternate location**, select the SAP HANA scale-out system from the **HANA System** dropdown. Azure Backup will recognize the scale-out system as a single logical unit.
+
+1. In the **Restored DB Name** box, enter the name of the target database.
+
+1. Select the **Overwrite if the DB with the same name already exists on selected HANA instance** checkbox if applicable.
+
+1. In **Select restore point**, choose your restore type:
+   - **Logs (Point in Time)** to restore to a specific point in time.
+   - **Full & Differential** to restore to a specific recovery point.
+
+1. Select **Restore** to initiate the restore operation.
+
+Azure Backup coordinates the restore operation across all nodes in the scale-out system automatically.
+
+### Restore to an alternate scale-out system
+
+To restore a database from one scale-out system to a different scale-out system, follow these steps:
+
+1. On the **Restore** pane, under **Where and how to restore**, select **Alternate Location**.
+
+2. In the **HANA System** dropdown, select the **target scale-out system** to which you want to restore the database. The dropdown shows all registered and discovered scale-out systems.
+
+3. In the **Restored DB Name** box, enter the name of the target database.
+
+4. Select the **Overwrite if the DB with the same name already exists on selected HANA instance** checkbox if applicable.
+
+5. In **Select restore point**, choose your restore type:
+   - **Logs (Point in Time)** to restore to a specific point in time.
+   - **Full & Differential** to restore to a specific recovery point.
+
+6. Select the recovery point from the graph or list.
+
+7. Select **Restore** to initiate the restore operation.
+
+Azure Backup automatically coordinates the restore operation across all nodes in the target scale-out system.
+
+### Restore scale-out databases as files
+
+You can also restore scale-out database backups as files using the same process as standalone and HSR systems. For detailed steps, see [Restore as files](#restore-as-files).
+
+When restoring scale-out databases as files, ensure that:
+- The destination path is accessible from all nodes in the target scale-out system.
+- The path has appropriate permissions for file operations.
+- Files are restored to a shared storage location if needed for consistency across nodes.
+
 ## Cross Region Restore
 
 As one of the restore options, Cross Region Restore (CRR) allows you to restore SAP HANA databases that are hosted on Azure VMs in a secondary region, which is an Azure paired region.
@@ -382,8 +447,8 @@ To perform Cross Subscription Restore to a Private Endpoint enabled vault:
 | Operation type | Backup operator | Recovery Services vault | Alternate operator |
 | --- | --- | --- | --- |
 | Restore database or restore as files | `Virtual Machine Contributor` | Source VM that got backed up | Instead of a built-in role, you can consider a custom role which has the following permissions: <br><br> - `Microsoft.Compute/virtualMachines/write` <br> - `Microsoft.Compute/virtualMachines/read` |
-|            | `Virtual Machine Contributor` | Target VM in which the database will be restored or files are created. | Instead of a built-in role, you can consider a custom role that has the following permissions: <br><br> - `Microsoft.Compute/virtualMachines/write` <br> - `Microsoft.Compute/virtualMachines/read` |
-|          | `Backup Operator` | Target Recovery Services vault |            |	
+| Restore database or restore as files | `Virtual Machine Contributor` | Target VM in which the database will be restored or files are created. | Instead of a built-in role, you can consider a custom role that has the following permissions: <br><br> - `Microsoft.Compute/virtualMachines/write` <br> - `Microsoft.Compute/virtualMachines/read` |
+| Restore database or restore as files | `Backup Operator` | Target Recovery Services vault | N/A |
 
 By default, CSR is enabled on the Recovery Services vault. To update the Recovery Services vault restore settings, go to **Properties** > **Cross Subscription Restore** and make the required changes.
 
