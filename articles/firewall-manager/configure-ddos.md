@@ -24,9 +24,8 @@ To see how this works, you create a firewall policy and then a virtual network s
 
 Use Firewall Manager to create a firewall policy.
 
-1. From the [Azure portal](https://portal.azure.com), open Firewall Manager.
-1. Select **Azure Firewall Policies**.
-1. Select **Create Azure Firewall Policy**.
+1. From the [Azure portal](https://portal.azure.com), open **Network security** -> **Firewall Manager** -> **Azure Firewall Policies**.
+1. Select **Create**.
 1. For **Resource group**, select **Create new** and type **DDoS-Test-rg**.
 1. Under **Policy details**, **Name**, type **fw-pol-01**.
 1. For **Region**, select **West US 2**.
@@ -38,8 +37,7 @@ Use Firewall Manager to create a firewall policy.
 
 Use Firewall Manager to create a secured virtual network.
 
-1. Open Firewall Manager.
-1. Select **Virtual Networks**.
+1. From the [Azure portal](https://portal.azure.com), open **Network security** -> **Secure your resources** -> **Virtual Networks**.
 1. Select **Create new Secured Virtual Network**.
 1. For **Resource group**, select **DDoS-Test-rg**.
 1. For **Region**, select **West US 2**.
@@ -57,9 +55,8 @@ Use Firewall Manager to create a secured virtual network.
 
 Create a DDoS Protection Plan using Firewall Manager. You can use the **DDoS Protection Plans** page to create and manage your Azure DDoS Protection Plans.
 
-1. Open Firewall Manager.
-1. Select **DDoS Protection Plans**.
-1. Select **Create**.
+1.From the [Azure portal](https://portal.azure.com), open **Network security** -> **WAF+ DDOS** -> **DDOS Protection**.
+1. Select **Create**. 
 1. For **Resource group**, select **DDos-Test-rg**.
 1. Under **Instance details**, **Name**, type **DDoS-plan-01**.
 1. For **Region**, select **West US 2**.
@@ -70,8 +67,7 @@ Create a DDoS Protection Plan using Firewall Manager. You can use the **DDoS Pro
 
 Now you can associate the DDoS Protection Plan with the secured virtual network.
 
-1. Open Firewall Manager.
-1. Select **Virtual Networks**.
+1. Open **Network security** -> **Secure your resources** -> **Virtual Networks**.
 1. Select the check box for **Hub-vnet-01**.
 1. Select **Manage Security**, **Manage DDoS Protection Plan**.
 1. For **DDoS Protection Plan Standard**, select **Enable**.
