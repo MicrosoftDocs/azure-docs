@@ -3,7 +3,7 @@ title: Host a Web App in an App Service Environment
 description: Create a web app that uses an App Service Environment, and host the isolated app in a virtual network/subnet configuration. Follow procedures in the Azure portal to create the web app, enable encryption, diagnostic logging, and more.
 author: seligj95
 ms.topic: how-to
-ms.date: 03/06/2026
+ms.date: 07/23/2026
 ms.author: jordanselig
 ms.service: azure-app-service
 # customer intent: As a developer, I want to use an App Service Environment for my App Service web app, so I can host isolated apps in my virtual network.
@@ -201,9 +201,24 @@ You have 1 TB of storage for all the apps in your App Service Environment. An Ap
 
 ## Monitor the App Service Environment
 
-Microsoft monitors and manages the platform infrastructure in App Service Environment v3, and scales as needed. As a customer, you should monitor only the App Service plans and your individual running apps, and take the appropriate actions. You can [configure diagnostic settings for monitoring](#enable-diagnostic-logging) to support your scenario.
+Microsoft monitors and manages the platform infrastructure in App Service Environment v3, and scales as needed. You can use Azure Monitor to view the following metrics for the front ends that serve traffic to your App Service Environment:
 
-In the Azure portal, you can see some metrics for an App Service Environment. However, these metrics are for App Service Environment v1 and two resources. Metrics for App Service Environment v3 resources aren't visible. For earlier versions of App Service Environment, review the feature differences in the [App Service Environment overview](overview.md#feature-differences).
+| Metric | Description | Instance-level view |
+| --- | --- | --- |
+| **Total Front Ends** | Number of front-end instances. | No |
+| **CPU Percentage** | CPU used across the front-end instances. | Yes |
+| **Memory Percentage** | Memory used across the front-end instances. | Yes |
+| **Disk Queue Length** | Number of read and write requests queued on storage. | Yes |
+
+To view the metrics:
+
+1. In the [Azure portal](https://portal.azure.com), go to **Monitor**.
+1. Select **Metrics**.
+1. For **Scope**, select your App Service Environment.
+1. Select the metric that you want to view. The default aggregation for these metrics is **Average**.
+1. For **CPU Percentage**, **Memory Percentage**, or **Disk Queue Length**, select **Apply splitting**, and then select **Instance** to view a separate series for each front end.
+
+These metrics describe the front ends, not the workers in your App Service plans. Continue to monitor your App Service plans and individual apps separately. You can also [configure diagnostic settings for monitoring](#enable-diagnostic-logging) to support your scenario. For the complete metric definitions, see [Supported metrics for Microsoft.Web/hostingEnvironments](/azure/azure-monitor/reference/supported-metrics/microsoft-web-hostingenvironments-metrics).
 
 ## Review logging scenarios and messages
 
