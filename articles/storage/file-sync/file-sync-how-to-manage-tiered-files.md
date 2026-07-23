@@ -1,6 +1,6 @@
 ---
 title: How to manage Azure File Sync tiered files
-description: Tips and PowerShell commands to help manage cloud tiering with Azure File Sync.
+description: Learn tips and PowerShell commands to help manage cloud tiering with Azure File Sync.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
@@ -11,7 +11,7 @@ ms.author: kendownie
 
 # How to manage tiered files in Azure File Sync
 
-This article provides guidance for users who have questions related to managing tiered files. For conceptual questions regarding cloud tiering, see [Azure Files FAQ](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json).
+This article provides guidance for managing tiered files in Azure File Sync when [cloud tiering](file-sync-cloud-tiering-overview.md) is enabled. 
 
 ## How to check if your files are being tiered
 
@@ -39,8 +39,7 @@ There are several ways to check whether a file has been tiered to your Azure fil
 
         > [!NOTE]
         > You can see the attributes for all the files in a folder by adding the **Attributes** field to the table display of File Explorer. To do this, right-click on an existing column (for example, **Size**), select **More**, and then select **Attributes** from the drop-down list.
-
-        > [!NOTE]
+        > 
         > All of these attributes will be visible for partially recalled files as well.
 
    - **Use `fsutil` to check for reparse points on a file.**
@@ -65,7 +64,7 @@ To exclude files or folders from cloud tiering, follow these steps:
 
 1. Open an elevated command prompt.
 
-2. Run one of the following commands to configure exclusions:
+1. Run one of the following commands to configure exclusions:
 
    To exclude certain file extensions from tiering (for example, .one, .lnk, .log), run the following command:  
    **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d .one|.lnk|.log /f**
@@ -82,7 +81,7 @@ To exclude files or folders from cloud tiering, follow these steps:
    To exclude a combination of file names, file extensions and folders from tiering (for example, D:\ShareRoot\Folder1\SubFolder1,FileName.log,.txt), run the following command:  
    **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder1\\\\SubFolder1|FileName.log|.txt /f**
 
-3. For the cloud tiering exclusions to take effect, you must restart the Storage Sync Agent service (FileSyncSvc) by running the following commands:
+1. For the cloud tiering exclusions to take effect, you must restart the Storage Sync Agent service (FileSyncSvc) by running the following commands:
 
 	**net stop filesyncsvc**  
 	**net start filesyncsvc**
@@ -155,10 +154,12 @@ Each volume has a single heat store for all its files. The heat store can get ve
 
 ## How to force a file or directory to be tiered
 
-> [!NOTE]
-> When you select a directory to be tiered, only the files currently in the directory are tiered. Any files created after that time aren't automatically tiered.
+When the cloud tiering feature is enabled, cloud tiering automatically tiers files based on last access and modify times to achieve the volume free space percentage specified on the cloud endpoint. Sometimes you might want to manually force a file to tier. This might be useful if you save a large file that you don't intend to use again for a long time, and you want the free space on your volume now to use for other files and folders. 
 
-When the cloud tiering feature is enabled, cloud tiering automatically tiers files based on last access and modify times to achieve the volume free space percentage specified on the cloud endpoint. Sometimes you might want to manually force a file to tier. This might be useful if you save a large file that you don't intend to use again for a long time, and you want the free space on your volume now to use for other files and folders. You can force tiering by using the following PowerShell commands:
+> [!NOTE]
+When you select a directory to be tiered, only the files currently in the directory are tiered. Any files created after that time aren't automatically tiered.
+
+You can force tiering by running the following PowerShell commands:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -209,12 +210,11 @@ Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.Se
 Invoke-StorageSyncFileRecall -Path "D:\path-to-your-server-endpoint" -ThreadCount 8 -Order CloudTieringPolicy -PerFileRetryCount 3 -PerFileRetryDelaySeconds 10
 ```
 
-> [!NOTE]  
-> - If the local volume hosting the server doesn't have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet fails.
+If the local volume hosting the server doesn't have enough free space to recall all the tiered data, the `Invoke-StorageSyncFileRecall` cmdlet fails.
 
 > [!NOTE]
 > To recall files that have been tiered, the network bandwidth should be at least 1 Mbps. If network bandwidth is less than 1 Mbps, files might fail to recall with a timeout error.
 
-## Next steps
+## See also
 
-- [Frequently asked questions (FAQ) about Azure Files](../files/storage-files-faq.md?toc=/azure/storage/filesync/toc.json)
+- [Azure File Sync cloud tiering overview](file-sync-cloud-tiering-overview.md)
