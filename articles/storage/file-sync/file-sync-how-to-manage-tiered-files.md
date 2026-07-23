@@ -81,7 +81,7 @@ To exclude files or folders from cloud tiering, follow these steps:
    To exclude a combination of file names, file extensions and folders from tiering (for example, D:\ShareRoot\Folder1\SubFolder1,FileName.log,.txt), run the following command:  
    **reg ADD "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Azure\StorageSync" /v GhostingExclusionList  /t REG_SZ /d D:\\\\ShareRoot\\\\Folder1\\\\SubFolder1|FileName.log|.txt /f**
 
-1. For the cloud tiering exclusions to take effect, you must restart the Storage Sync Agent service (FileSyncSvc) by running the following commands:
+1. To make the cloud tiering exclusions take effect, restart the Storage Sync Agent service (FileSyncSvc) by running the following commands:
 
 	**net stop filesyncsvc**  
 	**net start filesyncsvc**
@@ -132,7 +132,7 @@ Example: **reg ADD "HKEY_LOCAL_MACHINE\Cluster\StorageSync\SOFTWARE\Microsoft\Az
 
 Cloud tiering uses the last access time and the access frequency of a file to determine which files should be tiered. The cloud tiering filter driver (storagesync.sys) tracks last access time and logs the information in the cloud tiering heat store. You can retrieve the heat store and save it into a CSV file by using a server-local PowerShell cmdlet.
 
-Each volume has a single heat store for all its files. The heat store can get very large. If you only need to retrieve the "coolest" number of items, use -Limit and a number and also consider filtering by a sub path versus the volume root.
+Each volume has a single heat store for all its files. The heat store can get very large. If you only need to retrieve the "coolest" number of items, use `-Limit` and a number. Also consider filtering by a subpath versus the volume root.
 
 - Import the PowerShell module:
     `Import-Module '<SyncAgentInstallPath>\StorageSync.Management.ServerCmdlets.dll'`
@@ -154,12 +154,12 @@ Each volume has a single heat store for all its files. The heat store can get ve
 
 ## How to force a file or directory to be tiered
 
-When the cloud tiering feature is enabled, cloud tiering automatically tiers files based on last access and modify times to achieve the volume free space percentage specified on the cloud endpoint. Sometimes you might want to manually force a file to tier. This might be useful if you save a large file that you don't intend to use again for a long time, and you want the free space on your volume now to use for other files and folders. 
+When you enable the cloud tiering feature, it automatically tiers files based on last access and modify times to achieve the volume free space percentage you specify on the cloud endpoint. Sometimes, you might want to manually force a file to tier. This action is useful if you save a large file that you don't intend to use again for a long time, and you want the free space on your volume to use for other files and folders. 
 
 > [!NOTE]
-When you select a directory to be tiered, only the files currently in the directory are tiered. Any files created after that time aren't automatically tiered.
+When you select a directory to tier, the system tiers only the files currently in the directory. It doesn't automatically tier any files created after that time.
 
-You can force tiering by running the following PowerShell commands:
+To force tiering, run the following PowerShell commands:
 
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -171,7 +171,7 @@ Invoke-StorageSyncCloudTiering -Path "file-or-directory-to-be-tiered"
 The easiest way to recall a file to disk is to open the file. The Azure File Sync file system filter (StorageSync.sys) seamlessly downloads the file from your Azure file share. For file types that can be partially read or streamed, such as multimedia or .zip files, simply opening a file doesn't ensure the entire file is downloaded.
 
 > [!NOTE]  
-> If a shortcut file is brought down to the server as a tiered file, there might be an issue when accessing the file over SMB. To mitigate this, a task runs every three days to recall any shortcut files. However, if you want shortcut files that are tiered to be recalled more frequently, create a scheduled task that runs this at the desired frequency:
+> If a shortcut file is brought down to the server as a tiered file, there might be an issue when accessing the file over SMB. To mitigate this problem, a task runs every three days to recall any shortcut files. However, if you want shortcut files that are tiered to be recalled more frequently, create a scheduled task that runs this command at the desired frequency:
 > ```powershell
 > Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll" 
 > Invoke-StorageSyncFileRecall -Path "D:\path-to-your-server-endpoint" -Pattern *.lnk
