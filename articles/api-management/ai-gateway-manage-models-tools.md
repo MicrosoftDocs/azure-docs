@@ -217,4 +217,5 @@ After you create the server, configure runtime access before sharing it. Add pol
 
 - [AI Gateway tier overview](./ai-gateway-overview.md)
 - [Quickstart: Create an AI Gateway tier instance](./quickstart-ai-gateway-create.md)
-- [Govern, secure, and operate AI Gateway tier](./ai-gateway-govern-secure-operate.md)
+- [Govern, secure, and operate AI Gateway tier](./ai-gateway-govern-secure-assets.md)
+- [Configure private networking](./ai-gateway-configure-private-networking.md)
