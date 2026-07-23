@@ -3,7 +3,7 @@ title: Use Bicep linter
 description: Learn how to use Bicep linter.
 ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 06/02/2026
+ms.date: 07/23/2026
 ---
 
 # Use Bicep linter
@@ -35,6 +35,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 | <a id='no-explicit-any' />[no-explicit-any](./linter-rule-no-explicit-any.md) | warning |
 | <a id='no-hardcoded-env-urls' />[no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md) | warning |
 | <a id='no-hardcoded-location' />[no-hardcoded-location](./linter-rule-no-hardcoded-location.md) | off |
+| <a id='no-hardcoded-outputs' />[no-hardcoded-outputs](./linter-rule-no-hardcoded-outputs.md) | off |
 | <a id='no-loc-expr-outside-params' />[no-loc-expr-outside-params](./linter-rule-no-loc-expr-outside-params.md) | off |
 | <a id='no-module-name' />[no-module-name](./linter-rule-no-module-name.md) | off |
 | <a id='no-unnecessary-dependson' />[no-unnecessary-dependson](./linter-rule-no-unnecessary-dependson.md) | warning |

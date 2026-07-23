@@ -65,6 +65,7 @@ The following Linux and FreeBSD distributions from Azure Marketplace support Acc
 - Ubuntu 22.04 LTS
 - Red Hat Enterprise Linux 10.0
 - Red Hat Enterprise Linux 9.6
+- Red Hat Enterprise Linux 8.10 (Technical Preview Only)
 - AlmaLinux 10.0
 - AlmaLinux 9.6
 - Rocky Linux 10.0

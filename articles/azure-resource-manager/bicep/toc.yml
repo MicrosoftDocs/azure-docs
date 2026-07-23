@@ -519,6 +519,9 @@ items:
               - name: No hardcoded locations
                 displayName: linter
                 href: linter-rule-no-hardcoded-location.md
+              - name: No hardcoded outputs
+                displayName: linter
+                href: linter-rule-no-hardcoded-outputs.md
               - name: No location expressions outside of parameter default values
                 displayName: linter
                 href: linter-rule-no-loc-expr-outside-params.md
@@ -818,4 +821,3 @@ items:
       - name: Programmatic Bicep usage with JSON-RPC
         displayName: jsonrpc,json-rpc,rpc,pipe,socket,stdio,programmatic
         href: bicep-cli-jsonrpc.md
-        
