@@ -4,6 +4,8 @@ description: Create a community transit hub in Azure Enclave by using the Azure 
 author: jadean-msft
 ms.author: jadean
 ms.topic: how-to
+ms.service: azure-enclave
+ai-usage: ai-assisted
 ms.date: 07/23/2026
 ---
 # Create a transit hub from the Azure portal
