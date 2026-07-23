@@ -519,7 +519,7 @@ To ensure that the service starts automatically on every boot:
 sudo systemctl enable --now azfilesrefresh
 ```
 
-Automatic credential refresh requires a managed identity assigned to your VM. If you're supplying the OAuth token directly, you must refresh credentials manually by using the `azfilesauthmanager set` command as described in [Configure authentication](#configure-authentication), or programmatically via the shared library APIs.
+Automatic credential refresh requires a managed identity assigned to your VM. If you're supplying the OAuth token directly, you must refresh credentials manually by using the `azfilesauthmanager set` command as described in [Configure managed identity authentication](#configure-managed-identity-authentication), or programmatically via the shared library APIs.
 
 ::: zone-end
 
