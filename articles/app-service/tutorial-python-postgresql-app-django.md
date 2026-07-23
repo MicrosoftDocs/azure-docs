@@ -185,7 +185,6 @@ Sign in to the [Azure portal](https://portal.azure.com/). Follow these steps to 
         - **Private endpoint**: Access endpoint for the database in the virtual network.
         - **Network interfaces**: Private IP addresses, one for each of the private endpoints.
         - **Azure Database for PostgreSQL flexible server**: Accessible only from within the virtual network. Deployment creates a database and a user on the server.
-        - **Azure Cache for Redis**: Accessible only from its private network.
         - **Private DNS zones**: Enables DNS resolution of the database server in the virtual network.
     :::column-end:::
     :::column:::
@@ -532,7 +531,7 @@ When you're finished, you can delete all of the resources from your Azure subscr
 
 ## Create Azure resources and deploy a sample app
 
-In this section, create the Azure resources and deploy a sample app to App Service on Linux. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure Database for PostgreSQL, and Azure Cache for Redis.
+In this section, create the Azure resources and deploy a sample app to App Service on Linux. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure Database for PostgreSQL, and Azure Managed Redis.
 
 The dev container already has the [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) (AZD).
 
@@ -575,7 +574,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **Azure Database for PostgreSQL flexible server**: Accessible only from in the virtual network. It creates a database and a user on the server.
     - **Private DNS zone**: Enables DNS resolution of the PostgreSQL server in the virtual network.
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
-    - **Azure Cache for Redis**: Accessible only from behind its private endpoint.
+    - **Azure Managed Redis**: Accessible only from behind its private endpoint.
     - **Key vault**: Accessible only from behind its private endpoint. Used to manage secrets for the App Service app.
 
     After the command finishes creating resources and deploying the application code the first time, the deployed sample app doesn't work yet. You must make small changes to make it connect to the database in Azure.
