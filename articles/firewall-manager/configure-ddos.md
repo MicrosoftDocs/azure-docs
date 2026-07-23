@@ -55,7 +55,7 @@ Use Firewall Manager to create a secured virtual network.
 
 Create a DDoS Protection Plan using Firewall Manager. You can use the **DDoS Protection Plans** page to create and manage your Azure DDoS Protection Plans.
 
-1.From the [Azure portal](https://portal.azure.com), open **Network security** -> **WAF+ DDOS** -> **DDOS Protection**.
+1. From the [Azure portal](https://portal.azure.com), open **Network security** > **WAF+ DDOS** > **DDOS Protection**.
 1. Select **Create**. 
 1. For **Resource group**, select **DDos-Test-rg**.
 1. Under **Instance details**, **Name**, type **DDoS-plan-01**.
