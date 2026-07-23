@@ -1362,7 +1362,9 @@ Unlike transactions, critical sections don't automatically roll back changes whe
 The `context.df.lock` method creates a critical section in an orchestration. These critical sections prevent other orchestrations from making overlapping changes to a specified set of entities. Internally, the `lock` API sends "lock" operations to the entities and returns a `DurableLock` after it receives a "lock acquired" response from each entity. Both lock and unlock are built-in operations supported by all entities.
 
 > [!NOTE]
-> The `context.df.lock` API requires version `3.4.0` or later of the `durable-functions` npm package and version `3.13.0` or later of the `Microsoft.Azure.WebJobs.Extensions.DurableTask` extension. Until v3.13.0 is available, [manually install the extension](../durable-functions/durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension-version).
+> The `context.df.lock` API requires version `3.4.0` or later of the `durable-functions` npm package and version `3.13.0` or later of the `Microsoft.Azure.WebJobs.Extensions.DurableTask` extension. Until v3.13.0 is available in extension bundles, [manually install the extension](../durable-functions/durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension-version). 
+>
+> [See when version releases are available for the extension bundle.](https://github.com/Azure/azure-functions-extension-bundles/releases) 
 
 To end the critical section, call `release` on the returned `DurableLock`, or let the runtime release the lock automatically when the orchestration ends. Releasing the lock as soon as the critical work finishes lets other orchestrations acquire it sooner. Use `context.df.isLocked` to check whether a lock is currently held.
 
