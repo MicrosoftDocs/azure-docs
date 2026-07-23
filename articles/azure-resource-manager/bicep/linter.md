@@ -41,6 +41,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 | <a id='no-unused-existing-resources' />[no-unused-existing-resources](./linter-rule-no-unused-existing-resources.md) | warning |
 | <a id='no-unused-imports' />[no-unused-imports](./linter-rule-no-unused-imports.md) | warning |
 | <a id='no-unused-params' />[no-unused-params](./linter-rule-no-unused-parameters.md) | warning |
+| <a id='no-unused-types' />[no-unused-types](./linter-rule-no-unused-types.md) | warning |
 | <a id='no-unused-vars' />[no-unused-vars](./linter-rule-no-unused-variables.md) | warning |
 | <a id='outputs-should-not-contain-secrets' />[outputs-should-not-contain-secrets](./linter-rule-outputs-should-not-contain-secrets.md) | warning |
 | <a id='prefer-interpolation' />[prefer-interpolation](./linter-rule-prefer-interpolation.md) | warning |
