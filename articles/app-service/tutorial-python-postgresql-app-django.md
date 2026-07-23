@@ -382,7 +382,7 @@ In this section, configure GitHub deployment using GitHub Actions. It's one of m
     :::column span="2":::
         **Step 5:**
         1. Select the **Source Control** extension.
-        1. In the textbox, type a commit message like `Configure Azure database connection`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
+        1. In the text box, type a commit message like `Configure Azure database connection`. Or, select :::image type="icon" source="media/quickstart-dotnetcore/github-copilot-in-editor.png" border="false"::: and let GitHub Copilot generate a commit message for you.
         1. Select **Commit**, then confirm with **Yes**.
         1. Select **Sync changes 1**, then confirm with **OK**.
     :::column-end:::
