@@ -7,6 +7,7 @@ ms.manager: kmadnani
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
+ms.update-cycle: 365-days
 ms.date: 04/11/2025
 ms.custom:
   - MVC
