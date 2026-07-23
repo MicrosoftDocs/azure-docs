@@ -4,6 +4,7 @@ description: Get started faster with these Azure Enclave deployment templates.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: overview
+ms.service: azure-enclave
 ms.date: 9/30/2025
 ---
 
@@ -24,9 +25,9 @@ What gets deployed:
 
 [ ![Diagram showing Secure Azure Computing Architecture within Azure Enclave.](./media/reference-architecture-secure-azure-computing-architecture.png) ](./media/reference-architecture-secure-azure-computing-architecture.png#lightbox)
 
-[ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-saca.json) (easiest to deploy via Portal, PowerShell, or command line)
+[ARM Template](https://github.com/Azure/enclave/quickstart-templates/ave-saca.json) (easiest to deploy via Portal, PowerShell, or command line)
 
-[Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-saca.bicep) (easiest to edit and maintain, then convert to ARM template before deployment)
+[Bicep Template](https://github.com/Azure/enclave/quickstart-templates/ave-saca.bicep) (easiest to edit and maintain, then convert to ARM template before deployment)
 
 Deploy the template:
 1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
@@ -38,7 +39,7 @@ Deploy the template:
 1. Review the remaining parameters but keep the default unless you would like to test a modification.
 1. Select `Review + Create` and then `Create`.
 
-## Trusted Research Environment (TRE) within Azure Enclave
+## Research environment template
 
 What gets deployed:
 - One  [community](./what-community.md)
@@ -51,9 +52,9 @@ What gets deployed:
 
 [ ![Diagram showing a Trusted Research Environment using Azure Enclave resources.](./media/reference-architecture-trusted-research-environment.png) ](./media/reference-architecture-trusted-research-environment.png#lightbox)
 
-[ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-tre.json) (easiest to deploy via Portal, PowerShell, or command line)
+[ARM Template](https://github.com/Azure/enclave/quickstart-templates/ave-tre.json) (easiest to deploy via Portal, PowerShell, or command line)
 
-[Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-tre.bicep) (easiest to edit and maintain, then convert to ARM template before deployment)
+[Bicep Template](https://github.com/Azure/enclave/quickstart-templates/ave-tre.bicep) (easiest to edit and maintain, then convert to ARM template before deployment)
 
 Deploy the template:
 1. In the Azure portal, type `deploy` into the top search bar and select `Deploy a Custom Template`.
@@ -79,9 +80,9 @@ What gets deployed:
 [ ![Diagram showing an example demo environment within Azure Enclave.](./media/reference-architecture-demo-environment.png) ](./media/reference-architecture-demo-environment.png#lightbox)
 
 
-[ARM Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-demo-env.json) (easiest to deploy via Portal, PowerShell, or command line)
+[ARM Template](https://github.com/Azure/enclave/quickstart-templates/ave-demo-env.json) (easiest to deploy via Portal, PowerShell, or command line)
 
-[Bicep Template](https://github.com/Azure/virtual-enclaves/ave-templates/ave-demo-env.bicep) (easiest to edit and maintain, then convert to ARM template before deployment)
+[Bicep Template](https://github.com/Azure/enclave/quickstart-templates/ave-demo-env.bicep) (easiest to edit and maintain, then convert to ARM template before deployment)
 
 Deploy the template:
 1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
@@ -94,12 +95,12 @@ Deploy the template:
 1. Select `Review + Create` and then `Create`.
 
 ## Resource modules
-You can also create the Azure Enclave resources using the resource modules in this [repository](https://github.com/Azure/virtual-enclaves/ave-templates/ave-templates/modules/).
+You can also create the Azure Enclave resources by using the resource modules in this [repository](https://github.com/Azure/enclave/quickstart-templates/modules/).
 
 ## Create template spec and deploy
 1. Sign in to the Azure portal, search and select the **Template Specs** service. Select **Create template spec**. In the ARM Template section upload or copy and paste the above ARM template.
 
-![Screenshot showing the template spec page with the create button highlighted.](./media/create-template-spec.png)
+   ![Screenshot showing the template spec page with the create button highlighted.](./media/create-template-spec.png)
 
 1. On the **Basics** page, leave the default values, and configure the following template parameters:
    - **Subscription**: Select an Azure subscription.
