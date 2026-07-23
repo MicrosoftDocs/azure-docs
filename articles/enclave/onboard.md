@@ -10,7 +10,7 @@ ms.date: 7/20/2026
 
 # Get started with Azure Enclave
 
-Use this how-to article to onboard to Azure Enclave by registering the required resource providers and preparing the permissions needed to manage Azure Enclave resources in your subscription.
+Use this article to onboard to Azure Enclave by registering the required resource providers and preparing the permissions needed to manage Azure Enclave resources in your subscription.
 
 ## Prerequisites
 
@@ -100,7 +100,7 @@ az provider register --namespace Microsoft.Compute
 ### Option 2: Azure portal
 
 1. Sign in to your Azure tenant and open the subscription.
-1. Under `Settings`, open `Resource providers`.
+1. Under **Settings**, select **Resource providers**.
 1. Register the resource providers listed in [Option 1: PowerShell](#option-1-powershell) in the subscription. The PowerShell script is the fastest option and the authoritative source for the required registrations. These images show the expected end state.
 
    :::image type="content" source="./media/onboard-providers-1.png" alt-text="First set of resource providers required by Azure Enclave." border="true" lightbox="./media/onboard-providers-1.png":::
@@ -117,16 +117,16 @@ For reference, you can also review the generic instructions for enabling a [prev
 
 ### Configure `NetworkWatcherRG` access
 
-To avoid potential issues with [virtual network flow log](/azure/network-watcher/vnet-flow-logs-overview) creation, make sure the `NetworkWatcherRG` resource group exists in each subscription and that the `Mission Enclave` app has the `Owner` role on that group before you create your first enclave. If the subscription creates the group and role automatically, verify that they already exist.
+To avoid potential problems with [virtual network flow log](/azure/network-watcher/vnet-flow-logs-overview) creation, make sure the `NetworkWatcherRG` resource group exists in each subscription and that the `Mission Enclave` app has the `Owner` role on that group before you create your first enclave. If the subscription automatically creates the group and role, verify that they already exist.
 1. Select the `NetworkWatcherRG` resource group, select `Access control (IAM)`, then select `Add` and `Add role assignment`.
 
    :::image type="content" source="./media/onboard-network-watcher-add-role.png" alt-text="Select role assignment in the NetworkWatcherRG resource group." border="true" lightbox="./media/onboard-network-watcher-add-role.png":::
 
-1. Select `Privileged administrator roles`, select `Owner`, then select `Next`.
+1. Select `Privileged administrator roles`, select `Owner`, and then select `Next`.
 
    :::image type="content" source="./media/onboard-add-role-select-owner.png" alt-text="Select the Owner role in the role assignment wizard." border="true" lightbox="./media/onboard-add-role-select-owner.png":::
 
-1. Select `Select members`, type `Mission Enclave` in the search, select the `Mission Enclave` app, then select `Select` and `Next`.
+1. Select `Select members`, type `Mission Enclave` in the search box, select the `Mission Enclave` app, and then select `Select` and `Next`.
 
    :::image type="content" source="./media/onboard-select-mission-enclave-app.png" alt-text="Select the Mission Enclave app in the members picker." border="true" lightbox="./media/onboard-select-mission-enclave-app.png":::
 
@@ -147,8 +147,8 @@ Existing preview customers must re-register the Azure Enclave resource provider 
 
 Complete these steps to use the latest Azure Enclave API:
 1. In the Azure portal, navigate to your subscription.
-1. Under `Settings`, open `Resource providers`.
-1. Search for and select `Microsoft.Mission`, and then select `Re-register`.
+1. Under **Settings**, select **Resource providers**.
+1. Search for and select `Microsoft.Mission`, and then select **Re-register**.
 1. Repeat these steps for any additional subscriptions.
 
 ## Next steps
