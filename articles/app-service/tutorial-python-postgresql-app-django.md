@@ -51,7 +51,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > - Create a secure-by-default App Service, PostgreSQL, and Azure Managed Redis architecture.
-> - Secure connection secrets using a managed identity and Key Vault references.
+> - Secure connection secrets by using a managed identity and Key Vault references.
 > - Deploy a sample Python app to App Service from a GitHub repository.
 > - Access App Service connection strings and app settings in the application code.
 > - Make updates and redeploy the application code.
