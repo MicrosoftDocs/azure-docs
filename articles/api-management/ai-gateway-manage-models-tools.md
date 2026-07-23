@@ -64,7 +64,7 @@ To add models, open the **Models** page and select **Add models**. Choose how yo
 > [!NOTE]
 > To use **Managed identity**, the gateway must already have a managed identity configured, and you must have permission to assign the **Foundry User** role to that identity on the Foundry resource. When you have sufficient permissions, the import wizard assigns the role for you.
 
-:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-add-foundry-provider.png" alt-text="The Add Foundry provider wizard showing a selected subscription and Foundry resource with its model deployments listed for import." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-add-foundry-provider.png":::
+:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-add-foundry-provider.png" alt-text="Screenshot of the Add Foundry provider wizard showing a selected subscription and Foundry resource with its model deployments listed for import." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-add-foundry-provider.png":::
 
 ### Add a custom model
 
@@ -133,7 +133,7 @@ The AI Gateway tier enables platform teams to publish MCP servers behind one gov
 
 Use MCP servers when agents need to call business systems, developer tools, knowledge stores, or internal APIs. Agents authenticate once to the gateway and don't need separate credentials for each backend. For each backend, you choose how the gateway authenticates to it: **None**, **API Key**, **OAuth 2.0**, or **Managed identity**.
 
-:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-mcp-servers-list.png" alt-text="The MCP servers page listing governed MCP servers with their endpoint, source, backends, and description, plus an Add MCP server button." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-mcp-servers-list.png":::
+:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-mcp-servers-list.png" alt-text="Screenshot of the MCP servers page listing governed MCP servers with their endpoint, source, backends, and description, plus an Add MCP server button." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-mcp-servers-list.png":::
 
 A single MCP server federates one or more backends. Each backend contributes tools, and the gateway namespaces each backend's tools with the backend name so identically named tools from different backends don't collide. For example, a `create_issue` tool from a backend named `github` is exposed to agents under the `github` namespace, distinct from a `create_issue` tool on another backend.
 
