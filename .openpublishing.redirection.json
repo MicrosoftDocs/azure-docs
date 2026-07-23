@@ -7807,6 +7807,16 @@
       "source_path": "articles/automation/automation-availability-zones.md",
       "redirect_url": "/azure/reliability/reliability-automation",
       "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-identity-based-connections-tutorial.md",
+      "redirect_url": "/azure/azure-functions/manage-connections?pivots=functions-auth-identity&tabs=host#define-connections",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-identity-based-connections-tutorial-2.md",
+      "redirect_url": "/azure/azure-functions/manage-connections?pivots=functions-auth-identity&tabs=bindings#define-connections",
+      "redirect_document_id": false
     }
   ]
 }

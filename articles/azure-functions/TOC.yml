@@ -140,14 +140,8 @@
       href: functions-create-private-site-access.md
     - name: Use an outbound NAT gateway
       href: functions-how-to-use-nat-gateway.md
-  - name: Identity-based connections
-    items:
-    - name: Use identity for host connections
-      href: functions-identity-based-connections-tutorial.md
-    - name: Use identity for triggers and bindings
-      href: functions-identity-based-connections-tutorial-2.md
-    - name: Access Azure SQL with managed identity
-      href: functions-identity-access-azure-sql-with-managed-identity.md
+  - name: Access Azure SQL with managed identity
+    href: functions-identity-access-azure-sql-with-managed-identity.md
   - name: Low-latency Blob trigger using Event Grid
     displayName: storage, ngrok, local
     href: functions-event-grid-blob-trigger.md
