@@ -29,7 +29,7 @@ Understanding the terminology related to performance and capacity in Azure NetAp
 
 Unless otherwise specified, Azure NetApp Files metrics represent values aggregated over a five-minute collection interval. As a result, reported metric values reflect the average activity during that interval rather than instantaneous values.
 
-Because metrics are aggregated over five minutes, short-duration spikes or transient workload behavior might not be fully reflected in the displayed metric values.
+Because metrics aggregate over five minutes, short-duration spikes or transient workload behavior might not be fully reflected in the displayed metric values.
 
 Metrics with different aggregation behavior explicitly describe their collection or reporting methodology in the metric definition.
 
