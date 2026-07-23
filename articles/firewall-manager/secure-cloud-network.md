@@ -90,7 +90,7 @@ Repeat this procedure to create another similar virtual network in the **fw-mana
 
 Create your secured virtual hub using Firewall Manager.
 
-1. From the Azure portal home page, in the search box, type **Network Security** and select in under **Services**.
+1. From the Azure portal home page, in the search box, type **Network Security** and select it under **Services**.
 1. Under **Secure your resources**, select **Virtual hubs**.
 1. On the **Network Security | Virtual hubs** page, select **Create new secured virtual hub**.
 1. On the **Create new secured virtual hub** page, enter the following information:
