@@ -2,7 +2,7 @@
 title: App Service Environment v3 and App Service Public Multitenant Comparison
 description: This article provides an overview of the differences between App Service Environment v3 and the public multitenant offering of App Service.
 author: seligj95
-ms.date: 12/10/2025
+ms.date: 07/24/2026
 ms.author: jordanselig
 ms.topic: concept-article
 ms.custom:
@@ -12,9 +12,11 @@ ms.service: azure-app-service
 
 # App Service Environment v3 and App Service public multitenant comparison
 
-An App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for running App Service apps securely at high scale. Compared to the public multitenant offering, where the supporting infrastructure is shared with other customers, an App Service Environment provides enhanced security, isolation, and network access control.
+App Service Environment v3 provides a fully isolated and dedicated environment for running App Service apps. Multitenant App Service runs apps on dedicated workers while sharing the supporting platform infrastructure with other customers.
 
-This article compares the differentiating features of App Service Environment v3 and the public multitenant offering of App Service.
+Both offerings support applications with no public inbound exposure. App Service Environment v3 can provide private ingress through an internal load balancer (ILB). Multitenant App Service can provide private ingress through a private endpoint with public network access disabled.
+
+This article compares the capabilities and requirements that differentiate App Service Environment v3 from multitenant App Service.
 
 ## Hosting
 
@@ -22,10 +24,10 @@ This article compares the differentiating features of App Service Environment v3
 |---------|---------|---------|
 |Hosting environment|[Fully isolated and dedicated compute](overview.md)|[Shared environment](../../app-service/overview.md). Workers running your apps are dedicated, but the supporting infrastructure is shared with other customers. |
 |Hardware|[Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview)|[Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview)|
-|[Pricing tiers](https://azure.microsoft.com/pricing/details/app-service/windows/) |Isolated v2        |Free, Basic, Standard, Premium v2, Premium v3, Premium v4        |
+|[Pricing tiers](https://azure.microsoft.com/pricing/details/app-service/windows/) |Isolated v2, Isolated v4        |Free, Basic, Standard, Premium v2, Premium v3, Premium v4        |
 |Dedicated host group|[Available](overview.md#dedicated-environment) |Not available |
 |Remote file storage|Fully dedicated to the App Service Environment |Remote file storage for the application is dedicated, but the storage is hosted on a shared file server. |
-|Private inbound configuration|Yes, using the internal load balancer (ILB) App Service Environment variation. |Yes, via private endpoint |
+|Private inbound configuration|Supported through an internal load balancer (ILB) App Service Environment or private endpoints. | Supported through a private endpoint. Disable public network access to eliminate public inbound exposure. |
 |Planned maintenance|[Manual upgrade preference is available](how-to-upgrade-preference.md) |[The platform handles maintenance](../../app-service/routine-maintenance.md) |
 |Aggregate storage limit for remote file shares|1 TB for all apps in App Service Environment v3|250 GB for all apps in a single App Service plan. 500 GB for all apps across all App Service plans in a single resource group.|
 
@@ -52,7 +54,7 @@ However, App Service Environment v3 is a dedicated environment. Even though it c
 |App Service managed certificates|[Not supported](overview-certificates.md#limitations)|[Supported](../../app-service/configure-ssl-app-service-certificate.md)|
 |Certificates shared across apps|Yes.|No. You must upload the certificate to every app.|
 |Public certificate limit|1,000 public certificates per App Service plan|1,000 public certificates per App Service plan|
-|End-to-end TLS encryption for inbound calls|Supported|Supported in preview for Linux, but not supported on Windows|
+|End-to-end TLS encryption for inbound calls|Supported |Supported on Premium App Service plans and existing Standard App Service deployments. For configuration details, see [End-to-end TLS encryption](../overview-tls#end-to-end-tls-encryption). |
 |Changing TLS cipher suite order|[Supported](app-service-app-service-environment-custom-settings.md#change-tls-cipher-suite-order)|[Supported with the minimum TLS cipher suite feature](../../app-service/configure-ssl-bindings.md#enforce-tls-versions)|
 
 ## Networking
@@ -71,6 +73,13 @@ However, App Service Environment v3 is a dedicated environment. Even though it c
 |Backup/restore over a virtual network|Supported. Uses the subnet of the App Service Environment.|[Supported](../../app-service/overview-vnet-integration.md#backuprestore)|
 |Maximum outbound TCP/IP connections per virtual machine instance|16,000|1,920 per P1V3 instance. 3,968 per P2V3 instance. 8,064 per P3V3 instance.|
 |Maximum source network address translation (SNAT) ports per virtual machine instance|Dynamic: 256 to 1,024, depending on the total instance count|128 per instance|
+
+> [!NOTE]
+> In multitenant App Service, private endpoints and virtual network integration serve separate traffic directions. A private endpoint provides private inbound access to the app. Virtual network integration routes application-initiated outbound traffic into a virtual network and must use a different subnet.
+>
+> Route tables and network security groups on the virtual network integration subnet don't apply to replies for requests received through the app's private endpoint. For more information, see [Virtual network integration routing](../overview-vnet-integration#routes).
+>
+> If traffic destined for a private endpoint is routed through a network virtual appliance, ensure that the forward and return paths remain symmetric. Private Link generally recommends source network address translation (SNAT) for this topology unless the appliance uses the supported `disableSnatOnPL` configuration. For more information, see [Private endpoint limitations](/azure/private-link/private-endpoint-overview#limitations).
 
 ## Pricing
 
@@ -94,6 +103,10 @@ App Service Environment v3 tends to be more expensive than the public multitenan
 
 ### How do I know which offering is right for me?
 
+Private inbound access or elimination of public exposure alone doesn't require App Service Environment v3. Both offerings support private application access. In multitenant App Service, configure a private endpoint and disable public network access.
+
+Choose App Service Environment v3 when you require dedicated supporting infrastructure or App Service Environment-specific capabilities, such as environment-level networking, scale beyond multitenant plan limits, private certificate authority scenarios, or control of inbound traffic on non-HTTP platform ports.
+
 Deciding between App Service Environment v3 and the public multitenant offering depends on your specific requirements. The following common scenarios can help you decide:
 
 - If you need a fully isolated and dedicated environment for running your apps, App Service Environment v3 is the right choice for you.
@@ -114,11 +127,13 @@ Deciding between App Service Environment v3 and the public multitenant offering 
 
 ### Can I use App Service Environment v3 and the public multitenant offering together?
 
-Yes, you can use App Service Environment v3 and the public multitenant offering together. You can use App Service Environment v3 for your most critical apps that require a fully isolated and dedicated environment. You can use the public multitenant offering for your apps that don't require a fully isolated environment.
+Yes, you can use App Service Environment v3 and the public multitenant offering together. You can use App Service Environment v3 for applications that require dedicated supporting infrastructure or App Service Environment-specific capabilities. You can use multitenant App Service for applications whose isolation and networking requirements can be met through per-app features such as private endpoints, public network access controls, virtual network integration, and access restrictions.
 
 ### Can I migrate from the public multitenant offering to App Service Environment v3?
 
-Yes, you can migrate from the public multitenant offering to App Service Environment v3 and vice versa. You can use the [backup and restore feature](../../app-service/manage-backup.md) to migrate your apps.
+Yes. Migration between multitenant App Service and App Service Environment v3 is possible, but it isn't an in-place conversion. Create the target App Service resources and redeploy or restore the application.
+
+If you use App Service backup and restore, review the applicable limitations. Restore compatibility depends on factors including the backup type and operating system, and automatic and custom backups have different destination restrictions. For more information, see [Back up and restore your app](../manage-backup#how-does-backup-and-restore-work-with-app-service-environments).
 
 ### Can I use App Service Environment v3 for my development and testing environments?
 
