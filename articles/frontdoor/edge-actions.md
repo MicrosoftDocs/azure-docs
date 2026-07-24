@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 07/14/2026
+ms.date: 07/23/2026
 ---
 
 # Customization at the edge using Azure Front Door edge actions (preview)  
@@ -87,7 +87,7 @@ When a user initiates a request to a resource that Azure Front Door fronts, the 
 
 ## Create and manage an Edge Action
 
-1. Sign in to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the search box at the top of the portal, enter *Edge Actions*. Select **Edge Actions** from the search results.
 
