@@ -16,7 +16,7 @@ Azure Front Door edge actions is a transformative capability that empowers organ
 This capability addresses the growing demand for secure, scalable, and intelligent content delivery in an era of digital transformation. As enterprises face increasing threats and performance expectations, Edge Actions offer a powerful solution to optimize request and response flows, enhance security posture, and reduce origin load, all while maintaining high availability and performance standards.
 
 > [!IMPORTANT]
-> - Azure Front Door edge actions is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+> Azure Front Door edge actions is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 :::image type="content" source="media/edge-actions/edge-actions.png" alt-text="Diagram showing Azure Front Door edge actions.":::
 
