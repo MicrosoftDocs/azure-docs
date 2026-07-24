@@ -34,7 +34,7 @@ This article assumes that:
 
 - You have an Azure subscription. If you don't already have a subscription, then create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - You've created an SMB Azure classic file share in a storage account which you would like to connect to from on-premises. To learn how to create an Azure classic file share, see [Create an Azure classic file share](../files/create-classic-file-share.md?toc=/azure/storage/filesync/toc.json).
-- Your firewall allows the required domains for communication. See [Azure File Sync firewall settings](../file-sync/file-sync-firewall-and-proxy.md#azure-file-sync-firewall-settings).
+- Your firewall allows the required domains for communication. See [Azure File Sync firewall settings](file-sync-firewall-and-proxy.md#azure-file-sync-firewall-settings).
 
 Additionally:
 
