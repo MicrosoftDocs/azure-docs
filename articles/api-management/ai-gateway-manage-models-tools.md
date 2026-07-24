@@ -27,8 +27,6 @@ Use AI Gateway tier (preview) to manage the models and tools that applications a
 
 Use the **Add models** wizard to connect AI Gateway tier to Microsoft Foundry, Azure OpenAI, AWS Bedrock, Google Vertex, OpenAI, Anthropic, or custom endpoints. The gateway serves each model on the endpoints that its backend supports, under the prefix `https://<gateway>.azure-api.net/default/models`. The next path segment is the provider API format. For example, OpenAI-compatible models are served at `.../default/models/openai/v1` (such as `/chat/completions` and `/responses`), and Anthropic models at `.../default/models/anthropic/v1/messages`. The connection fields that the wizard requires vary by provider.
 
-:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-models-list.png" alt-text="Screenshot of the Models page listing published models with their type, publisher, provider, and runtime endpoints, plus an Add models button." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-models-list.png":::
-
 Choose **Import from Foundry** when your model runs in a Microsoft Foundry resource, which includes Azure OpenAI and Azure AI Services deployments — the wizard discovers the resource's deployments automatically. Choose **Add a custom model** for AWS Bedrock, Google Vertex, OpenAI, Anthropic, or any other supported endpoint, where you enter the endpoint and model names yourself.
 
 Use managed identity when the provider supports Microsoft Entra ID backend authentication, such as Microsoft Foundry. Grant the gateway identity the required role on the backend resource before import. Otherwise, provide the provider's API key or secret during import. The gateway stores and protects the credential.
@@ -64,8 +62,6 @@ To add models, open the **Models** page and select **Add models**. Choose how yo
 > [!NOTE]
 > To use **Managed identity**, the gateway must already have a managed identity configured, and you must have permission to assign the **Foundry User** role to that identity on the Foundry resource. When you have sufficient permissions, the import wizard assigns the role for you.
 
-:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-add-foundry-provider.png" alt-text="Screenshot of the Add Foundry provider wizard showing a selected subscription and Foundry resource with its model deployments listed for import." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-add-foundry-provider.png":::
-
 ### Add a custom model
 
 1. Select **Add a custom model**.
@@ -73,8 +69,6 @@ To add models, open the **Models** page and select **Add models**. Choose how yo
 1. On **Endpoint**, enter the base endpoint URL, the authentication header name (for example, `Authorization`), and the API key.
 1. On **Models**, enter each model name and select its supported endpoints - **OpenAI chat completions**, **OpenAI responses**, **Anthropic messages**, or **Other**. Select **Add model** for each model you define.
 1. Select **Create**.
-
-:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-add-custom-model.png" alt-text="Screenshot of the Add custom provider wizard on the Models step, where you enter a model name and select supported endpoints such as OpenAI chat completions, OpenAI responses, and Anthropic messages." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-add-custom-model.png":::
 
 There's no separate validation step. The gateway sets up the connection when you create the provider. After you add a model, you can update its authentication or policies, or remove it when it's no longer needed.
 
@@ -133,8 +127,6 @@ The AI Gateway tier enables platform teams to publish MCP servers behind one gov
 
 Use MCP servers when agents need to call business systems, developer tools, knowledge stores, or internal APIs. Agents authenticate once to the gateway and don't need separate credentials for each backend. For each backend, you choose how the gateway authenticates to it: **None**, **API Key**, **OAuth 2.0**, or **Managed identity**.
 
-:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-mcp-servers-list.png" alt-text="Screenshot of the MCP servers page listing governed MCP servers with their endpoint, source, backends, and description, plus an Add MCP server button." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-mcp-servers-list.png":::
-
 A single MCP server federates one or more backends. Each backend contributes tools, and the gateway namespaces each backend's tools with the backend name so identically named tools from different backends don't collide. For example, a `create_issue` tool from a backend named `github` is exposed to agents under the `github` namespace, distinct from a `create_issue` tool on another backend.
 
 | Backend type | Use when | Input | Gateway result |
@@ -142,8 +134,6 @@ A single MCP server federates one or more backends. Each backend contributes too
 | **MCP server** | You already host a remote MCP endpoint | MCP endpoint URL (SSE or streamable HTTP) | The remote server's tools, federated through the governed endpoint |
 | **OpenAPI spec** | You have a REST API that agents should call as tools | OpenAPI document (upload, URL, or inline paste) | MCP tools generated from the operations you select |
 | **Built-in connector** | You need a common SaaS app without hosting a server | Connector selection and connection setup | The connector's actions, exposed as MCP tools |
-
-:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-mcp-sources.png" alt-text="Screenshot of the Add MCP server wizard Source step showing three backend types to choose from: MCP server, OpenAPI spec, and Built-in connector." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-mcp-sources.png":::
 
 Each source contributes tools differently:
 
@@ -165,8 +155,6 @@ To create an MCP server:
 1. Select **Confirm**, and then **Create**.
 
 There's no separate connectivity test step. The gateway sets up and checks each backend when you create the server.
-
-:::image type="content" source="media/ai-gateway-manage-models-tools/ai-gateway-configure-mcp.png" alt-text="Screenshot of the Add MCP server wizard configuring an MCP backend with a unique name, endpoint URL, and authentication options: None, API Key, OAuth 2.0, and Managed identity." lightbox="media/ai-gateway-manage-models-tools/ai-gateway-configure-mcp.png":::
 
 The gateway creates one MCP endpoint that federates all selected backends. Clients call the governed endpoint and authenticate with a runtime access key.
 
