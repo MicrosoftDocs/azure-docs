@@ -1,13 +1,12 @@
 ---
 title: Available Regions and SKUs for Nutanix Cloud Clusters on Azure
-author: riperez123
+author: jjaygbay1
 ms.author: rickyperez
 description: Learn about available regions and SKUs for NC2 Cloud Clusters on Azure.
 ms.topic: reference
 ms.custom: references_regions
 ms.date: 06/15/2026
-ms.service: nc2-on-azure
-# Customer intent: As a cloud architect, I want to understand the available SKUs and regions for Nutanix Cloud Clusters on Azure, so that I can properly plan the deployment of my infrastructure to meet organizational needs.
+ms.service: nutanix-on-azure
 ---
 
 # Nutanix Cloud Clusters (NC2) on Azure region and SKU availability
