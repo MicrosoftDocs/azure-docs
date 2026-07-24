@@ -570,7 +570,7 @@ You can restrict access to the public endpoint by using the storage account fire
 - Restrict the public endpoint to one or more virtual networks. This works by using a capability of the virtual network called *service endpoints*. When you restrict the traffic to a storage account through a service endpoint, you're still accessing the storage account through the public IP address.
 
 > [!NOTE]
-> You must select the **Allow trusted Microsoft services to access this resource** checkbox on your storage account to allow trusted first-party Microsoft services such as Azure File Sync to access the storage account. To learn more, see [Restrict access to the public endpoint to specific networks](../files/storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-networks?toc=/azure/storage/filesync/toc.json).
+> You must select the **Allow trusted Microsoft services to access this resource** checkbox on your storage account to allow trusted first-party Microsoft services such as Azure File Sync to access the storage account. To learn more, see [Restrict public endpoint access](../files/storage-files-networking-endpoints.md#restrict-public-endpoint-access?toc=/azure/storage/filesync/toc.json).
 
 > [!IMPORTANT]
 > **Azure File Sync has a known limitation with network security perimeters (NSP).**
