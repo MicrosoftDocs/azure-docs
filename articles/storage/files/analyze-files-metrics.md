@@ -237,7 +237,7 @@ public static async Task ReadStorageMetricValueTest()
 
 ## Monitor workload performance
 
-You can use Azure Monitor to analyze workloads that use Azure Files. Follow these steps.
+Use Azure Monitor to analyze workloads that use Azure Files. Follow these steps:
 
 1. Go to your storage account in the [Azure portal](https://portal.azure.com). 
 1. In the service menu, under **Monitoring**, select **Metrics**.
