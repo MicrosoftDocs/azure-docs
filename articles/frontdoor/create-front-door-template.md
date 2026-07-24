@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: quickstart
-ms.date: 11/18/2024
+ms.date: 07/24/2026
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 #Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
@@ -38,9 +38,9 @@ In this quickstart, you'll create an Azure Front Door Standard/Premium, an App S
 
 The template defines multiple Azure resources:
 
-* [**Microsoft.Network/frontDoors**](/azure/templates/microsoft.network/frontDoors)
-* [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms) (App service plan to host web apps)
-* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites) (Web app origin servicing request for Azure Front Door)
+* [**Microsoft.Cdn/profiles**](/azure/templates/Microsoft.Cdn/profiles?pivots=deployment-language-arm-template)
+* [**Microsoft.Web/serverfarms**](/azure/templates/microsoft.web/serverfarms?pivots=deployment-language-arm-template) (App service plan to host web apps)
+* [**Microsoft.Web/sites**](/azure/templates/microsoft.web/sites?pivots=deployment-language-arm-template) (Web app origin servicing request for Azure Front Door)
 
 ## Deploy the template
 
@@ -105,7 +105,7 @@ To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
 Remove-AzResourceGroup -Name <your resource group name>
 ```
 
-## Next steps
+## Next step
 
 In this quickstart, you created a:
 
@@ -113,7 +113,7 @@ In this quickstart, you created a:
 * App Service plan
 * Web App
 
-To learn how to add a custom domain to your Azure Front Door, continue to the Azure Front Door tutorials.
+Learn how to add a custom domain to your Azure Front Door:
 
 > [!div class="nextstepaction"]
-> [Azure Front Door tutorials](front-door-custom-domain.md)
+> [Add a custom domain to Azure Front Door](front-door-custom-domain.md)
