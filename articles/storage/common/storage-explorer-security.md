@@ -85,7 +85,7 @@ Storage account keys grant unrestricted access to the services and resources wit
 
 Some Azure roles grant permission to retrieve storage account keys. Individuals with these roles can effectively circumvent permissions granted or denied by Azure RBAC. We recommend not granting this permission unless it's necessary.
 
-Storage Explorer attempts to use storage account keys, if available, to authenticate requests. You can disable this feature in Settings (**Services > Storage Accounts > Disable Usage of Keys**). Some features don't support Azure RBAC, such as working with Classic storage accounts. This setting doesn't affect features that still require keys.
+Storage Explorer attempts to use storage account keys, if available, to authenticate requests. You can disable this feature in Settings (**Services > Storage Accounts > Disable Usage of Keys**). Some features don't support Azure RBAC. This setting doesn't affect features that still require keys.
 
 If you must use keys to access your storage resources, we recommend the following guidelines:
 

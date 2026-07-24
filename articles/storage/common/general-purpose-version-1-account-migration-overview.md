@@ -106,6 +106,7 @@ To minimize risk and ensure a smooth migration:
 1. **Upgrade accounts**: Use the Azure portal, CLI, or automation tools to upgrade from GPv1 to GPv2. [Learn more about the upgrade process](storage-account-upgrade.md).
 1. **Validate behavior**: Confirm that workloads continue functioning and that billing reflects expected changes post-upgrade.
 1. **Monitor usage**: After migration, keep an eye on your storage account metrics to identify any unexpected changes in usage patterns or costs.
+1. **Review automation and deployment artifacts**: If you manage storage accounts with infrastructure-as-code tools, deployment pipelines, templates, modules, scripts, or policies, review those artifacts as part of your migration planning. Make sure they reflect the post-migration GPv2 configuration and preserve existing account settings such as networking, security, redundancy, access tier, encryption, identity, data protection, and tags. Stale deployment artifacts might cause validation or deployment failures, or introduce unintended configuration changes. As with any configuration change, validate updates in a non-production environment or through your normal change-review process before applying them to production.
 
 > [!TIP]
 > To migrate general-purpose v1 accounts to general-purpose v2 accounts, use the `deployIfDoesNotExist` Azure Policy. This policy detects and identifies any general-purpose v1 accounts and enables you to perform a non-disruptive, in-place upgrade of those accounts.  

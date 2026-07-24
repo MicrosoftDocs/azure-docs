@@ -3,7 +3,7 @@ title: Tutorial - Create a hierarchy of IoT Edge devices - Azure IoT Edge for Li
 description: This tutorial shows you how to create a hierarchical structure of IoT Edge for Linux on Windows devices.
 author: sethmanheim
 ms.author: sethm
-ms.date: 03/09/2026
+ms.date: 07/16/2026
 ms.topic: tutorial
 ms.service: azure-iot-edge
 ms.custom: devx-track-azurecli, linux-related-content
@@ -113,7 +113,7 @@ You create a group of nested edge devices with containing a parent device with o
    az iot edge devices create \
       --hub-name <hub-name> \
       --output-path <config-bundle-output-path> \
-      --default-edge-agent "mcr.microsoft.com/azureiotedge-agent:1.5" \
+      --default-edge-agent "mcr.microsoft.com/azureiotedge-agent:1.6" \
       --device id=<parent-device-name> \
          deployment=<parent-deployment-manifest> \
          hostname=<parent-fqdn-or-ip> \
@@ -129,7 +129,7 @@ You create a group of nested edge devices with containing a parent device with o
    az iot edge devices create \
       --hub-name my-iot-hub \
       --output-path ./output \
-      --default-edge-agent "mcr.microsoft.com/azureiotedge-agent:1.5" \
+      --default-edge-agent "mcr.microsoft.com/azureiotedge-agent:1.6" \
       --device id=parent-1 \
          deployment=./deploymentTopLayer.json \
          hostname=10.0.0.4 \
@@ -280,7 +280,7 @@ If you want a closer look at what modifications are being made to your device's 
 1. Run the configuration and connectivity checks on your devices. For the **lower layer device**, the diagnostics image needs to be manually passed in the command:
 
     ```bash
-    sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:443/azureiotedge-diagnostics:1.5
+    sudo iotedge check --diagnostics-image-name <parent_device_fqdn_or_ip>:443/azureiotedge-diagnostics:1.6
     ```
 
 If you completed the earlier steps correctly, you can verify your devices are configured correctly. Once you're satisfied your configurations are correct on each device, you're ready to proceed.
@@ -346,7 +346,7 @@ You can run `iotedge check` in a nested hierarchy, even if the downstream device
 When you run `iotedge check` from the lower layer, the program tries to pull the image from the parent through port 443.
 
 ```bash
-sudo iotedge check --diagnostics-image-name $upstream:443/azureiotedge-diagnostics:1.5
+sudo iotedge check --diagnostics-image-name $upstream:443/azureiotedge-diagnostics:1.6
 ```
 
 The `azureiotedge-diagnostics` value is pulled from the container registry that's linked with the registry module. This tutorial sets it by default to https://mcr.microsoft.com:
@@ -361,17 +361,17 @@ If a downstream device has a different processor architecture from the parent de
 
 ```toml
 [agent.config]
-image = "$upstream:443/azureiotedge-agent:1.5.15-linux-amd64"
+image = "$upstream:443/azureiotedge-agent:1.6.15-linux-amd64"
 
 "systemModules": {
    "edgeAgent": {
       "settings": {
-            "image": "$upstream:443/azureiotedge-agent:1.5.15-linux-amd64"
+            "image": "$upstream:443/azureiotedge-agent:1.6.15-linux-amd64"
       },
    },
    "edgeHub": {
       "settings": {
-            "image": "$upstream:443/azureiotedge-hub:1.5.15-linux-amd64",
+            "image": "$upstream:443/azureiotedge-hub:1.6.15-linux-amd64",
       }
    }
 }

@@ -502,7 +502,7 @@ Functions also supports Python SDK type bindings for Azure Blob storage, which l
 > SDK types support for Python is generally available and is only supported for the Python v2 programming model. For more information, see [SDK types in Python](./functions-reference-python.md#sdk-type-bindings).
 ::: zone-end  
 
-[!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-blob-connections.md)]
+[!INCLUDE [functions-storage-blob-connections](../../includes/functions-storage-connections.md)]
 
 ## Next steps
 
