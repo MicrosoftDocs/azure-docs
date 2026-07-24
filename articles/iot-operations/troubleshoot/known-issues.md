@@ -485,7 +485,7 @@ Azure IoT Operations encounters 401 Unauthorized errors when retrieving secrets 
 
 Root cause: The error occurs because the federated identity credential issuer URL doesn't match the issuer (iss) claim in the Kubernetes service account token.
 
-In some deployments, when the `az iot ops secretsync enable` command creates a federated identity credential (FIC) on the user-assigned managed identity that Azure IoT Operations uses to access Azure Key Vault, it configures the FIC issuer URL with a trailing slash ('/'); however, the cluster-issued service account tokens contain an iss (issuer) claim without the trailing slash.
+When the `az iot ops secretsync enable` command creates a federated identity credential (FIC) on the user-assigned managed identity that Azure IoT Operations uses to access Azure Key Vault, it sets the FIC issuer URL to the cluster's OIDC issuer URL, which, in some deployments, includes a trailing slash ('/') that the cluster-issued service account token's iss (issuer) claim omits.
 
 Because the issue affects token exchange during secret retrieval, the failure typically doesn't occur when you run `az iot ops secretsync enable`. Instead, it surfaces later when Azure IoT Operations attempts to access a secret, which can make the root cause difficult to identify.
 
