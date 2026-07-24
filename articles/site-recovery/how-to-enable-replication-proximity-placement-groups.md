@@ -1,12 +1,13 @@
 ---
 title: Replicate Azure virtual machines running in a proximity placement group
 description: Learn how to replicate Azure virtual machines running in proximity placement groups by using Azure Site Recovery.
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.topic: how-to
 ms.service: azure-site-recovery
 ms.custom: devx-track-azurepowershell
-ms.date: 03/21/2025
+ms.date: 04/06/2026
+# Customer intent: "As an IT administrator, I want to replicate Azure virtual machines in a proximity placement group to another region using Site Recovery, so that I can ensure continuity and reduce downtime for latency-sensitive applications in case of a regional failure."
 ---
 
 # Replicate virtual machines running in a proximity placement group to another region
@@ -19,6 +20,8 @@ This article describes how to replicate, fail over, and fail back Azure virtual 
 [Proximity placement groups](/azure/virtual-machines/windows/proximity-placement-groups-portal) are a logical grouping capability in Azure Virtual Machines. You can use them to decrease the inter-VM network latency associated with your applications. 
 
 When virtual machines are deployed within the same proximity placement group, they're physically located as close as possible to each other. Proximity placement groups are useful to address the requirements of latency-sensitive workloads.
+
+[!INCLUDE [vmware-to-azure-classic-experience-retirement-note.md](./includes/vmware-to-azure-classic-experience-retirement-note.md)]
 
 ## Disaster recovery with proximity placement groups
 
@@ -42,7 +45,9 @@ Site Recovery replicates the data from one Azure region to another region. It br
 You can choose to enable replication for a virtual machine through the virtual machine disaster recovery page. Or you can enable replication by going to a pre-created vault, going to the Site Recovery section, and then enabling replication. Let's look at how you can set up Site Recovery virtual machines inside a proximity placement group through both approaches.
 
 > [!NOTE]
-> Resource group of the target PPG should be same as that of target virtual machine.
+> - Ensure that the target PPG and the target virtual machine are in the same resource group.
+>
+> - If the VM is also a part of an *Availability Set*, ensure that the availability set, VM, and PPG all reside in the same resource group.
 
 To select a proximity placement group in the DR region while enabling replication through the infrastructure as a service (IaaS) virtual machine DR page:
 

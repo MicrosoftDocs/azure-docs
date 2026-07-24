@@ -1,10 +1,10 @@
 ---
 title: Data access strategies
 description: Azure Data Factory now supports Static IP address ranges.
-ms.author: lle
-author: lrtoyou1223
+ms.author: makromer
+author: kromerm
 ms.subservice: integration-runtime
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 01/05/2024
 ---
 
@@ -31,7 +31,7 @@ This should work in many scenarios, and we do understand that a unique Static IP
 ## Data access strategies through Azure Data Factory
 
 * **[Private Link](../private-link/private-link-overview.md)** - You can create an Azure Integration Runtime within Azure Data Factory Managed Virtual Network and it leverages private endpoints to securely connect to supported data stores. Traffic between Managed Virtual Network and data sources travels the Microsoft backbone network and isn't exposed to the public network.
-* **[Trusted Service](../storage/common/storage-network-security.md#exceptions)** - Azure Storage (Blob, ADLS Gen2) supports firewall configuration that enables select trusted Azure platform services to access the storage account securely. Trusted Services enforces Managed Identity authentication, which ensures no other data factory can connect to this storage unless approved to do so using it's managed identity. 
+* **[Trusted Service](../storage/common/storage-network-security.md#exceptions)** - Azure Storage (Blob, ADLS Gen2) and Azure Key Vault support firewall configuration that enables select trusted Azure platform services to access them securely. Trusted Services enforces Managed Identity authentication, which ensures no other data factory can connect to this storage unless approved to do so using it's managed identity. 
 <!-- You can find more details in **[this blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)**. Hence, this is extremely secure and recommended. -->
 
 > [!NOTE]
@@ -46,6 +46,9 @@ This should work in many scenarios, and we do understand that a unique Static IP
      >     - AzureFunction
      >     - AzureFile
      >     - OData
+
+> [!NOTE]
+> Resource instance network rules for Azure Storage is not supported by user managed enviroment such as self-hosted integration runtime and SSIS integration runtime.
 
 * **Unique Static IP** - You'll need to set up a self-hosted integration runtime to get a Static IP for Data Factory connectors. This mechanism ensures you can block access from all other IP addresses.
 * **[Static IP range](./azure-integration-runtime-ip-addresses.md)** - You can use Azure Integration Runtime's IP addresses to allowlist it in your storage (say S3, Salesforce, etc.). It certainly restricts IP addresses that can connect to the data stores but also relies on Authentication/ Authorization rules.
@@ -95,5 +98,5 @@ For more information about supported network security mechanisms on data stores 
 For more information, see the following related articles:
 * [Supported data stores](./copy-activity-overview.md#supported-data-stores-and-formats)
 * [Azure Key Vault ‘Trusted Services’](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services)
-* [Azure Storage ‘Trusted Microsoft Services’](../storage/common/storage-network-security.md#trusted-microsoft-services)
+* [Azure Storage ‘Trusted Microsoft Services’](../storage/common/storage-network-security-trusted-azure-services.md#trusted-microsoft-services)
 * [Managed identity for Data Factory](./data-factory-service-identity.md)

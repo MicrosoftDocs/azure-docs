@@ -2,11 +2,11 @@
 title: Set up Azure Static Web Apps to deploy to external providers
 description: Learn how to set up your static web app to use CI/CD providers that aren't supported out-of-the-box.
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
 ms.topic:  how-to
 ms.date: 10/02/2024
-ms.author: wujia
+ms.author: jikunchen
 ---
 
 # Set up Azure Static Web Apps to deploy to external providers

@@ -1,12 +1,13 @@
 ---
 title: Configure access control for Azure Device Update for IoT Hub
 description: Learn how to configure access control for the Azure Device Update for IoT Hub account and service principal.
-author: eshashah-msft
-ms.author: eshashah
+author: sethmanheim
+ms.author: sethm
 ms.date: 12/30/2024
 ms.topic: how-to
 ms.service: azure-iot-hub
 ms.subservice: device-update
+ms.custom: sfi-image-nochange
 ---
 
 # Configure access control for Device Update resources
@@ -23,6 +24,7 @@ For users to access Azure Device Update for IoT Hub, you must grant them access 
 
 The following roles are available for assigning access to Device Update:
 
+- Device Update Contributor
 - Device Update Administrator
 - Device Update Reader
 - Device Update Content Administrator

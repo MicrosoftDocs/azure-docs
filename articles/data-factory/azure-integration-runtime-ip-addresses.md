@@ -1,10 +1,10 @@
 ---
 title: Azure Integration Runtime IP addresses
 description: Learn which IP addresses you must allow inbound traffic from, in order to properly configure firewalls for securing network access to data stores.
-ms.author: lle
-author: lrtoyou1223
+ms.author: makromer
+author: kromerm
 ms.subservice: integration-runtime
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 02/13/2025
 ---
 

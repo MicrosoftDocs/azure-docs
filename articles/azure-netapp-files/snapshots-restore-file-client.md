@@ -1,13 +1,14 @@
 ---
-title: Restore a file from a snapshot using a client with Azure NetApp Files | Microsoft Docs
+title: Restore a file from a snapshot using a client with Azure NetApp Files 
 description: Describes how to restore a file from a snapshot using a client with the volume mounted using Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 03/16/2024
+ms.date: 06/16/2025
 ms.author: anfdocs
+# Customer intent: As a data administrator, I want to restore individual files from snapshots using mounted clients, so that I can recover mistakenly deleted or overwritten files without restoring entire volumes.
 ---
 
 # Restore a file from a snapshot using a client with Azure NetApp Files
@@ -16,7 +17,7 @@ ms.author: anfdocs
 
 The mounted volume contains a snapshot directory named  `.snapshot` (in NFS clients) or `~snapshot` (in SMB clients) that is accessible to the client. The snapshot directory contains subdirectories corresponding to the snapshots of the volume. Each subdirectory contains the files of the snapshot. If you accidentally delete or overwrite a file, you can restore the file to the parent read-write directory by copying the file from a snapshot subdirectory to the read-write directory. 
 
-You can control access to the snapshot directories by using the [Hide Snapshot Path option](snapshots-edit-hide-path.md). This option controls whether the directory should be hidden from the clients. Therefore, it also controls access to files and folders in the snapshots.  
+You can control access to the snapshot directories by using the [Hide Snapshot Path option](snapshots-manage-policy.md#edit-the-hide-snapshot-path-option). This option controls whether the directory should be hidden from the clients. Therefore, it also controls access to files and folders in the snapshots.  
 
 NFSv4.1 does not show the `.snapshot` directory (`ls -la`). However, when the Hide Snapshot Path option is not set, you can still access the `.snapshot` directory via NFSv4.1 by using the `cd <snapshot-path>` command from the client command line. 
 

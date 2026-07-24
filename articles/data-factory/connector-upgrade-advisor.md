@@ -6,11 +6,15 @@ ms.author: krirukm
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
-ms.custom: references_regions
-ms.date: 03/31/2025
+ms.custom:
+  - references_regions
+  - build-2025
+ms.date: 10/28/2025
 ---
 
 # Connector upgrade advisor in Azure Data Factory and Azure Synapse Analytics
+
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article describes Connector upgrade advisor in Azure Data Factory and Azure Synapse Analytics.
 
@@ -24,15 +28,30 @@ The Connector upgrade advisor is a comprehensive tool that helps upgrade pipelin
 
 ## Supported data sources
 
+- Amazon Redshift
+- Amazon RDS for Oracle
+- Cassandra
+- Google BigQuery
+- Greenplum
+- Hive
+- HubSpot
+- Impala
+- MariaDB
+- MySQL
+- Netezza
+- Oracle
+- PostgreSQL
+- Presto
+- QuickBooks Online
 - Salesforce
 - Salesforce Service Cloud
 - ServiceNow
-- PostgreSQL
-- Google BigQuery
-
-## Known limitations
-
-Currently, support for the Snowflake data source is unavailable.
+- Shopify
+- Snowflake
+- Spark
+- Square
+- Teradata
+- Vertica
 
 ## How to use
 
@@ -83,3 +102,11 @@ Before using the Connector upgrade advisor, it is recommended to **save** or **d
     :::image type="content" source="media/connector-upgrade-advisor/save-publish.png" alt-text="Screenshot of the save or publish page." lightbox="media/connector-upgrade-advisor/save-publish.png":::
 
 This process ensures a smooth transition from outdated connectors to the latest supported versions.  
+
+## Related content
+
+- [Connector overview](connector-overview.md)  
+- [Connector lifecycle overview ](connector-lifecycle-overview.md)
+- [Connector upgrade guidance](connector-upgrade-guidance.md) 
+- [Connector release stages and timelines](connector-release-stages-and-timelines.md)    
+- [Connector upgrade FAQ](connector-deprecation-frequently-asked-questions.md)  

@@ -2,12 +2,12 @@
 title: Delimited text format in Azure Data Factory
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This topic describes how to deal with delimited text format in Azure Data Factory and Azure Synapse Analytics.
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/26/2024
-ms.author: jianleishen
+ms.author: tinglee
 ---
 
 # Delimited text format in Azure Data Factory and Azure Synapse Analytics

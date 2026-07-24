@@ -5,11 +5,12 @@ services: cdn
 author: halkazwini
 ms.author: halkazwini
 manager: kumudd
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: tutorial
-ms.date: 03/31/2025
+ms.date: 02/28/2026
 ms.custom: mvc
 ROBOTS: NOINDEX
+# Customer intent: "As a web developer, I want to integrate a Content Delivery Network with my Azure App Service web app, so that I can cache and deliver static files more efficiently to users globally."
 ---
 
 # Tutorial: Add Azure Content Delivery Network to an Azure App Service web app

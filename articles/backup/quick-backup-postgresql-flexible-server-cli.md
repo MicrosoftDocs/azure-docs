@@ -5,10 +5,11 @@ ms.devlang: terraform
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 02/28/2025
+ms.date: 01/19/2026
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a database administrator, I want to create a backup policy for Azure Database for PostgreSQL Flexible Server using CLI commands, so that I can ensure data protection and establish a reliable recovery plan for my database.
 ---
 
 #  Quickstart: Create a backup policy for Azure Database for PostgreSQL - Flexible Server using Azure CLI
@@ -22,7 +23,7 @@ Azure Backup policy for Azure Database for PostgreSQL - Flexible Server defines 
 Before you create a backup policy for Azure Database for PostgreSQL - Flexible Server, ensure that the following prerequisites are met:
 
 - Review the [supported scenarios and limitations for backing up Azure Database for PostgreSQL - Flexible Servers](backup-azure-database-postgresql-flex-support-matrix.md).
-- [Create a Backup vault](back-up-azure-database-postgresql-flex-backup-cli.md#create-a-backup-vault) to store the recovery points for the database.
+- [Create a Backup vault](back-up-azure-database-postgresql-flex-backup-cli.md#create-a-backup-vault-for-postgresql---flexible-server-backup) to store the recovery points for the database.
 
 ## Create a backup policy
 
@@ -165,6 +166,9 @@ The policy template consists of a trigger (decides what triggers the backup) and
 
 ```
 
+>[!Important]
+>The backup schedule follows the ISO 8601 duration format. However, the repeating interval prefix `R` is not supported, as backups are configured to run indefinitely. Any value specified with `R` will be ignored.
+
 ### Modify the policy template
 
 > [!IMPORTANT]
@@ -234,5 +238,5 @@ az dataprotection backup-policy create --backup-policy-name FinalOSSPolicy --pol
 
 ## Next steps
 
-[Configure backup for Azure Database for PostgreSQL - flexible server using Azure CLI](back-up-azure-database-postgresql-flex-backup-cli.md#configure-backup).
+[Configure backup for Azure Database for PostgreSQL - flexible server using Azure CLI](back-up-azure-database-postgresql-flex-backup-cli.md#configure-backup-for-postgresql---flexible-server).
 

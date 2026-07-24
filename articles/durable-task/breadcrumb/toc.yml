@@ -1,0 +1,7 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+  - name: Durable Task
+    tocHref: /azure/durable-task/common/
+    topicHref: /azure/durable-task/index

@@ -2,18 +2,19 @@
 title: PowerShell Script - Undelete a deleted File share
 description: Learn how to use an Azure PowerShell script to undelete an accidentally deleted File share.
 ms.topic: sample
-ms.date: 10/20/2024
+ms.date: 10/09/2025
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As an Azure administrator, I want to use a PowerShell script to undelete an accidentally deleted file share, so that I can restore critical data within the retention period provided by the soft delete feature.
 ---
 
 # PowerShell script to undelete an accidentally deleted File share
 
-This script helps you to undelete a file share, if you deleted it accidentally. The soft delete security feature for file shares provides you the option of undeleting a file share within the 14 days retention period, allowing recovery of all your file share contents, snapshots, and recovery points. To learn more about soft delete, visit this [link](../soft-delete-azure-file-share.md).
+This script helps you to undelete a file share, if you deleted it accidentally. With soft delete, you can restore a deleted file share within 14 days and recover its contents, snapshots, and recovery points. [Learn more about soft delete](../soft-delete-azure-file-share.md).
 
-## Sample script
+## Sample script for undeleting a file share
 
 ```powershell
 #Import-Module Az.Storage -MinimumVersion 1.7.0 -Scope Local
@@ -149,24 +150,31 @@ $sa = Get-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageA
 Restore-DeletedFileShare $sa.Context $FileShareName $DeletedShareVersion
 ```
 
-## How to use the script in different scenarios
+## Prerequisites
 
-### Prerequisites
+Before you run the script, ensure that the following prerequisites are met:
 
-1. Install the latest Azure PowerShell Az modules from [this link](/powershell/azure/install-azure-powershell) before running the script.
-2. Keep the following details handy as you'll need to pass them as values for different parameters of the script:
+- Install the latest Azure PowerShell Az modules from [this link](/powershell/azure/install-azure-powershell) before running the script.
+- Keep the following details handy as you need to pass them as values for different parameters of the script:
 
-    * **-SubscriptionId** - ID of the subscription where the file share is present.
-    * **-ResourceGroupName** - Resource Group of the Storage Account hosting the file share.
-    * **-StorageAccountName** - Name of the storage account hosting the file share.
-    * **-FileShareName** - Name of the file share to be undeleted
+  * **-SubscriptionId** - ID of the subscription where the file share is present.
+  * **-ResourceGroupName** - Resource Group of the Storage Account hosting the file share.
+  * **-StorageAccountName** - Name of the storage account hosting the file share.
+  * **-FileShareName** - Name of the file share to be undeleted
 
-### Execution steps
+## Execute the script to undelete a file share
 
-1. Save the script above on your machine with a name of your choice. In this example, we saved it as *Undelete.ps1*
+You can execute the script in the following scenarios:
+
+- No multiple deleted versions with the same name as the file share you're trying to undelete.
+- Multiple deleted versions with the same name as the file share you're trying to undelete.
+
+To execute the script to undelete a file share, follow these steps:
+
+1. Save the preceding script on your machine with a name of your choice. In this example, we saved it as *Undelete.ps1*
 2. Run the script according to the scenario that fits your requirements.
 
-#### Scenario 1
+### Scenario 1: No multiple deleted versions
 
 There are no multiple deleted versions with the same name as the file share you're trying to undelete.
 
@@ -178,33 +186,31 @@ The following example undeletes the file share *share1* present in storage accou
 
 The output should show the message `Completed:Restore File Share`
 
-#### Scenario 2
+### Scenario 2: Multiple deleted versions
 
-There are multiple deleted versions with the same name as the fileshare you're trying to undelete.
+There are multiple deleted versions with the same name as the file share you're trying to undelete.
 
-The following example undeletes a version of the file share *share1*
+After you save the script, undelete a version of the file share *share1* by following these steps:  
+1. Execute the script as follows by providing the file share name.
 
-##### Step 1
+    ```PowerShell
+    .\UnDelete.ps1 -ResourceGroupName afsshare -StorageAccountName afsshare -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e -FileShareName share1
+    ```
 
-Execute the script as follows by providing the file share name.
+    ```Output
+    Completed: Search for a deleted file share with the specified name and Found versions
+    DeletedVersion: 01D5D7F77ACC7864, DeletedTime: Fri, 31 Jan 2020 05:30:33 GMT, RemainingRetentionDays: 14
+    DeletedVersion: 01D5D7F7A76CAF42, DeletedTime: Fri, 31 Jan 2020 05:31:25 GMT, RemainingRetentionDays: 14
+    Restore-DeletedFileShare : More than one share with the specified name was found. Please specify a valid DeletedShareVersion parameter from above possible values.
+    ```
 
-```PowerShell
-   .\UnDelete.ps1 -ResourceGroupName afsshare -StorageAccountName afsshare -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e -FileShareName share1
-```
+1. Choose the version from the output of step 1 that you want to undelete and pass it as a value for the **-DeletedShareVersion** parameter.
 
-```Output
-Completed: Search for a deleted file share with the specified name and Found versions
-DeletedVersion: 01D5D7F77ACC7864, DeletedTime: Fri, 31 Jan 2020 05:30:33 GMT, RemainingRetentionDays: 14
-DeletedVersion: 01D5D7F7A76CAF42, DeletedTime: Fri, 31 Jan 2020 05:31:25 GMT, RemainingRetentionDays: 14
-Restore-DeletedFileShare : More than one share with the specified name was found. Please specify a valid DeletedShareVersion parameter from above possible values.
-```
+   The following example undeletes the *01D5D7F77ACC7864* version of the *share1* file share.
 
-##### Step 2
+    ```powershell
+    .\UnDelete.ps1 -ResourceGroupName afsshare-StorageAccountName afsshare -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e -FileShareName share1 -DeletedShareVersion 01D5D7F77ACC7864
+    ```
+## Next steps
 
-Choose the version from the output of step 1 that you want to undelete and pass it as a value for the **-DeletedShareVersion** parameter.
-
-The following example undeletes the *01D5D7F77ACC7864* version of the *share1* file share.
-
-```powershell
-   .\UnDelete.ps1 -ResourceGroupName afsshare-StorageAccountName afsshare -SubscriptionId aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e -FileShareName share1 -DeletedShareVersion 01D5D7F77ACC7864
-```
+- [Manage Azure Files backups with PowerShell](../manage-afs-powershell.md)

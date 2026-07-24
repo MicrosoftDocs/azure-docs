@@ -2,11 +2,12 @@
 title: Azure DDoS Protection features
 description: Learn Azure DDoS Protection features
 services: ddos-protection
-author: AbdullahBell
+author: duongau
 ms.service: azure-ddos-protection
 ms.topic: concept-article
-ms.date: 03/17/2025
-ms.author: abell
+ms.date: 03/17/2026
+ms.author: duau
+# Customer intent: As a network security administrator, I want to implement Azure DDoS Protection, so that I can ensure my organization's resources are safeguarded against DDoS attacks through automatic mitigation, real-time monitoring, and tailored protection policies.
 ---
 # Azure DDoS Protection features
 
@@ -26,15 +27,19 @@ During mitigation, traffic sent to the protected resource is redirected by the D
 
 Azure DDoS Protection drops attack traffic and forwards the remaining traffic to its intended destination. Within a few minutes of attack detection, you're notified using Azure Monitor metrics. By configuring logging on DDoS Protection telemetry, you can write the logs to available options for future analysis. Metric data in Azure Monitor for DDoS Protection is retained for 30 days.
 
-## Adaptive real time tuning
+## Adaptive real-time tuning
 
-The complexity of attacks (for example, multi-vector DDoS attacks) and the application-specific behaviors of tenants call for per-customer, tailored protection policies. The service accomplishes this by using two insights:
+The complexity of attacks (for example, multivector DDoS attacks) and the application-specific behaviors of tenants call for per-customer, tailored protection policies. The service accomplishes this need by using two insights:
 
 - Automatic learning of per-customer (per-Public IP) traffic patterns for Layer 3 and 4.
 
 - Minimizing false positives, considering that the scale of Azure allows it to absorb a significant amount of traffic.
 
 :::image type="content" source="./media/ddos-best-practices/ddos-protection-real-time-tuning.png" alt-text="Diagram of how DDoS Protection works." lightbox="./media/ddos-best-practices/ddos-protection-real-time-tuning.png":::
+
+## Custom detection thresholds (preview)
+
+If your workload needs fixed, protocol-specific detection thresholds instead of adaptive auto-tuning, create a DDoS Protection custom policy. A custom policy lets you set inbound TCP, UDP, and TCP SYN thresholds, in packets per second, for Standard Load Balancer frontend IP addresses. When you set a custom threshold for a protocol, automatic tuning is disabled for that protocol on the protected resource. For more information, see [What is Azure DDoS Protection custom policy?](ddos-custom-policy-overview.md)
 
 ## DDoS Protection telemetry, monitoring, and alerting
 

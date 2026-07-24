@@ -9,6 +9,7 @@ ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 01/07/2025
 ms.custom: template-how-to 
+# Customer intent: As a network administrator, I want to set up an Azure Bastion host using an existing public IP address, so that I can securely manage virtual machines without exposing their public IPs.
 ---
 
 # Manage a public IP address with Azure Bastion
@@ -26,7 +27,7 @@ In this article, you learn how to create an Azure Bastion host using an existing
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - One standard SKU public IP address in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP - Azure portal](./create-public-ip-portal.md).
     - For the purposes of the examples in this article, name the new public IP address **myStandardPublicIP**.
 

@@ -9,6 +9,7 @@ ms.date: 03/18/2025
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: java
+# Customer intent: As a Java developer, I want to utilize the Quarkus extension for Azure Blob Storage so that I can efficiently manage blob storage operations like creating containers, uploading, and downloading blobs in my applications.
 ---
 
 # Quickstart: Quarkus extension for Azure Blob Storage
@@ -19,7 +20,7 @@ Get started with the Quarkus extension for Azure Blob Storage to manage blobs an
 
 ## Prerequisites
 
-- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Azure account with an active subscription - [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure CLI - [Install the Azure CLI](/cli/azure/install-azure-cli) 2.62.0 or above to run Azure CLI commands.
 - Azure Storage account - [create a storage account](../common/storage-account-create.md).
 - [Java Development Kit (JDK)](/java/azure/jdk/) version 17 or above.

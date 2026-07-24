@@ -3,7 +3,7 @@ title: Sink performance and best practices in mapping data flow
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about optimizing sink performance and best practices in mapping data flows in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: kromerm
-ms.topic: conceptual
+ms.topic: best-practice
 ms.author: makromer
 ms.subservice: data-flows
 ms.custom: synapse

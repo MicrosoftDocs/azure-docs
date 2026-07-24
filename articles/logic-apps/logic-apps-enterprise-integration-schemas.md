@@ -1,27 +1,28 @@
 ---
-title: Add schemas to use with workflows
-description: Add schemas for workflows in Azure Logic Apps.
+title: Add Schemas to Use in Workflows
+description: Add schemas to use with workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 02/19/2025
-# As a logic app workflow developer, I want to know how I can integrate and use schemas in my workflows.
+ms.update-cycle: 1095-days
+ms.date: 03/11/2026
+# As an integration developer who works with Azure Logic Apps, I want to add schemas to use with my workflows.
 ---
 
-# Add schemas to use with workflows with Azure Logic Apps
+# Add schemas to use with workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 Workflow actions such as **Flat File** and **XML Validation** require a schema to perform their tasks. For example, the **XML Validation** action requires an XML schema to check that documents use valid XML and have the expected data in the predefined format. This schema is an XML document that uses [XML Schema Definition (XSD)](https://www.w3.org/TR/xmlschema11-1/) language and has the .xsd file name extension. The **Flat File** actions use a schema to encode and decode XML content.
 
-This article shows how to add a schema to your integration account. If you're working with a Standard logic app workflow, you can also add a schema directly to your logic app resource.
+This guide shows how to add a schema to your integration account. If you're working with a Standard logic app workflow, you can also add a schema directly to your logic app resource.
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription yet, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * The schema file that you want to add. To create schemas, you can use Visual Studio 2019 and the [Microsoft Azure Logic Apps Enterprise Integration Tools Extension](https://aka.ms/vsenterpriseintegrationtools).
 
@@ -280,7 +281,7 @@ The following steps apply only if you're deleting a schema that you added to you
 
 ---
 
-## Next steps
+## Related content
 
-* [Validate XML for workflows in Azure Logic Apps](logic-apps-enterprise-integration-xml-validation.md)
-* [Transform XML for workflows in Azure Logic Apps](logic-apps-enterprise-integration-transform.md)
+- [Validate XML for workflows in Azure Logic Apps](logic-apps-enterprise-integration-xml-validation.md)
+- [Transform XML for workflows in Azure Logic Apps](logic-apps-enterprise-integration-transform.md)

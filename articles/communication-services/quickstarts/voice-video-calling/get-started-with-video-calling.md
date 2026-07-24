@@ -2,8 +2,8 @@
 title: Quickstart - Add video calling to your app
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you learn how to add video calling capabilities to your app using Azure Communication Services.
-author: tophpalmer
-ms.author: chpalm
+author: sundiraman
+ms.author: sundraman
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
@@ -35,9 +35,11 @@ ms.custom: mode-api, devx-track-js, devx-track-azurecli
 ::: zone-end
 
 ## Clean up resources
+
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../create-communication-resource.md?pivots=platform-azp&tabs=windows#clean-up-resources).
 
 ## Next steps
+
 For more information, see the following articles:
 
 - Check out our [calling hero sample](../../samples/calling-hero-sample.md)

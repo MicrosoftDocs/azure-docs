@@ -8,7 +8,10 @@ ms.service: iot-hub
 ms.devlang: nodejs
 ms.topic: include
 ms.date: 1/3/2025
-ms.custom: mqtt, devx-track-js
+ms.custom:
+  - mqtt
+  - devx-track-js
+  - sfi-ropc-nochange
 ---
 
   * Requires Node.js version 10.0.x or later

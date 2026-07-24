@@ -1,13 +1,19 @@
 ---
-title: Azure Migrate appliance FAQ
+title: Azure Migrate Appliance FAQ
 description: Get answers to common questions about the Azure Migrate appliance.
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
-ms.topic: conceptual
-ms.custom: engagement-fy25
-ms.date: 09/03/2024
+ms.topic: concept-article
+ms.date: 08/03/2025
+ms.reviewer: v-uhabiba
+ms.update-cycle: 365-days
+ms.custom:
+  - engagement-fy25
+  - sfi-image-nochange
+  - sfi-ropc-nochange
+# Customer intent: "As a systems administrator, I want to deploy and configure the Azure Migrate appliance, so that I can effectively discover and assess on-premises servers for migration to the cloud."
 ---
 
 # Azure Migrate appliance: Common questions
@@ -220,7 +226,7 @@ For a newly created Migrate appliance, the default expiry period for the associa
 1. On the appliance VM, open an elevated privileged PowerShell Command Prompt.
 1. Navigate to the Config Manager installation folder: 
 
-    ```cd C:\’Program Files’\’Microsoft Azure Appliance Configuration Manager’\Scripts\PowerShell\AzureMigrateCertificateRotation```
+    ```cd "C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell\AzureMigrateCertificateRotation"```
 
 1. Execute the following script to rotate the Microsoft Entra ID app certificate and extend its validity for an additional 6 months:
 
@@ -230,7 +236,6 @@ For a newly created Migrate appliance, the default expiry period for the associa
 
     ```PS C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell\AzureMigrateCertificateRotation>.\AzureMigrateRotateCertificate.ps1 12``` 
 
-    ```C:\’Program Files’\’Microsoft Azure Appliance Configuration Manager’\Scripts\PowerShell\AzureMigrateCertificateRotation```
 
 ## Next steps
 

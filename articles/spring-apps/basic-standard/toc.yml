@@ -90,8 +90,6 @@ items:
       href: quickstart-logs-metrics-tracing.md
     - name: Integrate with Azure Database for MySQL
       href: quickstart-integrate-azure-database-mysql.md
-  - name: Authenticate client with Spring Cloud Gateway
-    href: ../enterprise/tutorial-authenticate-client-with-gateway.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
 - name: Concepts
   items:
   - name: App and deployment
@@ -303,7 +301,7 @@ items:
   - name: Disaster recovery
     items:
     - name: Redundancy and high availability
-      href: ../../reliability/reliability-spring-apps.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+      href: reliability-spring-apps.md
   - name: Troubleshoot
     items:
     - name: Self-diagnose and solve problems
@@ -338,8 +336,6 @@ items:
   items:
   - name: API breaking changes
     href: breaking-changes.md
-  - name: Azure CLI plugin
-    href: /cli/azure/spring?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
   - name: Azure PowerShell
     href: /powershell/module/az.springcloud?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
   - name: Azure Pipelines task

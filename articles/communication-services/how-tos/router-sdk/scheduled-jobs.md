@@ -4,8 +4,8 @@ titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services Job Router SDK to create a scheduled job.
 services: azure-communication-services
 manager: chpalm
-ms.author: chpalm
-author: tophpalmer
+ms.author: sundraman
+author: sundiraman
 ms.date: 06/07/2023
 ms.topic: how-to
 ms.service: azure-communication-services
@@ -20,7 +20,7 @@ In the context of a call center, customers may want to receive a scheduled callb
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A Job Router queue with queueId `Callback` has been [created](manage-queue.md).
 - A Job Router worker with channel capacity on the `Voice` channel has been [created](../../concepts/router/matching-concepts.md).

@@ -9,6 +9,7 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 12/08/2023
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: "As a storage administrator, I want to configure storage accounts to prevent cross-tenant object replication, so that I can ensure compliance with our security policies and safeguard sensitive data across tenants."
 ---
 
 # Prevent object replication across Microsoft Entra tenants
@@ -145,7 +146,7 @@ If the storage account is currently participating in one or more cross-tenant re
 
 After you disallow cross-tenant replication, attempting to configure a cross-tenant policy with the storage account as the source or destination fails. Azure Storage returns an error indicating that cross-tenant object replication isn't permitted for the storage account.
 
-When cross-tenant object replication is disallowed for a storage account, then any new object replication policies that you create with that account must include the full Azure Resource Manager IDs for the source and destination account. Azure Storage requires the full resource ID to verify whether the source and destination accounts reside within the same tenant. For more information, see [Specify full resource IDs for the source and destination accounts](object-replication-overview.md#specify-full-resource-ids-for-the-source-and-destination-accounts).
+When cross-tenant object replication is disallowed for a storage account, then any new object replication policies that you create with that account must include the full Azure Resource Manager IDs for the source and destination account. Azure Storage requires the full resource ID to verify whether the source and destination accounts reside within the same tenant. For more information, see [Specify full resource IDs for source and destination accounts](object-replication-overview.md#specify-full-resource-ids-for-source-and-destination-accounts).
 
 The **AllowCrossTenantReplication** property is supported for storage accounts that use the Azure Resource Manager deployment model only. For information about which storage accounts use the Azure Resource Manager deployment model, see [Types of storage accounts](../common/storage-account-overview.md#types-of-storage-accounts).
 

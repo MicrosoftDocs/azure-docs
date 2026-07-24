@@ -1,7 +1,7 @@
 ---
 title: Relocate an Azure Application Gateway and Web Application Firewall to another region
 description: This article shows you how to relocate an Azure Application Gateway and Web Application Firewall from the current region to another region. 
-ms.date: 04/03/2024
+ms.date: 09/15/2025
 ms.topic: how-to
 ms.custom: subject-relocation
 # Customer intent: As an Azure Application Gateway Standard and Web Application Firewall v2 administrator, I want to move my vault to another region.
@@ -38,7 +38,7 @@ ms.custom: subject-relocation
 
 To relocate Application Gateway and optional WAF, you must create a separate Application Gateway deployment with a new public IP address at the target location. Workloads are then migrated from the source Application Gateway setup to the new one.  Since you're changing the public IP address, changes to DNS configuration, virtual networks, and subnets are also required.
 
-If you only want to relocate in order to gain availability zones support, see [Migrate Application Gateway and WAF to availability zone support](../../../reliability/migrate-app-gateway-v2.md).
+If you only want to relocate in order to gain availability zones support, see [Migrate Application Gateway and WAF to availability zone support](/azure/reliability/migrate-app-gateway-v2).
 
 **To create a separate Application Gateway, WAF (optional) and IP address:**
 

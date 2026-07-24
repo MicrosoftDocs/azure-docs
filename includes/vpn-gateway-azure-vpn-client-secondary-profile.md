@@ -1,9 +1,10 @@
 ---
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: include
-ms.author: cherylmc
+ms.author: duau
 ms.date: 03/20/2025
+ms.custom: sfi-image-nochange
 ---
 
 The Azure VPN Client provides high availability for client profiles. Adding a secondary client profile gives the client a more resilient way to access the VPN. If there's a region outage or failure to connect to the primary VPN client profile, the Azure VPN Client autoconnects to the secondary client profile without causing any disruptions. This feature requires the Azure VPN Client version **2.2124.51.0** or later. 

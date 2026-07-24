@@ -1,9 +1,9 @@
 ---
 title: Complete mode deletion
 description: Shows how resource types handle complete mode deletion in Azure Resource Manager templates.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 03/20/2024
+ms.date: 06/26/2026
 ---
 
 # Deletion of Azure resources for complete mode deployments
@@ -1665,7 +1665,6 @@ The resources are listed by resource provider namespace. To match a resource pro
 > | services / privateEndpointConnectionProxies | No |
 > | services / privateEndpointConnections | No |
 > | services / privateLinkResources | No |
-> | validateMedtechMappings | No |
 > | workspaces | Yes |
 > | workspaces / analyticsconnectors | Yes |
 > | workspaces / dicomservices | Yes |
@@ -3388,3 +3387,4 @@ The resources are listed by resource provider namespace. To match a resource pro
 ## Next steps
 
 To get the same data as a file of comma-separated values, download [complete-mode-deletion.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/complete-mode-deletion.csv).
+

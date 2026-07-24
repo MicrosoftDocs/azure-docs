@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 09/17/2024
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
 #Customer intent: As a network administrator, I want to learn how to create and remove a NAT gateway resource from a virtual network subnet. I also want to learn how to add and remove public IP addresses and prefixes used for outbound connectivity.
+# Customer intent: As a network administrator, I want to create and manage NAT gateway resources within a virtual network subnet, including adding or removing public IP addresses and prefixes, so that I can ensure reliable outbound connectivity for my resources.
 ---
 
 # Manage NAT gateway
@@ -23,11 +24,15 @@ This article explains how to manage the following aspects of NAT gateway:
 
 - Add or remove a public IP address or public IP prefix.
 
+> [!NOTE]
+> Associating a NAT Gateway with a subnet makes it the preferred outbound connectivity method for all new connections. NAT Gateway takes precedence over other explicit outbound configurations, including load balancer outbound rules, firewalls, and instance‑level public IP addresses.
+> Existing connections are not interrupted and continue to use their original outbound path until they are re‑established.
+
 ## Prerequisites
 
 # [**Azure portal**](#tab/manage-nat-portal)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An existing Azure Virtual Network and subnet. For more information, see [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
@@ -39,7 +44,7 @@ This article explains how to manage the following aspects of NAT gateway:
 
 # [**Azure PowerShell**](#tab/manage-nat-powershell)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An existing Azure Virtual Network and subnet. For more information, see [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
@@ -63,7 +68,7 @@ To use Azure PowerShell for this article, you need:
 
 # [**Azure CLI**](#tab/manage-nat-cli)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An existing Azure Virtual Network and subnet. For more information, see [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
@@ -81,7 +86,7 @@ To use Azure CLI for this article, you need:
 
 # [**Bicep**](#tab/manage-nat-bicep)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An existing Azure Virtual Network a subnet. For more information, see [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
@@ -115,7 +120,7 @@ You can create a NAT gateway resource and add it to an existing subnet by using 
     | **Instance details** |  |
     | NAT gateway name | Enter *nat-gateway*. |
     | Region | Select your region. This example uses **East US 2**. |
-    | Availability zone | Select **No Zone**. For more information about NAT gateway availability, see [NAT gateway and availability zones](nat-availability-zones.md). |
+    | Availability zone | Select **No Zone**. For more information about NAT gateway and availability zones, see [Reliability in Azure NAT Gateway](/azure/reliability/reliability-nat-gateway). |
     | TCP idle timeout (minutes) | Select the default of **4**. |
 
 1. Select the **Outbound IP** tab, or select **Next: Outbound IP**.
@@ -886,5 +891,5 @@ Use the Azure portal, Azure PowerShell, or Azure CLI to add or remove a public I
 To learn more about Azure Virtual Network NAT and its capabilities, see the following articles:
 
 - [What is Azure NAT Gateway?](nat-overview.md)
-- [NAT gateway and availability zones](nat-availability-zones.md)
+- [Reliability in Azure NAT Gateway](/azure/reliability/reliability-nat-gateway)
 - [Design virtual networks with NAT gateway](nat-gateway-resource.md)

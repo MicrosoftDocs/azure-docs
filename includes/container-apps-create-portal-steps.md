@@ -39,13 +39,12 @@ Next, create an environment for your container app.
     |--|--|
     | Region | Select **Central US**. |
 
-1. In the *Create Container Apps environment* field, select the **Create new** link.
+1. In the *Container Apps environment* field, select the **Create new environment** link.
 1. In the *Create Container Apps environment* page on the *Basics* tab, enter the following values:
 
     | Setting | Value |
     |--|--|
     | Environment name | Enter **my-environment**. |
-    | Environment type | Select **Workload profiles**. |
     | Zone redundancy | Select **Disabled** |
 
 1. Select the **Monitoring** tab to create a Log Analytics workspace.

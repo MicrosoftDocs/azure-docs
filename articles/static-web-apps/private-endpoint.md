@@ -2,10 +2,10 @@
 title: Configure private endpoint in Azure Static Web Apps
 description: Learn to configure private endpoint access for Azure Static Web Apps
 services: static-web-apps
-author: v1212
-ms.author: wujia
+author: cjk7989
+ms.author: jikunchen
 ms.service: azure-static-web-apps
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 7/28/2021
 ---
 
@@ -34,7 +34,7 @@ If you are connecting from on-prem or do not wish to use a private DNS zone, man
 ## Prerequisites
 
 - An Azure account with an active subscription.
-  - [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+  - [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An [Azure VNet](../virtual-network/quick-create-portal.md).
 - An application deployed with [Azure Static Web Apps](./get-started-portal.md) that uses the Standard hosting plan.
 

@@ -5,7 +5,7 @@ ms.subservice: orchestration
 author: kromerm
 ms.author: makromer
 ms.reviewer: whhender
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/16/2024
 ai-usage: ai-assisted
 ---

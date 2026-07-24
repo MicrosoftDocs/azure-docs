@@ -20,9 +20,9 @@ This document shows examples of how to use the [Azure SDK for Python](https://gi
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Python 3.8 or later - for information on setting up Python on Windows, see the [Python on Windows documentation](/windows/python/)
-- An App Configuration store. [Create a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
+- An App Configuration store, as shown in the [tutorial for creating a store](./quickstart-azure-app-configuration-create.md#create-an-app-configuration-store).
 
 ## Create a key-value
 
@@ -319,7 +319,7 @@ except Exception as ex:
     If you use macOS or Linux, run the following command:
     
     ```bash
-    export AZURE_APPCONFIG_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_ENDPOINT='<AppConfigurationEndpoint>'
     ```
     
     ### [Connection string](#tab/connection-string)
@@ -329,7 +329,7 @@ except Exception as ex:
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
     
     ```cmd
-    setx AZURE_APPCONFIG_CONNECTION_STRING "<connection-string-of-your-app-configuration-store>"
+    setx AZURE_APPCONFIG_CONNECTION_STRING "<AppConfigurationConnectionString>"
     ```
     
     If you use PowerShell, run the following command:
@@ -341,7 +341,7 @@ except Exception as ex:
     If you use macOS or Linux, run the following command:
     
     ```bash
-    export AZURE_APPCONFIG_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
+    export AZURE_APPCONFIG_CONNECTION_STRING='<AppConfigurationConnectionString>'
     ```
     ---
 

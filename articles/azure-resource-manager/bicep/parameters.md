@@ -1,9 +1,11 @@
 ---
 title: Parameters in Bicep files
 description: Learn how to define and use parameters in a Bicep file.
-ms.topic: conceptual
-ms.custom: devx-track-bicep
-ms.date: 03/25/2025
+ms.topic: how-to
+ms.custom:
+  - devx-track-bicep
+  - build-2025
+ms.date: 07/14/2026
 ---
 
 # Parameters in Bicep
@@ -18,10 +20,6 @@ Bicep allows a maximum of 256 parameters. For more information, see [Template li
 
 For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
-### Training resources
-
-See the [Build reusable Bicep templates by using parameters](/training/modules/build-reusable-bicep-templates-parameters) Learn module for step-by-step guidance about parameters.
-
 ## Define parameters
 
 Each parameter has a name and [data type](data-types.md). Optionally, you can provide a default value for the parameter.
@@ -32,6 +30,8 @@ param <parameter-name> <parameter-data-type> = <default-value>
 ```
 
 A parameter can't have the same name as a variable, resource, output, or other parameter in the same scope.
+
+Parameter names must be valid Bicep identifiers: they can contain letters, digits, and underscores, but not periods or other special characters. This rule differs from ARM template JSON, which supports periods in parameter names. If you decompile an ARM template that has parameters with periods in their names, the Bicep decompiler replaces the periods with underscores. For example, a parameter named `Security.Authentication.AAD.Tenant` becomes `Security_Authentication_AAD_Tenant`.
 
 The following example shows basic declarations of parameters.
 
@@ -207,7 +207,7 @@ See [Elevate error level](./user-defined-data-types.md#elevate-error-level).
 
 ### Secure parameters
 
-You can mark string or object parameters as secure. The value of a secure parameter isn't saved to the deployment history and isn't logged.
+You can mark string or object parameters as secure. When a parameter is decorated with `@secure()`, Azure Resource Manager treats the parameter value as sensitive, preventing it from being logged or displayed in deployment history, Azure portal, or command-line outputs.
 
 ```bicep
 @secure()
@@ -226,11 +226,13 @@ To reference the value for a parameter, use the parameter name. The following ex
 ```bicep
 param vaultName string = 'keyVault${uniqueString(resourceGroup().id)}'
 
-resource keyvault 'Microsoft.KeyVault/vaults@2019-09-01' = {
+resource keyvault 'Microsoft.KeyVault/vaults@2025-05-01' = {
   name: vaultName
   ...
 }
 ```
+
+The `@secure()` decorator is valid only for parameters of type string or object, as these align with the [secureString](../templates/syntax.md#parameters) and [secureObject](../templates/syntax.md#parameters) types in ARM templates. To pass arrays or numbers securely, wrap them in a secureObject or serialize them as a secureString.
 
 ## Use objects as parameters
 
@@ -260,7 +262,7 @@ param vNetSettings object = {
   ]
 }
 
-resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+resource vnet 'Microsoft.Network/virtualNetworks@2025-01-01' = {
   name: vNetSettings.name
   location: vNetSettings.location
   properties: {
@@ -292,3 +294,4 @@ resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
 - To learn about the properties available for parameters, see [Bicep file structure and syntax](file.md).
 - To learn about passing in parameter values as a file, see [Create a parameters file for Bicep deployment](parameter-files.md).
 - To learn about providing parameter values at deployment, see [Deploy Bicep files with the Azure CLI](deploy-cli.md) and [Azure PowerShell](deploy-powershell.md).
+

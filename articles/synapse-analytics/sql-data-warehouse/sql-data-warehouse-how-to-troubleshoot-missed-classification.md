@@ -9,9 +9,12 @@ ms.subservice: sql-dw
 ms.topic: how-to
 ms.custom:
   - template-how-to
+  - sfi-image-nochange
 ---
 
 # Troubleshoot a misclassified workload in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This article covers guidance on how to troubleshoot a misclassified workload, and how to identify the reason behind the classification, for workloads in a dedicated SQL pool.
 

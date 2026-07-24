@@ -5,7 +5,7 @@ description: Render coverage tables list the countries/regions that support Azur
 author: faterceros
 ms.author: aterceros
 ms.date: 09/21/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-maps
 ms.subservice: render
 ---
@@ -82,12 +82,13 @@ The render coverage tables below list the countries/regions that support Azure M
 | Australia      |    ✓     |
 | Brunei         |    ✓     |
 | Cambodia       |    ✓     |
-| Guam           |    ✓     |
 | China          |    v2    |
+| Guam           |    ✓     |
 | Hong Kong Special Administrative Region     |    ✓     |
 | India          |    ✓     |
 | Indonesia      |    ✓     |
 | Japan          |    v2     |
+| Korea          |    ◑     |
 | Laos           |    ✓     |
 | Macao Special Administrative Region         |    ✓     |
 | Malaysia       |    ✓     |
@@ -95,7 +96,6 @@ The render coverage tables below list the countries/regions that support Azure M
 | New Zealand    |    ✓     |
 | Philippines    |    ✓     |
 | Singapore      |    ✓     |
-| South Korea    |    ◑     |
 | Taiwan         |    ✓     |
 | Thailand       |    ✓     |
 | Vietnam        |    ✓     |

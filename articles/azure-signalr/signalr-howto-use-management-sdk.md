@@ -10,7 +10,7 @@ ms.author: lianwei
 
 # Use Azure SignalR Management SDK
 
-Azure SignalR Management SDK helps you to manage SignalR clients through Azure SignalR Service directly such as broadcast messages. Therefore, this SDK could be but not limited to be used in [serverless](https://azure.microsoft.com/solutions/serverless/) environments. You could use this SDK to manage SignalR clients connected to your Azure SignalR Service in any environment, such as in a console app, in an Azure function or in a web server.
+Azure SignalR Management SDK helps you to manage SignalR clients through Azure SignalR Service directly such as broadcast messages. Therefore, this SDK can be used in [serverless](https://azure.microsoft.com/solutions/serverless/) environments, but it is not limited to them. You could use this SDK to manage SignalR clients connected to your Azure SignalR Service in any environment, such as in a console app, in an Azure function or in a web server.
 
 > [!NOTE]
 > 

@@ -6,9 +6,10 @@ services: cdn
 author: halkazwini
 ms.author: halkazwini
 manager: kumudd
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: troubleshooting
-ms.date: 03/31/2025
+ms.date: 02/28/2026
+# Customer intent: As a web developer, I want to troubleshoot file compression issues in my CDN, so that I can ensure efficient content delivery and improve loading times for users.
 ---
 
 # Troubleshooting Azure Content Delivery Network file compression

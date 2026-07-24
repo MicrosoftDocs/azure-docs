@@ -1,11 +1,12 @@
 ---
-title: Code samples for using data operations
+title: Data Operations Code Samples
 description: Try code samples that show how to use data operations in workflows created with Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 03/27/2025
+ms.topic: concept-article
+ms.update-cycle: 1095-days
+ms.date: 07/10/2026
 ---
 
 # Data operation code samples for Azure Logic Apps

@@ -3,18 +3,23 @@ title: Authorize access to API Management developer portal by using Azure Active
 titleSuffix: Azure API Management
 description: Learn how to authorize users of the developer portal in Azure API Management by using Azure Active Directory B2C
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 01/07/2025
-ms.author: danlep
-ms.custom: engagement-fy23
+ms.date: 03/12/2026
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # How to authorize developer accounts by using Azure Active Directory B2C in Azure API Management
 
 [!INCLUDE [premium-dev-standard-premiumv2-standardv2-basicv2.md](../../includes/api-management-availability-premium-dev-standard-premiumv2-standardv2-basicv2.md)]
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
+> [!IMPORTANT]
+> We recommend that you [enable access by external users in your Microsoft Entra ID workforce tenant](api-management-howto-aad.md#enable-access-by-external-users-in-your-microsoft-entra-id-tenant-optional) instead of configuring Azure Active Directory B2C for new deployments of the API Management developer portal.
 
 Azure Active Directory B2C is a cloud identity management solution for consumer-facing web and mobile applications. You can use it to manage access to your API Management developer portal. 
 

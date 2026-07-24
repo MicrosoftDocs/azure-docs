@@ -5,8 +5,12 @@ author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/27/2024
-ms.custom: devx-track-java, devx-track-extended-java
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom:
+  - devx-track-java
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # How to monitor Spring Boot apps with Elastic APM Java Agent
@@ -81,7 +85,7 @@ Before proceeding, you need your Elastic APM server connectivity information han
 
    :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-endpoint-secret.png" alt-text="Screenshot of the Elastic APM & Fleet page with Copy endpoint and APM Server secret token highlighted." lightbox="media/how-to-elastic-apm-java-agent-monitor/elastic-apm-endpoint-secret.png":::
 
-1. Download Elastic APM Java Agent from [Maven Central](https://search.maven.org/search?q=g:co.elastic.apm%20AND%20a:elastic-apm-agent).
+1. Download Elastic APM Java Agent from [Maven Central](https://central.sonatype.com/search?q=co.elastic.apm+elastic-apm-agent).
 
    :::image type="content" source="media/how-to-elastic-apm-java-agent-monitor/maven-central-repository-search.png" alt-text="Screenshot of Maven Central with jar download highlighted." lightbox="media/how-to-elastic-apm-java-agent-monitor/maven-central-repository-search.png":::
 

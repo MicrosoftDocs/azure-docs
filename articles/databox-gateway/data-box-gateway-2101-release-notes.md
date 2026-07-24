@@ -8,6 +8,7 @@ ms.service: azure-data-box-gateway
 ms.topic: release-notes
 ms.date: 01/29/2021
 ms.author: shaas
+# Customer intent: "As an IT administrator, I want to review the release notes for Azure Data Box Gateway 2101, so that I can understand critical issues and updates before deploying the software."
 ---
 
 # Azure Data Box Gateway 2101 release notes

@@ -3,13 +3,14 @@ title: Restore Azure Kubernetes Service (AKS) via PowerShell using Azure Backup
 description: This article explains how to restore backed-up Azure Kubernetes Service (AKS) using Azure PowerShell.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 01/30/2025
+ms.date: 01/07/2026
 ms.custom:
   - devx-track-azurepowershell
   - ignite-2023
   - engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a DevOps engineer, I want to restore an Azure Kubernetes Service cluster using PowerShell, so that I can recover lost resources or data efficiently with minimal downtime.
 ---
 
 # Restore Azure Kubernetes Service using PowerShell 
@@ -33,7 +34,7 @@ Before you restore an AKS cluster, ensure that you meet the following prerequisi
 
 For more information on the limitations and supported scenarios, see the [support matrix](azure-kubernetes-service-cluster-backup-support-matrix.md).
 
-## Initialize Variables for Resource Commands
+## Initialize Variables for Resource Commands for AKS cluster restore
 
 Here, provide the necessary details for each resource to be used in your commands.
 
@@ -112,7 +113,7 @@ To prepare the restore request, run the following cmdlets:
     $aksRestoreRequest = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureKubernetesService  -SourceDataStore OperationalStore -RestoreLocation $restoreLocation -RestoreType AlternateLocation -TargetResourceId $targetAKSClusterId -RecoveryPoint $rp[0].Property.RecoveryPointId -RestoreConfiguration $aksRestoreCriteria -BackupInstance $AllInstances[2]
     ```
 
-## Trigger the restore
+## Trigger the restore for AKS cluster
 
 To trigger the restore operation, run the following cmdlets:
 
@@ -135,7 +136,7 @@ To trigger the restore operation, run the following cmdlets:
     $restoreJob = Start-AzDataProtectionBackupInstanceRestore -SubscriptionId $vaultSubId  -ResourceGroupName $vaultRgName -VaultName $vaultName -BackupInstanceName $AllInstances[2].BackupInstanceName -Parameter $aksRestoreRequest
     ```
 
-## Track the restore job
+## Track the restore job for AKS cluster
 
 Track all the jobs using the `Get-AzDataProtectionJob` cmdlet. You can list all jobs and fetch a particular job detail. Alternatively, use Az.ResourceGraph to track jobs across all Backup vaults.
 

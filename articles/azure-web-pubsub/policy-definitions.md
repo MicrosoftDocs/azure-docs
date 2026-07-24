@@ -12,7 +12,7 @@ ms.custom: subject-policy-reference
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure Web PubSub. For Azure Policy built-ins for other services, see
-[Azure Policy built-in definitions](../governance/policy/samples/built-in-policies.md).
+[Azure Policy built-in definitions](/azure/governance/policy/samples/built-in-policies).
 
 The name of each built-in policy definition links to the policy definition in the Azure portal. Use
 the link in the **Version** column to view the source on the
@@ -21,7 +21,7 @@ the link in the **Version** column to view the source on the
 ## Policy definitions
 
 
-[!INCLUDE [azure-policy-reference-policies-web-pubsub](../../includes/policy/reference/bycat/policies-web-pubsub.md)]
+[!INCLUDE [azure-policy-reference-policies-web-pubsub](~/azure-policy-autogen-docs/includes/policy/reference/bycat/policies-web-pubsub.md)]
 
 ## Next steps
 

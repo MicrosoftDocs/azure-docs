@@ -2,12 +2,13 @@
 title: Verify Azure Traffic Manager settings
 description: In this article, learn how to verify your Traffic Manager settings and test the traffic routing method.
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 08/08/2024
-ms.author: greglin
+ms.author: allensu
 ms.custom: template-how-to
+# Customer intent: As a network administrator, I want to verify my Traffic Manager settings and test traffic routing methods, so that I can ensure optimal performance and failover functionality for my applications.
 ---
 
 
@@ -16,7 +17,7 @@ ms.custom: template-how-to
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * This guide requires a Traffic Manager profile. To learn more, see [Create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md).
 
 To test your Traffic Manager settings, you need to have multiple clients, in various locations, from which you can run your tests. Then, bring the endpoints in your Traffic Manager profile down one at a time.

@@ -2,7 +2,7 @@
 title: Install Bicep tools
 description: Learn how to install tools to set up Bicep development and deployment environments.
 ms.topic: how-to
-ms.date: 03/25/2025
+ms.date: 07/23/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 
@@ -49,7 +49,8 @@ To see the settings:
 
 1. From the `View` menu, select `Extensions`.
 1. Select `Bicep` from the list of extensions.
-1. Select the `FEATURE CONTRIBUTIONS` tab:
+1. Select the `FEATURE` tab.
+1. Select **Settings**.
 
     :::image type="content" source="./media/install/bicep-extension-feature-contributions-settings.png" alt-text="Screenshot of Bicep extension settings.":::
 
@@ -57,11 +58,11 @@ To see the settings:
 
     | ID | Default value | Description |
     |-----|-------------|---------|
-    | bicep.decompileOnPaste | true | Automatically convert pasted JSON values, Azure Resource Manager JSON templates (ARM templates,) or resources from an ARM template into Bicep (use Undo to revert). For more information, see the [Paste JSON as Bicep command](./visual-studio-code.md#paste-json-as-bicep-command).|
+    | bicep.completions.getAllAccessibleAzureContainerRegistries | false | When completing 'br:' module references, query Azure for all container registries accessible to the user (may be slow). If this option is off, only registries configured under moduleAliases in bicepconfig.json will be listed. |
+    | bicep.decompileOnPaste | true | Automatically convert pasted JSON values, JSON ARM templates or resources from a JSON ARM template into Bicep (use Undo to revert).|
     | bicep.enableOutputTimestamps | true | Prepend each line displayed in the Bicep Operations output channel with a timestamp. |
-    | bicep.suppressedWarnings | | Warnings that are being suppressed because a 'Don't show again' button was pressed. Remove items to reset.|
     | bicep.enableSurveys | true | Enable occasional surveys to collect feedback that helps us improve the Bicep extension. |
-    | bicep.completions.getAllAccessibleAzureContainerRegistries | false | When completing 'br:' module references, query Azure for all container registries accessible to the user (might be slow). If this option is off, only  registries configured under [moduleAliases](./bicep-config-modules.md#aliases-for-modules) in [_bicepconfig.json_ files](./bicep-config.md) will be listed. |
+    | bicep.suppressedWarnings | | Warnings that are being suppressed because a 'Don't show again' button was pressed. Remove items to reset.|
     | bicep.trace.server | off | Configure tracing of messages sent to the Bicep language server. |
 
 To configure the settings:
@@ -259,6 +260,40 @@ If you'd like to try the latest pre-release bits of Bicep before they're release
 The Bicep team has made the [Azure.Bicep.Core NuGet package](https://www.nuget.org/packages/Azure.Bicep.Core) publicly available on nuget.org. While it's public, it isn't a supported package. Any dependency you take on this package will be done at your own risk, and Microsoft reserves the right to push breaking changes to this package at any time.
 
 For more information about installing and consuming NuGet packages, see [Package consumption workflow](/nuget/consume-packages/overview-and-workflow).
+
+## Bicep language server .NET tool
+
+The Bicep language server is published as the [`Azure.Bicep.LangServer`](https://www.nuget.org/packages/Azure.Bicep.LangServer) .NET global tool. Install it to integrate Bicep language intelligence (diagnostics, go-to-definition, hover information) into AI coding tools and other [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/) clients.
+
+To install the tool globally:
+
+```dotnetcli
+dotnet tool install --global Azure.Bicep.LangServer
+```
+
+This command makes the `bicep-ls` command available on your PATH. You can also use `dnx` to run the server on demand without a permanent installation:
+
+```
+dnx -y Azure.Bicep.LangServer
+```
+
+### Use with Claude Code
+
+[Claude Code](https://code.claude.com) supports LSP plugins. To configure Bicep language intelligence, add the following code to your plugin's `.lsp.json`:
+
+```json
+{
+  "bicep": {
+    "command": "bicep-ls",
+    "extensionToLanguage": {
+      ".bicep": "bicep",
+      ".bicepparam": "bicep"
+    }
+  }
+}
+```
+
+For more information, see [LSP servers](https://code.claude.com/docs/en/plugins-reference#lsp-servers) in the Claude Code documentation.
 
 ## Next steps
 

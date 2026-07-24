@@ -4,12 +4,13 @@ titleSuffix: Azure AD B2C
 description: Learn how to customize the user interface with HTML templates for your applications that use Azure Active Directory B2C.
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
-ms.date: 02/17/2025
+ms.date: 03/04/2026
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 
 #Customer intent: As a developer integrating apps with Azure Active Directory B2C, I want to learn how to customize the default user interfaces by using my own HTML, CSS files and JavaScript, so that I can provide a branded and seamless user experience in my application.
@@ -17,6 +18,7 @@ zone_pivot_groups: b2c-policy-type
 ---
 
 # Customize the user interface with HTML templates in Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
@@ -437,6 +439,34 @@ To use the sample:
 1. Save the `\*.html` files and upload them to the Blob storage.
 1. Now modify the policy, pointing to your HTML file, as mentioned previously.
 1. If you see missing fonts, images, or CSS, check your references in the extensions policy and the `\*.html` files.
+
+
+### Bootstrap dependency in sample templates
+
+The [sample templates](https://github.com/azure-ad-b2c/html-templates) use **Bootstrap 3.3.5**, sourced from the official Bootstrap CDN. This version has been validated and tested with Azure AD B2C.
+
+The templates reference the following CDN URL for Bootstrap CSS:
+
+  ```
+  https://cdn.jsdelivr.net/npm/bootstrap@3.3.5/dist/css/bootstrap.min.css
+  ```
+
+The default configuration in the template HTML files includes a link element similar to the following example:
+
+  ```xml
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.5/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+  ```
+
+For the official Bootstrap 3.3.5 download and CDN details, see [Bootstrap 3.3 Getting Started](https://getbootstrap.com/docs/3.3/getting-started/#download-cdn).
+
+#### Replace the CDN reference
+
+You can replace the CDN reference with your organization's internal CDN or a locally hosted copy to meet reliability, security, or compliance requirements.
+
+> [!IMPORTANT]
+> The templates are validated specifically against Bootstrap 3.3.5. Upgrading, downgrading, or otherwise modifying the Bootstrap version might introduce styling, layout, or component compatibility issues.
+
+If you change the Bootstrap version, you're responsible for completing regression testing to validate that your customized templates work correctly with Azure AD B2C. Retain the validated version unless you've completed appropriate testing.
 
 ## Use company branding assets in custom HTML
 

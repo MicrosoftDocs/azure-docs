@@ -1,11 +1,11 @@
 ---
 title: Self-host the API Center portal
 description: How to self-host the API Center portal, a customer-managed website that enables discovery of the API inventory in your Azure API center.
-author: dlepow
+
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 03/04/2025
-ms.author: danlep 
+ms.date: 05/01/2026
+ 
 ms.custom: 
 # Customer intent: As an API program manager, I want to self-host a portal for developers and other API stakeholders in my organization to discover the APIs in my organization's API center.
 ---
@@ -14,10 +14,9 @@ ms.custom:
 
 This article shows how to self-host the *API Center portal*, a website that developers and other stakeholders in your organization can use to discover the APIs in your [API center](overview.md). Deploy a reference implementation of the portal from the [API Center portal starter](https://github.com/Azure/APICenter-Portal-Starter.git) repository.
 
-:::image type="content" source="media/self-host-api-center-portal/api-center-portal-signed-in.png" alt-text="Screenshot of the API Center portal after user sign-in.":::
+Self-hosting is an alternative to using the Azure-managed version of the API Center portal. For more information on the Azure-managed portal, see [Set up the API Center portal](set-up-api-center-portal.md).
 
-> [!TIP]
-> New! You can now set up an Azure-managed version of the API Center portal. For more information, see [Set up the API Center portal](set-up-api-center-portal.md).
+:::image type="content" source="media/self-host-api-center-portal/api-center-portal-signed-in.png" alt-text="Screenshot of the API Center portal after user sign-in.":::
 
 ## About self-hosting the portal
 
@@ -65,20 +64,20 @@ Follow these steps to build and test the API Center portal locally.
     ```bash
     git checkout main
     ```  
-1. To configure the service, copy or rename the `public/config.example` file to `public/config.json`.
-1. Then edit the `public/config.json` file to point to your service. Update the values in the file as follows:
-    1. Replace `<service name>` and `<location>` with the name of your API center and the location where it's deployed
+1. To configure the service, copy or rename the `config.example.json` file to `config.json`.
+1. Then edit the `config.json` file to point to your service. Update the values in the file as follows:
+    1. Replace `<service name>` and `<region>` with the name of your API center and the location where it's deployed
     1. Replace `<client ID>` and `<tenant ID>` with the **Application (client) ID** and **Directory (tenant) ID** of the app registration you created in the previous section.
     1. Update the value of `title` to a name that you want to appear in the top bar of the portal.
 
     ```json
     {
-      "dataApiHostName": "<service name>.data.<location>.azure-apicenter.ms/workspaces/default",
+      "dataApiHostName": "<service name>.data.<region>.azure-apicenter.ms",
       "title": "API portal",
       "authentication": {
           "clientId": "<client ID>",
           "tenantId": "<tenant ID>",
-          "scopes": ["https://azure-apicenter.net/user_impersonation"],
+          "scopes": ["https://azure-apicenter.net/Data.Read.All"],
           "authority": "https://login.microsoftonline.com/"
       }
     }

@@ -2,12 +2,13 @@
 title: Transform data by running a Synapse notebook
 description: In this article, you learn how to create and develop a Synapse notebook activity and a Synapse pipeline.
 services: synapse analytics 
-author: ruixinxu 
+author: juluczni
 ms.service: azure-synapse-analytics
 ms.subservice: pipeline 
-ms.topic: conceptual 
+ms.topic: concept-article 
 ms.date: 12/11/2024
-ms.author: ruxu 
+ms.author: juluczni
+ms.custom: sfi-image-nochange
 ---
 
 

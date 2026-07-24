@@ -6,7 +6,9 @@ ms.author: ali
 ms.date: 06/07/2023
 ms.topic: quickstart
 ms.service: azure-stream-analytics
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 #Customer intent: As an IT admin/developer, I want to create a Stream Analytics job, configure input and output, and analyze data by using Visual Studio.
 ---
 
@@ -20,7 +22,7 @@ This quickstart shows you how to create and run a Stream Analytics job using Azu
 
 ## Before you begin
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * Sign in to the [Azure portal](https://portal.azure.com/).
 

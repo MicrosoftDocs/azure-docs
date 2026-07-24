@@ -3,8 +3,9 @@ title: Frequently Asked Questions About Azure Spring Apps
 description: This article answers frequently asked questions about Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
-ms.topic: conceptual
-ms.date: 04/23/2024
+ms.topic: faq
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-dotnet
 zone_pivot_groups: programming-languages-spring-apps
@@ -22,7 +23,7 @@ This article answers frequently asked questions about Azure Spring Apps.
 
 ### Why Azure Spring Apps?
 
-Azure Spring Apps provides a platform as a service (PaaS) for Spring developers. Azure Spring Apps manages your application infrastructure so that you can focus on application code and business logic. Core features built into Azure Spring Apps include Eureka, Config Server, Service Registry Server, VMware Tanzu Build Service, Blue-green deployment, and more. This service also enables developers to bind their applications with other Azure services, such as Azure Cosmos DB, Azure Database for MySQL, and Azure Cache for Redis.
+Azure Spring Apps provides a platform as a service (PaaS) for Spring developers. Azure Spring Apps manages your application infrastructure so that you can focus on application code and business logic. Core features built into Azure Spring Apps include Eureka, Config Server, Service Registry Server, VMware Tanzu Build Service, Blue-green deployment, and more. This service also enables developers to bind their applications with other Azure services, such as Azure Cosmos DB, Azure Database for MySQL, and Azure Managed Redis.
 
 Azure Spring Apps enhances the application diagnostics experience for developers and operators by integrating Azure Monitor, Application Insights, and Log Analytics.
 

@@ -2,14 +2,15 @@
 title: Route networking traffic for high availability - Azure PowerShell
 description: Azure PowerShell Script Sample - Route traffic for high availability of applications
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 manager: Kumud
 ms.service: azure-traffic-manager
 ms.devlang: powershell
 ms.topic: article
 ms.date: 04/27/2023
-ms.author: greglin
+ms.author: allensu
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud administrator, I want to route traffic for high availability using a PowerShell script, so that I can ensure my applications remain accessible even if one region goes down.
 ---
 
 # Route traffic for high availability of applications - Azure PowerShell
@@ -24,7 +25,7 @@ If needed, install the Azure PowerShell using the instruction found in the [Azur
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[!code-powershell[main](../../../powershell_scripts/traffic-manager/direct-traffic-for-increased-application-availability/direct-traffic-for-increased-application-availability.ps1 "Route traffic for high availability")]
+[!code-powershell[main](~/powershell_scripts/traffic-manager/direct-traffic-for-increased-application-availability/direct-traffic-for-increased-application-availability.ps1 "Route traffic for high availability")]
 
 
 Run the following command to remove the resource group, VM, and all related resources.

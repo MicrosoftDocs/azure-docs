@@ -1,13 +1,13 @@
 ---
 title: Disaster recovery of Dynamics AX with Azure Site Recovery 
 description: Learn how to set up disaster recovery for Dynamics AX with Azure Site Recovery
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: v-gajeronika
+author: Jeronika-MS
 ms.service: azure-site-recovery
-manager: rochakm
 ms.topic: how-to
 ms.date: 11/27/2018
 
+# Customer intent: As an IT administrator responsible for enterprise applications, I want to implement disaster recovery for Dynamics AX using Azure Site Recovery, so that I can ensure minimal downtime and quick recovery of critical business processes during a disaster.
 ---
 # Set up disaster recovery for a multitier Dynamics AX application   
 
@@ -120,7 +120,7 @@ For information about recovery steps specific to SQL server, see [Replication ap
 Make sure that the recovery point selected is as close as possible to the database PIT, but not ahead of it.
 
 * **Script**: Add load balancer (only E-A).
-Add a script (via Azure Automation) after the Application Object Server VM group comes up to add a load balancer to it. You can use a script to do this task. For more information, see [How to add a load balancer for multitier application disaster recovery](https://azure.microsoft.com/blog/cloud-migration-and-disaster-recovery-of-load-balanced-multi-tier-applications-using-azure-site-recovery/).
+Add a script (via Azure Automation) after the Application Object Server VM group comes up to add a load balancer to it. You can use a script to do this task. For more information, see [How to add a load balancer for multitier application disaster recovery](https://azure.microsoft.com/solutions/migration/).
 
 * **Failover Group 2**: Fail over the Dynamics AX client VMs. Fail over the web tier VMs as part of the recovery plan.
 
@@ -180,4 +180,4 @@ For more information on doing a failback, see [Failback VMware VMs from Azure to
 By using Site Recovery, you can create a complete automated disaster recovery plan for your Dynamics AX application. In the event of a disruption, you can initiate the failover within seconds from anywhere and get the application up and running in minutes.
 
 ## Next steps
-To learn more about protecting enterprise workloads with Site Recovery, see [What workloads can I protect?](site-recovery-workload.md).
+To learn more about protecting enterprise workloads with Site Recovery, see [What workloads can I protect?](site-recovery-workload.md)

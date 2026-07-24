@@ -4,10 +4,11 @@ description: Learn how to restore backups of your apps or configure custom backu
 author: msangapu-msft
 ms.author: msangapu
 ms.topic: how-to
-ms.date: 02/10/2025 
+ms.date: 11/28/2025 
 ms.custom: devx-track-azurecli
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 
+ms.service: azure-app-service
 ---
 
 # Back up and restore your app in Azure App Service
@@ -31,7 +32,7 @@ There are two types of backups in App Service. If your app is in a supported pri
 | Backup size | 30 GB. | 10 GB, 4 GB of which can be the linked database. |
 | Linked database | Not backed up. | **[Starting 3/31/2028, Azure App Service custom backups will no longer support backing up linked databases.](#deprecation-of-linked-database-backups)** <br><br>The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](/azure/mysql/), [Azure Database for PostgreSQL](/azure/postgresql/), [MySQL in-app](https://azure.github.io/AppService/2016/08/18/Announcing-MySQL-in-app-for-Web-Apps-(Windows).html). Note that Azure DB for MySQL - **Flexible Server** and Azure DB for PostgreSQL - **Flexible Server** aren't supported in custom backups. |
 | [Storage account](../storage/index.yml) required | No. | Yes. |
-| Backup frequency | Hourly, not configurable. | Configurable. |
+| Backup frequency | Hourly, not configurable. | Configurable (every 2 hours minimum, up to 12 backups per day (manual + scheduled)). |
 | Retention | 30 days, not configurable. <br><br> Days 1-3: hourly backups retained.<br><br> Days 4-14: every third hourly backup retained.<br><br> Days 15-30: every sixth hourly backup retained. | 0-30 days or indefinite. |
 | Downloadable | No. | Yes, as Azure Storage blobs. |
 | Partial backups | Not supported. | Supported. |
@@ -119,6 +120,9 @@ There are two types of backups in App Service. If your app is in a supported pri
 1. At the top of the **Backups** page, select **Configure custom backups**.
 
 1. In **Storage account**, select an existing storage account in the same subscription or select **Create new**. Repeat in **Container**.
+    > [!NOTE]
+    > Custom backups for Azure App Service require an Azure Storage account that supports Shared Access Signature (SAS)–based authorization. Managed Identity–based authentication to the storage account isn't supported for App Service backup and restore operations.
+   
 
     To back up the linked databases, select **Next: Advanced** > **Include database**, and select the databases to backup.
 
@@ -167,7 +171,7 @@ To restore a database included in a custom backup:
 1. Follow the steps in [Restore a backup](#restore-a-backup).
 1. In **Advanced options**, select **Include database**.
 
-For troubleshooting information, see [Why is my linked database not backed up?](#why-is-my-linked-database-not-backed-up).
+For troubleshooting information, see [Why is my linked database not backed up?](#why-is-my-linked-database-not-backed-up)
 
 ## Deprecation of linked database backups
 Starting **3/31/2028**, Azure App Service custom backups will **no longer support backing up linked databases**. We recommend using the native backup and restore tools provided by each database service instead.
@@ -300,7 +304,8 @@ Each backup is a complete offline copy of your app, not an incremental update.
 
 ### Does Azure Functions support automatic backups?
 
-Automatic backups are available for Azure Functions in [dedicated (App Service)](../azure-functions/dedicated-plan.md) Basic, Standard, and Premium tiers. Automatic backups aren't supported for function apps in the [Consumption](../azure-functions/consumption-plan.md) or [Elastic Premium](../azure-functions/functions-premium-plan.md) pricing tiers.
+- Automatic backups are supported for Azure Functions when the app does not use Azure Files–based content storage (that is, when WEBSITE_CONTENTAZUREFILECONNECTIONSTRING is not configured).
+- Function apps in the Consumption and Elastic Premium plans typically use Azure Files for content storage and therefore do not support automatic backups. Although less common, Basic, Standard, and Premium (App Service) plans may also be configured with Azure Files–based content storage, in which case automatic backups are likewise not supported.
 
 ### What's included in an automatic backup?
 

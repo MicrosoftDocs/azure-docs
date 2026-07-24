@@ -1,11 +1,17 @@
 ---
-title: Overview of Event Hubs Premium
-description: This article provides an overview of Azure Event Hubs Premium, which offers multitenant deployments of Event Hubs for high-end streaming needs.
+title: Azure Event Hubs Premium Overview
+description: Learn about Azure Event Hubs Premium, a high-performance, multitenant PaaS solution for low-latency, high-throughput streaming with predictable performance.
+#customer intent: As a developer, I want to understand the features of Azure Event Hubs Premium so that I can determine if it meets my high-performance streaming needs.  
 ms.topic: article
-ms.date: 02/15/2024
+ms.date: 07/28/2025
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-title
+  - ai-seo-date:07/28/2025
+  - ai-gen-description
 ---
 
-# Overview of Event Hubs Premium
+# Azure Event Hubs Premium overview
 
 Azure Event Hubs Premium (Premium tier) is designed for high-end streaming scenarios that require elastic, superior performance with predictable latency. The Premium tier provides reserved compute, memory, and storage resources, which minimize cross-tenant interference in a managed multitenant platform-as-a-service (PaaS) environment.
 
@@ -14,7 +20,7 @@ Event Hubs Premium replicates events to three replicas, which are distributed ac
 In addition to these storage-related features and all capabilities and protocol support of the Standard tier, the isolation model of the Premium tier enables features like [dynamic partition scale-up](dynamically-add-partitions.md). You also get far more generous [quota allocations](event-hubs-quotas.md). Event Hubs Capture is included at no extra cost.
 
 > [!NOTE]
-> - Event Hubs Premium supports TLS 1.2 or greater.
+> - Event Hubs Premium supports Transport Layer Security (TLS) 1.2 or greater.
 > - The Premium tier isn't available in all regions. Try to create a namespace in the Azure portal. See the supported regions in the **Location** dropdown list on the **Create Namespace** page.
 
 You can purchase 1, 2, 4, 6, 8, 10, 12, and 16 processing units (PUs) for each namespace. Because the Premium tier is a capacity-based offering, the achievable throughput isn't set by a throttle like it is in the Standard tier. The throughput depends on the work you ask Event Hubs to do, which is similar to the Dedicated tier. The effective ingest and stream throughput per PU depends on various factors, such as the:
@@ -27,11 +33,11 @@ You can purchase 1, 2, 4, 6, 8, 10, 12, and 16 processing units (PUs) for each n
 
 For more information, see [Comparison between Event Hubs SKUs](event-hubs-quotas.md).
 
-## Why Premium?
+## Why choose Event Hubs Premium?
 
 The Premium tier offers three compelling benefits for customers who require better isolation in a multitenant environment with low latency and high-throughput data ingestion needs.
 
-### Superior performance with the new two-tier storage engine
+### Superior performance with a two-tier storage engine
 
 The Premium tier uses a new two-tier log storage engine that drastically improves the data ingress performance with substantially reduced overall latency without compromising the durability guarantees.
 
@@ -60,11 +66,11 @@ The Premium tier offers all the features of the Standard plan but with better pe
 
 ## High availability with availability zones
 
-Event Hubs Standard, Premium, and Dedicated tiers offer [availability zones](../reliability/availability-zones-service-support.md) support with no extra cost. By using availability zones, you can run event streaming workloads in physically separate locations within each Azure region that are tolerant to local failures.
+Event Hubs Standard, Premium, and Dedicated tiers offer [availability zones](/azure/reliability/availability-zones-service-support) support with no extra cost. By using availability zones, you can run event streaming workloads in physically separate locations within each Azure region that are tolerant to local failures.
 
 > [!IMPORTANT]
-> - Availability zone support is only available in [Azure regions with availability zones](../reliability/availability-zones-region-support.md).
-> - In certain regions, the Premium tier's support for availability zones is limited even though the region supports availability zones.
+> - Availability zone support is only available in [Azure regions with availability zones](/azure/reliability/availability-zones-region-support).
+>
 
 ## Premium vs. Dedicated tiers
 

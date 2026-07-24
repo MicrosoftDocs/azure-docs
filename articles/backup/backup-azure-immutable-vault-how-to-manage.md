@@ -3,10 +3,11 @@ title: How to manage Azure Backup Immutable vault operations
 description: This article explains how to manage Azure Backup Immutable vault operations.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 03/13/2025
-author: jyothisuri
-ms.author: jsuri
+ms.date: 12/30/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24, ignite-2024
+# Customer intent: As a backup administrator, I want to enable and manage immutability for my backup vaults, so that I can protect backup data from loss or unauthorized changes and ensure compliance with data integrity requirements.
 ---
 
 # Manage Azure Backup Immutable vault operations
@@ -16,7 +17,8 @@ This article describes how to manage Azure Backup Immutable vault operations for
 [Immutable vault](backup-azure-immutable-vault-concept.md) can help you protect your backup data by blocking any operations that could lead to loss of recovery points. Further, you can lock the Immutable vault setting to enable WORM storage immutability and make it irreversible to prevent any malicious actors from disabling immutability and deleting backups.
 
 > [!NOTE]
-> Immutable WORM storage is currently in GA for Recovery Services Vaults in the following regions: Australia Central 2, Switzerland West, South Africa West, Korea Central, Germany North, Korea South, Spain Central. 
+> - Immutable WORM storage is generally available for Recovery Services vaults in the following regions: Australia Central 2, Switzerland West, South Africa West, Korea Central, Germany North, Korea South, Spain Central, Israel Central, India South, India West, Mexico Central, Norway West, Poland Central, Japan East.
+> - Immutable WORM storage is currently in preview for Backup vaults in the following regions: South Africa West, Korea Central, India South, India West, Poland Central
 
 ## Enable Immutable vault
 
@@ -43,6 +45,9 @@ To enable Immutable vault for a Recovery Services vault, follow these steps:
    Once you enable this lock, it makes immutability setting for the vault irreversible and uses WORM storage for backups. While this helps secure the backup data in the vault, we recommend you make a well-informed decision when opting to lock. You can also test and validate how the current settings of the vault, backup policies, and so on, meet your requirements and can lock the immutability setting later. 
 
 1. Select **Apply** to save the changes.
+
+   >[!NOTE]
+   >Immutability can't be locked during vault creation. You can enable immutability during vault creation and lock it through the preceding steps in vault properties.
 
    :::image type="content" source="./media/backup-azure-immutable-vault/backup-azure-enable-immutability.png" alt-text="Screenshot showing how to enable the Immutable vault settings.":::
 
@@ -99,7 +104,7 @@ However, increasing the retention of backup items that are in suspended state is
 Let's try to stop backup on a VM and choose **Retain as per policy** for backup data retention.
 
 >[!NOTE]
-> When you stop backups and retain as per policy, the last RP is retained forever to ensure recovery against any unforeseen ransomware scenarios. You must manually delete this RP after the backup policy expires to stop incurring PI charges.
+> When you stop backups and retain as per policy, the last hardened (vaulted) restore point and the latest restore point are retained forever to ensure recovery against any unforeseen ransomware scenarios. You must manually delete this RP after the backup policy expires to stop incurring PI charges.
 
 :::image type="content" source="./media/backup-azure-immutable-vault/attempt-to-increase-retention-of-backup-items-in-suspended-state.png" alt-text="Screenshot shows an attempt to increase retention of backup items in suspended state.":::
 
@@ -111,7 +116,7 @@ When you try to update the policy, the operation fails with an error and you can
 
 ## Disable immutability
 
-You can disable immutability only for vaults that have immutability enabled, but not locked.
+You can disable immutability only for vaults that have immutability enabled, but not locked. To disable or enable immutability on a vault, you need to have _Backup Contributor_ permissions on the vault.
 
 **Choose a vault**
 
@@ -125,11 +130,20 @@ To disable immutability for a Recovery Services vault, follow these steps:
 
    :::image type="content" source="./media/backup-azure-immutable-vault/disable-immutable-vault-settings.png" alt-text="Screenshot showing how to open the Immutable vault settings to disable.":::
 
-1. On the **Immutable vault** blade, clear the **Enable vault Immutability** checkbox.
+1. On the **Immutable vault** pane, clear the **Enable vault Immutability** checkbox.
+
+   This operation is protected and requires verification of access to the Resource Guard.
+
+1. Select the directory containing the Resource Guard and authenticate yourself.
+
+   >[!NOTE]
+   >This action isn't required if the Resource Guard is in the same directory as the vault.
 
 1. Select **Apply** to save the changes.
 
    :::image type="content" source="./media/backup-azure-immutable-vault/backup-azure-disable-immutability.png" alt-text="Screenshot showing how to disable the Immutable vault settings.":::
+
+   The request fails with an error you don't have sufficient permissions on the Resource Guard to perform this operation.
 
 # [Backup vault](#tab/backup-vault)
 
@@ -141,7 +155,7 @@ To disable immutability for a Backup vault, follow these steps:
 
    :::image type="content" source="./media/backup-azure-immutable-vault-how-to-manage/disable-immutable-vault-settings-backup-vault.png" alt-text="Screenshot showing how to open the Immutable vault settings to disable for a Backup vault." lightbox="./media/backup-azure-immutable-vault-how-to-manage/disable-immutable-vault-settings-backup-vault.png":::
 
-1. On the **Immutable vault** blade, clear the **Enable vault Immutability** checkbox.
+1. On the **Immutable vault** pane, clear the **Enable vault Immutability** checkbox.
 
 1. Select **Apply** to save the changes.
 

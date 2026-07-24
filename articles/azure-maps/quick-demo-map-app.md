@@ -102,7 +102,7 @@ In this quickstart, you created an Azure Maps account and a demo application. Ta
 
 [Azure portal]: https://portal.azure.com
 [Find an address with Azure Maps Search service]: how-to-search-for-address.md
-[free account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [Interactive Search Quickstart.html]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/Samples/Tutorials/Interactive%20Search/Interactive%20Search%20Quickstart.html
 [Microsoft Entra ID]: /entra/fundamentals/whatis
 [Next Steps]: #next-steps

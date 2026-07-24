@@ -2,8 +2,10 @@
 title: Learn Azure Policy for Kubernetes
 description: Learn how Azure Policy uses Rego and Open Policy Agent to manage clusters running Kubernetes in Azure or on-premises.
 ms.date: 03/04/2025
-ms.topic: conceptual
-ms.custom: devx-track-azurecli
+ms.topic: concept-article
+ms.custom:
+  - devx-track-azurecli
+  - build-2025
 ---
 
 # Understand Azure Policy for Kubernetes clusters
@@ -18,8 +20,6 @@ Azure Policy for Kubernetes supports the following cluster environments:
 - [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), through **Azure Policy's **Add-on** for AKS**
 - [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview), through **Azure Policy's **Extension** for Arc**
 
-> [!IMPORTANT]
-> The Azure Policy Add-on Helm model and the add-on for AKS Engine have been _deprecated_. Follow the instructions to [remove the add-ons](#remove-the-add-on).
 
 > [!IMPORTANT]
 > Installations of Gatekeeper outside of the Azure Policy Add-on aren't supported. Uninstall any components installed by a previous Gatekeeper installation before enabling the Azure Policy Add-on.
@@ -81,14 +81,14 @@ The Azure Policy Add-on for AKS is part of Kubernetes version 1.27 with long ter
    az aks list
    ```
 
-1. Open ports for the Azure Policy extension. The Azure Policy extension uses these domains and ports to fetch policy
+1. Open ports for the Azure Policy add-on. The Azure Policy add-on uses these domains and ports to fetch policy
    definitions and assignments and report compliance of the cluster back to Azure Policy.
 
    |Domain |Port |
    |---|---|
    |`data.policy.core.windows.net` |`443` |
    |`store.policy.core.windows.net` |`443` |
-   |`login.windows.net` |`443` |
+   |`login.microsoftonline.com` |`443` |
    |`dc.services.visualstudio.com` |`443` |
 
 After the prerequisites are completed, install the Azure Policy Add-on in the AKS cluster
@@ -301,7 +301,7 @@ az k8s-extension delete --cluster-type connectedClusters --cluster-name <CLUSTER
 ## Create a policy definition
 
 The Azure Policy language structure for managing Kubernetes follows that of existing policy
-definitions. There are sample definition files available to assign in [Azure Policy's built-in policy library](../samples/built-in-policies.md#kubernetes) that can be used to govern your cluster components.
+definitions. There are sample definition files available to assign in [Azure Policy's built-in policy library](/azure/governance/policy/samples/built-in-policies#kubernetes) that can be used to govern your cluster components.
 
 Azure Policy for Kubernetes also support custom definition creation at the component-level for both Azure Kubernetes Service clusters and Azure Arc-enabled Kubernetes clusters. Constraint template and mutation template samples are available in the [Gatekeeper community library](https://github.com/open-policy-agent/gatekeeper-library/tree/master). [Azure Policy's Visual Studio Code Extension](../how-to/extension-for-vscode.md#create-policy-definition-from-a-constraint-template-or-mutation-template) can be used to help translate an existing constraint template or mutation template to a custom Azure Policy policy definition.
 
@@ -317,7 +317,7 @@ As part of the _details.templateInfo_ or _details.constraintInfo_ properties in 
 the Kubernetes cluster. By supporting an existing standard for Kubernetes management, Azure Policy
 makes it possible to reuse existing rules and pair them with Azure Policy for a unified cloud
 compliance reporting experience. For more information, see
-[What is Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego).
+[What is Rego?](https://www.openpolicyagent.org/docs/latest/policy-language/#what-is-rego)
 
 ## Assign a policy definition
 
@@ -376,7 +376,7 @@ vms_.
 > [!IMPORTANT]
 > Built-in policy definitions are available for Kubernetes clusters in category **Kubernetes**. For
 > a list of built-in policy definitions, see
-> [Kubernetes samples](../samples/built-in-policies.md#kubernetes).
+> [Kubernetes samples](/azure/governance/policy/samples/built-in-policies#kubernetes).
 
 ## Policy evaluation
 
@@ -608,110 +608,197 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
+#### 1.15.5-1
+Introducing Validating Admission Policy (VAP) generation. [Validating Admission Policies](https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/) are Kubernetes-native validating policy resources that are evaluated in-process, allowing for reduced latency and fail-close evaluation. Azure Policies that contain Common Expression Language (CEL) will automatically generate VAPs. For more information, view the [Gatekeeper Documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/validating-admission-policy/).
+
+The addon is now fully FIPS-compliant.
+
+Patch CVE-2026-25679, CVE-2026-27142, CVE-2026-27139, CVE-2026-32280, CVE-2025-68121, CVE-2025-61726, CVE-2025-61728, CVE-2026-32281, CVE-2026-32283.
+
+Security improvements.
+- Released: Jun 2026
+- Kubernetes: 1.30+
+- Gatekeeper: 3.22.1
+
+##### Gatekeeper 3.22.1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.22.1
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.20.1...v3.22.1
+
+#### 1.15.5
+Security improvements.
+- Released: Feb 2026
+- Kubernetes: 1.27+
+- Gatekeeper: 3.20.1
+
+#### 1.15.4
+Patch CVE-2025-61727.
+Security improvements.
+- Released: Dec 2025
+- Kubernetes: 1.27+
+- Gatekeeper: 3.20.1
+
+#### 1.15.3
+Patch CVE-2025-47914, CVE-2025-58181, CVE-2025-58187, and CVE-2025-22872.
+Security improvements.
+- Released: Dec 2025
+- Kubernetes: 1.27+
+- Gatekeeper: 3.20.1
+
+#### 1.15.1
+Security improvements.
+- Released: Nov 2025
+- Kubernetes: 1.27+
+- Gatekeeper: 3.20.1
+
+#### 1.14.2
+Patch CVE-2025-4802.
+Security improvements.
+- Released: Oct 2025
+- Kubernetes: 1.27+
+- Gatekeeper: 3.20.1
+
+##### Gatekeeper 3.20.1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.20.1
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.19.1...v3.20.1
+
+#### 1.13.1
+Patch CVE-2025-47907.
+Security improvements.
+- Released: August 2025
+- Kubernetes: 1.27+
+- Gatekeeper: 3.20.0
+
+#### 1.13.0
+EU Data Boundary now supported by Azure Policy for Kubernetes on AKS. To learn more generally about the EU Data Boundary visit: [Overview of EU Data Boundary](/privacy/eudb/eu-data-boundary-learn).
+Patch CVE-2025-22874.
+Security improvements.
+- Released: July 2025
+- Kubernetes: 1.27+
+- Gatekeeper: 3.20.0
+
+##### Gatekeeper 3.20.0
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.20.0
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.19.1...v3.20.0
+
+#### 1.12.3
+Patch CVE-2025-22874 and GHSA-vrw8-fxc6-2r93.
+Security improvements.
+- Released: July 2025
+- Kubernetes: 1.27+
+- Gatekeeper: 3.19.1
+
+#### 1.12.2
+Security improvements.
+- Released: June 2025
+- Kubernetes: 1.27+
+- Gatekeeper: 3.19.1
+
+#### 1.11.1
+Patch CVE-2025-22872.
+Security improvements.
+- Released: May 2025
+- Kubernetes: 1.27+
+- Gatekeeper: 3.19.1
+
+##### Gatekeeper 3.19.1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.19.1
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.18.2...v3.19.1
+
 #### 1.10.1
-Update the `policy-kubernetes-addon-prod` and `policy-kubernetes-webhook` images to patch [CVE-2025-30204](https://nvd.nist.gov/vuln/detail/CVE-2025-30204) and [CVE-2025-22870](https://nvd.nist.gov/vuln/detail/CVE-2025-22870).
-- Released April 2025
-- Kubernetes 1.27+
-- Gatekeeper 3.18.2
+Patch CVE-2025-30204 and CVE-2025-22870.
+Security improvements.
+- Released: April 2025
+- Kubernetes: 1.27+
+- Gatekeeper: 3.18.2
 
 #### 1.10.0
+CEL is enabled by default, you can continue using Rego. New CRD `configpodstatuses.status.gatekeeper.sh` is introduced (Reference: https://github.com/open-policy-agent/gatekeeper/issues/2918).
 Security improvements.
+- Released: February 2025
+- Kubernetes: 1.27+
+- Gatekeeper: 3.18.2
 
-CEL is enabled by default, you can continue using Rego. New CRD configpodstatuses.status.gatekeeper.sh is introduced (Reference: https://github.com/open-policy-agent/gatekeeper/issues/2918)
-- Released February 2025
-- Kubernetes 1.27+
-- Gatekeeper 3.18.2
-##### Gatekeeper 3.18.2-1
+##### Gatekeeper 3.18.2
 Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.18.2
 Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.17.1...v3.18.2
 
 #### 1.9.1
+Patch CVE-2024-45337 and CVE-2024-45338.
 Security improvements.
+- Released: January 2025
+- Kubernetes: 1.27+
+- Gatekeeper: 3.17.1
 
-Patch CVE-2024-45337 and CVE-2024-45338.
-- Released January 2025
-- Kubernetes 1.27+
-- Gatekeeper 3.17.1
-##### Gatekeeper 3.17.1-5
-Patch CVE-2024-45337 and CVE-2024-45338.
+##### Gatekeeper 3.17.1
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.17.1
 
 #### 1.8.0
 Policy can now be used to evaluate CONNECT operations, for instance, to deny `exec`s. Note that there is no brownfield compliance available for noncompliant CONNECT operations, so a policy with Audit effect that targets CONNECTs is a no op.
-
 Security improvements.
-- Released November 2024
-- Kubernetes 1.27+
-- Gatekeeper 3.17.1
+- Released: November 2024
+- Kubernetes: 1.27+
+- Gatekeeper: 3.17.1
 
 #### 1.7.1
 Introducing CEL and VAP. Common Expression Language (CEL) is a Kubernetes-native expression language that can be used to declare validation rules of a policy. Validating Admission Policy (VAP) feature provides in-tree policy evaluation, reduces admission request latency, and improves reliability and availability. The supported validation actions include Deny, Warn, and Audit. Custom policy authoring for CEL/VAP is allowed, and existing users won't need to convert their Rego to CEL as they will both be supported and be used to enforce policies. To use CEL and VAP, users need to enroll in the feature flag `AKS-AzurePolicyK8sNativeValidation` in the `Microsoft.ContainerService` namespace. For more information, view the [Gatekeeper Documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/validating-admission-policy/).
-
 Security improvements.
-- Released September 2024
-- Kubernetes 1.27+ (VAP generation is only supported on 1.30+)
-- Gatekeeper 3.17.1
+- Released: September 2024
+- Kubernetes: 1.27+ (VAP generation is only supported on 1.30+)
+- Gatekeeper: 3.17.1
 
 #### 1.7.0
-
 Introducing expansion, a shift left feature that lets you know up front whether your workload resources (Deployments, ReplicaSets, Jobs, etc.) will produce admissible pods. Expansion shouldn't change the behavior of your policies; rather, it just shifts Gatekeeper's evaluation of pod-scoped policies to occur at workload admission time rather than pod admission time. However, to perform this evaluation it must generate and evaluate a what-if pod that is based on the pod spec defined in the workload, which might have incomplete metadata. For instance, the what-if pod won't contain the proper owner references. Because of this small risk of policy behavior changing, we're introducing expansion as disabled by default. To enable expansion for a given policy definition, set `.policyRule.then.details.source` to `All`. Built-ins will be updated soon to enable parameterization of this field. If you test your policy definition and find that the what-if pod being generated for evaluation purposes is incomplete, you can also use a mutation with source `Generated` to mutate the what-if pods. For more information on this option, view the [Gatekeeper documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/expansion#mutating-example).
-
 Expansion is currently only available on AKS clusters, not Arc clusters.
-
 Security improvements.
-- Released July 2024
-- Kubernetes 1.27+
-- Gatekeeper 3.16.3
+- Released: July 2024
+- Kubernetes: 1.27+
+- Gatekeeper: 3.16.3
 
 #### 1.6.1
-
 Security improvements.
-- Released May 2024
-- Gatekeeper 3.14.2
+- Released: May 2024
+- Gatekeeper: 3.14.2
 
 #### 1.5.0
-
 Security improvements.
-- Released May 2024
-- Kubernetes 1.27+
-- Gatekeeper 3.16.3
+- Released: May 2024
+- Kubernetes: 1.27+
+- Gatekeeper: 3.16.3
 
 #### 1.4.0
-
 Enables mutation and external data by default. The additional mutating webhook and increased validating webhook timeout cap might add latency to calls in the worst case. Also introduces support for viewing policy definition and set definition version in compliance results.
-
-- Released May 2024
-- Kubernetes 1.25+
-- Gatekeeper 3.14.0
+Security improvements.
+- Released: May 2024
+- Kubernetes: 1.25+
+- Gatekeeper: 3.14.0
 
 #### 1.3.0
-
-Introduces error state for policies in error, enabling them to be distinguished from policies in noncompliant states. Adds support for v1 constraint templates and use of the excludedNamespaces parameter in mutation policies. Adds an error status check on constraint templates post-installation.
-
-- Released February 2024
-- Kubernetes 1.25+
-- Gatekeeper 3.14.0
+Introduces error state for policies in error, enabling them to be distinguished from policies in noncompliant states. Adds support for v1 constraint templates and use of the `excludedNamespaces` parameter in mutation policies. Adds an error status check on constraint templates post-installation.
+Security improvements.
+- Released: February 2024
+- Kubernetes: 1.25+
+- Gatekeeper: 3.14.0
 
 #### 1.2.1
-
-- Released October 2023
-- Kubernetes 1.25+
-- Gatekeeper 3.13.3
+Security improvements.
+- Released: October 2023
+- Kubernetes: 1.25+
+- Gatekeeper: 3.13.3
 
 #### 1.1.0
-
-- Released July 2023
-- Kubernetes 1.27+
-- Gatekeeper 3.11.1
+Security improvements.
+- Released: July 2023
+- Kubernetes: 1.27+
+- Gatekeeper: 3.11.1
 
 #### 1.0.1
-
-- Released June 2023
-- Kubernetes 1.24+
-- Gatekeeper 3.11.1
+Security improvements.
+- Released: June 2023
+- Kubernetes: 1.24+
+- Gatekeeper: 3.11.1
 
 #### 1.0.0
-
-Azure Policy for Kubernetes now supports mutation to remediate AKS clusters at-scale!
+Azure Policy for Kubernetes now supports mutation to remediate AKS clusters at-scale.
 
 ## Remove the add-on
 
@@ -781,6 +868,8 @@ aligns with how the add-on was installed:
   helm uninstall azure-policy-addon
   ```
 ## Limitations
+> [!IMPORTANT]
+> Permissions to edit or delete validating webhook configurations, mutating webhook configurations, validating admission policies and bindings, and mutating admission policies and bindings should be treated as highly privileged. Kubernetes's design does not allow policies to protect these resource types, in order to avoid circular dependencies.
 
   - For general Azure Policy definitions and assignment limits, review [Azure Policy's documented limits](../../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-policy-limits)
   - Azure Policy Add-on for Kubernetes can only be deployed to Linux node pools.
@@ -861,7 +950,7 @@ collected:
 
 ## Next steps
 
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review the [Policy definition structure](definition-structure-basics.md).
 - Review [Understanding policy effects](effect-basics.md).
 - Understand how to [programmatically create policies](../how-to/programmatically-create.md).

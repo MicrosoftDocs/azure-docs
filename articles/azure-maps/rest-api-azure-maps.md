@@ -22,12 +22,10 @@ The most recent stable release of the Azure Maps services.
 
 | API | API version | Description |
 |-----|-------------|-------------|
-| [Data Registry] |  2023-06-01  | Programmatically store and update geospatial data to use in spatial operations.<br>The Data registry service is deprecated and will be retired on 9/30/25. |
 | [Geolocation] |  1.0  | Convert IP addresses to country/region ISO codes. |
 | [Render] |  2024-04-01  | Get road, satellite/aerial, weather, traffic map tiles, and static map images. |
 | [Route] |  2025-01-01  | Calculate optimized travel times and distances between locations for multiple modes of transportation and returns localized travel instructions. Now supports [Snap to Roads] API that snaps GPS data to road aligned coordinates. |
-| [Search] |  2025-01-01  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. |
-| [Spatial] |  2022-08-01  | Use geofences, great circle distances, and other spatial operations to analyze location data.<br>The Spatial service is deprecated and will be retired on 9/30/25. |
+| [Search] |  2026-01-01  | Geocode addresses and coordinates, search for places and businesses by name or category, and retrieve administrative boundary polygons. The Autocomplete API returns real-time suggestions for addresses and places based on partial user input. |
 | [Timezone] |  1.0  | Get time zone and sunrise/sunset information for specified locations. |
 | [Traffic] |  2025-01-01  | Provides traffic incident data, such as construction, traffic congestion, accidents, and more, within a specified bounding box. |
 | [Weather] |  1.1  | Get current, forecasted, and historical weather conditions, air quality, tropical storm details, and weather along a route. |
@@ -42,7 +40,7 @@ There are previous stable releases of an Azure Maps service that are still in us
 | [Render][render-2022-08-01] |  2022-08-01  | Get road, satellite/aerial, weather, traffic map tiles, and static map images. |
 | [Route][Route v1] |  1.0  | Calculate optimized travel times and distances between locations for multiple modes of transportation and get localized travel instructions. |
 | [Search][Search v1] |  1.0  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. This is version 1.0 of the Search service. For the latest version, see [Search]. |
-| [Search] |  2023-06-01  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. |
+| Search |  2023-06-01  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons.  For the latest version, see [Search].|
 | [Traffic][Traffic v1] |  1.0  | Get current traffic information including traffic flow and traffic incident details. |
 
 ## Latest preview
@@ -54,13 +52,11 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 | [Route][Route-2024-07-01-preview] | 2024-07-01-preview | The Route Range API supports high definition isochrone polygons. |
 
 <!--- Links to latest versions of each service ---------------------------------->
-[Data Registry]: /rest/api/maps/data-registry
 [Geolocation]: /rest/api/maps/geolocation
 [Render]: /rest/api/maps/render
 [Route]: /rest/api/maps/route
 [Search]: /rest/api/maps/search
 [Snap to Roads]: /azure/azure-maps/tutorial-snap-to-road
-[Spatial]: /rest/api/maps/spatial
 [Timezone]: /rest/api/maps/timezone
 [Traffic]: /rest/api/maps/traffic
 [Weather]: /rest/api/maps/weather

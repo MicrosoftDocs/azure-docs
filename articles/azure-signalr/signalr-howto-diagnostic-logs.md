@@ -5,7 +5,7 @@ author: wanlwanl
 ms.service: azure-signalr-service
 ms.topic: how-to
 ms.date: 05/15/2023
-ms.author: wanl
+ms.author: jixin
 ---
 
 # Use resource logs to monitor SignalR Service

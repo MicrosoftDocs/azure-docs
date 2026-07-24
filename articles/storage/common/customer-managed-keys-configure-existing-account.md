@@ -11,7 +11,12 @@ ms.date: 11/07/2023
 ms.author: normesta
 ms.reviewer: ozgun
 ms.subservice: storage-common-concepts
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As a cloud storage administrator, I want to configure customer-managed keys for my existing storage account, so that I can enhance control over data encryption and key management using Azure Key Vault.
 ---
 
 # Configure customer-managed keys in the same tenant for an existing storage account
@@ -51,7 +56,7 @@ The system-assigned managed identity must have permissions to access the key in 
 
 #### [Azure portal](#tab/azure-portal)
 
-Before you can configure customer-managed keys with a system-assigned managed identity, you must assign the **Key Vault Crypto Service Encryption User** role to the system-assigned managed identity, scoped to the key vault. This role grants the system-assigned managed identity permissions to access the key in the key vault. For more information on assigning Azure RBAC roles with the Azure portal, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+Before you can configure customer-managed keys with a system-assigned managed identity, you must assign the **Key Vault Crypto Service Encryption User** role to the system-assigned managed identity, scoped to the key vault. This role grants the system-assigned managed identity permissions to access the key in the key vault. For more information on assigning Azure RBAC roles with the Azure portal, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 When you configure customer-managed keys with the Azure portal with a system-assigned managed identity, the system-assigned managed identity is assigned to the storage account for you under the covers.
 

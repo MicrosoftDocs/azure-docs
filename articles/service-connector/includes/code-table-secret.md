@@ -1,14 +1,14 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/24/2023
-ms.author: wchi
+ms.date: 06/17/2026
+ms.reviewer: wchi
 ---
 
 ### [.NET](#tab/dotnet)
 
 1. Install dependencies.
+
     ```bash
     dotnet add package Azure.Data.Tables
     ```
@@ -33,7 +33,8 @@ ms.author: wchi
         <version>12.2.1</version>
     </dependency>
     ```
-1. Get the Azure Table Storage connection string from the environment variable added by service connector.
+
+1. Get the Azure Table Storage connection string from the environment variable added by Service Connector.
 
     ```java
     String connectionStr = System.getenv("AZURE_STORAGETABLE_CONNECTIONSTRING");
@@ -42,28 +43,32 @@ ms.author: wchi
         .buildClient();
     ```
 
-
 ### [Python](#tab/python)
 1. Install dependencies.
+
     ```bash
     pip install azure-data-tables
     ```
+
 1. Get the Azure Table Storage connection string from the environment variable added by Service Connector.
+
     ```python
     from azure.data.tables import TableServiceClient
     import os
     
     conn_str = os.getenv("AZURE_STORAGETABLE_CONNECTIONSTRING")
-    table_service = TableServiceClient.from_connection_string(self.conn_str)
+    table_service = TableServiceClient.from_connection_string(conn_str)
     ```
 
-
-### [NodeJS](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 1. Install dependencies.
+
     ```bash
     npm install @azure/data-tables
     ```
-2. Get the Azure Table Storage connection string from the environment variable added by Service Connector.
+
+1. Get the Azure Table Storage connection string from the environment variable added by Service Connector.
+
     ```javascript
     const { TableClient } = require("@azure/data-tables");
 

@@ -3,7 +3,11 @@ title: Configure network service endpoints
 description: This article provides information on how to add a Microsoft.ServiceBus service endpoint to a virtual network. 
 ms.topic: how-to
 ms.date: 07/31/2024
-ms.custom: fasttrack-edit, devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - fasttrack-edit
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: As a developer or IT Admin, I want to know how to allow access to my Service Bus namespace only from selected networks. 
 ---
 
@@ -96,6 +100,9 @@ This section shows you how to use Azure portal to add a virtual network service 
 
     > [!NOTE]
     > For instructions on allowing access from specific IP addresses or ranges, see [Allow access from specific IP addresses or ranges](service-bus-ip-filtering.md).
+
+    > [!NOTE]
+    > To delete a Virtual Network rule, first remove any Azure Resource Manager delete lock on the Virtual Network.
 
 [!INCLUDE [service-bus-trusted-services](./includes/service-bus-trusted-services.md)]
 

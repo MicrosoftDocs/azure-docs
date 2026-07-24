@@ -8,11 +8,12 @@ editor: jwargo
 
 ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-multiple
-ms.topic: article
+ms.topic: concept-article
 ms.date: 09/23/2019
 ms.author: sethm
 ms.reviewer: thsomasu
 ms.lastreviewed: 09/23/2019
+ms.custom: sfi-image-nochange
 ---
 
 # Notification Hubs security

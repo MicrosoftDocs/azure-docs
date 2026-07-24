@@ -6,9 +6,10 @@ services: cdn
 author: halkazwini
 ms.author: halkazwini
 manager: KumudD
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 02/28/2026
+# Customer intent: "As a CDN administrator, I want to analyze usage patterns through various report options, so that I can monitor performance, troubleshoot issues, and optimize content delivery for my application."
 ---
 
 # Analyze Azure CDN usage patterns

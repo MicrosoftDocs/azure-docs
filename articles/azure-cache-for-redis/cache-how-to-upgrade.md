@@ -1,18 +1,19 @@
 ---
 title: How to upgrade the Redis version of Azure Cache for Redis
 description: Learn how to upgrade the version of Azure Cache for Redis.
-
-
-
-
 ms.topic: how-to
 ms.date: 05/21/2024
 appliesto:
   - ✅ Azure Cache for Redis
-ms.custom: template-how-to, devx-track-azurecli
+ms.custom:
+  - template-how-to
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # How to upgrade the version of your Redis instance
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 New versions of Redis server software are frequently released with new features, more commands, and stability improvements. Maintaining Redis instances using the latest version of Redis is a good way to ensure that you get the best possible Redis experience.
 
@@ -96,7 +97,7 @@ If you're using an outdated Redis client, new commands or Redis features can't b
 
 ### RESP3
 
-Redis version 7.2 enables an updated Redis serialization protocol specification (RESP) called [RESP3](https://redis.io/docs/reference/protocol-spec/). This protocol offers richer data types and performance improvements. Using RESP3 is optional and is negotiated by the Redis client. Because some Redis clients, such as [Go-Redis](https://github.com/redis/go-redis) version 9+ and [Lettuce](https://github.com/lettuce-io/lettuce-core) version 6+, enable RESP3 by default, upgrading the Redis server instance to version 7.2 can produce a response with a different format. To avoid this breaking change, you can [configure these clients to use RESP2](https://docs.redis.com/latest/rs/references/compatibility/resp/) by default instead.
+Redis version 7.2 enables an updated Redis serialization protocol specification (RESP) called [RESP3](https://redis.io/docs/latest/develop/reference/protocol-spec/). This protocol offers richer data types and performance improvements. Using RESP3 is optional and is negotiated by the Redis client. Because some Redis clients, such as [Go-Redis](https://github.com/redis/go-redis) version 9+ and [Lettuce](https://github.com/lettuce-io/lettuce-core) version 6+, enable RESP3 by default, upgrading the Redis server instance to version 7.2 can produce a response with a different format. To avoid this breaking change, you can [configure these clients to use RESP2](https://docs.redis.com/latest/rs/references/compatibility/resp/) by default instead.
 
 ### Breaking changes
 
@@ -121,7 +122,7 @@ For more information on how to export, see [Import and Export data in Azure Cach
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 ### Limitations
 

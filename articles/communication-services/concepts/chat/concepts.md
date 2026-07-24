@@ -5,9 +5,9 @@ description: Learn about Communication Services Chat concepts.
 author: kperla97
 manager: darmour
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 11/07/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: chat
 ---
@@ -40,8 +40,6 @@ Azure Communication Services supports three levels of user access control, using
 ### Chat Data
 
 Azure Communication Services stores chat threads according to the [data retention policy](/purview/create-retention-policies) in effect when the thread is created. You can update the retention policy if needed during the retention time period you set. After you delete a chat thread (by policy or by a Delete API request), it can't be retrieved.
-
-[!INCLUDE [chat-retention-policy.md](../../includes/chat-retention-policy.md)]
 
 You can choose between:
 - Indefinite thread retention.
@@ -77,14 +75,14 @@ There are two core parts to chat architecture: 1) Trusted service and 2) Client 
 
 ## Build intelligent, AI-powered chat experiences
 
-You can use Azure AI services with the Chat service to build use cases like:
+You can use Foundry Tools with the Chat service to build use cases like:
 
 - Help a support agent prioritize tickets by detecting a negative sentiment of an incoming message from a customer.
 - Generate a summary at the end of the conversation to send to customer via email with next steps or follow up at a later date.
 - Add an [Agent](https://www.microsoft.com/en-us/microsoft-copilot/microsoft-copilot-studio/) in an Azure Communication Services Chat channel with an Azure Bot and a [relay bot](/microsoft-copilot-studio/publication-connect-bot-to-azure-bot-service-channels#manage-conversation-sessions-with-your-power-virtual-agents-bot).
 - Configure a bot to run on one or more social channels alongside the Chat channel.
 
-:::image type="content" source="../media/chat/chat-and-open-ai.svg" alt-text="Diagram showing Azure Communication Services can be paired with Azure AI services.":::
+:::image type="content" source="../media/chat/chat-and-open-ai.svg" alt-text="Diagram showing Azure Communication Services can be paired with Foundry Tools.":::
 
 ## Message types
 

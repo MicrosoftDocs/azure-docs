@@ -32,7 +32,7 @@
     },
     {
       "source_path_from_root": "/articles/deployment-environments/concept-environments-reliability-availability.md",
-      "redirect_url": "/azure/reliability/reliability-deployment-environments",
+      "redirect_url": "/azure/deployment-environments/concept-reliability-deployment-environments",
       "redirect_document_id": false
     },
     {
@@ -74,6 +74,16 @@
       "source_path_from_root": "/articles/deployment-environments/ade-roadmap.md",
       "redirect_url": "/azure/deployment-environments/overview-what-is-azure-deployment-environments",
       "redirect_document_id": false
-    }      
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/how-to-configure-deployment-environments-user.md",
+      "redirect_url": "/azure/deployment-environments/how-to-manage-deployment-environments-access",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/deployment-environments/how-to-configure-project-admin.md",
+      "redirect_url": "/azure/deployment-environments/how-to-manage-deployment-environments-access",
+      "redirect_document_id": false
+    }       
   ]
 }

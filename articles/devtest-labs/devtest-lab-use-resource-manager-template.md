@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/18/2025
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a lab user, I want to know how to create, manage, and access ARM templates for creating Azure VMs, so I can use the templates to create more VMs.
 ---
@@ -137,7 +139,7 @@ Lab owners or contributors can add ARM template repositories to their labs so al
    - **Azure Resource Manager template folder path**: The folder path, relative to the Git clone URI, for the ARM template definitions.
    - **Authentication type**: The authentication method to securely access the repository: **Personal access token** or **Managed Identity**.
      - To get a personal access token, select **User settings** at upper right in Azure DevOps and then select **Personal access tokens**.
-     - To use managed identity, add the lab's system-assigned managed identity to the Azure DevOps organization as a user. For more information, see [Add an artifact repo](add-artifact-repository.md?tabs=DevOpsRepoMSI#add-an-artifact-repo).
+     - To use managed identity, add the lab's system-assigned managed identity to the Azure DevOps organization as a user. For more information, see [Add an artifact repo](add-artifact-repository.md).
 1. Select **Save**.
 
 :::image type="content" source="media/devtest-lab-use-arm-template/repo-values.png" alt-text="Screenshot that shows Azure Repos settings for adding a new template repository to a lab.":::

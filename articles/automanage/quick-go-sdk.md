@@ -7,6 +7,7 @@ ms.custom: devx-track-go
 ms.topic: quickstart
 ms.date: 08/24/2022
 ms.author: andrsmith
+# Customer intent: "As a developer using Go, I want to apply best practices configurations to my virtual machines via the SDK, so that I can enhance the management and compliance of my Azure resources efficiently."
 ---
 
 # Quickstart: Enable Azure Automanage for virtual machines using GO
@@ -21,7 +22,7 @@ Azure Automanage allows users to seamlessly apply Azure best practices to their 
 
 ## Prerequisites 
 
-- An active [Azure Subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/)
+- An active [Azure Subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - An existing [Virtual Machine](/azure/virtual-machines/windows/quick-create-portal)
 
 > [!NOTE]

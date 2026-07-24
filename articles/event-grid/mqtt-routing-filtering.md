@@ -1,7 +1,7 @@
 ---
 title: 'Filtering of MQTT Routed Messages'
 description: 'Describes how to filter MQTT Routed Messages.'
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - build-2023
   - ignite-2023

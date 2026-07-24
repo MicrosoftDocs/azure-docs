@@ -2,13 +2,16 @@
 title: Connect to a virtual network using P2S and RADIUS authentication - PowerShell
 titleSuffix: Azure VPN Gateway
 description: Learn how to connect VPN clients securely to a virtual network using P2S and RADIUS authentication.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 12/06/2024
-ms.author: cherylmc 
-ms.custom: devx-track-azurepowershell
+ms.date: 06/09/2026
+ms.author: duau
+ms.custom:
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 
+# Customer intent: As a network administrator, I want to configure point-to-site connections with RADIUS authentication using PowerShell, so that I can securely connect VPN clients to the virtual network.
 ---
 # Configure P2S VPN Gateway server settings - RADIUS authentication
 
@@ -141,7 +144,7 @@ In this step, you configure and create the virtual network gateway for your virt
 * The -GatewayType must be 'Vpn' and the -VpnType must be 'RouteBased'.
 * A VPN gateway can take 45 minutes or more to build, depending on the [Gateway SKU](about-gateway-skus.md) you select.
 
-In the following example, we use the VpnGw2, Generation 2 SKU. If you see ValidateSet errors regarding the GatewaySKU value and are running these commands locally, verify that you have installed the [latest version of the PowerShell cmdlets](/powershell/azure/). The latest version contains the new validated values for the latest Gateway SKUs.
+In the following example, we use the VpnGw2AZ, Generation 2 SKU. If you see ValidateSet errors regarding the GatewaySKU value and are running these commands locally, verify that you have installed the [latest version of the PowerShell cmdlets](/powershell/azure/). The latest version contains the new validated values for the latest Gateway SKUs.
 
 Create the virtual network gateway with the gateway type "Vpn" using [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway).
 

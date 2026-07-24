@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" fill="none">
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#0078d4"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#388e3c"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#f57c00"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="700" height="280" fill="#ffffff"/>
+  
+  <!-- Left: Investigation findings -->
+  <rect x="20" y="90" width="160" height="100" rx="10" fill="#fff4e5" stroke="#f57c00" stroke-width="1.5"/>
+  <text x="100" y="125" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="13" font-weight="600" fill="#e65100">Agent</text>
+  <text x="100" y="145" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#555">investigates</text>
+  <text x="100" y="165" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#555">and recommends</text>
+
+  <!-- Arrow to decision point -->
+  <path d="M 180 140 L 250 140" stroke="#555" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <!-- Center: Decision/Response options -->
+  <text x="350" y="30" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="14" font-weight="600" fill="#333">Response paths</text>
+
+  <!-- Option 1: Direct resource actions -->
+  <rect x="270" y="50" width="160" height="55" rx="8" fill="#e8f5e9" stroke="#388e3c" stroke-width="1.5"/>
+  <text x="350" y="72" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600" fill="#388e3c">Execute fix</text>
+  <text x="350" y="90" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#555">Scale, restart, rollback</text>
+
+  <!-- Option 2: Create work items -->
+  <rect x="270" y="115" width="160" height="55" rx="8" fill="#f3e5f5" stroke="#7b1fa2" stroke-width="1.5"/>
+  <text x="350" y="137" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600" fill="#7b1fa2">Create work item</text>
+  <text x="350" y="155" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#555">ADO, Jira, GitHub</text>
+
+  <!-- Option 3: Send notifications -->
+  <rect x="270" y="180" width="160" height="55" rx="8" fill="#e3f2fd" stroke="#1976d2" stroke-width="1.5"/>
+  <text x="350" y="202" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="12" font-weight="600" fill="#1565c0">Send notification</text>
+  <text x="350" y="220" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#555">Teams, Outlook, Slack</text>
+
+  <!-- Arrows from center to outcomes -->
+  <path d="M 430 77 L 490 77" stroke="#388e3c" stroke-width="1.5" marker-end="url(#arrow-green)"/>
+  <path d="M 430 142 L 490 142" stroke="#7b1fa2" stroke-width="1.5"/>
+  <path d="M 430 207 L 490 207" stroke="#1976d2" stroke-width="1.5"/>
+
+  <!-- Right: Outcomes -->
+  <rect x="500" y="50" width="180" height="55" rx="8" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="590" y="72" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#333">Azure resources</text>
+  <text x="590" y="90" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#777">Container Apps, VMs, AKS</text>
+
+  <rect x="500" y="115" width="180" height="55" rx="8" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="590" y="137" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#333">Tracking systems</text>
+  <text x="590" y="155" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#777">With context + evidence</text>
+
+  <rect x="500" y="180" width="180" height="55" rx="8" fill="#ffffff" stroke="#d0d0d0" stroke-width="1"/>
+  <text x="590" y="202" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="11" fill="#333">Team channels</text>
+  <text x="590" y="220" text-anchor="middle" font-family="Segoe UI, sans-serif" font-size="10" fill="#777">Formatted summary</text>
+
+  <!-- Branching arrows from decision point -->
+  <circle cx="260" cy="140" r="8" fill="#0078d4"/>
+  <path d="M 260 132 L 260 82 L 270 77" stroke="#555" stroke-width="1.5" fill="none"/>
+  <path d="M 260 148 L 260 200 L 270 207" stroke="#555" stroke-width="1.5" fill="none"/>
+
+</svg>

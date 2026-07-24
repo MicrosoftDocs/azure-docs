@@ -33,7 +33,12 @@
         {
             "source_path_from_root": "/articles/partner-solutions/dynatrace/dynatrace-get-support.md",
             "redirect_url": "/azure/partner-solutions/dynatrace/support",
-            "redirect_document_id": true
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/partner-solutions/dynatrace/support.md",
+            "redirect_url": "/azure/partner-solutions/dynatrace/overview",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/partner-solutions/dynatrace/dynatrace-troubleshoot.md",

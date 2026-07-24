@@ -12,6 +12,7 @@ ms.author: normesta
 ms.reviewer: ozgun
 ms.devlang: csharp
 ms.custom: devx-track-csharp
+# Customer intent: As a software developer integrating storage solutions, I want to implement client-side encryption for blob data using the latest SDK features and Azure Key Vault, so that I can securely manage sensitive information and mitigate security vulnerabilities associated with previous encryption versions.
 ---
 
 # Client-side encryption for blobs
@@ -71,7 +72,7 @@ If your application is using client-side encryption with an earlier version of t
 
 The Azure Blob Storage client libraries use envelope encryption to encrypt and decrypt your data on the client side. Envelope encryption encrypts a key with one or more additional keys.
 
-The Blob Storage client libraries rely on Azure Key Vault to protect the keys that are used for client-side encryption. For more information about Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview).
+The Blob Storage client libraries rely on Azure Key Vault to protect the keys that are used for client-side encryption. For more information about Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview)
 
 ### Encryption and decryption via the envelope technique
 
@@ -125,7 +126,7 @@ Two additional packages are required for Azure Key Vault integration for client-
 - The **Azure.Core** package provides the `IKeyEncryptionKey` and `IKeyEncryptionKeyResolver` interfaces. The Blob Storage client library for .NET already defines this assembly as a dependency.
 - The **Azure.Security.KeyVault.Keys** package (version 4.x and later) provides the Key Vault REST client and the cryptographic clients that are used with client-side encryption. Make sure that this package is referenced in your project if you're using Azure Key Vault as your key store.
 
-    Azure Key Vault is designed for high-value master keys, and throttling limits per key vault reflect this design. As of version 4.1.0 of Azure.Security.KeyVault.Keys, the `IKeyEncryptionKeyResolver` interface doesn't support key caching. Should caching be necessary due to throttling, you can use the approach demonstrated in [this sample](/samples/azure/azure-sdk-for-net/azure-key-vault-proxy/) to inject a caching layer into an `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` instance.
+    Azure Key Vault is designed for high-value master keys, and throttling limits per key vault reflect this design. As of version 4.1.0 of Azure.Security.KeyVault.Keys, the `IKeyEncryptionKeyResolver` interface doesn't support key caching. Should caching be necessary due to throttling, you can use the approach demonstrated in [this sample](https://github.com/Azure/azure-sdk-for-net/tree/main/samples/keyvault/keyvaultproxy) to inject a caching layer into an `Azure.Security.KeyVault.Keys.Cryptography.KeyResolver` instance.
 
 Developers can provide a key, a key resolver, or both a key and a key resolver. Keys are identified using a key identifier that provides the logic for wrapping and unwrapping the CEK. A key resolver is used to resolve a key during the decryption process. The key resolver defines a resolve method that returns a key given a key identifier. The resolver provides users the ability to choose between multiple keys that are managed in multiple locations.
 

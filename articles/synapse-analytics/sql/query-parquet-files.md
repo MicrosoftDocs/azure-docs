@@ -13,6 +13,8 @@ ms.author: stefanazaric
 
 # Query Parquet files using serverless SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you'll learn how to write a query using serverless SQL pool that will read Parquet files.
 
 ## Quickstart example

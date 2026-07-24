@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.subService: ip-services
 ms.topic: overview
 ms.custom: template-overview
+# Customer intent: "As a network engineer, I want to understand Azure Virtual Network IP Services so that I can effectively manage communication between resources using public and private IP addresses in a secure and efficient manner."
 ---
 
 # What is Azure Virtual Network IP Services?
@@ -102,7 +103,7 @@ Routing preference choices include:
 
 * **Public Internet (ISP network)** - The new routing choice Internet routing minimizes travel on the Microsoft global network, and uses the transit ISP network to route your traffic. This routing is also known as *hot potato* routing.
 
-For more information about routing preference, see [What is routing preference?](./routing-preference-overview.md).
+For more information about routing preference, see [What is routing preference?](./routing-preference-overview.md)
 
 ## Routing preference unmetered
 

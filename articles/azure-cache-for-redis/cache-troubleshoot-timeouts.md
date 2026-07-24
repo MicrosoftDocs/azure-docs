@@ -1,18 +1,16 @@
 ---
 title: Troubleshoot latency and timeouts
 description: Troubleshoot common Azure Cache for Redis latency and timeout issues, such as high CPU loads, memory pressure, and network bandwidth limitations.
-
-
-
 ms.topic: troubleshooting
 ms.custom: devx-track-csharp
 ms.date: 04/10/2025
 appliesto:
   - ✅ Azure Cache for Redis
-
 ---
 
 # Troubleshoot Azure Cache for Redis latency and timeouts
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
 
 An Azure Cache for Redis client operation that doesn't receive a timely response can cause high latency or a timeout exception. This article explains how to troubleshoot common issues that can lead to high latency and timeouts.
 
@@ -113,10 +111,6 @@ In the following example, `retryTimeoutInMilliseconds` is set to `3000`.
     retryTimeoutInMilliseconds="3000"
 >
 ```
-
-For more information, see:
-- [ASP.NET Session State Provider for Azure Cache for Redis](/azure/redis/aspnet-session-state-provider)
-- [ASP.NET Output Cache Provider for Azure Cache for Redis](/azure/redis/aspnet-output-cache-provider)
 
 ### TCP settings for Linux based client applications
 

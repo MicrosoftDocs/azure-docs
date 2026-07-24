@@ -7,7 +7,9 @@
  ms.topic: include
  ms.date: 12/20/2022
  ms.author: sonialopez
- ms.custom: include file
+ ms.custom:
+   - include file
+   - sfi-image-nochange
 ---
 <!-- put the ## header in the file that includes this file -->
 

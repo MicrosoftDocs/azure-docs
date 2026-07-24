@@ -15,7 +15,10 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Enterprise push architectural guidance
@@ -228,7 +231,7 @@ The full sample code is available at [Notification Hub Samples]. It is split int
 
     g. Configure the job to be "Run Continuously" so that when you log in to the [Azure portal] you should see something like the following:
 
-    ![Screenshot of the Azure Portal with the enterprise push backend webjobs displayed and the Name, Schedule, and Logs values outlined in red.][4]
+    ![Screenshot of the Azure portal with the enterprise push backend webjobs displayed and the Name, Schedule, and Logs values outlined in red.][4]
 
 3. **EnterprisePushMobileApp**
 

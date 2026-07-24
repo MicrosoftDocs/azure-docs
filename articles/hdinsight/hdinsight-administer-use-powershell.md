@@ -2,7 +2,7 @@
 title: Manage Apache Hadoop clusters with PowerShell - Azure HDInsight
 description: Learn how to perform administrative tasks for the Apache Hadoop clusters in Azure HDInsight by using Azure PowerShell.
 ms.service: azure-hdinsight
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurepowershell
 author: hareshg
 ms.author: hgowrisankar
@@ -16,7 +16,7 @@ ms.date: 10/17/2024
 
 You can use Azure PowerShell to control and automate the deployment and management of your workloads in Azure. In this article, you learn how to manage [Apache Hadoop](https://hadoop.apache.org/) clusters in Azure HDInsight by using the Az PowerShell module. For the list of the HDInsight PowerShell cmdlets, see the [Az.HDInsight reference](/powershell/module/az.hdinsight).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

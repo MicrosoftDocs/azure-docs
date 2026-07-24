@@ -8,15 +8,17 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 12/06/2024
 ms.topic: include
-ms.custom: Include file
 ms.author: dbasantes
+ms.custom:
+  - Include file
+  - sfi-ropc-blocked
 ---
 
 Get started with Azure Communication Services SMS Opt-out API by applying the following C# sample code.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The .NET Core SDK version must be higher than v6 for your operating system.
 - An active Communication Services resource and connection string. See [Create a Communication Services resource](../../create-communication-resource.md).
 - An SMS-enabled telephone number. See [Get a phone number](../../telephony/get-phone-number.md).

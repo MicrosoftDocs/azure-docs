@@ -1,15 +1,16 @@
 ---
 title: Overview of remediating anonymous read access for blob data
 titleSuffix: Azure Storage
-description: Learn how to remediate anonymous read access to blob data for both Azure Resource Manager and classic storage accounts.
-author: akashdubey-ms
-ms.author: akashdubey
+description: Learn how to remediate anonymous read access to blob data for both Azure Resource Manager.
+author: normesta
+ms.author: normesta
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 03/04/2025
 
 ms.reviewer: nachakra
 ms.custom: devx-track-arm-template
+# Customer intent: "As a cloud administrator, I want to configure blob storage settings to disable anonymous read access, so that I can enhance the security of my data and mitigate potential risks associated with unauthorized access."
 ---
 
 # Overview: Remediating anonymous read access for blob data

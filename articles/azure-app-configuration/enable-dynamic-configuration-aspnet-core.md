@@ -6,14 +6,14 @@ author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 12/10/2024
+ms.date: 11/21/2025
 ms.author: zhenlwa
 ms.custom: devx-track-csharp
 ---
 
 # Tutorial: Use dynamic configuration in an ASP.NET Core app
 
-This tutorial shows how you can enable dynamic configuration updates in an ASP.NET Core app. It builds on the web app introduced in the quickstarts. Your app will leverage the App Configuration provider library for its built-in configuration caching and refreshing capabilities. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
+This tutorial shows how you can enable dynamic configuration updates in an ASP.NET Core app. It builds on the web app introduced in the quickstart. Your app will leverage the App Configuration provider library for its built-in configuration caching and refreshing capabilities. Before you continue, finish [Create an ASP.NET Core app with App Configuration](./quickstart-aspnet-core-app.md) first.
 
 In this tutorial, you learn how to:
 
@@ -159,17 +159,17 @@ Logs are output upon configuration refresh and contain detailed information on k
         }
     }
     ```
-- The logging category is `Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh`, which appears before each log. Here are some example logs at each log level:
+- The logging category is `Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh`, which appears before each log. Here are some example logs at each log level. Note that _`<AppConfigurationStoreName>`_ and _`<KeyVaultName>`_ are placeholders for your App Configuration store name and Key Vault name.
     ```console
     dbug: Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh[0]
-        Key-value read from App Configuration. Change:'Modified' Key:'ExampleKey' Label:'ExampleLabel' Endpoint:'https://examplestore.azconfig.io'
+        Key-value read from App Configuration. Change:'Modified' Key:'ExampleKey' Label:'ExampleLabel' Endpoint:'https://<AppConfigurationStoreName>.azconfig.io'
 
     info: Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh[0]
         Setting updated. Key:'ExampleKey'
 
     warn: Microsoft.Extensions.Configuration.AzureAppConfiguration.Refresh[0]
         A refresh operation failed while resolving a Key Vault reference.
-    Key vault error. ErrorCode:'SecretNotFound' Key:'ExampleKey' Label:'ExampleLabel' Etag:'6LaqgBQM9C_Do2XyZa2gAIfj_ArpT52-xWwDSLb2hDo' SecretIdentifier:'https://examplevault.vault.azure.net/secrets/ExampleSecret'
+    Key vault error. ErrorCode:'SecretNotFound' Key:'ExampleKey' Label:'ExampleLabel' Etag:'6LaqgBQM9C_Do2XyZa2gAIfj_ArpT52-xWwDSLb2hDo' SecretIdentifier:'https://<KeyVaultName>.vault.azure.net/secrets/ExampleSecret'
     ```
 
 Using `ILogger` is the preferred method in ASP.NET applications and is prioritized as the logging source if an instance of `ILoggerFactory` is present. However, if `ILoggerFactory` is not available, logs can alternatively be enabled and configured through the [instructions for .NET Core apps](./enable-dynamic-configuration-dotnet-core.md#logging-and-monitoring). For more information, see [logging in .NET Core and ASP.NET Core](/aspnet/core/fundamentals/logging).

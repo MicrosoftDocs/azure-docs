@@ -1,16 +1,21 @@
 ---
-title: Set up a scale-out process server during disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs'
+title: "Set up a scale-out process server during disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs"
+ms.reviewer: v-gajeronika
 description: This article describes how to set up scale-out process server during disaster recovery of VMware VMs and physical servers.
-author: ankitaduttaMSFT
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.author: ankitadutta
-ms.date: 09/11/2024
+ms.author: v-gajeronika
+ms.date: 12/08/2025
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
+# Customer intent: As a system administrator, I want to deploy additional process servers for disaster recovery of VMware VMs and physical servers, so that I can enhance the capacity and manage the data transfer efficiently during replication to Azure.
 ---
 
 # Scale with extra process servers
 
-By default, when you're replicating VMware VMs or physical servers to Azure using [Site Recovery](site-recovery-overview.md), a process server is installed on the configuration server machine, and is used to coordinate data transfer between Site Recovery and your on-premises infrastructure. To increase capacity and scale out your replication deployment, you can add an extra standalone process servers. This article describes how to set up a scale-out process server.
+By default, when you're replicating VMware VMs or physical servers to Azure using [Site Recovery](site-recovery-overview.md), a process server is installed on the configuration server machine, and is used to coordinate data transfer between Site Recovery and your on-premises infrastructure. To increase capacity and scale out your replication deployment, you can add an extra standalone process server. This article describes how to set up a scale-out process server.
 
 ## Before you start
 
@@ -21,7 +26,7 @@ Ensure to perform [capacity planning](site-recovery-plan-capacity-vmware.md) for
 From 9.24 version, guidance is added during selection of process server for new replications. Process server is marked *Healthy*, *Warning*, and *Critical* based on certain criteria. To understand different scenarios that can influence state of process server, review the [process server alerts](vmware-physical-azure-monitor-process-server.md#process-server-alerts).
 
 > [!NOTE]
-> Use of a cloned Process Server component is not supported. Follow the steps in this article for each PS scale-out.
+> Use of a cloned Process Server component isn't supported. Follow the steps in this article for each PS scale-out.
 
 ### Sizing requirements 
 
@@ -33,7 +38,7 @@ Verify the sizing requirements summarized in the table. In general, if you have 
 |8 vCPUs (2 sockets * 4 cores \@ 2.5 GHz), 12-GB memory |600 GB |250 GB to 1 TB |Replicate between 85-150 machines. |
 |12 vCPUs (2 sockets * 6 cores \@ 2.5 GHz) 24-GB memory |1 TB |1 TB to 2 TB |Replicate between 150-225 machines. |
 
-Where each protected source machine is configured with 3 disks of 100 GB each.
+Where each protected source machine is configured with three disks of 100 GB each.
 
 ### Prerequisites
 
@@ -50,7 +55,7 @@ Download the installation file for the process server as follows:
 3. Select the configuration server to drill down into the server details. Then click **+ Process Server**.
 4. In **Add Process server** >  **Choose where you want to deploy your process server**, select **Deploy a Scale-out Process Server on-premises**.
 
-   ![Add Servers Page](./media/vmware-azure-set-up-process-server-scale/add-process-server.png)
+   :::image type="content" source="./media/vmware-azure-set-up-process-server-scale/add-process-server.png" alt-text="Screenshot of Add Servers Page.":::
 1. Click **Download the Microsoft Azure Site Recovery Unified Setup**. This downloads the latest version of the installation file.
 
    > [!WARNING]
@@ -96,4 +101,5 @@ If you need to set up a proxy, the ProxySettingsFilePath parameter takes a file 
 ```
 
 ## Next steps
+
 Learn about [managing process server settings](vmware-azure-manage-process-server.md)

@@ -4,11 +4,12 @@ titleSuffix: Azure Virtual Network
 description: In this article, learn how to upgrade a classic deployment model reserved IP to an Azure Resource Manager public IP address.
 author: mbender-ms
 ms.author: mbender
-ms.date: 01/08/2025
+ms.date: 11/20/2025
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, devx-track-azurepowershell, devx-track-arm-template
+# Customer intent: "As a cloud administrator, I want to migrate a classic reserved IP address to an Azure Resource Manager public IP address, so that I can leverage the enhanced capabilities and management features available in the newer deployment model."
 ---
 
 # Migrate a classic reserved IP address to a public IP address
@@ -19,10 +20,10 @@ In this article, you learn how to upgrade a classic reserved IP to a basic publi
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Your Azure subscription registered for migration. For more information, see [Migrate to Resource Manager with PowerShell](/azure/virtual-machines/migration-classic-resource-manager-ps).
 - A classic deployment model reserved IP address.
-- Azure PowerShell Service Management module installed for PowerShell. For more information, see [Installing the Azure PowerShell Service Management module](/powershell/azure/servicemanagement/install-azure-ps).
+- Azure PowerShell Service Management module installed for PowerShell. For more information, see [Installing the Azure PowerShell Service Management module](https://www.powershellgallery.com/packages/Azure/).
 - Azure classic CLI installed for Azure CLI instructions. For more information, see [Install the Azure classic CLI](/cli/azure/install-classic-cli).
 
 ## Azure PowerShell Service Management module

@@ -8,7 +8,7 @@ ms.author: weetok
 ms.subservice: orchestration
 ms.custom: FY25Q1-Linter, synapse
 ms.topic: concept-article
-ms.date: 02/13/2025
+ms.date: 06/17/2026
 ---
 
 # Pipelines and activities in Azure Data Factory and Azure Synapse Analytics
@@ -32,7 +32,7 @@ Azure Data Factory and Azure Synapse Analytics have three groupings of activitie
 An input dataset represents the input for an activity in the pipeline, and an output dataset represents the output for the activity. Datasets identify data within different data stores, such as tables, files, folders, and documents. After you create a dataset, you can use it with activities in a pipeline. For example, a dataset can be an input/output dataset of a Copy Activity or an HDInsightHive Activity. For more information about datasets, see [Datasets in Azure Data Factory](concepts-datasets-linked-services.md) article.
 
 > [!NOTE]
-> There's a default soft limit of maximum 80 activities per pipeline, which includes inner activities for containers.
+> There's a default soft limit of maximum 120 activities per pipeline, which includes inner activities for containers.
 
 ## Data movement activities
 
@@ -59,9 +59,7 @@ Data transformation activity | Compute environment
 [MapReduce](transform-data-using-hadoop-map-reduce.md) | HDInsight [Hadoop]
 [Hadoop Streaming](transform-data-using-hadoop-streaming.md) | HDInsight [Hadoop]
 [Spark](transform-data-using-spark.md) | HDInsight [Hadoop]
-[ML Studio (classic) activities: Batch Execution and Update Resource](transform-data-using-machine-learning.md) | Azure VM
 [Stored Procedure](transform-data-using-stored-procedure.md) | Azure SQL, Azure Synapse Analytics, or SQL Server
-[U-SQL](transform-data-using-data-lake-analytics.md) | Azure Data Lake Analytics
 [Custom Activity](transform-data-using-dotnet-custom-activity.md) | Azure Batch
 [Databricks Notebook](transform-data-databricks-notebook.md) | Azure Databricks
 [Databricks Jar Activity](transform-data-databricks-jar.md) | Azure Databricks
@@ -144,7 +142,7 @@ Here's how a pipeline is defined in JSON format:
 
 Tag | Description | Type | Required
 --- | ----------- | ---- | --------
-name | Name of the pipeline. Specify a name that represents the action that the pipeline performs. <br/><ul><li>Maximum number of characters: 140</li><li>Must start with a letter, number, or an underscore (\_)</li><li>Following characters aren't allowed: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" </li></ul> | String | Yes
+name | Name of the pipeline. Specify a name that represents the action that the pipeline performs. <br /><ul><li>Maximum number of characters: 140</li><li>Must start with a letter, number, or an underscore (\_)</li><li>Following characters aren't allowed: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" </li></ul> | String | Yes
 description | Specify the text describing what the pipeline is used for. | String | No
 activities | The **activities** section can have one or more activities defined within it. See the [Activity JSON](#activity-json) section for details about the activities JSON element. | Array | Yes
 parameters | The **parameters** section can have one or more parameters defined within the pipeline, making your pipeline flexible for reuse. | List | No
@@ -181,10 +179,10 @@ Following table describes properties in the activity JSON definition:
 
 Tag | Description | Required
 --- | ----------- | ---------
-name | Name of the activity. Specify a name that represents the action that the activity performs. <br/><ul><li>Maximum number of characters: 55</li><li>Must start with a letter-number, or an underscore (\_)</li><li>Following characters aren't allowed: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" | Yes</li></ul>
+name | Name of the activity. Specify a name that represents the action that the activity performs. <br /><ul><li>Maximum number of characters: 55</li><li>Must start with a letter-number, or an underscore (\_)</li><li>Following characters aren't allowed: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" | Yes</li></ul>
 description | Text describing what the activity or is used for | Yes
 type | Type of the activity. See the [Data Movement Activities](#data-movement-activities), [Data Transformation Activities](#data-transformation-activities), and [Control Activities](#control-flow-activities) sections for different types of activities. | Yes
-linkedServiceName | Name of the linked service used by the activity.<br/><br/>An activity might require that you specify the linked service that links to the required compute environment. | Yes for HDInsight Activity, ML Studio (classic) Batch Scoring Activity, Stored Procedure Activity. <br/><br/>No for all others
+linkedServiceName | Name of the linked service used by the activity.<br /><br />An activity might require that you specify the linked service that links to the required compute environment. | Yes for HDInsight Activity, ML Studio (classic) Batch Scoring Activity, Stored Procedure Activity. <br /><br />No for all others
 typeProperties | Properties in the typeProperties section depend on each type of activity. To see type properties for an activity, select links to the activity in the previous section. | No
 policy | Policies that affect the run-time behavior of the activity. This property includes a time-out and retry behavior. If it isn't specified, default values are used. For more information, see [Activity policy](#activity-policy) section. | No
 dependsOn | This property is used to define activity dependencies, and how subsequent activities depend on previous activities. For more information, see [Activity dependency](#activity-dependency) | No
@@ -248,7 +246,7 @@ Control activities have the following top-level structure:
 
 Tag | Description | Required
 --- | ----------- | --------
-name | Name of the activity. Specify a name that represents the action that the activity performs.<br/><ul><li>Maximum number of characters: 55</li><li>Must start with a letter number, or an underscore (\_)</li><li>Following characters aren't allowed: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" | Yes</li><ul>
+name | Name of the activity. Specify a name that represents the action that the activity performs.<br /><ul><li>Maximum number of characters: 55</li><li>Must start with a letter number, or an underscore (\_)</li><li>Following characters aren't allowed: “.”, "+", "?", "/", "<",">","*"," %"," &",":"," \" | Yes</li><ul>
 description | Text describing what the activity or is used for | Yes
 type | Type of the activity. See the [data movement activities](#data-movement-activities), [data transformation activities](#data-transformation-activities), and [control activities](#control-flow-activities) sections for different types of activities. | Yes
 typeProperties | Properties in the typeProperties section depend on each type of activity. To see type properties for an activity, select links to the activity in the previous section. | No

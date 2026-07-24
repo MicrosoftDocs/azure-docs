@@ -1,14 +1,17 @@
 ---
-title: Batch process messages as a group
-description: Send and receive messages in groups between your workflows by using batch processing in Azure Logic Apps.
-services: logic-apps
+title: Batch Process Messages in Groups
+description: Exchange messages between workflows in groups with batch processing in Azure Logic Apps.
+services: azure-logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 02/05/2025
+ms.update-cycle: 1095-days
+ms.date: 07/21/2026
+ms.custom: sfi-image-nochange
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to exchange groups of messages between workflows by setting up batch processing.
 ---
 
-# Send, receive, and batch process messages in Azure Logic Apps
+# Batch process and exchange messages in groups between workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
@@ -16,9 +19,9 @@ To send and process messages together in a specific way as groups, you can creat
 
 This how-to guide shows how to build a batching solution by creating two logic apps within the same Azure subscription, Azure region, and in this order:
 
-1. The ["batch receiver"](#batch-receiver) logic app, which accepts and collects messages into a batch until your specified criteria is met for releasing and processing those messages. Make sure that you first create this batch receiver so that you can later select the batch destination when you create the batch sender.
+1. The ["batch receiver"](#create-batch-receiver) logic app, which accepts and collects messages into a batch until your specified criteria is met for releasing and processing those messages. Create this batch receiver first so that you can later select the batch destination when you create the batch sender.
 
-1. One or more ["batch sender"](#batch-sender) logic apps, which send the messages to the previously created batch receiver.
+1. One or more ["batch sender"](#create-batch-sender) logic apps, which send the messages to the previously created batch receiver.
 
    The batch sender can specify a unique key that *partitions* or divides the target batch into logical subsets, based on that key. For example, a customer number is a unique key. That way, the receiver app can collect all items with the same key and process them together.
 
@@ -26,9 +29,9 @@ Your batch receiver and batch sender need to share the same Azure subscription *
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-* An email account with any [email provider supported by Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors)
+- An email account with any [email provider supported by Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
   > [!IMPORTANT]
   >
@@ -37,17 +40,15 @@ Your batch receiver and batch sender need to share the same Azure subscription *
   > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
   > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* Basic knowledge about [logic app workflows](logic-apps-overview.md)
+- Basic knowledge about [logic app workflows](logic-apps-overview.md).
 
-* To use Visual Studio Code rather than the Azure portal, make sure that you [set up Visual Studio Code for working with Azure Logic Apps](/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code).
+- To use Visual Studio Code rather than the Azure portal, make sure that you [set up Visual Studio Code for working with Azure Logic Apps](/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code).
 
 ## Limitations
 
-* You can only check the contents in a batch after release by comparing the released contents with the source.
+- You can only check the contents in a batch after release by comparing the released contents with the source.
 
-* You can release a batch early only by changing the release criteria in the batch receiver, which is described in this guide, while the trigger still has the batch. However, the trigger uses the updated release criteria for any unsent messages.
-
-<a name="batch-receiver"></a>
+- You can only release a batch early by changing the release criteria in the batch receiver while the trigger still has the batch (as described in this guide). The trigger then uses the updated release criteria for any unsent messages.
 
 ## Create batch receiver
 
@@ -63,58 +64,57 @@ Before you can send messages to a batch, that batch must first exist as the dest
 
    | Property | Description |
    |----------|-------------|
-   | **Mode** <br>(Consumption workflows only) | - **Inline**: For defining release criteria inside the batch trigger <br><br>- **Integration Account**: For defining multiple release criteria configurations through an integration account. With an integration account, you can maintain these configurations all in one place rather than in separate logic app resources. |
-   | **Batch Name** | The name for your batch. In Consumption workflows, this property appears only when **Mode** is set to **Inline**. This example uses **TestBatch**. |
-   | **Release Criteria** | The criteria to meet before processing each batch. By default, the batch trigger operates using "inline mode" where you define the batch release criteria inside the batch trigger. <br><br>- **Message count based**: Release the batch based on the number of messages collected by the batch. <br><br>- **Size based**: Release the batch based on the total size in bytes for all messages collected by that batch. <br><br>- **Schedule based**: Release the batch based on a recurrence schedule, which specifies an interval and frequency. You can optionally select a time zone and provide a start date and time. <br><br>To use all the specified criteria, select all the options. |
-   | **Message Count** | The number of messages to collect in the batch, for example, 10 messages. The batch message limit is 8,000 messages. |
-   | **Batch Size** | The total byte size for messages to collect in the batch, for example, 10 MB or 10,485,760 bytes. The batch size limit is 80 MB. |
+   | **mode** <br>(Consumption workflows only) | - **Inline**: Use this mode to define release criteria inside the batch trigger. <br><br>- **Integration account**: Use this mode to define multiple release criteria configurations through an integration account. By using an integration account, you can maintain these configurations all in one place rather than in separate logic app resources. |
+   | **Batch name** | The name for your batch. In Consumption workflows, this property appears only when you set **mode** to **Inline**. This example uses *TestBatch*. |
+   | **Release criteria** | The criteria to meet before processing each batch. By default, the batch trigger operates using "inline mode" where you define the batch release criteria inside the batch trigger. <br><br>- **Message count based**: Release the batch based on the number of messages collected by the batch. <br><br>- **Size based**: Release the batch based on the total size in bytes for all messages collected by that batch. <br><br>- **Schedule based**: Release the batch based on a recurrence schedule, which specifies an interval and frequency. You can optionally select a time zone and provide a start date and time. <br><br>To use all the specified criteria, select all the options. |
+   | **Message count** | The number of messages to collect in the batch, for example, 10 messages. The batch message limit is 8,000 messages. |
+   | **Batch size** | The total byte size for messages to collect in the batch, for example, 10 MB or 10,485,760 bytes. The batch size limit is 80 MB. |
    | **Recurrence** | The interval and frequency between batch releases, for example, 10 minutes. The minimum recurrence is 60 seconds or 1 minute. Fractional minutes are effectively rounded up to 1 minute. Optionally, you can select a time zone and provide a start date and time. |
 
    > [!NOTE]
    >
-   > If you change the release criteria while the trigger still has batched but unsent messages, 
-   > the trigger uses the updated release criteria for handling the unsent messages.
+   > If you change the release criteria while the batch trigger contains batched and unsent messages, the trigger uses the updated release criteria for handling the unsent messages.
 
    This example shows all the criteria, but for your own testing, try just one criterion:
 
-   :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png" alt-text="Screenshot shows all criteria for Batch Trigger.":::
+   :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png" alt-text="Screenshot that shows all criteria for the batch trigger." lightbox="media/logic-apps-batch-process-send-receive-messages/batch-receiver-criteria.png":::
 
 1. Now add one or more actions that process each batch.
 
    For this example, add an action that sends an email when the batch trigger fires. The trigger runs and sends an email when the batch either has 10 messages, reaches 10 MB, or after 10 minutes pass.
 
-   1. Under the batch trigger, select the plus (**+**) sign > **Add an action**.
+   1. Under the batch trigger, select the plus (**+**) sign to **Add an action**.
 
    1. [Follow these general steps to add an action that sends an email](create-workflow-with-trigger-or-action.md#add-action), based on your email provider.
 
-      For example, if you have a work or school account, such as @fabrikam.com or @fabrikam.onmicrosoft.com, select the **Microsoft 365 Outlook** connector. If you have a personal account, such as @outlook.com or @hotmail.com, select the **Outlook.com** connector. This example uses the Microsoft 365 Outlook connector.
+      For example, if you have a work or school account, such as @contoso.com or @contoso.onmicrosoft.com, select the **Microsoft 365 Outlook** connector. If you have a personal account, such as @outlook.com or @hotmail.com, select the **Outlook.com** connector. This example uses the Microsoft 365 Outlook connector.
 
 1. If prompted, sign in to your email account.
 
 1. Set the following action properties:
 
-   * In the **To** box, enter the recipient's email address. For testing purposes, you can use your own email address.
+   - In the **To** box, enter the recipient's email address. For testing purposes, you can use your own email address.
 
-   * Select inside the **Subject** box to view the options for the dynamic content list (lightning icon) and expression editor (function icon). Select the lightning icon to open the dynamic content list, and select the field named **Partition Name**.
+   - Select inside the **Subject** box to view the options for the dynamic content list (lightning icon) and expression editor (function icon). Select the lightning icon to open the dynamic content list, and select the field named **Partition Name**.
 
-     :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png" alt-text="Screenshot shows dynamic content list and selected field for Partition Name property.":::
+     :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png" alt-text="Screenshot that shows the dynamic content list and selected field for the Partition Name property." lightbox="media/logic-apps-batch-process-send-receive-messages/send-email-action-details.png":::
 
-     Later, in the batch sender, you can specify a unique partition key that divides the target batch into logical subsets where you can send messages. Each set has a unique number that's generated by the batch sender logic app workflow. This capability lets you use a single batch with multiple subsets and define each subset with the name that you provide.
+     Later, in the batch sender, you can specify a unique partition key that divides the target batch into logical subsets where you can send messages. Each set has a unique number that the batch sender logic app workflow generates. This capability lets you use a single batch with multiple subsets and define each subset with the name that you provide.
 
      > [!IMPORTANT]
      >
      > A partition has a limit of 5,000 messages or 80 MB. If either condition is met, Azure Logic Apps 
      > might release the batch, even when your defined release condition isn't met.
 
-   * Select inside the **Body** box, select the lightning icon to open the dynamic content list, and select the **Message Message Id** field.
+   - Select inside the **Body** box, select the lightning icon to open the dynamic content list, and select the **Message Message Id** field.
 
      The workflow designer automatically adds a **For each** loop around the send email action because that action treats the output from the previous action as a collection, rather than a batch.
 
      The following example shows the information pane after you select the **For each** title box on the designer where **Batched Items** is the collection name:
 
-     :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png" alt-text="Screenshot shows Batched Items collection with previous operation outputs.":::
+     :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png" alt-text="Screenshot that shows the For each information pane with the Batched Items collection in the Select an output from previous steps field." lightbox="media/logic-apps-batch-process-send-receive-messages/send-email-action-details-for-each.png":::
 
-1. Save your workflow. You've now created a batch receiver.
+1. Save your workflow. You created your batch receiver.
 
    > [!IMPORTANT]
    >
@@ -122,15 +122,13 @@ Before you can send messages to a batch, that batch must first exist as the dest
    > [*deploy* your batch receiver logic app resource to Azure](/azure/logic-apps/quickstart-create-logic-apps-visual-studio-code). 
    > Otherwise, you can't select the batch receiver logic app workflow when you create the batch sender logic app workflow.
 
-<a name="batch-sender"></a>
-
 ## Create batch sender
 
 Now create one or more batch sender logic app workflows that send messages to the batch receiver logic app workflow. In each batch sender, you specify the batch receiver and batch name, message content, and any other settings. You can optionally provide a unique partition key to divide the batch into logical subsets for collecting messages with that key.
 
-* Make sure that you previously [created and deployed your batch receiver](#batch-receiver) so when you create your batch sender, you can select the existing batch receiver as the destination batch. While batch receivers don't need to know anything about batch senders, batch senders must know where to send messages.
+- Make sure that you previously [created and deployed your batch receiver](#create-batch-receiver) so when you create your batch sender, you can select the existing batch receiver as the destination batch. While batch receivers don't need to know anything about batch senders, batch senders must know where to send messages.
 
-* Make sure that your batch receiver and batch sender share the same Azure region *and* Azure subscription. If they don't, you can't select the batch receiver when you create the batch sender because they're not visible to each other.
+- Make sure that your batch receiver and batch sender both share the same Azure region *and* Azure subscription. If they don't, you can't select the batch receiver when you create the batch sender because they're not visible to each other.
 
 1. Create another logic app resource and workflow named **BatchSender**.
 
@@ -145,7 +143,7 @@ Now create one or more batch sender logic app workflows that send messages to th
 
 1. Add a new action for sending messages to a batch.
 
-   1. Under the **Recurrence** trigger, select the plus (**+**) sign > **Add new action**.
+   1. Under the **Recurrence** trigger, select the plus (**+**) sign to **Add an action**.
 
    1. [Follow these general steps to add a **Batch Operations** action named **Send to batch trigger workflow** (Consumption workflow) or **Send to batch** (Standard workflow)](create-workflow-with-trigger-or-action.md#add-action).
 
@@ -157,7 +155,7 @@ Now create one or more batch sender logic app workflows that send messages to th
 
       1. From the logic apps list, select the previously created logic app to use as the batch receiver. When the available triggers appear, select the trigger named **Batch_messages**.
 
-         :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch-receiver-consumption.png" alt-text="Screenshot shows Consumption workflow with Recurrence trigger and batch sender action that selects a batch receiver logic app resource and trigger.":::
+         :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch-receiver-consumption.png" alt-text="Screenshot that shows the Consumption workflow with the Recurrence trigger. The batch sender action 'Send to batch trigger workflow' is shown with Batch_messages selected as the batch receiver logic app resource and trigger." lightbox="media/logic-apps-batch-process-send-receive-messages/batch-sender-select-batch-receiver-consumption.png":::
 
          > [!IMPORTANT]
          >
@@ -169,19 +167,19 @@ Now create one or more batch sender logic app workflows that send messages to th
 
       **Standard workflow**
 
-      After you add the **Send to batch** action, the action pane shows the following properties in the next step for you to specify the batch name, message content, workflow name, and trigger name. You can specify information only for a batch receiver logic app workflow with a batch trigger that exists in the same Azure subscription *and* Azure region as your batch sender logic app.
+      After you add the **Send to batch** action, the action pane shows the batch receiver action properties that are listed in the following step. In this action pane, you specify the batch name, message content, workflow name, and trigger name. The batch receiver logic app workflow can only accept a batch trigger that exists in the same Azure subscription *and* Azure region as your batch sender logic app.
 
-      :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/batch-sender-standard.png" alt-text="Screenshot shows Standard workflow with Recurrence trigger and action named Send to batch.":::
+      :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/batch-sender-standard.png" alt-text="Screenshot shows the Standard workflow with the Recurrence trigger. The Send to batch' action screen is shown with TestBatch as the Batch Name and Batch_messages as the trigger name." lightbox="media/logic-apps-batch-process-send-receive-messages/batch-sender-standard.png":::
 
 1. Set the following batch receiver action properties:
 
    | Property | Description |
    |----------|-------------|
-   | **Batch Name** | The batch name defined by the receiver logic app, which is **TestBatch** in this example <br><br>**Important**: The batch name gets validated at runtime and must match the name specified by the batch receiver logic app. Changing the batch name causes the batch sender to fail. |
+   | **Batch Name** | The batch name defined by the receiver logic app, which is *TestBatch* in this example <br><br>**Important**: The batch name gets validated at runtime and must match the name specified by the batch receiver logic app. Changing the batch name causes the batch sender to fail. |
    | **Message Content** | The content for the message you want to send. See the following example for the value to use. |
-   | **Workflow Name** <br>(Standard workflows only) | The name for the workflow that has the batch trigger. |
-   | **Trigger Name** | The name for the batch trigger in the batch receiver logic app workflow. In Consumption workflows, this value is automatically populated from the selected batch receiver logic app. |
-   | **Workflow Id** | The ID for the workflow that has the batch trigger name batch receiver logic app workflow. In Consumption workflows, this value is automatically populated from the selected batch receiver logic app. |
+   | **Workflow name** <br>(Standard workflows only) | The name for the workflow that has the batch trigger. |
+   | **Trigger name** | The name for the batch trigger in the batch receiver logic app workflow. In Consumption workflows, this value is automatically populated from the selected batch receiver logic app. |
+   | **Workflow id** | The ID for the workflow that has the batch trigger name batch receiver logic app workflow. In Consumption workflows, this value is automatically populated from the selected batch receiver logic app. |
 
    In this example, for the **Message Content** property value, add the following expression, which inserts the current date and time into the message content that you send to the batch:
 
@@ -189,15 +187,15 @@ Now create one or more batch sender logic app workflows that send messages to th
 
    1. Select the function icon to open the expression editor.
 
-   1. In the editor, enter the function named **utcnow()**, and select **Add**.
+   1. In the editor, enter the function named `utcnow()`, and select **Add**.
 
       **Consumption workflow**
 
-      :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/batch-sender-details-consumption.png" alt-text="Screenshot shows Consumption workflow, batch sender action pane, Message Content box with cursor, expression editor with utcNow function, and other details.":::
+      :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/batch-sender-details-consumption.png" alt-text="Screenshot that shows the Consumption workflow with the batch receiver action pane. The Batch name, Trigger name, and Workflow ID fields are populated, and the utcNow function is selected in the expression editor to populate the Message Content field." lightbox="media/logic-apps-batch-process-send-receive-messages/batch-sender-details-consumption.png":::
 
       **Standard workflow**
 
-      :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/batch-sender-details-standard.png" alt-text="Screenshot shows Standard workflow, batch sender action pane, Message Content box with cursor, expression editor with utcNow function, and other details.":::
+      :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/batch-sender-details-standard.png" alt-text="Screenshot of the Standard workflow showing the Send to batch action pane. The Batch name, Trigger name, and Workflow ID fields are populated, and the utcNow function is selected in the expression editor to populate the Message Content field." lightbox="media/logic-apps-batch-process-send-receive-messages/batch-sender-details-standard.png":::
 
 1. Now set up a partition for the batch.
 
@@ -210,21 +208,21 @@ Now create one or more batch sender logic app workflows that send messages to th
 
    1. Select inside the **Partition Name** box, and select the option for the expression editor (function icon).
 
-   1. In the expression editor, enter the function **rand(1,6)**, and select **Add**.
+   1. In the expression editor, enter the function `rand(1,6)`, and select **Add**.
 
       This example generates a number between one and five. So, you're dividing this batch into five numbered partitions, which this expression dynamically sets.
 
-      :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/batch-sender-partition.png" alt-text="Screenshot shows function named rand for dividing batch into partitions.":::
+      :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/batch-sender-partition.png" alt-text="Screenshot that shows the rand() function that divides a batch into partitions." lightbox="media/logic-apps-batch-process-send-receive-messages/batch-sender-partition.png":::
 
       When you're done, your batch sender workflow now looks similar to the following example, based on your logic app workflow type:
 
       **Consumption workflow**
 
-      :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/batch-sender-finished-consumption.png" alt-text="Screenshot shows finished batch sender Consumption logic app workflow.":::
+      :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/batch-sender-finished-consumption.png" alt-text="Screenshot shows finished batch sender Consumption logic app workflow." lightbox="media/logic-apps-batch-process-send-receive-messages/batch-sender-finished-consumption.png":::
 
       **Standard workflow**
 
-      :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/batch-sender-finished-standard.png" alt-text="Screenshot shows finished batch sender Standard logic app workflow.":::
+      :::image type="content" source="media/logic-apps-batch-process-send-receive-messages/batch-sender-finished-standard.png" alt-text="Screenshot shows finished batch sender Standard logic app workflow." lightbox="media/logic-apps-batch-process-send-receive-messages/batch-sender-finished-standard.png":::
 
 1. Save your workflow.
 
@@ -241,4 +239,4 @@ Your batch sender logic app runs every minute and generates a random number betw
 
 ## Related content
 
-* [Batch and send EDI messages](/azure/logic-apps/logic-apps-scenario-edi-send-batch-messages)
+- [Batch and send Electronic Data Interchange (EDI) messages](/azure/logic-apps/logic-apps-scenario-edi-send-batch-messages)

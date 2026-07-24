@@ -2,12 +2,12 @@
 title: Azure built-in roles for DevOps - Azure RBAC
 description: This article lists the Azure built-in roles for Azure role-based access control (Azure RBAC) in the DevOps category. It lists Actions, NotActions, DataActions, and NotDataActions.
 ms.service: role-based-access-control
-ms.topic: reference
+ms.topic: generated-reference
 ms.workload: identity
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.author: rolyon
-ms.date: 02/25/2025
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -242,7 +242,7 @@ Can onboard targets and manage capabilities but cannot create, run, or see detai
 
 Provides read access to environment resources.
 
-[Learn more](/azure/deployment-environments/how-to-configure-deployment-environments-user)
+[Learn more](/azure/deployment-environments/how-to-manage-deployment-environments-access)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -299,7 +299,7 @@ Provides read access to environment resources.
 
 Provides access to manage environment resources.
 
-[Learn more](/azure/deployment-environments/how-to-configure-deployment-environments-user)
+[Learn more](/azure/deployment-environments/how-to-manage-deployment-environments-access)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -360,7 +360,7 @@ Provides access to manage environment resources.
 
 Provides access to create and manage dev boxes.
 
-[Learn more](/azure/dev-box/how-to-dev-box-user)
+[Learn more](/azure/dev-box/how-to-manage-dev-center)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -425,6 +425,63 @@ Provides access to create and manage dev boxes.
 }
 ```
 
+## DevCenter Owner
+
+Provides access to manage all Microsoft.DevCenter resources, and to manage access to Microsoft.DevCenter resources by adding or removing role assignments for the DevCenter Project Admin and DevCenter Dev Box roles.
+
+Includes an ABAC condition to constrain role assignments.
+
+[Learn more](/azure/dev-box/how-to-manage-dev-center)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/* |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/write | Create a role assignment at the specified scope. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/roleAssignments/delete | Delete a role assignment at the specified scope. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+> | **Condition** |  |
+> | ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{331c37c6-af14-46d9-b9f4-e1909e1b95a0, 45d50f46-0b78-4001-a660-4198cbe8cd05})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{331c37c6-af14-46d9-b9f4-e1909e1b95a0, 45d50f46-0b78-4001-a660-4198cbe8cd05})) | Add or remove role assignments for the following roles:<br/>DevCenter Project Admin<br/>DevCenter Dev Box User |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Provides access to manage all Microsoft.DevCenter resources, and to manage access to Microsoft.DevCenter resources by adding or removing role assignments for the DevCenter Project Admin and DevCenter Dev Box roles.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/4c6569b6-f23e-4295-9b90-bd4cc4ff3292",
+  "name": "4c6569b6-f23e-4295-9b90-bd4cc4ff3292",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DevCenter/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Authorization/roleAssignments/write",
+        "Microsoft.Authorization/roleAssignments/delete",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": [],
+      "conditionVersion": "2.0",
+      "condition": "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{331c37c6-af14-46d9-b9f4-e1909e1b95a0, 45d50f46-0b78-4001-a660-4198cbe8cd05})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidEquals{331c37c6-af14-46d9-b9f4-e1909e1b95a0, 45d50f46-0b78-4001-a660-4198cbe8cd05}))"
+    }
+  ],
+  "roleName": "DevCenter Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## DevCenter Project Admin
 
 Provides access to manage project resources.
@@ -447,6 +504,9 @@ Provides access to manage project resources.
 > | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/adminRead/action | Allows a user read access to any Dev Box resource. |
 > | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/adminWrite/action | Allows a user write access to any Dev Box resource. |
 > | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/adminDelete/action | Allows a user to delete any Dev Box resource. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/adminAlign/action | Allows an admin to align a Dev Box with the pool configuration. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/adminActionRead/action | Allows an admin to read dev box actions. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/adminActionManage/action | Allows an admin to skip or delay dev box actions. |
 > | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userStop/action | Allows a user to stop their own Dev Box resources. |
 > | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userStart/action | Allows a user to start their own Dev Box resources. |
 > | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/devboxes/userGetRemoteConnection/action | Allows a user to get the RDP connection information for their own Dev Box resources. |
@@ -465,6 +525,7 @@ Provides access to manage project resources.
 > | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/adminActionRead/action | Allows an admin to read environment actions. |
 > | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/adminActionManage/action | Allows an admin to skip, delay etc. environment actions. |
 > | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/users/environments/adminOutputsRead/action | Allows an admin to read Output values from environment deployment. |
+> | [Microsoft.DevCenter](../permissions/devops.md#microsoftdevcenter)/projects/pools/align/action | Allows a user to align all virtual machines in the pool. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -494,6 +555,9 @@ Provides access to manage project resources.
         "Microsoft.DevCenter/projects/users/devboxes/adminRead/action",
         "Microsoft.DevCenter/projects/users/devboxes/adminWrite/action",
         "Microsoft.DevCenter/projects/users/devboxes/adminDelete/action",
+        "Microsoft.DevCenter/projects/users/devboxes/adminAlign/action",
+        "Microsoft.DevCenter/projects/users/devboxes/adminActionRead/action",
+        "Microsoft.DevCenter/projects/users/devboxes/adminActionManage/action",
         "Microsoft.DevCenter/projects/users/devboxes/userStop/action",
         "Microsoft.DevCenter/projects/users/devboxes/userStart/action",
         "Microsoft.DevCenter/projects/users/devboxes/userGetRemoteConnection/action",
@@ -511,12 +575,70 @@ Provides access to manage project resources.
         "Microsoft.DevCenter/projects/users/environments/adminAction/action",
         "Microsoft.DevCenter/projects/users/environments/adminActionRead/action",
         "Microsoft.DevCenter/projects/users/environments/adminActionManage/action",
-        "Microsoft.DevCenter/projects/users/environments/adminOutputsRead/action"
+        "Microsoft.DevCenter/projects/users/environments/adminOutputsRead/action",
+        "Microsoft.DevCenter/projects/pools/align/action"
       ],
       "notDataActions": []
     }
   ],
   "roleName": "DevCenter Project Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## DevOps Infrastructure Contributor
+
+Read, write, delete and perform actions on Managed DevOps Pools
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/register/action | Register the subscription for Microsoft.DevOpsInfrastructure |
+> | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/unregister/action | Unregister the subscription for Microsoft.DevOpsInfrastructure |
+> | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/*/read |  |
+> | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/Locations/OperationStatuses/write | Write OperationStatuses |
+> | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/pools/write | Update a Pool |
+> | [Microsoft.DevOpsInfrastructure](../permissions/devops.md#microsoftdevopsinfrastructure)/pools/delete | Delete a Pool |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read, write, delete and perform actions on Managed DevOps Pools",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/76153a9e-0edb-49bc-8e01-93c47e6b5180",
+  "name": "76153a9e-0edb-49bc-8e01-93c47e6b5180",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.DevOpsInfrastructure/register/action",
+        "Microsoft.DevOpsInfrastructure/unregister/action",
+        "Microsoft.DevOpsInfrastructure/*/read",
+        "Microsoft.DevOpsInfrastructure/Locations/OperationStatuses/write",
+        "Microsoft.DevOpsInfrastructure/pools/write",
+        "Microsoft.DevOpsInfrastructure/pools/delete",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "DevOps Infrastructure Contributor",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1072,7 +1194,8 @@ View, create, update, delete and execute load tests. View and list load test res
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | **NotActions** |  |
-> | *none* |  |
+> | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/PlaywrightWorkspaces/* |  |
+> | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/locations/PlaywrightQuotas/* |  |
 > | **DataActions** |  |
 > | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/loadtests/* | Create and manage load tests |
 > | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/testProfiles/* |  |
@@ -1097,7 +1220,10 @@ View, create, update, delete and execute load tests. View and list load test res
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Insights/alertRules/*"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.LoadTestService/PlaywrightWorkspaces/*",
+        "Microsoft.LoadTestService/locations/PlaywrightQuotas/*"
+      ],
       "dataActions": [
         "Microsoft.LoadTestService/loadtests/*",
         "Microsoft.LoadTestService/testProfiles/*",
@@ -1127,7 +1253,8 @@ Execute all operations on load test resources and load tests
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | **NotActions** |  |
-> | *none* |  |
+> | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/PlaywrightWorkspaces/* |  |
+> | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/locations/PlaywrightQuotas/* |  |
 > | **DataActions** |  |
 > | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/* | Create and manage load testing resources |
 > | **NotDataActions** |  |
@@ -1150,7 +1277,10 @@ Execute all operations on load test resources and load tests
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Insights/alertRules/*"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.LoadTestService/PlaywrightWorkspaces/*",
+        "Microsoft.LoadTestService/locations/PlaywrightQuotas/*"
+      ],
       "dataActions": [
         "Microsoft.LoadTestService/*"
       ],
@@ -1174,11 +1304,11 @@ View and list all load tests and load test resources but can not make any change
 > | --- | --- |
 > | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/*/read | Read load testing resources |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | **NotActions** |  |
-> | *none* |  |
+> | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/PlaywrightWorkspaces/* |  |
+> | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/locations/PlaywrightQuotas/* |  |
 > | **DataActions** |  |
 > | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/loadtests/readTest/action | Read Load Tests |
 > | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/testProfiles/read | Read Test Profiles |
@@ -1199,11 +1329,13 @@ View and list all load tests and load test resources but can not make any change
       "actions": [
         "Microsoft.LoadTestService/*/read",
         "Microsoft.Authorization/*/read",
-        "Microsoft.Resources/deployments/*",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Insights/alertRules/*"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.LoadTestService/PlaywrightWorkspaces/*",
+        "Microsoft.LoadTestService/locations/PlaywrightQuotas/*"
+      ],
       "dataActions": [
         "Microsoft.LoadTestService/loadtests/readTest/action",
         "Microsoft.LoadTestService/testProfiles/read",
@@ -1213,6 +1345,155 @@ View and list all load tests and load test resources but can not make any change
     }
   ],
   "roleName": "Load Test Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Playwright Workspace Contributor
+
+View and list Playwright Workspace resources but can not make any changes. Can manage service access tokens and execute Playwright tests.
+
+[Learn more](/azure/app-testing/playwright-workspaces/how-to-manage-workspace-access)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Loadtestservice](../permissions/devops.md#microsoftloadtestservice)/playwrightworkspaces/*/read |  |
+> | [Microsoft.Loadtestservice](../permissions/devops.md#microsoftloadtestservice)/locations/playwrightquotas/* |  |
+> | [Microsoft.Loadtestservice](../permissions/devops.md#microsoftloadtestservice)/playwrightworkspaces/AccessTokens/* |  |
+> | [Microsoft.Loadtestservice](../permissions/devops.md#microsoftloadtestservice)/playwrightworkspaces/TestRuns/* |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "View and list Playwright Workspace resources but can not make any changes. Can manage service access tokens and execute Playwright tests.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/78cf819f-0969-4ebe-8759-015c6efcd5bf",
+  "name": "78cf819f-0969-4ebe-8759-015c6efcd5bf",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Loadtestservice/playwrightworkspaces/*/read",
+        "Microsoft.Loadtestservice/locations/playwrightquotas/*",
+        "Microsoft.Loadtestservice/playwrightworkspaces/AccessTokens/*",
+        "Microsoft.Loadtestservice/playwrightworkspaces/TestRuns/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Playwright Workspace Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Playwright Workspace Owner
+
+Perform all operations on Playwright Workspace resources. Can manage service access tokens and execute Playwright tests.
+
+[Learn more](/azure/app-testing/playwright-workspaces/how-to-manage-workspace-access)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Loadtestservice](../permissions/devops.md#microsoftloadtestservice)/playwrightworkspaces/* |  |
+> | [Microsoft.Loadtestservice](../permissions/devops.md#microsoftloadtestservice)/locations/playwrightquotas/* |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Perform all operations on Playwright Workspace resources. Can manage service access tokens and execute Playwright tests.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/45265627-32f7-4da4-9ab0-b1cb0e9ec70b",
+  "name": "45265627-32f7-4da4-9ab0-b1cb0e9ec70b",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Loadtestservice/playwrightworkspaces/*",
+        "Microsoft.Loadtestservice/locations/playwrightquotas/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Playwright Workspace Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Playwright Workspace Reader
+
+View and list all Playwright Workspace resources and tests but can not make any changes.
+
+[Learn more](/azure/app-testing/playwright-workspaces/how-to-manage-workspace-access)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Loadtestservice](../permissions/devops.md#microsoftloadtestservice)/playwrightworkspaces/*/read |  |
+> | [Microsoft.Loadtestservice](../permissions/devops.md#microsoftloadtestservice)/locations/playwrightquotas/*/read |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "View and list all Playwright Workspace resources and tests but can not make any changes.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/19d36063-d00b-4ea5-a1ac-a7c4926a0b78",
+  "name": "19d36063-d00b-4ea5-a1ac-a7c4926a0b78",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Loadtestservice/playwrightworkspaces/*/read",
+        "Microsoft.Loadtestservice/locations/playwrightquotas/*/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Playwright Workspace Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

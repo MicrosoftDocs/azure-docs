@@ -3,13 +3,17 @@ title: Manage account access keys
 titleSuffix: Azure Storage
 description: Learn how to view, manage, and rotate your storage account access keys.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: normesta
+ms.author: normesta
 ms.service: azure-storage
 ms.topic: how-to
 ms.date: 11/12/2024
 ms.reviewer: nachakra 
-ms.custom: engagement-fy23, devx-track-azurecli
+ms.custom:
+  - engagement-fy23
+  - devx-track-azurecli
+  - sfi-image-nochange
+# Customer intent: "As a cloud administrator, I want to manage and rotate storage account access keys, so that I can ensure secure and uninterrupted access to my storage resources."
 ---
 
 # Manage storage account access keys
@@ -73,10 +77,9 @@ To view or read an account's access keys, the user must either be a Service Admi
 
 ## Use Azure Key Vault to manage your access keys
 
-Microsoft recommends using Azure Key Vault to manage and rotate your access keys. Your application can securely access your keys in Key Vault, so that you can avoid storing them with your application code. For more information about using Key Vault for key management, see the following articles:
+Microsoft recommends using Microsoft Entra ID and managed identities to authorize access to Azure Storage. If you must use access keys, store them in Azure Key Vault and rotate them regularly. For more information, see the following article:
 
-- [Manage storage account keys with Azure Key Vault and PowerShell](/azure/key-vault/secrets/overview-storage-keys-powershell)
-- [Manage storage account keys with Azure Key Vault and the Azure CLI](/azure/key-vault/secrets/overview-storage-keys)
+- [Authorize access to data in Azure Storage](/azure/storage/common/authorize-data-access)
 
 ## Manually rotate access keys
 
@@ -257,7 +260,7 @@ The key expiration period appears in the console output.
 
 ## Check for key expiration policy violations
 
-You can monitor your storage accounts with Azure Policy to ensure that account access keys have been rotated within the recommended period. Azure Storage provides a built-in policy for ensuring that storage account access keys are not expired. For more information about the built-in policy, see **Storage account keys should not be expired** in [List of built-in policy definitions](../../governance/policy/samples/built-in-policies.md#storage).
+You can monitor your storage accounts with Azure Policy to ensure that account access keys have been rotated within the recommended period. Azure Storage provides a built-in policy for ensuring that storage account access keys are not expired. For more information about the built-in policy, see **Storage account keys should not be expired** in [List of built-in policy definitions](/azure/governance/policy/samples/built-in-policies#storage).
 
 ### Assign the built-in policy for a resource scope
 

@@ -5,9 +5,12 @@ author: piyushdhore-microsoft
 ms.author: piyushdhore
 ms.manager: vijain
 ms.service: azure-migrate
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/07/2025
+ms.reviewer: v-uhabiba
 ms.custom: engagement-fy25
+ms.update-cycle: 1095-days
+# Customer intent: "As a cloud architect, I want to understand the migration options available with the Migration and Modernization Tool, so that I can effectively plan and execute the migration of our on-premises servers to Azure."
 ---
 
 # Migration and modernization: Common questions
@@ -59,7 +62,7 @@ To learn more, review [Select a VMware migration option](./server-migrate-overvi
 
 ### What geographies are supported for migration with Azure Migrate?
 
-Review the supported geographies for [public clouds](migrate-support-matrix.md#public-cloud) and [government clouds](migrate-support-matrix.md#azure-government).
+Review the supported geographies for [public](supported-geographies.md#public-cloud) and [government clouds](supported-geographies.md#azure-government).
 
 ### Can I use the same Azure Migrate project to migrate to multiple regions?
 
@@ -130,7 +133,7 @@ If the test migration isn't cleaned up after testing, the test VM continues to r
 
 ### How do I know if my VM successfully migrated?
 
-After you migrate your VM/server successfully, you can view and manage the VM from the **Virtual Machines** pane. Connect to the migrated VM to validate.
+After you migrate your VM/server successfully, you can view and manage the VM by navigating to the Execute> Migrations page. Execution stage will be shown as **Completion** and status will be **Completed**. Connect to the migrated VM to validate.
 
 You can also review the **Job status** for the operation to check if the migration was successfully completed. If you see any errors, resolve them and then retry the migration operation.
 
@@ -155,6 +158,10 @@ The **Migration and modernization** tool migrates all the UEFI-based machines to
 > [!NOTE]
 > If a major version of an operating system is supported in agentless migration, all minor versions and kernels are automatically supported.
 
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+
+As a result, Azure Migrate doesn’t guarantee consistent or reliable outcomes for these OS versions. Customers may face problems and are strongly advised to upgrade to a supported Windows Server version before starting migration.
+
 | **Operating systems supported for UEFI-based machines** | **Agentless VMware to Azure**                                                                                                             | **Agentless Hyper-V to Azure** | **Agent-based VMware, physical, and other clouds to Azure** |
 | ------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ | ---------------------------------------------------------- |
 | Windows Server 2025, 2022, 2019, 2016, 2012 R2, 2012                | Y                                                                                                                                         | Y                              | Y                                                          |
@@ -162,7 +169,7 @@ The **Migration and modernization** tool migrates all the UEFI-based machines to
 | Windows 10 Pro, Windows 10 Enterprise                   | Y                                                                                                                                         | Y                              | Y                                                          |
 | SUSE Linux Enterprise Server 15 SP1, SP2, SP3, SP4, SP5, SP6                    | Y                                                                                                                                         | Y                              | Y                                                          |
 | SUSE Linux Enterprise Server 12 SP4                     | Y                                                                                                                                         | Y                              | Y                                                          |
-| Ubuntu Server 22.04 LTS, 20.04 LTS, 18.04 LTS, 16.04 LTS               | Y                                                                                                                                         | Y                              | Y                                                          |
+| Ubuntu Server 24.04, 22.04 LTS, 20.04 LTS, 18.04 LTS, 16.04 LTS               | Y                                                                                                                                         | Y                              | Y                                                          |
 | RHEL 9.x, 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y      | Y                              | Y                                                          |
 | CentOS Stream               | Y | Y                              | Y                                                          |
 | Oracle Linux 9, 8, 7.7-CI, 7.7, 6                             |  Y                                                                                                                                        | Y                              | Y                                                          |
@@ -393,6 +400,30 @@ You can work out the bandwidth requirement based on:
 * The time you want to allot for the initial replication process.
 
 Ideally, you'd want initial replication to complete at least 3-4 days before the actual migration window. This timeline gives you sufficient time to perform a test migration before the actual window and keep downtime during the window to a minimum.
+
+## How do I roll back if something goes wrong during the migration process?
+
+Azure Migrate doesn't support rollback now, which means after users migrate, they can't go back to on-premises.
+
+## What strategies do I use to reduce downtime during migration?
+
+| **Practice** | **How it helps** | **Benefit** |
+| --- | --- | --- |
+| Use Agent-Based Replication for Continuous Sync | It continuously replicates on-premises VMs to Azure| This helps you cut over with minimal data loss (RPO of a few seconds) and reduces downtime (RTO of a few minutes). |
+| Perform Test Migrations  | Azure Migrate lets you run test migrations without affecting the production VM.  | You check boot success, network connectivity, and application functionality in Azure before the final cutover. |
+| Use Replication Groups for Dependency-Aware Migration  | You group VMs based on application or service dependencies and migrate them together. | This lowers the risk of broken dependencies during migration and helps keep services running smoothly. |
+| Schedule Cutovers During Maintenance Windows  | **: You plan the final cutover (switching users to the Azure-hosted app) during a known low-traffic period. | This minimizes the user impact and gives time for rollback if needed.|
+| Do a Phased Migration  | You migrate and modernize workloads in stages instead of all at once. | Smaller changes minimize the risk and help keep services available throughout the process. |
+
+## How do I measure the success of my cloud migration execution?
+
+| Metric  | Description |
+| --- | --- |
+| Cutover success rate | Percentage of workloads successfully migrated without rollback or issues. |
+| Downtime duration | Total unplanned downtime occurs during cutover; the goal is minimal or zero. |
+| Data integrity | Post-migration validation of data completeness and accuracy. |
+| Application functionality |Post-migration, apps work exactly as expected (functional testing, and UAT pass). |
+| Migration completion timeline | Actual vs planned migration schedule adherence. |
 
 ## Related content
 

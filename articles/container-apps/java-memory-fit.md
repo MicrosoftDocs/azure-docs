@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: ignite-2024, devx-track-azurecli, devx-track-extended-java
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/03/2025
 ms.author: cshoe
 ---

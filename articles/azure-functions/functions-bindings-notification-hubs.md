@@ -5,8 +5,10 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 06/24/2024
 ms.devlang: csharp
+ms.custom:
+  - devx-track-csharp
+  - sfi-image-nochange
 # ms.devlang: csharp, fsharp, javascript
-ms.custom: devx-track-csharp
 ---
 
 # Azure Notification Hubs output bindings for Azure Functions
@@ -22,7 +24,7 @@ You must configure Notification Hubs for the Platform Notifications Service (PNS
 
 [!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
 
-The Notification Hubs bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet package, version 1.x. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/v2.x/src/WebJobs.Extensions.NotificationHubs) GitHub repository.
+The Notification Hubs bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs) NuGet package, version 1.x.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -234,8 +236,6 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 ```
 
 ## Attributes
-
-In [C# class libraries](functions-dotnet-class-library.md), use the [NotificationHub](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions.NotificationHubs/NotificationHubAttribute.cs) attribute.
 
 The attribute's constructor parameters and properties are described in the [Configuration](#configuration) section.
 

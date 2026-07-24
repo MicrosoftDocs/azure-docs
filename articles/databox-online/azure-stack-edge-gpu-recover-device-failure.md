@@ -2,12 +2,12 @@
 title: Recover from an Azure Stack Edge Pro device failure 
 description: Describes how to recover from an Azure Stack Edge Pro failed device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Recover from a failed Azure Stack Edge Pro GPU device 
@@ -58,7 +58,7 @@ To prepare for a potential device failure, you may have deployed one the followi
 
 | Third-party software           | Reference to the solution                               |
 |--------------------------------|---------------------------------------------------------|
-| Cohesity                       | [https://www.cohesity.com/solution/cloud/azure/](https://www.cohesity.com/solution/cloud/azure/) <br> For details, contact Cohesity.          |
+| Cohesity                       | [https://www.cohesity.com/solutions/azure/](https://www.cohesity.com/solutions/azure/) <br> For details, contact Cohesity.          |
 | Commvault                      | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br> For details, contact Commvault. |
 | Veritas                        | [https://www.veritas.com/partners/microsoft-azure](https://www.veritas.com/partners/microsoft-azure) <br> For details, contact Veritas.   |
 | Veeam                          | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> For details, contact Veeam. |
@@ -80,9 +80,9 @@ To prepare for a potential device failure, you may have deployed one of the foll
 | Backup solutions        | Supported OS   | Reference                                                                |
 |-------------------------|----------------|--------------------------------------------------------------------------|
 | Microsoft Azure Recovery Services (MARS) agent for Azure Backup | Windows        | [About MARS agent](../backup/backup-azure-about-mars.md)    |
-| Cohesity                | Windows, Linux | [Microsoft Azure Integration, Backup & Recovery solution brief](https://www.cohesity.com/solution/cloud/azure) <br>For details, contact Cohesity.                          |
+| Cohesity                | Windows, Linux | [Microsoft Azure Integration, Backup & Recovery solution brief](https://www.cohesity.com/solutions/azure) <br>For details, contact Cohesity.                          |
 | Commvault               | Windows, Linux | [https://www.commvault.com/azure](https://www.commvault.com/azure) <br> For details, contact Commvault.
-| Veritas                 | Windows, Linux | [https://vox.veritas.com/t5/Protection/Protecting-Azure-Stack-edge-with-NetBackup/ba-p/883370](https://vox.veritas.com/t5/Protection/Protecting-Azure-Stack-edge-with-NetBackup/ba-p/883370) <br> For details, contact Veritas.                    |
+| Veritas                 | Windows, Linux | [https://www.veritas.com/support/en_US/doc/132560919-166025146-0/v132561184-166025146](https://www.veritas.com/support/en_US/doc/132560919-166025146-0/v132561184-166025146) <br> For details, contact Veritas.                    |
 | Veeam                   | Windows, Linux | [https://www.veeam.com/kb4041](https://www.veeam.com/kb4041) <br> For details, contact Veeam. |
 
 After the replacement device is fully configured, you can redeploy the VMs with the VM image previously used. 

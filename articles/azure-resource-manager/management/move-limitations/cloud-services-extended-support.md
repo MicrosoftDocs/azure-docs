@@ -1,8 +1,8 @@
----
+﻿---
 title: Move Azure Cloud Services (extended support) deployment resources
 description: Use Azure Resource Manager to move Cloud Services (extended support) deployment resources to a new resource group or subscription.
-ms.topic: conceptual
-ms.date: 02/11/2025
+ms.topic: article
+ms.date: 09/15/2025
 ms.custom: hirshah, devx-track-arm-template
 ---
 
@@ -33,3 +33,4 @@ When you move Cloud Services (extended support) deployments to a new subscriptio
 - You must move together all associated cloud service resources, such as key vault and network resources, for cross-subscription moves.
 - You must create a ticket to resolve an error that states the cloud service can't be moved because of a prior failed operation, create a ticket. 
 - Cloud Service must not have any cross-subscription references.
+

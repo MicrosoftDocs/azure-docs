@@ -1,11 +1,11 @@
----
+﻿---
 title: How to migrate a cloud workload to another region
 description: Learn how to migrate cloud workloads and applications to another region.
 author: SomilGanguly
 ms.author: ssumner
-ms.date: 12/18/2023
+ms.date: 09/15/2025
 ms.reviewer: ssumner
-ms.topic: conceptual
+ms.topic: article
 ms.custom: internal
 keywords: cloud adoption, cloud framework, cloud adoption framework
 ---
@@ -31,7 +31,7 @@ Before starting the workload relocation, you need to prepare the target region. 
 
 **Create new SSL/TLS certificates if needed.** You need to create new SSL/TLS certificates (X.509) for any new domain name. These certificates enable public-private key encryption and secure network communication (HTTPS). Use Azure Key Vault to create or import X.509 certificates. For more information, see [Azure Key Vault certificates](/azure/key-vault/certificates/about-certificates) and [Certificate creation methods](/azure/key-vault/certificates/create-certificate)
 
-**Relocate Azure Key Vault.** You should relocate Azure Key Vault before moving your workload. You should have one key vault per application environment, and your key vault shouldn’t share secrets across regions to ensure confidentiality. You might need to create a new key vault in the new target region to align with this guidance.
+**Relocate Azure Key Vault.** You should relocate Azure Key Vault before moving your workload. You should have one key vault per application environment, and your key vault shouldn't share secrets across regions to ensure confidentiality. You might need to create a new key vault in the new target region to align with this guidance.
 
 **Create a new Log Analytics workspace.** You should have a separate Log Analytics workspace for each region. Create a new workspace in the target region. Since can't move a Log Analytics Workspace to another region, you need to create a new Log Analytics workspace in the target region. There are two options to preserve the data in the original workspace. You can keep the current workspace until you don't need the data, treating the data as read-only. You can also export the workspace data to a storage account in the new target Azure region.
 

@@ -11,6 +11,7 @@ ms.date: 09/10/2024
 ms.author: pauljewell
 ms.reviewer: ozgun
 ms.custom: devx-track-csharp
+# Customer intent: "As a developer using Azure Queue Storage, I want to implement client-side encryption in my applications, so that I can secure sensitive data before uploading it to the cloud while ensuring compliance with security standards."
 ---
 
 # Client-side encryption for queues
@@ -65,7 +66,7 @@ If your application is using client-side encryption with an earlier version of t
 
 The Azure Queue Storage client libraries use envelope encryption to encrypt and decrypt your data on the client side. Envelope encryption encrypts a key with one or more additional keys.
 
-The Queue Storage client libraries rely on Azure Key Vault to protect the keys that are used for client-side encryption. For more information about Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview).
+The Queue Storage client libraries rely on Azure Key Vault to protect the keys that are used for client-side encryption. For more information about Azure Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview)
 
 ### Encryption and decryption via the envelope technique
 

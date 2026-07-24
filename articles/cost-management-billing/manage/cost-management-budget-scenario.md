@@ -1,13 +1,14 @@
 ---
 title: Azure billing and cost management budget scenario
 description: Learn how to use Azure Automation to shut down VMs based on specific budget thresholds.
-author: jojopm
-ms.reviewer: jojoh
+author: vikramdesai01
+ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: how-to
-ms.date: 01/07/2025
-ms.author: jojoh
+ms.date: 06/26/2025
+ms.author: vikdesai
+ms.custom: sfi-image-nochange
 ---
 
 # Manage costs with budgets
@@ -41,7 +42,7 @@ These actions included in this tutorial allow you to:
 2. Select the **Create a resource** button found on the upper left corner of Azure.
 3. Select **Management Tools** > **Automation**.
    > [!NOTE]
-   > If you don't have an Azure account, you can create a [free account](https://azure.microsoft.com/free/).
+   > If you don't have an Azure account, you can create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 4. Enter your account information. For **Create Azure Run As account**, choose **Yes** to automatically enable the settings needed to simplify authentication to Azure.
 5. When complete, select **Create**, to start the Automation account deployment.
 

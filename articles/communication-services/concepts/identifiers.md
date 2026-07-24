@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: domessin
 ms.date: 08/30/2022
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: identity
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python

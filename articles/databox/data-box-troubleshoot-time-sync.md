@@ -8,6 +8,7 @@ ms.service: azure-databox
 ms.topic: troubleshooting
 ms.date: 03/06/2025
 ms.author: shaas
+# Customer intent: As a data engineer, I want to troubleshoot time synchronization issues on my Data Box device using PowerShell, so that I can ensure accurate data transfer and prevent errors related to time discrepancies during data operations.
 ---
 
 # # Sync device time for Azure Data Box, Data Box Next-gen, and Azure Data Box Heavy

@@ -4,7 +4,7 @@ description: include file
 services: azure-communication-services
 author: ddematheu2
 manager: chpalm
-ms.author: chpalm
+ms.author: sundraman
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 02/15/2022

@@ -2,12 +2,12 @@
 title: Azure Stack Edge Pro R Safety guide | Microsoft Docs
 description: Describes safety conventions, guidelines, considerations, and explains how to safely install and operate your Azure Stack Edge Pro R device.
 services: databox
-author:   alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 02/12/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge Pro R safety instructions

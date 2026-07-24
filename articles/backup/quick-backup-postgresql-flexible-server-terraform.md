@@ -5,10 +5,11 @@ ms.devlang: terraform
 ms.custom:
   - ignite-2024
 ms.topic: quickstart
-ms.date: 02/18/2025
+ms.date: 01/20/2026
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to configure automated backups for Azure Database for PostgreSQL - Flexible Server using a Terraform template, so that I can ensure data protection and streamline management of backup policies."
 ---
 
 #  Quickstart: Configure backup for Azure Database for PostgreSQL - Flexible Server using a Terraform template
@@ -21,7 +22,7 @@ This quickstart describes how to configure backup for the Azure Database for Pos
 
 Before you configure backup for Azure Database for PostgreSQL - Flexible Server, ensure that the following prerequisites are met:
 
-* You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* You need an Azure account with an active subscription. If you don't have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * [Install and configure Terraform](/azure/developer/terraform/quickstart-configure).
 
@@ -30,7 +31,7 @@ Before you configure backup for Azure Database for PostgreSQL - Flexible Server,
   >[!Note]
   >Terraform only supports authenticating to Azure with the Azure CLI. Authenticating using Azure PowerShell isn't supported. Therefore, while you can use the Azure PowerShell module when doing your Terraform work, you first need to authenticate to Azure.
 
-## Implement the Terraform code
+## Implement the Terraform code for PostgreSQL Flexible Server backup configuration
 
 > [!NOTE]
 > See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform).
@@ -226,15 +227,15 @@ variable "retention_duration_in_months" {
 ```
 
 
-## Initialize Terraform
+## Initialize Terraform for PostgreSQL Flexible Server backup
 
 [!INCLUDE [terraform-init.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-init.md)]
 
-## Create a Terraform execution plan
+## Create a Terraform execution plan for PostgreSQL Flexible Server backup
 
 [!INCLUDE [terraform-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-plan.md)]
 
-## Apply a Terraform execution plan
+## Apply a Terraform execution plan for PostgreSQL Flexible Server backup
 
 [!INCLUDE [terraform-apply-plan.md](~/azure-dev-docs-pr/articles/terraform/includes/terraform-apply-plan.md)]
 

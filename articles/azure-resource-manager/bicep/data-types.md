@@ -2,7 +2,7 @@
 title: Data types in Bicep
 description: This article describes the data types that are available in Bicep.
 ms.topic: reference
-ms.date: 01/10/2025
+ms.date: 01/27/2026
 ms.custom: devx-track-bicep
 ---
 
@@ -10,9 +10,48 @@ ms.custom: devx-track-bicep
 
 This article describes the data types that are supported in [Bicep](./overview.md). To define custom data types, see [User-defined data types](./user-defined-data-types.md).
 
+## Any
+
+With Bicep version v0.38.3 and later, the `any` type in Bicep is a permissive type that disables compile-time type checking for the associated symbol. A value of type `any` can hold data of any type, including `string`, `int`, `bool`, `array`, `object`, or complex expressions.
+
+```bicep
+param foo any
+output bar any = foo
+```
+
+In the preceding example, `foo` can accept any type of value, and `bar` outputs the same value as `foo` regardless of its type.
+
+Because `any` bypasses Bicep's type safety, it should be used only when the exact type can't be determined ahead of time. For example, when passing data through a module that handles multiple data shapes or when working with untyped JSON input.
+
+Using `any` makes Bicep less predictable and can lead to runtime errors. When possible, prefer specific types or a union of expected types to preserve validation and IntelliSense support. The [No explicit Any](linter-rule-no-explicit-any.md) linter rule helps identify and discourage the use of the `any` type in Bicep files.
+
 ## Arrays
 
-Arrays start with a left bracket (`[`) and end with a right bracket (`]`). In Bicep, you can declare an array in a single line or in multiple lines. Commas (`,`) are used between values in single-line declarations, but they aren't used in multiple-line declarations. You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.7.X or later.
+A **array** in Bicep is an ordered collection of values, such as strings, integers, objects, or even other arrays, commonly used to group related items like resource names, configuration settings, or parameters. Arrays are helpful for organizing deployment data, passing lists to resources, and iterating over multiple values.
+
+Arrays in Bicep are immutable. Once declared, their contents can't be changed. To "modify" an array, create a new array using functions like [`concat`](./bicep-functions-array.md#concat), [`map`](./bicep-functions-lambda.md#map), or [`filter`](./bicep-functions-lambda.md#filter).
+
+The [use-user-defined-types](./linter-rule-use-user-defined-types.md) linter rule encourages the use of [user-defined data types](./user-defined-data-types.md) instead of the generic [`object`](./data-types.md#objects) or [`array`](./data-types.md#arrays) types.
+
+```bicep
+param usLocations array = [
+  'eastus'
+  'westus2'
+]
+
+param euroLocations string[] = [
+  'northeurope'
+  'westeurope'
+]
+
+param numbers int[] = [
+  1
+  2
+  3
+]
+```
+
+You can declare arrays in Bicep using either single-line or multi-line syntax. Multi-line array declarations require [Bicep CLI version 0.7.X or later](https://github.com/Azure/bicep/releases/tag/v0.7.4).
 
 ```bicep
 var multiLineArray = [
@@ -27,9 +66,9 @@ var mixedArray = ['abc', 'def'
     'ghi']
 ```
 
-Each array element can be of any type. You can have an array where each item is the same data type, or an array that holds different data types.
+**Single-line arrays** use commas (`,`) to separate values. **Multi-line arrays** don't use commas between values. You can mix single-line and multi-line declarations as needed.
 
-The following example shows an array of integers and an array of different types.
+Each array element can be of any type. You can have an array where each item is the same data type, or an array that holds different data types.
 
 ```bicep
 var integerArray = [
@@ -44,27 +83,40 @@ var mixedArray = [
   true
   'example string'
 ]
-```
 
-Arrays in Bicep are based on zero. In the following example, the expression `exampleArray[0]` evaluates to 1 and `exampleArray[2]` evaluates to 3. The index of the indexer might be another expression. The expression `exampleArray[index]` evaluates to 2. Integer indexers are only allowed on the expression of array types.
-
-```bicep
-var index = 1
-
-var exampleArray = [
-  1
-  2
-  3
+var arrayOfObjects = [
+  { name: 'dev', size: 1 }
+  { name: 'prod', size: 2 }
 ]
 ```
 
-You get the following error when the index is out of bounds:
+Arrays in Bicep are zero-based. You can access elements by index:
+
+```bicep
+var exampleArray = [1, 2, 3]
+output firstElement int = exampleArray[0] // 1
+output thirdElement int = exampleArray[2] // 3
+
+var index = 1
+output secondElement int = exampleArray[index] // 2
+```
+
+Starting with [Bicep CLI version 0.34.x](https://github.com/Azure/bicep/releases/tag/v0.34.1), you can use the `array[^index]` syntax to access elements from the end of an array - `^1` refers to the last element, `^2` to the second-to-last, and so on.
+
+```bicep
+var exampleArray = [1, 2, 3]
+
+output lastElement int = exampleArray[^1] // 3
+output secondToLastElement int = exampleArray[^2] // 2
+```
+
+If you access an index that is out of bounds, you get an error:
 
 ```error
 The language expression property array index 'x' is out of bounds
 ```
 
-To avoid this exception, use the [Or logical operator](./operators-logical.md#or-), as shown in the following example:
+To avoid out-of-bounds exception, use the [Or logical operator](./operators-logical.md#or-), as shown in the following example:
 
 ```bicep
 param emptyArray array = []
@@ -76,15 +128,15 @@ output bar bool = length(numberArray) <= 3 || numberArray[3] == 4
 
 ### Array-related operators
 
-* Use [Comparison operators](./operators-comparison.md) to compare two arrays.
-* Use [Index accessor](./operators-access.md#index-accessor) to get an element from an array.
-* Use [Safe-dereference operator](./operator-safe-dereference.md) to access elements of an array.
-* Use [Spread](./operator-spread.md) to merge arrays.
+- Use [Comparison operators](./operators-comparison.md) to compare two arrays.
+- Use [Index accessor](./operators-access.md#index-accessor) to get an element from an array.
+- Use [Safe-dereference operator](./operator-safe-dereference.md) to access elements of an array.
+- Use [Spread](./operator-spread.md) to merge arrays.
 
 ### Array-related functions
 
-* See [Array functions](./bicep-functions-array.md).
-* See [Lambda functions](./bicep-functions-lambda.md).
+- See [Array functions](./bicep-functions-array.md).
+- See [Lambda functions](./bicep-functions-lambda.md).
 
 ## Booleans
 
@@ -94,12 +146,12 @@ When you specify Boolean values, use `true` or `false`. Don't surround the value
 param exampleBool bool = true
 ```
 
-## Boolean-related operators
+### Boolean-related operators
 
-* Use [Comparison operators](./operators-comparison.md) to compare boolean values.
-* See [Logical operators](./operators-logical.md).
+- Use [Comparison operators](./operators-comparison.md) to compare boolean values.
+- See [Logical operators](./operators-logical.md).
 
-## Boolean-related functions
+### Boolean-related functions
 
 See [Logical function](./bicep-functions-logical.md)
 
@@ -140,8 +192,8 @@ Floating point, decimal, or binary formats aren't currently supported.
 
 ### Integer-related operators
 
-* See [Comparison operators](./operators-comparison.md).
-* See [Numeric operators](./operators-numeric.md).
+- See [Comparison operators](./operators-comparison.md).
+- See [Numeric operators](./operators-numeric.md).
 
 ### Integer-related functions
 
@@ -149,7 +201,9 @@ See [Numeric functions](./bicep-functions-numeric.md).
 
 ## Objects
 
-Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, you can declare an object in a single line or in multiple lines. Each property in an object consists of a key and a value. The key and value are separated by a colon (`:`). An object allows any property of any type. Commas (`,`) are used between properties for single-line declarations, but they aren't used between properties for multiple-line declarations. You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.7.X or later.
+Objects start with a left brace (`{`) and end with a right brace (`}`). In Bicep, you can declare an object in a single line or in multiple lines. You can mix and match single-line and multiple-line declarations. The multiple-line declaration requires [Bicep CLI](./install.md#visual-studio-code-and-bicep-extension) version 0.7.X or later. Each property in an object consists of a key and a value. The key and value are separated by a colon (`:`). An object allows any property of any type. Commas (`,`) are used between properties for single-line declarations, but they aren't used between properties for multiple-line declarations.
+
+The [use-user-defined-types](./linter-rule-use-user-defined-types.md) linter rule encourages the use of [user-defined data types](./user-defined-data-types.md) instead of the generic [`object`](./data-types.md#objects) or [`array`](./data-types.md#arrays) types.
 
 ```bicep
 param singleLineObject object = {name: 'test name', id: '123-abc', isCurrent: true, tier: 1}
@@ -237,10 +291,10 @@ output bar bool = contains(objectToTest, 'four') && objectToTest.four == 4
 
 ### Object-related operators
 
-* Use [Comparison operators](./operators-comparison.md) to compare objects.
-* Use [Index accessor](./operators-access.md#index-accessor) to get a property from an object.
-* Use [Safe-dereference operator](./operator-safe-dereference.md) to access object members.
-* Use [Spread](./operator-spread.md) to merge objects.
+- Use [Comparison operators](./operators-comparison.md) to compare objects.
+- Use [Index accessor](./operators-access.md#index-accessor) to get a property from an object.
+- Use [Safe-dereference operator](./operator-safe-dereference.md) to access object members.
+- Use [Spread](./operator-spread.md) to merge objects.
 
 ### Object-related functions
 
@@ -303,16 +357,11 @@ All strings in Bicep support interpolation. To inject an expression, surround it
 var storageName = 'storage${uniqueString(resourceGroup().id)}'
 ```
 
-### Multi-line strings
+## Multi-line strings
 
-In Bicep, multi-line strings are defined between three single quotation marks (`'''`) followed optionally by a newline (the opening sequence) and three single quotation marks (`'''` is the closing sequence). Characters that are entered between the opening and closing sequence are read verbatim. Escaping isn't necessary or possible.
+You can define a multi-line string by enclosing it in three single quotation marks (`'''`). The string content is preserved exactly as written, so escape characters are not required. The delimiter `'''` cannot appear within the string.
 
-> [!NOTE]
-> The Bicep parser reads every characters as it is. Depending on the line endings of your Bicep file, newlines are interpreted as either `\r\n` or `\n`.
->
-> Interpolation isn't currently supported in multi-line strings. Because of this limitation, you might need to use the [`concat`](./bicep-functions-string.md#concat) function instead of using [interpolation](#strings).
->
-> Multi-line strings that contain `'''` aren't supported.
+The string may begin immediately after the opening delimiter or on the following line. In both cases, the resulting value does not include a leading newline. Line breaks are interpreted as `\r\n` or `\n`, depending on the line-ending format of the Bicep file.
 
 ```bicep
 // evaluates to "hello!"
@@ -339,19 +388,35 @@ var myVar5 = '''
 comments // are included
 /* because everything is read as-is */
 '''
+```
 
+With Bicep CLI version v0.40.2 or higher, string interpolation is supported. An optional `$` prefix can be added before the opening delimiter to enable string interpolation using standard Bicep `${...}` syntax. If you need to include `${...}` as a literal value without escaping, you can control interpolation by repeating the `$` prefix. Interpolation is only performed when the number of `$` characters preceding `${...}` matches the number of `$` characters used in the opening delimiter.
+
+```bicep
 // evaluates to "interpolation\nis ${blocked}"
 // note ${blocked} is part of the string, and is not evaluated as an expression
 var myVar6 = '''interpolation
 is ${blocked}'''
+
+// evaluates to "this is a test"
+var interpolated = 'a test'
+var myVar7 = $'''
+this is ${interpolated}'''
+
+// evaluates to "this is a test\nthis is not ${interpolated}"
+var interpolated = 'a test'
+var myVar8 = $$'''
+this is $${interpolated}
+this is not ${interpolated}'''
 ```
 
 ### String-related operators
 
-* See [Comparison operators](./operators-comparison.md).
+- See [Comparison operators](./operators-comparison.md).
 
 ### String-related functions
 
+- See [String functions](./bicep-functions-string.md).
 
 ## Union types
 
@@ -408,22 +473,32 @@ The parameter value is validated based on the discriminated property value. For 
 
 The union type has some limitations:
 
-  - Union types must be reducible to a single Azure Resource Manager type. The following definition is invalid:
-    
-    ```bicep
-    type foo = 'a' | 1
-    ```
+- Union types must be reducible to a single Azure Resource Manager type. The following definition is invalid:
+  
+  ```bicep
+  type foo = 'a' | 1
+  ```
 
-  - Only literals are permitted as members.
-  - All literals must be of the same primitive data type (for example, all strings or all integers).
+- Only literals are permitted as members.
+- All literals must be of the same primitive data type (for example, all strings or all integers).
 
 You can use the union type syntax in [user-defined data types](./user-defined-data-types.md).
+
+## Nullable types
+
+You can make any primitive or complex type nullable by appending a `?` to the type name. This allows the parameter, variable, or output to accept null as a valid value. For example:
+
+```bicep
+output description string? = null
+output config object? = null
+output optionalValue int? = null
+```
 
 ## Secure strings and objects
 
 Secure strings use the same format as string, and secure objects use the same format as object. With Bicep, you add the `@secure()` [decorator](./parameters.md#use-decorators) to a string or object.
 
-When you set a parameter to a secure string or secure object, the value of the parameter isn't saved to the deployment history or logged. If you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
+When you set a parameter (or an output) to a secure string or secure object, the value of the parameter (or the output) isn't saved to the deployment history or logged. However, when using the `--debug` flag during deployment, secure values are logged in clear text. If you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
 
 The following example shows two secure parameters:
 
@@ -434,6 +509,8 @@ param password string
 @secure()
 param configValues object
 ```
+
+For more information, see [Secure parameters](./parameters.md#secure-parameters) and [Secure outputs](./outputs.md#secure-outputs).
 
 ## Data type assignability
 

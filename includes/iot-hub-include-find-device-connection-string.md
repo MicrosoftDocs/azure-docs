@@ -1,13 +1,15 @@
 ---
 title: include file
 description: include file
-author: SoniaLopezBravo
+author: sethmanheim
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: include
 ms.date: 05/30/2023
-ms.author: sonialopez
-ms.custom: include file
+ms.author: sethm
+ms.custom:
+  - include file
+  - sfi-image-nochange
 ---
 <!-- This tells how to get the primary connection string for a device registered to your IoT hub -->
 

@@ -2,10 +2,10 @@
 title: Send an SMS message
 titleSuffix: Azure Communication Services
 description: This article describes how to send an SMS message using Azure Communication Services. See code examples in C#, JavaScript, Java, and Python.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 05/25/2022
 ms.topic: quickstart
 ms.service: azure-communication-services
@@ -19,7 +19,7 @@ zone_pivot_groups: acs-azcli-js-csharp-java-python-logic-apps
 > [!IMPORTANT]
 > SMS capabilities depend on the phone number you use and the country/region that you're operating within as determined by your Azure billing address. For more information, see [Subscription eligibility](../../concepts/numbers/sub-eligibility-number-capability.md).
 
-[!INCLUDE [Survey Request](../../includes/survey-request.md)]
+<!-- [!INCLUDE [Survey Request](../includes/survey-request.md)] -->
 
 <br/>
 
@@ -63,7 +63,7 @@ To use a new toll-free number for sending SMS messages, you must complete a toll
 
 ## Next steps
 
-In this quickstart, you learned how to send SMS messages using Azure Communication Services.
+This article described how to send SMS messages using Azure Communication Services.
 
 > [!div class="nextstepaction"]
 > [Receive and reply to SMS](./receive-sms.md)

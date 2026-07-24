@@ -1,9 +1,8 @@
 ---
-author: xfz11
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/20/2023
-ms.author: xiaofanzhou
+ms.date: 06/17/2026
+ms.reviewer: xiaofanzhou
 ---
 
 
@@ -91,7 +90,7 @@ await connection.OpenAsync();
 
 For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/connect-java?tabs=passwordless).
 
-### [SpringBoot](#tab/springBoot)
+### [Spring Boot](#tab/springBoot)
 
 For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector sets the properties `spring.datasource.azure.passwordless-enabled`, `spring.datasource.url`, and `spring.datasource.username` to Azure Spring Apps. 
 
@@ -252,7 +251,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    npm install --save @azure/identity
    npm install --save mysql2
    ```
-2. Get access token using `@azure/identity` and Azure MySQL database information from environment variables added by Service Connector service. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get access token using `@azure/identity` and Azure MySQL database information from environment variables added by Service Connector service. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
 
    ```javascript

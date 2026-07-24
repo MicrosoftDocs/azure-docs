@@ -1,12 +1,14 @@
 ---
 title: Reprotect Azure virtual machines to the primary region with Azure Site Recovery
+ms.reviewer: v-gajeronika
 description: Describes how to reprotect Azure virtual machines after failover, the secondary to primary region, using Azure Site Recovery.
 services: site-recovery
-author: ankitaduttaMSFT
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: tutorial
-ms.date: 03/17/2025
-ms.author: ankitadutta
+ms.date: 10/22/2025
+ms.author: v-gajeronika
+# Customer intent: As an IT administrator managing disaster recovery for virtual machines, I want to reprotect VMs to the primary region after a failover, so that I can ensure continuous data replication and quickly restore services to their original location.
 ---
 
 # Reprotect failed over Azure virtual machines to the primary region
@@ -25,12 +27,12 @@ When you [fail over](site-recovery-failover.md) Azure virtual machines from one 
 
 1. In **Vault** > **Replicated items**, right-click the failed over virtual machine, and select **Re-Protect**. The reprotection direction should show from secondary to primary.
 
-   :::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png" alt-text="Screenshot shows a virtual machine with a contextual menu with Re-protect selected." lightbox="./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png":::
+   :::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect-failedover-virtual-machine.png" alt-text="Screenshot shows a virtual machine with a contextual menu with Re-protect selected." lightbox="./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect-failedover-virtual-machine.png":::
 
 1. Review the resource group, network, storage, and availability sets. Then select **OK**. If there are any resources marked as new, they're created as part of the reprotection process.
 1. The reprotection job seeds the target site with the latest data. After the job finishes, delta replication takes place. Then, you can fail over back to the primary site. You can select the storage account or the network you want to use during reprotect, using the customize option.
 
-   :::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png" alt-text="Screenshot displays Customize option on the Azure portal." lightbox="./media/site-recovery-how-to-reprotect-azure-to-azure/customize.png":::
+   :::image type="content" source="./media/site-recovery-how-to-reprotect-azure-to-azure/customize-settings.png" alt-text="Screenshot displays Customize option on the Azure portal." lightbox="./media/site-recovery-how-to-reprotect-azure-to-azure/customize-settings.png":::
 
 ### Customize reprotect settings
 
@@ -68,9 +70,6 @@ By default, the following occurs:
 
 1. The target side virtual machine is turned off if it's running.
 1. If the virtual machine is using managed disks, a copy of the original disk is created with an `-ASRReplica` suffix. The original disks are deleted. The `-ASRReplica` copies are used for replication.
-1. If the virtual machine is using unmanaged disks, the target virtual machine's data disks are detached and used for replication. A copy of the OS disk is created and attached on the virtual machine. The original OS disk is detached and used for replication.
-1. Only changes between the source disk and the target disk are synchronized. The differentials are computed by comparing both the disks and then transferred. Check below to find the estimated time to complete the reprotection.
-1. After the synchronization completes, the delta replication begins, and a recovery point is created in line with the replication policy.
 
 **When you trigger a reprotect job, and the target virtual machine and disks don't exist, the following occurs:**
 

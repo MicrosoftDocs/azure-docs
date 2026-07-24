@@ -8,6 +8,7 @@ ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 01/07/2025
+# Customer intent: As a network engineer, I want to configure a VPN gateway using an existing public IP address, so that I can establish secure, encrypted connections between Azure virtual networks and on-premises locations.
 ---
 
 # Manage a public IP address with a VPN gateway
@@ -22,7 +23,7 @@ In this article, you learn how to create a VPN gateway using an existing public 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - One standard SKU public IP address in your subscription. The IP address can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP address using the Azure portal](./create-public-ip-portal.md).
     - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP**.
 

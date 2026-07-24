@@ -1,5 +1,5 @@
 ---
-title: Configure NFSv4.1 Kerberos encryption for Azure NetApp Files | Microsoft Docs
+title: Configure NFSv4.1 Kerberos encryption for Azure NetApp Files 
 description: Describes how to configure NFSv4.1 Kerberos encryption for Azure NetApp Files and the performance impact.
 services: azure-netapp-files
 author: b-hchen
@@ -7,6 +7,8 @@ ms.service: azure-netapp-files
 ms.topic: how-to
 ms.date: 04/16/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
+# Customer intent: As a system administrator, I want to configure NFSv4.1 Kerberos encryption for Azure NetApp Files so that I can ensure secure access and data protection while managing NFS volumes in my environment.
 ---
 # Configure NFSv4.1 Kerberos encryption for Azure NetApp Files
 
@@ -51,7 +53,7 @@ The following requirements apply to NFSv4.1 client encryption:
 
 2.	Under **Kerberos Realm**, enter the **AD Server Name** and the **KDC IP** address.
 
-    AD Server and KDC IP can be the same server. This information is used to create the SPN computer account used by Azure NetApp Files. After the computer account is created, Azure NetApp Files uses DNS Server records to locate additional KDC servers as needed. 
+    AD Server and KDC IP can be the same server. This information is used to create the SPN computer account used by Azure NetApp Files. After the computer account is created, Azure NetApp Files uses DNS Server records to locate additional KDC servers as needed. In the AD Server Name, provide the hostname of the machine without appending the domain.
 
     ![Kerberos Realm](./media/configure-kerberos-encryption/kerberos-realm.png)
  

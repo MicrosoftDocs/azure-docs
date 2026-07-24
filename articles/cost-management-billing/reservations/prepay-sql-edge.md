@@ -2,11 +2,11 @@
 title: Prepay for Azure SQL Edge reservations
 description: Learn how you can prepay for Azure SQL Edge to save money over your pay-as-you-go costs.
 author: pri-mittal
-ms.reviewer: kendalv
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.topic: conceptual
-ms.date: 03/26/2025
+ms.topic: how-to
+ms.date: 07/17/2026
 ms.author: primittal
 ---
 

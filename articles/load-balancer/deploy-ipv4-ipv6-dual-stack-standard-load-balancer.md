@@ -8,6 +8,7 @@ ms.topic: how-to
 ms.date: 03/21/2025
 ms.author: mbender
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template
+# Customer intent: "As a cloud administrator, I want to deploy a dual stack (IPv4 + IPv6) application using a load balancer, so that I can ensure my application is accessible over both IP protocols in a Microsoft Azure environment."
 ---
 
 # Deploy IPv6 dual stack application with Azure Load Balancer
@@ -18,17 +19,17 @@ This article shows you how to deploy a dual stack (IPv4 + IPv6) application usin
 
 # [Azure CLI](#tab/azurecli/)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 # [Azure PowerShell](#tab/azurepowershell/)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 # [ARM template](#tab/arm-template/)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ---
 

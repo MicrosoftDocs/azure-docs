@@ -6,10 +6,11 @@ description: In this quickstart, learn how to create an Azure Content Delivery N
 services: cdn
 author: halkazwini
 ms.author: halkazwini
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
-ms.date: 03/31/2025
+ms.date: 02/28/2026
+# Customer intent: "As a cloud engineer, I want to deploy an Azure Content Delivery Network profile and endpoint using a Bicep file, so that I can efficiently manage content delivery and performance for my applications."
 ---
 
 # Quickstart: Create an Azure Content Delivery Network profile and endpoint - Bicep

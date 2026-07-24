@@ -7,9 +7,15 @@ author: mbender-ms
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
-ms.date: 12/11/2024
+ms.date: 11/20/2025
 ms.author: mbender
-ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
+# Customer intent: "As a cloud administrator, I want to associate a public IP address to a virtual machine so that I can enable external connectivity for the VM and manage network traffic effectively."
 ---
 
 # Associate a public IP address to a virtual machine
@@ -18,13 +24,13 @@ In this article, you learn how to associate a public IP address to an existing v
 
  If you want to instead create a new VM with a public IP address, you can use the [Azure portal](virtual-network-deploy-static-pip-arm-portal.md), the [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md), or [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md).
 
-Public IP addresses have a nominal fee. For details, see [pricing](https://azure.microsoft.com/pricing/details/ip-addresses/). There's a limit to the number of public IP addresses that you can use per subscription. For details, see [limits](../../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address).
+Public IP addresses have a nominal fee. For details, see [pricing](https://azure.microsoft.com/pricing/details/ip-addresses/). There's a limit to the number of public IP addresses that you can use per subscription. For details, see [limits](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 
 [!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Prerequisites
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 # [Azure portal](#tab/azure-portal)
 
@@ -34,30 +40,30 @@ Public IP addresses have a nominal fee. For details, see [pricing](https://azure
 
 1. Under **Settings** in the left pane, select **Networking**, and then select the network interface you want to add the public IP address to.
 
-    :::image type="content" source="./media/associate-public-ip-address-vm/select-nic.png" alt-text="Screenshot showing how to select the network interface of a VM.":::
+    :::image type="content" source="./media/associate-public-ip-address-vm/select-nic.png" alt-text="Screenshot of how to select the network interface of a VM.":::
 
    > [!NOTE]
    > Public IP addresses are associated to the network interfaces that are attached to a VM. In this screenshot, the VM has only one network interface. If the VM had multiple network interfaces, they would all appear, and you'd select the network interface you want to associate the public IP address to.
 
 1. From the **Network interface** window, under **Settings**, select **IP configurations***, and then select an IP configuration from the list.
 
-    :::image type="content" source="./media/associate-public-ip-address-vm/select-ip-configuration.png" alt-text="Screenshot showing how to select the I P configuration of a network interface.":::
+    :::image type="content" source="./media/associate-public-ip-address-vm/select-ip-configuration.png" alt-text="Screenshot of how to select the I P configuration of a network interface.":::
 
    > [!NOTE]
    > Public IP addresses are associated to the IP configurations for a network interface. In this screenshot, the network interface has only one IP configuration. If the network interface had multiple IP configurations, they would all appear in the list, and you'd select the IP configuration that you want to associate the public IP address to.
 
 1. In the **Edit IP configuration** window, select **Associate public IP address**, then select **Public IP address** to choose an existing public IP address from the drop-down list. If no public IP addresses are listed, you need to create one. To learn how, see [Create a public IP address](virtual-network-public-ip-address.md#create-a-public-ip-address).
 
-    :::image type="content" source="./media/associate-public-ip-address-vm/choose-public-ip-address.png" alt-text="Screenshot showing how to select, create, and associate a new public IP address.":::
+    :::image type="content" source="./media/associate-public-ip-address-vm/choose-public-ip-address.png" alt-text="Screenshot of how to select, create, and associate a new public IP address.":::
 
    > [!NOTE]
-   > The public IP addresses that appear in the drop-down list are those that exist in the same region as the VM. If you have multiple public IP addresses created in the region, all will appear here. Any address that's already associated to a different resource is grayed out.
+   > The public IP addresses that appear in the drop-down list exist in the same region as the VM. If you have multiple public IP addresses created in the region, all appear here. Any address already associated to a different resource is grayed out.
 
 1. Select **Save**.
 
 1. In the **IP Configurations** window, view the public IP address assigned to the IP configuration. It might take a few seconds for a newly associated IP address to appear.
 
-    :::image type="content" source="./media/associate-public-ip-address-vm/view-assigned-public-ip-address.png" alt-text="Screenshot showing the newly assigned public I P.":::
+    :::image type="content" source="./media/associate-public-ip-address-vm/view-assigned-public-ip-address.png" alt-text="Screenshot of the newly assigned public I P.":::
 
    > [!NOTE]
    > An IP address is assigned from the pool of public IP addresses reserved for an Azure region. For a list of the address pools used in each region, see [Azure IP ranges and service tags](https://www.microsoft.com/download/details.aspx?id=56519). If you need the address to be assigned from a specific prefix, use a [Public IP address prefix](public-ip-address-prefix.md).
@@ -87,7 +93,7 @@ Install the [Azure CLI](/cli/azure/install-azure-cli?toc=%2fazure%2fvirtual-netw
      ```
 
      > [!NOTE]
-     > This command creates a public IP address with default values for several settings that you may want to customize. For more information about public IP address settings, see [Create a public IP address](virtual-network-public-ip-address.md#create-a-public-ip-address). An IP address is assigned from the pool of public IP addresses reserved for an Azure region. For a list of the address pools used in each region, see [Azure IP ranges and service tags](https://www.microsoft.com/download/details.aspx?id=56519). If you need the address to be assigned from a specific prefix, use a [Public IP address prefix](public-ip-address-prefix.md).
+     > This command creates a public IP address with default values for several settings that you can customize. For more information about public IP address settings, see [Create a public IP address](virtual-network-public-ip-address.md#create-a-public-ip-address). An IP address is assigned from the pool of public IP addresses reserved for an Azure region. For a list of the address pools used in each region, see [Azure IP ranges and service tags](https://www.microsoft.com/download/details.aspx?id=56519). If you need the address to be assigned from a specific prefix, use a [Public IP address prefix](public-ip-address-prefix.md).
 
 1. If you don't know the names of the network interfaces attached to your VM, use the [az vm nic list](/cli/azure/vm/nic#az-vm-nic-list) command to view them. For example, the following command lists the network interfaces attached to a VM named *myVM* in a resource group named *myResourceGroup*:
 
@@ -148,7 +154,7 @@ Install [Azure PowerShell](/powershell/azure/install-azure-powershell) on your m
      ```
 
      > [!NOTE]
-     > This command creates a public IP address with default values for several settings that you may want to customize. For more information about public IP address settings, see [Create a public IP address](virtual-network-public-ip-address.md#create-a-public-ip-address). An IP address is assigned from the pool of public IP addresses reserved for an Azure region. For a list of the address pools used in each region, see [Azure IP ranges and service tags](https://www.microsoft.com/download/details.aspx?id=56519). If you need the address to be assigned from a specific prefix, use a [Public IP address prefix](public-ip-address-prefix.md).
+     > This command creates a public IP address with default values for several settings that you can customize. For more information about public IP address settings, see [Create a public IP address](virtual-network-public-ip-address.md#create-a-public-ip-address). An IP address is assigned from the pool of public IP addresses reserved for an Azure region. For a list of the address pools used in each region, see [Azure IP ranges and service tags](https://www.microsoft.com/download/details.aspx?id=56519). If you need the address to be assigned from a specific prefix, use a [Public IP address prefix](public-ip-address-prefix.md).
 
 1. If you want to know the names and properties of the network interfaces attached to your VM, use the [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM) command to view them. For example, the following command lists the network interfaces attached to a VM named *myVM* in a resource group named *myResourceGroup*:
 

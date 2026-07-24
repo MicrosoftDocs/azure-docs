@@ -7,7 +7,9 @@
  ms.topic: include
  ms.date: 12/04/2023
  ms.author: mbender
- ms.custom: include file
+ ms.custom:
+   - include file
+   - sfi-image-nochange
 ---
 
 ## Install IIS

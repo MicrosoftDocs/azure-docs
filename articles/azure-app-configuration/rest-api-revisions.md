@@ -5,15 +5,15 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
 ms.topic: reference
-ms.date: 08/02/2024
+ms.date: 06/04/2025
 zone_pivot_groups: appconfig-data-plane-api-version
 
 ---
-:::zone target="docs" pivot="v1,v23-10,v23-11"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
 
 # Key-value revisions
 
-A *key-value revision* defines the historical representation of a key-value resource. Revisions expire after 7 days for Free tier stores, or 30 days for Standard tier stores. Revisions support the `List` operation.
+A *key-value revision* defines the historical representation of a key-value resource. Revisions expire after 7 days for Free and Developer tier stores, or 30 days for Standard and Premium tier stores. Revisions support the `List` operation.
 
 For all operations, ``key`` is an optional parameter. If omitted, it implies any key.
 
@@ -111,7 +111,7 @@ GET /revisions?key={key}&label={label}&api-version={api-version}
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v23-11"
+:::zone target="docs" pivot="v23-11,v24-09,v26-04"
 
 A combination of `key`, `label` and `tags` filtering is supported.
 Use the optional `key`, `label` and `tags` query string parameters.
@@ -122,7 +122,7 @@ GET /revisions?key={key}&label={label}&tags={tagFilter1}&tags={tagFilter2}&api-v
 ```
 
 :::zone-end
-:::zone target="docs" pivot="v1,v23-10,v23-11"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
 
 ### Supported filters
 
@@ -146,7 +146,7 @@ GET /revisions?key={key}&label={label}&tags={tagFilter1}&tags={tagFilter2}&api-v
 |`label=prod,test`|Matches labels **prod** or **test** (limited to 5 CSV)|
 
 :::zone-end
-:::zone target="docs" pivot="v23-11"
+:::zone target="docs" pivot="v23-11,v24-09,v26-04"
 
 |Tags filter|Effect|
 |--|--|
@@ -157,7 +157,7 @@ GET /revisions?key={key}&label={label}&tags={tagFilter1}&tags={tagFilter2}&api-v
 |`tags=tag1=`|Matches key-values that have a tag named `tag1` with empty value|
 
 :::zone-end
-:::zone target="docs" pivot="v1,v23-10,v23-11"
+:::zone target="docs" pivot="v1,v23-10,v23-11,v24-09,v26-04"
 
 ### Reserved characters
 

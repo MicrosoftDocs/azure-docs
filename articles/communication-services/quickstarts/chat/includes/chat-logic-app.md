@@ -14,7 +14,7 @@ ms.author: sanchezjuan
 
 ## Prerequisites
 
-- An Azure account with an active subscription, or [create an Azure account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription, or [create an Azure account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - An active Azure Communication Services resource, or [create a Communication Services resource](../../create-communication-resource.md).
 

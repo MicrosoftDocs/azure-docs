@@ -1,13 +1,16 @@
 ---
 title: About the Mobility service for disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs
 description: Learn about the Mobility service agent for disaster recovery of VMware VMs and physical servers to Azure using the Azure Site Recovery service.
-author: ankitaduttaMSFT
-manager: gaggupta
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.author: ankitadutta
-ms.date: 04/03/2025
-ms.custom: engagement-fy23, linux-related-content
+ms.author: v-gajeronika
+ms.date: 02/27/2026
+ms.custom:
+  - engagement-fy23
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: As a system administrator managing VMware VMs and physical servers, I want to install and configure the Mobility service for disaster recovery to Azure, so that I can ensure data protection and seamless recovery during outages or disasters.
 ---
 
 # About the Mobility service for VMware VMs and physical servers
@@ -391,6 +394,8 @@ On the configuration server, go to the folder _%ProgramData%\ASR\home\svsystems\
 > - `Microsoft-ASR_UA_9.30.0.0_Windows_GA_22Oct2019_release.exe`
 > - `Microsoft-ASR_UA_9.30.0.0_UBUNTU-16.04-64_GA_22Oct2019_release.tar.gz`
 
+[!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
+
 Installer file | Operating system (64-bit only)
 --- | ---
 `Microsoft-ASR_UA_version_Windows_GA_date_release.exe` | Windows Server 2016 </br> Windows Server 2012 R2 </br> Windows Server 2012 </br> Windows Server 2008 R2 SP1 <br> Windows Server 2019 <br> Windows Server 2022
@@ -414,6 +419,8 @@ Installer file | Operating system (64-bit only)
 [To be downloaded and placed in this folder manually](#debian-7-debian-8-or-debian-9-server) | Debian 9
 
 ## Download latest mobility agent installer for SUSE 11 SP3, SUSE 11 SP4, RHEL 5, Cent OS 5, Debian 7, Debian 8, Debian 9, Oracle Linux 6 and Ubuntu 14.04 server
+
+Oracle Linux 6 is supported for Mobility Service installation. You can follow the same steps as RHEL 5, as both distributions share a similar package structure and system dependencies. Ensure that required dependencies such as glibc and perl are present.
 
 ### SUSE 11 SP3 or SUSE 11 SP4 server
 

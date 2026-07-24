@@ -2,16 +2,17 @@
 title: Back up Azure Files in the Azure portal
 description: Learn how to use the Azure portal to back up Azure Files in the Recovery Services vault
 ms.topic: how-to
-ms.date: 03/11/2025
+ms.date: 02/17/2026
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to configure backups for Azure Files, so that I can ensure data protection against accidental or malicious deletions while minimizing on-premises maintenance."
 ---
 
 # Back up Azure Files
 
-This article describes how to back up [Azure Files](../storage/files/storage-files-introduction.md) from the Azure portal.
+This article describes how to back up [Azure Files](../storage/files/storage-files-introduction.md) from the Azure portal. You can also back up Azure Files using [CLI](backup-afs-cli.md), [Azure PowerShell](backup-azure-afs-automation.md), and [REST API](backup-azure-file-share-rest-api.md).
 
 Azure Files backup is a native cloud solution that protects your data and eliminates on-premises maintenance overheads. Azure Backup seamlessly integrates with Azure File Sync, centralizing your file share data and backups. The simple, reliable, and secure solution allows you to protect your enterprise file shares using [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups, ensuring data recovery for accidental or malicious deletion.
 
@@ -27,11 +28,13 @@ Azure Files backup is a native cloud solution that protects your data and elimin
 * Identify or create a [Recovery Services vault](tutorial-backup-azure-files-vault-tier-portal.md#create-a-recovery-services-vault) in the same region and subscription as the storage account that hosts the file share.
 * [Create a backup policy for protection of Azure Files](quick-backup-azure-files-vault-tier-portal.md).
 * If the storage account access has restrictions, check the firewall settings of the account to ensure the exception **Allow Azure services on the trusted services list to access this storage account** is in grant state. You can refer to [this](../storage/common/storage-network-security.md?tabs=azure-portal#manage-exceptions) link for the steps to grant an exception.
-* Ensure that you allow the **Storage account key access** in the required storage account.
+* Ensure the storage account either permits access via account keys or has public network access disabled.
+* Ensure that the target storage account has the [supported configurations](azure-file-share-support-matrix.md#permitted-scope-for-copy-operationspreview).
 
 >[!IMPORTANT]
->To perform [Cross Subscription Backup (CSB) for protecting Azure Files (preview)](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-files-works) in another subscription, ensure you register `Microsoft.RecoveryServices` in the **subscription of the file share** in addition to the given prerequisites.
+>To perform [Cross Subscription Backup (CSB) for protecting Azure Files](azure-file-share-backup-overview.md#how-cross-subscription-backup-for-azure-files-works) in another subscription, ensure you register `Microsoft.RecoveryServices` in the **subscription of the file share** in addition to the given prerequisites.
 
+To learn about the supported Azure Files backup and restore scenarios, region availability, and limitations, see the [support matrix](azure-file-share-support-matrix.md). For common questions, see the [frequently asked questions](backup-azure-files-faq.yml).
 
 ## Configure the backup
 
@@ -183,4 +186,5 @@ Once the backup configuration is complete, you can [run an on-demand backup](tut
 ## Next steps
 
 * [Restore Azure Files using Azure portal](restore-afs.md).
-* [Manage Azure Files backups using Azure portal](manage-afs-backup.md).
+* Restore Azure Files using [Azure PowerShell](restore-afs-powershell.md), [Azure CLI](restore-afs-cli.md), [REST API](restore-azure-file-share-rest-api.md).
+* Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).

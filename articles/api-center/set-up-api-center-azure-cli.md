@@ -1,12 +1,12 @@
 ---
-title: Quickstart - Create your Azure API center - Azure CLI
-description: In this quickstart, use the Azure CLI to set up an API center for API discovery, reuse, and governance. 
-author: dlepow
+title: Quickstart - Create Your Azure API Center - Azure CLI
+description: Learn how to use the Azure CLI to set up an API center for API discovery, reuse, and governance. 
+
 ms.service: azure-api-center
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 06/27/2024
-ms.author: danlep 
+ms.date: 10/15/2025
+ 
 ---
 
 # Quickstart: Create your API center - Azure CLI
@@ -22,9 +22,9 @@ ms.author: danlep
 
 ## Register the Microsoft.ApiCenter provider
 
-If you haven't already, you need to register the **Microsoft.ApiCenter** resource provider in your subscription. You only need to register the resource provider once. 
+If you haven't already, register the **Microsoft.ApiCenter** resource provider in your subscription. You only register the resource provider once.
 
-To register the resource provider in your subscription using the Azure CLI, run the following [`az provider register`](/cli/azure/provider#az-provider-register) command:
+To register the resource provider in your subscription by using the Azure CLI, run the following [`az provider register`](/cli/azure/provider#az-provider-register) command:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ApiCenter
@@ -32,7 +32,7 @@ az provider register --namespace Microsoft.ApiCenter
 
 You can check the registration status by running the following [`az provider show`](/cli/azure/provider#az-provider-show) command:
 
-```azurecli-interactive        
+```azurecli-interactive
 az provider show --namespace Microsoft.ApiCenter
 ```
 
@@ -40,7 +40,7 @@ az provider show --namespace Microsoft.ApiCenter
 
 Azure API Center instances, like all Azure resources, must be deployed into a resource group. Resource groups let you organize and manage related Azure resources.
 
-Create a resource group using the [`az group create`](/cli/azure/group#az-group-create) command. The following example creates a group called *MyGroup* in the *East US* location:
+Create a resource group by using the [`az group create`](/cli/azure/group#az-group-create) command. The following example creates a group called *MyGroup* in the *East US* location:
 
 ```azurecli-interactive
 az group create --name MyGroup --location eastus
@@ -48,7 +48,7 @@ az group create --name MyGroup --location eastus
 
 ## Create an API center
 
-Create an API center using the [`az apic create`](/cli/azure/apic/#az-apic-create) command. 
+Create an API center by using the [`az apic create`](/cli/azure/apic/#az-apic-create) command.
 
 The following example creates an API center called *MyApiCenter* in the *MyGroup* resource group. In this example, the API center is deployed in the *West Europe* location. Substitute an API center name of your choice and enter one of the [available locations](overview.md#available-regions) for your API center.
 

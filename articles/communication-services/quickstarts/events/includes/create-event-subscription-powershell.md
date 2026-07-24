@@ -3,13 +3,13 @@ author: pgrandhi
 ms.service: azure-communication-services
 ms.custom: devx-track-azurepowershell
 ms.topic: include
-ms.date: 01/27/2024
+ms.date: 06/28/2025
 ms.author: pgrandhi
 ---
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install the [Azure Az PowerShell Module](/powershell/azure/).
 - An [Azure Communication Services resource](../../create-communication-resource.md).
 - To receive events, create a Webhook. See [Webhook Event Delivery](../../../../../articles/event-grid/webhook-event-delivery.md).
@@ -24,18 +24,19 @@ First, install the Azure Communication Services module ```Az.EventGrid``` using 
 ```PowerShell
 PS C:\> Install-Module Az.EventGrid
 ```
+
 1. Sign in to your Azure subscription with the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the on-screen directions.
 
-   ```PowerShell
-   Connect-AzAccount
-   ```
+  ```PowerShell
+  Connect-AzAccount
+  ```
 
 2. If your identity is associated with more than one subscription, then set your active subscription to **subscription of the Web PubSub** resource that you want to move.
 
-   ```PowerShell
-   $context = Get-AzSubscription -SubscriptionId <subscription-id>
-   Set-AzContext $context
-   ```
+  ```PowerShell
+  $context = Get-AzSubscription -SubscriptionId <subscription-id>
+  Set-AzContext $context
+  ```
 
 To create an event subscription using the [Azure PowerShell](/powershell/azure/get-started-azureps), use the [`New-AzEventGridSubscription`](/powershell/module/az.eventgrid/new-azeventgridsubscription) command. 
 
@@ -86,4 +87,4 @@ Get-AzResource
 
 ## Next steps
 
-- For information on other commands, see [Az.EventGrid PowerShell Module](/powershell/module/az.eventgrid/new-azeventgridsubscription).
+- For information about other commands, see [Az.EventGrid PowerShell Module](/powershell/module/az.eventgrid/new-azeventgridsubscription).

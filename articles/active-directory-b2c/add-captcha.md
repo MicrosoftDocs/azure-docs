@@ -3,7 +3,7 @@ title: Enable CAPTCHA in Azure Active Directory B2C
 description: Learn how to enable CAPTCHA in Azure AD B2C for user flows and custom policies to protect sign-in and sign-up flows from automated attacks.
 author: kengaderdus
 manager: mwongerapk
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 02/18/2024
 ms.custom: project-no-code
@@ -11,15 +11,17 @@ ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
 
-#Customer intent: As a developer, I want to enable CAPTCHA in consumer-facing application that is secured by Azure Active Directory B2C, so that I can protect my sign-in and sign-up flows from automated attacks.
+#Customer intent: As a developer, I want to enable CAPTCHA in a consumer-facing application that is secured by Azure Active Directory B2C, so that I can protect my sign-in and sign-up flows from automated attacks.
 
 ---
 
 # Enable CAPTCHA in Azure Active Directory B2C
 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
 [!INCLUDE [active-directory-b2c-choose-user-flow-or-custom-policy](../../includes/active-directory-b2c-choose-user-flow-or-custom-policy.md)]
 
-Azure Active Directory B2C (Azure AD B2C) allows you to enable CAPTCHA to prevent automated attacks on your consumer-facing applications. Azure AD B2C’s CAPTCHA supports both audio and visual CAPTCHA challenges. You can enable this security feature in both sign-up and sign-in flows for your local accounts. CAPTCHA isn't applicable for social identity providers' sign-in.   
+Azure Active Directory B2C (Azure AD B2C) allows you to enable CAPTCHA to prevent automated attacks on your consumer-facing applications. Azure AD B2C CAPTCHA supports both audio and visual challenges. You can enable this security feature in both sign-up and sign-in flows for your local accounts. CAPTCHA isn't applicable for social identity providers' sign-in.   
 
 > [!NOTE]
 > This feature is in public preview
@@ -50,7 +52,7 @@ Azure Active Directory B2C (Azure AD B2C) allows you to enable CAPTCHA to preven
 
 ## Test the user flow
 
-Use the steps in [Test the user flow](tutorial-create-user-flows.md?pivots=b2c-user-flow#test-the-user-flow-1) to test and confirm that CAPTCHA is enabled for your chosen flow. You should be prompted to enter the characters you see or hear depending on the CAPTCHA type, visual, or audio, you choose.
+Use the steps in [Test the user flow](tutorial-create-user-flows.md?pivots=b2c-user-flow#test-the-user-flow-1) to test and confirm that CAPTCHA is enabled for your chosen flow. You should be prompted to enter the characters you see or hear depending on the CAPTCHA type (visual or audio) that you choose.
 
 ::: zone-end
 
@@ -393,7 +395,7 @@ Use the steps in [Test the custom policy](tutorial-create-user-flows.md?pivots=b
 
 > [!NOTE]
 > - You can't add CAPTCHA to an MFA step in a sign-up only user flow.
-> - In an MFA flow, CAPTCHA is applicable where the MFA method you select is SMS or phone call, SMS only or Phone call only.
+> - In an MFA flow, CAPTCHA is applicable where the MFA method you select is SMS or phone call, SMS only, or phone call only.
 
 ## Related content
 

@@ -1,12 +1,14 @@
 ---
 title: How to modify access permissions to Azure Monitor
-description: Learn how to manually set up permissions that allow your Azure Managed Grafana workspace to access a data source
+description: Learn how to grant and manage permissions for your Azure Managed Grafana workspace to access monitoring data in Azure.
 author: maud-lv 
 ms.author: malev 
 ms.service: azure-managed-grafana
-ms.custom: engagement-fy23
 ms.topic: how-to 
-ms.date: 10/23/2024
+ms.date: 09/30/2025
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 #customer intent: I want to grant the Azure Monitor role to an Azure Managed Grafana workspace so that I can start monitoring an Azure service in Grafana.
 ---
 
@@ -16,11 +18,11 @@ By default, when a Grafana workspace is created, it comes with a Monitoring Read
  
 This means that the new Grafana workspace can access and search all monitoring data in the subscription. It can view the Azure Monitor metrics and logs from all resources, and any logs stored in Log Analytics workspaces in the subscription.
 
-In this article, learn how to manually grant permission for Azure Managed Grafana to access an Azure resource using a managed identity.
+In this article, learn how to manually grant permission for Azure Managed Grafana to access Azure resources using a managed identity.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Managed Grafana workspace. If you don't have one yet, [create an Azure Managed Grafana workspace](./quickstart-managed-grafana-portal.md).
 - An Azure resource with monitoring data and write permissions, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../articles/role-based-access-control/built-in-roles.md#owner)
 
@@ -95,7 +97,9 @@ For more information about assigning Azure roles using the Azure CLI, refer to t
 
 ---
 
-## Next steps
+## Related content
 
-> [!div class="nextstepaction"]
-> [How to configure data sources for Azure Managed Grafana](./how-to-data-source-plugins-managed-identity.md)
+- [How to configure data sources for Azure Managed Grafana](./how-to-data-source-plugins-managed-identity.md)
+- [Configure authentication in Azure Managed Grafana](./how-to-authentication-permissions.md)
+- [Manage access and permissions for users and identities](./how-to-manage-access-permissions-users-identities.md)
+- [Troubleshoot common Azure Managed Grafana issues](./troubleshoot-managed-grafana.md)

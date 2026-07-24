@@ -3,12 +3,15 @@ title: Linter rule - no location expressions outside of parameter default values
 description: Linter rule - no location expressions outside of parameter default values
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 02/12/2025
+ms.date: 12/22/2025
 ---
 
 # Linter rule - no location expressions outside of parameter default values
 
 This rule finds `resourceGroup().location` or `deployment().location` used outside of a parameter default value.
+
+> [!NOTE]
+> This rule is off by default. Change the level in [bicepconfig.json](./bicep-config-linter.md) to enable it.
 
 ## Linter rule code
 
@@ -25,7 +28,7 @@ Template users may have limited access to regions where they can create resource
 Best practice suggests that to set your resources' locations, your template should have a string parameter named `location`. If you default the `location` parameter to `resourceGroup().location` or `deployment().location` instead of using these functions elsewhere in the template, users of the template can use the default value when convenient but also specify a different location when needed.
 
 ```bicep
-resource storageaccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageaccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   location: resourceGroup().location
 }
 ```
@@ -35,7 +38,7 @@ You can fix the failure by creating a `location` property that defaults to `reso
 ```bicep
 param location string = resourceGroup().location
 
-resource storageaccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+resource storageaccount 'Microsoft.Storage/storageAccounts@2025-06-01' = {
   location: location
 }
 ```

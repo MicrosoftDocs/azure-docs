@@ -18,7 +18,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 
 |Partner name|
 |----------------------------|
-|[2w Technologies LLC](https://2wtech.com)|
+|[2W Technologies, INC](https://2wtech.com/)|
 |[10th Magnitude](https://www.10thmagnitude.com)|
 |[12:34 MicroTechnolgies Inc.](https://www.1234micro.com/)|
 |[1901 Group, LLC](https://1901group.com)|
@@ -99,6 +99,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[cFocus Software Incorporated](https://cfocussoftware.com)|
 |[CGI Federal, Inc.](https://www.cgi.com/en/us-federal)|
 |[CGI Technologies and Solutions Inc.](https://www.cgi.com)|
+|[Cherokee Nation System Solutions LLC](https://www.cherokee-federal.com/)|
 |[Ciellos Inc.](https://www.ciellos.com/)|
 |[Ciracom Inc.](https://www.ciracomcloud.com)|
 |[ciyis](https://ciyis.net)|
@@ -107,7 +108,6 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[CloudFit Software, LLC](https://www.cloudfitsoftware.com/)|
 |[Cloud Navigator, Inc - formerly ISC](https://www.cloudnav.com)|
 |[Cloud Unity LLC](https://cloudunity.com)|
-|[CNSS - Cherokee Nation System Solutions LLC](https://cherokee-federal.com/about/cherokee-nation-system-solutions)|
 |[Cobalt](https://www.cobalt.net/)|
 |[CodeLynx, LLC](http://www.codelynx.com/)|
 |[Columbus US, Inc.](https://www.columbusglobal.com)|
@@ -148,13 +148,13 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |Derek Coleman & Associates Corporation|
 |[Developing Today LLC](https://www.developingtoday.net/)|
 |Diamond Capture Associates LLC|
-|[Diffeo, Inc.](https://diffeo.com)|
+|[Diffeo, Inc.](https://en.wikipedia.org/wiki/Diffeo,_Inc.)|
 |[DirectApps, Inc. D.B.A. Direct Technology](https://directtechnology.com)|
 |[DominionTech Inc.](https://www.dominiontech.com)|
 |[DOT Personable Inc](https://cloud.personable.com/1/login.htm)|
 |Doublehorn, LLC|
 |[DXC Technology Services LLC](https://www.dxc.technology/services)|
-|[DXL Enterprises, Inc.](https://mahwahnjcoc.wliinc31.com/Supply-Chain-Management/DXL-Enterprises,-Inc-1349)|
+|[DXL Enterprises, Inc.](https://dxlenterprises.com/)|
 |[DynTek](https://www.dyntek.com)|
 |[ECS Federal, LLC](https://ecstech.com/)|
 |[Edafio Technology Partners](https://edafio.com)|
@@ -166,7 +166,6 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Enterprise Computing Services](https://thinkecs.com/)|
 |[Enterprise Infrastructure Partners, LLC](http://www.entisp.com/)|
 |[Enterprise Technology International](https://enterpriseti.com)|
-|[Envistacom](https://www.envistacom.com)|
 |[EPI-USE Labs LCC](https://www.epiuselabs.com)|
 |[Epic Systems Inc](http://epicinfotech.com/)|
 |[EpochConcepts](https://epochconcepts.com)|
@@ -207,7 +206,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Hendrix Corporation](https://www.hendrixcorp.com/)|
 |[Hewlett Packard Enterprise](https://www.hpe.com)|
 |[Hiscomp](http://www.hiscompllc.com/)|
-|[Hitachi Vantara](https://www.hitachivantarafederal.com/services/cloud-services/)|
+|[Hitachi Vantara](https://www.hitachivantara.com/content/hitachivantara/en_us/services/cloud-infrastructure-services.html)|
 |[HTS Voice & Data Systems, Inc.](https://www.hts-tx.com/)|
 |[HumanTouch LLC](https://www.humantouchllc.com/)|
 |[Hyertek Inc.](https://www.hyertek.com)|
@@ -242,7 +241,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[IV4, Inc](https://www.iv4.com)|
 |J and C Landwehr LLC|
 |[Jackpine Technologies](https://www.jackpinetech.com)|
-|[Jacobs Technolgy Inc.](https://www.jacobs.com/)|
+|[Jacobs Technology Inc.](https://www.jacobs.com/)|
 |[Jadex Strategic Group](https://jadexstrategic.com)|
 |[Jasper Solutions Inc.](https://jaspersolutions.com/)|
 |[Quiet Professionals](https://quietprofessionalsllc.com)|
@@ -269,7 +268,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Mainstay Technologies](https://www.mstech.com)|
 |[Managed Solution](https://www.managedsolution.com/)|
 |[ManCom Inc](https://www.mancominc.com/)|
-|[ManTech](https://www.mantech.com/Pages/Home.aspx)|
+|[ManTech](https://www.mantech.com/)|
 |[Marco Technologies LLC](https://www.marconet.com/)|
 |[Maureen Data Systems](https://www.mdsny.com)|
 |[Mazteck IT](https://www.mazteck.com)|
@@ -282,7 +281,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[mindSHIFT Technologies, Inc.](https://www.mindshift.com/)|
 |[MIS Sciences Corp](https://www.mis-sciences.com/)|
 |[Mission Cyber LLC](https://missioncyber.com/b/)|
-|[MNSG Acquisition Company LLC]()|
+|[MNSG Acquisition Company LLC](https://www.mnsgroup.com/)|
 |[Mobomo, LLC](https://www.mobomo.com)|
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[Navisite LLC](https://www.navisite.com/)|
@@ -300,7 +299,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Norseman, Inc](https://www.norseman.com)|
 |[Nortec](https://www.nortec.com)|
 |[Northrop Grumman](https://www.northropgrumman.com)|
-|[NTS Cloud](http://ntscloud.com/)|
+|[NTS Cloud](https://ntscloud.com/)|
 |[NTT America, Inc.](https://www.us.ntt.net)|
 |[Nubelity LLC](http://www.nubelity.com)|
 |[NuSoft Solutions (Atrio Systems, Inc.)](https://nusoftsolutions.com)|
@@ -311,13 +310,13 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Om Group, Inc.](http://www.omgroupinc.us/)|
 |[OneNeck IT Solutions](https://www.oneneck.com)|
 |[Onyx Point, Inc.](https://www.onyxpoint.com)|
-|[Opsgility](https://www.opsgility.com)|
+|[Opsgility](https://opsgility.com/)|
 |[OpsPro](https://opspro.com/)|
 |[Optuminsight Inc.](https://www.optum.com)|
 |[Orion Communications, Inc.](https://www.orioncom.com)|
 |[Outlook Insight, LLC](http://outlookinsight.com/)|
 |[Overview Technology Solutions Inc.](https://overviewts.com/)|
-|[PA-Group](https://pa-group.us/)|
+|[PA-Group](https://dmsiworks.com/resellers/pa-group-usa)
 |[Palecek Consulting Group](https://www.pcgit.net)|
 |[Pangea Group Inc.](http://www.pangea-group.com)|
 |[Paragon Software Solutions, Inc.](http://www.paragonhq.com/)|
@@ -331,7 +330,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |Phacil (By Light) |
 |[Pharicode LLC](https://glidefast.com/)|
 |Philistin & Heller Group, Inc.|
-|[Picis Envision](https://www.picis.com)|
+|[Picis Envision](https://www.picis.com/solution/analytics-suite/)|
 |[Pinao Consulting LLC](https://www.pcg-msp.com)|
 |[Pitech Solutions Inc](https://www.pitechsol.com/)|
 |[Planet Technologies](https://go-planet.com)|
@@ -389,7 +388,6 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[SHR Consulting Group LLC](https://www.shrgroupllc.com)|
 |[Shoshin Technologies Inc.](https://www.shoshintech.com)|
 |[Sieena, Inc.](https://siennatech.com/)|
-|[Simeon Networks](https://simeonnetworks.com)|
 |[SimpleHelix](https://simplehelix.com/)|
 |[Sirius Computer Solutions, Inc.](https://www.siriuscom.com/)|
 |[SKY SOLUTIONS LLC](https://www.skysolutions.com/)|
@@ -415,7 +413,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Sundance Systems Inc.](https://www.sundance-sys.com)|
 |[SWC Technology Partners (BDO USA)](https://www.bdo.com/)|
 |[Sybatech, Inc. (Codepal Toolkit)](https://www.codepaltoolkit.com)|
-|[SyCom Technologies](https://www.sycomtech.com)|
+|[SyCom Technologies](https://intervision.com/)|
 |[Syndo LLC](https://www.syndo.llc/)|
 |[Synergy Technical, LLC](https://www.synergy-technical.com/)|
 |[Synoptek LLC](https://synoptek.com/)|
@@ -471,7 +469,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Withum](https://www.withum.com/service/cyber-information-security-services/)|
 |[Workspot, Inc.](https://workspot.com)|
 |[WorkMagic LLC](https://www.workmagic.com)|
-|[Wovenware US, Inc.](https://www.wovenware.com)|
+|[Wovenware US, Inc.](https://maxar.com/maxar-intelligence/puerto-rico/)|
 |[WCC Global](https://wwcglobal.com)|
 |[Xantrion Incorporated](https://www.xantrion.com)|
 |[X-Centric IT Solutions, LLC](https://www.x-centric.com/)|
@@ -531,7 +529,6 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Charles IT](https://www.charlesit.com)|
 |[CloudFit Software LLC](https://cloudfitsoftware.com/)|
 |[Compunet Inc.](https://vanasolutions.com/)|
-|[Conquest Cyber](https://conquestcyber.com/)|
 |[CyberSheath](https://cybersheath.com)|
 |[Daymark Solutions, Inc.](https://www.daymarksi.com/)|
 |[Dox Electornics Inc.](https://www.doxnet.com)|
@@ -541,7 +538,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Executech Utah Inc.](https://www.executech.com)|
 |[F1 Solutions Inc](https://www.f1networks.com)|
 |[FCN Inc. ](https://fcnit.com)|
-|[Four Points Technolgy, LLC](https://www.4points.com)|
+|[Four Points Technology, LLC](https://www.4points.com)|
 |[G2 Ops, Inc.](https://g2-ops.com)|
 |[General Dynamics Information Technology](https://www.gdit.com)|
 |[Golden Five LLC](https://www.goldenfiveconsulting.com/)|
@@ -560,7 +557,7 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[NeoSystems LLC](https://www.neosystemscorp.com/solutions-services/microsoft-licenses/microsoft-365-licenses/)|
 |[Nimbus Logic, LLC](https://www.nimbus-logic.com/)|
 |[Northrop Grumman](https://www.northropgrumman.com/)|
-|[Novetta](https://www.novetta.com)|
+|[Novetta](https://www.linkedin.com/company/novetta/)|
 |[Orbis](https://orbisops.com)|
 |[PAX 8](https://www.pax8.com)|
 |[Peraton](https://www.peraton.com/)|
@@ -584,4 +581,4 @@ The following tables contain lists of all the authorized Cloud Solution Provider
 |[Vexcel](https://www.vexcel.com/)|
 |[VLCM](https://www.vlcm.com)|
 
-To learn more about the Cloud Solution Provider program, see [Frequently asked questions for Partner Center](/partner-center/faq-for-us-govt-cloud). If you would like to apply for the program, visit [Azure Government CSP application process](./documentation-government-csp-application.md). For any other questions, contact [Azure Government CSP](mailto:azgovcsp@microsoft.com).
+To learn more about the Cloud Solution Provider program, see [Frequently asked questions for Partner Center](/partner-center/faq-for-us-govt-cloud). If you would like to apply for the program, visit [Azure Government CSP application process](./documentation-government-csp-application.md).

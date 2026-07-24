@@ -1,13 +1,14 @@
 ---
 title: 'Quickstart: Create and modify ExpressRoute circuits - Azure portal'
 description: In this quickstart, you learn how to create, provision, verify, update, delete, and deprovision ExpressRoute circuits by using the Azure portal.
-services: expressroute
 author: duongau
 ms.author: duau
-ms.date: 08/05/2024
+ms.date: 03/12/2026
 ms.topic: quickstart
 ms.service: azure-expressroute
-ms.custom: mode-ui
+ms.custom:
+  - mode-ui
+  - sfi-image-nochange
 ---
 
 # Quickstart: Create and modify ExpressRoute circuits
@@ -18,7 +19,7 @@ This quickstart shows you how to create an ExpressRoute circuit in three differe
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 
 ## <a name="create"></a>Create and provision an ExpressRoute circuit
@@ -71,7 +72,7 @@ From a browser, sign in to the [Azure portal](https://portal.azure.com) and sign
     | ExpressRoute Direct resource (Direct port type) | Select the ExpressRoute Direct resource that you want to use. |
     | Enable Rate Limiting | Select this option to regulate the distribution of bandwidth across your ExpressRoute circuits. For more information, see [Rate limiting for ExpressRoute Direct circuits](rate-limit.md) |
     | Bandwidth | Select the bandwidth for the ExpressRoute circuit. |
-    | SKU | Select between **Local**, **Standard, and **Premium** SKU. The SKU determines the connectivity scope of your ExpressRoute circuit. For more information, see [What are the differences between circuit SKU?](expressroute-faqs.md#what-is-the-connectivity-scope-for-different-expressroute-circuit-skus). |
+    | SKU | Select between **Local**, **Standard**, and **Premium** SKU. The SKU determines the connectivity scope of your ExpressRoute circuit. For more information, see [What are the differences between circuit SKU?](expressroute-faqs.md#what-is-the-connectivity-scope-for-different-expressroute-circuit-skus). |
     | Billing model | Select the billing model for the outbound data charge. You can select between **Metered** for a metered data plan and **Unlimited** for an unlimited data plan. For more information, see [ExpressRoute pricing](https://azure.microsoft.com/pricing/details/expressroute/) details. |
 
     > [!IMPORTANT]
@@ -91,7 +92,7 @@ From a browser, sign in to the [Azure portal](https://portal.azure.com) and sign
 
     For standard resiliency, you only need to enter information for one ExpressRoute circuit.
 
-1. Go to the **Monitoring** tab and select the circuit(s) for which you want to enable alerts. This action will automatically set up the recommended alert rules for your new ExpressRoute circuit(s).
+1. Go to the **Monitoring** tab and select the circuit(s) for which you want to enable alerts. This action automatically sets up the recommended alert rules for your new ExpressRoute circuit(s).
 
     :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/configure-circuit-alerts.png" alt-text="Screenshot of alert rules configured for ExpressRoute circuit.":::
 
@@ -160,26 +161,26 @@ You can do the following tasks with no downtime:
 * Enable or disable an ExpressRoute Premium add-on for your ExpressRoute circuit.
 
   > [!IMPORTANT]
-  > Changing the SKU from **Standard/Premium** to **Local** is not supported in Azure portal. To downgrade the SKU to **Local**, you can use [Azure PowerShell](expressroute-howto-circuit-arm.md) or [Azure CLI](howto-circuit-cli.md).
+  > Changing the SKU from **Standard/Premium** to **Local** isn't supported in Azure portal. To downgrade the SKU to **Local**, you can use [Azure PowerShell](expressroute-howto-circuit-arm.md) or [Azure CLI](howto-circuit-cli.md).
 
 * Increase the bandwidth of your ExpressRoute circuit, provided there's capacity available on the port. 
 
   > [!IMPORTANT]
-  > * Downgrading the bandwidth of a circuit is not supported.
+  > * Downgrading the bandwidth of a circuit isn't supported.
   > * When upgrading the bandwidth of an ExpressRoute circuit, the Azure portal provides a list of available bandwidth options based on the capacity of the port. If the desired bandwidth isn't available, you need to recreate the circuit to get the desired bandwidth.
   >    :::image type="content" source="./media/expressroute-howto-circuit-portal-resource-manager/circuit-bandwidth-upgrade.png" alt-text="Screenshot of the bandwidth upgrade available for an ExpressRoute circuit.":::
 
 * Change the metering plan from *Metered Data* to *Unlimited Data*.
 
   > [!IMPORTANT]
-  > Changing the metering plan from **Unlimited Data** to **Metered Data** is not supported.
+  > Changing the metering plan from **Unlimited Data** to **Metered Data** isn't supported.
 
 * You can enable and disable *Allow Classic Operations*.
 
   > [!IMPORTANT]
-  > You may have to recreate the ExpressRoute circuit if there is inadequate capacity on the existing port. You cannot upgrade the circuit if there is no additional capacity available at that location.
+  > You might have to recreate the ExpressRoute circuit if there's inadequate capacity on the existing port. You can't upgrade the circuit if there's no additional capacity available at that location.
   >
-  > Although you can seamlessly upgrade the bandwidth, you cannot reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
+  > Although you can seamlessly upgrade the bandwidth, you can't reduce the bandwidth of an ExpressRoute circuit without disruption. Downgrading bandwidth requires you to deprovision the ExpressRoute circuit and then reprovision a new ExpressRoute circuit.
   >
   > Disabling the Premium add-on operation can fail if you're using resources that are greater than what is permitted for the standard circuit.
 
@@ -189,7 +190,7 @@ To modify an ExpressRoute circuit, select **Configuration**.
 
 ## <a name="delete"></a>Deprovisioning and deleting an ExpressRoute circuit 
 
-1. On the Azure portal menu, navigate to the ExpressRoute circuit you wish to deprovision.
+1. On the Azure portal menu, go to the ExpressRoute circuit you wish to deprovision.
 
 1. In the **Overview** page, select **Delete**. If there are any associated resources attached to the circuit, you're asked to view the resources. Select **Yes** to see the associations that need to be removed before starting the deprovisioning process. If there are no associated resources, you can proceed with step 4.
 

@@ -2,13 +2,17 @@
 title: 'Quickstart: Use the Azure CLI to create a Batch account and run a job'
 description: Follow this quickstart to use the Azure CLI to create a Batch account, a pool of compute nodes, and a job that runs basic tasks on the pool.
 ms.topic: quickstart
-ms.date: 04/02/2025
+ms.date: 06/16/2026
 ms.custom: mvc, devx-track-azurecli, mode-api, linux-related-content, innovation-engine
 author: padmalathas
 ms.author: padmalathas
+# Customer intent: As a cloud user, I want to create and manage a Batch account using command-line tools, so that I can efficiently run jobs and tasks on virtual machines for large-scale processing workflows.
 ---
 
 # Quickstart: Use the Azure CLI to create a Batch account and run a job
+
+> [!div class="nextstepaction"]
+> [Deploy and Explore](https://go.microsoft.com/fwlink/?linkid=2321733)
 
 This quickstart shows you how to get started with Azure Batch by using Azure CLI commands and scripts to create and manage Batch resources. You create a Batch account that has a pool of virtual machines, or compute nodes. You then create and run a job with tasks that run on the pool nodes.
 
@@ -89,7 +93,7 @@ az batch account create \
     --location $REGION
 ```
 
-Sign in to the new Batch account by running the [az batch account login](/cli/azure/batch/account#az-batch-account-login) command. Once you authenticate your account with Batch, subsequent `az batch` commands in this session use this account context.
+Sign in to the new Batch account by running the [az batch account login](/cli/azure/batch/account#az-batch-account-login) command. After you authenticate your account with Batch, subsequent `az batch` commands in this session use this account context.
 
 ```azurecli-interactive
 az batch account login \
@@ -164,7 +168,7 @@ Batch distributes the tasks to the compute nodes.
 
 ## View task status
 
-After you create the tasks, Batch queues them to run on the pool. Once a node is available, a task runs on the node.
+After you create the tasks, Batch queues them to run on the pool. When a node is available, a task runs on the node.
 
 Use the [az batch task show](/cli/azure/batch/task#az-batch-task-show) command to view the status of Batch tasks. The following example shows details about the status of `myTask1`:
 

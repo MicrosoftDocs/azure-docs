@@ -5,12 +5,13 @@ description: Network routing preference enables you to specify how network traff
 services: storage
 author: normesta
 ms.service: azure-storage
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/13/2023
 ms.author: normesta
 ms.reviewer: santoshc
 ms.subservice: storage-common-concepts
 ms.custom: references_regions, engagement-fy23
+# Customer intent: As a cloud architect, I want to configure network routing preferences for Azure Storage accounts so that I can optimize traffic for performance or cost efficiency based on my organization's needs.
 ---
 
 # Network routing preference for Azure Storage
@@ -29,7 +30,7 @@ The following diagram shows how traffic flows between the client and the storage
 
 ![Overview of routing options for Azure Storage](media/network-routing-preference/routing-options-diagram.png)
 
-For more information on routing preference in Azure, see [What is routing preference?](../../virtual-network/ip-services/routing-preference-overview.md).
+For more information on routing preference in Azure, see [What is routing preference?](../../virtual-network/ip-services/routing-preference-overview.md)
 
 ## Routing configuration
 
@@ -113,7 +114,7 @@ The following known issues affect the routing preference for Azure Storage:
 
 ## Pricing and billing
 
-For pricing and billing details, see the **Pricing** section in [What is routing preference?](../../virtual-network/ip-services/routing-preference-overview.md#pricing).
+For pricing and billing details, see the **Pricing** section in [What is routing preference?](../../virtual-network/ip-services/routing-preference-overview.md#pricing)
 
 ## Next steps
 

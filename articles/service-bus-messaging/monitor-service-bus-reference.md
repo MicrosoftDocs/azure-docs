@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Service Bus
 description: This article contains important reference material you need when you monitor Azure Service Bus by using Azure Monitor.
-ms.date: 07/22/2024
+ms.date: 08/12/2025
 ms.custom: horz-monitor
 ms.topic: reference
 author: spelluru
@@ -14,6 +14,9 @@ ms.author: spelluru
 See [Monitor Azure Service Bus](monitor-service-bus.md) for details on the data you can collect for Service Bus and how to use it.
 
 [!INCLUDE [horz-monitor-ref-metrics-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-intro.md)]
+
+> [!NOTE]
+> If you see `-NamespaceOnlyMetric-` in entity names, it's not an entity name. It means that the request was for a namespace level operation.
 
 ### Supported metrics for Microsoft.ServiceBus/Namespaces
 
@@ -32,8 +35,8 @@ The following sections provide more detailed descriptions for metrics presented 
 |:-------|:------------|
 | Incoming Requests | The number of requests made to the Service Bus service over a specified period. |
 | Successful Requests | The number of successful requests made to the Service Bus service over a specified period. |
-| [Server Errors](service-bus-messaging-exceptions.md#exception-categories) | The number of requests not processed because of an error in the Service Bus service over a specified period. |
-| [User Errors](service-bus-messaging-exceptions.md#exception-categories) | The number of requests not processed because of user errors over a specified period. |
+| [Server Errors](service-bus-messaging-exceptions.md#service-bus-exception-categories) | The number of requests not processed because of an error in the Service Bus service over a specified period. |
+| [User Errors](service-bus-messaging-exceptions.md#service-bus-exception-categories) | The number of requests not processed because of user errors over a specified period. |
 | Throttled Requests | The number of requests that were throttled because the usage was exceeded.</p><p>MessagingErrorSubCode dimension has the following possible values: <br/><ul><li><b>CPU:</b> CPU throttling</li><li><b>Storage:</b>It indicates throttle because of pending checkpoint operations</li><li><b>Namespace:</b>Namespace operations throttling.</li><li><b>Unknown:</b> Other resource throttling.</li></p> |
 | Pending Checkpoint Operations Count | The number of pending checkpoint operations on the namespace. Service starts to throttle when the pending checkpoint count exceeds limit of (500,000 + (500,000 * messaging units)) operations. This metric applies only to namespaces using the **premium** tier. |
 | Server Send Latency | The time taken by the Service Bus service to complete the request. |
@@ -49,7 +52,7 @@ The following metrics are *message metrics*.
 
 | Metric | Description |
 |:-------|:------------|
-| Incoming Messages | The number of events or messages sent to Service Bus over a specified period. For basic and standard tiers, incoming autoforwarded messages are included in this metric. And, for the premium tier, they aren't included. |
+| Incoming Messages | The number of events or messages sent to Service Bus over a specified period. This count includes messages auto forwarded to the entity via auto-forwarding from a source entity. |
 | Outgoing Messages | The number of events or messages received from Service Bus over a specified period. The outgoing autoforwarded messages aren't included in this metric. |
 | Messages | Count of messages in a queue/topic. This metric includes messages in all the different states like active, dead-lettered, scheduled, etc. |
 | Active Messages | Count of active messages in a queue/topic. Active messages are the messages in the queue or subscription that are in the active state and ready for delivery. The messages are available to be received. |
@@ -58,6 +61,16 @@ The following metrics are *message metrics*.
 | Completed Messages | The number of messages completed over a specified period. |
 | Abandoned Messages | The number of messages abandoned over a specified period. |
 | Size | Size of an entity (queue or topic) in bytes. |
+
+> [!NOTE]
+> **Incoming Messages and Outgoing Messages counts may not always match.** This is expected behavior and doesn't indicate message loss. Common reasons include:
+>
+> - **Duplicate detection**: Messages identified as duplicates are counted as incoming but are discarded and never become outgoing.
+> - **Topic subscription filters**: A single message sent to a topic counts as one incoming message but produces an outgoing message only for each subscription whose filter matches. If no subscription filter matches, there are zero outgoing messages for that incoming message.
+> - **Consumer lag**: If consumers receive messages more slowly than producers send them, the incoming count exceeds the outgoing count until consumers catch up.
+> - **Message expiration (TTL)**: Messages that expire before being consumed are never counted as outgoing.
+> - **Dead-lettering**: Messages moved to the dead-letter queue aren't counted as outgoing.
+> - **Autoforwarding**: Successfully auto-forwarded messages count as incoming on the destination entity. They aren't counted as outgoing on the source entity. When an auto-forward attempt is retried (for example, because the destination has sessions enabled or hits a transient error), each retry that reaches the destination is counted again, so one source message can produce more than one entry in the destination's incoming count.
 
 > [!IMPORTANT]
 > Values for messages, active, dead-lettered, scheduled, completed, and abandoned messages are point-in-time values. Incoming messages that were consumed immediately after that point-in-time might not be reflected in these metrics.
@@ -71,18 +84,18 @@ The following metrics are *connection metrics*.
 
 | Metric | Description |
 |:-------|:------------|
-| Active Connections | The number of active connections on a namespace and on an entity in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time may not be reflected in the metric. |
+| Active Connections | The number of active connections on a namespace and on an entity in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time might not be reflected in the metric. |
 | Connections Opened | The number of connections opened. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window. |
 | Connections Closed | The number of connections closed. Value for this metric is an aggregation, and includes all connections that were opened in the aggregation time window. |
 
 ### Resource usage metrics
 
-The following *resource metrics* are available only with the **premium** tier.
+The following *resource metric* is available only with the **premium** tier.
 
 | Metric | Description |
 |:-------|:------------|
 | CPU usage per namespace | The percentage CPU usage of the namespace. |
-| Memory size usage per namespace | The percentage memory usage of the namespace. |
+
 
 The important metrics to monitor for any outages for a premium tier namespace are: **CPU usage per namespace** and **memory size per namespace**. [Set up alerts](/azure/azure-monitor/alerts/alerts-metric) for these metrics using Azure Monitor.
 
@@ -113,7 +126,6 @@ The following metrics are *geo-replication* metrics:
 - **EntityName** Service Bus supports messaging entities under the namespace. With the Incoming Requests metric, the Entity Name dimension has a value of `-NamespaceOnlyMetric-` in addition to all your queues and topics. This value represents the request, which was made at the namespace level. Examples include a  request to list all queues/topics under the namespace or requests to entities that failed authentication or authorization.
 - **MessagingErrorSubCode**
 - **OperationResult**
-- **Replica**
 
 > [!NOTE]
 > Azure Monitor doesn't include dimensions in the exported metrics data sent to a destination like Azure Storage, Azure Event Hubs, or Azure Monitor Logs.
@@ -347,10 +359,10 @@ Diagnostic Error Logs include elements listed in this table:
 | `NamespaceName` | Name of Namespace | Yes | yes |
 | `EntityType` | Type of Entity | Yes | Yes  |
 | `EntityName` | Name of Entity | Yes | Yes   |
-| `OperationResult` | Type of error in Operation (Clienterror or Serverbusy or quotaexceeded) | Yes | Yes |
+| `OperationResult` | Type of error in Operation (`Clienterror` or `Serverbusy` or `quotaexceeded`) | Yes | Yes |
 | `ErrorCount` | Count of identical errors during the aggregation period of 1 minute. | Yes | Yes  |
 | `ErrorMessage` | Detailed Error Message | Yes | Yes  |
-| `Provider` | Name of Service emitting the logs. Possible values: eventhub, relay, and servicebus | Yes | Yes  |
+| `Provider` | Name of Service emitting the logs. Possible values: `eventhub`, `relay`, and `servicebus` | Yes | Yes  |
 | `Time Generated (UTC)` | Operation time | No | Yes |
 | `EventTimestamp` | Operation Time | Yes | No |
 | `Category` | Log category | Yes | No |

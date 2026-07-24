@@ -2,11 +2,11 @@
 title: Install Azure Static Web Apps CLI
 description: Learn how to install Azure Static Web Apps CLI
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
-ms.topic:  conceptual
+ms.topic:  install-set-up-deploy
 ms.date: 02/05/2024
-ms.author: wujia
+ms.author: jikunchen
 ---
 
 # Install the Static Web Apps CLI (SWA CLI)
@@ -47,7 +47,7 @@ swa
 
 The `swa` command generates a configuration file, builds your project, and gives you the option to deploy to Azure.
 
-For details on all the SWA CLI commands, see the [CLI reference](static-web-apps-cli.yml).
+For details on all the SWA CLI commands, see the [CLI reference](static-web-apps-cli.md).
 
 ## Using npx
 

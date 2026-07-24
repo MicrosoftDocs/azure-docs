@@ -7,12 +7,14 @@ ms.author: emtehran
 ms.date: 04/17/2018
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - azure-synapse
 ---
 
 # Using T-SQL loops for dedicated SQL pools in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Included in this article are tips for dedicated SQL pool solution development using T-SQL loops and replacing cursors.
 

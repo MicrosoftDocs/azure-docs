@@ -101,7 +101,7 @@ app.generic("function1",
     {
         trigger: { "type": "signalRTrigger", "name": "invocation", "direction": "in", "hubName": "hubName1", "event": "SendMessage", "category": "messages" },
         handler: (triggerInput, context) => {
-            context.log(`Receive ${context.Arguments[0]} from ${triggerInput.ConnectionId}.`)
+            context.log(`Receive ${triggerInput.Arguments[0]} from ${triggerInput.ConnectionId}.`)
         }
     })
 ```
@@ -199,9 +199,7 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 
-### Managed identity-based connections
-
-[!INCLUDE [functions-azure-signalr-authorization-note](../../includes/functions-azure-signalr-authorization-note.md)] 
+[!INCLUDE [functions-signalr-connections](../../includes/functions-signalr-connections.md)] 
 
 ### Payloads
 

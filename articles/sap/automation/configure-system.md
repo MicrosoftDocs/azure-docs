@@ -5,10 +5,11 @@ author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 02/16/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 ms.custom: devx-track-terraform
+# Customer intent: As a SAP system administrator, I want to define the necessary parameters in a configuration file for the SAP Deployment Automation Framework, so that I can automate the deployment of various SAP system architectures and manage resources efficiently.
 ---
 
 # Configure SAP system parameters
@@ -405,7 +406,7 @@ By default, the SAP system deployment uses the credentials from the SAP workload
 > | Variable                                 | Description                                                            | Type         | Notes                        |
 > | -----------------------------------      | -----------------------------------------------------------------------| -----------  | ---------------------------- |
 > | `ANF_HANA_use_AVG`                       | Use Application Volume Group for the volumes.                          | Optional     |                              |
-> | `ANF_HANA_use_Zones`                     | Deploy the Azure NetApp Files volume zonally.                          | Optional     |                              |
+> | `ANF_HANA_use_Zones`                     | Deploy a zonal Azure NetApp Files volume.                          | Optional     |                              |
 > | `ANF_HANA_data`                          | Create Azure NetApp Files volume for HANA data.                        | Optional     |                              |
 > | `ANF_HANA_data_use_existing_volume`      | Use existing Azure NetApp Files volume for HANA data.                  | Optional     | Use for pre-created volumes. |
 > | `ANF_HANA_data_volume_count`             | Number of HANA data volumes.                                           | Optional     |                              |

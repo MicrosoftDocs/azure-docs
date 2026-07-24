@@ -1,14 +1,14 @@
 ---
-title: Quickstart - Create your Azure API center - portal
-description: In this quickstart, use the Azure portal to set up an API center for API discovery, reuse, and governance. 
-author: dlepow
+title: Quickstart - Create Your Azure API Center - Portal
+description: Learn how to use the Azure portal to set up an API center for API discovery, reuse, and governance. 
+
 ms.service: azure-api-center
 ms.topic: quickstart
-ms.date: 04/19/2024
-ms.author: danlep 
+ms.date: 10/13/2025
+ 
 ---
 
-# Quickstart: Create your API center - portal
+# Quickstart: Create your API center - Azure portal
 
 [!INCLUDE [quickstart-intro](includes/quickstart-intro.md)]
 
@@ -20,21 +20,21 @@ If you haven't already, you need to register the **Microsoft.ApiCenter** resourc
 
 To register the resource provider using the portal:
 
-1. [Sign in](https://portal.azure.com) to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search bar, enter *Subscriptions* and select **Subscriptions**.
+1. In the search bar, enter and select *Subscriptions*.
 
 1. Select the subscription where you want to create the API center.
 
-1. In the left menu, under **Settings** > **Resources**, select **Resource providers**.
+1. In the sidebar menu, under **Settings**, select **Resource providers**.
 
-1. Search for **Microsoft.ApiCenter** in the list of resource providers. If it's not registered, select **Register**.
+1. Search for **Microsoft.ApiCenter** in the list of resource providers. If it isn't registered, select **Register**.
 
 ## Create an API center
 
-1. [Sign in](https://portal.azure.com) to the Azure portal.
+1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. In the search bar, enter *API Centers*. 
+1. In the search bar, enter and select *API Centers*. 
 
 1. Select **+ Create**. 
 
@@ -47,7 +47,7 @@ To register the resource provider using the portal:
     1. Enter a **Name** for your API center. It must be unique in the region where you're creating your API center. 
 
     1. In **Region**, select one of the [available regions](overview.md#available-regions) for Azure API Center, for example, *West Europe*. 
-    
+
     1. In **Pricing plan**, select the pricing plan that meets your needs. 
 
 1. Optionally, on the **Tags** tab, add one or more name/value pairs to help you categorize your Azure resources.

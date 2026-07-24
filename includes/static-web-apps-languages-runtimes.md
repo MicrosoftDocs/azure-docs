@@ -2,8 +2,8 @@
 ms.service: azure-static-web-apps
 ms.topic: include
 ms.date: 05/28/2024
-author: v1212
-ms.author: wujia
+author: cjk7989
+ms.author: jikunchen
 ---
 
 To configure the API language runtime version, set the `apiRuntime` property in the `platform` section to one of the following supported values.
@@ -22,6 +22,7 @@ To configure the API language runtime version, set the `apiRuntime` property in 
 | Node.js 16.x | Linux | 4.x | `node:16` | April 30, 2025 |
 | Node.js 18.x | Linux | 4.x | `node:18` | May 31, 2025 |
 | Node.js 20.x | Linux | 4.x | `node:20` | - |
+| Node.js 22.x | Linux | 4.x | `node:22` | - |
 | Python 3.8 | Linux | 4.x | `python:3.8` | April 30, 2025 |
 | Python 3.9 | Linux | 4.x | `python:3.9` | - |
 | Python 3.10 | Linux | 4.x | `python:3.10` | - |
@@ -45,13 +46,13 @@ The following example demonstrates how to update the `TargetFramework` element f
 
 ### Node.js
 
-The following example configuration demonstrates how to use the `apiRuntime` property to select Node.js 16 as the API language runtime version in the _staticwebapp.config.json_ file.
+The following example configuration demonstrates how to use the `apiRuntime` property to select Node.js 20 as the API language runtime version in the _staticwebapp.config.json_ file.
 
 ```json
 {
   ...
   "platform": {
-    "apiRuntime": "node:16"
+    "apiRuntime": "node:20"
   }
   ...
 }
@@ -59,13 +60,13 @@ The following example configuration demonstrates how to use the `apiRuntime` pro
 
 ### Python
 
-The following example configuration demonstrates how to use the `apiRuntime` property to select Python 3.8 as the API language runtime version in the _staticwebapp.config.json_ file.
+The following example configuration demonstrates how to use the `apiRuntime` property to select Python 3.11 as the API language runtime version in the _staticwebapp.config.json_ file.
 
 ```json
 {
   ...
   "platform": {
-    "apiRuntime": "python:3.8"
+    "apiRuntime": "python:3.11"
   }
   ...
 }

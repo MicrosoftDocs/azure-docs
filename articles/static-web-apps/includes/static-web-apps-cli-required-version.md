@@ -1,6 +1,6 @@
 ---
-author: v1212
-ms.author: wujia
+author: cjk7989
+ms.author: jikunchen
 ms.service: azure-static-web-apps
 ms.topic: include
 ms.date: 12/18/2024

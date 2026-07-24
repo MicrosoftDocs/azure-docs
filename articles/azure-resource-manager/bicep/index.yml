@@ -10,28 +10,24 @@ metadata:
   ms.author: jgao
   ms.subservice: bicep
   ms.topic: landing-page
-  ms.date: 03/17/2025
+  ms.date: 04/24/2025
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
   # Card (optional)
-  - title: Bicep
+  - title: Get started
     linkLists:
       - linkListType: overview
         links:
           - text: What is Bicep?
             url: overview.md
-      - linkListType: video
+      - linkListType: get-started
         links:
-          - text: Learn live - Bicep
-            url: /events/learntv/learnlive-iac-and-bicep/
-          - text: Learn Live - Bicep and GitHub Actions
-            url: /events/learn-events/learnlive-automate-azure-deployments-bicep-github-actions/
-
-  # Card (optional)
-  - title: Get started
-    linkLists:
+          - text: Install Bicep tools
+            url: install.md
+          - text: Decompile JSON to Bicep
+            url: decompile.md
       - linkListType: quickstart
         links:
           - text: Create Bicep files - VS Code
@@ -42,10 +38,6 @@ landingContent:
             url: quickstart-create-template-specs.md
           - text: Create deployment stacks
             url: quickstart-create-deployment-stacks.md
-          - text: Use private module registry
-            url: quickstart-private-module-registry.md
-          - text: Create and deploy Microsoft Graph resources
-            url: https://learn.microsoft.com/graph/templates/quickstart-create-bicep-interactive-mode
       - linkListType: learn
         links:
           - text: Fundamentals of Bicep
@@ -54,9 +46,18 @@ landingContent:
             url: /training/paths/intermediate-bicep/
           - text: Advanced Bicep
             url: /training/paths/advanced-bicep/
-          - text: Use deployment stacks
+          - text: Deployment stacks
             url: /training/modules/introduction-to-deployment-stacks/
-
+      - linkListType: video
+        links:
+          - text: Learn live - Bicep
+            url: /events/learntv/learnlive-iac-and-bicep/
+          - text: Learn Live - Bicep and GitHub Actions
+            url: /events/learn-events/learnlive-automate-azure-deployments-bicep-github-actions/
+      - linkListType: how-to-guide
+        links:
+          - text: Best practices
+            url: best-practices.md
   # Card
   - title: Author Bicep files
     linkLists:
@@ -64,73 +65,75 @@ landingContent:
         links:
           - text: Bicep file structure & syntax
             url: ./file.md
-          - text: Define parameters
-            url: ./parameters.md
-          - text: Define variables
-            url: ./variables.md
           - text: Define resources
             url: ./resource-declaration.md
           - text: Define modules
             url: ./modules.md
-          - text: Define outputs
-            url: ./outputs.md
           - text: User-defined data types
             url: ./user-defined-data-types.md
           - text: User-defined functions
             url: ./user-defined-functions.md
+          - text: Create parameters file
+            url: ./parameter-files.md
+          - text: Use iterative loops
+            url: ./loops.md
+          - text: Use conditionals
+            url: ./conditional-resource-deployment.md
+          - text: Reference existing resources
+            url: ./existing-resource.md
+          - text: Use deployment script
+            url: ./deployment-script-bicep.md
       - linkListType: reference
         links:
           - text: Data types
             url: ./data-types.md
-          - text: Operators
-            url: ./operators.md
           - text: Functions
             url: ./bicep-functions.md
+          - text: Operators
+            url: ./operators.md
   # Card
   - title: Deploy Bicep files
     linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Deploy with Azure CLI
+            url: deploy-cli.md
+          - text: Deploy with Azure PowerShell
+            url: deploy-powershell.md
+          - text: Deploy with Cloud Shell
+            url: deploy-cloud-shell.md
+          - text: Use What-if operation
+            url: deploy-what-if.md
       - linkListType: quickstart
         links:
           - text: Bicep with pipelines
             url: add-template-to-azure-pipelines.md
           - text: Bicep with GitHub Actions
             url: deploy-github-actions.md
-      - linkListType: how-to-guide
-        links:
-          - text: PowerShell
-            url: deploy-powershell.md
-          - text: Azure CLI
-            url: deploy-cli.md
-          - text: Cloud Shell
-            url: deploy-cloud-shell.md
-          - text: What-if deployment
-            url: deploy-what-if.md
   # Card
-  - title: Scoped deployments
+  - title: Patterns
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Resource group
-            url: deploy-to-resource-group.md
-          - text: Subscription
-            url: deploy-to-subscription.md
-          - text: Management group
-            url: deploy-to-management-group.md
-          - text: Tenant
-            url: deploy-to-tenant.md
-          - text: Scoping extension resource
-            url: scope-extension-resources.md
-  # Card
-  - title: Guidance & patterns
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-        - text: Best practices
-          url: best-practices.md
         - text: Configuration set pattern
           url: patterns-configuration-set.md
         - text: Shared variable file pattern
-          url: patterns-shared-variable-file.md
+          url: patterns-shared-variable-file.md            
+  # Card
+  - title: Deployment scopes
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Resource group scope
+            url: deploy-to-resource-group.md
+          - text: Subscription scope
+            url: deploy-to-subscription.md
+          - text: Management group scope
+            url: deploy-to-management-group.md
+          - text: Tenant scope
+            url: deploy-to-tenant.md
+          - text: Scope extension resource
+            url: scope-extension-resources.md
   # Card
   - title: Explore reference content
     linkLists:
@@ -138,16 +141,16 @@ landingContent:
         links:
         - text: Bicep resource reference
           url: /azure/templates/
-        - text: Bicep CLI
-          url: ./bicep-cli.md
-        - text: Bicep core diagnostics
-          url: ./bicep-core-diagnostics.md
         - text: Azure Quickstart Templates
           url: https://azure.microsoft.com/resources/templates/
+        - text: Bicep CLI reference
+          url: ./bicep-cli.md
+        - text: Bicep warning and error codes
+          url: ./bicep-core-diagnostics.md
+        - text: Azure CLI reference
+          url: /cli/azure/resource
+        - text: Azure PowerShell reference
+          url: /powershell/module/az.resources
         - text: Microsoft Graph Bicep reference
           url: https://learn.microsoft.com/graph/templates/reference/overview
-        - text: Azure PowerShell
-          url: /powershell/module/az.resources
-        - text: Azure CLI
-          url: /cli/azure/resource
 

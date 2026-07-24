@@ -5,8 +5,9 @@ services: expressroute
 author: mialdrid
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 10/19/2021
-ms.author: mialdrid
+ms.date: 03/11/2026
+ms.author: duau
+# Customer intent: As an ExpressRoute partner, I want to utilize the CrossConnections circuit placement API to select and manage port pairs for circuit connectivity, so that I can optimize and enhance the performance of the ExpressRoute circuits I provision.
 ---
 
 # ExpressRoute circuit placement API
@@ -56,7 +57,7 @@ The ExpressRoute partner can list all port pairs within the target provider subs
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts?api-version={api-version}
 {
     "parameters": {
-      "api-version": "2021-12-01",
+      "api-version": "2025-05-01",
       "subscriptionId": "subid"
     },
     "responses": {
@@ -82,7 +83,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
               },
               {
                 "portPairDescriptor": "bvtazureixpportpair2",
-                "id": "/subscriptions/subid/providers/Microsoft.Network/ ExpressRouteProviderPort/bvtazureixpportpair2",
+                "id": "/subscriptions/subid/providers/Microsoft.Network/expressRouteProviderPorts/bvtazureixpportpair2",
                 "type": "Microsoft.Network/expressRouteProviderPort",
                 "location": "uswest",
                 "etag": "W/\"c0e6477e-8150-4d4f-9bf6-bb10e6acb63a\"",
@@ -108,8 +109,8 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 **Response status code**
 
-* 200 (OK)  The request is success. It will fetch list of ports.
-* 4XX (Bad Request)  One of validations failed – for example: Provider subid isn't valid.
+* 200 (OK) The request is successful. It fetches the list of ports.
+* 4XX (Bad Request) One of the validations failed. For example: Provider subscription ID isn't valid.
 
 ### To get a list of all port pairs by location
 
@@ -117,7 +118,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Network/expressRouteProviderPorts?location={locationName}&api-version={api-version}
 {
   "parameters": {
-    "api-version": "2021-12-01",
+    "api-version": "2025-05-01",
     "locationName": "SiliconValley",
     "subscriptionId": "subid"
   },
@@ -127,7 +128,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
         "value": [
           {
             "portPairDescriptor": "bvtazureixpportpair1",
-            "id": "/subscriptions/subid/providers/Microsoft.Network/ ExpressRouteProviderPort /bvtazureixpportpair1",
+            "id": "/subscriptions/subid/providers/Microsoft.Network/expressRouteProviderPorts/bvtazureixpportpair1",
             "type": "Microsoft.Network/expressRouteProviderPort",
             "location": "uswest",
             "etag": "W/\"c0e6477e-8150-4d4f-9bf6-bb10e6acb63a\"",
@@ -151,8 +152,8 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 **Response status code**
 
-* 200 (OK) The request is success. It will fetch list of ports.
-* 4XX (Bad Request) One of validations failed – for example: Provider subid isn't valid or location isn't valid.
+* 200 (OK) The request is successful. It fetches the list of ports.
+* 4XX (Bad Request) One of the validations failed. For example: Provider subscription ID isn't valid or location isn't valid.
 
 ### To get a specific port pair using the port pair descriptor ID.
 
@@ -161,8 +162,8 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 {
   "parameters": {
-    "api-version": "2021-12-01",
-    "portPairDescriptor": " bvtazureixpportpair1",
+    "api-version": "2025-05-01",
+    "portPairDescriptor": "bvtazureixpportpair1",
     "subscriptionId": "subid"
   },
   "responses": {
@@ -195,9 +196,9 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 **Status code	description**
 
-* 200 (OK) The request is success. It will fetch port detail.
+* 200 (OK) The request is successful. It fetches the port detail.
 * 204 The port pair with the mentioned descriptor ID isn't available.
-* 4XX (Bad Request) One of validations failed – For example: Provider subid isn't valid.
+* 4XX (Bad Request) One of the validations failed. For example: Provider subscription ID isn't valid.
 
 ### Move a target ExpressRoute Circuit to a specific port pair
 
@@ -211,15 +212,15 @@ Currently the primaryAzurePort and secondaryAzurePort are read-only properties. 
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/expressRouteCrossConnections/{crossConnectionName}?api-version={api-version}
 {
 "parameters": {
-    "api-version": "2021-12-01",
+    "api-version": "2025-05-01",
     "crossConnectionName": "The name of the cross connection",
     "subscriptionId": "subid"
   }
 },
 {
 Request   "body": {
-    " primaryAzurePort ": " bvtazureixp03a"
-     "secondaryAzurePort": "bvtazureixp03b",
+    "primaryAzurePort": "bvtazureixp03a",
+    "secondaryAzurePort": "bvtazureixp03b"
   }
 }
 Response:

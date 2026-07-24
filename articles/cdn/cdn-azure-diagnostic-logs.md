@@ -6,11 +6,12 @@ services: cdn
 author: halkazwini
 ms.author: halkazwini
 manager: KumudD
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: troubleshooting
-ms.date: 03/31/2025
+ms.date: 02/28/2026
 ms.custom: devx-track-azurepowershell
 ROBOTS: NOINDEX
+# Customer intent: "As a content delivery network administrator, I want to enable and configure diagnostic logs, so that I can export usage metrics for analysis and optimize the performance of my CDN endpoints."
 ---
 
 # Diagnostic logs - Azure Content Delivery Network

@@ -1,26 +1,29 @@
 ---
 title: Configure Azure Event Hubs and Kafka data flow endpoints in Azure IoT Operations
 description: Learn how to configure data flow endpoints for Kafka in Azure IoT Operations.
-author: PatAltimore
-ms.author: patricka
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 11/07/2024
+ms.date: 06/18/2026
 ai-usage: ai-assisted
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 
 #CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for Kafka in Azure IoT Operations so that I can send data to and from Kafka endpoints.
 ---
 
 # Configure Azure Event Hubs and Kafka data flow endpoints
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 To set up bi-directional communication between Azure IoT Operations and Apache Kafka brokers, you can configure a data flow endpoint. This configuration allows you to specify the endpoint, Transport Layer Security (TLS), authentication, and other settings.
 
 ## Prerequisites
 
-- An instance of [Azure IoT Operations](../deploy-iot-ops/howto-deploy-iot-operations.md)
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
 ## Azure Event Hubs
 
@@ -36,7 +39,9 @@ Next, [create an event hub in the namespace](../../event-hubs/event-hubs-create.
 
 To configure a data flow endpoint for Azure Event Hubs, we recommend using either a user-assigned or system-assigned managed identity. This approach is secure and eliminates the need for managing credentials manually.
 
-After the Azure Event Hubs namespace and event hub is created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to send or receive messages to the event hub.
+[!INCLUDE [data-flow-graph-uami-usage](../includes/data-flow-graph-uami-usage.md)]
+
+After the Azure Event Hubs namespace and event hub are created, you need to assign a role to the Azure IoT Operations managed identity that grants permission to send or receive messages to the event hub.
 
 If using system-assigned managed identity, in Azure portal, go to your Azure IoT Operations instance and select **Overview**. Copy the name of the extension listed after **Azure IoT Operations Arc extension**. For example, *azure-iot-operations-xxxx7*. Your system-assigned managed identity can be found using the same name of the Azure IoT Operations Arc extension.
 
@@ -45,18 +50,18 @@ Then, go to the Event Hubs namespace > **Access control (IAM)** > **Add role ass
 1. On the **Role** tab, select an appropriate role like `Azure Event Hubs Data Sender` or `Azure Event Hubs Data Receiver`. This gives the managed identity the necessary permissions to send or receive messages for all event hubs in the namespace. To learn more, see [Authenticate an application with Microsoft Entra ID to access Event Hubs resources](../../event-hubs/authenticate-application.md#built-in-roles-for-azure-event-hubs).
 1. On the **Members** tab:
     1. If using system-assigned managed identity, for **Assign access to**, select **User, group, or service principal** option, then select **+ Select members** and search for the name of the Azure IoT Operations Arc extension. 
-    1. If using user-assigned managed identity, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your [user-assigned managed identity set up for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
+    1. If using user-assigned managed identity, for **Assign access to**, select **Managed identity** option, then select **+ Select members** and search for your [user-assigned managed identity set up for cloud connections](../secure-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections).
 
 ### Create data flow endpoint for Azure Event Hubs
 
-Once the Azure Event Hubs namespace and event hub is configured, you can create a data flow endpoint for the Kafka-enabled Azure Event Hubs namespace.
+Once the Azure Event Hubs namespace and event hub are configured, you can create a data flow endpoint for the Kafka-enabled Azure Event Hubs namespace.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 1. In the [operations experience](https://iotoperations.azure.com/), select the **Data flow endpoints** tab.
 1. Under **Create new data flow endpoint**, select **Azure Event Hubs** > **New**.
 
-    :::image type="content" source="media/howto-configure-kafka-endpoint/create-event-hubs-endpoint.png" alt-text="Screenshot using operations experience to create an Azure Event Hubs data flow endpoint.":::
+    :::image type="content" source="media/howto-configure-kafka-endpoint/create-event-hubs-endpoint.png" alt-text="Screenshot using operations experience to create an Azure Event Hubs data flow endpoint." lightbox="media/howto-configure-kafka-endpoint/create-event-hubs-endpoint.png":::
 
 1. Enter the following settings for the endpoint:
 
@@ -69,6 +74,58 @@ Once the Azure Event Hubs namespace and event hub is configured, you can create 
 
 1. Select **Apply** to provision the endpoint.
 
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create eventgrid](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-eventhub) command to create or replace an Azure Event Hubs data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint create eventhub --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --eventhub-namespace <EventHubsNamespace>
+```
+
+This command creates an Azure Event Hubs endpoint with default settings. You can specify additional options as needed.
+
+Here's an example command to create or replace an Azure Event Hubs data flow endpoint named `event-hub-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint create eventhub --resource-group myResourceGroup --instance myAioInstance --name event-hub-endpoint --eventhub-namespace myeventhubnamespace
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Event Hubs data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `event-hubs-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+    "endpointType": "Kafka",
+    "kafkaSettings": {
+        "host": "myeventhubnamespace.servicebus.windows.net:9093",
+        "authentication": {
+            "method": "SystemAssignedManagedIdentity",
+            "systemAssignedManagedIdentitySettings": {}
+        },
+        "tls": {
+            "mode": "Enabled"
+        }
+    }
+}
+```
+
+Here's an example command to create or update an Azure Event Hubs data flow endpoint named `event-hubs-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroup --instance myAioInstance --name event-hubs-endpoint --config-file ~/event-hubs-endpoint.json
+```
+
 # [Bicep](#tab/bicep)
 
 Create a Bicep `.bicep` file with the following content.
@@ -79,13 +136,13 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param endpointName string = '<ENDPOINT_NAME>'
 param hostName string = '<NAMESPACE>.servicebus.windows.net:9093'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
   name: customLocationName
 }
-resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' = {
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
   parent: aioInstance
   name: endpointName
   extendedLocation: {
@@ -114,7 +171,9 @@ Then, deploy via Azure CLI.
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Create a Kubernetes manifest `.yaml` file with the following content.
 
@@ -148,10 +207,10 @@ kubectl apply -f <FILE>.yaml
 
 #### Use connection string for authentication to Event Hubs
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 > [!IMPORTANT]
-> To use the operations experience web UI to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+> To use the operations experience web UI to manage secrets, Azure IoT Operations must first be enabled with secure settings by configuring an Azure Key Vault and enabling workload identities. To learn more, see [Enable secure settings in Azure IoT Operations deployment](../secure-iot-ops/howto-enable-secure-settings.md).
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **SASL**.
 
@@ -175,6 +234,58 @@ After you select **Add reference**, if you select **Create new**, enter the foll
 
 To learn more about secrets, see [Create and manage secrets in Azure IoT Operations](../secure-iot-ops/howto-manage-secrets.md).
 
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create eventgrid](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-eventhub) command to create or replace an Azure Event Hubs data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint create eventhub --auth-type Sasl --sasl-type <SaslType> --secret-name <SecretName> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --eventhub-namespace <EventHubsNamespace>
+```
+
+This command creates an Azure Event Hubs endpoint with default settings. You can specify additional options as needed.
+
+Here's an example command to create or replace an Azure Event Hubs data flow endpoint named `event-hub-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint create eventhub --resource-group myResourceGroup --instance myAioInstance --name event-hub-endpoint --eventhub-namespace myeventhubnamespace
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command to create or change an Azure Event Hubs data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `event-hubs-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+    "endpointType": "Kafka",
+    "kafkaSettings": {
+        "host": "myeventhubnamespace.servicebus.windows.net:9093",
+        "authentication": {
+            "method": "SystemAssignedManagedIdentity",
+            "systemAssignedManagedIdentitySettings": {}
+        },
+        "tls": {
+            "mode": "Enabled"
+        }
+    }
+}
+```
+
+Here's an example command to create or update an Azure Event Hubs data flow endpoint named `event-hubs-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroup --instance myAioInstance --name event-hubs-endpoint --config-file ~/event-hubs-endpoint.json
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
@@ -192,7 +303,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 To use connection string for authentication to Event Hubs, use the SASL authentication method and configure with SASL type as "Plain" and configure name of the secret that contains the connection string.
 
@@ -227,12 +340,12 @@ Azure Event Hubs [doesn't support all the compression types that Kafka supports]
 
 To configure a data flow endpoint for non-Event-Hub Kafka brokers, set the host, TLS, authentication, and other settings as needed.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 1. In the [operations experience](https://iotoperations.azure.com/), select the **Data flow endpoints** tab.
 1. Under **Create new data flow endpoint**, select **Custom Kafka Broker** > **New**.
 
-    :::image type="content" source="media/howto-configure-kafka-endpoint/create-kafka-endpoint.png" alt-text="Screenshot using operations experience to create a Kafka data flow endpoint.":::
+   :::image type="content" source="media/howto-configure-kafka-endpoint/create-kafka-endpoint.png" alt-text="Screenshot using operations experience to create a Kafka data flow endpoint." lightbox="media/howto-configure-kafka-endpoint/create-kafka-endpoint.png":::
 
 1. Enter the following settings for the endpoint:
 
@@ -251,10 +364,62 @@ To configure a data flow endpoint for non-Event-Hub Kafka brokers, set the host,
 > [!NOTE]
 > Currently, the operations experience doesn't support using a Kafka data flow endpoint as a source. You can create a data flow with a source Kafka data flow endpoint using Kubernetes or Bicep.
 
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create custom-kafka](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-custom-kafka) command to create or replace a custom Kafka broker data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint create custom-kafka --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --hostname <KafkaBrokerHostName> --port <Port>
+```
+
+This command creates a custom Kafka broker endpoint with default settings. You can specify additional options as needed.
+
+Here's an example command to create or replace a custom Kafka broker data flow endpoint named `custom-kafka-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint create custom-kafka --resource-group myResourceGroup --instance myAioInstance --name custom-kafka-endpoint --hostname mykafkabroker --port 9092
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command to create or change a custom Kafka broker data flow endpoint.
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --config-file <ConfigFilePathAndName>
+```
+
+The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
+
+In this example, assume a configuration file named `custom-kafka-endpoint.json` with the following content stored in the user's home directory:
+
+```json
+{
+    "endpointType": "Kafka",
+    "kafkaSettings": {
+        "host": "mykafkabroker:9092",
+        "authentication": {
+            "method": "SystemAssignedManagedIdentity",
+            "systemAssignedManagedIdentitySettings": {}
+        },
+        "tls": {
+            "mode": "Enabled"
+        }
+    }
+}
+```
+
+Here's an example command to create or update a custom Kafka broker data flow endpoint named `custom-kafka-endpoint`:
+
+```azurecli
+az iot ops dataflow endpoint apply --resource-group myResourceGroup --instance myAioInstance --name custom-kafka-endpoint --config-file ~/custom-kafka-endpoint.json
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
-resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024-11-01' = {
+resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2026-03-01' = {
  parent: aioInstance
   name: '<ENDPOINT NAME>'
   extendedLocation: {
@@ -280,7 +445,9 @@ resource kafkaEndpoint 'Microsoft.IoTOperations/instances/dataflowEndpoints@2024
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1
@@ -322,9 +489,41 @@ Before you configure the data flow endpoint, assign a role to the Azure IoT Oper
 
 Then, configure the data flow endpoint with system-assigned managed identity settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **System assigned managed identity**.
+
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create custom-kafka](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-custom-kafka) command with the `--auth-type` parameter set to `SystemAssignedManagedIdentity` for system-assigned managed identity authentication.
+
+```azurecli
+az iot ops dataflow endpoint create <Command> --auth-type SystemAssignedManagedIdentity --audience <Audience> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) command with the `--config-file` parameter.
+
+In this example, assume a configuration file with the following content:
+
+```json
+{
+    "endpointType": "Kafka",
+    "kafkaSettings": {
+        "host": "mykafkabroker:9092",
+        "authentication": {
+            "method": "SystemAssignedManagedIdentity",
+            "systemAssignedManagedIdentitySettings": {}
+        },
+        "tls": {
+            "mode": "Enabled"
+        }
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -337,7 +536,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -351,9 +552,26 @@ kafkaSettings:
 
 This configuration creates a managed identity with the default audience, which is the same as the Event Hubs namespace host value in the form of `https://<NAMESPACE>.servicebus.windows.net`. However, if you need to override the default audience, you can set the `audience` field to the desired value.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 Not supported in the operations experience.
+
+
+# [Azure CLI](#tab/cli)
+
+```json
+{
+  "endpointType": "Kafka",
+  "kafkaSettings": {
+    "authentication": {
+      "method": "SystemAssignedManagedIdentity",
+      "systemAssignedManagedIdentitySettings": {
+        "audience": "audience"
+      }
+    }
+  }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -368,7 +586,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -382,7 +602,7 @@ kafkaSettings:
 
 ### User-assigned managed identity
 
-To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../deploy-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+To use user-assigned managed identity for authentication, you must first deploy Azure IoT Operations with secure settings enabled. Then you need to [set up a user-assigned managed identity for cloud connections](../secure-iot-ops/howto-enable-secure-settings.md#set-up-a-user-assigned-managed-identity-for-cloud-connections). To learn more, see [Enable secure settings in Azure IoT Operations deployment](../secure-iot-ops/howto-enable-secure-settings.md).
 
 Before you configure the data flow endpoint, assign a role to the user-assigned managed identity that grants permission to connect to the Kafka broker:
 
@@ -392,9 +612,42 @@ Before you configure the data flow endpoint, assign a role to the user-assigned 
 
 Then, configure the data flow endpoint with user-assigned managed identity settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **User assigned managed identity**.
+
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--auth-type` parameter set to `UserAssignedManagedIdentity` for with user-assigned managed identity authentication.
+
+```azurecli
+az iot ops dataflow endpoint create <Command> --auth-type UserAssignedManagedIdentity --client-id <ClientId> --tenant-id <TenantId> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) with the `--config-file` parameter
+
+In this example, assume a configuration file with the following content:
+
+```json
+{
+    "endpointType": "Kafka",
+    "kafkaSettings": {
+        "authentication": {
+          "method": "UserAssignedManagedIdentity",
+          "userAssignedManagedIdentitySettings": {
+            "clientId": "<ID>",
+            "tenantId": "<ID>",
+            // Optional
+            "scope": "https://<Scope_Url>"
+          }
+        }
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -414,7 +667,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -436,7 +691,7 @@ Here, the scope is the audience of the managed identity. The default value is th
 
 To use SASL for authentication, specify the SASL authentication method and configure SASL type and a secret reference with the name of the secret that contains the SASL token.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **SASL**.
 
@@ -449,12 +704,43 @@ Enter the following settings for the endpoint:
 | Username reference or token secret | The reference to the username or token secret used for SASL authentication.                     |
 | Password reference of token secret | The reference to the password or token secret used for SASL authentication.                     |
 
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--auth-type` parameter set to `Sasl` for SASL authentication.
+
+```azurecli
+az iot ops dataflow endpoint create <Command> --auth-type Sasl --sasl-type <SaslType> --secret-name <SecretName> --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) with the `--config-file` parameter
+
+In this example, assume a configuration file with the following content:
+
+```json
+{
+    "endpointType": "Kafka",
+    "kafkaSettings": {
+        "authentication": {
+          "method": "Sasl",
+          "saslSettings": {
+            "saslType": "<SaslType>",
+            "secretRef": "<SecretName>"
+          }
+        }
+    }
+}
+```
+
 # [Bicep](#tab/bicep)
 
 ```bicep
 kafkaSettings: {
   authentication: {
-    method: 'Sasl' // Or ScramSha256, ScramSha512
+    method: 'Sasl'
     saslSettings: {
       saslType: 'Plain' // Or ScramSha256, ScramSha512
       secretRef: '<SECRET_NAME>'
@@ -463,7 +749,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```bash
 kubectl create secret generic sasl-secret -n azure-iot-operations \
@@ -488,15 +776,41 @@ The supported SASL types are:
 - `ScramSha512`
 
 The secret must be in the same namespace as the Kafka data flow endpoint. The secret must have the SASL token as a key-value pair.
-<!-- TODO: double check! Provide an example? -->
 
 ### Anonymous
 
 To use anonymous authentication, update the authentication section of the Kafka settings to use the Anonymous method.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Basic** tab then choose **Authentication method** > **None**.
+
+# [Azure CLI](#tab/cli)
+
+#### Create or replace
+
+Use the [az iot ops dataflow endpoint create](/cli/azure/iot/ops/dataflow/endpoint/create) command with the `--no-auth` parameter for anonymous authentication.
+
+```azurecli
+az iot ops dataflow endpoint create <Command> --no-auth --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName>
+```
+
+#### Create or change
+
+Use the [az iot ops dataflow endpoint apply](/cli/azure/iot/ops/dataflow/endpoint#az-iot-ops-dataflow-endpoint-apply) with the `--config-file` parameter.
+
+In this example, assume a configuration file with the following content:
+
+```json
+{
+    "endpointType": "Kafka",
+    "kafkaSettings": {
+        "authentication": {
+          "method": "Anonymous"
+        }
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -508,7 +822,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -524,11 +840,38 @@ kafkaSettings:
 
 You can set advanced settings for the Kafka data flow endpoint such as TLS, trusted CA certificate, Kafka messaging settings, batching, and CloudEvents. You can set these settings in the data flow endpoint **Advanced** portal tab or within the data flow endpoint resource.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience, select the **Advanced** tab for the data flow endpoint.
 
-:::image type="content" source="media/howto-configure-kafka-endpoint/kafka-advanced.png" alt-text="Screenshot using operations experience to set Kafka data flow endpoint advanced settings.":::
+:::image type="content" source="media/howto-configure-kafka-endpoint/kafka-advanced.png" alt-text="Screenshot using operations experience to set Kafka data flow endpoint advanced settings." lightbox="media/howto-configure-kafka-endpoint/kafka-advanced.png":::
+
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "endpointType": "Kafka",
+    "kafkaSettings": {
+        "batching": {
+            "latencyMs": 10,
+            "maxBytes": 200000,
+            "maxMessages": 20000,
+            "mode": "Enabled"
+        },
+        "cloudEventAttributes": "CreateOrRemap",
+        "compression": "Gzip",
+        "consumerGroupId": "<ID>",
+        "copyMqttProperties": "Enabled",
+        "host": "mykafkabroker:9092",
+        "kafkaAcks": "Zero",
+        "partitionStrategy": "Static",
+        "tls": {
+            "mode": "Enabled",
+            "trustedCaCertificateConfigMapRef": "<YOUR_CA_CERTIFICATE>"
+        }
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -555,7 +898,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Under `kafkaSettings`, you can configure additional settings for the Kafka endpoint.
 
@@ -585,9 +930,22 @@ kafkaSettings:
 
 To enable or disable TLS for the Kafka endpoint, update the `mode` setting in the TLS settings.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the checkbox next to **TLS mode enabled**.
+
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "endpointType": "Kafka",
+    "kafkaSettings": {
+        "tls": {
+            "mode": "Enabled",
+        }
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -599,7 +957,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -615,9 +975,23 @@ The TLS mode can be set to `Enabled` or `Disabled`. If the mode is set to `Enabl
 
 Configure the trusted CA certificate for the Kafka endpoint to establish a secure connection to the Kafka broker. This setting is important if the Kafka broker uses a self-signed certificate or a certificate signed by a custom CA that isn't trusted by default.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Trusted CA certificate config map** field to specify the ConfigMap containing the trusted CA certificate.
+
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "endpointType": "Kafka",
+    "kafkaSettings": {
+        "tls": {
+            "mode": "Enabled",
+            "trustedCaCertificateConfigMapRef": "<YOUR_CA_CERTIFICATE>"
+        }
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -629,7 +1003,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -653,11 +1029,22 @@ kubectl create configmap client-ca-configmap --from-file root_ca.crt -n azure-io
 The consumer group ID is used to identify the consumer group that the data flow uses to read messages from the Kafka topic. The consumer group ID must be unique within the Kafka broker. 
 
 > [!IMPORTANT]
-> When the Kafka endpoint is used as [source](howto-create-dataflow.md#source), the consumer group ID is required. Otherwise, the data flow can't read messages from the Kafka topic, and you get an error "Kafka type source endpoints must have a consumerGroupId defined".
+> When the Kafka endpoint is used as [source](howto-configure-dataflow-source.md), the consumer group ID is required. Otherwise, the data flow can't read messages from the Kafka topic, and you get an error "Kafka type source endpoints must have a consumerGroupId defined".
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Consumer group ID** field to specify the consumer group ID.
+
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "endpointType": "Kafka",
+    "kafkaSettings": {
+        "consumerGroupId": "<ID>",
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -667,7 +1054,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 spec:
@@ -692,9 +1081,20 @@ The compression field enables compression for the messages sent to Kafka topics.
 
 To configure compression:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Compression** field to specify the compression type.
+
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "endpointType": "Kafka",
+    "kafkaSettings": {
+        "compression": "Gzip"
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -704,7 +1104,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -730,9 +1132,25 @@ For example, if you set latencyMs to 1000, maxMessages to 100, and maxBytes to 1
 
 To configure batching:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Batching enabled** field to enable batching. Use the **Batching latency**, **Maximum bytes**, and **Message count** fields to specify the batching settings.
+
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "endpointType": "Kafka",
+    "kafkaSettings": {
+        "batching": {
+            "latencyMs": 10,
+            "maxBytes": 200000,
+            "maxMessages": 20000,
+            "mode": "Enabled"
+        }
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -747,7 +1165,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -781,9 +1201,21 @@ For example, if you set the partition handling strategy to `Property` and the pa
 
 To configure the partition handling strategy:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Partition handling strategy** field to specify the partition handling strategy. Use the **Partition key property** field to specify the property used for partitioning if the strategy is set to `Property`.
+
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "endpointType": "Kafka",
+    "kafkaSettings": {
+        "partitionStrategy": "Property", // Or Default, Topic, Property
+        "partitionKeyProperty": "<PROPERTY_NAME>" // Required if partitionStrategy is Property
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -794,7 +1226,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -812,7 +1246,6 @@ This setting takes effect only if the endpoint is used as a destination (that is
 
 | Value | Description |
 | ----- | ----------- |
-| `None` | The data flow doesn't wait for any acknowledgments from the Kafka broker. This setting is the fastest but least durable option. |
 | `All` | The data flow waits for the message to be written to the leader partition and all follower partitions. This setting is the slowest but most durable option. This setting is also the default option|
 | `One` | The data flow waits for the message to be written to the leader partition and at least one follower partition. |
 | `Zero` | The data flow waits for the message to be written to the leader partition but doesn't wait for any acknowledgments from the followers. This is faster than `One` but less durable. |
@@ -821,23 +1254,36 @@ For example, if you set the Kafka acknowledgment to `All`, the data flow waits f
 
 To configure the Kafka acknowledgments:
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Kafka acknowledgment** field to specify the Kafka acknowledgment level.
+
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "endpointType": "Kafka",
+    "kafkaSettings": {
+        "kafkaAcks": "All" // Or One, Zero
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
 ```bicep
 kafkaSettings: {
-  kafkaAcks: 'All' // Or None, One, Zero
+  kafkaAcks: 'All' // Or One, Zero
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
-  kafkaAcks: All # Or None, One, Zero
+  kafkaAcks: All # Or One, Zero
 ```
 
 ---
@@ -848,9 +1294,20 @@ This setting only takes effect if the endpoint is used as a destination where th
 
 By default, the copy MQTT properties setting is enabled. These user properties include values such as `subject` that stores the name of the asset sending the message. 
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use checkbox next to **Copy MQTT properties** field to enable or disable copying MQTT properties.
+
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "endpointType": "Kafka",
+    "kafkaSettings": {
+        "copyMqttProperties": "Enabled"
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -860,7 +1317,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -885,7 +1344,7 @@ When a Kafka endpoint is a data flow destination, all MQTT v5 specification defi
 
 MQTT v5 user property key value pairs are directly translated to Kafka user headers. If a user header in a message has the same name as a built-in MQTT property (for example, a user header named "Correlation Data") then whether forwarding the MQTT v5 specification property value or the user property is undefined.
 
-Data flows never receive these properties from an MQTT Broker. Thus, a data flow never forwards them:
+Data flows never receive these properties from an MQTT broker. Thus, a data flow never forwards them:
 
 * Topic Alias
 * Subscription Identifiers
@@ -994,9 +1453,20 @@ Not all event data properties including propertyEventData.correlationId are forw
 
 The `CloudEventAttributes` options are `Propagate` or`CreateOrRemap`.
 
-# [Portal](#tab/portal)
+# [Operations experience](#tab/portal)
 
 In the operations experience data flow endpoint settings page, select the **Advanced** tab then use the **Cloud event attributes** field to specify the CloudEvents setting.
+
+# [Azure CLI](#tab/cli)
+
+```json
+{
+    "endpointType": "Kafka",
+    "kafkaSettings": {
+        "cloudEventAttributes": "Propagate"
+    }
+}
+```
 
 # [Bicep](#tab/bicep)
 
@@ -1006,7 +1476,9 @@ kafkaSettings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 kafkaSettings:
@@ -1027,7 +1499,7 @@ CloudEvent properties are passed through for messages that contain the required 
 | `type`            | Yes      | `ms.aio.telemetry`                                     | `ce-type`            | Passed through as is                                                        |
 | `source`          | Yes      | `aio://mycluster/myoven`                               | `ce-source`          | Passed through as is                                                        |
 | `id`              | Yes      | `A234-1234-1234`                                       | `ce-id`              | Passed through as is                                                        |
-| `subject`         | No       | `aio/myoven/telemetry/temperature`                     | `ce-subject`         | Passed through as is                                                        |
+| `subject`         | No       | `aio/myoven/sensor/temperature`                     | `ce-subject`         | Passed through as is                                                        |
 | `time`            | No       | `2018-04-05T17:31:00Z`                                 | `ce-time`            | Passed through as is. It's not restamped.                                   |
 | `datacontenttype` | No       | `application/json`                                     | `ce-datacontenttype` | Changed to the output data content type after the optional transform stage. |
 | `dataschema`      | No       | `sr://fabrikam-schemas/123123123234234234234234#1.0.0` | `ce-dataschema`      | If an output data transformation schema is given in the transformation configuration, `dataschema` is changed to the output schema.  |

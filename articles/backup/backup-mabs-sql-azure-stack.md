@@ -2,11 +2,12 @@
 title: Back up SQL Server on Azure Stack using Azure Backup
 description: Learn how to configure Microsoft Azure Backup Server (MABS) to protect SQL Server databases on Azure Stack.
 ms.topic: how-to
-ms.date: 02/25/2025
-author: jyothisuri
-ms.author: jsuri
+ms.date: 02/13/2026
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.service: azure-backup
 ms.custom: engagement-fy24
+# Customer intent: "As a database administrator, I want to configure backup policies for SQL Server databases on Azure Stack, so that I can ensure data protection and facilitate seamless recovery from Azure when needed."
 ---
 
 # Back up SQL Server on Azure Stack using Azure Backup
@@ -21,7 +22,7 @@ Management of the SQL Server database backup to Azure and recovery from Azure in
 2. Create on-demand backup copies
 3. Recover the database from Disks, and from Azure
 
-## Supported scenarios and limitations
+## Supported scenarios and limitations for SQL Server backup on Azure Stack
 
 Before you back up SQL Server on Azure Stack, review the following supported scenarios and limitations:
 
@@ -55,7 +56,7 @@ Before you back up SQL Server on Azure Stack, review the following supported sce
 
 Before you back up SQL Server on Azure Stack, [install and prepare Azure Backup Server](backup-mabs-install-azure-stack.md).
 
-## Create a backup policy
+## Create a backup policy for SQL Server databases on Azure Stack
 
 To create a backup policy to protect SQL Server databases to Azure, follow these steps:
 
@@ -138,7 +139,7 @@ To create a backup policy to protect SQL Server databases to Azure, follow these
 
     ![Screenshot shows the in-progress job state of the Protection Group creation.](./media/backup-azure-backup-sql/pg-summary.png)
 
-## Run an on-demand backup
+## Run an on-demand backup for SQL Server databases on Azure Stack
 
 A *recovery point* is created only when the first backup occurs. After creating a backup policy, you can trigger the creation of a recovery point manually, rather than waiting for the scheduler to take the backup.
 
@@ -157,7 +158,7 @@ To run an on-demand backup of a SQL Server database, follow these steps:
 
     ![Screenshot shows the monitoring console.](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
-## Recover the database from Azure
+## Recover the SQL Server database on Azure Stack from Azure
 
 To recover a protected entity (SQL Server database) from Azure, follow these steps:
 

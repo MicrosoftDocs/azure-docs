@@ -3,6 +3,7 @@ title: Manage lab accounts in Azure Lab Services | Microsoft Docs
 description: Learn how to view all lab accounts or delete a lab account in an Azure subscription.
 ms.topic: how-to
 ms.date: 06/25/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Manage lab accounts

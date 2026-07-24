@@ -2,21 +2,24 @@
 title: Copy data from ServiceNow V1
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from ServiceNow V1 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.custom: synapse
-ms.date: 10/16/2024
+ms.topic: how-to
+ms.date: 06/22/2026
+ms.update-cycle: 1095-days
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
-# Copy data from ServiceNow V1 using Azure Data Factory or Synapse Analytics 
+# Copy data from ServiceNow V1 using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from ServiceNow. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
-> The [ServiceNow V2 connector](connector-servicenow.md) provides improved native ServiceNow support. If you are using the [ServiceNow V1 connector](connector-servicenow-legacy.md) in your solution, you are recommended to [upgrade your ServiceNow connector](connector-servicenow.md#upgrade-your-servicenow-linked-service) at your earliest convenience. Refer to this [section](connector-servicenow.md#differences-between-servicenow-and-servicenow-legacy) for details on the difference between V2 and V1.
+> The ServiceNow V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You're recommended to [upgrade the ServiceNow connector](connector-servicenow.md#upgrade-your-servicenow-linked-service) from V1 to V2.
 
 ## Supported capabilities
 
@@ -41,7 +44,7 @@ The service provides a built-in driver to enable connectivity.  Therefore you do
 
 Use the following steps to create a linked service to ServiceNow in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -143,12 +146,12 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 
 Note the following when specifying the schema and column for ServiceNow in query, and **refer to [Performance tips](#performance-tips) on copy performance implication**.
 
-- **Schema:** specify the schema as `Actual` or `Display` in the ServiceNow query, which you can look at it as the parameter of `sysparm_display_value` as true or false when calling [ServiceNow REST APIs](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
+- **Schema:** specify the schema as `Actual` or `Display` in the ServiceNow query, which you can look at it as the parameter of `sysparm_display_value` as true or false when calling [ServiceNow REST APIs](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Column:** the column name for actual value under `Actual` schema is `[column name]_value`, while for display value under `Display` schema is `[column name]_display_value`. Note the column name need map to the schema being used in the query.
 
 **Sample query:**
 `SELECT col_value FROM Actual.alm_asset`
-OR 
+OR 
 `SELECT col_display_value FROM Display.alm_asset`
 
 **Example:**

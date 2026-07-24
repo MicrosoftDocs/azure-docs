@@ -1,26 +1,35 @@
 ---
-title: Perform advanced tasks on rulesets
-description: Learn how to perform advanced tasks and operations on rulesets by using the Microsoft Rules Composer.
+title: Perform Advanced Tasks on Rulesets
+description: Perform advanced tasks and operations on rulesets by using the Microsoft Rules Composer.
+services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 01/27/2025
-
-#CustomerIntent: As a developer, I want to perform more advanced tasks and operations on rulesets using the Microsoft Rules Composer.
+ms.date: 03/10/2026
+ms.date-cycle: 1095-days
+ms.custom:
+  - build-2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to perform more advanced tasks and operations on rulesets using the Microsoft Rules Composer.
 ---
 
-# Perform advanced tasks on rulesets with the Microsoft Rules Composer (Preview)
+# Perform advanced tasks on rulesets with the Microsoft Rules Composer
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
-> [!IMPORTANT]
-> This capability is in preview and is subject to the 
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+This guide describes advanced operations that you can perform on rulesets by using the Microsoft Rules Composer.
 
-This guide describes more advanced operations that you can perform on rulesets in the Microsoft Rules Composer.
+You'll learn how to:
+
+- Copy and create ruleset versions.
+- Pass fact types to a ruleset.
+- Set up a fact retriever.
+- Call a child ruleset from a parent ruleset.
+- Analyze multiple objects that share the same type within a rule.
+
+For basic ruleset and rule-creation tasks, see [Create rules with the Microsoft Rules Composer](create-rules.md).
 
 ## Prerequisites
 

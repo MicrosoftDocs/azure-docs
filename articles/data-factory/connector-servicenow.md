@@ -2,12 +2,14 @@
 title: Copy data from ServiceNow V2
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from ServiceNow V2 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
-ms.topic: conceptual
-ms.custom: synapse
-ms.date: 03/13/2025
+ms.topic: how-to
+ms.date: 12/18/2025
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy data from ServiceNow V2 using Azure Data Factory or Synapse Analytics
@@ -16,8 +18,12 @@ ms.date: 03/13/2025
 
 This article outlines how to use the Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from ServiceNow. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric ServiceNow connector documentation](/fabric/data-factory/connector-servicenow-overview).
+
+
 > [!IMPORTANT]
-> The [ServiceNow V2 connector](connector-servicenow.md) provides improved native ServiceNow support. If you are using the [ServiceNow V1 connector](connector-servicenow-legacy.md) in your solution, you are recommended to [upgrade your ServiceNow connector](#upgrade-your-servicenow-linked-service) at your earliest convenience. Refer to this [section](#differences-between-servicenow-and-servicenow-legacy) for details on the difference between V2 and V1.
+> The ServiceNow V1 connector is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the ServiceNow connector](#upgrade-your-servicenow-linked-service) from V1 to V2.
 
 ## Supported capabilities
 
@@ -34,12 +40,11 @@ For a list of data stores that are supported as sources/sinks, see the [Supporte
 
 The service provides a built-in driver to enable connectivity. Therefore you don't need to manually install any driver using this connector.
 
-**Please use the actual value instead of the displayed value in ServiceNow.**
-
-
 ## Prerequisite
 
-To use this connector, you need to have a role with at least read access to *sys_db_object* and *sys_dictionary* tables in ServiceNow.
+To use this connector, you need to have a role with at least read access to *sys_db_object*, *sys_db_view* and *sys_dictionary* tables in ServiceNow.
+
+To access views in ServiceNow, you need to have a role with at least read access to *sys_db_view_table* and *sys_db_view_table_field* tables.
 
 ## Getting started
 
@@ -116,6 +121,7 @@ To copy data from ServiceNow, set the type property of the dataset to **ServiceN
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **ServiceNowV2Object** | Yes |
 | tableName | Name of the table. | Yes |
+| valueType | The type of ServiceNow table values. The value of this property can be `display` or `actual` (default). You can look at it as the parameter of `sysparm_display_value` as true or false when calling [ServiceNow REST APIs](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). | No |
 
 **Example**
 
@@ -125,7 +131,8 @@ To copy data from ServiceNow, set the type property of the dataset to **ServiceN
     "properties": {
         "type": "ServiceNowV2Object",
         "typeProperties": {
-            "tableName": "<table name>"
+            "tableName": "<table name>",
+            "valueType": "actual"
         },
         "schema": [],
         "linkedServiceName": {
@@ -147,14 +154,14 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to: **ServiceNowV2Source** | Yes |
-| expression| Use the expression to read data. You can configure the expression in **Query builder**. It has the same usage as the condition builder in ServiceNow. For instructions on how to use it, see this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/concept/c_ConditionBuilder.html). You can also [use expression parameters](#using-expression-parameters).| No |
+| expression| Use the expression to read data. You can configure the expression in **Query builder**. It has the same usage as the condition builder in ServiceNow. For instructions on how to use it, see this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/concept/c_ConditionBuilder.html). You can also [use expression parameters](#using-expression-parameters). Note that you should use the actual value instead of the display value.| No |
 | *Under `expression`* |  |  |
 | type | The expression type. Values can be Constant (default), Unary, Binary, Field and Nary.  | No  |
 | value | The constant value. |Yes when the expression type is Constant or Field |
 | operators | The operator value. For more information about operators, see *Operators available for choice fields containing strings* section in this [article](https://docs.servicenow.com/bundle/vancouver-platform-user-interface/page/use/common-ui-elements/reference/r_OpAvailableFiltersQueries.html).| Yes when the expression type is Unary or Binary |
 | operands | List of expressions on which operator is applied.| Yes when the expression type is Unary or Binary |
 | | | |
-| pageSize | The number of documents per page of the query result. | No<br/>(the default is **300**) |
+| pageSize | The number of documents per page of the query result. It is recommended to set the page size between 5,000 and 10,000 to enable multi-threaded reads. | No<br/>(the default is **300**) |
 
 **Example:**
 
@@ -262,6 +269,9 @@ Here is an example of the source JSON using the expression parameter:
 ]
 ```
 
+> [!NOTE]
+> The column `sys_tags` and its derived columns cannot be obtained due to ServiceNow API limitations.
+
 ## Lookup activity properties
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
@@ -283,7 +293,8 @@ The ServiceNow V2 connector offers new functionalities and is compatible with mo
 | Support **Query builder** in the source. | **Query builder** is not supported in the source. | 
 | SQL-based queries are not supported. | Support SQL-based queries. | 
 | sortBy queries are not supported in **Query builder**. | Support sortBy queries in **Query**. | 
-| You can view the schema in the dataset. | You can't view the schema in the dataset. | 
+| You can view the schema in the dataset. | You can't view the schema in the dataset. |
+| You can configure `valueType` to `display` or `actual` in datasets. The display or actual table name is used as the value of `tableName`. <br><br>The column name is `[column name]` for both display and actual value.| The display or actual table name with "Display" or "Actual" prefix appended is used as the value of `tableName`.<br><br>The column name for actual value is `[column name]_value`, while for display value is `[column name]_display_value`.|  
 
 ## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

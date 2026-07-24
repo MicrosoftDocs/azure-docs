@@ -2,17 +2,27 @@
 title: Copy data from Greenplum
 description: Learn how to copy data from Greenplum to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
-ms.custom: synapse
-ms.topic: conceptual
-ms.date: 01/09/2025
-ms.author: jianleishen
+ms.topic: how-to
+ms.date: 01/23/2026
+ms.author: tinglee
+ms.custom:
+  - synapse
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 # Copy data from Greenplum using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Greenplum. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Greenplum connector documentation](/fabric/data-factory/connector-greenplum-for-pipeline-overview).
+
+
+> [!IMPORTANT]
+> The Greenplum connector version 1.0 is at [removal stage](connector-release-stages-and-timelines.md). You are recommended to [upgrade the Greenplum connector](#upgrade-the-greenplum-connector) from version 1.0 to 2.0.
 
 ## Supported capabilities
 
@@ -66,14 +76,14 @@ The following sections provide details about properties that are used to define 
 
 ## Linked service properties
 
-The Greenplum connector now supports version 2.0 (Preview). Refer to this [section](#upgrade-the-greenplum-connector) to upgrade your Greenplum connector version from version 1.0. For the property details, see the corresponding sections.
+The Greenplum connector now supports version 2.0. Refer to this [section](#upgrade-the-greenplum-connector) to upgrade your Greenplum connector version from version 1.0. For the property details, see the corresponding sections.
 
-- [Version 2.0 (Preview)](#version-20-preview)
+- [Version 2.0](#version-20)
 - [Version 1.0](#version-10)
 
-### Version 2.0 (Preview)
+### Version 2.0
 
-The Greenplum linked service supports the following properties when apply version 2.0 (Preview):
+The Greenplum linked service supports the following properties when apply version 2.0:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -83,7 +93,7 @@ The Greenplum linked service supports the following properties when apply versio
 | port | The TCP port of the database server. The default value is `5432`.| No |
 | database | The database to connect to. | Yes |
 | username | The username to connect with. Not required if using IntegratedSecurity. |Yes |
-| password| The password to connect with. Not required if using IntegratedSecurity. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| pwd| The password to connect with. Not required if using IntegratedSecurity. Mark this field as **SecureString** to store it securely. Or, you can [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | sslMode | Controls whether SSL is used, depending on server support. <br/>- **Disable**: SSL is disabled. If the server requires SSL, the connection will fail. <br/>- **Allow**: Prefer non-SSL connections if the server allows them, but allow SSL connections. <br/>- **Prefer**: Prefer SSL connections if the server allows them, but allow connections without SSL. <br/>- **Require**: Fail the connection if the server doesn't support SSL. <br/>- **Verify-ca**: Fail the connection if the server doesn't support SSL. Also verifies server certificate. <br/>- **Verify-full**: Fail the connection if the server doesn't support SSL. Also verifies server certificate with host's name. <br/> Options: Disable (0) / Allow (1) / Prefer (2) / Require (3) **(Default)** / Verify-ca (4) / Verify-full (5) | Yes |
 | authenticationType | Authentication type for connecting to the database. Only supports **Basic**. | Yes |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, it uses the default Azure Integration Runtime. |No |
@@ -104,7 +114,7 @@ The Greenplum linked service supports the following properties when apply versio
             "port": 5432,
             "database": "<database>",
             "username": "<username>",
-            "password": {
+            "pwd": {
                 "type": "SecureString",
                 "value": "<password>"
             },
@@ -118,7 +128,7 @@ The Greenplum linked service supports the following properties when apply versio
     }
 }
 ```
-**Example: store password in Azure Key Vault**
+**Example: store pwd in Azure Key Vault**
 ```json
 {
     "name": "GreenplumLinkedService",
@@ -130,7 +140,7 @@ The Greenplum linked service supports the following properties when apply versio
             "port": 5432,
             "database": "<database>",
             "username": "<username>",
-            "password": { 
+            "pwd": { 
                 "type": "AzureKeyVaultSecret", 
                 "store": { 
                     "referenceName": "<Azure Key Vault linked service name>", 
@@ -282,7 +292,7 @@ To copy data from Greenplum, set the source type in the copy activity to **Green
 
 When you copy data from Greenplum, the following mappings apply from Greenplum's data types to the internal data types used by the service. To learn about how the copy activity maps the source schema and data type to the sink, see [Schema and data type mappings](copy-activity-schema-and-type-mapping.md).
 
-|Greenplum data type | Interim service data type (for version 2.0 (Preview)) | Interim service data type (for version 1.0) |
+|Greenplum data type | Interim service data type (for version 2.0) | Interim service data type (for version 1.0) |
 |:---|:---|:---|
 |SmallInt|Int16|Int16|
 |Integer|Int32|Int32|
@@ -342,15 +352,15 @@ To learn details about the properties, check [Lookup activity](control-flow-look
 
 Here are steps that help you upgrade your Greenplum connector:
 
-1. In **Edit linked service** page, select version 2.0 (Preview) and configure the linked service by referring to [linked service version 2.0 (Preview) properties](#version-20-preview).
+1. In **Edit linked service** page, select version 2.0 and configure the linked service by referring to [linked service version 2.0 properties](#version-20).
 
-2. The data type mapping for the Greenplum linked service version 2.0 (Preview) is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Greenplum](#data-type-mapping-for-greenplum).
+2. The data type mapping for the Greenplum linked service version 2.0 is different from that for the version 1.0. To learn the latest data type mapping, see [Data type mapping for Greenplum](#data-type-mapping-for-greenplum).
 
-## Differences between Greenplum version 2.0 (Preview) and version 1.0
+## Differences between Greenplum version 2.0 and version 1.0
 
-The Greenplum connector version 2.0 (Preview) offers new functionalities and is compatible with most features of version 1.0. The table below shows the feature differences between version 2.0 (Preview) and version 1.0.
+The Greenplum connector version 2.0 offers new functionalities and is compatible with most features of version 1.0. The table below shows the feature differences between version 2.0 and version 1.0.
 
-| Version 2.0 (Preview) | Version 1.0 |
+| Version 2.0| Version 1.0 |
 | --- | --- |
 | The following mappings are used from Greenplum data types to interim service data type. <br><br> Decimal (Precision > 28) -> Decimal <br> Money -> Decimal <br> Timestamp with time zone -> DateTimeOffset <br>Time with time zone -> DateTimeOffset <br>Interval -> TimeSpan | The following mappings are used from Greenplum data types to interim service data type. <br><br> Decimal (Precision > 28) -> String <br> Money -> String <br> Timestamp with time zone ->String <br>Time with time zone -> String <br>Interval -> String | 
 

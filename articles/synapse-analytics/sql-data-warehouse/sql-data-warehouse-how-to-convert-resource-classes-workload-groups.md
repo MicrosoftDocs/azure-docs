@@ -6,10 +6,12 @@ ms.author: ajagadish
 ms.date: 08/13/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Convert Resource Classes to Workload Groups
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Workload groups provide a mechanism to isolate and contain system resources.  Additionally, workload groups allow you to set execution rules for the requests running in them.  A query timeout execution rule allows runaway queries to be canceled without user intervention.  This article explains how to take an existing resource class and create a workload group with a similar configuration.  In addition, an optional query timeout rule is added.
 

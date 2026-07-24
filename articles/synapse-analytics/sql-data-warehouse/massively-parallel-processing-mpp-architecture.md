@@ -11,6 +11,8 @@ ms.topic: concept-article
 
 # Dedicated SQL pool (formerly SQL DW) architecture in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Azure Synapse Analytics is an analytics service that brings together enterprise data warehousing and Big Data analytics. It gives you the freedom to query data on your terms.
 
 > [!NOTE]
@@ -100,10 +102,10 @@ The diagram below shows a replicated table that is cached on the first distribut
 
 Now that you know a bit about Azure Synapse, learn how to quickly [create a dedicated SQL pool (formerly SQL DW)](create-data-warehouse-portal.md) and [load sample data](./load-data-from-azure-blob-storage-using-copy.md). If you are new to Azure, you may find the [Azure fundamental concepts](/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) helpful as you encounter new terminology. Or look at some of these other Azure Synapse Resources. 
 
-- [Customer success stories](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
-- [Blogs](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
+- [Customer success stories](https://azure.microsoft.com/resources/customer-stories)
+- [Blogs](https://community.fabric.microsoft.com/t5/Data-Warehouse-Community-Blog/bg-p/dw_comm_blogs)
 - [Feature requests](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8)
-- [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse)
+- [Videos](/azure/synapse-analytics/sql-data-warehouse/sql-data-warehouse-videos)
 - [Create support ticket](sql-data-warehouse-get-started-create-support-ticket.md)
 - [Microsoft Q&A question page](/answers/topics/azure-synapse-analytics.html)
 - [Stack Overflow forum](https://stackoverflow.com/questions/tagged/azure-sqldw)

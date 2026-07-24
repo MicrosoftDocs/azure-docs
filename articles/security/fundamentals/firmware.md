@@ -1,13 +1,13 @@
 ---
-title: Firmware security - Azure Security
-description: Learn how Microsoft secures Azure hardware and firmware.
+title: Firmware security
+description: Learn how Microsoft secures Azure hardware and firmware through ecosystem partnerships, supply chain requirements, and security development lifecycle processes.
 author: yosharm
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-manager: rkarlin
 ms.date: 11/10/2022
+ai-usage: ai-assisted
 ---
 
 # Firmware security
@@ -18,7 +18,7 @@ Microsoft actively partners within the cloud hardware ecosystem to drive continu
 
 - Collaborating with Azure hardware and firmware partners (such as component manufacturers and system integrators) to meet Azure hardware and firmware security requirements.
 
-- Enabling partners to perform continuous assessment and improvement of their products’ security posture using Microsoft-defined requirements in areas such as:
+- Enabling partners to continuously assess and improve their products’ security posture by using Microsoft-defined requirements in areas such as:
 
   - Firmware secure boot
   - Firmware secure recovery
@@ -31,10 +31,10 @@ Microsoft actively partners within the cloud hardware ecosystem to drive continu
 - Engaging in and contributing to the [Open Compute Project (OCP)](https://www.opencompute.org/wiki/Security) security project through the development of specifications. Specifications promote consistency and clarity for secure design and architecture in the ecosystem.
 
    > [!NOTE]
-   > An example of our contribution to the OCP Security Project is the [Hardware Secure Boot](https://docs.google.com/document/d/1Se1Dd-raIZhl_xV3MnECeuu_I0nF-keg4kqXyK4k4Wc/edit#heading=h.5z2d7x9gbhk0) specification.
+   > An example of Microsoft's contribution to the OCP Security Project is the [Hardware Secure Boot](https://docs.google.com/document/d/1Se1Dd-raIZhl_xV3MnECeuu_I0nF-keg4kqXyK4k4Wc/edit#heading=h.5z2d7x9gbhk0) specification.
 
 ## Securing hardware and firmware supply chains
-Cloud hardware suppliers and vendors for Azure are also required to adhere to supply chain security processes and requirements developed by Microsoft. Hardware and firmware development and deployment processes are required to follow the Microsoft [Security Development Lifecycle (SDL)](https://www.microsoft.com/securityengineering/sdl) processes such as:
+Microsoft requires cloud hardware suppliers and vendors for Azure to follow supply chain security processes and requirements. Microsoft also requires hardware and firmware development and deployment processes to follow the Microsoft [Security Development Lifecycle (SDL)](https://www.microsoft.com/securityengineering/sdl) processes, such as:
 
 - Threat modeling
 - Secure design reviews
@@ -43,7 +43,7 @@ Cloud hardware suppliers and vendors for Azure are also required to adhere to su
 - Security vulnerability management and incident response
 
 ## Next steps
-To learn more about what we do to drive platform integrity and security, see:
+To learn more about Microsoft's work to drive platform integrity and security, see:
 
 - [Platform code integrity](code-integrity.md)
 - [Secure boot](secure-boot.md)

@@ -5,6 +5,7 @@ ms.subservice: B2C
 ms.topic: include
 ms.date: 08/04/2021
 ms.author: kengaderdus
+ms.custom: sfi-image-nochange
 # Used by Azure AD B2C app integration articles under "App integration".
 ---
 

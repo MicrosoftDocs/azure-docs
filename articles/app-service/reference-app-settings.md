@@ -1,15 +1,17 @@
 ---
 title: Environment Variables and App Settings Reference
 description: This article describes the commonly used environment variables in Azure App Service, and which ones can be modified with app settings.
-ms.topic: conceptual
-ms.date: 03/28/2025
+ms.topic: reference
+ms.date: 02/26/2026
 author: cephalin
 ms.author: cephalin
+ms.service: azure-app-service
+ms.custom:
+  - build-2025
+  - sfi-ropc-nochange
 ---
 
 # Environment variables and app settings in Azure App Service
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 In [Azure App Service](overview.md), certain settings are available to the deployment or runtime environment as environment variables. You can customize some of these settings when you set them manually as [app settings](configure-common.md#configure-app-settings). This reference shows the variables that you can use or customize.
 
@@ -32,6 +34,7 @@ The following environment variables are related to the app environment in genera
 | `WEBSITE_SKU` | Read-only. Pricing tier of the app. Possible values are `Free`, `Shared`, `Basic`, and `Standard`. |
 | `SITE_BITNESS` | Read-only. Shows whether the app is 32 bit (`x86`) or 64 bit (`AMD64`). |
 | `WEBSITE_HOSTNAME` | Read-only. Primary host name for the app. This setting doesn't account for custom host names. |
+| `WEBSITE_DEFAULT_HOSTNAME` | Read-only. The default host name for the app. This could be either in the original format `<sitename>.azurewebsites.net` or the unique hostname `<sitename>-<randomhash>.<region>.azurewebsites.net`. This setting is sticky and not swappable. |
 | `WEBSITE_VOLUME_TYPE` | Read-only. Shows the storage volume type currently in use. |
 | `WEBSITE_NPM_DEFAULT_VERSION` | Default npm version that the app is using. |
 | `WEBSOCKET_CONCURRENT_REQUEST_LIMIT` | Read-only. Limit for concurrent WebSocket requests. For the `Standard` tier and higher, the value is `-1`, but there's still a per-VM limit based on your VM size. See [Cross VM Numerical Limits](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#cross-vm-numerical-limits). |
@@ -41,16 +44,17 @@ The following environment variables are related to the app environment in genera
 | `WEBSITE_PROACTIVE_AUTOHEAL_ENABLED` | By default, a VM instance is proactively corrected when it uses more than 90% of allocated memory for more than 30 seconds, or when 80% of the total requests in the last two minutes take longer than 200 seconds. If a VM instance triggers one of these rules, the recovery process is an overlapping restart of the instance.<br/><br/>Set to `false` to disable this recovery behavior. The default is `true`.<br/><br/>For more information, see the [Introducing Proactive Auto Heal](https://azure.github.io/AppService/2017/08/17/Introducing-Proactive-Auto-Heal.html) blog post. |
 | `WEBSITE_PROACTIVE_CRASHMONITORING_ENABLED` | Whenever the w3wp.exe process on a VM instance of your app crashes due to an unhandled exception for more than three times in 24 hours, a debugger process is attached to the main worker process on that instance. The debugger process collects a memory dump when the worker process crashes again. This memory dump is then analyzed, and the call stack of the thread that caused the crash is logged in your App Service logs.<br/><br/>Set to `false` to disable this automatic monitoring behavior. The default is `true`.<br/><br/>For more information, see the [Proactive Crash Monitoring in Azure App Service](https://azure.github.io/AppService/2021/03/01/Proactive-Crash-Monitoring-in-Azure-App-Service.html) blog post. |
 | `WEBSITE_DAAS_STORAGE_SASURI` | During crash monitoring (proactive or manual), the memory dumps are deleted by default. To save the memory dumps to a storage blob container, specify the shared access signature (SAS) URI. |
-| `WEBSITE_CRASHMONITORING_ENABLED` | Set to `true` to enable [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) manually. You must also set `WEBSITE_DAAS_STORAGE_SASURI` and `WEBSITE_CRASHMONITORING_SETTINGS`. The default is `false`.<br/><br/>This setting has no effect if remote debugging is enabled. Also, if this setting is set to `true`, [proactive crash monitoring](https://azure.github.io/AppService/2021/03/01/Proactive-Crash-Monitoring-Feature-in-Azure-App-Service.html) is disabled. |
+| `WEBSITE_CRASHMONITORING_ENABLED` | Set to `true` to enable [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) manually. You must also set `WEBSITE_DAAS_STORAGE_SASURI` and `WEBSITE_CRASHMONITORING_SETTINGS`. The default is `false`.<br/><br/>This setting has no effect if remote debugging is enabled. Also, if this setting is set to `true`, [proactive crash monitoring](https://azure.github.io/AppService/2021/03/01/Proactive-Crash-Monitoring-in-Azure-App-Service.html) is disabled. |
 | `WEBSITE_CRASHMONITORING_SETTINGS` | JSON with the following format:`{"StartTimeUtc": "2020-02-10T08:21","MaxHours": "<elapsed-hours-from-StartTimeUtc>","MaxDumpCount": "<max-number-of-crash-dumps>"}`. Required to configure [crash monitoring](https://azure.github.io/AppService/2020/08/11/Crash-Monitoring-Feature-in-Azure-App-Service.html) if `WEBSITE_CRASHMONITORING_ENABLED` is specified. To log the call stack without saving the crash dump in the storage account, add `,"UseStorageAccount":"false"` in the JSON. |
 | `REMOTEDEBUGGINGVERSION` | Remote debugging version. |
 | `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING` | By default, App Service creates a shared storage for you at app creation. To use a custom storage account instead, set to the connection string of your storage account. For functions, see [App settings reference for Azure Functions](../azure-functions/functions-app-settings.md#website_contentazurefileconnectionstring).<br/><br/>Example: `DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>` |
 | `WEBSITE_CONTENTSHARE` | When you use specify a custom storage account with `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`, App Service creates a file share in that storage account for your app. To use a custom name, set this variable to the name that you want. If a file share with the specified name doesn't exist, App Service creates it for you.<br/><br/>Example: `myapp123` |
+| `WEBSITE_BYOS_BLOB_DIRECT_IO` | Set to `false` by default. If enabled, all transactions will query the remote storage directly and caching will be bypassed. This setting is applied at the application level and therefore affects all blob shares mounted by the application.<br/><br/> Only relevant when using custom-mounted Azure Blob Storage. Applicable to Linux containers only (not applicable to Windows). |
 | `WEBSITE_SCM_ALWAYS_ON_ENABLED` | Read-only. Shows whether Always On is enabled (`1`) or not (`0`). |
 | `WEBSITE_SCM_SEPARATE_STATUS` | Read-only. Shows whether the Kudu app is running in a separate process (`1`) or not (`0`). |
 | `WEBSITE_DNS_ATTEMPTS` | Number of times to try name resolution. |
 | `WEBSITE_DNS_TIMEOUT` | Number of seconds to wait for name resolution. |
-| `WEBSITES_CONTAINER_START_TIME_LIMIT` | Amount of time (in seconds) that the platform waits for a container to become ready on startup. This setting applies to both code-based and container-based apps on App Service for Linux. The default value is `230`.<br/><br/>When a container starts up, repeated pings are made against the container to gauge its readiness to serve organic traffic. (See `WEBSITE_WARMUP_PATH` and `WEBSITE_WARMUP_STATUSES`.) These pings are continuously made until either a successful response is received or the start time limit is reached. If the container isn't deemed ready within the configured timeout, the platform fails the startup attempt and retries, which results in 503 errors.<br/><br/>For App Service for Windows containers, the default start time limit is `10 mins`. You can change the start time limit by specifying a time span. For example, `00:05:00` indicates 5 minutes. |
+| `WEBSITES_CONTAINER_START_TIME_LIMIT` | Amount of time (in seconds) that the platform waits for a container to become ready on startup. This setting applies to both code-based and container-based apps on App Service for Linux. The default value is `230`. For Linux, the startup time limit must be between a minimum of `10` seconds, and a maximum of `1800` seconds. <br/><br/>When a container starts up, repeated pings are made against the container to gauge its readiness to serve organic traffic. (See `WEBSITE_WARMUP_PATH` and `WEBSITE_WARMUP_STATUSES`.) These pings are continuously made until either a successful response is received or the start time limit is reached. If the container isn't deemed ready within the configured timeout, the platform fails the startup attempt and retries, which results in 503 errors.<br/><br/>For App Service for Windows containers, the default start time limit is `10 mins`. You can change the start time limit by specifying a time span. For example, `00:05:00` indicates 5 minutes. The time span for Windows Containers must be between a minimum of `00:01:00` - 1 minute, and maximum of `00:15:00` - 15 minutes. |
 
 <!-- 
 WEBSITE_PROACTIVE_STACKTRACING_ENABLED
@@ -83,7 +87,7 @@ The following table shows environment variable prefixes that App Service uses fo
 | `SERVICEBUSCONNSTR_` | Connection string to an instance of Azure Service Bus. |
 | `EVENTHUBCONNSTR_` | Connection string to an event hub in Azure Event Hubs. |
 | `DOCDBCONNSTR_` | Connection string to a database in Azure Cosmos DB. |
-| `REDISCACHECONNSTR_` | Connection string to a cache in Azure Cache for Redis. |
+| `REDISCACHECONNSTR_` | Connection string to a Redis cache. |
 | `FILESHARESTORAGE_` | Connection string to a custom file share. |
 
 ## Deployment
@@ -174,18 +178,21 @@ This section shows the configurable runtime settings for each supported language
 | `JAVA_WEBSERVER_PORT_ENVIRONMENT_VARIABLES` | Environment variables used by popular Java web frameworks for server ports. Frameworks include Spring, Micronaut, Grails, Helidon, Ratpack, and Quarkus. |
 | `JAVA_TMP_DIR` | Added to Java arguments as `-Dsite.tempdir`. Defaults to `TEMP`. |
 | `WEBSITE_SKIP_LOCAL_COPY` | By default, the deployed `app.jar` file is copied from `/home/site/wwwroot` to a local location. To disable this behavior and load `app.jar` directly from `/home/site/wwwroot`, set this variable to `1` or `true`. This setting has no effect if local cache is enabled. |
+| `JAVA_COPY_ALL` | For native Windows apps, if your Java application depends on read-only access to additional files on `/home/site/wwwroot`, set JAVA_COPY_ALL to true so that those files are also copied. `JAVA_COPY_ALL` is not compatible with the legacy convention of deploying to `/home/site/wwwroot/webapps`. |
 | `TOMCAT_USE_STARTUP_BAT` | Native Windows apps only. By default, the Tomcat server is started with its `startup.bat` file. To set the Tomcat server to start by using its `catalina.bat` file instead, set the value to `0` or `False`.<br/><br/>Example: `%LOCAL_EXPANDED%\tomcat` |
 | `CATALINA_OPTS` | For Tomcat apps, environment variables to pass into the `java` command. Can contain system variables. |
 | `CATALINA_BASE` | To use a custom Tomcat installation, set to the installation's location. |
-| `WEBSITE_JAVA_MAX_HEAP_MB` | Java maximum heap, in megabytes. This setting is effective only when you use an experimental Tomcat version. |
+| `WEBSITE_JAVA_MAX_HEAP_MB` | Maximum size of the Java heap, in megabytes. Note: if `JAVA_OPTS` is defined and already contains one of the `-Xms` or `-Xmx` options, then `WEBSITE_JAVA_MAX_HEAP_MB` is not used. |
 | `WEBSITE_DISABLE_JAVA_HEAP_CONFIGURATION` | Manually disable `WEBSITE_JAVA_MAX_HEAP_MB` by setting this variable to `true` or `1`. |
 | `WEBSITE_AUTH_SKIP_PRINCIPAL` | By default, the following Tomcat [HttpServletRequest interfaces](https://tomcat.apache.org/tomcat-5.5-doc/servletapi/javax/servlet/http/HttpServletRequest.html) are hydrated when you enable the built-in [authentication](overview-authentication-authorization.md): `isSecure`, `getRemoteAddr`, `getRemoteHost`, `getScheme`, `getServerPort`, `getLocalPort`, `getRequestURL`. To disable it, set the value to `1`. |
+| `WEBSITE_AUTH_EXPIRED_SESSION_LOGOFF` | If a webapp uses EasyAuth, set this to `true` or `1` to force a redirect to the EasyAuth logout page if the session associated to a request has expired (e.g. for webapps running on Tomcat, this is defined by the element `session-timeout` in the file `web.xml`). |
 | `WEBSITE_SKIP_FILTERS` | To disable all servlet filters that App Service added, set to `1`. |
 | `IGNORE_CATALINA_BASE` | By default, App Service checks if the Tomcat variable `CATALINA_BASE` is defined. If not, it looks for the existence of `%HOME%\tomcat\conf\server.xml`. If the file exists, it sets `CATALINA_BASE` to `%HOME%\tomcat`. To disable this behavior and remove `CATALINA_BASE`, set this variable to `1` or `true`. |
 | `PORT` | Read-only. For Linux apps, the port that the Java runtime listens to in the container. |
 | `WILDFLY_VERSION` | Read-only. For JBoss Enterprise Application Platform (EAP) Linux apps, the WildFly version. |
 | `TOMCAT_VERSION` | Read-only. For Linux Tomcat apps, the Tomcat version. |
 | `JBOSS_HOME` | Read-only. For JBoss EAP (Linux) apps, the path of the WildFly installation. |
+| `WEBSITE_AUTOCONFIGURE_DATABASE` | For Linux Java apps (Tomcat and JBoss), set to `true` to have App Service automatically create a JNDI data source for each app setting that contains a valid JDBC connection string for an Oracle, SQL Server, PostgreSQL, or MySQL database. For Tomcat, the data source is added to the server's *context.xml* file; for JBoss, it's added to the JBoss server. In both cases, the data source is named after the app setting, with the suffix `_DS`. For more information, see [Configure data sources for a Tomcat, JBoss, or Java SE app in Azure App Service](configure-language-java-data-sources.md). |
 | `AZURE_JETTY9_CMDLINE` | Read-only. For native Windows apps, the command-line arguments for starting Jetty 9. |
 | `AZURE_JETTY9_HOME` | Read-only. For native Windows apps, the path to the Jetty 9 installation. |
 | `AZURE_JETTY93_CMDLINE` | Read-only. For native Windows apps, specifies the command-line arguments for starting Jetty 9.3. |
@@ -201,6 +208,18 @@ This section shows the configurable runtime settings for each supported language
 | `AZURE_SITE_HOME` | Value added to the Java arguments as `-Dsite.home`. The default is the value of `HOME`. |
 | `HTTP_PLATFORM_PORT` | Added to Java arguments as `-Dport.http`. The following environment variables used by different Java web frameworks are also set to this value: `SERVER_PORT`, `MICRONAUT_SERVER_PORT`, `RATPACK_PORT`, `QUARKUS_HTTP_PORT`, `PAYARAMICRO_PORT`. |
 | `AZURE_LOGGING_DIR` | For Windows Apps, added to Java arguments as `-Dsite.logdir`. The default is `%HOME%\LogFiles\`. Default value in Linux is `AZURE_LOGGING_DIR=/home/LogFiles`. |
+| `WEBSITE_AUTH_ROLE_CLAIM_TYPE` | For Java web apps using built-in [authentication](overview-authentication-authorization.md), claims defined in Entra are available in the `HttpServletRequest.isUserInRole` API in the following format: <code>&lt;claimType&gt;&vert;&lt;claimValue&gt;</code> (e.g. <code>team&vert;contoso</code>). To add the values of claims with the type `roles` directly as role names in the `HttpServletRequest` implementation, set `WEBSITE_AUTH_ROLE_CLAIM_TYPE` to the value `roles`. |
+| `WEBSITE_JAVA_GC_LOGGING` | For webapps using Java 11 or later in Linux, set this to `true` or `1` to capture Java Garbage Collector logs in `/home/LogFiles/Application` which can be used to troubleshoot performance issues. |
+| `WEBSITE_SKIP_DUMP_ON_OUT_OF_MEMORY` | On Linux, set this to `true` or `1` to disable the following error-handling options that, by default, are passed as parameters to the JVM: `-XX:ErrorFile=/home/LogFiles/java_error_XXX.log`, `-XX:+CrashOnOutOfMemoryError`, `-XX:+HeapDumpOnOutOfMemoryError` and `-XX:HeapDumpPath=/home/LogFiles/java_memdump_XXX.log` |
+| `WEBSITE_WORKING_DIR` | On Linux, set this to a path where the bootstrapping process should change before launching Java/Tomcat/JBoss. This is useful for webapps using Java 8, where Java error logs are saved to the same directory where Java was launched. |
+| `WEBSITE_CATALINA_MAXCONNECTIONS` | Applies to Tomcat on Linux. The value is used to configure the `maxConnections` property of the Connector component in Tomcat's configuration. If not set, the value defaults to `10000`. |
+| `WEBSITE_CATALINA_MAXTHREADS` | Applies to Tomcat on Linux. The value is used to configure the `maxThreads` property of the Connector component in Tomcat's configuration. If not set, the value defaults to `200`. |
+| `WEBSITE_JAVA_JAR_FILE_NAME` | If set and the web application is a standalone Java (Java web server) application, this can be used to designate the name of a JAR file if there are multiple JAR files deployed, or the location of the file is not standard (e.g. in the `wwwroot` directory). Defaults to `app.jar`. |
+| `WEBSITE_JAVA_WAR_FILE_NAME` | If set and the web application is a Tomcat application, this can be used to designate the name of a single WAR file if there are multiple WAR files deployed, or the location of the file is not standard (e.g. in the `wwwroot` directory). Defaults to `app.war`. |
+| `WEBSITE_JAVA_KEYSTORE_PASSWORD` | The value of the keystore password used to store certificates with the `keytool` tool. |
+| `WEBSITE_TOMCAT_APPSERVICE_ERROR_PAGE` | On Tomcat webapps, when set to `1` or `true`, the default Tomcat error page is replaced with a custom App Service error page. Defaults to `true`. |
+| `WEBSITE_TOMCAT_ERROR_DETAILS` | Defaults to `false`. On Tomcat webapps, when set to `1` or `true`, the properties `showReport` and `showServerInfo` of the Error Report Valve are set to `true`, causing to show the stack trace of failed requests and the Tomcat version in the error page. |
+| `WEBSITE_SKIP_TROUBLESHOOT_ARCHIVE` | By default, JAR and WAR archives are scanned for common problems during application startup. This includes looking for duplicate/conflicting Java classes inside the archive, which is a common problem that causes Java apps to crash. Setting this value to `true` or `1` will skip the scanning process. Defaults to `false`. |
 
 <!-- 
 WEBSITE_JAVA_COPY_ALL
@@ -214,7 +233,7 @@ AZURE_SITE_APP_BASE
 | `PORT` | Read-only. For Linux apps, the port that the Node.js app listens to in the container. |
 | `WEBSITE_ROLE_INSTANCE_ID` | Read-only. ID of the current instance. |
 | `PM2HOME` | |
-| `WEBSITE_NODE_DEFAULT_VERSION` | For native Windows apps, the default node version that the app is using. You can use any of the [supported Node.js versions](configure-language-nodejs.md#show-nodejs-version) here. |
+| `WEBSITE_NODE_DEFAULT_VERSION` | For native Windows apps, the default node version that the app is using. You can use any of the [supported Node.js versions](configure-language-nodejs.md#show-the-nodejs-version) here. |
 
 <!-- APPSVC_REMOTE_DEBUGGING
 APPSVC_REMOTE_DEBUGGING_BREAK
@@ -289,7 +308,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 > | `WORDPRESS_ADMIN_EMAIL` | Deployment only | Not applicable | Not applicable | WordPress admin email. |
 > | `WORDPRESS_ADMIN_PASSWORD` | Deployment only | Not applicable | Not applicable | WordPress admin password. This setting is only for deployment purposes. Modifying this value has no effect on the WordPress installation. To change the WordPress admin password, see [Reset your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password). |
 > | `WORDPRESS_ADMIN_USER` | Deployment only | Not applicable | Not applicable|WordPress admin username. |
-> | `WORDPRESS_ADMIN_LOCALE_CODE` | Deployment only | Not applicable | Not applicable | Database username used to connect to WordPress. |
+> | `WORDPRESS_LOCALE_CODE` | Deployment only | `en_US` | Not applicable | WordPress localization code for site language. |
 
 ## Domain and DNS
 
@@ -369,7 +388,7 @@ WEBSITE_DISABLE_PRELOAD_HANG_MITIGATION
 |-|-|
 | `WEBSITE_INSTANCE_ID` | Read-only. Unique ID of the current VM instance, when the app is scaled out to multiple instances. |
 | `WEBSITE_IIS_SITE_NAME` | Deprecated. Use `WEBSITE_INSTANCE_ID`. |
-| `WEBSITE_DISABLE_OVERLAPPED_RECYCLING` | Overlapped recycling ensures that before the current VM instance of an app is shut down, a new VM instance starts. In some cases, it can cause file locking issues. You can try turning it off by setting to `1`. |
+| `WEBSITE_DISABLE_OVERLAPPED_RECYCLING` | Overlapped recycling ensures that before the current VM instance of an app is shut down, a new VM instance of an app starts. In some cases, it can cause file locking issues. You can try turning it off by setting to `1`. <br/><br/> Note: Its effect is limited to overlapped worker process recycling within a VM instance, not to VM-level instance replacement. This configuration does <i>not</i> guarantee that only one VM instance exists or runs at a time during scale up/down or platform-initiated maintenance -- multiple VM instances may still exist concurrently, even when this setting is enabled.|
 | `WEBSITE_DISABLE_CROSS_STAMP_SCALE` | By default, apps are allowed to scale across stamps if they use Azure Files or a Docker container. Set to `1` or `true` to disable cross-stamp scaling within the app's region. The default is `0`. Custom Docker containers that set `WEBSITES_ENABLE_APP_SERVICE_STORAGE` to `true` or `1` can't scale cross-stamps because their content isn't completely encapsulated in the Docker container. |
 
 ## Logging
@@ -519,6 +538,7 @@ The following environment variables are related to [App Service authentication](
 | `WEBSITE_AUTH_ENABLED` | Read-only. Injected into a Windows or Linux app to indicate whether App Service authentication is enabled. |
 | `WEBSITE_AUTH_ENCRYPTION_KEY` | By default, the automatically generated key is used as the encryption key. To override, set to a desired key. We recommend this environment variable if you want to share tokens or sessions across multiple apps. If you specify it, it supersedes the `MACHINEKEY_DecryptionKey` setting. |
 | `WEBSITE_AUTH_SIGNING_KEY` | By default, the automatically generated key is used as the signing key. To override, set to a desired key. We recommend this environment variable if you want to share tokens or sessions across multiple apps. If you specify it, it supersedes the `MACHINEKEY_ValidationKey` setting. |
+| `WEBSITE_AUTH_PRM_DEFAULT_WITH_SCOPES` | A comma-separated list of scopes needed by the application. When set, this variable configures a default protected resource metadata document, which declares that the specified scopes are supported. The scopes are also included in authentication challenges returned by the application. |
 
 <!-- System settings
 WEBSITE_AUTH_RUNTIME_VERSION

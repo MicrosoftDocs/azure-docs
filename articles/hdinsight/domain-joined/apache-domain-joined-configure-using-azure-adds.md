@@ -8,6 +8,7 @@ author: hareshg
 ms.author: hgowrisankar
 ms.reviewer: nijelsf 
 ms.date: 09/06/2024
+ms.custom: sfi-image-nochange
 ---
 
 # Configure HDInsight clusters for Microsoft Entra integration with Enterprise Security Package
@@ -20,8 +21,8 @@ For a detailed, step-by-step tutorial on setting up and configuring a domain in 
 
 Enterprise Security Package (ESP) provides Active Directory integration for Azure HDInsight. This integration allows domain users to use their domain credentials to authenticate with HDInsight clusters and run big data jobs.
 
-> [!NOTE]  
-> ESP is generally available in HDInsight 4.0 and 5.0 for these cluster types: Apache Spark, Interactive, Hadoop, Apache Kafka, and HBase. ESP clusters created before the ESP GA date (October 1, 2018) are not supported.
+> [!NOTE]
+> Enterprise Security Package for HDInsight is retiring, and will reach end of support by July 31, 2026.
 
 ## Prerequisites
 

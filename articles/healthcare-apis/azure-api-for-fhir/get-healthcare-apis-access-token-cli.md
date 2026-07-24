@@ -6,8 +6,8 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.custom: devx-track-azurecli
-ms.topic: conceptual
-ms.date: 09/27/2023
+ms.topic: how-to
+ms.date: 11/21/2025
 ms.author: kesheth
 ---
 

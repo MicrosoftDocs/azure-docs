@@ -7,7 +7,13 @@ ms.date: 06/29/2023
 ms.topic: quickstart
 ms.service: azure-queue-storage
 ms.devlang: csharp
-ms.custom: devx-track-csharp, mode-api, passwordless-dotnet, devx-track-dotnet
+ms.custom:
+  - devx-track-csharp
+  - mode-api
+  - passwordless-dotnet
+  - devx-track-dotnet
+  - sfi-ropc-nochange
+# Customer intent: "As a .NET developer, I want to use the Azure Queue Storage client library to create, manage, and delete message queues, so that I can efficiently handle asynchronous processing of large volumes of messages in my application."
 ---
 
 # Quickstart: Azure Queue Storage client library for .NET
@@ -29,7 +35,7 @@ Use the Azure Queue Storage client library for .NET to:
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure Storage account - [create a storage account](../common/storage-account-create.md)
 - Current [.NET SDK](https://dotnet.microsoft.com/download/dotnet) for your operating system. Be sure to get the SDK and not the runtime.
 
@@ -271,7 +277,7 @@ await queueClient.UpdateMessageAsync(receipt.MessageId, receipt.PopReceipt, "Thi
 
 ### Get the queue length
 
-You can get an estimate of the number of messages in a queue. The [`GetProperties`](/dotnet/api/azure.storage.queues.queueclient.getproperties) method returns queue properties including the message count. The [`ApproximateMessagesCount`](/dotnet/api/azure.storage.queues.models.queueproperties.approximatemessagescount) property contains the approximate number of messages in the queue. This number isn't lower than the actual number of messages in the queue, but could be higher.
+You can get an estimate of the number of messages in a queue. The [`GetProperties`](/dotnet/api/azure.storage.queues.queueclient.getproperties) method returns queue properties including the message count. The `ApproximateMessagesCount` property contains the approximate number of messages in the queue. This number isn't lower than the actual number of messages in the queue, but could be higher.
 
 Add this code to the end of the *Program.cs* file:
 

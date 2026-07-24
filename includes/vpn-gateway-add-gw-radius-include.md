@@ -1,9 +1,10 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 11/14/2024
- ms.author: cherylmc
+ ms.author: duau
+ ms.custom: sfi-image-nochange
 ---
 
 1. In the Azure portal, open your virtual network gateway (VPN gateway).

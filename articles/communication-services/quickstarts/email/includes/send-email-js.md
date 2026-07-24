@@ -8,7 +8,9 @@ ms.author: natekimball
 ms.date: 03/24/2023
 ms.topic: include
 ms.service: azure-communication-services
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-ropc-nochange
 ---
 
 Get started with Azure Communication Services using the Communication Services JavaScript Email client library to send Email messages.
@@ -45,7 +47,7 @@ EmailSendResult returns the following status on the email operation performed.
 ## Prerequisites
 
 - [Node.js (~14)](https://nodejs.org/download/release/v14.19.1/).
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Email Communication Services resource created and ready with a provisioned domain. [Create an Email Communication Resource](../create-email-communication-resource.md).
 - An active Azure Communication Services resource connected to an Email Domain and its connection string. [Create and manage Email Communication Service resources](../../create-communication-resource.md).
 
@@ -161,6 +163,9 @@ For simplicity, this article uses connection strings, but in production environm
 ### Send an email message
 
 To send an email message, call the `beginSend` function from the `EmailClient`. This method returns a poller that checks on the status of the operation and retrieves the result once finished.
+> [!Note]
+> In `@azure/communication-email` version 3.1.0 and later, the `isStarted` property was removed from `poller.getOperationState()`. The sample code uses the `status` field instead to validate that the poller starts successfully.
+
 
 ```javascript
 
@@ -185,8 +190,8 @@ async function main() {
 
     const poller = await emailClient.beginSend(message);
 
-    if (!poller.getOperationState().isStarted) {
-      throw "Poller was not started."
+    if (poller.getOperationState().status !== "running") {
+      throw "Poller failed to start.";
     }
 
     let timeElapsed = 0;

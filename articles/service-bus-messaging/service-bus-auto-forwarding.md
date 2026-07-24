@@ -44,9 +44,18 @@ If Alice goes on vacation, her personal queue, rather than the ERP topic, fills 
 - Service Bus bills one operation for each forwarded message. For example, sending a message to a topic with 20 subscriptions, each of them configured to autoforward messages to another queue or topic, is billed as 21 operations if all first-level subscriptions receive a copy of the message.
 - To create a subscription that is chained to another queue or topic, the creator of the subscription must have **Manage** permissions on both the source and the destination entity. Sending messages to the source topic only requires **Send** permissions on the source topic.
 - Don't create a chain that exceeds four hops. Messages that exceed four hops are dead-lettered. The hop count of a message is incremented when a message is autoforwarded from one queue or topic to another queue or topic. The hop count of a message can also be incremented in the [send via](service-bus-transactions.md#transfers-and-send-via) scenario in which a message is sent via a transfer queue.
-- Autoforwarding isn't supported for session-enabled queues or subscriptions. 
+- A session-enabled queue or subscription can't be the *source* of autoforwarding: a single entity can't have both session support and autoforwarding enabled, so setting `ForwardTo` on a session-enabled queue or subscription fails. Autoforwarding *into* a session-enabled destination is supported, though. A forwarded message keeps its session ID, so the destination can be a session-enabled queue (or a topic that has session-enabled subscriptions). A forwarded message that has no session ID is dead-lettered on the source entity, because a session-enabled entity only accepts messages that have a session ID.
 - Source queue tries to forward messages to the destination entity in the same order it received, but the destination could be a topic that doesn't support ordering. If either the source or destination entity is a partitioned entity, order isn't guaranteed.
 
+## Autoforwarding and metrics
+
+When a message is successfully auto-forwarded, it counts toward the **Incoming Messages** metric on the destination entity. The source entity's **Outgoing Messages** metric doesn't include auto-forwarded messages.
+
+When an auto-forward attempt fails because the destination has sessions enabled or hits a transient error, Service Bus retries the send. Each retry that reaches the destination is counted in the destination's **Incoming Messages** metric, so one source message that retries can produce more than one entry in the destination's incoming count.
+
+When the destination entity is deleted or disabled, the source dead-letters the message and no incoming count is recorded on the destination.
+
+For the full list of Service Bus metrics, see [Monitoring data reference](monitor-service-bus-reference.md).
 
 ## Related content
 To learn how to enable or disable auto forwarding in different ways (Azure portal, PowerShell, CLI, Azure Resource Management template, etc.), see [Enable auto forwarding for queues and subscriptions](enable-auto-forward.md).

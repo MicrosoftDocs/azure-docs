@@ -5,14 +5,22 @@ services: firewall
 author: duau
 ms.service: azure-firewall
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 05/10/2021
+ms.date: 12/31/2025
 ms.author: duau
+ms.custom:
+  - subject-armqs
+  - mode-arm
+  - devx-track-arm-template
+  - sfi-image-nochange
+# Customer intent: As an IT administrator, I want to deploy an Azure Firewall and configure IP Groups using an ARM template, so that I can efficiently manage network security and access for my Azure resources.
 ---
 
 # Quickstart: Create an Azure Firewall and IP Groups - ARM template
 
 In this quickstart, you use an Azure Resource Manager template (ARM template) to deploy an Azure Firewall with sample IP Groups used in a network rule and application rule. An IP Group is a top-level resource that allows you to define and group IP addresses, ranges, and subnets into a single object. This is useful for managing IP addresses in Azure Firewall rules. You can either manually enter IP addresses or import them from a file.
+
+> [!NOTE]
+> The template used in this quickstart deploys Ubuntu 18.04 LTS virtual machines, which reached end of standard support on May 31, 2023. For production deployments, consider using [Ubuntu 20.04 LTS](https://marketplace.microsoft.com/product/canonical.0001-com-ubuntu-pro-focal) or [Ubuntu 22.04 LTS](https://marketplace.microsoft.com/product/canonical.ubuntu-22_04-lts) images, or enable [Ubuntu Pro](https://ubuntu.com/azure/pro) for extended security maintenance.
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
@@ -22,7 +30,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Review the template
 

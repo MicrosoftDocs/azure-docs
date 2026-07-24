@@ -5,12 +5,12 @@ ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 08/28/2024
+ms.date: 09/30/2025
 --- 
 
 # Use reporting and image rendering
 
-In this guide, you learn how to create reports from your dashboards in Azure Managed Grafana. You can configure to have these reports emailed to intended recipients on a regular schedule or on-demand.
+In this guide, you learn how to create reports, export dashboards to PDF, and use image rendering in Azure Managed Grafana. You can configure to have these reports emailed to intended recipients on a regular schedule or on-demand.
 
 Generating reports in the PDF format requires Grafana's image rendering capability, which captures dashboard panels as PNG images. Azure Managed Grafana installs the image renderer for your workspace automatically.
 
@@ -30,7 +30,7 @@ For screen-capturing in alerts, the Grafana software only allows 30 seconds to s
 
 To follow the steps in this guide, you must have:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An Azure Managed Grafana workspace in the Standard plan. If you don't have one yet, [create a new workspace](quickstart-managed-grafana-portal.md).
 - An SMTP server. If you don't have one yet, you may want to consider using [Twilio SendGrid's email API for Azure](https://azuremarketplace.microsoft.com/marketplace/apps/sendgrid.tsg-saas-offer).
 - Email set up for your Azure Managed Grafana workspace. [Configure SMTP settings](how-to-smtp-settings.md).
@@ -52,7 +52,7 @@ To create a new report, follow these steps.
 
 1. In the Azure portal, open your Azure Managed Grafana workspace and select the **Endpoint** URL.
 2. In the Grafana portal, go to the dashboard you want to export.
-3. Click the **Share dashboard** icon.
+3. Select the **Share dashboard** icon.
 4. Choose a layout option in the PDF tab.
 5. Select **Save as PDF** to export.
 
@@ -60,6 +60,8 @@ To create a new report, follow these steps.
 
 Grafana allows screen-capturing a panel that triggers an alert. Recipients can see the panel image directly in the notification message. Azure Managed Grafana is currently configured to upload these screenshots to the local storage on your workspace. Only the list of contact points in the **Upload from disk** column of the [Supported contact points](https://grafana.com/docs/grafana/latest/alerting/configure-notifications/template-notifications/images-in-notifications/#supported-contact-points) table can receive the images. In addition, there's a 30-second time limit for taking a screenshot. If a screenshot can't be completed in time, it isn't included with the corresponding alert. Screenshots are taken only for those alerts that have Dashboard UID and Panel ID annotations in the rule. You can use these annotations to disable screen-capturing selectively.
 
-## Next steps
+## Related articles
 
-In this how-to guide, you learned how to use reporting and image rendering. To learn how to create and configure Grafana dashboards, see [Create dashboards](how-to-create-dashboard.md).
+- [Configure SMTP settings for Azure Managed Grafana](./how-to-smtp-settings.md)
+- [Create dashboards in Azure Managed Grafana](./how-to-create-dashboard.md)
+- [Troubleshoot common Azure Managed Grafana issues](./troubleshoot-managed-grafana.md)

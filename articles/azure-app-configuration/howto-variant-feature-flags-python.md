@@ -7,11 +7,11 @@ author: mrm9084
 ms.author: mametcal
 ms.service: azure-app-configuration
 ms.devlang: python
-ms.topic: how-to
-ms.date: 12/02/2024
+ms.topic: tutorial
+ms.date: 06/25/2026
 ---
 
-# Use variant feature flags in a Python application
+# Tutorial: Use variant feature flags in a Python application
 
 In this tutorial, you use a variant feature flag to manage experiences for different user segments in an example application, *Quote of the Day*. You utilize the variant feature flag created in [How to variant feature flags](./howto-variant-feature-flags.md). Before proceeding, ensure you create the variant feature flag named *Greeting* in your App Configuration store.
 
@@ -49,7 +49,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
 
 ## Create the Quote of the Day app
 
-1. Create a new file named `app.py` in the `QuoteOfTheDay` folder with the following content. It sets up a basic Flask web application with user authentication.
+1. Create a new file named *app.py* in the *QuoteOfTheDay* folder with the following content. It sets up a basic Flask web application with user authentication.
 
     ```python
     from flask_bcrypt import Bcrypt
@@ -57,7 +57,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     from flask_login import LoginManager
     from flask import Flask
     
-    app = Flask(__name__, template_folder="../templates", static_folder="../static")
+    app = Flask(__name__, template_folder="templates", static_folder="static")
     bcrypt = Bcrypt(app)
     
     db = SQLAlchemy()
@@ -66,7 +66,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     login_manager = LoginManager()
     login_manager.init_app(app)
     
-    from .model import Users
+    from model import Users
     
     @login_manager.user_loader
     def loader_user(user_id):
@@ -78,7 +78,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     if __name__ == "__main__":
         app.run(debug=True)
     
-    from . import routes
+    import routes
     app.register_blueprint(routes.bp)
     ```
 
@@ -87,8 +87,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     ```python
     from dataclasses import dataclass
     from flask_login import UserMixin
-    from . import db
-
+    from app import db
     @dataclass
     class Quote:
         message: str
@@ -113,12 +112,12 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     
     from flask import Blueprint, render_template, request, flash, redirect, url_for
     from flask_login import current_user, login_user, logout_user
-    from . import db, bcrypt
-    from .model import Quote, Users
+    from app import db, bcrypt
+    from model import Quote, Users
     
     bp = Blueprint("pages", __name__)
     
-    @bp.route("/", methods=["GET", "POST"])
+    @bp.route("/", methods=["GET"])
     def index():
         context = {}
         user = ""
@@ -127,8 +126,6 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
             context["user"] = user
         else:
             context["user"] = "Guest"
-        if request.method == "POST":
-            return redirect(url_for("pages.index"))
     
         quotes = [
             Quote("You cannot change what you are, only what you do.", "Philip Pullman"),
@@ -425,7 +422,7 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     pip install featuremanagement[AzureMonitor]
     ```
 
-1. Open the `app.py` file and add the following code to the end of the file. It connects to App Configuration and sets up feature management.
+1. Open the *app.py* file. Add the following code between `bcrypt = Bcrypt(app)` and `db = SQLAlchemy()`. It connects to App Configuration and sets up feature management.
 
    You use the `DefaultAzureCredential` to authenticate to your App Configuration store. Follow the [instructions](./concept-enable-rbac.md#authentication-with-token-credentials) to assign your credential the **App Configuration Data Reader** role. Be sure to allow sufficient time for the permission to propagate before running your application.
 
@@ -456,25 +453,26 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     feature_manager = FeatureManager(azure_app_config)
     ```
 
-1. Open `routes.py` and add the following code to the end of it to refresh configuration and get the feature variant.
+1. Open *routes.py* and update the following code for `greeting_message` to get the feature variant.
 
     ```python
-    from featuremanagement.azuremonitor import track_event
-    from . import azure_app_config, feature_manager
+    from app import feature_manager
 
-    ...
-    # Update the post request to track liked events
-    if request.method == "POST":
-        track_event("Liked", user)
-        return redirect(url_for("pages.index"))
-
-    ...
     # Update greeting_message to variant
     greeting = feature_manager.get_variant("Greeting", user)
     greeting_message = ""
     if greeting:
         greeting_message = greeting.configuration
     ```
+
+1. In the Azure portal, go to the App Configuration store you created earlier and add the following key-values.  [Create a key-value](./quickstart-azure-app-configuration-create.md)
+
+| Key | Value | Description |
+|---|---|---|
+| "SQLALCHEMY_DATABASE_URI" | "sqlite:///db.sqlite" | Used by Flask-SQLAlchemy to know which database to connect to |
+| "SECRET_KEY" | "fake-secret-key" | Used by Flask to sign session cookies (integrity protection) for authentication functionality |
+
+In *app.py*, the `load(...)` function retrieves configuration data from Azure App Configuration and stores it in `azure_app_config`. The `app.config.update(azure_app_config)` call then applies the retrieved configuration settings to the Flask application.
 
 ## Build and run the app
 
@@ -483,19 +481,19 @@ If you already have a Python Flask web app, you can skip to the [Use the variant
     If you use the Windows command prompt, run the following command and restart the command prompt to allow the change to take effect:
 
     ```cmd
-    setx AzureAppConfigurationEndpoint "<endpoint-of-your-app-configuration-store>"
+    setx AzureAppConfigurationEndpoint "<AppConfigurationEndpoint>"
     ```
 
     If you use PowerShell, run the following command:
 
     ```powershell
-    $Env:AzureAppConfigurationEndpoint = "<endpoint-of-your-app-configuration-store>"
+    $Env:AzureAppConfigurationEndpoint = "<AppConfigurationEndpoint>"
     ```
 
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export AzureAppConfigurationEndpoint='<endpoint-of-your-app-configuration-store'
+    export AzureAppConfigurationEndpoint='<AppConfigurationEndpoint>'
     ```
 
 1. In the command prompt, in the *QuoteOfTheDay* folder, run: `flask run`.

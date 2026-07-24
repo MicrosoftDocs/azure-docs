@@ -1,19 +1,28 @@
 ---
 title: What is Azure Synapse Link for SQL?
 description: Learn about Azure Synapse Link for SQL, the benefits it offers, and price.
-author: Rodrigossz
+author: im-microsoft
+ms.author: imotiwala
+ms.reviewer: wiassaf, yexu
 ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: synapse-link
-ms.date: 11/18/2024
-ms.author: rosouz
+ms.date: 10/31/2025
+ms.update-cycle: 1825-days
 ---
 
 # What is Azure Synapse Link for SQL?
 
 Azure Synapse Link for SQL enables near real time analytics over operational data in Azure SQL Database or SQL Server 2022. With a seamless integration between operational stores including Azure SQL Database and SQL Server 2022 and Azure Synapse Analytics, Azure Synapse Link for SQL enables you to run analytics, business intelligence and machine learning scenarios on your operational data with minimum impact on source databases with a new change feed technology.
 
-The following image shows the Azure Synapse Link integration with Azure SQL DB, SQL Server 2022, and Azure Synapse Analytics:
+> [!IMPORTANT]
+> **Mirroring to Microsoft Fabric is now available.** Mirroring to Fabric provides all the capabilities of Azure Synapse Link with better analytical performance, the ability to unify your data estate with OneLake in Fabric, and open access to your data in Delta Parquet format. Instead of Azure Synapse Link, use Fabric Mirroring. 
+>
+> With Mirroring to Microsoft Fabric, you can continuously replicate your existing data estate directly into OneLake in Fabric, including data from SQL Server 2016+, Azure SQL Database, Azure SQL Managed Instance, Cosmos DB, Oracle, Snowflake, and more. 
+> 
+> For more information, see [Microsoft Fabric mirrored databases](/fabric/database/mirrored-database/overview).
+
+The following image shows the Azure Synapse Link integration with Azure SQL Database, SQL Server 2022, and Azure Synapse Analytics:
 
 :::image type="content" source="../media/sql-synapse-link-overview/synapse-link-sql-architecture.png" alt-text="Diagram of the Azure Synapse Link for SQL architecture.":::
 

@@ -15,9 +15,6 @@ ms.date: 02/12/2025
 
 In this article, you learn how to read data from Reservoir DDMS REST APIs with curl commands. 
 
-> [!IMPORTANT]
-> In the current release, only Reservoir DDMS read APIs are supported.
-
 ## Prerequisites
 
 - Create an Azure Data Manager for Energy resource. See [How to create Azure Data Manager for Energy resource](quickstart-create-microsoft-energy-data-services-instance.md).
@@ -43,6 +40,241 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
         "commitTime": "unknown"
     }
     ```
+1. Run the following curl command to create new dataspace.
+    ```bash
+    curl --request POST \
+      --url https://<adme_url>/api/reservoir-ddms/v2/dataspaces \
+      --header 'Authorization: Bearer <access-token>' \
+      --header 'Content-Type: application/json' \
+      --header 'data-partition-id: <data-partition-id>' \
+      --data '[
+      {
+        "DataspaceId": "<dataspace_name>",
+        "Path": "<dataspace_name>",
+        "CustomData": {
+            "legaltags": ["<legal_tag_name>"],
+            "otherRelevantDataCountries": ["<country_code1>","country_code2"],
+            "viewers": [ "<valid_entitlement_group1>@<data-partition-id>.dataservices.energy" ],
+            "owners": [  "<valid_entitlement_group2>@<data-partition-id>.dataservices.energy"]
+        }
+      }
+    ]'
+    ```
+    **Sample Request**
+    
+    Consider an Azure Data Manager for Energy resource named `admetest` with a data partition named `dp1`, legal tag named `dp1-RDDMS-Legal-Tag`, valid entitlement group named as `data.default.viewers` and `data.default.owners`. You want to create new data space name `demo/RestWrite`. 
+    
+    ```bash
+    curl --request GET \
+      --url https://admetest.energy.azure.com/api/reservoir-ddms/v2/dataspaces/demo%2FVolve/resources \
+      --header 'Authorization: Bearer ey.......' \
+      --header 'Content-Type: application/json' \
+      --header 'data-partition-id: dp1' \
+      --data '[
+      {
+        "DataspaceId": "demo/RestWrite",
+        "Path": "demo/RestWrite",
+        "CustomData": {
+            "legaltags": ["dp1-RDDMS-Legal-Tag"],
+            "otherRelevantDataCountries": ["US"],
+            "viewers": [ "data.default.viewers@dp1.dataservices.energy" ],
+            "owners": [  "data.default.owners@dp1.dataservices.energy"]
+        }
+      }
+    ]'
+    ```
+     **Sample Response:**
+    ```json
+    [
+        "eml:///dataspace('demo/RestWrite')"
+    ]
+    ```
+1. Run the following curl command to start a transaction.
+    ```bash
+    curl --request POST \
+      --url https://<adme_url>/api/reservoir-ddms/v2/dataspaces/<encoded_dataspace_id>/transactions \
+      --header 'Authorization: Bearer <access-token>' \
+      --header 'data-partition-id: <data-partition-id>'
+    ```
+    **Sample Response:**
+    ```bash
+    3f71e12a-7b05-41c1-851d-2c59498832d4
+    ```
+     **Example of encoded dataspace id:**
+    ```bash
+    Dataspace name: "demo/RestWrite"
+    Encoded dataspace name: "demo%2FRestWrite"
+    ```
+    
+1. Run the following curl command to add resources using transaction ID.
+    ```bash
+    curl --request PUT \
+      --url 'https://<adme_url>/api/reservoir-ddms/v2/dataspaces/<encoded_dataspace_id>/resources?transactionId=<transaction_id>' \
+      --header 'Authorization: Bearer <access-token>' \
+      --header 'Content-Type: application/json' \
+      --header 'data-partition-id: <data-partition-id>' \
+      --data '[
+      {
+        "Citation": {
+          "Title": "CustomTestCrs",
+          "Originator": "dalsaab",
+          "Creation": "2021-09-02T07:57:28.000Z",
+          "Format": "Paradigm SKUA-GOCAD 22 Alpha 1 Build:20210830-0200 (id: origin/master|56050|1fb1cf919c2|20210827-1108) for Linux_x64_2.17_gcc91",
+          "Editor": "dalsaab",
+          "LastUpdate": "2021-09-06T13:30:24.000Z"
+        },
+        "YOffset": 6470000,
+        "ZOffset": 0,
+        "ArealRotation": {
+          "_": 0,
+          "$type": "eml20.PlaneAngleMeasure",
+          "Uom": "rad"
+        },
+        "ProjectedAxisOrder": "easting northing",
+        "ProjectedUom": "m",
+        "VerticalUom": "m",
+        "XOffset": 420000,
+        "ZIncreasingDownward": true,
+        "VerticalCrs": {
+          "EpsgCode": 6230,
+          "$type": "eml20.VerticalCrsEpsgCode"
+        },
+        "ProjectedCrs": {
+          "EpsgCode": 23031,
+          "$type": "eml20.ProjectedCrsEpsgCode"
+        },
+        "$type": "resqml20.obj_LocalDepth3dCrs",
+        "SchemaVersion": "2.0",
+        "Uuid": "7c7d7987-b7b9-4215-9014-cb7d6fb62173"
+      },
+      {
+        "Citation": {
+          "$type": "eml20.Citation",
+          "Title": "Hdf Proxy",
+          "Originator": "Mathieu",
+          "Creation": "2014-09-09T15:33:25Z",
+          "Format": "[F2I-CONSULTING:resqml2CppApi]"
+        },
+        "MimeType": "application/x-hdf5",
+        "$type": "eml20.obj_EpcExternalPartReference",
+        "SchemaVersion": "2.0.0.20140822",
+        "Uuid": "68f2a7d4-f7c1-4a75-95e9-3c6a7029fb23"
+      },
+      {
+        "Citation": {
+          "Title": "Pointset 1",
+          "Originator": "user1",
+          "Creation": "2019-01-08T13:41:25.000Z",
+          "Format": "Paradigm SKUA-GOCAD 22 Alpha 1 Build:20210830-0200 (id: origin/master|56050|1fb1cf919c2|20210827-1108) for Linux_x64_2.17_gcc91",
+          "$type": "eml20.Citation"
+        },
+        "ExtraMetadata": [
+          {
+            "Name": "pdgm/dx/resqml/creatorGroup",
+            "Value": "Interpreters",
+            "$type": "resqml20.NameValuePair"
+          }
+        ],
+        "NodePatch": [
+          {
+            "PatchIndex": 0,
+            "Count": 6,
+            "Geometry": {
+              "$type": "resqml20.PointGeometry",
+              "LocalCrs": {
+                "$type": "eml20.DataObjectReference",
+                "ContentType": "application/x-resqml+xml;version=2.0;type=obj_LocalDepth3dCrs",
+                "Title": "CustomTestCrs",
+                "UUID": "7c7d7987-b7b9-4215-9014-cb7d6fb62173"
+              },
+              "Points": {
+                "$type": "resqml20.Point3dHdf5Array",
+                "Coordinates": {
+                  "$type": "eml20.Hdf5Dataset",
+                  "PathInHdfFile": "/RESQML/5d27775e-5c7f-4786-a048-9a303fa1165a/points_patch0",
+                  "HdfProxy": {
+                    "$type": "eml20.DataObjectReference",
+                    "ContentType": "application/x-resqml+xml;version=2.0;type=obj_EpcExternalPartReference",
+                    "UUID": "68f2a7d4-f7c1-4a75-95e9-3c6a7029fb23",
+                    "DescriptionString": "Hdf Proxy",
+                    "VersionString": "1410276805"
+                  }
+                }
+              }
+            }
+          }
+        ],
+        "$type": "resqml20.obj_PointSetRepresentation",
+        "SchemaVersion": "2.0.0.20140822",
+        "Uuid": "5d27775e-5c7f-4786-a048-9a303fa1165a"
+      }
+    ]'
+    ```
+    **Sample Response:**
+    ```json
+    true
+    ```
+1. Run the following curl command to add arrays using transaction ID.
+    ```bash
+    curl --request PUT \
+      --url 'https://<adme_url>/api/reservoir-ddms/v2/dataspaces/<encoded_dataspace_id>/resources/arrays?transactionId=<transaction_id>' \
+      --header 'Authorization: Bearer <access-token>' \
+      --header 'Content-Type: application/json' \
+      --header 'data-partition-id: <data-partition-id>' \
+      --data '[
+      {
+        "ContainerType": "eml20.obj_EpcExternalPartReference",
+        "ContainerUuid": "68f2a7d4-f7c1-4a75-95e9-3c6a7029fb23",
+        "PathInResource": "/RESQML/5d27775e-5c7f-4786-a048-9a303fa1165a/points_patch0",
+        "Dimensions": [
+          3,
+          6
+        ],
+        "PreferredSubarrayDimensions": [
+          3,
+          1
+        ],
+        "Data": [
+          0,0,0,
+          1,0,0,
+          0,1,2,
+          1,1,2,
+          1,0,2,
+          1,1,1
+        ],
+        "ArrayType": "Float32Array"
+      }
+    ]'
+    ```
+    **Sample Response:**
+    ```json
+    [
+        true
+    ]
+    ```
+1. Run the following curl command to commit a transaction.
+    ```bash
+    curl --request PUT \
+      --url https://<adme_url>/api/reservoir-ddms/v2/dataspaces/<encoded_dataspace_id>/transactions/<transaction_id> \
+      --header 'Authorization: Bearer <access-token>' \
+      --header 'data-partition-id: <data-partition-id>'
+    ```
+    **Sample Response:**
+    ```json
+    true
+    ```
+1. Run the following curl command to rollback a transaction.
+    ```bash
+    curl --request DELETE \
+      --url https://<adme_url>/api/reservoir-ddms/v2/dataspaces/<encoded_dataspace_id>/transactions/<transaction_id> \
+      --header 'Authorization: Bearer <access-token>' \
+      --header 'data-partition-id: <data-partition-id>'
+    ```
+    **Sample Response:**
+    ```json
+    true
+    ```
+
 1. Run the following curl command to list all the dataspaces.
 
     ```bash
@@ -152,7 +384,7 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     ```bash
     curl --request GET \
       --url https://<adme_url>/api/reservoir-ddms/v2/dataspaces/<dataspace_name>/resources/all \
-      --header 'Authorization: Bearer bearer' \
+      --header 'Authorization: Bearer <access-token>' \
       --header 'data-partition-id: <data-partition-id>'
     ```
     **Sample Response**
@@ -516,6 +748,17 @@ In this article, you learn how to read data from Reservoir DDMS REST APIs with c
     		}
     	}
     ]
+    ```
+1. Run the following curl command to delete a dataspace.
+    ```bash
+    curl --request DELETE \
+      --url https://<adme_url>/api/reservoir-ddms/v2/dataspaces/<encoded_dataspace_id> \
+      --header 'Authorization: Bearer <access-token>' \
+      --header 'data-partition-id: <data-partition-id>'
+    ```
+    **Sample Response:**
+    ```bash
+    
     ```
 
 ## Related content

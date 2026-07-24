@@ -2,11 +2,12 @@
 title: Restore SQL server databases in Azure VMs using Azure Backup via CLI
 description: Learn how to use CLI to restore SQL server databases in Azure VMs in the Recovery Services vault.
 ms.topic: how-to
-ms.date: 07/30/2024
+ms.date: 02/13/2026
 ms.service: azure-backup
 ms.custom: devx-track-azurecli, engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to restore SQL server databases in Azure VMs using the command line, so that I can efficiently manage backups and recover data based on specific scenarios or requirements."
 ---
 
 # Restore SQL databases in an Azure VM using Azure CLI
@@ -23,8 +24,7 @@ This article assumes you've an SQL database running on Azure VM that's backed-up
 * Backed-up database/item named `sqldatabase;mssqlserver;master`.
 * Resources in the `westus` region.
 
->[!Note]
->See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
+To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 ## View restore points for a backed-up database
 
@@ -57,8 +57,8 @@ The list above contains three recovery points: each for full, differential, and 
 
 Ensure that the following prerequisites are met before restoring a database:
 
-* You can restore the database only to an SQL instance in the same region.
-* The target instance must be registered with the same vault as the source.
+* You can restore the database only to an SQL instance in the same region or to a different region if Cross Region Restore is enabled on the vault.
+* The target instance must be registered with the same vault as the source, except during Cross Region Restore and Cross Subscription Restore. .
 
 ## Restore a database
 
@@ -392,3 +392,10 @@ Add the parameter `--target-subscription-id` that enables you to provide the tar
 ## Next step
 
 * [Manage SQL databases that are backed up using Azure CLI](backup-azure-sql-manage-cli.md).
+
+
+## Related content
+
+- [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).
+- [Restore SQL Server databases in Azure VMs with REST API](restore-azure-sql-vm-rest-api.md).
+- Manage SQL server databases in Azure VMs with [Azure portal](manage-monitor-sql-database-backup.md), [Azure CLI](backup-azure-sql-manage-cli.md), [REST API](manage-azure-sql-vm-rest-api.md).

@@ -1,12 +1,13 @@
 ---
 title: Access a secured Microsoft Purview account
 description: Learn about how to access a a firewall protected Microsoft Purview account through private endpoints from Synapse
-author: linda33wj
+author: juluczni
 ms.service: azure-synapse-analytics
 ms.subservice: purview 
 ms.topic: how-to
 ms.date: 09/02/2021
-ms.author: jingwang
+ms.author: juluczni
+ms.custom: sfi-image-nochange
 ---
 
 # Access a secured Microsoft Purview account from Azure Synapse Analytics

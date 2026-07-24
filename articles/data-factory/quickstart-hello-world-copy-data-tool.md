@@ -5,14 +5,18 @@ author: whhender
 ms.author: whhender
 ms.reviewer: yexu
 ms.topic: quickstart
-ms.date: 10/03/2024
+ms.date: 07/25/2025
 ms.subservice: data-movement
-ms.custom: mode-other
+ms.custom:
+  - mode-other
+  - sfi-image-nochange
 ---
 
 # Quickstart: Use the Copy Data tool in Azure Data Factory Studio to copy data
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+**APPLIES TO:** :::image type="icon" source="media/applies-to/yes.png" border="false":::Azure Data Factory :::image type="icon" source="media/applies-to/no.png" border="false":::Azure Synapse Analytics
+
+[!INCLUDE [copy-job-recommendation](includes/copy-job-recommendation.md)]
 
 In this quickstart, you use the Copy Data tool in Azure Data Factory Studio to create a pipeline that copies data from a source folder in Azure Blob Storage to a target folder.
 
@@ -20,7 +24,7 @@ In this quickstart, you use the Copy Data tool in Azure Data Factory Studio to c
 
 ### Azure subscription
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ### Prepare source data in Azure Blob Storage
 

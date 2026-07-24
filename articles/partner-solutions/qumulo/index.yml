@@ -6,10 +6,12 @@ summary: Azure Native Qumulo Scalable File Service enables you to create and man
 metadata:
   title: Azure Native Qumulo Scalable File Service documentation
   description: Azure Native Qumulo Scalable File Service offers a scalable, performant, and simple-to-use cloud-native file system on Azure.
+  author: Reshmi-Sriram
+  ms.author: reshmisriram
   ms.topic: landing-page
   ms.custom:
     - ignite-2023
-  ms.date: 11/13/2003
+  ms.date: 02/18/2026
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -20,10 +22,8 @@ landingContent:
         links:
           - text: What is Azure Native Qumulo Scalable File Service?
             url: overview.md
-      - linkListType: video
-        links: 
-          - text: Azure Native Qumulo Scalable File Service
-            url: https://www.youtube.com/watch?v=s-5DXAuYZss 
+          - text: FAQ
+            url: faq.yml
 
 
   # Card
@@ -42,17 +42,7 @@ landingContent:
         - text: Manage resources
           url: manage.md
         - text: Troubleshoot resources
-          url: troubleshoot.md 
-    - linkListType: concept
-      links:
-        - text: Disaster recovery
-          url: disaster-recovery.md
-        - text: Video editing
-          url: video-editing.md
-        - text: Azure Native Qumulo for PACS VNA
-          url: vendor-neutral-archive.md
-        - text: Azure Native Qumulo for virtual desktops
-          url: virtual-desktop.md
+          url: /troubleshoot/azure/partner-solutions
   
   #Card
   - title: Explore reference content

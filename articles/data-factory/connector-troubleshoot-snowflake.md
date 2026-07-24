@@ -2,11 +2,12 @@
 title: Troubleshoot the Snowflake connector
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Snowflake connector in Azure Data Factory and Azure Synapse Analytics. 
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 10/20/2023
-ms.author: jianleishen
+ms.date: 06/22/2026
+ms.update-cycle: 1095-days
+ms.author: tinglee
 ms.custom: has-adal-ref, synapse
 ---
 
@@ -32,11 +33,11 @@ This article provides suggestions to troubleshoot common problems with the Snowf
 
 ## Error code: SnowflakeFailToAccess
 
-- **Symptoms**:<br>
-The copy activity fails with the following error when using Snowflake as source:<br> 
-    `Failed to access remote file: access denied. Please check your credentials`<br>
-The copy activity fails with the following error when using Snowflake as sink:<br>
-    `Failure using stage area. Cause: [This request is not authorized to perform this operation. (Status Code: 403; Error Code: AuthorizationFailure)`<br>
+- **Symptoms**:<br />
+The copy activity fails with the following error when using Snowflake as source:<br /> 
+    `Failed to access remote file: access denied. Please check your credentials`<br />
+The copy activity fails with the following error when using Snowflake as sink:<br />
+    `Failure using stage area. Cause: [This request is not authorized to perform this operation. (Status Code: 403; Error Code: AuthorizationFailure)`<br />
 
 - **Cause**: The error pops up by the Snowflake COPY command and is caused by missing access permission on source/sink when execute Snowflake COPY commands. 
 
@@ -52,7 +53,7 @@ For more troubleshooting help, try these resources:
 - [Connector troubleshooting guide](connector-troubleshoot-guide.md)
 - [Data Factory blog](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/bg-p/AzureDataFactoryBlog)
 - [Data Factory feature requests](https://feedback.azure.com/d365community/forum/1219ec2d-6c26-ec11-b6e6-000d3a4f032c)
-- [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
+- [Azure videos](/shows/data-exposed/?products=azure&terms=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
 - [X information about Data Factory](https://x.com/hashtag/DataFactory)

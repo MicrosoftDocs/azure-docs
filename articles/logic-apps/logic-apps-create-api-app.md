@@ -1,14 +1,15 @@
 ---
-title: Patterns for web APIs and REST APIs
-description: Patterns for web APIs and REST APIs so you can call your APIs, services, or systems from workflows in Azure Logic Apps.
-services: logic-apps
+title: Patterns to Call Web APIs and REST APIs
+description: Learn about patterns for calling web APIs and REST APIs from workflows in Azure Logic Apps.
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 04/15/2025
+ms.topic: concept-article
+ms.update-cycle: 1095-days
+ms.date: 07/10/2026
+#Customer intent: As an automation and integration developer who works in Azure Logic Apps, I want to learn the patterns for calling web APIs and REST APIs from workflows.
 ---
 
-# Patterns for custom web APIs and REST APIs you can call from Azure Logic Apps
+# Patterns for calling custom web APIs and REST APIs from workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 

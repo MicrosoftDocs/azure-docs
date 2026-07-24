@@ -9,8 +9,10 @@ ms.subservice: azure-communication-services
 ms.subservice: advanced-messaging
 ms.date: 02/20/2024
 ms.topic: include
-ms.custom: Include file
 ms.author: shamkh
+ms.custom:
+  - Include file
+  - sfi-ropc-nochange
 ---
 
 ## Prerequisites
@@ -478,4 +480,4 @@ if __name__ == '__main__':
 
 ### Other samples
 
-You can review and download other sample codes for Python Messages SDK on [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/messages-quickstart).
+You can review and download other sample codes on GitHub for [Python Messages SDK](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/messages-quickstart).

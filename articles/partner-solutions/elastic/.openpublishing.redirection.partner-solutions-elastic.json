@@ -1,0 +1,9 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/partner-solutions/elastic/get-support.md",
+            "redirect_url": "/azure/partner-solutions/elastic/overview",
+            "redirect_document_id": false
+        }
+    ]
+}

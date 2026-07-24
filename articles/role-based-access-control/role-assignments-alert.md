@@ -3,11 +3,12 @@ title: Alert on privileged Azure role assignments
 description: Alert on privileged Azure role assignments by creating an alert rule using Azure Monitor.
 services: role-based-access-control
 author: rolyon
-manager: femila
+manager: pmwongera
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.date: 11/15/2023
 ms.author: rolyon
+ms.custom: sfi-image-nochange
 ---
 
 # Alert on privileged Azure role assignments
@@ -107,7 +108,7 @@ To get notified of privileged role assignments, you create an alert rule in Azur
 
 Once you've created an alert rule, you can test that it fires. 
 
-1. Assign the Contributor, Owner, or User Access Administrator role at subscription scope. For more information, see [Assign Azure roles using the Azure portal](role-assignments-portal.yml).
+1. Assign the Contributor, Owner, or User Access Administrator role at subscription scope. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 1. Wait a few minutes to receive the alert based on the aggregation granularity and the frequency of evaluation of the log query.
 

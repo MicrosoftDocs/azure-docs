@@ -4,7 +4,9 @@ description: Learn how to determine the public IP address of VMs in a lab create
 ms.service: azure-lab-services
 ms.date: 07/04/2022
 ms.topic: how-to
-ms.custom: devdivchpfy22
+ms.custom:
+  - devdivchpfy22
+  - sfi-image-nochange
 ---
 
 # Firewall settings for labs when using lab accounts

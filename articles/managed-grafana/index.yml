@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: maud-lv
   ms.author: malev
-  ms.date: 12/15/2024
+  ms.date: 05/28/2026
 
 landingContent:
   - title: About Azure Managed Grafana
@@ -52,6 +52,8 @@ landingContent:
             url: how-to-manage-plugins.md
           - text: Add an Azure Monitor workspace
             url: how-to-connect-azure-monitor-workspace.md
+          - text: Configure bundled Prometheus (preview)
+            url: how-to-bundled-prometheus.md
           - text: Configure Azure Data Explorer
             url: how-to-connect-azure-data-explorer.md
           - text: Enable Grafana Enterprise
@@ -77,8 +79,8 @@ landingContent:
             url: how-to-set-up-private-access.md
           - text: Use service accounts
             url: how-to-service-accounts.md
-          - text: Call Grafana APIs programmatically
-            url: how-to-api-calls.md
+          - text: Authenticate data plane APIs with Microsoft Entra ID
+            url: how-to-authenticate-data-plane-api.md
           - text: Configure Grafana settings
             url: grafana-settings.md
           - text: Use deterministic outbound IPs
@@ -105,7 +107,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Service reliability
-            url: high-availability.md
+            url: /azure/reliability/reliability-managed-grafana?toc=/azure/managed-grafana/toc.json&bc=/azure/managed-grafana/breadcrumb/toc.json
           - text: Zone redundancy
             url: how-to-enable-zone-redundancy.md
 

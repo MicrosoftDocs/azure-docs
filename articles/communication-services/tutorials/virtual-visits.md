@@ -1,15 +1,16 @@
 ---
 title: Virtual appointments with Azure Communication Services
 description: Learn concepts for virtual appointments apps
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
 
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 05/24/2022
 ms.topic: tutorial
 ms.service: azure-communication-services
 ms.subservice: teams-interop
+ms.custom: sfi-image-nochange
 ---
 
 # Virtual appointments

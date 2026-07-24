@@ -1,6 +1,6 @@
 ---
 title: Reactions
-titleSuffix: An Azure Communication Services how-to guide
+titleSuffix: An Azure Communication Services article
 description: Use Azure Communication Services SDKs to send and receive reactions.
 author: jamescadd
 manager: chpalm
@@ -8,7 +8,7 @@ ms.author: jacadd
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: how-to 
-ms.date: 10/20/2023
+ms.date: 06/15/2025
 ms.custom: template-how-to
 ---
 
@@ -20,7 +20,7 @@ The configuration and policy settings in Microsoft Teams control reactions for u
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md).
@@ -39,7 +39,7 @@ Teams meeting support is based on [Teams policy](/microsoftteams/manage-reaction
 
 ### Identities and call types
 
-The following table shows support for reactions in different call and identity types. 
+The following table shows reactions support for different call and identity types. 
 
 | Identities | Teams interop meeting | Room | 1:1 call | Group call | Teams interop Group Call |
 | --- | --- | --- | --- | --- | --- |
@@ -48,7 +48,7 @@ The following table shows support for reactions in different call and identity t
 
 ### Operations
 
-The following table shows support for reactions in Calling SDK to individual identity types. 
+The following table shows reactions support for Calling SDK to individual identity types. 
 
 | Operations | Communication Services user | Microsoft 365 user |
 | --- | --- | --- |
@@ -57,7 +57,7 @@ The following table shows support for reactions in Calling SDK to individual ide
 
 ### SDKs
 
-The following table shows support for Together Mode feature in individual Azure Communication Services SDKs.
+The following table shows Together Mode feature support for individual Azure Communication Services SDKs.
 
 | Platforms | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
 | --- | --- | --- | --- | --- | --- | --- | --- |

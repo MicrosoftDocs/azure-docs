@@ -4,7 +4,7 @@ description: This article describes configuring user-assigned managed identities
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/15/2023
 ---
 

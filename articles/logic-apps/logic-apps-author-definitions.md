@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 12/09/2024
+ms.update-cycle: 1095-days
+ms.date: 01/13/2026
 ---
 
 # Create, edit, or extend JSON for logic app workflow definitions in Azure Logic Apps

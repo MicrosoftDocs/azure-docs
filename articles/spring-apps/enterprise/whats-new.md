@@ -5,9 +5,10 @@ author: KarlErickson
 ms.author: karler
 ms.reviewer: hangwan
 ms.service: azure-spring-apps
-ms.topic: conceptual
+ms.topic: whats-new
 ms.custom: devx-track-java
-ms.date: 07/29/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 # What's new in Azure Spring Apps?
@@ -66,7 +67,7 @@ The following updates are now available in the Enterprise plan:
 
 The following updates are now available in the Enterprise plan:
 
-- **Save up to 47%: Azure Spring Apps Enterprise is now eligible for Azure savings plan**: All Azure Spring Apps regions under the Enterprise plan are eligible for substantial cost savings – 20% for one year and 47% for three years – when you commit to the Azure savings plan. For more information, see [Azure Spring Apps Enterprise is now eligible for Azure savings plan for compute](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-spring-apps-enterprise-is-now-eligible-for-azure-savings/ba-p/4021532).
+- **Save up to 47%: Azure Spring Apps Enterprise is now eligible for Azure savings plan**: All Azure Spring Apps regions under the Enterprise plan are eligible for substantial cost savings – 20% for one year and 47% for three years – when you commit to the Azure savings plan. For more information, see [Azure Spring Apps Enterprise is now eligible for Azure savings plan for compute](https://techcommunity.microsoft.com/blog/appsonazureblog/azure-spring-apps-enterprise-is-now-eligible-for-azure-savings-plan-for-compute/4021532).
 
 - **Azure CLI supports log streaming for Spring Cloud Gateway**: This feature enables you to fetch the Spring Cloud Gateway log in real time for diagnosis purposes. For more information, see the [Use real-time log streaming](how-to-troubleshoot-enterprise-spring-cloud-gateway.md#use-real-time-log-streaming) section of [Troubleshoot VMware Spring Cloud Gateway](how-to-troubleshoot-enterprise-spring-cloud-gateway.md).
 
@@ -122,23 +123,11 @@ The following updates are now available in the Enterprise plan:
 
 - **New Relic APM support for .NET apps**: New Relic is a software analytics tool suite to measure and monitor performance bottlenecks, throughput, service health, and more. This update enables you to bind your .NET application with New Relic Application Performance Monitoring (APM). For more information, see the [Supported APM types](how-to-enterprise-configure-apm-integration-and-ca-certificates.md#supported-apm-types) section of [How to configure APM integration and CA certificates](how-to-enterprise-configure-apm-integration-and-ca-certificates.md).
 
-The following update is now available in the Standard consumption and dedicated plan:
-
-- **JHipster Azure Spring Apps**: With the collaboration between the [JHipster](https://www.jhipster.tech/azure/) and Azure Spring Apps teams, JHipster Azure Spring Apps is designed to streamline your full-stack Spring application development and deployment from end to end. For more information, see [Build and deploy your full-stack Spring app with JHipster Azure Spring Apps](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/build-and-deploy-your-full-stack-spring-app-with-jhipster-azure/ba-p/3923268).
-
 ## Q2 2023
-
-The following update announces a new plan:
-
-- **Azure Spring Apps Consumption and Dedicated plan**: This plan offers you customizable compute options (including memory optimization), single tenancy, and high availability to help you achieve price predictability, cost savings, and performance for running Spring applications at scale. For more information, see [Unleash Spring apps in a flex environment with Azure Spring Apps Consumption and Dedicated plans](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/unleash-spring-apps-in-a-flex-environment-with-azure-spring-apps/ba-p/3828232).
 
 The following update is now available in all plans:
 
 - **Azure Migrate for Spring Apps**: Discover and assess your Spring workloads for cloud readiness and get a price estimate for Azure Spring Apps using Azure Migrate. For more information, see [Discover and Assess Spring Apps with Azure Migrate - Preview Sign-Up](https://aka.ms/discover-spring-apps).
-
-The following update is now available in the Consumption and Basic/Standard plans:
-
-- **Azure Developer CLI (azd) for Azure Spring Apps**: Azure Developer CLI (azd) is an open-source tool that accelerates the time it takes for you to get your application from local development environment to Azure. You can now initialize, package, provision, and deploy a Spring application to Azure Spring Apps with only a few commands. Try it out using [Quickstart: Deploy your first web application to Azure Spring Apps](../basic-standard/quickstart-deploy-web-app.md?toc=/azure/spring-apps/enterprise/toc.json&bc=/azure/spring-apps/enterprise/breadcrumb/toc.json).
 
 The following updates are now available in the Enterprise plan:
 
@@ -207,7 +196,7 @@ The following updates are now available to help customers reduce adoption barrie
 
 - **Monthly Free Grant**: The first 50 vCPU-hours and 100 memory GB hours are free each month. For more information, see [Azure Spring Apps pricing](https://azure.microsoft.com/pricing/details/spring-apps/)
 
-You can compare the price change from [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/price-reduction-azure-spring-apps-does-more-costs-less/ba-p/3614058).
+You can compare the price change from [Price Reduction - Azure Spring Apps does more, costs less!](https://techcommunity.microsoft.com/blog/appsonazureblog/price-reduction---azure-spring-apps-does-more-costs-less/3614058).
 
 ## See also
 

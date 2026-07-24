@@ -7,6 +7,7 @@ ms.topic: how-to
 ms.subservice: security 
 ms.date: 02/05/2025 
 ms.author: seshin
+ms.custom: sfi-image-nochange
 ---
 
 # Connect to a secure Azure storage account from a Synapse workspace

@@ -2,9 +2,11 @@
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.custom: devx-track-azurecli
 ms.topic: include
-ms.date: 05/21/2023
+ms.date: 06/17/2026
+ms.custom:
+  - devx-track-azurecli
+  - sfi-ga-nochange
 ---
 
 ## Install the Service Connector passwordless extension
@@ -13,15 +15,12 @@ ms.date: 05/21/2023
 
 ## Create a passwordless connection
 
-Next, we use Azure App Service as an example to create a connection using managed identity.
+The following commands use Azure App Service as an example to create a connection using a managed identity.
 
-If you use:
-
-* Azure Spring Apps: use `az spring connection create` instead. For more examples, see [Connect Azure Spring Apps to the Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app#connect-azure-spring-apps-to-the-azure-database).
-* Azure Container Apps: use `az containerapp connection create` instead. For more examples, see [Create and connect a PostgreSQL database with identity connectivity](../../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md?tabs=flexible#5-create-and-connect-a-postgresql-database-with-identity-connectivity).
+If you use Azure Spring Apps, run `az spring connection create` instead. For more examples, see [Connect Azure Spring Apps to the Azure database](/azure/developer/java/spring-framework/deploy-passwordless-spring-database-app#connect-azure-spring-apps-to-the-azure-database).
 
 > [!NOTE]
-> If you use the Azure portal, go to the **Service Connector** blade of [Azure App Service](../quickstart-portal-app-service-connection.md), [Azure Spring Apps](../quickstart-portal-spring-cloud-connection.md), or [Azure Container Apps](../quickstart-portal-container-apps.md), and select **Create** to create a connection. The Azure portal will automatically compose the command for you and trigger the command execution on Cloud Shell.
+> If you prefer the Azure portal, open the **Service Connector** blade in [Azure App Service](../quickstart-portal-app-service-connection.md) or [Azure Spring Apps](../quickstart-portal-spring-cloud-connection.md), and then select **Create**. The portal automatically composes the command and runs it in Cloud Shell.
 
 ::: zone pivot="postgresql"
 
@@ -182,16 +181,52 @@ az webapp connection create sql \
 
 ::: zone-end
 
+::: zone pivot="fabricsql"
+
+The following Azure CLI command uses a `--client-type` parameter. Run the `az webapp connection create fabricsql -h` to get the supported client types, and choose the one that matches your application.
+
+> [!IMPORTANT]
+> Manual access sharing is currently required for complete onboarding. See [Share access to SQL database in Fabric](../how-to-integrate-fabric-sql.md#share-access-to-sql-database-in-fabric).
+
+### [User-assigned managed identity](#tab/user)
+
+```azurecli-interactive
+az webapp connection create fabricsql \
+    --resource-group $RESOURCE_GROUP \
+    --name $APPSERVICE_NAME \
+    --fabric-workspace-uuid $FABRIC_WORKSPACE_UUID \
+    --fabric-sql-db-uuid $FABRIC_SQL_DB_UUID \
+    --user-identity client-id=XX subs-id=XX \
+    --client-type dotnet
+```
+
+### [System-assigned managed identity](#tab/system)
+
+```azurecli-interactive
+az webapp connection create fabricsql \
+    --resource-group $RESOURCE_GROUP \
+    --name $APPSERVICE_NAME \
+    --fabric-workspace-uuid $FABRIC_WORKSPACE_UUID \
+    --fabric-sql-db-uuid $FABRIC_SQL_DB_UUID \
+    --system-identity \
+    --client-type dotnet
+```
+
+### [Service principal](#tab/sp)
+
+> [!NOTE]
+> Service connections using service principals are not supported when targeting SQL database in Microsoft Fabric.
+
+::: zone-end
+
 This Service Connector command completes the following tasks in the background:
 
-* Enable system-assigned managed identity, or assign a user identity for the app `$APPSERVICE_NAME` hosted by Azure App Service/Azure Spring Apps/Azure Container Apps.
 * Enable Microsoft Entra Authentication for the database server if it's not enabled before.
 * Set the Microsoft Entra admin to the current signed-in user.
 * Add a database user for the system-assigned managed identity, user-assigned managed identity, or service principal. Grant all privileges of the database `$DATABASE_NAME` to this user. The username can be found in the connection string in preceding command output.
-* Set configurations named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, or `AZURE_SQL_CONNECTIONSTRING` to the Azure resource based on the database type.
+* Set configurations named `AZURE_MYSQL_CONNECTIONSTRING`, `AZURE_POSTGRESQL_CONNECTIONSTRING`, `AZURE_SQL_CONNECTIONSTRING`, or `FABRIC_SQL_CONNECTIONSTRING` to the Azure resource based on the database type.
   * For App Service, the configurations are set in the **App Settings** blade.
   * For Spring Apps, the configurations are set when the application is launched.
-  * For Container Apps, the configurations are set to the environment variables. You can get all configurations and their values in the **Service Connector** blade in the Azure portal.
  
 
 Service Connector will assign the following privileges to the user, you can revoke them and adjust the privileges based on your requirements.
@@ -219,6 +254,14 @@ GRANT CONTROL ON DATABASE::"$DATABASE_NAME" TO "username";
 ```
 ::: zone-end
 
+::: zone pivot="fabricsql"
+```
+ALTER ROLE db_datareader ADD MEMBER "username"
+ALTER ROLE db_datawriter ADD MEMBER "username"
+ALTER ROLE db_ddladmin ADD MEMBER "username"
+```
+::: zone-end
+
 ## Connect to a database with Microsoft Entra authentication
 
 After creating the connection, you can use the connection string in your application to connect to the database with Microsoft Entra authentication. For example, you can use the following solutions to connect to the database with Microsoft Entra authentication.
@@ -243,6 +286,14 @@ After creating the connection, you can use the connection string in your applica
 
 
 [!INCLUDE [code sample for sql Microsoft Entra authentication connection](./code-sql-me-id.md)]
+
+
+:::zone-end
+
+:::zone pivot="fabricsql"
+
+
+[!INCLUDE [code sample for fabricsql Microsoft Entra authentication connection](./code-fabricsql-me-id.md)]
 
 
 :::zone-end

@@ -2,10 +2,10 @@
 title: Authorize access with Microsoft Entra ID for Azure SignalR Service
 description: This article explains how to authorize requests to Azure SignalR Service resources using Microsoft Entra ID. 
 author: terencefan
-ms.author: tefa
+ms.author: lianwei
 ms.date: 03/12/2025
 ms.service: azure-signalr-service
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Microsoft Entra ID for Azure SignalR Service
@@ -93,7 +93,7 @@ You can scope access to Azure SignalR Service resources at the following levels,
 
 - To learn more about roles-based access control and role, see:
 
-  - [What is Azure role-based access control (Azure RBAC)?](../role-based-access-control/overview.md).
+  - [What is Azure role-based access control (Azure RBAC)?](../role-based-access-control/overview.md)
   - [Steps to create a custom role](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role).
 
 - To learn how to configure cross tenant authorization with Microsoft Entra, see:

@@ -2,19 +2,19 @@
 title: Manage SQL server databases in Azure VMs with REST API
 description: Learn how to use REST API to manage and monitor SQL server databases in Azure VM that are backed up by Azure Backup.
 ms.topic: how-to
-ms.date: 02/09/2025
+ms.date: 02/13/2026
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 
+# Customer intent: "As a database administrator, I want to manage and monitor SQL server databases in Azure VMs using REST API, so that I can automate backup and restore operations efficiently and track the job status effectively."
 ---
 
-# Manage SQL server databases in Azure VMs with REST API
+# Manage SQL server databases in Azure VMs using REST API
 
-This article explains how to manage and monitor the SQL server databases that are backed-up by [Azure Backup](backup-overview.md).
+This article describes how to manage and monitor the SQL server databases that are backed-up by [Azure Backup](backup-overview.md) using REST API. You can also use [Azure CLI](backup-azure-sql-manage-cli.md) and [Azure portal](manage-monitor-sql-database-backup.md) to manage SQL database backups.
 
->[!Note]
->See the [SQL backup support matrix](sql-support-matrix.md) to know about the supported configurations and scenarios.
+To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 ## Monitor jobs
 

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: This article demonstrates how to use the 3D column layer in an Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 01/17/2025
+ms.date: 01/19/2026
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: power-bi-visual
@@ -12,7 +12,7 @@ ms.subservice: power-bi-visual
 
 # Add a 3D column layer
 
-The **3D column layer** is useful for taking data to the next dimension by allowing visualization of location data as 3D cylinders on the map. Similar to the bubble layer, the 3D column chart can easily visualize two metrics at the same time using color and relative height. In order for the columns to have height, a measure needs to be added to the **Size** bucket of the **Fields** pane. If a measure isn't provided, columns with no height show as flat squares or circles depending on the **Shape** option.
+The **3D column layer** is useful for taking data to the next dimension by allowing visualization of location data as 3D cylinders on the map. Similar to the marker layer, the 3D column chart can easily visualize two metrics at the same time using color and relative height. In order for the columns to have height, a measure needs to be added to the **Size** bucket of the **Fields** pane. If a measure isn't provided, columns with no height show as flat squares or circles depending on the **Shape** option.
 
 :::image type="content" source="./media/power-bi-visual/3d-column-layer-styled.png" alt-text="A map displaying point data using the 3D column layer." lightbox="./media/power-bi-visual/3d-column-layer-styled.png":::
 
@@ -34,7 +34,7 @@ The following are all settings in the **Format** pane that are available in the 
 
 | Setting              | Description      |
 |----------------------|------------------|
-| Column shape         | The shape of the 3D column.<br><br>&nbsp;&nbsp;&nbsp;&nbsp;• Box – columns rendered as rectangular boxes.<br>&nbsp;&nbsp;&nbsp;&nbsp;• Cylinder – columns rendered as cylinders. |
+| Column shape         | The shape of the 3D column.<br><br>**Box**: Columns rendered as rectangular boxes.<br>**Cylinder**: Columns rendered as cylinders. |
 | Height               | The height of each column. If a field is passed into the **Size** bucket of the **Fields** pane, columns are scaled relative to this height value. |
 | Scale height on zoom | Specifies if the height of the columns should scale relative to the zoom level. |
 | Width                | The width of each column.  |
@@ -53,7 +53,7 @@ The following are all settings in the **Format** pane that are available in the 
 Change how your data is displayed on the map:
 
 > [!div class="nextstepaction"]
-> [Add a bubble layer](power-bi-visual-add-bubble-layer.md)
+> [Add a marker layer](power-bi-visual-add-marker-layer.md)
 
 > [!div class="nextstepaction"]
 > [Add a heat map layer](power-bi-visual-add-heat-map-layer.md)

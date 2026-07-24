@@ -2,10 +2,12 @@
 title: Azure Update Manager update sources, and types
 description: This article provides information on update sources, update types, Microsoft updates and Third party updates for managing updates on your Azure VMs and servers.
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
+author: habibaum
+ms.author: v-uhabiba
 ms.date: 02/26/2025
 ms.topic: overview
+ms.update-cycle: 1095-days
+# Customer intent: As an IT administrator managing updates for Azure VMs and servers, I want to understand supported update sources and types, so that I can ensure my systems receive the necessary Microsoft and third-party application updates efficiently.
 ---
 
 # Supported update sources, types, Microsoft application updates and Third party updates
@@ -23,8 +25,7 @@ The following types of updates are supported.
 **Operating system updates** - Azure Update Manager supports operating system updates for both Windows and Linux.
 
 >[!NOTE]
-> Update Manager doesn't support driver updates.
-
+> Update Manager allows you to view driver updates during assessment but doesn't currently support installing driver updates on your machines.
 
 ## Microsoft application updates on Windows
 
@@ -60,9 +61,7 @@ Use one of the following options to perform the settings change at scale:
 
 #### [Windows](#tab/third-party-win)
 
-Update Manager relies on the locally configured update repository to update supported Windows systems, either WSUS or Windows Update. Tools such as [System Center Updates Publisher](/mem/configmgr/sum/tools/updates-publisher) allow you to import and publish custom updates with WSUS. 
-
-This scenario allows Update Manager to update machines that use Configuration Manager as their update repository with third party software. To learn how to configure Updates Publisher, see [Install Updates Publisher](/mem/configmgr/sum/tools/install-updates-publisher).
+Azure Update Manager uses the locally configured update repository to update supported Windows systems. These repositories can be Windows Update or WSUS. When you use WSUS, import and publish third-party applications and custom updates to WSUS.
 
 #### [Linux](#tab/third-party-lin)
 
@@ -76,6 +75,7 @@ As Update Manager depends on your machine's OS package manager or update service
 
 ## Next steps
 
+- Learn about the required [built-in roles and permissions](../expressroute/roles-permissions.md) to manage Azure VMs and Azure Arc-enabled servers using Azure Update Manager. 
 - Learn about the [supported regions for Azure VMs and Arc-enabled servers](supported-regions.md).
 - Know more on [supported OS and system requirements for machines managed by Azure Update Manager](support-matrix-updates.md).
 - Learn on [Automatic VM guest patching](support-matrix-automatic-guest-patching.md).

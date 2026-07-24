@@ -1,23 +1,25 @@
 ---
-title: Quickstart - Add raw media access to your app (web)
-titleSuffix: An Azure Communication Services quickstart
-description: In this quickstart, you'll learn how to add raw media access calling capabilities to your app by using Azure Communication Services.
+title: Add raw media access to your app (web)
+titleSuffix: An Azure Communication Services article
+description: This article describes how to add raw media access calling capabilities to your app by using Azure Communication Services.
 author: sloanster
 
 ms.author: micahvivion
-ms.date: 1/26/2023
+ms.date: 6/24/2025
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.custom: mode-other
 ---
 
-As a developer, you can access the raw media for incoming and outgoing audio, video, and screen sharing content during a call so that you can capture, analyze, and process audio/video content. Access to Azure Communication Services client-side raw audio, raw video, and raw screen share, gives developers an almost unlimited ability to view and edit audio, video, and screen share content that happens within the Azure Communication Services Calling SDK. In this quickstart, you'll learn how to implement raw media access by using the Azure Communication Services Calling SDK for JavaScript.
+As a developer, you can access the raw media for incoming and outgoing audio, video, and screen sharing content during a call so that you can capture, analyze, and process audio/video content. Access to Azure Communication Services client-side raw audio, raw video, and raw screen share, gives developers an almost unlimited ability to view and edit audio, video, and screen share content that happens within the Azure Communication Services Calling SDK.
 
-For example,
+This article describes how to implement raw media access by using the Azure Communication Services Calling SDK for JavaScript.
+
+For example:
 - You can access the call's audio/video stream directly on the call object and send custom outgoing audio/video streams during the call.
 - You can inspect audio and video streams to run custom AI models for analysis. Such models might include natural language processing to analyze conversations or to provide real-time insights and suggestions to boost agent productivity.
-- Organizations can use audio and video media streams to analyze sentiment when providing virtual care for patients or to provide remote assistance during video calls that use mixed reality. This capability  opens a path for developers to apply innovations to enhance interaction experiences.
+- You can use audio and video media streams to analyze sentiment when providing virtual care for patients or to provide remote assistance during video calls that use mixed reality. This capability opens a path for developers to apply innovations to enhance interaction experiences.
 
 ## Prerequisites
 
@@ -30,7 +32,7 @@ Accessing raw audio media gives you access to the incoming call's audio stream, 
 
 ### Access an incoming raw audio stream
 
-Use the following code to access an incoming call's audio stream.
+Use the following code to access an incoming call audio stream.
 
 ```js
 const userId = 'acs_user_id';
@@ -49,7 +51,7 @@ call.on("stateChanged", callStateChangedHandler);
 
 ### Place a call with a custom audio stream
 
-Use the following code to start a call with a custom audio stream instead of using a user's microphone device.
+Use the following code to start a call with a custom audio stream instead of using a participant's microphone device.
 
 ```js
 const createBeepAudioStreamToSend = () => {
@@ -78,7 +80,7 @@ callAgent.startCall(userId, callOptions);
 
 ### Switch to a custom audio stream during a call
 
-Use the following code to switch an input device to a custom audio stream instead of using a user's microphone device during a call.
+Use the following code to switch an input device to a custom audio stream instead of using a participant's microphone device during a call.
 
 ```js
 const createBeepAudioStreamToSend = () => {
@@ -111,7 +113,7 @@ call.on('stateChanged', callStateChangedHandler);
 
 ### Stop a custom audio stream
 
-Use the following code to stop sending a custom audio stream after it has been set during a call.
+Use the following code to stop sending a custom audio stream if set during a call.
 
 ```js
 call.stopAudio();
@@ -119,7 +121,7 @@ call.stopAudio();
 
 ## Access raw video
 
-Raw video media gives you the instance of a `MediaStream` object. (For more information, see the JavaScript documentation.) Raw video media gives access specifically to the `MediaStream` object for incoming and outgoing calls. For raw video, you can use that object to apply filters by using machine learning to process frames of the video.
+Raw video media gives you the instance of a `MediaStream` object. Raw video media gives access specifically to the `MediaStream` object for incoming and outgoing calls. For raw video, you can use that object to apply filters by using machine learning to process frames of the video.
 
 Processed raw outgoing video frames can be sent as an outgoing video of the sender. Processed raw incoming video frames can be rendered on the receiver side.
 
@@ -166,7 +168,7 @@ callAgent.startCall(userId, callOptions);
 
 ### Switch to a custom video stream during a call
 
-Use the following code to switch an input device to a custom video stream instead of using a user's camera device during a call.
+Use the following code to switch an input device to a custom video stream instead of using a participant's camera device during a call.
 
 ```js
 const createVideoMediaStreamToSend = () => {
@@ -209,7 +211,7 @@ call.on('stateChanged', callStateChangedHandler);
 
 ### Stop a custom video stream
 
-Use the following code to stop sending a custom video stream after it has been set during a call.
+Use the following code to stop sending a custom video stream if set during a call.
 
 ```js
 // Stop video by passing the same `localVideoStream` instance that was used to start video
@@ -260,16 +262,20 @@ await processMediaStream();
 ```
 
 [!INCLUDE [Public Preview Disclaimer](../../../../includes/public-preview-include.md)]
+
 Raw screen sharing access is in public preview and available as part of version 1.15.1-beta.1+.
+
 ## Access raw screen sharing
 
 Raw screen share media gives access specifically to the `MediaStream` object for incoming and outgoing screen share streams. For raw screen sharing, you can use that object to apply filters by using machine learning to process frames of the screen share.
 
 Processed raw screen share frames can be sent as an outgoing screen share of the sender. Processed raw incoming screen share frames can be rendered on the receiver side.
 
-Note: Sending screenshare is only supported on desktop browser.
+> [!NOTE]
+> Sending screenshare is only supported on desktop browser.
 
-### Start screen sharing with a custom screen share stream 
+### Start screen sharing with a custom screen share stream
+
 ```js
 const createVideoMediaStreamToSend = () => {
     const canvas = document.createElement('canvas');
@@ -302,8 +308,12 @@ console.log(localScreenSharingStream.mediaStreamType) // 'RawMedia'
 ```
 
 ### Access the raw screen share stream from a screen, browser tab, or app, and apply effects to the stream
-The following is an example on how to apply a black and white effect on the raw screen sharing stream from a screen, browser tab, or app.
-NOTE: The Canvas context filter = "grayscale(1)" API is not supported on Safari.
+
+The following example shows how to apply a black and white effect on the raw screen sharing stream from a screen, browser tab, or app.
+
+> [!NOTE]
+> The Canvas context `filter = "grayscale(1)"` isn't supported on Safari.
+
 ```js
 let bwTimeout;
 let bwVideoElem;
@@ -363,7 +373,7 @@ bwVideoElem.srcObject = null;
 
 ### Stop sending screen share stream
 
-Use the following code to stop sending a custom screen share stream after it has been set during a call.
+Use the following code to stop sending a custom screen share stream if it was set during a call.
 
 ```js
 // Stop sending raw screen sharing stream
@@ -372,7 +382,7 @@ await call.stopScreenSharing(localScreenSharingStream);
 
 ### Access incoming screen share stream from a remote participant
 
-You can access the raw screen share stream from a remote participant. You use `MediaStream` for the incoming raw screen share stream to process frames by using machine learning and to apply filters. The processed incoming screen share stream can then be rendered on the receiver side.
+You can access the raw screen share stream from a remote participant. Use `MediaStream` for the incoming raw screen share stream to process frames by using machine learning and to apply filters. The processed incoming screen share stream can then be rendered on the receiver side.
 
 ```js
 const remoteScreenSharingStream = remoteParticipants[0].videoStreams.find((stream) => { return stream.mediaStreamType === 'ScreenSharing'});
@@ -391,4 +401,3 @@ remoteScreenSharingStream.on('isAvailableChanged', async () => {
 
 await processMediaStream();
 ```
-

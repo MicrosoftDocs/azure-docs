@@ -5,7 +5,7 @@ author: vinnieangel
 ms.author: vangellotti
 ms.service: azure-education
 ms.topic: tutorial
-ms.date: 4/2/2024
+ms.date: 7/31/2025
 ms.custom: template-tutorial
 ---
 
@@ -48,7 +48,6 @@ For more information, see the [terms and conditions for the Azure for Students o
       SQL Server Developer<br>
    :::column-end:::
    :::column span="":::
-      SQL Server Mobile Report Publisher<br>
       SQL Server Standard<br>
       System Center<br>
       Visio Professional<br>
@@ -142,6 +141,22 @@ Your Azure for Students Starter subscription gives you access to certain softwar
 
 ## Azure Dev Tools for Teaching
 
+### My institution is already signed up for Azure Dev Tools for Teaching, do I need to do anything before August 15th, 2025 to retain access? 
+
+No action is needed. Your admin will retain access to Azure Dev Tools for Teaching benefits for an extended period of time, without the need for renewal. 
+
+### If my institution is not already signed up for Azure Dev Tools for Teaching, what do they need to do before August 15th, 2025? 
+
+If your institution has an active VL agreement but has not yet signed up for their ADT4T benefit, they have until August 1st, 2025 to redeem their benefit. They can do so by going to Azure Dev Tools for Teaching website and selecting ‘Order’. To learn more about Azure Dev Tools for Teaching, click here. 
+
+### How will my students get access to Azure Dev Tools for Teaching after August 15th, 2025? 
+
+If your institution is signed up for Azure Dev Tools for Teaching, your students will now be getting access to their software benefit through the Azure for Students offer. This provides them with the same software, in the same location they currently access. In addition, they will receive an Azure subscription with $100 free Azure credit to use on Azure services. No credit card is required to sign up, simply sign in with their institution ID as they do today. If they use the current redemption link for Azure Dev Tools for Teaching, they will be redirected to sign up for Azure for Students. To learn more about Azure for Students, [click here](https://azure.microsoft.com/free/students/?cid=msft_learn).  
+
+### If I have additional questions about this change, who can I contact? 
+
+Please use the Azure Dev Tools for Teaching support form for any questions. This is accessed in the Azure Dev Tools for Teaching Management Portal. 
+
 ### Who is eligible to purchase Azure Dev Tools for Teaching?
 
 Only academic institutions that have purchased a Volume Licensing agreement with Microsoft can enroll in Azure Dev Tools for Teaching.
@@ -165,7 +180,6 @@ If you're currently an Azure Dev Tools for Teaching customer without a Volume Li
       SQL Server Developer<br>
    :::column-end:::
    :::column span="":::
-      SQL Server Mobile Report Publisher<br>
       SQL Server Standard<br>
       System Center<br>
       Visio Professional<br>
@@ -209,7 +223,7 @@ Yes. A faculty member who is enrolled in an approved course is eligible to insta
 
 ### How do I access my Visual Studio Enterprise benefit?
 
-As an administrator of the Azure Dev Tools for Teaching subscription, you can access your Visual Studio Enterprise subscription by requesting access through the [Azure Dev Tools for Teaching management portal](https://azureforeducation.microsoft.com/account/Subscriptions). After you're approved, you can sign in to the [Visual Studio portal](https://my.visualstudio.com/) and redeem more benefits.
+As an administrator of the Azure Dev Tools for Teaching subscription you can sign in to the [Visual Studio portal](https://my.visualstudio.com/) to redeem your benefits.
 
 ### Does Azure Dev Tools for Teaching include Microsoft Office?
 
@@ -252,12 +266,6 @@ You must enroll in Azure Dev Tools for Teaching by using the appropriate promoti
 You must also renew your subscription when it expires. It doesn't renew automatically.
 
 If you can't find your promotional code, [contact us](https://azureforeducation.microsoft.com/institutions/Contact).
-
-### How and when do I renew an Azure Dev Tools for Teaching subscription?
-
-Sixty days before your membership expires, you start receiving email reminders to renew your subscription. If you don't receive these reminder emails and are concerned that your subscription is about to expire, [contact us](https://aka.ms/adt4tsupport).
-
-To check the expiration date of your subscription, go to the [Azure Dev Tools for Teaching management portal](https://azureforeducation.microsoft.com/account/Subscriptions) and look under **Subscriptions**.
 
 ### What if I need more help?
 

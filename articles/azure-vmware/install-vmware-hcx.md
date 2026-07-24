@@ -3,8 +3,11 @@ title: Install VMware HCX in Azure VMware Solution
 description: Install VMware HCX in your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.custom: engagement-fy23
-ms.date: 02/26/2025
+ms.date: 12/08/2025
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to install VMware HCX in Azure VMware Solution, so that I can efficiently manage application migration and workload optimization across my cloud and on-premises environments.
 ---
 
 # Install VMware HCX in Azure VMware Solution
@@ -15,7 +18,7 @@ VMware HCX has two component services: **HCX Cloud Manager** and **HCX Connector
 
 This article shows you how to install and activate the VMware HCX Cloud Manager and VMware HCX Connector components. 
 
-HCX Cloud manager is typically deployed as the destination (cloud side), but it can also be used as the source in cloud-to-cloud deployments. HCX Connector is deployed at the source (on-premises environment). A download link is provided for deploying HCX Connector appliance from within the HCX Cloud Manager. 
+HCX Cloud manager is typically deployed as the destination (cloud side), but it can also be used as the source in cloud-to-cloud deployments - among two different Azure VMware Solution private clouds, for example. HCX Connector is deployed at the source (on-premises environment). A download link is provided for deploying HCX Connector appliance from within the HCX Cloud Manager. 
 
 This article also teaches you how to do the following tasks:
 
@@ -36,11 +39,9 @@ This article also teaches you how to do the following tasks:
 1. Select **Get started** for **HCX Workload Mobility**.
 
      :::image type="content" source="media/tutorial-vmware-hcx/add-hcx-workload-mobility.png" alt-text="Screenshot showing the Get started button for VMware HCX Workload Mobility." lightbox="media/tutorial-vmware-hcx/add-hcx-workload-mobility.png":::
-1.	If you're installing HCX add-on on Azure VMware Solution in an Azure virtual network, then follow this step:
-   
-      1. Specify a unique /24 CIDR address block for HCX uplink and management. This IP block is utilized for HCX service mesh appliances management and uplink interfaces.
 
-      :::image type="content" source="media/native-connectivity/native-hcx-install.png" alt-text="Screenshot showing how to install HCX add-on on an Azure VMware Solution in an Azure virtual network." lightbox="media/native-connectivity/native-hcx-install.png":::
+1.	If you're installing HCX add-on on Azure VMware Solution in an Azure virtual network, then click **Enable and deploy**.   
+      
 
 1. Select the **I agree with terms and conditions** checkbox and then select **Install**.
 
@@ -93,15 +94,16 @@ HCX offers various [services](https://techdocs.broadcom.com/us/en/vmware-cis/hcx
     1. If you plan to downgrade, verify that no scheduled migrations, [Enterprise services](https://techdocs.broadcom.com/us/en/vmware-cis/hcx/vmware-hcx/4-9/vmware-hcx-user-guide-4-9/vmware-hcx-services.html) like RAV or HCX MON, etc. are active. Open a [support request](https://rc.portal.azure.com/#create/Microsoft.Support) to request downgrade. 
 
 
-## Download and deploy the VMware HCX Connector on-premises 
+## VMware HCX Connector on-premises 
 
 Use the following steps to download the VMware HCX Connector OVA file, and then deploy the VMware HCX Connector to your on-premises vCenter Server. 
 
-1. Open a browser window, sign in to the Azure VMware Solution HCX Manager on `https://x.x.x.9` port 443 with the **cloudadmin\@vsphere.local** user credentials 
+>[!NOTE]
+>As of VMware HCX 4.11 the hybridity-depot.vmware.com and connect.hcx.vmware.com endpoints for licensing, activation, and updates have been removed. Follow the below steps to obtain the VMware HCX Connector OVA file. 
 
-1. Under **Administration** > **System Updates**, select **Request Download Link**. If the box is greyed, wait a few seconds for it to generate a link. 
-
-1. Either download or receive a link for the VMware HCX Connector OVA file you deploy on your local vCenter Server. 
+1. The VMware HCX Connector OVA file is located in your vSAN Datastore under the folder name "AVS_Official_HCX_Connector_Binaries".
+1. Locate the VMware HCX Connector OVA file that is needed and download it to your local machine.
+1. If the folder "AVS_Official_HCX_Connector_Binaries" is not located in your vSAN Datastore, or you do not see the specific version you need, open a Support Request to have the folder added. 
 1. In your on-premises vCenter Server, select an [OVF template](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/vsphere-virtual-machine-administration-guide-8-0.html) to deploy the VMware HCX Connector to your on-premises vSphere cluster. 
 1. Navigate to and select the OVA file that you downloaded and then select **Open**. 
 

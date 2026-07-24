@@ -2,11 +2,13 @@
 title: Integrate Azure DNS with your Azure resources - Azure DNS
 description: In this article, learn how to use Azure DNS along to provide DNS for your Azure resources.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: how-to
 ms.date: 07/22/2024
-ms.author: greglin
+ms.author: allensu
+ms.custom: sfi-image-nochange
+# Customer intent: As a cloud administrator, I want to configure custom domain settings for various Azure services using Azure DNS, so that I can provide user-friendly access to those services via personalized domain names.
 ---
 
 # Use Azure DNS to provide custom domain settings for an Azure service

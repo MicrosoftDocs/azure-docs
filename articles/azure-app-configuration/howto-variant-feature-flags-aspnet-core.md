@@ -3,8 +3,8 @@ title: 'Tutorial: Use variant feature flags from Azure App Configuration in an A
 titleSuffix: Azure App configuration
 description: In this tutorial, you learn how to use variant feature flags in an ASP.NET Core application
 #customerintent: As a user of Azure App Configuration, I want to learn how I can use variants and variant feature flags in my ASP.NET application.
-author: rossgrambo
-ms.author: rossgrambo
+author: jimmyca15
+ms.author: jimmyca
 ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.topic: tutorial
@@ -28,18 +28,18 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
     dotnet new razor --auth Individual -o QuoteOfTheDay
     ```
 
-1. Navigate to the *QuoteOfTheDay* directory and create a [user secret](/aspnet/core/security/app-secrets) for the application by running the following commands. Replace the `<your-App-Configuration-endpoint>` placeholder with your App Configuration store's endpoint. You can find the endpoint in your App Configuration store's **Overview** blade in the Azure portal.
+1. Navigate to the *QuoteOfTheDay* directory and create a [user secret](/aspnet/core/security/app-secrets) for the application by running the following commands. Replace the _`<AppConfigurationEndpoint>`_ placeholder with your App Configuration store's endpoint. You can find the endpoint in your App Configuration store's **Overview** blade in the Azure portal.
 
     ```dotnetcli
     dotnet user-secrets init
-    dotnet user-secrets set Endpoints:AppConfiguration "<your-App-Configuration-endpoint>"
+    dotnet user-secrets set Endpoints:AppConfiguration "<AppConfigurationEndpoint>"
     ```
 
 1. Add the latest versions of the required packages.
 
     ```dotnetcli
     dotnet add package Azure.Identity
-    dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
@@ -107,8 +107,12 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
         public string Author { get; set; }
     }
     
-    public class IndexModel(IVariantFeatureManagerSnapshot featureManager) : PageModel
+    public class IndexModel(
+        ILogger<IndexModel> logger,
+        IVariantFeatureManagerSnapshot featureManager
+    ) : PageModel
     {
+        private readonly ILogger<IndexModel> _logger = logger;
         private readonly IVariantFeatureManagerSnapshot _featureManager = featureManager;
     
         private Quote[] _quotes = [
@@ -217,7 +221,7 @@ In this tutorial, you use a variant feature flag to manage experiences for diffe
         <div class="quote-content">
             <h3 class="greeting-content">@(Model.GreetingMessage)</h3>
             <br />
-            <p class="quote">“@(Model.Quote?.Message ?? "< Quote not found >")”</p>
+            <p class="quote">"@(Model.Quote?.Message ?? "< Quote not found >")"</p>
             <p>- <b>@(Model.Quote?.Author ?? "Unknown")</b></p>
         </div>
     

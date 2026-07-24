@@ -5,10 +5,11 @@ description: This article lists Microsoft POP locations, sorted by POP abbreviat
 services: cdn
 author: halkazwini
 ms.author: halkazwini
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 02/28/2026
 ms.custom: references_regions
+# Customer intent: "As a network administrator, I want to access a list of Microsoft POP locations by abbreviation for Azure CDN, so that I can efficiently configure and manage content delivery settings."
 ---
 
 # Microsoft POP locations by abbreviation for Azure CDN

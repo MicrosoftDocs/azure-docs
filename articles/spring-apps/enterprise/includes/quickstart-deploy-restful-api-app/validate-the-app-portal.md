@@ -3,11 +3,13 @@ author: KarlErickson
 ms.author: v-muyaofeng
 ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 11/20/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom: sfi-image-nochange
 ---
 
 <!-- 
-For clarity of structure, a separate markdown file is used to describe how to validate the app using Azure Portal.
+For clarity of structure, a separate markdown file is used to describe how to validate the app using Azure portal.
 
 [!INCLUDE [validate-the-app-portal](includes/quickstart-deploy-restful-api-app/validate-the-app-portal.md)]
 

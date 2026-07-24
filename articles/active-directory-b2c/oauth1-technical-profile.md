@@ -6,7 +6,7 @@ description: Define an OAuth 1.0 technical profile in a custom policy in Azure A
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024
@@ -19,6 +19,8 @@ ms.subservice: b2c
 ---
 
 # Define an OAuth1 technical profile in an Azure Active Directory B2C custom policy
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 

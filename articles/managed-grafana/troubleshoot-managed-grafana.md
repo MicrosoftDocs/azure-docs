@@ -5,10 +5,11 @@ author: maud-lv
 ms.author: malev
 ms.topic: troubleshooting
 ms.service: azure-managed-grafana
-ms.date: 04/16/2025
+ms.date: 05/28/2026
+ms.custom: sfi-image-nochange
 ---
 
-# Troubleshoot issues for Azure Managed Grafana
+# Troubleshoot common Azure Managed Grafana issues 
 
 This article guides you to troubleshoot errors with Azure Managed Grafana, and suggests solutions to resolve them.
 
@@ -200,7 +201,23 @@ After disabling System-Assigned Managed Identity, the data source that has been 
 
 Data sources configured with a managed identity may still be able to access data from Azure services for up to 24 hours. When a role assignment is updated in a managed identity for Azure Managed Grafana, this change can take up to 24 hours to be effective, due to limitations of managed identities.
 
-## Next step
+## Data plane API requests return 401 or invalid audience errors
 
-> [!div class="nextstepaction"]
-> [Support](./find-help-open-support-ticket.md)
+Calls to your Azure Managed Grafana endpoint can fail with `401`, `Unauthorized`, or invalid audience errors.
+
+### Cause
+
+The token was requested for the wrong Microsoft Entra audience, or the caller doesn't have a Grafana role assignment.
+
+### Solution
+
+- Request tokens for the audience `https://dashboard.azure.com`.
+- Verify that the caller has a Grafana role assignment on the Azure Managed Grafana resource.
+- Retry after a few minutes if role assignments were recently changed.
+
+For detailed steps and examples, see [Authenticate to Azure Managed Grafana data plane APIs with Microsoft Entra ID](./how-to-authenticate-data-plane-api.md).
+
+## Related content
+
+- [Support](find-help-open-support-ticket.md)
+- [Troubleshoot connecting managed private endpoint to a private link service](troubleshoot-mpe-connection.md)

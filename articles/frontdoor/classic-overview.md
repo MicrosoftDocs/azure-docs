@@ -5,16 +5,18 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: overview
-ms.date: 11/15/2024
+ms.date: 05/04/2026
 
 # Customer intent: As an IT admin, I want to learn about Front Door and what I can use it for.
 ---
 
 # What is Azure Front Door (classic)?
 
+**Applies to:** :heavy_check_mark: Front Door (classic)
+
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
-Azure Front Door (classic) is a global, scalable entry-point that uses the Microsoft global edge network to deliver fast, secure, and highly scalable web applications. It enables you to transform your global consumer and enterprise applications into robust, high-performing, and personalized modern applications that reach a global audience through Azure.
+Azure Front Door (classic) is a global, scalable entry point that uses the Microsoft global edge network to deliver fast, secure, and highly scalable web applications. It enables you to transform your global consumer and enterprise applications into robust, high-performing, and personalized modern applications that reach a global audience through Azure.
 
 :::image type="content" source="./media/front-door-overview/front-door-visual-diagram.png" alt-text="Diagram of Azure Front Door (classic) routing user traffic to endpoints.":::
 
@@ -26,11 +28,11 @@ Front Door (classic) operates at Layer 7 (HTTP/HTTPS layer) using anycast protoc
 > * For application layer load balancing within a region, consider [Application Gateway](../application-gateway/overview.md).
 > * For network layer load balancing, consider [Load Balancer](../load-balancer/load-balancer-overview.md).
 > 
-> Combining these solutions may benefit your end-to-end scenarios. For a comparison of Azure load-balancing options, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
+> Combining these solutions might benefit your end-to-end scenarios. For a comparison of Azure load-balancing options, see [Overview of load-balancing options in Azure](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## Why use Azure Front Door (classic)?
 
-Azure Front Door (classic) allows you to build, operate, and scale dynamic web applications and static content efficiently. It optimizes global web traffic routing for top-tier end-user performance and reliability through quick global failover. Key features include:
+Azure Front Door (classic) helps you efficiently build, operate, and scale dynamic web applications and static content. It optimizes global web traffic routing for top-tier end-user performance and reliability through quick global failover. Key features include:
 
 * Accelerated application performance using **[split TCP](front-door-traffic-acceleration.md?pivots=front-door-classic#connect-to-the-front-door-edge-location-split-tcp)** and **[anycast protocol](front-door-traffic-acceleration.md?pivots=front-door-classic#select-the-front-door-edge-location-for-the-request-anycast)**.
 * Intelligent **[health probe](front-door-health-probes.md)** monitoring for backend resources.
@@ -46,13 +48,10 @@ Azure Front Door (classic) allows you to build, operate, and scale dynamic web a
 
 ## Pricing
 
-For pricing details, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). For service level agreements, see [SLA for Azure Front Door](https://azure.microsoft.com/support/legal/sla/frontdoor/v1_0/).
+For pricing details, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). For service level agreements, see [SLA for online services](https://www.microsoft.com/licensing/docs/view/Service-Level-Agreements-SLA-for-Online-Services).
 
-## What's new?
+## Next step
 
-Subscribe to the RSS feed and view the latest Azure Front Door feature updates on the [Azure Updates](https://azure.microsoft.com/updates?filters=%5B%22Azure+Front+Door%22%5D) page.
+> [!div class="nextstepaction"]
+> [Azure Front Door (classic) to Standard/Premium tier migration](tier-migration.md)
 
-## Next steps
-
-- Learn how to [create a Front Door (classic)](quickstart-create-front-door.md).
-- Learn about [how Front Door (classic) works](front-door-routing-architecture.md?pivots=front-door-classic).

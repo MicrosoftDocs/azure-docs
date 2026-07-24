@@ -6,8 +6,10 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 10/16/2024
 ms.custom: engagement-fy25
+# Customer intent: "As an IT administrator, I want to troubleshoot issues with the Azure Migrate appliance, so that I can ensure successful deployment and connectivity for on-premises server migrations."
 ---
 
 
@@ -290,8 +292,8 @@ You get the error "WS-Management service cannot process the request. The WMI ser
     1. The wmimgmt console opens where you can find **WMI Control (Local)** in the left pane. Right-click it, and select **Properties** from the menu.
     1. In the **WMI Control (Local) Properties** dialog, select the **Securities** tab.
     1. On the **Securities** tab, expand the **Root** folder in the namespace tree and select the **cimv2** namespace.
-    1. Select **Security** to open the **Security for ROOT\cimv2** dialog.
-    1. Under the **Group or users names** section, select **Add** to open the **Select Users, Computers, Service Accounts or Groups** dialog.
+    1. Select **Security** to go to the **Security for ROOT\cimv2** dialog.
+    1. Under the **Group or users names** section, select **Add** to go to the **Select Users, Computers, Service Accounts or Groups** dialog.
     1. Search for the user account, select it, and select **OK** to return to the **Security for ROOT\cimv2** dialog.
     1. In the **Group or users names** section, select the user account just added. Check if the following permissions are allowed:<br/>
        - Enable account <br/>

@@ -2,19 +2,20 @@
 title: End-to-end TLS Azure Application Gateway for Containers - Gateway API
 description: Learn how to encrypt traffic to and from Application Gateway for Containers using Gateway API.
 services: application gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 11/5/2024
-ms.author: greglin
+ms.date: 11/05/2024
+ms.author: mbender
+# Customer intent: As a cloud architect, I want to configure end-to-end TLS for an Application Gateway serving containerized applications, so that I can ensure secure communication between clients and backend services.
 ---
 
 # End-to-end TLS with Application Gateway for Containers - Gateway API
 
 This document helps set up an example application that uses the following resources from Gateway API. Steps are provided to:
 
-- Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
-- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/api-types/httproute) that references a backend service.
+- Create a [Gateway](https://gateway-api.sigs.k8s.io/docs/concepts/api-overview/#gateway) resource with one HTTPS listener.
+- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/reference/api-types/httproute/) that references a backend service.
 
 ## Background
 
@@ -24,8 +25,8 @@ Application Gateway for Containers enables end-to-end TLS for improved privacy a
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If following the ALB managed deployment strategy, ensure that you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If following the BYO deployment strategy, ensure that you set up your Application Gateway for Containers resources and ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md))
+2. If following the ALB managed deployment strategy, ensure that you provision your ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)) and the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTPS application
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate TLS/SSL offloading.
 

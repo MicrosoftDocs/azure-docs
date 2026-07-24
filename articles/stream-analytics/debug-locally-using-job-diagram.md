@@ -7,6 +7,7 @@ ms.author: sujie
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 01/23/2020
+ms.custom: sfi-image-nochange
 ---
 
 # Debug Azure Stream Analytics queries locally using job diagram in Visual Studio

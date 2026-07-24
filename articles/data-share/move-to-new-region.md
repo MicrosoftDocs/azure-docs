@@ -4,9 +4,9 @@ description: Use Azure Resource Manager template to move Azure Data Share accoun
 ms.service: azure-data-share
 ms.custom: devx-track-arm-template
 ms.topic: how-to
-ms.date: 02/12/2025
-author: sidontha
-ms.author: sidontha
+ms.date: 01/20/2026
+author: chvukosw
+ms.author: chvukosw
 #Customer intent: As an Azure Data Share User, I want to move my Data Share account to a new region.
 ---
 
@@ -14,12 +14,12 @@ ms.author: sidontha
 
 Azure Data Share accounts can’t be moved from one region to another. You can however, use an Azure Resource Manager template to export the existing Data Share account, modify the parameters to match the destination region, and then deploy the template to the new region. For more information on Resource Manager and templates, see [Quickstart: Create and deploy Azure Resource Manager templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
-This article will guide you through the process of using a template to export, modify, and deploy an existing Data Share account.
+This article guides you through the process of using a template to export, modify, and deploy an existing Data Share account.
 
 ## Prerequisites
 
 - Make sure that the Azure Data Share account is in the Azure region from which you want to move.
-- Azure Data Share accounts can’t be moved between regions. You’ll have to re-add datasets to sent shares and resend invitations to Data Share recipients. For any received shares, you'll need to request that the data provider sends you a new invitation.
+- Azure Data Share accounts can’t be moved between regions. You have to re-add datasets to sent shares and resend invitations to Data Share recipients. For any received shares, you need to request that the data provider sends you a new invitation.
 
 ## Prepare and move
 
@@ -109,7 +109,7 @@ The following steps show how to deploy a new Data Share account using a Resource
     
     * **Datasets** - You can edit which datasets are deployed into the target Data Share account by adding or removing datasets from the resources section in the **template.json** file. Below is an example of a BlobFolder dataset. 
     
-    * If you're also moving the resources contained in the datasets to a new region, you'll have to remove the datasets from the **template.json** file and manually readd them once the Data Share account and resources referenced in the datasets are moved to the new region.
+    * If you're also moving the resources contained in the datasets to a new region, you have to remove the datasets from the **template.json** file and manually readd them once the Data Share account and resources referenced in the datasets are moved to the new region.
     
     >[!IMPORTANT]
     >* Datasets will fail to deploy if the new Data Share account you're deploying won't automatically inherit required permissions to access the datasets. The required permissions depend on the dataset type. See here for required permissions for [Azure Synapse Analytics and Azure SQL Database datasets](how-to-share-from-sql.md#prerequisites-for-sharing-from-azure-sql-database-or-azure-synapse-analytics-formerly-azure-sql-dw). See here for required permissions for [Azure Storage and Azure Data Lake Gen 1 and Gen2 datasets](how-to-share-from-storage.md#prerequisites-for-the-source-storage-account). 
@@ -152,22 +152,22 @@ The following steps show how to deploy a new Data Share account using a Resource
 
 1. Once the deployment finishes, go to the newly created Data Share account. 
 
-1. If you were unable to transfer datasets using the template, you'll need to readd datasets to all of your Sent Shares.
+1. If you were unable to transfer datasets using the template, you need to readd datasets to all of your Sent Shares.
 
-1. Resend invitations to all recipients of your sent shares and alert the consumers of your shares that they'll need to reaccept and remap the data you're sharing with them. 
+1. Resend invitations to all recipients of your sent shares and alert the consumers of your shares that they need to reaccept and remap the data you're sharing with them. 
 
 ## Verify
 
 ### Sent shares
 
 - Confirm that all sent shares in your source Data Share account are now present in the target Data Share account.
-- For each sent share, confirm that all data sets from the source share are now present in the target share. If they aren't, you'll need to manually readd them.
+- For each sent share, confirm that all data sets from the source share are now present in the target share. If they aren't, you need to manually readd them.
 - For all share subscriptions in each sent share in your source account, confirm that you have sent invitations to all recipients of the shares so that they'll be able to access the data again.
 
 ### Received shares
 
 - Confirm that you have requested new invitations from data providers for all received shares from your source data share account.
-- Once you receive these invitations, you'll need to remap the data sets and run snapshots to access the data again.
+- Once you receive these invitations, you need to remap the data sets and run snapshots to access the data again.
 
 ## Clean up source resources
 

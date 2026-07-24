@@ -1,24 +1,28 @@
 ---
-title: Create workflows with multiple Azure services
-description: Learn to build an automated workflow using Azure Logic Apps, Azure Functions, and Azure Storage.
-services: azure-logic-apps
+title: Create Workflows with Multiple Azure Services
+description: Build an automated workflow that integrates Azure Functions and Azure Storage by using Azure Logic Apps.
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: tutorial
 ms.collection: ce-skilling-ai-copilot
-ms.custom: "mvc, devx-track-csharp"
-ms.date: 02/18/2025
+ms.update-cycle: 180-days
+ms.date: 07/21/2026
+ms.custom:
+  - mvc
+  - devx-track-csharp
+  - sfi-image-nochange
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to learn how to integrate more than one service in a logic app workflow.
 ---
 
-# Tutorial: Create workflows that process emails using Azure Logic Apps, Azure Functions, and Azure Storage
+# Tutorial: Create an automated workflow that processes emails by using Azure Functions and Azure Storage in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-This tutorial shows how to build an example workflow that integrates Azure Functions and Azure Storage by using Azure Logic Apps. This example specifically creates a Consumption logic app workflow that handles incoming emails and any attachments, analyzes the email content using Azure Functions, saves the content to Azure storage, and sends email for reviewing the content.
+This tutorial shows how to build an example workflow that integrates Azure Functions and Azure Storage by using Azure Logic Apps. This example specifically creates a Consumption logic app workflow that handles incoming emails and any attachments. The workflow analyzes the email content by using Azure Functions, saves the content to Azure storage, and sends an email for reviewing the content.
 
 When you finish, your workflow looks like the following high level example:
 
-:::image type="content" source="media/tutorial-process-email-attachments-workflow/overview.png" alt-text="Screenshot shows example Consumption high-level workflow." lightbox="media/tutorial-process-email-attachments-workflow/overview.png":::
+:::image type="content" source="media/tutorial-process-email-attachments-workflow/overview.png" alt-text="Screenshot that shows a high-level example Consumption workflow." lightbox="media/tutorial-process-email-attachments-workflow/overview.png":::
 
 > [!TIP]
 >
@@ -35,7 +39,7 @@ You can create a similar workflow with a Standard logic app resource where some 
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. [Get a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * An email account from an email provider supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other supported email providers, see [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
@@ -92,7 +96,7 @@ The following steps set up [Azure storage](../storage/common/storage-introductio
 
    1. On the storage account menu, under **Data storage**, select **Containers**.
 
-   1. On the **Containers** page toolbar, select **Container**.
+   1. On the **Containers** page toolbar, select **+ Add container**.
 
    1. On the **New container** pane, provide the following information:
    
@@ -111,7 +115,7 @@ Next, connect Storage Explorer to your storage account.
 
 ## Set up Storage Explorer
 
-The following steps connect Storage Explorer to your storage account so to you can confirm that your workflow correctly saves attachments as blobs in your storage container.
+The following steps connect Storage Explorer to your storage account so that you can confirm that your workflow correctly saves attachments as blobs in your storage container.
 
 1. Launch Microsoft Azure Storage Explorer. Sign in with your Azure account.
 
@@ -169,7 +173,7 @@ The following steps create an Azure function that your workflow calls to remove 
       | **Runtime stack** | Yes | <*programming-language*> | The runtime for your preferred function programming language. For C# and F# functions, select **.NET**. <br><br>This example uses **.NET**. <br><br>In-portal editing is only available for the following languages: <br><br>- JavaScript <br>- PowerShell <br>- TypeScript <br>- C# script <br><br>You must [locally develop](../azure-functions/functions-develop-local.md#local-development-environments) any C# class library, Java, and Python functions. |
       | **Version** | Yes | <*version-number*> | Select the version for your installed runtime. |
       | **Region** | Yes | <*Azure-region*> | The same region that you previously used. <br><br>This example uses **West US**. |
-      | **Operating System** | Yes | <*your-operating-system*> | An operating system is preselected for you based on your runtime stack selection, but you can select the operating system that supports your favorite function programming language. In-portal editing is only supported on Windows. <br><br>This example selects **Windows**. |
+      | **Operating System** | Yes | <*your-operating-system*> | An operating system is preselected for you based on your runtime stack selection. However, you can select the operating system that supports your favorite function programming language. In-portal editing is only supported on Windows. <br><br>This example selects **Windows**. |
 
    1. Select **Next: Storage**. On the **Storage** tab, provide the following information:
 
@@ -193,9 +197,9 @@ The following steps create an Azure function in C# that removes HTML from each i
 
    > [!NOTE]
    >
-   > If you don't see the **Create** button, [select an option to create your function locally](../azure-functions/functions-create-function-app-portal.md?pivots=programming-language-csharp#create-your-functions-locally).
+   > If you don't see the **Create** button, [you must instead create your function locally](../azure-functions/functions-develop-local.md#local-development-environments).
 
-1. [Follow these generic steps to create your function in C# using the **HTTP trigger** template](../azure-functions/functions-create-function-app-portal.md?pivots=programming-language-csharp#create-function), and provide the following information for your function:
+1. [Follow these generic steps to create your function in C# using the **HTTP trigger** template](../azure-functions/functions-create-http-endpoint.md?pivots=programming-language-csharp#create-function), and provide the following information for your function:
 
    | Parameter | Value |
    |-----------|-------|
@@ -267,8 +271,8 @@ After you confirm that your function works, create your logic app resource and w
    > [!NOTE]
    >
    > Availability zones are automatically enabled for new and existing Consumption logic app workflows in 
-   > [Azure regions that support availability zones](../reliability/availability-zones-region-support.md). 
-   > For more information, see [Reliability in Azure Functions](../reliability/reliability-functions.md#availability-zone-support) and 
+   > [Azure regions that support availability zones](/azure/reliability/availability-zones-region-support). 
+   > For more information, see [Reliability in Azure Functions](/azure/reliability/reliability-functions#resilience-to-availability-zone-failures) and 
    > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
 
 1. When you're ready, select **Review + create**. After Azure validates the information about your logic app resource, select **Create**.
@@ -299,11 +303,11 @@ The following steps add a trigger that waits for incoming emails that have attac
 
    When you finish, the trigger looks similar to the following example:
 
-   :::image type="content" source="media/tutorial-process-email-attachments-workflow/trigger-information.png" alt-text="Screenshot shows Consumption workflow and Office 365 Outlook trigger.":::
+   :::image type="content" source="media/tutorial-process-email-attachments-workflow/trigger-information.png" alt-text="Screenshot shows Consumption workflow and Office 365 Outlook trigger." lightbox="media/tutorial-process-email-attachments-workflow/trigger-information.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-   Your workflow is now live but doesn't do anything other check your emails. Next, add a condition that specifies criteria to continue subsequent actions in the workflow.
+   Your workflow is now live but doesn't do anything other than check your emails. Next, add a condition that specifies criteria to continue subsequent actions in the workflow.
 
 ## Add a condition to check for attachments
 
@@ -323,7 +327,7 @@ The following steps add a condition that selects only emails that have attachmen
 
       :::image type="content" source="media/tutorial-process-email-attachments-workflow/has-attachment.png" alt-text="Screenshot shows condition action, second row with cursor in leftmost box, open dynamic content list, and Has Attachment selected." lightbox="media/tutorial-process-email-attachments-workflow/has-attachment.png":::
 
-   1. In the middle box, keep the operator named **is equal to**.
+   1. In the middle box, keep the equals (**=**) operator.
 
    1. In the right box, enter **true**, which is the value to compare with the **Has Attachment** output value from the trigger. If both values are equal, the email has at least one attachment, the condition passes, and the workflow continues.
 
@@ -549,7 +553,7 @@ The following steps add an action to create a blob for each attachment.
    > If you select an output that has an array, such as the **Content** output, which is an array 
    > that includes attachments, the designer automatically adds a **For each** loop around the action 
    > that references that output. That way, your workflow can perform that action on each array item.
-   > To remove loop, move the action that references the output to outside the loop, and delete the loop.
+   > To remove the loop, move the action that references the output to outside the loop, and delete the loop.
 
    The following screenshot shows the outputs to select for the **Create blob for email attachment** action:
 
@@ -619,7 +623,7 @@ The following steps add an action so that your workflow sends email to review th
    > If you select an output that has an array, such as the **Content** output, which is an array 
    > that includes attachments, the designer automatically adds a **For each** loop around the action 
    > that references that output. That way, your workflow can perform that action on each array item.
-   > To remove loop, move the action that references the output to outside the loop, and delete the loop.
+   > To remove the loop, move the action that references the output to outside the loop, and delete the loop.
 
    The following screenshot shows the finished **Send an email** action:
 

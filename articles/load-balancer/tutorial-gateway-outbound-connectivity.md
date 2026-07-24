@@ -7,12 +7,15 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 11/26/2024
-ms.custom: template-tutorial
+ms.custom:
+  - template-tutorial
+  - sfi-image-nochange
+# Customer intent: "As a network administrator, I want to configure a Gateway Load Balancer for my virtual machines' outbound connectivity, so that I can ensure high performance and scalability while securing both inbound and outbound traffic."
 ---
 
 # Tutorial: Configure outbound connectivity with a gateway load balancer
 
-Azure Load Balancer consists of Standard, Basic, and Gateway SKUs. Gateway Load Balancer (GWLB) is used for transparent insertion of Network Virtual Appliances (NVA). Use Gateway Load Balancer for scenarios that require high performance and high scalability of NVAs. 
+Azure Load Balancer consists of Standard and Gateway SKUs. Use Gateway Load Balancer (GWLB) for transparent insertion of Network Virtual Appliances (NVA). Use Gateway Load Balancer for scenarios that require high performance and high scalability of NVAs. 
 
 In this tutorial, you learn how to: 
 > [!div class="checklist"]
@@ -22,7 +25,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An existing public standard SKU Azure Load Balancer. For more information on creating a load balancer, see [Create a public load balancer using the Azure portal](quickstart-load-balancer-standard-public-portal.md).
     - For the purposes of this tutorial, the standard load balancer is named **myLoadBalancer** and is located in a resource group called **myResourceGroup**.
 - An existing Gateway SKU Azure Load Balancer. For more information on creating a gateway load balancer, see [Create a gateway load balancer using the Azure portal](tutorial-create-gateway-load-balancer.md).

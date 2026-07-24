@@ -6,10 +6,11 @@ ms.service: azure-ddos-protection
 ms.topic: quickstart
 ms.custom: devx-track-terraform
 ms.author: tarcher
-ms.date: 03/17/2025
+ms.date: 03/17/2026
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+# Customer intent: As a cloud architect, I want to create and configure a DDoS protection plan using Terraform, so that I can enhance the security of my Azure virtual networks across multiple subscriptions.
 ---
 
 # QuickStart: Create and configure Azure DDoS Network Protection using Terraform

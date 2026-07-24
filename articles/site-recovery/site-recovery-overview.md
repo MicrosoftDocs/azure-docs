@@ -3,10 +3,11 @@ title: About Azure Site Recovery
 description: Provides an overview of the Azure Site Recovery service, and summarizes disaster recovery and migration deployment scenarios.
 ms.topic: overview
 ms.service: azure-site-recovery
-ms.date: 04/01/2025
+ms.date: 06/04/2026
 ms.custom: MVC
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.author: v-gajeronika
+author: Jeronika-MS
+# Customer intent: As an IT manager responsible for business continuity, I want to implement a robust disaster recovery plan using replication services, so that I can ensure my organization’s applications and data remain available during outages and can be efficiently restored when needed.
 ---
 
 # About Site Recovery
@@ -14,6 +15,8 @@ author: ankitaduttaMSFT
 Welcome to the Azure Site Recovery service! This article provides a quick service overview.
 
 As an organization, you need to adopt a business continuity and disaster recovery (BCDR) strategy that keeps your data safe, and your apps and workloads online, when planned and unplanned outages occur.
+
+To make Site Recovery resilient to various potential outages and problems, including transient faults, availability zone outages, and region outages, see [Reliability in Azure Site Recovery](/azure/reliability/reliability-site-recovery). 
 
 Azure Recovery Services contributes to your BCDR strategy:
 
@@ -49,6 +52,7 @@ Site Recovery can manage replication for:
 **Azure automation integration** | A rich Azure Automation library provides production-ready, application-specific scripts that can be downloaded and integrated with Site Recovery.
 **Network integration** | Site Recovery integrates with Azure for application network management. For example, to reserve IP addresses, configure load-balancers, and use Azure Traffic Manager for efficient network switchovers.
 **Shared disk** | You can protect, monitor, failover, and re-protect your workloads running on Windows Server Failover Clusters (WSFC) on Azure VMs using shared disk. <br> You can use shared disks for your critical applications such as SQL FCI, SAP ASCS, Scale-out File Servers, etc., while ensuring business continuity and disaster recovery with Azure Site Recovery.
+**Azure Local integration (preview)** | Azure Site Recovery is integrated with Azure Local environments. You can replicate and recover Hyper-V virtual machine workloads running on Azure Local clusters and enable seamless disaster recovery for your hybrid infrastructure to Azure. [Learn more](/azure/azure-local/manage/azure-site-recovery?view=azloc-2602).
 
 ## What can I replicate?
 
@@ -65,3 +69,6 @@ Site Recovery can manage replication for:
 - Get started with [Azure VM replication between regions](azure-to-azure-quickstart.md).
 - Get started with [VMware VM replication](vmware-azure-enable-replication.md).
 - Get started with [Disaster recovery for VMs on Azure Extended Zones](disaster-recovery-for-edge-zone-vm-tutorial.md).
+- Get started with [Cloud Adoption Framework for Multiregion Business Continuity](/azure/architecture/example-scenario/azure-virtual-desktop/azure-virtual-desktop-multi-region-bcdr). 
+- Get started with [Well-Architected Framework for VMware Solution during disasters](/azure/well-architected/azure-vmware/operations).
+- Get started with [Azure Architected Center for Azure Local stretched clusters for disaster recovery](/azure/architecture/hybrid/azure-local-dr).

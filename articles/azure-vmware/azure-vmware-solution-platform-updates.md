@@ -4,13 +4,96 @@ description: Learn about the platform updates to Azure VMware Solution.
 ms.topic: reference
 ms.custom: "references_regions, engagement-fy23"
 ms.service: azure-vmware
-ms.date: 4/15/2025
+ms.date: 05/21/2026
+# Customer intent: "As an Azure VMware Solution user, I want to stay informed about platform updates and maintenance schedules, so that I can ensure my workloads remain optimized and secure during transitions."
 ---
 
 # What's new in Azure VMware Solution
 
-Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-host-remediation.md#host-maintenance-and-lifecycle-management).
+Microsoft regularly applies important updates to the Azure VMware Solution for new features and software lifecycle management. You should receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](azure-vmware-solution-private-cloud-maintenance.md#host-maintenance-and-lifecycle-management).
 
+## June 2026
+
+**nConnect support on Azure VMware Solution for Azure NetApp Files**
+
+nConnect support on Azure VMware Solution for Azure NetApp Files is now Generally Available (GA). This feature enables increased network throughput and improved performance for Azure NetApp Files datastores by allowing multiple TCP connections per mount. With nConnect, customers can achieve better scalability and optimize data-intensive workloads running on Azure VMware Solution, enhancing overall storage performance and efficiency. [Learn more](/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#performance-best-practices)
+
+## May 2026
+
+**Disaster Recovery**
+
+**VMware Live Site Recovery** for Stretched Clusters is now Generally Available in Azure VMware Solution, enabling protection of workloads across regions.
+This capability delivers resilient cross-region disaster recovery with automated failover and minimal downtime.
+Mission-critical applications can now achieve higher availability and stronger business continuity at scale. [Learn More](/azure/azure-vmware/disaster-recovery-using-vmware-site-recovery-manager) 
+
+**Azure VMware Solution Gen 2 (VNet Injection Service): 7170 Anchor NIC & iBGP Full Mesh Cutover**
+
+Microsoft is migrating workload connectivity on Azure VMware Solution Gen 2 private clouds running the VNet Injection Service architecture from T0 NICs to 7170 Anchor NICs, and enabling iBGP Full Mesh topology. This improves network reliability, network reconvergence, and throughput on the Azure VMware Solution Gen 2 platform. If your private cloud is in scope, your Customer Success Account Manager will reach out to schedule a 4-hour maintenance window, after which you'll open a Support Request so a Cloud Support Specialist can coordinate the cutover with engineering and validate connectivity with you. Expect up to ~2 minutes of north-south connectivity loss during the maintenance window; east-west traffic and your Virtual Machines, datastores, vCenter, NSX, and HCX configurations are not impacted.
+
+**Azure VMware Solution Gen 1(Dell): Firmware Upgrades**
+
+Microsoft is upgrading firmware across Azure VMware Solution Gen 1 Dell hosts to remediate known security vulnerabilities and keep your environment on a supported baseline. If your private cloud is in scope, you'll receive advance notification through Azure Service Health with the scheduled maintenance window for your region, and you can reschedule through the self-serve option in the Azure portal within the available reschedule window. The upgrade is fully managed by Microsoft and runs through the Generalized Host Configuration Update (GHCU) framework. No action is required from you; your VMs, datastores, vCenter, NSX, and HCX configurations are not impacted. Ensure workloads follow standard resiliency patterns (High Availability, retry, load balancing) and avoid scheduling unrelated changes inside the notified window.
+
+
+## March 2026
+
+**VMware NSX 4.2.3.2**
+
+All new Azure VMware Solution private clouds are being deployed with VMware NSX version 4.2.3.2 [Learn more](architecture-private-clouds.md#vmware-software-versions)
+
+**Microsoft Entra ID integration for Azure VMware Solution**
+
+Microsoft Entra ID intergration for Azure VMware Solution is now Generally Available (GA). This feature enables customers to utilize Microsoft Entra ID an an external identity source for vCenter, providing greater security and integration into Azure. [Learn More](configure-identity-source-vcenter.md#microsoft-entra-id-as-an-identity-source).
+
+
+## January 2026
+
+**Maintenance orchestrator**
+
+Maintenance orchestration is now Generally Available (GA). This feature enables customers to schedule and reschedule planned maintenance directly from the Azure portal, providing greater visibility into and control over upcoming maintenance events. [Learn More](maintenance-orchestration.md)
+
+
+## December 2025
+
+**Resource Health for Azure VMware Solution**
+
+Resource Health for Azure VMware Solution is now Generally Available! Resource Health, an Azure native feature, monitors the health of an Azure VMware Solution private cloud and suggests actions for existing issues. Set up Azure Monitor notifications on top of these alerts to notify stakeholders to remediate and ensure the private cloud is in a healthy and maintainable state. [Learn more](resource-health-for-azure-vmware-solution-overview.md)
+
+## November 2025
+
+**Disaster Recovery**
+
+Broadcom has introduced support for leveraging external storage as both a source and target in vSphere Replication for VMware Live Site Recovery across hyperscaler environments. Azure VMware Solution is actively validating this functionality to ensure seamless performance and operational integrity when using non-vSAN Azure first-party storage.
+
+## September 2025
+
+**Azure VMware Solution Generation 2 Private Clouds**
+
+Azure VMware Solution Generation 2 Private Clouds is now generally available on the AV64 SKU. With this capability, we've achieved infrastructure innovation, powered by Azure Boost, simplifying networking, delivering 100 Gbps throughput, lowering latency, and boosting performance for VMware vSphere workloads. Private clouds are deployed inside a virtual network, enabling your private cloud with standard Azure Networking. Azure ExpressRoute is no longer required. Gen 2 is available in the following Azure regions, East US, Canada Central, Canada East, North Europe, and UK West. SLAs are region specific. Contact your Microsoft account team or Microsoft Support to confirm coverage. [Learn more](native-introduction.md)
+
+**Security enhancement: new required permissions for Azure NetApp Files datastore with Azure VMware Solution**
+
+To enhance security, appropriate permissions are needed across Azure VMware Solution and Azure NetApp Files resources when working with datastores. Pre-defined roles, such as the [Contributor role](../role-based-access-control/built-in-roles.md#privileged), have the correct permissions, however custom roles might not. Ensure you meet the [new requirements](attach-azure-netapp-files-to-azure-vmware-solution-hosts.md#prerequisites) for your Azure NetApp Files datastores. 
+
+## July 2025
+
+**Maintenance Orchestrator (preview)**
+
+Public preview of capabilities for planning maintenance. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/take-control-of-your-azure-vmware-solution-maintenance-schedule/4434496) 
+
+**VCF 5.2.1 and VMSA-2025-0013 remediation**
+
+To address the vulnerabilities (CVE-2025-41236, CVE-2025-41237, CVE-2025-41238, CVE-2025-41239) reported in Broadcom security advisory [VMSA-2025-0013](https://support.broadcom.com/web/ecx/support-content-notification/-/external/content/SecurityAdvisories/0/35877), ESXi hosts are being patched in all Azure VMware Solution private clouds to [ESXi 8.0_U3f](https://techdocs.broadcom.com/us/en/vmware-cis/vsphere/vsphere/8-0/release-notes/esxi-update-and-patch-release-notes/vsphere-esxi-80u3f-release-notes.html). All new Azure VMware Solution private clouds are deployed with the same version. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/azure-vmware-solution-broadcom-vmsa-2025-0013-remediation/4433430) 
+
+## May 2025
+
+**vSAN ESA (Express Storage Architecture) support**
+
+Azure VMware Solution supports vSAN ESA (Express Storage Architecture) as the default vSAN architecture for AV48 (including Stretched Clusters) and AV64 (Gen 2) host types.
+
+**HCX Upgrade and Hybridity Depot Decommissioning**
+
+The HCX Hybridity Depot has been decommissioned by Broadcom. All Azure VMware Solution customers will be upgraded to HCX 4.11.0 in the coming weeks. Until customers are fully upgraded to HCX 4.11.0, they must submit a support request (SR) to obtain the required HCX Connector upgrade bundles. Once customers are upgraded to HCX 4.11.0, previous and current HCX Connector upgrade bundles will be available directly to them from their vSAN datastore. 
 ## April 2025
 
 **AV48 SKU**
@@ -19,7 +102,7 @@ Azure VMware Solution AV48 node size is now available in the Japan East region. 
 
 **Azure Native Pure Storage Cloud (preview)**
 
-Azure Native Pure Storage Cloud for Azure VMware Solution is now in public preview. You can now use Azure Native Pure Storage Cloud from Pure Storage to deploy vVols-based block storage for AVS, enabling you to scale storage independently for your virtual workloads. [Learn more](configure-azure-native-pure-storage-cloud.md)
+Azure Native Pure Storage Cloud for Azure VMware Solution is now in public preview. You can now use Azure Native Pure Storage Cloud from Pure Storage to deploy vVols-based block storage for Azure VMware Solution, enabling you to scale storage independently for your virtual workloads. [Learn more](configure-azure-native-pure-storage-cloud.md)
 
 **Azure VMware Solution Generation 2 Private Clouds (preview)**
 
@@ -41,7 +124,7 @@ Azure Elastic SAN for AV64 SKU is now generally available. [Learn more](/azure/a
 
 ## December 2024
 
-Resource Health for Azure VMware Solution is now available in Public Preview. Resource Health, an Azure native feature, now monitors the health of Azure VMware Solution private cloud resources, provides recommended actions for current issues, and allows reporting on past and present resource health. [Learn more](ecosystem-app-monitoring-solutions.md#azure-resource-health-for-azure-vmware-solution-private-cloud-public-preview) 
+Resource Health for Azure VMware Solution is now available in Public Preview. Resource Health, an Azure native feature, now monitors the health of Azure VMware Solution private cloud resources, provides recommended actions for current issues, and allows reporting on past and present resource health. [Learn more](resource-health-for-azure-vmware-solution-overview.md)
 
 ## November 2024
 

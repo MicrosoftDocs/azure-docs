@@ -2,12 +2,13 @@
 title: Apply the Microsoft Azure diagnostics extension in Cloud Services (extended support) 
 description: Apply the Microsoft Azure diagnostics extension for Cloud Services (extended support)
 ms.topic: how-to
-ms.service: azure-cloud-services-extended-support
+ms.service: azure-cloud-services-classic
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
-ms.custom: devx-track-azurepowershell, devx-track-arm-template
+ms.update-cycle: 365-days
+ms.custom: devx-track-azurepowershell, devx-track-arm-template, cloud-services-extended-support
 # Customer intent: As a cloud operator, I want to configure and apply diagnostics extensions to Azure Cloud Services roles, so that I can collect enhanced performance metrics and logs for monitoring and troubleshooting.
 ---
 

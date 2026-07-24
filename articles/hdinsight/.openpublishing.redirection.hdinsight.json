@@ -35,6 +35,11 @@
         "redirect_document_id": false
     },
     {
+        "source_path_from_root": "/articles/hdinsight/interactive-query/apache-hive-query-odbc-driver-powershell.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
+        "redirect_document_id": false
+    },
+    {
         "source_path_from_root": "/articles/hdinsight/overview-data-lake-storage-gen1.md",
         "redirect_url": "/azure/hdinsight/overview-data-lake-storage-gen2",
         "redirect_document_id": false
@@ -157,6 +162,11 @@
     {
         "source_path_from_root": "/articles/hdinsight/domain-joined/apache-domain-joined-configure.md",
         "redirect_url": "/azure/hdinsight/domain-joined/apache-domain-joined-configure-using-azure-adds",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/hdinsight/hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md",
+        "redirect_url": "/azure/hdinsight/hdinsight-overview",
         "redirect_document_id": false
     },
     {

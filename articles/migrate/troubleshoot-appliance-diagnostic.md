@@ -5,9 +5,11 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: troubleshooting
-ms.date: 10/11/2023
-ms.custom: engagement-fy25
+ms.date: 02/06/2025
+ms.custom: engagement-fy24
+# Customer intent: As a cloud administrator, I want to run diagnostics on my Azure Migrate appliance, so that I can identify and resolve any configuration issues that may impede migration operations.
 ---
 
 # Diagnose and solve issues with Azure Migrate appliance
@@ -31,15 +33,15 @@ You can run **Diagnose and solve** at any time from the appliance configuration 
 **Prerequisite checks** | Connectivity checks | Checks if the appliance has connectivity to Azure either directly or via proxy.
 || Time sync check | Checks if the appliance server time is in sync with network time.
 || Auto update check | Checks if autoupdate is enabled and if all agents running on the appliance are up to date.
-||VDDK check | Checks if the required VDDK files are downloaded and copied at the required location on the appliance server.
-**Service health checks** |Operational status |Checks if the agents on the appliance are in running state. <br>*If not, appliance autoresolves by restarting the agents.* 
+||VDDK check | Checks if the required VDDK files have been downloaded and copied at the required location on the appliance server.
+**Service health checks** |Operational status |Checks if the agents on the appliance are in running state. <br>*If not, appliance auto-resolves by restarting the agents.* 
 ||Service endpoint connectivity |Checks if the agents can communicate to their respective services on Azure either directly or via proxy.
 **Azure-specific checks** |Microsoft Entra App availability* | Checks if the Microsoft Entra App created during the appliance registration is available and is accessible from the appliance.
-||Migrate project availability* | Checks if the Migrate project to which the appliance is registered still exists and is accessible from the appliance.
+||Migrate project availability* | It checks if the Migrate project that the appliance is registered still exists and can be accessible from the appliance.
 ||Essential resources availability*| Checks if the Migrate resources created during appliance registration still exist and are accessible from the appliance.
-**Appliance-specific checks** | Key Vault certificate availability* | Checks if the certificate downloaded from Key Vault during appliance registration is still available on the appliance server. <br> *If not, appliance autoresolves by downloading the certificate again, provided the Key Vault is available and accessible*.
-|| Credential store availability | Checks if the Credential store resources on the appliance server aren't moved/deleted/edited.
-|| Replication appliance/Azure Site Recovery components | Checks if the same server is also used to install any Azure Site Recovery/replication appliance components. *Installation of both Azure Migrate and replication appliance (for agent-based migration) on the same server is not supported.*
+**Appliance-specific checks** | Key Vault certificate availability* | Checks if the certificate downloaded from Key Vault during appliance registration is still available on the appliance server. <br> *If not, appliance auto-resolves by downloading the certificate again, provided the Key Vault is available and accessible*.
+|| Credential store availability | Checks if the Credential store resources on the appliance server are moved/deleted/edited.
+|| Replication appliance/ASR components | Checks if the same server is used to install any ASR/replication appliance components. *It's currently not supported to install both Azure Migrate and replication appliance (for agent-based migration) on the same server.*
 || OS license availability | Checks if the evaluation license on the appliance server created from OVA/VHD is still valid. *The Windows Server 2022 evaluation license is valid for 180 days.*
 || CPU & memory utilization | Checks the CPU and memory utilized by the Migrate agents on the appliance server.  
 
@@ -47,7 +49,7 @@ You can run **Diagnose and solve** at any time from the appliance configuration 
 
 ## Running diagnostic checks
 
-If you're getting any issues with the appliance during its configuration or seeing issues with the ongoing Migrate operations like discovery, assessment, and/or replication (*for VMware appliance*) on the portal, you can go to the appliance configuration manager and run diagnostics.
+If you're getting any issues with the appliance during its configuration or seeing issues with the ongoing Migrate operations like discovery, assessment and/or replication (*in case of VMware appliance*) on the portal, you can go to the appliance configuration manager and run diagnostics.
 
 > [!NOTE]
 > Currently **Diagnose and solve** can perform checks related to appliance connectivity to Azure, availability of required resources on appliance server and/or Azure. The connectivity or discovery issues with the source environment like vCenter Server/ESXi hosts/Hyper-V hosts/VMs/physical servers are currently not covered under **Diagnose and solve**.
@@ -56,12 +58,12 @@ If you're getting any issues with the appliance during its configuration or seei
 
     ![Select diagnose and solve](./media/troubleshoot-appliance-diagnostic-solve/appliance-configuration-manager-diagnose-solve.png)
     
-    After selecting **Diagnose and solve**, the appliance automatically starts running the diagnostic checks. This can take around 5 minutes to complete.
+    After selecting **Diagnose and solve**, the appliance automatically starts running the diagnostic checks. This may take around 5 minutes to complete.
     *You would see the timestamp of the last diagnostics report, if you ran the checks before.*
      
     ![Diagnostic report](./media/troubleshoot-appliance-diagnostic-solve/diagnostic-report.png)
 
-1. Once diagnostic checks complete, you can either view the report in another tab where you can choose it save it in a PDF format or you can go to this location **C:\Users\Public\Desktop\DiagnosticsReport** on the appliance server where the report gets autosaved in an HTML format.
+1. Once diagnostic checks are completed, you can either view the report in another tab where you can choose it save it in a PDF format, or you can go to this location **C:\Users\Public\Desktop\DiagnosticsReport** on the appliance server where the report gets autosaved in an HTML format.
 
     ![View diagnostic report](./media/troubleshoot-appliance-diagnostic-solve/view-diagnostic-report.png)
 
@@ -69,7 +71,7 @@ If you're getting any issues with the appliance during its configuration or seei
 
     ![View status of diagnostic report](./media/troubleshoot-appliance-diagnostic-solve/view-status.png)
 
-1. You can follow the remediation steps on the report to solve an issue. If you're unable to resolve the issue, it's recommended that you attach the diagnostics report while creating a Microsoft support case so that it helps expedite the resolution.
+1. You can follow the remediation steps on the report to solve an issue. If you're unable to resolve the issue, we recommend you to attach the diagnostics report while creating a Microsoft support case so that it helps expedite the resolution.
 
 ## Next steps
 If you're getting issues not covered under **Diagnose and solve**, you can go to [troubleshoot  the Azure Migrate appliance](./troubleshoot-appliance.md) to find the remediation steps.

@@ -1,12 +1,11 @@
 ---
 title: Relocate an Azure Cosmos DB NoSQL account to another region
 description: Learn how to relocate an Azure Cosmos DB NoSQL account to another region.
-author: seesharprun
+author: markjbrown
 ms.topic: how-to
 ms.custom: subject-relocation
-ms.date: 06/11/2024
-ms.author: sidandrews
-ms.reviewer: mjbrown
+ms.date: 09/15/2025
+ms.author: mjbrown
 ---
 
 # Relocate an Azure Cosmos DB NoSQL account to another region
@@ -78,7 +77,7 @@ The following steps demonstrate how to migrate an Azure Cosmos DB account for th
 
 1. Migrate data by using the Azure Cosmos DB Spark Connector live migration sample.
 
-    To migrate data with near zero downtime, see [Live Migrate Azure Cosmos DB SQL API Containers data with Spark Connector](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3_2-12/Samples/DatabricksLiveContainerMigration).
+    To migrate data with near zero downtime, see [Live Migrate Azure Cosmos DB SQL API Containers data with Spark Connector](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/cosmos/azure-cosmos-spark_3/Samples/DatabricksLiveContainerMigration).
 
 1. Update the application connection string.
 

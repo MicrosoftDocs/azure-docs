@@ -4,7 +4,7 @@ description:  This article discusses how to enable the use of a web application 
 
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024
@@ -18,6 +18,7 @@ ms.custom: "b2c-support"
 ---
 
 # Configure authentication options in a web app that calls a web API by using Azure AD B2C 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 This article describes ways you can customize and enhance the Azure Active Directory B2C (Azure AD B2C) authentication experience for your web application that calls a web API. Before you start, familiarize yourself with the following articles: 
 * [Configure authentication in a sample web application](configure-authentication-sample-web-app-with-api.md)

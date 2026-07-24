@@ -5,8 +5,8 @@ services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 03/12/2025
+ms.topic: concept-article
+ms.date: 05/07/2026
 ---
 
 # Differences between Standard single-tenant logic apps versus Consumption multitenant logic apps
@@ -15,7 +15,7 @@ Azure Logic Apps is a cloud-based platform for creating and running automated *l
 
 Before you choose which logic app resource to create, review the following guide to learn how the logic app workflow types compare with each other. You can then make a better choice about which logic app workflow and environment best suits your scenario, solution requirements, and the destination where you want to deploy and run your workflows.
 
-If you're new to Azure Logic Apps, review [What is Azure Logic Apps?](logic-apps-overview.md) and [What is a *logic app workflow*?](logic-apps-overview.md#logic-app-concepts).
+If you're new to Azure Logic Apps, review [What is Azure Logic Apps?](logic-apps-overview.md) and [What is a *logic app workflow*?](logic-apps-overview.md#logic-app-concepts)
 
 <a name="resource-environment-differences"></a>
 
@@ -23,7 +23,7 @@ If you're new to Azure Logic Apps, review [What is Azure Logic Apps?](logic-apps
 
 The following table summarizes the differences between a **Consumption** logic app workflow and **Standard** logic app workflow. You also learn how the single-tenant environment differs from the multitenant environment for deploying, hosting, and running your workflows.
 
-[!INCLUDE [Logic app workflow and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
+[!INCLUDE [Logic app workflow and environment differences](includes/logic-apps-resource-environment-differences-table.md)]
 
 <a name="resource-type-introduction"></a>
 
@@ -35,7 +35,7 @@ The **Standard** logic app introduces a resource structure that can host multipl
 
 To learn more about portability, flexibility, and performance improvements, continue reviewing the following sections. For more information about the single-tenant Azure Logic Apps runtime and Azure Functions extensibility, review the following documentation:
 
-* [Azure Logic Apps Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/t5/integrations-on-azure/azure-logic-apps-running-anywhere-runtime-deep-dive/ba-p/1835564)
+* [Azure Logic Apps Running Anywhere - Runtime Deep Dive](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-logic-apps-running-anywhere-%e2%80%93-runtime-deep-dive/1835564)
 * [Introduction to Azure Functions](../azure-functions/functions-overview.md)
 * [Azure Functions triggers and bindings](../azure-functions/functions-triggers-bindings.md)
 
@@ -44,7 +44,7 @@ To learn more about portability, flexibility, and performance improvements, cont
 
 ### Portability and flexibility
 
-When you create a **Standard** logic app and workflow, you can deploy and run your workflow in other environments, such as [Azure App Service Environment v3 (Windows plans only)](../app-service/environment/overview.md). If you use Visual Studio Code with the **Azure Logic Apps (Standard)** extension, you can *locally* develop, build, and run your workflow in your development environment without having to deploy to Azure. If your scenario requires containers, you can [create single tenant logic apps using Azure Arc-enabled Logic Apps](azure-arc-enabled-logic-apps-create-deploy-workflows.md). For more information, see [What is Azure Arc enabled Logic Apps?](azure-arc-enabled-logic-apps-overview.md)
+When you create a **Standard** logic app and workflow, you can deploy and run your workflow in other environments, such as [Azure App Service Environment v3 (Windows plans only)](../app-service/environment/overview.md). If you use Visual Studio Code with the **Azure Logic Apps (Standard)** extension, you can *locally* develop, build, and run your workflow in your development environment without having to deploy to Azure. If your scenario requires on-premises deployment using infrastructure that you control, see [Create Standard logic app workflows for hybrid deployment on your own infrastructure](create-standard-workflows-hybrid-deployment.md).
 
 These capabilities provide major improvements and substantial benefits compared to the multitenant model, which requires you to develop against an existing running resource in Azure. The multitenant model for automating **Consumption** logic app resource deployment is based on Azure Resource Manager templates (ARM templates), which combine and handle resource provisioning for both apps and infrastructure.
 
@@ -233,7 +233,7 @@ The single-tenant model and **Standard** logic app include many current and new 
 
   Before you run and test your logic app, you can make debugging easier by adding and using breakpoints inside the **workflow.json** file for a workflow. However, breakpoints are supported only for actions at this time, not triggers. For more information, see [Create single-tenant based workflows in Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#manage-breakpoints).
 
-* Directly publish or deploy logic apps and their workflows from Visual Studio Code to various hosting environments such as Azure and Azure Arc enabled Logic Apps.
+* Directly publish or deploy logic apps and their workflows from Visual Studio Code to various hosting environments such as Azure or on premises.
 
 * Enable diagnostics logging and tracing capabilities for your logic app by using [Application Insights](/azure/azure-monitor/app/app-insights-overview) when supported by your Azure subscription and logic app settings.
 
@@ -241,7 +241,7 @@ The single-tenant model and **Standard** logic app include many current and new 
 
   * [Azure Functions networking options](../azure-functions/functions-networking-options.md)
 
-  * [Azure Logic Apps Running Anywhere - Networking possibilities with Azure Logic Apps](https://techcommunity.microsoft.com/t5/integrations-on-azure/logic-apps-anywhere-networking-possibilities-with-logic-app/ba-p/2105047)
+  * [Azure Logic Apps Running Anywhere - Networking possibilities with Azure Logic Apps](https://techcommunity.microsoft.com/blog/integrationsonazureblog/logic-apps-anywhere-networking-possibilities-with-logic-app-preview/2105047)
 
 * Regenerate access keys for managed connections used by individual workflows in a **Standard** logic app. For this task, [follow the same steps for a **Consumption** logic app but at the workflow level](logic-apps-securing-a-logic-app.md#regenerate-access-keys), not the logic app resource level.
 
@@ -269,7 +269,7 @@ In single-tenant Azure Logic Apps, [built-in connectors with specific attributes
 
 For the **Standard** logic app workflow, the following capabilities are different, currently limited, unavailable, or unsupported:
 
-* **Triggers and actions**: [Built-in triggers and actions](../connectors/built-in.md) run natively in Azure Logic Apps, while managed connectors are hosted and run using shared resources in Azure. For Standard workflows, some built-in triggers and actions are currently unavailable, such as Azure App Service operations. To start a stateful or stateless workflow, use a built-in trigger such as the Request, Event Hubs, or Service Bus trigger. The Recurrence trigger is available for stateful workflows, but not stateless workflows. In the designer, built-in triggers and actions appear with the **In-app** label, while [managed connector triggers and actions](../connectors/managed.md) appear with the **Shared** label.
+* **Triggers and actions**: [Built-in triggers and actions](../connectors/built-in.md) run natively in Azure Logic Apps, while managed connectors are hosted and run using shared resources in Azure. For Standard workflows, some built-in triggers and actions are currently unavailable, such as Azure App Service operations. To start a stateful or stateless workflow, use a built-in trigger such as the Request, Event Hubs, or Service Bus trigger. The Recurrence trigger is available for stateful workflows, but not stateless workflows. In the connector gallery, built-in triggers and actions appear when you select the **Built-in** filter, while [managed connector triggers and actions](../connectors/managed.md) appear when you select the **Shared** filter.
 
   Stateless workflows can use only [*push* triggers](../connectors/introduction.md#triggers) where you don't specify a schedule for running for your workflow. These webhook-based triggers wait for an event to happen or data to become available. For example, the Recurrence trigger is available only for stateful workflows. To start your workflow, select a push trigger such as the Request, Event Hubs, or Service Bus trigger. Although you can enable managed connectors for stateless workflows, the connector gallery doesn't show any managed connector [*polling* triggers](../connectors/introduction.md#triggers) for you to add.
 
@@ -296,6 +296,8 @@ For the **Standard** logic app workflow, the following capabilities are differen
     * The built-in action, [Inline Code](logic-apps-add-run-inline-code.md), is renamed **Inline Code Operations**, no longer requires an integration account, and has [updated limits](logic-apps-limits-and-config.md).
 
     * The built-in action, [Azure Logic Apps - Choose a Logic App workflow](logic-apps-http-endpoint.md) is now **Workflow Operations - Invoke a workflow in this workflow app**.
+
+    * In Standard stateless workflows, triggers don't support changing the trigger concurrency.
  
     * A Standard workflow can have only one trigger and doesn't support multiple triggers.
 
@@ -309,7 +311,9 @@ For the **Standard** logic app workflow, the following capabilities are differen
 
 * **Trigger history and run history**: For a **Standard** logic app workflow, trigger history and run history in the Azure portal appears at the workflow level, not the logic app resource level. For more information, review [Create single-tenant based workflows using the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
-* **Terraform templates**: You can't use these templates with a **Standard** logic app resource for complete infrastructure deployment. For more information, see [What is Terraform on Azure](/azure/developer/terraform/overview)?
+* **Terraform**: You can deploy Standard logic app resource infrastructure using the [AzAPI Terraform provider](/azure/developer/terraform/overview-azapi-provider), which has feature parity with ARM templates and Bicep. For a recommended module-based approach, see the [Azure Verified Modules (AVM) for Logic Apps Standard](https://github.com/Azure/terraform-azurerm-avm-res-web-site). For AVM support boundaries, see [Module support](https://azure.github.io/Azure-Verified-Modules/help-support/module-support/).
+
+* **Incoming client certificate**: **Standard** logic apps don't support incoming client certificates, and no client certificate setting exists for the logic app in the Azure portal. If you use ARM template deployment, make sure that you don't enable client certificates.
 
 <a name="firewall-permissions"></a>
 

@@ -1,12 +1,17 @@
 ---
 title: Enable replication for private endpoints in Azure Site Recovery 
 description: This article describes how to configure replication for VMs with private endpoints from one Azure region to another by using Site Recovery.
-author: ankitaduttaMSFT
-ms.author: ankitadutta
+author: Jeronika-MS
+ms.author: v-gajeronika
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 03/13/2025
-ms.custom: references_regions, subject-rbac-steps, engagement-fy23
+ms.date: 05/11/2025
+ms.custom:
+  - references_regions
+  - subject-rbac-steps
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As an IT administrator, I want to configure private endpoints for Azure Site Recovery replication, so that I can secure traffic between my virtual machines and the recovery vault within an isolated virtual network.
 ---
 # Replicate machines with private endpoints
 
@@ -56,7 +61,7 @@ A recovery services vault is an entity that contains the replication information
 used to trigger Site Recovery operations. For more information, see
 [Create a Recovery Services vault](./azure-to-azure-tutorial-enable-replication.md#create-a-recovery-services-vault).
 
-## Enable the managed identity for the vault.
+## Enable the managed identity for the vault
 
 A [managed identity](../active-directory/managed-identities-azure-resources/overview.md) allow the
 vault to gain access to the customer's storage accounts. Site Recovery needs to access the source
@@ -66,6 +71,9 @@ Managed identity access is essential when you're using private links service for
 1. Go to your Recovery Services vault. Select **Identity** under _Settings_.
 
    :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/enable-managed-identity-in-vault.png" alt-text="Shows the Azure portal and the Recovery Services page.":::
+
+    > [!NOTE]
+    > System assigned and User assigned managed identity is supported for Recovery Services vault.
 
 1. Change the **Status** to _On_ and select **Save**.
 
@@ -208,7 +216,7 @@ following role permissions depending on the type of storage account:
   - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
   - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
 
-The following steps describe how to add a role assignment to your storage accounts, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+The following steps describe how to add a role assignment to your storage accounts, one at a time. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 1. In the Azure portal, navigate to the cache storage account you created.
 

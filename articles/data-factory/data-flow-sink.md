@@ -6,8 +6,8 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.subservice: data-flows
-ms.topic: conceptual
-ms.date: 09/25/2024
+ms.topic: concept-article
+ms.date: 04/27/2026
 ---
 
 # Sink transformation in mapping data flow
@@ -15,6 +15,9 @@ ms.date: 09/25/2024
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+> [!TIP]
+>  For the equivalent transformation (**Add data destination**) in Dataflow Gen2, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
 
 After you finish transforming your data, write it into a destination store by using the sink transformation. Every data flow requires at least one sink transformation, but you can write to as many sinks as necessary to complete your transformation flow. To write to additional sinks, create new streams via new branches and conditional splits.
 
@@ -44,6 +47,9 @@ When using data flows in Azure Synapse workspaces, you will have an additional o
 ##  <a name="supported-sinks"></a> Supported sink types
 
 Mapping data flow follows an extract, load, and transform (ELT) approach and works with *staging* datasets that are all in Azure. Currently, the following datasets can be used in a sink transformation.
+
+>[!TIP]
+>Your sink can be a different format than your source. This is one step of how you can transform from one format to another. For example, from a CSV to a Parquet sink. You might need to make some transformations in your data flow between source and sink for this to work correctly. (For example, Parquet has more specific header requirements than CSV.)
 
 | Connector | Format | Dataset/inline |
 | --------- | ------ | -------------- |

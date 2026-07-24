@@ -5,8 +5,9 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 03/31/2025
+ms.date: 06/23/2026
 ms.author: duau
+ms.custom: sfi-image-nochange
 ---
 
 # Connect a virtual network to ExpressRoute circuits using the Azure portal
@@ -17,7 +18,7 @@ ms.author: duau
 > * [Azure CLI](expressroute-howto-linkvnet-cli.md)
 > * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md)
 
-This article helps you create a connection to link a virtual network (virtual network) to Azure ExpressRoute circuits using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription or part of another subscription.
+This article helps you create a connection to link a virtual network to Azure ExpressRoute circuits using the Azure portal. The virtual networks that you connect to your Azure ExpressRoute circuit can either be in the same subscription or part of another subscription.
 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png" alt-text="Diagram showing a virtual network linked to an ExpressRoute circuit." lightbox="./media/expressroute-howto-linkvnet-portal-resource-manager/gateway-circuit.png":::
 
@@ -42,7 +43,7 @@ This article helps you create a connection to link a virtual network (virtual ne
 ## Connect a virtual network to a circuit - same subscription
 
 > [!NOTE]
-> BGP configuration information will not appear if the layer 3 provider configured your peerings. If your circuit is in a provisioned state, you should be able to create connections.
+> BGP configuration information doesn't appear if the layer 3 provider configured your peerings. If your circuit is in a provisioned state, you can create connections.
 
 ### To create a connection
 
@@ -94,7 +95,7 @@ This article helps you create a connection to link a virtual network (virtual ne
     Complete the same information for the second ExpressRoute connection. When selecting an ExpressRoute circuit for the second connection, you are provided with the distance from the first ExpressRoute circuit. This information appears in the diagram and can help you select the second ExpressRoute location.
 
     > [!NOTE]
-    > To have maximum resiliency, you should select two circuits in different peering location. You'll be given the following warning if you select two circuits in the same peering location.
+    > To have maximum resiliency, select two circuits in different peering locations. You see the following warning if you select two circuits in the same peering location.
     >
     > :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/same-location-warning.png" alt-text="Screenshot of warning in the Azure portal when selecting two ExpressRoute circuits in the same peering location.":::
 
@@ -113,7 +114,7 @@ You can share an ExpressRoute circuit across multiple subscriptions. The followi
 Each of the smaller clouds within the large cloud is used to represent subscriptions that belong to different departments within an organization. Each of the departments within the organization uses their own subscription for deploying their services--but they can share a single ExpressRoute circuit to connect back to your on-premises network. A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization may use the ExpressRoute circuit.
 
 > [!NOTE]
-> * Connecting virtual networks between Azure sovereign clouds and Public Azure cloud is not supported. You can only link virtual networks from different subscriptions in the same cloud.
+> * Connecting virtual networks between Azure sovereign clouds and global Azure cloud is not supported. You can only link virtual networks from different subscriptions in the same cloud.
 > * Connectivity and bandwidth charges for the dedicated circuit will be applied to the ExpressRoute circuit owner. All virtual networks share the same bandwidth.
 
 ### Administration - About circuit owners and circuit users
@@ -123,7 +124,7 @@ The 'circuit owner' is an authorized Power User of the ExpressRoute circuit reso
 The circuit owner has the power to modify and revoke authorizations at any time. Revoking an authorization results in all link connections being deleted from the subscription whose access was revoked.
 
   > [!NOTE]
-  > Circuit owner is not an built-in RBAC role or defined on the ExpressRoute resource.
+  > Circuit owner is not a built-in RBAC role or defined on the ExpressRoute resource.
   > The definition of the circuit owner is any role with the following access:
   > - Microsoft.Network/expressRouteCircuits/authorizations/write
   > - Microsoft.Network/expressRouteCircuits/authorizations/read
@@ -184,7 +185,7 @@ The circuit user needs the resource ID and an authorization key from the circuit
 
 ## Configure ExpressRoute FastPath
 
-[FastPath](expressroute-about-virtual-network-gateways.md) improves data path performance such as packets per second and connections per second between your on-premises network and your virtual network. You can enable FastPath if your virtual network gateway is Ultra Performance or ErGw3AZ.
+[FastPath](expressroute-about-virtual-network-gateways.md) improves data path performance, such as packets per second and connections per second, between your on-premises network and your virtual network. You can enable FastPath if your virtual network gateway is Ultra Performance, ErGw3AZ, or ErGwScale with a minimum of 10 scale units.
 
 > [!NOTE]
 > When you enable FastPath on new or existing connections, the Gateway bypass is enabled after the ExpressRoute Gateway and Circuit connection is established. This will briefly route the on-premises traffic through the gateway.
@@ -211,11 +212,11 @@ When adding a new connection for your ExpressRoute gateway, select the checkbox 
 
 You can delete a connection and unlink your virtual network to an ExpressRoute circuit by selecting the **Delete** icon on the page for your connection.
 
-## Next step
+## Related content
 
-In this tutorial, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about ExpressRoute gateways, see: [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
+In this article, you learned how to connect a virtual network to a circuit in the same subscription and in a different subscription. For more information about ExpressRoute gateways, see [ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md).
 
-To learn how to configure, route filters for Microsoft peering using the Azure portal, advance to the next tutorial.
+* [Configure route filters for Microsoft peering](how-to-routefilter-portal.md)
 
 > [!div class="nextstepaction"]
 > [Configure route filters for Microsoft peering](how-to-routefilter-portal.md)

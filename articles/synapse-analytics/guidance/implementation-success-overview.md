@@ -4,7 +4,7 @@ description: "Learn about the Azure Synapse success series of articles that's de
 author: juluczni
 ms.author: juluczni
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: best-practice
 ms.date: 05/31/2022
 ---
 

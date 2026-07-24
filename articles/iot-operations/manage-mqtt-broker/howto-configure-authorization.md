@@ -1,13 +1,13 @@
 ---
 title: Configure MQTT broker authorization
 description: Configure MQTT broker authorization using BrokerAuthorization.
-author: PatAltimore
-ms.author: patricka
+author: dominicbetts
+ms.author: dobett
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 11/11/2024
+ms.date: 07/10/2026
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ms.service: azure-iot-operations
@@ -15,9 +15,20 @@ ms.service: azure-iot-operations
 
 # Configure MQTT broker authorization
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 Authorization policies determine what actions the clients can perform on the broker, such as connecting, publishing, or subscribing to topics. Configure the MQTT broker to use one or multiple authorization policies with the BrokerAuthorization resource. Each BrokerAuthorization resource contains a list of rules that specify the principals and resources for the authorization policies.
+
+### How rules are evaluated
+
+- Policies are allow-only. If no rule explicitly allows an action on a resource for a principal, the action is denied.
+- A rule is defined by three factors: principals (actor), action (Connect/Publish/Subscribe or state store operations), and resource (topics or keys).
+- Principals within a rule are matched with logical OR. For example, any listed username, clientId, or attribute match grants access to the resources in the rule.
+
+### Token substitution and wildcards
+
+- For topics and keys, you can use token substitution to build rules that adapt per client: `{principal.username}`, `{principal.clientId}`, and `{principal.attributes.<attributeName>}`.
+- MQTT topic wildcards `+` and `#` are supported in `brokerResources.topics`.
+- When using token substitution in a topic, the token must be the only text in its path segment. For example, `clients/{principal.clientId}/#` is valid, but `client-{principal.clientId}/#` isn't.
+- Connect actions shouldn't include topics.
 
 ## Link BrokerAuthorization to BrokerListener
 
@@ -39,9 +50,67 @@ The following example shows how to create a BrokerAuthorization resource by usin
 1. In the Azure portal, go to your IoT Operations instance.
 1. Under **Components**, select **MQTT Broker**.
 1. Select the **Authorization** tab.
-1. Choose an existing authentication policy or create a new one by selecting **Create authorization policy**.
+1. Choose an existing authorization policy or create a new one by selecting **Create authorization policy**.
 
-    :::image type="content" source="media/howto-configure-authorization/authorization-rules.png" alt-text="Screenshot that shows using the Azure portal to create broker authorization rules.":::
+    :::image type="content" source="media/howto-configure-authorization/authorization-rules.png" alt-text="Screenshot that shows using the Azure portal to create broker authorization rules." lightbox="media/howto-configure-authorization/authorization-rules.png":::
+
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops broker authz apply](/cli/azure/iot/ops/broker/authz#az-iot-ops-broker-authz-apply) command to create or change an authorization policy.
+
+```azurecli
+az iot ops broker authz apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker <BrokerName> --name <AuthenticationResourceName> --config-file <ConfigFilePathAndName>
+```
+
+In this example, assume a configuration file named `my-authz-policy.json` with the following content stored in the user's home directory:
+
+```json
+{
+  "authorizationPolicies": {
+    "cache": "Enabled",
+    "rules": [
+      {
+        "principals": {
+          "clientIds": [
+            "temperature-sensor",
+            "humidity-sensor"
+          ],
+          "attributes": [
+            {
+              "city": "seattle",
+              "organization": "contoso"
+            }
+          ]
+        },
+        "brokerResources": [
+          {
+            "method": "Connect"
+          },
+          {
+            "method": "Publish",
+            "topics": [
+              "/sensor/{principal.clientId}",
+              "/sensor/{principal.attributes.organization}"
+            ]
+          },
+          {
+            "method": "Subscribe",
+            "topics": [
+              "/commands/{principal.attributes.organization}"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+An example command to create a new authorization policy named `my-authz-policy` is:
+
+```azurecli
+az iot ops broker authz apply --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name my-authz-policy --config-file ~/my-authz-policy.json
+```
 
 # [Bicep](#tab/bicep)
 
@@ -52,7 +121,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -60,12 +129,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2024-11-01' = {
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2026-03-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -96,8 +165,8 @@ resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authoriz
             {
               method: 'Publish'
               topics: [
-                '/telemetry/{principal.clientId}'
-                '/telemetry/{principal.attributes.organization}'
+                '/sensor/{principal.clientId}'
+                '/sensor/{principal.attributes.organization}'
               ]
             }
             {
@@ -121,7 +190,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1
@@ -144,8 +215,8 @@ spec:
           - method: Connect
           - method: Publish
             topics:
-              - "/telemetry/{principal.clientId}"
-              - "/telemetry/{principal.attributes.organization}"
+              - "/sensor/{principal.clientId}"
+              - "/sensor/{principal.attributes.organization}"
           - method: Subscribe
             topics:
               - "/commands/{principal.attributes.organization}"
@@ -155,13 +226,13 @@ To create this BrokerAuthorization resource, apply the YAML manifest to your Kub
 
 ---
 
-This broker authorization allows clients with the client IDs `temperature-sensor` or `humidity-sensor`, or clients with the attributes `organization`, with the values `contoso` and `city`, and with the value `seattle`, to:
+This broker authorization rule grants clients with the client IDs `temperature-sensor` or `humidity-sensor`, or clients with the attributes `organization` with the value `contoso` and `city` with the value `seattle`, the ability to:
 
 - Connect to the broker.
-- Publish messages to telemetry topics scoped with their client IDs and organization. For example:
-  - `temperature-sensor` can publish to `/telemetry/temperature-sensor` and `/telemetry/contoso`.
-  - `humidity-sensor` can publish to `/telemetry/humidity-sensor` and `/telemetry/contoso`.
-  - `some-other-username` can publish to `/telemetry/contoso`.
+- Publish messages to topics scoped with their client IDs and organization. For example:
+  - `temperature-sensor` can publish to `/sensor/temperature-sensor` and `/sensor/contoso`.
+  - `humidity-sensor` can publish to `/sensor/humidity-sensor` and `/sensor/contoso`.
+  - `some-other-username` can publish to `/sensor/contoso`.
 - Subscribe to `/commands/` topics scoped with their organization. For example:
   - `temperature-sensor` can subscribe to `/commands/contoso`.
   - `some-other-username` can subscribe to `/commands/contoso`.
@@ -175,10 +246,18 @@ To use the MQTT username for authorization, specify them as an array under `prin
 - **Custom**: Username should only be used for authorization rules if custom authentication validates the username.
 
 To prevent security issues, use the MQTT username for broker authorization only when it can be verified.
+> [!TIP]
+> To require that MQTT username matches the client ID, use token substitution:
+>
+> ```yaml
+> principals:
+>   usernames:
+>     - "{principal.clientId}"
+> ```
 
 ### Further limit access based on client ID
 
-Because the `principals` field is a logical `OR`, you can further restrict access based on client IDs by adding the `clientIds` field to the `brokerResources` field. For example, to allow clients with client IDs that start with their building number to connect and publish telemetry to topics scoped with their building, use the following configuration:
+Because the `principals` field is a logical `OR`, you can further restrict access based on client IDs by adding the `clientIds` field to the `brokerResources` field. For example, to allow clients with client IDs that start with their building number to connect and publish to topics scoped with their building, use the following configuration:
 
 # [Portal](#tab/portal)
 
@@ -199,7 +278,7 @@ In the broker authorization rules for your authorization policy, use the followi
         "clientIds": [],
         "method": "Publish",
         "topics": [
-          "sensors/{principal.attributes.building}/{principal.clientId}/telemetry"
+          "sensors/{principal.attributes.building}/{principal.clientId}/sensor"
         ]
       }
     ],
@@ -217,6 +296,59 @@ In the broker authorization rules for your authorization policy, use the followi
 ]
 ```
 
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops broker authz apply](/cli/azure/iot/ops/broker/authz#az-iot-ops-broker-authz-apply) command to create or change an authorization policy.
+
+```azurecli
+az iot ops broker authz apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker <BrokerName> --name <AuthenticationResourceName> --config-file <ConfigFilePathAndName>
+```
+In the broker authorization rules for your authorization policy, create a configuration file named `client-id-policy.json` with the following configuration stored in the user's home directory:
+
+```json
+{
+  "authorizationPolicies": {
+    "cache": "Enabled",
+    "rules": [
+      {
+        "brokerResources": [
+          {
+            "clientIds": [
+              "{principal.attributes.building}*"
+            ],
+            "method": "Connect",
+            "topics": []
+          },
+          {
+            "clientIds": [],
+            "method": "Publish",
+            "topics": [
+              "sensors/{principal.attributes.building}/{principal.clientId}/sensor"
+            ]
+          }
+        ],
+        "principals": {
+          "attributes": [
+            {
+              "building": "building22"
+            },
+            {
+              "building": "building23"
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
+```
+
+An example command to create a new authorization policy named `client-id-authz-policy` is:
+
+```azurecli
+az iot ops broker authz apply --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name my-authz-policy --config-file ~/client-id-authz-policy.json
+```
+
 # [Bicep](#tab/bicep)
 
 To edit an authorization policy, create a `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
@@ -226,7 +358,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -234,12 +366,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2024-11-01' = {
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2026-03-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -271,7 +403,7 @@ resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authoriz
             {
               method: 'Publish'
               topics: [
-                'sensors/{principal.attributes.building}/{principal.clientId}/telemetry'
+                'sensors/{principal.attributes.building}/{principal.clientId}/sensor'
               ]
             }
           ]
@@ -288,7 +420,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1
@@ -310,7 +444,7 @@ spec:
           - "{principal.attributes.building}*" # client IDs must start with building22
       - method: Publish
         topics:
-          - "sensors/{principal.attributes.building}/{principal.clientId}/telemetry"
+          - "sensors/{principal.attributes.building}/{principal.clientId}/sensor"
 ```
 
 ---
@@ -382,6 +516,64 @@ In the broker authorization rules for your authorization policy, use the followi
 ]
 ```
 
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops broker authz apply](/cli/azure/iot/ops/broker/authz#az-iot-ops-broker-authz-apply) command to create or change an authorization policy.
+
+```azurecli
+az iot ops broker authz apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker <BrokerName> --name <AuthenticationResourceName> --config-file <ConfigFilePathAndName>
+```
+
+In this example, assume a configuration file named `my-authz-policy.json` with the following content stored in the user's home directory:
+
+```json
+{
+  "authorizationPolicies": {
+    "cache": "Enabled",
+    "rules": [
+      {
+        "brokerResources": [
+          {
+            "clientIds": [],
+            "method": "Connect",
+            "topics": []
+          },
+          {
+            "clientIds": [],
+            "method": "Publish",
+            "topics": [
+              "odd-numbered-orders"
+            ]
+          },
+          {
+            "clientIds": [],
+            "method": "Subscribe",
+            "topics": [
+              "orders"
+            ]
+          }
+        ],
+        "principals": {
+          "attributes": [
+            {
+              "group": "authz-sat"
+            }
+          ],
+          "clientIds": [],
+          "usernames": []
+        }
+      }
+    ]
+  }
+}
+```
+
+An example command to create a new authorization policy named `my-authz-policy` is:
+
+```azurecli
+az iot ops broker authz apply --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name my-authz-policy --config-file ~/my-authz-policy.json
+```
+
 # [Bicep](#tab/bicep)
 
 To edit an authorization policy, create a `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
@@ -391,7 +583,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -399,12 +591,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2024-11-01' = {
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2026-03-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -453,7 +645,9 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1
@@ -480,16 +674,17 @@ spec:
 
 ---
 
-To learn more with an example, see [Set up Authorization Policy with Dapr Client](../create-edge-apps/howto-develop-dapr-apps.md).
+To learn more with an example, see [Set up Authorization Policy with Dapr Client](../develop-edge-apps/howto-develop-dapr-apps.md).
 
 ## State store
 
-The MQTT broker provides a [state store](../create-edge-apps/concept-about-state-store-protocol.md) that clients can use to store state. You can also configure the state store to be highly available.
+The MQTT broker provides a [state store](../develop-edge-apps/reference-state-store-protocol.md) that clients can use to store state. You can also configure the state store to be highly available.
 
-To set up authorization for clients that use the state store, provide the following permissions:
+To set up authorization for clients that use the state store, provide permissions for protocol topics and keys:
 
-- Permission to publish to the system key value store `$services/statestore/_any_/command/invoke/request` topic
-- Permission to subscribe to the response-topic (set during initial publish as a parameter) `<response_topic>/#`
+- Publish requests to: `statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke`.
+- Subscribe to the response topic you set on publish, commonly: `clients/{principal.clientId}/services/statestore/v1/FA9AE35F-2F64-47CD-9BFF-08E2B32A0FE8/command/invoke/response/#`.
+- Grant key access under `stateStoreResources` per the guidance below.
 
 ### State store keys
 
@@ -499,6 +694,22 @@ Because clients have access to the topic, you can specify keys and access levels
 The `stateStoreResources` section format consists of access level, a pattern indicator, and the pattern.
 
 # [Portal](#tab/portal)
+
+Include the `stateStoreResources` section in the rules for your authorization policy.
+
+```json
+"stateStoreResources": [
+  {
+    "method": "", // Values: read, write, readwrite 
+    "keyType": "", //Values: string, pattern, binary. Default is pattern
+    "keys": [
+      // List of patterns to match
+    ]
+  },
+]
+```
+
+# [Azure CLI](#tab/cli)
 
 Include the `stateStoreResources` section in the rules for your authorization policy.
 
@@ -537,7 +748,10 @@ stateStoreResources: [
 ]
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
 
 In your custom resource definition, include the `stateStoreResources` section in your authorization policy.
 
@@ -598,7 +812,7 @@ In the broker authorization rules for your authorization policy, add a similar c
       {
         "method": "Publish",
         "topics": [
-          "sensors/{principal.attributes.building}/{principal.clientId}/telemetry/*"
+          "sensors/{principal.attributes.building}/{principal.clientId}/sensor/*"
         ]
       },
       {
@@ -643,6 +857,79 @@ In the broker authorization rules for your authorization policy, add a similar c
 ]
 ```
 
+# [Azure CLI](#tab/cli)
+
+In this example, assume a configuration file named `state-store-authz-policy.json` in the user's home directory. In the broker authorization rules for your authorization policy, add a similar configuration:
+
+```json
+{
+  "authorizationPolicies": {
+    "cache": "Enabled",
+    "rules": [
+      {
+        "brokerResources": [
+          {
+            "clientIds": [
+              "{principal.attributes.building}*"
+            ],
+            "method": "Connect"
+          },
+          {
+            "method": "Publish",
+            "topics": [
+              "sensors/{principal.attributes.building}/{principal.clientId}/sensor/*"
+            ]
+          },
+          {
+            "method": "Subscribe",
+            "topics": [
+              "commands/{principal.attributes.organization}"
+            ]
+          }
+        ],
+        "principals": {
+          "attributes": [
+            {
+              "building": "17",
+              "organization": "contoso"
+            }
+          ],
+          "usernames": [
+            "temperature-sensor",
+            "humidity-sensor"
+          ]
+        },
+        "stateStoreResources": [
+          {
+            "method": "Read",
+            "keyType": "Pattern",
+            "keys": [
+              "myreadkey",
+              "myotherkey?",
+              "mynumerickeysuffix[0-9]",
+              "clients/{principal.clientId}/*"
+            ]
+          },
+          {
+            "method": "ReadWrite",
+            "keyType": "Binary",
+            "keys": [
+              "xxxxxxxxxxxxxxxxxxxx"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+An example command to create a new authorization policy named `state-store-authz-policy` is:
+
+```azurecli
+az iot ops broker authz apply --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name my-authz-policy --config-file ~/state-store-authz-policy.json
+```
+
 # [Bicep](#tab/bicep)
 
 To edit an authorization policy, create a `.bicep` file with the following content. Update the settings as needed, and replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
@@ -652,7 +939,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -660,12 +947,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2024-11-01' = {
+resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authorizations@2026-03-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -696,8 +983,8 @@ resource brokerAuthorization 'Microsoft.IoTOperations/instances/brokers/authoriz
             {
               method: 'Publish'
               topics: [
-                '/telemetry/{principal.username}'
-                '/telemetry/{principal.attributes.organization}'
+                '/sensor/{principal.username}'
+                '/sensor/{principal.attributes.organization}'
               ]
             }
             {
@@ -739,7 +1026,10 @@ Deploy the Bicep file by using the Azure CLI:
 az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
 ```
 
-# [Kubernetes](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
 
 ``` yaml
 stateStoreResources:
@@ -759,11 +1049,19 @@ stateStoreResources:
 
 ## Update authorization
 
-You can update broker authorization resources at runtime without restart. All clients connected at the time of the update of policy are disconnected. Changing the policy type is also supported.
+You can update broker authorization resources at runtime without a restart. All clients connected at the time of the update of policy are disconnected. Changing the policy type is also supported.
 
 ```bash
 kubectl edit brokerauthorization my-authz-policies
 ```
+
+## Caching behavior
+
+To reduce authorization overhead on high-throughput topics, enable in-memory caching with `authorizationPolicies.cache: Enabled`.
+
+- Decisions are cached per tuple of client, action, and resource. Repeated operations hit the cache.
+- Highly variable resources (for example, unique topic segments per message) lower cache hit rate.
+- The cache grows with the number of unique tuples. Monitor memory for very high churn patterns.
 
 ## Disable authorization
 
@@ -774,11 +1072,27 @@ kubectl edit brokerauthorization my-authz-policies
 1. Select the broker listener you want to edit from the list.
 1. On the port where you want to disable authorization, select **None** in the authorization dropdown.
 
+# [Azure CLI](#tab/cli)
+
+Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-port-add) command to disable authorization for a port. To disable authorization, don't include the `--authz-ref` parameter.
+
+```azurecli
+az iot ops broker listener port add --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --listener <ListenerName> --port <ListenerServicePort>
+```
+
+The following example disables authorization for port 8884 to the listener named `aio-broker-loadbalancer`:
+
+```azurecli
+az iot ops broker listener port add --resource-group myResourceGroupName --instance myAioInstanceName --broker default --listener aio-broker-loadbalancer --authn-ref default --port 8884
+```
+
 # [Bicep](#tab/bicep)
 
 To disable authorization, omit `authorizationRef` in the `ports` setting of your BrokerListener resource.
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 To disable authorization, omit `authorizationRef` in the `ports` setting of your BrokerListener resource.
 
@@ -788,7 +1102,41 @@ To disable authorization, omit `authorizationRef` in the `ports` setting of your
 
 With MQTT 3.1.1, when publish is denied, the client receives PUBACK with no error because the protocol version doesn't support returning error code. MQTTv5 returns PUBACK with reason code 135 (Not authorized) when publish is denied.
 
-## Related content
+## Troubleshooting
+
+### Validate rules
+
+- Review your BrokerAuthorization YAML/JSON for schema issues.
+- Check output when applying the config; schema errors are reported by the API server.
+- Set frontend pod logs to `debug` or `trace`, restart pods, and inspect for entries tagged with `authz` that show parsed and effective rules.
+
+Example healthy logs (abridged):
+
+```log
+<7>2025-02-10T16:28:31.986Z aio-broker-frontend-0 [mq@311 tid="1" module="authz"] - adding broker config ... and store config ...
+<6>2025-02-10T16:28:31.986Z aio-broker-frontend-0 [mq@311 tid="1"] - starting broker authorization engine with basic rules. Cache enabled: true
+<7>2025-02-10T16:28:31.987Z aio-broker-frontend-0 [mq@311 tid="1" module="authz"] - set broker authorization engine data: {"rules":[{...}]}
+```
+
+### MQTT broker operations
+
+Denied publish example:
+
+```log
+<7>2025-02-10T16:32:19.398Z aio-broker-frontend-0 [mq@311 tid="15" module="authz"] - checking authorization for {"action":"publish","clientId":"test-publisher","topic":"test"}
+<7>2025-02-10T16:32:19.411Z aio-broker-frontend-0 [mq@311 tid="15" module="authz"] - publish from client 'test-publisher' was denied ... reason_code: NotAuthorized
+```
+
+### State store operations
+
+Denied get example:
+
+```log
+<7>2025-02-10T16:41:31.314Z aio-broker-frontend-0 [mq@311 tid="8" module="authz"] - checking authorization for {"action":"get","clientId":"statestore-cli","key":"dGVzdA=="}
+<7>2025-02-10T16:41:31.322Z aio-broker-frontend-0 [mq@311 tid="8" module="authz"] - cached new authorization result ...: Denied("no rule matched")
+```
+
+## Next steps
 
 - [BrokerListener resource](howto-configure-brokerlistener.md)
 - [Configure authentication for a BrokerListener](./howto-configure-authentication.md)

@@ -1,7 +1,7 @@
----
+﻿---
 title: Manage resources - Python
 description: Use Python and Azure Resource Manager to manage your resources. Shows how to deploy and delete resources. 
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/10/2025
 ms.custom: devx-track-arm-template, devx-track-python
 content_well_notification: 
@@ -49,7 +49,7 @@ storage_account_result = storage_client.storage_accounts.begin_create(
 
 ### Deploy a template
 
-To deploy an ARM template, use [ResourceManagementClient.deployments.begin_create_or_update](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.deploymentsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-deploymentsoperations-begin-create-or-update). The following example deploys a [remote template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-account-create). That template creates a storage account.
+To deploy an ARM template, use [ResourceManagementClient.deployments.begin_create_or_update](/python/api/azure-mgmt-resource-deployments/azure.mgmt.resource.deployments.operations.deploymentsoperations#azure-mgmt-resource-deployments-operations-deploymentsoperations-begin-create-or-update). The following example deploys a [remote template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-account-create). That template creates a storage account.
 
 ```python
 import os
@@ -250,3 +250,4 @@ Tagging helps you organize your resource group and resources logically. For info
 - To learn the Resource Manager template syntax, see [Understand the structure and syntax of Azure Resource Manager templates](../templates/syntax.md).
 - To learn how to develop templates, see the [step-by-step tutorials](../index.yml).
 - To view the Azure Resource Manager template schemas, see [template reference](/azure/templates/).
+

@@ -1,12 +1,13 @@
 ---
-title: Install on-premises data gateway for logic app workflows
-description: Install on-premises data gateway for workflows in Azure Logic Apps to access on-premises data sources.
+title: Install On-Premises Data Gateway
+description: Install the on-premises data gateway so workflows in Azure Logic Apps can use connectors that access on-premises systems and data sources.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: mideboer, azla
 ms.topic: how-to
-ms.date: 03/05/2025
-#Customer intent: As an integration developer, I want to create workflows that can access data in on-premises systems, which require that I install and set up the on-premises data gateway.
+ms.update-cycle: 1095-days
+ms.date: 03/10/2026
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want my workflows to use connectors that access data in on-premises systems from my workflows. This access requires that I install and set up the on-premises data gateway.
 ---
 
 # Install on-premises data gateway for workflows in Azure Logic Apps
@@ -37,7 +38,7 @@ You can use the same gateway installation with other cloud services, such as Pow
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
   * Your Azure account needs to use either a work account or school account with the format **`<username>@<organization>.com`**. You can't use Azure B2B (guest) accounts or personal Microsoft accounts, such as accounts with hotmail.com or outlook.com domains.
 
@@ -235,7 +236,7 @@ To get visibility into all the on-premises data gateways in a Microsoft Entra te
 
 ## Restart gateway
 
-By default, the gateway installation on your local computer runs as a Windows service account named "On-premises data gateway service." However, the gateway installation uses the `NT SERVICE\PBIEgwService` name for its **Log On As** account credentials and has **Log on as a service** permissions.
+By default, the gateway installation on your local computer runs as a Windows service account named **On-premises data gateway service**. However, the gateway installation uses the **NT SERVICE\PBIEgwService** name for its **Log On As** account credentials and has **Log on as a service** permissions.
 
 > [!NOTE]
 >

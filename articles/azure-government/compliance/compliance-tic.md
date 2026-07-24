@@ -7,6 +7,7 @@ ms.service: azure-government
 ms.topic: article
 recommendations: false
 ms.date: 06/28/2022
+ms.custom: sfi-image-nochange
 ---
 
 # Trusted Internet Connections guidance
@@ -198,7 +199,7 @@ Azure Policy is targeted at the subscription level. The service provides a centr
 - Enforce compliance
 - Manage exceptions
 
-Along with many [built-in policy definitions](../../governance/policy/samples/built-in-policies.md), administrators can define their own custom definitions by using simple JSON templates. Microsoft recommends the prioritization of auditing over enforcement, where possible.
+Along with many [built-in policy definitions](/azure/governance/policy/samples/built-in-policies), administrators can define their own custom definitions by using simple JSON templates. Microsoft recommends the prioritization of auditing over enforcement, where possible.
 
 ### Network Watcher traffic analytics
 
@@ -237,4 +238,4 @@ You can easily configure network access to help comply with TIC 2.0 guidance and
 - [Secure Azure Computing Architecture](./secure-azure-computing-architecture.md)
 - [Azure guidance for secure isolation](../azure-secure-isolation-guidance.md)
 - [Azure Policy overview](../../governance/policy/overview.md)
-- [Azure Policy regulatory compliance built-in initiatives](../../governance/policy/samples/index.md#regulatory-compliance)
+- [Azure Policy regulatory compliance built-in initiatives](/azure/governance/policy/samples/index#regulatory-compliance)

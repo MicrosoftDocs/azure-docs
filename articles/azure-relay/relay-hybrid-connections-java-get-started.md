@@ -2,7 +2,7 @@
 title: Azure Relay Hybrid Connections - HTTP requests in Java
 description: Write a Java console application for Azure Relay Hybrid Connections HTTP requests.
 ms.topic: tutorial
-ms.date: 01/04/2024
+ms.date: 01/24/2026
 ms.custom: devx-track-java, mode-ui, mode-api, devx-track-extended-java
 ---
 
@@ -24,7 +24,7 @@ In this quickstart, you take the following steps:
 - [Java](https://www.java.com/en/). Ensure that you're running JDK 1.8+
 - [Maven](https://maven.apache.org/install.html). Ensure that you have Maven installed
 - [Azure Relay SDK](https://github.com/Azure/azure-relay-java). Review Java SDK
-- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create a namespace using the Azure portal
 [!INCLUDE [relay-create-namespace-portal](./includes/relay-create-namespace-portal.md)]

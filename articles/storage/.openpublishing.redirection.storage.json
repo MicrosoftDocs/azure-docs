@@ -481,6 +481,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/blobs/storage-lifecycle-management-concepts.md#move-data-based-on-last-accessed-time",
+            "redirect_url": "/azure/storage/blobs/lifecycle-management-policy-structure#move-data-based-on-last-accessed-time",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-lifecycle-management-concepts.md#faq",
+            "redirect_url": "/azure/storage/blobs/storage-blob-faq#lifecycle-management-policies",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-lifecycle-management-concepts.md#lifecycle-policy-completed-event",
+            "redirect_url": "/azure/storage/blobs/lifecycle-management-policy-monitor#receiving-notifications-when-a-run-is-complete",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/blobs/storage-manage-access-to-resources.md",
             "redirect_url": "/azure/storage/blobs/anonymous-read-access-configure",
             "redirect_document_id": true
@@ -1331,6 +1346,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/elastic-san/elastic-san-networking-concepts.md",
+            "redirect_url": "/azure/storage/elastic-san/elastic-san-networking",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/storage/file-sync/file-sync-offline-data-transfer.md",
             "redirect_url": "/azure/storage/file-sync/file-sync-server-endpoint-create",
             "redirect_document_id": false
@@ -1361,6 +1381,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/files/storage-files-identity-mount-file-share.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-use-files-windows",
+            "redirect_document_id": false
+        },        
+        {
             "source_path_from_root": "/articles/storage/files/storage-files-deployment-guide.md",
             "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
             "redirect_document_id": false
@@ -1384,6 +1409,11 @@
             "source_path_from_root": "/articles/storage/files/storage-files-release-notes.md",
             "redirect_url": "/azure/storage/file-sync/file-sync-release-notes",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-zonal-placement.md",
+            "redirect_url": "/azure/storage/files/zonal-placement",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/files/storage-how-to-create-premium-fileshare.md",
@@ -1454,6 +1484,16 @@
             "source_path_from_root": "/articles/storage/files/storage-sync-files-networking-endpoints.md",
             "redirect_url": "/azure/storage/file-sync/file-sync-networking-endpoints",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-files-quick-create-use-windows.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/files/storage-how-to-use-files-portal.md",
+            "redirect_url": "/azure/storage/files/storage-how-to-create-file-share",
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/storage/files/storage-sync-files-networking-overview.md",
@@ -2131,6 +2171,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path_from_root": "/articles/storage/common/storage-use-azcopy-authorize-azure-active-directory.md",
+            "redirect_url": "/azure/storage/common/storage-use-azcopy-authorize-user-identity",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/storage-use-azcopy-migrate-on-premises-data.md",
+            "redirect_url": "/azure/storage/common/storage-use-azcopy-v10",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/storage/storage-use-data-movement-library.md",
             "redirect_url": "/azure/storage/common/storage-use-data-movement-library",
             "redirect_document_id": true
@@ -2586,6 +2636,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/storage/blobs/blob-upload-function-trigger-javascript.md",
+            "redirect_url": "/azure/storage/blobs/storage-blob-javascript-get-started",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/storage/storage-about-disks-and-vhds-linux.md",
             "redirect_url": "/azure/virtual-machines/linux/about-disks-and-vhds",
             "redirect_document_id": false
@@ -2828,6 +2883,31 @@
         {
             "source_path_from_root": "/articles/storage/file-sync/file-sync-storsimple-cost-comparison.md",
             "redirect_url": "/previous-versions/azure/storage/file-sync/file-sync-storsimple-cost-comparison",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/blobfuse2-how-to-deploy.md",
+            "redirect_url": "/azure/storage/blobs/blobfuse2-mount-container",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/blobs/storage-how-to-mount-container-linux.md",
+            "redirect_url": "/previous-versions/azure/storage/blobs/storage-how-to-mount-container-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/classic-account-migration-overview.md",
+            "redirect_url": "/azure/storage/common/storage-account-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/storage/common/classic-account-migration-process.md",
+            "redirect_url": "/azure/storage/common/storage-account-overview",
+            "redirect_document_id": false
+        },
+       {
+            "source_path_from_root": "/articles/storage/common/classic-account-migrate.md",
+            "redirect_url": "/azure/storage/common/storage-account-overview",
             "redirect_document_id": false
         }
     ]

@@ -5,7 +5,9 @@ ms.topic: tutorial
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/12/2025
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a lab administrator, I want to learn how to create and delete labs, add virtual machines (VMs) to labs, and add users to labs, so I can better manage my labs.
 ---
@@ -24,7 +26,7 @@ If you're a developer, tester, or trainee, see [Access a lab in Azure DevTest La
 
 ## Prerequisites
 
-- To create a lab, you need at least [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role in an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- To create a lab, you need at least [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role in an Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - To add a VM to a lab, you need at least [DevTest Labs User](/azure/role-based-access-control/built-in-roles#devtest-labs-user) role in the lab.
 
@@ -80,7 +82,7 @@ To add a VM to the lab, follow these steps. For more information, see [Create la
    - **Virtual machine size**: Keep the default value for the base, or select **Change Size** to select a different size.
    - **Allow hibernation**: You can select this checkbox to enable hibernation for this VM. For this tutorial, keep the checkbox deselected.
      >[!NOTE]
-     >If you enable hibernation, you must also select **Public** for **IP Address** in the **Advanced settings**, because **Private** and **Shared** IPs aren't supported if hibernation is enabled.
+     >If you enable hibernation, you must also select either **Public** or **Private** for **IP Address** in the **Advanced settings**, because hibernation for **Shared** IPs isn't currently supported.
    - **OS disk type**: You can select a disk type from the dropdown list. For this tutorial, keep the default value.
    - **Artifacts**: You can select **Add or Remove Artifacts** to select and configure artifacts to add to the VM. For more information, see [Add artifacts](devtest-lab-add-vm.md#add-optional-artifacts).
 

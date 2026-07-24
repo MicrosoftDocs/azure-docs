@@ -3,14 +3,15 @@ title: Back up Azure Kubernetes Service (AKS) using Azure PowerShell
 description: This article explains how to back up Azure Kubernetes Service (AKS) using PowerShell.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 01/20/2025
+ms.date: 12/15/2025
 ms.custom:
   - devx-track-azurepowershell
   - ignite-2023
   - engagement-fy24
   - ignite-2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to back up Azure Kubernetes Service clusters using PowerShell, so that I can ensure data protection and recoverability for my containerized applications."
 ---
 
 # Back up Azure Kubernetes Service using PowerShell 
@@ -19,7 +20,7 @@ This article describes how to configure and back up Azure Kubernetes Service (AK
 
 Azure Backup now allows you to back up AKS clusters (cluster resources and persistent volumes attached to the cluster) using a backup extension, which must be installed in the cluster. Backup vault communicates with the cluster via this Backup Extension to perform backup and restore operations. 
 
-## Before you start
+## Prerequisites
 
 Before you start backing up an AKS cluster, ensure that you review the following prerequisites:
 
@@ -27,7 +28,7 @@ Before you start backing up an AKS cluster, ensure that you review the following
 
 - AKS backup uses a blob container and a resource group to store the backups. The blob container has the AKS cluster resources stored in it, whereas the persistent volume snapshots are stored in the resource group. The AKS cluster and the storage locations must reside in the same region. Learn [how to create a blob container](../storage/blobs/storage-quickstart-blobs-portal.md#create-a-container).
 
-- Currently, AKS backup supports once-a-day backup. It also supports more frequent backups (in every *4*, *8*, and *12* hours intervals) per day. This solution allows you to retain your data for restore for up to 360 days. Learn to [create a backup policy](#create-a-backup-policy).
+- Currently, AKS backup supports once-a-day backup. It also supports more frequent backups (in every *4*, *8*, and *12* hours intervals) per day. This solution allows you to retain your data for restore for up to 360 days. Learn to [create a backup policy](#create-a-backup-policy-for-aks-cluster).
 
 - You must [install the Backup Extension](azure-kubernetes-service-cluster-manage-backups.md#install-backup-extension) to configure backup and restore operations on an AKS cluster. Learn more [about Backup Extension](azure-kubernetes-service-cluster-backup-concept.md#backup-extension).
 
@@ -37,7 +38,7 @@ Before you start backing up an AKS cluster, ensure that you review the following
 
 For more information on the supported scenarios, limitations, and availability, see the [support matrix](azure-kubernetes-service-cluster-backup-support-matrix.md).
 
-## Create a Backup vault
+## Create a Backup vault for AKS backup
 
 A Backup vault is a management entity in Azure that stores backup data for various newer workloads that Azure Backup supports, such as Azure Database for PostgreSQL servers and Azure Disks. Backup vaults make it easy to organize your backup data while minimizing management overhead. They are based on the Azure Resource Manager model, which provides enhanced capabilities to help secure backup data. Before you create a Backup vault, choose the storage redundancy of the data in the vault, and then create the Backup vault with that storage redundancy and the location. 
 
@@ -64,7 +65,7 @@ Here, we're creating a Backup vault *TestBkpVault* in *West US* region under the
 
 Once the vault creation is complete, create a backup policy to protect AKS clusters.
 
-## Create a backup policy
+## Create a backup policy for AKS cluster
 
 Azure Backup enables you to create backup policies for AKS Cluster protection with **Daily backups**  or **Multiple backups per day**.
 
@@ -141,7 +142,7 @@ Once the vault and policy creation are complete, you need to perform the followi
 > [!NOTE]
 > For Backup Extension installation and Trusted Access enablement, the commands are available in Azure CLI only.
 
-## Configure backups
+## Configure backups for AKS cluster
 
 With the created Backup vault and backup policy, and the AKS cluster in *ready-to-be-backed-up* state, you can now start to back up your AKS cluster.
 
@@ -205,7 +206,7 @@ To assign the required permissions and perform validation for the AKS cluster pr
       New-AzDataProtectionBackupInstance -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -BackupInstance $backupInstance
       ```
 
-## Run an on-demand backup
+## Run an on-demand backup for AKS cluster
 
 To trigger an on-demand backup, run the following cmdlets:
 
@@ -241,7 +242,7 @@ To trigger an on-demand backup, run the following cmdlets:
       Backup-AzDataProtectionBackupInstanceAdhoc -BackupInstanceName $AllInstances[0].Name -ResourceGroupName "testBkpVaultRG" -VaultName $TestBkpVault.Name -BackupRuleOptionRuleName "Default"
       ```
 
-## Tracking jobs
+## Track AKS backup jobs
 
 Track all the jobs using the `Get-AzDataProtectionJob` cmdlet. You can list all jobs and fetch a particular job detail. You can also use the `Az.ResourceGraph` cmdlet to track all jobs across all Backup vaults. Use the `Search-AzDataProtectionJobInAzGraph` cmdlet to get the relevant job details from any Backup vault.
 

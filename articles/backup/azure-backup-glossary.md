@@ -5,8 +5,9 @@ ms.topic: reference
 ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli, engagement-fy24
 ms.date: 12/30/2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to understand key terms related to Azure Backup, so that I can effectively implement and manage backup solutions for my organization's workloads."
 ---
 
 # Azure Backup glossary
@@ -59,7 +60,7 @@ Azure Backup offers three types of replication to keep your storage and data hig
 
 ### ZRS
 
-[Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your backup data in [availability zones](../reliability/availability-zones-overview.md), guaranteeing backup data residency and resiliency in the same region. So your critical workloads that require [data residency](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) can be backed up in ZRS.
+[Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your backup data in [availability zones](/azure/reliability/availability-zones-overview), guaranteeing backup data residency and resiliency in the same region. So your critical workloads that require [data residency](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) can be backed up in ZRS.
 
 ## Azure CLI
 
@@ -123,7 +124,7 @@ Crash-consistent snapshots typically occur if an Azure VM shuts down at the time
 
 ## Cross-Region Restore (CRR)
 
-As one of the [restore options](backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore backup items in a secondary region, which is an [Azure paired region](../reliability/cross-region-replication-azure.md).
+As one of the [restore options](backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore backup items in a secondary region, which is an [Azure paired region](/azure/reliability/cross-region-replication-azure).
 
 ## Data box
 
@@ -275,7 +276,7 @@ A backup job that is automatically triggered by the backup policy configured for
 
 ## Secondary region / Paired region
 
-A regional pair consists of two regions within the same geography. One is the primary region, and the other is the secondary region. Paired regions are used by some Azure services (including Azure Backup with GRS settings) to ensure business continuity and protect against data loss. [Learn more](../reliability/cross-region-replication-azure.md).
+A regional pair consists of two regions within the same geography. One is the primary region, and the other is the secondary region. Paired regions are used by some Azure services (including Azure Backup with GRS settings) to ensure business continuity and protect against data loss. [Learn more](/azure/reliability/cross-region-replication-azure).
 
 ## Soft delete
 

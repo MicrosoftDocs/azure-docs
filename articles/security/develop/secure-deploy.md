@@ -2,9 +2,8 @@
 title: Deploy secure applications on Microsoft Azure
 description: This article discusses best practices to consider during the release and response phases of your web application project.
 author: msmbaldwin
-manager: rkarlin
 ms.author: mbaldwin
-ms.date: 09/29/2024
+ms.date: 12/03/2025
 ms.topic: article
 ms.service: security
 ms.subservice: security-develop
@@ -26,7 +25,7 @@ The focus of the release phase is readying a project for public release. This in
 
 ### Check your application’s performance before you launch
 
-Check your application's performance before you launch it or deploy updates to production. Use Azure Load Testing to run cloud-based [load tests](../../load-testing/index.yml) to find performance problems in your application, improve deployment quality, make sure that your application is always up or available, and that your application can handle traffic for your launch.
+Check your application's performance before you launch it or deploy updates to production. Use Azure Load Testing to run cloud-based [load tests](../../app-testing/index.yml) to find performance problems in your application, improve deployment quality, make sure that your application is always up or available, and that your application can handle traffic for your launch.
 
 ### Install a web application firewall
 

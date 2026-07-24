@@ -7,6 +7,7 @@ author: hareshg
 ms.author: hgowrisankar
 ms.reviewer: nijelsf
 ms.date: 05/10/2024
+ms.custom: sfi-ropc-nochange
 ---
 
 # Run Apache Sqoop jobs in HDInsight with Curl

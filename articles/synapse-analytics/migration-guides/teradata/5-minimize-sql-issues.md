@@ -3,7 +3,7 @@ title: "Minimize SQL issues for Teradata migrations"
 description: Learn how to minimize the risk of SQL issues when migrating from Teradata to Azure Synapse Analytics. 
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: best-practice
 author: ajagadish-24
 ms.author: ajagadish
 
@@ -92,8 +92,6 @@ It's important to understand where performance optimizations&mdash;such as index
 Teradata includes support for special table types for time-series and temporal data. The syntax and some of the functions for these table types aren't directly supported within Azure Synapse, but the data can be migrated into a standard table with appropriate data types and indexing or partitioning on the date/time column.
 
 Teradata implements the temporal query functionality via query rewriting to add additional filters within a temporal query to limit the applicable date range. If this functionality is currently in use within the source Teradata environment and is to be migrated, then this additional filtering will need to be added into the relevant temporal queries.
-
-The Azure environment also includes specific features for complex analytics on time-series data at scale called [time series insights](https://azure.microsoft.com/services/time-series-insights/)&mdash;this is aimed at IoT data analysis applications and may be more appropriate for this use-case.
 
 <a id="teradata-data-type-mapping"></a>
 ### Unsupported Teradata data types

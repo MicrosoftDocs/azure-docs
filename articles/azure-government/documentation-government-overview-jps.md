@@ -3,8 +3,8 @@ title: Azure support for public safety and justice
 description: Guidance on using Azure cloud services for public safety and justice workloads.
 ms.service: azure-government
 ms.topic: article
-author: EliotSeattle
-ms.author: eliotgra
+author: GrantMeStrength
+ms.author: jken
 recommendations: false
 ms.date: 02/06/2023
 ---
@@ -56,7 +56,7 @@ Azure addresses the perceived risk of resource sharing by providing a trustworth
 - Storage isolation with data encryption at rest
 - Security assurance processes embedded in service design to correctly develop logically isolated services
 
-Logical compute isolation is implemented via Hypervisor isolation, Drawbridge isolation, and User context-based isolation. Aside from logical compute isolation, Azure also provides you with physical compute isolation if you require dedicated physical servers for your workloads. For example, if you desire physical compute isolation, you can use Azure Dedicated Host or Isolated Virtual Machines, which are deployed on server hardware dedicated to a single customer. For more information, see [Azure guidance for secure isolation](./azure-secure-isolation-guidance.md).
+Logical compute isolation is implemented through Hypervisor isolation, Drawbridge isolation, and User context-based isolation. Aside from logical compute isolation, Azure also provides you with physical compute isolation if you require dedicated physical servers for your workloads. For example, if you desire physical compute isolation, you can use Azure Dedicated Host or Isolated Virtual Machines, which are deployed on server hardware dedicated to a single customer. For more information, see [Azure guidance for secure isolation](./azure-secure-isolation-guidance.md).
 
 ## Data encryption
 
@@ -71,7 +71,7 @@ Data encryption provides isolation assurances that are tied directly to encrypti
 
 The [Federal Information Processing Standard (FIPS) 140](https://csrc.nist.gov/publications/detail/fips/140/3/final) is a US government standard that defines minimum security requirements for cryptographic modules in information technology products. Microsoft maintains an active commitment to meeting the [FIPS 140 requirements](/azure/compliance/offerings/offering-fips-140-2), having validated cryptographic modules since the standard’s inception in 2001. Microsoft validates its cryptographic modules under the US National Institute of Standards and Technology (NIST) [Cryptographic Module Validation Program (CMVP)](https://csrc.nist.gov/Projects/cryptographic-module-validation-program). Multiple Microsoft products, including many cloud services, use these cryptographic modules.
 
-While the current CMVP FIPS 140 implementation guidance precludes a FIPS 140 validation for a cloud service, cloud service providers can obtain and operate FIPS 140 validated cryptographic modules for the computing elements that comprise their cloud services. Azure is built with a combination of hardware, commercially available operating systems (Linux and Windows), and Azure-specific version of Windows. Through the Microsoft [Security Development Lifecycle (SDL)](https://www.microsoft.com/securityengineering/sdl/), all Azure services use FIPS 140 approved algorithms for data security because the operating system uses FIPS 140 approved algorithms while operating at a hyper scale cloud. The corresponding crypto modules are FIPS 140 validated as part of the Microsoft [Windows FIPS validation program](/windows/security/threat-protection/fips-140-validation#modules-used-by-windows-server). Moreover, you can store your own cryptographic keys and other secrets in FIPS 140 validated hardware security modules (HSMs) under your control, also known as [customer-managed keys](../security/fundamentals/encryption-models.md#server-side-encryption-using-customer-managed-keys-in-azure-key-vault-and-azure-managed-hsm).
+While the current CMVP FIPS 140 implementation guidance precludes a FIPS 140 validation for a cloud service, cloud service providers can obtain and operate FIPS 140 validated cryptographic modules for the computing elements that comprise their cloud services. Azure is built with a combination of hardware, commercially available operating systems (Linux and Windows), and an Azure-specific version of Windows. Through the Microsoft [Security Development Lifecycle (SDL)](https://www.microsoft.com/securityengineering/sdl/), all Azure services use FIPS 140 approved algorithms for data security because the operating system uses FIPS 140 approved algorithms while operating at hyperscale. The corresponding crypto modules are FIPS 140 validated as part of the Microsoft [Windows FIPS validation program](/windows/security/threat-protection/fips-140-validation#modules-used-by-windows-server). Moreover, you can store your own cryptographic keys and other secrets in FIPS 140 validated hardware security modules (HSMs) under your control, also known as [customer-managed keys](../security/fundamentals/encryption-models.md#server-side-encryption-by-using-customer-managed-keys-in-azure-key-vault-and-azure-key-vault-managed-hsm-optional).
 
 ### Encryption key management
 
@@ -81,13 +81,13 @@ With Key Vault, you can import or generate encryption keys in HSMs, ensuring tha
 
 ### Data encryption in transit
 
-Azure provides many options for [encrypting data in transit](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit). Data encryption in transit isolates your network traffic from other traffic and helps protect data from interception. For more information, see [Data encryption in transit](./azure-secure-isolation-guidance.md#data-encryption-in-transit).
+Azure provides many options for [encrypting data in transit](../security/fundamentals/encryption-overview.md#encryption-in-transit). Data encryption in transit isolates your network traffic from other traffic and helps protect data from interception. For more information, see [Data encryption in transit](./azure-secure-isolation-guidance.md#data-encryption-in-transit).
 
 ### Data encryption at rest
 
 Azure provides extensive options for [encrypting data at rest](../security/fundamentals/encryption-atrest.md) to help you safeguard your data and meet your compliance needs using both Microsoft-managed encryption keys and customer-managed encryption keys. This process relies on multiple encryption keys and services such as Azure Key Vault and Microsoft Entra ID to ensure secure key access and centralized key management. For more information about Azure Storage encryption and Azure Disk encryption, see [Data encryption at rest](./azure-secure-isolation-guidance.md#data-encryption-at-rest).
 
-Azure SQL Database provides [transparent data encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-tde-overview) at rest by [default](https://azure.microsoft.com/updates/newly-created-azure-sql-databases-encrypted-by-default/). TDE performs real-time encryption and decryption operations on the data and log files. Database Encryption Key (DEK) is a symmetric key stored in the database boot record for availability during recovery. It's secured via a certificate stored in the master database of the server or an asymmetric key called TDE Protector stored under your control in [Azure Key Vault](/azure/key-vault/general/security-features). Key Vault supports [bring your own key (BYOK)](/azure/azure-sql/database/transparent-data-encryption-byok-overview), which enables you to store the TDE Protector in Key Vault and control key management tasks including key rotation, permissions, deleting keys, enabling auditing/reporting on all TDE Protectors, and so on. The key can be generated by the Key Vault, imported, or [transferred to the Key Vault from an on-premises HSM device](/azure/key-vault/keys/hsm-protected-keys). You can also use the [Always Encrypted](/azure/azure-sql/database/always-encrypted-azure-key-vault-configure) feature of Azure SQL Database, which is designed specifically to help protect sensitive data by allowing you to encrypt data inside your applications and [never reveal the encryption keys to the database engine](/sql/relational-databases/security/encryption/always-encrypted-database-engine). In this manner, Always Encrypted provides separation between those users who own the data (and can view it) and those users who manage the data (but should have no access).
+Azure SQL Database provides [transparent data encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-tde-overview) at rest by [default](https://azure.microsoft.com/updates/newly-created-azure-sql-databases-encrypted-by-default/). TDE performs real-time encryption and decryption operations on the data and log files. Database Encryption Key (DEK) is a symmetric key stored in the database boot record for availability during recovery. It's secured through a certificate stored in the master database of the server or an asymmetric key called TDE Protector stored under your control in [Azure Key Vault](/azure/key-vault/general/security-features). Key Vault supports [bring your own key (BYOK)](/azure/azure-sql/database/transparent-data-encryption-byok-overview), which enables you to store the TDE Protector in Key Vault and control key management tasks including key rotation, permissions, deleting keys, enabling auditing/reporting on all TDE Protectors, and so on. The key can be generated by the Key Vault, imported, or [transferred to the Key Vault from an on-premises HSM device](/azure/key-vault/keys/hsm-protected-keys). You can also use the [Always Encrypted](/azure/azure-sql/database/always-encrypted-azure-key-vault-configure) feature of Azure SQL Database, which is designed specifically to help protect sensitive data by allowing you to encrypt data inside your applications and [never reveal the encryption keys to the database engine](/sql/relational-databases/security/encryption/always-encrypted-database-engine). In this manner, Always Encrypted provides separation between those users who own the data (and can view it) and those users who manage the data (but should have no access).
 
 ### Data encryption in use
 
@@ -95,9 +95,9 @@ Microsoft enables you to protect your data throughout its entire lifecycle: at r
 
 Technologies like [Intel Software Guard Extensions](https://software.intel.com/sgx) (Intel SGX), or [AMD Secure Encrypted Virtualization](https://www.amd.com/en/developer/sev.html) (SEV-SNP) are recent CPU improvements supporting confidential computing implementations. These technologies are designed as virtualization extensions and provide feature sets including memory encryption and integrity, CPU-state confidentiality and integrity, and attestation. For more information, see [Azure confidential computing](../confidential-computing/index.yml) documentation.
 
-## Multi-factor authentication (MFA)
+## Multifactor authentication (MFA)
 
-The CJIS Security Policy v5.9.2 revised the multi-factor authentication (MFA) requirements for CJI protection. MFA requires the use of two or more different factors defined as follows:
+The CJIS Security Policy v5.9.2 revised the multifactor authentication (MFA) requirements for CJI protection. MFA requires the use of two or more different factors defined as follows:
 
 - Something you know, for example, username/password or personal identification number (PIN)
 - Something you have, for example, a hard token such as a cryptographic key stored on or a one-time password (OTP) transmitted to a specialized hardware device
@@ -128,7 +128,7 @@ Azure provides essential services that you can use to gain in-depth insight into
 
 - [Azure Security](../security/fundamentals/overview.md)
 - [Microsoft for public safety and justice](https://www.microsoft.com/industry/government/public-safety-and-justice)
-- [Microsoft government solutions](https://www.microsoft.com/enterprise/government)
+- [Microsoft government solutions](https://www.microsoft.com/industry/government)
 - [What is Azure Government?](./documentation-government-welcome.md)
 - [Explore Azure Government](https://azure.microsoft.com/global-infrastructure/government/)
 - [Azure Government compliance](./documentation-government-plan-compliance.md)

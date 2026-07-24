@@ -4,7 +4,8 @@ description: Describes how to deploy a web application to Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 10/31/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, engagement-fy23, references_regions, devx-track-extended-azdevcli
 ms.author: karler
 ms.reviewer: xiada
@@ -29,7 +30,7 @@ The following diagram shows the architecture of the system:
 
 :::image type="content" source="media/quickstart-deploy-web-app/diagram.png" alt-text="Diagram that shows the architecture of a Spring web application." border="false":::
 
-::: zone pivot="sc-consumption-plan,sc-standard"
+::: zone pivot="sc-standard"
 
 This article provides the following options for deploying to Azure Spring Apps:
 
@@ -51,21 +52,21 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 ## 1. Prerequisites
 
-::: zone pivot="sc-consumption-plan,sc-standard"
+::: zone pivot="sc-standard"
 
 ### [Azure portal](#tab/Azure-portal)
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 
 ### [Azure Developer CLI](#tab/Azure-Developer-CLI)
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - [Azure Developer CLI (AZD)](/azure/developer/azure-developer-cli/install-azd), version 1.2.0 or higher.
@@ -78,21 +79,20 @@ This article provides the following options for deploying to Azure Spring Apps:
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 
 ### [Azure CLI](#tab/Azure-CLI)
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Git](https://git-scm.com/downloads).
 - [Java Development Kit (JDK)](/java/azure/jdk/), version 17.
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.45.0 or higher. Use the following command to install the Azure Spring Apps extension: `az extension add --name spring`
-- If you're deploying an Azure Spring Apps Enterprise plan instance for the first time in the target subscription, see the [Requirements](../enterprise/how-to-enterprise-marketplace-offer.md#requirements) section of [Enterprise plan in Azure Marketplace](../enterprise/how-to-enterprise-marketplace-offer.md).
 
 ---
 
@@ -101,12 +101,6 @@ This article provides the following options for deploying to Azure Spring Apps:
 ::: zone pivot="sc-enterprise"
 
 [!INCLUDE [deploy-enterprise-plan](includes/quickstart-deploy-web-app/deploy-enterprise-plan.md)]
-
-::: zone-end
-
-::: zone pivot="sc-consumption-plan"
-
-[!INCLUDE [deploy-to-azure-spring-apps-consumption-plan](includes/quickstart-deploy-web-app/deploy-consumption-plan.md)]
 
 ::: zone-end
 
@@ -156,32 +150,6 @@ Use the following steps to validate:
 
 ::: zone-end
 
-::: zone pivot="sc-consumption-plan"
-
-### [Azure portal](#tab/Azure-portal)
-
-Use the following steps to validate:
-
-1. After the deployment finishes, you can find the application URL from the deployment outputs:
-
-   :::image type="content" source="media/quickstart-deploy-web-app/web-app-url-consumption.png" alt-text="Diagram that shows the consumption app URL of the ARM deployment outputs." border="false" lightbox="media/quickstart-deploy-web-app/web-app-url-consumption.png":::
-
-1. Access the application URL. The page should appear as you saw in localhost.
-
-1. Check the details for each resource deployment, which are useful for investigating any deployment issues.
-
-### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin)
-
-Access the application with the output application URL. The page should appear as you saw in localhost.
-
-### [Azure Developer CLI](#tab/Azure-Developer-CLI)
-
-Access the application with the output endpoint. The page should appear as you saw in localhost.
-
----
-
-::: zone-end
-
 ::: zone pivot="sc-standard"
 
 ### [Azure portal](#tab/Azure-portal)
@@ -212,7 +180,7 @@ Access the application with the output endpoint. The page should appear as you s
 
 Be sure to delete the resources you created in this article when you no longer need them. You can delete the Azure resource group, which includes all the resources in the resource group.
 
-::: zone pivot="sc-standard, sc-consumption-plan"
+::: zone pivot="sc-standard"
 
 [!INCLUDE [clean-up-resources-portal-or-azd](includes/quickstart-deploy-web-app/clean-up-resources.md)]
 
@@ -260,7 +228,7 @@ az group delete --name ${RESOURCE_GROUP}
 > [!div class="nextstepaction"]
 > [Quickstart: Create a service connection in Azure Spring Apps with the Azure CLI](../../service-connector/quickstart-cli-spring-cloud-connection.md)
 
-::: zone pivot="sc-standard, sc-consumption-plan"
+::: zone pivot="sc-standard"
 
 > [!div class="nextstepaction"]
 > [Introduction to the sample app](./quickstart-sample-app-introduction.md)

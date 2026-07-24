@@ -2,13 +2,15 @@
 title: Create a Microsoft Customer Agreement subscription request
 titleSuffix: Azure Cost Management + Billing
 description: Learn how to create an Azure subscription request in the Azure portal. See information about billing account forms and view other available resources.
-author: bandersmsft
-ms.reviewer: amberb
+author: mijeffer
+ms.author: mijeffer
+ms.reviewer: mijeffer
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 01/22/2025
-ms.author: banders
+ms.topic: how-to
+ms.date: 06/07/2026
+ms.custom: sfi-image-nochange
+service.tree.id: b69a7832-2929-4f60-bf9d-c6784a865ed8
 ---
 
 # Create a Microsoft Customer Agreement subscription request

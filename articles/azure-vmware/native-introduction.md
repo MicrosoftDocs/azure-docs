@@ -1,17 +1,19 @@
 ---
-title: Introduction to Azure VMware Solution Generation 2 Private Clouds (preview) 
+title: Introduction to Azure VMware Solution Generation 2 Private Clouds
 description: Learn about Azure VMware Solution Gen 2 private clouds.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 4/21/2025
-ms.custom: engagement-fy25
+ms.date: 4/24/2026
+ms.custom:
+  - engagement-fy25
+  - build-2025
 ms.author: jacobjaygbay
 # customer intent: As a cloud administrator, I want to learn about Azure VMware Solution Gen 2 private clouds so that I can understand the features and benefits of this offering.
+# Customer intent: As a cloud administrator, I want to understand the features and benefits of Azure VMware Solution Generation 2 private clouds so that I can make informed decisions about deploying and managing cost-effective, secure, and high-performance cloud architectures in Azure.
 ---
+# Introduction to Azure VMware Solution Generation 2 Private Clouds
 
-# Introduction to Azure VMware Solution Generation 2 Private Clouds (preview) 
-
-Azure VMware Solution Generation (Gen) 2 private clouds can now be deployed inside an Azure Virtual Network, conforming Azure VMware Solution to Azure networking standards. This architecture simplifies networking architecture, enhances data transfer speeds, reduces latency for workloads, and improves performance when accessing other Azure services. Users can now deploy Azure VMware Solution private clouds with the AV64 SKU directly, eliminating the need for a minimum of 3-host AV36, AV36P, AV48, or AV52 cluster. The same Azure VMware Solution limits apply as described in [Scale clusters in a Private Cloud](tutorial-scale-private-cloud.md).
+Azure VMware Solution Generation 2 (Gen 2) private clouds can now be deployed inside an Azure Virtual Network, conforming Azure VMware Solution to Azure networking standards. This architecture simplifies networking architecture, enhances data transfer speeds, reduces latency for workloads, and improves performance when accessing other Azure services. Users can now deploy Azure VMware Solution private clouds with the AV64 SKU directly. The same Azure VMware Solution limits apply as described in [Scale clusters in a Private Cloud](tutorial-scale-private-cloud.md).
 
 :::image type="content" source="./media/native-connectivity/azure-virtual-network-connectivity.png" alt-text="Diagram showing an Azure VMware Solution Gen 2 Virtual Network connectivity." lightbox="media/native-connectivity/azure-virtual-network-connectivity.png"::: 
 
@@ -19,20 +21,21 @@ Azure VMware Solution Generation (Gen) 2 private clouds can now be deployed insi
 
 The following table summarizes the differences between Gen 1 and Gen 2 private clouds:
 
-| Feature               | Azure VMware Solution Gen 1 private clouds    | Azure VMware Solution Gen 2 private clouds       |
+| Feature               | Gen 1   | Gen 2      |
 |-----------------------|-----------------------------------------------|--------------------------------------------------|
-| Supported SKU type    | <ul><li>AV36, AV36P, AV52, AV48</li><li>AV64 (with seed cluster of at least three AV36, AV36P, AV48, or AV52 nodes)</li></ul>| <ul><li>AV64</li></ul> |
+| Supported SKU type    | <ul><li>AV36, AV36P, AV52, AV48</li><li>AV64 (with seed cluster of at least three AV36, AV36P, AV48, or AV52 nodes)</li></ul>| <ul><li>Minimum 3-host AV64 cluster</li></ul>|
 | Network Attach Model  | <ul><li>ExpressRoute</li></ul>                | <ul><li>Virtual Network</li></ul>                |
+| vSAN Architecture     | <ul><li>OSA</li></ul>                         | <ul><li>ESA</li></ul>                            |
 
 ## Benefits
 With the Azure VMware Solution Gen 2 private clouds offering, you get the following benefits: 
 
 ### Simplified deployment and cost efficiency 
-- You can deploy Azure VMware Solution Gen 2 private clouds with the AV64 SKU directly, eliminating the need for a minimum of 3-host AV36, AV36P, AV48, or AV52 seed cluster. 
+- You can deploy Azure VMware Solution Gen 2 private clouds with the AV64 SKU directly, eliminating the need for a minimum of 3-host AV36, AV36P, AV48, or AV52 seed cluster. A minimum 3-host AV64 cluster is still required. 
 
 ### Seamless Azure integration 
 - Azure VMware Solution Gen 2 private clouds are now deployed inside an Azure Virtual Network by default, providing instant connectivity to other Azure services.
-- No extra networking setup needed and Azure Virtual Network peering works out of the box. 
+- No extra networking set up needed and Azure Virtual Network peering works out of the box. 
 
 ### Enhanced security and compliance 
 - Your Azure VMware Solution private cloud still runs on dedicated, isolated hardware, which means you get the continued benefits of a private cloud while staying within Azure. 
@@ -40,7 +43,7 @@ With the Azure VMware Solution Gen 2 private clouds offering, you get the follow
 
 ### Other features and capabilities unlocked 
 - Ability to select Private DNS resolution for your private cloud, enabling businesses to communicate across Azure and on-premises environments without being exposed to the internal.  
-- Ability to select which availability zone to deploy your private cloud in to minimize latency to on-premises environments. 
+- Ability to specify the Availability Zone in which the private cloud is deployed to optimize connectivity and latency with zonal Azure resources or ExpressRoute gateways within the same region. If no zonal alignment is required, the private cloud can be deployed without specifying an Availability Zone.
 
 ## Supported SKU type
 
@@ -49,14 +52,35 @@ Gen 2 private clouds are supported on the following SKU type:
 
 ## Regional availability
 
-Azure VMware Solution Gen 2 private clouds are available in the following regions for Preview.
+Gen 2 is available in the following Azure public regions. 
 
-| Region | Status |
-|--------|--------|
-| East US | Preview |
-| UK South | Preview |
-| Japan East | Preview |
-| Switzerland North | Preview |
+- Australia East
+- Belgium Central
+- Brazil South
+- Canada Central
+- Canada East
+- Central US
+- East US
+- East US 2
+- France Central
+- Germany West Central
+- Japan East
+- Malaysia West
+- New Zealand North
+- North Europe
+- North Central US
+- North Europe
+- Norway East
+- Qatar Central
+- Southeast Asia
+- South Central US
+- Switzerland North
+- Switzerland West
+- UK South
+- UK West
+- West US 2
+
+There could be other regions that have Gen 2 available. To confirm coverage in other regions, contact your Microsoft account team or Microsoft Support.
 
 ## Next steps
 

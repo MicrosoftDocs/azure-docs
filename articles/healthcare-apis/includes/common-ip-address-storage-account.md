@@ -1,23 +1,24 @@
 ---
-title: "include file"
-description: "include file"
-services: healthcare-apis
+services: azure-health-data-services
 ms.service: fhir
-ms.topic: "include"
-ms.date: 07/26/2023
+ms.topic: include
+ms.date: 03/23/2026
+author: EXPEkesheth
 ms.author: kesheth
-ms.custom: "include file"
+ms.reviewer: v-catheribun
 ---
 
 ### Allow specific IP addresses to access the Azure storage account from other Azure regions
 
-1. In the Azure portal, go to the Azure Data Lake Storage Gen2 account.
+1. In the Azure portal, go to the storage account.
+1. On the left menu, select **Security + Networking** > **Networking**.
+1. On the **Public access** tab under **Public network access**, select **Manage**.
+1. Select **Enabled from selected networks**.
+1. Enter the IP addresses in the **IPv4 Addresses** section.
 
-1. On the left menu, select **Networking**.
+:::image type="content" source="../fhir/media/export-data/allow-selected-public-ip-addresses.png" alt-text="Screenshot of the page for allowing selected public IP addresses." lightbox="../fhir/media/export-data/allow-selected-public-ip-addresses.png":::
 
-1. Select **Enabled from selected virtual networks and IP addresses**.
-
-1. In the **Firewall** section, in the **Address range** box, specify the IP address. Add IP ranges to allow access from the internet or your on-premises networks. You can find the IP address in the following table for the Azure region where the FHIR service is provisioned.
+The following table lists the public IP addresses for the FHIR service in different Azure regions. You can use these IP addresses to allow access to the storage account from the FHIR service in other regions.
 
    |Azure region         |Public IP address |
    |:----------------------|:-------------------|
@@ -45,9 +46,9 @@ ms.custom: "include file"
 
 ### Allow specific IP addresses to access the Azure storage account in the same region
 
-The configuration process for IP addresses in the same region is just like the previous procedure, except that you use a specific IP address range in Classless Inter-Domain Routing (CIDR) format instead (that is, 100.64.0.0/10). You must specify the IP address range (100.64.0.0 to 100.127.255.255) because an IP address for the FHIR service is allocated each time you make an operation request.
+The configuration process for IP addresses in the same region is just like the previous procedure, except that you use a specific IP address range in Classless Inter-Domain Routing (CIDR) format (for example, 100.64.0.0/10). You must specify the IP address range (100.64.0.0 to 100.127.255.255) because the FHIR service allocates an IP address each time you make an operation request.
 
 > [!NOTE]
-> It's possible to use a private IP address within the range of 10.0.2.0/24, but there's no guarantee that the operation will succeed in such a case. You can retry if the operation request fails, but until you use an IP address within the range of 100.64.0.0/10, the request won't succeed.
+> You can use a private IP address within the range of 10.0.2.0/24, but there's no guarantee that the operation succeeds. If the operation request fails, you can retry. However, the request doesn't succeed until you use an IP address within the range of 100.64.0.0/10.
 >
 > This network behavior for IP address ranges is by design. The alternative is to configure the storage account in a different region.

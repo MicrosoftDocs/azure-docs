@@ -2,13 +2,18 @@
 title: Upload files from devices to Azure IoT Hub (Java)
 titleSuffix: Azure IoT Hub
 description: How to upload files from a device to the cloud using Azure IoT device SDK for Java. Uploaded files are stored in an Azure storage blob container.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.devlang: java
 ms.topic: include
 ms.date: 12/12/2024
-ms.custom: amqp, mqtt, devx-track-java, devx-track-extended-java
+ms.custom:
+  - amqp
+  - mqtt
+  - devx-track-java
+  - devx-track-extended-java
+  - sfi-ropc-nochange
 ---
 
 ## Overview

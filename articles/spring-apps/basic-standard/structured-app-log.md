@@ -3,8 +3,9 @@ title: Structured Application Log for Azure Spring Apps
 description: This article explains how to generate and collect structured application log data in Azure Spring Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
-ms.topic: conceptual
-ms.date: 08/29/2024
+ms.topic: how-to
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java
 ---

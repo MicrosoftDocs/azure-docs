@@ -1,82 +1,164 @@
 ---
-title: Recommended configurations for Apache Kafka clients - Azure Event Hubs
-description: This article provides recommended Apache Kafka configurations for clients interacting with Azure Event Hubs for Apache Kafka. 
+title: Apache Kafka client configurations for Azure Event Hubs
+description: Recommended Kafka client configurations when migrating from Apache Kafka to Azure Event Hubs. Learn which settings to adjust and which defaults to keep.
 ms.topic: reference
 ms.subservice: kafka
 ms.custom: devx-track-extended-java
-ms.date: 03/06/2025
+ms.date: 12/17/2025
 ---
 
-# Recommended configurations for Apache Kafka clients
-Here are the recommended configurations for using Azure Event Hubs from Apache Kafka client applications. 
+# Apache Kafka client configurations for Azure Event Hubs
+
+This guide helps Kafka developers configure their client applications when migrating from Apache Kafka to Azure Event Hubs. Event Hubs provides a Kafka-compatible endpoint, allowing you to use existing Kafka client libraries with minimal configuration changes.
+
+## Before you begin
+
+### What you can and can't configure
+
+Azure Event Hubs is a fully managed service. Unlike self-managed Kafka clusters, you don't have access to broker-side configurations. This means:
+
+| Configuration type | Configurable? | Notes |
+|--------------------|---------------|-------|
+| **Client-side configurations** | ✅ Yes | Producer and consumer settings in your application code |
+| **Broker/server configurations** | ❌ No | Managed by Event Hubs (replication, retention policies, etc.) |
+| **Topic-level configurations** | ⚠️ Limited | Partition count and retention set via Azure portal or APIs, not Kafka AdminClient |
+
+### Use defaults unless you have a specific need
+
+> [!IMPORTANT]
+> **For most workloads, the default Kafka client configurations work well with Event Hubs.** Only modify settings when you have a specific performance requirement or encounter issues. Incorrect configuration changes can negatively impact throughput, latency, and reliability.
+
+The tables in this article list configurations that **differ from standard Kafka defaults** or have **Event Hubs-specific constraints**. If a configuration isn't listed here, use the Kafka client default value.
+
+### Required connection settings
+
+All Kafka clients connecting to Event Hubs require these authentication settings:
+
+```properties
+bootstrap.servers=<your-namespace>.servicebus.windows.net:9093
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="<your-connection-string>";
+```
+
+For more connection options, see [Connect to Event Hubs using Kafka protocol](event-hubs-quickstart-kafka-enabled-event-hubs.md). 
 
 ## Java client configuration properties
 
-### Producer and consumer configurations
+This section covers configurations for the official Apache Kafka Java client. For the full list of Kafka producer and consumer configurations, see the [Apache Kafka documentation](https://kafka.apache.org/documentation/).
 
-Property | Recommended values | Permitted range | Notes
----|---:|-----:|---
-`metadata.max.age.ms` | 180000 (approximate) | < 240000 | Can be lowered to pick up metadata changes sooner.
-`connections.max.idle.ms`	| 180000 | < 240000 | Azure closes inbound Transmission Control Protocol (TCP) idle > 240,000 ms, which can result in sending on dead connections (shown as expired batches because of send time-out).
+### Configurations that differ from Kafka defaults
 
-### Producer configurations only
-Producer configs can be found [here](https://kafka.apache.org/documentation/#producerconfigs).
+The following settings have Event Hubs-specific constraints or recommended values that differ from standard Kafka defaults:
 
-|Property | Recommended Values | Permitted Range | Notes|
-|---|---:|---:|---|
-|`max.request.size` | 1000000 | < 1046528 | The service closes connections if requests larger than 1,046,528 bytes are sent. *This value **must** be changed and causes issues in high-throughput produce scenarios.*|
-|`retries` | > 0 | | Might require increasing `delivery.timeout.ms` value, see documentation.|
-|`request.timeout.ms` | 30000 .. 60000 | > 20000| Event Hubs internally defaults to a minimum of 20,000 ms. *While requests with lower time out values are accepted, client behavior isn't guaranteed.* <p>Make sure that your **request.timeout.ms** is at least the recommended value of 60000 and your **session.timeout.ms** is at least the recommended value of 30000. Having these settings too low could cause consumer time-outs, which then cause rebalances (which then cause more time-outs, which cause more rebalancing, and so on).</p>|
-|`metadata.max.idle.ms` | 180000 | > 5000 | Controls how long the producer caches metadata for a topic that's idle. If the elapsed time since a topic was last produced exceeds the metadata idle duration, then the topic's metadata is forgotten and the next access to it will force a metadata fetch request.|
-|`linger.ms` | > 0 | | For high throughput scenarios, linger value should be equal to the highest tolerable value to take advantage of batching.|
-|`delivery.timeout.ms` | | | Set according to the formula (`request.timeout.ms` + `linger.ms`) * `retries`.|
-|`compression.type` | `none, gzip` | | Only gzip compression is currently supported.|
+#### Producer and consumer
 
-### Consumer configurations only
-Consumer configs can be found [here](https://kafka.apache.org/documentation/#consumerconfigs).
+| Property | Default | Recommended for Event Hubs | Constraint | Notes |
+|----------|---------|---------------------------|------------|-------|
+| `metadata.max.age.ms` | 300000 | 180000 | Must be < 240000 | Azure closes idle connections after 240 seconds |
+| `connections.max.idle.ms` | 540000 | 180000 | Must be < 240000 | Prevents sending on closed connections (appears as expired batches) |
 
-Property | Recommended Values | Permitted Range | Notes
----|---:|-----:|---
-`heartbeat.interval.ms` | 3000 | | 3000 is the default value and shouldn't be changed.
-`session.timeout.ms` | 30000 |6000 .. 300000| Start with 30000, increase if seeing frequent rebalancing because of missed heartbeats.<p>Make sure that your request.timeout.ms is at least the recommended value of 60000 and your session.timeout.ms is at least the recommended value of 30000. Having these settings too low could cause consumer time-outs, which then cause rebalances (which then cause more time-outs, which cause more rebalancing, and so on).</p>
-`max.poll.interval.ms` | 300000 (default) |>session.timeout.ms| Used for rebalance time-out, so it shouldn't be set too low. Must be greater than session.timeout.ms.
+#### Producer only
+
+| Property | Default | Recommended for Event Hubs | Constraint | Notes |
+|----------|---------|---------------------------|------------|-------|
+| `max.request.size` | 1048576 | 1000000 | Must be < 1046528 | **Critical**: Connections close if exceeded. Reduce from default. |
+| `request.timeout.ms` | 30000 | 60000 | Must be > 20000 | Event Hubs enforces 20 second minimum internally |
+| `compression.type` | none | `none` or `gzip` | Only `gzip` supported | Other compression types (snappy, lz4, zstd) aren't supported |
+
+#### Consumer only
+
+| Property | Default | Recommended for Event Hubs | Constraint | Notes |
+|----------|---------|---------------------------|------------|-------|
+| `heartbeat.interval.ms` | 3000 | 3000 (keep default) | — | Don't change this value |
+| `session.timeout.ms` | 45000 | 30000 | 6000–300000 | Increase if you see frequent rebalancing |
+| `max.poll.interval.ms` | 300000 | 300000 (keep default) | Must be > `session.timeout.ms` | Increase only if processing takes longer than 5 minutes |
+
+### Configurations to keep at defaults
+
+These settings work well with Event Hubs at their default values. Only change them if you have specific requirements:
+
+| Property | Default | When to consider changing |
+|----------|---------|---------------------------|
+| `retries` | 2147483647 | Rarely needs changing |
+| `delivery.timeout.ms` | 120000 | Adjust if using custom retry strategy |
+| `linger.ms` | 0 | Increase for high-throughput scenarios (trades latency for throughput) |
+| `batch.size` | 16384 | Increase for high-throughput scenarios |
+| `acks` | all | Use `1` for higher throughput with slightly less durability |
+| `enable.idempotence` | true | Keep enabled for exactly-once producer semantics. Requires `request.timeout.ms` ≥ 60000, high `retries` (default is sufficient), and `acks=all` |
 
 ## librdkafka configuration properties
-The main `librdkafka` configuration file ([link](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md)) contains extended descriptions for the properties described in the following sections.
 
-### Producer and consumer configurations
+This section covers configurations for librdkafka-based clients (Confluent Python, Confluent .NET, Confluent Go, and others). For the complete configuration reference, see the [librdkafka documentation](https://github.com/edenhill/librdkafka/blob/master/CONFIGURATION.md).
 
-Property | Recommended Values | Permitted Range | Notes
----|---:|-----:|---
-`socket.keepalive.enable` | true | | Necessary if connection is expected to idle. Azure closes inbound TCP idle > 240,000 ms.
-`metadata.max.age.ms` | ~ 180000| < 240000 | Can be lowered to pick up metadata changes sooner.
+### Configurations that differ from librdkafka defaults
 
-### Producer configurations only
+#### Producer and consumer
 
-|Property | Recommended Values | Permitted Range | Notes|
-|---|---:|-----:|---|
-|`retries` | > 0 | | Default is 2147483647.|
-|`request.timeout.ms` | 30000 .. 60000 | > 20000| Event Hubs internally defaults to a minimum of 20,000 ms. `librdkafka` default value is 5000, which can be problematic. *While requests with lower time-out values are accepted, client behavior isn't guaranteed.*|
-|`partitioner` | `consistent_random` | See librdkafka documentation | `consistent_random` is default and best. Empty and null keys are handled ideally for most cases.|
-|`compression.codec` | `none, gzip` || Only gzip compression is currently supported.|
+| Property | Default | Recommended for Event Hubs | Constraint | Notes |
+|----------|---------|---------------------------|------------|-------|
+| `socket.keepalive.enable` | false | true | — | Required to prevent idle connection closure |
+| `metadata.max.age.ms` | 900000 | 180000 | Must be < 240000 | Azure closes idle connections after 240 seconds |
 
-### Consumer configurations only
+#### Producer only
 
-Property | Recommended Values | Permitted Range | Notes
----|---:|-----:|---
-`heartbeat.interval.ms` | 3000 || 3000 is the default value and shouldn't be changed.
-`session.timeout.ms` | 30000 |6000 .. 300000| Start with 30000, increase if seeing frequent rebalancing because of missed heartbeats.
-`max.poll.interval.ms` | 300000 (default) |>session.timeout.ms| Used for rebalance time out, so it shouldn't be set too low. Must be greater than session.timeout.ms.
+| Property | Default | Recommended for Event Hubs | Constraint | Notes |
+|----------|---------|---------------------------|------------|-------|
+| `request.timeout.ms` | 5000 | 60000 | Must be > 20000 | **Critical**: librdkafka default is too low for Event Hubs |
+| `compression.codec` | none | `none` or `gzip` | Only `gzip` supported | Other compression types aren't supported |
+
+#### Consumer only
+
+| Property | Default | Recommended for Event Hubs | Constraint | Notes |
+|----------|---------|---------------------------|------------|-------|
+| `heartbeat.interval.ms` | 3000 | 3000 (keep default) | — | Don't change this value |
+| `session.timeout.ms` | 45000 | 30000 | 6000–300000 | Increase if you see frequent rebalancing |
+| `max.poll.interval.ms` | 300000 | 300000 (keep default) | Must be > `session.timeout.ms` | Increase only if processing takes longer than 5 minutes |
+
+### Configurations to keep at defaults
+
+| Property | Default | When to consider changing |
+|----------|---------|---------------------------|
+| `retries` | 2147483647 | Rarely needs changing |
+| `partitioner` | consistent_random | Handles null keys well; change only for specific key distribution needs |
 
 
-## Further notes
+## Troubleshooting common issues
 
-Check the following table of common configuration-related error scenarios.
+If you encounter problems after migrating from Kafka to Event Hubs, check these common configuration-related issues:
 
-Symptoms | Problem | Solution
-----|---|-----
-Offset commit failures because of rebalancing | Your consumer is waiting too long in between calls to poll() and the service is kicking the consumer out of the group. | You have several options: <ul><li>Increase poll processing time out (`max.poll.interval.ms`)</li><li>Decrease message batch size to speed up processing</li><li>Improve processing parallelization to avoid blocking consumer.poll()</li></ul> Applying some combination of the three is likely wisest.
-Network exceptions at high produce throughput | If you're using Java client + default max.request.size, your requests might be too large. | See Java configs mentioned earlier.
+| Symptom | Likely cause | Solution |
+|---------|--------------|----------|
+| Connection closed unexpectedly | `max.request.size` exceeds 1,046,528 bytes | Set `max.request.size=1000000` |
+| Expired batches or send timeouts | Idle connections closed by Azure | Set `connections.max.idle.ms=180000` and `metadata.max.age.ms=180000` |
+| Request timeouts (librdkafka) | Default `request.timeout.ms` too low | Set `request.timeout.ms=60000` |
+| Frequent consumer rebalancing | `session.timeout.ms` too low or processing too slow | Increase `session.timeout.ms` or `max.poll.interval.ms`. Consider setting unique `group.instance.id` per consumer instance to reduce rebalances from transient disconnections |
+| Offset commit failures | Processing takes too long between polls | Increase `max.poll.interval.ms`, reduce batch size, or parallelize processing |
+| Compression errors | Unsupported compression type | Use `compression.type=gzip` or `compression.type=none` |
+| Authentication failures | Incorrect connection string format | Verify `sasl.jaas.config` format and connection string value |
+| High latency spikes | `linger.ms` set too high, causing batch accumulation delays | Reduce `linger.ms` value (use `0` for lowest latency) |
+| Data disappearing earlier than expected | Event Hubs retention period shorter than original Kafka retention | Adjust retention in Azure portal; check [quotas and limits](event-hubs-quotas.md) for max retention per tier |
+| Unexpected offset reset | Consumer offsets expired beyond Event Hubs retention period | Ensure `auto.offset.reset` is configured appropriately; increase retention or process data before offsets expire |
+| Not receiving all data from all partitions | Zombie consumer application running in your environment with the same `group.id` | Isolate and kill the zombie application |
 
-## Next steps
-See [Azure subscription and service limits, quotas, and constraints](..//azure-resource-manager/management/azure-subscription-service-limits.md) for quotas and limits of all Azure services. 
+## Configuration not supported
+
+The following Kafka features and configurations aren't available with Event Hubs:
+
+| Feature | Reason |
+|---------|--------|
+| Kafka AdminClient for topic management | Use Azure portal, CLI, or ARM templates instead |
+| Broker configurations | Event Hubs is fully managed |
+| Transactions | Not currently supported |
+| Exactly-once semantics (EOS) | Not currently supported |
+| Compression types other than gzip | Only gzip compression is supported |
+| Custom partitioner on server side | Partition assignment is client-side only |
+
+## Related content
+
+- [Azure Event Hubs for Apache Kafka overview](azure-event-hubs-apache-kafka-overview.md)
+- [Quickstart: Stream data with Event Hubs using Kafka protocol](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Migrate from Apache Kafka to Event Hubs](apache-kafka-migration-guide.md)
+- [Event Hubs quotas and limits](event-hubs-quotas.md)
+- [Apache Kafka documentation: Producer configs](https://kafka.apache.org/documentation/#producerconfigs)
+- [Apache Kafka documentation: Consumer configs](https://kafka.apache.org/documentation/#consumerconfigs) 

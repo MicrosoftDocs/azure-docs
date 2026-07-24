@@ -6,7 +6,7 @@ description: Learn how to update redirect URLs in Azure AD B2C applications to u
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 02/26/2025
@@ -19,6 +19,7 @@ ms.subservice: b2c
 ---
 
 # Set redirect URLs to b2clogin.com for Azure Active Directory B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 When you set up an identity provider for sign-up and sign-in in your Azure Active Directory B2C (Azure AD B2C) applications, you need to specify the endpoints of the Azure AD B2C identity provider. You should no longer reference *login.microsoftonline.com* in your applications and APIs for authenticating users with Azure AD B2C. Instead, use *b2clogin.com* or a [custom domain](./custom-domain.md) for all applications.
 

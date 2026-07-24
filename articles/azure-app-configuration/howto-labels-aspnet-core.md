@@ -5,9 +5,9 @@ description: This article describes how to use labels to retrieve app configurat
 ms.service: azure-app-configuration
 ms.devlang: csharp
 author: maud-lv
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-csharp
-ms.date: 03/19/2025
+ms.date: 06/22/2026
 ms.author: malev
 
 ---

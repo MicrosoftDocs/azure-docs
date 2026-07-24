@@ -3,10 +3,11 @@ title: Azure Storage Migration Program Details
 description: Overview of the Azure Storage Migration Program and how to use it
 author: karauten
 ms.author: karauten
-ms.topic: conceptual
-ms.date: 03/24/2022
+ms.topic: concept-article
+ms.date: 04/22/2026
 ms.service: azure-storage
 ms.subservice: storage-partner-integration
+# Customer intent: "As a cloud administrator, I want to utilize the Azure Storage Migration Program and its partner solutions, so that I can efficiently migrate various data types to Azure Storage while minimizing costs and ensuring minimal disruption to business operations."
 ---
 
 # Engaging with Azure Storage Migration Partners
@@ -31,8 +32,10 @@ __Free to use – refer to [FAQ](#faq) for program parameters__
 
 - __[Komprise Elastic Data Migration](https://aka.ms/kompriseoffer)__ – Migrate files and objects to Azure Blob Storage, Azure Files, and Azure NetApp Files
 
+- __[Cirata Data Migrator](https://aka.ms/cirataoffer)__ – Migrate data lakes to Azure Data Lake Storage Gen2
+
 > [!IMPORTANT]
-> The list was last updated in March of 2025.
+> The list was last updated in April of 2026.
 
 ## FAQ
 __Q:__ Is the program ___really___ free?
@@ -99,7 +102,7 @@ Storage Mover is a maturing service and the supported source - target pairings w
 
 - [Copy or move data to Azure Storage with AzCopy](../../../common/storage-use-azcopy-v10.md)
 
-- [Migrate large datasets to Azure Blob Storage with AzReplicate (sample application)](/samples/azure/azreplicate/azreplicate/)
+- [Migrate large datasets to Azure Blob Storage with AzReplicate (sample application)](/rest/api/datareplication/)
 
 > [!IMPORTANT]
 > Support provided by ISV, not Microsoft

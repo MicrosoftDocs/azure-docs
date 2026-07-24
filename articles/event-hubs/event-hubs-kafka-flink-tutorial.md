@@ -5,6 +5,7 @@ ms.topic: how-to
 ms.date: 03/06/2025
 ms.subservice: kafka
 ms.devlang: java
+ms.custom: sfi-ropc-nochange
 ---
 
 # Use Apache Flink with Azure Event Hubs for Apache Kafka
@@ -26,7 +27,7 @@ In this tutorial, you learn how to:
 To complete this tutorial, make sure you have the following prerequisites:
 
 * Read through the [Event Hubs for Apache Kafka](azure-event-hubs-apache-kafka-overview.md) article. 
-* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
+* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure)
     * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
@@ -117,7 +118,7 @@ mvn exec:java -Dexec.mainClass="FlinkTestConsumer"
 
 If the event hub has events (for example, if your producer is also running), then the consumer now begins receiving events from the topic `test`.
 
-Check out [Flink's Kafka Connector Guide](https://ci.apache.org/projects/flink/flink-docs-stable/dev/connectors/kafka.html) for more detailed information about connecting Flink to Kafka.
+Check out [Flink's Kafka Connector Guide](https://nightlies.apache.org/flink/flink-docs-stable/docs/connectors/datastream/kafka) for more detailed information about connecting Flink to Kafka.
 
 ## Next steps
 To learn more about Event Hubs for Kafka, see the following articles:  

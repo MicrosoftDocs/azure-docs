@@ -4,13 +4,15 @@ metadata:
   description: This article provides answers to common questions about backing up SAP HANA databases using the Azure Backup service.
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 11/20/2024
-  author: jyothisuri
-  ms.author: jsuri
-  ms.custom: engagement-fy24
+  ms.date: 07/16/2026
+  author: AbhishekMallick-MS
+  ms.author: v-mallicka
+  ms.custom:
+    - sfi-image-nochange
+    - engagement-fy24
 
 title: Frequently asked questions – Back up SAP HANA databases on Azure VMs
-summary: This article answers common questions about backing up SAP HANA databases using the Azure Backup service.
+summary: This article answers common questions about backing up SAP HANA databases using the Azure Backup service. To learn about the supported SAP HANA database backup and restore scenarios, region availability, and limitations, see the [support matrix](backup-azure-sql-database.md).
 
 
 sections:
@@ -138,7 +140,7 @@ sections:
       - question: |
           What’s the backup and restore throughput performance that Azure Backup provides and how to set up my HANA system to use this maximum throughput?
         answer: |
-          Refer to [the backup and restore throughput performance](./tutorial-backup-sap-hana-db.md#understanding-the-backup-and-restore-throughput-performance) that Azure Backup provides for HANA workloads. <br><br> To set up your HANA system to leverage the improved performance, use the following resources:
+          Refer to [the backup and restore throughput performance](./tutorial-backup-sap-hana-db.md#backup-and-restore-throughput-performance-for-sap-hana-databases) that Azure Backup provides for HANA workloads. <br><br> To set up your HANA system to leverage the improved performance, use the following resources:
           
            - [Select a disk type for Azure IaaS VMs - managed disks](/azure/virtual-machines/disks-types)
            - [Performance tiers for Azure managed disks](/azure/virtual-machines/disks-change-performance)
@@ -158,7 +160,9 @@ sections:
           Does HSR support database instances backup using snapshots?
 
         answer: |
-          Currently, only Backint-based backups are supported for HSR. Snapshots aren't yet.
+          Yes. Azure Backup supports database instance snapshot backups in Preview for HSR-enabled SAP HANA systems when you use the **Enhanced (Preview)** snapshot backup policy.
+
+          Snapshot backup also has a **Standard** policy subtype (Generally Available), but HSR snapshot support is currently available only with the **Enhanced (Preview)** policy.
 
       - question: |
           Do I need to run the instance re-detection only on the server marked "Ready", or also on the one marked "Not Ready"?
@@ -270,10 +274,62 @@ sections:
           - Create a soft *link*/*symlink* to another location/folder on the same/different disk.
           - Increase the space on the root partition.
 
+  - name: Scale-out (Preview)
+    questions:
+      - question: |
+          What is SAP HANA Scale-out and how does Azure Backup support it?
+        answer: |
+          SAP HANA Scale-out is a topology where a single HANA system is distributed across multiple nodes. One node hosts the system database (primary node), while other nodes (worker nodes) host tenant databases and services. Azure Backup treats the entire scale-out system as a single logical unit, providing a unified backup chain across all nodes and simplifying management. For more information, see [Back up SAP HANA Scale-out databases on Azure VMs](sap-hana-database-scale-out-backup.md).
+
+      - question: |
+          Do I need to run the preregistration script on all nodes in my scale-out system?
+        answer: |
+          Yes, you must run the preregistration script on **all nodes** (both primary and worker nodes) in your scale-out system. The script prepares each node for backup by creating the necessary database user and userstore entries. You must configure each node with the same scale-out unique identifier (SUV) for proper coordination.
+
+      - question: |
+          What is a scale-out unique identifier (SUV) and why is it important?
+        answer: |
+          A scale-out unique identifier (SUV) is a unique alphanumeric value that identifies your scale-out HANA system. You must use the same SUV on all nodes when running the preregistration script. This identifier ensures that Azure Backup correctly recognizes and coordinates backup operations across all nodes in the scale-out system.
+
+      - question: |
+          Do I need to register each node separately with the Recovery Services vault?
+        answer: |
+          Yes, you must register each node (primary and worker) in the scale-out system separately with the Recovery Services vault, and run the **Discover DBs** operation on each node. However, when configuring backup, you select the scale-out HANA system as a single unit rather than individual nodes.
+
+      - question: |
+          Can I restore a scale-out database to a different scale-out system?
+        answer: |
+          Yes, Azure Backup supports Alternate Location Restore (ALR) for scale-out systems. You can restore a database from your scale-out system to a different scale-out system. Before performing an ALR restore, ensure that all nodes in the target scale-out system are registered with the same vault, the preregistration script has been run on all target nodes, and all nodes have been discovered.
+
+      - question: |
+          What should I use instead of the physical primary node hostname in my scale-out configuration?
+        answer: |
+          We recommend that you use a virtual hostname that automatically resolves to the primary node instead of the physical hostname. This facilitates failover scenarios where the primary node might change. The virtual hostname should be configured in your scale-out system's network settings and used in the `hdbuserstore` keys.
+
+      - question: |
+          Can I trigger backups from SAP HANA native clients (Studio/Cockpit) for my scale-out system?
+        answer: |
+          No, for scale-out systems, you can trigger backups only from the Azure portal or Azure CLI. Triggering backups from HANA native clients is currently not supported during preview. Use the Azure portal to trigger on-demand backups as needed.
+
+      - question: |
+          What are the limitations of SAP HANA Scale-out backup in preview?
+        answer: |
+          For the complete and current list of scale-out limitations, see [Support for HANA Scale-out (Preview)](sap-hana-backup-support-matrix.md#support-for-hana-scale-out-preview) in the support matrix.
+
+      - question: |
+          Do I need to manually manage failover scenarios in a scale-out system?
+        answer: |
+          No, Azure Backup manages failover scenarios automatically. If the primary node changes in your scale-out system, backups continue seamlessly without manual intervention. The virtual hostname and the configured hdbuserstore keys ensure that the Azure Backup service can automatically connect to the new primary node.
+
 
 additionalContent: |
 
   ## Next steps
   
-  - Learn how to [back up SAP HANA databases](./backup-azure-sap-hana-database.md) running on Azure VMs.
-  - Learn how to [troubleshoot SAP HANA database backup](backup-azure-sap-hana-database-troubleshoot.md).
+  - [Back up SAP HANA databases](./backup-azure-sap-hana-database.md) running on Azure VMs.
+  - [Back up SAP HANA System Replication databases on Azure VMs using Azure portal](sap-hana-database-with-hana-system-replication-backup.md).
+  - [Back up SAP HANA Scale-out databases on Azure VMs](sap-hana-database-scale-out-backup.md).
+  - [Back up SAP HANA database instance snapshots on Azure VMs](sap-hana-database-instances-backup.md).
+  - [Manage and monitor backed up SAP HANA databases using Azure portal](sap-hana-database-manage.md).
+  - [Troubleshoot SAP HANA database backup](backup-azure-sap-hana-database-troubleshoot.md).
+

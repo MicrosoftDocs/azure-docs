@@ -3,10 +3,10 @@ title: Authorize access with Microsoft Entra ID for Azure Web PubSub
 description: This article provides information on authorizing access to Azure Web PubSub Service resources using Microsoft Entra ID.
 author: terencefan
 
-ms.author: tefa
+ms.author: lianwei
 ms.date: 11/08/2021
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Authorize access to Web PubSub resources using Microsoft Entra ID

@@ -2,11 +2,12 @@
 title: 'Configure User VPN clients: certificate authentication: Azure VPN client: Windows'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure the Azure VPN Client on a Windows operating system for P2S configurations that use certificate authentication.
-author: cherylmc
+author: duongau
 ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 03/20/2025
-ms.author: cherylmc
+ms.author: duau
+ms.custom: sfi-image-nochange
 ---
 
 # Configure Azure VPN Client for User VPN P2S certificate authentication connections - Windows

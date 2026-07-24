@@ -6,19 +6,18 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 02/21/2025
+ms.date: 06/17/2026
 ---
 
 # Integrate Neon Serverless Postgres with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Neon Serverless Postgres from Azure compute services using Service Connector. You might still be able to connect to Neon Serverless Postgres in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection.
+This article describes the supported authentication methods and clients, and provides sample code for connecting Neon Serverless Postgres from Azure compute services by using Service Connector. You can still connect to Neon Serverless Postgres in other programming languages without using Service Connector. This article also lists default environment variable names and values (or Spring Boot configuration) that you receive when you create the service connection.
 
 ## Supported compute services
 
 Service Connector can be used to connect the following compute services to Neon Serverless Postgres:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps
@@ -40,13 +39,13 @@ The table below shows which combinations of authentication methods and clients a
 | Ruby (ruby-pg)            |                No                |                No              |            Yes           |        No         |
 | None                      |                No                |                No              |            Yes           |        No         |
 
-This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to Neon Serverless Postgres using Service Connector.
+This table shows that Service Connector for Neon Serverless Postgres supports only the connection string authentication method. Managed identity and service principal aren't supported for this target service.
 
 ## Default environment variable names or application properties and sample code
 
 Reference the connection details and sample code in the following tables, according to your connection's authentication type and client type, to connect compute services to Neon Serverless Postgres. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
-### Connection String
+### Connection string
 
 > [!WARNING]
 > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
@@ -63,7 +62,7 @@ Reference the connection details and sample code in the following tables, accord
 | ------------------------------------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `NEON_POSTGRESQL_CONNECTIONSTRING` | JDBC PostgreSQL connection string | `jdbc:postgresql://ep-still-mud-a12aa123.eastus2.azure.neon.tech:5432/<database-name>?sslmode=require&user=<username>&password=<password>` |
 
-#### [SpringBoot](#tab/springBoot)
+#### [Spring Boot](#tab/springBoot)
 
 | Application properties         | Description       | Example value                                                                                                   |
 | ------------------------------ | ----------------- | --------------------------------------------------------------------------------------------------------------- |
@@ -130,7 +129,7 @@ Reference the connection details and sample code in the following tables, accord
 
 #### Sample code
 
-Refer to the steps and code below to connect to Neon Serverless Postgres using a connection string.
+To connect to Neon Serverless Postgres using a connection string:
 [!INCLUDE [code sample for postgresql secrets](./includes/code-neon-postgres-secret.md)]
 
 

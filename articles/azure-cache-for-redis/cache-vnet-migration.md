@@ -1,17 +1,16 @@
 ---
 title: Migrate from VNet injection caches to Private Link caches
 description: Learn how to migrate your Azure Cache for Redis Virtual Network (VNet) caches to Private Link caches.
-
-
-
-
-ms.topic: conceptual
+ms.topic: upgrade-and-migration-article
 ms.date: 07/19/2021
 appliesto:
   - ✅ Azure Cache for Redis
 ---
 
 # Migrate from VNet injection caches to Private Link caches
+
+[!INCLUDE [cache-retirement-alert](includes/cache-retirement-alert.md)]
+
 This article describes a number of approaches to migrate an Azure Cache for Redis Virtual Network (VNet) injected cache instances to Azure Cache for Redis Private Link cache instances. 
 
 [Azure Private Link](../private-link/private-link-overview.md) simplifies the network architecture and secures the connection between endpoints in Azure. You can connect to an Azure Cache instance from your virtual network via a private endpoint, which is assigned a private IP address in a subnet within the virtual network. Advantages of using Azure Private Link for Azure Cache for Redis include: 

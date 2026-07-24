@@ -1,9 +1,9 @@
 ---
-author: vhorne
+author: asudbring
 ms.service: azure-dns
 ms.topic: include
 ms.date: 11/04/2024
-ms.author: victorh
+ms.author: allensu
 ---
 ### Record names
 

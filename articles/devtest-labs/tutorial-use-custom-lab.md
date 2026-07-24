@@ -5,7 +5,9 @@ ms.topic: tutorial
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 03/31/2025
-ms.custom: UpdateFrequency2
+ms.custom:
+  - UpdateFrequency2
+  - sfi-image-nochange
 
 #customer intent: As a lab user, I want to be able to claim ownership and connect to lab VMs, so I can use preconfigured VMs to do my work.
 ---

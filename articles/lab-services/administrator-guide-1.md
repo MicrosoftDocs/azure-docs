@@ -283,7 +283,7 @@ Creating a shared image gallery and attaching it to your lab account is free. No
 
 #### Storage charges
 
-To store image versions, a shared image gallery uses standard hard disk drive (HDD) managed disks by default. We recommend using HDD-managed disks when using shared image gallery with Lab Services. The size of the HDD-managed disk that's used depends on the size of the image version that's being stored. Lab Services supports image and disk sizes up to 128 GB. To learn about pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+To store image versions, a shared image gallery uses Standard HDD managed disks by default. We recommend using HDD-managed disks when using shared image gallery with Lab Services. The size of the HDD-managed disk that's used depends on the size of the image version that's being stored. Lab Services supports image and disk sizes up to 128 GB. To learn about pricing, see [Managed disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 #### Replication and network egress charges
 

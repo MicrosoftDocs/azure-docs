@@ -3,13 +3,14 @@ title: Overview of the Azure Storage client libraries
 titleSuffix: Azure Storage
 description: Overview of the Azure Storage client libraries. Learn about the management and data plane libraries, and when to use each set of libraries as you build your application.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-storage
 ms.topic: overview
 ms.date: 11/19/2024
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python, devguide-go
+# Customer intent: "As a developer, I want to understand the Azure Storage client libraries, so that I can effectively manage and access Azure Storage resources in my applications using the appropriate libraries for data and resource management."
 ---
 
 # Overview of the Azure Storage client libraries
@@ -118,7 +119,7 @@ The following table shows the Azure Storage client libraries for resource manage
 
 | Library | Reference | Package | Source |
 | ------- | --------- | ------- | ------ |
-| **azure-resourcemanager-storage** | [Reference](/java/api/overview/azure/resourcemanager-storage-readme) | [Maven](https://mvnrepository.com/artifact/com.azure.resourcemanager/azure-resourcemanager-storage) | [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/resourcemanager/azure-resourcemanager-storage) |
+| **azure-resourcemanager-storage** | [Reference](/java/api/overview/azure/resourcemanager-storage-readme) | [Maven](https://mvnrepository.com/artifact/com.azure.resourcemanager/azure-resourcemanager-storage) |  |
 
 ## [JavaScript](#tab/javascript)
 

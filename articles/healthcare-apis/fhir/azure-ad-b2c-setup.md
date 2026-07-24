@@ -6,13 +6,21 @@ author: namalu
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
-ms.date: 01/21/2024
+ms.date: 05/21/2025
 ms.author: namalu
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ga-nochange
 ---
 
 # Use Azure Active Directory B2C to grant access to the FHIR service
 
-Healthcare organizations can use [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the FHIR&reg; service in Azure Health Data Services to grant access to their applications and users. 
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
+> [!NOTE]
+> This article details how to use Azure AD B2C, which is no longer available to purchase for new customers. Please refer to the article [Use Microsoft Entra External ID to grant access to the FHIR service](azure-entra-external-id-setup.md) for information on using Microsoft Entra External ID as an identity provider for the FHIR service.
+
+The FHIR service is secured by Microsoft Entra ID. In addition, healthcare organizations can choose to also use [Azure Active Directory B2C](../../active-directory-b2c/overview.md) (Azure AD B2C) with the FHIR&reg; service in Azure Health Data Services to grant access to their applications and users via third party identity providers. 
 
 ## Create an Azure AD B2C tenant for the FHIR service
 

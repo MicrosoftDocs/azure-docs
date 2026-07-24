@@ -2,18 +2,24 @@
 title: Copy and transform data from and to a REST endpoint 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use Copy Activity to copy data and use Data Flow to transform data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink in Azure Data Factory or Azure Synapse Analytics pipelines. 
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
-ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/02/2025
 ms.author: makromer
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy and transform data from and to a REST endpoint by using Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory to copy data from and to a REST endpoint. The article builds on [Copy Activity in Azure Data Factory](copy-activity-overview.md), which presents a general overview of Copy Activity.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric REST connector documentation](/fabric/data-factory/connector-rest-overview).
+
 
 The difference among this REST connector, [HTTP connector](connector-http.md), and the [Web table connector](connector-web-table.md) are:
 
@@ -88,7 +94,7 @@ The following properties are supported for the REST linked service:
 | url | The base URL of the REST service. | Yes |
 | enableServerCertificateValidation | Whether to validate server-side TLS/SSL certificate when connecting to the endpoint. | No<br /> (the default is **true**) |
 | authenticationType | Type of authentication used to connect to the REST service. Allowed values are **Anonymous**, **Basic**, **AadServicePrincipal**, **OAuth2ClientCredential**, and **ManagedServiceIdentity**. You can additionally configure authentication headers in `authHeaders` property. Refer to corresponding sections below on more properties and examples respectively.| Yes |
-| authHeaders | Additional HTTP request headers for authentication.<br/> For example, to use API key authentication, you can select authentication type as “Anonymous” and specify API key in the header. | No |
+| authHeaders | Other HTTP request headers for authentication.<br/> For example, to use API key authentication, you can select authentication type as "Anonymous" and specify API key in the header. | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. Learn more from [Prerequisites](#prerequisites) section. If not specified, this property uses the default Azure Integration Runtime. |No |
 
 For different authentication types, see the corresponding sections for details.
@@ -369,7 +375,7 @@ To copy data from REST, the following properties are supported:
 | type | The **type** property of the dataset must be set to **RestResource**. | Yes |
 | relativeUrl | A relative URL to the resource that contains the data. When this property isn't specified, only the URL that's specified in the linked service definition is used. The HTTP connector copies data from the combined URL: `[URL specified in linked service]/[relative URL specified in dataset]`. | No |
 
-If you were setting `requestMethod`, `additionalHeaders`, `requestBody` and `paginationRules` in dataset, it's still supported as-is, while you're suggested to use the new model in activity going forward.
+If you were setting `requestMethod`, `additionalHeaders`, `requestBody`, and `paginationRules` in dataset, it's still supported as-is, while you're suggested to use the new model in activity going forward.
 
 **Example:**
 
@@ -404,10 +410,10 @@ The following properties are supported in the copy activity **source** section:
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity source must be set to **RestSource**. | Yes |
 | requestMethod | The HTTP method. Allowed values are **GET** (default) and **POST**. | No |
-| additionalHeaders | Additional HTTP request headers. | No |
+| additionalHeaders | Other HTTP request headers. | No |
 | requestBody | The body for the HTTP request. | No |
 | paginationRules | The pagination rules to compose next page requests. Refer to [pagination support](#pagination-support) section on details. | No |
-| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to read response data. The default value is **00:01:40**.  | No |
+| httpRequestTimeout | The time-out (the **TimeSpan** value) for the HTTP request to get a response. This value is the time-out to get a response, not the time-out to read response data. The default value is **00:01:40**.  | No |
 | requestInterval | The time to wait before sending the request for next page. The default value is **00:00:01** |  No |
 
 >[!NOTE]
@@ -494,8 +500,8 @@ The following properties are supported in the copy activity **sink** section:
 |:--- |:--- |:--- |
 | type | The **type** property of the copy activity sink must be set to **RestSink**. | Yes |
 | requestMethod | The HTTP method. Allowed values are **POST** (default), **PUT**, and **PATCH**. | No |
-| additionalHeaders | Additional HTTP request headers. | No |
-| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to write the data. The default value is **00:01:40**.  | No |
+| additionalHeaders | Other HTTP request headers. | No |
+| httpRequestTimeout | The time-out (the **TimeSpan** value) for the HTTP request to get a response. This value is the time-out to get a response, not the time-out to write the data. The default value is **00:01:40**.  | No |
 | requestInterval | The interval time between different requests in millisecond. Request interval value should be a number between [10, 60000]. |  No |
 | httpCompressionType | HTTP compression type to use while sending data with Optimal Compression Level. Allowed values are **none** and **gzip**. | No |
 | writeBatchSize | Number of records to write to the REST sink per batch. The default value is 10000. | No |
@@ -556,8 +562,8 @@ REST is supported in data flows for both integration datasets and inline dataset
 |:--- |:--- |:--- |
 | requestMethod | The HTTP method. Allowed values are **GET** and **POST**. | Yes |
 | relativeUrl | A relative URL to the resource that contains the data. When this property isn't specified, only the URL that's specified in the linked service definition is used. The HTTP connector copies data from the combined URL: `[URL specified in linked service]/[relative URL specified in dataset]`. | No |
-| additionalHeaders | Additional HTTP request headers. | No |
-| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to write the data. The default value is **00:01:40**.  | No |
+| additionalHeaders | Other HTTP request headers. | No |
+| httpRequestTimeout | The time-out (the **TimeSpan** value) for the HTTP request to get a response. This value is the time-out to get a response, not the time-out to write the data. The default value is **00:01:40**.  | No |
 | requestInterval | The interval time between different requests in millisecond. Request interval value should be a number between [10, 60000]. |  No |
 | QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter" is user-defined, which references one query parameter name in the next HTTP request URL. | No |
 
@@ -565,8 +571,8 @@ REST is supported in data flows for both integration datasets and inline dataset
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| additionalHeaders | Additional HTTP request headers. | No |
-| httpRequestTimeout | The timeout (the **TimeSpan** value) for the HTTP request to get a response. This value is the timeout to get a response, not the timeout to write the data. The default value is **00:01:40**.  | No |
+| additionalHeaders | Other HTTP request headers. | No |
+| httpRequestTimeout | The time-out (the **TimeSpan** value) for the HTTP request to get a response. This value is the time-out to get a response, not the time-out to write the data. The default value is **00:01:40**.  | No |
 | requestInterval | The interval time between different requests in millisecond. Request interval value should be a number between [10, 60000]. |  No |
 | httpCompressionType | HTTP compression type to use while sending data with Optimal Compression Level. Allowed values are **none** and **gzip**. | No |
 | writeBatchSize | Number of records to write to the REST sink per batch. The default value is 10000. | No |
@@ -577,7 +583,7 @@ You can set the delete, insert, update, and upsert methods as well as the relati
 
 ## Sample data flow script
 
-Notice the use of an alter row transformation prior to the sink to instruct ADF what type of action to take with your REST sink. That is, insert, update, upsert, delete.
+Notice the use of an alter row transformation before the sink to instruct ADF what type of action to take with your REST sink. That is, insert, update, upsert, delete.
 
 ```
 AlterRow1 sink(allowSchemaDrift: true,
@@ -702,15 +708,18 @@ or
 
 This example provides the configuration steps to send multiple requests whose variables are in Headers.
 
-**Multiple requests:**<br/>
-RequestUrl: *https://example/table*<br/> 
-Request 1: `Header(id->0)`<br/>
-Request 2: `Header(id->10)`<br/>
-......<br/>
-Request 100: `Header(id->100)`<br/>
+**Multiple requests:**
+
+```
+RequestUrl: https://example/table
+Request 1: Header(id->0)
+Request 2: Header(id->10)
+......
+Request 100: Header(id->100)
+```
 
 *Step 1*: Input `{id}` in **Additional headers**.
-    
+
 *Step 2*: Set **Pagination rules** as **"Headers.{id}" : "RANGE:0:100:10"**.
 
 :::image type="content" source="media/connector-rest/pagination-rule-example-3.png" alt-text="Screenshot showing the pagination rule to send multiple requests whose variables are in Headers."::: 

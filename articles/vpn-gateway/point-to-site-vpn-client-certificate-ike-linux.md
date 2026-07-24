@@ -2,12 +2,15 @@
 title: 'Configure P2S VPN clients - certificate authentication IKEv2 - Linux'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure an Ubuntu Linux strongSwan VPN client solution for VPN Gateway P2S configurations that use certificate authentication.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
-ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 02/12/2025
-ms.author: cherylmc
+ms.author: duau
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: "As a network administrator using Ubuntu Linux, I want to configure a strongSwan VPN client for Azure's P2S connections with certificate authentication, so that I can securely connect to the Azure virtual network."
 ---
 
 # Configure strongSwan VPN for P2S certificate authentication IKEv2 connections - Linux

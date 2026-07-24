@@ -2,11 +2,11 @@
 title: Supported metrics for managed Functions in Azure Static Web Apps
 description: List of metrics collected for managed Functions in Azure Static Web Apps
 services: static-web-apps
-author: v1212
+author: cjk7989
 ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 12/20/2024
-ms.author: wujia
+ms.author: jikunchen
 ms.custom:
 ---
 
@@ -30,8 +30,8 @@ The following metrics are tracked for your application:
 | `CdnTotalLatency` | Time, measured in milliseconds, representing the CDN latency. |
 | `DataApiErrors` | Number of errors produced from API calls. |
 | `DataApiHits` | Number of hit to API endpoints. |
-| `FunctionErrors` | Number of errors encounter by managed API functions. |
-| `FunctionHits` | Number of hits to managed API functions. |
+| `FunctionErrors` | Number of errors encounter by managed API functions and linked backend functions. |
+| `FunctionHits` | Number of hits to managed API functions and linked backend functions. |
 | `SiteErrors` | Number of errors encountered by the website. |
 | `SiteHits` | Number of hits to the website. |
 

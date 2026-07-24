@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - set-query-parameter | Microsoft Docs
 description: Reference for the set-query-parameter policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 07/23/2024
-ms.author: danlep
 ---
 
 # Set query string parameter
@@ -42,7 +40,7 @@ The `set-query-parameter` policy adds, replaces value of, or deletes request que
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, backend
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 

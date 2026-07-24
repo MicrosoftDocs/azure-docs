@@ -4,7 +4,7 @@ description: This article provides samples of Azure Data Manager for Agriculture
 author: BlackRider97 #Required; your GitHub user alias, with correct capitalization.
 ms.author: ramithar #Required; microsoft alias of author; optional team alias.
 ms.service: azure-data-manager-agriculture
-ms.topic: conceptual #Required; leave this attribute/value as-is.
+ms.topic: concept-article  #Required; leave this attribute/value as-is.
 ms.date: 04/18/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-concept #Required; leave this attribute/value as-is.
 ---

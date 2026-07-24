@@ -1,11 +1,12 @@
 ---
 title: How to sign your Azure Public DNS zone with DNSSEC
 description: Learn how to sign your Azure public DNS zone with DNSSEC. 
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
 ms.topic: how-to
 ms.date: 01/31/2025
-ms.author: greglin
+ms.author: allensu
+# Customer intent: As a DNS administrator, I want to sign my Azure Public DNS zone with DNSSEC, so that I can enhance the security of my DNS records and protect against certain types of attacks.
 ---
 
 # How to sign your Azure Public DNS zone with DNSSEC
@@ -184,6 +185,9 @@ New-AzDnsRecordSet -ResourceGroupName "dns-rg" -ZoneName "adatum.com" -Name "sec
 ```
 5. If you don't own the parent zone, send the DS record to the owner of the parent zone with instructions to add it into their zone.
 ---
+
+> [!IMPORTANT]
+> App Service Domain does not support DNSSEC. If you have registered your domain via App Service Domain, then you cannot enable DNSSEC since you cannot register a DS record with a parent zone.
 
 ## Next steps
 

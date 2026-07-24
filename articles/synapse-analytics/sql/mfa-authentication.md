@@ -7,10 +7,14 @@ ms.subservice: sql
 ms.topic: overview
 ms.date: 04/15/2020
 ms.author: vvasic
-ms.custom: has-adal-ref
+ms.custom:
+  - has-adal-ref
+  - sfi-image-nochange
 ---
 
 # Use multifactor Microsoft Entra authentication with Synapse SQL (SSMS support for MFA)
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Synapse SQL support connections from SQL Server Management Studio (SSMS) using *Active Directory Universal Authentication*. 
 

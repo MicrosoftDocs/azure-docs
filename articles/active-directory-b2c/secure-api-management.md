@@ -5,7 +5,7 @@ description: Learn how to use access tokens issued by Azure Active Directory B2C
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 01/11/2024
@@ -18,6 +18,7 @@ ms.subservice: b2c
 ---
 
 # Secure an Azure API Management API with Azure AD B2C
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Learn how to restrict access to your Azure API Management API to clients that have authenticated with Azure Active Directory B2C (Azure AD B2C). Follow the instructions in this article to create and test an inbound policy in Azure API Management that restricts access to only those requests that include a valid Azure AD B2C-issued access token.
 

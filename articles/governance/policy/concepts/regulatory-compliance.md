@@ -2,7 +2,7 @@
 title: Regulatory Compliance in initiative definitions
 description: Describes how to use an initiative definition to group policies by regulatory domain such as Access Control, Configuration Management, and others.
 ms.date: 03/04/2025
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Regulatory Compliance in Azure Policy
@@ -93,6 +93,6 @@ The following code is an example of added results from a `summarize` call:
 ## Next steps
 
 - See the [initiative definition structure](./initiative-definition-structure.md)
-- Review examples at [Azure Policy samples](../samples/index.md).
+- Review examples at [Azure Policy samples](/azure/governance/policy/samples/index).
 - Review [Understanding policy effects](./effect-basics.md).
 - Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).

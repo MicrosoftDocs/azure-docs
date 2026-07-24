@@ -8,8 +8,8 @@ metadata:
   description: Azure Policy helps you manage and prevent IT issues with policy definitions that enforce rules and effects for your resources.
   ms.service: azure-policy
   ms.topic: landing-page
-  author: jasongroce
-  ms.author: jasongroce
+  author: lauradolan
+  ms.author: ladolan
   ms.date: 03/24/2025
 
 landingContent:
@@ -65,7 +65,7 @@ landingContent:
       - linkListType: deploy
         links:
           - text: Index of policy samples
-            url: ./samples/index.md
+            url: /azure/governance/policy/samples/index
 
   - title: Author policies
     linkLists:

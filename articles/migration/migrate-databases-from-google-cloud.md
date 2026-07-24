@@ -1,18 +1,20 @@
 ---
 title: Migrate Databases from Google Cloud to Azure
-description: Learn about concepts, how-tos, and best practices for moving databases from Google Cloud Platform (GCP) to Azure.
-author: robbyatmicrosoft
-ms.author: robbymillsap
-ms.date: 01/28/2025
-ms.topic: conceptual
+description: Learn how to migrate databases from Google Cloud Platform (GCP) to Azure with concepts, best practices, and step-by-step guides.
+author: reginahack
+ms.author: rhackenberg
+ms.date: 02/18/2026
+ms.topic: concept-article
+ms.service: azure
 ms.collection:
  - migration
  - gcp-to-azure
+ms.custom: migration-hub
 ---
 
 # Migrate databases from Google Cloud Platform (GCP) to Azure
 
-Data migration is a crucial step when you move from Google Cloud Platform (GCP) to Azure. This process requires you to transition your databases while making sure that they work effectively in the new environment. The scope of this migration includes various database types, such as relational databases, NoSQL databases, and data warehouses. For example, your migration might include a workload that migrates a Google Cloud SQL for PostgreSQL database to Azure Database for PostgreSQL.
+Migrating data from Google Cloud Platform (GCP) to Azure is a critical step in ensuring a seamless transition to Azure. This article covers how to migrate relational databases, NoSQL databases, and data warehouses effectively. For example, learn how to migrate a Google Cloud SQL for PostgreSQL database to Azure Database for PostgreSQL.
 
 ## Component comparison
 
@@ -36,6 +38,6 @@ Use the following migration guides as examples to help structure your migration 
 The following list includes platform-agnostic articles that have general guidance about how to migrate databases and security components to GCP.
 
 - [Plan your migration to Microsoft Sentinel](/azure/sentinel/migration)
-- [Google Cloud Platform Identity and Access Management by using Azure Functions connector for Microsoft Sentinel](/azure/sentinel/data-connectors/google-cloud-platform-iam)
+- [Google Cloud Platform Identity and Access Management connector for Microsoft Sentinel](/azure/sentinel/connect-google-cloud-platform)
 
 Use the table of contents to explore other articles that relate to your workload's architecture.

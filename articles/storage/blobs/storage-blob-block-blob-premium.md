@@ -2,13 +2,14 @@
 title: Premium block blob storage accounts
 titleSuffix: Azure Storage
 description: Achieve lower and consistent latencies for Azure Storage workloads that require fast and consistent response times.
-author: akashdubey-ms
+author: normesta
 
-ms.author: akashdubey
+ms.author: normesta
 ms.date: 10/14/2021
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: concept-article
 
+# Customer intent: "As a data engineer, I want to utilize premium block blob storage accounts, so that I can ensure high-performance, low-latency data processing for workloads such as interactive analytics and machine learning while optimizing transaction costs."
 ---
 
 # Premium block blob storage accounts
@@ -89,7 +90,7 @@ Some of our partners store a copy of their MongoDB instance each week to a premi
 
 In applications where multiple users edit the same content, the speed of updates becomes critical for a smooth user experience.
 
-Some of our partners develop video editing software. Any update that a user makes to a video is immediately visible to other users. Users can focus on their tasks instead of waiting for content updates to appear. The low latencies associated with premium block blob storage helps to create this seamless and collaborative experience.
+Some of our partners develop video editing software. Any update that a user makes to a video is immediately visible to other users. Users can focus on their tasks instead of waiting for content updates to appear. The low latencies associated with premium block blob storage help to create this seamless and collaborative experience.
 
 ### Data visualization software
 

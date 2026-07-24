@@ -2,18 +2,19 @@
 title: Traffic Splitting with Application Gateway for Containers - Gateway API
 description: Learn how to configure traffic splitting / weighted round robin with Application Gateway for Containers.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.topic: how-to
-ms.date: 11/5/2024
-ms.author: greglin
+ms.date: 11/05/2024
+ms.author: mbender
+# Customer intent: "As a cloud engineer, I want to configure traffic splitting with the Application Gateway for Containers, so that I can manage workload distribution across multiple backend services effectively."
 ---
 
 # Traffic splitting with Application Gateway for Containers - Gateway API
 
 This document helps set up an example application that uses the following resources from Gateway API:
-- [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) - creating a gateway with one http listener
-- [HTTPRoute](https://gateway-api.sigs.k8s.io/api-types/httproute/) - creating an HTTP route that references two backend services having different weights
+- [Gateway](https://gateway-api.sigs.k8s.io/docs/concepts/api-overview/#gateway) - creating a gateway with one http listener
+- [HTTPRoute](https://gateway-api.sigs.k8s.io/reference/api-types/httproute//) - creating an HTTP route that references two backend services having different weights
 
 ## Background
 
@@ -23,8 +24,8 @@ Application Gateway for Containers enables you to set weights and shift traffic 
 
 ## Prerequisites
 
-1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
-2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)).
+2. If following the ALB managed deployment strategy, ensure you have provisioned your ALB Controller ([Add-on](quickstart-deploy-application-gateway-for-containers-alb-controller-addon.md) or [Helm](quickstart-deploy-application-gateway-for-containers-alb-controller-helm.md)) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
 3. Deploy sample HTTP application:<br>
   Apply the following deployment.yaml file on your cluster to create a sample web application to demonstrate traffic splitting / weighted round robin support.
 

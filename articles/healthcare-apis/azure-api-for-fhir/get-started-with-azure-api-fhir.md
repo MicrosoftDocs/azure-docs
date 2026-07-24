@@ -5,7 +5,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 09/27/2023
+ms.date: 11/21/2025
 ms.author: kesheth
 ---
 
@@ -15,7 +15,7 @@ ms.author: kesheth
 
 This article outlines the basic steps to get started with Azure API for FHIR&reg;. Azure API for FHIR is a managed, standards-based, compliant API for clinical health data that enables solutions for actionable analytics and machine learning.
 
-As a prerequisite, you need an Azure subscription and have been granted proper permissions to create Azure resource groups and deploy Azure resources. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+As a prerequisite, you need an Azure subscription and have been granted proper permissions to create Azure resource groups and deploy Azure resources. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [![Screenshot of Azure API for FHIR flow diagram.](media/get-started/get-started-azure-api-fhir-diagram.png)](media/get-started/get-started-azure-api-fhir-diagram.png#lightbox)
 

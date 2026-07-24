@@ -6,10 +6,12 @@ ms.author: ramithar
 ms.service: azure-data-manager-agriculture
 ms.topic: quickstart
 ms.date: 04/05/2023
-ms.custom: template-quickstart
+ms.custom:
+  - template-quickstart
+  - sfi-image-nochange
 ---
 
-# Quickstart install Azure Data Manager for Agriculture preview
+# Quickstart: Install Azure Data Manager for Agriculture preview
 
 Use this document to get started with the steps to install Data Manager for Agriculture. Make sure that  your Azure subscription ID is in our allowlist. Microsoft Azure Data Manager for Agriculture requires registration and is available to only approved customers and partners during the preview period. To request access to Azure Data Manager for Agriculture during the preview period, use this [**form**](https://aka.ms/agridatamanager).
 
@@ -24,7 +26,7 @@ In step 5 in the above documentation, search for `Microsoft.AgFoodPlatform` and 
 ## 2: Search in marketplace
 
 > [!IMPORTANT]
-> Access the  Azure Portal using <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_AgFoodPlatformHidden#create/hub" target="_blank">**this link**</a> . This link enables visibility of the Azure Data Manager for Agriculture installation card in the Marketplace for our preview customers.
+> Access the  Azure portal using <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=Microsoft_Azure_AgFoodPlatformHidden#create/hub" target="_blank">**this link**</a>. This link enables visibility of the Azure Data Manager for Agriculture installation card in the Marketplace for our preview customers.
 
 Enter Data manager for agriculture in the marketplace search bar. Then select 'create' on the listing tile as shown below.
 
@@ -63,7 +65,7 @@ Follow the steps provided in <a href="/azure/active-directory/develop/quickstart
 
 Once the App registration is done, the next step is to assign roles in the Azure portal to provide Authorization to the newly created application. Data Manager for Agriculture uses Azure RBAC to manage Authorization requests.
 
-Log in to Azure portal and navigate to the newly created resource (`<Name>-resource-name` created in step 5) under the resource group (`resource-group-name`).
+Sign in to Azure portal and navigate to the newly created resource (`<Name>-resource-name` created in step 5) under the resource group (`resource-group-name`).
 
 > [!NOTE]
 > Inside the resource group tab, if you do not find the created Data Manager for Agriculture resource, you need to enable the **show hidden types** checkbox to see the Data Manager for Agriculture resource that you created.
@@ -109,7 +111,7 @@ Replace the following parameters in the request:
 | Client ID |  The application (service principal) ID of the application you registered |
 | Client Secret |  The secret generated for the application. |
 
-The ``resource`` parameter is the identifier for the Azure Data Manager for Agriculture login application. This identifier is a constant value set to ``https://farmbeats.azure.net``.
+The ``resource`` parameter is the identifier for the Azure Data Manager for Agriculture sign-in application. This identifier is a constant value set to ``https://farmbeats.azure.net``.
 
 For Bash:
 ```bash

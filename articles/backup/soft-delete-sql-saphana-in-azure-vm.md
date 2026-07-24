@@ -2,10 +2,11 @@
 title: Soft delete for SQL server in Azure VM and SAP HANA in Azure VM workloads
 description: Learn how soft delete for SQL server in Azure VM and SAP HANA in Azure VM workloads makes backups more secure.
 ms.topic: how-to
-ms.date: 01/31/2025
+ms.date: 12/23/2025
 ms.custom: devx-track-azurepowershell, engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to implement soft delete for SQL server in Azure VM and SAP HANA backups, so that I can ensure backup data is retrievable for 14 days after deletion, protecting against accidental loss or malicious actions."
 ---
 # Soft delete backups  for SQL server in Azure VM and SAP HANA in Azure VM workloads
 
@@ -15,7 +16,7 @@ Azure Backup now provides soft delete for SQL server in Azure VM and SAP HANA in
 
 [Soft delete](backup-azure-security-feature-cloud.md) is a security feature to help protect backup data even after deletion. With soft delete, even if a malicious actor deletes the backup of a database (or backup data is accidentally deleted), the backup data is retained for 14 additional days. This allows the recovery of that backup item with no data loss. This additional retention of 14 days of the backup data in the "soft delete" state doesn’t incur any cost to the customer.
 
-## Soft delete backups
+## Soft delete backups for SQL server/ SAP HANA database
 
 >[!NOTE]
 >These instructions also apply to SAP HANA in Azure VM.
@@ -90,10 +91,6 @@ Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -
 The **DeleteState** of the backup item will revert to **NotDeleted**. But the protection is still stopped. Resume the backup to re-enable the protection.
 
 ---
-
-## Disable soft delete
-
-Disabling this feature isn't recommended. The only circumstance where you should consider disabling soft delete is if you're planning on moving your protected items to a new vault, and can't wait the 14 days required before deleting and reprotecting (such as in a test environment.) For instructions on how to disable soft delete, see [Enabling and disabling soft delete](backup-azure-security-feature-cloud.md#enable-and-disable-soft-delete).
 
 ## Next steps
 

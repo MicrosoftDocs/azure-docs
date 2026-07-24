@@ -2,12 +2,12 @@
 title: Azure Stack Edge Pro GPU, Pro R, Mini R certificate overview 
 description: Describes an overview of all the certificates that can be used on Azure Stack Edge Pro GPU device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: overview
 ms.date: 09/01/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 # What are certificates on Azure Stack Edge Pro GPU?
 

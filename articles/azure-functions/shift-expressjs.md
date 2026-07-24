@@ -1,7 +1,7 @@
 ---
 title: Shifting from Express.js to Azure Functions
 description: Learn to refactor Express.js endpoints to Azure Functions.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 07/31/2020
 ms.devlang: javascript
 ---
@@ -101,7 +101,7 @@ When moving to Functions, the following changes are made:
 
 - **Module:** The function code is implemented as a JavaScript module.
 
-- **Context  and response object**: The [`context`](./functions-reference-node.md#context-object) allows you to communicate with the Function's runtime. From the context, you can read request data and set the function's response. Synchronous code requires you to call 1.x `context.done()` to complete execution, while 2.x+ `async` functions resolve the request implicitly.
+- **Context and response object**: Use the [`context`](./functions-reference-node.md#invocation-context) to communicate with the Function's runtime. From the context, you can read request data and set the function's response. Synchronous code requires you to call 1.x `context.done()` to complete execution, while 2.x+ `async` functions resolve the request implicitly.
 
 - **Naming convention**: The folder name used to contain the Azure Functions files is used as the endpoint name by default (this can be overridden in the [function.json](./functions-bindings-http-webhook-trigger.md#customize-the-http-endpoint)).
 

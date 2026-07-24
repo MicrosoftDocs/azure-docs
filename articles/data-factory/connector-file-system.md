@@ -2,12 +2,14 @@
 title: Copy data from/to a file system
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from file system to supported sink data stores, or from supported source data stores to file system, using an Azure Data Factory or Azure Synapse Analytics pipelines.
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
-ms.custom: synapse
-ms.topic: conceptual
-ms.date: 09/25/2024
-ms.author: jianleishen
+ms.topic: how-to
+ms.date: 01/06/2026
+ms.author: tinglee
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Copy data to or from a file system by using Azure Data Factory or Azure Synapse Analytics
@@ -32,7 +34,7 @@ This file system connector is supported for the following capabilities:
 Specifically, this file system connector supports:
 
 - Copying files from/to network file share. To use a Linux file share, install [Samba](https://www.samba.org/) on your Linux server.
-- Copying files using **Windows** authentication.
+- Copying files using **Basic** authentication.
 - Copying files as-is or parsing/generating files with the [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
 ## Prerequisites

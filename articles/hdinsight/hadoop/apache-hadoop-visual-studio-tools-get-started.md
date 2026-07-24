@@ -3,12 +3,14 @@ title: Apache Hadoop & Visual Studio Data Lake Tools - Azure HDInsight
 description: Learn how to install and use Data Lake Tools for Visual Studio. Use tool to connect to Apache Hadoop clusters in Azure HDInsight, and then run Hive queries.
 keywords: hadoop tools,hive query,visual studio,visual studio hadoop
 ms.service: azure-hdinsight
-ms.custom: hdinsightactive
 ms.topic: how-to
 author: hareshg
 ms.author: hgowrisankar
 ms.reviewer: nijelsf
 ms.date: 03/23/2024
+ms.custom:
+  - hdinsightactive
+  - sfi-image-nochange
 ---
 
 # Use Data Lake Tools for Visual Studio to connect to Azure HDInsight and run Apache Hive queries
@@ -140,7 +142,7 @@ Right-click a container and select **View Container** to view the container's co
 
 ## Run interactive Apache Hive queries
 
-[Apache Hive](https://hive.apache.org) is a data warehouse infrastructure that's built on Hadoop. Hive is used for data summarization, queries, and analysis. You can use Data Lake Tools for Visual Studio to run Hive queries from Visual Studio. For more information about Hive, see [What is Apache Hive and HiveQL on Azure HDInsight?](hdinsight-use-hive.md).
+[Apache Hive](https://hive.apache.org) is a data warehouse infrastructure that's built on Hadoop. Hive is used for data summarization, queries, and analysis. You can use Data Lake Tools for Visual Studio to run Hive queries from Visual Studio. For more information about Hive, see [What is Apache Hive and HiveQL on Azure HDInsight?](hdinsight-use-hive.md)
 
 [Interactive Query in Azure HDInsight](../interactive-query/apache-interactive-query-get-started.md) uses [Hive on LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) in Apache Hive 2.1. Interactive Query brings interactivity to complex, data warehouse-style queries on large, stored datasets. Running Hive queries on Interactive Query is much faster than traditional Hive batch jobs. 
 
@@ -267,7 +269,7 @@ Use the **Refresh** icon to update the status until the job status changes to **
 
 ### View job graph
 
-Currently, job graphs are only shown for Hive jobs that use Tez as the execution engine.  For information about enabling Tez, see [What is Apache Hive and HiveQL on Azure HDInsight?](hdinsight-use-hive.md).  See also, [Use Apache Tez instead of Map Reduce](../hdinsight-hadoop-optimize-hive-query.md#use-apache-tez-instead-of-map-reduce).  
+Currently, job graphs are only shown for Hive jobs that use Tez as the execution engine.  For information about enabling Tez, see [What is Apache Hive and HiveQL on Azure HDInsight?](hdinsight-use-hive.md)  See also, [Use Apache Tez instead of Map Reduce](../hdinsight-hadoop-optimize-hive-query.md#use-apache-tez-instead-of-map-reduce).  
 
 To view all the operators inside the vertex, double-click the vertices of the job graph. You can also point to a specific operator to see more details about the operator.
 

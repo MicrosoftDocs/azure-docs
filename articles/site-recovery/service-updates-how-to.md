@@ -1,19 +1,20 @@
 ---
 title: Updates and component upgrades in Azure Site Recovery
+ms.reviewer: v-gajeronika
 description: Provides an overview of Azure Site Recovery service updates, MARS agent and component upgrades.
-author: ankitaduttaMSFT
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: overview
-ms.author: ankitadutta
-ms.date: 08/11/2021
+ms.author: v-gajeronika
+ms.date: 11/05/2025
+# Customer intent: As a cloud operations manager, I want to keep the Azure Site Recovery components up to date, so that I can ensure optimal performance, support, and security for our disaster recovery processes.
 ---
 # Service updates in Site Recovery
 
 This article provides an overview of [Azure Site Recovery](site-recovery-overview.md) updates, and describes how to upgrade Site Recovery components.
 
 Site Recovery publishes service updates on a regular basis. Updates include new features, support improvements, component updates, and bug fixes. In order to take advantage of the latest features and fixes, we recommend running the latest versions of Site Recovery components. 
- 
- 
+
 ## Updates support
 
 ### Support statement for Azure Site Recovery
@@ -25,11 +26,9 @@ We recommend always upgrading to the latest component versions:
 > [!IMPORTANT]
 > Official support is for upgrading from > N-4 version to N version. For example, if you're running  you are on N-6, you need to first upgrade to N-4, and then upgrade to N.
 
+### Supported update rollups
 
-### Links to currently supported update rollups
-
- Review the latest update rollup (version N) in [this article](site-recovery-whats-new.md). Remember that Site Recovery provides support for N-4 versions.
-
+Review the latest update rollup (version N) in [this article](site-recovery-whats-new.md). Remember that Site Recovery provides support for N-4 versions.
 
 ## Component expiry
 
@@ -47,8 +46,7 @@ Next 53 days | Once a week
 Last 7 days | Once a day
 After expiry | Once bi-weekly
 
-
-### Upgrading outside official support
+### Upgrade outside official support
 
 If the difference between your component version and the latest release version is greater than four, this is considered out of support. In this case, upgrade as follows: 
 

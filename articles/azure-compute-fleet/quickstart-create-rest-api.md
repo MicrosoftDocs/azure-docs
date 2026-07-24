@@ -1,19 +1,17 @@
 ---
 title: Create an Azure Compute Fleet using an ARM template
 description: Learn how to create an Azure Compute Fleet using an ARM template.
-author: rrajeesh
-ms.author: rajeeshr
+author: fitzgeraldsteele
+ms.author: fisteele
 ms.topic: how-to
 ms.service: azure-compute-fleet
-ms.date: 11/13/2024
-ms.reviewer: jushiman
+ms.date: 07/20/2026
+ms.reviewer: wwilliams
 ms.custom: devx-track-arm-template, build-2024
+# Customer intent: "As a cloud engineer, I want to create an Azure Compute Fleet using an ARM template, so that I can automate the deployment and management of scalable virtual machine resources."
 ---
 
-# Create an Azure Compute Fleet using an ARM template (Preview)
-
-> [!IMPORTANT]
-> Azure Compute Fleet is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA). 
+# Create an Azure Compute Fleet using an ARM template
 
 This article steps through using an ARM template to create an Azure Compute Fleet. 
 
@@ -23,7 +21,7 @@ This article steps through using an ARM template to create an Azure Compute Flee
 
 ## Prerequisites
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Before using Compute Fleet, complete the feature registration and configure role-based access controls (RBAC). 
 
 
@@ -265,6 +263,52 @@ These resources are defined in the template:
 - [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks)
 - [**Microsoft.Network/loadBalancers**](/azure/templates/microsoft.network/loadbalancers)
 
+
+## Create a fleet in Launch mode (Preview)
+
+To create a fleet in [Launch mode (Preview)](launch-mode.md), set `mode` to `Launch` in the fleet `properties` and use the `2026-04-01-preview` API version. In Launch mode, the fleet provisions the VMs and then hands off control; the fleet object self-deletes a few hours later while the VMs persist.
+
+The following snippet shows the Launch mode additions to the `Microsoft.AzureFleet/fleets` resource. The `vmNamePrefix` property gives the provisioned VMs orchestrator-friendly names and requires the `2026-04-01-preview` API version.
+
+```json
+{
+    "type": "Microsoft.AzureFleet/fleets",
+    "apiVersion": "2026-04-01-preview",
+    "name": "[toLower(parameters('fleetName'))]",
+    "location": "[parameters('location')]",
+    "zones": [ "1", "2", "3" ],
+    "properties": {
+        "mode": "Launch",
+        "vmNamePrefix": "myapp",
+        "vmSizesProfile": [
+            { "name": "Standard_D2s_v3" },
+            { "name": "Standard_D4s_v3" },
+            { "name": "Standard_E2s_v3" }
+        ],
+        "regularPriorityProfile": {
+            "capacity": 50,
+            "allocationStrategy": "LowestPrice"
+        },
+        "spotPriorityProfile": {
+            "capacity": 50,
+            "allocationStrategy": "CapacityOptimized"
+        },
+        "computeProfile": {
+            "computeApiVersion": "2024-03-01",
+            "baseVirtualMachineProfile": {
+                "storageProfile": { "...": "..." },
+                "osProfile": { "...": "..." },
+                "networkProfile": { "...": "..." }
+            }
+        }
+    }
+}
+```
+
+In Launch mode, don't set the `spotPriorityProfile.maintain` preference - it applies only to Managed mode. Because provisioning is asynchronous, use the [List VMs API](launch-mode.md#retrieve-and-monitor-vms) to retrieve the VM resource IDs and monitor provisioning status after the deployment is submitted.
+
+> [!IMPORTANT]
+> Launch mode for Azure Compute Fleet is currently in preview. For more information, see [What is Launch mode for Azure Compute Fleet? (Preview)](launch-mode.md).
 
 ## Clean up resources
 

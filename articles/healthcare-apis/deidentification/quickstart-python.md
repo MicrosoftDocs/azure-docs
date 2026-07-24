@@ -1,40 +1,38 @@
 ---
-title: Create an Azure Health Data Services de-identification service by using the synchronous endpoint in Python
-description: Learn how to create an Azure Health Data Services de-identification service by using the synchronous endpoint in Python
+title: Create an Azure Health Data Services De-identification Service by Using the Synchronous Endpoint in Python
+description: Learn how to create an Azure Health Data Services de-identification service by using the synchronous endpoint in Python.
 services: azure-resource-manager
 ms.service: azure-health-data-services
 ms.subservice: deidentification-service
-author: kimiamavon
-ms.author: kimiamavon
+author: LeaKass
+ms.author: leakassab
 ms.topic: quickstart
-ms.date: 04/10/2025
+ms.date: 10/23/2025
 ---
 
-# Quickstart: Deploy the de-identification service synchronous endpoint in Python
+# Quickstart: Deploy the de-identification service synchronous endpoint (English and multilingual)
 
-In this quickstart, you deploy an instance of the de-identification service in your Azure subscription using the synchronous endpoint in Python. 
+In this quickstart, you deploy an instance of the de-identification service in your Azure subscription by using the synchronous endpoint in Python.
 
 ## Prerequisites
 
-- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- An Azure subscription with write permissions
-- Python 3.8 or later  
-- The Azure azure-health-deidentification [Python package](/python/api/overview/azure/health-deidentification-readme?view=azure-python-preview&preserve-view=true)
-
+- An Azure account. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure subscription with write permissions.
+- Python 3.8 or later.
+- The Azure `azure-health-deidentification` [Python package](/python/api/overview/azure/health-deidentification-readme?view=azure-python-preview&preserve-view=true).
+- Basic familiarity with the Azure CLI or terminal.
 
 ## Create a resource
 
-To deploy an instance of the de-identification service, start at the Azure portal home page.
-
-1. Search for **de-identification** in the top search bar.
+1. In the [Azure portal](https://portal.azure.com), search for **de-identification** in the top search bar.
 1. Select **De-identification Services** in the search results.
-1. Select the **Create** button.
+1. Select **Create**.
 
 ## Complete the Basics tab
 
-In the **Basics** tab, you provide basic information for your de-identification service.
+On the **Basics** tab, provide the following information for your de-identification service.
 
-1. Fill in the **Project Details** section:
+1. Fill in the **Project details** section:
 
    | Setting        | Action                                       |
    |----------------|----------------------------------------------|
@@ -48,80 +46,107 @@ In the **Basics** tab, you provide basic information for your de-identification 
    | Name           | Name your de-identification service.          |
    | Location       | Select a supported Azure region. |
 
-Supported regions are located [here.](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table)
+Supported regions are located in the [Product Availability by Region table](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/table).
 
-After you complete the configuration, you can deploy the de-identification service.
+After you finish the configuration, you can deploy the de-identification service:
 
 1. Select **Next: Review + create** to review your choices.
-1. Select Create to start the deployment of your de-identification service. Deployment may take a few minutes. After the deployment is complete, select Go to resource to view your service.
+1. Select **Create** to start the deployment of your de-identification service. Deployment might take a few minutes. After the deployment is finished, select **Go to resource** to view your service.
+1. After the deployment finishes, note your subscription, subscription ID, and service URL.
 
-Note your Subscription, Subscription ID, and Service URL.
+## Set role-based access control
 
-## Set role-based access control (RBAC)
+Now that the resource is deployed, you need to assign yourself the following permissions by using Azure role-based access control to use the de-identification APIs.
 
-Now that the resource is deployed, assign yourself as an owner using RBAC. To use the synchronous and asynchronous/Batch API, you need to be a DeID Data Owner. If you only need real-time or batch, you can assign yourself as a DeID Realtime Data User and/or DeID Batch Data Owner, respectively.
+1. On the left panel, select **Access control (IAM).**
+1. Select **Add** and **Add role assignment.**
+1. Select **DeID Data Owner** and **DeID Real-Time Data User**, and then select **Members** on the top panel.
+1. Select **+ Select members** to open a panel. Search for your own name and choose **Select.**
+1. Back on the **Members** panel, select **Review + assign** at the lower left.
 
-1. On the left panel, select **Access control (IAM).** 
-1. Click **Add** and **Add role assignment.** 
-1. Select **DeID Data Owner** and then select **Members** on the top panel. 
-1. Select **+ Select members,** and a panel will appear. Search for your own name and press **Select.** 
-1. Back in the **Members** panel, select **Review + assign** at the bottom left.
+>[!TIP]
+>If you want to use both the synchronous and asynchronous (Batch) APIs, you need to also assign yourself the DeID Batch Data Owner role.
 
-## Install the package
+## Run the service by using the Python SDK
 
-Install the Azure Health Deidentification client library for Python. More information is available [here.](/python/api/overview/azure/health-deidentification-readme?view=azure-python-preview&preserve-view=true)
+1. Install the Azure Health De-identification client library for Python. More information is available in the [Product Availability by Region table](/python/api/overview/azure/health-deidentification-readme?view=azure-python-preview&preserve-view=true).
 
-```Bash
-python -m pip install azure-health-deidentification
+    ```Bash
+    python -m pip install azure-health-deidentification
+    ```
+
+1. Test the service.
+
+The following steps walk you through how to test the service for the `REDACT` operation. When you test, you can change the language-locale pair to [other languages supported](languages-supported.md) by the service.
+
+### Redact text
+
+1. In the terminal, [sign in to Azure](/cli/azure/authenticate-azure-cli).
+1. The following code references the [Python SDK for text](https://github.com/Azure/azure-sdk-for-python/blob/azure-health-deidentification_1.0.0/sdk/healthdataaiservices/azure-health-deidentification/samples/deidentify_text_redact.py). To use it, create a Python file called `deidentify_text_redact.py` and paste in the following code. Run `python deidentify_text_redact.py`. Replace `AZURE_HEALTH_DEIDENTIFICATION_ENDPOINT` with the URL that you noted when you created a resource.
+
+```python
+
+"""
+FILE: deidentify_text_redact.py
+
+DESCRIPTION:
+    This sample demonstrates the most simple de-identification scenario, calling the service to redact
+    PHI values in a string.
+
+USAGE:
+    python deidentify_text_redact.py
+
+    Set the `AZURE_HEALTH_DEIDENTIFICATION_ENDPOINT` with your service's URL.
+"""
+
+from azure.health.deidentification import DeidentificationClient
+from azure.health.deidentification.models import (
+    DeidentificationContent,
+    DeidentificationOperationType,
+    DeidentificationResult,
+)
+from azure.identity import DefaultAzureCredential
+
+
+def deidentify_text_redact():
+    endpoint = "<YOUR SERVICE'S URL>"
+    credential = DefaultAzureCredential()
+    client = DeidentificationClient(endpoint, credential)
+
+    locale = "en-US"  # e.g., "fr-FR", "es-US", etc
+
+    body = DeidentificationContent(
+        input_text="It's great to work at Contoso.",
+        operation_type=DeidentificationOperationType.REDACT,    
+    )
+
+    result: DeidentificationResult = client.deidentify_text(body)
+    print(f'\nOriginal Text:  "{body.input_text}"')
+    print(f'Locale:         {locale}')
+    print(f'Redacted Text:  "{result.output_text}"')
+    # [END redact]
+
+
+if __name__ == "__main__":
+    deidentify_text_redact()
+
 ```
 
-## Test the service
-In terminal, [log in to Microsoft azure.](/cli/azure/authenticate-azure-cli) 
-Now, write “python” to open a python shell and paste the following code. 
-Be sure to replace your Service URL with the URL you noted when creating a resource. 
-You can also change the operation type between REDACT, TAG, or SURROGATE.
+### Example inputs and outputs
 
-```Bash
-from azure.health.deidentification import *  
-from azure.health.deidentification.models import *  
-from azure.identity import DefaultAzureCredential  
-
-SERVICE_URL = "<YOUR SERVICE URL HERE>" ### Replace 
-client = DeidentificationClient(SERVICE_URL.replace("https://", ""), DefaultAzureCredential())  
-
-# Input  
-text = """  Hannah is a 92-year-old admitted on 9/7/23. First presented symptoms two days earlier on Tuesday, 9/5/23 """  
-operation=OperationType.SURROGATE ### CHANGE OPERATION TYPE AS NEEDED. Options include OperationType.TAG, OperationType.REDACT, and OperationType.SURROGATE    
-
-# Processing  
-print("############ Input")  
-print(text)  
-content = DeidentificationContent(input_text=text, operation=operation)  
-try: 
-    response = client.deidentify(content) 
-except Exception as e: 
-    print("Request failed with exception: \n\n", e) 
-    exit() 
-print("\n############ Output")  
-
-if operation==OperationType.TAG:  
-    print(response.tagger_result)  
-else:  
-    print(response.output_text)  
-
-```
-
-## Example input & output
-
-   | Input        | Output          |
-   |----------------|---------|
-   | Hannah is a 92-year-old admitted on 9/7/23. First presented symptoms two days earlier on Tuesday, 9/5/23           | Kim is a 90-year-old admitted on 9/30/23. First presented symptoms two days earlier on Thursday, 9/28/23          |
+| Operation  | Language-locale pair | Input                                                                                                                                                                    | Output                                                                                                               |
+|-------------|----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------|
+| Redaction   | en-US               | `Kimberly Brown is a 34 y.o. female presenting with bilateral eye discomfort. Last seen by her PCP 2/6/2025 Dr. Orlo at Contoso Clinics Downtown Bellevue PCP.`           | `[patient] is a [age] y.o. female presenting with bilateral eye discomfort. Last seen by her PCP [date] [doctor] at [hospital] PCP.` |
+| Redaction   | fr-CA               | `André, un ingénieur âgé de 45 ans, a été admis à l'Hôpital de Laval le 23 avril 2025 après une évaluation avec Dr Jeanne Dubuc.`                                         | `[patient], un ingénieur âgé de [age], a été admis à l'[hospital] le [date] après une évaluation avec [doctor].`    |
 
 ## Clean up resources
 
-If you no longer need them, delete the resource group and de-identification service. To do so, select the resource group and select **Delete**.
+If you no longer need the service, delete the resource group and de-identification service.
 
-## Next steps
+1. In the Azure portal, select the resource group.
+1. Select **Delete**.
+
+## Next step
 
 > [!div class="nextstepaction"]
 > [Tutorial: Configure Azure Storage to de-identify documents](configure-storage.md)

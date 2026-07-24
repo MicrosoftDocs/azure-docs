@@ -2,14 +2,15 @@
 title: Azure Storage samples using Java
 description: View developer guides and sample code for Azure Storage. Discover getting started samples for blobs, queues, tables, and files, using the Java storage client libraries
 ms.custom: devx-track-java, devx-track-extended-java
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.date: 05/23/2024
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: sample
 ms.devlang: java
 ai-usage: ai-assisted
+# Customer intent: "As a Java developer, I want to access Azure Storage samples and guides, so that I can implement cloud storage solutions effectively using the Java client libraries."
 ---
 
 # Azure Storage samples using Java client libraries
@@ -121,3 +122,4 @@ For information on samples for other languages:
 - JavaScript/Node.js: [Azure Storage samples using JavaScript](storage-samples-javascript.md)
 - C++: [Azure Storage samples using C++](storage-samples-c-plus-plus.md)
 - All other languages: [Azure Storage samples](storage-samples.md)
+

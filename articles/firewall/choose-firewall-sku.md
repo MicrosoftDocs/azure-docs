@@ -1,21 +1,24 @@
 ---
-title: Choose the right Azure Firewall version to meet your needs
-description: Learn about the different Azure Firewall versions and how to choose the right one for your needs.
-services: firewall
+title: Choose the right Azure Firewall SKU to meet your needs
+description: Quick comparison guide to help you choose between Azure Firewall Basic, Standard, and Premium SKUs based on your requirements.
 author: duongau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 03/17/2025
+ms.date: 07/17/2026
+ai-usage: ai-assisted
 ms.author: duau
+# Customer intent: As a network security administrator, I want to compare Azure Firewall SKUs and use a decision framework, so that I can quickly choose the most suitable option for my organization's security and performance requirements.
 ---
 
-# Choose the right Azure Firewall version to meet your needs
+# Choose the right Azure Firewall SKU to meet your needs
 
-Azure Firewall offers three versions to meet various customer needs:
+Azure Firewall offers three SKUs to meet various customer needs:
 
-- **Azure Firewall Premium**: Ideal for securing highly sensitive applications, such as payment processing. It includes advanced threat protection features like malware and TLS inspection.
-- **Azure Firewall Standard**: Suitable for customers requiring Layer 3–Layer 7 firewall capabilities with autoscaling to manage peak traffic up to 30 Gbps. It includes enterprise features like threat intelligence, DNS proxy, custom DNS, and web categories.
-- **Azure Firewall Basic**: Designed for SMB customers with throughput requirements up to 250 Mbps.
+- **Azure Firewall Premium**: Secure highly sensitive applications, such as payment processing. It includes advanced threat protection features like malware and TLS inspection.
+- **Azure Firewall Standard**: Get Layer 3–Layer 7 firewall capabilities with autoscaling to manage peak traffic up to 30 Gbps. It includes enterprise features like threat intelligence, DNS proxy, custom DNS, and web categories.
+- **Azure Firewall Basic**: Throughput up to 250 Mbps.
+
+For detailed information about all Azure Firewall features, see [Azure Firewall features by SKU](features-by-sku.md).
 
 ## Feature comparison
 
@@ -29,7 +32,7 @@ Compare the features of the three Azure Firewall versions:
 |  | Network address translation (SNAT+DNAT) | ✓ | ✓ | ✓ |
 | **Reliability & performance** | Availability zones | ✓ | ✓ | ✓ |
 |  | Built-in HA | ✓ | ✓ | ✓ |
-|  | Cloud scalability (auto-scale as traffic grows) | Up to 250Mbps | Up to 30 Gbps | Up to 100 Gbps |
+|  | Cloud scalability (auto-scale as traffic grows) | Up to 250 Mbps | Up to 30 Gbps | Up to 100 Gbps |
 |  | Fat flow support | N/A | 1 Gbps | 10 Gbps |
 | **Ease of management** | Central management via firewall manager | ✓ | ✓ | ✓ |
 |  | Policy analytics (rule management over time) | ✓ | ✓ | ✓ |
@@ -52,6 +55,19 @@ Use the following flow chart to determine the best Azure Firewall version for yo
 <!-- Art Library Source# ConceptArt-0-000-011 -->
 :::image type="content" source="media/choose-firewall-sku/firewall-sku-flow.svg" alt-text="Flow chart to help you choose a firewall version." lightbox="media/choose-firewall-sku/firewall-sku-flow.svg":::
 
+## Pricing
+
+When you choose a SKU, weigh its features against your budget. Azure Firewall has two cost components for each SKU: a fixed **deployment charge** billed per firewall per hour, and a variable **data processing charge** billed per gigabyte of traffic processed. Overall cost increases from Basic to Standard to Premium. Rates also vary by region, so check the pricing page for the exact charges that apply to you.
+
+To keep costs aligned with your budget, choose the lowest SKU that meets your security and throughput requirements:
+
+- **Basic** is the lowest-cost option and suits small or medium-sized environments with throughput up to 250 Mbps.
+- **Standard** costs more and supports higher throughput (up to 30 Gbps) with enterprise security features.
+- **Premium** is the highest-cost option and adds advanced threat protection for sensitive workloads.
+
+For detailed pricing, including deployment charges, data processing rates, and availability zone considerations, see [Azure Firewall pricing](https://azure.microsoft.com/pricing/details/azure-firewall/). To estimate the cost for your specific throughput and traffic volume, use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator/).
+
 ## Next steps
 
-- [Deploy and configure Azure Firewall using the Azure portal](tutorial-firewall-deploy-portal.md)
+- [Azure Firewall features by SKU](features-by-sku.md)
+- [Deploy and configure Azure Firewall by using the Azure portal](tutorial-firewall-deploy-portal-policy.md)

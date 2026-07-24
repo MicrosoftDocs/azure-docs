@@ -6,7 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: feature-guide
 ms.date: 01/05/2024
 ---
 

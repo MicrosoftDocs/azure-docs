@@ -4,7 +4,7 @@ description: This guide describes how IoT devices connect to and communicate wit
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/21/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-central
 services: iot-central
 ms.custom: [mvc, device-developer, iot-central-frontdoor]

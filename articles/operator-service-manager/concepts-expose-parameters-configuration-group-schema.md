@@ -1,8 +1,8 @@
 ---
 title: About parameter exposure using the Azure Operator Service Manager (AOSM) CLI extension.
 description: About parameter exposure using the Azure Operator Service Manager (AOSM) CLI extension.
-author: pjw711
-ms.author: peterwhiting
+author: JAC0BSMITH
+ms.author: jacobsmith
 ms.date: 04/16/2024
 ms.topic: concept-article
 ms.service: azure-operator-service-manager

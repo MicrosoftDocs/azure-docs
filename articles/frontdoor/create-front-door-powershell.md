@@ -11,6 +11,8 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 # Quickstart: Create an Azure Front Door using Azure PowerShell
 
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
+
 In this quickstart, you learn how to create an Azure Front Door profile using Azure PowerShell. You use two Web Apps as your origin and verify connectivity through the Azure Front Door endpoint hostname.
 
 :::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagram of Azure Front Door deployment environment using the Azure PowerShell." border="false":::
@@ -19,7 +21,7 @@ In this quickstart, you learn how to create an Azure Front Door profile using Az
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Azure PowerShell installed locally or Azure Cloud Shell.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]

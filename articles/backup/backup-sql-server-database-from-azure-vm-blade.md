@@ -2,19 +2,19 @@
 title: Back up SQL Server from the Azure VM blade using Azure Backup
 description: In this article, learn how to back up SQL Server databases from the Azure VM blade via the Azure portal.
 ms.topic: how-to
-ms.date: 07/23/2024
+ms.date: 02/13/2026
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a database administrator, I want to configure and manage backups for SQL Server databases running on Azure VMs, so that I can ensure data protection and meet recovery objectives.
 ---
-# Back up a SQL Server from the Azure SQL Server VM blade
+# Back up a SQL Server from the Azure SQL Server VM pane
 
 This article describes how to use Azure Backup to back up a SQL Server (running in Azure VM) from the SQL VM resource via the Azure portal.
 
 SQL Server databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. You can back up SQL Server databases running on Azure virtual machines (VMs) by using [Azure Backup](backup-overview.md).
 
->[!Note]
->Learn more about the [SQL backup supported configurations and scenarios](sql-support-matrix.md).
+To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 ## Prerequisites
 
@@ -101,3 +101,9 @@ To configure backup from the SQL VM blade, follow these steps:
 - [Manage and monitor backed up SQL Server databases](manage-monitor-sql-database-backup.md)
 - [Troubleshoot backups on a SQL Server database](backup-sql-server-azure-troubleshoot.md)
 - [FAQ - Backing up SQL Server databases on Azure VMs - Azure Backup | Microsoft Learn](/azure/backup/faq-backup-sql-server)
+
+## Related content
+
+- [Back up SQL server databases in Azure VMs using Azure Backup via REST API](backup-azure-sql-vm-rest-api.md).
+- [Restore SQL Server databases in Azure VMs with REST API](restore-azure-sql-vm-rest-api.md).
+- Manage SQL server databases in Azure VMs with [Azure portal](manage-monitor-sql-database-backup.md), [Azure CLI](backup-azure-sql-manage-cli.md), [REST API](manage-azure-sql-vm-rest-api.md).

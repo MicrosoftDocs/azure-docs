@@ -1,9 +1,10 @@
 ---
-author: cherylmc
-ms.author: cherylmc
+author: asudbring
+ms.author: allensu
 ms.date: 01/21/2025
 ms.service: azure-bastion
 ms.topic: include
+ms.custom: sfi-image-nochange
 
 ---
 

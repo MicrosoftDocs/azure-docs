@@ -2,11 +2,12 @@
 title: Back up Azure Database for PostgreSQL - Flexible Server using Azure PowerShell
 description: Learn how to back up Azure Database for PostgreSQL - Flexible Server using Azure PowerShell.
 ms.topic: how-to
-ms.date: 02/28/2025
+ms.date: 01/19/2026
 ms.custom: devx-track-azurepowershell, ignite-2024
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a database administrator, I want to back up Azure Database for PostgreSQL - Flexible Server using PowerShell, so that I can ensure data protection and recovery in case of data loss or corruption.
 ---
 
 # Back up Azure Database for PostgreSQL - Flexible Server using Azure PowerShell
@@ -15,7 +16,7 @@ This article describes how to back up Azure Database for PostgreSQL - Flexible S
 
 Learn more about the [supported scenarios and limitations for Azure Database for PostgreSQL - flexible server backup](backup-azure-database-postgresql-flex-support-matrix.md).
 
-## Create a Backup vault
+## Create a Backup vault for PostgreSQL - Flexible Server backup
 
 Backup vault is a storage entity in Azure. This stores the backup data for new workloads that Azure Backup supports. For example, Azure Database for PostgreSQL – Flexible servers, blobs in a storage account, and Azure Disks. Backup vaults help to organize your backup data, while minimizing management overhead. Backup vaults are based on the Azure Resource Manager model of Azure, which provides enhanced capabilities to help secure backup data.
 
@@ -44,7 +45,7 @@ Type                : Microsoft.DataProtection/backupVaults
 
 ```
 
-## Configure backup
+## Configure backup for PostgreSQL - Flexible Server
 
 Before you configure protection for the database, ensure that you [create a Backup policy](quick-backup-postgresql-flexible-server-powershell.md#create-a-backup-policy). Once the vault and policy are created, protect the Azure Database for PostgreSQL - Flexible Server by following these steps:
 
@@ -88,7 +89,7 @@ Once all the relevant permissions are set, configure the backup by running follo
 
     ```
 
-## Run an on-demand backup
+## Run an on-demand backup for PostgreSQL - Flexible Server
 
 Fetch the relevant backup instance on which you need to trigger a backup using the [Get-AzDataProtectionBackupInstance](/powershell/module/az.dataprotection/get-azdataprotectionbackupinstance) cmdlet.
 
@@ -126,7 +127,7 @@ Backup-AzDataProtectionBackupInstanceAdhoc -BackupInstanceName $AllInstances[0].
 
 ```
 
-## Track jobs
+## Track jobs for PostgreSQL - Flexible Server backup
 
 Track all jobs using the [Get-AzDataProtectionJob](/powershell/module/az.dataprotection/get-azdataprotectionjob) cmdlet. You can list all jobs and fetch a particular job detail.
 
@@ -137,6 +138,6 @@ You can also use the `Az.ResourceGraph` cmdlet to track all jobs across all Back
 
 ```
 
-## Next steps
+## Next step
 
 - [Restore Azure Database for PostgreSQL - Flexible Server using Azure PowerShell](backup-azure-database-postgresql-flex-restore-powershell.md).

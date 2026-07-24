@@ -3,13 +3,14 @@ title: Upload a blob with .NET
 titleSuffix: Azure Storage
 description: Learn how to upload a blob to your Azure Storage account using the .NET client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
-ms.date: 03/25/2025
+author: stevenmatthew
+ms.author: shaas
+ms.date: 10/01/2025
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: "As a .NET developer, I want to upload blobs to Azure Storage using the .NET client library, so that I can efficiently manage and store data in the cloud."
 ---
 
 # Upload a blob with .NET
@@ -71,7 +72,10 @@ The following example uploads a block blob from a string:
 
 ## Upload to a stream in Blob Storage
 
-You can open a stream in Blob Storage and write to it. The following example creates a zip file in Blob Storage and writes files to it. Instead of building a zip file in local memory, only one file at a time is in memory. 
+You can open a stream in Blob Storage and write to it. The following example creates a zip file in Blob Storage and writes files to it. Instead of building a zip file in local memory, only one file at a time is in memory.
+
+> [!WARNING]
+> This approach can be very expensive if object replication policy is enabled because each write to the stream creates a new version of the zip file, and each version is copied to the destination account. The same is true if Azure Blob vaulted backup is enabled because vaulted backup uses object replication. 
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadToStream":::
 
@@ -89,9 +93,11 @@ To learn more about tuning data transfer options, see [Performance tuning for up
 
 ### Specify transfer validation options on upload
 
-You can specify transfer validation options to help ensure that data is uploaded properly and hasn't been tampered with during transit. Transfer validation options can be defined at the client level using [BlobClientOptions](/dotnet/api/azure.storage.blobs.blobclientoptions), which applies validation options to all methods called from a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) instance. 
+[!INCLUDE [storage-dev-guide-transfer-validation](../../../includes/storage-dev-guides/storage-dev-guide-transfer-validation.md)]
 
-You can also override transfer validation options at the method level using [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions). The following code example shows how to create a `BlobUploadOptions` object and specify an algorithm for generating a checksum. The checksum is then used by the service to verify data integrity of the uploaded content.
+Transfer validation with MD5 is available to verify that the data sent by your application matches the data received and returned by the service on each request. When enabled, the Blob SDK computes and validates MD5 hashes during upload and download operations, while the service independently computes and validates MD5 hashes for the data it processes. Validation is performed at the HTTP request and response level, helping detect corruption for each transferred segment of data, such as individual blocks during uploads or ranges during reads.
+
+Transfer validation options can be defined at the client level using [BlobClientOptions](/dotnet/api/azure.storage.blobs.blobclientoptions), which applies validation options to all methods called from a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) instance. Alternatively, you can override transfer validation options at the method level using [BlobUploadOptions](/dotnet/api/azure.storage.blobs.models.blobuploadoptions). The following code example shows how to create a `BlobUploadOptions` object and specify an algorithm for generating a checksum.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/UploadBlob.cs" id="Snippet_UploadWithChecksum":::
 
@@ -99,10 +105,10 @@ The following table shows the available options for the checksum algorithm, as d
 
 | Name | Value | Description |
 | --- | --- | --- |
-| Auto | 0 | Recommended. Allows the library to choose an algorithm. Different library versions may choose different algorithms. |
+| Auto | 0 | Recommended. Allows the library to choose an algorithm. Different library versions may choose different algorithms. Auto chooses StorageCrc64 in [client library](/dotnet/api/azure.storage.blobs) versions 12.28.0+ |
 | None | 1 | No selected algorithm. Don't calculate or request checksums.
 | MD5 | 2 | Standard MD5 hash algorithm. |
-| StorageCrc64 | 3 | Azure Storage custom 64-bit CRC. |
+| StorageCrc64 | 3 | Azure Storage custom CRC64-NVME. |
 
 > [!NOTE]
 > If the checksum specified in the request doesn't match the checksum calculated by the service, the upload operation fails. The operation is not retried when using a default retry policy. In .NET, a `RequestFailedException` is thrown with status code 400 and error code `Md5Mismatch` or `Crc64Mismatch`, depending on which algorithm is used.
@@ -153,3 +159,4 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 - [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)
 
 [!INCLUDE [storage-dev-guide-next-steps-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-dotnet.md)]
+

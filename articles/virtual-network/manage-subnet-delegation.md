@@ -1,31 +1,32 @@
 ---
-title: Add or remove a subnet delegation in an Azure virtual network
+title: Add or Remove Subnet Delegation in Azure Virtual Network
 titlesuffix: Azure Virtual Network
-description: Learn how to add or remove a delegated subnet for a service in Azure.
+description: Learn how to add or remove subnet delegation in Azure virtual networks. Follow step-by-step instructions using Azure portal, PowerShell, or CLI to manage service-specific permissions.
 services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 04/21/2025
-ms.author: allensu 
+ms.date: 07/29/2025
+ms.author: allensu
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
+# Customer intent: "As a network administrator, I want to add or remove subnet delegations in an Azure virtual network, so that I can manage service-specific permissions for resource deployment effectively."
 ---
 
-# Add or remove a subnet delegation
+# Add or remove subnet delegation in Azure virtual network
 
-Subnet delegation gives explicit permissions to the service to create service-specific resources in the subnet using a unique identifier when deploying the service. This article describes how to add or remove a delegated subnet for an Azure service.
+Subnet delegation in Azure virtual networks gives explicit permissions to services to create service-specific resources in the subnet using a unique identifier when deploying the service. This article describes how to add or remove subnet delegation for Azure services, enabling you to manage network permissions effectively.
 
 ## Prerequisites
 
 # [**Portal**](#tab/manage-subnet-delegation-portal)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - If you didn't create the subnet you would like to delegate to an Azure service, you need the following permission: `Microsoft.Network/virtualNetworks/subnets/write`. The built-in [Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role also contains the necessary permissions.
 
 # [**PowerShell**](#tab/manage-subnet-delegation-powershell)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - If you didn't create the subnet you would like to delegate to an Azure service, you need the following permission: `Microsoft.Network/virtualNetworks/subnets/write`. The built-in [Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role also contains the necessary permissions.
 
@@ -38,7 +39,7 @@ Subnet delegation gives explicit permissions to the service to create service-sp
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 # [**Azure CLI**](#tab/manage-subnet-delegation-cli)
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 - If you didn't create the subnet you would like to delegate to an Azure service, you need the following permission: `Microsoft.Network/virtualNetworks/subnets/write`. The built-in [Network Contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role also contains the necessary permissions.
 
@@ -68,14 +69,14 @@ The following example creates a resource group named **test-rg** in the **eastus
 $rg = @{
     Name = 'test-rg'
     Location = 'eastus2'
-}  
+}
 New-AzResourceGroup @rg
 ```
 ### Create virtual network
 
-Create a virtual network named **vnet-1** with a subnet named **subnet-1** using [`New-AzVirtualNetworkSubnetConfig`](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) in the **test-rg** using [`New-AzVirtualNetwork`](/powershell/module/az.network/new-azvirtualnetwork). 
+Create a virtual network named **vnet-1** with a subnet named **subnet-1** using [`New-AzVirtualNetworkSubnetConfig`](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) in the **test-rg** using [`New-AzVirtualNetwork`](/powershell/module/az.network/new-azvirtualnetwork).
 
-The IP address space for the virtual network is **10.0.0.0/16**. The subnet within the virtual network is **10.0.0.0/24**.  
+The IP address space for the virtual network is **10.0.0.0/16**. The subnet within the virtual network is **10.0.0.0/24**.
 
 ```azurepowershell-interactive
 $sub = @{
@@ -142,9 +143,9 @@ In this section, you delegate the subnet that you created in the preceding secti
 
 1. Enter or select the following information:
 
-    | Setting | Value |
-    | ------- | ----- |
-    | **SUBNET DELEGATION** |  |
+    | Setting                      | Value                                                                                                           |
+    | ---------------------------- | --------------------------------------------------------------------------------------------------------------- |
+    | **SUBNET DELEGATION**        |                                                                                                                 |
     | Delegate subnet to a service | Select the service that you want to delegate the subnet to. For example, **Microsoft.Sql/managedInstances**. |
 
 1. Select **Save**.
@@ -181,7 +182,7 @@ Use [`Get-AzDelegation`](/powershell/module/az.network/get-azdelegation) to veri
 $sub = @{
     Name = 'vnet-1'
     ResourceGroupName = 'test-rg'
-}  
+}
 $subnet = Get-AzVirtualNetwork @sub | Get-AzVirtualNetworkSubnetConfig -Name 'subnet-1'
 
 $dg = @{
@@ -260,9 +261,9 @@ In this section, you remove a subnet delegation for an Azure service.
 
 1. Enter or select the following information:
 
-    | Setting | Value |
-    | ------- | ----- |
-    | **SUBNET DELEGATION** |  |
+    | Setting                      | Value        |
+    | ---------------------------- | ------------ |
+    | **SUBNET DELEGATION**        |              |
     | Delegate subnet to a service | Select **None**. |
 
 1. Select **Save**.
@@ -298,14 +299,14 @@ Use [`Get-AzDelegation`](/powershell/module/az.network/get-azdelegation) to veri
 $sub = @{
     Name = 'vnet-1'
     ResourceGroupName = 'test-rg'
-}  
+}
 $subnet = Get-AzVirtualNetwork @sub | Get-AzVirtualNetworkSubnetConfig -Name 'subnet-1'
 
 $dg = @{
     Name ='myDelegation'
     Subnet = $subnet
 }
-Get-AzDelegation @dg  
+Get-AzDelegation @dg
 ```
 ```console
 Get-AzDelegation: Sequence contains no matching element
@@ -341,4 +342,5 @@ Output from command is a null bracket:
 [!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
+
 - Learn how to [manage subnets in Azure](virtual-network-manage-subnet.md).

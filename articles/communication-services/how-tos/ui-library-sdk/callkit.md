@@ -20,7 +20,7 @@ In this article, you learn how to set up CallKit correctly by using the UI Libra
 ## Prerequisites
 
 - A physical iOS device. An iOS Simulator does not support CallKit functionality.
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token to enable the call client. [Get a user access token](../../quickstarts/identity/access-tokens.md).
 - Optional: Completion of the [QuickStart for getting started with the UI Library composites](../../quickstarts/ui-library/get-started-composites.md).

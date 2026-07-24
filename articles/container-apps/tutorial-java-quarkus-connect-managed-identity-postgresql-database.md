@@ -7,7 +7,7 @@ ms.author: karler
 ms.reviewer: edburns
 ms.topic: tutorial
 ms.service: azure-container-apps
-ms.date: 02/03/2025
+ms.date: 03/26/2026
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, service-connector, devx-track-javaee-quarkus-aca
 ---
 
@@ -21,7 +21,7 @@ What you learn:
 
 > [!div class="checklist"]
 > * Configure a Quarkus app to authenticate using Microsoft Entra ID with a PostgreSQL Database.
-> * Create an Azure container registry and push a Java app image to it.
+> * Create an Azure Container Registry instance and push a Java app image to it.
 > * Create a Container App in Azure.
 > * Create a PostgreSQL database in Azure.
 > * Connect to a PostgreSQL Database with managed identity using Service Connector.
@@ -49,7 +49,7 @@ LOCATION="eastus"
 az group create --name $RESOURCE_GROUP --location $LOCATION
 ```
 
-Create an Azure container registry instance using the [az acr create](/cli/azure/acr#az-acr-create) command and retrieve its login server using the [az acr show](/cli/azure/acr#az-acr-show) command. The registry name must be unique within Azure and contain 5-50 alphanumeric characters. All letters must be specified in lower case. In the following example, `mycontainerregistry007` is used. Update this to a unique value.
+Create an Azure Container Registry instance using the [az acr create](/cli/azure/acr#az-acr-create) command and retrieve its login server using the [az acr show](/cli/azure/acr#az-acr-show) command. The registry name must be unique within Azure and contain 5-50 alphanumeric characters. All letters must be specified in lower case. In the following example, `mycontainerregistry007` is used. Update this to a unique value.
 
 ```azurecli
 REGISTRY_NAME=mycontainerregistry007

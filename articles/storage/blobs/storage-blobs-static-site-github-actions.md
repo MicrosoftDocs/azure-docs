@@ -8,6 +8,7 @@ ms.author: shaas
 ms.reviewer: dineshm
 ms.date: 02/12/2025
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
+# Customer intent: As a web developer, I want to set up a GitHub Actions workflow for deploying my static website to Azure Storage, so that I can automate updates and improve deployment efficiency every time I push changes to my GitHub repository.
 ---
 
 # Use GitHub Actions workflow to deploy your static website in Azure Storage
@@ -22,7 +23,7 @@ Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a
 
 An Azure subscription and GitHub account.
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub repository with your static website code. If you do not have a GitHub account, [sign up for free](https://github.com/join).
 - A working static website hosted in Azure Storage. Learn how to [host a static website in Azure Storage](storage-blob-static-website-how-to.md). To follow this example, you should also deploy [Azure CDN](static-website-content-delivery-network.md).
 

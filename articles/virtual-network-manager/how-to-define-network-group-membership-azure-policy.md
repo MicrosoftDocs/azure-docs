@@ -17,7 +17,7 @@ In this article, you learn how to use Azure Policy conditional statements to cre
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - To modify dynamic network groups, you must be [granted access with role-based access control](concept-network-groups.md#network-groups-and-azure-policy). Classic Admin/legacy authorization isn't supported.
 ## <a name="parameters"></a> Parameters and operators
 

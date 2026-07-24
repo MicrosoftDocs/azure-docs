@@ -4,7 +4,7 @@ description: This article provides information on API throttling limits to plan 
 author: BlackRider97
 ms.author: ramithar
 ms.service: azure-data-manager-agriculture
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/15/2023
 ms.custom: template-concept
 ---

@@ -2,10 +2,13 @@
 title: Configure DNS forwarder for Azure VMware Solution
 description: Learn how to configure DNS forwarder for Azure VMware Solution using the Azure portal.
 ms.topic: how-to
-ms.custom: engagement-fy23
 ms.service: azure-vmware
-ms.date: 2/27/2024
+ms.date: 2/10/2026
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 #Customer intent: As an Azure service administrator, I want to <define conditional forwarding rules for a desired domain name to a desired set of private DNS servers via the NSX-T Data Center DNS Service.
+# Customer intent: "As an Azure service administrator, I want to configure DNS forwarding for private DNS resolution in Azure VMware Solution, so that management components can resolve name records from both private and public DNS servers effectively."
 ---
 
 # Configure a DNS forwarder in the Azure portal
@@ -19,9 +22,9 @@ Private DNS for Azure VMware Solution management components lets you define cond
 
 This capability uses the DNS Forwarder Service in NSX-T Data Center. A DNS service and default DNS zone are provided as part of your private cloud. To enable Azure VMware Solution management components to resolve records from your private DNS systems, you must define an FQDN zone and apply it to the NSX-T Data Center DNS Service. The DNS Service conditionally forwards DNS queries for each zone based on the external DNS servers defined in that zone.
 
->[!NOTE]
->The DNS Service is associated with up to five FQDN zones. Each FQDN zone is associated with up to three DNS servers.
-
+> [!NOTE]
+> The DNS Service is associated with up to five FQDN zones. Each FQDN zone is associated with up to three DNS servers.
+> 
 >[!TIP]
 >If desired, you can also use the conditional forwarding rules for workload segments by configuring virtual machines on those segments to use the NSX-T Data Center DNS Service IP address as their DNS server.
 
@@ -32,6 +35,9 @@ The diagram shows that the NSX-T Data Center DNS Service can forward DNS queries
 :::image type="content" source="media/networking/dns/dns-forwarder-diagram.png" alt-text="Diagram showing that the NSX-T DNS Service can forward DNS queries to DNS systems hosted in Azure and on-premises environments." border="false":::
 
 ## Configure DNS forwarder
+
+> [!IMPORTANT]
+> Configuration of the DNS Forwarder applies the same to both Azure VMware Solution Gen 1 and Gen 2.
 
 1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DNS** > **DNS zones**. Then select **Add**.
 
@@ -45,11 +51,11 @@ The diagram shows that the NSX-T Data Center DNS Service can forward DNS queries
    :::image type="content" source="media/networking/dns/nsxt-workload-networking-configure-fqdn-zone.png" alt-text="Screenshot showing the required information needed to add an FQDN zone.":::
 
    >[!IMPORTANT]
-   >While NSX-T Data Center allows spaces and other non-alphanumeric characters in a DNS zone name, certain NSX-T Data Center resources such as a DNS Zone are mapped to an Azure resource whose names don’t permit certain characters. 
+   >NSX-T Data Center allows spaces and other non-alphanumeric characters in a DNS zone name. However, certain NSX-T Data Center resources such as a DNS Zone are mapped to an Azure resource whose names don’t permit certain characters. 
    >
-   >As a result, DNS zone names that would otherwise be valid in NSX-T Data Center may need adjustment to adhere to the [Azure resource naming conventions](../azure-resource-manager/management/resource-name-rules.md#microsoftresources).
+   >As a result, DNS zone names that would otherwise be valid in NSX-T Data Center could need an adjustment to adhere to the [Azure resource naming conventions](../azure-resource-manager/management/resource-name-rules.md#microsoftresources).
 
-      It takes several minutes to complete, you can follow the progress from **Notifications**. You see a message in the Notifications when the DNS zone is created.
+      It takes several minutes to complete but you can follow the progress from **Notifications**. You see a message in the Notifications when the DNS zone is created.
 
 1. Ignore the message about a default DNS zone because one gets created for you as part of your private cloud.
 
@@ -59,7 +65,7 @@ The diagram shows that the NSX-T Data Center DNS Service can forward DNS queries
    >For private clouds created on or after July 1, 2021, you can ignore the message about a default DNS zone as one is created for you during private cloud creation.
 
    >[!IMPORTANT]
-   >While certain operations in your private cloud may be performed from NSX-T Manager, for private clouds created on or after July 1, 2021, you _must_ edit the DNS service from the Simplified Networking experience in the Azure portal for any configuration changes made to the default Tier-1 Gateway.  
+   >Certain operations in your private cloud can be performed from NSX-T Manager. For private clouds created on or after July 1, 2021, you _must_ edit the DNS service from the Simplified Networking experience in the Azure portal for any configuration changes made to the default Tier-1 Gateway.  
 
    :::image type="content" source="media/networking/dns/configure-dns-forwarder-2.png" alt-text="Screenshot showing the DNS service tab with the Edit button selected.":::   
 
@@ -72,19 +78,19 @@ The diagram shows that the NSX-T Data Center DNS Service can forward DNS queries
 1. Repeat the above steps for other FQDN zones.
 
 ## Change Default T1 DNS Forwarder Zone
-   1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DNS** > **DNS zones** > Check **TNT##-DNS-FORWARDER-ZONE**.  Then select **Edit**.
+1. In your Azure VMware Solution private cloud, under **Workload Networking**, select **DNS** > **DNS zones** > check **TNT##-DNS-FORWARDER-ZONE** > select **Edit**.
    
    ![AVS-DNS](https://user-images.githubusercontent.com/7501186/226980095-b0576824-e1b7-46dc-b726-58670e4e3096.png)
    
-   2. Change DNS server entries to valid reachable IP addresses.  Then select **OK**
+2. Change DNS server entries to valid reachable IP addresses, then select **OK**.
    
    ![Edit_DNS_Zone](https://user-images.githubusercontent.com/7501186/226980023-8b92fce9-310e-4934-9045-238bcd5d921f.png)
 
    >[!TIP]
-   >For vCenter, NSX-T, and HCX management components to successfully perform reverse DNS lookups, a DNS server that is capable of performing reverse DNS lookups must be defined in `DNS server IP` in the Default T1 DNS Forwarder Zone.
+   >For vCenter, NSX-T, and HCX management components to successfully perform reverse DNS lookups, a DNS server that's capable of performing reverse DNS lookups must be defined in `DNS server IP` in the Default T1 DNS Forwarder Zone.
    
    >[!IMPORTANT]
-   >A DNS endpoint that is unreachable by the NSX-T DNS server will result in an NSX-T alarm stating that the endpoint is unreachable.  In cases of the default configuration provided with Azure VMware Solution, this is due to internet that is disabled by default.  The alarm can be acknowledged and ignored, or the default configuration can be changed to a valid endpoint.
+   >A DNS endpoint that's unreachable by the NSX-T DNS server results in an NSX-T alarm stating that the endpoint is unreachable. In cases of the default configuration provided with Azure VMware Solution, it's due to internet that is disabled by default. The alarm can be acknowledged and ignored, or the default configuration can be changed to a valid endpoint.
 
 ## Verify name resolution operations
 

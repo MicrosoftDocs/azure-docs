@@ -1,24 +1,26 @@
 ---
-title: Quickstart - Create and manage workflows with Azure PowerShell
-description: Using PowerShell, create and manage logic app workflows with Azure Logic Apps.
-services: logic-apps
+title: Quickstart - Create and manage workflows with PowerShell
+description: Create and manage logic app workflows by using PowerShell in Azure Logic Apps.
+services: azure-logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: quickstart
+ms.update-cycle: 365-days
+ms.date: 03/11/2026
 ms.tool: azure-powershell
 ms.custom: mvc, mode-api, devx-track-azurepowershell
-ms.date: 02/20/2025
+#Customer intent: As an Azure Logic Apps developer, I want to create and manage workflows by using Azure PowerShell.
 ---
 
 # Quickstart: Create and manage workflows with Azure PowerShell in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 
-This quickstart shows how to create and manage automated workflows that run in Azure Logic Apps by using [Azure PowerShell](/powershell/azure/install-azure-powershell). From PowerShell, you can create a [Consumption logic app](logic-apps-overview.md#resource-environment-differences) in multi-tenant Azure Logic Apps by using the JSON file for a logic app workflow definition. You can then manage your logic app by running the cmdlets in the [Az.LogicApp](/powershell/module/az.logicapp/) PowerShell module.
+This quickstart shows how to create and manage automated workflows that run in Azure Logic Apps by using [Azure PowerShell](/powershell/azure/install-azure-powershell). From PowerShell, you can create a [Consumption logic app](logic-apps-overview.md#resource-environment-differences) in multitenant Azure Logic Apps by using the JSON file for a logic app workflow definition. You can then manage your logic app by running the cmdlets in the [Az.LogicApp](/powershell/module/az.logicapp/) PowerShell module.
 
 > [!NOTE]
 >
-> This quickstart currently applies only to Consumption logic app workflows that run in multi-tenant 
+> This quickstart currently applies only to Consumption logic app workflows that run in multitenant 
 > Azure Logic Apps. Azure PowerShell is currently unavailable for Standard logic app workflows that 
 > run in single-tenant Azure Logic Apps. For more information, review [Resource type and host differences in Azure Logic Apps](logic-apps-overview.md#resource-environment-differences).
 
@@ -26,7 +28,7 @@ If you're new to Azure Logic Apps, learn how to create your first Consumption lo
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * The [Az PowerShell](/powershell/azure/install-azure-powershell) module installed on your local computer.
 
@@ -57,7 +59,7 @@ ResourceGroupName : testResourceGroup
 Location          : westus
 ProvisioningState : Succeeded
 Tags              :
-ResourceId        : /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/testResourceGroup
+ResourceId        : /subscriptions/a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1/resourceGroups/testResourceGroup
 ```
 
 ## Workflow definition
@@ -118,7 +120,7 @@ Deleting a logic app affects workflow instances in the following ways:
 
 * Azure Logic Apps doesn't create or run new workflow instances.
 
-* If you delete a workflow and then recreate the same workflow, the recreated workflow won't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
+* If you delete a workflow and then recreate the same workflow, the recreated workflow doesn't have the same metadata as the deleted workflow. You have to resave any workflow that called the deleted workflow. That way, the caller gets the correct information for the recreated workflow. Otherwise, calls to the recreated workflow fail with an `Unauthorized` error. This behavior also applies to workflows that use artifacts in integration accounts and workflows that call Azure functions.
 
 ## Show logic apps in PowerShell
 
@@ -132,8 +134,7 @@ This example returns the logic app `testLogicApp` in the resource group `testRes
 Get-AzLogicApp -ResourceGroupName testResourceGroup -Name testLogicApp
 ```
 
-## Next steps
+## Related content
 
-For more information on Azure PowerShell, see the [Azure PowerShell documentation](/powershell/azure/).
-
-You can find additional Logic Apps script samples in [Microsoft's code samples browser](/samples/browse/?products=azure-logic-apps).
+- [Azure PowerShell documentation](/powershell/azure/)
+- For more Azure Logic Apps script samples, visit [Microsoft's code samples browser](/samples/browse/?products=azure-logic-apps)

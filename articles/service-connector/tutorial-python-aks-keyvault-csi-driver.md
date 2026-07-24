@@ -1,12 +1,12 @@
 ---
-title: 'Tutorial: Use the Azure Key Vault provider for Secrets Store CSI Driver in an AKS cluster with Service Connector'
+title: 'Tutorial: Use the Azure Key Vault Provider for Secrets Store CSI Driver in an AKS cluster with Service Connector'
 description: Learn how to connect to Azure Key Vault using CSI driver in an AKS cluster with the help of Service Connector.
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
 ms.custom: devx-track-python, devx-track-azurecli
 ms.topic: tutorial
-ms.date: 01/28/2025
+ms.date: 12/02/2025
 ---
 
 # Tutorial: Use the Azure Key Vault provider for Secrets Store CSI Driver in an Azure Kubernetes Service (AKS) cluster
@@ -21,14 +21,14 @@ Learn how to connect to Azure Key Vault using CSI driver in an Azure Kubernetes 
 > * Clean up resources.
 
 > [!WARNING]
-> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a high degree of trust in the application, and carries risks that aren't present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-* [Install](/cli/azure/install-azure-cli) the Azure CLI, and sign in to Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
-* Install [Docker](https://docs.docker.com/get-docker/)and [kubectl](https://kubernetes.io/docs/tasks/tools/), to manage container image and Kubernetes resources.
-* A basic understanding of container and AKS. Get started from [preparing an application for AKS](/azure/aks/tutorial-kubernetes-prepare-app).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- [Install](/cli/azure/install-azure-cli) the Azure CLI, and sign in to Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
+- Install [Docker](https://docs.docker.com/get-docker/)and [kubectl](https://kubernetes.io/docs/tasks/tools/), to manage container image and Kubernetes resources.
+- A basic understanding of container and AKS. Get started from [preparing an application for AKS](/azure/aks/tutorial-kubernetes-prepare-app).
 
 ## Create Azure resources
 
@@ -40,7 +40,7 @@ Learn how to connect to Azure Key Vault using CSI driver in an Azure Kubernetes 
         --location eastus
     ```
 
-1. Create an AKS cluster with the following command, or referring to the [tutorial](/azure/aks/learn/quick-kubernetes-deploy-cli). This is the cluster where we create the service connection, pod definition and deploy the sample application to.
+1. Create an AKS cluster with the following command, or by referring to the [tutorial](/azure/aks/learn/quick-kubernetes-deploy-cli). This cluster is where we create the service connection, the pod definition, and where the sample application is deployed.
 
     ```azurecli
     az aks create \
@@ -58,7 +58,7 @@ Learn how to connect to Azure Key Vault using CSI driver in an Azure Kubernetes 
         --name MyAKSCluster
     ```
 
-1. Create an Azure Key Vault with the following command, or referring to the [tutorial](/azure/key-vault/general/quick-create-cli). This is the target service that is connected to the AKS cluster and the CSI driver synchronize secrets from.
+1. Create an Azure Key Vault with the following command, or by referring to the [tutorial](/azure/key-vault/general/quick-create-cli). This target service is connected to the AKS cluster, and is the service that the CSI driver synchronizes secrets from.
 
     ```azurecli
     az keyvault create \
@@ -84,18 +84,18 @@ Create a service connection between an AKS cluster and an Azure Key Vault using 
 
 1. Open your **Kubernetes service** in the Azure portal and select **Service Connector** from the left menu.
 
-1. Select **Create** and fill in the settings as shown below. Leave the other settings with their default values.
+1. Select **Create** and fill in the following settings. Leave the other settings with their default values.
 
     | Setting             | Choice                   | Description                                                                               |
     |---------------------|--------------------------|-------------------------------------------------------------------------------------------|
     | **Kubernetes namespace**|   *default*          |  The namespace where you need the connection in the cluster.                              |
-    | **Service type**    | *Key Vault (enable CSI)* | Choose Key Vault as the target service type and check the option to enable CSI.           |
+    | **Service type**    | *Key Vault (enable CSI)* | Choose Key Vault as the target service type and check the *enable CSI* option.           |
     | **Connection name** | *keyvault_conn*          | Use the connection name provided by Service Connector or choose your own connection name. |
     | **Subscription**    | `<MySubscription>`       | The subscription for your Azure Key Vault target service.                               |
     | **Key vault**       | `<MyKeyVault>`           | The target key vault you want to connect to.                                              |
     | **Client type**     | *Python*                 | The code language or framework you use to connect to the target service.                  |
 
-1. Once the connection has been created, the Service Connector page displays information about the new connection.
+1. Once the connection is created, the Service Connector page displays information about the new connection.
 
     :::image type="content" source="./media/aks-tutorial/aks-keyvault.png" alt-text="Screenshot of the Azure portal, viewing kubernetes resources created by Service Connector.":::
 
@@ -109,10 +109,10 @@ az aks connection create keyvault --enable-csi
 
 Provide the following information as prompted:
 
-* **Source compute service resource group name:** the resource group name of the AKS cluster.
-* **AKS cluster name:** the name of your AKS cluster that connects to the target service.
-* **Target service resource group name:** the resource group name of the Azure Key Vault.
-* **Key vault name:** the Azure Key Vault that is connected.
+- **Source compute service resource group name:** the resource group name of the AKS cluster.
+- **AKS cluster name:** the name of your AKS cluster that connects to the target service.
+- **Target service resource group name:** the resource group name of the Azure Key Vault.
+- **Key vault name:** the Azure Key Vault that is connected.
 
 ---
 
@@ -132,24 +132,24 @@ Provide the following information as prompted:
 
 1. Replace the placeholders in the `secret_provider_class.yaml` file in the `azure-keyvault-csi-provider` folder.
 
-   * Replace `<AZURE_KEYVAULT_NAME>` with the name of the key vault we created and connected. You may get the value from Azure portal of Service Connector.
-   * Replace `<AZURE_KEYVAULT_TENANTID>` with the tenant ID of the key vault. You may get the value from Azure portal of Service Connector.
-   * Replace `<AZURE_KEYVAULT_CLIENTID>` with identity client ID of the  `azureKeyvaultSecretsProvider` addon. You may get the value from Azure portal of Service Connector.
-   * Replace `<KEYVAULT_SECRET_NAME>` with the key vault secret name we created, for example, `ExampleSecret`
+   - Replace `<AZURE_KEYVAULT_NAME>` with the name of the key vault we created and connected. You can get the value from Azure portal of Service Connector.
+   - Replace `<AZURE_KEYVAULT_TENANTID>` with the tenant ID of the key vault. You can get the value from Azure portal of Service Connector.
+   - Replace `<AZURE_KEYVAULT_CLIENTID>` with identity client ID of the  `azureKeyvaultSecretsProvider` addon. You can get the value from Azure portal of Service Connector.
+   - Replace `<KEYVAULT_SECRET_NAME>` with the key vault secret name we created, for example, `ExampleSecret`
 
 1. Deploy the Kubernetes resources to your cluster with the `kubectl apply` command. Install `kubectl` locally using the [az aks install-cli](/cli/azure/aks#az_aks_install_cli) command if it isn't installed.
 
-   1. Deploy the `SecretProviderClass` CRD.
+   1. Deploy the `SecretProviderClass` custom resource definition (CRD).
 
-   ```Bash
-   kubectl apply -f secret_provider_class.yaml
-   ```
+      ```Bash
+      kubectl apply -f secret_provider_class.yaml
+      ```
 
    1. Deploy the `pod`. The command creates a pod named `sc-demo-keyvault-csi` in the default namespace of your AKS cluster.
 
-   ```Bash
-   kubectl apply -f pod.yaml
-   ```
+      ```Bash
+      kubectl apply -f pod.yaml
+      ```
 
 1. Check the deployment is successful by viewing the pod with `kubectl`.
 
@@ -159,21 +159,21 @@ Provide the following information as prompted:
 
 1. After the pod starts, the mounted content at the volume path specified in your deployment YAML is available. Use the following commands to validate your secrets and print a test secret.
 
-   * Show secrets held in the secrets store using the following command.
+   - Show secrets held in the secrets store using the following command.
 
-   ```Bash
-   kubectl exec sc-demo-keyvault-csi -- ls /mnt/secrets-store/
-   ```
+     ```Bash
+     kubectl exec sc-demo-keyvault-csi -- ls /mnt/secrets-store/
+     ```
 
-   * Display a secret in the store using the following command. This example command shows the test secret `ExampleSecret`.
+   - Display a secret in the store using the following command. This example command shows the test secret `ExampleSecret`.
 
-   ```Bash
-   kubectl exec sc-demo-keyvault-csi -- cat /mnt/secrets-store/ExampleSecret
-   ```
+     ```Bash
+     kubectl exec sc-demo-keyvault-csi -- cat /mnt/secrets-store/ExampleSecret
+     ```
 
 ## Clean up resources
 
-If you don't need to reuse the resources you've created in this tutorial, delete all the resources you created by deleting your resource group.
+If you don't need to reuse the resources you created in this tutorial, delete all the resources you created by deleting your resource group.
 
 ```azurecli
 az group delete \

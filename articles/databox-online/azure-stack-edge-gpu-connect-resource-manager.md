@@ -2,13 +2,16 @@
 title: Connect to Azure Resource Manager on your Azure Stack Edge GPU device
 description: Describes how to connect to the Azure Resource Manager running on your Azure Stack Edge Pro GPU using Azure PowerShell.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 04/10/2024
-ms.author: alkohli
-ms.custom: devx-track-azurepowershell, devx-track-arm-template
+ms.author: sipastak
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-arm-template
+  - sfi-image-nochange
 #Customer intent: As an IT admin, I need to understand how to connect to Azure Resource Manager on my Azure Stack Edge Pro device so that I can manage resources.
 ---
 

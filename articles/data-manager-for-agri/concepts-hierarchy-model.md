@@ -4,7 +4,7 @@ description: Get information on the data model to organize your agriculture-rela
 author: BlackRider97
 ms.author: ramithar
 ms.service: azure-data-manager-agriculture
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/22/2023
 ms.custom: template-concept
 ---

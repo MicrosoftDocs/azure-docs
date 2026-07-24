@@ -5,7 +5,7 @@ description: Learn how to copy data to and from Azure Databricks Delta Lake by u
 ms.author: susabat
 author: ssabat
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: synapse
 ms.date: 01/16/2025
 ---
@@ -15,6 +15,10 @@ ms.date: 01/16/2025
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use the Copy activity in Azure Data Factory and Azure Synapse to copy data to and from Azure Databricks Delta Lake. It builds on the [Copy activity](copy-activity-overview.md) article, which presents a general overview of copy activity.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric Azure Databricks connector documentation](/fabric/data-factory/connector-azure-databricks-overview).
+
 
 ## Supported capabilities
 

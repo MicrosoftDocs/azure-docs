@@ -40,7 +40,7 @@ Along with selecting one or more best-fitting algorithms, you need to consider w
 | Algorithm Category| Use | Learning Type | Algorithms |
 | --- | --- | --- | -- |
 | Classification | Classify people or things into groups | Supervised | Decision trees, Logistic regression, neural networks |
-| Clustering | Dividing a set of examples into homogenous groups | Unsupervised | K-means clustering |
+| Clustering | Dividing a set of examples into homogeneous groups | Unsupervised | K-means clustering |
 | Pattern detection | Identify frequent associations in the data | Unsupervised | Association rules |
 | Regression | Predict numerical outcomes | Supervised | Linear regression, neural networks |
 | Reinforcement | Determine optimal behavior for robots | Reinforcement | Monte Carlo Simulations, DeepMind |
@@ -120,4 +120,3 @@ Apache Spark and MLLib
 Deep Learning, Cognitive Toolkit, and others
 
 * [Data Science Azure Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview)
-* [Introducing H2O.ai on Azure HDInsight](https://azure.microsoft.com/blog/introducing-h2o-ai-with-on-azure-hdinsight-to-bring-the-most-robust-ai-platform-for-enterprises/)

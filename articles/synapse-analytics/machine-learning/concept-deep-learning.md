@@ -3,7 +3,7 @@ title: 'Deep learning (deprecated)'
 description: This article provides a conceptual overview of the deep learning and data science capabilities available through Apache Spark on Azure Synapse Analytics.
 author: midesa
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: archived
 ms.subservice: machine-learning
 ms.date: 07/15/2024
 ms.author: midesa
@@ -15,11 +15,6 @@ Apache Spark in Azure Synapse Analytics enables machine learning with big data, 
 
 > [!NOTE]
 > The Preview for Azure Synapse GPU-enabled pools has now been deprecated.
-
-> [!CAUTION]
-> Deprecation and disablement notification for GPUs on the Azure Synapse Runtime for Apache Spark 3.1 and 3.2
-> - The GPU accelerated preview is now deprecated on the [Apache Spark 3.2 (deprecated) runtime](../spark/apache-spark-32-runtime.md). Deprecated runtimes will not have bug and feature fixes. This runtime and the corresponding GPU accelerated preview on Spark 3.2 has been retired and disabled as of July 8, 2024.
-> - The GPU accelerated preview is now deprecated on the [Azure Synapse 3.1 (deprecated) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its end of support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
 
 ## GPU-enabled Apache Spark pools
 

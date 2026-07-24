@@ -22,7 +22,7 @@ Sites can be within a single Azure region or an on-premises location. If colloca
 
 ## Prerequisites
 
-- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - Complete the [Quickstart: Design a Network Service Design for Nginx Container as CNF.](quickstart-containerized-network-function-network-design.md)
 - Complete the [Quickstart: Prerequisites for Operator and Containerized Network Function (CNF)](quickstart-containerized-network-function-operator.md).
 

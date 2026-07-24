@@ -2,16 +2,16 @@
 title: Include file
 description: Include file
 services: api-center
-author: dlepow
+
 
 ms.service: azure-api-center
 ms.topic: include
 ms.date: 10/18/2024
-ms.author: danlep
+
 ms.custom: Include file
 ---
 
-To allow import of APIs, assign your API center's managed identity the **API Management Service Reader** role in your API Management instance. You can use the [portal](../../role-based-access-control/role-assignments-portal-managed-identity.yml) or the Azure CLI.
+To allow import of APIs, assign your API center's managed identity the **API Management Service Reader** role in your API Management instance. You can use the [portal](/azure/role-based-access-control/role-assignments-portal-managed-identity) or the Azure CLI.
 
 #### [Portal](#tab/portal)
 

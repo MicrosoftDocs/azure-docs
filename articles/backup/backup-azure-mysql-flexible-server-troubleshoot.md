@@ -2,10 +2,11 @@
 title: Troubleshoot Azure Database for MySQL - Flexible Server Backup by Using Azure Backup
 description: Get troubleshooting information for backing up Azure Database for MySQL - Flexible Server.
 ms.topic: troubleshooting
-ms.date: 11/21/2024
+ms.date: 11/13/2025
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to troubleshoot backup issues for Azure Database for MySQL - Flexible Server, so that I can ensure reliable data protection and recovery."
 ---
 
 # Troubleshoot Azure Database for MySQL - Flexible Server backup (preview)
@@ -14,7 +15,9 @@ ms.author: jsuri
 
 This article provides recommended actions to troubleshoot issues that you might encounter during the backup or restore of Azure Database for MySQL - Flexible Server.
 
-## Common errors for backup and restore operations
+## Common errors for MySQL - Flexible Server backup
+
+This section lists common errors that you might encounter while backing up Azure Database for MySQL - Flexible Server.
 
 ### MySQLFlexOperationFailedUserError
 
@@ -61,6 +64,10 @@ This article provides recommended actions to troubleshoot issues that you might 
 **Cause**: The count to perform backups on the server reached the limit.
 
 **Recommended action**: Try to trigger a backup after the currently running backup job finishes.
+
+## Common errors for MySQL - Flexible Server restore
+
+This section lists common error that you might encounter while restoring Azure Database for MySQL - Flexible Server.
 
 ### UserErrorMSIMissingPermissions
 

@@ -4,7 +4,7 @@ description: Overview of Data Factory's data flow script code-behind language
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 05/15/2024
 ---
 
@@ -24,7 +24,7 @@ For instance, `allowSchemaDrift: true,` in a source transformation tells the ser
 The DFS is automatically produced by the user interface. You can click the Script button to view and customize the script. You can also generate scripts outside of the ADF UI and then pass that into the PowerShell cmdlet. When debugging complex data flows, you may find it easier to scan the script code-behind instead of scanning the UI graph representation of your flows.
 
 Here are a few example use cases:
-- Programatically producing many data flows that are fairly similar, i.e. "stamping-out" data flows.
+- Programmatically producing many data flows that are fairly similar, i.e. "stamping-out" data flows.
 - Complex expressions that are difficult to manage in the UI or are resulting in validation issues.
 - Debugging and better understanding various errors returned during execution.
 

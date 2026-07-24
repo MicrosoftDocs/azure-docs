@@ -7,8 +7,11 @@ ms.reviewer: jasonh
 ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
-ms.custom: devx-track-dotnet, devx-track-python
 ms.date: 10/16/2020
+ms.custom:
+  - devx-track-dotnet
+  - devx-track-python
+  - sfi-image-nochange
 ---
 
 # Tutorial: Create Apache Spark job definition in Synapse Studio

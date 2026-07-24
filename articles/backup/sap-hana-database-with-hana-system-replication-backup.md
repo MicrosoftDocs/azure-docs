@@ -2,22 +2,29 @@
 title: Back up SAP HANA System Replication databases on Azure VMs using Azure Backup
 description: In this article, discover how to back up SAP HANA databases with HANA System Replication enabled.
 ms.topic: how-to
-ms.date: 10/01/2024
+ms.date: 07/16/2026
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: "As a database administrator, I want to back up SAP HANA databases on Azure virtual machines using Azure Backup, so that I can ensure data protection and minimize downtime for critical workloads."
 ---
 
-# Back up SAP HANA System Replication databases on Azure VMs
+# Back up SAP HANA System Replication databases on Azure VMs using Azure portal
 
-SAP HANA databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. This article describes how you can back up SAP HANA databases that are running on Azure virtual machines (VMs) to an Azure Backup Recovery Services vault by using [Azure Backup](backup-overview.md).
+SAP HANA databases are critical workloads that require a low recovery-point objective (RPO) and long-term retention. This article describes how you can back up SAP HANA databases that are running on Azure virtual machines (VMs) to an Azure Backup Recovery Services vault by [Azure Backup](backup-overview.md) using Azure portal. You can also [use Azure CLI to do the operation](quick-backup-hana-cli.md).
 
 You can also switch the protection of SAP HANA database on Azure VM (standalone) on Azure Backup to HSR. [Learn more](#scenarios-to-protect-hsr-nodes-on-azure-backup).
 
+Azure Backup also supports instance snapshot backups for HSR-enabled SAP HANA systems (Preview). You can use the snapshot backup policy for fast operational recovery, and keep Backint-based backups enabled for long-term retention and log-based point-in-time recovery.
+
+To learn about the supported SAP HANA database backup and restore scenarios, region availability, and limitations, see the [support matrix](backup-azure-sql-database.md). For common questions, see the [frequently asked questions](sap-hana-faq-backup-azure-vm.yml).
+
 >[!Note]
->- The support for **HSR + DR** scenario is currently not available because there is a restriction to have VM and Vault in the same region. To enable the backup operation of a Third Node that is in a different region, you need to configure the backup in a different vault as a standalone node.
->- For more information about the supported configurations and scenarios, see [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md).
+>The support for **HSR + DR** scenario is currently not available because there is a restriction to have VM and Vault in the same region. To enable the backup operation of a Third Node that is in a different region, you need to configure the backup in a different vault as a standalone node.
+
+You can also [back up SAP HANA database instance snapshots on Azure VMs](sap-hana-database-instances-backup.md).
+
 
 ## Prerequisites
 
@@ -122,27 +129,75 @@ When a failover occurs, the users are replicated to the new primary, but *hdbuse
 
 1. If your HANA setup uses private endpoints, run the preregistration script with the `-sn` or `--skip-network-checks` parameter. After the preregistration script has run successfully, proceed to the next steps.
 
-1. Run the SAP HANA backup configuration script (preregistration script) in the VMs where HANA is installed as the root user. This script sets up the HANA system for backup. For more information about the script actions, see the [What the preregistration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) section.
+1. Run the SAP HANA backup configuration script (preregistration script) in the VMs where HANA is installed as the root user. This script sets up the HANA system for backup. For more information about the script actions, see the [What the preregistration script does](tutorial-backup-sap-hana-db.md#preregistration-script-functionality-for-sap-hana-database-backup) section.
 
    There's no HANA-generated unique ID for an HSR setup. So, you need to provide a unique ID that helps the backup service to group all nodes of an HSR as a single data source.
 
    
-To set up the database for backup, see the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and the [What the preregistration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) sections.
+To set up the database for backup, see the [prerequisites](tutorial-backup-sap-hana-db.md#prerequisites) and the [What the preregistration script does](tutorial-backup-sap-hana-db.md#preregistration-script-functionality-for-sap-hana-database-backup) sections.
 
+## SAP HANA HSR snapshot backup behavior and configuration
+
+You can protect an HSR pair by using the existing SAP HANA instance snapshot workflow.
+
+Snapshot-based SAP HANA backup supports two policy subtypes:
+
+- **Standard** policy (Generally Available)
+- **Enhanced** policy (Preview)
+
+HSR snapshot backup supports only the **Enhanced (Preview)** policy.
+
+Before you configure snapshot protection for HSR, ensure that:
+- Both HSR nodes are registered with the same Recovery Services vault.
+- The vault and both VMs are in the same Azure region.
+- You run the preregistration script on both nodes with the same unique HSR name.
+- The source VM managed identity has permissions to create and manage snapshots in the snapshot resource group and to take snapshots on both HSR nodes.
+
+Snapshot backups for HSR use HANA-consistent snapshots for the data and log volumes. Shared volumes, such as `/hana/shared`, aren't included.
+
+For the step-by-step snapshot setup, see [Back up SAP HANA database instance snapshots on Azure VMs](sap-hana-database-instances-backup.md).
+
+### Backup behavior
+
+During HSR snapshot backup with the Enhanced (Preview) policy, Azure Backup performs the following actions:
+
+- Transfers all disk data in the first snapshot backup. Subsequent backups transfer only changed blocks since the last snapshot backup.
+- Keeps log backups healthy and requires weekly full backups for recovery. Logs aren't embedded in the snapshot.
+- Ensures that hourly log backups and weekly full backups are enabled and healthy.
+- Uses the snapshot as the baseline for recovery and replays logs over the snapshot during restore.
+- Maintains a single logical backup chain across HSR nodes.
+- Continues backups on the new primary after HSR takeover.
+- Runs a remedial streaming full backup if a log chain break is detected.
+
+### Failover and operational scenarios
+
+- Ensure both nodes remain registered with the vault.
+- Azure Backup automatically detects the new primary.
+- Backup continues without reconfiguration after planned HSR takeover.
+- Ensure the former primary is registered as the secondary node.
+
+## Policy and configuration requirements
+
+Before you configure SAP HANA HSR snapshot backup, ensure that:
+
+- You use the HANA **Enhanced (Preview)** snapshot backup policy. HSR snapshot backup isn't supported with the **Standard (GA)** snapshot policy.
+- Managed identity permissions are present on the snapshot resource group and on both HSR nodes to take snapshots.
+- You run the preregistration script on both HSR nodes with the same unique HSR name.
+- You enable outbound connectivity to Azure services.
 
 ## Discover the databases
 
 To discover the HSR database, follow these steps:
 
-1. In the Azure portal, go to **Backup center**, and then select **+ Backup**.
+1. In the Azure portal, go to **Resiliency**, and then select **+ Configure protection**.
 
-   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/initiate-database-discovery.png" alt-text="Screenshot that shows how to start database discovery.":::
+1. On the **Configure protection** pane, for **Datasource type**, select **SAP HANA in Azure VM**, and then select **Continue**.
 
-1. Select **SAP HANA in Azure VM** as the data source type, select the Recovery Services vault to use for the backup, and then select **Continue**.
+1. On the **Start: Configure Backup** pane, for **Vault**, click **Select vault** to choose the Recovery Services vault for backup configuration, and then select **Continue**.
 
-   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/configure-backup.png" alt-text="Screenshot that shows how to configure a database backup.":::
+   :::image type="content" source="./media/sap-hana-database-with-hana-system-replication-backup/configure-backup.png" alt-text="Screenshot that shows how to configure a database backup." lightbox="./media/sap-hana-database-with-hana-system-replication-backup/configure-backup.png":::
 
-1. Select **Start Discovery** to initiate the discovery of unprotected Linux VMs in the vault region.
+1. On the **Backup Goal** pane, select **Start Discovery** to initiate the discovery of unprotected Linux VMs in the vault region.
    - After discovery, unprotected VMs appear in the portal, listed by name and resource group.
    - If a VM isn't listed as expected, check to see whether it's already backed up in a vault.
    - Multiple VMs can have the same name, but they must belong to different resource groups.
@@ -321,5 +376,8 @@ You can now switch the protection of SAP HANA database on Azure VM (standalone) 
 
 ## Next step
 
-- [Restore SAP HANA System Replication databases on Azure VMs](sap-hana-database-restore.md)
+- [Back up SAP HANA database instance snapshots on Azure VMs](sap-hana-database-instances-backup.md).
+- [Restore SAP HANA System Replication databases on Azure VMs using Azure portal](sap-hana-database-restore.md).
+- [Restore SAP HANA System Replication databases on Azure VMs using Azure CLI](quick-restore-hana-cli.md).
 - [About backing up SAP HANA System Replication databases on Azure VMs](sap-hana-database-about.md#back-up-a-hana-system-with-replication-enabled)
+- [Manage SAP HANA databases that are backed up by Azure Backup using Azure CLI](tutorial-sap-hana-manage-cli.md).

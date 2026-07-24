@@ -7,7 +7,7 @@ ms.author: tchladek
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: how-to 
-ms.date: 04/03/2023
+ms.date: 06/05/2025
 ---
 
 # How to manage Teams meeting role
@@ -16,13 +16,14 @@ In this article, you learn how users that joined Teams meetings or Room can lear
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../quickstarts/create-communication-resource.md).
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
-- Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
+- Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md).
 
 ## Join Teams meeting
-In the following code, you learn how to create `CallClient` and `CallAgent`, which are necessary for the next steps. Then we join the Teams meeting, which creates a `Call` instance.
+
+The following code describes how to create `CallClient` and `CallAgent`, which are necessary for the next steps. Then we join the Teams meeting, which creates a `Call` instance.
 
 ```js
 const { CallClient } = require('@azure/communication-calling');
@@ -39,7 +40,7 @@ const meetingCall = callAgent.join({ meetingLink: '<MEETING_LINK>' });
 
 ## Learn the current role
 
-You create a 'Call' instance when you join the Teams meeting or Room with calling SDK. This object has a property `role` that can have one of the following values:
+You create a `Call` instance when you join the Teams meeting or Room with calling SDK. This object has a property `role` that can have one of the following values:
 - Unknown
 - Attendee
 - Presenter
@@ -47,7 +48,7 @@ You create a 'Call' instance when you join the Teams meeting or Room with callin
 - Consumer
 - Collaborator
 
-To learn about the roles and capabilities in Rooms please see more [here](./../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions-in-virtual-rooms-calls). 
+For more information about the roles and capabilities in Rooms, see [Rooms API for structured meetings](./../../concepts/rooms/room-concept.md#predefined-participant-roles-and-permissions-in-virtual-rooms-calls).
 
 ```js
 const role = meetingCall.role;

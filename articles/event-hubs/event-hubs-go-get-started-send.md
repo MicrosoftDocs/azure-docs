@@ -4,7 +4,10 @@ description: 'Quickstart: This article provides a walkthrough for creating a Go 
 ms.topic: quickstart
 ms.date: 11/16/2022
 ms.devlang: golang
-ms.custom: mode-api, devx-track-go
+ms.custom:
+  - mode-api
+  - devx-track-go
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Send events to or receive events from Event Hubs using Go
@@ -263,4 +266,4 @@ See samples on GitHub at [https://github.com/Azure/azure-sdk-for-go/tree/main/sd
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md
-[free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
+[free account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn

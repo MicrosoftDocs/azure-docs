@@ -3,7 +3,9 @@ author: karlerickson
 ms.author: v-shilichen
 ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 07/19/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom: sfi-ropc-nochange
 ---
 
 <!-- 
@@ -117,7 +119,7 @@ Use the following steps to create an Azure Spring Apps instance:
 
    ```output
    SUCCESS: Your application was provisioned in Azure in xx minutes xx seconds.
-   You can view the resources created under the resource group rg-<your-environment-name> in Azure Portal:
+   You can view the resources created under the resource group rg-<your-environment-name> in Azure portal:
    https://portal.azure.com/#@/resource/subscriptions/<your-subscription-id>/resourceGroups/rg-<your-environment-name>/overview
    ```
 

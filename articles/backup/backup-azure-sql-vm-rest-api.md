@@ -2,18 +2,18 @@
 title: Back up SQL server databases in Azure VMs using Azure Backup via REST API
 description: Learn how to use REST API to back up SQL server databases in Azure VMs in the Recovery Services vault
 ms.topic: how-to
-ms.date: 02/09/2025
+ms.date: 02/20/2026
 ms.service: azure-backup
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to back up SQL Server databases in Azure VMs using a REST API, so that I can automate and manage the backup process efficiently through my infrastructure."
 ---
 
 # Back up SQL server databases in Azure VMs using Azure Backup via REST API
 
 This article describes how to back up SQL server databases in Azure VMs using Azure Backup via REST API.
 
->[!Note]
->See the [SQL backup support matrix](sql-support-matrix.md) to know more about the supported configurations and scenarios.
+To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support). For common questions, see the [frequently asked questions](faq-backup-sql-server.yml).
 
 ## Prerequisites
 
@@ -542,8 +542,9 @@ Once the operation is complete, it returns 200 (OK) with the ID of the resulting
 }
 ```
 
-As the backup job is a long running operation, it needs to be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#track-the-job).
+As the backup job is a long running operation, it needs to be tracked as explained in the [monitor jobs using REST API document](backup-azure-arm-userestapi-managejobs.md#track-the-backup-and-restore-jobs).
 
 ## Next steps
 
-- Learn how to [restore SQL databases using REST API](restore-azure-sql-vm-rest-api.md).
+- [Restore SQL databases using REST API](restore-azure-sql-vm-rest-api.md).
+- Manage SQL server databases in Azure VMs with [Azure portal](manage-monitor-sql-database-backup.md), [Azure CLI](backup-azure-sql-manage-cli.md), [REST API](manage-azure-sql-vm-rest-api.md).

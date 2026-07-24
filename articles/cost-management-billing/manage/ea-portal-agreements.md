@@ -1,13 +1,14 @@
 ---
 title: Azure EA agreements and amendments
 description: The article describes how Azure EA agreements and amendments might affect your access, use, and payments for Azure services.
-author: RaniChegondi
-ms.author: racheg
-ms.date: 04/01/2025
-ms.topic: conceptual
+author: SandeepReddyAcc
+ms.author: v-salin
+ms.date: 04/20/2026
+ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: racheg
+ms.reviewer: anjai
+service.tree.id: 9aca7c0a-9d64-4346-a8f6-50141d9c9d5c
 ---
 
 # Azure EA agreements and amendments
@@ -39,7 +40,7 @@ An enrollment has one of the following status values. Each value determines how 
 
 EA credit expires when the EA enrollment ends for all programs except the EU program.
 
-**Expired** - The EA enrollment expires when it reaches the enterprise agreement end date and is opted out of the extended term. Sign a new enrollment contract as soon as possible. Although your service isn't disabled immediately, there's a risk of it getting disabled. Additionally, you won't be able to see any billing and usage data generated after the enrollment end date.
+**Expired** - The EA enrollment expires when it reaches the enterprise agreement end date and is opted out of the extended term. Sign a new enrollment contract as soon as possible. Although your service isn't disabled immediately, there's a risk of it getting disabled. Additionally, if there are no active subscriptions, billing and usage data generated after the enrollment end date will not be visible. However, if any subscriptions remain active under the expired enrollment, billing and usage data will continue to be generated. 
 
 As of August 1, 2019, new opt-out forms aren't accepted for Azure commercial customers. Instead, all enrollments go into indefinite extended term. If you want to stop using Azure services, close your subscription in the [Azure portal](https://portal.azure.com). Or, your partner can submit a termination request. There's no change for customers with government agreement types.
 
@@ -103,7 +104,7 @@ Make sure to review the commercial information - monetary balance information, p
 
 #### Azure savings plan purchases
 
-For [Azure Savings plan](../savings-plan/savings-plan-compute-overview.md) purchases, in some situations, indirect EA end customers could see minor variances in their utilization percentage when they view their [cost reports](../savings-plan/utilization-cost-reports.md) in Cost Management. Actual purchase and usage charges are always computed in partner prices and not in customer prices (for example, with markup). Subsequent markdown and uplift could result in floating point numbers exceeding eight decimal point precision. Azure rounds calculations to eight decimal precision, which can cause minor variances in the utilization numbers for end customers.
+For [Azure Savings plan](../savings-plan/savings-plan-overview.md) purchases, in some situations, indirect EA end customers could see minor variances in their utilization percentage when they view their [cost reports](../savings-plan/utilization-cost-reports.md) in Cost Management. Actual purchase and usage charges are always computed in partner prices and not in customer prices (for example, with markup). Subsequent markdown and uplift could result in floating point numbers exceeding eight decimal point precision. Azure rounds calculations to eight decimal precision, which can cause minor variances in the utilization numbers for end customers.
 
 Let's look at an example. Assume that a customer enters an Azure Savings Plan commitment amount of 3.33/hour. If the markup is 13%, after the markdown to arrive at the partner price and the subsequent markup in the cost and usage reports, there's minor variance in numbers:
 

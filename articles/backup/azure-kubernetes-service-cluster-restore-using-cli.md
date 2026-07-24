@@ -3,13 +3,15 @@ title: Restore Azure Kubernetes Service (AKS) using Azure CLI
 description: This article explains how to restore backed-up Azure Kubernetes Service (AKS) using Azure CLI.
 ms.topic: how-to
 ms.service: azure-backup
-ms.date: 01/30/2025
+ms.date: 04/14/2025
+ms.update-cycle: 1095-days
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
   - ignite-2024
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a DevOps engineer, I want to restore my Azure Kubernetes Service cluster using command-line tools, so that I can efficiently recover my applications and data from backup without manual intervention."
 ---
 
 # Restore Azure Kubernetes Service using Azure CLI 

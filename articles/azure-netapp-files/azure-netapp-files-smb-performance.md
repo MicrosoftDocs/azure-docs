@@ -1,12 +1,14 @@
 ---
-title: SMB performance best practices for Azure NetApp Files| Microsoft Docs
+title: SMB performance best practices for Azure NetApp Files
 description: Helps you understand SMB performance and best practices for Azure NetApp Files.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 01/28/2025
+ms.topic: concept-article
+ms.date: 04/28/2025
 ms.author: anfdocs
+ms.custom: sfi-image-nochange
+# Customer intent: As an IT professional managing Azure NetApp Files, I want to implement SMB performance best practices, so that I can optimize file sharing and ensure efficient data access across multiple workloads.
 ---
 # SMB performance best practices for Azure NetApp Files
 
@@ -100,8 +102,6 @@ After you have data traffic running in your volumes, you can monitor your adapte
 ![Screenshot that shows Performance Monitor output.](./media/azure-netapp-files-smb-performance/smb-performance-performance-monitor-output.png)
 
 ## SMB encryption
-
-This section helps you understand SMB encryption (SMB 3.0 and SMB 3.1.1) 
 
 [SMB encryption](/windows-server/storage/file-server/smb-security) provides end-to-end encryption of SMB data and protects data from eavesdropping occurrences on untrusted networks. SMB encryption is supported on SMB 3.0 and greater. 
 

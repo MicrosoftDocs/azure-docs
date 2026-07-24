@@ -90,7 +90,7 @@ To mitigate the issue, see [Enable remote build](#enable-remote-build) or [Build
 
 #### The package is incompatible with the Python interpreter version
 
-Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. In your text editor, open the *METADATA* file and check the **Classifiers:** section. If the section doesn't contain `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, `Python :: 3.8`, or `Python :: 3.9`, the package version is either too old or, more likely, it's already out of maintenance.
+Go to `.python_packages/lib/python3.6/site-packages/<package-name>-<version>-dist-info` or `.python_packages/lib/site-packages/<package-name>-<version>-dist-info`. In your text editor, open the *METADATA* file and check the **Classifiers:** section. If the section doesn't contain `Python :: 3`, `Python :: 3.10`, `Python :: 3.11`, `Python :: 3.12`, or `Python :: 3.13`, the package version is either too old or, more likely, it's already out of maintenance.
 
 You can check the Python version of your function app from the [Azure portal](https://portal.azure.com). Navigate to your function app's **Overview** resource page to find the runtime version. The runtime version supports Python versions as described in the [Azure Functions runtime versions overview](./functions-versions.md).
 
@@ -142,7 +142,7 @@ Make sure that the latest versions of both Docker and [Azure Functions Core Tool
 
 #### Update your package to the latest version
 
-In the latest package version of `https://pypi.org/project/<package-name>`, check the **Classifiers:** section. The package should be `OS Independent`, or compatible with `POSIX` or `POSIX :: Linux` in **Operating System**. Also, the programming language should contain: `Python :: 3`, `Python :: 3.6`, `Python :: 3.7`, `Python :: 3.8`, or `Python :: 3.9`.
+In the latest package version of `https://pypi.org/project/<package-name>`, check the **Classifiers:** section. The package should be `OS Independent`, or compatible with `POSIX` or `POSIX :: Linux` in **Operating System**. Also, the programming language should contain: `Python :: 3`, `Python :: 3.10`, `Python :: 3.11`, `Python :: 3.12`, or `Python :: 3.13`.
 
 If these package items are correct, you can update the package to the latest version by changing the line `<package-name>~=<latest-version>` in *requirements.txt*.
 
@@ -156,7 +156,7 @@ The best practice is to check the import statement from each *.py* file in your 
 
 First, take a look into the latest version of the package in `https://pypi.org/project/<package-name>`. This package usually has its own GitHub page. Go to the **Issues** section on GitHub and search to see whether your issue has been fixed. If it has been fixed, update the package to the latest version.
 
-Sometimes, the package might have been integrated into [Python Standard Library](https://docs.python.org/3/library/) (such as `pathlib`). If so, because we provide a certain Python distribution in Azure Functions (Python 3.6, Python 3.7, Python 3.8, and Python 3.9), the package in your *requirements.txt* file should be removed.
+Sometimes, the package might be integrated into [Python Standard Library](https://docs.python.org/3/library/) (such as `pathlib`). If so, because Azure Functions provides a certain Python distribution (Python 3.10, Python 3.11, Python 3.12, and Python 3.13), remove the package from your *requirements.txt* file.
 
 However, if you're finding that the issue hasn't been fixed, and you're on a deadline, we encourage you to do some research to find a similar package for your project. Usually, the Python community provides you with a wide variety of similar libraries that you can use.
 
@@ -185,7 +185,7 @@ There are several possible causes for errors that reference `cygrpc`, which are 
 
 This mismatch is most likely caused by a 32-bit Python interpreter being installed on your 64-bit operating system.
 
-If you're running on an x64 operating system, ensure that your Python version 3.6, 3.7, 3.8, or 3.9 interpreter is also on a 64-bit version.
+If you're running on an x64 operating system, make sure your Python version 3.10, 3.11, 3.12, or 3.13 interpreter is also a 64-bit version.
 
 You can check your Python interpreter bitness by running the following commands:
 
@@ -235,7 +235,10 @@ If your function app is using the Python pickle library to load a Python object 
 
 ### Pyodbc connection collision
 
-If your function app is using the popular ODBC database driver [pyodbc](https://github.com/mkleehammer/pyodbc), it's possible that multiple connections are open within a single function app. To avoid this issue, use the singleton pattern, and ensure that only one pyodbc connection is used across the function app.
+If your function app is using the ODBC database driver [pyodbc](https://github.com/mkleehammer/pyodbc), it's possible that multiple connections are open within a single function app. To avoid this issue, use the singleton pattern, and ensure that only one pyodbc connection is used across the function app.
+
+> [!TIP]
+> Consider using [mssql-python](https://github.com/microsoft/mssql-python), Microsoft's official Python driver for SQL Server, which provides built-in Microsoft Entra authentication support and doesn't require manual ODBC driver management.
 
 ---
 

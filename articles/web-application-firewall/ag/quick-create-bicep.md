@@ -8,6 +8,7 @@ ms.service: azure-web-application-firewall
 ms.topic: quickstart
 ms.date: 10/16/2023
 ms.custom: subject-armqs, devx-track-azurepowershell, mode-arm, devx-track-bicep
+# Customer intent: "As a cloud architect, I want to deploy a Web Application Firewall v2 on an Application Gateway using Bicep, so that I can enhance security for my applications hosted in Azure."
 ---
 
 # Quickstart: Create an Azure WAF v2 on Application Gateway using Bicep
@@ -18,7 +19,7 @@ In this quickstart, you use Bicep to create an Azure Web Application Firewall v2
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Review the Bicep file
 

@@ -7,13 +7,14 @@ ms.service: azure-virtual-network
 ms.topic: tutorial
 ms.date: 08/19/2024
 ms.author: allensu
-ms.custom: 
-  - template-tutorial
-  - devx-track-azurecli
-  - devx-track-azurepowershell
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
+ms.custom:
+  - template-tutorial
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: I want to filter network traffic to virtual machines that perform similar functions, such as web servers.
 ---
 
@@ -38,11 +39,11 @@ In this tutorial, you learn how to:
 
 ### [Portal](#tab/portal)
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ### [PowerShell](#tab/powershell)
 
-- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. You can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
@@ -151,7 +152,7 @@ An [application security group (ASGs)](application-security-groups.md) enables y
    | Resource group       | Select **test-rg**.       |
    | **Instance details** |                           |
    | Name                 | Enter **asg-web**.        |
-   | Region               | Select **East US 2**.     |
+   | Region               | Select **West US 2**.     |
 
 1. Select **Review + create**.
 
@@ -166,7 +167,7 @@ An [application security group (ASGs)](application-security-groups.md) enables y
    | Resource group       | Select **test-rg**.       |
    | **Instance details** |                           |
    | Name                 | Enter **asg-mgmt**.       |
-   | Region               | Select **East US 2**.     |
+   | Region               | Select **West US 2**.     |
 
 1. Select **Review + create**.
 
@@ -232,7 +233,7 @@ A [network security group (NSG)](network-security-groups-overview.md) secures ne
    | Resource group       | Select **test-rg**.       |
    | **Instance details** |                           |
    | Name                 | Enter **nsg-1**.          |
-   | Location             | Select **East US 2**.     |
+   | Location             | Select **West US 2**.     |
 
 1. Select **Review + create**.
 
@@ -324,7 +325,7 @@ az network vnet subnet update \
 
 1. In **Inbound security rules** page, select **+ Add**.
 
-1. Create a security rule that allows ports 80 and 443 to the **asg-web** application security group. In **Add inbound security rule** page, enter or select the following information:
+1. Create a security rule that allows port 80 to the **asg-web** application security group. In **Add inbound security rule** page, enter or select the following information:
 
    | Setting                                 | Value                                  |
    | --------------------------------------- | -------------------------------------- |
@@ -333,11 +334,11 @@ az network vnet subnet update \
    | Destination                             | Select **Application security group**. |
    | Destination application security groups | Select **asg-web**.                    |
    | Service                                 | Leave the default of **Custom**.       |
-   | Destination port ranges                 | Enter **80,443**.                      |
+   | Destination port ranges                 | Enter **80**.                          |
    | Protocol                                | Select **TCP**.                        |
    | Action                                  | Leave the default of **Allow**.        |
    | Priority                                | Leave the default of **100**.          |
-   | Name                                    | Enter **allow-web-all**.               |
+   | Name                                    | Enter **allow-http-web**.              |
 
 1. Select **Add**.
 
@@ -349,23 +350,18 @@ az network vnet subnet update \
    | Source port ranges                     | Leave the default of **(\*)**.         |
    | Destination                            | Select **Application security group**. |
    | Destination application security group | Select **asg-mgmt**.                   |
-   | Service                                | Select **RDP**.                        |
+   | Service                                | Leave the default of **Custom**.       |
+   | Destination port ranges                | Enter **8080**.                        |
+   | Protocol                               | Select **TCP**.                        |
    | Action                                 | Leave the default of **Allow**.        |
    | Priority                               | Leave the default of **110**.          |
-   | Name                                   | Enter _allow-rdp-all_.                 |
+   | Name                                   | Enter **allow-8080-mgmt**.             |
 
 1. Select **Add**.
 
-> [!CAUTION]
-> In this article, RDP (port 3389) is exposed to the internet for the VM that is assigned to the **asg-mgmt** application security group.
->
-> For production environments, instead of exposing port 3389 to the internet, it's recommended that you connect to Azure resources that you want to manage using a VPN, private network connection, or Azure Bastion.
->
-> For more information on Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md).
-
 ### [PowerShell](#tab/powershell)
 
-Create a security rule with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). The following example creates a rule that allows traffic inbound from the internet to the _asg-web_ application security group over ports 80 and 443:
+Create a security rule with [New-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig). The following example creates a rule that allows traffic inbound from the internet to the _asg-web_ application security group over port 80:
 
 ```azurepowershell-interactive
 $webAsgParams = @{
@@ -375,7 +371,7 @@ $webAsgParams = @{
 $webAsg = Get-AzApplicationSecurityGroup @webAsgParams
 
 $webRuleParams = @{
-    Name = "Allow-Web-All"
+    Name = "Allow-HTTP-Web"
     Access = "Allow"
     Protocol = "Tcp"
     Direction = "Inbound"
@@ -383,12 +379,12 @@ $webRuleParams = @{
     SourceAddressPrefix = "Internet"
     SourcePortRange = "*"
     DestinationApplicationSecurityGroupId = $webAsg.id
-    DestinationPortRange = 80,443
+    DestinationPortRange = 80
 }
 $webRule = New-AzNetworkSecurityRuleConfig @webRuleParams
 ```
 
-The following example creates a rule that allows traffic inbound from the internet to the *asg-mgmt* application security group over port 3389:
+The following example creates a rule that allows traffic inbound from the internet to the *asg-mgmt* application security group over port 8080:
 
 ```azurepowershell-interactive
 $mgmtAsgParams = @{
@@ -398,7 +394,7 @@ $mgmtAsgParams = @{
 $mgmtAsg = Get-AzApplicationSecurityGroup @mgmtAsgParams
 
 $mgmtRuleParams = @{
-    Name = "Allow-RDP-All"
+    Name = "Allow-8080-Mgmt"
     Access = "Allow"
     Protocol = "Tcp"
     Direction = "Inbound"
@@ -406,7 +402,7 @@ $mgmtRuleParams = @{
     SourceAddressPrefix = "Internet"
     SourcePortRange = "*"
     DestinationApplicationSecurityGroupId = $mgmtAsg.id
-    DestinationPortRange = 3389
+    DestinationPortRange = 8080
 }
 $mgmtRule = New-AzNetworkSecurityRuleConfig @mgmtRuleParams
 ```
@@ -425,22 +421,15 @@ $nsg.SecurityRules += $mgmtRule
 Set-AzNetworkSecurityGroup -NetworkSecurityGroup $nsg
 ```
 
-> [!CAUTION]
-> In this article, RDP (port 3389) is exposed to the internet for the VM that is assigned to the **asg-mgmt** application security group.
->
-> For production environments, instead of exposing port 3389 to the internet, it's recommended that you connect to Azure resources that you want to manage using a VPN, private network connection, or Azure Bastion.
->
-> For more information on Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md).
-
 ### [CLI](#tab/cli)
 
-Create a security rule with [az network nsg rule create](/cli/azure/network/nsg/rule). The following example creates a rule that allows traffic inbound from the internet to the *asg-web* application security group over ports 80 and 443:
+Create a security rule with [az network nsg rule create](/cli/azure/network/nsg/rule). The following example creates a rule that allows traffic inbound from the internet to the *asg-web* application security group over port 80:
 
 ```azurecli-interactive
 az network nsg rule create \
   --resource-group test-rg \
   --nsg-name nsg-1 \
-  --name Allow-Web-All \
+  --name Allow-HTTP-Web \
   --access Allow \
   --protocol Tcp \
   --direction Inbound \
@@ -448,16 +437,16 @@ az network nsg rule create \
   --source-address-prefix Internet \
   --source-port-range "*" \
   --destination-asgs "asg-web" \
-  --destination-port-range 80 443
+  --destination-port-range 80
 ```
 
-The following example creates a rule that allows traffic inbound from the Internet to the *asg-mgmt* application security group over port 22:
+The following example creates a rule that allows traffic inbound from the Internet to the *asg-mgmt* application security group over port 8080:
 
 ```azurecli-interactive
 az network nsg rule create \
   --resource-group test-rg \
   --nsg-name nsg-1 \
-  --name Allow-SSH-All \
+  --name Allow-8080-Mgmt \
   --access Allow \
   --protocol Tcp \
   --direction Inbound \
@@ -465,16 +454,8 @@ az network nsg rule create \
   --source-address-prefix Internet \
   --source-port-range "*" \
   --destination-asgs "asg-mgmt" \
-  --destination-port-range 22
+  --destination-port-range 8080
 ```
-
-> [!CAUTION]
-> In this article, SSH (port 22) is exposed to the internet for the VM that is assigned to the **asg-mgmt** application security group.
->
-> For production environments, instead of exposing port 22 to the internet, it's recommended that you connect to Azure resources that you want to manage using a VPN, private network connection, or Azure Bastion.
->
-> For more information on Azure Bastion, see [What is Azure Bastion?](../bastion/bastion-overview.md).
-
 
 ---
 
@@ -486,7 +467,7 @@ Create two virtual machines (VMs) in the virtual network.
 
 1. In the portal, search for and select **Virtual machines**.
 
-1. In **Virtual machines**, select **+ Create**, then **Azure virtual machine**.
+1. In **Virtual machines**, select **+ Create**, then **Virtual machine**.
 
 1. In **Create a virtual machine**, enter or select this information in the **Basics** tab:
 
@@ -497,16 +478,17 @@ Create two virtual machines (VMs) in the virtual network.
    | Resource group            | Select **test-rg**.                                             |
    | **Instance details**      |                                                                 |
    | Virtual machine name      | Enter **vm-web**.                                                 |
-   | Region                    | Select **(US) East US 2**.                                      |
+   | Region                    | Select **(US) West US 2**.                                      |
    | Availability options      | Leave the default of **No infrastructure redundancy required**. |
    | Security type             | Select **Standard**.                                            |
-   | Image                     | Select **Windows Server 2022 Datacenter - x64 Gen2**.           |
+   | Image                     | Select **Ubuntu Server 24.04 LTS - x64 Gen2**.                  |
    | Azure Spot instance       | Leave the default of unchecked.                                 |
    | Size                      | Select a size.                                                  |
    | **Administrator account** |                                                                 |
-   | Username                  | Enter a username.                                               |
-   | Password                  | Enter a password.                                               |
-   | Confirm password          | Reenter password.                                               |
+   | Authentication type       | Select **SSH public key**.                                      |
+   | Username                  | Enter **azureuser**.                                            |
+   | SSH public key source     | Select **Generate new key pair**.                               |
+   | Key pair name             | Enter **vm-web-key**.                                           |
    | **Inbound port rules**    |                                                                 |
    | Select inbound ports      | Select **None**.                                                |
 
@@ -524,9 +506,11 @@ Create two virtual machines (VMs) in the virtual network.
 
 1. Select the **Review + create** tab, or select the blue **Review + create** button at the bottom of the page.
 
-1. Select **Create**. The VM might take a few minutes to deploy.
+1. Select **Create**.
 
-1. Repeat the previous steps to create a second virtual machine named **vm-mgmt**.
+1. When prompted to **Generate new key pair**, select **Download private key and create resource**. The private key is downloaded to your local computer. The VM might take a few minutes to deploy.
+
+1. Repeat the previous steps to create a second virtual machine named **vm-mgmt** with key pair name **vm-mgmt-key**.
 
 ### [PowerShell](#tab/powershell)
 
@@ -588,30 +572,49 @@ $mgmtNic = New-AzNetworkInterface @mgmtNicParams
 
 Create two VMs in the virtual network so you can validate traffic filtering in a later step.
 
+Generate SSH keys in Azure with [New-AzSshKey](/powershell/module/az.compute/new-azsshkey). The following example creates SSH key resources for each VM:
+
+```azurepowershell-interactive
+# Create SSH key for vm-web
+$webSshKeyParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vm-web-key"
+}
+New-AzSshKey @webSshKeyParams
+
+# Create SSH key for vm-mgmt
+$mgmtSshKeyParams = @{
+    ResourceGroupName = "test-rg"
+    Name = "vm-mgmt-key"
+}
+New-AzSshKey @mgmtSshKeyParams
+```
+
 Create a VM configuration with [New-AzVMConfig](/powershell/module/az.compute/new-azvmconfig), then create the VM with [New-AzVM](/powershell/module/az.compute/new-azvm). The following example creates a VM that serves as a web server. The `-AsJob` option creates the VM in the background, so you can continue to the next step:
 
 ```azurepowershell-interactive
-# Create user object
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+# Get the SSH public key
+$sshKey = Get-AzSshKey -Name "vm-web-key" -ResourceGroupName "test-rg"
 
 $webVmConfigParams = @{
     VMName = "vm-web"
     VMSize = "Standard_DS1_V2"
 }
 
-$vmOSParams = @{
-    ComputerName = "vm-web"
-    Credential = $cred
-}
-
 $vmImageParams = @{
-    PublisherName = "MicrosoftWindowsServer"
-    Offer = "WindowsServer"
-    Skus = "2022-Datacenter"
+    PublisherName = "Canonical"
+    Offer = "ubuntu-24_04-lts"
+    Skus = "server"
     Version = "latest"
 }
 
-$webVmConfig = New-AzVMConfig @webVmConfigParams | Set-AzVMOperatingSystem -Windows @vmOSParams | Set-AzVMSourceImage @vmImageParams | Add-AzVMNetworkInterface -Id $webNic.Id
+$webVmConfig = New-AzVMConfig @webVmConfigParams | `
+    Set-AzVMOperatingSystem -Linux -ComputerName "vm-web" -Credential (New-Object System.Management.Automation.PSCredential("azureuser", (ConvertTo-SecureString "DummyP@ssw0rd" -AsPlainText -Force))) -DisablePasswordAuthentication | `
+    Set-AzVMSourceImage @vmImageParams | `
+    Add-AzVMNetworkInterface -Id $webNic.Id | `
+    Set-AzVMOSDisk -CreateOption FromImage | `
+    Set-AzVMBootDiagnostic -Disable | `
+    Add-AzVMSshPublicKey -KeyData $sshKey.publicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 $webVmParams = @{
     ResourceGroupName = "test-rg"
@@ -625,27 +628,28 @@ New-AzVM @webVmParams -AsJob
 Create a VM to serve as a management server:
 
 ```azurepowershell-interactive
-# Create user object
-$cred = Get-Credential -Message "Enter a username and password for the virtual machine."
+# Get the SSH public key
+$sshKey = Get-AzSshKey -Name "vm-mgmt-key" -ResourceGroupName "test-rg"
 
-$webVmConfigParams = @{
+$mgmtVmConfigParams = @{
     VMName = "vm-mgmt"
     VMSize = "Standard_DS1_V2"
 }
 
-$vmOSParams = @{
-    ComputerName = "vm-mgmt"
-    Credential = $cred
-}
-
 $vmImageParams = @{
-    PublisherName = "MicrosoftWindowsServer"
-    Offer = "WindowsServer"
-    Skus = "2022-Datacenter"
+    PublisherName = "Canonical"
+    Offer = "ubuntu-24_04-lts"
+    Skus = "server"
     Version = "latest"
 }
 
-$mgmtVmConfig = New-AzVMConfig @webVmConfigParams | Set-AzVMOperatingSystem -Windows @vmOSParams | Set-AzVMSourceImage @vmImageParams | Add-AzVMNetworkInterface -Id $mgmtNic.Id
+$mgmtVmConfig = New-AzVMConfig @mgmtVmConfigParams | `
+    Set-AzVMOperatingSystem -Linux -ComputerName "vm-mgmt" -Credential (New-Object System.Management.Automation.PSCredential("azureuser", (ConvertTo-SecureString "DummyP@ssw0rd" -AsPlainText -Force))) -DisablePasswordAuthentication | `
+    Set-AzVMSourceImage @vmImageParams | `
+    Add-AzVMNetworkInterface -Id $mgmtNic.Id | `
+    Set-AzVMOSDisk -CreateOption FromImage | `
+    Set-AzVMBootDiagnostic -Disable | `
+    Add-AzVMSshPublicKey -KeyData $sshKey.publicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 $mgmtVmParams = @{
     ResourceGroupName = "test-rg"
@@ -662,19 +666,18 @@ The virtual machine takes a few minutes to create. Don't continue with the next 
 
 Create two VMs in the virtual network so you can validate traffic filtering in a later step. 
 
-Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM that serves as a web server. The `--nsg ""` option is specified to prevent Azure from creating a default network security group for the network interface Azure creates when it creates the VM. The command prompts you to create a password for the VM. SSH keys aren't used in this example to facilitate the later steps in this article. In a production environment, use SSH keys for security.
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM that serves as a web server. The `--nsg ""` option is specified to prevent Azure from creating a default network security group for the network interface Azure creates when it creates the VM. The `--generate-ssh-keys` parameter causes the CLI to look for an available ssh key in `~/.ssh`. If one is found, that key is used. If not, one is generated and stored in `~/.ssh`:
 
 ```azurecli-interactive
 az vm create \
   --resource-group test-rg \
   --name vm-web \
-  --image Ubuntu2204 \
+  --image Ubuntu2404 \
   --vnet-name vnet-1 \
   --subnet subnet-1 \
   --nsg "" \
   --admin-username azureuser \
-  --authentication-type password \
-  --assign-identity
+  --generate-ssh-keys
 ```
 
 The VM takes a few minutes to create. After the VM is created, output similar to the following example is returned: 
@@ -692,21 +695,18 @@ The VM takes a few minutes to create. After the VM is created, output similar to
 }
 ```
 
-Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM that serves as a management server. 
-
-The following example creates a VM and adds a user account. The `--generate-ssh-keys` parameter causes the CLI to look for an available ssh key in `~/.ssh`. If one is found, that key is used. If not, one is generated and stored in `~/.ssh`. Finally, we deploy the latest `Ubuntu 22.04` image.
+Create a VM with [az vm create](/cli/azure/vm). The following example creates a VM that serves as a management server:
 
 ```azurecli-interactive
 az vm create \
   --resource-group test-rg \
   --name vm-mgmt \
-  --image Ubuntu2204 \
+  --image Ubuntu2404 \
   --vnet-name vnet-1 \
   --subnet subnet-1 \
   --nsg "" \
   --admin-username azureuser \
-  --generate-ssh-keys \
-  --assign-identity
+  --generate-ssh-keys
 ```
 
 The VM takes a few minutes to create. Don't continue with the next step until Azure finishes creating the VM.
@@ -817,151 +817,243 @@ az network nic ip-config update \
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
-1. Select **vm-mgmt**.
+1. Select **vm-web**.
 
-1. On the **Overview** page, select the **Connect** button and then select **Native RDP**.
+1. Select **Run command** from the **Operations** section.
 
-1. Select **Download RDP file**.
+1. Select **RunShellScript**.
 
-1. Open the downloaded rdp file and select **Connect**. Enter the username and password you specified when creating the VM.
+1. In the **Run Command Script** pane, enter the following commands:
 
-1. Select **OK**.
-
-1. You might receive a certificate warning during the connection process. If you receive the warning, select **Yes** or **Continue**, to continue with the connection.
-
-   The connection succeeds, because inbound traffic from the internet to the **asg-mgmt** application security group is allowed through port 3389.
-
-   The network interface for **vm-mgmt** is associated with the **asg-mgmt** application security group and allows the connection.
-
-1. Open a PowerShell session on **vm-mgmt**. Connect to **vm-web** using the following:
-
-   ```powershell
-   mstsc /v:vm-web
+   ```bash
+   sudo apt-get update -y
+   sudo apt-get install -y nginx
+   sudo systemctl enable nginx
+   sudo systemctl start nginx
    ```
 
-   The RDP connection from **vm-mgmt** to **vm-web** succeeds because virtual machines in the same network can communicate with each other over any port by default.
+1. Select **Run**. Wait for the script to complete successfully.
 
-   You can't create an RDP connection to the **vm-web** virtual machine from the internet. The security rule for the **asg-web** prevents connections to port 3389 inbound from the internet. Inbound traffic from the Internet is denied to all resources by default.
-
-1. To install Microsoft IIS on the **vm-web** virtual machine, enter the following command from a PowerShell session on the **vm-web** virtual machine:
-
-   ```powershell
-   Install-WindowsFeature -name Web-Server -IncludeManagementTools
-   ```
-
-1. After the IIS installation is complete, disconnect from the **vm-web** virtual machine, which leaves you in the **vm-mgmt** virtual machine remote desktop connection.
-
-1. Disconnect from the **vm-mgmt** VM.
-
-1. Search for **vm-web** in the portal search box.
-
-1. On the **Overview** page of **vm-web**, note the **Public IP address** for your VM. The address shown in the following example is 203.0.113.103. Your address is different:
+1. On the **Overview** page of **vm-web**, note the **Public IP address** for your VM.
 
    :::image type="content" source="./media/tutorial-filter-network-traffic/public-ip-address.png" alt-text="Screenshot of Public IP address of a virtual machine in the Overview page." border="true" lightbox="./media/tutorial-filter-network-traffic/public-ip-address.png":::
 
-1. To confirm that you can access the **vm-web** web server from the internet, open an internet browser on your computer and browse to `http://<public-ip-address-from-previous-step>`.
+1. To confirm that you can access the **vm-web** web server from the internet on port 80, open an internet browser on your computer and browse to `http://<public-ip-address-from-previous-step>`.
 
-You see the IIS default page, because inbound traffic from the internet to the **asg-web** application security group is allowed through port 80.
+   You see the nginx default page, because inbound traffic from the internet to the **asg-web** application security group is allowed through port 80.
+
+   The network interface attached for **vm-web** is associated with the **asg-web** application security group and allows the connection.
+
+1. Try to access **vm-web** on port 443 by browsing to `https://<public-ip-address-vm-web>` in your browser. The connection fails or times out because the security rule for the **asg-web** doesn't allow port 443 inbound from the internet.
+
+1. Now configure **vm-mgmt** with nginx on port 8080. Select **vm-mgmt** from the **Virtual machines** page.
+
+1. Select **Run command** from the **Operations** section.
+
+1. Select **RunShellScript**.
+
+1. In the **Run Command Script** pane, enter the following commands to install nginx on port 8080:
+
+   ```bash
+   sudo apt-get update -y
+   sudo apt-get install -y nginx
+   
+   # Configure nginx to listen on port 8080
+   sudo tee /etc/nginx/sites-available/default > /dev/null <<EOF
+   server {
+       listen 8080 default_server;
+       listen [::]:8080 default_server;
+       root /var/www/html;
+       index index.html index.htm index.nginx-debian.html;
+       server_name _;
+       location / {
+           try_files \$uri \$uri/ =404;
+       }
+   }
+   EOF
+   
+   sudo systemctl restart nginx
+   ```
+
+1. Select **Run**. Wait for the script to complete successfully.
+
+1. On the **Overview** page of **vm-mgmt**, note the **Public IP address** for your VM.
+
+1. To confirm that you can access the **vm-mgmt** web server from the internet on port 8080, open an internet browser on your computer and browse to `http://<public-ip-address-vm-mgmt>:8080`. 
+
+   You see the nginx default page because inbound traffic from the internet to the **asg-mgmt** application security group is allowed through port 8080.
+
+1. Try to access **vm-mgmt** on port 80 by browsing to `http://<public-ip-address-vm-mgmt>` in your browser. The connection fails or times out because no security rule allows port 80 inbound to the **asg-mgmt** application security group.
 
 The network interface attached for **vm-web** is associated with the **asg-web** application security group and allows the connection.
 
 ### [PowerShell](#tab/powershell)
 
-Use [Get-AzPublicIpAddress](/powershell/module/az.network/get-azpublicipaddress) to return the public IP address of a VM. The following example returns the public IP address of the _vm-mgmt_ VM:
+Install nginx on **vm-web** using [Invoke-AzVMRunCommand](/powershell/module/az.compute/invoke-azvmruncommand):
 
 ```azurepowershell-interactive
-$params = @{
-    Name = "public-ip-vm-mgmt"
+$webInstallParams = @{
     ResourceGroupName = "test-rg"
+    VMName = "vm-web"
+    CommandId = "RunShellScript"
+    ScriptString = @"
+sudo apt-get update -y
+sudo apt-get install -y nginx
+sudo systemctl enable nginx
+sudo systemctl start nginx
+"@
 }
-$publicIP = Get-AzPublicIpAddress @params | Select IpAddress
+Invoke-AzVMRunCommand @webInstallParams
 ```
 
-Use the following command to create a remote desktop session with the _vm-mgmt_ VM from your local computer.
+The command might take a few minutes to complete. After completion, test web access on vm-web.
 
-```
-mstsc /v:$publicIP
-```
-
-Enter the user name and password you specified when creating the VM (you might need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM), then select **OK**. You might receive a certificate warning during the sign-in process. Select **Yes** to proceed with the connection.
-
-The connection succeeds. Port 3389 is allowed inbound from the internet to the _asg-mgmt_ application security group. The network interface attached to the _vm-mgmt_ VM is in this group.
-
-Use the following command to create a remote desktop connection to the _vm-web_ VM, from the _vm-mgmt_ VM, with the following command, from PowerShell:
-
-```
-mstsc /v:vm-web
-```
-
-The connection succeeds because a default security rule within each network security group allows traffic over all ports between all IP addresses within a virtual network. You can't create a remote desktop connection to the _vm-web_ VM from the internet because the security rule for the _asg-web_ doesn't allow port 3389 inbound from the internet.
-
-Use the following command to install Microsoft IIS on the _vm-web_ VM from PowerShell:
-
-```powershell
-Install-WindowsFeature -name Web-Server -IncludeManagementTools
-```
-
-After the IIS installation is complete, disconnect from the _vm-web_ VM, which leaves you in the _vm-mgmt_ VM remote desktop connection. To view the IIS welcome screen, open an internet browser and browse to http://vm-web.
-
-Disconnect from the _vm-mgmt_ VM.
-
-On your computer, enter the following command from PowerShell to retrieve the public IP address of the _vm-web_ server:
+Get the public IP address of **vm-web**:
 
 ```azurepowershell-interactive
-$params = @{
+$webIPParams = @{
     Name = "public-ip-vm-web"
     ResourceGroupName = "test-rg"
 }
-Get-AzPublicIpAddress @params | Select IpAddress
+$webIP = Get-AzPublicIpAddress @webIPParams
+Write-Host "vm-web IP: $($webIP.IpAddress)"
 ```
 
-To confirm that you can access the _vm-web_ web server from outside of Azure, open an internet browser on your computer and browse to `http://<public-ip-address-from-previous-step>`. The connection succeeds. Port 80 is allowed inbound from the internet to the _asg-web_ application security group. The network interface attached to the _vm-web_ VM is in this group.
+To confirm that you can access the **vm-web** web server from the internet on port 80, open an internet browser on your computer and browse to `http://<vm-web-ip-address>`.
+
+You see the nginx default page because inbound traffic from the internet to the **asg-web** application security group is allowed through port 80. The network interface attached to the **vm-web** VM is in this group.
+
+Try to access **vm-web** on port 443 by browsing to `https://<vm-web-ip-address>` in your browser. The connection fails or times out because the security rule for the **asg-web** doesn't allow port 443 inbound from the internet.
+
+Now install nginx on port 8080 on **vm-mgmt**:
+
+```azurepowershell-interactive
+$mgmtInstallParams = @{
+    ResourceGroupName = "test-rg"
+    VMName = "vm-mgmt"
+    CommandId = "RunShellScript"
+    ScriptString = @"
+sudo apt-get update -y
+sudo apt-get install -y nginx
+
+# Configure nginx to listen on port 8080
+sudo tee /etc/nginx/sites-available/default > /dev/null <<'EOF'
+server {
+    listen 8080 default_server;
+    listen [::]:8080 default_server;
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+    server_name _;
+    location / {
+        try_files \$uri \$uri/ =404;
+    }
+}
+EOF
+
+sudo systemctl restart nginx
+"@
+}
+Invoke-AzVMRunCommand @mgmtInstallParams
+```
+
+Get the public IP address of **vm-mgmt**:
+
+```azurepowershell-interactive
+$mgmtIPParams = @{
+    Name = "public-ip-vm-mgmt"
+    ResourceGroupName = "test-rg"
+}
+$mgmtIP = Get-AzPublicIpAddress @mgmtIPParams
+Write-Host "vm-mgmt IP: $($mgmtIP.IpAddress)"
+```
+
+To confirm that you can access the **vm-mgmt** web server from the internet on port 8080, open an internet browser on your computer and browse to `http://<vm-mgmt-ip-address>:8080`.
+
+You see the nginx default page because inbound traffic from the internet to the **asg-mgmt** application security group is allowed through port 8080.
+
+Try to access **vm-mgmt** on port 80 by browsing to `http://<vm-mgmt-ip-address>` in your browser. The connection fails or times out because no security rule allows port 80 inbound to the **asg-mgmt** application security group.
 
 ### [CLI](#tab/cli)
 
-Using an SSH client of your choice, connect to the VMs created previously. For example, the following command can be used from a command line interface such as [Windows Subsystem for Linux](/windows/wsl/install) to create an SSH session with the *vm-mgmt* VM. You can sign-in to the virtual machines using your Microsoft Entra ID credentials or you can use the SSH key that you used to create the VMs. In the following example, we use the SSH key to sign in to management VM and then sign in to the web VM from the management VM with a password.
+Install nginx on **vm-web** using [az vm run-command invoke](/cli/azure/vm/run-command):
 
-For more information about how to SSH to a Linux VM and sign in with Microsoft Entra ID, see [Sign in to a Linux virtual machine in Azure by using Microsoft Entra ID and OpenSSH](/entra/identity/devices/howto-vm-sign-in-azure-ad-linux).
+```azurecli-interactive
+az vm run-command invoke \
+  --resource-group test-rg \
+  --name vm-web \
+  --command-id RunShellScript \
+  --scripts "sudo apt-get update -y && sudo apt-get install -y nginx && sudo systemctl enable nginx && sudo systemctl start nginx"
+```
 
-### Store IP address of VM in order to SSH
+Get the public IP address of **vm-web**:
 
-Run the following command to store the IP address of the VM as an environment variable:
+```azurecli-interactive
+webIP=$(az vm show --show-details --resource-group test-rg --name vm-web --query publicIps --output tsv)
+echo "vm-web IP: $webIP"
+```
+
+To confirm that you can access the **vm-web** web server from the internet on port 80, use curl:
 
 ```bash
-export IP_ADDRESS=$(az vm show --show-details --resource-group test-rg --name vm-mgmt --query publicIps --output tsv)
+curl http://$webIP
 ```
+
+The connection succeeds because the **asg-web** application security group, which the network interface attached to the **vm-web** VM is in, allows port 80 inbound from the Internet.
+
+Try to access **vm-web** on port 443:
 
 ```bash
-ssh -o StrictHostKeyChecking=no azureuser@$IP_ADDRESS
+curl -k https://$webIP
 ```
 
-The connection succeeds because the network interface attached to the *vm-mgmt* VM is in the *asg-mgmt* application security group, which allows port 22 inbound from the Internet.
+The connection fails or times out because the security rule for the **asg-web** doesn't allow port 443 inbound from the internet.
 
-Use the following command to SSH to the *vm-web* VM from the *vm-mgmt* VM:
+Now install nginx on port 8080 on **vm-mgmt**:
 
-```bash 
-ssh -o StrictHostKeyChecking=no azureuser@vm-web
+```azurecli-interactive
+az vm run-command invoke \
+  --resource-group test-rg \
+  --name vm-mgmt \
+  --command-id RunShellScript \
+  --scripts "sudo apt-get update -y && \
+sudo apt-get install -y nginx && \
+sudo bash -c 'cat > /etc/nginx/sites-available/default <<EOF
+server {
+    listen 8080 default_server;
+    listen [::]:8080 default_server;
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+    server_name _;
+    location / {
+        try_files \\\$uri \\\$uri/ =404;
+    }
+}
+EOF' && \
+sudo systemctl restart nginx"
 ```
 
-The connection succeeds because a default security rule within each network security group allows traffic over all ports between all IP addresses within a virtual network. You can't SSH to the *vm-web* VM from the Internet because the security rule for the *asg-web* doesn't allow port 22 inbound from the Internet.
+Get the public IP address of **vm-mgmt**:
 
-Use the following commands to install the nginx web server on the *vm-web* VM:
-
-```bash 
-# Update package source
-sudo apt-get -y update
-
-# Install NGINX
-sudo apt-get -y install nginx
+```azurecli-interactive
+mgmtIP=$(az vm show --show-details --resource-group test-rg --name vm-mgmt --query publicIps --output tsv)
+echo "vm-mgmt IP: $mgmtIP"
 ```
 
-The *vm-web* VM is allowed outbound to the Internet to retrieve nginx because a default security rule allows all outbound traffic to the Internet. Exit the *vm-web* SSH session, which leaves you at the `username@vm-mgmt:~$` prompt of the *vm-mgmt* VM. To retrieve the nginx welcome screen from the *vm-web* VM, enter the following command:
+To confirm that you can access the **vm-mgmt** web server from the internet on port 8080, use curl:
 
 ```bash
-curl vm-web
+curl http://$mgmtIP:8080
 ```
 
-Sign out of the *vm-mgmt* VM. To confirm that you can access the *vm-web* web server from outside of Azure, enter `curl <publicIpAddress>` from your own computer. The connection succeeds because the *asg-web* application security group, which the network interface attached to the *vm-web* VM is in, allows port 80 inbound from the Internet.
+The connection succeeds because inbound traffic from the internet to the **asg-mgmt** application security group is allowed through port 8080.
+
+Try to access **vm-mgmt** on port 80:
+
+```bash
+curl http://$mgmtIP
+```
+
+The connection fails or times out because no security rule allows port 80 inbound to the **asg-mgmt** application security group.
 
 ---
 
@@ -999,9 +1091,10 @@ az group delete \
 In this tutorial, you:
 
 - Created a network security group and associated it to a virtual network subnet.
-- Created application security groups for web and management.
-- Created two virtual machines and associated their network interfaces with the application security groups.
-- Tested the application security group network filtering.
+- Created application security groups for web and management traffic.
+- Created two Linux virtual machines with SSH key authentication and associated their network interfaces with the application security groups.
+- Installed nginx web servers on both VMs with different port configurations.
+- Tested the application security group network filtering by demonstrating that vm-web allows port 80 (HTTP) but denies port 443, while vm-mgmt allows port 8080 but denies port 80 (HTTP).
 
 To learn more about network security groups, see [Network security group overview](./network-security-groups-overview.md) and [Manage a network security group](manage-network-security-group.md).
 

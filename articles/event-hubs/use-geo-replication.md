@@ -6,37 +6,48 @@ author: axisc
 ms.author: aschhabria
 ms.date: 06/10/2024
 --- 
-# How to use Geo-replication (Public Preview)
+# How to use Geo-replication
  
-This tutorial shows you how to use the Geo-replication with your Event Hubs Dedicated namespace. To learn more about this feature, read the Geo-replication article. In this article you learn how to:
+This tutorial shows you how to use the Geo-replication with Event Hubs. To learn more about this feature, see [Geo-replication](./geo-replication.md). In this article you learn how to:
 
 -	Enable Geo-replication on a new namespace.
 -	Enable Geo-replication on an existing namespace.
 -	Perform a planned promotion or failover.
 -	Remove the secondary from your namespace.
 
-## Prerequisites
-To use the Geo-replication feature, you need to have at least one Dedicated Event Hubs cluster in two regions where the Geo-replication feature is available.
- 
 ## Enable Geo-replication on a new namespace
- 
-You can enable Geo-replication during namespace creation and after namespace creation. 
-To enable Geo-replication on a namespace during namespace creation:
- 
-1. Navigate to the **Event Hubs Cluster** page for your Event Hubs cluster. 
-1. On the left menu, expand **Entities**, and select **Cluster Namespaces**. 
-1. To create an Event Hubs namespace in an Event Hubs cluster in a region with Geo-replication enabled, on the **Cluster Namespaces** page, on the toolbar, select **+ Namespace**. Provide a name for the namespace, and select **Enable Geo-replication**.
 
-    :::image type="content" source="./media/use-geo-replication/namespace-create.png" alt-text="Screenshot of dedicated namespace create UI with geo-replication UI."::: 
-2. Select **Add secondary region**, and select a secondary region and a corresponding Event Hubs dedicated cluster running in that region. 
+ 
+### [Dedicated](#tab/Dedicated)
+
+> [!NOTE]
+> To use geo-replication feature, at least one Dedicated Event Hubs cluster is needed in each region where Geo-replication feature is available.
+>
+
+1. Navigate to the **Event Hubs Cluster** page for your Event Hubs cluster. Expand **Entities**, and select **Cluster Namespaces**. 
+2. To create an Event Hubs namespace in an Event Hubs cluster in a region with Geo-replication enabled, on the **Cluster Namespaces** page, on the toolbar, select **+ Namespace**. Provide a name for the namespace, and select **Enable Geo-replication**.
+
+    :::image type="content" source="./media/use-geo-replication/namespace-create.png" alt-text="Screenshot of dedicated namespace create UI with geo-replication UI.":::
+
+### [Premium](#tab/Premium)
+
+1. Follow the steps to create an Event Hubs namespace as listed [here](event-hubs-create.md) and pick the `Premium` tier.
+
+2. Provide a name for the namespace, and select **Enable Geo-replication**.
+
+    :::image type="content" source="./media/use-geo-replication/premium-namespace-create.png" alt-text="Screenshot of premium namespace create UI with geo-replication UI." lightbox="./media/use-geo-replication/premium-namespace-create.png":::
+
+---
+
+3. Select **Add secondary region**, and select a secondary region and a corresponding Event Hubs dedicated cluster running in that region. 
 
     :::image type="content" source="./media/use-geo-replication/region-selection.png" alt-text="Screenshot of secondary region and cluster selection in namespace create UI.":::
  
-3. Select asynchronous or synchronous **replication mode** as the replication consistency mode. If you select asynchronous consistency, enter the allowable amount of time the secondary region can lag behind the primary region in minutes.
+4. Select asynchronous or synchronous **replication mode** as the replication consistency mode. If you select asynchronous consistency, enter the allowable amount of time the secondary region can lag behind the primary region in minutes.
  
     :::image type="content" source="./media/use-geo-replication/create-replication-consistency.png" alt-text="Screenshot of replication consistency UI in dedicated namespace create UI.":::  
-4. Then, select **Create** to create the Geo-replicated Event Hubs namespace. The deployment takes a couple of minutes to complete. 
-5. Once the namespace is created, you can navigate to it and select **Geo-replication** on the left menu to see your Geo-replication configuration. 
+5. Then, select **Create** to create the Geo-replicated Event Hubs namespace. The deployment takes a couple of minutes to complete. 
+6. Once the namespace is created, you can navigate to it and select **Geo-replication** on the left menu to see your Geo-replication configuration. 
 
      :::image type="content" source="./media/use-geo-replication/geo-replication.png" alt-text="Screenshot of geo-replication UI that shows configuration and allows various actions."::: 
  
@@ -64,6 +75,11 @@ When in the promotion flow, you can select planned or forced. You can also choos
 If doing a planned promotion, then once the promotion process is initiated, the new primary rejects any new events until failover is completed. The promotion process repoints the fully qualified domain name(FQDN) for your namespace to the selected region, complete data replication between the two regions and configure the new primary region to be active. Promotion doesn't require any changes to clients, and that they continue to work after the promotion event.
 
 In the case where your primary region goes down completely, you can still perform a forced promotion. 
+
+## Switch replication mode
+
+To switch between replication modes, or update the maximum replication lag, click on the link under **Replication consistency**, and click the checkbox to enable / disable synchronous replication, or update the value in the textbox to change the asynchronous maximum replication lag.
+:::image type="content" source="./media/use-geo-replication/update-namespace-geo-replication-configuration.png" alt-text="Screenshot showing how to update the configuration of the Geo-Replication feature." lightbox="./media/use-geo-replication/update-namespace-geo-replication-configuration.png":::
 
 ## Remove a secondary
 To remove a Geo-replication pairing with a secondary, select **Geo-replication** on the left menu, select the secondary region, and then select **Remove**. At the prompt, enter the word **delete**, and then you can delete the secondary. 

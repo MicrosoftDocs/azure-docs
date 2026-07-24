@@ -2,18 +2,22 @@
 title: Restore Azure Files
 description: Learn how to use the Azure portal to restore an entire File Share or specific files from a restore point created by Azure Backup.
 ms.topic: how-to
-ms.date: 03/05/2025
+ms.date: 02/17/2026
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As a cloud administrator, I want to restore Azure Files from backup points using the portal, so that I can recover full shares or specific files as needed to ensure data availability and minimize downtime."
 ---
 
 # Restore Azure Files
 
-This article describes how to use the Azure portal to restore an entire File Share or specific files from a restore point created by [Azure Backup](./backup-overview.md).
+This article describes how to use the Azure portal to restore an entire File Share or specific files from a restore point created by [Azure Backup](./backup-overview.md). You can also restore Azure Files using [Azure PowerShell](restore-afs-powershell.md), [Azure CLI](restore-afs-cli.md), [REST API](restore-azure-file-share-rest-api.md).
 
 Azure Backup offers a simple, reliable, and secure way to protect your enterprise File Shares using [snapshot](azure-file-share-backup-overview.md?tabs=snapshot) and [vaulted](azure-file-share-backup-overview.md?tabs=vault-standard) backups, ensuring data recovery for accidental or malicious deletion.
+
+To learn about the supported Azure Files backup and restore scenarios, region availability, and limitations, see the [support matrix](azure-file-share-support-matrix.md). For common questions, see the [frequently asked questions](backup-azure-files-faq.yml).
+
 
 ## Restore the Azure Files
 
@@ -23,7 +27,12 @@ This section describes how to restore:
 - Individual files or folders
 
 >[!Note]
->Vaulted backup currently supports only full share recovery to an alternate location. The target File Share selected for restore needs to be empty.
+>Vaulted backup currently supports only full share recovery.
+
+>[!IMPORTANT]
+>For Vault-Standard tier (vaulted backup) restore operations, the target file share must have at least 20 percent more free space than the size of the source data being restored. During the restore process, Azure Backup creates a temporary scratch folder named `MABRestoreScratchFolder` on the target file share to stage and validate the data. This additional space accommodates the staged data and ensures restore integrity. If the required space isn't available, the restore operation fails during pre-validation, before any data transfer begins.
+>                                                                                                                      
+>Don't create a folder with this name or store files in it. The scratch folder and its contents are deleted automatically when the restore operation completes. 
 
 **Choose a restore option**:
 
@@ -33,7 +42,7 @@ You can use this restore option to restore the complete File Share in the origin
 
 To restore the complete File Share, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), go to **Business Continuity Center** > **Protection inventory** > **Protected items**, and then select **Recover**.
+1. In the [Azure portal](https://portal.azure.com/), go to **Resiliency** > **Protection inventory** > **Protected items**, and then select **Recover**.
 1. On the **Recover** pane, select the **Azure Files (Azure Storage)** as the **Datasource type**, and then click **Select** under **Protected item**.
 
    The **Select restore point** context pane opens that lists the restore points available for the selected File Share. 
@@ -77,7 +86,7 @@ You can use this restore option to restore individual files or folders in the or
 
 To restore individual files or folders, follow these steps:
 
-1. Go to **Business Continuity Center**, and then select **Protected inventory** > **Protected items** from the menu, with the datasource type selected as **Azure Storage (Azure Files)**.
+1. Go to **Resiliency**, and then select **Protected inventory** > **Protected items** from the menu, with the datasource type selected as **Azure Storage (Azure Files)**.
 1. Select the File Share for which you want to do an item-level recovery.
 
    The *backup item* menu appears with a **File Recovery** option.
@@ -151,7 +160,7 @@ After you trigger the restore operation, the backup service creates a job for tr
 
 You can also monitor restore progress from the Recovery Services vault:
 
-1. Go to **Business Continuity Center** and select **Monitoring + Reporting** > **Jobs** from the menu.
+1. Go to **Resiliency**. and select **Monitoring + Reporting** > **Jobs** from the menu.
 1. On the **Jobs** pane, filter the jobs for the required solution and datasource type.
 
  >[!NOTE]
@@ -163,4 +172,4 @@ Learn more [about monitoring jobs across your business continuity estate](../bus
 
 ## Next steps
 
-* [Manage Azure files backups](manage-afs-backup.md).
+Manage Azure Files backups using [Azure portal](manage-afs-backup.md), [Azure PowerShell](manage-afs-powershell.md), [Azure CLI](manage-afs-backup-cli.md), [REST API](manage-azure-file-share-rest-api.md).

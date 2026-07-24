@@ -1,12 +1,16 @@
 ---
-title: Manage volumes in Azure NetApp Files application volume group | Microsoft Docs
+title: Manage volumes in Azure NetApp Files application volume group 
 description: Describes how to manage a volume from its application volume group, including resizing, deleting, or changing throughput for the volume.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 11/19/2024
+ms.date: 07/11/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+  - sfi-image-nochange
+# Customer intent: As a storage administrator, I want to manage volumes within an application volume group, so that I can resize, delete, or adjust throughput effectively to optimize performance and storage usage for my SAP HANA environment.
 ---
 # Manage volumes in an application volume group for SAP HANA
 

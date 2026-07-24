@@ -5,7 +5,7 @@ services: azure-communication-services
 author: memontic
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
-ms.date: 07/24/2024
+ms.date: 05/01/2025
 ms.topic: include
 ms.custom: include file
 ms.author: memontic

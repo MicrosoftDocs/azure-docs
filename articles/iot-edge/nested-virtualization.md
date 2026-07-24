@@ -1,10 +1,10 @@
 ---
 title: Nested virtualization - Azure IoT Edge for Linux on Windows
 description: Learn about how to use nested virtualization in Azure IoT Edge for Linux on Windows and the different deployment options available.
-author: PatAltimore
-ms.author: patricka
+author: sethmanheim
+ms.author: sethm
 ms.date: 01/22/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge

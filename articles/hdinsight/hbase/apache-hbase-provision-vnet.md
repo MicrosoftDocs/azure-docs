@@ -4,8 +4,8 @@ description: Get started using HBase in Azure HDInsight. Learn how to create HDI
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-extended-java
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date:  10/17/2024
 ---
@@ -20,7 +20,7 @@ With virtual network integration, Apache HBase clusters can be deployed to the s
 * Improved performance by not having your traffic go over multiple gateways and load-balancers.
 * The ability to process sensitive information in a more secure manner without exposing a public endpoint.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create Apache HBase cluster into virtual network
 

@@ -4,6 +4,7 @@ ms.author: cephalin
 ms.topic: include
 ms.custom: devx-track-azurecli
 ms.date: 01/16/2025
+ms.service: azure-app-service
 ---
 
 To deploy with OpenID Connect by using the managed identity you configured, use the `azure/login@v2` action with the `client-id`, `tenant-id`, and `subscription-id` keys. Reference the GitHub secrets that you created earlier.
@@ -216,6 +217,9 @@ Here's a [full example](https://github.com/Azure-Samples/onlinebookstore/blob/ma
 
 # [Node.js](#tab/nodejs)
 
+> [!IMPORTANT]
+> If you're deploying a Node.js app with TypeScript or other compiled languages using `azure/webapps-deploy@v3`, build your app first in GitHub Actions and then deploy the compiled output folder (such as `dist/` or `build/`). If instead you want to use App Service build automation, [set the `SCM_DO_BUILD_DURING_DEPLOYMENT` app setting](../../configure-common.md#configure-app-settings) to `true`. 
+
 ```yaml
 name: JavaScript CI
 
@@ -230,7 +234,7 @@ name: Node.js
 env:
   AZURE_WEBAPP_NAME: my-app   # Set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # Set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '18.x'                # Set this to the node version to use
+  NODE_VERSION: '24.x'                # Set this to the node version to use
 
 jobs:
   build-and-deploy:

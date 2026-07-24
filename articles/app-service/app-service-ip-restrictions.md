@@ -1,19 +1,21 @@
 ---
 title: Set Up Access Restrictions 
 description: Learn how to secure your app in Azure App Service by setting up access restrictions. Define a priority-ordered allow/deny list that controls network access.
-author: madsd
-ms.author: madsd
+author: seligj95
+ms.author: jordanselig
 ms.topic: how-to
 ms.date: 02/03/2025
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.assetid: 3be1f4bd-8a81-4565-8a56-528c037b24bd
 
 #customer intent: As an app deployment engineer, I need to understand options for controlling access to our apps by using Azure App Service.
 
+ms.service: azure-app-service
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 # Set up Azure App Service access restrictions
-
-[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 When you set up access restrictions, you can define a priority-ordered allow/deny list that controls network access to your app. The list can include IP addresses or Azure Virtual Network subnets. When there are one or more entries, an implicit *deny all* exists at the end of the list. For more information, see [Azure App Service access restrictions](./overview-access-restrictions.md).
 
@@ -158,6 +160,8 @@ You can add HTTP header filters to any rule. The following HTTP header names are
 - `X-Forwarded-Host`
 - `X-Azure-FDID`
 - `X-FD-HealthProbe`
+
+++ For more information about the X-FD-HealthProbe, see [HTTP header filtering for site access restriction rules](overview-access-restrictions.md#http-header-filtering-for-site-access-restriction-rules).
 
 For each header name, you can add up to eight values separated by commas. The HTTP header filters are evaluated after the rule itself and both conditions must be true for the rule to apply.
 

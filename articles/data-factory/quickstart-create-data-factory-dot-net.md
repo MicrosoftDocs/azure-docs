@@ -8,7 +8,10 @@ ms.topic: quickstart
 ms.date: 03/31/2025
 ms.author: whhender
 ms.reviewer: binluwang
-ms.custom: mode-api, devx-track-dotnet
+ms.custom:
+  - mode-api
+  - devx-track-dotnet
+  - sfi-ropc-nochange
 ---
 
 # Quickstart: Create a data factory and pipeline using .NET SDK

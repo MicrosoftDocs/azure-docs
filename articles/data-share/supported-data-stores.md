@@ -2,16 +2,16 @@
 title: Supported data stores in Azure Data Share
 description: Learn about the data stores that are supported for use in Azure Data Share.
 ms.service: azure-data-share
-author:  sidontha
-ms.author: sidontha
+author:  chvukosw
+ms.author: chvukosw
 ms.topic: concept-article
-ms.date: 02/12/2025
+ms.date: 01/21/2026
 ---
 # Supported data stores in Azure Data Share
 
 Azure Data Share provides open and flexible data sharing, including the ability to share from and to different data stores. Data providers can share data from one type of data store, and data consumers can choose a data store to receive the data.
 
-In this article, you'll learn about the set of Azure data stores that Azure Data Share supports. You'll also learn about how data providers and data consumers can combine different data stores.
+In this article, you learn about the set of Azure data stores that Azure Data Share supports. You also learn how data providers and data consumers can combine different data stores.
 
 ## Supported data stores
 
@@ -61,7 +61,7 @@ Azure Data Share supports the sharing of both tables and views from Azure SQL Da
 
 Data consumers can choose to accept the data into Azure Data Lake Storage Gen2 or Azure Blob Storage as a CSV file or parquet file. They can also accept data as tables into Azure SQL Database and Azure Synapse Analytics.
 
-When consumers accept data into Azure Data Lake Storage Gen2 or Azure Blob Storage, full snapshots overwrite the contents of the target file if the file already exists. When data is received into a table and the target table doesn't already exist, Azure Data Share creates an SQL table by using the source schema. If a target table already exists and it has the same name, it's dropped and overwritten with the latest full snapshot. Incremental snapshots aren't currently supported.
+When consumers accept data into Azure Data Lake Storage Gen2 or Azure Blob Storage, full snapshots overwrite the contents of the target file if the file already exists. When data is received into a table and the target table doesn't already exist, Azure Data Share creates a SQL table by using the source schema. If a target table already exists and it has the same name, it's dropped and overwritten with the latest full snapshot. Incremental snapshots aren't currently supported.
 
 If a snapshot is interrupted and fails, for example, due to a cancel action, networking issue, or disaster, the next snapshot copies the entire table or view again.
 

@@ -5,8 +5,11 @@ ms.service: azure-functions
 ms.topic: how-to
 ms.date: 06/19/2024
 ms.devlang: csharp
+ms.custom:
+  - devx-track-csharp
+  - mvc
+  - sfi-image-nochange
 # ms.devlang: csharp, javascript
-ms.custom: "devx-track-csharp, mvc"
 
 #Customer intent: As a function developer, I want to learn how to use Azure Functions to create a serverless function that's triggered by an HTTP request so that I can create a message in an Azure Storage queue.
 
@@ -17,7 +20,7 @@ In Azure Functions, input and output bindings provide a declarative way to make 
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - Follow the directions in [Create your first function in the Azure portal](./functions-create-function-app-portal.md), omitting the **Clean up resources** step, to create the function app and function to use in this article.
 

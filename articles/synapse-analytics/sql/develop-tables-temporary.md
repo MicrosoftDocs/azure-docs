@@ -6,10 +6,12 @@ ms.author: stefanazaric
 ms.date: 11/02/2021
 ms.service: azure-synapse-analytics
 ms.subservice: sql
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Temporary tables in Synapse SQL
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This article contains essential guidance for using temporary tables and highlights the principles of session level temporary tables within Synapse SQL. 
 

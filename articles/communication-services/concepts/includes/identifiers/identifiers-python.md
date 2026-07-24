@@ -35,7 +35,7 @@ same_user = CommunicationUserIdentifier(new_user_id)
 
 ### Microsoft Teams user
 
-The `MicrosoftTeamsUserIdentifier` represents a Teams user with its Microsoft Entra user object ID. You can retrieve the Microsoft Entra user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response. For more information about working with Microsoft Graph, see [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). Alternatively, you can find the ID as the `oid` claim in an [Microsoft Entra token](/entra/identity-platform/id-token-claims-reference#payload-claims) or [Microsoft Entra access token](/entra/identity-platform/access-token-claims-reference#payload-claims) after your signed in and acquired a token.
+The `MicrosoftTeamsUserIdentifier` represents a Teams user with its Microsoft Entra user object ID. You can retrieve the Microsoft Entra user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response. For more information about working with Microsoft Graph, see [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). Alternatively, you can find the ID as the `oid` claim in a [Microsoft Entra token](/entra/identity-platform/id-token-claims-reference#payload-claims) or [Microsoft Entra access token](/entra/identity-platform/access-token-claims-reference#payload-claims) after your signed in and acquired a token.
 
 #### Basic usage
 
@@ -95,6 +95,35 @@ gcch_teams_app_identifier = MicrosoftTeamsAppIdentifier(
 #### API reference
 
 [MicrosoftTeamsAppIdentifier](/python/api/azure-communication-identity/azure.communication.identity.microsoftteamsappidentifier)
+
+### Teams Extension user
+
+The `TeamsExtensionUserIdentifier` interface represents a Teams user enabled for Teams Phone Extensibility. A `TeamsExtensionUserIdentifier` requires the Microsoft Entra user object ID of the Teams user, the Microsoft Entra tenant ID where the user resides and the Azure Communication Services resource ID. You can retrieve the Microsoft Entra user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response and the Microsoft Entra tenant ID via the [Microsoft Graph REST API /organization](/graph/api/organization-get) endpoint from the `id` property in the response. For more information about working with Microsoft Graph, see [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). 
+Alternatively, you can find the object ID as the `oid` claim and the tenant ID as the `tid` claim in a [Microsoft Entra token](/entra/identity-platform/id-token-claims-reference#payload-claims) or [Microsoft Entra access token](/entra/identity-platform/access-token-claims-reference#payload-claims) after your user signed in and acquired a token.
+
+
+#### Basic usage
+
+```python
+# get the Teams user's ID from Graph APIs if only the email is known
+user_id = graph_client.get("/users/bob@contoso.com").json().get("id");
+
+# get the tenantId from Graph API
+tenant_id = graph_client.get("/organization").json()["value"][0]["id"]
+
+# Communication Services Resource ID
+resourceId = "<resource-id-guid>"
+
+# create an identifier
+teams_user = TeamsExtensionUserIdentifier(user_id, tenant_id, resource_id)
+
+# if you're not operating in the public cloud, you must also pass the right Cloud type
+gcch_teams_user = TeamsExtensionUserIdentifier(user_id, tenant_id, resource_id, cloud=CommunicationCloudEnvironment.GCCH)
+```
+
+#### API reference
+
+[TeamsExtensionUserIdentifier](/python/api/azure-communication-chat/azure.communication.chat)
 
 ### Unknown
 

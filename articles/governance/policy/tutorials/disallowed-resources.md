@@ -18,7 +18,7 @@ In this tutorial, you apply the **Not allowed resource types** policy and manage
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/)
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 before you begin.
 
 ## Assign the policy definition
@@ -145,4 +145,4 @@ To learn more about the structures of policy definitions, assignments, and exemp
 
 To see a full list of built-in policy samples, view this article:
 > [!div class="nextstepaction"]
-> [Azure Policy definition structure](../samples/built-in-policies.md)
+> [Azure Policy definition structure](/azure/governance/policy/samples/built-in-policies)

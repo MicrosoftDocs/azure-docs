@@ -4,33 +4,38 @@ title: Migrate Amazon Web Services (AWS) to Microsoft Azure
 summary: Replatforming an entire workload from Amazon Web Services (AWS) to Azure involves migrating various components, including compute, databases, storage, and applications. This section offers service comparisons between both platforms and example scenarios to help integrate components for transition to Azure.
 metadata:
   title: Migrate Amazon Web Services (AWS) to Microsoft Azure
-  description: Learn about resources that can help you transition your workload components from Amazon Web Services (AWS) to Azure.
+  description: Step-by-step guides and service comparisons for migrating compute, databases, storage, networking, and security workloads from AWS to Azure.
   ms.topic: landing-page
   ms.service: azure-migrate
   author: markingmyname
   ms.author: maghan
-  ms.reviewr: robbymillsap, chkittel, prwilk
-  ms.date: 03/25/2025
+  ms.reviewer: rhackenberg, chkittel
+  ms.date: 04/29/2026
   ms.collection:
    - migration
    - aws-to-azure
+  ms.custom: migration-hub
 
 landingContent:
   - title: Migration strategy
     linkLists:
       - linkListType: concept
         links:
-          - text: Migrate workloads to Azure from other cloud-based services
-            url:  ./migrate-to-azure.md
+          - text: Migrate a workload to Azure from Amazon Web Services (AWS)
+            url:  ./migrate-workload-from-aws-introduction.md
 
   - title: Component migration
     linkLists:
       - linkListType: concept
         links:
-          - text: Migrate compute from Amazon Web Services (AWS) to Microsoft Azure
+          - text: Migrate compute from AWS to Azure
             url:  migrate-compute-from-aws.md
           - text: Migrate databases from AWS to Azure
             url:  migrate-databases-from-aws.md
+          - text: Migrate networking from AWS to Azure
+            url:  migrate-networking-from-aws.md
+          - text: Migrate security from AWS to Azure
+            url:  migrate-security-from-aws.md
           - text: Migrate storage from AWS to Azure
             url:  migrate-storage-from-aws.md
 
@@ -71,6 +76,8 @@ landingContent:
             url: /azure/data-factory/data-migration-guidance-s3-azure-storage
           - text: Connect AWS and Azure using a BGP-enabled VPN gateway
             url: /azure/vpn-gateway/vpn-gateway-howto-aws-bgp
+          - text: Migrate Amazon API Gateway to Azure API Management
+            url: /azure/api-management/migrate-amazon-api-gateway-to-api-management
 
   - title: Migration training modules
     linkLists:

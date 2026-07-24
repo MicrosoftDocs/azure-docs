@@ -2,11 +2,12 @@
 title: Troubleshoot monitoring issues for Azure Backup
 description: Learn how to troubleshoot monitoring issues for Azure Backup.
 ms.topic: troubleshooting
-ms.date: 12/30/2024
+ms.date: 12/09/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: "As an IT administrator, I want to troubleshoot monitoring issues for Azure Backup, so that I can ensure that jobs and alerts are properly reported and managed in the Azure portal."
 ---
 
 # Troubleshoot monitoring issues for Azure Backup
@@ -39,4 +40,5 @@ Learn [about the best practices for Azure Monitor alerts](/azure/azure-monitor/b
 
 ## Next steps
 
-[Common questions about backup monitoring alert](backup-azure-monitor-alert-faq.yml)
+- [Common questions about backup monitoring alert](backup-azure-monitor-alert-faq.yml).
+- [Manage Azure Monitor based alerts for Azure Backup](backup-azure-monitoring-alerts.md).

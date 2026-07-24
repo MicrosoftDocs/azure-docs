@@ -13,10 +13,10 @@ ms.service: azure-digital-twins
 
 *Azure Digital Twins* is a platform as a service (PaaS) offering that enables the creation of twin graphs based on digital models of entire environments, which could be buildings, factories, farms, energy networks, railways, stadiums, and more—even entire cities. These digital models can be used to gain insights that drive better products, optimized operations, reduced costs, and breakthrough customer experiences.
 
-Azure Digital Twins can be used to design a digital twin architecture that represents actual IoT devices in a wider cloud solution, and which connects to [IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md) device twins to send and receive live data.
+Azure Digital Twins can be used to design a digital twin architecture that represents actual IoT devices in a wider cloud-based solution, and which connects to [IoT Hub](../iot-hub/iot-concepts-and-iot-hub.md) device twins to send and receive live data.
 
 > [!NOTE]
-> IoT Hub **device twins** are different from Azure Digital Twins **digital twins**. While *IoT Hub device twins* are maintained by your IoT hub for each IoT device that you connect to it, *digital twins* in Azure Digital Twins can be representations of anything defined by digital models and instantiated within Azure Digital Twins. 
+> Azure Digital Twins is different from [digital twin builder (preview) in Fabric](/fabric/real-time-intelligence/digital-twin-builder/overview) and the [device twins used by IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 Take advantage of your domain expertise on top of Azure Digital Twins to build customized, connected solutions that:
 * Model any environment, and bring digital twins to life in a scalable and secure manner
@@ -32,7 +32,7 @@ In Azure Digital Twins, you define the digital entities that represent the peopl
 You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define a model that defines a *Building* type, a *Floor* type, and an *Elevator* type. Models are defined in a JSON-like language called [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md). In Azure Digital Twins, DTDL models describe types of entities according to their state properties, components, and relationships. You can design your own model sets from scratch, or get started with a pre-existing set of [DTDL industry ontologies](concepts-ontologies.md) based on common vocabulary for your industry.
 
 >[!TIP]
->Version 2 of DTDL is also used for data models throughout other Azure IoT services, including [IoT Plug and Play](../iot/overview-iot-plug-and-play.md). This compatibility helps you connect your Azure Digital Twins solution with other parts of the Azure ecosystem.
+>Version 2 of DTDL is also used for data models throughout other Azure IoT services, including [IoT Plug and Play](/previous-versions/azure/iot/overview-iot-plug-and-play). This compatibility helps you connect your Azure Digital Twins solution with other parts of the Azure ecosystem.
 
 Once you've defined your data models, use them to create [digital twins](concepts-twins-graph.md) that represent each specific entity in your environment. For example, you might use the *Building* model definition to create several *Building*-type twins (*Building 1*, *Building 2*, and so on). You can also use the relationships in the model definitions to connect twins to each other, forming a conceptual graph.
 

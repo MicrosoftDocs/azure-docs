@@ -6,8 +6,11 @@ ms.author: karler
 ms.reviewer: v-shilichen
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 08/28/2024
-ms.custom: devx-track-java
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom:
+  - devx-track-java
+  - sfi-image-nochange
 ---
 
 # Optimize application observability for Azure Spring Apps
@@ -17,7 +20,7 @@ ms.custom: devx-track-java
 **This article applies to:** ✅ Java ❎ C#
 
 **This article applies to:** <br>
-❎ Standard consumption and dedicated (Preview) ✅ Basic/Standard ❎ Enterprise
+✅ Basic/Standard ❎ Enterprise
 
 This article shows you how to observe your production applications deployed on Azure Spring Apps and diagnose and investigate production issues. Observability is the ability to collect insights, analytics, and actionable intelligence through the logs, metrics, traces, and alerts.
 

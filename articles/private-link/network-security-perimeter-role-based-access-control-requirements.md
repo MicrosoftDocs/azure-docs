@@ -8,8 +8,9 @@ ms.service: azure-private-link
 ms.custom:
   - ignite-2024
 ms.topic: concept-article
-ms.date: 11/04/2024
+ms.date: 08/01/2025
 # customer intent: As a network administrator, I want to know the Azure role-based access control permissions required to use network security perimeter capabilities, so that I can assign the correct permissions to my team members.
+# Customer intent: As a network administrator, I want to understand the Azure RBAC permissions required for network security perimeter features, so that I can effectively assign roles and manage access within my team.
 ---
 
 # Azure role-based access control permissions required for Azure Network Security Perimeter usage
@@ -18,7 +19,7 @@ In this article, you learn about the Azure role-based access control (RBAC) perm
 
 ## Azure role-based access control permissions
 
-[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) enables you to assign only the specific actions to members of your organization that they require to complete their assigned responsibilities. To use network security perimeter  capabilities, the account you log into Azure with, must be assigned to the [Owner, Contributor, or Network contributor built-in roles](../role-based-access-control/built-in-roles.md), or assigned to a [custom role](../role-based-access-control/custom-roles.md) that is assigned the actions listed for each network security perimeter  capability in the sections that follow. To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](../role-based-access-control/role-assignments-list-portal.yml). If you can't see the role assignments, contact the respective subscription admin. 
+[Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) enables you to assign only the specific actions to members of your organization that they require to complete their assigned responsibilities. To use network security perimeter  capabilities, the account you log into Azure with, must be assigned to the [Owner, Contributor, or Network contributor built-in roles](../role-based-access-control/built-in-roles.md), or assigned to a [custom role](../role-based-access-control/custom-roles.md) that is assigned the actions listed for each network security perimeter  capability in the sections that follow. To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal). If you can't see the role assignments, contact the respective subscription admin. 
 
 ### Network security perimeter permissions 
 

@@ -70,7 +70,7 @@ You can enable access to Grafana Enterprise plugins by selecting a Grafana Enter
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
     > [!NOTE]
     > Only Azure subscriptions billed directly through Microsoft are eligible for the purchase of Grafana Enterprise. CSP subscriptions, i.e., Azure subscriptions billed through Cloud Solution Providers (CSP), are ineligible.
 - This guide assumes that you already know the basics of [creating an Azure Managed Grafana workspace](quickstart-managed-grafana-portal.md).
@@ -79,7 +79,7 @@ You can enable access to Grafana Enterprise plugins by selecting a Grafana Enter
 
 When [creating a new Azure Managed Grafana workspace](quickstart-managed-grafana-portal.md) and filling out the **Basics** tab of the creation form, follow the steps below:
 
-1. Under **Pricing Plans**, select the **Standard** plan.
+1. Under **Pricing Plans**, select the **Standard** plan and the instance size of your choice.
 1. Under **Grafana Enterprise**, check the box **Grafana Enterprise**, select **Free Trial - Grafana Enterprise Plugins on Azure Managed Grafana**, and keep the option **Recurring billing** on **Disabled**.
 
     > [!CAUTION]
@@ -107,6 +107,10 @@ To enable Grafana Enterprise on an existing Azure Managed Grafana workspace, fol
         > - If you delete a Grafana Enterprise free trial resource, you will not be able to create another Grafana Enterprise free trial. Free trial is for one-time use only.
 
   1. Read and check the box at the bottom of the page to state that you agree with the terms displayed, and select **Update** to finalize the update.
+
+> [!IMPORTANT]
+> Updating the Enterprise configuration for an existing Azure Managed Grafana instance using Infrastructure-as-Code (IaC) tools like ARM templates or Terraform is not supported.
+This prevents accidental billing changes from automated deployments. To manage Enterprise settings, use the Azure portal following the instructions above, or the [Azure REST API - Grafana update command](/rest/api/managed-grafana/grafana/update/).
 
 ## Update a Grafana Enterprise plan
 

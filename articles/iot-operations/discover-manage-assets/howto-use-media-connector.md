@@ -1,514 +1,506 @@
 ---
-title: How to use the media connector (preview)
-description: How to use the media connector (preview) to perform tasks such as sending an image snapshot to the MQTT broker or saving a video stream to a local file system.
+title: Configure the media connector for Azure IoT Operations
+description: Configure assets and devices in Azure IoT Operations to capture snapshots and video clips from media sources such as IP cameras.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
+ms.subservice: azure-akri
 ms.topic: how-to
-ms.date: 10/07/2024
+ms.date: 05/28/2026
+ai-usage: ai-assisted
 
-#CustomerIntent: As an industrial edge IT or operations user, I want to configure the media connector so that I can access snapshots and videos from a media source such as a IP video camera.
+#CustomerIntent: As an industrial edge IT or operations user, I want to configure my Azure IoT Operations environment so that I can access snapshots and videos from a media source such as an IP video camera.
 ---
 
-# Configure the media connector (preview)
+# Configure the media connector
 
-In Azure IoT Operations, the media connector (preview) enables access to media from media sources such as edge-attached cameras. This article explains how to use the media connector to perform tasks such as:
+In Azure IoT Operations, the media connector enables access to media from media sources such as cameras.
 
+[!INCLUDE [iot-operations-asset-definition](../includes/iot-operations-asset-definition.md)]
+
+[!INCLUDE [iot-operations-device-definition](../includes/iot-operations-device-definition.md)]
+
+The following table summarizes the features the media connector supports:
+
+| Feature | Supported | Notes |
+|---------|:---------:|-------|
+| Username/password authentication | Yes | For RTSPS endpoints |
+| X.509 user certificates | No | |
+| Anonymous access | Yes | For testing purposes |
+| Southbound certificate trust list | Yes | For media source TLS certificate validation |
+| OpenTelemetry integration | Yes | |
+| Northbound username/password authentication | Yes | For RTSPS endpoints |
+| Northbound anonymous access | Yes | For RTSP and RTSPS endpoints |
+| Northbound certificate trust list | Yes | For RTSPS endpoint TLS certificate validation |
+| Snapshot to MQTT | Yes | Publish image snapshots to MQTT topics |
+| Clip to file system | Yes | Save video clips to local storage |
+| Snapshot to file system | Yes | Save image snapshots to local storage |
+| Stream to RTSP/RTSPS | Yes | Proxy live video streams to an RTSP or RTSPS endpoint |
+
+For each configured stream, the connector for media:
+
+1. Opens a connection to the stream from the media source.
+1. Generates clips, captures snapshots, or proxies the stream as specified in the stream configuration.
+1. Sends the media to the specified destination.
+
+This article explains how to use the media connector to perform tasks such as:
+
+- Define the devices that connect media sources to your Azure IoT Operations instance.
+- Add assets, and define their streams for capturing media from the media source.
 - Send an image snapshot to the MQTT broker.
-- Save a video stream to a local file system.
-
-The media connector:
-
-- Uses _asset endpoints_ to access media sources. An asset endpoint defines a connection to a media source such as a camera. The asset endpoint configuration includes the URL of the media source, the type of media source, and any credentials needed to access the media source.
-
-- Uses _assets_ to represent media sources such as cameras. An asset defines the capabilities and properties of a media source such as a camera.
+- Save a video clip to Azure storage.
 
 ## Prerequisites
 
-A deployed instance of Azure IoT Operations. If you don't already have an instance, see [Quickstart: Run Azure IoT Operations in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
+[!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
+
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
+
+[!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]
 
 A camera connected to your network and accessible from your Azure IoT Operations cluster. The camera must support the Real Time Streaming Protocol for video streaming. You also need the camera's username and password to authenticate with it.
 
-> [!NOTE]
-> Microsoft validated this preview release with the A-MTK AH6016O camera.
+## Media source types
 
-## Update the media connector
+The media connector can connect to various sources, including:
 
-[!INCLUDE [deploy-preview-media-connectors](../includes/deploy-preview-media-connectors.md)]
+| Media source | Example URLs | Notes |
+|--------------| ---------------|-------|
+| IP camera | `rtsp://192.168.178.45:554/stream1` | RTSP endpoint to stream video. An IP camera might also expose a standard ONVIF control interface. |
+| Media server | `rtsp://192.168.178.45:554/stream1` | RTSP endpoint to stream video. A media server might also expose other endpoints. |
 
-## Deploy the media server
+## Stream configuration
 
-If you're using the media connector to stream live video, you need to install your own media server. To deploy a sample media server to use with the media connector, run the following command:
+The `streamconfigurations` of an asset describe how to process the stream received from an inbound endpoint of type `Microsoft.Media`.
 
-```console
-kubectl create namespace media-server --dry-run=client -o yaml | kubectl apply -f - & kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-deployment.yaml --validate=false & kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-service.yaml --validate=false & kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/refs/heads/main/samples/media-connector-invoke-test/media-server/media-server-service-public.yaml --validate=false
-```
+### Task types
 
-> [!IMPORTANT]
-> This media server is only suitable for testing and development purposes. In a production environment you need to provide your own media server.
-
-To discover the cluster IP address of this media server, run the following command:
-
-```console
-kubectl get service media-server-public --namespace media-server
-```
-
-Make a note of the **CLUSTER-IP** value, you use it later to access the media server.
-
-## Asset endpoint configuration
-
-To configure the media connector, first create an asset endpoint that defines the connection to the media source. The asset endpoint includes the URL of the media source, the type of media source, and any credentials you need to access the media source.
-
-If your camera requires authentication, create a secret in your Kubernetes cluster that stores the camera's username and password. The media connector uses this secret to authenticate with the camera:
-
-1. Create a YAML file called _contoso-secrets.yaml_ with the following content. Replace the placeholders with your camera's username and password encoded in base64:
-
-    ```yaml
-    apiVersion: v1
-    kind: Secret
-    metadata:
-      name: contoso-secrets
-    type: Opaque
-    data:
-      username: "<YOUR CAMERA USERNAME BASE64 ENCODED>"
-      password: "<YOUR CAMERA PASSWORD BASE64 ENCODED>"
-    ```
-
-    > [!TIP]
-    > To encode the username and password in base64 at a Bash prompt, use the following command: `echo -n "<STRING TO ENCODE>" | base64`.
-
-1. To add the secret to your cluster in the default Azure IoT Operations namespace, run the following command:
-
-    ```console
-    kubectl apply -f contoso-secrets.yaml -n azure-iot-operations
-    ```
-
-To create the asset endpoint by using a Bicep file:
-
-# [Bash](#tab/bash)
-
-1. Set the following environment variables:
-
-    ```bash
-    SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
-    RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
-    TARGET_ADDRESS="<YOUR CAMERA RTSP ADDRESS>"
-    AEP_NAME="contoso-rtsp-aep"
-    SECRET_NAME="contoso-secrets"
-    ```
-
-1. Run the following script:
-
-    ```bash
-    # Download the Bicep file
-    wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/aep-media-connector.bicep -O aep-media-connector.bicep
-    
-    # Find the name of your custom location
-    CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
-    
-    # Use the Bicep file to deploy the asset endpoint
-    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file aep-media-connector.bicep --parameters targetAddress=$TARGET_ADDRESS customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME secretName=$SECRET_NAME
-    ```
-
-# [PowerShell](#tab/powershell)
-
-1. Set the following environment variables:
-
-    ```powershell
-    $SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
-    $RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
-    $TARGET_ADDRESS="<YOUR CAMERA RTSP ADDRESS>"
-    $AEP_NAME="contoso-rtsp-aep"
-    $SECRET_NAME="contoso-secrets"
-    ```
-
-1. Run the following script:
-
-    ```powershell
-    # Download the Bicep file
-    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/aep-media-connector.bicep -OutFile aep-media-connector.bicep
-
-    # Find the name of your custom location
-    $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
-
-    # Use the Bicep file to deploy the asset endpoint
-    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file aep-media-connector.bicep --parameters targetAddress=$TARGET_ADDRESS customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME secretName=$SECRET_NAME
-    ```
-
----
-
-The following snippet shows the bicep file that you used to create the asset endpoint:
-
-:::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/aep-media-connector.bicep":::
-
-The previous example configures the asset endpoint to authenticate with the camera with a username and password. In the Bicep file, the authentication section of the asset endpoint you created looks like the following example:
-
-```bicep
-authentication: {
-  method: 'UsernamePassword'
-  usernamePasswordCredentials: {
-    passwordSecretName: '${secretName}/password'
-    usernameSecretName: '${secretName}/username'
-    }
- ```
-
-If your camera doesn't require a username and password, configure anonymous authentication as shown in the following example:
-
-```bicep
-authentication: {
-  method: 'Anonymous'
-}
-```
-
-## Asset configuration
-
-When you configure an asset, the `datasets.DataPoints` parameter specifies the action the media connector takes on the asset. A camera asset supports the following task types:
+The media connector supports the following `streamconfiguration` task types:
 
 | Task type | Description |
 |-----------|-------------|
-| `snapshot-to-mqtt` | Capture snapshots from a camera and publishes them to an MQTT topic. |
-| `snapshot-to-fs` | Capture snapshots from a camera and saves them to the local file system. |
-| `clip-to-fs` | Capture video clips from a camera and saves them to the local file system. |
-| `stream-to-rtsp` | Sends a live video stream from a camera to a media server. |
+| snapshot-to-mqtt | Captures a snapshot from a media source and publishes it to an MQTT topic. |
+| snapshot-to-fs | Saves a snapshot from a media source to the container file system. |
+| clip-to-fs | Saves a video clip from a media source to the container file system. |
+| stream-to-rtsp | Proxies a live video stream from a media source to RTSP endpoints. |
+| stream-to-rtsps | Proxies a live video stream from a media source to RTSPS endpoints. |
 
-You can use the following settings to configure individual tasks:
+Each task type supports different configuration properties in the `streamconfiguration`:
 
-- `autostart`: Whether the task starts automatically when the asset starts.
-- `realtime`: Whether the task runs in real time.
-- `loop`: Whether the task runs continuously.
-- `format`: The format of the media file.
-- `fps`: The frames per second for the media file.
-- `audioEnabled`: Whether audio is enabled for the media file.
-- `duration`: The duration of the media file.
+| Property                  | Type    | Allowed values                  | Default | snapshot-to-mqtt | snapshot-to-fs | clip-to-fs | stream-to-rtsp | stream-to-rtsps |
+| ------------------------- | ------- | ------------------------------- | ------- | ---------------- | -------------- | ---------- | -------------- | --------------- |
+| autostart                 | boolean | true, false                     | true    | yes              | yes            | yes        | yes            | yes             |
+| format                    | string  | png, bmp, jpg, jpeg, tif, tiff  | jpeg    | yes              | no             | no         | no             | no              |
+| format                    | string  | png, bmp, jpg, jpeg, tif, tiff  | png     | no               | yes            | no         | no             | no              |
+| snapshotsPerSecond        | number  | 0-60.0                          | 1       | yes              | yes            | no         | no             | no              |
+| format                    | string  | avi, mp4, mkv, mjpeg, mpg, mpeg | mkv     | no               | no             | yes        | no             | no              |
+| duration                  | integer | 1-3600                          | 60      | no               | no             | yes        | no             | no              |
+| mediaServerUsernameRef    | string  | N/A                             | ""      | no               | no             | no         | yes            | yes             |
+| mediaServerPasswordRef    | string  | N/A                             | ""      | no               | no             | no         | yes            | yes             |
+| mediaServerCertificateRef | string  | N/A                             | ""      | no               | no             | no         | no             | yes             |
 
-The following examples show how to deploy assets for each task type.
+## Northbound destinations
 
-## Snapshot to MQTT
+The output destination for the media connector depends on the `streamconfiguration` task type. Configure the destination in the asset's `streamconfiguration`:
 
-To configure an asset that captures snapshots from a camera and publishes them to an MQTT topic:
+- **`snapshot-to-mqtt`**: Use a destination of type `mqtt` to specify the MQTT topic.
+- **`snapshot-to-fs` and `clip-to-fs`**: Use a destination of type `storage`. Set the `path` field to a fully qualified path inside the local container file system. To enable external access to the saved snapshots or clips, point this path to a mounted volume.
+- **`stream-to-rtsp` and `stream-to-rtsps`**: Set the `path` field to the endpoint address of the northbound media server that you want to proxy the source stream into.
 
-# [Bash](#tab/bash)
+### Northbound RTSPS endpoint validation and user authentication
 
-1. Set the following environment variables:
+The connector supports username and password authentication when it connects to the southbound media source. 
 
-    ```bash
-    SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
-    RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
-    AEP_NAME="contoso-rtsp-aep"
-    ```
+Follow the steps in [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md) to add secrets for username and password in Azure Key Vault, project them into Kubernetes cluster, and reference them from your `Device inbound endpoint` device configuration.
 
-1. Run the following script:
+It also supports username and password authentication when it connects to a northbound media server for `streamconfiguration` task type `stream-to-rtsps`.
 
-    ```bash
-    # Download the Bicep file
-    wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/asset-snapshot-to-mqtt.bicep -O asset-snapshot-to-mqtt.bicep
-    
-    # Find the name of your custom location
-    CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
-    
-    # Use the Bicep file to deploy the asset
-    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-snapshot-to-mqtt.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
-    ```
+Follow the steps in [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md) to add secrets for username and password in Azure Key Vault and project them into Kubernetes cluster. Then follow the steps in [Reference runtime secrets](howto-manage-connector-templates.md#reference-runtime-secrets) to reference the secrets in the connector template instance. The value of `secretAlias` is the value set in the `streamconfiguration`, the value of `secretRef` is the name of the secret CR created, and the value of `secretKey` is the key inside the secret identifying the entry which holds the value.
 
-# [PowerShell](#tab/powershell)
+> [!NOTE]
+> Ensure you always use `stream-to-rtsps` when using authentication for the northbound media server to prevent sending credentials as clear text over the wire.
 
-1. Set the following environment variables:
+Media connector supports certificate validation of the southbound media source and the northbound media server certificate when TLS is used for the connection. Media connector does not support mutual TLS to connect.
 
-    ```powershell
-    $SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
-    $RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
-    $AEP_NAME="contoso-rtsp-aep"
-    ```
+The southbound media source endpoint is configured in the `address` field of the device inbound endpoint. The trust bundle to use for certificate validation must be configured by using the connector template instance. Follow the steps in [Reference trust settings](howto-manage-connector-templates.md#reference-trust-settings) to reference the secret containing the trust bundle in the connector template instance.
 
-1. Run the following script:
+The northbound media server endpoint is configured by using the destination of the `streamconfiguration` with task type `stream-to-rtsp` or `stream-to-rtsps`. For `stream-to-rtsps` the trust bundle to use for certificate validation must be configured by using the `mediaServerCertificateRef` in the stream configuration. Follow the process as described previously for username and password to define the secret which contains the trust bundle.
 
-    ```powershell
-    # Download the Bicep file
-    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/asset-snapshot-to-mqtt.bicep -OutFile asset-snapshot-to-mqtt.bicep
+[Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications) shows how to add secrets for TLS certificates in Azure Key Vault, project them into Kubernetes cluster.
 
-    # Find the name of your custom location
-    $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
+#### Username and password authentication
 
-    # Use the Bicep file to deploy the asset
-    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-snapshot-to-mqtt.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
-    ```
+The media connector supports username and password authentication for both:
+
+- **Southbound connections** to the media source.
+- **Northbound connections** to a media server, when the `streamconfiguration` task type is `stream-to-rtsps`.
+
+To configure authentication:
+
+1. Add the username and password as secrets in Azure Key Vault and project them into the Kubernetes cluster. To learn more, see [Manage secrets for your Azure IoT Operations deployment](../secure-iot-ops/howto-manage-secrets.md).
+
+1. Reference the secrets:
+
+    - **Southbound**: From the `Device inbound endpoint` device configuration.
+    - **Northbound**: From the `runtimeConfiguration.managedConfigurationSettings.secrets` section of the connector template instance. To learn more, see *Create a connector template instance* in [Build and deploy Akri connectors](../develop-edge-apps/howto-develop-akri-connectors.md). Use these values:
+
+        | Field | Value |
+        |-------|-------|
+        | `secretAlias` | The alias set in the `streamconfiguration`. |
+        | `secretRef` | The name of the secret CR you created. |
+        | `secretKey` | The key inside the secret that holds the value. |
+
+> [!IMPORTANT]
+> Always use `stream-to-rtsps` (not `stream-to-rtsp`) to authenticate to a northbound media server. Otherwise, credentials are sent in clear text.
+
+#### TLS certificate validation
+
+When you use TLS, the media connector validates the certificates of both the southbound media source and the northbound media server. Mutual TLS isn't supported.
+
+To configure the trust bundle:
+
+- **Southbound media source**: The endpoint is set in the `address` field of the device inbound endpoint. Configure the trust bundle in the connector template instance, in the `runtimeConfiguration.managedConfigurationSettings.trustSettings.trustListSecretRef` field. To learn more, see [Reference trust settings](howto-manage-connector-templates.md#reference-trust-settings).
+
+- **Northbound media server**: The endpoint is set in the destination of a `stream-to-rtsp` or `stream-to-rtsps` `streamconfiguration`. For `stream-to-rtsps`, configure the trust bundle in the `mediaServerCertificateRef` field of the stream configuration. Use the same secret-creation process as for username and password.
+
+To add TLS certificates as secrets in Azure Key Vault and project them into the Kubernetes cluster, see [Manage certificates for external communications](../secure-iot-ops/howto-manage-certificates.md#manage-certificates-for-external-communications).
+
+
+## Example uses
+
+Example uses of the media connector include:
+
+- Capture snapshots from a video stream and publish them to an MQTT topic. A subscriber to the MQTT topic can use the captured images for further processing or analysis.
+
+- Save snapshots or video clips to a local file system on your cluster. Use [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) to provide a reliable and fault-tolerant solution for uploading the captured video to the cloud for storage or processing. To learn how to create a suitable persistent volume claim, see [Cloud Ingest Edge Volumes configuration](/azure/azure-arc/container-storage/howto-configure-cloud-ingest-subvolumes).
+
+    > [!IMPORTANT]
+    > You must install [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/howto-install-edge-volumes) before you use it with the media connector template.
+
+- Proxy a live video stream from a camera to an RTSP/RTSPS endpoint that an operator provides. The operator can configure a media server, which does expose such an endpoint and transcode/transform the stream based on the operators requirements. This media server is not part of the media connector.
+
+### Media connector template instance
+
+Before an OT user can create a device that uses the media connector, an IT administrator must add a media connector template instance to your Azure IoT Operations instance. If you save snapshots or video clips to storage, the IT administrator must also attach a persistent volume claim to the template. To learn more, see [Create and manage connector template instances](howto-manage-connector-templates.md) and [Configure a persistent volume claim for the media connector](howto-manage-connector-templates.md#configure-a-persistent-volume-claim-for-the-media-connector).
+
+## Configure a certificate trust list for the connector
+
+[!INCLUDE [connector-certificate-application](../includes/connector-certificate-application.md)]
+
+## Create a device with a media endpoint
+
+To configure the media connector, first create a device that defines the connection to the media source. The device includes the URL of the media source and any authentication credentials you need to access the media source:
+
+# [Operations experience](#tab/portal)
+
+1. In the operations experience web UI, select **Devices** in the left navigation pane. Then select **Create new**.
+
+1. Enter a name for your device, such as `media-connector`. To add the endpoint for the media connector, select **New** on the **Microsoft.Media** tile.
+
+1. Add the details of the endpoint for the media connector, including any authentication credentials:
+
+    :::image type="content" source="media/howto-use-media-connector/add-media-connector-endpoint.png" alt-text="Screenshot that shows how to add a media connector endpoint." lightbox="media/howto-use-media-connector/add-media-connector-endpoint.png":::
+
+    Select **Apply** to save the endpoint.
+
+1. On the **Device details** page, select **Next** to continue.
+
+1. On the **Add custom property** page, you can add any other properties you want to associate with the device. For example, you might add a property to indicate the manufacturer of the camera. Then select **Next** to continue.
+
+1. On the **Summary** page, review the details of the device and select **Create** to create the asset.
+
+1. After the device is created, you can view it in the **Devices** list:
+
+    :::image type="content" source="media/howto-use-media-connector/media-connector-device-created.png" alt-text="Screenshot that shows the list of devices." lightbox="media/howto-use-media-connector/media-connector-device-created.png":::
+
+# [Azure CLI](#tab/cli)
+
+Run the following commands:
+
+```azurecli
+az iot ops ns device create -n media-connector-cli -g {your resource group name} --instance {your instance name} 
+
+az iot ops ns device endpoint inbound add media --device media-connector-cli -g {your resource group name} -i {your instance name}  --name media-connector-cli-0 --endpoint-address rtsp://samplecamera:554/stream1
+```
+
+To learn more, see [az iot ops ns device](/cli/azure/iot/ops/ns/device).
+
+# [Bicep](#tab/bicep)
+
+Deploy the following Bicep template to create a device with an inbound endpoint for the media connector. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
+
+```bicep
+param adrNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource adrNamespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
+  name: adrNamespaceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource device 'Microsoft.DeviceRegistry/namespaces/devices@2026-04-01' = {
+  name: 'media-connector-bicep'
+  parent: adrNamespace
+  location: resourceGroup().location
+  extendedLocation: {
+    type: 'CustomLocation'
+    name: customLocation.id
+  }
+  properties: {
+    endpoints: {
+      outbound: {
+        assigned: {}
+      }
+      inbound: {
+        'media-connector-bicep-0': {
+          endpointType: 'Microsoft.Media'
+          address: 'rtsp://samplecamera:554/stream1'
+        }
+      }
+    }
+  }
+}
+```
 
 ---
 
-The following snippet shows the bicep file that you used to create the asset:
+### Configure a device to use a username and password
 
-:::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-snapshot-to-mqtt.bicep":::
+The previous example uses the `Anonymous` authentication mode. This mode doesn't require a username or password.
 
-To verify that snapshots are publishing to the MQTT broker, use the **mosquitto_sub** tool. In this example, you run the **mosquitto_sub** tool inside a pod in your Kubernetes cluster:
+To use the `Username password` authentication mode, complete the following steps:
 
-1. Run the following command to deploy a pod that includes the **mosquitto_pub** and **mosquitto_sub** tools that are useful for interacting with the MQTT broker in the cluster:
+# [Operations experience](#tab/portal)
 
-    ```console
-    kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/mqtt-client.yaml
-    ```
+[!INCLUDE [connector-username-password-portal](../includes/connector-username-password-portal.md)]
 
-    > [!CAUTION]
-    > This configuration isn't secure. Don't use this configuration in a production environment.
+# [Azure CLI](#tab/cli)
 
-1. When the **mqtt-client** pod is running, run the following command to create a shell environment in the pod you created:
+[!INCLUDE [connector-username-password-cli](../includes/connector-username-password-cli.md)]
 
-    ```console
-    kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
-    ```
+# [Bicep](#tab/bicep)
 
-1. At the Bash shell in the **mqtt-client** pod, run the following command to connect to the MQTT broker using the **mosquitto_sub** tool subscribed to the `azure-iot-operations/data` topic:
-
-    ```bash
-    mosquitto_sub --host aio-broker --port 18883 --topic "azure-iot-operations/data/#" -V 5 -F '%p' -C 1 --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat) > image.jpeg
-    ```
-
-    This command captures the raw payload from a single message and saves it to a file called **image.jpeg** in the pod's filing system. To exit the pod's shell environment, type `exit`.
-
-1. To copy the image file from the pod to your local machine, run the following command:
-
-    ```console
-    kubectl cp azure-iot-operations/mqtt-client:image.jpeg image.jpeg
-    ```
-
-When you finish testing the asset, you can delete it by running the following command:
-
-```console
-az iot ops asset delete -n asset-clip-to-mqtt -g $RESOURCE_GROUP
-```
-
-## Snapshot to file system
-
-To configure an asset that captures snapshots from a camera and saves them as files:
-
-# [Bash](#tab/bash)
-
-1. Set the following environment variables:
-
-    ```bash
-    SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
-    RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
-    AEP_NAME="contoso-rtsp-aep"
-    ```
-
-1. Run the following script:
-
-    ```bash
-    # Download the Bicep file
-    wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/asset-snapshot-to-fs.bicep -O asset-snapshot-to-fs.bicep
-    
-    # Find the name of your custom location
-    CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
-    
-    # Use the Bicep file to deploy the asset
-    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-snapshot-to-fs.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
-    ```
-
-# [PowerShell](#tab/powershell)
-
-1. Set the following environment variables:
-
-    ```powershell
-    $SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
-    $RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
-    $AEP_NAME="contoso-rtsp-aep"
-    ```
-
-1. Run the following script:
-
-    ```powershell
-    # Download the Bicep file
-    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/asset-snapshot-to-fs.bicep -OutFile asset-snapshot-to-fs.bicep
-
-    # Find the name of your custom location
-    $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
-
-    # Use the Bicep file to deploy the asset
-    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-snapshot-to-fs.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
-    ```
+[!INCLUDE [connector-username-password-bicep](../includes/connector-username-password-bicep.md)]
 
 ---
 
-The following snippet shows the bicep file that you used to create the asset:
+## Create an asset to publish an image snapshot
 
-:::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-snapshot-to-fs.bicep":::
+To define an asset that publishes an image snapshot from the media source to the MQTT broker:
 
-The files are saved in the file system of the `opc-media-1-...` pod. To find the full name of the pod, run the following command. The following command uses the default Azure IoT Operations namespace:
+# [Operations experience](#tab/portal)
 
-```console
-kubectl get pods -n azure-iot-operations
+1. In the operations experience web UI, select **Assets** in the left navigation pane. Then select **Create asset**.
+
+1. Select the inbound endpoint for the media connector that you created in the previous section.
+
+1. Enter a name for your asset, such as `my-media-source`.
+
+1. Add any custom properties you want to associate with the asset. For example, you might add a property to indicate the manufacturer of the camera. Select **Next** to continue.
+
+1. On the **Streams** page, select **Add stream** to add a stream for the asset.
+
+1. Add a name for the stream, such as `mysnapshots`. Set MQTT as the destination and add a name for the MQTT topic to publish to such as `azure-iot-operations/data/snapshots`. Select `snapshot-to-mqtt` as the task type.
+
+    > [!IMPORTANT]
+    > Currently, the media connector always publishes to a topic called `azure-iot-operations/data/<asset name>/<stream name>`.
+
+    :::image type="content" source="media/howto-use-media-connector/add-snapshot-stream.png" alt-text="Screenshot that shows how to add a snapshot stream that publishes to an MQTT topic." lightbox="media/howto-use-media-connector/add-snapshot-stream.png":::
+
+    Select **Add** to save the stream.
+
+1. On the **Streams** page, select **Next** to continue.
+
+1. On the **Review** page, review the details of the asset and select **Create** to create the asset.
+
+# [Azure CLI](#tab/cli)
+
+Run the following commands:
+
+```azurecli
+# Create the asset
+az iot ops ns asset media create --name my-media-source-cli --instance {your instance name}  -g {your resource group name} --device media-connector-cli --endpoint media-connector-cli-0
+
+# Add a stream to the asset
+az iot ops ns asset media stream add --asset my-media-source-cli --instance {your instance name}  -g {your resource group name} --name snapshotmqtt --task-type snapshot-to-mqtt --format jpeg --snapshots-per-sec 0.25 --destination topic="azure-iot-operations/data/snapshots" qos=Qos1 retain=Never ttl=60 --disable-autostart false
 ```
 
-To view the files, run the `ls` command in the pod. Use the full name of the pod in the following command:
+To learn more, see [az iot ops ns asset media](/cli/azure/iot/ops/ns/asset/media).
 
-```console
-kubectl exec aio-opc-media-1-... -n azure-iot-operations -- ls /tmp/azure-iot-operations/data/asset-snapshot-to-fs/snapshot/
+
+# [Bicep](#tab/bicep)
+
+Deploy the following Bicep template to create an asset that publishes snapshots from the device shown previously to an MQTT topic. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
+
+```bicep
+param adrNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource adrNamespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
+  name: adrNamespaceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
+  name: 'my-media-source-bicep'
+  parent: adrNamespace
+  location: resourceGroup().location
+  extendedLocation: {
+    type: 'CustomLocation'
+    name: customLocation.id
+  }
+  properties: {
+    displayName: 'my-media-source-bicep'
+    description: 'An example media asset'
+    enabled: true
+
+    deviceRef: {
+      deviceName: 'media-connector-bicep'
+      endpointName: 'media-connector-bicep-0'
+    }
+    streams: [
+
+      {
+        name: 'mysnapshots-bicep'
+        streamConfiguration: '{"taskType": "snapshot-to-mqtt","autostart":true, "format": "jpeg","snapshotsPerSecond": 0.25}'
+        destinations: [
+          {
+            target: 'Mqtt'
+            configuration: {
+                topic: 'azure-iot-operations/data/snapshots'
+                qos: 'Qos1'
+                retain: 'Never'
+                ttl: 60
+              }
+          }
+        ]
+      }
+    ]
+
+  }
+}
 ```
-
-When you finish testing the asset, you can delete it by running the following command:
-
-```console
-az iot ops asset delete -n asset-snapshot-to-fs -g $RESOURCE_GROUP
-```
-
-## Clip to file system
-
-To configure an asset that captures clips from a camera and saves them as files:
-
-# [Bash](#tab/bash)
-
-1. Set the following environment variables:
-
-    ```bash
-    SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
-    RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
-    AEP_NAME="contoso-rtsp-aep"
-    ```
-
-1. Run the following script:
-
-    ```bash
-    # Download the Bicep file
-    wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/asset-clip-to-fs.bicep -O asset-clip-to-fs.bicep
-    
-    # Find the name of your custom location
-    CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
-    
-    # Use the Bicep file to deploy the asset
-    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-clip-to-fs.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
-    ```
-
-# [PowerShell](#tab/powershell)
-
-1. Set the following environment variables:
-
-    ```powershell
-    $SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
-    $RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
-    $AEP_NAME="contoso-rtsp-aep"
-    ```
-
-1. Run the following script:
-
-    ```powershell
-    # Download the Bicep file
-    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/asset-clip-to-fs.bicep -OutFile asset-clip-to-fs.bicep
-
-    # Find the name of your custom location
-    $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
-
-    # Use the Bicep file to deploy the asset
-    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-clip-to-fs.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME
-    ```
 
 ---
 
-The following snippet shows the bicep file that you used to create the asset:
+### Verify the published messages
 
-:::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-clip-to-fs.bicep":::
+To verify that the connector is publishing messages, you can use an MQTT client to subscribe to the topic `azure-iot-operations/data/{asset name}/{stream name}`. If the device and asset are configured correctly, you receive messages containing JPEG image snapshots when you subscribe to this topic.
 
-The files are saved in the file system of the `opc-media-1-...` pod. To find the full name of the pod, run the following command. The following command uses the default Azure IoT Operations namespace:
+The following steps show you how to run the **mosquitto_sub** tool in the cluster. To learn more about this tool and alternative approaches, see [MQTT tools](../troubleshoot/tips-tools.md#mqtt-tools):
 
-```console
-kubectl get pods -n azure-iot-operations
+[!INCLUDE [deploy-mqttui](../includes/deploy-mqttui.md)]
+
+To save the payload of a single message, use a command like the following example:
+
+```bash
+mosquitto_sub --host aio-broker --port 18883 --topic "azure-iot-operations/data/my-camera/#" -C 1 -F %p --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat) > image1.jpeg
 ```
 
-To view the files, run the `ls` command in the pod. Use the full name of the pod in the following command:
+The following screenshot shows the topic name that uses the asset name and stream name:
 
-```console
-kubectl exec aio-opc-media-1-... -n azure-iot-operations -- ls /tmp/azure-iot-operations/data/asset-clip-to-fs/clip/
+:::image type="content" source="media/howto-use-media-connector/snapshot-topic.png" alt-text="A screenshot that shows the published data in a topic called `azure-iot-operations/data/{asset name}/{stream name}`.":::
+
+## Add a stream to save a video clip
+
+In this section, you add a stream to the asset that saves video clips from the media source to the file system. This section assumes that you configured Azure Container Storage enabled by Azure Arc with a subvolume called `ingestSubDir` and mounted the persistent volume claim to the connector template instance at `/data`. To learn more, see [Configure a persistent volume claim for the media connector](howto-manage-connector-templates.md#configure-a-persistent-volume-claim-for-the-media-connector).
+
+### Azure CLI
+
+To use the Azure CLI, run the following command to add a new stream called `clipstream` to the asset:
+
+```azurecli
+az iot ops ns asset media stream add --asset my-media-source-cli --instance {your instance name}  -g {your resource group name} --name clipstream --task-type clip-to-fs --format mkv --duration 30 --dest path=/data/ingestSubDir/clips --disable-autostart false
 ```
 
-When you finish testing the asset, you can delete it by running the following command:
+### Bicep
 
-```console
-az iot ops asset delete -n asset-clip-to-fs -g $RESOURCE_GROUP
+To use a Bicep template:
+
+Deploy the following Bicep template. The template redeploys the `my-media-source-bicep` asset with both the original snapshot stream and the new clip stream, because Bicep declares the full asset resource. Replace the placeholders `<AIO_NAMESPACE_NAME>` and `<CUSTOM_LOCATION_NAME>` with your Azure IoT Operations namespace name and custom location name respectively:
+
+```bicep
+param adrNamespaceName string = '<AIO_NAMESPACE_NAME>'
+param customLocationName string = '<CUSTOM_LOCATION_NAME>'
+
+resource adrNamespace 'Microsoft.DeviceRegistry/namespaces@2026-04-01' existing = {
+  name: adrNamespaceName
+}
+
+resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
+  name: customLocationName
+}
+
+resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
+  name: 'my-media-source-bicep'
+  parent: adrNamespace
+  location: resourceGroup().location
+  extendedLocation: {
+    type: 'CustomLocation'
+    name: customLocation.id
+  }
+  properties: {
+    displayName: 'my-media-source-bicep'
+    description: 'An example media asset'
+    enabled: true
+
+    deviceRef: {
+      deviceName: 'media-connector-bicep'
+      endpointName: 'media-connector-bicep-0'
+    }
+    streams: [
+      {
+        name: 'mysnapshots-bicep'
+        streamConfiguration: '{"taskType": "snapshot-to-mqtt","autostart":true, "format": "jpeg","snapshotsPerSecond": 0.25}'
+        destinations: [
+          {
+            target: 'Mqtt'
+            configuration: {
+                topic: 'azure-iot-operations/data/snapshots'
+                qos: 'Qos1'
+                retain: 'Never'
+                ttl: 60
+              }
+          }
+        ]
+      }
+      {
+        name: 'clipstream'
+        streamConfiguration: '{"taskType": "clip-to-fs","autostart":true, "format": "mkv","duration": 30}'
+        destinations: [
+          {
+            target: 'Storage'
+            configuration: {
+                path: '/data/ingestSubDir/clips'
+              }
+          }
+        ]
+      }
+    ]
+  }
+}
 ```
 
-## Stream to RTSP
+### Verify the saved messages
 
-To configure an asset that forwards video streams from a camera to a media server:
+The following steps assume that you configured a persistent volume claim (PVC) to save the clips to your Azure Blob storage account with these settings:
 
-You made a note of the IP address of the media server when you deployed it in a previous step.
+| Setting | Value |
+| ------- | ----- |
+| Storage container | `pvc` |
+| Edge sub volume path | `ingestSubDir` |
+| Connector template mount path | `/data` |
+| Stream path in operations experience | `/data/ingestSubDir/clips` |
 
-# [Bash](#tab/bash)
+> [!IMPORTANT]
+> The mount path must start with the '/' character.
 
-1. Set the following environment variables:
+After the connector captures the clips, it uploads them to the `/clips` folder in your storage container:
 
-    ```bash
-    SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
-    RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
-    MEDIA_SERVER_ADDRESS="<YOUR MEDIA SERVER IP ADDRESS>"
-    AEP_NAME="contoso-rtsp-aep"
-    ```
-
-1. Run the following script:
-
-    ```bash
-    # Download the Bicep file
-    wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/asset-stream-to-rtsp.bicep -O asset-stream-to-rtsp.bicep
-    
-    # Find the name of your custom location
-    CUSTOM_LOCATION_NAME=$(az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
-    
-    # Use the Bicep file to deploy the asset
-    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-stream-to-rtsp.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME mediaServerAddress=$MEDIA_SERVER_ADDRESS
-    ```
-
-# [PowerShell](#tab/powershell)
-
-1. Set the following environment variables:
-
-    ```powershell
-    $SUBSCRIPTION_ID="<YOUR SUBSCRIPTION ID>"
-    $RESOURCE_GROUP="<YOUR AZURE IOT OPERATIONS RESOURCE GROUP>"
-    $MEDIA_SERVER_ADDRESS="<YOUR MEDIA SERVER IP ADDRESS>"
-    $AEP_NAME="contoso-rtsp-aep"
-    ```
-
-1. Run the following script:
-
-    ```powershell
-    # Download the Bicep file
-    Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/media-connector-bicep/asset-stream-to-rtsp.bicep -OutFile asset-stream-to-rtsp.bicep
-
-    # Find the name of your custom location
-    $CUSTOM_LOCATION_NAME = (az iot ops list -g $RESOURCE_GROUP --query "[0].extendedLocation.name" -o tsv)
-
-    # Use the Bicep file to deploy the asset
-    az deployment group create --subscription $SUBSCRIPTION_ID --resource-group $RESOURCE_GROUP --template-file asset-stream-to-rtsp.bicep --parameters customLocationName=$CUSTOM_LOCATION_NAME aepName=$AEP_NAME mediaServerAddress=$MEDIA_SERVER_ADDRESS
-    ```
-
----
-
-The following snippet shows the bicep file that you used to create the asset:
-
-:::code language="bicep" source="~/azure-iot-operations-samples/samples/media-connector-bicep/asset-stream-to-rtsp.bicep":::
-
-To view the media stream, use a URL that looks like: `http://<YOUR KUBERNETES CLUSTER IP ADDRESS>:8888/azure-iot-operations/data/asset-stream-to-rtsp`.
-
-> [!TIP]
-> If you're running Azure IoT Operations in Codespaces, run the following command to port forward the media server to your local machine: `kubectl port-forward service/media-server-public 8888:8888 -n media-server`.
-
-> [!TIP]
-> If you're running Azure IoT Operations in a virtual machine, make sure that port 8888 is open for inbound access in your firewall.
-
-The media server logs the connection from the asset and the creation of the stream:
-
-```log
-2025/02/20 15:31:10 INF [RTSP] [conn <INTERNAL IP ADDRESS OF ASSET>:41384] opened
-2025/02/20 15:31:10 INF [RTSP] [session 180ce9ad] created by INTERNAL IP ADDRESS OF ASSET>:41384
-2025/02/20 15:31:10 INF [RTSP] [session 180ce9ad] is publishing to path 'azure-iot-operations/data/asset-stream-to-rtsp', 2 tracks (H264, LPCM)
-2025/02/20 15:31:18 INF [HLS] [muxer azure-iot-operations/data/asset-stream-to-rtsp] created (requested by 10.42.0.1:16831)
-2025/02/20 15:31:18 WAR [HLS] [muxer azure-iot-operations/data/asset-stream-to-rtsp] skipping track 2 (LPCM)
-2025/02/20 15:31:18 INF [HLS] [muxer azure-iot-operations/data/asset-stream-to-rtsp] is converting into HLS, 1 track (H264)
-```
-
-When you finish testing the asset, you can delete it by running the following command:
-
-```console
-az iot ops asset delete -n asset-stream-to-rtsp -g $RESOURCE_GROUP
-```
-
-## Samples
-
-For more examples that show how to configure and use the media connector, see the [Azure IoT Operations samples repository](https://github.com/Azure-Samples/explore-iot-operations/blob/main/samples/media-connector-invoke-test/README.md).
+:::image type="content" source="media/howto-use-media-connector/captured-streams.png" alt-text="Screenshot that shows the captured streams in Blob storage." lightbox="media/howto-use-media-connector/captured-streams.png":::

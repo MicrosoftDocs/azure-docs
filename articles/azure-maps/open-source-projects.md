@@ -4,7 +4,7 @@ description: Open-source projects coordinated for the Microsoft Azure Maps platf
 author: sinnypan
 ms.author: sipa
 ms.date: 01/11/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-maps
 ms.subservice: general
 ---
@@ -49,9 +49,7 @@ The following table lists the open-source projects contributed to, and maintaine
 |--------------------------------|-------------|
 | [Azure Maps Code Samples] | A collection of code samples for using Azure Maps in web-based apps. |
 | [React Azure Maps Playground] | A getting started guide to help you create your first map using the React wrapper for Azure Maps |
-| [Azure Maps & Microsoft Entra ID Samples] | A collection of samples that show how to use Microsoft Entra ID with Azure Maps. |
 | [Azure Maps Jupyter Notebook samples] | A collection of Python samples using the Azure Maps REST services. |
-| [Implement IoT spatial analytics using Azure Maps] | Tracking and capturing relevant events that occur in space and time is a common IoT scenario. |
 
 ## Supportability of open-source projects
 

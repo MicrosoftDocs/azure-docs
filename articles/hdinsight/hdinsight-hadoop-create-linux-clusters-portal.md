@@ -3,11 +3,14 @@ title: Create Apache Hadoop clusters using web browser, Azure HDInsight
 description: Learn to create Apache Hadoop, Apache HBase, and Apache Spark clusters on HDInsight. Using web browser and the Azure portal.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive, linux-related-content
 author: hareshg
 ms.author: hgowrisankar
 ms.reviewer: nijelsf
 ms.date: 11/25/2024
+ms.custom:
+  - hdinsightactive
+  - linux-related-content
+  - sfi-image-nochange
 ---
 
 # Create Linux-based clusters in HDInsight by using the Azure portal
@@ -20,7 +23,7 @@ The Azure portal is a web-based management tool for services and resources hoste
 
 The Azure portal exposes most of the cluster properties. By using Azure Resource Manager templates, you can hide many details. For more information, see [Create Apache Hadoop clusters in HDInsight by using Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Create clusters
 

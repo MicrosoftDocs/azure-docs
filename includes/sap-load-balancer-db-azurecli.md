@@ -5,10 +5,15 @@ services: load-balancer
 ms.service: sap-on-azure
 ms.custom: devx-track-azurecli
 ms.topic: include
-ms.date: 01/16/2024
+ms.date: 12/23/2025
 author: dennispadia
 ms.author: depadia
 ---
+
+> [!NOTE]
+> Use azure-cli v2.63.0 or later. You can check the version using `az version`.
+
+To create Azure standard load balancer for high availability setup using Azure CLI, follow below steps.
 
 ```azurecli-interactive
 # Create the load balancer resource with frontend IP. Allocation of private IP address is dynamic using below command. If you want to pass static IP address, include parameter --private-ip-address.

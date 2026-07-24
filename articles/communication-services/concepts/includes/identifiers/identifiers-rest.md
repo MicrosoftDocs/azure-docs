@@ -50,7 +50,7 @@ You can find an example for a request that includes an identifier in the Chat RE
 
 ### Microsoft Teams user
 
-The `MicrosoftTeamsUserIdentifierModel` represents a Teams user with its Microsoft Entra user object ID. You can retrieve the Microsoft Entra user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response. For more information about working with Microsoft Graph, see [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). Alternatively, you can find the ID as the `oid` claim in an [Microsoft Entra token](/entra/identity-platform/id-token-claims-reference#payload-claims) or [Microsoft Entra access token](/entra/identity-platform/access-token-claims-reference#payload-claims) after your user signed in and acquired a token.
+The `MicrosoftTeamsUserIdentifierModel` represents a Teams user with its Microsoft Entra user object ID. You can retrieve the Microsoft Entra user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response. For more information about working with Microsoft Graph, see [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). Alternatively, you can find the ID as the `oid` claim in a [Microsoft Entra token](/entra/identity-platform/id-token-claims-reference#payload-claims) or [Microsoft Entra access token](/entra/identity-platform/access-token-claims-reference#payload-claims) after your user signed in and acquired a token.
 
 #### Basic usage
 
@@ -170,6 +170,63 @@ The `MicrosoftTeamsAppIdentifierModel` represents a bot of the Teams Voice appli
 #### API reference
 
 [MicrosoftTeamsAppIdentifierModel](https://github.com/Azure/azure-rest-api-specs/blob/ea28180c6ce9027df36568307f235868d581144c/specification/communication/data-plane/Common/stable/2023-11-15/common.json#L165C6-L165C38)
+
+### Teams Extension user
+
+The `TeamsExtensionUserIdentifier` interface represents a Teams user enabled for Teams Phone Extensibility. A `TeamsExtensionUserIdentifier` requires the Microsoft Entra user object ID of the Teams user, the Microsoft Entra tenant ID where the user resides and the Azure Communication Services resource ID. You can retrieve the Microsoft Entra user object ID via the [Microsoft Graph REST API /users](/graph/api/user-get) endpoint from the `id` property in the response and the Microsoft Entra tenant ID via the [Microsoft Graph REST API /organization](/graph/api/organization-get) endpoint from the `id` property in the response. For more information about working with Microsoft Graph, see [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer?request=users%2F%7Buser-mail%7D&method=GET&version=v1.0&GraphUrl=https://graph.microsoft.com) and look into the [Graph SDK](/graph/sdks/sdks-overview). 
+Alternatively, you can find the object ID as the `oid` claim and the tenant ID as the `tid` claim in a [Microsoft Entra token](/entra/identity-platform/id-token-claims-reference#payload-claims) or [Microsoft Entra access token](/entra/identity-platform/access-token-claims-reference#payload-claims) after your user signed in and acquired a token.
+
+#### Basic usage
+
+```json
+// request
+{
+    "teamsExtensionUser": {
+        "userId": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
+        "tenantId": "d4f5a8c3-2c49-4b9e-a5c6-3c85e80a7f4d",
+        "resourceId": "f7e1e3c6-3a1d-4415-8b7d-9e1d4bda2d45"
+    }
+}
+
+// response
+{
+    "kind": "teamsExtensionUser",
+    "rawId": "8:acs:f7e1e3c6-3a1d-4415-8b7d-9e1d4bda2d45_d4f5a8c3-2c49-4b9e-a5c6-3c85e80a7f4d_00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
+    "teamsExtensionUser": {
+        "userId": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
+        "tenantId": "d4f5a8c3-2c49-4b9e-a5c6-3c85e80a7f4d",
+        "resourceId": "f7e1e3c6-3a1d-4415-8b7d-9e1d4bda2d45"
+    }
+}
+
+
+// if you're not operating in the public cloud, you must also pass the right Cloud type in a request
+{
+    "microsoftTeamsUser": {
+        "userId": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
+        "tenantId": "d4f5a8c3-2c49-4b9e-a5c6-3c85e80a7f4d",
+        "resourceId": "f7e1e3c6-3a1d-4415-8b7d-9e1d4bda2d45",
+        "cloud": "gcch"
+    }
+}
+
+// response
+{
+    "kind": "teamsExtensionUser",
+    "rawId": "8:gcch-acs:f7e1e3c6-3a1d-4415-8b7d-9e1d4bda2d45_d4f5a8c3-2c49-4b9e-a5c6-3c85e80a7f4d_00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
+    "teamsExtensionUser": {
+        "userId": "00aa00aa-bb11-cc22-dd33-44ee44ee44ee",
+        "tenantId": "d4f5a8c3-2c49-4b9e-a5c6-3c85e80a7f4d",
+        "resourceId": "f7e1e3c6-3a1d-4415-8b7d-9e1d4bda2d45",
+        "cloud": "gcch"
+    }
+}
+```
+
+#### API reference
+
+[TeamsExtensionUserIdentifierModel](https://github.com/Azure/azure-rest-api-specs/blob/79436d1724498ebd679471e4fd9356ae8f8d689e/specification/communication/data-plane/Common/stable/2025-06-30/common.json#L195)
+
 
 ### Unknown
 

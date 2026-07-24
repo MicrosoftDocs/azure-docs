@@ -5,10 +5,11 @@ services: cdn
 author: halkazwini
 ms.author: halkazwini
 manager: kumudd
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: concept-article
-ms.date: 03/31/2025
+ms.date: 02/28/2026
 ROBOTS: NOINDEX
+# Customer intent: As a network administrator, I want to understand the DDoS protection capabilities of the content delivery network, so that I can ensure my applications are secure against volumetric attacks without incurring additional costs.
 ---
 
 # Azure Content Delivery Network DDoS Protection

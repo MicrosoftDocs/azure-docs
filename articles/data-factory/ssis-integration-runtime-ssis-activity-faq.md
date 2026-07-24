@@ -3,8 +3,8 @@ title: Troubleshoot package execution in the SSIS integration runtime
 description: "This article provides troubleshooting guidance for SSIS package execution in the SSIS integration runtime"
 ms.subservice: integration-services
 ms.topic: faq
-ms.author: chugu
-author: chugugrace
+ms.author: makromer
+author: kromerm
 ms.reviewer: chugugrace
 ms.date: 05/15/2024
 ---

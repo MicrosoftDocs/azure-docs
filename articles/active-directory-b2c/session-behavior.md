@@ -3,12 +3,13 @@ title: Configure session behavior - Azure Active Directory B2C
 description: Learn how to configure session behavior in Azure Active Directory B2C.
 author: kengaderdus
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 02/18/2025
 ms.author: kengaderdus
 ms.subservice: b2c
 zone_pivot_groups: b2c-policy-type
+ms.custom: sfi-image-nochange
 
 #Customer intent: As a developer configuring session behavior in Azure Active Directory B2C, I want to understand the different types of single sign-on sessions (Azure AD B2C session, federated identity provider session, application session) and how to configure their behavior, so that I can implement the most appropriate SSO method for my policy.
 

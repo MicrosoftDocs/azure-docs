@@ -1,27 +1,22 @@
 ---
 title: Monitor Azure Files using Azure Monitor
 description: Learn how to monitor Azure Files and analyze metrics and logs using Azure Monitor. 
-ms.date: 05/10/2024
+ms.date: 02/03/2026
 ms.custom: horz-monitor
-ms.topic: conceptual
+ms.topic: concept-article
 author: khdownie
 ms.author: kendownie
 ms.service: azure-file-storage
+# Customer intent: As a cloud administrator, I want to monitor Azure Files using metrics and logs, so that I can ensure optimal performance, availability, and troubleshoot any issues effectively.
 ---
 
 # Monitor Azure Files
 
+:heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
+
+:heavy_check_mark: **Applies to:** File shares created with the Microsoft.FileShares resource provider
+
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
-
-## Applies to
-| File share type | SMB | NFS |
-|-|:-:|:-:|
-| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
-| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
-
->[!IMPORTANT]
->Metrics and logs in Azure Monitor support only Azure Resource Manager storage accounts. Azure Monitor doesn't support classic storage accounts. If you want to use metrics or logs on a classic storage account, you need to migrate to an Azure Resource Manager storage account. For more information, see [Migrate to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview).
 
 [!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
@@ -40,7 +35,7 @@ For the available resource log categories, their associated Log Analytics tables
 
 To get the list of SMB and REST operations that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
 
-### Destination limitations
+### Azure Files monitoring destination limitations
 
 For general destination limitations, see [Destination limitations](/azure/azure-monitor/essentials/diagnostic-settings#destination-limitations). The following limitations apply only to monitoring Azure Storage accounts.
 
@@ -92,9 +87,26 @@ Log entries are created only if there are requests made against the service endp
 
 Requests made by the Azure Files service itself, such as log creation or deletion, aren't logged. 
 
+#### Configure Azure Files monitoring data collection
+
+Azure Files integrates with Azure Monitor, but metrics and logs aren't sent to a Log Analytics workspace by default. To query Azure Files telemetry using Kusto Query Language (KQL), you must first configure diagnostic settings on the storage account.
+
+Follow these steps to create a diagnostic setting and send Azure Files logs and metrics to an existing Log Analytics workspace. If you don't already have a Log Analytics workspace in your Azure subscription, you need to [create one](/azure/azure-monitor/logs/quick-create-workspace).
+
+1. Sign in to the Azure portal and go to your storage account.
+1. From the service menu, under **Monitoring**, select **Diagnostic settings**.
+1. Select the **file** resource, then select **+ Add diagnostic setting**.
+1. Provide a name for the new diagnostic setting.
+1. Select the relevant Azure Files log and metrics categories.
+1. Under **Destination details**, select **Send to Log Analytics workspace**.
+1. Select a subscription and Log Analytics workspace.
+1. Select **Save** from the top menu.
+
+After you enable the diagnostic setting, Azure Files logs and metrics begin flowing into the selected workspace, and you can query them by using KQL.
+
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-Here are some queries that you can enter in the **Log search** bar to help you monitor your Azure file shares. These queries work with the [new language](/azure/azure-monitor/logs/log-query-overview).
+Here are some queries to help you monitor your Azure file shares. These queries use the [Kusto Query Language (KQL)](/azure/azure-monitor/logs/log-query-overview).
 
 - View SMB errors over the last week.
 
@@ -145,11 +157,11 @@ The following table lists common and recommended alert rules for Azure Files and
 
 | Alert type | Condition | Description |
 |-|-|-|
-|Metric | File share is throttled. | Transactions<br>Dimension name: Response type <br>Dimension name: FileShare (premium file share only) |
-|Metric | File share size is 80% of capacity. | File Capacity<br>Dimension name: FileShare (premium file share only) |
-|Metric | File share egress exceeds 500 GiB in one day. | Egress<br>Dimension name: FileShare (premium file share only) |
+|Metric | File share is throttled. | Transactions<br>Dimension name: Response type <br>Dimension name: FileShare (not available for pay-as-you-go file shares) |
+|Metric | File share size is 80% of capacity. | File Capacity<br>Dimension name: FileShare (not available for pay-as-you-go file shares) |
+|Metric | File share egress exceeds 500 GiB in one day. | Egress<br>Dimension name: FileShare (not available for pay-as-you-go file shares) |
 |Metric | High server latency. | Success Server Latency<br>Dimension name: API Name, for example Read and Write API|
-|Metric | File share availability is less than 99.9%. | Availability<br>Dimension name: FileShare (premium file share only) |
+|Metric | File share availability is less than 99.9%. | Availability<br>Dimension name: FileShare (not available for pay-as-you-go file shares) |
 
 For instructions on how to create alerts on throttling, capacity, egress, and high server latency, see [Create monitoring alerts for Azure Files](files-monitoring-alerts.md).
 

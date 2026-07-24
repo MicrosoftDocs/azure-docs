@@ -2,11 +2,12 @@
 title: Overview - Retention of Azure Database for MySQL - Flexible Server for the Long Term by Using Azure Backup
 description: This article provides an overview of Azure Database for MySQL - Flexible Server retention for the long term.
 ms.topic: overview
-ms.date: 11/21/2024
+ms.date: 01/30/2026
 ms.service: azure-backup
 ms.custom: engagement-fy23
-author: jyothisuri
-ms.author: jsuri
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+# Customer intent: As a database administrator, I want to extend backup retention for Azure Database for MySQL Flexible Server to 10 years using Azure Backup, so that I can meet compliance requirements and protect against data loss from accidental deletions or ransomware attacks.
 ---
 
 # Long-term retention for Azure Database for MySQL - Flexible Server by using Azure Backup (preview)
@@ -17,7 +18,7 @@ When you use an Azure Database for MySQL flexible server, you can extend the ret
 
 Extending backup retention from 35 days to 10 years can help your organization meet compliance and regulatory requirements. The backups are copied to an isolated storage environment outside your tenant and subscription to help protect against ransomware attacks. In addition to long-term retention, this feature enhances backup resiliency by protecting the source data from different levels of data loss, such as accidental deletions and ransomware.
 
-It's a zero-infrastructure solution in which Azure Backup manages the backups with automated retention and backup scheduling. You can create a backup policy to define the backup schedule and retention. Based on the policy definition, Azure Backup transfers backups to the vault as blobs and manages their life cycle. You can manage the backups centrally beside other protected workloads via Azure Business Continuity Center.
+It's a zero-infrastructure solution in which Azure Backup manages the backups with automated retention and backup scheduling. You can create a backup policy to define the backup schedule and retention. Based on the policy definition, Azure Backup transfers backups to the vault as blobs and manages their life cycle. You can manage the backups centrally beside other protected workloads via Resiliency.
 
 You can recover this backup in your specified storage containers, which you can use to rebuild the Azure Database for MySQL flexible server. You can also use native tools to restore this data as a new flexible server.
 
@@ -50,9 +51,9 @@ The following table lists permissions that the vault MSI requires for successful
 | **Backup** | Azure Database for MySQL - Flexible Server Long-Term Retention Backup role <br><br> Reader role on the server's resource group |
 | **Restore** | Storage Blob Data Contributor role on the target storage account |
 
-## Pricing
+## Pricing for Azure Database for MySQL - Flexible Server backup
 
-You incur charges for:
+ Azure Backup for Azure Database for MySQL - Flexible Server is billed based on the following components:
 
 - **Protected instance fee**: When you configure a backup for an Azure Database for MySQL flexible server, a protected instance is created. Azure Backup charges a protected instance fee according to the size of the database (in gigabytes) on a per-unit (250-GB) basis.
 

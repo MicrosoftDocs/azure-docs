@@ -9,6 +9,7 @@ author: mbender-ms
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: concept-article
+# Customer intent: "As a cloud network administrator, I want to create, modify, or delete public IP addresses in Azure, so that I can manage network connectivity for my resources efficiently and ensure compliance before the upcoming SKU retirement deadline."
 ---
 
 # Create, change, or delete an Azure public IP address
@@ -50,7 +51,7 @@ For more detail on the specific attributes of a public IP address during creatio
    |Tier|Yes|Indicates if the IP address is associated with a region **(Regional)** or is *"anycast"* from multiple regions **(Global)**.</br> *A **Global tier** IP is preview functionality for Standard SKU IP addresses, and currently only utilized for the Cross-region Azure Load Balancer*.|
    |Name|Yes|The name must be unique within the resource group you select.|
    |IP address assignment|Yes|**Dynamic:** Dynamic addresses are assigned after a public IP address is associated to an Azure resource and is started for the first time. Dynamic addresses can change if a resource such as a virtual machine is stopped (deallocated) and then restarted through Azure. The address remains the same if a virtual machine is rebooted or stopped from within the guest OS. When a public IP address resource is removed from a resource, the dynamic address is released.</br> **Static:** Static addresses are assigned when a public IP address is created. Static addresses aren't released until a public IP address resource is deleted.</br> *If you select **IPv6** for the **IP version**, the assignment method must be *Dynamic* for Basic SKU. Standard SKU addresses are *Static* for both IPv4 and IPv6.* |
-  |Routing preference |Yes| By default, the routing preference for public IP addresses is set to **Microsoft network**. The **Microsoft network** setting delivers traffic over Microsoft's global wide area network to the user.</br> The selection of **Internet** minimizes travel on Microsoft's network. The **Internet** setting uses the transit ISP network to deliver traffic at a cost-optimized rate. A public IP addresses routing preference can’t be changed once created. For more information on routing preference, see [What is routing preference (preview)?](routing-preference-overview.md).  |
+  |Routing preference |Yes| By default, the routing preference for public IP addresses is set to **Microsoft network**. The **Microsoft network** setting delivers traffic over Microsoft's global wide area network to the user.</br> The selection of **Internet** minimizes travel on Microsoft's network. The **Internet** setting uses the transit ISP network to deliver traffic at a cost-optimized rate. A public IP addresses routing preference can’t be changed once created. For more information on routing preference, see [What is routing preference (preview)?](routing-preference-overview.md)  |
    |Idle timeout (minutes)|No| The number of minutes to keep a TCP or HTTP connection open without relying on clients to send keep-alive messages. If you select IPv6 for **IP Version**, this value is set to 4 minutes, and can't be changed. |
    |DNS name label|No|Must be unique within the Azure location you create the name in across all subscriptions and all customers. Azure automatically registers the name and IP address in its DNS so you can connect to a resource with the name.</br> Azure appends a default subnet such as **location.cloudapp.azure.com** to the name you provide to create the fully qualified DNS name. If you choose to create both address versions, the same DNS name is assigned to both the IPv4 and IPv6 addresses. Azure's default DNS contains both IPv4 A and IPv6 AAAA name records.</br> The default DNS responds with both records during DNS lookup. The client chooses which address (IPv4 or IPv6) to communicate with. You can use the Azure DNS service to configure a DNS name with a custom suffix that resolves to the public IP address.</br> For more information, see [Use Azure DNS with an Azure public IP address](../../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).|
    |Name (Only visible if you select IP Version of **Both**)|Yes, if you select IP Version of **Both**|The name must be different than the name you entered previously for **Name** in this list. If you create both an IPv4 and an IPv6 address, the portal creates two separate public IP address resources. The deployment creates one IPv4 address and one IPv6 address.|
@@ -58,7 +59,7 @@ For more detail on the specific attributes of a public IP address during creatio
    |Subscription|Yes|Must exist in the same [subscription](../../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) as the resource to which you associate the public IPs.|
    |Resource group|Yes|Can exist in the same, or different, [resource group](../../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#resource-group) as the resource to which you associate the public IPs.|
    |Location|Yes|Must exist in the same [location](https://azure.microsoft.com/regions), also referred to as region, as the resource to which you associate the public IPs.|
-   |Availability zone| No | This setting only appears if you select a supported location and IP address type. **Basic** SKU public IPs and **Global** Tier public IPs don't support Availability Zones. You can select no-zone (default option), a specific zone, or zone-redundant. The choice depends on your specific domain failure requirements.</br> For a list of supported locations and more information about Availability Zones, see [Availability zones overview](../../reliability/availability-zones-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+   |Availability zone| No | This setting only appears if you select a supported location and IP address type. **Basic** SKU public IPs and **Global** Tier public IPs don't support Availability Zones. You can select zone-redundant (default option) or a specific zone. The choice depends on your specific domain failure requirements.</br> For a list of supported locations and more information about Availability Zones, see [Availability zones overview](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ## View, modify settings for, or delete a public IP address
 
@@ -76,6 +77,9 @@ For more detail on the specific attributes of a public IP address during creatio
 |Modify | For a disassociated IP, select **Configuration** to: </br> Modify idle timeout.</br> DNS name label.</br> Change assignment of an IP from static to dynamic.</br> Upgrade a basic IP to standard. |[Set-AzPublicIpAddress](/powershell/module/az.network/set-azpublicipaddress) to update settings |[az network public-ip update](/cli/azure/network/public-ip#az-network-public-ip-update) to update |
 
    - **Delete**: Deletion of public IPs requires that the public IP object isn't associated to any IP configuration or virtual machine network interface. For more information, see the following table.
+
+>[!WARNING]
+   >Once a public IP address is deleted it can not be recovered.
 
 |Resource|Azure portal|Azure PowerShell|Azure CLI|
 |---|---|---|---|
@@ -115,6 +119,17 @@ Learn how to assign a public IP address to the following resources:
 ## Region availability
 
 Azure Public IP is available in all regions for both Public and US Gov clouds. Azure Public IP doesn't move or store customer data out of the region it's deployed in.
+
+## Moving Public IP Addresses
+
+You can move Standard Public IP addresses under certain conditions:
+
+| Scenario                     | Allowed | Notes                                                              |
+|------------------------------|---------|--------------------------------------------------------------------|
+| Move across resource groups  | Yes     | While attached to all resources except a virtual network gateway  |
+| Move across subscriptions    | Yes     | Only when detached from all resources                             |
+| Move across regions          | No      | IP addresses are tied to regional ranges and cannot be moved      |
+
 
 ## Permissions
 

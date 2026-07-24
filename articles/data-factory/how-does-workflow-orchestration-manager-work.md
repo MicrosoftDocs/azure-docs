@@ -2,7 +2,7 @@
 title: How does Workflow Orchestration Manager work?
 titleSuffix: Azure Data Factory
 description: This article explains how to create a Workflow Orchestration Manager instance and use DAG to make it work.
-ms.topic: conceptual
+ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
 ms.date: 10/03/2024
@@ -26,7 +26,7 @@ To use this feature, you need to provide your DAGs and plugins in Azure Blob Sto
 The following steps set up and configure your Workflow Orchestration Manager environment.
 
 ### Prerequisites
-**Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+**Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
     Create or select an existing Data Factory in the region where the Workflow Orchestration Manager preview is supported.
 
 ### Steps to create the environment
@@ -115,7 +115,7 @@ To monitor the Airflow DAGs, sign in into Airflow UI with the earlier created us
 
    :::image type="content" source="media/how-does-workflow-orchestration-manager-work/airflow-environment-monitor-dag.png" alt-text="Screenshot that shows the Airflow environment created.":::
 
-1. Sign in using the username-password provided during the Airflow Integration Runtime creation. ([You can reset the username or password by editing the Airflow Integration runtime]() if needed)
+1. Sign in by using the username and password that you provided during the Airflow Integration Runtime creation. ([You can reset the username or password by editing the Airflow Integration runtime](/previous-versions/azure/data-factory/password-change-airflow) if needed)
 
    :::image type="content" source="media/how-does-workflow-orchestration-manager-work/login-in-dags.png" alt-text="Screenshot that shows sign in using the username-password provided during the Airflow Integration Runtime creation.":::
 
@@ -133,5 +133,5 @@ If you're using Airflow version 1.x, delete DAGs that are deployed on any Airflo
 
 - [Run an existing pipeline with Workflow Orchestration Manager](tutorial-run-existing-pipeline-with-airflow.md)
 - [Workflow Orchestration Manager pricing](airflow-pricing.md)
-- [How to change the password for Workflow Orchestration Manager environment](password-change-airflow.md)
+- [How to change the password for Workflow Orchestration Manager environment](/previous-versions/azure/data-factory/password-change-airflow)
 

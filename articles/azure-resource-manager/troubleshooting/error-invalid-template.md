@@ -3,7 +3,7 @@ title: Invalid template errors
 description: Describes how to resolve invalid template errors when deploying Bicep files or Azure Resource Manager templates (ARM templates).
 ms.topic: troubleshooting
 ms.custom: devx-track-bicep, devx-track-arm-template
-ms.date: 06/20/2024
+ms.date: 04/28/2025
 ---
 
 # Resolve errors for invalid template
@@ -20,6 +20,9 @@ Message=<varies>
 ```
 
 The error message depends on the type of error.
+
+>[!Note]
+>Even when you deploy resources through the Azure Portal and do not create a template yourself, the portal still generates and submits an underlying ARM/Bicep template. If the portal-selected values fail validation (for example, due to policy restrictions, quota limits, unsupported regions, or SKU constraints), you may still receive an InvalidTemplate error.
 
 ## Cause
 

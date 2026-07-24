@@ -19,7 +19,7 @@ ms.author: dbasantes
 >
 >- For billing locations outside the US and Puerto Rico Azure Prepayment (previously called Monetary Commitment) funds and Azure prepaid credits aren't eligible for purchasing the products.
 
-Mobile Numbers are long-term leased numbers for A2P SMS messaging within select countries, billed on a pay-as-you-go basis.
+Mobile Numbers are long-term leased numbers for A2P SMS messaging within select countries/regions, billed on a pay-as-you-go basis.
 
 ##  Mobile Numbers Pricing
 

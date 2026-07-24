@@ -7,8 +7,10 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: estfan, divyaswarnkar, azla
 ms.topic: how-to
-ms.custom: devx-track-azurecli
-ms.date: 11/19/2024
+ms.date: 09/05/2025
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Create and manage integration accounts for B2B workflows in Azure Logic Apps with the Enterprise Integration Pack
@@ -34,7 +36,7 @@ If you're new to creating B2B enterprise integration workflows in Azure Logic Ap
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). Make sure that you use the same Azure subscription for both your integration account and logic app resource.
+* An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). Make sure that you use the same Azure subscription for both your integration account and logic app resource.
 
 * Whether you're working on a Consumption or Standard logic app workflow, your logic app resource must already exist if you need to link your integration account.
 
@@ -72,7 +74,7 @@ Your integration account uses an automatically created and enabled system-assign
 
 | Tier | Description |
 |------|-------------|
-| **Premium** | For scenarios with the following criteria: <br><br>- Store and use unlimited artifacts, such as partners, agreements, schemas, maps, certificates, and so on. <br><br>- Bring and use your own storage, which contains the relevant runtime states for specific B2B actions and EDI standards. For example, these states include the MIC number for AS2 actions and the control numbers for X12 actions, if configured on your agreements. <br><br>To access this storage, your integration account uses its system-assigned managed identity, which is automatically created and enabled for your integration account. <br><br>You can also apply more governance and policies to data, such as customer-managed ("Bring Your Own") keys for data encryption. To store these keys, you'll need a key vault. <br><br>- Set up and use a key vault to store private certificates or customer-managed keys. To access these keys, your Premium integration account uses its system-assigned managed identity, not an Azure Logic Apps shared service principal. <br><br>- Set up a private endpoint that creates a secure connection between your Premium integration account and Azure services in an Azure virtual network. <br><br>Pricing follows the [Standard integration account billing model](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Limitations and known issues**: <br><br>- If you use a key vault to store private certificates, your integration account's managed identity might not work. For now, use the linked logic app's managed identity instead. <br><br>- Currently doesn't support the [Azure CLI for Azure Logic Apps](/cli/azure/service-page/logic%20apps). |
+| **Premium** | For scenarios with the following criteria: <br><br>- Store and use unlimited artifacts, such as partners, agreements, schemas, maps, certificates, and so on. <br><br>- Bring and use your own storage, which contains the relevant runtime states for specific B2B actions and EDI standards. For example, these states include the MIC number for AS2 actions and the control numbers for X12 actions, if configured on your agreements. <br><br>To access this storage, your integration account uses its system-assigned managed identity, which is automatically created and enabled for your integration account. <br><br>You can also apply more governance and policies to data, such as customer-managed ("Bring Your Own") keys for data encryption. To store these keys, you'll need a key vault. <br><br>- Set up and use a key vault to store private certificates or customer-managed keys. To access these keys, your Premium integration account uses its system-assigned managed identity, not an Azure Logic Apps shared service principal. <br><br>- Set up a private endpoint that creates a secure connection between your Premium integration account and Azure services in an Azure virtual network. <br><br>Pricing follows the [Standard integration account billing model](https://azure.microsoft.com/pricing/details/logic-apps/). <br><br>**Limitations and known issues**: <br><br>- If you use a key vault to store private certificates, your integration account's managed identity might not work. For now, use the linked logic app's managed identity instead. <br><br>- B2B operations are available in *built-in* and *managed* versions. The Premium integration account supports only built-in operations, which are natively hosted and run with the Azure Logic Apps runtime. Managed operations, which aren't supported, run in shared clusters in multitenant Azure. <br><br>- Currently doesn't support the [Azure CLI for Azure Logic Apps](/cli/azure/service-page/logic%20apps). |
 | **Standard** | For scenarios where you have more complex B2B relationships and increased numbers of entities that you must manage. <br><br>Supported by the Azure Logic Apps SLA. |
 | **Basic** | For scenarios where you want only message handling or to act as a small business partner that has a trading partner relationship with a larger business entity. <br><br>Supported by the Azure Logic Apps SLA. |
 | **Free** | For exploratory scenarios, not production scenarios. This tier has limits on region availability, throughput, and usage. For example, the Free tier is available only for public regions in Azure, for example, West US or Southeast Asia, but not for [Microsoft Azure operated by 21Vianet](/azure/china/overview-operations) or [Azure Government](../../azure-government/documentation-government-welcome.md). <br><br>**Note**: Not supported by the Azure Logic Apps SLA. |
@@ -134,7 +136,7 @@ For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-
 
    ```azurecli
    az logic integration-account create --resource-group myresourcegroup \
-       --name integration_account_01 --location westus --sku name=Standard
+       --name integration_account_01 --location westus --sku Standard
    ```
 
    Your integration account name can contain only letters, numbers, hyphens (-), underscores (_), parentheses (()), and periods (.).
@@ -188,7 +190,7 @@ To read artifacts and write any state information, your Premium integration acco
    | **Resource** | <*Azure-storage-account-name*> | The name for the Azure storage account to access. <br><br>**Note** If you get an error that you don't have permissions to add role assignments at this scope, you need to get those permissions. For more information, see [Microsoft Entra built-in roles](../../active-directory/roles/permissions-reference.md). |
    | **Role** | - **Storage Account Contributor** <br><br>- **Storage Blob Data Contributor** <br><br>- **Storage Table Data Contributor** | The roles that your Premium integration account requires to access your storage account. |
 
-   For more information, see [Assign Azure role to system-assigned managed identity](../../role-based-access-control/role-assignments-portal-managed-identity.yml)
+   For more information, see [Assign Azure role to system-assigned managed identity](/azure/role-based-access-control/role-assignments-portal-managed-identity)
 
 <a name="set-up-private-endpoint"></a>
 

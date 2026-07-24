@@ -1,35 +1,52 @@
 ---
-title: Tips and tricks for using Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
-description: Provides tips and tricks for using the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
+title: Tips for using Azure Application Consistent Snapshot tool for Azure NetApp Files | Microsoft Docs
+description: Provides tips for using the Azure Application Consistent Snapshot tool that you can use with Azure NetApp Files.
 services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 04/17/2024
+ms.date: 12/18/2025
 ms.author: phjensen
+# Customer intent: As a DevOps engineer managing database backups, I want to configure and monitor the Azure Application Consistent Snapshot tool for Azure NetApp Files, so that I can automate and ensure the reliability of regular snapshot backups for my SAP HANA databases.
 ---
 
-# Tips and tricks for using Azure Application Consistent Snapshot tool
+# Tips for using Azure Application Consistent Snapshot tool
 
-This article provides tips and tricks that might be helpful when you use AzAcSnap.
+This article provides tips that might be helpful when you use AzAcSnap.
 
 ## Global override settings to control azacsnap behavior
 
-AzAcSnap 8 introduced a new global settings file (`.azacsnaprc`) which must be located in the same (current working) directory as azacsnap is executed in.  The filename is `.azacsnaprc` and by using the dot '.' character as the start of the filename makes it hidden to standard directory listings.  The file allows global settings controlling the behavior of AzAcSnap to be set.  The format is one entry per line with a supported customizing variable and a new overriding value.
+AzAcSnap 8 introduced a new global settings file (`.azacsnaprc`) which must be located in the same (current working) directory as azacsnap is executed in. The filename is `.azacsnaprc` and by using the dot '.' character as the start of the filename makes it hidden to standard directory listings. The file allows global settings controlling the behavior of AzAcSnap to be set. The format is one entry per line with a supported customizing variable and a new overriding value.
 
 Settings, which can be controlled by adding/editing the global override settings file or by setting them as environment variables are:
 
-- **MAINLOG_LOCATION** which customizes the location of the "main-log" output file, which is called `azacsnap.log` and was introduced in AzAcSnap 8.  Values should be absolute paths and the default value = '.' (which is the current working directory).  For example, to ensure the "main-log" output file goes to the `/home/azacsnap/bin/logs` add the following to the `.azacsnaprc` file:
-  - `MAINLOG_LOCATION=/home/azacsnap/bin/logs`
-- **AZURE_MANAGEMENT_ENDPOINT** to customize the location of the Azure Management Endpoint which AzAcSnap will make Azure REST API calls to was introduced in AzAcSnap 9a.  Values should be URL paths and the default value = 'https://management.azure.com'.  For example, to configure AzAcSnap to ensure all management calls go to the Azure Management Endpoint for US Govt Cloud (ref: [Azure Government Guidance for developers](/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers)) add the following to the `.azacsnaprc` file:
+- **AZURE_ENVIRONMENT** (from AzAcSnap 11b) to customize connectivity to the correct management endpoint.  The values could be one of: AzurePublicCloud, AzureGovernment, AzureChina, AzureGermany - the default is 'AzurePublicCloud'.  For example, to configure AzAcSnap to ensure all management calls go to the Azure Management Endpoint for US Government Cloud add the following to the `.azacsnaprc` file:
+  - `AZURE_ENVIRONMENT=AzureGovernment`
+
+  > [!NOTE]
+  > The `AZURE_ENVIRONMENT` only applies to AzAcSnap 11b (or later).
+
+- **AZURE_MANAGEMENT_ENDPOINT** (for AzAcSnap 9a, 10, 10a only) to customize the location of the Azure Management Endpoint which AzAcSnap make Azure REST API calls to was introduced in AzAcSnap 9a. Values should be URL paths and the default value = 'https://management.azure.com'. For example, to configure AzAcSnap to ensure all management calls go to the Azure Management Endpoint for US Government Cloud (ref: [Azure Government Guidance for developers](/azure/azure-government/compare-azure-government-global-azure#guidance-for-developers)) add the following to the `.azacsnaprc` file:
   - `AZURE_MANAGEMENT_ENDPOINT=https://management.usgovcloudapi.net`
 
+  > [!NOTE]
+  > `AZURE_MANAGEMENT_ENDPOINT` only applies to AzAcSnap 9a, 10, 10a, do not set this for AzAcSnap 11 or later.
+
+- **EXTERNAL_CMD_TIMEOUT_SECS** customizes the timeout for external shell commands. Values should be integers and the default value = 300. For example, to set the external command timeout to 10 minutes (600 seconds) add the following to the `.azacsnaprc` file:
+  - `EXTERNAL_CMD_TIMEOUT_SECS=600`
+
+  > [!NOTE]
+  > As of AzAcSnap 11, the `EXTERNAL_CMD_TIMEOUT_SECS` only applies to Db2 database commands.
+
+- **MAINLOG_LOCATION** which customizes the location of the "main-log" output file, which is called `azacsnap.log` and was introduced in AzAcSnap 8. Values should be absolute paths and the default value = '.' (which is the current working directory). For example, to ensure the "main-log" output file goes to the `/home/azacsnap/bin/logs` add the following to the `.azacsnaprc` file:
+  - `MAINLOG_LOCATION=/home/azacsnap/bin/logs`
+
 > [!NOTE]
-> As of AzAcSnap 9a all these values can be set as command-line environment variables as well, or instead of, the `.azacsnaprc` file.  For example, on Linux the `AZURE_MANAGEMENT_ENDPOINT` can be set with `export AZURE_MANAGEMENT_ENDPOINT=https://management.usgovcloudapi.net` before running AzAcSnap.
+> As of AzAcSnap 9a all these values can be set as command-line environment variables as well, or instead of, the `.azacsnaprc` file. For example, on Linux the `AZURE_MANAGEMENT_ENDPOINT` can be set with `export AZURE_MANAGEMENT_ENDPOINT=https://management.usgovcloudapi.net` before running AzAcSnap.
 
 ## Main-log parsing
 
-AzAcSnap 8 introduced a new "main-log" to provide simpler parsing of runs of AzAcSnap.  The inspiration for this file is the SAP HANA backup catalog, which shows when AzAcSnap was started, how long it took, and what the snapshot name is.  With AzAcSnap, this idea has been taken further to include information for each of the AzAcSnap commands, specifically the `-c` options, and the file has the following headers:
+AzAcSnap 8 introduced a new "main-log" to provide simpler parsing of runs of AzAcSnap. The inspiration for this file is the SAP HANA backup catalog, which shows when AzAcSnap was started, how long it took, and what the snapshot name is. With AzAcSnap, this idea is taken further to include information for each of the AzAcSnap commands, specifically the `-c` options, and the file has the following headers:
 
 ```output
 DATE_TIME,OPERATION_NAME,STATUS,SID,DATABASE_TYPE,DURATION,SNAPSHOT_NAME,AZACSNAP_VERSION,AZACSNAP_CONFIG_FILE,VOLUME
@@ -46,7 +63,7 @@ When AzAcSnap is run it appends to the log the appropriate information depending
 2023-03-29T16:13:33.1806098+13:00,details,SUCCESS,PR1,Hana,0:00:03.1380686,,8,PR1.json,(data)HANADATA_P;(data)HANASHARED_P;(data)VGvol01;(other)HANALOGBACKUP_P;
 ```
 
-This format makes the file parse-able with the Linux commands `watch`, `grep`, `head`, `tail`, and `column` to get continuous updates of AzAcSnap backups.  An example combination of these commands in  single shell script to monitor AzAcSnap is as follows:
+This format makes the file parse-able with the Linux commands `watch`, `grep`, `head`, `tail`, and `column` to get continuous updates of AzAcSnap backups. An example combination of these commands in single shell script to monitor AzAcSnap is as follows:
 
 ```bash
 #!/bin/bash
@@ -128,12 +145,58 @@ DATE_TIME                  OPERATION_NAME  STATUS   DATABASE_TYPE  SID       DUR
 2023-09-21T09:02:12+12:00  backup          SUCCESS  Oracle         ORATEST1  0:02:09.4572157  all-volumes__F6B0BED814B
 ```
 
+## Understanding the snapshot name suffix
+
+The AzAcSnap snapshot name has a suffix specifically generated to prevent naming collisions and ensure unique snapshot names.  The suffix is based on the time AzAcSnap is run to create the snapshot to the nearest ten-thousandths of a second, which is converted to a hexadecimal to minimize the length of the snapshot name.  The following example shell script can be used to convert the hexadecimal suffix to the time the snapshot name was generated.
+
+```bash
+#!/bin/sh
+
+# hex-to-datetime.sh
+# Prompt for hex number if not provided
+if [ -z "$1" ]; then
+  echo "Type a hex number:"
+  read hex_num
+else
+  hex_num="$1"
+fi
+
+# Convert hex to decimal
+dec_num=$(echo "ibase=16; $hex_num" | bc)
+printf "The decimal value of %s = %d\n" "$hex_num" "$dec_num"
+
+# Determine how many digits to shift (if needed)
+len_decnum=$(echo "$dec_num" | wc -c)
+len_decnum=$((len_decnum - 1))  # Remove newline
+
+# If the decimal number is longer than 10 digits, scale it down
+if [ "$len_decnum" -gt 10 ]; then
+  num_of_zeros=$((len_decnum - 10))
+  divide_by="1$(printf "%0${num_of_zeros}d" 0)"
+  echo "Divide $dec_num / $divide_by"
+  dec_num_seconds=$(echo "$dec_num / $divide_by" | bc)
+else
+  dec_num_seconds="$dec_num"
+fi
+
+# Convert to human-readable date
+date --date="@$dec_num_seconds"
+```
+
+It can be run to convert the suffix in the following example.
+
+```output
+$ hex-to-datetime.sh FFF1C5E5CE8
+The decimal value of FFF1C5E5CE8 = 17588367023336
+Divide 17588367023336 / 10000
+Thu Sep 25 21:45:02 UTC 2025
+```
 
 ## Limit service principal permissions
 
-It may be necessary to limit the scope of the AzAcSnap service principal.  Review the [Azure RBAC documentation](../role-based-access-control/index.yml) for more details on fine-grained access management of Azure resources.  
+It may be necessary to limit the scope of the AzAcSnap service principal. Review the [Azure Role Based Access Control documentation](../role-based-access-control/index.yml) for more details on fine-grained access management of Azure resources. 
 
-The following is an example role definition with the minimum required actions needed for AzAcSnap to function.
+The following Azure CLI example provides a role definition with the minimum required actions needed for AzAcSnap to function.
 
 ```azurecli
 az role definition create --role-definition '{ \
@@ -152,7 +215,7 @@ az role definition create --role-definition '{ \
 }'
 ```
 
-For restore options to work successfully, the AzAcSnap service principal also needs to be able to create volumes.  In this case, the role definition needs an extra "Actions" clause added, therefore the complete service principal should look like the following example.
+For restore options to work successfully, the AzAcSnap service principal also needs to be able to create volumes. In this case, the role definition needs an extra "Actions" clause added, therefore the complete service principal should look like the following example.
 
 ```azurecli
 az role definition create --role-definition '{ \
@@ -175,7 +238,7 @@ az role definition create --role-definition '{ \
 
 ## Take snapshots manually
 
-Before executing any backup commands (`azacsnap -c backup`), check the configuration by running the test commands and verify they get executed successfully.  Correct execution of these tests proved `azacsnap` can communicate with the installed SAP HANA database and the underlying storage system of the SAP HANA on **Azure Large Instance** or **Azure NetApp Files** system.
+Before executing any backup commands (`azacsnap -c backup`), check the configuration by running the test commands and verify they get executed successfully. Correct execution of these tests proved `azacsnap` can communicate with the installed SAP HANA database and the underlying storage system of the SAP HANA on **Azure Large Instance** or **Azure NetApp Files** system.
 
 - `azacsnap -c test --test hana`
 - `azacsnap -c test --test storage`
@@ -204,15 +267,15 @@ MAILTO=""
 @daily (. /home/azacsnap/.profile ; cd /home/azacsnap/bin ; azacsnap -c backup --volume other --prefix DailyBootVol --retention=7 --configfile boot-vol.json)
 ```
 
-Explanation of the above crontab.
+Explanation of the example crontab output.
 
-- `MAILTO=""`: by having an empty value this prevents cron from automatically trying to email the local Linux user when executing the crontab entry.
+- `MAILTO=""`: by having an empty value for MAILTO cron will not try to email the local Linux user when executing the crontab entry.
 - Shorthand versions of timing for crontab entries are self-explanatory:
   - `@monthly` = Run once a month, that is, "0 0 1 * *".
   - `@weekly`  = Run once a week, that is,  "0 0 * * 0".
   - `@daily`   = Run once a day, that is,   "0 0 * * *".
   - `@hourly`  = Run once an hour, that is, "0 * * * *".
-- The first five columns are used to designate times, refer to the following column examples:
+- The first five columns are used to designate times. Refer to the following column examples:
   - `0,15,30,45`: Every 15 minutes
   - `0-23`: Every hour
   - `*` : Every day
@@ -235,7 +298,7 @@ generated successfully.
 
 AzAcSnap writes output of its operation to log files to assist with debugging and to validate correct operation. These log files continue to grow unless actively managed. Fortunately UNIX based systems have a tool to manage and archive log files called logrotate.
 
-The following output provides an example configuration for logrotate. This configuration keeps a maximum of 31 logs (approximately one month), and when the log files are larger than 10k it rotates them by renaming with a number added to the filename and compresses them.
+The following output provides an example configuration for logrotate. This configuration keeps a maximum of 31 logs, approximately one month. When the log files are larger than 10k it rotates them by renaming with a number added to the filename and compresses them.
 
 ```output
 # azacsnap logrotate configuration file
@@ -247,7 +310,7 @@ compress
 }
 ```
 
-After the `logrotate.conf` file has been created, the `logrotate` command should be run regularly to archive AzAcSnap log files accordingly. Automating the `logrotate` command can be done using cron. The following output is one line of the azacsnap user's crontab, this example runs logrotate daily using the configuration file `~/logrotate.conf`.
+After the `logrotate.conf` file is created, the `logrotate` command should be run regularly to archive AzAcSnap log files accordingly. Automating the `logrotate` command can be done using cron. The following output is one line of the azacsnap user's crontab, this example runs logrotate daily using the configuration file `~/logrotate.conf`.
 
 ```output
 @daily /usr/sbin/logrotate -s ~/logrotate.state ~/logrotate.conf >> ~/logrotate.log
@@ -285,7 +348,7 @@ The following conditions should be monitored to ensure a healthy system:
 1. Consistency of the snapshots by restoring them to another system periodically.
 
 > [!NOTE]
-> To list  snapshot details, execute the command `azacsnap -c details`.
+> To list snapshot details, execute the command `azacsnap -c details`.
 
 ## Delete a snapshot
 
@@ -296,7 +359,7 @@ To delete a snapshot, use the command `azacsnap -c delete`. It's not possible to
 
 ## Restore a snapshot
 
-A storage volume snapshot can be restored to a new volume (`-c restore --restore snaptovol`).  For Azure Large Instance, the volume can be reverted to a snapshot (`-c restore --restore revertvolume`).
+A storage volume snapshot can be restored to a new volume (`-c restore --restore snaptovol`). For Azure Large Instance, the volume can be reverted to a snapshot (`-c restore --restore revertvolume`).
 
 > [!NOTE]
 > There is **NO** database recovery command provided.
@@ -306,16 +369,16 @@ copy is made (`cp /hana/data/H80/mnt00001/.snapshot/hana_hourly.2020-06-17T11304
 
 For Azure Large Instance, you could contact the Microsoft operations team by opening a service request to restore a desired snapshot from the existing available snapshots. You can open a service request via the [Azure portal](https://portal.azure.com).
 
-If you decide to perform the disaster recovery failover, the `azacsnap -c restore --restore revertvolume` command at the DR site automatically makes available the most recent (`/hana/data` and `/hana/logbackups`) volume snapshots to allow for an SAP HANA recovery. Use this command with caution as it breaks replication between production and DR sites.
+If you decide to perform the disaster recovery failover, the `azacsnap -c restore --restore revertvolume` command at the Disaster Recovery (DR) site automatically makes available the most recent (`/hana/data` and `/hana/logbackups`) volume snapshots to allow for an SAP HANA recovery. Use this command with caution as it breaks replication between production and DR sites.
 
 ## Set up snapshots for 'boot' volumes only
 
 > [!IMPORTANT]
 > This operation applies only to Azure Large Instance.
 
-In some cases, customers already have tools to protect SAP HANA and only want to configure 'boot' volume snapshots.  In this case, only the following steps need to be completed.
+In some cases, customers already have tools to protect SAP HANA and only want to configure 'boot' volume snapshots. In this case, only the following steps need to be completed.
 
-1. Complete steps 1-4 of the pre-requisites for installation.
+1. Complete steps 1-4 of the prerequisites for installation.
 1. Enable communication with storage.
 1. Download and run the installer to install the snapshot tools.
 1. Complete setup of snapshot tools.
@@ -333,7 +396,7 @@ In some cases, customers already have tools to protect SAP HANA and only want to
     3 entries were displayed.
     ```
     > [!NOTE] 
-    > In this example, this host is part of a 3 node Scale-Out system and all 3 boot volumes can be seen from this host.  This means all 3 boot volumes can be snapshot from this host, and all 3 should be added to the configuration file in the next step.
+    > In this example, this host is part of a three node Scale-Out system and all 3 boot volumes can be seen from this host. This setup means all three boot volumes can be snapshot from this host, and all three should be added to the configuration file in the next step.
 
 1. Create a new configuration file as follows. The boot volume details must be in the OtherVolume stanza:
     ```bash
@@ -369,7 +432,7 @@ In some cases, customers already have tools to protect SAP HANA and only want to
 
     Editing configuration complete, writing output to 'BootVolume.json'.
     ```
-1. Check the config file, refer to the following example:
+1. Check the config file. Refer to the following example:
 
     Use `cat` command to display the contents of the configuration file:
 
@@ -428,7 +491,7 @@ In some cases, customers already have tools to protect SAP HANA and only want to
     azacsnap -c backup --volume other --prefix TestBootVolume --retention 1 --configfile BootVolume.json
     ```
 
-1. Check it's listed, note the addition of the `--snapshotfilter` option to limit the snapshot list returned.
+1. Check the snapshot has been created by listing the snapshots using the `-c details` option. Note the addition of the `--snapshotfilter` option to limit the snapshot list returned.
 
     ```bash
     azacsnap -c details --snapshotfilter TestBootVolume --configfile BootVolume.json
@@ -454,8 +517,8 @@ In some cases, customers already have tools to protect SAP HANA and only want to
 ## Restore a 'boot' snapshot
 
 > [!IMPORTANT]
-> This operation is for Azure Large Instance ony.
-> The Server will be restored to the point when the Snapshot was taken.
+> This operation is for Azure Large Instance only.
+> The Server gets restored to the point when the Snapshot was taken.
 
 A 'boot' snapshot can be recovered as follows:
 
@@ -472,18 +535,18 @@ No other steps to be performed after the restore.
 Key attributes of storage volume snapshots:
 
 - **Location of snapshots**: Snapshots can be found in a virtual directory (`.snapshot`) within the
-    volume.  See the following examples for **Azure Large Instance**:
+    volume. See the following examples for **Azure Large Instance** (ALI):
   - Database: `/hana/data/<SID>/mnt00001/.snapshot`
   - Shared: `/hana/shared/<SID>/.snapshot`
   - Logs: `/hana/logbackups/<SID>/.snapshot`
-  - Boot: boot snapshots for HLI are **not visible** from OS level, but can be listed using `azacsnap -c details`.
+  - Boot: boot snapshots for ALI are **not visible** from OS level, but can be listed using `azacsnap -c details`.
 
   > [!NOTE]
-  >  `.snapshot` is a read-only hidden *virtual* folder providing read-only access to the snapshots.
+  > `.snapshot` is a read-only hidden *virtual* folder providing read-only access to the snapshots.
 
 - **Max snapshot:** The hardware can sustain up to 250 snapshots per volume. The snapshot
     command keeps a maximum number of snapshots for the prefix based on the retention
-    set on the command line.  Any more snapshots, beyond the retention number with the same prefix, are deleted.
+    set on the command line. Any more snapshots, beyond the retention number with the same prefix, are deleted.
 - **Snapshot name:** The snapshot name includes the prefix label provided by the customer.
 - **Size of the snapshot:** Depends upon the size/changes on the database level.
 - **Log file location:** Log files generated by the commands are output into folders as

@@ -4,7 +4,7 @@ description: This article describes Azure SQL Database as output for Azure Strea
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 07/21/2022
 ---
 

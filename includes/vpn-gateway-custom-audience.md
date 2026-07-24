@@ -1,9 +1,10 @@
 ---
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.date: 02/14/2025
 ms.service: azure-vpn-gateway
 ms.topic: include
+ms.custom: sfi-image-nochange
 
 # This include is for both VWAN and VPN Gateway
 ---

@@ -1,15 +1,16 @@
 ---
-title: About schedules for recurring triggers in workflows
-description: An overview about schedules for recurring workflows in Azure Logic Apps.
+title: Schedules for Recurring Workflow Triggers
+description: Learn about schedules for recurring workflow triggers in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
-ms.date: 02/14/2025
-# As an Azure Logic Apps developer, I want to understand how recurring schedules work for triggers.
+ms.topic: concept-article
+ms.update-cycle: 1095-days
+ms.date: 07/10/2026
+#Customer intent: As an automation and integration developer who works with Azure Logic Apps, I want to understand how schedules work for recurring workflow triggers.
 ---
 
-# Schedules for recurring triggers in Azure Logic Apps workflows
+# Schedules for recurring workflow triggers in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 

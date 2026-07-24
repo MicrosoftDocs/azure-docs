@@ -6,6 +6,8 @@ ms.subservice:
 ms.topic: troubleshooting
 ms.custom: engagement-fy23, linux-related-content
 ms.date: 10/21/2022
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Data to collect when opening a case for Microsoft Azure Automation

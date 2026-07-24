@@ -4,9 +4,13 @@ description: Get started learning about Azure Load Balancer portal settings.
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 01/19/2024
+ms.date: 07/15/2026
 ms.author: mbender
-ms.custom: template-how-to, engagement-fy23
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As a cloud architect, I want to configure an Azure Load Balancer using the portal, so that I can effectively manage traffic distribution across my virtual machine instances for improved application performance and availability.
 ---
 
 # Azure Load Balancer portal settings
@@ -28,7 +32,7 @@ In the **Basics** tab of the create load balancer portal page, you see the follo
 | Resource group | Select **Create new** and type in the name for your resource group in the text box. If you have an existing resource group created, select it. |
 | Name | This setting is the name for your Azure Load Balancer. |
 | Region | Select an Azure region you'd like to deploy your load balancer in. |
-| SKU  | Select **Standard**. </br> Load balancer has three SKUs: </br> **Basic** </br>**Standard** </br> **Gateway**. </br> Basic has limited functionality. </br> Standard is recommended for production workloads. </br> Gateway caters to non-Microsoft network virtual appliances (NVAs) </br> Learn more about [SKUs](skus.md). |
+| SKU  | Select **Standard**. </br> Load balancer has two SKUs: </br> **Standard** </br> **Gateway**. </br> Standard is recommended for production workloads. </br> Gateway caters to non-Microsoft network virtual appliances (NVAs). </br> The Basic SKU was retired on September 30, 2025. </br> Learn more about [SKUs](skus.md). |
 | Type | Load balancer has two types: </br> **Internal (Private)** </br> **Public (External)**.</br> An internal load balancer (ILB) routes traffic to backend pool members via a private IP address.</br> A public load balancer directs requests from clients over the internet to the backend pool.</br> Learn more about [load balancer types](components.md#frontend-ip-configuration-).|
 | Tier | Load balancer has two tiers: </br> **Regional** </br> **Global** </br> A regional load balancer is constrained to load balancing within a region. Global refers to a cross-region load balancer that load-balances across regions. </br> For more information on the **Global** tier, see [Cross-region load balancer (preview)](cross-region-overview.md)
 
@@ -62,10 +66,10 @@ If you select **IP address** for **IP type**, you see the following information:
 | ------- | ------- |
 | Public IP address | Select **Create new** to create a public IP address for your public load balancer. </br> If you have an existing public IP, select it in the pull-down box. |
 | Name | The name of the public IP address resource. |
-| SKU | Public IP addresses have two SKUs: **Basic** and **Standard**. </br> Basic doesn't support zone-resiliency and zonal attributes. </br> **Standard** is recommended for production workloads. </br> Load balancer and public IP address SKUs **must match**. |
+| SKU | Public IP addresses use the **Standard** SKU. </br> Standard supports zone-resiliency and zonal attributes and is recommended for production workloads. </br> The Basic SKU was retired on September 30, 2025. </br> Load balancer and public IP address SKUs **must match**. |
 | Tier | **Regional** </br> **Global** </br> Depending on type of load balancer tier determines what is selected. Regional for traditional load balancer, global for cross-region. |
-| Assignment | **Static** is auto selected for standard. </br> Basic public IPs have two types: **Dynamic** and **Static**. </br> Dynamic public IP addresses aren't assigned until creation. </br> IPs can be lost if the resource is deleted. </br> Static IP addresses are recommended. |
-| Availability zone | Select **Zone-redundant** to create a resilient load balancer. </br> To create a zonal load balancer, select a specific zone from **1**, **2**, or **3**. </br> Standard load balancer and public IPs support zones. </br> Learn more about [load balancer and availability zones](load-balancer-standard-availability-zones.md). </br> You won't see zone selection for basic. Basic load balancer doesn't support zones. |
+| Assignment | **Static** assignment is used for Standard public IP addresses. </br> Static IP addresses are recommended and remain assigned for the life of the resource. |
+| Availability zone | Select **Zone-redundant** to create a resilient load balancer. </br> To create a zonal load balancer, select a specific zone from **1**, **2**, or **3**. </br> Standard load balancer and public IPs support zones. </br> Learn more about [load balancer and availability zones](load-balancer-standard-availability-zones.md). |
 | Routing preference | Select **Microsoft Network**. </br> Microsoft Network means that traffic is routed via the Microsoft global network. </br> Internet means that traffic is routed through the internet service provider network. </br> Learn more about [Routing Preferences](../virtual-network/ip-services/routing-preference-overview.md)|
 
 :::image type="content" source="./media/manage/create-public-ip.png" alt-text="Screenshot of create public IP." border="true":::
@@ -80,7 +84,7 @@ If you select **IP prefix** for **IP type**, you see the following information:
 | Name | The name of the public IP prefix resource. |
 | SKU | Public IP prefixes have one SKU, **Standard**. |
 | IP version | **IPv4** or **IPv6**. </br> The version displayed corresponds to the version chosen. |
-| Prefix size | IPv4 or IPv6 prefixes are displayed depending on the selection above. </br> **IPv4** </br> /24 (256 addresses) </br> /25 (128 addresses) </br> /26 (64 addresses) </br> /27 (32 addresses) </br> /28 (16 addresses) </br> /29 (8 addresses) </br> /30 (4 addresses) </br> /31 (2 addresses) </br> **IPv6** </br> /124 (16 addresses) </br> /125 (8 addresses) </br> 126 (4 addresses) </br> 127 (2 addresses) |
+| Prefix size | IPv4 or IPv6 prefixes are displayed depending on the selection above. </br> **IPv4** </br> /28 (16 addresses) </br> /29 (8 addresses) </br> /30 (4 addresses) </br> /31 (2 addresses) </br> **IPv6** </br> /124 (16 addresses) </br> /125 (8 addresses) </br> /126 (4 addresses) </br> /127 (2 addresses) |
 | Availability zone | Select **Zone-redundant** to create a resilient load balancer. </br> To create a zonal load balancer, select a specific zone from **1**, **2**, or **3**. </br> Standard load balancer and public IP prefixes support zones. </br> Learn more about [load balancer and availability zones](load-balancer-standard-availability-zones.md).
 
 :::image type="content" source="./media/manage/create-public-ip-prefix.png" alt-text="Screenshot of create public IP prefix." border="true":::
@@ -203,7 +207,7 @@ The following is displayed in the **Add an inbound NAT rule** creation page for 
 | Current number of machines in backend pool | The displayed value is the number of machines in the selected backend pool, and for information only; you can't modify this value. |
 | Maximum number of machines in backend pool | Enter the maximum number of instances in the backend pool when scaling out. |
 | Backend port | Enter a port for traffic sent to on backend pool. |
-| Protocol | Azure Load Balancer is a layer 4 network lod balancer. </br> Your options are: TCP or UDP. |
+| Protocol | Azure Load Balancer is a layer 4 network load balancer. </br> Your options are: TCP or UDP. |
 | Enable TCP Reset | Load Balancer can send TCP resets to help create a more predictable application behavior on when the connection is idle. </br> Learn more about [TCP reset](load-balancer-tcp-reset.md) |
 | Idle timeout (minutes) | Keep a TCP or HTTP connection open without relying on clients to send keep-alive messages. |
 | Enable Floating IP | Some application scenarios prefer or require the same port to be used by multiple application instances on a single VM in the backend pool. If you want to reuse the backend port across multiple rules, you must enable [Floating IP](load-balancer-floating-ip.md) in the rule definition.|
@@ -309,7 +313,7 @@ If you want to add a load balancer rule to your load balancer, go to your load b
 | Idle timeout (minutes) | Keep a **TCP** or **HTTP** connection open without relying on clients to send keep-alive messages |  
 | TCP reset | Load balancer can send **TCP resets** to help create a more predictable application behavior on when the connection is idle. </br> Learn more about [TCP reset](load-balancer-tcp-reset.md)|
 | Floating IP | Floating IP is Azure's terminology for a portion of what is known as **Direct Server Return (DSR)**. </br> DSR consists of two parts: <br> 1. Flow topology </br> 2. An IP address-mapping scheme at a platform level. </br></br> Azure Load Balancer always operates in a DSR flow topology whether floating IP is enabled or not. </br> This operation means that the outbound part of a flow is always correctly rewritten to flow directly back to the origin. </br> Without floating IP, Azure exposes a traditional load-balancing IP address-mapping scheme, the VM instances' IP. </br> Enabling floating IP changes the IP address mapping to the frontend IP of the load Balancer to allow for more flexibility. </br> For more information, see [Multiple frontends for Azure Load Balancer](load-balancer-multivip-overview.md).|
-| Outbound source network address translation (SNAT) | Your options are: </br> **(Recommended) Use outbound rules to provide backend pool members access to the internet.** </br> **Use implicit outbound rule. This is not recommended because it can cause SNAT port exhaustion.** </br> Select the **Recommended** option to prevent SNAT port exhaustion. A **NAT gateway** or **Outbound rules** are required to provide SNAT for the backend pool members. For more information on **NAT gateway**, see [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md). </br> For more information on outbound connections in Azure, see [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md). |
+| Outbound source network address translation (SNAT) | Your options are: </br> **(Recommended) Use outbound rules to provide backend pool members access to the internet.** </br> **Use implicit outbound rule. This is not recommended because it can cause SNAT port exhaustion.** </br> Select the **Recommended** option to prevent SNAT port exhaustion. A **NAT gateway** or **Outbound rules** are required to provide SNAT for the backend pool members. For more information on **NAT gateway**, see [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md) </br> For more information on outbound connections in Azure, see [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md). |
 
 :::image type="content" source="./media/manage/load-balancing-rule.png" alt-text="Screenshot of add load-balancing rule." border="true":::
 

@@ -11,6 +11,7 @@ ms.author: normesta
 ms.reviewer: prishet
 ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a data engineer, I want to manage access control lists (ACLs) for directories and files in Azure Data Lake Storage using PowerShell, so that I can efficiently configure permissions for users and groups across my storage environment.
 ---
 
 # Use PowerShell to manage ACLs in Azure Data Lake Storage

@@ -23,7 +23,7 @@ So far in the get started guide, we've focused on activities *you* do in the wor
 1. Open the Azure portal and open your Synapse workspace.
 1. On the left side, select **Access control (IAM)**.
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
     | Setting | Value |
     | --- | --- |
@@ -52,7 +52,7 @@ Assign to `ryan@contoso.com` to the **Synapse Administrator** role on the worksp
 1. Open the workspace's primary storage account in the Azure portal.
 1. On the left side, select **Access control (IAM)**.
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
     
     | Setting | Value |
     | --- | --- |

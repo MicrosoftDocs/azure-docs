@@ -5,10 +5,12 @@ services: databox
 author: stevenmatthew
 
 ms.service: azure-data-box-disk
-ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 04/22/2024
 ms.author: shaas
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 
 # Doc scores:
 #    09/24/23: 100 (1996/0)

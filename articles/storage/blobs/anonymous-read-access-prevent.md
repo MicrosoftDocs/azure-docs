@@ -2,16 +2,22 @@
 title: Remediate anonymous read access to blob data (Azure Resource Manager deployments)
 titleSuffix: Azure Storage
 description: Learn how to analyze current anonymous requests against a storage account and how to prevent anonymous access for the entire storage account or for an individual container.
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 03/04/2025
+ms.date: 07/15/2026
 
 ms.reviewer: nachakra
 ms.devlang: powershell
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - engagement-fy23
+  - devx-track-arm-template
+  - sfi-image-nochange
 # ms.devlang: powershell, azurecli
-ms.custom: devx-track-azurepowershell, devx-track-azurecli, engagement-fy23, devx-track-arm-template
+# Customer intent: "As a cloud administrator, I want to disable anonymous access for my storage account, so that I can enhance the security of my blob data and prevent unauthorized access."
 ---
 
 # Remediate anonymous read access to blob data (Azure Resource Manager deployments)
@@ -25,11 +31,9 @@ When anonymous access for the storage account is disallowed, Azure Storage rejec
 > [!WARNING]
 > When a container is configured for anonymous access, any client can read data in that container. Anonymous access presents a potential security risk, so if your scenario does not require it, we recommend that you disallow it for the storage account.
 
-## Remediation for Azure Resource Manager versus classic storage accounts
+## Remediation for Azure Resource Manager
 
 This article describes how to use a DRAG (Detection-Remediation-Audit-Governance) framework to continuously manage anonymous access for storage accounts that are using the Azure Resource Manager deployment model. All general-purpose v2 storage accounts, premium block blob storage accounts, premium file share accounts, and Blob Storage accounts use the Azure Resource Manager deployment model.
-
-If your storage account is using the classic deployment model, we recommend that you [migrate](../common/classic-account-migration-process.md) to the Azure Resource Manager deployment model. Azure Storage accounts that use the classic deployment model were retired on August 31, 2024. For more information, see [Update on classic storage account retirement](https://techcommunity.microsoft.com/blog/azurestorageblog/update-on-classic-storage-account-retirement-and-upcoming-changes-for-classic-st/4282217).
 
 ## About anonymous read access
 
@@ -284,9 +288,6 @@ and sets the "AllowBlobPublicAccess" property to False.
 Standard operation will enumerate all accounts where the setting is enabled and allow the 
 user to decide whether or not to disable the setting.  
 
-Classic storage accounts will require individual adjustment of containers to remove public
-access, and will not be affected by this script.
-
 Run with BypassConfirmation=$true if you wish to disallow public access on all Azure Resource Manager 
 storage accounts without individual confirmation.
 
@@ -490,3 +491,4 @@ The following image shows the error that occurs if you try to create a storage a
 
 - [Overview: Remediating anonymous read access for blob data](anonymous-read-access-overview.md)
 - [Security recommendations for Blob storage](security-recommendations.md)
+

@@ -1,17 +1,17 @@
 ---
 title: 'Tutorial: Accept & receive data - Azure Data Share'
 description: Tutorial - Accept and receive data using Azure Data Share 
-author: sidontha
-ms.author: sidontha
+author: chvukosw
+ms.author: chvukosw
 ms.service: azure-data-share
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 02/12/2025
+ms.date: 01/21/2026
 ---
 
 # Tutorial: Accept and receive data using Azure Data Share  
 
-In this tutorial, you'll learn how to accept a data share invitation using Azure Data Share. You'll learn how to receive data being shared with you, and how to enable a regular refresh interval to ensure that you always have the most recent snapshot of the data being shared with you. 
+In this tutorial, you learn how to accept a data share invitation using Azure Data Share. You learn how to receive data being shared with you, and how to enable a regular refresh interval to ensure that you always have the most recent snapshot of the data being shared with you. 
 
 > [!div class="checklist"]
 > * How to accept an Azure Data Share invitation
@@ -25,7 +25,7 @@ Before you can accept a data share invitation, you must create some Azure resour
 
 Ensure that all prerequisites are complete before accepting a data share invitation. 
 
-* Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
 * Register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the Azure subscription where you'll create a Data Share resource and the Azure subscription where your target Azure data stores are located.
 
@@ -92,7 +92,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
    To open invitation from Azure portal directly, search for **Data Share Invitations** in Azure portal. This action takes you to the list of Data Share invitations.
 
-   If you're a guest user of a tenant, you'll be asked to verify your email address for the tenant prior to viewing Data Share invitation for the first time. Once verified, it's valid for 12 months.
+   If you're a guest user of a tenant, you are asked to verify your email address for the tenant prior to viewing Data Share invitation for the first time. Once verified, it's valid for 12 months.
 
    ![List of Invitations](./media/invitations.png "List of invitations") 
 
@@ -109,7 +109,7 @@ Start by preparing your environment for the Azure CLI:
 Run the [az datashare consumer-invitation list-invitation](/cli/azure/datashare/consumer-invitation) command to see your current invitations:
 
 ```azurecli
-az datashare consumer consumer-invitation list-invitation
+az datashare consumer-invitation list-invitation
 ```
 
 Copy your invitation ID for use in the next section.
@@ -148,7 +148,7 @@ Copy your invitation ID for use in the next section.
 
 ### [Portal](#tab/azure-portal)
 
-1. Make sure all fields are reviewed, including the **Terms of Use**. If you agree to the terms of use, you'll be required to check the box to indicate you agree. 
+1. Make sure all fields are reviewed, including the **Terms of Use**. If you agree to the terms of use, you are required to check the box to indicate you agree. 
 
    ![Terms of use](./media/terms-of-use.png "Terms of use") 
 
@@ -158,7 +158,7 @@ Copy your invitation ID for use in the next section.
 
    For the **Received Share Name** field, you can leave the default specified by the data provide, or specify a new name for the received share. 
 
-   Once you've agreed to the terms of use and specified a Data Share account to manage your received share, Select **Accept and configure**. A share subscription will be created. 
+   Once you've agreed to the terms of use and specified a Data Share account to manage your received share, Select **Accept and configure**. A share subscription is created. 
 
    ![Accept options](./media/accept-options.png "Accept options") 
 
@@ -179,7 +179,7 @@ az datashare share-subscription create --resource-group share-rg \
 
 ### [PowerShell](#tab/powershell)
 
-Use the [New-AzDataShareSubscription](/powershell/module/az.datashare/new-azdatasharesubscription) command to create the Data Share. The InvitationId will be the ID you gathered from the previous step.
+Use the [New-AzDataShareSubscription](/powershell/module/az.datashare/new-azdatasharesubscription) command to create the Data Share. The InvitationId is the ID you gathered from the previous step.
 
 ```azurepowershell
 New-AzDataShareSubscription -ResourceGroupName share-rg -AccountName FabrikamDataShareAccount -Name "Fabrikam Solutions" -InvitationId "89abcdef-0123-4567-89ab-cdef01234567"
@@ -203,7 +203,7 @@ Follow the steps below to configure where you want to receive data.
 
    ![Target storage account](./media/dataset-map-target-sql.png "Target storage") 
 
-1. For snapshot-based sharing, if the data provider has created a snapshot schedule to provide regular update to the data, you can also enable snapshot schedule by selecting the **Snapshot Schedule** tab. Check the box next to the snapshot schedule and select **+ Enable**. The first scheduled snapshot will start within one minute of the schedule time and subsequent snapshots will start within seconds of the scheduled time.
+1. For snapshot-based sharing, if the data provider has created a snapshot schedule to provide regular update to the data, you can also enable snapshot schedule by selecting the **Snapshot Schedule** tab. Check the box next to the snapshot schedule and select **+ Enable**. The first scheduled snapshot starts within one minute of the schedule time and subsequent snapshots start within seconds of the scheduled time.
 
    ![Enable snapshot schedule](./media/enable-snapshot-schedule.png "Enable snapshot schedule")
    
@@ -389,7 +389,7 @@ Run the [New-AzDataShareTrigger](/powershell/module/az.datashare/new-azdatashare
 ---
 
 ## View history
-This step only applies to snapshot-based sharing. To view history of your snapshots, select **History** tab. Here you'll find history of all snapshots that were generated for the past 30 days.
+This step only applies to snapshot-based sharing. To view history of your snapshots, select **History** tab. Here you find history of all snapshots that were generated for the past 30 days.
 
 ## Clean up resources
 

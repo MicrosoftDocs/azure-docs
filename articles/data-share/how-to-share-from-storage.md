@@ -1,11 +1,11 @@
 ---
 title: Share and receive data from Azure Blob Storage and Azure Data Lake Storage
 description: Learn how to share and receive data from Azure Blob Storage and Azure Data Lake Storage.
-author:  sidontha
-ms.author: sidontha
+author:  chvukosw
+ms.author: chvukosw
 ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 02/12/2025
+ms.date: 01/20/2026
 ---
 
 # Share and receive data from Azure Blob Storage and Azure Data Lake Storage
@@ -16,7 +16,7 @@ ms.date: 02/12/2025
 
 This article describes sharing data from **Azure Blob Storage**, **Azure Data Lake Storage Gen1**, and **Azure Data Lake Storage Gen2**.
 
-This article will guide you through:
+This article guides you through:
 
 - [What kinds of data can be shared](#whats-supported)
 - [How to prepare your environment](#prerequisites-to-share-data)
@@ -55,7 +55,7 @@ Existing files that have the same name are overwritten during a snapshot. A file
 
 ## Prerequisites to share data
 
-- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [An Azure Data Share account](share-your-data-portal.md#create-a-data-share-account).
 - Your data recipient's Azure sign-in e-mail address (using their e-mail alias won't work).
 - If your Azure SQL resource is in a different Azure subscription than your Azure Data Share account, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where your source Azure SQL resource is located.
@@ -63,8 +63,8 @@ Existing files that have the same name are overwritten during a snapshot. A file
 ### Prerequisites for the source storage account
 
 - An Azure Storage account. If you don't already have an account, [create one](../storage/common/storage-account-create.md).
-- Permission to write to the storage account. Write permission is in *Microsoft.Storage/storageAccounts/write*. It's part of the Contributor role.
 - Permission to add role assignment to the storage account. This permission is in *Microsoft.Authorization/role assignments/write*. It's part of the Owner role.
+- Grant your Azure Data Share managed identity permission to write to the storage account. Grant it [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles/storage#storage-blob-data-contributor) or any other role that grants *Microsoft.Storage/storageAccounts/blobServices/containers/write*.
 
 ### Create a share
 
@@ -118,17 +118,17 @@ You've now created your Azure data share. The recipient of your data share can a
 
 Before you accept a data share invitation, make sure you have the following prerequisites:
 
-- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/free/).
+- An Azure subscription. If you don't have a subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An invitation from Azure. The email subject should be "Azure Data Share invitation from *\<yourdataprovider\@domain.com>*".
 - A registered [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in:
-  - The Azure subscription where you'll create a Data Share resource.
+  - The Azure subscription where you create a Data Share resource.
   - The Azure subscription where your target Azure data stores are located.
 
 ### Prerequisites for a target storage account
 
 - An Azure Storage account. If you don't already have one, [create an account](../storage/common/storage-account-create.md).
-- Permission to write to the storage account. This permission is in *Microsoft.Storage/storageAccounts/write*. It's part of the Contributor role.
-- Permission to add role assignment to the storage account. This assignment is in *Microsoft.Authorization/role assignments/write*. It's part of the Owner role.  
+- Permission to add role assignment to the storage account. This assignment is in *Microsoft.Authorization/role assignments/write*. It's part of the Owner role.
+- Grant your Azure Data Share managed identity permission to write to the storage account. Grant it [Storage Blob Data Contributor](/azure/role-based-access-control/built-in-roles/storage#storage-blob-data-contributor) or any other role that grants *Microsoft.Storage/storageAccounts/blobServices/containers/write*.
 
 ## Receive shared data
 
@@ -140,7 +140,7 @@ You can open an invitation from email or directly from the [Azure portal](https:
 
    To open an invitation from the Azure portal, search for *Data Share invitations*. You see a list of Data Share invitations.
 
-   If you're a guest user of a tenant, you'll be asked to verify your email address for the tenant prior to viewing Data Share invitation for the first time. Once verified, it's valid for 12 months.
+   If you're a guest user of a tenant, you are asked to verify your email address for the tenant prior to viewing Data Share invitation for the first time. Once verified, it's valid for 12 months.
 
    :::image type="content" source="./media/invitations.png" alt-text="Screenshot of the invitations page, showing a pending invitation.":::
 
@@ -172,11 +172,11 @@ You can open an invitation from email or directly from the [Azure portal](https:
 
    :::image type="content" source="./media/dataset-map-target.png" alt-text="Screenshot of the received shares page with the map to target button highlighted.":::
 
-1. Select a target data store for the data. Files in the target data store that have the same path and name as files in the received data will be overwritten.
+1. Select a target data store for the data. Files in the target data store that have the same path and name as files in the received data are overwritten.
 
    :::image type="content" source="./media/map-target.png" alt-text="Screenshot of the map datasets to target window, showing a filesystem name given.":::
 
-1. For snapshot-based sharing, if the data provider uses a snapshot schedule to regularly update the data, you can enable the schedule from the **Snapshot Schedule** tab. Select the box next to the snapshot schedule. Then select **Enable**. The first scheduled snapshot will start within one minute of the schedule time and subsequent snapshots will start within seconds of the scheduled time.
+1. For snapshot-based sharing, if the data provider uses a snapshot schedule to regularly update the data, you can enable the schedule from the **Snapshot Schedule** tab. Select the box next to the snapshot schedule. Then select **Enable**. The first scheduled snapshot starts within one minute of the schedule time and subsequent snapshots start within seconds of the scheduled time.
 
    :::image type="content" source="./media/enable-snapshot-schedule.png" alt-text="Screenshot showing the snapshot schedule tab with the enable button selected.":::
 

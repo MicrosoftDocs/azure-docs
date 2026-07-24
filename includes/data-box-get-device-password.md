@@ -4,6 +4,7 @@ ms.service: azure-databox
 ms.topic: include
 ms.date: 08/23/2021
 ms.author: shaas
+ms.custom: sfi-image-nochange
 ---
 
 To get the device password, sign in to the [Azure portal](https://portal.azure.com), and open your order. Go to **General > Device details**. Copy the **Device password**.

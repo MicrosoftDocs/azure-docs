@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
 ms.topic: tutorial
-ms.date: 12/23/2024
+ms.date: 03/25/2026
 ms.author: cshoe
 #customer intent: As a developer, I want to set up auto scale using Java metrics exposed from Azure Container Apps
 ---
@@ -19,9 +19,9 @@ In this tutorial, you add a custom scale rule to scale your container app with J
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't already have one, you can [create one for free](https://azure.microsoft.com/free/).
-* [Azure CLI](/cli/azure/install-azure-cli).
-* [A Java application deployed in Azure Container Apps](java-get-started.md).
+- An Azure account with an active subscription. If you don't already have one, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- [Azure CLI](/cli/azure/install-azure-cli).
+- [A Java application deployed in Azure Container Apps](java-get-started.md).
 
 ## Set up the environment
 
@@ -42,7 +42,7 @@ Use the following steps to define environment variables and set up the environme
    |-------------------------|------------------------------------------------------------------------------------|
    | `LOCATION`              | The Azure region location where you create your Azure Container Apps.              |
    | `TENANT_ID`             | Your tenant's ID.                                                                  |
-   | `SUBSCRIPTION_ID`       | The subscription ID which you use to create your Azure Container Apps.             |
+   | `SUBSCRIPTION_ID`       | The subscription ID, which you use to create your Azure Container Apps.             |
    | `RESOURCE_GROUP`        | The Azure resource group name for your Azure Container Apps.                       |
    | `APP_NAME`              | The app name for your Azure Container Apps.                                        |
    | `IDENTITY_NAME`         | The name for your managed identity, which is assigned to your Azure Container Apps.|
@@ -54,25 +54,27 @@ Use the following steps to define environment variables and set up the environme
    ```
 
 ## Set up a managed identity for your Azure Container Apps
+
 To scale with Azure Container Apps platform metrics, you need a managed identity to access metrics from Azure Monitor.
 
 1. Create a user-assigned identity and assign it to your Azure Container Apps. You can follow the doc [add a user-assigned identity](./managed-identity.md#add-a-user-assigned-identity). After you create the identity, run the CLI command to set the identity ID.
 
-    ```azurecli
-    USER_ASSIGNED_IDENTITY_ID=$(az identity show --resource-group $RESOURCE_GROUP --name $IDENTITY_NAME --query "id" --output tsv)
-    ```
+   ```azurecli
+   USER_ASSIGNED_IDENTITY_ID=$(az identity show --resource-group $RESOURCE_GROUP --name $IDENTITY_NAME --query "id" --output tsv)
+   ```
 
 2. Grant the `Monitoring Reader` role for your managed identity to read data from Azure Monitor. You can find more details about the roles for Azure Monitor in [Azure built-in roles for Monitor](../role-based-access-control/built-in-roles/monitor.md#monitoring-reader).
 
-    ```azurecli
-    # Get the principal ID for your managed identity
-    PRINCIPAL_ID=$(az identity show --resource-group $RESOURCE_GROUP --name $IDENTITY_NAME --query "principalId" --output tsv)
+   ```azurecli
+   # Get the principal ID for your managed identity
+   PRINCIPAL_ID=$(az identity show --resource-group $RESOURCE_GROUP --name $IDENTITY_NAME --query "principalId" --output tsv)
    
-    az role assignment create --assignee $PRINCIPAL_ID --role "Monitoring Reader" --scope /subscriptions/$SUBSCRIPTION_ID
-    ```
+   az role assignment create --assignee $PRINCIPAL_ID --role "Monitoring Reader" --scope /subscriptions/$SUBSCRIPTION_ID
+   ```
 
 ## Add a scale rule with Azure Monitor metrics
-To scale with Azure Monitor metrics, you can refer to [Azure Monitor KEDA scaler](https://keda.sh/docs/2.16/scalers/azure-monitor/) to define your Container Apps scale rule. 
+
+To scale with Azure Monitor metrics, you can refer to the [Azure Monitor Kubernetes Event-driven Autoscaling (KEDA) scaler](https://keda.sh/docs/2.16/scalers/azure-monitor/) to define your Container Apps scale rule. 
 
 Here's a list of core metadata to set up the scale rule.
 
@@ -85,10 +87,8 @@ Here's a list of core metadata to set up the scale rule.
 | metricName                         | Name of the metric to query.                                                                          |
 | metricAggregationType              | Aggregation method of the Azure Monitor metric. Options include Average, Total, Maximum.              |
 | metricFilter                       | Name of the filter to be more specific by using dimensions listed in the official documentation. (Optional) |
-| metricAggregationInterval          | Collection time of the metric in format "hh:mm:ss" (Default: "0:5:0", Optional)                       |
+| metricAggregationInterval          | Collection time of the metric in the format `hh:mm:ss` (Default: `0:5:0`, Optional)                       |
 | targetValue                        | Target value to trigger scaling actions. (This value can be a float)                                  |
-
-
 
 Add a scale rule with [Azure Monitor metrics for Azure Container Apps](./metrics.md) for your application.
 
@@ -161,19 +161,19 @@ This command adds a scale rule to your container app with the name `scale-with-a
 > The metric `JvmGcCount` is only used as an example. You can use any metric from Azure Monitor. Before setting up the scale rule, view the metrics in the Azure portal to determine the appropriate metric, aggregation interval, and target value based on your application's requirements. Additionally, consider using the built-in [HTTP/TCP scale rules](./scale-app.md#http), which can meet most common scaling scenarios, before opting for a custom metric.
 
 ## View scaling in Azure portal (optional)
+
 Once your new revision is ready, [send requests](./tutorial-scaling.md#send-requests) to your container app to trigger auto scale with your Java metrics. 
 1. Go to the `Metrics` blade in the Azure portal for your Azure Container Apps.
 1. Add a chart, use the metric `jvm.gc.count`, with filter `Revision=<your-revision>`, aggregation using `Sum`, and split by `Replica`. You can see the `JvmGcCount` metric value for each replica in this chat.
 1. Add a chart, use the metric `jvm.gc.count`, with filter `Revision=<your-revision>` and aggregation using `Sum`. You can see the total aggregated `JvmGcCount` metric value for the revision in this chat.
 1. Add a chart, use the metric `Replica Count`, with filter `Revision=<your-revision>` and aggregation using `Max`. You can see the replica count for the revision in this chat.
 
-
 Here's a sample metric snapshot for the example scale rule.
 
 :::image type="content" source="media/java-metrics-keda/keda-auto-scale-java-gc-portal.png" alt-text="Screenshot of KEDA scale with JVM metrics." lightbox="media/java-metrics-keda/keda-auto-scale-java-gc-portal.png":::
 
 1. Initially, there's one replica (the `minReplicas`) for the app.
-1. A spike in requests causes the Java app to experience frequent JVM garbage collection (GC).
+1. A spike in requests causes the Java app to experience frequent Java Virtual Machine (JVM) garbage collection (GC).
 1. KEDA observes the aggregated metric value for `jvm.gc.count` is increased to `256`, and calculates the `desiredReplicas` value as `ceil(256/30)=9`.
 1. KEDA scales out the container app's replica count to 9.
 1. The http traffic is distributed across more replicas, reducing the average GC count.

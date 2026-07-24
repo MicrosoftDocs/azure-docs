@@ -7,7 +7,7 @@ manager: camilo.ramirez
 services: azure-communication-services
 ms.author: shamkh
 ms.date: 02/29/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-communication-services
 ms.subservice: advanced-messaging
 ---
@@ -25,7 +25,7 @@ A business or a user can initiate a conversation window, but the business is lim
 For further WhatsApp requirements on templates, refer to the WhatsApp Business Platform API references:
 - [Create and Manage Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/)
 - [Template Components](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/components)
-- [Sending Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates)
+- [Sending Template Messages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview)
 - Businesses must also adhere to [opt-in requirements](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in) before sending messages to WhatsApp users
 
 ## Choosing a template
@@ -49,6 +49,10 @@ Select a template to view the details.
 The `content` field of the template details can include parameter bindings. The parameter bindings can be denoted as:
 - A `format` field with a value such as `IMAGE`.
 - Double brackets surrounding a number, such as `{{1}}`. The number, indexed started at 1, indicates the order in which the binding values must be supplied to create the message template.
+- Double brackets surrounding a name, such as `{{movie_name}}`. The named parameters allow developers to reference parameters by name instead of position.
+  > [!IMPORTANT]
+  > When using named parameters, you must ensure that the name you use when sending the message **exactly matches** the name defined in the template you created in the Meta WhatsApp Manager.
+
 
 :::image type="content" source="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" lightbox="../../../quickstarts/advanced-messaging/whatsapp/media/template-messages/sample-movie-ticket-confirmation-azure-portal.png" alt-text="Screenshot that shows template details.":::
 

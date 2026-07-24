@@ -3,14 +3,15 @@ title: Delete and restore a blob container with Java
 titleSuffix: Azure Storage
 description: Learn how to delete and restore a blob container in your Azure Storage account using the Java client library.
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.date: 08/05/2024
-ms.author: pauljewell
+ms.author: shaas
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
+# Customer intent: As a Java developer, I want to delete and restore blob containers using the Azure Storage client library, so that I can efficiently manage container lifecycle and recover from accidental deletions.
 ---
 
 # Delete and restore a blob container with Java
@@ -92,3 +93,4 @@ The Azure SDK for Java contains libraries that build on top of the Azure REST AP
 - [Enable and manage soft delete for containers](soft-delete-container-enable.md)
 
 [!INCLUDE [storage-dev-guide-next-steps-java](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-java.md)]
+

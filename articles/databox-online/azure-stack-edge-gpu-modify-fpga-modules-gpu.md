@@ -2,11 +2,11 @@
 title: Modify IoT Edge modules on FPGA device to run on Azure Stack Edge Pro GPU device
 description: Describes what modifications are needed for existing IoT Edge modules on existing FPGA devices to run on your Azure Stack Edge Pro GPU device.
 services: databox
-author: alkohli
+author: sipastak
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 10/18/2021
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Run existing IoT Edge modules from Azure Stack Edge Pro FPGA devices on Azure Stack Edge Pro GPU device

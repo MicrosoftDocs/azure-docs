@@ -7,6 +7,10 @@
     href: virtual-wan-about.md
   - name: What's new?
     href: whats-new.md
+  - name: What is hybrid connectivity?
+    url: ../networking/hybrid-connectivity/hybrid-connectivity.md
+  - name: Virtual Network Manager and Virtual WAN overview
+    href: virtual-network-manager-integration.md
   - name: Virtual WAN FAQ
     href: virtual-wan-faq.md
   - name: About Virtual WAN pricing
@@ -32,7 +36,7 @@
         href: quickstart-any-to-any-template.md
       - name: Route to shared services VNets
         href: quickstart-route-shared-services-vnet-template.md
-    - name: BICEP templates
+    - name: Bicep files
       items:
       - name: Deploy Virtual WAN with routing intent and routing policies
         href: https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/virtual-wan-routing-intent
@@ -40,10 +44,14 @@
   items: 
   - name: Migrate to Virtual WAN
     href: migrate-from-hub-spoke-topology.md
+  - name: Interconnect Virtual WANs
+    href: virtual-wan-connectivity.md
   - name: Global transit network architecture
     href: virtual-wan-global-transit-network-architecture.md
   - name: SD-WAN connectivity architecture
     href: sd-wan-connectivity-architecture.md
+  - name: Disaster recovery design
+    href: disaster-recovery-design.md
   - name: Private Link and DNS architecture for Virtual WAN
     href: /azure/architecture//guide/networking/private-link-virtual-wan-dns-guide?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Configure Virtual WAN for Azure NetApp Files
@@ -74,63 +82,81 @@
   items:
   - name: Migrate to Virtual WAN
     href: migrate-from-hub-spoke-topology.md
+  - name: Configure Virtual WAN with Virtual Network Manager
+    href: ../virtual-network-manager/configure-virtual-wan-hub-for-network-manager.md
   - name: Virtual hub routing preference
     href: about-virtual-hub-routing-preference.md
-  - name: Any-to-any
-    href: scenario-any-to-any.md
-  - name: Isolating VNets
-    href: scenario-isolate-vnets.md
-  - name: Isolating VNets - custom
-    href: scenario-isolate-vnets-custom.md
-  - name: Isolating virtual networks and branches
-    href: scenario-isolate-virtual-networks-branches.md
-  - name: Shared services VNets
-    href: scenario-shared-services-vnet.md
-  - name: Route through an NVA
-    href: scenario-route-through-nva.md
-  - name: Route through an NVA - custom
-    href: scenario-route-through-nvas-custom.md
+  - name: Basic routing scenarios
+    items:
+    - name: Any-to-any
+      href: scenario-any-to-any.md
+    - name: Isolating VNets
+      href: scenario-isolate-vnets.md
+    - name: Isolating VNets - custom
+      href: scenario-isolate-vnets-custom.md 
+    - name: Shared services VNets
+      href: scenario-shared-services-vnet.md
+  - name: Static routes in Virtual WAN
+    items:
+    - name: Static routes overview
+      href: static-routes.md
+    - name: Azure Firewall static routing basics
+      href: static-routes-firewall-basic.md
+    - name: Selective Azure Firewall bypass
+      href: firewall-custom-bypass.md
+    - name: Route traffic to spoke NVAs
+      href: indirect-spoke-architecture.md
+    - name: Spoke NVA inspection
+      href: spoke-inspection-north-south.md
+    - name: Combining Azure Firewall and spoke NVAs
+      href: hybrid-firewall-spoke-static.md
+    - name: Routing intent with static routes
+      href: routing-intent-static-route.md
   - name: BGP peering with virtual hub
     href: scenario-bgp-peering-hub.md
-  - name: Azure Firewall - custom
-    href: scenario-route-between-vnets-firewall.md
   - name: Application Gateway and backend pools
     href: scenario-secured-hub-app-gateway.md
   - name: Microsoft 365 - ExpressRoute private peering
     href: scenario-365-expressroute-private.md
 - name: Virtual WAN and virtual hub settings
   items:
-  - name: Virtual WAN gateway settings
-    href: gateway-settings.md
-  - name: Upgrade from Basic virtual WAN to Standard
-    href: upgrade-virtual-wan.md
-  - name: Roles and permissions
-    href: roles-permissions.md
-  - name: Virtual hub settings
-    href: hub-settings.md
-  - name: Connect a VNet to a virtual hub
-    href: howto-connect-vnet-hub.md
-  - name: Secured virtual hub
+    - name: Virtual WAN gateway settings
+      href: gateway-settings.md
+    - name: Upgrade from Basic virtual WAN to Standard
+      href: upgrade-virtual-wan.md
+    - name: Roles and permissions
+      href: roles-permissions.md
+    - name: Virtual hub settings
+      href: hub-settings.md
+    - name: Connect a VNet to a virtual hub
+      href: howto-connect-vnet-hub.md
+    - name: Connect cross-tenant virtual networks to a Virtual WAN hub
+      href: cross-tenant-vnet.md
+    - name: Delete a VNet Connected to a Virtual WAN hub
+      href: howto-remove-vnet-connection.md
+    - name: Secured virtual hub
+      items:
+        - name: What is a secured virtual hub?
+          href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
+        - name: Convert a virtual hub to a secured virtual hub
+          href: howto-firewall.md
+        - name: Secure your virtual hub using Azure Firewall Manager
+          href: ../firewall-manager/secure-cloud-network.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
+        - name: Customer-provided public IP address for secured virtual hub
+          href: ../firewall/secured-hub-customer-public-ip.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
+- name: Integrated NVA in a virtual hub
+  items:
+  - name: Create an NVA in a virtual hub
+    href: how-to-nva-hub.md
+  - name: Configure DNAT/Internet inbound for NVAs
+    href: how-to-network-virtual-appliance-inbound.md
+  - name: Infrastructure operations
     items:
-    - name: What is a secured virtual hub?
-      href: ../firewall-manager/secured-virtual-hub.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
-    - name: Convert a virtual hub to a secured virtual hub
-      href: howto-firewall.md
-    - name: Secure your virtual hub using Azure Firewall Manager
-      href: ../firewall-manager/secure-cloud-network.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
-    - name: Customer-provided public IP address for secured virtual hub
-      href:  ../firewall/secured-hub-customer-public-ip.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
-  - name: Integrated NVA in a virtual hub
-    items:
-    - name: Create an NVA in a virtual hub
-      href: how-to-nva-hub.md
     - name: Restart an NVA in a virtual hub
       href: how-to-network-virtual-appliance-restart.md
     - name: Reimage an NVA in a virtual hub
       href: how-to-network-virtual-appliance-reimage.md
-    - name: Configure DNAT/Internet inbound
-      href: how-to-network-virtual-appliance-inbound.md
-    - name: Manage IP configurations
+    - name: Manage IP configurations for NVAs
       href: how-to-network-virtual-appliance-add-ip-configurations.md
 - name: Site-to-site (S2S) connections
   items:
@@ -166,6 +192,14 @@
     href: about-client-address-pools.md
   - name: About global and hub profiles
     href: global-hub-profile.md
+  - name: Gateway root certificate migration
+    items:
+    - name: About gateway root certificate migration
+      href: point-to-site-about-gateway-certificate-migration.md
+    - name: Update a VPN Client profile
+      href: ../vpn-gateway/point-to-site-user-vpn-profile-update.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
+  - name: Migrate from the Azure VPN Client for Linux
+    href: azure-vpn-client-linux-retirement.md
   - name: Configure P2S - Certificate authentication
     items:
     - name: P2S server configuration
@@ -236,7 +270,7 @@
         href: openvpn-azure-ad-mfa.md
       - name: Configure a tenant
         href: openvpn-azure-ad-tenant.md
-      - name: Configure a tenant for multiple application registration
+      - name: Configure a tenant for multiple application registrations
         href: openvpn-azure-ad-tenant-multi-app.md
     - name: VPN client configuration
       items:
@@ -266,16 +300,22 @@
     items:
     - name: About user groups and client address pools
       href: user-groups-about.md
-    - name: Configure user groups for address pools
-      href: user-groups-create.md
-    - name: RADIUS - Configure NPS and user groups
-      href: user-groups-radius.md
+    - name: Configure user groups and address pools
+      items:
+      - name: Azure Portal
+        href: user-groups-create.md
+      - name: Azure PowerShell
+        href: point-to-site-user-groups-powershell.md
+      - name: RADIUS - Configure NPS and user groups
+        href: user-groups-radius.md
   - name: Configure Always On tunnels
     items:
-    - name: User tunnel
+    - name: User tunnel - Windows clients
       href: howto-always-on-user-tunnel.md
-    - name: Device tunnel
+    - name: Device tunnel - Windows clients
       href: howto-always-on-device-tunnel.md
+    - name: Device tunnel - macOS clients
+      href: ../vpn-gateway/vpn-gateway-howto-always-on-device-tunnel-macos.md?toc=%2fazure%2fvirtual-wan%2ftoc.json&bc=/azure/virtual-wan/breadcrumb/toc.json
   - name: Configure P2S forced tunneling
     href: how-to-forced-tunnel.md
 - name: ExpressRoute connections 
@@ -290,6 +330,7 @@
       href: expressroute-powershell.md
   - name: Configure ExpressRoute encryption
     href: vpn-over-expressroute.md
+
 - name: Routing
   items:
   - name: Virtual WAN routing deep dive
@@ -310,6 +351,8 @@
           href: howto-virtual-hub-routing-preference.md
         - name: Azure PowerShell
           href: how-to-virtual-hub-routing-preference-powershell.md
+  - name: Connection policy
+    href: how-to-connection-policy.md
   - name: Route-maps
     items:
     - name: About Route-maps
@@ -328,8 +371,16 @@
       href: route-maps-summarize-from-device-spoke-vnet-nva.md
   - name: View virtual hub effective routes
     href: effective-routes-virtual-hub.md
-  - name: Configure routing intent and policies
-    href: how-to-routing-policies.md
+  - name: Routing intent and policies
+    items: 
+    - name: Configure routing intent
+      href: how-to-routing-policies.md
+    - name: Internet access with routing intent
+      href: about-internet-routing.md
+    - name: Configuring static routes with routing intent
+      href: routing-intent-static-route.md
+  - name: Next hop IP support
+    href: next-hop-ip.md
   - name: Route traffic from a virtual hub to an NVA (legacy)
     items:
     - name: Azure portal
@@ -372,6 +423,8 @@
     href: https://techcommunity.microsoft.com/category/azure-network-security/blog/azurenetworksecurityblog
 - name: Monitoring & maintenance
   items:
+  - name: Getting Started with Troubleshooting Virtual WAN 
+    href: virtual-wan-troubleshooting-overview.md
   - name: Monitor Virtual WAN
     href: monitor-virtual-wan.md
   - name: Azure Monitor Insights
@@ -390,6 +443,10 @@
     href: monitor-point-to-site-connections.md
   - name: Configure customer-controlled gateway maintenance
     href: customer-controlled-gateway-maintenance.md
+- name: Troubleshoot
+  items:
+  - name: Troubleshooting for Virtual WAN - Getting started
+    href: virtual-wan-troubleshooting-overview.md
 - name: Reference
   items:
   - name: Azure PowerShell
@@ -399,7 +456,7 @@
   - name: Azure CLI
     href: /cli/azure/network
   - name: Python SDK
-    href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations
+    href: /python/api/azure-mgmt-network/azure.mgmt.network.operations.virtualwansoperations
   - name: Monitoring data reference
     href: monitor-virtual-wan-reference.md
 - name: Resources

@@ -43,7 +43,7 @@ To test your partner topic, deploy the [Event Viewer](https://github.com/Azure-S
     :::image type="content" source="../media/blob-event-quickstart-portal/web-site.png" alt-text="Screenshot that shows the App Service page with the link to the site highlighted.":::
 6. Confirm that you see the site but no events are posted to it yet.
 
-    :::image type="content" source="../media/blob-event-quickstart-portal/view-site.png" alt-text="Screenshot that shows the Event Grid Viewer sample app.":::    
+    :::image type="content" source="../media/blob-event-quickstart-portal/event-grid-viewer-site.png" alt-text="Screenshot that shows the Event Grid Viewer sample app.":::    
 
 ### Create an event subscription
 

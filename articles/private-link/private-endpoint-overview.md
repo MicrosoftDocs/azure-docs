@@ -3,13 +3,16 @@ title: What is a private endpoint?
 titleSuffix: Azure Private Link
 description: In this article, you learn how to use the Private Endpoint feature of Azure Private Link.
 services: private-link
-author: abell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 03/25/2025
-ms.author: abell
-ms.custom: references_regions, ignite-2024
-#Customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
+ms.date: 03/30/2026
+ms.author: allensu
+ms.custom:
+  - references_regions
+  - ignite-2024
+  - sfi-image-nochange
+#customer intent: As someone who has a basic network background but is new to Azure, I want to understand the capabilities of private endpoints so that I can securely connect to my Azure PaaS services within the virtual network.
 ---
 
 # What is a private endpoint?
@@ -68,7 +71,7 @@ A private-link resource is the destination target of a specified private endpoin
 | ---------------------------| ------------- | ------------- |
 | Application Gateway | Microsoft.Network/applicationgateways |Frontend IP Configuration name|
 | Azure AI Search | Microsoft.Search/searchServices | searchService |
-| Azure AI services | Microsoft.CognitiveServices/accounts | account |
+| Foundry Tools | Microsoft.CognitiveServices/accounts | account |
 | Azure API for FHIR (Fast Healthcare Interoperability Resources) | Microsoft.HealthcareApis/services | fhir |
 | Azure API Management | Microsoft.ApiManagement/service | Gateway |
 | Azure App Configuration | Microsoft.Appconfiguration/configurationStores | configurationStores |
@@ -80,9 +83,10 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Batch | Microsoft.Batch/batchAccounts | batchAccount, nodeManagement |
 | Azure Cache for Redis | Microsoft.Cache/Redis | redisCache |
 | Azure Cache for Redis Enterprise | Microsoft.Cache/redisEnterprise | redisEnterprise |
-| Azure Container Apps | Microsoft.App/ManagedEnvironments | managedEnvironment |
+| Azure Container Apps | Microsoft.App/ManagedEnvironments | managedEnvironments |
 | Azure Container Registry | Microsoft.ContainerRegistry/registries | registry |
 | Azure Cosmos DB | Microsoft.AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table |
+| Azure Cosmos DB | Microsoft.DocumentDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table, Analytical |
 | Azure Cosmos DB for MongoDB vCore | Microsoft.DocumentDb/mongoClusters | mongoCluster |
 | Azure Cosmos DB for PostgreSQL | Microsoft.DBforPostgreSQL/serverGroupsv2 | coordinator |
 | Azure Data Explorer | Microsoft.Kusto/clusters | cluster |
@@ -95,6 +99,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Databricks | Microsoft.Databricks/workspaces | databricks_ui_api, browser_authentication |
 | Azure Device Provisioning Service | Microsoft.Devices/provisioningServices | iotDps |
 | Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | API |
+| Azure Durable Task Scheduler | Microsoft.DurableTask/schedulers | scheduler |
 | Azure Event Grid | Microsoft.EventGrid/domains | domain |
 | Azure Event Grid | Microsoft.EventGrid/topics  | topic |
 | Azure Event Hub | Microsoft.EventHub/namespaces | namespace |
@@ -108,6 +113,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Machine Learning | Microsoft.MachineLearningServices/registries | amlregistry |
 | Azure Machine Learning | Microsoft.MachineLearningServices/workspaces | amlworkspace |
 | Azure Managed Disks | Microsoft.Compute/diskAccesses | managed disk |
+| Azure Managed Redis | Microsoft.Cache/redisEnterprise | redisEnterprise |
 | Azure Media Services | Microsoft.Media/mediaservices | keydelivery, liveevent, streamingendpoint |
 | Azure Migrate | Microsoft.Migrate/assessmentProjects | project |
 | Azure Monitor Private Link Scope | Microsoft.Insights/privatelinkscopes | azuremonitor |
@@ -216,7 +222,7 @@ The following information lists the known limitations to the use of private endp
 
 | Limitation | Description |
 | --------- | --------- | 
-| SNAT is recommended always. | Due to the variable nature of the private endpoint data-plane, it's recommended to SNAT traffic destined to a private endpoint to ensure return traffic is honored. |
+| SNAT is recommended. | Due to the variable nature of the private endpoint data-plane, it's recommended to SNAT traffic destined to a private endpoint to ensure return traffic is honored when going through an NVA. This limitation can be removed using [disableSnatOnPL tag](/azure/private-link/private-link-disable-snat) in your NVA. |
 | Feature unavailable in select regions. | Currently unavailable in the following regions: </br> West India </br> Australia Central 2 </br> South Africa West </br> Brazil Southeast | 
 
 ### Application security group
@@ -227,6 +233,6 @@ The following information lists the known limitations to the use of private endp
 
 ## Next steps
 
-- For more information about private endpoints and Private Link, see [What is Azure Private Link?](private-link-overview.md).
+- For more information about private endpoints and Private Link, see [What is Azure Private Link?](private-link-overview.md)
 
 - To get started with creating a private endpoint for a web app, see [Quickstart: Create a private endpoint by using the Azure portal](create-private-endpoint-portal.md).

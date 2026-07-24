@@ -6,6 +6,7 @@ ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
+# Customer intent: As a cloud architect, I want to provision Oracle Exadata Infrastructure, so that I can set up the necessary environment for deploying Oracle Exadata VM Clusters and databases in a streamlined and efficient manner.
 ---
 
 # Provision Exadata infrastructure
@@ -17,13 +18,13 @@ Provisioning Oracle Exadata Infrastructure is a time-consuming process. Provisio
 There are prerequisites that must be completed before you can provision Exadata Services. You need to complete the following:
 
 - An existing Azure subscription
-- An Azure virtual network with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`)
+- An Azure virtual network with a subnet delegated to the Oracle AI Database@Azure service (`Oracle.Database/networkAttachments`)
 - Permissions in Azure to create resources in the region, with the following conditions:
    * No policies prohibiting the creation of resources without tags, because the OracleSubscription resource is created automatically without tags during onboarding.
    * No policies enforcing naming conventions, because the OracleSubscription resource is created automatically with a default resource name.
 - Purchase OracleDB@Azure in the Azure portal.
 - Select your Oracle Cloud Infrastructure (OCI) account.
-For more detailed documentation, including optional steps, see [Onboarding with Oracle Database@Azure](https://docs.oracle.com/iaas/Content/database-at-azure/oaaonboard.htm).
+For more detailed documentation, including optional steps, see [Onboarding with Oracle AI Database@Azure](https://docs.oracle.com/iaas/Content/database-at-azure/oaaonboard.htm).
 
 >[!NOTE] 
 > Review the [Troubleshoot issues for Exadata services](exadata-troubleshoot-services.md), specifically the IP Address Requirement Differences, to ensure you have all the information needed for a successful provisioning flow.

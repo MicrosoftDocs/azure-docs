@@ -2,9 +2,9 @@
 title: Choose the right integration runtime configuration for your scenario
 description: Some recommended architectures for each integration runtime.
 ms.subservice: integration-runtime
-ms.topic: conceptual
-author: lrtoyou1223
-ms.author: lle
+ms.topic: how-to
+author: kromerm
+ms.author: makromer
 ms.date: 09/25/2024
 ---
 

@@ -1,25 +1,24 @@
 ---
-title: 'Tutorial: Get started using Azure Cache for Redis Enterprise active replication with an AKS-hosted application'
+title: "Tutorial: Get started using Azure Cache for Redis Enterprise active replication with an AKS-hosted application"
 description: In this tutorial, you learn how to connect your AKS hosted application to a cache that uses active geo-replication.
-
-
+ms.date: 01/23/2025
 ms.topic: tutorial
 ms.custom:
   - ignite-2024
-ms.date: 01/23/2025
+  - build-2025
 appliesto:
   - ✅ Azure Cache for Redis
-
-#CustomerIntent: As a developer, I want to see how to use a Enterprise cache that uses active geo-replication to capture data from two apps running against different caches in separate geo-locations.
+  - ✅ Azure Managed Redis
+# CustomerIntent: As a developer, I want to see how to use a Enterprise cache that uses active geo-replication to capture data from two apps running against different caches in separate geo-locations.
 ---
 
-# Get started using Azure Cache for Redis Enterprise or Azure Managed Redis (preview) active replication with an AKS-hosted application
+# Get started using Azure Cache for Redis Enterprise or Azure Managed Redis active replication with an AKS-hosted application
 
-In this tutorial, you will host an inventory application on Azure Kubernetes Service (AKS) and find out how you can use active geo-replication to replicate data in your Azure Cache for Redis Enterprise or Azure Managed Redis (preview) instances across Azure regions.
+In this tutorial, you will host an inventory application on Azure Kubernetes Service (AKS) and find out how you can use active geo-replication to replicate data in your Azure Cache for Redis Enterprise or Azure Managed Redis instances across Azure regions.
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - One Azure Kubernetes Service Cluster - For more information on creating a cluster, see [Quickstart: Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal). Alternatively, you can host two instances of the demo application on the two different AKS clusters. In a production environment, you would use two different clusters located in the same regions as your clusters to deploy two versions of the application. For this tutorial, you deploy both instances of the application on the same AKS cluster.
 
 > [!IMPORTANT]
@@ -31,7 +30,7 @@ This tutorial uses a sample inventory page that shows three different T-shirt op
 
 ## Set up two Azure Redis instances
 
-1. Create a new Azure Cache for Redis Enterprise or Azure Managed Redis (preview) instance in **West US 2** region by using the Azure portal or your preferred CLI tool. Alternately, you can use any region of your choice. Use the [quickstart guide](quickstart-create-managed-redis.md) to get started.
+1. Create a new Azure Cache for Redis Enterprise or Azure Managed Redis instance in **West US 2** region by using the Azure portal or your preferred CLI tool. Alternately, you can use any region of your choice. Use the [quickstart guide](quickstart-create-managed-redis.md) to get started.
 
 1. On the **Advanced** tab:
 

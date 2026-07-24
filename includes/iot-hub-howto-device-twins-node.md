@@ -2,13 +2,16 @@
 title: Get started with Azure IoT Hub device twins (Node.js)
 titleSuffix: Azure IoT Hub
 description: How to use the Azure IoT SDK for Node.js to create device and backend service application code for device twins.
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.devlang: nodejs
 ms.topic: include
 ms.date: 07/20/2024
-ms.custom: mqtt, devx-track-js
+ms.custom:
+  - mqtt
+  - devx-track-js
+  - sfi-ropc-nochange
 ---
 
   *  Requires Node.js version 10.0.x or later
@@ -378,4 +381,4 @@ query.nextAsTwin(function(err, results) {
 
 ### Service SDK sample
 
-The Azure IoT SDK for Node.js provides a working sample of a service app that handles device twin tasks. For more information, see [Device Twin Backend Service](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples/helpers/device-twin-service) - This project is used to send device twin patch updates for a specific device.
+The Azure IoT SDK for Node.js provides a working sample of a service app that handles device twin tasks. For more information, see [Device twin backend service](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples/helpers/device-twin-service) - This project is used to send device twin patch updates for a specific device.

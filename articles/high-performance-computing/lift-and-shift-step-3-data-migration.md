@@ -1,15 +1,20 @@
 ---
-title: "Data migration"
-description: Learn the best practices and utilites when migrating your data during a migration of high performance computing architecture.
+title: Migrate HPC data to Azure using Data Box, AzCopy, and rsync
+description: Transfer large-scale HPC data from on-premises to Azure storage using Azure Data Box, AzCopy, and rsync with best practices for integrity and security.
 author: tomvcassidy
 ms.author: tomcassidy
-ms.date: 04/10/2025
+ms.date: 02/19/2026
 ms.topic: how-to
 ms.service: azure-virtual-machines
 ms.subservice: hpc
+ms.collections:
+  - hpc-migration-content
+  - migration
+  - onprem-to-azure
+# Customer intent: As a cloud architect, I want to implement a reliable data migration strategy for high performance computing, so that I can ensure data integrity, security, and performance during the transition to the cloud environment.
 ---
 
-# Data migration
+# Migrate HPC data to Azure
 
 A key aspect of your high performance computing migration is ensuring seamless data migration. Moving data closer to the cloud environment’s computing nodes is essential to meet the needs of throughput and IOPS. Seamless data migration requires a strategic approach and reliable utilities to conduct in a secure and reliable way.
 
@@ -128,7 +133,7 @@ This section outlines the steps for using Azure Data Box, AzCopy, and rsync to t
        - `-z`: Compresses data during transfer to reduce bandwidth usage.
    
      > [!NOTE]
-     > For examples using Rsync, visit [rysnc examples](https://rsync.samba.org/examples.html).
+     > For examples using Rsync, visit [rsync examples](https://rsync.samba.org/examples.html).
 
 ### Example data migration implementation
 

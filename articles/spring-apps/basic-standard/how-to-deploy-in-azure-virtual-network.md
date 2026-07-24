@@ -5,7 +5,8 @@ author: KarlErickson
 ms.author: karler
 ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/27/2024
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, subject-rbac-steps
 ---
 
@@ -157,7 +158,7 @@ Use the following steps to grant permission:
 
    :::image type="content" source="media/how-to-deploy-in-azure-virtual-network/access-control.png" alt-text="Screenshot of the Azure portal Access Control (IAM) page showing the Check access tab with the Add role assignment button highlighted." lightbox="media/how-to-deploy-in-azure-virtual-network/access-control.png":::
 
-1. Assign the **Network Contributor** and **User Access Administrator** roles to the Azure Spring Cloud Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+1. Assign the **Network Contributor** and **User Access Administrator** roles to the Azure Spring Cloud Resource Provider. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
    > [!NOTE]
    > Role **User Access Administrator** is in the **Privileged administrator roles** and **Network Contributor** is in the **Job function roles**.
@@ -259,6 +260,14 @@ Those network resources are connected to your virtual network created in the pre
 
 > [!IMPORTANT]
 > The resource groups are fully managed by the Azure Spring Apps service. Do not manually delete or modify any resource inside.
+>
+> If your organization uses Azure Policy assignments that enforce rules on resource groups, you might need to create policy exclusions for the Azure Spring Apps managed resource groups - `ap-svc-rt_*` and `ap-app_*`. The Azure Spring Apps service controls these groups, and policy restrictions might prevent the service from working properly.
+>
+> Also, check if any resource locks are applied to these groups. Locks can stop the service from creating or updating resources.
+>
+> You can review the Activity Log for these resource groups to find failed operations or access denied events. These issues might be caused by policy settings or resource locks.
+>
+> Before deployment, contact your Azure administrator to make sure the correct policy exclusions are in place and that no resource locks are blocking normal operations.
 
 ## Using smaller subnet ranges
 

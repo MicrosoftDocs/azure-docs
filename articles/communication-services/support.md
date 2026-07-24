@@ -1,11 +1,11 @@
 ---
 title: Support and help options for Azure Communication Services
 description: Learn about the various help and support options available for Azure Communication Services.
-author: tophpalmer
+author: sundiraman
 manager: chpalm
 services: azure-communication-services
 
-ms.author: chpalm
+ms.author: sundraman
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
@@ -21,7 +21,7 @@ You can explore and review many [support options and plans](https://azure.micros
 
 ## Post a question to Microsoft Q&A
 
-For quick and reliable answers to product or technical questions you might have about Azure Communication Services, engage with us on [Microsoft Q&A](/answers/products/azure). You can get answers from:
+For quick and reliable answers to product or technical questions you might have about Azure Communication Services, engage with us on [Microsoft Q&A](/answers/tags/128/azure-communication-services). You can get answers from:
 
 - Microsoft engineers
 - Azure Most Valuable Professionals (MVPs)

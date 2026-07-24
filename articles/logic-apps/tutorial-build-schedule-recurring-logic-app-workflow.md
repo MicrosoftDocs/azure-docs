@@ -1,47 +1,38 @@
 ---
-title: Create schedule-based automated workflows
-description: Learn to build a schedule-based automation workflow that integrates cloud services using Azure Logic Apps.
-services: azure-logic-apps
+title: Create Schedule-Based Workflows
+description: Build an automated workflow that runs on a schedule and integrates cloud services using Azure Logic Apps.
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: tutorial
-ms.collection: ce-skilling-ai-copilot
+ms.update-cycle: 180-days
+ms.date: 07/21/2026
 ms.custom: mvc
-ms.date: 02/27/2025
+#Customer intent: As an automation and integration developer who is new to Azure Logic Apps, I want to learn how to build a workflow that runs on a specified schedule.
 ---
 
-# Tutorial: Create schedule-based automated workflows using Azure Logic Apps
+# Tutorial: Create schedule-based automated workflows by using Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](includes/logic-apps-sku-consumption-standard.md)]
 
-This tutorial shows how to build an example workflow that runs on a recurring schedule by using Azure Logic Apps. This example specifically creates a Consumption logic app workflow that checks the travel time, including the traffic, between two places and runs every weekday morning. If the time exceeds a specific limit, the workflow sends you an email that includes the travel time and the extra time necessary to arrive at your destination. The workflow includes various steps, which start with a schedule-based trigger followed by a Bing Maps action, a data operations action, a control flow action, and an email notification action.
+Many business tasks must run on a recurring schedule, such as checking thresholds, polling for conditions, or sending periodic notifications. Manually handling these tasks is unreliable and doesn't scale. By using Azure Logic Apps, you can automate recurring tasks by building a workflow that triggers on a schedule and takes action based on the results.
+
+This tutorial shows how to create a logic app workflow that runs every weekday morning, checks the travel time between two locations, and sends an email when the traffic exceeds a limit. This scenario demonstrates how to combine a schedule-based trigger with external data, conditional logic, and notifications. You can adapt this pattern to any recurring monitoring task.
 
 When you finish, your workflow looks like the following high level example:
 
-:::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png" alt-text="Screenshot shows example Consumption workflow that runs with the Recurrence trigger." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png":::
+:::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png" alt-text="Screenshot shows example workflow that runs with the Recurrence trigger." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-overview.png":::
 
-> [!TIP]
+> [!NOTE]
 >
-> To learn more, you can ask Azure Copilot these questions:
->
-> - *What's Azure Logic Apps?*
-> - *What's a Consumption logic app workflow?*
-> - *What's the Bing Maps connector?*
-> - *What's a Data Operations action?*
-> - *What's a control flow action?*
-> - *What's the Office 365 Outlook connector?*
->
-> To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
-
-You can create a similar workflow with a Standard logic app resource. However, the user experience and tutorial steps vary slightly from the Consumption version.
+> The example in this tutorial creates a Consumption logic app resource and workflow. You can create the same workflow for a Standard logic app resource, but the underlying architecture and [billing model](logic-apps-pricing.md) differ from the Consumption version.
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and subscription. [Get free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-* An email account from an email provider that's supported by Azure Logic Apps, such as Office 365 Outlook or Outlook.com. For other supported email providers, see [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
+- An email account from an email provider supported by Azure Logic Apps, such as Office 365 Outlook or Outlook.com.
 
-  This tutorial uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but the user experience might slightly differ. If you use Outlook.com, use your personal Microsoft account instead to sign in.
+  This tutorial uses Office 365 Outlook with a work or school account. If you use Outlook.com, use your personal Microsoft account instead to sign in. If you use a different email service, the general steps stay the same, but the user experience might differ. For other supported email providers, see [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
   > [!IMPORTANT]
   >
@@ -50,9 +41,9 @@ You can create a similar workflow with a Standard logic app resource. However, t
   > [create a Google client app to use for authentication with your Gmail connector](/connectors/gmail/#authentication-and-bring-your-own-application). 
   > For more information, see [Data security and privacy policies for Google connectors in Azure Logic Apps](../connectors/connectors-google-data-security-privacy-policy.md).
 
-* To get the travel time for a route, you need an access key for the Bing Maps API. To get this key, follow the steps for [how to get a Bing Maps key](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
+- To get the travel time for a route, you need an access key for the Bing Maps API. To get this key, follow the steps for [how to get a Bing Maps key](/bingmaps/getting-started/bing-maps-dev-center-help/getting-a-bing-maps-key).
 
-* If your workflow needs to communicate through a firewall that limits traffic to specific IP addresses, that firewall needs to allow access for *both* the [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) IP addresses used by Azure Logic Apps in the Azure region where your logic app resource exists. If your workflow also uses [managed connectors](../connectors/managed.md), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in your logic app resource's Azure region.
+- If your workflow needs to communicate through a firewall that limits traffic to specific IP addresses, that firewall needs to allow access for *both* the [inbound](logic-apps-limits-and-config.md#inbound) and [outbound](logic-apps-limits-and-config.md#outbound) IP addresses used by Azure Logic Apps in the Azure region where your logic app resource exists. If your workflow also uses [managed connectors](../connectors/managed.md), such as the Office 365 Outlook connector or SQL connector, or uses [custom connectors](/connectors/custom-connectors/), the firewall also needs to allow access for *all* the [managed connector outbound IP addresses](logic-apps-limits-and-config.md#outbound) in your logic app resource's Azure region.
 
 ## Create a Consumption logic app resource
 
@@ -62,7 +53,7 @@ You can create a similar workflow with a Standard logic app resource. However, t
 
    :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/find-select-logic-apps.png" alt-text="Screenshot shows Azure portal search box with logic app entered and selected option for Logic apps." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/find-select-logic-apps.png":::
 
-1. On the **Logic apps** page toolbar, select **Add**.
+1. On the **Logic apps** page toolbar, select **+ Create**.
 
    The **Create Logic App** page appears and shows the following options:
 
@@ -83,8 +74,8 @@ You can create a similar workflow with a Standard logic app resource. However, t
    > [!NOTE]
    >
    > Availability zones are automatically enabled for new and existing Consumption logic app workflows in 
-   > [Azure regions that support availability zones](../reliability/availability-zones-region-support.md). 
-   > For more information, see [Reliability in Azure Functions](../reliability/reliability-functions.md#availability-zone-support) and 
+   > [Azure regions that support availability zones](/azure/reliability/availability-zones-region-support). 
+   > For more information, see [Reliability in Azure Functions](/azure/reliability/reliability-functions#resilience-to-availability-zone-failures) and 
    > [Protect logic apps from region failures with zone redundancy and availability zones](set-up-zone-redundancy-availability-zones.md).
 
    After you finish, your settings look similar to the following example:
@@ -99,7 +90,7 @@ Next, add the **Schedule** trigger named **Recurrence**, which runs the workflow
 
 ## Add the Recurrence trigger
 
-1. On the workflow designer, [follow these general steps to add the **Schedule** trigger named **Recurrence**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
+1. Under **Development Tools**, select **Logic app designer**. On the designer, [follow these general steps to add the **Schedule** trigger named **Recurrence**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
 1. Rename the **Recurrence** trigger with the following title: **Check travel time every weekday morning**.
 
@@ -147,8 +138,8 @@ Now that you have a trigger, add a **Bing Maps** action that gets the travel tim
 1. In the action, open the **Advanced parameters** list, and add the following properties:
 
    * **Optimize**
-   * **Distance Unit**
-   * **Travel Mode**
+   * **Distance unit**
+   * **Travel mode**
 
 1. Now enter the values for the following action's properties:
 
@@ -156,9 +147,10 @@ Now that you have a trigger, add a **Bing Maps** action that gets the travel tim
    |-----------|-------|-------------|
    | **Waypoint 1** | <*start-location*> | Your route's origin. This example specifies an example starting address. |
    | **Waypoint 2** | <*end-location*> | Your route's destination. This example specifies an example destination address. |
+   | **Travel mode** | Driving | The travel mode for your route. Select **Driving** mode. |
    | **Optimize** | timeWithTraffic | A parameter to optimize your route, such as distance, travel time with current traffic, and so on. Select the parameter value, **timeWithTraffic**. |
-   | **Distance Unit** | <*your-preference*> | The unit of distance for your route. This example uses **Mile** as the unit. |
-   | **Travel Mode** | Driving | The travel mode for your route. Select **Driving** mode. |
+   | **Distance unit** | <*your-preference*> | The unit of distance for your route. This example uses **Mile** as the unit. |
+
 
    For more information about these parameters and values, see [Calculate a route](/bingmaps/rest-services/routes/calculate-a-route).
 
@@ -172,27 +164,27 @@ Next, create a variable so that you can convert and store the current travel tim
 
 ## Create a variable to store travel time
 
-Sometimes, you might want to run operations on data in your workflow, and then use the results in later actions. To save these results so that you can easily reuse or reference them, you can create variables that store those results after processing. You can create variables only at the top level in your workflow.
+Sometimes, you want to run operations on data in your workflow and then use the results in later actions. To save these results so you can easily reuse or reference them, create variables that store those results after processing. You can create variables only at the top level in your workflow.
 
 By default, the **Get route** action returns the current travel time with traffic in seconds from the **Travel Duration Traffic** property. By converting and storing this value as minutes instead, you make the value easier to reuse later without converting again.
 
-1. Under the **Get route** action, [follow these general steps to add a **Variables** action named **Initialize variable**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+1. Under the **Get route** action, [follow these general steps to add a **Variables** action named **Initialize variables**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
-1. Rename **Initialize variable** action with the following title: **Create variable to store travel time**.
+1. Rename the **Initialize variables** action with the following title: **Create variable to store travel time**.
 
 1. Provide the following action information:
 
    | Parameter | Value | Description |
    |-----------|-------|-------------|
-   | **Name** | travelTime | The name for your variable. This example uses `travelTime`. |
+   | **Name** | travelTime | The name for your variable. This example uses *travelTime*. |
    | **Type** | Integer | The data type for your variable |
-   | **Value** | <*initial-value*> | An expression that converts the current travel time from seconds to minutes (see the steps under this table). |
+   | **Value** | <*initial-value*> | An expression that converts the current travel time from seconds to minutes (see the following steps). |
 
    To create the expression for the **Value** property, follow these steps:
 
    1. Select inside the **Value** box, which shows the options for the dynamic content list (lightning icon) and expression editor (formula icon), and then select the expression editor.
 
-      :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-value-expression-editor.png" alt-text="Screenshot shows the action named Initialize variable with cursor inside the Value property." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-value-expression-editor.png":::
+      :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-value-expression-editor.png" alt-text="Screenshot shows the action named Initialize variables with cursor inside the Value property." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-value-expression-editor.png":::
 
       The expression editor provides functions that you can use to perform operations in your expression. The dynamic content list provides the outputs from previous actions that you can select as inputs to use with subsequent actions in your workflow.
 
@@ -204,7 +196,7 @@ By default, the **Get route** action returns the current travel time with traffi
 
       :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-dynamic-content.png" alt-text="Screenshot shows where to put cursor in the div(,60) expression and select Dynamic content." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/initialize-variable-dynamic-content.png":::
 
-   1. In the dynamic content list, under select the output value, **Travel Duration Traffic**.
+   1. In the dynamic content list, select the output value named **Travel Duration Traffic**.
 
       If the output doesn't appear, in the dynamic content list, next to the action name, select **See more**.
 
@@ -222,7 +214,7 @@ By default, the **Get route** action returns the current travel time with traffi
 
 Next, add a condition that checks whether the current travel time is greater than a specific limit.
 
-## Compare the travel time with limit
+## Compare the travel time
 
 1. Under the **Create variable to store travel time** action, [follow these general steps to add a **Control** action named **Condition**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
@@ -236,7 +228,7 @@ Next, add a condition that checks whether the current travel time is greater tha
 
       :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png" alt-text="Screenshot shows left box named Choose a value, opened dynamic content list, and travelTime output selected." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/build-condition-left-side.png":::
 
-   1. In the middle comparison box, select the operator named **is greater than**.
+   1. In the middle comparison box, select the **>** operator.
 
    1. On the condition's right side, in the **Choose a value** box, enter the following value: **15**
 
@@ -250,18 +242,18 @@ Next, add the action to run when the travel time exceeds your limit.
 
 ## Send email when limit exceeded
 
-Now, add an action that sends email when the travel time exceeds your limit. This email includes the current travel time and the extra time necessary to travel the specified route.
+Now, add an action that sends an email when the travel time exceeds your limit. This email includes the current travel time and the extra time necessary to travel the specified route.
 
 1. In the condition's **True** branch, select the plus sign (**+**), and then select **Add an action**.
 
-1. [Follow these general steps to add an **Office 365 Outlook** action named **Send an email**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
+1. [Follow these general steps to add an **Office 365 Outlook** action named **Send an email (V2)**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-action).
 
    * For Azure work or school accounts, select the **Office 365 Outlook** version.
    * For personal Microsoft accounts, select the **Outlook.com** version.
 
    This example continues by selecting Office 365 Outlook.
 
-   :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png" alt-text="Screenshot shows Office 365 Outlook action selected named Send email." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png":::
+   :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png" alt-text="Screenshot shows Office 365 Outlook action selected named Send an email (V2)." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/add-action-send-email.png":::
 
 1. If you don't already have a connection, sign in and authenticate access to your email account when prompted.
 
@@ -279,8 +271,7 @@ Now, add an action that sends email when the travel time exceeds your limit. Thi
 
       > [!NOTE]
       >
-      > If the dynamic content list doesn't automatically show the **travelTime** variable, 
-      > next to the **Variables** label, select **See more**. The variable might not appear 
+      > If the dynamic content list doesn't automatically show the **travelTime** variable, next to the **Variables** label, select **See more**. The variable might not appear 
       > because the **Subject** property expects a string value, while **travelTime** is an integer.
 
 1. For the **Body** property, specify the content for the email body by following these steps:
@@ -307,7 +298,7 @@ Now, add an action that sends email when the travel time exceeds your limit. Thi
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
-Next, test and run your workflow, which now looks similar to the following example:
+Your finished workflow looks similar to the following example:
 
 :::image type="content" source="media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-finished.png" alt-text="Screenshot shows complete example logic app workflow." lightbox="media/tutorial-build-scheduled-recurring-logic-app-workflow/check-travel-time-finished.png":::
 
@@ -315,7 +306,7 @@ Next, test and run your workflow, which now looks similar to the following examp
 
 To manually start your workflow, on the designer toolbar, select **Run** > **Run**.
 
-* If the current travel time stays under your limit, your workflow does nothing else and waits or the next interval before checking again.
+* If the current travel time stays under your limit, your workflow does nothing else and waits for the next interval before checking again.
 
 * If the current travel time exceeds your limit, you get an email with the current travel time and the number of minutes above your limit. The following example shows a sample email that your workflow sends:
 
@@ -331,7 +322,7 @@ Congratulations, you created and ran a schedule-based recurring workflow!
 
 ## Clean up resources
 
-Your workflow continues running until you disable or delete the logic app resource. When you no longer need this sample, delete the resource group that contains your logic app and related resources.
+Your workflow keeps running until you disable or delete the logic app resource. When you no longer need this sample, delete the resource group that contains your logic app and related resources.
 
 1. In the Azure portal search box, enter **resource groups**, and select **Resource groups**.
 
@@ -343,9 +334,10 @@ Your workflow continues running until you disable or delete the logic app resour
 
 1. When the confirmation pane appears, enter the resource group name, and select **Delete**.
 
-## Next step
+## Related content
 
-In this tutorial, you created a logic app workflow that checks traffic based on a specified schedule (on weekday mornings), and takes action (sends an email) when the travel time exceeds a specified limit. Now, learn how to build a workflow that sends mailing list requests for approval by integrating Azure services, Microsoft services, and other Software-as-a-Service (SaaS) apps.
+In this tutorial, you created a logic app workflow that checks traffic based on a specified schedule (on weekday mornings). The workflow takes action (sends an email) when the travel time exceeds a specified limit. Now, learn how to build a workflow that sends mailing list requests for approval by integrating Azure services, Microsoft services, and other Software-as-a-Service (SaaS) apps.
 
 > [!div class="nextstepaction"]
 > [Manage mailing list requests](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
+

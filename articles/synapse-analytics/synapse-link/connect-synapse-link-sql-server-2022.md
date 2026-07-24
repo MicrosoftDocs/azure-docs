@@ -1,18 +1,28 @@
 ---
 title: Create Azure Synapse Link for SQL Server 2022
 description: Learn how to create and connect a SQL Server 2022 instance to an Azure Synapse workspace by using Azure Synapse Link.
-author: Rodrigossz
+author: im-microsoft
+ms.author: imotiwala
+ms.reviewer: wiassaf, yexu
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.custom: engagement-fy23
 ms.date: 07/30/2024
-ms.author: rosouz
+ms.update-cycle: 1825-days
+ms.custom:
+  - sfi-image-nochange
 ---
 
 # Get started with Azure Synapse Link for SQL Server 2022
 
 This article is a step-by-step guide for getting started with Azure Synapse Link for SQL Server 2022. For an overview, see [Azure Synapse Link for SQL Server 2022](sql-server-2022-synapse-link.md). 
+
+> [!IMPORTANT]
+> **Mirroring to Microsoft Fabric is now available.** Mirroring to Fabric provides all the capabilities of Azure Synapse Link with better analytical performance, the ability to unify your data estate with OneLake in Fabric, and open access to your data in Delta Parquet format. Instead of Azure Synapse Link, use Fabric Mirroring. 
+>
+> With Mirroring to Microsoft Fabric, you can continuously replicate your existing data estate directly into OneLake in Fabric, including data from SQL Server 2016+, Azure SQL Database, Azure SQL Managed Instance, Oracle, Snowflake, Cosmos DB, and more. 
+> 
+> For more information, see [Microsoft Fabric mirrored databases](/fabric/database/mirrored-database/overview).
 
 ## Prerequisites
 
@@ -186,7 +196,7 @@ This article is a step-by-step guide for getting started with Azure Synapse Link
 
    > [!NOTE]
    > The number of cores you select here are allocated to the ingestion service for processing data loading and changes. They don't affect the target dedicated SQL pool configuration.
-   > If you can’t connect to landing zone using generated SAS token due to limitation from your storage, you can try to use delegation SAS token to connect to landing zone as well. 
+   > If you can't connect to landing zone using generated SAS token due to limitation from your storage, you can try to use delegation SAS token to connect to landing zone as well. 
 
 1. With the new Azure Synapse Link connection open, you can now update the target table name, distribution type, and structure type.
 
@@ -297,7 +307,7 @@ A shared access signature token is required for the SQL change feed to get acces
    :::image type="content" source="../media/connect-synapse-link-sql-server-2022/landing-zone-rotate-sas-token.png" alt-text="Screenshot that shows how to get a new shared access signature token.":::
 
    > [!NOTE]
-   > If you can’t connect to landing zone using generated SAS token due to limitation from your storage, you can try to use delegation SAS token to connect to landing zone as well. 
+   > If you can't connect to landing zone using generated SAS token due to limitation from your storage, you can try to use delegation SAS token to connect to landing zone as well. 
 
 
 ## Next steps

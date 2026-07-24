@@ -1,17 +1,17 @@
 ---
-title: Troubleshoot connectivity in Azure Managed Redis (preview)
+title: Troubleshoot connectivity in Azure Managed Redis
 description: Learn how to resolve connectivity problems when creating clients with Azure Managed Redis.
-
-
-ms.service: azure-managed-redis
-ms.topic: conceptual
-ms.date: 11/15/2024
-ms.custom: template-concept, ignite-2024
+ms.date: 02/12/2026
+ms.topic: troubleshooting-general
+ms.custom:
+  - template-concept
+  - ignite-2024
+  - build-2025
 appliesto:
   - ✅ Azure Managed Redis
 ---
 
-# Connectivity troubleshooting with Azure Managed Redis (preview)
+# Connectivity troubleshooting with Azure Managed Redis
 
 In this article, we provide troubleshooting help for connecting your client application to Azure Managed Redis. Connectivity issues are divided into two types: intermittent connectivity issues and continuous connectivity issues.
 
@@ -21,6 +21,7 @@ In this article, we provide troubleshooting help for connecting your client appl
   - [Kubernetes hosted applications](#kubernetes-hosted-applications)
   - [Linux-based client application](#linux-based-client-application)
 - [Continuous connectivity issues](#continuous-connectivity)
+  - [Test connectivity using Azure CLI](#test-connectivity-using-azure-cli)
   - [Test connectivity using _redis-cli_](#test-connectivity-using-redis-cli)
   - [Test connectivity using PSPING](#test-connectivity-using-psping)
   - [Private endpoint configuration](#private-endpoint-configuration)
@@ -50,6 +51,34 @@ Using optimistic TCP settings in Linux might cause client applications to experi
 
 If your application can't connect to your Azure Managed Redis instance, it's possible some configuration on the cache isn't set up correctly. The following sections offer suggestions on how to make sure your cache is configured correctly.
 
+### Test connectivity using Azure CLI
+
+You can use the Azure CLI to quickly test if you can connect to your Redis cluster. The [az redisenterprise test-connection](/cli/azure/redisenterprise#az_redisenterprise_test_connection) command is helpful for debugging connection issues and verifies end-to-end connectivity by sending a `ping` command. 
+
+For prerequisites to use the Azure CLI with Azure Managed Redis, see [Manage an Azure Managed Redis cache using the Azure CLI](scripts/create-manage-cache.md).
+
+
+To test connection with Microsoft Entra ID authentication (the default), run the following command:
+
+```azurecli
+az redisenterprise test-connection --name <cache-name> --resource-group <resource-group-name>
+```
+
+Or explicitly specify Entra authentication:
+
+```azurecli
+az redisenterprise test-connection --name <cache-name> --resource-group <resource-group-name> --auth entra
+```
+
+> [!NOTE]
+> This command uses the credential established through `az login`, which supports user accounts, managed identities, or service principals.
+
+To test connection with access key authentication, run the following command:
+
+```azurecli
+az redisenterprise test-connection --name <cache-name> --resource-group <resource-group-name> --auth accesskey --access-key <access-key-value>
+```
+
 ### Test connectivity using _redis-cli_
 
 Test connectivity using _redis-cli_. For more information on CLI, [Use the Redis command-line tool with Azure Managed Redis](how-to-redis-cli-tool.md).
@@ -67,11 +96,15 @@ You can confirm the number of sent packets is equal to the received packets. Con
 ### Private endpoint configuration
 
 Steps to check your private endpoint configuration:
-1. Verify if your private endpoint is configured correctly. For more information, see [Create a private endpoint with a new Azure Managed Redis instance](private-link.md#create-a-private-endpoint-with-a-new-azure-managed-redis-instance).
+
+1. Verify if your private endpoint is configured correctly. For more information, see [Create a private endpoint with a new Azure Managed Redis instance](private-link.md#create-a-virtual-network-with-a-subnet).
+
 1. Verify if your application is connecting to `<instancename>.<region>.redis.azure.net` on port 10000. We recommend avoiding the use of `<instancename>.<region>.privatelink.redis.cache.windows.net` in the configuration or the connection string.
+
 1. Run a command like `nslookup <hostname>` from within the VNet that is linked to the private endpoint to verify that the command resolves to the private IP address for the cache.
-1. `Public Network Access` is currently not supported for Azure Managed Redis (preview). You cannot connect to your cache private endpoint from outside the virtual network of your cache.
-  
+
+1. `Public Network Access` is supported for Azure Managed Redis. You cannot connect to your cache private endpoint from outside the virtual network of your cache.
+
 ### Firewall rules
 
 If you have a firewall configured for your Azure Managed Redis, ensure that your client IP address is added to the firewall rules. You can check **Firewall** on the Resource menu under **Settings** on the Azure portal.
@@ -87,4 +120,3 @@ If you've configured any networking or security resource to use your cache's pub
 ## Related content
 
 - [Best practices for connection resilience](best-practices-connection.md)
-- [High availability for Azure Managed Redis](high-availability.md)

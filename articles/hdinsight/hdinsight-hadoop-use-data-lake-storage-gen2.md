@@ -7,7 +7,7 @@ ms.custom: hdinsightactive
 author: hareshg
 ms.author: hgowrisankar
 ms.reviewer: nijelsf
-ms.date: 05/10/2024
+ms.date: 08/11/2025
 ---
 
 # Use Azure Data Lake Storage Gen2 with Azure HDInsight clusters
@@ -31,7 +31,7 @@ Use the following links for detailed instructions on how to create HDInsight clu
 
 * [Using Portal](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2-portal.md)
 * [Using Azure CLI](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md)
-* PowerShell isn't currently supported for creating an HDInsight cluster with Azure Data Lake Storage Gen2.
+* [Using PowerShell](/powershell/module/az.hdinsight/new-azhdinsightcluster#example-8-create-an-azure-hdinsight-cluster-with-azure-data-lake-gen2-storage)
 
 ## Access control for Data Lake Storage Gen2 in HDInsight
 
@@ -51,7 +51,7 @@ Your HDInsight cluster's ability to access files in Data Lake Storage Gen2 is co
 
 Azure services have two types of managed identities: system-assigned and user-assigned. HDInsight uses user-assigned managed identities to access Data Lake Storage Gen2. A `user-assigned managed identity` is created as a standalone Azure resource. Through a create process, Azure creates an identity in the Microsoft Entra tenant that's trusted by the subscription in use. After the identity is created, the identity can be assigned to one or more Azure service instances.
 
-The lifecycle of a user-assigned identity is managed separately from the lifecycle of the Azure service instances to which it's assigned. For more information about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md).
+The lifecycle of a user-assigned identity is managed separately from the lifecycle of the Azure service instances to which it's assigned. For more information about managed identities, see [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 <a name='how-do-i-set-permissions-for-azure-ad-users-to-query-data-in-data-lake-storage-gen2-by-using-hive-or-other-services'></a>
 

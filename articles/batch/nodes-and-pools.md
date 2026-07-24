@@ -1,8 +1,9 @@
 ---
 title: Nodes and pools in Azure Batch
 description: Learn about compute nodes and pools and how they're used in an Azure Batch workflow from a development standpoint.
-ms.topic: conceptual
-ms.date: 04/17/2025
+ms.topic: concept-article
+ms.date: 06/16/2026
+# Customer intent: As a developer, I want to understand how to create and manage compute nodes and pools in a cloud-based workload system, so that I can effectively scale and optimize resource allocation for my applications.
 ---
 # Nodes and pools in Azure Batch
 
@@ -22,7 +23,7 @@ All compute nodes in Batch also include:
 - **Firewall** settings that are configured to control access.
 - [Remote access](error-handling.md#connect-to-compute-nodes) to both Windows (Remote Desktop Protocol (RDP)) and Linux (Secure Shell (SSH)) nodes (unless you [create your pool with remote access disabled](pool-endpoint-configuration.md)).
 
-By default, nodes can communicate with each other, but they can't communicate with virtual machines that aren't part of the same pool. To allow nodes to communicate securely with other virtual machines, or with an on-premises network, you can provision the pool [in a subnet of an Azure virtual network (VNet)](batch-virtual-network.md). When you do so, your nodes can be accessed through public IP addresses. Batch creates these public IP addresses and may change over the lifetime of the pool. You can also [create a pool with static public IP addresses](create-pool-public-ip.md) that you control, which ensures that they don't change unexpectedly.
+By default, nodes can communicate with each other, but they can't communicate with virtual machines that aren't part of the same pool. To allow nodes to communicate securely with other virtual machines, or with an on-premises network, you can provision the pool [in a subnet of an Azure virtual network (VNet)](batch-virtual-network.md). When you do so, your nodes can be accessed through public IP addresses. Batch creates these public IP addresses, and they might change over the lifetime of the pool. You can also [create a pool with static public IP addresses](create-pool-public-ip.md) that you control, which ensures that they don't change unexpectedly.
 
 ## Pools
 
@@ -36,28 +37,16 @@ A pool can only be used by the Batch account in which it was created. A Batch ac
 
 The pool can be created manually, or [automatically by the Batch service](#autopools) when you specify the work to be done. When you create a pool, you can specify the following attributes:
 
-- [Nodes and pools in Azure Batch](#nodes-and-pools-in-azure-batch)
-  - [Nodes](#nodes)
-  - [Pools](#pools)
-  - [Operating system and version](#operating-system-and-version)
-  - [Configurations](#configurations)
-    - [Virtual Machine Configuration](#virtual-machine-configuration)
-    - [Node Agent SKUs](#node-agent-skus)
-    - [Custom images for Virtual Machine pools](#custom-images-for-virtual-machine-pools)
-    - [Container support in Virtual Machine pools](#container-support-in-virtual-machine-pools)
-  - [Node type and target](#node-type-and-target)
-  - [Node size](#node-size)
-  - [Automatic scaling policy](#automatic-scaling-policy)
-  - [Task scheduling policy](#task-scheduling-policy)
-  - [Communication status](#communication-status)
-  - [Start tasks](#start-tasks)
-  - [Application packages](#application-packages)
-  - [Virtual network (VNet) and firewall configuration](#virtual-network-vnet-and-firewall-configuration)
-    - [VNet requirements](#vnet-requirements)
-  - [Pool and compute node lifetime](#pool-and-compute-node-lifetime)
-  - [Autopools](#autopools)
-  - [Security with certificates](#security-with-certificates)
-  - [Next steps](#next-steps)
+- [Operating system and version](#operating-system-and-version)
+- [Configurations](#configurations)
+- [Node type and target](#node-type-and-target)
+- [Node size](#node-size)
+- [Automatic scaling policy](#automatic-scaling-policy)
+- [Task scheduling policy](#task-scheduling-policy)
+- [Communication status](#communication-status)
+- [Start tasks](#start-tasks)
+- [Application packages](#application-packages)
+- [Virtual network (VNet) and firewall configuration](#virtual-network-vnet-and-firewall-configuration)
 
 > [!IMPORTANT]
 > Batch accounts have a default quota that limits the number of cores in a Batch account. The number of cores corresponds to the number of compute nodes. You can find the default quotas and instructions on how to [increase a quota](batch-quota-limit.md#increase-a-quota) in [Quotas and limits for the Azure Batch service](batch-quota-limit.md). If your pool isn't achieving its target number of nodes, the core quota might be the reason.
@@ -70,13 +59,13 @@ When you create a Batch pool, you specify the Azure virtual machine configuratio
 
 ### Virtual Machine Configuration
 
-The **Virtual Machine Configuration** specifies that the pool is composed of Azure virtual machines. These VMs may be created from either Linux or Windows images.
+The **Virtual Machine Configuration** specifies that the pool is composed of Azure virtual machines. These VMs can be created from either Linux or Windows images.
 
 The [Batch node agent](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) is a program that runs on each node in the pool and provides the command-and-control interface between the node and the Batch service. There are different implementations of the node agent, known as SKUs, for different operating systems. When you create a pool based on the Virtual Machine Configuration, you must specify not only the size of the nodes and the source of the images used to create them, but also the **virtual machine image reference** and the Batch **node agent SKU** to be installed on the nodes. For more information about specifying these pool properties, see [Provision Linux compute nodes in Azure Batch pools](batch-linux-nodes.md). You can optionally attach one or more empty data disks to pool VMs created from Marketplace images, or include data disks in custom images used to create the VMs. When including data disks, you need to mount and format the disks from within a VM to use them.
 
 ### Node Agent SKUs
 
-When you create a pool, you need to select the appropriate **nodeAgentSkuId**, depending on the OS of the base image of your VHD. You can get a mapping of available node agent SKU IDs to their OS Image references by calling the [List Supported Node Agent SKUs](/rest/api/batchservice/list-supported-node-agent-skus) operation.
+When you create a pool, you need to select the appropriate **nodeAgentSkuId**, depending on the OS of the base image of your VHD. You can get a mapping of available node agent SKU IDs to their OS Image references by calling the [List Supported Node Agent SKUs](/rest/api/batchservice/pools/list-supported-images) operation.
 
 ### Custom images for Virtual Machine pools
 
@@ -84,7 +73,7 @@ To learn how to create a pool with custom images, see [Use the Azure Compute Gal
 
 ### Container support in Virtual Machine pools
 
-When creating a Virtual Machine Configuration pool using the Batch APIs, you can set up the pool to run tasks in Docker containers. Currently, you must create the pool using an image that supports Docker containers. Use the Windows Server 2016 Datacenter with Containers image from the Azure Marketplace, or supply a custom VM image that includes Docker Community Edition or Enterprise Edition and any required drivers. The pool settings must include a [container configuration](/rest/api/batchservice/pool/add) that copies container images to the VMs when the pool is created. Tasks that run on the pool can then reference the container images and container run options.
+When creating a Virtual Machine Configuration pool using the Batch APIs, you can set up the pool to run tasks in Docker containers. Currently, you must create the pool using an image that supports Docker containers. Use the Windows Server 2016 Datacenter with Containers image from the Azure Marketplace, or supply a custom VM image that includes Docker Community Edition or Enterprise Edition and any required drivers. The pool settings must include a [container configuration](/rest/api/batchservice/pools/create-pool) that copies container images to the VMs when the pool is created. Tasks that run on the pool can then reference the container images and container run options.
 
 For more information, see [Run Docker container applications on Azure Batch](batch-docker-container-workloads.md).
 
@@ -129,7 +118,7 @@ A scaling formula can be based on the following metrics:
 - **Resource metrics** are based on CPU usage, bandwidth usage, memory usage, and number of nodes.
 - **Task metrics** are based on task state, such as *Active* (queued), *Running*, or *Completed*.
 
-When automatic scaling decreases the number of compute nodes in a pool, you must consider how to handle tasks that are running at the time of the decrease operation. To accommodate this, Batch provides a [*node deallocation option*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) that you can include in your formulas. For example, you can specify that running tasks are stopped immediately and then requeued for execution on another node, or allowed to finish before the node is removed from the pool. Setting the node deallocation option as `taskcompletion` or `retaineddata` prevents pool resize operations until all tasks complete, or when all task retention periods expire, respectively.
+When automatic scaling decreases the number of compute nodes in a pool, you must consider how to handle tasks that are running at the time of the decrease operation. To accommodate this, Batch provides a [*node deallocation option*](/rest/api/batchservice/pools/remove-nodes) that you can include in your formulas. For example, you can specify that running tasks are stopped immediately and then requeued for execution on another node, or allowed to finish before the node is removed from the pool. Setting the node deallocation option as `taskcompletion` or `retaineddata` prevents pool resize operations until all tasks complete, or when all task retention periods expire, respectively.
 
 For more information about automatically scaling an application, see [Automatically scale compute nodes in an Azure Batch pool](batch-automatic-scaling.md).
 
@@ -185,13 +174,13 @@ A combined approach is typically used for handling a variable but ongoing load. 
 
 ## Autopools
 
-An [autopool](/rest/api/batchservice/job/add#autopoolspecification) is a pool that the Batch service creates when a job is submitted, rather than being created explicitly before the jobs that will run in the pool. The Batch service manages the lifetime of an autopool according to the characteristics that you specify. Most often, these pools are also set to delete automatically after their jobs complete.
+An [autopool](/rest/api/batchservice/jobs/create-job) is a pool that the Batch service creates when a job is submitted, rather than being created explicitly before the jobs that will run in the pool. The Batch service manages the lifetime of an autopool according to the characteristics that you specify. Most often, these pools are also set to delete automatically after their jobs complete.
 
 ## Security with certificates
 
 You typically need to use certificates when you encrypt or decrypt sensitive information for tasks, like the key for an [Azure Storage account](accounts.md#azure-storage-accounts). To support this, you can install certificates on nodes. Encrypted secrets are passed to tasks via command-line parameters or embedded in one of the task resources, and the installed certificates can be used to decrypt them.
 
-You use the [Add certificate](/rest/api/batchservice/certificate/add) operation (Batch REST) or [CertificateOperations.CreateCertificate](/dotnet/api/microsoft.azure.batch.certificateoperations) method (Batch .NET) to add a certificate to a Batch account. You can then associate the certificate with a new or existing pool.
+You use the [Add certificate](/rest/api/batchservice/) operation (Batch REST) or [CertificateOperations.CreateCertificate](/dotnet/api/microsoft.azure.batch.certificateoperations) method (Batch .NET) to add a certificate to a Batch account. You can then associate the certificate with a new or existing pool.
 
 When a certificate is associated with a pool, the Batch service installs the certificate on each node in the pool. The Batch service installs the appropriate certificates when the node starts up, before launching any tasks (including the [start task](jobs-and-tasks.md#start-task) and [job manager task](jobs-and-tasks.md#job-manager-task)).
 
@@ -200,4 +189,4 @@ If you add a certificate to an existing pool, you must reboot its compute nodes 
 ## Next steps
 
 - Learn about [jobs and tasks](jobs-and-tasks.md).
-- Learn how to [detect and avoid failures in pool and node background operations ](batch-pool-node-error-checking.md).
+- Learn how to [detect and avoid failures in pool and node background operations](batch-pool-node-error-checking.md).

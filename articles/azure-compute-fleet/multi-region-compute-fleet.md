@@ -1,14 +1,15 @@
 ---
 title: Multi-Region Compute Fleet (Preview)
 description: Learn about Azure Compute Fleet and how to accelerate your access to Azure's capacity through multi-region deployment.
-author: rrajeesh
-ms.author: rajeeshr
+author: fitzgeraldsteele
+ms.author: fisteele
 ms.topic: concept-article
 ms.service: azure-compute-fleet
 ms.custom:
   - ignite-2024
-ms.date: 11/13/2024
-ms.reviewer: jushiman
+ms.date: 07/16/2026
+ms.reviewer: wwilliams
+# Customer intent: "As a cloud architect, I want to distribute workloads across multiple regions using a compute fleet, so that I can enhance scalability, optimize performance, and ensure fault tolerance for my applications."
 ---
 
 # Multi-Region Compute Fleet (Preview)
@@ -36,7 +37,7 @@ To use Multi-Region Compute Fleet, you must [sign-up for Azure Compute Fleet pre
   
 ## Region availability
 
-Multi-Region Compute Fleet is available in all Azure Public Regions, except those located in China. 
+Multi-Region Compute Fleet is available in all Azure public cloud regions. 
 
 ## Next steps
 

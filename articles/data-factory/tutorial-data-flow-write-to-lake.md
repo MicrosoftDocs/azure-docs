@@ -4,7 +4,7 @@ description:  This tutorial provides best practices for writing to files to data
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/15/2024
 ---
 
@@ -17,7 +17,7 @@ If you're new to Azure Data Factory, see [Introduction to Azure Data Factory](in
 In this tutorial, you'll learn best practices that can be applied when writing files to ADLS Gen2 or Azure Blob Storage using data flows. You'll need access to an Azure Blob Storage Account or Azure Data Lake Store Gen2 account for reading a parquet file and then storing the results in folders.
 
 ## Prerequisites
-* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* **Azure subscription**. If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * **Azure storage account**. You use ADLS storage as a *source* and *sink* data stores. If you don't have a storage account, see [Create an Azure storage account](../storage/common/storage-account-create.md) for steps to create one.
 
 The steps in this tutorial will assume that you have 
