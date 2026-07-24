@@ -196,13 +196,6 @@ See the following example:
 > - Enabling and disabling an endpoint doesn't reset the **Health Checks** configuration. 
 > - Endpoints that are configured to always serve traffic are billed for [basic health checks](https://azure.microsoft.com/pricing/details/traffic-manager/).
 
-> [!NOTE]
-> Azure Traffic Manager health probes are designed to monitor endpoints that are reachable by the Traffic Manager probing infrastructure. Traffic Manager isn't designed to probe endpoints that resolve to addresses within private, non-routable, or Microsoft-internal network spaces.
-> 
-> Endpoints that resolve to addresses within these network spaces **must be configured as Always serve traffic endpoints**. Traffic Manager can't perform health validation for these endpoints and therefore can't provide health-based failover.
-> 
-> To ensure consistent behavior, Traffic Manager enforces the **Always serve traffic** configuration for endpoints that resolve to addresses within unsupported network spaces.
-
 ## Firewall Setup for Health Checks
 
 Azure Traffic Manager relies on health probes to monitor endpoint availability and performance. For probes to succeed, endpoints must be reachable, and any firewalls or access control lists (ACLs) in the path must allow traffic from all Traffic Manager IP addresses. If probe IP addresses are not allowed, health checks may fail. Endpoints marked as unhealthy can cause unexpected traffic rerouting or downtime.
