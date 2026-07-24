@@ -564,6 +564,9 @@ items:
               - name: Secure parameters in nested deployments
                 displayName: linter
                 href: linter-rule-secure-params-in-nested-deploy.md
+              - name: Secure params in parameters file
+                displayName: linter
+                href: linter-rule-secure-params-in-parameters-file.md
               - name: Secure secrets in parameters
                 displayName: linter
                 href: linter-rule-secure-secrets-in-parameters.md

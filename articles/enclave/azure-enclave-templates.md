@@ -5,6 +5,7 @@ author: aserfass-msft
 ms.author: aserfass
 ms.topic: overview
 ms.service: azure-enclave
+ai-usage: ai-assisted
 ms.date: 9/30/2025
 ---
 
