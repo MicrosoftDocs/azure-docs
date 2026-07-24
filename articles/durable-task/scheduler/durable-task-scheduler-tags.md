@@ -12,7 +12,7 @@ ms.date: 07/24/2026
 
 # Add Tags to Orchestrations and Activities in Durable Task Scheduler
 
-Tags are key-value pairs that you can attach to orchestrations, activities, and sub-orchestrations to add custom metadata. Use tags to categorize and correlate work as it runs. Orchestration tags can also be used to query orchestration instances.
+Tags are key-value pairs that you can attach to orchestrations, activities, and sub-orchestrations to add custom metadata. Use tags to categorize and correlate work as it runs. You can also use orchestration tags to query orchestration instances.
 
 You can add tags to:
 
@@ -38,10 +38,10 @@ You can add tags to:
 
 When you schedule an orchestration, activity, or sub-orchestration, you can supply a dictionary of string key-value pairs as tags. The Durable Task Scheduler stores and exposes tags differently depending on what you tag:
 
-- **Orchestration tags** are stored as metadata on the orchestration instance. Tags supplied when calling a sub-orchestration become metadata on the child orchestration instance. You can read these tags and filter orchestration instances by tag.
+- **Orchestration tags** are stored as metadata on the orchestration instance. Tags you supply when calling a sub-orchestration become metadata on the child orchestration instance. You can read these tags and filter orchestration instances by tag.
 - **Activity tags** are stored on the activity's scheduled event in the parent orchestration history. You can inspect them in orchestration history, but they aren't indexed or available in orchestration tag queries. Activity tags also aren't passed to the activity function.
 
-Tags are set when the orchestration, activity, or sub-orchestration is scheduled and can't be changed afterward.
+Set tags when you schedule the orchestration, activity, or sub-orchestration. You can't change tags afterward.
 
 ## Set a custom display name
 
@@ -195,7 +195,7 @@ const result = yield ctx.callSubOrchestrator(
 
 # [Python](#tab/python)
 
-Sub-orchestration tags aren't supported in the Python SDK.
+The Python SDK doesn't support sub-orchestration tags.
 
 # [Java](#tab/java)
 
@@ -233,7 +233,7 @@ if (state) {
 
 # [Python](#tab/python)
 
-Reading orchestration tags isn't supported in the Python SDK. Tags aren't surfaced in `OrchestrationState`.
+The Python SDK doesn't support reading orchestration tags. `OrchestrationState` doesn't surface tags.
 
 # [Java](#tab/java)
 
@@ -252,7 +252,7 @@ if (metadata != null) {
 
 ## Query tags
 
-You can filter orchestration instances by orchestration tag in the [Durable Task Scheduler dashboard](durable-task-scheduler-dashboard.md) using the **Tag filter**, which matches on tag key or value. Orchestration tags also appear as a column in the orchestration list.
+In the [Durable Task Scheduler dashboard](durable-task-scheduler-dashboard.md), use the **Tag filter** to filter orchestration instances by orchestration tag. The filter matches on tag key or value. The orchestration list also shows orchestration tags as a column.  
 
 Activity tags appear in the activity's scheduled event in orchestration history. They aren't included in the orchestration list's **Tag filter**.
 
@@ -263,13 +263,13 @@ Activity tags appear in the activity's scheduled event in orchestration history.
 - **Use consistent keys** — Follow a naming convention so you can reliably filter orchestration instances and correlate activities.
 - **Keep tags meaningful** — Use values that provide context.
 - **Use string values** — Keys and values are strings.
-- **Mind orchestration tag size** — The complete JSON-serialized orchestration tag dictionary can be up to **1,000 bytes**. This limit includes all keys and values, and multi-byte UTF-8 characters count as more than one byte each. Activity tags don't use this orchestration instance metadata limit, but they contribute to orchestration history size.
+- **Mind orchestration tag size** — The complete JSON-serialized orchestration tag dictionary can be up to **1,000 bytes**. This limit includes all keys and values, and multibyte UTF-8 characters count as more than one byte each. Activity tags don't use this orchestration instance metadata limit, but they contribute to orchestration history size.
 
 ## Limitations
 
 - Tags are immutable after the orchestration, activity, or sub-orchestration is scheduled.
 - Tag keys and values are strings.
-- Activity tags can be inspected in orchestration history, but they aren't queryable and aren't passed to activity functions.
+- You can inspect activity tags in orchestration history, but you can't query them. You also can't pass them to activity functions.
 
 ## Next steps
 
