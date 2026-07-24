@@ -24,7 +24,7 @@ This quickstart describes how to use Bicep to deploy the prerequisite infrastruc
 
 - Ensure you have the **Platform / IT administrator** persona roles assigned at the subscription or resource group scope. For the full list of required roles, see [Roles required by persona](concept-role-assignments.md#roles-required-by-persona).
 
-- Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hardened by default. Before you create your first workspace or bookshelf or supercomputer, you must create the **Discovery NSP Perimeter Joiner** custom role. Once created, assign **Discovery NSP Perimeter Joiner** custom role and "Reader" role to the Discovery first-party service principal so the control plane can configure Network Security Perimeters in your subscription. For step-by-step instructions, see [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md?tabs=azure-cli#assign-the-nsp-perimeter-joiner-role).
+- Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hardened by default. Before you create your first workspace, bookshelf, or supercomputer, you must create the **Discovery NSP Perimeter Joiner** custom role. Once created, assign the **Discovery NSP Perimeter Joiner** custom role and **Reader** role to the Discovery first-party service principal so the control plane can configure Network Security Perimeters in your subscription. For step-by-step instructions, see [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md?tabs=azure-cli#assign-the-nsp-perimeter-joiner-role).
 
 - Verify you have sufficient [quota reservations](concept-quota-reservation.md) for your target region.
 
