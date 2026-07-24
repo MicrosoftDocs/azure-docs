@@ -6,7 +6,7 @@ ms.author: primittal
 ms.date: 07/17/2026
 ms.topic: how-to
 ms.service: cost-management-billing
-ms.subservice: ahb
+ms.subservice: azure-hybrid-benefit
 ---
 
 # Transition to centrally managed Azure Hybrid Benefit

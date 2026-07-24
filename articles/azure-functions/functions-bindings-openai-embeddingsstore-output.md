@@ -49,12 +49,12 @@ This example writes an HTTP input stream to a semantic document store at the pro
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 
-:::code language="javascript" source="~/functions-openai-extension/samples/rag-aisearch/javascript/src/app.js" range="5-37":::
+:::code language="javascript" source="~/functions-openai-extension/samples/rag-aisearch/javascript/src/app.js" range="5-38":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
-:::code language="typescript" source="~/functions-openai-extension/samples/rag-aisearch/typescript/src/app.ts" range="4-40":::
+:::code language="typescript" source="~/functions-openai-extension/samples/rag-aisearch/typescript/src/app.ts" range="4-41":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -72,7 +72,7 @@ For more information about *function.json* file properties, see the [Configurati
 ::: zone pivot="programming-language-python"  
 This example writes an HTTP input stream to a semantic document store at the provided URL. 
 
-:::code language="python" source="~/functions-openai-extension/samples/rag-aisearch/python/function_app.py" range="8-35":::
+:::code language="python" source="~/functions-openai-extension/samples/rag-aisearch/python/function_app.py" range="8-36":::
 
 ::: zone-end  
 <!--- End code examples section -->  

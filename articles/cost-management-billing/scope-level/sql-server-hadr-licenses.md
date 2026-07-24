@@ -6,7 +6,7 @@ ms.author: primittal
 ms.date: 07/17/2026
 ms.topic: concept-article
 ms.service: cost-management-billing
-ms.subservice: ahb
+ms.subservice: azure-hybrid-benefit
 ms.reviewer: primittal
 ---
 
