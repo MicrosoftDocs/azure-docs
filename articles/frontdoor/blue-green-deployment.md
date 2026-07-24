@@ -1,18 +1,18 @@
 ---
-title: Blue/Green deployments using Azure Front Door
+title: Blue/Green Deployments Using Azure Front Door
 description: Learn how to use Azure Front Door to implement a blue/green deployment strategy for your web applications.
 author: halkazwini
 ms.author: halkazwini
 ms.reviewer: gamullen, hmb
 ms.service: azure-frontdoor
 ms.topic: how-to
-ms.date: 11/18/2024
+ms.date: 07/24/2026
 ms.custom: sfi-image-nochange
 ---
 
-# Blue/Green Deployments Using Azure Front Door
+# Blue/green deployments using Azure Front Door
 
-**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium :heavy_check_mark: Front Door (classic)
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 *Blue/Green deployment* is a software release strategy that gradually introduces application updates to a small group of users. If the updates are successful, the number of users accessing the new deployment is gradually increased until all users are on the new version. If issues arise, traffic can be redirected to the old version, ensuring minimal disruption. This approach is safer than deploying updates to all users at once.
 
@@ -97,7 +97,7 @@ Azure Front Door is Microsoft's modern cloud Content Delivery Network (CDN) that
 
 1. Select **Add** to add the origin group. Then select **Review + create** to review the settings of your Front Door profile. Select **Create** to create the profile.
 
-## Start Blue/Green Deployment
+## Start blue/green deployment
 
 To begin the blue/green deployment, enable the new origin to start routing traffic to it while retaining the option to revert to the old origin if necessary.
 
@@ -109,6 +109,7 @@ To begin the blue/green deployment, enable the new origin to start routing traff
 
 1. If any issues arise with the new origin, disable it to route all traffic back to the old origin. This allows you to address and resolve issues without affecting users.
 
-## Next steps
+## Next step
 
-[Secure traffic to your Azure Front Door origins](origin-security.md)
+> [!div class="nextstepaction"]
+> [Secure traffic to your Azure Front Door origins](origin-security.md)
