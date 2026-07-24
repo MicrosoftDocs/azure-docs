@@ -101,7 +101,7 @@ Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hard
 > A virtual network can only be associated with one Microsoft Discovery workspace. If you need multiple workspaces, create a separate virtual network and subnets for each one.
 
 > [!IMPORTANT]
-> If you deploy the networking resources into a separate resource group from your other Discovery resources, make sure you assign yourself the appropriate permissions on the virtual network's resource group so that the supercomputer resource deploys successfully. The permissions worth considering are **Network Contributor** and **Microsoft Discovery Platform Administrator (Preview)**.
+> If you deploy the networking resources into a separate resource group from your other Discovery resources, make sure you assign yourself the appropriate permissions on the virtual network's resource group so that the supercomputer resource deploys successfully. The permissions to consider are **Network Contributor** and **Microsoft Discovery Platform Administrator (Preview)**.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Virtual networks** and select it from the results.
