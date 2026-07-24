@@ -271,7 +271,7 @@ To install the tool globally:
 dotnet tool install --global Azure.Bicep.LangServer
 ```
 
-This makes the `bicep-ls` command available on your PATH. You can also use `dnx` to run the server on demand without a permanent installation:
+This command makes the `bicep-ls` command available on your PATH. You can also use `dnx` to run the server on demand without a permanent installation:
 
 ```
 dnx -y Azure.Bicep.LangServer
@@ -279,7 +279,7 @@ dnx -y Azure.Bicep.LangServer
 
 ### Use with Claude Code
 
-[Claude Code](https://code.claude.com) supports LSP plugins. To configure Bicep language intelligence, add the following to your plugin's `.lsp.json`:
+[Claude Code](https://code.claude.com) supports LSP plugins. To configure Bicep language intelligence, add the following code to your plugin's `.lsp.json`:
 
 ```json
 {
