@@ -234,7 +234,7 @@ main = df.Orchestrator.create(orchestrator_function)
 ```
 # [PowerShell](#tab/powershell)
 
-By default, cmdlets in PowerShell don't raise exceptions that try/catch blocks can catch. To change this behavior, use one of the following options:
+By default, PowerShell cmdlets don't raise exceptions that try/catch blocks can catch. To change this behavior, use one of the following options:
 
 1. Use the `-ErrorAction Stop` flag when invoking cmdlets, such as `Invoke-DurableActivity`.
 1. Set the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) preference variable to `"Stop"` in the orchestrator function before invoking cmdlets.
