@@ -82,7 +82,7 @@ Azure Front Door is Microsoft's modern cloud Content Delivery Network (CDN) that
     > [!NOTE]
     > *Session affinity* ensures the end user is routed to the same origin after the first request. Enable this feature based on your application and the type of enhancements being rolled out. For major revisions, enable session affinity to keep users on the new codebase. For minor enhancements, you can leave session affinity disabled. When in doubt, enable session affinity.
 
-1. You can keep the default settings for health probe. Adjust these settings based on your application's needs. For more information, see [Health probes](health-probes.md).
+1. You can keep the default settings for the health probe. Adjust these settings based on your application's needs. For more information, see [Health probes](health-probes.md).
 
 1. Under **Load balancing settings**, enter the following information:
 
