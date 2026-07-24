@@ -69,8 +69,6 @@ To import a model from Foundry:
 
 To connect a non-Foundry provider (AWS Bedrock, Google Vertex, OpenAI, or Anthropic), select **Add a custom model** instead. See [Manage models and tools](./ai-gateway-manage-models-tools.md#import-models).
 
-:::image type="content" source="media/quickstart-ai-gateway-create/ai-gateway-add-foundry-provider.png" alt-text="Screenshot of the Add Foundry provider wizard showing a selected subscription and Foundry resource with model deployments listed for import." lightbox="media/quickstart-ai-gateway-create/ai-gateway-add-foundry-provider.png":::
-
 Callers pass the model name in the `model` field of OpenAI-compatible requests. This quickstart uses `gpt-5.6-sol`; replace it with the model you registered.
 
 > [!TIP]
@@ -249,8 +247,6 @@ Applications authenticate to the gateway with a runtime access key rather than t
 1. Enter a name, such as `quickstart-client`.
 1. Select **Create**.
 1. Copy the key value and store it securely. You can also view it again later on the **Keys** page.
-
-:::image type="content" source="media/quickstart-ai-gateway-create/ai-gateway-runtime-keys.png" alt-text="Screenshot of the Keys page listing API keys that grant runtime access to every asset in the gateway, with a Create API key button." lightbox="media/quickstart-ai-gateway-create/ai-gateway-runtime-keys.png":::
 
 Create runtime access keys at the gateway level. These keys grant access to every model and tool in the gateway. Treat them like secrets. Store keys in a secret store for applications, rotate them regularly, and revoke keys that are no longer needed. To call the gateway with a runtime access key, set `AI_GATEWAY_API_KEY` to its value in the calls shown earlier.
 
