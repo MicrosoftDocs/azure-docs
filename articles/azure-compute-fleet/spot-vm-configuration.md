@@ -18,6 +18,8 @@ Compute Fleet has a few important configuration options to consider when it come
 
 To learn general information about Spot VMs and their configuration, see [Use Azure Spot Virtual Machines](/azure/virtual-machines/spot-vms). This article covers some important configuration considerations to note about Spot VMs when it comes to using Compute Fleet. 
 
+For REST API and ARM template scenarios that use capacity type configuration, use API version `2025-05-01` or later.
+
 ## Maintain capacity 
 
 The capacity preference configuration for Compute Fleet offers a **Maintain capacity** option, which is unique to Compute Fleet.

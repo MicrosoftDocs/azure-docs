@@ -24,8 +24,10 @@ Multi-Region Compute Fleet is a cloud deployment capability that allows you to d
 This feature eliminates the constraints of regional dependencies, letting your applications thrive wherever the demand takes them.  You can use this capability through a number of ways: running a stateless web service, large batch jobs, a big data cluster, or a continuous integration pipeline. Workloads such as financial risk analysis, log processing, or image rendering can benefit from the ability to run hundreds of thousands of concurrent cores or instances.
 
 ## Prerequisites
- 
+  
 To use Multi-Region Compute Fleet, you must [sign-up for Azure Compute Fleet preview features](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRyYHv8J_khRKqQeYhVEgwSVUMFU1V0M0WU9ZNlA3UFA1SzdIUVY0TEVYSS4u&origin=lprLink&route=shorturl). After you complete the sign-up form and are approved, you will be contacted with next steps and onboarding details. 
+
+For REST API and ARM template scenarios, use API version `2024-11-01` or later for cross-region support.
 
 ## Benefits
 
