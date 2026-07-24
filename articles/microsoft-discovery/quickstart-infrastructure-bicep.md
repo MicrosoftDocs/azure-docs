@@ -24,19 +24,29 @@ This quickstart describes how to use Bicep to deploy the prerequisite infrastruc
 
 - Ensure you have the **Platform / IT administrator** persona roles assigned at the subscription or resource group scope. For the full list of required roles, see [Roles required by persona](concept-role-assignments.md#roles-required-by-persona).
 
+- Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hardened by default. Before you create your first workspace or bookshelf or supercomputer, you must create the **Discovery NSP Perimeter Joiner** custom role. Once created, assign **Discovery NSP Perimeter Joiner** custom role and "Reader" role to the Discovery first-party service principal so the control plane can configure Network Security Perimeters in your subscription. For step-by-step instructions, see [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md?tabs=azure-cli#assign-the-nsp-perimeter-joiner-role).
+
+- Verify you have sufficient [quota reservations](concept-quota-reservation.md) for your target region.
+
   > [!TIP]
   > To assign the full **Platform Administrator** persona role set in a single command, use the open-source `Set-DiscoveryRoleAssignments.ps1` PowerShell script. See [Assign Microsoft Discovery persona roles with a PowerShell script](how-to-assign-persona-roles.md).
 
-> [!IMPORTANT]
-> Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hardened by default. Before you create your first workspace or bookshelf or supercomputer, you must create the **Discovery NSP Perimeter Joiner** custom role. Once created, assign **Discovery NSP Perimeter Joiner** custom role and "Reader" role to the Discovery first-party service principal so the control plane can configure Network Security Perimeters in your subscription. For step-by-step instructions, see [Assign the NSP Perimeter Joiner role](how-to-configure-network-security.md?tabs=azure-cli#assign-the-nsp-perimeter-joiner-role).
-
-- Verify you have sufficient [quota reservations](concept-quota-reservation.md) for your target region.
+  > [!IMPORTANT]
+  > This Bicep template deploys all resources into a single resource group. If you plan to deploy the networking resources into a separate resource group, make sure you assign yourself the appropriate permissions on the virtual network's resource group so that the supercomputer resource deploys successfully. The permissions worth considering are **Network Contributor** and **Microsoft Discovery Platform Administrator (Preview)**. You will need to update the bicep template to accomodate creation of VNET in separate Resource Group.
 
 ## Review the Bicep file
 
 The Bicep file used in this quickstart is from [Azure Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.discovery/discovery-infra-deployment).
 
-In this quickstart, you deploy the full Microsoft Discovery stack into *Sweden Central*. The deployment creates a virtual network with a *10.0.0.0/16* address space and five subnets for supercomputer node pools, AKS, workspace, private endpoints, and agents. A *Standard_LRS* storage account is provisioned with CORS rules enabled for Discovery Studio and VS Code. A user-assigned managed identity is created with *Storage Blob Data Contributor*, *Discovery Platform Contributor*, and *AcrPull* role assignments. The core Discovery resources include a supercomputer with a *Standard_D4s_v6* node pool (scaling from *0* to *3* nodes), a workspace with a *GPT-5.1* chat model deployment, a storage container, and a project.
+In this quickstart, you deploy the full Microsoft Discovery stack into *Sweden Central*. The deployment creates a virtual network with a *10.0.0.0/16* address space and five subnets for supercomputer node pools, AKS, workspace, private endpoints, and agents. A *Standard_LRS* storage account is provisioned with CORS rules enabled for Discovery Studio and VS Code. A user-assigned managed identity is created with *Storage Blob Data Contributor*, *Discovery Platform Contributor*, and *AcrPull* role assignments. The core Discovery resources include a supercomputer with a *Standard_D4s_v6* node pool (scaling from *0* to *3* nodes), a workspace with a chat model deployment, a storage container, and a project.
+
+> [!NOTE]
+> **Enable the unified Workbench (preview).** The unified Workbench, which includes GitHub Copilot and AI features, is in preview. To enable it, deploy your workspace with the tags `discovery.workbench.enableGhcpAiFeatures: true` and `discovery.workbench.enableExtensions: true`. How you access the Workbench depends on the workspace's `networkIsolation` setting:
+>
+> - When `networkIsolation` is set to `false`, the Workbench works out of the box.
+> - When `networkIsolation` is set to `true`, you must establish a VPN (or ExpressRoute) connection to the virtual network where the workspace is deployed.
+>
+> For more information, see [Use GitHub Copilot in Microsoft Discovery](how-to-copilot.md).
 
 :::code language="bicep" source="~/quickstart-templates/quickstarts/microsoft.discovery/discovery-infra-deployment/main.bicep":::
 

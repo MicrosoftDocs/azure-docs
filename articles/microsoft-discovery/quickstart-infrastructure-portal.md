@@ -47,6 +47,9 @@ In this quickstart, you set up your Microsoft Discovery environment to run your 
 > [!IMPORTANT]
 > Microsoft Discovery resources are supported in three production regions: **East US**, **Sweden Central**, and **UK South**. Create all resources for a single deployment in the same region, subscription, and resource group for simplicity.
 
+> [!TIP]
+> You can deploy Discovery resources with complete network isolation. When `networkIsolation` is enabled, all resources are shielded within the private network and are reachable only through the private endpoint and Network Security Perimeter (NSP). You can still reach the workspace over the public network through Discovery Studio and the REST API. To lock down access to your private network only, disable public network access for your workspace and create private endpoints for the workspace resources. For guidance, see [Configure network security for Microsoft Discovery workspaces](how-to-configure-network-security.md?tabs=azure-cli#create-private-endpoints-for-data-plane-access).
+
 ## 1. Set up networking, identity, and storage
 
 Before proceeding with the deployment of Microsoft Discovery infrastructure components, use an existing resource group or create a new one.
@@ -96,6 +99,9 @@ Microsoft Discovery workspaces, bookshelves, and supercomputers are network-hard
 
 > [!NOTE]
 > A virtual network can only be associated with one Microsoft Discovery workspace. If you need multiple workspaces, create a separate virtual network and subnets for each one.
+
+> [!IMPORTANT]
+> If you deploy the networking resources into a separate resource group from your other Discovery resources, make sure you assign yourself the appropriate permissions on the virtual network's resource group so that the supercomputer resource deploys successfully. The permissions worth considering are **Network Contributor** and **Microsoft Discovery Platform Administrator (Preview)**.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Virtual networks** and select it from the results.
@@ -251,6 +257,9 @@ A workspace is a collaborative environment where teams manage large-scale scient
    - `discovery.workbench.enableGhcpAiFeatures` set to `true` — Enables GitHub Copilot and AI features for the workspace.
    - `discovery.workbench.enableExtensions` set to `true` — Enables the VS Code Extension Marketplace in the preview experience.
    - `NetworkIsolation` set to `false` — Enables public access to the preview experience (workbench) and other managed resource group (MRG) resources. If you keep network isolation enabled (default), you need to be connected on a VPN or ExpressRoute to the virtual network where the workspace is deployed to access over private network.
+   > [!TIP]
+   > You can deploy Discovery resources with complete network isolation. When `networkIsolation` is enabled, all resources are shielded within the private network and are reachable only through the private endpoint and Network Security Perimeter (NSP). You can still reach the workspace over the public network through Discovery Studio and the REST API. To lock down access to your private network only, disable public network access for your workspace and create private endpoints for the workspace resources. For guidance, see [Configure network security for Microsoft Discovery workspaces](how-to-configure-network-security.md?tabs=azure-cli#create-private-endpoints-for-data-plane-access).
+
 1. Review the Terms and Conditions, then select **Review + Create**.
 1. Once validation is successful, select **Create**.
    :::image type="content" source="media/quickstart-infrastructure-portal/create-workspace-overview.jpg" alt-text="Screenshot of the Microsoft Discovery Workspace overview page after creation." lightbox="media/quickstart-infrastructure-portal/create-workspace-overview.jpg":::
