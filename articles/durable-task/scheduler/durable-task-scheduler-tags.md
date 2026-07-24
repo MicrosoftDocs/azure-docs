@@ -7,12 +7,12 @@ description: Learn how to use tags to attach custom key-value metadata to orches
 ms.topic: how-to
 ms.service: durable-task
 ms.subservice: durable-task-scheduler
-ms.date: 06/10/2026
+ms.date: 07/24/2026
 ---
 
 # Add Tags to Orchestrations and Activities in Durable Task Scheduler
 
-Tags are key-value pairs that you can attach to orchestrations and activities to add custom metadata. Use tags to categorize, correlate, and query your work as it runs.
+Tags are key-value pairs that you can attach to orchestrations, activities, and sub-orchestrations to add custom metadata. Use tags to categorize and correlate work as it runs. Orchestration tags can also be used to query orchestration instances.
 
 You can add tags to:
 
@@ -22,27 +22,35 @@ You can add tags to:
 
 ## SDK and extension support
 
-| SDK/Extension | Orchestration tags | Activity/suborchestration tags | Read tags back |
-|---|---|---|---|
-| **Durable Task .NET SDK** (`durabletask-dotnet`) | ✅ | ✅ | ✅ |
-| **Durable Task JavaScript SDK** (`durabletask-js`) | ✅ | ✅ | ✅ |
-| **Durable Task Python SDK** (`durabletask-python`) | ✅ | ✅ | ❌ (not surfaced in `OrchestrationState`) |
-| **Durable Task Java SDK** (`durabletask-java`) | ✅ (v1.6.0+) | ❌ (`TaskOptions` is retry-only) | ✅ |
-| **Durable Functions: .NET isolated** | ✅ | ✅ | ✅ |
-| **Durable Functions: .NET in-process** | ❌ | ❌ | ❌ |
-| **Durable Functions: JavaScript** | ❌ | ❌ | ❌ |
-| **Durable Functions: Python** | ❌ | ❌ | ❌ |
-| **Durable Functions: Java** | ✅ | ❌ | ✅ |
+| SDK/Extension | Orchestration tags | Activity tags | Sub-orchestration tags | Read orchestration tags |
+|---|---|---|---|---|
+| **Durable Task .NET SDK** (`durabletask-dotnet`) | ✅ | ✅ | ✅ | ✅ |
+| **Durable Task JavaScript SDK** (`durabletask-js`) | ✅ | ✅ | ✅ | ✅ |
+| **Durable Task Python SDK** (`durabletask-python`) | ✅ | ✅ | ❌ | ❌ (not surfaced in `OrchestrationState`) |
+| **Durable Task Java SDK** (`durabletask-java`) | ✅ (v1.6.0+) | ❌ (`TaskOptions` is retry-only) | ❌ | ✅ |
+| **Durable Functions: .NET isolated** | ✅ | ✅ | ✅ | ✅ |
+| **Durable Functions: .NET in-process** | ❌ | ❌ | ❌ | ❌ |
+| **Durable Functions: JavaScript** | ❌ | ❌ | ❌ | ❌ |
+| **Durable Functions: Python** | ❌ | ❌ | ❌ | ❌ |
+| **Durable Functions: Java** | ✅ | ❌ | ❌ | ✅ |
 
 ## How tags work
 
-When you schedule an orchestration or activity, you can supply a dictionary of string key-value pairs as tags. The Durable Task Scheduler stores these tags as part of the instance metadata, where they can be used to:
+When you schedule an orchestration, activity, or sub-orchestration, you can supply a dictionary of string key-value pairs as tags. The Durable Task Scheduler stores and exposes tags differently depending on what you tag:
 
-- **Categorize work** — Group related orchestrations and activities by attributes meaningful to your application (environment, tenant, workflow type).
-- **Correlate and trace** — Attach identifiers (request ID, customer ID) to follow a unit of work across instances.
-- **Filter and query** — Retrieve orchestrations that match a specific set of tags.
+- **Orchestration tags** are stored as metadata on the orchestration instance. Tags supplied when calling a sub-orchestration become metadata on the child orchestration instance. You can read these tags and filter orchestration instances by tag.
+- **Activity tags** are stored on the activity's scheduled event in the parent orchestration history. You can inspect them in orchestration history, but they aren't indexed or available in orchestration tag queries. Activity tags also aren't passed to the activity function.
 
-Tags are set when the instance is scheduled and don't change after creation.
+Tags are set when the orchestration, activity, or sub-orchestration is scheduled and can't be changed afterward.
+
+## Set a custom display name
+
+Use the well-known `durabletask.displayName` tag to give an orchestration, sub-orchestration, or activity a name intended for people viewing a run. When this tag has a nonempty value, the Durable Task Scheduler dashboard shows that value wherever it would otherwise show the registered name, including the orchestration list, flow and sequence views, and detail panels.
+
+The registered name isn't discarded or changed. It remains available in the dashboard tooltip and details, and the custom display name doesn't affect what code runs. If the tag is missing or empty, the dashboard shows the registered name as usual.
+
+> [!IMPORTANT]
+> The `durabletask.` prefix is reserved for the platform. The dashboard hides tags whose keys start with `durabletask.` from the normal tag list so platform tags, such as `durabletask.displayName`, don't appear both as interpreted metadata and as raw tags. Don't create your own tag keys under the `durabletask.` prefix.
 
 ## Add tags to an orchestration instance
 
@@ -159,10 +167,13 @@ Activity tags aren't supported in the Java SDK. `TaskOptions` supports retry pol
 # [C#](#tab/csharp)
 
 ```csharp
-var options = new TaskOptions(tags: new Dictionary<string, string>
+var options = new SubOrchestrationOptions
 {
-    { "workflowType", "order-processing" },
-});
+    Tags = new Dictionary<string, string>
+    {
+        { "workflowType", "order-processing" },
+    },
+};
 
 await context.CallSubOrchestratorAsync(
     "ValidateOrderOrchestration", input: order, options: options);
@@ -184,15 +195,7 @@ const result = yield ctx.callSubOrchestrator(
 
 # [Python](#tab/python)
 
-```python
-result = yield ctx.call_sub_orchestrator(
-    "validate_order_orchestration",
-    input=order,
-    tags={
-        "workflowType": "order-processing",
-    },
-)
-```
+Sub-orchestration tags aren't supported in the Python SDK.
 
 # [Java](#tab/java)
 
@@ -200,7 +203,7 @@ Sub-orchestration tags aren't supported in the Java SDK. `TaskOptions` supports 
 
 ---
 
-## Read tags
+## Read orchestration tags
 
 # [C#](#tab/csharp)
 
@@ -230,7 +233,7 @@ if (state) {
 
 # [Python](#tab/python)
 
-Reading tags isn't supported in the Python SDK. Tags aren't surfaced in `OrchestrationState`.
+Reading orchestration tags isn't supported in the Python SDK. Tags aren't surfaced in `OrchestrationState`.
 
 # [Java](#tab/java)
 
@@ -249,21 +252,24 @@ if (metadata != null) {
 
 ## Query tags
 
-You can filter orchestrations by tag in the [Durable Task Scheduler dashboard](durable-task-scheduler-dashboard.md) using the **Tag filter**, which matches on tag key or value; tags also appear as a column in the orchestration list. 
+You can filter orchestration instances by orchestration tag in the [Durable Task Scheduler dashboard](durable-task-scheduler-dashboard.md) using the **Tag filter**, which matches on tag key or value. Orchestration tags also appear as a column in the orchestration list.
+
+Activity tags appear in the activity's scheduled event in orchestration history. They aren't included in the orchestration list's **Tag filter**.
 
 :::image type="content" source="media/durable-task-scheduler-dashboard/dashboard-tag-filter.png" alt-text="Screenshot of the Durable Task Scheduler dashboard showing the tag filter and tags column in the orchestration list.":::
 
 ## Tag guidelines
 
-- **Use consistent keys** — Follow a naming convention so you can reliably filter and query.
+- **Use consistent keys** — Follow a naming convention so you can reliably filter orchestration instances and correlate activities.
 - **Keep tags meaningful** — Use values that provide context.
 - **Use string values** — Keys and values are strings.
-- **Mind tag size** — Each tag value can be up to **1,000 bytes**. Multi-byte UTF-8 characters count as more than one byte each. There's no fixed limit on the number of tags, but they're bounded by the per-value size and the overall instance metadata payload.
+- **Mind orchestration tag size** — The complete JSON-serialized orchestration tag dictionary can be up to **1,000 bytes**. This limit includes all keys and values, and multi-byte UTF-8 characters count as more than one byte each. Activity tags don't use this orchestration instance metadata limit, but they contribute to orchestration history size.
 
 ## Limitations
 
-- Tags are set when an instance is scheduled and are immutable afterward.
+- Tags are immutable after the orchestration, activity, or sub-orchestration is scheduled.
 - Tag keys and values are strings.
+- Activity tags can be inspected in orchestration history, but they aren't queryable and aren't passed to activity functions.
 
 ## Next steps
 
