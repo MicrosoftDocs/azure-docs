@@ -170,6 +170,8 @@ items:
       href: fqdn-tags.md
     - name: Service tags
       href: service-tags.md
+  - name: HTTP header insertion
+    href: configure-http-header-insertion.md
   - name: Application rules with SQL FQDNs
     href: sql-fqdn-filtering.md
   - name: SNAT

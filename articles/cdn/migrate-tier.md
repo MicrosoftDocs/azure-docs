@@ -4,7 +4,7 @@ description: This article provides step-by-step instructions on how to migrate f
 services: cdn
 author: halkazwini
 ms.author: halkazwini
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: concept-article
 ms.date: 02/28/2026
 ROBOTS: NOINDEX

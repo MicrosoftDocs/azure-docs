@@ -6,7 +6,7 @@ services: cdn
 author: halkazwini
 ms.author: halkazwini
 manager: KumudD
-ms.service: azure-cdn
+ms.service: azure-content-delivery-network
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.date: 02/28/2026

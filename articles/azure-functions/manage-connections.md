@@ -83,8 +83,6 @@ When you use Microsoft Entra authentication to connect to an Azure service, the 
 
 The identities that you use for your connections must have permissions to perform the intended actions. For most Azure services, this requirement means you need to [assign a role in Azure RBAC](../role-based-access-control/role-assignments-steps.md), using either built-in or custom roles that provide those permissions. To learn more, see [Grant permissions to an identity](#grant-permissions-to-an-identity). 
 
-For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). 
-
 Keep these considerations in mind when using identity-based connections: 
 
 + In a Functions-hosted app, identity-based connections use a [managed identity](../app-service/overview-managed-identity.md?toc=%2fazure%2fazure-functions%2ftoc.json). The system-assigned identity, which is specific to to your app, is used by default. However, user-assigned identities, which also require the `*__credential` and `*__clientID` properties, are more flexible and recommended.    
@@ -323,8 +321,6 @@ Keep these considerations in mind when maintaining connections in Key Vault:
 + To access keys in the vault, you must [grant an identity in your app access to your key vault](../app-service/app-service-key-vault-references.md#grant-your-app-access-to-a-key-vault). 
 
 + You can use Key Vault to store settings for your managed identity-based connections. When your app uses Key Vault, references must use a key separator of `:` or `/`, such as `Storage1:blobServiceUri`. When you use the regular application setting delimiter of `__`, reference names don't resolve correctly.
-
-For a complete end-to-end example, see the [Tutorial: Create a function app that connects to Azure services using identities instead of secrets](functions-identity-based-connections-tutorial.md).
 
 ### [Host required](#tab/host)
 

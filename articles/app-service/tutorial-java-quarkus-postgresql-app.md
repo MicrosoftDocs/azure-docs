@@ -59,7 +59,7 @@ If you just want to see the sample app in this tutorial running in Azure, just r
 ```bash
 mkdir msdocs-quarkus-postgresql-sample-app
 cd msdocs-quarkus-postgresql-sample-app
-azd init --template msdocs-quarkus-postgresql-sample-app
+azd init --template msdocs-quarkus-postgresql-sample-app .
 azd up
 ```
 
@@ -546,7 +546,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
 1. From the repository root of the GitHub codespace, run `azd init`.
 
     ```bash
-    azd init --template javase-app-service-postgresql-infra
+    azd init --template javase-app-service-postgresql-infra .
     ```
 
 1. When prompted, give the following answers:

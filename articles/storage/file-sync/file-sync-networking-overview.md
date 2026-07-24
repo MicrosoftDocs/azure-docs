@@ -1,36 +1,31 @@
 ---
 title: Azure File Sync networking considerations
-description: Learn how to configure networking and connect your Windows Server to Azure File Sync to cache files on-premises.
+description: Learn how to configure networking for Azure File Sync, including proxy servers, firewalls and service tags, VPN and ExpressRoute tunneling, private endpoints, and SMB over QUIC.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 11/06/2024
+ms.date: 07/23/2026
 ms.author: kendownie
 # Customer intent: As an IT administrator, I want to configure networking for Azure File Sync on my on-premises Windows Server, so that I can efficiently cache files while maintaining secure and optimized access to Azure file shares.
 ---
 
 # Networking considerations for Azure File Sync
 
-You can connect to an Azure file share in two ways:
+This article covers networking considerations for Azure File Sync, which caches Azure file shares on on-premises Windows file servers. For networking considerations for a direct Azure Files deployment, see [Azure Files networking considerations](../files/storage-files-networking-overview.md?toc=/azure/storage/filesync/toc.json).
 
-1. Access the share directly via the SMB or FileREST protocols. This access pattern is primarily employed to eliminate as many on-premises servers as possible.
-2. Create a cache of the Azure file share on an on-premises server (or Azure virtual machine) with Azure File Sync, and access the file share's data from the on-premises server with your protocol of choice (SMB, NFS, FTPS, etc.). This access pattern is handy because it combines the best of both on-premises performance and cloud scale with value-added services such as Azure Backup.
-
-This article focuses on the second scenario: how to configure networking when your use case calls for using Azure File Sync to cache files on-premises rather than directly mounting the Azure file share over SMB. For more information about networking considerations for an Azure Files deployment, see [Azure Files networking considerations](../files/storage-files-networking-overview.md?toc=/azure/storage/filesync/toc.json).
-
-Networking configuration for Azure File Sync spans two different Azure objects: a Storage Sync Service and an Azure storage account. A storage account is a management construct that represents a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blobs or queues. A Storage Sync Service is a management construct that represents registered servers, which are Windows file servers with an established trust relationship with Azure File Sync, and sync groups, which define the topology of the sync relationship.
+Networking for Azure File Sync involves two Azure objects: a **Storage Sync Service** (which manages registered servers and sync groups) and an **Azure storage account** (which hosts the file shares). In most cases, you don't need special networking configuration beyond a basic internet connection, but you can configure proxy servers, firewalls, VPN or ExpressRoute tunneling, private endpoints, and SMB over QUIC.
 
 > [!IMPORTANT]
 > Azure File Sync doesn't support internet routing. The default network routing option, Microsoft routing, is supported by Azure File Sync.
 
 ## Connecting Windows file server to Azure with Azure File Sync
 
-To set up and use Azure Files and Azure File Sync with an on-premises Windows file server, no special networking to Azure is required beyond a basic internet connection. To deploy Azure File Sync, you install the Azure File Sync agent on the Windows file server you would like to sync with Azure. The Azure File Sync agent achieves synchronization with an Azure file share via two channels:
+To set up and use Azure Files and Azure File Sync with an on-premises Windows file server, you don't need special networking to Azure beyond a basic internet connection. To deploy Azure File Sync, install the Azure File Sync agent on the Windows file server you want to sync with Azure. The Azure File Sync agent achieves synchronization with an Azure file share through two channels:
 
 - The FileREST protocol, which is an HTTPS-based protocol used for accessing your Azure file share. Because the FileREST protocol uses standard HTTPS for data transfer, port 443 must be accessible outbound. Azure File Sync doesn't use the SMB protocol to transfer data between your on-premises Windows Servers and your Azure file share.
 - The Azure File Sync sync protocol, which is an HTTPS-based protocol used for exchanging synchronization knowledge, namely the version information about the files and folders between endpoints in your environment. This protocol is also used to exchange metadata about the files and folders, such as timestamps and access control lists (ACLs).
 
-Because Azure Files offers direct SMB protocol access on Azure file shares, customers often wonder if they need to configure special networking to mount the Azure file shares using SMB for the Azure File Sync agent to access. This isn't required and is actually discouraged except in administrator scenarios, due to the lack of quick change detection on changes made directly to the Azure file share. Changes might not be discovered for more than 24 hours depending on the size and number of items in the Azure file share. If you want to use the Azure file share directly instead of using Azure File Sync to cache on-premises, see [Azure Files networking overview](../files/storage-files-networking-overview.md?toc=/azure/storage/filesync/toc.json).
+Mounting the Azure file share directly over SMB for the Azure File Sync agent isn't required and is discouraged, because direct changes to the file share might not be detected for up to 24 hours. To use the file share directly without Azure File Sync, see [Azure Files networking overview](../files/storage-files-networking-overview.md?toc=/azure/storage/filesync/toc.json).
 
 Although Azure File Sync doesn't require any special networking configuration, some customers might want to configure advanced networking settings to enable the following scenarios:
 
@@ -40,7 +35,7 @@ Although Azure File Sync doesn't require any special networking configuration, s
 
 ### Configuring proxy servers
 
-Many organizations use a proxy server as an intermediary between resources inside their on-premises network and resources outside their network, such as in Azure. Proxy servers are useful for many applications such as network isolation and security, monitoring, and logging. Azure File Sync can interoperate fully with a proxy server, however you must manually configure the proxy endpoint settings for your environment with Azure File Sync. This must be done via PowerShell using the Azure File Sync server cmdlet `Set-StorageSyncProxyConfiguration`.
+Azure File Sync can interoperate fully with a proxy server, but you must manually configure the proxy endpoint settings for your environment with Azure File Sync. Use PowerShell and the Azure File Sync server cmdlet `Set-StorageSyncProxyConfiguration`.
 
 For more information on how to configure Azure File Sync with a proxy server, see [Configuring Azure File Sync with a proxy server](file-sync-firewall-and-proxy.md).
 
@@ -54,7 +49,7 @@ Azure File Sync requires the IP address ranges for the following services, as id
 | Service | Description | Service tag |
 |---------|-------------|-------------|
 | Azure File Sync | The Azure File Sync service, as represented by the Storage Sync Service object, is responsible for the core activity of syncing data between an Azure file share and a Windows file server. | `StorageSyncService` |
-| Azure Files | All data synchronized via Azure File Sync is stored in Azure file share. Files changed on your Windows file servers are replicated to your Azure file share, and files tiered on your on-premises file server are seamlessly downloaded when a user requests them. | `Storage` |
+| Azure Files | All data synchronized through Azure File Sync is stored in an Azure file share. Files changed on your Windows file servers are replicated to your Azure file share, and files tiered on your on-premises file server are seamlessly downloaded when a user requests them. | `Storage` |
 | Azure Resource Manager | The Azure Resource Manager is the management interface for Azure. All management calls, including Azure File Sync server registration and ongoing sync server tasks, are made through the Azure Resource Manager. | `AzureResourceManager` |
 | Microsoft Entra ID | Microsoft Entra ID (formerly Azure AD) contains the user principals required to authorize server registration against a Storage Sync Service, and the service principals required for Azure File Sync to be authorized to access your cloud resources. | `AzureActiveDirectory` |
 
@@ -78,13 +73,11 @@ To learn more about how to use the service tag API to retrieve the addresses of 
 
 Some organizations require communication with Azure to go over a network tunnel, such as a VPN or ExpressRoute, for an additional layer of security or to ensure communication with Azure follows a deterministic route. 
 
-When you establish a network tunnel between your on-premises network and Azure, you're peering your on-premises network with one or more virtual networks in Azure. A [virtual network](../../virtual-network/virtual-networks-overview.md), or VNET, is similar to a traditional network that you'd operate on-premises. Like an Azure storage account or an Azure VM, a VNET is an Azure resource that is deployed in a resource group.
-
 Azure Files and Azure File Sync support the following mechanisms to tunnel traffic between your on-premises servers and Azure:
 
-- [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md): A VPN gateway is a specific type of virtual network gateway that is used to send encrypted traffic between an Azure virtual network and an alternate location (such as on-premises) over the internet. An Azure VPN Gateway is an Azure resource that can be deployed in a resource group along side of a storage account or other Azure resources. Because Azure File Sync is meant to be used with an on-premises Windows file server, you would normally use a [Site-to-Site (S2S) VPN](../../vpn-gateway/design.md#s2smulti), although it is technically possible to use a [Point-to-Site (P2S) VPN](../../vpn-gateway/point-to-site-about.md). 
+- [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md): A VPN gateway is a specific type of virtual network gateway that you use to send encrypted traffic between an Azure virtual network and an alternate location (such as on-premises) over the internet. An Azure VPN Gateway is an Azure resource that you deploy in a resource group alongside a storage account or other Azure resources. Because Azure File Sync is meant to be used with an on-premises Windows file server, you normally use a [site-to-site VPN](../../vpn-gateway/design.md#s2smulti), although it's technically possible to use a [point-to-site VPN](../../vpn-gateway/point-to-site-about.md). 
 
-    Site-to-Site (S2S) VPN connections connect your Azure virtual network and your organization's on-premises network. A S2S VPN connection enables you to configure a VPN connection once, for a VPN server or device hosted on your organization's network, rather than doing for every client device that needs to access your Azure file share. To simplify the deployment of a S2S VPN connection, see [Configure a Site-to-Site (S2S) VPN for use with Azure Files](../files/storage-files-configure-s2s-vpn.md?toc=/azure/storage/filesync/toc.json).
+    Site-to-site VPN connections connect your Azure virtual network and your organization's on-premises network. A site-to-site VPN connection enables you to configure a VPN connection once, for a VPN server or device hosted on your organization's network, rather than doing so for every client device that needs to access your Azure file share. To simplify the deployment of a site-to-site VPN connection, see [Configure a Site-to-Site VPN for use with Azure Files](../files/storage-files-configure-s2s-vpn.md?toc=/azure/storage/filesync/toc.json).
 
 - [ExpressRoute](../../expressroute/expressroute-introduction.md), which enables you to create a defined route (private connection) between Azure and your on-premises network that doesn't traverse the internet. Because ExpressRoute provides a dedicated path between your on-premises datacenter and Azure, ExpressRoute can be useful when network performance is a key consideration. ExpressRoute is also a good option when your organization's policy or regulatory requirements require a deterministic path to your resources in the cloud.
 
@@ -99,9 +92,9 @@ To use SMB over QUIC with Azure File Sync:
 
 For setup and configuration details, see [SMB over QUIC](/windows-server/storage/file-server/smb-over-quic).
 
-### Private endpoints
+### Private endpoints for Azure Files and Azure File Sync
 
-In addition to the default public endpoints Azure Files and Azure File Sync provide through the storage account and Storage Sync Service, they provide the option to have one or more private endpoints per resource. This allows you to privately and securely connect to Azure file shares from on-premises using VPN or ExpressRoute and from within an Azure VNET. When you create a private endpoint for an Azure resource, it gets a private IP address from within the address space of your virtual network, much like how your on-premises Windows file server has an IP address within the dedicated address space of your on-premises network.
+In addition to the default public endpoints Azure Files and Azure File Sync provide through the storage account and Storage Sync Service, they provide the option to have one or more private endpoints per resource. This option allows you to privately and securely connect to Azure file shares from on-premises using VPN or ExpressRoute and from within an Azure virtual network. When you create a private endpoint for an Azure resource, it gets a private IP address from within the address space of your virtual network, much like how your on-premises Windows file server has an IP address within the dedicated address space of your on-premises network.
 
 An individual private endpoint is associated with a specific Azure virtual network subnet. Storage accounts and Storage Sync Services may have private endpoints in more than one virtual network.
 
@@ -111,20 +104,20 @@ Using private endpoints enables you to:
 - Secure your Azure resources by disabling the public endpoints for Azure Files and File Sync. By default, creating a private endpoint doesn't block connections to the public endpoint.
 - Increase security for the virtual network by enabling you to block exfiltration of data from the virtual network (and peering boundaries).
 
-To create a private endpoint, see [Configuring private endpoints for Azure File Sync](file-sync-networking-endpoints.md).
+To create a private endpoint, see [Configure private endpoints for Azure File Sync](file-sync-networking-endpoints.md).
 
 ### Private endpoints and DNS
 
-When you create a private endpoint, by default we also create (or update an existing) private DNS zone corresponding to the `privatelink` subdomain. For public cloud regions, these DNS zones are `privatelink.file.core.windows.net` for Azure Files and `privatelink.afs.azure.net` for Azure File Sync.
+When you create a private endpoint, Azure also creates or updates a private DNS zone that corresponds to the `privatelink` subdomain. For public cloud regions, these DNS zones are `privatelink.file.core.windows.net` for Azure Files and `privatelink.afs.azure.net` for Azure File Sync.
 
 > [!NOTE]
 > This article uses the storage account DNS suffix for the Azure Public regions, `core.windows.net`. This also applies to Azure Sovereign clouds such as the Azure US Government cloud and the Microsoft Azure operated by 21Vianet cloud - just substitute the appropriate suffixes for your environment.
 
-When you create private endpoints for a storage account and a Storage Sync Service, we create A records for them in their respective private DNS zones. We also update the public DNS entry such that the regular fully qualified domain names are CNAMEs for the relevant `privatelink` name. This enables the fully qualified domain names to point at the private endpoint IP address(es) when the requester is inside of the virtual network and to point at the public endpoint IP address(es) when the requester is outside of the virtual network.
+When you create private endpoints for a storage account and a Storage Sync Service, Azure creates A records for them in their respective private DNS zones. Azure also updates the public DNS entry such that the regular fully qualified domain names are CNAMEs for the relevant `privatelink` name. This configuration enables the fully qualified domain names to point at the private endpoint IP addresses when the requester is inside of the virtual network and to point at the public endpoint IP addresses when the requester is outside of the virtual network.
 
 For Azure Files, each private endpoint has a single fully qualified domain name, following the pattern `storageaccount.privatelink.file.core.windows.net`, mapped to one private IP address for the private endpoint. For Azure File Sync, each private endpoint has four fully qualified domain names, for the four different endpoints that Azure File Sync exposes: management, sync (primary), sync (secondary), and monitoring. The fully qualified domain names for these endpoints will normally follow the name of the Storage Sync Service unless the name contains non-ASCII characters. For example, if your Storage Sync Service name is `mysyncservice` in the West US 2 region, the equivalent endpoints would be `mysyncservicemanagement.westus2.afs.azure.net`, `mysyncservicesyncp.westus2.afs.azure.net`, `mysyncservicesyncs.westus2.afs.azure.net`, and `mysyncservicemonitoring.westus2.afs.azure.net`. Each private endpoint for a Storage Sync Service will contain four distinct IP addresses. 
 
-Because your Azure private DNS zone is connected to the virtual network containing the private endpoint, you can observe the DNS configuration when by calling the `Resolve-DnsName` cmdlet from PowerShell in an Azure VM (alternately `nslookup` in Windows and Linux):
+Because your Azure private DNS zone is connected to the virtual network containing the private endpoint, you can observe the DNS configuration by calling the `Resolve-DnsName` cmdlet from PowerShell in an Azure VM (alternately `nslookup` in Windows and Linux):
 
 ```powershell
 Resolve-DnsName -Name "storageaccount.file.core.windows.net"
@@ -135,7 +128,7 @@ For this example, the storage account `storageaccount.file.core.windows.net` res
 ```Output
 Name                              Type   TTL   Section    NameHost
 ----                              ----   ---   -------    --------
-storageaccount.file.core.windows. CNAME  29    Answer     csostoracct.privatelink.file.core.windows.net
+storageaccount.file.core.windows. CNAME  29    Answer     storageaccount.privatelink.file.core.windows.net
 net
 
 Name       : storageaccount.privatelink.file.core.windows.net
@@ -174,19 +167,19 @@ Section    : Answer
 IP4Address : 52.239.194.40
 ```
 
-This reflects the fact that the Azure Files and Azure File Sync can expose both their public endpoints and one or more private endpoints per resource. To ensure that the fully qualified domain names for your resources resolve to the private endpoints private IP addresses, you must change the configuration on your on-premises DNS servers. This can be accomplished in several ways:
+This configuration reflects the fact that Azure Files and Azure File Sync can expose both their public endpoints and one or more private endpoints per resource. To ensure that the fully qualified domain names for your resources resolve to the private endpoint IP addresses, you must configure your on-premises DNS servers. You can accomplish this task in several ways:
 
 - Modifying the hosts file on your clients to make the fully qualified domain names for your storage accounts and Storage Sync Services resolve to the desired private IP addresses. This is strongly discouraged for production environments, since you'll need to make these changes to every client that needs to access your private endpoints. Changes to your private endpoints/resources (deletions, modifications, etc.) won't be automatically handled.
 - Creating DNS zones on your on-premises servers for `privatelink.file.core.windows.net` and `privatelink.afs.azure.net` with A records for your Azure resources. This has the advantage that clients in your on-premises environment will be able to automatically resolve Azure resources without needing to configure each client. However, this solution is similarly brittle to modifying the hosts file because changes aren't reflected. Although this solution is brittle, it might be the best choice for some environments.
-- Forward the `core.windows.net` and `afs.azure.net` zones from your on-premises DNS servers to your Azure private DNS zone. The Azure private DNS host can be reached through a special IP address (`168.63.129.16`) that is only accessible inside virtual networks that are linked to the Azure private DNS zone. To work around this limitation, you can run additional DNS servers within your virtual network that will forward `core.windows.net` and `afs.azure.net` to the equivalent Azure private DNS zones. To simplify this configuration, we've provided PowerShell cmdlets that will auto-deploy DNS servers in your Azure virtual network and configure them as desired. To learn how to set up DNS forwarding, see [Configuring DNS with Azure Files](../files/storage-files-networking-dns.md?toc=/azure/storage/filesync/toc.json).
+- Forward the `core.windows.net` and `afs.azure.net` zones from your on-premises DNS servers to your Azure private DNS zone. The Azure private DNS host can be reached through a special IP address (`168.63.129.16`) that is only accessible inside virtual networks that are linked to the Azure private DNS zone. To work around this limitation, you can run additional DNS servers within your virtual network that forward `core.windows.net` and `afs.azure.net` to the equivalent Azure private DNS zones. To simplify this configuration, Microsoft provides PowerShell cmdlets that auto-deploy DNS servers in your Azure virtual network and configure them as desired. To learn how to set up DNS forwarding, see [Configure DNS with Azure Files](../files/storage-files-networking-dns.md?toc=/azure/storage/filesync/toc.json).
 
 ## Encryption in transit
 
 Connections made from the Azure File Sync agent to your Azure file share or Storage Sync Service are always encrypted. Although Azure storage accounts have a setting to disable requiring encryption in transit for communications to Azure Files (and the other Azure storage services that are managed out of the storage account), disabling this setting won't affect Azure File Sync's encryption when communicating with Azure Files. By default, all Azure storage accounts have encryption in transit enabled.
 
-For more information about encryption in transit, see [requiring secure transfer in Azure storage](../common/storage-require-secure-transfer.md?toc=/azure/storage/files/toc.json).
+For more information about encryption in transit, see [require secure transfer in Azure storage](../common/storage-require-secure-transfer.md?toc=/azure/storage/files/toc.json).
 
 ## See also
 
-- [Planning for an Azure File Sync deployment](file-sync-planning.md)
+- [Plan for an Azure File Sync deployment](file-sync-planning.md)
 - [Deploy Azure File Sync](file-sync-deployment-guide.md)
