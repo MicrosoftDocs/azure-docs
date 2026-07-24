@@ -16,7 +16,7 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
-You implement Durable Functions orchestrations in code, so you use your language's built-in error handling features. Error handling and compensation don't require new concepts, but a few orchestration behaviors are worth knowing about.
+You implement Durable Functions orchestrations in code, so use your language's built-in error handling features. Error handling and compensation don't require new concepts, but a few orchestration behaviors are worth knowing about.
 
 [!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]
 
@@ -24,7 +24,7 @@ You implement Durable Functions orchestrations in code, so you use your language
 
 ::: zone pivot="durable-task-sdks"
 
-Apps that use cloud services need to handle failures, and client side retries are an important part of the design. The Durable Task SDKs include support for error handling, retries, and timeouts to help you build robust workflows.
+Apps that use cloud services need to handle failures, and client-side retries are an important part of the design. The Durable Task SDKs include support for error handling, retries, and timeouts to help you build robust workflows.
 
 ::: zone-end
 
@@ -33,7 +33,7 @@ Apps that use cloud services need to handle failures, and client side retries ar
 
 ::: zone pivot="durable-functions"
 
-In Durable Functions, unhandled exceptions thrown within activity functions or sub-orchestrations are marshaled back to the orchestrator function using standardized exception types.
+In Durable Functions, the framework marshals unhandled exceptions thrown within activity functions or sub-orchestrations back to the orchestrator function by using standardized exception types.
 
 The following orchestrator function transfers funds between two accounts:
 
@@ -42,7 +42,7 @@ The following orchestrator function transfers funds between two accounts:
 <details>
 <summary><b>Isolated worker model</b></summary>
 
-In Durable Functions C# Isolated, unhandled exceptions are surfaced as [TaskFailedException](/dotnet/api/microsoft.durabletask.taskfailedexception).
+In Durable Functions C# Isolated, unhandled exceptions surface as [TaskFailedException](/dotnet/api/microsoft.durabletask.taskfailedexception).
 
 The exception message typically identifies which activity functions or sub-orchestrations caused the failure. To access more detailed error information, inspect the [FailureDetails](/dotnet/api/microsoft.durabletask.taskfailuredetails) property.
 
@@ -83,7 +83,7 @@ public static async Task Run(
 
 > [!NOTE]  
 > - The exception message typically identifies which activity functions or sub-orchestrations caused the failure. To access more detailed error information, inspect the [`FailureDetails`](/dotnet/api/microsoft.durabletask.taskfailuredetails) property.  
-> - By default, `FailureDetails` includes the **error type**, **error message**, **stack trace**, and any **nested inner exceptions** (each represented as a recursive `FailureDetails` object). To include additional exception properties in the failure output, see [Include Custom Exception Properties for FailureDetails (.NET Isolated)](#include-custom-exception-properties-for-failuredetails-net-isolated).  
+> - By default, `FailureDetails` includes the **error type**, **error message**, **stack trace**, and any **nested inner exceptions** (each represented as a recursive `FailureDetails` object). To include additional exception properties in the failure output, see [Include custom exception properties for FailureDetails](#include-custom-exception-properties-for-failuredetails).  
 
 > [!IMPORTANT]
 > **Migration note (in-process to isolated):** In the in-process model, `FunctionFailedException.InnerException` contains the original exception object thrown by the activity, which you can cast and inspect directly. In the isolated worker model, `TaskFailedException` does **not** contain the original exception as an `InnerException`. Instead, error details are available only through the [`FailureDetails`](/dotnet/api/microsoft.durabletask.taskfailuredetails) property, which provides string-based properties (`ErrorType`, `ErrorMessage`, `StackTrace`). You can't cast or access the original exception object directly. Use [`FailureDetails.IsCausedBy<T>()`](/dotnet/api/microsoft.durabletask.taskfailuredetails.iscausedby) to check the original exception type.
@@ -93,7 +93,7 @@ public static async Task Run(
 <details>
 <summary><b>In-process model</b></summary>
 
-In Durable Functions C# in-process, unhandled exceptions are thrown as [FunctionFailedException](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.functionfailedexception).
+In Durable Functions C# in-process, unhandled exceptions throw as [FunctionFailedException](/dotnet/api/microsoft.azure.webjobs.extensions.durabletask.functionfailedexception).
 
 The exception message usually includes the activity function or sub-orchestration that failed. For details, inspect `InnerException`.
 
@@ -234,10 +234,10 @@ main = df.Orchestrator.create(orchestrator_function)
 ```
 # [PowerShell](#tab/powershell)
 
-By default, cmdlets in PowerShell don't raise exceptions that can be caught using try/catch blocks. You have two options for changing this behavior:
+By default, PowerShell cmdlets don't raise exceptions that try/catch blocks can catch. To change this behavior, use one of the following options:
 
 1. Use the `-ErrorAction Stop` flag when invoking cmdlets, such as `Invoke-DurableActivity`.
-2. Set the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) preference variable to `"Stop"` in the orchestrator function before invoking cmdlets.
+1. Set the [`$ErrorActionPreference`](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) preference variable to `"Stop"` in the orchestrator function before invoking cmdlets.
 
 ```powershell
 param($Context)
@@ -255,7 +255,7 @@ try {
 }
 ```
 
-For more information on error handling in PowerShell, see the [Try-Catch-Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) PowerShell documentation.
+For more information about error handling in PowerShell, see the [Try-Catch-Finally](/powershell/module/microsoft.powershell.core/about/about_try_catch_finally) PowerShell documentation.
 
 # [Java](#tab/java)
 
@@ -694,7 +694,7 @@ public static async Task Run([OrchestrationTrigger] IDurableOrchestrationContext
 ```
 
 > [!NOTE]
-> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
+> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
 
 </details>
 
@@ -1257,7 +1257,7 @@ public static async Task<bool> Run([OrchestrationTrigger] IDurableOrchestrationC
 ```
 
 > [!NOTE]
-> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
+> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](../durable-functions/durable-functions-versions.md) article.
 
 </details>
 
@@ -1536,22 +1536,29 @@ public TaskOrchestration createOrchestratorWithTimeout() {
 
 If an orchestrator function fails with an unhandled exception, the runtime logs the exception details, and the instance completes with a `Failed` status.
 
-## Include custom exception properties for FailureDetails (.NET Isolated)
+## Include custom exception properties for FailureDetails
 
-In Durable Task workflows that use the .NET Isolated model, task failures are serialized to a `FailureDetails` object. By default, the object includes these fields:
+In Durable Task workflows, task failures are serialized to a `FailureDetails` object. By default, the object includes these fields:
 - `ErrorType`—Exception type name
 - `Message`—Exception message
 - `StackTrace`—Serialized stack trace
 - `InnerFailure`—Nested `FailureDetails` object for inner exceptions
 
+You can extend this behavior to include additional, custom exception properties in the `FailureDetails.Properties` dictionary by registering a custom exception properties provider.
+
+> [!NOTE]  
+> This feature is available in **.NET Isolated** and **JavaScript** only. Support for Python, PowerShell, and Java isn't available yet.
+
+# [C#](#tab/csharp)
+
 Starting with Microsoft.Azure.Functions.Worker.Extensions.DurableTask [v1.9.0](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.DurableTask/1.9.0), you can extend this behavior by implementing `IExceptionPropertiesProvider` (defined in the `Microsoft.DurableTask.Worker` package starting in [v1.16.1](https://www.nuget.org/packages/Microsoft.DurableTask.Worker/1.16.1)). This provider defines which exception types and properties to include in the `FailureDetails.Properties` dictionary.
 
 > [!NOTE]  
-> - This feature is available in **.NET Isolated** only. Support for Java isn't available yet.  
 > - Make sure you're using **Microsoft.Azure.Functions.Worker.Extensions.DurableTask v1.9.0** or later.  
 > - Make sure you're using **Microsoft.DurableTask.Worker v1.16.1** or later.
 
-### Implement an exception properties provider
+**Implement an exception properties provider**
+
 Implement a custom `IExceptionPropertiesProvider` to extract and return selected properties for the exceptions you care about. The returned dictionary is serialized to the `Properties` field of `FailureDetails` when a matching exception type is thrown.
 
 ```csharp
@@ -1579,7 +1586,8 @@ public class CustomExceptionPropertiesProvider : IExceptionPropertiesProvider
 }
 ```
 
-### Register the provider
+**Register the provider**
+
 In *Program.cs*, register your custom `IExceptionPropertiesProvider` in your .NET Isolated worker host:
 ```csharp
 using Microsoft.DurableTask.Worker;
@@ -1597,7 +1605,8 @@ host.Run();
 ```
 After you register the provider, any exception that matches a handled type automatically includes the configured properties in its `FailureDetails`.
 
-### Sample FailureDetails output
+**Sample FailureDetails output**
+
 When an exception occurs that matches your provider’s configuration, the orchestration receives a serialized `FailureDetails` object like this:
 ```json
 {
@@ -1614,6 +1623,143 @@ When an exception occurs that matches your provider’s configuration, the orche
   }
 }
 ```
+
+# [JavaScript](#tab/javascript)
+
+In the Node.js V4 programming model, you can extend this behavior by registering a global exception properties provider with `df.app.setExceptionPropertiesProvider(...)`. The provider extracts selected fields from thrown exceptions, and the Durable worker propagates them onto the `FailureDetails.Properties` dictionary. Return `undefined` to opt out for a particular error.
+
+> [!NOTE]
+> The `df.app.setExceptionPropertiesProvider` API requires version `3.4.0` or later of the `durable-functions` npm package and version `3.13.0` or later of the `Microsoft.Azure.WebJobs.Extensions.DurableTask` extension. Until version 3.13.0 is available in extension bundles, [manually install the extension](../durable-functions/durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension-version). 
+>
+> [See when version releases are available for the extension bundle.](https://github.com/Azure/azure-functions-extension-bundles/releases) 
+
+**Register the provider**
+
+Define a custom exception type that carries the structured fields, register a global provider that surfaces those fields, and catch the propagated `TaskFailedError` in the orchestration to access the custom properties.
+
+```javascript
+const { app } = require("@azure/functions");
+const df = require("durable-functions");
+const { TaskFailedError } = df;
+
+// Custom exception carrying structured properties.
+class BusinessValidationException extends Error {
+    constructor(
+        message,
+        stringProperty,
+        intProperty,
+        longProperty,
+        dateTimeProperty,
+        dictionaryProperty,
+        listProperty,
+        nullProperty
+    ) {
+        super(message);
+        this.name = "BusinessValidationException";
+        // Fix the prototype chain (necessary when extending built-ins).
+        Object.setPrototypeOf(this, new.target.prototype);
+        this.stringProperty = stringProperty;
+        this.intProperty = intProperty;
+        this.longProperty = longProperty;
+        this.dateTimeProperty = dateTimeProperty;
+        this.dictionaryProperty = dictionaryProperty;
+        this.listProperty = listProperty;
+        this.nullProperty = nullProperty;
+    }
+}
+
+// Register a global provider that surfaces custom properties from thrown
+// exceptions into FailureDetails.Properties. Return `undefined` to opt out
+// for a particular error.
+df.app.setExceptionPropertiesProvider({
+    getExceptionProperties(error) {
+        if (error instanceof BusinessValidationException) {
+            return {
+                StringProperty: error.stringProperty,
+                IntProperty: error.intProperty,
+                LongProperty: error.longProperty,
+                DateTimeProperty: error.dateTimeProperty,
+                DictionaryProperty: error.dictionaryProperty,
+                ListProperty: error.listProperty,
+                NullProperty: error.nullProperty,
+            };
+        }
+        return undefined;
+    },
+});
+
+// Activity: throws an exception carrying custom properties.
+df.app.activity("businessActivity", {
+    handler: () => {
+        throw new BusinessValidationException(
+            "Business logic validation failed",
+            "validation-error-123",
+            100,
+            999999999,
+            "2025-10-15T14:30:00.000Z",
+            {
+                error_code: "VALIDATION_FAILED",
+                retry_count: 3,
+                is_critical: true,
+            },
+            ["error1", "error2", 500, null],
+            null
+        );
+    },
+});
+
+// Orchestrator: calls the activity, catches the propagated TaskFailedError,
+// and returns its FailureDetails (which includes the custom Properties).
+df.app.orchestration("orchestrationWithCustomException", function* (context) {
+    try {
+        yield context.df.callActivity("businessActivity");
+    } catch (e) {
+        if (e instanceof TaskFailedError) {
+            return e.failureDetails;
+        }
+        throw e;
+    }
+    // Should never reach here — the activity always throws.
+    return null;
+});
+```
+
+**Sample FailureDetails output**
+
+When the activity throws an exception that matches your provider, the orchestration receives a `FailureDetails` object whose `properties` carry the custom values:
+```json
+{
+  "errorType": "BusinessValidationException",
+  "errorMessage": "Business logic validation failed",
+  "properties": {
+    "StringProperty": "validation-error-123",
+    "IntProperty": 100,
+    "LongProperty": 999999999,
+    "DateTimeProperty": "2025-10-15T14:30:00.000Z",
+    "DictionaryProperty": {
+      "error_code": "VALIDATION_FAILED",
+      "retry_count": 3,
+      "is_critical": true
+    },
+    "ListProperty": ["error1", "error2", 500, null],
+    "NullProperty": null
+  }
+}
+```
+
+# [Python](#tab/python)
+
+Custom exception properties for `FailureDetails` aren't supported in Python yet.
+
+# [PowerShell](#tab/powershell)
+
+Custom exception properties for `FailureDetails` aren't supported in PowerShell yet.
+
+# [Java](#tab/java)
+
+Java doesn't support custom exception properties for `FailureDetails` yet.
+
+---
 
 ::: zone-end
 
