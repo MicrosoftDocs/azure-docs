@@ -32,7 +32,7 @@ This quickstart describes how to use Bicep to deploy the prerequisite infrastruc
   > To assign the full **Platform Administrator** persona role set in a single command, use the open-source `Set-DiscoveryRoleAssignments.ps1` PowerShell script. See [Assign Microsoft Discovery persona roles with a PowerShell script](how-to-assign-persona-roles.md).
 
   > [!IMPORTANT]
-  > This Bicep template deploys all resources into a single resource group. If you plan to deploy the networking resources into a separate resource group, make sure you assign yourself the appropriate permissions on the virtual network's resource group so that the supercomputer resource deploys successfully. The permissions worth considering are **Network Contributor** and **Microsoft Discovery Platform Administrator (Preview)**. You will need to update the bicep template to accomodate creation of VNET in separate Resource Group.
+  > This Bicep template deploys all resources into a single resource group. If you plan to deploy the networking resources into a separate resource group, make sure you assign yourself the appropriate permissions on the virtual network's resource group so the supercomputer resource deploys successfully. The permissions worth considering are **Network Contributor** and **Microsoft Discovery Platform Administrator (Preview)**. You need to update the Bicep template to accommodate creation of VNET in separate resource group.
 
 ## Review the Bicep file
 
