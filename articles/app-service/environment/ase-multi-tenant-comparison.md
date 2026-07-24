@@ -54,7 +54,7 @@ However, App Service Environment v3 is a dedicated environment. Even though it c
 |App Service managed certificates|[Not supported](overview-certificates.md#limitations)|[Supported](../../app-service/configure-ssl-app-service-certificate.md)|
 |Certificates shared across apps|Yes.|No. You must upload the certificate to every app.|
 |Public certificate limit|1,000 public certificates per App Service plan|1,000 public certificates per App Service plan|
-|End-to-end TLS encryption for inbound calls|Supported |Supported on Premium App Service plans and existing Standard App Service deployments. For configuration details, see [End-to-end TLS encryption](../overview-tls#end-to-end-tls-encryption). |
+|End-to-end TLS encryption for inbound calls|Supported |Supported on Premium App Service plans and existing Standard App Service deployments. For configuration details, see [End-to-end TLS encryption](../overview-tls.md#end-to-end-tls-encryption). |
 |Changing TLS cipher suite order|[Supported](app-service-app-service-environment-custom-settings.md#change-tls-cipher-suite-order)|[Supported with the minimum TLS cipher suite feature](../../app-service/configure-ssl-bindings.md#enforce-tls-versions)|
 
 ## Networking
@@ -77,7 +77,7 @@ However, App Service Environment v3 is a dedicated environment. Even though it c
 > [!NOTE]
 > In multitenant App Service, private endpoints and virtual network integration serve separate traffic directions. A private endpoint provides private inbound access to the app. Virtual network integration routes application-initiated outbound traffic into a virtual network and must use a different subnet.
 >
-> Route tables and network security groups on the virtual network integration subnet don't apply to replies for requests received through the app's private endpoint. For more information, see [Virtual network integration routing](../overview-vnet-integration#routes).
+> Route tables and network security groups on the virtual network integration subnet don't apply to replies for requests received through the app's private endpoint. For more information, see [Virtual network integration routing](../overview-vnet-integration.md#routes).
 >
 > If traffic destined for a private endpoint is routed through a network virtual appliance, ensure that the forward and return paths remain symmetric. Private Link generally recommends source network address translation (SNAT) for this topology unless the appliance uses the supported `disableSnatOnPL` configuration. For more information, see [Private endpoint limitations](/azure/private-link/private-endpoint-overview#limitations).
 
@@ -133,7 +133,7 @@ Yes, you can use App Service Environment v3 and the public multitenant offering 
 
 Yes. You can migrate from multitenant App Service to App Service Environment v3, but the process isn't an in-place conversion. You need to create the target App Service resources and redeploy or restore the application.
 
-If you use App Service backup and restore, review the applicable limitations. Restore compatibility depends on factors including the backup type and operating system, and automatic and custom backups have different destination restrictions. For more information, see [Back up and restore your app](../manage-backup#how-does-backup-and-restore-work-with-app-service-environments).
+If you use App Service backup and restore, review the applicable limitations. Restore compatibility depends on factors including the backup type and operating system, and automatic and custom backups have different destination restrictions. For more information, see [Back up and restore your app](../manage-backup.md#how-does-backup-and-restore-work-with-app-service-environments).
 
 ### Can I use App Service Environment v3 for my development and testing environments?
 
