@@ -448,7 +448,7 @@ else
 fi
 
 # For public cloud, this will generate the following DNS suffix:
-# privatelink.afs.azure.net.
+# privatelink.afs.azure.net
 dnsZoneName="privatelink.$storageSyncSuffix"
 
 # Find a DNS zone matching desired name attached to this virtual network
