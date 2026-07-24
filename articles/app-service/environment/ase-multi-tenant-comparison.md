@@ -131,7 +131,7 @@ Yes, you can use App Service Environment v3 and the public multitenant offering 
 
 ### Can I migrate from the public multitenant offering to App Service Environment v3?
 
-Yes. Migration between multitenant App Service and App Service Environment v3 is possible, but it isn't an in-place conversion. Create the target App Service resources and redeploy or restore the application.
+Yes. You can migrate from multitenant App Service to App Service Environment v3, but the process isn't an in-place conversion. You need to create the target App Service resources and redeploy or restore the application.
 
 If you use App Service backup and restore, review the applicable limitations. Restore compatibility depends on factors including the backup type and operating system, and automatic and custom backups have different destination restrictions. For more information, see [Back up and restore your app](../manage-backup#how-does-backup-and-restore-work-with-app-service-environments).
 
