@@ -1628,12 +1628,8 @@ When an exception occurs that matches your provider’s configuration, the orche
 
 In the Node.js V4 programming model, you can extend this behavior by registering a global exception properties provider with `df.app.setExceptionPropertiesProvider(...)`. The provider extracts selected fields from thrown exceptions, and the Durable worker propagates them onto the `FailureDetails.Properties` dictionary. Return `undefined` to opt out for a particular error.
 
-> [!NOTE]  
-> If you want to set custom exeptions properties in your JavaScript project, consider the following requirements:
-> - Must use the `durable-functions` npm package **v3.5.0** or later, which adds `df.app.setExceptionPropertiesProvider`.  
-> - Must use an extension bundle that ships the feature: `Microsoft.Azure.Functions.ExtensionBundle` **v4.37.1** or later (configured in *host.json*), or the preview bundle `Microsoft.Azure.Functions.ExtensionBundle.Preview` **v4.44.0** or later. Older bundles don't surface `Properties`.
-> 
-> Since v3.13.0 isn't currently available in extension bundles, you need to [manually install the extension](../durable-functions/durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension-version). 
+> [!NOTE]
+> The `df.app.setExceptionPropertiesProvider` API requires version `3.4.0` or later of the `durable-functions` npm package and version `3.13.0` or later of the `Microsoft.Azure.WebJobs.Extensions.DurableTask` extension. Until v3.13.0 is available in extension bundles, [manually install the extension](../durable-functions/durable-functions-extension-upgrade.md#manually-upgrade-the-durable-functions-extension-version). 
 >
 > [See when version releases are available for the extension bundle.](https://github.com/Azure/azure-functions-extension-bundles/releases) 
 
