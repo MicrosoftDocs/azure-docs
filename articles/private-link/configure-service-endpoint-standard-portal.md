@@ -24,7 +24,7 @@ This article walks you through configuring a [standard service endpoint](service
 
 - The **AllowServiceEndpointNetworkIdentifier** feature must be registered in your subscription. Use the following steps to register the feature:
 
-    1. Sign in to the [Azure portal](https://portal.azure.com).
+    1. Sign in to the [Azure portal](https://portal.azure.com/?feature.vnetnetworkidentifier=true).
 
     1. In the search box at the top of the portal, enter **Subscriptions**. Select **Subscriptions** in the search results.
 
@@ -40,7 +40,7 @@ This article walks you through configuring a [standard service endpoint](service
 
 ## Create a resource group
 
-1. Sign in to the [Azure portal](https://portal.azure.com) with your Azure account.
+1. Sign in to the [Azure portal](https://portal.azure.com/?feature.vnetnetworkidentifier=true) with your Azure account.
 
 1. In the search box at the top of the portal, enter **Resource group**. Select **Resource groups** in the search results.
 
