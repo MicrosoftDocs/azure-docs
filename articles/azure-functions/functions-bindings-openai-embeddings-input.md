@@ -57,12 +57,12 @@ This example shows how to generate embeddings for a raw text string.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-:::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="3-27":::
+:::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="3-28":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
-:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="3-31":::
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="3-32":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-typescript" 
@@ -70,12 +70,12 @@ This example shows how to generate embeddings for a raw text string.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
 
-:::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="29-54":::
+:::code language="javascript" source="~/functions-openai-extension/samples/embeddings/javascript/src/app.js" range="29-56":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"  
 
-:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="33-62":::
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="33-64":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -92,7 +92,7 @@ For more information about *function.json* file properties, see the [Configurati
 ::: zone pivot="programming-language-python"  
 This example shows how to generate embeddings for a raw text string.
 
-:::code language="python" source="~/functions-openai-extension/samples/embeddings/python/function_app.py" range="8-27":::
+:::code language="python" source="~/functions-openai-extension/samples/embeddings/python/function_app.py" range="8-28":::
 
 ::: zone-end  
 <!--- End code examples section -->  

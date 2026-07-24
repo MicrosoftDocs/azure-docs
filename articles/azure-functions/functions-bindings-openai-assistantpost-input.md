@@ -49,12 +49,12 @@ This example demonstrates the creation process, where the HTTP POST function tha
 This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
-:::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="4-5,36-60":::
+:::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="4-5,36-61":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
-:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="4-5,36-60":::
+:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="4-5,36-61":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -73,7 +73,7 @@ For more information about *function.json* file properties, see the [Configurati
 ::: zone pivot="programming-language-python"  
 This example demonstrates the creation process, where the HTTP POST function that sends user prompts to the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="python" source="~/functions-openai-extension/samples/assistant/python/assistant_apis.py" range="34-52":::
+:::code language="python" source="~/functions-openai-extension/samples/assistant/python/assistant_apis.py" range="34-53":::
 
 ::: zone-end  
 <!--- End code examples section -->  
