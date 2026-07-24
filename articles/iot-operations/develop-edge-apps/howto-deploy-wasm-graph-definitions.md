@@ -37,9 +37,10 @@ WASM modules in Azure IoT Operations data flow graphs and connectors let you pro
 
 ## Use prebuilt modules from a public registry
 
-The fastest way to get started is to use the prebuilt sample WASM modules and graph definitions directly from the public GitHub Container Registry. This approach doesn't require setting up a private registry, ORAS CLI, or any pull/push steps.
+You can use the prebuilt sample WASM modules and graph definitions that are published to the public GitHub Container Registry (`ghcr.io`) under `azure-samples/explore-iot-operations`.
 
-To consume the samples, create an anonymous registry endpoint named `public-ghcr` that points to `ghcr.io`. For the Azure CLI and Bicep options, see [Use a public registry](howto-configure-registry-endpoint.md#use-a-public-registry).
+> [!NOTE]
+> `ghcr.io` requires an authenticated token exchange before it serves even *public* artifacts, and the current Azure IoT Operations runtime doesn't perform the anonymous exchange. Configure the `public-ghcr` endpoint with an **artifact pull secret** backed by a GitHub personal access token (PAT) with the `read:packages` scope, rather than anonymous authentication. For the endpoint and secret steps, see [Use a public registry](howto-configure-registry-endpoint.md#use-a-public-registry).
 
 ### Available sample artifacts
 

@@ -286,7 +286,7 @@ You see the following message when it's ready:
 
 ## Deploy the InferencePool and Endpoint Picker
 
-Deploy the EPP and `InferencePool` together by using the [`inferencepool` Helm chart](https://github.com/kubernetes-sigs/gateway-api-inference-extension/tree/main/config/charts/inferencepool) published by the Kubernetes Gateway API Inference Extension project. The chart creates an EPP `Deployment`, a `Service` on port `9002`, the `ServiceAccount`, `Role`, and `RoleBinding` that let the EPP watch pods, and the `InferencePool` resource itself (named after the Helm release).
+Deploy the EPP and `InferencePool` together by using the [`inferencepool` Helm chart](https://github.com/kubernetes-sigs/gateway-api-inference-extension/tree/release-1.5/config/charts/inferencepool) published by the Kubernetes Gateway API Inference Extension project. The chart creates an EPP `Deployment`, a `Service` on port `9002`, the `ServiceAccount`, `Role`, and `RoleBinding` that let the EPP watch pods, and the `InferencePool` resource itself (named after the Helm release).
 
 ```bash
 IGW_CHART_VERSION='v1.3.1'

@@ -4,8 +4,9 @@ description: See answers to frequently asked questions about Azure Enclave.
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: concept-article
-ms.date: 6/23/2026
+ms.service: azure-enclave
 ai-usage: ai-assisted
+ms.date: 6/23/2026
 ---
 
 # Azure Enclave frequently asked questions

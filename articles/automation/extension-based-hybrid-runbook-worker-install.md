@@ -9,7 +9,7 @@ ms.custom:
   - devx-track-bicep
   - linux-related-content
   - build-2025
-ms.date: 04/15/2026
+ms.date: 05/05/2026
 ms.topic: how-to
 #Customer intent: As a developer, I want to learn about extension so that I can efficiently deploy Hybrid Runbook Workers.
 ms.service: azure-automation
@@ -40,6 +40,14 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 - The system-assigned managed identity must be enabled on the Azure virtual machine, Arc-enabled server, Arc-enabled VMware vSphere VM or Arc-enabled SCVMM VM.  If the system-assigned managed identity isn't enabled, it will be enabled as part of the adding process.
  
 ### Supported operating systems
+
+> [!NOTE]
+> Windows Server 2012 and 2012 R2 reached end of support (EOS). Review your usage and plan OS upgrades and migrations accordingly. For more information, see End of support for:
+>
+>- [Windows Server 2012](/windows/release-health/status-windows-server-2012)
+>- [Windows Server 2012 R2](/windows/release-health/status-windows-8.1-and-windows-server-2012-r2)
+>
+>[Perform in-place upgrade to Windows Server 2016, 2019, 2022, or 2025](/azure/virtual-machines/windows-in-place-upgrade#perform-in-place-upgrade-to-windows-server-2016-2019-2022-or-2025).
 
 | Windows (x64)  | Linux (x64) |
 |---|---|

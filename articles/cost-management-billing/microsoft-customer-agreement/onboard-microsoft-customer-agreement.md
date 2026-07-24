@@ -421,7 +421,7 @@ This section of the onboarding guide describes the steps you follow to migrate f
 - Changes to **subscription vending using Terraform** - For more information, see:
     - [Azure/lz-vending/azurerm | Terraform Registry](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest?tab=inputs)
     - [Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
-    - [Azure Landing Zones Subscription Vending with Terraform, Terraform Cloud, and GitHub](/azure/architecture/)
+    - [Azure Landing Zones Subscription Vending with Terraform, Terraform Cloud, and GitHub](https://github.com/Azure-Samples/alz-terraform-sub-vending-demo-with-terraform-cloud-and-github)
 - **Cost Management** using third-party providers like Cloud health and Cloud easier - Organizations transitioning to MCA need to update their provider that they're transitioning to MCA. Most of them have a documented process to pull the MCA cost data.
 - **Historical data** – It isn’t available to account owners or users with the Subscription owner Azure role-based access control (RBAC) role after migration. Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition.
     - Cost data transition - Cost data before the transition remains in the EA scope. It doesn't move to the MCA scope. You can access the data by switching scopes.

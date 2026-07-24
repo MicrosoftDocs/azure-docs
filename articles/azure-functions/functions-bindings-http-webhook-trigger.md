@@ -292,7 +292,7 @@ public HttpResponseMessage run(
 
 # [Model v4](#tab/nodejs-v4)
 
-The following example shows an HTTP trigger [TypeScript function](functions-reference-node.md?tabs=typescript). The function looks for a `name` parameter either in the query string or the body of the [HTTP request](functions-reference-node.md?tabs=typescript&pivots=nodejs-model-v4#http-request). 
+The following example shows an HTTP trigger [TypeScript function](functions-reference-node.md?tabs=typescript#http-triggers). The function looks for a `name` parameter either in the query string or the body of the [HTTP request](functions-reference-node.md?tabs=typescript&pivots=nodejs-model-v4#http-request). 
 
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTrigger1.ts" :::
 
@@ -307,13 +307,13 @@ TypeScript samples aren't documented for model v3.
 
 # [Model v4](#tab/nodejs-v4)
 
-The following example shows an HTTP trigger [JavaScript function](functions-reference-node.md). The function looks for a `name` parameter either in the query string or the body of the [HTTP request](functions-reference-node.md?tabs=javascript&pivots=nodejs-model-v4#http-request). 
+The following example shows an HTTP trigger [JavaScript function](functions-reference-node.md#http-triggers). The function looks for a `name` parameter either in the query string or the body of the [HTTP request](functions-reference-node.md?tabs=javascript&pivots=nodejs-model-v4#http-request). 
 
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTrigger1.js" :::
 
 # [Model v3](#tab/nodejs-v3)
 
-The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the [HTTP request](functions-reference-node.md?tabs=javascript&pivots=nodejs-model-v3#http-request). 
+The following example shows a trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md#http-triggers) that uses the binding. The function looks for a `name` parameter either in the query string or the body of the [HTTP request](functions-reference-node.md?tabs=javascript&pivots=nodejs-model-v3#http-request). 
 
 Here's the *function.json* file:
 
@@ -1045,7 +1045,7 @@ You can programmatically access the `invoke_URL_template` by using the Azure Res
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
 ### HTTP streams
 
-You can now stream requests to and responses from your HTTP endpoint in Node.js v4 function apps. For more information, see [HTTP streams](functions-reference-node.md?pivots=nodejs-model-v4#http-streams).   
+You can now stream requests to and responses from your HTTP endpoint in Node.js v4 function apps. For more information, see [HTTP streams](node-http-stream.md?pivots=nodejs-model-v4).   
 ::: zone-end  
 ::: zone pivot="programming-language-python"  
 ### HTTP streams
