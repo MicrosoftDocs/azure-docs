@@ -34,7 +34,34 @@ If a Virtual Machine (VM) is deployed without an explicit outbound connectivity 
 > In some cases, a default outbound IP is still assigned to virtual machines in a nonprivate subnet, even when an explicit outbound method—such as a NAT Gateway or a UDR directing traffic to an NVA/firewall—is configured. This doesn't mean the default outbound IPs are used for egress unless those explicit methods are removed. To completely remove the default outbound IPs, the subnet must be made private, and the virtual machines must be stopped and deallocated.
 
 > [!IMPORTANT]
-> For the API released after March 31, 2026, new virtual networks default to using private subnets, meaning that an explicit outbound method must be enabled in order to reach public endpoints on the internet and within Microsoft. For more information, see the [official announcement](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/). We recommend that you use one of the explicit forms of connectivity discussed in the following section. For other questions, see the [FAQs: Default Behavior Change to Private Subnets](#faqs-default-behavior-change-to-private-subnets) section.
+> For the API released after March 31, 2026, new virtual networks default to using private subnets, meaning that an explicit outbound method must be enabled in order to reach public endpoints on the internet and within Microsoft. For more information, see the [official announcement](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/). We recommend that you use one of the explicit forms of connectivity discussed in the following section. For other questions, see the [FAQs: Default Behavior Change to Private Subnets](#faqs-default-behavior-change-to-private-subnets) section. To find out whether this retirement affects your existing resources, see [Retirement of default outbound access: scope and impact](#retirement-of-default-outbound-access-scope-and-impact).
+
+## Retirement of default outbound access: scope and impact
+
+Default outbound access is being retired. Because default outbound access is an implicit platform behavior rather than a resource you configure, it isn't always obvious whether a workload depends on it. This section explains what the retirement affects and what it doesn't.
+
+For the retirement timeline and the latest announcement details, see the [official announcement](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/).
+
+### What's affected
+
+The retirement affects virtual machines that reach the internet through **default outbound access**, meaning virtual machines deployed in a nonprivate subnet without any explicit outbound connectivity method. These virtual machines use a default outbound public IP address that Azure assigns, which is owned by Microsoft and can change without notice.
+
+### What isn't affected
+
+Virtual machines that already use an explicit outbound connectivity method aren't affected by the retirement. Explicit outbound methods include:
+
+- **[Azure NAT Gateway](../../nat-gateway/nat-overview.md)** associated with the subnet.
+- **A public IP address assigned to the virtual machine's network interface.**
+- **[Outbound rules on a Standard public load balancer](../../load-balancer/outbound-rules.md)** that includes the virtual machine in its backend pool.
+
+Outbound connectivity for these virtual machines continues to use the explicit method you configured.
+
+> [!NOTE]
+> A default outbound IP address might still be assigned to a virtual machine in a nonprivate subnet even when an explicit outbound method is configured. The virtual machine doesn't use that address for egress unless the explicit method is removed. For more information, see [How and when default outbound access is provided](#how-and-when-default-outbound-access-is-provided).
+
+### How to transition
+
+If your virtual machines rely on default outbound access, add an explicit outbound method before the retirement. To choose a method and configure it, see [How can I transition to an explicit method of public connectivity (and disable default outbound access)?](#how-can-i-transition-to-an-explicit-method-of-public-connectivity-and-disable-default-outbound-access) later in this article, and the design guidance in [Azure NAT Gateway](../../nat-gateway/nat-gateway-resource.md) and [Outbound connectivity with Azure Load Balancer](../../load-balancer/load-balancer-outbound-connections.md).
 
 ## Why is disabling default outbound access recommended?
 
