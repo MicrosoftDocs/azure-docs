@@ -122,13 +122,13 @@ AzureDiagnostics
 ```
 
 ```kusto
-// Per-instance 5xx responses
-// Uses the resource-specific AGWAccessLogs table (enable it in the diagnostic setting).
-// Breaks down server-error responses by the instance that served them.
-AGWAccessLogs
-| where HttpStatus >= 500 and HttpStatus <= 599
-| summarize Count = count() by InstanceId, HttpStatus, bin(TimeGenerated, 1h)
-| sort by Count desc
+// 5xx responses per instance 
+// Count of server-error responses grouped by the Application Gateway instance that served them. 
+// To create an alert for this query, click '+ New alert rule'
+AzureDiagnostics
+| where ResourceType == "APPLICATIONGATEWAYS" and OperationName == "ApplicationGatewayAccess" and httpStatus_d >= 500 and httpStatus_d <= 599
+| summarize AggregatedValue = count() by instanceId_s, httpStatus_d, bin(TimeGenerated, 1h)
+| sort by AggregatedValue desc
 ```
 
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
