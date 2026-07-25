@@ -121,6 +121,16 @@ AzureDiagnostics
 | sort by AggregatedValue desc
 ```
 
+```kusto
+// Per-instance 5xx responses
+// Uses the resource-specific AGWAccessLogs table (enable it in the diagnostic setting).
+// Breaks down server-error responses by the instance that served them.
+AGWAccessLogs
+| where HttpStatus >= 500 and HttpStatus <= 599
+| summarize Count = count() by InstanceId, HttpStatus, bin(TimeGenerated, 1h)
+| sort by Count desc
+```
+
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
 [!INCLUDE [horz-monitor-insights-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights-alerts.md)]

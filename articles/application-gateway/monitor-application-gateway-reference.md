@@ -58,6 +58,9 @@ For Application Gateway v2 SKU, the following metrics are available. What follow
 - **Throughput**. This metric accounts for only the Content size served by the Application Gateway. It doesn't include data transfers such as TLS header negotiations, TCP/IP packet headers, or retransmissions.
 - **Total Requests**. Successful requests that Application Gateway served. The request count can be filtered to show count per each/specific backend pool-http setting combination.
 
+> [!NOTE]
+> Capacity units and compute units are also the basis for Application Gateway v2 billing. To learn how these units are calculated, how they map to instance count, and how they affect cost, see [Understanding pricing for Azure Application Gateway and Web Application Firewall](understanding-pricing.md). To learn how the service scales instances based on demand, see [Scaling Application Gateway v2 and WAF v2](application-gateway-autoscaling-zone-redundant.md).
+
 ### Backend metrics for Application Gateway v2 SKU
 
 For Application Gateway v2 SKU, the following backend metrics are available. What follows is expanded descriptions of the backend metrics already listed in the previous [metrics table](#supported-metrics-for-microsoftnetworkapplicationgateways).
@@ -174,7 +177,7 @@ Application Gateway's layer 4 proxy provides the capability to monitor the healt
 
 [!INCLUDE [Microsoft.Network/applicationgateways](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-network-applicationgateways-logs-include.md)]
 
-- **Access log**. You can use the Access log to view Application Gateway access patterns and analyze important information. This information includes the caller's IP, requested URL, response latency, return code, and bytes in and out. Access log collection occurs every 60 seconds. This log contains one record per instance of Application Gateway. The `instanceId` property identifies the Application Gateway instance.
+- **Access log**. You can use the Access log to view Application Gateway access patterns and analyze important information. This information includes the caller's IP, requested URL, response latency, return code, and bytes in and out. Access log collection occurs every 60 seconds. This log contains one record per instance of Application Gateway. The `instanceId` property identifies the Application Gateway instance. To analyze access logs per instance, such as correlating 5xx responses with a specific instance, see the Kusto query examples in [Monitor Azure Application Gateway](monitor-application-gateway.md#kusto-queries).
 
 - **Firewall log**. You can use the Firewall log to view the requests that are logged through either detection or prevention mode of an application gateway that is configured with the web application firewall. Firewall logs are collected every 60 seconds.
 
