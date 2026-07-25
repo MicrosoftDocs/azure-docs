@@ -1,7 +1,7 @@
 ---
 title: Relocate Log Analytics workspace to another region
 description: Learn how to relocate Log Analytics workspace to a new region.
-ms.date: 09/15/2025
+ms.date: 07/25/2026
 ms.topic: how-to
 ms.custom: subject-relocation
 #CustomerIntent: As a cloud architect/engineer, I want to learn how to relocate Log Analytics workspace to another region.
@@ -14,6 +14,8 @@ ms.custom: subject-relocation
 A relocation plan for Log Analytics workspace must include the relocation of any resources that log data with Log Analytics Workspace.
 
 Log Analytics workspace doesn't natively support migrating workspace data from one region to another and associated devices.  Instead, you must create a new Log Analytics workspace in the target region and reconfigure the devices and settings in the new workspace.
+
+To move a workspace to a different subscription or resource group in the *same region* without recreating it, see [Move a Log Analytics workspace](/azure/azure-monitor/logs/move-workspace). That operation preserves your log data and retention settings.
 
 The diagram below illustrates the relocation pattern for a Log Analytics workspace. The red flow lines represent the redeployment of the target instance along with data movement and updating domains and endpoints.
 
@@ -70,10 +72,13 @@ If you want to relocate your Log Analytics workspace to a region that supports a
 
   - *Query packs*: A workspace can be associated with multiple query packs. To identify query packs in your workspace, select **Logs** on the workspace navigation pane, select **queries** on the left pane, and then select the ellipsis to the right of the search box. A dialog with the selected query packs opens on the right. If your query packs are in the same resource group as the workspace that you're moving, you can include it with this migration.
 - Verify that your Azure subscription allows you to create Log Analytics workspaces in the target region.
+- The source and target subscriptions must belong to the same Microsoft Entra tenant. Cross-tenant relocation isn't supported.
 
 ## Downtime
 
 To understand the possible downtimes involved, see [Cloud Adoption Framework for Azure: Select a relocation method](/azure/cloud-adoption-framework/relocate/select#select-a-relocation-method).
+
+A monitoring coverage gap occurs between the time you remove diagnostic settings from the source and the time the target workspace begins collecting data. To minimize the gap, configure the target workspace before you decommission the source.
 
 ## Prepare
 
@@ -322,6 +327,17 @@ union
 | summarize dcount(Computer) by Classification
 ```
 
+## Verify
+
+Before you decommission the source workspace, confirm that the target workspace is fully operational:
+
+1. Confirm the workspace **Status** is **Active** on the workspace **Overview** page.
+1. Run `Heartbeat | take 5` in the target workspace to confirm that data is flowing from the target resources.
+1. Check that each alert rule shows as **Enabled** with the correct scope.
+1. Trigger a test alert to confirm that action groups fire correctly.
+
+These checks give a clear go/no-go signal before you make any changes to the source workspace.
+
 ## Discard
 
 If you want to discard the source workspace, delete the exported resources or the resource group that contains these resources:
@@ -331,6 +347,11 @@ If you want to discard the source workspace, delete the exported resources or th
 
    - If you created a new resource group for this deployment, select **Delete resource group** on the toolbar to delete the resource group.
    - If the template was deployed to an existing resource group, select the resources that were deployed with the template, and then select **Delete** on the toolbar to delete selected resources.
+
+## Limitations
+
+- Historical log data isn't transferred and remains in the source workspace.
+- Don't delete the source workspace until all queries and alert rules that reference it are fully validated in the target workspace.
 
 ## Clean up
 
@@ -343,5 +364,6 @@ If you no longer need access to older data in the original workspace:
 
 ## Related content
 
+- [Move a Log Analytics workspace](/azure/azure-monitor/logs/move-workspace) for same-region subscription or resource group moves
 - [Move resources to a new resource group or subscription](../move-resource-group-and-subscription.md)
 - [Move Azure VMs to another region](../../../site-recovery/azure-to-azure-tutorial-migrate.md)
