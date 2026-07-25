@@ -53,7 +53,7 @@ Launch mode provisions VMs and then steps out of the way:
 
 ## Create a Launch mode fleet with REST
 
-Use API version `2026-04-01-preview` or later for Launch mode requests and related Fleet List VMs API calls.
+Launch mode requires a minimum API version of `2026-04-01-preview`.
 
 The following abbreviated request shows how to create a Launch mode fleet. Supply the complete VM profile required for your workload in `baseVirtualMachineProfile`.
 

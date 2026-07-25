@@ -27,7 +27,7 @@ Attribute based VM selection is ideal for scenarios such as stateless web servic
  
 To use attribute based VM selection, you must [sign-up for Azure Compute Fleet preview features](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRyYHv8J_khRKqQeYhVEgwSVUMFU1V0M0WU9ZNlA3UFA1SzdIUVY0TEVYSS4u&origin=lprLink&route=shorturl). After you complete the sign-up form and are approved, you will be contacted with next steps and onboarding details. 
 
-For REST API and ARM template scenarios, use API version `2024-11-01` or later for attribute-based selection.
+Attribute-based VM selection requires a minimum API version of `2024-11-01`.
 
 ## Benefits
 

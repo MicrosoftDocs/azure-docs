@@ -19,7 +19,7 @@ Azure Compute Fleet supports two modes that determine how the fleet manages the 
 
 If you don't specify a mode, the fleet uses Managed mode.
 
-To have the `mode` property explicitly appear in REST API and ARM template scenarios, use API version `2025-05-01` or later.
+The `mode` property requires a minimum API version of `2025-05-01` to appear explicitly.
 
 ## Maintain capacity preference
 
