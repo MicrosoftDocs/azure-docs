@@ -65,7 +65,7 @@ It's possible to change the subnet of an existing Application Gateway instance w
 Azure reserves five IP addresses in every subnet for internal use (the first four addresses and the last address), as described in [Size of the subnet](#size-of-the-subnet). Beyond those reserved addresses, each Application Gateway instance uses one private IP address, and a private frontend IP configuration uses one more. When you assign a **static** private frontend IP to an Application Gateway v2 deployment, you must choose an address that isn't already in use, so it helps to know which addresses in the subnet are already allocated.
 
 > [!NOTE]
-> Application Gateway v2 instance IP addresses are managed by the Azure platform and aren't listed individually as network interface IP configurations. Use the following commands to see the addresses consumed by network interfaces, private endpoints, and private frontend IP configurations in the subnet, and use the [capacity calculation](#size-of-the-subnet) to account for instance addresses.
+> Azure manages Application Gateway v2 instance IP addresses and doesn't list them individually as network interface IP configurations. Use the following commands to see the addresses consumed by network interfaces, private endpoints, and private frontend IP configurations in the subnet. Use the [capacity calculation](#size-of-the-subnet) to account for instance addresses.
 
 To review the addresses that are already in use in the Application Gateway subnet, use one of the following methods.
 
