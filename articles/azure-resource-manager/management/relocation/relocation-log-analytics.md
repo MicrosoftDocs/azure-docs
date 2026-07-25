@@ -350,8 +350,8 @@ If you want to discard the source workspace, delete the exported resources or th
 
 ## Limitations
 
-- Historical log data isn't transferred and remains in the source workspace.
-- Don't delete the source workspace until all queries and alert rules that reference it are fully validated in the target workspace.
+- The process doesn't transfer historical log data. This data remains in the source workspace.
+- Don't delete the source workspace until you fully validate all queries and alert rules that reference it in the target workspace.
 
 ## Clean up
 
