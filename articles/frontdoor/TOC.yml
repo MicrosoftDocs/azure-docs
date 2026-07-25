@@ -451,8 +451,6 @@
         href: /cli/azure/afd/
       - name: Azure PowerShell
         href: /powershell/module/az.frontdoor
-      - name: Bicep and Resource Manager Templates
-        href: front-door-quickstart-template-samples.md?pivots=front-door-classic
       - name: Terraform
         href: terraform-samples.md?pivots=front-door-classic
       - name: REST API
