@@ -60,6 +60,64 @@ The subnet named `GatewaySubnet` is reserved for VPN gateways. The Application G
 
 It's possible to change the subnet of an existing Application Gateway instance within the same virtual network. To make this change, use Azure PowerShell or the Azure CLI. For more information, see [Frequently asked questions about Application Gateway](application-gateway-faq.yml#can-i-change-the-virtual-network-or-subnet-for-an-existing-application-gateway).
 
+### Reserved and allocated IP addresses
+
+Azure reserves five IP addresses in every subnet for internal use (the first four addresses and the last address), as described in [Size of the subnet](#size-of-the-subnet). Beyond those reserved addresses, each Application Gateway instance uses one private IP address, and a private frontend IP configuration uses one more. When you assign a **static** private frontend IP to an Application Gateway v2 deployment, you must choose an address that isn't already in use, so it helps to know which addresses in the subnet are already allocated.
+
+> [!NOTE]
+> Application Gateway v2 instance IP addresses are managed by the Azure platform and aren't listed individually as network interface IP configurations. Use the following commands to see the addresses consumed by network interfaces, private endpoints, and private frontend IP configurations in the subnet, and use the [capacity calculation](#size-of-the-subnet) to account for instance addresses.
+
+To review the addresses that are already in use in the Application Gateway subnet, use one of the following methods.
+
+#### Azure CLI
+
+List the IP configurations (network interfaces and other resources) that currently consume addresses in the subnet:
+
+```azurecli-interactive
+az network vnet subnet show \
+    --resource-group <resource-group> \
+    --vnet-name <vnet-name> \
+    --name <subnet-name> \
+    --query "ipConfigurations[].id" \
+    --output tsv
+```
+
+Get the count of used addresses along with the subnet's address range:
+
+```azurecli-interactive
+az network vnet subnet show \
+    --resource-group <resource-group> \
+    --vnet-name <vnet-name> \
+    --name <subnet-name> \
+    --query "{addressPrefix:addressPrefix, usedIPs:length(ipConfigurations)}" \
+    --output table
+```
+
+List addresses that are still available in the subnet:
+
+```azurecli-interactive
+az network vnet subnet list-available-ips \
+    --resource-group <resource-group> \
+    --vnet-name <vnet-name> \
+    --name <subnet-name>
+```
+
+#### Azure PowerShell
+
+Return per-subnet usage (current and total addresses) for the virtual network:
+
+```azurepowershell-interactive
+Get-AzVirtualNetworkUsageList -ResourceGroupName <resource-group> -Name <vnet-name>
+```
+
+#### Portal
+
+1. In the Azure portal, go to the virtual network that contains the Application Gateway subnet.
+1. Select **Subnets**. The subnet list shows each subnet's address range and available address count.
+1. Select the Application Gateway subnet to review the connected devices and resources that consume addresses.
+
+After you know which addresses are allocated, choose a free static address for the private frontend IP. To keep future gateways contiguous and easy to plan, assign frontend addresses from the upper half of the subnet, as recommended in the [Tip in Size of the subnet](#size-of-the-subnet). Confirm the address you pick isn't returned by the used-address query and, ideally, appears in the available-addresses list before you assign it.
+
 ### DNS servers for name resolution
 
 The virtual network resource supports [DNS server](../virtual-network/manage-virtual-network.yml#view-virtual-networks-and-settings-using-the-azure-portal) configuration, which allows you to choose between Azure-provided default or custom DNS servers. The instances of your application gateway also honor this DNS configuration for any name resolution. After you change this setting, you must restart ([Stop](/powershell/module/az.network/Stop-AzApplicationGateway) and [Start](/powershell/module/az.network/start-azapplicationgateway)) your application gateway for these changes to take effect on the instances.
