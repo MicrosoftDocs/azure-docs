@@ -109,7 +109,7 @@ To learn how to set concurrency limits for HTTP trigger functions, see [Set HTTP
 
 ## Scale-out rate
 
-As demand increases, the Flex Consumption platform adds instances for you automatically. Two things shape how your app scales out: the *scale-out rate*—how fast instances are added, which the platform manages as a size-dependent curve that you don't configure—and the [maximum instance count](event-driven-scaling.md#limit-scale-out), the ceiling on how many instances your app can reach. Scaling is fast: a small app can add many instances per minute, and the platform adds instances more gradually as your app grows so that large scale-outs stay stable.
+As demand increases, the Flex Consumption platform adds instances for you automatically. Two things shape how your app scales out: the *scale-out rate* - how fast instances are added, which the platform manages as a size-dependent curve that you don't configure - and the [maximum instance count](event-driven-scaling.md#limit-scale-out), the ceiling on how many instances your app can reach. Scaling is fast: a small app can add many instances per minute, and the platform adds instances more gradually as your app grows so that large scale-outs stay stable.
 
 If you need capacity to be available ahead of a known burst, use [always ready instances](#always-ready-instances) to pre-provision it. For the full explanation of the scale-out rate, the maximum instance count, throttling behavior, and best practices for high-rate scaling, see [Scale-out rate and throttling responses](event-driven-scaling.md#scale-out-rate-and-throttling-responses).
 
