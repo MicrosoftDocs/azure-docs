@@ -103,7 +103,7 @@ You don't configure the scale-out rate—the platform manages it for you. You do
 
 ### Scale-out rate (the scale curve)
 
-Rather than adding every requested instance at once, the platform adds new instances in short, repeated bursts and decides how many an app may add during each brief interval. The size of that per-interval allowance follows a *scale curve* that depends on how many instances the app is already running:
+Rather than adding every requested instance at once, the platform adds new instances in short, repeated bursts and decides how many an app can add during each brief interval. The size of that per-interval allowance follows a *scale curve* that depends on how many instances the app is already running:
 
 * When an app is running **only a few instances**, the allowance is at its largest, so a small app scales up very quickly and can add many instances per minute.
 * As an app grows to run **more and more instances**, the platform grants each additional batch more gradually. This deceleration keeps very large scale-outs stable and keeps a single app from destabilizing the region it shares with other apps.
