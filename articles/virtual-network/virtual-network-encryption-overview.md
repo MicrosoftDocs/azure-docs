@@ -24,7 +24,9 @@ Virtual network encryption enhances existing encryption in transit capabilities 
 
 Virtual network encryption has the following requirements:
 
-- Virtual Network encryption is supported on the following virtual machine instance sizes:
+- Virtual Network encryption is supported on the following virtual machine instance sizes: 
+  - The D/E series entries below are a baseline, not an exhaustive list. Virtual Network encryption is supported on all v5 and newer generations of D-series and E-series
+  - For all other families, encryption is supported on the specific series listed below, and we will add new sizes as they're validated. This includes the compute-optimized (F-series), storage-optimized (L-series), memory-optimized (M-series), and GPU-accelerated compute sizes
 
     | Type | VM Series | VM SKU |
     | --- | --- | --- |
@@ -32,6 +34,7 @@ Virtual network encryption has the following requirements:
     | Memory intensive workloads | E-series V4 </br> E-series V5 </br> E-series V6 </br> M-series V2 </br> M-series V3 | **[Ev4 and Esv4-series](/azure/virtual-machines/ev4-esv4-series)** </br> **[Edv4 and Edsv4-series](/azure/virtual-machines/edv4-edsv4-series)** </br> **[Eav4 and Easv4-series](/azure/virtual-machines/eav4-easv4-series)** </br> **[Ev5 and Esv5-series](/azure/virtual-machines/ev5-esv5-series)** </br> **[Edv5 and Edsv5-series](/azure/virtual-machines/edv5-edsv5-series)** </br> **[Easv5 and Eadsv5-series](/azure/virtual-machines/easv5-eadsv5-series)** </br> **[Easv6 and Eadsv6-series](/azure/virtual-machines/easv6-eadsv6-series)** </br> **[Epsv6 and Epdsv6-series](/azure/virtual-machines/sizes/memory-optimized/epsv6-series)** </br> **[Mv2-series](/azure/virtual-machines/mv2-series)** </br> **[Msv2 and Mdsv2 Medium Memory series](/azure/virtual-machines/msv2-mdsv2-series)** </br> **[Msv3 and Mdsv3 Medium Memory series](/azure/virtual-machines/msv3-mdsv3-medium-series)** |
     | Storage intensive workloads | L-series V3 | **[LSv3-series](/azure/virtual-machines/lsv3-series)**  |
     | Compute optimized | F-series V6 | **[Falsv6-series](/azure/virtual-machines/sizes/compute-optimized/falsv6-series)** </br> **[Famsv6-series](/azure/virtual-machines/sizes/compute-optimized/famsv6-series)** </br> **[Fasv6-series](/azure/virtual-machines/sizes/compute-optimized/fasv6-series)** |
+    | GPU - accelerated compute | NC-H100 series V5 </br> ND-GB200 series V6 </br> ND-GB300 series V6 | **[NC-H100 v5-series](/azure/virtual-machines/sizes/gpu-accelerated/ncadsh100v5-series)** </br> **[ND-GB200 v6-series](/azure/virtual-machines/sizes/gpu-accelerated/nd-gb200-v6-series)**  </br> **[ND-GB300 v6-series](/azure/virtual-machines/sizes/gpu-accelerated/nd-gb300-v6-series)**
 
 - Accelerated Networking must be enabled on the network interface of the virtual machine. For more information about Accelerated Networking, see  [What is Accelerated Networking?](/azure/virtual-network/accelerated-networking-overview)
 
