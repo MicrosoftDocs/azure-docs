@@ -108,7 +108,7 @@ Rather than adding every requested instance at once, the platform adds new insta
 * When an app is running **only a few instances**, the allowance is at its largest, so a small app scales up very quickly and can add many instances per minute.
 * As an app grows to run **more and more instances**, the platform grants each additional batch more gradually. This deceleration keeps very large scale-outs stable and keeps a single app from destabilizing the region it shares with other apps.
 
-The scale curve applies to on-demand instances only. The exact shape and rate are managed by the platform and can change over time, so don't design against specific per-interval numbers—design for the *pattern*: fast at first, then progressively more measured at very high instance counts.
+The scale curve applies to on-demand instances only. The exact shape and rate are managed by the platform and can change over time, so don't design against specific per-interval numbers. Design for the *pattern*: fast at first, then progressively more measured at very high instance counts.
 
 [Always ready instances](flex-consumption-plan.md#always-ready-instances) aren't subject to this on-demand scale-out rate. If you need capacity ahead of a predictable burst, configure always ready instances so that capacity is already in place before the load arrives.
 
