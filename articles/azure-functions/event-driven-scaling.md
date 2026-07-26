@@ -94,7 +94,7 @@ $resource | Set-AzResource -Force
 
 ## Scale-out rate and throttling responses
 
-In the Flex Consumption plan, Azure Functions scales your app out automatically as event demand increases. Two *separate* platform limits shape that scale-out, and it helps to think of them independently:
+In the Flex Consumption plan, Azure Functions automatically scales your app as event demand increases. Two *separate* platform limits shape that scale-out, and it helps to think of them independently:
 
 * The **scale-out rate** governs *how fast* new instances are added.
 * The **maximum instance count** governs *how many* instances your app can reach.
