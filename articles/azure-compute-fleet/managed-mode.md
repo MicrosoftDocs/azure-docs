@@ -19,6 +19,8 @@ Azure Compute Fleet supports two modes that determine how the fleet manages the 
 
 If you don't specify a mode, the fleet uses Managed mode.
 
+The `mode` property requires a minimum API version of `2025-05-01` to appear explicitly.
+
 ## Maintain capacity preference
 
 In Managed mode, you can configure a **capacity preference** of *Maintain capacity* for your Spot VMs (`spotPriorityProfile.maintain: true`). With this preference, Compute Fleet attempts to maintain your Spot target capacity by deploying replacement Spot VMs from your specified VM sizes when Spot VMs are evicted for price or capacity reasons.
