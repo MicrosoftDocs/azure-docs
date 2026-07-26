@@ -99,7 +99,7 @@ In the Flex Consumption plan, Azure Functions automatically scales your app as e
 * The **scale-out rate** governs *how fast* new instances are added.
 * The **maximum instance count** governs *how many* instances your app can reach.
 
-You don't configure the scale-out rate—the platform manages it for you. You do configure the [maximum instance count](#limit-scale-out). Understanding both helps you design workloads that scale smoothly and predictably.
+You don't configure the scale-out rate, the platform manages it for you. You do configure the [maximum instance count](#limit-scale-out). Understanding both helps you design workloads that scale smoothly and predictably.
 
 ### Scale-out rate (the scale curve)
 
