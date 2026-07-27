@@ -23,7 +23,7 @@ The agent's reasoning engine and tool execution run in separate compute boundari
 
 ### Sandbox architecture
 
-Each agent has its own sandbox - a dedicated compute environment running in a micro VM that's separate from the reasoning loop.
+Each agent has its own sandbox. This means that each gets a dedicated compute environment running in a micro VM that's separate from the reasoning loop.
 
 | Component | Runs in | Role |
 |---|---|---|
@@ -81,7 +81,7 @@ Three properties make credential theft structurally impossible:
 
 ## Data residency
 
-When your agent investigates an issue, it queries your data sources. The agent doesn't write raw query results - such as log entries, metrics, and API responses - to a separate data store. When the agent processes a tool call, it serializes chat and tool messages, including result summaries, into the persistent conversation thread.
+When your agent investigates an issue, it queries your data sources. The agent doesn't write raw query results like log entries, metrics, and API responses to a separate data store. When the agent processes a tool call, it serializes chat and tool messages, including result summaries, into the persistent conversation thread.
 
 The following data **is** persisted:
 
@@ -151,8 +151,8 @@ Run modes control this behavior: **Review** mode requires approval for write ope
 Azure SRE Agent supports deployment configurations for private network requirements:
 
 - **Regional isolation** - Sandbox placement respects regional boundaries (for example, East US 2 sandboxes stay within Central US, North Central US, or Canada Central).
-- **VNet-integrated execution** - Dedicated sandboxes can be configured for execution within your virtual network.
-- **Secretless credential access** - The identity service provides short-lived credentials to tool processes without storing credentials in the sandbox.
+- **VNet-integrated execution**: Dedicated sandboxes can be configured for execution within your virtual network.
+- **Secretless credential access**: The identity service provides short-lived credentials to tool processes without storing credentials in the sandbox.
 
 ## Related content
 
