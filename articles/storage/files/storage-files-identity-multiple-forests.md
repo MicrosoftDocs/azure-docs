@@ -197,7 +197,7 @@ Next, add the suffix routing rule on **Forest 1**, so that it redirects to **For
 
 ## Validate that the trust is working
 
-After completing the configuration, verify that users in each forest can obtain Kerberos tickets to authenticate to file shares joined to the other forest. The **klist** command displays the Kerberos credentials cache. Successful cross-forest authentication shows tickets issued by the other forest's KDC.
+After completing the configuration, verify that users in each forest can get Kerberos tickets to authenticate to file shares joined to the other forest. The **klist** command displays the Kerberos credentials cache. Successful cross-forest authentication shows tickets issued by the other forest's KDC.
 
 1. Sign in to a machine or VM that's joined to a domain in **Forest 1** and open a Windows command prompt.
 
