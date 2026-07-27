@@ -2,8 +2,8 @@
 title: Integration runtime
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about the integration runtime in Azure Data Factory and Azure Synapse Analytics.
-ms.author: lle
-author: lrtoyou1223
+ms.author: makromer
+author: kromerm
 ms.subservice: integration-runtime
 ms.topic: concept-article
 ms.custom: synapse

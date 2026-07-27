@@ -11,7 +11,7 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to adjust the size, cost, or performance characteristics my Azure file share, or delete the file share."
 ---
 
-# How to modify an Azure file share
+# Modify an Azure file share
 
 :heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider
 
@@ -25,11 +25,11 @@ After creating your classic file share, you might need to adjust the provisionin
 
 ### Provisioned v2 billing model
 
-After creating your provisioned v2 classic file share, you can change one or all three of the provisioned quantities of your file share. You can dynamically scale up or down the amount of storage, IOPS, and throughput you provision as your needs change. However, you can only decrease a provisioned quantity after 24 hours elapse since your last quantity increase. Storage, IOPS, and throughput changes take effect within a few minutes after a provisioning change.
+After creating your provisioned v2 classic file share, you can change one or all three of the provisioned quantities of your file share. You can dynamically scale up or down the amount of storage, IOPS, and throughput you provision as your needs change. However, you can only decrease a provisioned quantity after 24 hours have elapsed since your last quantity increase. Storage, IOPS, and throughput changes take effect within a few minutes after a provisioning change.
 
 # [Portal](#tab/azure-portal)
 
-Follow these instructions to update the provisioning for your file share.
+Follow these steps to update the provisioning for your file share.
 
 1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
@@ -98,7 +98,7 @@ provisionedThroughputMibPerSec=2048
 # Update the file share provisioning.
 az storage share-rm update \
         --resource-group $resourceGroupName \
-        --name $shareName \
+        --name $fileShareName \
         --storage-account $storageAccountName \
         --quota $provisionedStorageGib \
         --provisioned-iops $provisionedIops \
@@ -113,7 +113,7 @@ After creating your provisioned v1 file share, you can change the provisioned st
 
 # [Portal](#tab/azure-portal)
 
-Follow these instructions to update the provisioning for your file share.
+Follow these steps to update the provisioning for your file share.
 
 1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
@@ -301,9 +301,11 @@ $command
 
 ## Change the cost and performance characteristics of a file share (Microsoft.FileShares)
 
+After you create a file share with the Microsoft.FileShares resource provider, you can change the provisioned storage, IOPS, and throughput. You can scale up or down dynamically as your needs change, but you can only decrease a provisioned quantity after 24 hours have elapsed since your last increase.
+
 # [Portal](#tab/azure-portal)
 
-Follow these instructions to change the size and performance of a file share (Microsoft.FileShares) by using the Azure portal. You can dynamically scale the amount of storage, IOPS, and throughput up or down as your needs change. However, you can only decrease a provisioned quantity after 24 hours have elapsed since your last quantity increase. Storage, IOPS, and throughput changes take effect within a few minutes after a provisioning change.
+Follow these steps to change the size and performance of a file share (Microsoft.FileShares) by using the Azure portal. You can dynamically scale the amount of storage, IOPS, and throughput up or down as your needs change. However, you can only decrease a provisioned quantity after 24 hours have elapsed since your last quantity increase. Storage, IOPS, and throughput changes take effect within a few minutes after a provisioning change.
 
 1. Select the file share you want to modify.
 1. From the context menu, select **Settings**.
@@ -388,7 +390,7 @@ You might want to delete unused or outdated file shares. You can recover file sh
 
 # [Portal](#tab/azure-portal)
 
-Follow these instructions to delete a classic file share by using the Azure portal.
+Follow these steps to delete a classic file share by using the Azure portal.
 
 1. Go to your storage account. From the service menu, under **Data storage**, select **Classic file shares**.
 
@@ -447,13 +449,13 @@ To delete a file share (Microsoft.FileShares) by using the Azure portal, follow 
 
     ![A screenshot of the delete confirmation dialog for a Microsoft.FileShares file share in the Azure portal.](./media/storage-how-to-create-file-share/delete-file-share.png)
 
-1. The **Delete** pop-out contains a survey about why you're deleting the file share. You can skip this survey, but the product team appreciates any feedback you provide, particularly if something isn't working properly for you. If your file share has dependent resources such as snapshots, the deletion process also deletes the snapshots, and the action is non-recoverable. If your file share has associated resources like private endpoints, the portal helps you remove them before you can delete the file share.
+1. The **Delete** pop-out contains a survey about why you're deleting the file share. You can skip this survey, but the product team appreciates any feedback you provide, particularly if something isn't working properly for you. If your file share has dependent resources such as snapshots, the deletion process also deletes the snapshots, and the action is unrecoverable. If your file share has associated resources like private endpoints, the portal helps you remove them before you can delete the file share.
 
 1. Enter the file share name to confirm deletion and then select **Delete**.
 
 # [PowerShell](#tab/azure-powershell)
 
-To delete a file share (Microsoft.FileShares) by using Azure PowerShell, run the following command. Make sure you replace the variables with your intended values.
+To delete a file share (Microsoft.FileShares) by using Azure PowerShell, run the following command. Replace the variables with your values.
 
 ```powershell
 # To learn more about the Az.FileShare module, see https://www.powershellgallery.com/packages/Az.FileShare/1.0.0

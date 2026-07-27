@@ -315,6 +315,16 @@ groups:
     title: Isolated worker model
   - id: in-proc
     title: In-process model
+- id: functions-auth-method
+  title: Authentication method
+  prompt: Choose an authentication method
+  pivots:
+  - id: functions-auth-identity
+    title: Managed identity
+  - id: functions-auth-keyvault
+    title: Key Vault
+  - id: functions-auth-secret
+    title: Shared secret
 - id: reliability-functions-hosting-plan
   title: Function app hosting options for Availability Zones support
   prompt: Choose a hosting option for your function app

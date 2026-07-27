@@ -10,6 +10,10 @@
       href: private-link-service-overview.md
     - name: Service endpoints
       href: /azure/virtual-network/virtual-network-service-endpoints-overview?toc=/azure/private-link/toc.json
+    - name: Azure Private Link over IPv6 (Preview)
+      href: private-link-ipv6.md
+    - name: Standard service endpoint
+      href: service-endpoint-standard-overview.md
     - name: What is a network security perimeter?
       href: network-security-perimeter-concepts.md
     - name: What are network security perimeter links?
@@ -76,6 +80,14 @@
           href: configure-perimeter-link.md
         - name: Transition to a network security perimeter
           href: network-security-perimeter-transition.md
+    - name: Configure a standard service endpoint
+      items:
+        - name: Configure a standard service endpoint - Azure portal
+          href: configure-service-endpoint-standard-portal.md
+        - name: Configure a standard service endpoint - Azure CLI
+          href: configure-service-endpoint-standard-cli.md
+        - name: Configure a standard service endpoint - PowerShell
+          href: configure-service-endpoint-standard-powershell.md
     - name: DNS
       items:
         - name: Private DNS zone values

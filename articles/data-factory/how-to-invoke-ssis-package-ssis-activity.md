@@ -4,8 +4,8 @@ description: This article describes how to run a SQL Server Integration Services
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: how-to
-ms.author: chugu
-author: chugugrace
+ms.author: makromer
+author: kromerm
 ms.date: 05/15/2024
 ms.custom:
   - sfi-image-nochange

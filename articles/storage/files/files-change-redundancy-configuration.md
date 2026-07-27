@@ -4,7 +4,7 @@ description: Learn how to change how Azure Files data in an existing storage acc
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 01/15/2025
+ms.date: 07/15/2026
 ms.author: kendownie
 ms.custom: references_regions, devx-track-azurepowershell
 # Customer intent: "As a cloud storage administrator, I want to change the redundancy configuration for Azure Files so that I can optimize data protection and cost based on my organization’s specific availability and disaster recovery needs."
@@ -12,9 +12,9 @@ ms.custom: references_regions, devx-track-azurepowershell
 
 # Change how Azure Files data is replicated
 
-:heavy_check_mark: **Applies to:** Classic SMB and NFS file shares created with the Microsoft.Storage resource provider and using the Provisioned v1 or pay-as-you-go billing model
+:heavy_check_mark: **Applies to:** Classic file shares created with the Microsoft.Storage resource provider and using the Provisioned v1, Provisioned v2, or pay-as-you-go billing model
 
-:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider or classic file shares using the Provisioned v2 billing model
+:heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider
 
 Azure always stores multiple copies of your data to protect it in the face of both planned and unplanned events. These events include transient hardware failures, network or power outages, and natural disasters. Data redundancy ensures that your storage account meets the [Service-Level Agreement (SLA) for Microsoft Online Services](https://azure.microsoft.com/support/legal/sla/storage/).
 
@@ -134,7 +134,7 @@ Instead of opening a support request, customers in most regions can start a conv
 
 For HDD file shares, customer-initiated conversion can be completed in supported regions using the Azure portal, PowerShell, or the Azure CLI. 
 
-For SSD file shares, customer-initiated conversion is available through PowerShell and Azure CLI. Or you can request a [support-initiated conversion](#support-initiated-conversion).
+For SSD file shares, customer-initiated conversion is available through Azure portal, PowerShell, and Azure CLI. Or you can request a [support-initiated conversion](#support-initiated-conversion).
 
 After initiation, the conversion could still take up to 72 hours to begin.
 

@@ -3,9 +3,9 @@ title:       Benchmarking Azure Elastic SAN
 description: Learn how to benchmark Azure Elastic SAN performance by measuring IOPS and throughput using DiskSpd and fio on Windows and Linux virtual machines.
 author:      eshanchomsft
 ms.author:   rogarana
-ms.service:  azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.topic:    concept-article
-ms.date:     05/18/2026
+ms.date: 07/17/2026
 ---
 
 # Benchmarking Elastic SAN Performance
@@ -29,9 +29,16 @@ Use the following environment for benchmarking:
 
 Configure the VM and Elastic SAN setup by using the best practices outlined in the [best practices article](elastic-san-best-practices.md).
 
+#### Setting up a test environment with Terraform
+
+To help customers deploy an equivalent benchmarking environment, Microsoft published a [Terraform setup kit](https://github.com/Azure-Samples/azure-elastic-san/tree/main/elastic-san-best-practices-setup-kit) that provisions the required Azure resources in their own Azure subscription, preconfigured according to Azure Elastic SAN best practices. The Terraform setup kit deploys an environment similar to the one used in this article, including a 20 TiB Elastic SAN, a 1,024 GiB volume, and a virtual machine configured with recommended performance settings such as Accelerated Networking, Multipath I/O (MPIO), 32 iSCSI sessions per volume, and optimized iSCSI client settings.
+
+Deployment times can vary depending on subscription quotas, regional capacity availability, and other Azure subscription constraints.
+
+
 ## Benchmark tooling
 
-**DISKSPD**
+### DISKSPD
 
 DISKSPD is a native Windows benchmarking tool that you can use to evaluate storage performance on Windows virtual machines. [Download the DISKSPD tool](https://github.com/Microsoft/diskspd) on the VM.
 
@@ -102,7 +109,7 @@ diskspd.exe -c100G -b1M -si -o32 -t4 -w0 -d120 -Sh -L E:\esan_test.dat
 
 This workload represents **throughput-oriented scenarios**, such as large-scale data processing, backup, and file scanning workloads where bandwidth utilization is the primary requirement.
 
-**FIO**
+### FIO
 
 FIO is a commonly used tool for benchmarking storage on Linux virtual machines. It allows you to configure I/O size, access pattern, and concurrency to simulate different workload scenarios. It spawns worker threads or processes to perform the specified I/O operations. You can specify the type of I/O operations each worker thread must perform using job files. The following examples show one job file per scenario.
 
