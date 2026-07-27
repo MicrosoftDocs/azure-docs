@@ -311,7 +311,7 @@ sections:
         Effective August 15, 2025, DigiCert transitioned to a new open-source software (OSS) domain control validation (DCV) platform designed to enhance transparency and accountability in domain validation processes. DigiCert no longer supports the legacy CNAME Delegation DCV workflow for domain control validation in the specified Azure services. [Learn more](https://learn.microsoft.com/en-us/azure/security/fundamentals/managed-tls-changes)
     
     - question: | 
-        Which Azure Front Door SKUs are affected by this change? 
+        Which Azure Front Door tiers are affected by this change? 
       answer: |
         The deprecation impacts services that rely on CNAME-based validation for automated certificate issuance and renewal, including:
 

@@ -110,6 +110,8 @@
     href: discover-catalog-mcp-server.md
 - name: API center management and operations
   items:
+  - name: Backup and restore
+    href: backup-restore.md
   - name: Reliability
     href: /azure/reliability/reliability-api-center?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json
 - name: Reference
