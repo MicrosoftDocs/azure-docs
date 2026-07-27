@@ -13,7 +13,7 @@ ms.custom: ai-usage
 
 **Applies to:** :heavy_check_mark: Front Door (classic)
 
-On March 29, 2022, Azure Front Door introduced two new tiers named Standard and Premium. These tiers offer improvements over the current product offerings of Azure Front Door (Classic). They incorporate capabilities such as Azure Private Link integration, bot management, advanced Web Application Firewall (WAF) enhancements with DRS 2.1, anomaly scoring-based detection and bot management, out-of-the-box reports and enhanced diagnostic logs, a simplified pricing model, and much more.
+On March 29, 2022, Azure Front Door introduced two new tiers named Standard and Premium. These tiers offer improvements over the current product offerings of Azure Front Door (classic). They incorporate capabilities such as Azure Private Link integration, bot management, advanced Web Application Firewall (WAF) enhancements with DRS 2.1, anomaly scoring-based detection and bot management, out-of-the-box reports and enhanced diagnostic logs, a simplified pricing model, and much more.
 
 [!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
@@ -97,7 +97,7 @@ If you have a support plan and need technical assistance, create a [support requ
 * *Service*, select **My services**, and then select **Front Door Service**. 
 * *Resource*, select the **Azure Front Door resource**.
 * *Summary*, describe the problem you're experiencing with the migration.
-* *Problem type*, select **Migrating Front Door Classic to Front Door Standard or Premium**.
+* *Problem type*, select **Migrating Front Door (classic) to Front Door Standard or Premium**.
 
 ## Next step
 
