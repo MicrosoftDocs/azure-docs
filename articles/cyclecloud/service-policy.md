@@ -4,7 +4,7 @@ description: Complete service policy for Azure CycleCloud. See release types, re
 services: azure cyclecloud
 author: adriankjohnson
 ms.topic: concept-article
-ms.date: 07/27/2026
+ms.date: 07/28/2026
 ms.author: padmalathas
 ---
 
