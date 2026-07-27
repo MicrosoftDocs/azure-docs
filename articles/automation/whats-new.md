@@ -25,7 +25,7 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 
 ## July 2026
 
-### General Availability: Azure Automation supports PowerShell 7.6 
+### General availability: Azure Automation supports PowerShell 7.6 
 Azure Automation announces General Availability of PowerShell 7.6 in all Public regions. PowerShell 7.1 and 7.2 versions and Python 2.7 and 3.8 versions are announced retired by parent products PowerShell and Python respectively, and hence not recommended.[Learn more](automation-runbook-types.md).
 
 ###  Retirement Notice - Support for Python-2.7 & 3.8 and PowerShell- 7.1 & 7.2 will be retired on 30 September 2026. 
