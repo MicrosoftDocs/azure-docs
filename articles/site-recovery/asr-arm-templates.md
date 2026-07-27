@@ -14,7 +14,7 @@ ms.custom: engagement-fy23, devx-track-arm-template
 
 # Azure Resource Manager templates for Azure Site Recovery
 
-The following table includes links to Azure Resource Manager templates for using Azure Site Recovery features.
+The following table provides information and links to Azure Resource Manager templates for Azure Site Recovery features.
 
 | Template | Description |
 |---|---|
@@ -23,4 +23,4 @@ The following table includes links to Azure Resource Manager templates for using
 | [Enable Replication for Azure VMs](https://aka.ms/asr-arm-enable-replication) | Enable replication for Azure VMs by using the existing vault and custom target settings.|
 | [Trigger Failover and Reprotect](https://aka.ms/asr-arm-failover-reprotect) | Trigger a failover and reprotect operation for a set of Azure VMs. |
 | [Run an End to End DR Flow for Azure VMs](https://aka.ms/asr-arm-e2e-flow) | Start a complete end-to-end disaster recovery flow (Enable Replication + Failover and Reprotect + Failback and Reprotect) for Azure VMs, also called as 540° flow.|
-|   |   |
+

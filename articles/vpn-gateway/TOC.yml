@@ -300,6 +300,8 @@
             href: point-to-site-user-groups-create-portal.md
           - name: PowerShell
             href: point-to-site-user-groups-create.md
+          - name: Azure CLI
+            href: point-to-site-user-groups-create-cli.md
         - name: RADIUS - Configure NPS and user groups
           href: point-to-site-user-groups-radius.md
     - name: Configure Always On tunnels

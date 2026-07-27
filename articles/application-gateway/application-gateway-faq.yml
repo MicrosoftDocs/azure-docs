@@ -442,7 +442,7 @@ sections:
         answer: Application Gateway supports up to 100 TLS/SSL certificates.
 
       - question: Does Application Gateway have support for OCSP and OCSP stapling?
-        answer: Yes, Application Gateway supports certificates with OCSP extensions and OCSP stapling for server certificates.
+        answer: Yes. Application Gateway supports certificates that use OCSP (Online Certificate Status Protocol) and supports OCSP stapling for server certificates. For certificates stored in Azure Key Vault, ensure that the PFX or PEM file includes the private key and the complete certificate chain. Including the root certificate is recommended. Application Gateway must be able to resolve and access the OCSP responder URL specified in the certificate's Authority Information Access (AIA) extension to retrieve revocation status information for OCSP stapling.
 
       - question: How many authentication certificates for backend reencryption does Application Gateway support?
         answer: Application Gateway supports up to 100 authentication certificates.
