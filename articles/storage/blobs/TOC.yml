@@ -572,6 +572,8 @@ items:
             href: storage-performance-checklist.md
           - name: Optimize data partitions
             href: storage-performance-blob-partitions.md
+          - name: Mitigate hot partitions
+            href: storage-performance-mitigate-hot-partitions.md
           - name: Latency in Blob storage
             href: storage-blobs-latency.md
           - name: Performance and scale targets
