@@ -23,7 +23,7 @@ The agent's reasoning engine and tool execution run in separate compute boundari
 
 ### Sandbox architecture
 
-Each agent has its own sandbox — a dedicated compute environment running in a micro VM that's separate from the reasoning loop.
+Each agent has its own sandbox - a dedicated compute environment running in a micro VM that's separate from the reasoning loop.
 
 | Component | Runs in | Role |
 |---|---|---|
@@ -81,7 +81,7 @@ Three properties make credential theft structurally impossible:
 
 ## Data residency
 
-When your agent investigates an issue, it queries your data sources. The agent doesn't write raw query results — such as log entries, metrics, and API responses — to a separate data store. When the agent processes a tool call, it serializes chat and tool messages, including result summaries, into the persistent conversation thread.
+When your agent investigates an issue, it queries your data sources. The agent doesn't write raw query results - such as log entries, metrics, and API responses - to a separate data store. When the agent processes a tool call, it serializes chat and tool messages, including result summaries, into the persistent conversation thread.
 
 The following data **is** persisted:
 
@@ -92,7 +92,7 @@ The following data **is** persisted:
 | **Memory files** | Blob storage | Persistent across sessions | Synthesized knowledge, team context, repo instructions |
 | **Thread files** | Blob storage | Tied to thread lifetime | User uploads, generated reports |
 
-Session insights are synthesized summaries, not raw data copies. The agent extracts patterns (what symptoms appeared, what resolution worked, and what to avoid) and stores those as knowledge. The agent doesn't independently persist complete raw query results. It stores serialized tool messages, which may include result excerpts or summaries, as part of the conversation thread history.
+Session insights are synthesized summaries, not raw data copies. The agent extracts patterns (what symptoms appeared, what resolution worked, and what to avoid) and stores those as knowledge. The agent doesn't independently persist complete raw query results. It stores serialized tool messages, which might include result excerpts or summaries, as part of the conversation thread history.
 
 ## Per-customer isolation
 
