@@ -165,11 +165,9 @@
         href: ../cdn/tier-migration.md?toc=/azure/frontdoor/toc.json
       - name: Migrate from Azure CDN (classic) to Azure Front Door
         href: ../cdn/migrate-tier.md?toc=/azure/frontdoor/toc.json
-    - name: Other CDN to Front Door Standard/Premium
-      items:
-      - name: Migrate CDN provider
-        href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/toc.json
-    - name: AFD/CDN Classic migration FAQ
+    - name: Migration best practices
+      href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/toc.json
+    - name: Migration FAQ
       href: migration-faq.md
     - name: Post migration Dev-Ops experience
       href: post-migration-dev-ops-experience.md
