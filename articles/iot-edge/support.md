@@ -9,8 +9,6 @@ ms.service: azure-iot-edge
 services: iot-edge
 ---
 
-<!-- DO NOT MERGE until IoT Edge 1.6.0 LTS is generally available. Replace <RELEASE_DATE_PLACEHOLDER> with the GA release date, replace <SDK_VERSION_PLACEHOLDER> with the tested Microsoft.Azure.Devices.Client SDK version, and verify the https://github.com/Azure/azure-iotedge/releases/tag/1.6.0 links resolve before merging. -->
-
 # Azure IoT Edge supported platforms
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
@@ -105,7 +103,7 @@ The following table lists the currently supported releases. IoT Edge release ass
 
 | Release notes and assets | Type | Release date | End of support date |
 | ------------------------ | ---- | ------------ | ------------------- |
-| [1.6](https://github.com/Azure/azure-iotedge/releases/tag/1.6.0) | Long-term support (LTS) | <RELEASE_DATE_PLACEHOLDER> | November 14, 2028 |
+| [1.6](https://github.com/Azure/azure-iotedge/releases/tag/1.6.0) | Long-term support (LTS) | July 2026 | November 14, 2028 |
 | [1.5](https://github.com/Azure/azure-iotedge/releases/tag/1.5.0) | Long-term support (LTS) | April 2024 | November 10, 2026 |
 
 For more information about IoT Edge version history, see [Version history](version-history.md#version-history).
@@ -117,7 +115,7 @@ IoT Edge uses the **Microsoft.Azure.Devices.Client** SDK. For more information, 
 
 | IoT Edge version | Microsoft.Azure.Devices.Client SDK version |
 |------------------|--------------------------------------------|
-| 1.6              | <SDK_VERSION_PLACEHOLDER>                  |
+| 1.6              | 1.43.x                                     |
 | 1.5              | 1.36.x                                     |
 
 ## Virtual Machines

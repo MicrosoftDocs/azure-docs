@@ -64,24 +64,10 @@ Also, verify that the IP address for your namespace is allowed. To find the righ
     ```
 2. Note down the IP address returned in `Non-authoritative answer`. 
 
-If you use a namespace hosted in an older cluster (based on Cloud Services - CNAME ending in *.cloudapp.net) and the namespace is **zone redundant**, you need to follow few extra steps. If your namespace is on a newer cluster (based on Virtual Machine Scale Set - CNAME ending in *.cloudapp.azure.com) and zone redundant you can skip below steps.
+If your namespace is **zone redundant**, the name in the **non-authoritative answer** section has a suffix of `-s1`, `-s2`, or `-s3` that identifies the availability zone instance. Run `nslookup` again for the other two suffixes (for example, `<yournamespace>-s2.servicebus.windows.net`) to get the IP addresses of the remaining availability zone instances.
 
-1. First, you run nslookup on the namespace.
-
-    ```
-    nslookup <yournamespace>.servicebus.windows.net
-    ```
-2. Note down the name in the **non-authoritative answer** section, which is in one of the following formats: 
-
-    ```
-    <name>-s1.cloudapp.net
-    <name>-s2.cloudapp.net
-    <name>-s3.cloudapp.net
-    ```
-3. Run nslookup for each one with suffixes s1, s2, and s3 to get the IP addresses of all three instances running in three availability zones, 
-
-    > [!NOTE]
-    > The IP address returned by the `nslookup` command isn't a static IP address. However, it remains constant until the underlying deployment is deleted or moved to a different cluster.
+> [!NOTE]
+> The IP address returned by the `nslookup` command isn't a static IP address. However, it remains constant until the underlying deployment is deleted or moved to a different cluster.
 
 ### What client IPs are sending events to or receiving events from my namespace?
 First, enable [IP filtering](../event-hubs-ip-filtering.md) on the namespace. 

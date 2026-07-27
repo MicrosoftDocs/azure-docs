@@ -16,7 +16,7 @@ ms.author: kendownie
 
 :heavy_multiplication_x: **Doesn't apply to:** Classic file shares created with the Microsoft.Storage resource provider
 
-The new Microsoft.FileShares resource provider and management model enables you to deploy file shares without creating an Azure storage account. Before you create an Azure file share by using the Microsoft.FileShares resource provider, review the following information to decide if it fits your needs. If you need all the features that Azure Files offers, or you need to use the SMB protocol, or want HDD (standard) performance, use a [classic file share](create-classic-file-share.md) instead.
+The new Microsoft.FileShares resource provider and management model enables you to deploy file shares without creating an Azure storage account. Before you create an Azure file share by using the Microsoft.FileShares resource provider, review the following information to decide if it fits your needs. If you need all the features that Azure Files offers, or you need to use the SMB protocol, or you want HDD (standard) performance, use a [classic file share](create-classic-file-share.md) instead.
 
 
 ## Supported features
@@ -66,11 +66,11 @@ The first tab to complete when creating a file share is labeled **Basics**. It c
 
 | Field name | Input type | Values | Meaning |
 |-|-|-|-|
-| Subscription | Drop-down list | *Available Azure subscriptions* | The selected subscription in which to deploy the storage account. |
+| Subscription | Drop-down list | *Available Azure subscriptions* | The selected subscription in which to deploy the file share. |
 | Resource group | Drop-down list | *Available resource groups in selected subscription* | The resource group in which to deploy the file share. A resource group is a logical container for organizing Azure resources, including file shares. |
 | File share name | Text box | -- | The name of the file share must be unique across all existing file share names in Azure. It must be 3 to 63 characters long and can contain only lowercase letters, numbers, and hyphens. The name must start and end with a letter or number. |
 | Tier | N/A | -- | The media tier for the file share. The Microsoft.FileShares resource provider only supports the SSD media tier. |
-| Protocol | N/A | -- | File shares support a multitude of access protocols. If you need the SMB protocol, deploy your file share within a storage account. Currently, the Microsoft.FileShares only supports NFS protocol. |
+| Protocol | N/A | -- | File shares support a multitude of access protocols. If you need the SMB protocol, deploy your file share within a storage account. Currently, Microsoft.FileShares supports only the NFS protocol. |
 | Region | Drop-down list | *Available Azure regions* | The region for the file share to be deployed into. This region can be the region associated with the resource group, or any other available region. |
 | Provisioned capacity (GiB) | Text box | Integer  | Provisioned capacity for the file share, ranging from 32 GiB to 262,144 GiB. |
 | Redundancy | Drop-down list | <ul><li>Locally redundant storage (LRS)</li><li>Zone-redundant storage (ZRS)</li></ul> | The redundancy choice for the file share. See [Azure Files redundancy](files-redundancy.md) for more information. |
@@ -84,7 +84,7 @@ The **Advanced** tab is optional and provides more granular settings. You can ch
 
 ### Networking
 
-Using the NFS protocol for a file share requires network-level security configurations. Currently, two options are available for establishing networking-level security configurations: private endpoint and service endpoint. Private endpoint gives your file share a private, static IP address within your virtual network, preventing connectivity interruptions from dynamic IP address changes. Traffic to your file share stays within peered virtual networks, including those in other regions and on-premises. To learn more, see [What is a private endpoint](../../private-link/private-endpoint-overview.md).
+NFS file shares require network-level security configurations to control access. Currently, two options are available for establishing network-level security configurations: private endpoint and service endpoint. Private endpoint gives your file share a private, static IP address within your virtual network, preventing connectivity interruptions from dynamic IP address changes. Traffic to your file share stays within peered virtual networks, including those in other regions and on-premises. To learn more, see [What is a private endpoint](../../private-link/private-endpoint-overview.md).
 
 If you don't require a static IP address, you can enable a service endpoint for Azure Files within the virtual network. A service endpoint configures the file share to allow access only from specific subnets. The allowed subnets can belong to a virtual network in the same subscription or a different subscription, including those that belong to a different Microsoft Entra tenant. There's no extra charge for using service endpoints. To learn more, see [Azure virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md).
 
@@ -128,7 +128,7 @@ $region = "<intended-region-for-deployment>"
 # The provisioned storage size of the share in GiB. Valid range is 32 to 262,144.
 $provisionedStorageGib = 1024
 
-# If you don't specify ProvisionedBandwidthMibps and ProvisionedIops, the deployment will use the recommended provisioning.
+# If you don't specify -ProvisionedThroughputMiBPerSec and -ProvisionedIoPerSec, the deployment uses the recommended provisioning.
 $provisionedIops = 3500
 $provisionedThroughput = 200
 

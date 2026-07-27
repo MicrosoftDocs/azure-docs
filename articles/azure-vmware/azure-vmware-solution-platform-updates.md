@@ -48,9 +48,9 @@ Microsoft Entra ID intergration for Azure VMware Solution is now Generally Avail
 
 ## January 2026
 
-**Self-service maintenance orchestrator**
+**Maintenance orchestrator**
 
-Self-service maintenance orchestration is now Generally Available (GA). This feature enables customers to schedule and reschedule planned maintenance directly from the Azure portal, providing greater visibility into and control over upcoming maintenance events. [Learn More](self-service-maintenance-orchestration.md)
+Maintenance orchestration is now Generally Available (GA). This feature enables customers to schedule and reschedule planned maintenance directly from the Azure portal, providing greater visibility into and control over upcoming maintenance events. [Learn More](maintenance-orchestration.md)
 
 
 ## December 2025
@@ -77,9 +77,9 @@ To enhance security, appropriate permissions are needed across Azure VMware Solu
 
 ## July 2025
 
-**Self-Service Maintenance Orchestrator (preview)**
+**Maintenance Orchestrator (preview)**
 
-Public preview of Self-Service Capabilities for Planned Maintenance. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/take-control-of-your-azure-vmware-solution-maintenance-schedule/4434496) 
+Public preview of capabilities for planning maintenance. [Learn more](https://techcommunity.microsoft.com/blog/azuremigrationblog/take-control-of-your-azure-vmware-solution-maintenance-schedule/4434496) 
 
 **VCF 5.2.1 and VMSA-2025-0013 remediation**
 

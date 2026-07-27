@@ -142,7 +142,7 @@ The following features from software development companies (SDCs) are integrated
 | --- | --- |
 | [Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | Migrate servers. |
 | [Cloudamize](https://www.cloudamize.com/platform) | Assess servers. |
-| [CloudSphere](https://go.microsoft.com/fwlink/?linkid=2157454) | Assess servers. |
+| [CloudSphere](https://azure.microsoft.com/products/azure-migrate/) | Assess servers. |
 | [Corent](https://www.corenttech.com/AzureMigrate/) | Assess and migrate servers. |
 | [Device42](https://docs.device42.com/) | Assess servers. |
 | [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess virtual desktop infrastructure. |

@@ -4,6 +4,8 @@ description: Learn how pricing works for Azure Enclave, including enclave charge
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: concept-article
+ms.service: azure-enclave
+ai-usage: ai-assisted
 ms.date: 06/08/2026
 ---
 

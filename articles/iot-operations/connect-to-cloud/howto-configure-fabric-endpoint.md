@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/10/2026
+ms.date: 07/16/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure data flow endpoints for Microsoft Fabric OneLake in Azure IoT Operations so that I can send data to Microsoft Fabric OneLake.
@@ -368,7 +368,7 @@ In most cases, you don't need to specify a service audience. Not specifying an a
 Use the [az iot ops dataflow endpoint create fabric-onelake](/cli/azure/iot/ops/dataflow/endpoint/create#az-iot-ops-dataflow-endpoint-create-fabric-onelake) command to create or replace a Microsoft Fabric OneLake data flow endpoint.
 
 ```azurecli
-az iot ops dataflow endpoint create fabric-onelake --auth-type SystemAssignedManagedIdentity fabric-onelake --audience https://<account>.onelake.dfs.fabric.microsoft.com --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --workspace <WorkspaceName> --lakehouse <LakehouseName> --path-type <PathType>
+az iot ops dataflow endpoint create fabric-onelake --auth-type SystemAssignedManagedIdentity --audience https://<account>.onelake.dfs.fabric.microsoft.com --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <EndpointName> --workspace <WorkspaceName> --lakehouse <LakehouseName> --path-type <PathType>
 ```
 
 The `--audience` parameter specifies the audience for the system-assigned managed identity. The default audience is `https://<account>.onelake.dfs.fabric.microsoft.com`.

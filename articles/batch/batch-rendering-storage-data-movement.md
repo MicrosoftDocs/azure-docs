@@ -27,7 +27,7 @@ There are multiple options for making the scene and asset files available to the
 
 ## Using Azure Blob Storage
 
-A blob storage account or a general-purpose v2 storage account should be used. These two storage account types can be configured with higher limits compared to a general-purpose v1 storage account, as detailed in [this blog post](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/). When configured, the higher limits enable better performance and scalability, especially when there are many pool VMs accessing the storage account.
+Use a blob storage account or a general-purpose v2 storage account. These two storage account types can be configured with higher limits compared to a general-purpose v1 storage account, as detailed in [this blog post](https://learn.microsoft.com/azure/storage/common/scalability-targets-standard-account). When configured, the higher limits enable better performance and scalability, especially when many pool VMs access the storage account.
 
 ### Copying files between client and blob storage
 
