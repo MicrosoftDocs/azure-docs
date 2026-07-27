@@ -2,7 +2,7 @@
 title: Azure Service Bus - Automatically update messaging units 
 description: This article shows you how you can use automatically update messaging units of a Service Bus namespace.
 ms.topic: how-to
-ms.date: 07/16/2026
+ms.date: 07/27/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -23,6 +23,12 @@ This article shows you how to automatically scale a Service Bus namespace (updat
 
 > [!IMPORTANT]
 > This article applies only to the **premium** tier of Azure Service Bus. 
+
+## Cost considerations for scaling
+
+Service Bus premium tier billing meters are hourly, based on the highest number of messaging units allocated during each hour. Scaling back down within the same hour doesn't reduce that hour's charge. Because you already pay for the peak, an aggressive scale-down saves nothing for the current hour and leaves less headroom for the next burst.
+
+When you define autoscale rules, favor a longer scale-down cool-down period, such as 30 minutes or more, and a conservative scale-down threshold. The namespace then keeps enough capacity for spikes and still reduces units when the lower load is stable. For the detailed rule settings, see [Custom autoscale - additional conditions](#custom-autoscale---additional-conditions).
 
 ## Configure by using the Azure portal
 In this section, you learn how to use the Azure portal to configure autoscaling of messaging units for a Service Bus namespace. 
@@ -146,7 +152,7 @@ The previous section shows how to add a default condition for the autoscale sett
     To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](/azure/azure-monitor/autoscale/autoscale-understanding-settings).          
 
     > [!NOTE]
-    > - The metrics you review to make decisions on autoscaling might be 5-10 minutes old. When you deal with spiky workloads, use shorter durations for scaling up and longer durations for scaling down. Because Service Bus Premium charges per hour, scaling down quickly doesn't reduce the costs for that hour. Instead, keep the scale-down cool-down period to **more than 30 minutes** to ensure the reduced workload is stable before scaling down. This condition ensures that there are enough messaging units to process spiky workloads and avoids premature scale-down that could cause throttling.
+    > - The metrics you review to make decisions on autoscaling might be 5-10 minutes old. When you deal with spiky workloads, use shorter durations for scaling up and longer durations for scaling down. Keep the scale-down cool-down period to **more than 30 minutes** to ensure the reduced workload is stable before scaling down. This condition ensures that there are enough messaging units to process spiky workloads and avoids premature scale-down that could cause throttling.
     >
     > When scaling down, set the threshold to less than half of the scale-up threshold. For example, if the scale-up threshold is 75%, set the scale-down threshold to 25-35% (something below 37%) to prevent continuous scaling up and down. This setting prevents autoscale from switching between scaling up and down continuously.
     > 
