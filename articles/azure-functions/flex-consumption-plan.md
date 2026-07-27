@@ -109,6 +109,8 @@ To learn how to set concurrency limits for HTTP trigger functions, see [Set HTTP
 
 ## Scale-out rate
 
+The number of desired instances for the app is constantly evaluated and defined by the [concurrency](#concurrency) per instance setting.
+
 As event demand increases, the Flex Consumption platform scales your app out automatically. The platform constantly evaluates how many instances your app needs—the *desired instance count*—from the volume of incoming events and your [per-instance concurrency](#concurrency) setting, which controls how many events each instance processes at once. Raising concurrency lets each instance do more work, so your app needs fewer instances to handle the same load.
 
 Two *separate* platform limits then shape how your app reaches that desired count, and it helps to think of them independently:
