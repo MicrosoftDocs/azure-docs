@@ -133,7 +133,7 @@ The scale curve applies to on-demand instances only. The exact shape and rate ar
 
 ### Maximum instance count (the ceiling)
 
-Independently of the rate, your app never scales beyond its [maximum instance count](event-driven-scaling.md#limit-scale-out). When an app reaches that ceiling, the platform stops adding on-demand instances no matter how much demand remains, until running instances free up. Always ready instances count toward this ceiling.
+Regardless of the rate, your app never scales beyond its [maximum instance count](event-driven-scaling.md#limit-scale-out). When an app reaches that ceiling, the platform stops adding on-demand instances no matter how much demand remains, until running instances free up. Always ready instances count toward this ceiling.
 
 You configure the maximum instance count on the app, but the platform applies it to each independently-scaling function group rather than to the app's combined instances. A *function group* is a set of functions that scale together on the same instances, as described in [per-function scaling](event-driven-scaling.md#per-function-scaling). Many apps scale as a single group, so the ceiling behaves like one per-app limit. An app that scales some functions on their own instances has more than one function group, and the maximum instance count applies to each group.
 
