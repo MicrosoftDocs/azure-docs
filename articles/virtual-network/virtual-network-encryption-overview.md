@@ -24,9 +24,9 @@ Virtual network encryption enhances existing encryption in transit capabilities 
 
 Virtual network encryption has the following requirements:
 
-- Virtual Network encryption is supported on the following virtual machine instance sizes: 
-  - The D/E series entries below are a baseline, not an exhaustive list. Virtual Network encryption is supported on all v5 and newer generations of D-series and E-series
-  - For all other families, encryption is supported on the specific series listed below, and we will add new sizes as they're validated. This includes the compute-optimized (F-series), storage-optimized (L-series), memory-optimized (M-series), and GPU-accelerated compute sizes
+- Virtual network encryption supports the following virtual machine instance sizes: 
+  - The D/E series entries in the following list are a baseline, not an exhaustive list. Virtual network encryption supports all v5 and newer generations of D-series and E-series.
+  - For all other families, encryption supports the specific series listed in the following table. The product team adds new sizes as they're validated. This support includes the compute-optimized (F-series), storage-optimized (L-series), memory-optimized (M-series), and GPU-accelerated compute sizes.
 
     | Type | VM Series | VM SKU |
     | --- | --- | --- |
