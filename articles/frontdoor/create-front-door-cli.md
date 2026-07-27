@@ -40,7 +40,7 @@ Next, create the Azure Front Door profile that your two App Services uses as ori
 Run [az afd profile create](/cli/azure/afd/profile#az-afd-profile-create) to create an Azure Front Door profile.
 
 > [!NOTE]
-> If you want to deploy Azure Front Door Standard instead of Premium, substitute the value of the sku parameter with `Standard_AzureFrontDoor`. Managed rules with WAF Policy are not available with the Standard tier. For a detailed comparison, see [Azure Front Door tier comparison](standard-premium/tier-comparison.md).
+> If you want to deploy Azure Front Door Standard instead of Premium, substitute the value of the sku parameter with `Standard_AzureFrontDoor`. Managed rules with WAF Policy aren't available with the Standard tier. For a detailed comparison, see [Azure Front Door tier comparison](standard-premium/tier-comparison.md).
 
 ```azurecli-interactive
 az afd profile create \
