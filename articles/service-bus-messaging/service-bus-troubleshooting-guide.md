@@ -2,7 +2,7 @@
 title: Troubleshooting guide for Azure Service Bus | Microsoft Docs
 description: Learn about troubleshooting tips and recommendations for a few issues that you see when using Azure Service Bus.
 ms.topic: article
-ms.date: 07/15/2026
+ms.date: 07/27/2026
 ms.custom:
   - build-2025
 ---
@@ -100,6 +100,31 @@ To configure Web Sockets as the transport type, see [Configuring the transport](
 
 #### "Authentication=Managed Identity" Alternative
 To authenticate with Managed Identity, see: [Identity and Shared Access Credentials](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/servicebus/Azure.Messaging.ServiceBus#authenticating-with-azureidentity). For more information about the `Azure.Identity` library, see [Authentication and the Azure SDK](https://devblogs.microsoft.com/azure-sdk/authentication-and-the-azure-sdk).
+
+### Managed identity authentication failures
+When your application authenticates with a managed identity instead of a connection string, connection attempts can fail with an authorization error even when the network path to the service is healthy. Depending on the SDK, the failure surfaces as an `Unauthorized` error, a `ServiceBusException` with an authorization-related reason, or a "Put token failed" error.
+
+These failures come from token acquisition or role assignment in your host environment, not from the Service Bus client. The same causes apply to every Service Bus SDK (.NET, Java, JavaScript, Python, and Go), because each one acquires Microsoft Entra tokens through the Azure Identity library.
+
+To troubleshoot this problem:
+
+- Confirm that the identity has an Azure role assignment on the namespace, queue, or topic. Sending requires the **Azure Service Bus Data Sender** role and receiving requires the **Azure Service Bus Data Receiver** role. For steps, see [Authenticate a managed identity with Microsoft Entra ID to access Azure Service Bus resources](service-bus-managed-service-identity.md).
+- Confirm that the client requests the token scope `https://servicebus.azure.net/.default`. The issued token's `aud` (audience) claim is then `https://servicebus.azure.net`. The role assignment is a separate requirement from the scope, so verify it as well.
+- Verify that `DefaultAzureCredential` selects the intended credential. When multiple credentials are available in the host, `DefaultAzureCredential` uses the first one in its resolution order. Enable Azure Identity logging or specify the credential explicitly to confirm which identity is used. For the .NET credential resolution order and more troubleshooting steps, see [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) and [Troubleshoot Azure Identity authentication issues](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/identity/Azure.Identity/TROUBLESHOOTING.md). The Azure Identity library for each language follows the same credential chain.
+- Allow time for a new role assignment to propagate, which can take several minutes.
+- Check that the host clock is accurate and synchronized. Microsoft Entra ID validates tokens against their issue and expiry times.
+
+> [!NOTE]
+> The Azure Service Bus data roles (**Azure Service Bus Data Sender**, **Azure Service Bus Data Receiver**, and **Azure Service Bus Data Owner**) control data-plane access. They're separate from management-plane roles such as **Owner** and **Contributor**, which manage the resource rather than its data.
+
+#### Azure Kubernetes Service (AKS) workload identity
+When you run on AKS with workload identity, the preceding checks still apply. Also verify the workload identity configuration:
+
+- The Kubernetes service account is annotated with the identity's client ID.
+- The pod has the `azure.workload.identity/use` label.
+- A federated identity credential links the managed identity or Microsoft Entra application to the cluster's OpenID Connect (OIDC) issuer.
+
+To assign a managed identity to an AKS cluster, see the **Azure Kubernetes Service** tab in [Migrate an application to use passwordless connections](service-bus-migrate-azure-credentials.md).
 
 ## Logging and diagnostics
 The Service Bus client library is fully instrumented for logging information at various levels of detail using the .NET `EventSource` to emit information. Logging is performed for each operation and follows the pattern of marking the starting point of the operation, its completion, and any exceptions encountered. Additional information that might offer insight is also logged in the context of the associated operation.
@@ -263,6 +288,21 @@ The following steps help you with troubleshooting connectivity/certificate/timeo
     You can use equivalent commands if you're using other tools such as `tnc`, `ping`, and so on. 
 - Obtain a network trace if the previous steps don't help and analyze it using tools such as [Wireshark](https://www.wireshark.org/). Contact [Microsoft Support](https://support.microsoft.com/) if needed. 
 - To find the right IP addresses to add to allowlist for your connections, see [What IP addresses do I need to add to allowlist](service-bus-faq.yml#what-ip-addresses-do-i-need-to-add-to-allowlist-). 
+
+### TLS certificate chain and intermediate certificate issues
+Service Bus endpoints (`*.servicebus.windows.net`) present a TLS certificate that chains to a public root certificate authority (CA). Microsoft periodically rotates the TLS certificates and the intermediate CAs in that chain. If your client's trust store is missing an updated intermediate CA, or if your client pins a specific intermediate or leaf certificate, the TLS handshake fails after a rotation even though nothing changed in your application.
+
+Symptoms include a TLS or SSL handshake failure, a certificate chain validation error such as `unable to get local issuer certificate`, or a connection that worked before a certificate rotation and starts failing afterward.
+
+To troubleshoot this problem:
+
+- Trust the root CAs rather than pinning intermediate or leaf certificates. Microsoft rotates intermediate certificates, so trusting the root keeps your client working across rotations. For the current root and intermediate CAs used by Azure services, see [Azure Certificate Authority details](/azure/security/fundamentals/azure-certificate-authority-details).
+- Update the operating system or runtime trust store to include the current CA certificates. On Linux, update the CA bundle, for example, the `ca-certificates` package. For Java, make sure the JRE `cacerts` truststore is current, because Java validates certificates against its own truststore rather than the operating system's.
+- If you use a custom or corporate trust store, add the current Azure root and intermediate CAs to it.
+- Confirm that any intercepting proxy or TLS-inspection appliance presents a certificate chain your client trusts.
+
+> [!IMPORTANT]
+> Resolve certificate chain failures by updating the trust store with the correct CA certificates. Keep TLS certificate validation enabled. Bypassing validation removes protection against man-in-the-middle attacks, for example by setting `NODE_TLS_REJECT_UNAUTHORIZED=0` in Node.js or by installing a certificate validation callback that accepts any certificate.
 
 [!INCLUDE [service-bus-amqp-support-retirement](../../includes/service-bus-amqp-support-retirement.md)]
 
