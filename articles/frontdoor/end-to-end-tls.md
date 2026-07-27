@@ -97,7 +97,7 @@ If you choose to use your own certificate, you can onboard a certificate from a 
 
 ### Certificate autorotation
 
-For the Azure Front Door Standard/Premium managed certificate option, the certificates are managed and auto-rotates within 45 days of expiry time by Azure Front Door. For the Azure Front Door Classic and Azure CDN Classic managed certificate option, the certificates are managed and auto-rotates within 90 days of expiry time by Azure Front Door.  If you're using classic SKUs managed certificate and see that the certificate expiry date is less than 60 days away or 30 days for the Standard/Premium SKU, file a support ticket. 
+For the Azure Front Door Standard/Premium managed certificate option, the certificates are managed and auto-rotates within 45 days of expiry time by Azure Front Door. For the Azure Front Door Classic and Azure CDN Classic managed certificate option, the certificates are managed and auto-rotates within 90 days of expiry time by Azure Front Door.  If you're using classic tiers managed certificate and see that the certificate expiry date is less than 60 days away or 30 days for the Standard/Premium tier, file a support ticket. 
 
 > [!IMPORTANT]
 > - For Azure Front Door Classic and Azure CDN Classic, managed certificates will no longer be supported starting August 15, 2025. To avoid service disruption, either switch to **Bring Your Own Certificate (BYOC)** or migrate to Azure Front Door Standard/Premium before this date. Existing managed certificates will continue to autorenew until August 15, 2025, and remain valid until April 14, 2026. However, it's highly recommended to switch to **BYOC** or migrate to Front Door Standard/Premium before August 15, 2025, to avoid unexpected certificate revocation.
