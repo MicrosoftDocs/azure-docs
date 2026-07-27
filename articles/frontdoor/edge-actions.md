@@ -6,10 +6,12 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 07/23/2026
+ms.date: 07/27/2026
 ---
 
 # Customization at the edge using Azure Front Door edge actions (preview)  
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
 Azure Front Door edge actions is a transformative capability that empowers organizations to run custom JavaScript logic directly at Microsoft's global Azure Front Door [PoP locations](edge-locations-by-region.md). Designed for modern web applications, Edge Actions enable ultra-low latency execution of business logic against user requests and responses.
 
@@ -287,16 +289,7 @@ You can also use Azure Front Door logs to verify whether the edge action got exe
 
 ## Pricing
 
-Edge actions follow a simple two-part pricing model based on the number of invocations and execution time beyond 1 ms for each invocation. For details about edge actions pricing, see the following table, including applicable billing meters and usage-based charges on invocations and execution time.
-
-| Meter | Price |
-|--|--|
-| Invocations | $0.1 per 1 M invocations |
-| Overage execution time <sup>1</sup> | $0.00005 per second |
-
-<sup>1</sup> Cumulative additional execution time for all invocations that took more than 1 ms.
-
-For more information, see [Understanding Azure Front Door billing: Example 7](billing.md#example-7-edge-actions).
+Edge actions follow a simple two-part pricing model based on the number of invocations and execution time beyond 1 ms for each invocation. For details about edge actions pricing, see [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/), including applicable billing meters and usage-based charges on invocations and execution time. For more information, see [Understanding Azure Front Door billing: Example 7](billing.md#example-7-edge-actions).
 
 ## Related content
 
