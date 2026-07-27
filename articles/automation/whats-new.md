@@ -23,6 +23,16 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
 
+## July 2026
+
+### General Availability: Azure Automation supports PowerShell 7.6 
+Azure Automation announces General Availability of PowerShell 7.6 in all Public regions. PowerShell 7.1 and 7.2 versions and Python 2.7 and 3.8 versions are announced retired by parent products PowerShell and Python respectively, and hence not recommended.[Learn more](automation-runbook-types.md).
+
+###  Retirement Notice - Support for Python-2.7 & 3.8 and PowerShell- 7.1 & 7.2 will be retired on 30 September 2026. 
+Runtime versions Python 2.7, Python 3.8, and PowerShell 7.1 & 7.2. will no longer be supported by Automation post Sept 30 2026.
+Runbooks using these versions may continue to run but will not receive security updates, bug fixes, or official support. 
+Upgrading is required to maintain support eligibility and ensure continued access to security updates and platform features. For more details, please refer to the Language runtime support and retirement policy for Azure Automation.[Learn more](articles/automation/automation-runtime-retirement-policy.md)
+
 ## March 2026
 
 ### Security Update: Azure Automation Windows Hybrid Worker Extension (1.3.74)
