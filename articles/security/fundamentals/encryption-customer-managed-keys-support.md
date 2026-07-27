@@ -184,6 +184,6 @@ The following services support server-side encryption with customer-managed keys
 
 ## Related content
 
-- [Data encryption models in Microsoft Azure](encryption-models.md).
-- [How encryption is used in Azure](encryption-overview.md).
-- [Double encryption](double-encryption.md).
+- [Data encryption models in Microsoft Azure](encryption-models.md)
+- [How encryption is used in Azure](encryption-overview.md)
+- [Double encryption](double-encryption.md)

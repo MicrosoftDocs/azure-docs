@@ -20,18 +20,12 @@ This article provides instructions for enabling secure settings if you didn't do
 
 * An Azure IoT Operations instance [deployed with test settings](../deploy-iot-ops/howto-deploy-iot-test-operations.md).
 
-* Azure CLI version 2.62.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+[!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
 * The latest version of the **connectedk8s** extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
   ```bash
   az extension add --upgrade --name connectedk8s
-  ```
-
-* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
-
-  ```azurecli
-  az extension add --upgrade --name azure-iot-ops
   ```
 
 ## Enable the cluster for secure settings
@@ -201,7 +195,7 @@ Some Azure IoT Operations components, like data flow endpoints, use a user-assig
 1. Restart the schema registry pods to apply the new identity. 
 
    ```azurecli
-   kubectl delete pods adr-schema-registry-0 adr-schema-registry-1 -n azure-iot-operations
+   kubectl rollout restart statefulset adr-schema-registry -n azure-iot-operations
    ```
 
 Now you can use this managed identity in data flow endpoints for cloud connections.

@@ -5,7 +5,7 @@ author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 03/10/2026
+ms.date: 07/24/2026
 ms.author: kendownie
 ms.custom: monitoring, devx-track-azurepowershell
 # Customer intent: "As a storage administrator, I want to analyze Azure Files metrics using Azure Monitor, so that I can optimize workload performance by monitoring availability, latency, and utilization of file shares."
@@ -21,7 +21,7 @@ Understanding how to monitor file share performance is critical to ensuring that
 
 See [Monitor Azure Files](storage-files-monitoring.md) for details on the monitoring data you can collect for Azure Files and how to use it.
 
-## Supported metrics
+## Supported metrics for Azure Files
 
 Metrics for Azure Files are in these namespaces: 
 
@@ -201,16 +201,16 @@ public static async Task ReadStorageMetricValueTest()
     var client = new MetricsQueryClient(new DefaultAzureCredential());
     
     // Define a dimension filter to read metric data on specific dimension values
-    // More conditions can be added with the 'or' and 'and' operators, example: BlobType eq 'BlockBlob' or BlobType eq 'PageBlob'
+    // More conditions can be added with the 'or' and 'and' operators, example: ApiName eq 'GetFile' or ApiName eq 'PutRange'
     Response<MetricsQueryResult> result = await client.QueryResourceAsync(
         resourceId,
-        new[] { "BlobCapacity" },
+        new[] { "Transactions" },
         new MetricsQueryOptions
         {
             Granularity = TimeSpan.FromHours(1),
             Aggregations = { MetricAggregationType.Average },
             TimeRange = new QueryTimeRange(TimeSpan.FromHours(3)),
-            Filter = "BlobType eq 'BlockBlob'"
+            Filter = "ApiName eq 'GetFile'"
         });
     
     foreach (MetricResult metric in result.Value.Metrics)
@@ -237,9 +237,9 @@ public static async Task ReadStorageMetricValueTest()
 
 ## Monitor workload performance
 
-You can use Azure Monitor to analyze workloads that utilize Azure Files. Follow these steps.
+Use Azure Monitor to analyze workloads that use Azure Files. Follow these steps:
 
-1. Navigate to your storage account in the [Azure portal](https://portal.azure.com). 
+1. Go to your storage account in the [Azure portal](https://portal.azure.com). 
 1. In the service menu, under **Monitoring**, select **Metrics**.
 1. Under **Metric namespace**, select **File**.
 
@@ -257,7 +257,7 @@ When using this metric with Azure Files, it's important to always view the aggre
 
 ### Monitor latency
 
-The two most important latency metrics are **Success E2E Latency** and **Success Server Latency**. These are ideal metrics to select when starting any performance investigation. **Average** is the recommended aggregation. As previously mentioned, Max and Min can sometimes be misleading.
+The two most important latency metrics are **Success E2E Latency** and **Success Server Latency**. These are ideal metrics to select when starting any performance investigation. **Average** is the recommended aggregation. As with the Availability metric, Max and Min can sometimes be misleading for latency analysis.
 
 In the following charts, the blue line indicates how much time is spent in total latency (Success E2E Latency), and the pink line indicates time spent only in the Azure Files service (Success Server Latency).
 
@@ -265,11 +265,11 @@ This chart shows an on-premises client with a mounted Azure file share, represen
 
 :::image type="content" source="media/analyze-files-metrics/latency-remote.png" alt-text="Screenshot showing latency metrics with a remote user connecting to an Azure file share." lightbox="media/analyze-files-metrics/latency-remote.png" border="false":::
 
-In comparison, the following chart shows a situation where both the client and the Azure file share are located within the same region. Note that the client-side latency is only 0.17ms compared to 43.9ms in the first chart. This illustrates why minimizing client-side latency is imperative in order to achieve optimal performance.
+In comparison, the following chart shows a situation where both the client and the Azure file share are located within the same region. The client-side latency is only 0.17ms compared to 43.9ms in the first chart, which illustrates why minimizing client-side latency is imperative to achieve optimal performance.
 
 :::image type="content" source="media/analyze-files-metrics/latency-same-region.png" alt-text="Screenshot showing latency metrics when the client and Azure file share are located in the same region." lightbox="media/analyze-files-metrics/latency-same-region.png" border="false":::
 
-Another latency indicator to look that for might suggest a problem is an increased frequency or abnormal spikes in **Success Server Latency**.  This is commonly due to throttling due to exceeding the provisioned limit for a provisioned file share (or an overall scale limit a pay-as-you-go file share). See [Understanding Azure Files billing](./understanding-billing.md) and the [Scalability and performance targets for Azure Files](storage-files-scale-targets.md).
+Another latency indicator to look for that might suggest a problem is an increased frequency or abnormal spikes in **Success Server Latency**.  This is commonly due to throttling due to exceeding the provisioned limit for a provisioned file share (or an overall scale limit a pay-as-you-go file share). See [Understanding Azure Files billing](./understanding-billing.md) and the [Scalability and performance targets for Azure Files](storage-files-scale-targets.md).
 
 For more information, see [Troubleshoot high latency, low throughput, or low IOPS](/troubleshoot/azure/azure-storage/files-troubleshoot-performance?toc=%2Fazure%2Fstorage%2Ffiles%2Ftoc.json&tabs=windows#high-latency-low-throughput-or-low-iops).
 
@@ -289,13 +289,13 @@ To determine the average throughput for your workload, take the total amount of 
 
 ### Monitor utilization by maximum IOPS and bandwidth (provisioned only)
 
-Provisioned file shares provide **Transactions by Max IOPS** and **Bandwidth by Max MiB/s** metrics to display what your workload is achieving at peak times. Using these metrics to analyze your workload help you understand true capability at scale, as well as establish a baseline to understand the impact of more throughput and IOPS so you can optimally provision your Azure file share.
+While average IOPS and throughput give a general picture of workload activity, they can mask bursts and peaks. Provisioned file shares provide **Transactions by Max IOPS** and **Bandwidth by Max MiB/s** metrics to show what your workload achieves at peak load, giving a more accurate picture of your actual performance requirements. Using these metrics to analyze your workload helps you understand true capability at scale and establish a baseline to understand the impact of more throughput and IOPS so you can optimally provision your Azure file share.
 
-The following chart shows a workload that generated 2.63 million transactions over 1 hour. When 2.63 million transactions is divided by 3,600 seconds, we get an average of 730 IOPS.
+The following chart shows a workload that generated 2.63 million transactions over 1 hour. When 2.63 million transactions is divided by 3,600 seconds, the average is 730 IOPS.
 
 :::image type="content" source="media/analyze-files-metrics/transactions-sum.png" alt-text="Screenshot showing the transactions generated by a workload over one hour." lightbox="media/analyze-files-metrics/transactions-sum.png" border="false":::
 
-Now when we compare the average IOPS against the **Transactions by Max IOPS**, we see that under peak load we were achieving 1,840 IOPS, which is a better representation of the workload's ability at scale.
+Comparing the average IOPS against **Transactions by Max IOPS** shows that under peak load, the workload achieved 1,840 IOPS, which is a better representation of the workload's ability at scale.
 
 :::image type="content" source="media/analyze-files-metrics/transactions-by-max-iops.png" alt-text="Screenshot showing transactions by max IOPS." lightbox="media/analyze-files-metrics/transactions-by-max-iops.png" border="false":::
 
@@ -303,7 +303,7 @@ Select **Add metric** to combine the **Ingress** and **Egress metrics** on a sin
 
 :::image type="content" source="media/analyze-files-metrics/ingress-egress-sum.png" alt-text="Screenshot showing how to combine ingress and egress metrics into a single graph." lightbox="media/analyze-files-metrics/ingress-egress-sum.png" border="false":::
 
-Compared against the **Bandwidth by Max MiB/s**, we achieved 123 MiB/s at peak.
+Compared against the **Bandwidth by Max MiB/s**, the workload achieved 123 MiB/s at peak.
 
 :::image type="content" source="media/analyze-files-metrics/bandwidth-by-max-mibs.png" alt-text="Screenshot showing bandwidth by max MIBS." lightbox="media/analyze-files-metrics/bandwidth-by-max-mibs.png" border="false":::
 
@@ -312,7 +312,7 @@ On Azure file shares scale up to 12K metadata IOPS. This means that running a me
 
 Because no two metadata-heavy workloads follow the same usage pattern, it can be challenging for customers to proactively monitor their workload and set accurate alerts.
 
-To address this, we've introduced two metadata-specific metrics for Azure file shares:
+To address this, Azure Files provides two metadata-specific metrics for Azure file shares:
 
 - **Success with Metadata Warning:** Indicates that metadata IOPS are approaching their limit and might be throttled if they remain high or continue increasing. A rise in the volume or frequency of these warnings suggests an increasing risk of metadata throttling.
 

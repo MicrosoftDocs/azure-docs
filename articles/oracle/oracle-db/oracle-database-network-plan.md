@@ -94,7 +94,7 @@ The following table describes the network topologies that are supported by each 
 |On-premises connectivity to an Oracle AI Database cluster via a virtual WAN and attached software-defined wide area network (SD-WAN)|No|Yes|
 |On-premises connectivity via a secured hub (a firewall network virtual appliance) |Yes|Yes|
 |Connectivity from an Oracle AI Database cluster on Oracle AI Database@Azure nodes to Azure resources|Yes|Yes|
-|Connectivity to Azure Container Apps, AKS, and Serverless Apps|No|Yes|
+|Connectivity from Azure Web Apps, Azure Function Apps, Azure Container Apps, and other serverless resources|No|Yes|
 |Connectivity from Azure NetApp Files with Basic network features (ANF and Oracle AI Database@Azure must be deployed in separate VNETs)|No|Yes|
 |Connectivity from Azure NetApp Files with Standard network features (ANF and Oracle AI Database@Azure must be deployed in separate VNETs)|Yes|Yes
 

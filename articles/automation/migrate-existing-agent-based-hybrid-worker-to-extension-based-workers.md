@@ -3,7 +3,7 @@ title: Migrate existing agent-based hybrid workers to extension-based-workers in
 description: This article provides information on how to migrate an existing agent-based hybrid worker to extension based workers.
 services: automation
 ms.subservice: process-automation
-ms.date: 04/24/2026
+ms.date: 05/05/2026
 ms.custom:
   - devx-track-azurecli
   - devx-track-bicep
@@ -127,7 +127,7 @@ For at-scale migration of multiple Agent based Hybrid Workers, you can also use 
 
 ## Manage Hybrid Worker extension using Bicep & ARM templates, REST API, Azure CLI, and PowerShell
 
-[!INCLUDE [end-of-support-notes-windows-server-2008](./includes/end-of-support-notes-windows-server-2008.md)]
+[!INCLUDE [end-of-support-notes-windows-server-2008-2012](./includes/end-of-support-notes-windows-server-2008-2012.md)]
 
 #### [Bicep file](#tab/bicep-file)
 
@@ -952,4 +952,4 @@ New-AzConnectedMachineExtension -ResourceGroupName <VMResourceGroupName> -Locati
 
 - To learn more about Hybrid Runbook Worker, see [Automation Hybrid Runbook Worker overview](automation-hybrid-runbook-worker.md).
 - To deploy Extension-based Hybrid Worker, see [Deploy an extension-based Windows or Linux User Hybrid Runbook Worker in Azure Automation](extension-based-hybrid-runbook-worker-install.md).
-- To learn about Azure VM extensions, see [Azure VM extensions and features for Windows](/azure/virtual-machines/extensions/features-windows) and [Azure VM extensions and features for Linux](/azure/virtual-machines/extensions/features-linux).
+- To learn about Azure VM extensions, see [Azure VM extensions and features for Windows](/azure/virtual-machines/extensions/features-windows) and [Azure VM extensions and features for Linux](/azure/virtual-machines/extensions/features-linux). 

@@ -120,4 +120,3 @@ Apache Spark and MLLib
 Deep Learning, Cognitive Toolkit, and others
 
 * [Data Science Azure Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview)
-* [Introducing H2O.ai on Azure HDInsight](https://azure.microsoft.com/blog/introducing-h2o-ai-with-on-azure-hdinsight-to-bring-the-most-robust-ai-platform-for-enterprises/)

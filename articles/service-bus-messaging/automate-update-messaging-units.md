@@ -2,7 +2,7 @@
 title: Azure Service Bus - Automatically update messaging units 
 description: This article shows you how you can use automatically update messaging units of a Service Bus namespace.
 ms.topic: how-to
-ms.date: 07/17/2026
+ms.date: 07/27/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -94,6 +94,7 @@ The following procedure shows you how to add a condition to automatically increa
 
         > [!NOTE]
         > The autoscale feature decreases the messaging units for the namespace if the overall CPU usage goes below 25% in this example. Decrements are done from 16 to 8, 8 to 4, 4 to 2, and 2 to 1. 
+1. Add a memory-based rule so that the namespace scales on **both** CPU and memory. Select **+ Add a rule** again, select **Memory** for **Metric name**, set the operator and threshold to **Greater than** and **60**, set the **operation** to **Increase**, and then select **Add**. Because memory usage can rise quickly, scaling out at 60% memory usage helps prevent interruptions to your message processing.
 1. Set the **minimum**, **maximum**, and **default** number of messaging units.
 
     :::image type="content" source="./media/automate-update-messaging-units/default-scale-metric-based.png" alt-text="Default rule based on a metric":::
@@ -151,7 +152,7 @@ The previous section shows how to add a default condition for the autoscale sett
     > [!NOTE]
     > - The metrics you review to make decisions on autoscaling might be 5-10 minutes old. When you deal with spiky workloads, use shorter durations for scaling up and longer durations for scaling down. Because Service Bus Premium charges per hour, scaling down quickly doesn't reduce the costs for that hour. Instead, keep the scale-down cool-down period to **more than 30 minutes** to ensure the reduced workload is stable before scaling down. This condition ensures that there are enough messaging units to process spiky workloads and avoids premature scale-down that could cause throttling.
     >
-    > When scaling down, set the threshold to less than half of the scale-up threshold. For example, if the scale-up threshold is 80%, set the scale-down threshold to 30-35% (something below 40%) to prevent continuous scaling up and down. This setting prevents autoscale from switching between scaling up and down continuously.
+    > When scaling down, set the threshold to less than half of the scale-up threshold. For example, if the scale-up threshold is 75%, set the scale-down threshold to 25-35% (something below 37%) to prevent continuous scaling up and down. This setting prevents autoscale from switching between scaling up and down continuously.
     > 
     > - If you see failures due to lack of capacity (no messaging units available), raise a support ticket. Capacity fulfillment is subject to the constraints of the environment and is carried out to the best effort.
 

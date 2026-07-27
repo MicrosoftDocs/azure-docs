@@ -75,6 +75,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Get started with Azure Enclave
+            url: onboard.md
           - text: Create a community
             url: create-community-portal.md
           - text: Create a community endpoint
