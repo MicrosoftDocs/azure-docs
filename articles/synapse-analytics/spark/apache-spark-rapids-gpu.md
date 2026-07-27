@@ -25,7 +25,7 @@ spark.conf.set('spark.rapids.sql.enabled','true/false')
 
 ## RAPIDS Accelerator for Apache Spark
 
-The Spark RAPIDS accelerator is a plugin that works by overriding the physical plan of a Spark job by supported GPU operations, and running those operations on the GPUs, thereby accelerating processing. This library is currently in preview and doesn't support all Spark operations (here is a list of [currently supported operators](https://nvidia.github.io/cudf-spark/docs/supported_ops.html), and more support is being added incrementally through new releases).
+The Spark RAPIDS accelerator is a plugin that works by overriding the physical plan of a Spark job with supported GPU operations. It runs those operations on the GPUs, which accelerates processing. This library is currently in preview and doesn't support all Spark operations. For a list of supported operations, see [currently supported operators](https://nvidia.github.io/cudf-spark/docs/supported_ops.html). More support is added incrementally through new releases.
 
 ## Cluster configuration options
 
