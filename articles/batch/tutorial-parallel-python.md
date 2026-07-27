@@ -3,7 +3,7 @@ title: "Tutorial: Run a parallel workload using the Python API"
 description: Learn how to process media files in parallel using ffmpeg in Azure Batch with the Batch Python client library.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 05/13/2026
+ms.date: 07/10/2026
 ms.custom: mvc, devx-track-python
 # Customer intent: "As a developer, I want to run a parallel workload using the Python API with Azure Batch, so that I can efficiently process multiple media files in high-performance computing tasks."
 ---
@@ -32,13 +32,47 @@ In this tutorial, you convert MP4 media files to MP3 format, in parallel, by usi
 
 * An Azure Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstart guides for [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
-## Sign in to Azure
+## Grant access to your Batch and Storage accounts
 
-Sign in to the [Azure portal](https://portal.azure.com).
+This tutorial shows how to authenticate to Azure Batch and Azure Storage by using Microsoft Entra ID with [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential). The app doesn't use account keys. Before running the app, make sure the identity you use has the required roles on both accounts.
 
-[!INCLUDE [batch-common-credentials](../../includes/batch-common-credentials.md)]
+1. Sign in by using the Azure CLI. `DefaultAzureCredential` automatically picks up this sign-in:
+
+   ```azurecli
+   az login
+   ```
+
+1. Assign your user account a role that allows data-plane operations on the Batch account, such as **Azure Batch Data Contributor**. This role is required to create pools, jobs, and tasks. You can assign the role on the Batch account's **Access control (IAM)** page in the Azure portal, or use the Azure CLI:
+
+   ```azurecli
+   az role assignment create \
+       --assignee "<your-user-principal-name>" \
+       --role "Azure Batch Data Contributor" \
+       --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Batch/batchAccounts/<batch-account-name>"
+   ```
+
+1. Assign your user account the **Storage Blob Data Contributor** role on the storage account. This role is required to create containers, upload the input files, and request the user delegation key that signs the shared access signature (SAS) URLs used by the tasks:
+
+   ```azurecli
+   az role assignment create \
+       --assignee "<your-user-principal-name>" \
+       --role "Storage Blob Data Contributor" \
+       --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account-name>"
+   ```
+
+1. Note the following values, which you add to the sample's *config.py* file in the next section. You can find them on each account's **Overview** page in the Azure portal:
+
+   - Batch account name
+   - Batch account URL, for example `https://mybatchaccount.westus2.batch.azure.com`
+   - Storage account name
+
+> [!NOTE]
+> It can take a few minutes for role assignments to propagate. If the app fails with an authorization error immediately after you assign the roles, wait a few minutes and try again.
 
 ## Download and run the sample app
+
+> [!IMPORTANT]
+> The downloadable sample in the [batch-python-ffmpeg-tutorial](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial) repo is being updated to match this tutorial. Until that update publishes, the repo might still contain the earlier key-based authentication and Ubuntu 20.04 code. **The code in this article is the source of truth.** If the downloaded sample doesn't match the snippets here, follow the code shown in this article.
 
 ### Download the sample app
 
@@ -65,7 +99,7 @@ _BATCH_ACCOUNT_URL = 'https://yourbatchaccount.yourbatchregion.batch.azure.com'
 _STORAGE_ACCOUNT_NAME = 'mystorageaccount'
 ```
 
-Before running the sample, sign in with the Azure CLI (`az login`) or otherwise configure a credential that `DefaultAzureCredential` can discover (for example, a managed identity, Visual Studio Code, or environment variables). Make sure the signed-in identity is granted the appropriate Azure RBAC roles on both the Batch account (for example, **Azure Batch Contributor** or **Reader**) and the Storage account (for example, **Storage Blob Data Contributor**).
+Make sure you're signed in by using `az login` and that your identity has the roles described in [Grant access to your Batch and Storage accounts](#grant-access-to-your-batch-and-storage-accounts). `DefaultAzureCredential` can also discover other credential sources, such as a managed identity, Visual Studio Code, or environment variables.
 
 ### Run the app
 
@@ -91,7 +125,7 @@ Creating pool [LinuxFFmpegPool]...
 Creating job [LinuxFFmpegJob]...
 Adding 5 tasks to job [LinuxFFmpegJob]...
 Monitoring all tasks for 'Completed' state, timeout in 00:30:00...
-Success! All tasks completed successfully within the specified timeout period.
+Success! All tasks reached the 'Completed' state within the specified timeout period.
 Deleting container [input]....
 
 Sample end: 11/28/2018 3:29:36 PM
@@ -118,11 +152,25 @@ The sample authenticates with both Storage and Batch by using [DefaultAzureCrede
 
 To interact with a storage account, the app uses the [azure-storage-blob](https://pypi.python.org/pypi/azure-storage-blob) package to create a [BlobServiceClient](/python/api/azure-storage-blob/azure.storage.blob.blobserviceclient) object that uses the credential.
 
+The sample imports the following identity and storage types, and reads the account names from *config.py*:
+
+```python
+import config
+from azure.identity import DefaultAzureCredential
+from azure.storage.blob import (
+    BlobServiceClient,
+    BlobSasPermissions,
+    ContainerSasPermissions,
+    generate_blob_sas,
+    generate_container_sas,
+)
+```
+
 ```python Snippet:tutorial_parallel_blob_client
 credential = DefaultAzureCredential()
 
 blob_service_client = BlobServiceClient(
-    account_url=f"https://{_STORAGE_ACCOUNT_NAME}.blob.core.windows.net/",
+    account_url=f"https://{config._STORAGE_ACCOUNT_NAME}.blob.core.windows.net/",
     credential=credential)
 ```
 
@@ -130,34 +178,69 @@ The app creates a [BatchClient](/python/api/azure-batch/azure.batch.batchclient)
 
 ```python Snippet:tutorial_parallel_batch_client
 batch_client = BatchClient(
-    endpoint=_BATCH_ACCOUNT_URL,
+    endpoint=config._BATCH_ACCOUNT_URL,
     credential=credential)
 ```
 
+Batch compute nodes access the input and output containers by using shared access signature (SAS) URLs. Because the app doesn't use the storage account key, it can't sign SAS tokens with it. Instead, the app requests a *user delegation key* from the Blob service, which is signed with the app's Microsoft Entra credentials, and uses that key to generate the SAS tokens. For more information, see [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas).
+
+```python Snippet:tutorial_parallel_user_delegation_key
+start = datetime.datetime.now(datetime.timezone.utc)
+expiry = start + datetime.timedelta(hours=4)
+user_delegation_key = blob_service_client.get_user_delegation_key(
+    key_start_time=start, key_expiry_time=expiry)
+
+# Sign the SAS tokens with the same expiry as the user delegation key.
+sas_expiry = expiry
+```
+
+> [!NOTE]
+> The user delegation key in this sample is valid for four hours. A SAS token that's signed with a user delegation key can't outlive the key, and a user delegation key can be valid for a maximum of seven days. For long-running workloads, request a new key and regenerate the SAS URLs before they expire.
+
 ### Upload input files
 
-The app uses the `blob_client` reference create a storage container for the input MP4 files and a container for the task output. Then, it calls the `upload_file_to_container` function to upload MP4 files in the local *InputFiles* directory to the container. The files in storage are defined as Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile) objects that Batch can later download to compute nodes.
+After it creates the input and output containers with `blob_service_client`, the app uploads each local MP4 file in the *InputFiles* folder to the input container. The following `upload_file_to_container` helper uploads a single file, generates a read-only SAS token for it that's signed with the user delegation key, and returns a Batch [ResourceFile](/python/api/azure-batch/azure.batch.models.resourcefile) object whose URL includes the SAS token so that Batch can later download the file to a compute node. The app calls this helper once for each input file:
 
 ```python Snippet:tutorial_parallel_upload_inputs
-blob_service_client.create_container(input_container_name)
-blob_service_client.create_container(output_container_name)
-input_file_paths = []
+def upload_file_to_container(blob_service_client, user_delegation_key,
+                             sas_expiry, container_name, file_path):
+    blob_name = os.path.basename(file_path)
+    blob_client = blob_service_client.get_blob_client(container_name, blob_name)
 
-for folder, subs, files in os.walk(os.path.join(sys.path[0], './InputFiles/')):
-    for filename in files:
-        if filename.endswith(".mp4"):
-            input_file_paths.append(os.path.abspath(
-                os.path.join(folder, filename)))
+    with open(file_path, "rb") as data:
+        blob_client.upload_blob(data, overwrite=True)
 
-# Upload the input files. This is the collection of files that are to be processed by the tasks.
-input_files = [
-    upload_file_to_container(blob_service_client, input_container_name, file_path)
-    for file_path in input_file_paths]
+    sas_token = generate_blob_sas(
+        account_name=config._STORAGE_ACCOUNT_NAME,
+        container_name=container_name,
+        blob_name=blob_name,
+        user_delegation_key=user_delegation_key,
+        permission=BlobSasPermissions(read=True),
+        expiry=sas_expiry)
+
+    sas_url = f"{blob_client.url}?{sas_token}"
+
+    return models.ResourceFile(http_url=sas_url, file_path=blob_name)
+```
+
+The app also generates a SAS URL for the output container that grants write access. The tasks use this URL to upload their output files to storage:
+
+```python Snippet:tutorial_parallel_output_sas
+sas_token = generate_container_sas(
+    account_name=config._STORAGE_ACCOUNT_NAME,
+    container_name=output_container_name,
+    user_delegation_key=user_delegation_key,
+    permission=ContainerSasPermissions(write=True, create=True, list=True),
+    expiry=sas_expiry)
+
+output_container_sas_url = (
+    f"https://{config._STORAGE_ACCOUNT_NAME}.blob.core.windows.net/"
+    f"{output_container_name}?{sas_token}")
 ```
 
 ### Create a pool of compute nodes
 
-Next, the sample creates a pool of compute nodes in the Batch account with a call to `create_pool`. This defined function uses the Batch [BatchPoolCreateOptions](/python/api/azure-batch/azure.batch.models.batchpoolcreateoptions) class to set the number of nodes, VM size, and a pool configuration. Here, a [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies a [BatchVmImageReference](/python/api/azure-batch/azure.batch.models.batchvmimagereference) to an Ubuntu Server 20.04 LTS image published in the Azure Marketplace. Batch supports a wide range of VM images in the Azure Marketplace, as well as custom VM images.
+Next, the sample creates a pool of compute nodes in the Batch account by calling `create_pool`. This defined function uses the Batch [BatchPoolCreateOptions](/python/api/azure-batch/azure.batch.models.batchpoolcreateoptions) class to set the number of nodes, VM size, and a pool configuration. In this configuration, a [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies a [BatchVmImageReference](/python/api/azure-batch/azure.batch.models.batchvmimagereference) to an Ubuntu Server 22.04 LTS image published in the Azure Marketplace. Batch supports a wide range of VM images in the Azure Marketplace, as well as custom VM images.
 
 The number of nodes and VM size are set using defined constants. Batch supports dedicated nodes and [Spot nodes](batch-spot-vms.md), and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Spot nodes are offered at a reduced price from surplus VM capacity in Azure. Spot nodes become unavailable if Azure doesn't have enough capacity. The sample by default creates a pool containing only five Spot nodes in size *Standard_A1_v2*.
 
@@ -170,12 +253,12 @@ new_pool = models.BatchPoolCreateOptions(
     id=pool_id,
     virtual_machine_configuration=models.VirtualMachineConfiguration(
         image_reference=models.BatchVmImageReference(
-            publisher="Canonical",
-            offer="UbuntuServer",
-            sku="20.04-LTS",
+            publisher="canonical",
+            offer="0001-com-ubuntu-server-jammy",
+            sku="22_04-lts",
             version="latest"
         ),
-        node_agent_sku_id="batch.node.ubuntu 20.04"),
+        node_agent_sku_id="batch.node.ubuntu 22.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_DEDICATED_POOL_NODE_COUNT,
     target_low_priority_nodes=_LOW_PRIORITY_POOL_NODE_COUNT,
@@ -191,9 +274,12 @@ new_pool = models.BatchPoolCreateOptions(
 batch_client.create_pool(pool=new_pool)
 ```
 
+> [!NOTE]
+> Marketplace VM images and Batch node agents have support end dates. Ubuntu Server 20.04 LTS images and the `batch.node.ubuntu 20.04` node agent are no longer supported for new Batch pools. To list the image references and node agent SKUs your Batch account currently supports, call the [list_supported_images](/python/api/azure-batch/azure.batch.batchclient#azure-batch-batchclient-list-supported-images) method.
+
 ### Create a job
 
-A Batch job specifies a pool to run tasks on and optional settings such as a priority and schedule for the work. The sample creates a job with a call to `create_job`. This defined function uses the [BatchJobCreateOptions](/python/api/azure-batch/azure.batch.models.batchjobcreateoptions) class to create a job on your pool. The [create_job](/python/api/azure-batch/azure.batch.batchclient#azure-batch-batchclient-create-job) method submits the pool to the Batch service. Initially the job has no tasks.
+A Batch job specifies a pool to run tasks on and optional settings such as a priority and schedule for the work. The sample creates a job by calling `create_job`. This defined function uses the [BatchJobCreateOptions](/python/api/azure-batch/azure.batch.models.batchjobcreateoptions) class to create a job on your pool. The [create_job](/python/api/azure-batch/azure.batch.batchclient#azure-batch-batchclient-create-job) method submits the job to the Batch service. Initially the job has no tasks.
 
 ```python Snippet:tutorial_parallel_create_job
 job = models.BatchJobCreateOptions(
@@ -253,13 +339,13 @@ while datetime.datetime.now() < timeout_expiration:
         print()
         return True
     else:
-        time.sleep(1)
+        time.sleep(5)
 ...
 ```
 
 ## Clean up resources
 
-After it runs the tasks, the app automatically deletes the input storage container it created, and gives you the option to delete the Batch pool and job. The BatchClient's [JobOperations](/python/api/azure-batch/azure.batch.batchclient#azure-batch-batchclient-begin-delete-job) and [PoolOperations](/python/api/azure-batch/azure.batch.batchclient#azure-batch-batchclient-begin-delete-pool) classes both have delete methods, which are called if you confirm deletion. Although you're not charged for jobs and tasks themselves, you are charged for compute nodes. Thus, we recommend that you allocate pools only as needed. When you delete the pool, all task output on the nodes is deleted. However, the input and output files remain in the storage account.
+After it runs the tasks, the app automatically deletes the input storage container it created, and gives you the option to delete the Batch pool and job. The [begin_delete_job](/python/api/azure-batch/azure.batch.batchclient#azure-batch-batchclient-begin-delete-job) and [begin_delete_pool](/python/api/azure-batch/azure.batch.batchclient#azure-batch-batchclient-begin-delete-pool) methods of the `BatchClient` class each start the corresponding delete operation when you confirm the prompt. Although you aren't charged for jobs and tasks themselves, you are charged for compute nodes. Thus, allocate pools only as needed. When you delete the pool, all task output on the nodes is deleted. However, the output files remain in the storage account.
 
 When no longer needed, delete the resource group, Batch account, and storage account. To do so in the Azure portal, select the resource group for the Batch account and choose **Delete resource group**.
 

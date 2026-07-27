@@ -4,7 +4,7 @@ description: Azure Event Hubs geo-replication keeps your streaming data availabl
 ms.topic: concept-article
 author: axisc
 ms.author: aschhabria
-ms.date: 05/03/2026
+ms.date: 07/10/2026
 ms.custom: references_regions
 #customer intent: As an architect or developer, I want to understand how Event Hubs geo-replication works so that I can design applications that remain operational during regional outages.
 ---
@@ -256,21 +256,25 @@ The pricing meters for the geo-replication data transfer bandwidth charge appear
 
 ## Private endpoints
 
-This section provides additional considerations when using geo-replication with namespaces that use private endpoints. For general information about using private endpoints with Event Hubs, see [Integrate Azure Event Hubs with Azure Private Link](private-link-service.md).
+Clients connecting to an Event Hubs namespace through a [private endpoint](private-link-service.md) automatically connect to the new primary region after failover. The Event Hubs namespace routes traffic to the current primary region internally, so clients don't need to know which region is primary and the private endpoint keeps working without any change. Promotion typically completes in under two minutes, during which clients might see transient errors and reconnect. Configure retry policy accordingly.
 
-When you implement geo-replication for an Event Hubs namespace that uses private endpoints, create private endpoints for both the primary and secondary regions. Configure these endpoints against virtual networks that host both primary and secondary instances of your application. For example, if you have two virtual networks, VNET-1 and VNET-2, you need to create two private endpoints on the Event Hubs namespace, using subnets from VNET-1 and VNET-2 respectively. Set up the virtual networks with [cross-region peering](/azure/virtual-network/virtual-network-peering-overview), so that clients can communicate with either of the private endpoints. Finally, manage the [DNS](/azure/private-link/private-endpoint-dns) so all clients get the DNS information that points the namespace endpoint (namespacename.servicebus.windows.net) to the IP address of the private endpoint in the current primary region.
+Private endpoints are regional resources. For high availability, deploy your application across multiple regions and create a private endpoint in each region's virtual network.
 
-> [!IMPORTANT]
-> When you promote a secondary region for Event Hubs, update the DNS entry to point to the corresponding endpoint.
+:::image type="content" source="./media/geo-replication/geo-replication-private-endpoints.png" alt-text="Diagram showing two virtual networks, each with a private endpoint to the same Event Hubs namespace, and an application that spans both.":::
 
-:::image type="content" source="./media/geo-replication/geo-replication-private-endpoints.png" alt-text="Screenshot showing two VNETs with their own private endpoints and VMs connected to an on-premises instance and an Event Hubs namespace." lightbox="./media/geo-replication/geo-replication-private-endpoints.png":::
+**DNS**
 
-This approach provides the benefit that failover can occur independently at the application layer or on the Event Hubs namespace:
+Use one `privatelink.servicebus.windows.net` private DNS zone per region, linked to that region's virtual network only. The A record for the local private endpoint is added automatically when you attach a private DNS zone group. Each region resolves the namespace name to its local endpoint, regardless of which region is primary.
 
-- **Application-only failover:** In this scenario, the application moves from VNET-1 to VNET-2. Since private endpoints are configured on both VNET-1 and VNET-2 for both primary and secondary namespaces, the application continues to function seamlessly.
-- **Event Hubs namespace-only failover:** If the failover occurs only at the Event Hubs namespace level, the application remains operational because private endpoints are configured on both virtual networks.
+If you share a single private DNS zone across both virtual networks, only one A record exists and it points to whichever endpoint was attached last. In that case, add [cross-region virtual network peering](/azure/virtual-network/virtual-network-peering-overview) so all clients can reach that endpoint.
 
-By following these guidelines, you can ensure robust and reliable failover mechanisms for your Event Hubs namespaces that use private endpoints.
+For on-premises clients, resolve the namespace to the nearest region's private endpoint through conditional forwarding or a manually maintained record. Promotion doesn't require an on-premises DNS change.
+
+**Failover scenarios**
+
+- **Application-only failover.** The application moves to the other virtual network. It reaches the namespace through the local private endpoint.
+- **Namespace-only failover.** The Event Hubs primary role moves. Clients keep the same connection string and local endpoint; traffic is routed to the new primary automatically.
+- **Regional outage.** The private endpoint in the affected region is unreachable. Clients with a private endpoint in a healthy region continue on the surviving region.
 
 ## Related content
 To learn how to use the Geo-replication feature, see [Use Geo-replication](use-geo-replication.md).

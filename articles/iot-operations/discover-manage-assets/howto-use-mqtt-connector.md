@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.date: 05/28/2026
+ms.date: 07/14/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want configure my Azure IoT Operations environment so that I can access data from MQTT topics.
@@ -239,7 +239,7 @@ To use the `Username password` authentication mode, complete the following steps
 
 # [Azure CLI](#tab/cli)
 
-[!INCLUDE [connector-certificate-user-cli](../includes/connector-certificate-user-cli.md)]
+[!INCLUDE [connector-certificate-user-cli-no-intermediate](../includes/connector-certificate-user-cli-no-intermediate.md)]
 
 # [Bicep](#tab/bicep)
 

@@ -4,7 +4,7 @@ description: Learn about the administrative roles available to manage Azure Ente
 author: prashantsaini4
 ms.reviewer: prsaini
 ms.service: cost-management-billing
-ms.subservice: enterprise
+ms.subservice: enterprise-agreement
 ms.topic: concept-article
 ms.date: 04/21/2026
 ms.author: prsaini

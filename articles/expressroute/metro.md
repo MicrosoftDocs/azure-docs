@@ -33,8 +33,8 @@ ExpressRoute Metro is a high-resiliency configuration designed to provide multi-
 Key features of ExpressRoute Metro include:
 
 * Dual-homed connections to two distinct ExpressRoute peering locations within the same city.
-* Increased availability and resiliency for your ExpressRoute circuits.
-* Seamless connectivity from your on-premises environment to Azure resources through an ExpressRoute circuit with the assistance of a connectivity provider or with ExpressRoute Direct (Dual 10G or 100G ports)
+* Increased availability and resiliency for your ExpressRoute Circuits at the same cost as a standard Circuit.
+* Seamless connectivity from your on-premises environment to Azure resources through an ExpressRoute Circuit with the assistance of a connectivity provider or with ExpressRoute Direct (Dual 10G or 100G ports)
 
 The following diagram allows for a comparison between the standard ExpressRoute circuit and a ExpressRoute Metro circuit.
 
@@ -56,7 +56,7 @@ The following diagram allows for a comparison between the standard ExpressRoute 
 | Johannesburg Metro |  Teraco JT1<br>Africa DAta Centres JHB1ADC | 3 | South Africa North | &check; | Equinix<sup>1</sup><br>OpenAccessDC<sup>1</sup> |
 | Madrid Metro | Equinix MD2<br>Digital Realty MAD1 | 1 | Spain Central | &check; | Colt<br>DE-CIX<br>Equinix<br>Megaport<br>1-IX.EU<sup>1</sup><br>Telefonica<sup>1</sup> |
 | Melbourne Metro | NextDC MEL01<br>Equinix ME1/2 | 2 | Australia Southeast | &check; | Megaport<br>Internet Association of Australia<sup>1</sup> |
-| Milan Metro | Irideos Milan<br>Data4Italy Milan | 1 | Italy North | &check; | Colt<br>Equinix<br>Megaport<br>Retelit<sup>1</sup><br>Telecom Italia Sparkle<sup>1</sup><br>Telia Carrier (Arelion)<sup>1</sup> |
+| Milan Metro | Irideos Milan<br>Data4Italy Milan | 1 | Italy North | &check; | Colt<br>Equinix<br>Megaport<br>Retelit<sup>1</sup><br>Telecom Italia Sparkle<br>Telia Carrier (Arelion)<sup>1</sup> |
 | Mumbai Metro |  TATA LVSB<br>Nxtra Data | 2 | West India | &check; |  |
 | New York Metro | Equinix NY5<br>165 Halsey Street | 1 | &cross; | &check; |  DE-CIX<br>Megaport |
 | Paris Metro | Digital Realty PAR5<br>Equinix PA4  | 1 | France Central | &check; | Megaport |

@@ -2,12 +2,12 @@
 title: Connect to GitHub
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Use GitHub to specify your Common Data Model entity references
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 06/22/2026
-ms.update-cycle: 1095
-ms.author: jianleishen
+ms.update-cycle: 1095-days
+ms.author: tinglee
 ms.custom:
   - synapse
   - sfi-image-nochange

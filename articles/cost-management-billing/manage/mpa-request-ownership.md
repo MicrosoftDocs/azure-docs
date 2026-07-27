@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 05/19/2026
+ms.date: 07/09/2026
 ms.author: jkinma
 ms.custom:
 - sfi-image-nochange
@@ -16,14 +16,20 @@ service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
 
 # Transfer Azure product billing ownership to your Microsoft Partner Agreement (MPA)
 
-An Azure Expert MSP can request to transfer their customer's Enterprise subscriptions, reservations and savings plans to the Microsoft Partner Agreement (MPA) that they manage. 
+A partner can request to transfer their customer's Enterprise subscriptions, reservations and savings plans to the Microsoft Partner Agreement (MPA) that they manage. 
 
 Supported product (subscriptions, reservations and savings plans) billing ownership transfer options include:
 
 - An Enterprise Agreement transfer to an Azure plan under the MPA
 - An enterprise Microsoft Customer Agreement transfer to an Azure plan under the MPA
 
-This feature is available only for CSP Direct Bill Partners certified as [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) and have the [Frontier Distributor Designation](https://partner.microsoft.com/asset/collection/frontier-distributor-collection). It's subject to Microsoft governance and policies and might require review and approval for certain customers.
+This feature is available only to the following partners:
+
+- CSP authorized direct-bill partners that earn an [Azure Solutions Partner designation](https://partner.microsoft.com/partnership/solutions-partner) or enroll in the [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp) program.
+
+- CSP authorized distributors that earn the [Frontier Distributor designation](https://partner.microsoft.com/asset/collection/frontier-distributor-collection).
+
+To get access to this tool, eligible partners must work with a [Partner Technical Consultant (PTC)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flearn.microsoft.com%2Fpartner-center%2Fbenefits%2Ftechnical-benefits&data=05%7C02%7Cjkinma%40microsoft.com%7C20420523d2ef4c11a25108dede0c96c6%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C639192342859218123%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=jwpok63yhMsN8ySXzldiDgTpTo5xtaFZbiHL%2FsUWsWw%3D&reserved=0) through a consultation using [Technical Presales and Deployment (TPD)](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fpartner.microsoft.com%2Ftraining%2Ftechnical-presales-deployment-services&data=05%7C02%7Cjkinma%40microsoft.com%7C20420523d2ef4c11a25108dede0c96c6%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C639192342859240207%7CUnknown%7CTWFpbGZsb3d8eyJFbXB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoiTWFpbCIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=Zhc%2F6Wt%2FXPVsgHwlAwA%2FuV6KfIAQrkPhYX3zF9%2FQKhk%3D&reserved=0) benefits
 
 This article applies to billing accounts for Microsoft Partner Agreements. These accounts are created for Cloud Solution Providers (CSPs) to manage billing for their customers in the new commerce experience. The new experience is only available for partners, who have at least one customer that has accepted a Microsoft Customer Agreement (MCA) and has an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
 

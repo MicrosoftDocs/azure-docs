@@ -2,12 +2,12 @@
 title: Copy data from Hive
 description: Learn how to copy data from Hive to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: how-to
 ms.date: 08/19/2025
-ms.author: jianleishen
+ms.author: tinglee
 ---
 
 # Copy and transform data from Hive using Azure Data Factory 

@@ -140,7 +140,7 @@ When looking at logs emitted by the DTFx, it's important to understand that the 
 | Component | Description |
 | --------- | ----------- |
 | `DurableTask.Core` | Core orchestration execution and low-level scheduling logs and telemetry. |
-| `DurableTask.DurableTaskScheduler` | Backend logs specific to the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md). |
+| `DurableTask.AzureManagedBackend` | Backend logs specific to the [Durable Task Scheduler](../scheduler/durable-task-scheduler.md). |
 | `DurableTask.AzureStorage` | Backend logs specific to the Azure Storage state provider. These logs include detailed interactions with the internal queues, blobs, and storage tables used to store and fetch internal orchestration state. |
 | `DurableTask.Netherite` | Backend logs specific to the [Netherite storage provider](https://microsoft.github.io/durabletask-netherite), if enabled. |
 | `DurableTask.SqlServer` | Backend logs specific to the [Microsoft SQL (MSSQL) storage provider](https://microsoft.github.io/durabletask-mssql), if enabled. |

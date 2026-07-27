@@ -2,50 +2,46 @@
 title: Azure Change Tracking and Inventory Overview by Using Azure Monitor Agent
 description: Learn about the Change Tracking and Inventory feature by using the Azure Monitor Agent, which helps you identify software and Microsoft service changes in your environment.
 #customer intent: As a customer, I want to evaluate the compatibility of Azure Change Tracking and Inventory with my existing infrastructure so that I can ensure seamless integration.
-ms.date: 06/15/2025
+ms.date: 07/07/2026
 ms.topic: overview
 ms.service: azure-change-tracking-inventory
 ms.author: v-rochak2
 author: RochakSingh-blr
 ---
 
-# About Azure Change Tracking and Inventory
+# What is Azure Change Tracking and Inventory?
 
-This article provides an overview of Azure Change Tracking and Inventory by using the Azure Monitor Agent (AMA). This article also includes the key features and benefits of the service.
+Azure Change Tracking and Inventory (CTI) is an Azure service that improves auditing and governance for in-guest operations by monitoring configuration changes and providing detailed inventory logs across servers in Azure, on-premises, and other cloud environments. It helps you detect configuration drift and maintain visibility into system assets. 
 
-## What is Change Tracking and Inventory
-
-Change Tracking and Inventory enhances the auditing and governance for in-guest operations by monitoring changes and providing detailed inventory logs for servers across Azure, on-premises, and other cloud environments.
 
 > [!IMPORTANT]
-> We recommend that you use Change Tracking and Inventory with the Change Tracking extension version 2.20.0.0 or later.
+> Use Change Tracking and Inventory with the Change Tracking extension version 2.20.0.0 or later.
 
-### Change tracking
+The service provides two core capabilities: change tracking and inventory.
 
-- Monitors changes, including modifications to files, registry keys, software installations, and Windows services or Linux daemons.</br>
-- Provides detailed logs of what and when the changes were made so that you can quickly detect configuration drifts or unauthorized changes. </br>
-Change tracking metadata gets ingested into the `ConfigurationChange` table in the connected Log Analytics workspace. For more information, see [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange).
+## Change tracking
+
+- Monitors configuration changes, including file modifications, registry keys, software installations, and Windows services or Linux daemons.
+- Provides detailed logs of what changed and when to quickly detect configuration drift or unauthorized changes. 
+- Change tracking metadata is ingested into the `ConfigurationChange` table in the connected Log Analytics workspace. For more information, see [ConfigurationChange](/azure/azure-monitor/reference/tables/configurationchange).
 
 > [!NOTE]
-> Change Tracking and Inventory data is logged for both system-level and user-level applications. System-level data is always logged, but user-level applications appear only when a user signs in to a machine. If the user signs out, those applications are marked as **Removed**.
+> Change Tracking and Inventory logs data for both system-level and user-level applications. System-level data is always logged, but user-level applications appear only when a user signs in to a machine. When the user signs out, those applications are marked as **Removed**.
 
-### Inventory
+## Inventory
 
-- Collects and maintains an updated list of installed software, operating system details, and other server configurations in linked Log Analytics workspaces. </br>
-- Helps create an overview of system assets, which is useful for compliance, audits, and proactive maintenance.</br>
+- Collects and maintains an updated inventory of installed software, operating system details, and other machine configuration data in connected Log Analytics workspaces. 
+- Provides an overview of system assets to support compliance, audits, and proactive maintenance. 
 - Ingests inventory metadata into the `ConfigurationData` table in the connected Log Analytics workspace. For more information, see [ConfigurationData](/azure/azure-monitor/reference/tables/configurationdata).
 
-For more information about the enhanced discovery and onboarding experience in Change Tracking and Inventory for managing in-guest actions, see the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/change-tracking--inventory-enhanced-discovery--onboarding-to-manage-in-guest-act/4400398?afd_azwaf_tok=eyJraWQiOiIxNkY3M0JFMkNDMjZDOUM1ODBGMzM4NjAzN0I1ODRCQTc4REQ1ODcwQUFFRkJGNEZDRUJFOUZEQkNGMENGMTNEIiwiYWxnIjoiUlMyNTYifQ.eyJhdWQiOiJ0ZWNoY29tbXVuaXR5Lm1pY3Jvc29mdC5jb20iLCJleHAiOjE3ODEyNTY0ODIsImlhdCI6MTc4MTI1NjQ3MiwiaXNzIjoidGllcjEtN2Y2ZDk4ODg5Yy12cTR3NSIsInN1YiI6IjQuMjEzLjIzMi4xNiIsImRhdGEiOnsidHlwZSI6Imlzc3VlZCIsInJlZiI6IjIwMjYwNjEyVDA5Mjc1MlotMTdmNmQ5ODg4OWN2cTR3NWhDMUJPTTE0dzQwMDAwMDAwYmNnMDAwMDAwMDBzcG12IiwiYiI6IlQxNi1POWY0T2hIcWkxMmdlRlJXZHVlME9hZmdIS2Y5a1VFY2p2UG1uSm8iLCJoIjoieWZ4T3F1bkVTZmpMMy1uaXh0UnRoc1QtWnBTSk5pZUpZOWhtVE9zSnZIMCJ9fQ.r58TJ3flNBtc-txyHBqGEjLnbOVHVu6uHR_HZrrr1clQyImLughwerkewNedGjDirQPuspDsRH-aEkiVnF6cGRoNXpCQqFBfoSYxAyRQgpLIf8bZhmRI2CjkJG79tpv0dZiXs_TXvInlOi0zkywYZbpIg8OjLBcu_ef5cVQOPTVRpV7eZugTnXnR1MkLlG6eOXW7s3g1wW8lMs0GyyYf6RF6D1s6HQoUwtmX63sqqg7yAhhXjgX2mrDbQSd-AkDzBghqv6n1mK605JOQizh__QfA0SRJ7GCH5xG3ZzaR1R4OaC-AABriqBBhj-tKe0DmO5x40AH6_3AbjhSy8U_FlQ.WF3obl2IDtqgvMFRqVdYkD5s)
-
+For more information about the enhanced discovery and onboarding experience in Change Tracking and Inventory for managing in-guest actions, see the [Microsoft Community Hub blog](https://techcommunity.microsoft.com/blog/azuregovernanceandmanagementblog/change-tracking--inventory-enhanced-discovery--onboarding-to-manage-in-guest-act/4400398).
 
 ## Key benefits of Azure Change Tracking and Inventory
 
-Here are the key benefits:
-
-- **Compatibility with the unified monitoring agent**: Is compatible with the [AMA](/azure/azure-monitor/agents/agents-overview) that enhances security and reliability and facilitates multi-homing experience to store data.
-- **Compatibility with tracking tool**: Is compatible with the Change Tracking extension deployed through the Azure Policy on the client's virtual machine (VM). You can switch to the AMA, and then the Change Tracking extension pushes the software, files, and registry to the AMA.
-- **Multi-homing experience**: Provides standardization of management from one central workspace. You can [transition from Azure Monitor Logs to the AMA](/azure/azure-monitor/agents/azure-monitor-agent-migration) so that all VMs point to a single workspace for data collection and maintenance.
-- **Rules management**: Uses [data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) to configure or customize various aspects of data collection. For example, you can change the frequency of file collection.
+- **Compatibility with Azure Monitor Agent (AMA)**: It's compatible with the [Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/agents-overview), which enhances security and reliability and facilitates a multihoming experience for data storage.
+- **Compatibility with the Change Tracking extension**: It's compatible with the Change Tracking extension deployed through Azure Policy on the client's virtual machine (VM). After you switch to AMA, the Change Tracking extension sends software, files, and registry data to AMA.
+- **Multihoming support with Azure Monitor Logs**: It standardizes management from one central workspace. You can [transition from Azure Monitor Logs to AMA](/azure/azure-monitor/agents/azure-monitor-agent-migration) so that all VMs point to a single workspace for data collection and maintenance.
+- **Data collection rule (DCR) management**: It uses [data collection rules (DCRs)](/azure/azure-monitor/essentials/data-collection-rule-overview) to configure or customize various aspects of data collection. A DCR is an Azure Monitor configuration that defines what monitoring data is collected, from which machines, and where it is sent. For example, you can change the file collection frequency.
 
 For information on supported operating systems, see [Support matrix and regions](../azure-change-tracking-inventory/change-tracking-inventory-support-matrix.md) for Change Tracking and Inventory.
 
@@ -53,26 +49,33 @@ For information on supported operating systems, see [Support matrix and regions]
 
 You can enable Change Tracking and Inventory in the following ways:
 
-- **Azure Arc-enabled servers (non-Azure machines)**: In the Azure portal, on the **Change Tracking and Inventory Center | Machines** pane, select **Policy** > **Definition Type** > **Category** > **Change Tracking and Inventory**. Under **Initiative**, select **Enable Change Tracking and Inventory for Arc-enabled virtual machines**. To enable Change Tracking and Inventory at scale, use the deploy-if-not-exists (DINE) policy-based solution. For more information, see [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).
-- **Single Azure VM**: In the Azure portal, select the VM from the [Virtual machines pane](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md). This scenario is available for Linux and Windows VMs.
-- [Single and multiple Azure VMs](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md): In the Azure portal, select the VMs from the **Virtual machines** pane.
+- **Azure Arc-enabled servers (non-Azure machines)**: In the Azure portal, on the **Change Tracking and Inventory Center | Machines** pane, select **Policy** > **Definition Type** > **Category** > **Change Tracking and Inventory**. Under **Initiative**, select **Enable Change Tracking and Inventory for Arc-enabled virtual machines**. To enable a single machine, see [Enable Change Tracking and Inventory for a single Azure Arc-enabled VM by using the portal](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md#enable-change-tracking-and-inventory-for-a-single-azure-arc-enabled-vm-by-using-the-portal). To enable multiple machines, see [Enable Change Tracking and Inventory for multiple Azure Arc-enabled VMs by using the CLI](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md#enable-change-tracking-and-inventory-for-multiple-azure-arc-enabled-vms-by-using-the-cli). To enable at scale, use the deploy-if-not-exists (DINE) policy-based approach.
 
-## Track file changes
+- **Single Azure VM**: In the Azure portal, select the VM from the **Virtual machines pane**, and then enable Change Tracking and Inventory for that VM. This scenario supports both Linux and Windows VMs. To learn more, see [Enable Change Tracking and Inventory for a single Azure VM by using the portal](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md#enable-change-tracking-and-inventory-for-a-single-azure-vm-by-using-the-portal). 
 
-For tracking changes in files on both Windows and Linux, Change Tracking and Inventory uses SHA256 hashes of the files. The feature uses the hashes to detect if changes were made since the last inventory.
+- **Multiple Azure VMs**: In the Azure portal, select multiple VMs from the **Virtual machines pane** to enable Change Tracking and Inventory for those machines. To learn more, see [Enable Change Tracking and Inventory for multiple Azure VMs by using the portal](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md#enable-change-tracking-and-inventory-for-multiple-azure-vms-by-using-the-portal).
 
-## Track file content changes
+## What Change Tracking and Inventory tracks
 
-With Change Tracking and Inventory, you can view the contents of a Windows or Linux file. For each change to a file, Change Tracking and Inventory stores the contents of the file in an [Azure Storage account](../storage/common/storage-account-create.md). When you track a file, you can view its contents before or after a change. You can view the file content either inline or side by side. For more information, see [Tutorial: Change a workspace and configure data collection rule](tutorial-change-workspace-configure-data-collection-rule.md).
+Azure Change Tracking and Inventory tracks changes to files, file content, registry keys, software, Windows services, and Linux daemons.
+
+
+### Track file changes
+
+To track file changes on Windows and Linux, Change Tracking and Inventory uses SHA256 hashes of the files and compares them with the hashes collected during the previous inventory scan to detect file changes.
+
+### Track file content changes
+
+By using Change Tracking and Inventory, you can view the contents of Windows and Linux files. For each file change, Change Tracking and Inventory stores file content in an [Azure Storage account](../storage/common/storage-account-create.md). When you track a file, you can view and compare file contents before and after a change. You can view content inline or side by side. For more information, see [Tutorial: Change a workspace and configure data collection rule](tutorial-change-workspace-configure-data-collection-rule.md).
 
 ![Screenshot of viewing changes in a Windows or Linux file.](./media/overview/view-file-changes.png)
 
-## Track registry keys
+### Track registry keys
 
-Change Tracking and Inventory allows monitoring of changes to Windows registry keys. When you use monitoring, you can pinpoint extensibility points where non-Microsoft code and malware can activate. The following table lists preconfigured (but not enabled) registry keys. To track these keys, you must enable each one.
+Change Tracking and Inventory monitors changes to Windows registry keys. Monitoring registry keys can help identify configuration changes and extensibility points where non-Microsoft code can activate. The following table lists preconfigured (but not enabled) registry keys. To track these keys, you must enable each key. 
 
->[!Note]
->A registry key is a container in the Windows Registry that works like a folder in a file system. It organizes configuration settings and data for hardware, software, and users. The  keys contain registry values, like files, and subkeys.
+> [!NOTE]
+> A registry key is a container in the Windows Registry that works like a folder in a file system. It organizes configuration settings and data for hardware, software, and users. The keys contain registry values, like files, and subkeys.
 
 
 > [!div class="mx-tdBreakAll"]
@@ -85,7 +88,7 @@ Change Tracking and Inventory allows monitoring of changes to Windows registry k
 > |`HKEY_LOCAL_MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Monitors context menu handlers that hook directly into Windows Explorer and usually run in-process with `explorer.exe`.
 > |`HKEY_LOCAL_MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Monitors copy hook handlers that hook directly into Windows Explorer and usually run in-process with `explorer.exe`.
 > |`HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitors for icon overlay handler registration.
->|`HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitors for icon overlay handler registration for 32-bit applications running on 64-bit computers.
+> |`HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Monitors for icon overlay handler registration for 32-bit applications running on 64-bit computers.
 > |`HKEY_LOCAL_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitors for new browser helper object plugins for Internet Explorer. Used to access the Document Object Model (DOM) of the current pane and to control navigation.
 > |`HKEY_LOCAL_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Monitors for new browser helper object plugins for Internet Explorer. Used to access the DOM of the current pane and to control navigation for 32-bit applications running on 64-bit computers.
 > |`HKEY_LOCAL_MACHINE\Software\Microsoft\Internet Explorer\Extensions` | Monitors for new Internet Explorer extensions, such as custom tool menus and custom toolbar buttons.
@@ -95,6 +98,16 @@ Change Tracking and Inventory allows monitoring of changes to Windows registry k
 > |`HKEY_LOCAL_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Monitors the list of known or commonly used system DLLs. Monitoring prevents people from exploiting weak application directory permissions by dropping in Trojan horse versions of system DLLs.
 > |`HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Monitors the list of packages that can receive event notifications from `winlogon.exe`, the interactive sign-in support model for Windows.
 
+### Track software changes
+
+Change Tracking and Inventory tracks installed software on Windows and Linux machines by collecting software inventory and comparing each collection cycle with the previous state. This capability helps you detect software installs, removals, and version changes across machines and maintain software inventory visibility in your environment. For more information about collection limits and frequencies, see [Support matrix and regions](change-tracking-inventory-support-matrix.md).
+
+### Track Windows services and Linux daemons
+
+Change Tracking and Inventory tracks changes to Windows services and Linux daemons, including state and configuration-related changes, and records those changes in configuration-change events for analysis and alerting. Tracking these changes helps you identify service-related changes across machines.
+
 ## Related content
 
+- To enable Azure Change Tracking and Inventory from the Azure portal, see [Quickstart: Enable Azure Change Tracking and Inventory](quickstart-monitor-changes-collect-inventory-azure-change-tracking-inventory.md).
 - Review the [support matrix and regions](../azure-change-tracking-inventory/change-tracking-inventory-support-matrix.md) for Change Tracking and Inventory.
+- To disable Change Tracking and Inventory by using AMA, see [Disable Azure Change Tracking and Inventory by using the Azure Monitor Agent](disable-azure-change-tracking-inventory-monitoring-agent.md).

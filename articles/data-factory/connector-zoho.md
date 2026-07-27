@@ -2,13 +2,13 @@
 title: Copy data from Zoho (Preview) 
 description: Learn how to copy data from Zoho to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: how-to
 ms.date: 06/22/2026
-ms.update-cycle: 1095
-ms.author: jianleishen
+ms.update-cycle: 1095-days
+ms.author: tinglee
 ---
 # Copy data from Zoho using Azure Data Factory or Synapse Analytics (Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

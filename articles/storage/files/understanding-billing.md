@@ -95,7 +95,7 @@ If your operating system isn't listed, check with your operating system vendor.
 
 ## File share total cost of ownership checklist
 
-If you're migrating to Azure Files from on-premises or comparing Azure Files to other cloud storage solutions, consider the following factors to ensure a fair, apples-to-apples comparison:
+If you're migrating to Azure Files from on-premises or comparing Azure Files to other cloud storage solutions, consider the following factors to ensure a fair, direct comparison:
 
 - **How do you pay for storage, IOPS, and bandwidth?** Most cloud solutions have models that align with the principles of either **provisioned storage**, such as price determinism and simplicity, or **pay-as-you-go storage**, which can optimize costs by only charging you for what you actually use. Provisioned billing models can differ based on minimum provisioned share size, the provisioning unit, and the ability to increase and decrease provisioning.
 
@@ -188,13 +188,13 @@ The following table shows the maximum IOPS and throughput you can provision for 
 | 131,072 GiB | 102,400 | 10,340 | 50,000 | 5,120 |
 | 262,144 GiB | 102,400 | 10,340 | 50,000 | 5,120 |
 
-Shares provisioned before guardrails were introduced that exceed the 5× limit continue to operate normally. When you change any provisioned quantity on such a share, the ratio of provisioned IOPS or throughput to its recommended value can stay the same or decrease, but can't increase. For example, if a share currently has IOPS provisioned at 7× the recommendation, you can reduce it to 6× but can't increase it to 7.1×. Once the share reaches or falls below 5×, the standard guardrail applies.
+Shares provisioned before guardrails were introduced that exceed the 5× limit continue to operate normally. When you change any provisioned quantity on such a share, the ratio of provisioned IOPS or throughput to its recommended value can stay the same or decrease, but can't increase. For example, if a share currently has IOPS provisioned at 7× the recommendation, you can reduce it to 6× but can't increase it to 7.1×. After the share reaches or falls below 5×, the standard guardrail applies.
 
 ### Provisioned v2 bursting
 
 Credit-based IOPS bursting provides added flexibility around IOPS usage. Use this flexibility as a buffer against unanticipated IO spikes. For established IO patterns, provision for IO peaks.
 
-Burst IOPS credits accumulate whenever traffic for your file share is less than provisioned (baseline) IOPS. Whenever a file share's IOPS usage exceeds the provisioned IOPS and there are available burst IOPS credits, the file share can burst up to the maximum allowed burst IOPS limit. File shares can continue to burst as long as there are credits remaining, based on the number of burst credits accrued. Each IO beyond provisioned IOPS consumes one credit. Once all credits are consumed, the share returns to the provisioned IOPS. IOPS against the file share don't have to do anything special to use bursting. Bursting operates on a best effort basis.  
+Burst IOPS credits accumulate whenever traffic for your file share is less than provisioned (baseline) IOPS. Whenever a file share's IOPS usage exceeds the provisioned IOPS and there are available burst IOPS credits, the file share can burst up to the maximum allowed burst IOPS limit. File shares can continue to burst as long as there are credits remaining, based on the number of burst credits accrued. Each IO beyond provisioned IOPS consumes one credit. After all credits are consumed, the share returns to the provisioned IOPS. IOPS against the file share don't have to do anything special to use bursting. Bursting operates on a best effort basis.  
 
 Share credits have three states:
 
@@ -320,7 +320,7 @@ The provisioned v1 method provides storage, IOPS, and throughput in a fixed rati
 
 The amount of storage you provision determines the guaranteed storage, IOPS, and throughput limits of your classic file share's usage. For example, if you provision a 2 TiB share and upload 2 TiB of data to your classic file share, it is full. You can't add more data unless you increase the size of your classic file share or delete some of the data. Credit-based IOPS bursting provides added flexibility around usage, on a best-effort basis, while credits remain.
 
-Unlike purchasing storage on-premises, you can dynamically scale up or down provisioned v1 classic file shares as your needs change. However, you can only decrease the provisioned storage after 24 hours elapse since your last storage increase. Storage, IOPS, and throughput changes take effect within a few minutes after a provisioning change.
+Unlike purchasing storage on-premises, you can dynamically scale up or down provisioned v1 classic file shares as your needs change. However, you can only decrease the provisioned storage after 24 hours have elapsed since your last storage increase. Storage, IOPS, and throughput changes take effect within a few minutes after a provisioning change.
 
 You can decrease the size of your provisioned share below your used GiB. If you do, you don't lose data, but you're still billed for the size used. You receive the performance of the provisioned share, not the size used.
 
@@ -376,7 +376,7 @@ The provisioned v1 model supports two types of bursting: **credit-based bursting
 
 Credit-based IOPS bursting provides added flexibility around IOPS usage. Use this flexibility as a buffer against unanticipated IO spikes. For established IO patterns, provision for IO peaks.
 
-Burst IOPS credits accumulate whenever traffic for your classic file share is less than provisioned (baseline) IOPS. Whenever a classic file share's IOPS usage exceeds the provisioned IOPS and there are available burst IOPS credits, the classic file share can burst up to the maximum allowed burst IOPS limit. Classic file shares can continue to burst as long as there are credits remaining, based on the number of burst credits accrued. Each IO beyond provisioned IOPS consumes one credit. Once all credits are consumed, the classic file share returns to the provisioned IOPS. IOPS against the classic file share don't have to do anything special to use bursting. Bursting operates on a best effort basis.  
+Burst IOPS credits accumulate whenever traffic for your classic file share is less than provisioned (baseline) IOPS. Whenever a classic file share's IOPS usage exceeds the provisioned IOPS and there are available burst IOPS credits, the classic file share can burst up to the maximum allowed burst IOPS limit. Classic file shares can continue to burst as long as there are credits remaining, based on the number of burst credits accrued. Each IO beyond provisioned IOPS consumes one credit. After all credits are consumed, the classic file share returns to the provisioned IOPS. IOPS against the classic file share don't have to do anything special to use bursting. Bursting operates on a best effort basis.  
 
 Share credits have three states:
 
@@ -410,7 +410,7 @@ Paid bursting is an advanced feature of the provisioned v1 model designed to sup
 
 Like credit-based bursting, paid bursting isn't a replacement for provisioning the correct amount of IOPS and throughput. Rather, it provides further protection against throttling if you run into unexpected demand. If you have a consistent level of IOPS or throughput usage, it's cheaper to provision enough IOPS and throughput (through storage provisioning) to cover demand instead of relying on paid bursting.
 
-Paid bursting is disabled by default, but you can enable it by following the instructions to [change the cost and performance characteristics of a provisioned v1 classic file share](./modify-file-share.md?tabs=azure-powershell#change-the-cost-and-performance-characteristics-of-a-provisioned-v1-classic-file-share) ( PowerShell and CLI only). If you enable paid bursting, monitor IOPS and throughput usage by using the following metrics available through Azure Monitor:
+Paid bursting is disabled by default, but you can enable it by following the instructions to [change the cost and performance characteristics of a provisioned v1 classic file share](./modify-file-share.md?tabs=azure-powershell#provisioned-v1-billing-model) ( PowerShell and CLI only). If you enable paid bursting, monitor IOPS and throughput usage by using the following metrics available through Azure Monitor:
 
 - File Share Provisioned IOPS
 - File Share Provisioned Bandwidth MiB/s (throughput)
@@ -455,7 +455,7 @@ To correctly deploy Azure Files with the provisioned v1 billing model on classic
     In Azure, the lowest granularity that you can see billing for is the *resource*, meaning that if you put two classic file shares in the same storage account, you can't easily track their costs back to individual projects, departments, or customers. To solve this problem, group classic file shares into storage accounts based on how they need to be tracked from a billing perspective.
 
 - **How many storage accounts are available in your subscription for your target region?**  
-    An additional complicating factor is the number of storage accounts you can have per subscription per region. See [`Microsoft.Storage` control plane limits](./storage-files-scale-targets.md#microsoftstorage-control-plane-limits) for more information. Depending on how many storage accounts you need, you might need to use additional subscriptions to achieve extra storage accounts.
+    An additional complicating factor is the number of storage accounts you can have per subscription per region. See [`Microsoft.Storage` control plane limits](./storage-files-scale-targets.md#microsoftstorage-control-plane-limits) for more information. Depending on how many storage accounts you need, you might need to use additional subscriptions to create additional storage accounts.
 
 ### Provisioned v1 snapshots
 
@@ -623,7 +623,7 @@ To correctly deploy Azure Files with the pay-as-you-go billing model on classic 
     In Azure, the lowest granularity that you can see billing for is the *resource*, meaning that if you put two classic file shares in the same storage account, you can't easily track their costs back to individual projects, departments, or customers. To solve this problem, group classic file shares into storage accounts based on how they need to be tracked from a billing perspective.
 
 - **How many storage accounts are available in your subscription for your target region?**  
-    An additional complicating factor is the number of storage accounts you can have per subscription per region. See [`Microsoft.Storage` control plane limits](./storage-files-scale-targets.md#microsoftstorage-control-plane-limits) for more information. Depending on how many storage accounts you need, you might need to use additional subscriptions to achieve extra storage accounts.
+    An additional complicating factor is the number of storage accounts you can have per subscription per region. See [`Microsoft.Storage` control plane limits](./storage-files-scale-targets.md#microsoftstorage-control-plane-limits) for more information. Depending on how many storage accounts you need, you might need to use additional subscriptions to create additional storage accounts.
 
 ### Pay-as-you-go snapshots
 

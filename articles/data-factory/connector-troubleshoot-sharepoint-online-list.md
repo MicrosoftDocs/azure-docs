@@ -2,12 +2,12 @@
 title: Troubleshoot the SharePoint Online list connector
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the SharePoint Online list connector in Azure Data Factory and Azure Synapse Analytics. 
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: troubleshooting
 ms.date: 06/22/2026
-ms.update-cycle: 1095
-ms.author: jianleishen
+ms.update-cycle: 1095-days
+ms.author: tinglee
 ms.custom: has-adal-ref, synapse
 ---
 

@@ -28,7 +28,7 @@ This article describes how to register a WhatsApp Business Account with Azure Co
 ## Prerequisites
 
 - [Azure Communication Services resource](../../create-communication-resource.md)
-- [Set-up Event Grid viewer](/samples/azure-samples/azure-event-grid-viewer/azure-event-grid-viewer/)
+- [Set-up Event Grid viewer](/azure/event-grid/)
 - [Set-up Event subscription for SMS received and SMS delivery events.](../../telephony/get-phone-number.md?tabs=windows&pivots=platform-azp)
 - [Facebook account](https://www.facebook.com/index.php)
 - Phone number using [Azure Communication Services phone number](../..//telephony/get-phone-number.md?tabs=windows&pivots=platform-azp) **or** bring your own phone number with the given capabilities:

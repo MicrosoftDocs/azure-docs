@@ -4,7 +4,7 @@ description: Learn how to monitor a storage account in Azure by using Azure Stor
 author: normesta
 ms.service: azure-storage
 ms.topic: concept-article
-ms.date: 09/30/2022
+ms.date: 07/16/2026
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: storage-common-concepts
@@ -58,9 +58,6 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 
    For information about accessing the $logs container, see [Storage analytics logging](storage-analytics-logging.md).
    
-   > [!NOTE]
-   > For classic storage accounts, the $logs container appears only in Azure Storage Explorer. The $logs container isn't visible from storage browser or the container view that is available in the Azure portal.
-
 ### [PowerShell](#tab/azure-powershell)
 
 1. Open a Windows PowerShell command window.

@@ -54,15 +54,36 @@ The retirement takes effect globally across all Azure regions.
 >
 > Be aware that **transaction pricing differs** in GPv2. Workloads with frequent operations may incur **higher charges** unless cost-optimization strategies are applied.
 
->[!NOTE]
+> [!NOTE]
 > Converting a storage account from GPv1 to GPv2 changes how Blob Storage is billed, but it does not impact pricing for Azure Files or Azure Disks. These services use their own pricing models, which aren’t tied to the storage account type.
 
 ### Estimate costs before upgrading
->[!TIP]
->If your workload is **read, write or list heavy**, reduce transaction counts by batching operations, writing larger blocks, and scoping list operations. GPv2 also provides better tools for optimizing costs, by allowing the tiering of data. Ensure cold data isn't left in the hot tier.
+
+Before you upgrade, estimate the billing impact either by using the open-source cost estimator or by modeling your costs manually.
+
+> [!TIP]
+> If your workload is **read, write, or list heavy**, reduce transaction counts by batching operations, writing larger blocks, and scoping list operations. GPv2 also provides better cost-optimization tools, such as data tiering. Make sure cold data isn't left in the hot tier.
+
+#### Use the cost estimator
+
+Microsoft provides an open-source [GPv1 to GPv2 Cost Estimator](https://aka.ms/gpv1costestimator) that helps you understand the potential billing impact of migrating your storage accounts. Use it to:
+
+- Compare estimated costs between GPv1 and GPv2 based on your current usage.
+- Upload billing data (CSV) to model real-world scenarios.
+- Understand how capacity, transactions, and access tiers affect pricing.
+- Export results to share with stakeholders.
+
+Because the tool is open source, you can review the code, run it locally, or adapt it to your own needs.
+
+> [!NOTE]
+> The estimator uses publicly available pricing and doesn't include contract-specific discounts, taxes, or reservations. Actual costs might vary.
+
+#### Estimate costs manually
+
+To model the cost impact yourself:
 
 1. Capture a baseline of monthly operations by type (**read, write, list/metadata**) and any **egress**.
-1. Use the [Azure Pricing Page](https://azure.microsoft.com/pricing/details/storage/blobs/) page to compare **per-GB** and **per-operation** rates for your region, redundancy (LRS/ZRS/GRS/GZRS), and intended access tier (hot/cool/cold/archive).
+1. Use the [Azure pricing page](https://azure.microsoft.com/pricing/details/storage/blobs/) to compare **per-GB** and **per-operation** rates for your region, redundancy (LRS/ZRS/GRS/GZRS), and intended access tier (hot/cool/cold/archive).
 1. Map data to the right tiers and include **early-deletion** minimums for cool/cold/archive.
 1. Plan [lifecycle policies](../blobs/lifecycle-management-overview.md) (for example, move from hot → cool after 30 days of no access, then archive later) and factor in their transaction effects.
 1. Compare your current GPv1 bill to the modeled GPv2 bill (with tiers and lifecycle rules).
@@ -85,6 +106,7 @@ To minimize risk and ensure a smooth migration:
 1. **Upgrade accounts**: Use the Azure portal, CLI, or automation tools to upgrade from GPv1 to GPv2. [Learn more about the upgrade process](storage-account-upgrade.md).
 1. **Validate behavior**: Confirm that workloads continue functioning and that billing reflects expected changes post-upgrade.
 1. **Monitor usage**: After migration, keep an eye on your storage account metrics to identify any unexpected changes in usage patterns or costs.
+1. **Review automation and deployment artifacts**: If you manage storage accounts with infrastructure-as-code tools, deployment pipelines, templates, modules, scripts, or policies, review those artifacts as part of your migration planning. Make sure they reflect the post-migration GPv2 configuration and preserve existing account settings such as networking, security, redundancy, access tier, encryption, identity, data protection, and tags. Stale deployment artifacts might cause validation or deployment failures, or introduce unintended configuration changes. As with any configuration change, validate updates in a non-production environment or through your normal change-review process before applying them to production.
 
 > [!TIP]
 > To migrate general-purpose v1 accounts to general-purpose v2 accounts, use the `deployIfDoesNotExist` Azure Policy. This policy detects and identifies any general-purpose v1 accounts and enables you to perform a non-disruptive, in-place upgrade of those accounts.  

@@ -3,7 +3,7 @@ title: Use Azure IoT Edge device local storage from a module
 description: Use environment variables and create options to enable module access to IoT Edge device local storage.
 author: sethmanheim
 ms.author: sethm
-ms.date: 03/19/2025
+ms.date: 07/16/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -49,7 +49,7 @@ Your deployment manifest would be similar to the following:
             }
         },
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.6",
             "createOptions": "{\"HostConfig\":{\"Binds\":[\"/srv/edgeAgent:/tmp/edgeAgent\"]}}"
         },
         "type": "docker"
@@ -62,7 +62,7 @@ Your deployment manifest would be similar to the following:
         },
         "restartPolicy": "always",
         "settings": {
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.6",
             "createOptions": "{\"HostConfig\":{\"Binds\":[\"/srv/edgeHub:/tmp/edgeHub\"],\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
         },
         "status": "running",
