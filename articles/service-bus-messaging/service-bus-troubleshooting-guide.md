@@ -11,6 +11,15 @@ ms.custom:
 This article provides troubleshooting tips and recommendations for a few issues that you see when using Azure Service Bus. 
 
 
+## Check service health before troubleshooting your client
+Start by confirming whether Azure Service Bus is healthy in your region. This quick check tells you where to focus your troubleshooting. Begin with these two checks:
+
+1. **Check Azure Service Health.** In the Azure portal, open [Azure Service Health][AzureServiceHealth], or go to the [Azure status page](https://azure.status.microsoft), to see whether Service Bus has an active health event or advisory in your region. Service Health reports service-side events that affect a targeted set of customers, such as a subset of customers in a region.
+1. **Check Resource Health for your namespace.** In the Azure portal, open your Service Bus namespace and select **Resource health**. Resource Health shows the current and recent health of your specific namespace. For more information, see [Azure Resource Health overview][AzureResourceHealth].
+
+If either check shows an active service-side event, the service is the likely source. The Service Bus SDK's built-in [retry policy](/azure/architecture/best-practices/retry-service-specific#service-bus) automatically retries transient failures and reconnects after brief interruptions. A longer outage can exceed the built-in retry limits, so make sure your application also retries or resumes processing once the service recovers. If both checks show the service is healthy, continue with the client-side troubleshooting in the rest of this article.
+
+
 ## Resource health
 The unhealthy period marked on the **Resource health** page of your Service Bus namespace in the Azure portal might be longer by a few minutes than the actual period. For example, the page might indicate that the namespace is unhealthy for 5-6 minutes, while the actual unhealthy period was only 1-2 minutes. 
 
@@ -322,4 +331,8 @@ See the following articles:
 [Transactions]: /azure/service-bus-messaging/service-bus-transactions
 [TransactionOperations]: /azure/service-bus-messaging/service-bus-transactions#operations-within-a-transaction-scope
 [ServiceBusQuotas]: /azure/service-bus-messaging/service-bus-quotas
+[TransactionOperations]: /azure/service-bus-messaging/service-bus-transactions#operations-within-a-transaction-scope
+[ServiceBusQuotas]: /azure/service-bus-messaging/service-bus-quotas
 [ServiceBusThrottling]: /azure/service-bus-messaging/service-bus-throttling#throttling-when-concurrent-receive-requests-exceed-the-limit
+[AzureServiceHealth]: /azure/service-health/service-health-overview
+[AzureResourceHealth]: /azure/service-health/resource-health-overview
