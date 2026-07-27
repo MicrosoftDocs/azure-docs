@@ -75,11 +75,9 @@ The SMB, NFS, and FileREST protocols can all use the public endpoint. However, e
 
 ### Public endpoint firewall settings
 
-The storage account firewall restricts access to the public endpoint for a storage account. Using the storage account firewall, you can restrict access to certain IP addresses/IP address ranges, to specific virtual networks, or disable the public endpoint entirely.
+The storage account firewall restricts access to the public endpoint for a storage account. You can restrict access to certain IP addresses or IP address ranges, to specific virtual networks, or disable the public endpoint entirely.
 
-When you restrict the traffic of the public endpoint to one or more virtual networks, you're using a capability of the virtual network called *service endpoints*. Requests directed to the service endpoint of Azure Files still go to the storage account public IP address. However, the networking layer performs extra verification of the request to validate that it's coming from an authorized virtual network. The SMB, NFS, and FileREST protocols all support service endpoints. Unlike SMB and FileREST, however, NFS file shares can only be accessed by using the public endpoint through use of a *service endpoint*.
-
-To learn more about how to configure the storage account firewall, see [configure Azure storage firewalls and virtual networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-virtual-networks).
+When you [restrict the public endpoint to one or more networks](storage-files-networking-endpoints.md#restrict-access-to-the-public-endpoint-to-specific-networks), you're using a capability of the virtual network called *service endpoints*. Requests directed to the service endpoint of Azure Files still go to the storage account public IP address. However, the networking layer performs extra verification of the request to validate that it's coming from an authorized virtual network. The SMB, NFS, and FileREST protocols all support service endpoints. Unlike SMB and FileREST, however, NFS file shares can only be accessed by using the public endpoint through use of a *service endpoint*.
 
 #### Azure portal access and the storage account firewall
 
@@ -88,7 +86,7 @@ When you access Azure file shares through the Azure portal, two separate request
 1. A request from your browser to the Azure portal UI (`https://portal.azure.com`).
 2. A request from your browser directly to the Azure Files data-plane endpoint (for example, `https://<storage-account-name>.file.core.windows.net`), typically using a SAS token issued for the portal experience.
 
-The storage account firewall evaluates only the direct request to the Azure Files data-plane endpoint, not the request to `portal.azure.com`. Therefore, even if you can access the Azure portal without issues, you might receive a **403 (Forbidden)** error when browsing file share data if the public egress IP address on the browser-to-storage request isn't allowed by the firewall. This applies only to FileREST/HTTPS traffic, not SMB or NFS.
+The storage account firewall evaluates only the direct request to the Azure Files data-plane endpoint, not the request to `portal.azure.com`. Therefore, even if you can access the Azure portal without issues, you might receive a **403 (Forbidden)** error when browsing file share data if the public egress IP address on the browser-to-storage request isn't allowed by the firewall. This restriction applies only to FileREST/HTTPS traffic, not SMB or NFS. For more information, see [Authorize access to file data in the Azure portal](authorize-data-operations-portal.md).
 
 > [!NOTE]
 > Due to factors such as proxies, VPNs, NAT, or differences in network routing, the IP address shown in an error message might not match the actual source IP address as seen by the storage account. To verify the source IP address that's actually reaching the storage account, enable **Azure Monitor diagnostic settings** for the storage account and collect **storage resource logs**. Then review the relevant file service request entries and check the **CallerIpAddress** field to confirm which IP address reached the storage account.

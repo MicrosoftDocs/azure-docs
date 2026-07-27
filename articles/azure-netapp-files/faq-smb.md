@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: concept-article
 author: b-hchen
 ms.author: anfdocs
-ms.date: 04/24/2026
+ms.date: 07/21/2026
 ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator using Azure NetApp Files, I want to understand the SMB protocol and its configurations, so that I can ensure optimal connectivity and performance for my organization's file sharing and storage needs.
 ---
@@ -192,6 +192,21 @@ SMB/CIFS oplocks (opportunistic locks) enable the redirector on a SMB/CIFS clien
 ## Will the access time automatically update when reading files?
 
 No, access time isn't updated when reading files. This behavior ensures low-latency and high-performance access to your data.
+
+## Which Windows features aren't supported in Azure NetApp Files? 
+
+Azure NetApp Files doesn't support the following Windows features:
+
+- Encrypted File System (EFS)
+- LMHOSTS file
+- Logging of NT File System (NTFS) events in the change journal
+- Microsoft File Replication Service (FRS)
+- Microsoft Windows Indexing Service
+- NTFS native compression
+- Quota management from Windows clients
+- Remote storage through Hierarchical Storage Management (HSM)
+- Windows quota semantics
+
 
 ## Next steps  
 

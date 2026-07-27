@@ -68,7 +68,7 @@ You can quickly deploy the sample app in this tutorial and see it running in Azu
 ```bash
 mkdir msdocs-spring-boot-mongodb-sample-app
 cd msdocs-spring-boot-mongodb-sample-app
-azd init --template msdocs-spring-boot-mongodb-sample-app
+azd init --template msdocs-spring-boot-mongodb-sample-app .
 azd up
 ```
 

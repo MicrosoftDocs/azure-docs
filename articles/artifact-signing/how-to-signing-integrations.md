@@ -263,7 +263,7 @@ You can also use the following tools or platforms to set up signing integrations
 
 - **GitHub Actions**: To learn how to use a GitHub action for Artifact Signing, see [Artifact Signing - Actions](https://github.com/azure/artifact-signing-action) in GitHub Marketplace. Complete the instructions to set up and use a GitHub action.
 
-- **PowerShell for Authenticode**: To use PowerShell for Artifact Signing, see [Artifact Signing](https://www.powershellgallery.com/packages/TrustedSigning/) in PowerShell Gallery to install the PowerShell module.
+- **PowerShell for Authenticode**: To use PowerShell for Artifact Signing, see [ArtifactSigning](https://www.powershellgallery.com/packages/ArtifactSigning/) in PowerShell Gallery to install the PowerShell module.
 
 - **Azure PowerShell - App Control for Business CI policy**: To use Artifact Signing for code integrity (CI) policy signing, follow the instructions in [Sign a new CI policy](./how-to-sign-ci-policy.md) and download the [Az.ArtifactSigning PowerShell Module](https://www.powershellgallery.com/packages/Az.ArtifactSigning).
 

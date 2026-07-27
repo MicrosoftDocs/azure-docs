@@ -75,6 +75,8 @@ landingContent:
     linkLists:
       - linkListType: quickstart
         links:
+          - text: Get started with Azure Enclave
+            url: onboard.md
           - text: Create a community
             url: create-community-portal.md
           - text: Create a community endpoint
@@ -89,8 +91,6 @@ landingContent:
             url: create-workload-portal.md
           - text: Create a transit hub
             url: create-transit-hub-portal.md
-#           - text: Easy button deployments
-#             url: Easy-Button-Deployments.md
       - linkListType: tutorial
         links:
           - text: Learn Azure Enclave
@@ -109,8 +109,6 @@ landingContent:
             url: 1-6-monitor-your-enclaves.md
           - text: Host a publicly accessible application in an enclave
             url: 1-7-host-publicly-accessible-application-azure-enclave.md
-          - text: Migrate workload resources
-            url: 1-8-migrate-workload-resources.md
       - linkListType: tutorial
         links:
           - text: Plan Architecture for workload
@@ -121,6 +119,10 @@ landingContent:
             url: 2-3-deploy-virtual-desktop-workload.md
           - text: Deploy Azure Kubernetes Service workload
             url: 2-4-deploy-kubernetes-workload.md
+      - linkListType: tutorial
+        links:
+          - text: Require approvals with Azure Enclave resources
+            url: 3-1-approvals-azure-enclave.md
   # Card
   - title: Governance, Security, and Compliance
     linkLists:
@@ -140,8 +142,6 @@ landingContent:
             url: access-controls-enclaves.md
           - text: Create a user-assigned managed identity
             url: create-user-managed-identity.md
-#           - text: Customer Managed Key Encryption
-#             url: configure-customer-managed-key-encryption-within-enclave.md
           - text: Policy compliance exemptions
             url: policy-compliance-exemptions.md
           - text: Configure customer managed key encryption
@@ -238,8 +238,6 @@ landingContent:
   #           url: troubleshoot.md
   #         - text: Policy compliance exemptions
   #           url: policy-compliance-exemptions.md
-  #         - text: Migrate Azure Resources into Azure Enclave
-  #           url: migrate-azure-resources-azure-enclave.md
   # Card
   - title: Resources
     linkLists:

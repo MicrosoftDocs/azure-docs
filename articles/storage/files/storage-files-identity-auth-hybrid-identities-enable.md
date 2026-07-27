@@ -38,17 +38,17 @@ You need the following minimum prerequisites. Without these prerequisites, you c
 
 - If you want to authenticate hybrid identities, you also need AD DS and either [Microsoft Entra Connect Sync](/entra/identity/hybrid/connect/how-to-connect-sync-whatis) or [Microsoft Entra Cloud Sync](/entra/identity/hybrid/cloud-sync/what-is-cloud-sync). You must create these accounts in Active Directory and sync them to Microsoft Entra ID. To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Microsoft Entra ID. This requirement doesn't apply to cloud-only identities.
 
-- The WinHTTP Web Proxy Auto-Discovery Service (`WinHttpAutoProxySvc`) is required, and must be in the running state. For security reasons, you can optionally [disable Web Proxy Auto-Discovery (WPAD)](/troubleshoot/windows-server/networking/disable-http-proxy-auth-features#how-to-disable-wpad) via registry keys. However, you shouldn't disable the entire `WinHttpAutoProxySvc` service, as it is responsible for a host of other functionalities, including Kerberos Key Distribution Center Proxy (KDC Proxy) requests.
+- The WinHTTP Web Proxy Auto-Discovery Service (`WinHttpAutoProxySvc`) is required, and must be in the running state. For security reasons, you can optionally [disable Web Proxy Auto-Discovery (WPAD)](/troubleshoot/windows-server/networking/disable-http-proxy-auth-features#how-to-disable-wpad) via registry keys. However, you shouldn't disable the entire `WinHttpAutoProxySvc` service, as it's responsible for a host of other functions, including Kerberos Key Distribution Center Proxy (KDC Proxy) requests.
 
 - The IP Helper service (`iphlpsvc`) is required, and must be in the running state.
 
 - You must disable multifactor authentication (MFA) on the Entra app representing the storage account. For instructions, see [Disable multifactor authentication on the storage account](#disable-multifactor-authentication-on-the-storage-account).
 
-- If you have [application management policies](/entra/identity/enterprise-apps/configure-app-management-policies) that block symmetric key addition on service principals, or that restrict service principal symmetric key lifetime to a value less than 366 days, you will need to [adjust the policy](/entra/identity/enterprise-apps/configure-app-management-policies#enable-a-restriction-for-all-applications) or [grant an exception](/entra/identity/enterprise-apps/configure-app-management-policies#grant-an-exception-to-a-user-or-service) for the "Storage Resource Provider" service (app ID `a6aa9161-5291-40bb-8c5c-923b567bee3b`). If using the [Entra Admin Center](https://aka.ms/app-mgmt-policy-ux), these policies are defined in the "Block password addition" and "Restrict max password lifetime" settings. If using the [Graph API](/graph/api/resources/tenantappmanagementpolicy), these policies are defined in `symmetricKeyAddition` and `symmetricKeyLifetime` restrictions on `servicePrincipalRestrictions.passwordCredentials`.
+- If you have [application management policies](/entra/identity/enterprise-apps/configure-app-management-policies) that block symmetric key addition on service principals, or that restrict service principal symmetric key lifetime to a value less than 366 days, you need to [adjust the policy](/entra/identity/enterprise-apps/configure-app-management-policies#enable-a-restriction-for-all-applications) or [grant an exception](/entra/identity/enterprise-apps/configure-app-management-policies#grant-an-exception-to-a-user-or-service) for the "Storage Resource Provider" service (app ID `a6aa9161-5291-40bb-8c5c-923b567bee3b`). If using the [Microsoft Entra admin center](https://aka.ms/app-mgmt-policy-ux), these policies are defined in the "Block password addition" and "Restrict max password lifetime" settings. If using the [Graph API](/graph/api/resources/tenantappmanagementpolicy), these policies are defined in `symmetricKeyAddition` and `symmetricKeyLifetime` restrictions on `servicePrincipalRestrictions.passwordCredentials`.
 
 - With Microsoft Entra Kerberos, the Kerberos ticket encryption is always AES-256. But you can set the SMB channel encryption that best fits your needs.
 
-- Azure Files SMB support for external identities is currently limited to FSLogix scenarios running on Azure Virtual Desktop. This support applies to external users invited to a Microsoft Entra ID tenant in the public cloud, with the exception of cross-cloud users (those invited into the tenant from Azure Government or Azure operated by 21Vianet). Government cloud scenarios aren't supported. Scenarios not involving Azure Virtual Desktop aren't supported for business-to-business guest users or users from other Entra tenants.
+- Azure Files SMB support for external identities is currently limited to FSLogix scenarios running on Azure Virtual Desktop. This support applies to external users invited to a Microsoft Entra ID tenant in the public cloud, with the exception of cross-cloud users (those invited into the tenant from Azure Government or Azure operated by 21Vianet). Government cloud scenarios aren't supported. Scenarios not involving Azure Virtual Desktop aren't supported for business-to-business guest users or users from other Microsoft Entra tenants.
 
 - Microsoft Entra Kerberos doesn't currently support cross-tenant access.
 
@@ -209,7 +209,7 @@ az storage account update --name <storageAccountName> --resource-group <resource
 ---
 
 > [!WARNING]
-> If you previously enabled Microsoft Entra Kerberos authentication through manual limited preview steps to store FSLogix profiles on Azure Files for Entra-joined VMs, the password for the storage account's service principal expires every six months. Once the password expires, users can't get Kerberos tickets to the file share. To mitigate this, see [Error - Service principal password has expired in Microsoft Entra ID](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#error---service-principal-password-has-expired-in-microsoft-entra-id).
+> If you previously enabled Microsoft Entra Kerberos authentication through manual limited preview steps to store FSLogix profiles on Azure Files for Microsoft Entra-joined VMs, the password for the storage account's service principal expires every six months. After the password expires, users can't get Kerberos tickets to the file share. To mitigate this, see [Error - Service principal password has expired in Microsoft Entra ID](/troubleshoot/azure/azure-storage/files-troubleshoot-smb-authentication?toc=/azure/storage/files/toc.json#error---service-principal-password-has-expired-in-microsoft-entra-id).
 
 ## Grant admin consent to the new service principal
 
@@ -229,7 +229,7 @@ If you're connecting to a storage account through a private endpoint or private 
 
 ## Enable cloud-only groups support (mandatory for cloud-only identities)
 
-Kerberos tickets can include a maximum of 1,010 Security Identifiers (SIDs) for groups. Now that Microsoft Entra Kerberos supports Entra-only identities, tickets must include both on-premises group SIDs and cloud group SIDs. If the combined group SIDs exceed 1,010, the Kerberos ticket can't be issued.
+Kerberos tickets can include a maximum of 1,010 Security Identifiers (SIDs) for groups. Now that Microsoft Entra Kerberos supports cloud-only identities, tickets must include both on-premises group SIDs and cloud group SIDs. If the combined group SIDs exceed 1,010, the Kerberos ticket can't be issued.
 
 If you're using Microsoft Entra Kerberos to authenticate cloud-only identities, update the Tags in your application manifest file, or authentication fails.  
 
@@ -253,19 +253,19 @@ For guidance on disabling MFA, see the following articles:
 
 ## Assign share-level permissions
 
-When you enable identity-based access, for each share you must assign which users and groups have access to that particular share. Once a user or group is allowed access to a share, Windows ACLs (also called NTFS permissions) on individual files and directories take over. This permission system allows for fine-grained control over permissions, similar to an SMB share on a Windows Server.
+When you enable identity-based access, for each share you must assign which users and groups have access to that particular share. After a user or group is allowed access to a share, Windows ACLs (also called NTFS permissions) on individual files and directories take over. This permission system allows for fine-grained control over permissions, similar to an SMB share on a Windows Server.
 
 To set share-level permissions for hybrid or cloud-only identities, follow the instructions in [Assign share-level permissions to an identity](storage-files-identity-assign-share-level-permissions.md).
 
 ## Configure directory and file-level permissions
 
-Once share-level permissions are in place, you can assign Windows ACLs (directory and file-level permissions) to the user or group. **For hybrid identities, if using icacls or File Explorer, this assignment requires using a device with unimpeded network connectivity to an Active Directory**.
+After share-level permissions are in place, you can assign Windows ACLs (directory and file-level permissions) to the user or group. **For hybrid identities, if using icacls or File Explorer, this assignment requires using a device with unimpeded network connectivity to an Active Directory**.
 
 To configure directory and file-level permissions, follow the instructions in [Configure directory and file-level permissions over SMB](storage-files-identity-configure-file-level-permissions.md).
 
 ## Configure the clients to retrieve Kerberos tickets
 
-Enable the Entra Kerberos functionality on the client machines you want to use to mount Azure Files shares. You must enable this functionality on every client that uses Azure Files.
+Enable the Microsoft Entra Kerberos functionality on the client machines you want to use to mount Azure Files shares. You must enable this functionality on every client that uses Azure Files.
 
 Use one of the following three methods:
 
@@ -408,7 +408,7 @@ To disable Microsoft Entra Kerberos authentication on your storage account by us
 
 # [Azure PowerShell](#tab/azure-powershell)
 
-To disable Microsoft Entra Kerberos authentication on your storage account by using Azure PowerShell, run the following command. Remember to replace placeholder values, including brackets, with your values.
+To disable Microsoft Entra Kerberos authentication on your storage account by using Azure PowerShell, run the following command. Replace placeholder values, including brackets, with your values.
 
 ```azurepowershell
 Set-AzStorageAccount -ResourceGroupName <resourceGroupName> -StorageAccountName <storageAccountName> -EnableAzureActiveDirectoryKerberosForFile $false
@@ -416,7 +416,7 @@ Set-AzStorageAccount -ResourceGroupName <resourceGroupName> -StorageAccountName 
 
 # [Azure CLI](#tab/azure-cli)
 
-To disable Microsoft Entra Kerberos authentication on your storage account by using Azure CLI, run the following command. Remember to replace placeholder values, including brackets, with your values.
+To disable Microsoft Entra Kerberos authentication on your storage account by using Azure CLI, run the following command. Replace placeholder values, including brackets, with your values.
 
 ```azurecli
 az storage account update --name <storageaccountname> --resource-group <resourcegroupname> --enable-files-aadkerb false
@@ -426,7 +426,7 @@ az storage account update --name <storageaccountname> --resource-group <resource
 
 ## Debugging
 
-If needed, run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic checks on your Microsoft Entra ID configuration with the signed in Microsoft Entra ID user. The Entra checks that are part of this cmdlet are supported on the [AzFilesHybrid PowerShell module](https://www.powershellgallery.com/packages/AzFilesHybrid/) beginning with version 0.3.0+. This cmdlet works for Microsoft Entra Kerberos and AD DS authentication but doesn't work for Microsoft Entra Domain Services enabled storage accounts. For more information on the checks performed in this cmdlet, see [Unable to mount Azure file shares with Microsoft Entra Kerberos](/troubleshoot/azure/azure-storage/files/security/files-troubleshoot-smb-authentication?tabs=azure-portal#unable-to-mount-azure-file-shares-with-microsoft-entra-kerberos).
+If needed, run the `Debug-AzStorageAccountAuth` cmdlet to conduct a set of basic checks on your Microsoft Entra ID configuration with the signed-in Microsoft Entra ID user. The Microsoft Entra checks that are part of this cmdlet are supported on the [AzFilesHybrid PowerShell module](https://www.powershellgallery.com/packages/AzFilesHybrid/) beginning with version 0.3.0+. This cmdlet works for Microsoft Entra Kerberos and AD DS authentication but doesn't work for Microsoft Entra Domain Services enabled storage accounts. For more information on the checks performed in this cmdlet, see [Unable to mount Azure file shares with Microsoft Entra Kerberos](/troubleshoot/azure/azure-storage/files/security/files-troubleshoot-smb-authentication?tabs=azure-portal#unable-to-mount-azure-file-shares-with-microsoft-entra-kerberos).
 
 ## Next steps
 

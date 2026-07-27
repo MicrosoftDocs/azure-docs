@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: how-to
 ms.date: 10/23/2025
 ms.custom: engagement-fy25
+ms.update-cycle: 365-days
 monikerRange: migrate
 ---
 

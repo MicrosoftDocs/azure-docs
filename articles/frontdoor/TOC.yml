@@ -249,6 +249,8 @@
     href: standard-premium/how-to-compression.md
   - name: Blue/Green deployment with Front Door
     href: blue-green-deployment.md
+  - name: Edge actions
+    href: edge-actions.md
   - name: Monitor and reports
     items:
     - name: Monitor Front Door
@@ -449,8 +451,6 @@
         href: /cli/azure/afd/
       - name: Azure PowerShell
         href: /powershell/module/az.frontdoor
-      - name: Bicep and Resource Manager Templates
-        href: front-door-quickstart-template-samples.md?pivots=front-door-classic
       - name: Terraform
         href: terraform-samples.md?pivots=front-door-classic
       - name: REST API

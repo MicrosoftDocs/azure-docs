@@ -65,7 +65,7 @@ A storage sync service is the root Azure Resource Manager resource for Azure Fil
 
 Each Windows Server instance can be registered to only one storage sync service. After registration, the server can participate in multiple sync groups within that storage sync service by using a Resource Manager principal to create server endpoints on the server.
 
-When you design Azure File Sync topologies, be sure to isolate data clearly at the level of the storage sync service. For example, if your enterprise requires separate Azure File Sync environments for two distinct business units, and you need strict data isolation between these groups, create a dedicated storage sync service for each group. Avoid placing sync groups for both business groups within the same storage sync service, because that configuration doesn't ensure complete isolation.
+When you design Azure File Sync topologies, isolate data clearly at the level of the storage sync service. For example, if your enterprise requires separate Azure File Sync environments for two distinct business units, and you need strict data isolation between these groups, create a dedicated storage sync service for each group. Avoid placing sync groups for both business groups within the same storage sync service, because that configuration doesn't ensure complete isolation.
 
 For more guidance on data isolation by using separate subscriptions or resource groups in Azure, refer to [Azure resource providers and types](/azure/azure-resource-manager/management/resource-providers-and-types#resource-scope-and-lifecycle).
 
@@ -197,7 +197,7 @@ Invoke-StorageSyncFileRecall -FilePath <path>
 compact /U /S <filepath>
 ```
 
-You can also uncompress files using the [compact](/windows-server/administration/windows-commands/compact) command.
+You can also uncompress files by using the [compact](/windows-server/administration/windows-commands/compact) command.
 
 On Windows Server 2019 or later, the **compact** command skips tiered files, so you must recall the file first before uncompressing it:
 
@@ -344,7 +344,7 @@ Windows clients cause recalls when they search the file share if you enable the 
 
 ### Other HSM solutions
 
-Don't use any other hierarchical storage management (HSM) solutions with Azure File Sync.
+Don't use any other hierarchical storage management (HSM) solutions with Azure File Sync. Other HSM solutions can conflict with Azure File Sync's cloud tiering and might cause data inconsistencies or unexpected behavior.
 
 ## Performance and scalability
 
@@ -362,7 +362,7 @@ For more information, see [Azure File Sync performance metrics](./file-sync-scal
 
 ## Identity
 
-The administrator who registers the server and creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under Access Control (IAM) on the Azure portal page for the storage sync service.
+The administrator who registers the server and creates the cloud endpoint must be a member of the management role [Azure File Sync Administrator](/azure/role-based-access-control/built-in-roles/storage#azure-file-sync-administrator), Owner, or Contributor for the storage sync service. You can configure this role under **Access Control (IAM)** on the Azure portal page for the storage sync service.
 
 Azure File Sync also requires additional storage account permissions for cloud endpoint create and update operations. Users who previously had only storage account read permissions can no longer create or update cloud endpoints.
 

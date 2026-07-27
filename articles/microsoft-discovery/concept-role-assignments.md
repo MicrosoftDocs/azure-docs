@@ -293,6 +293,9 @@ Some workflows require Azure built-in roles beyond the Microsoft Discovery roles
 | AcrPush | Upload tool or model images to Azure Container Registry | Subscription, resource group, resource |
 | Reader | Read API operation status for deployments | Subscription |
 
+> [!IMPORTANT]
+> If you deploy the networking resources into a separate resource group from your other Discovery resources, make sure you assign yourself the appropriate permissions on the virtual network's resource group so that the supercomputer resource deploys successfully. The permissions worth considering are **Network Contributor** and **Microsoft Discovery Platform Administrator (Preview)**.
+
 ## Who can assign Microsoft Discovery roles
 
 To assign Microsoft Discovery roles, you need one of the following Azure RBAC permissions at the target scope:
