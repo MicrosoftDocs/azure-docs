@@ -71,7 +71,7 @@ You specify the number of messaging units when provisioning an Azure Service Bus
 
 The number of messaging units allocated to the Service Bus premium namespace can be **dynamically adjusted** to factor in the change (increase or decrease) in workloads.
 
-There are a few factors to take into consideration when deciding the number of messaging units for your architecture:
+Consider the following factors when deciding the number of messaging units for your architecture:
 
 - Start with **1 or 2 messaging units** allocated to your namespace, or **1 message unit per partition**.
 - Check the CPU and memory usage metrics within the [Resource usage metrics](monitor-service-bus-reference.md#resource-usage-metrics) for your namespace.
@@ -88,7 +88,7 @@ To learn how to configure a Service Bus namespace to automatically scale (increa
 >
 >  * **Reactive**: If additional workloads are identified by studying the resource usage metrics, then additional resources can be allocated to the namespace to incorporate increasing demand.
 >
-> The billing meters for Service Bus are hourly. When you scale up, you pay only for the extra resources for the hours that you use them. Because billing is hourly, any capacity you scale up to stays available for the rest of that hour at no extra charge. A longer cool-down period lets you absorb short bursts before scaling down. For more information, see [Cost considerations for scaling](automate-update-messaging-units.md#cost-considerations-for-scaling).
+> The billing meters for Service Bus are hourly, based on the highest number of messaging units allocated during each hour. When you scale up, you pay for the extra units in each hour that they're allocated, even if you use them for only part of that hour. Scaling back down within the same hour doesn't reduce that hour's charge. For more information, see [Cost considerations for scaling](automate-update-messaging-units.md#cost-considerations-for-scaling).
 >
 
 ## Get started with premium messaging
@@ -101,7 +101,7 @@ You can also create [Premium namespaces using Azure Resource Manager templates](
 
 ## Large messages support
 
-Azure Service Bus premium tier namespaces support the ability to send large message payloads up to 100 MB. This feature is primarily targeted towards legacy workloads that used larger message payloads on other enterprise messaging brokers and are looking to seamlessly migrate to Azure Service Bus.
+Azure Service Bus premium tier namespaces support the ability to send large message payloads up to 100 MB. This feature is primarily targeted towards legacy workloads that used larger message payloads on other enterprise messaging brokers and are looking to migrate to Azure Service Bus.
 
 Here are some considerations when sending large messages on Azure Service Bus:
 
