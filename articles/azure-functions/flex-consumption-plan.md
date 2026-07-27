@@ -141,7 +141,7 @@ A high maximum instance count doesn't guarantee your app reaches it: the [region
 
 ### Throttling responses
 
-At any moment, the platform grants the smallest allowance across all of these limits—the scale curve, the maximum instance count, and the regional memory quota. When one of them is temporarily holding scale-out back, individual scale-out requests are throttled briefly. A throttled scale-out is a transient, expected part of high-rate scaling: the platform keeps retrying automatically and your app continues to scale toward demand. You don't need to take any action for an occasional throttle.
+At any moment, the platform grants the smallest allowance across all of these limits - the scale curve, the maximum instance count, and the regional memory quota. When one of these limits temporarily holds scale-out back, the platform throttles individual scale-out requests briefly. A throttled scale-out is a transient, expected part of high-rate scaling: the platform keeps retrying automatically and your app continues to scale toward demand. You don't need to take any action for an occasional throttle.
 
 ### Design for smooth scaling at high rates
 
