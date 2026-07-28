@@ -6,7 +6,7 @@ ms.author: aserfass
 ms.topic: concept-article
 ms.service: azure-enclave
 ai-usage: ai-assisted
-ms.date: 6/23/2026
+ms.date: 7/23/2026
 ---
 
 # Azure Enclave frequently asked questions
