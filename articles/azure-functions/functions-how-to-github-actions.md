@@ -462,35 +462,35 @@ The Azure Functions action (`Azure/functions-action`) defines how your code is p
 
 ### Parameters
 
-All function app plans require the following parameters:
+The following table describes the input parameters supported by `Azure/functions-action`:
 
-| Parameter | Explanation |
+| Parameter | Description |
 | --------- | --------- |
-| ***app-name*** | The name of your function app. |
-| ***package*** | The location in your project to publish. By default, this value is set to `.`, which means all files and folders in the GitHub repository are deployed. |
+| **app-name** | (Required) The name of your function app in Azure. |
+| **package** | (Required) The path to your project to publish. Default: `.` (all files in the repository). |
+| **sku** | Set to `flexconsumption` when authenticating with publish-profile on a Flex Consumption plan. Not needed with OIDC/SP auth or other plans (the action auto-resolves). |
+| **remote-build** | Set to `true` to enable a build action from Kudu when deploying to a Flex Consumption app. Oryx build is always performed; don't also set **scm-do-build-during-deployment** or **enable-oryx-build**. Default: `false`. |
+| **scm-do-build-during-deployment** | Allow the Kudu site to perform pre-deployment operations such as [remote builds](functions-deployment-technologies.md#remote-build). Set to `true` to have Kudu build your project during deployment. Default: `false`. For more information, see [`SCM_DO_BUILD_DURING_DEPLOYMENT`](./functions-app-settings.md#scm_do_build_during_deployment). |
+| **enable-oryx-build** | Allow Kudu to resolve project dependencies by using [Oryx](https://github.com/Microsoft/Oryx). Set both this and **scm-do-build-during-deployment** to `true` to use Oryx instead of the workflow. Default: `false`. Linux only. |
+| **slot-name** | The [deployment slot](functions-deployment-slots.md) to deploy to. Default: production slot. When targeting a non-production slot, ensure **publish-profile** contains the slot credentials. |
+| **publish-profile** | The name of the GitHub secret that contains your publish profile. |
+| **respect-pom-xml** | (Java only) Set to `true` to derive the deployment artifact from pom.xml. When `true`, set **package** to `.`. Default: `false`. |
+| **respect-funcignore** | Set to `true` to honor your .funcignore file and exclude listed paths. Default: `false`. |
 
-The Flex Consumption plan requires the following parameters:
+The following table shows which parameters are supported for each hosting plan:
 
-| Parameter | Explanation |
-| --------- | --------- |
-| ***sku*** | Set this parameter to `flexconsumption` when authenticating with publish-profile. When using RBAC credentials or deploying to a non-Flex Consumption plan, the Action can resolve the value, so you don't need to include this parameter. |
-| ***remote-build*** | Set this parameter to `true` to enable a build action from Kudu when the package is deployed to a Flex Consumption app. Oryx build is always performed during a remote build in Flex Consumption; don't set **scm-do-build-during-deployment** or **enable-oryx-build**. By default, this parameter is set to `false`. |
-
-The following parameters are specific to the Consumption, Elastic Premium, and App Service (Dedicated) plans:
-
-| Parameter | Explanation |
-| --------- | --------- |
-| ***scm-do-build-during-deployment*** | (Optional) Allow the Kudu site (for example, `https://<APP_NAME>.scm.azurewebsites.net/`) to perform pre-deployment operations, such as [remote builds](functions-deployment-technologies.md#remote-build). By default, this value is `false`. Set this value to `true` when you want to control deployment behaviors by using Kudu instead of resolving dependencies in your GitHub workflow. For more information, see the [`SCM_DO_BUILD_DURING_DEPLOYMENT`](./functions-app-settings.md#scm_do_build_during_deployment) setting.|
-| ***enable-oryx-build*** | (Optional) Allow Kudu site to resolve your project dependencies by using Oryx. By default, this value is `false`. If you want to use [Oryx](https://github.com/Microsoft/Oryx) to resolve your dependencies instead of the GitHub Workflow, set both **scm-do-build-during-deployment** and **enable-oryx-build** to `true`. |
-
-All function app plans accept the following optional parameters:
-
-| Parameter | Explanation |
-| --------- | --------- |
-| ***slot-name*** | The [deployment slot](functions-deployment-slots.md) name to deploy to. By default, this value is empty, which means the GitHub Action deploys to your production site. When this setting points to a non-production slot, ensure the **publish-profile** parameter contains the credentials for the slot instead of the production site. _Currently not supported in Flex Consumption_. |
-| ***publish-profile*** | The name of the GitHub secret that contains your publish profile.|
-| ***respect-pom-xml*** | Used only for Java functions. Whether it's required for your app's deployment artifact to be derived from the pom.xml file. When deploying Java function apps, set this parameter to `true` and set `package` to `.`. By default, this parameter is set to `false`, which means that the `package` parameter must point to your app's artifact location, such as `./target/azure-functions/` |
-| ***respect-funcignore*** | Whether GitHub Actions honors your .funcignore file to exclude files and folders defined in it. Set this value to `true` when your repository has a .funcignore file and you want to use it to exclude paths and files, such as text editor configurations, .vscode/, or a Python virtual environment (.venv/). The default setting is `false`. |
+| Parameter | Flex Consumption | Elastic Premium | Dedicated | Consumption |
+| --------- | :-: | :-: | :-: | :-: |
+| **app-name** | Required | Required | Required | Required |
+| **package** | Required | Required | Required | Required |
+| **sku** | Publish-profile only | — | — | — |
+| **remote-build** | Optional | — | — | — |
+| **scm-do-build-during-deployment** | — | Optional | Optional | Optional |
+| **enable-oryx-build** | — | Optional (Linux) | Optional (Linux) | Optional (Linux) |
+| **slot-name** | Not supported | Optional | Optional | Optional |
+| **publish-profile** | Optional | Optional | Optional | Optional |
+| **respect-pom-xml** | Optional (Java) | Optional (Java) | Optional (Java) | Optional (Java) |
+| **respect-funcignore** | Optional | Optional | Optional | Optional |
 
 ### Considerations
 
