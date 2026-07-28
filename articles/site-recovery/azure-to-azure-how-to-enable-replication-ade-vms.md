@@ -54,6 +54,9 @@ To troubleshoot permissions, refer to [key vault permission issues](#trusted-roo
 >[!NOTE]
 >To enable replication of Disk Encryption-enabled VMs from the portal, you need at least "List" permissions on the key vaults, secrets, and keys.
 
+>[!NOTE]
+>If the Key Vault is configured to use Azure RBAC instead of access policies, the user must be assigned the **Key Vault Administrator** role on the key vaults used by Azure Site Recovery in both the source region and the target region.
+
 ## Copy Disk Encryption keys to the DR region by using the PowerShell script
 
 1. [Open the "CopyKeys" raw script code](https://aka.ms/ade-asr-copy-keys-code).
