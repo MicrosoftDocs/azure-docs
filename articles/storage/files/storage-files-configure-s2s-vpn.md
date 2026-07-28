@@ -616,7 +616,7 @@ After DNS resolution is confirmed, mount your Azure file share on-premises. See 
 ## See also
 
 - [Azure Files networking overview](storage-files-networking-overview.md)
-- [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md)
-- [Configuring DNS forwarding for Azure Files](storage-files-networking-dns.md)
+- [Configure Azure Files network endpoints](storage-files-networking-endpoints.md)
+- [Configure DNS forwarding for Azure Files](storage-files-networking-dns.md)
 - [Configure a Point-to-Site VPN on Windows for use with Azure Files](storage-files-configure-p2s-vpn-windows.md)
 - [Configure a Point-to-Site VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md)
