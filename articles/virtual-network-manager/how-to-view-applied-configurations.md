@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 03/22/2024
+ms.date: 07/17/2026
 ms.custom:
   - template-how-to
   - sfi-image-nochange
@@ -85,13 +85,9 @@ At the virtual machine level, you can view security rules applied by Virtual Net
 
 1. Then select **Effective routes** under *Support + troubleshooting*.
 
-2. Routes with the next hop type of *ConnectedGroup* are either part of mesh configuration or when [*Direct connectivity*](concept-connectivity-configuration.md#enable-direct-connectivity) is enabled for a network group. Routes between the hub and spoke virtual networks will appear as next hop type *VNetPeering* or *GlobalVNetPeering*.
+1. Routes with a next hop type of *ConnectedGroup* are part of a mesh configuration or provide [*direct connectivity*](concept-connectivity-configuration.md#enable-direct-connectivity) between spoke virtual networks in the same network group. Routes between hub and spoke virtual networks have a next hop type of *VNetPeering* or *GlobalVNetPeering*.
 
     :::image type="content" source="./media/how-to-view-applied-configurations/effective-routes.png" alt-text="Screenshot of effective routes that shows connected groups and hub routes." lightbox="./media/how-to-view-applied-configurations/effective-routes-expanded.png":::
-
-    > [!NOTE]
-    > The hub virtual network address space is also **included** in the *ConnectedGroup*. Therefore, if virtual network peering fails between the hub and spoke virtual networks, they can still communicate with each other because they're in a connected group.
-    > 
 
 ### Effective security rules
 
