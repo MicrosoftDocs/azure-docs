@@ -76,10 +76,10 @@ POST {workspace_url}/tools/projects/{project_name}:run?api-version=2026-02-01-pr
 
 ```json
 {
-  "toolId": "/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{ws}/projects/{project}/tools/{tool}",
+  "toolId": "/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/tools/{tool}",
   "command": "python train.py --epochs 100 --gpus 4",
   "nodePoolIds": [
-    "/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{ws}/supercomputers/{sc}/nodepools/{pool}"
+    "/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/supercomputers/{sc}/nodepools/{pool}"
   ],
   "infraOverrides": {
     "cpu": "96",
@@ -91,11 +91,11 @@ POST {workspace_url}/tools/projects/{project_name}:run?api-version=2026-02-01-pr
   "outputData": [
     {
       "mountPath": "/blob_user",
-      "storageUri": "discovery://storageassets/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{ws}/storagecontainers/{container}/storageassets/{username}"
+      "storageUri": "discovery://storageassets/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/storagecontainers/{container}/storageassets/{username}"
     },
     {
       "mountPath": "/blob_shared",
-      "storageUri": "discovery://storageassets/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{ws}/storagecontainers/{container}/storageassets/shared"
+      "storageUri": "discovery://storageassets/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/storagecontainers/{container}/storageassets/shared"
     }
   ]
 }
@@ -162,19 +162,19 @@ curl -X POST \
 
 ### Response
 
-A successful submission returns a `ToolExecutionResponse` with status `Pending` or `NotStarted`:
+A successful submission returns a `ToolExecutionResponse` with the top-level operation `status` set to `NotStarted`:
 
 ```json
 {
   "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-  "status": "Pending",
+  "status": "NotStarted",
   "result": {
     "createdAt": "2026-05-01T14:30:00Z",
     "completedAt": null,
     "runtimeDetails": "",
     "debugInfo": "",
     "outputData": [],
-    "status": "Pending",
+    "status": "TaskAccepted",
     "toolReport": {
       "logs": "",
       "percentageComplete": 0,
@@ -208,14 +208,14 @@ curl -s \
 ```json
 {
   "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-  "status": "Active",
+  "status": "Running",
   "result": {
     "createdAt": "2026-05-01T14:30:00Z",
     "completedAt": null,
     "runtimeDetails": "Running on node gpu-pool-node-01",
     "debugInfo": "",
     "outputData": [],
-    "status": "Active",
+    "status": "TaskRunning",
     "toolReport": {
       "logs": "Epoch 1/50: loss=2.34\nEpoch 2/50: loss=1.89\n",
       "percentageComplete": 4.0,
@@ -228,19 +228,19 @@ curl -s \
 
 ### Operation states
 
+The top-level `status` field is the long-running operation state. It has the following values:
+
 | State | Description |
 |---|---|
-| `NotStarted` | Job is queued but not yet scheduled. |
-| `Pending` | Job is accepted and waiting for resources. |
-| `Active` | Job is running on the cluster. |
-| `Running` | Job is executing (equivalent to Active). |
+| `NotStarted` | Job is accepted but not yet running. |
+| `Running` | Job is running on the supercomputer. |
 | `Succeeded` | Job completed successfully. |
 | `Failed` | Job terminated with an error. |
 | `Canceled` | Job was canceled by the user. |
 
 ### Poll until completion
 
-Implement a polling loop that checks the operation status at regular intervals. An operation is considered complete when its status is not in `{NotStarted, Pending, Active, Running}`.
+Implement a polling loop that checks the operation status at regular intervals. An operation is complete when its top-level `status` isn't in `{NotStarted, Running}`.
 
 ```python
 import time
@@ -260,7 +260,7 @@ def poll_until_complete(
     params = {"api-version": api_version}
     headers = {"Authorization": f"Bearer {token}"}
     
-    active_states = {"NotStarted", "Pending", "Active", "Running"}
+    active_states = {"NotStarted", "Running"}
     start_time = time.time()
     
     while True:
@@ -309,7 +309,7 @@ GET {workspace_url}/tools/projects/{project_name}/operations?api-version=2026-02
 
 ```json
 {
-  "values": [
+  "value": [
     {
       "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
       "status": "Succeeded",
@@ -332,8 +332,8 @@ If the response includes a `nextLink` field, fetch the next page by sending a GE
 
 ```bash
 curl -s \
-  "https://myworkspace.eastus.discovery.azure.com/tools/projects/myproject/operations?api-version=2026-02-01-preview&status=Active&reverse=true" \
-  -H "Authorization: Bearer $TOKEN" | jq '.values[] | {id, status, createdBy, createdAt}'
+  "https://myworkspace.eastus.discovery.azure.com/tools/projects/myproject/operations?api-version=2026-02-01-preview&live=true&reverse=true" \
+  -H "Authorization: Bearer $TOKEN" | jq '.value[] | {id, status, createdBy, createdAt}'
 ```
 
 ## Cancel an operation
@@ -426,7 +426,7 @@ with ThreadPoolExecutor(max_workers=10) as executor:
 
 ## Retrieve job logs
 
-Job logs are included in the `toolReport.logs` field of the operation status response. Poll the status endpoint to stream logs incrementally:
+The operation status response includes job logs in the `toolReport.logs` field. You can configure the amount of logs retrieved by setting the `log-count` query parameter. To stream logs incrementally, poll the status endpoint:
 
 ```python
 import time
@@ -435,11 +435,11 @@ import httpx
 def stream_logs(workspace_url, project_name, operation_id, token, api_version):
     """Stream logs from a running operation."""
     url = f"{workspace_url}/tools/projects/{project_name}/operations/{operation_id}"
-    params = {"api-version": api_version}
+    params = {"api-version": api_version, "log-count": "100"}
     headers = {"Authorization": f"Bearer {token}"}
     
     seen_length = 0
-    active_states = {"NotStarted", "Pending", "Active", "Running"}
+    active_states = {"NotStarted", "Running"}
     
     while True:
         response = httpx.get(url, headers=headers, params=params)
@@ -499,7 +499,7 @@ For workloads that need high-performance ephemeral storage (Azure NetApp Files),
   "outputData": [
     {
       "mountPath": "/scratch",
-      "storageUri": "discovery://storageassets/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/workspaces/{ws}/storagecontainers/{anf-container}/storageassets/scratch/paths/{unique-id}"
+      "storageUri": "discovery://storageassets/subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Discovery/storagecontainers/{anf-container}/storageassets/scratch/paths/{unique-id}"
     }
   ]
 }
@@ -567,7 +567,7 @@ def wait_for_completion(token: str, operation_id: str) -> dict:
     url = f"{WORKSPACE_URL}/tools/projects/{PROJECT_NAME}/operations/{operation_id}"
     headers = {"Authorization": f"Bearer {token}"}
     params = {"api-version": API_VERSION}
-    active_states = {"NotStarted", "Pending", "Active", "Running"}
+    active_states = {"NotStarted", "Running"}
 
     while True:
         resp = httpx.get(url, headers=headers, params=params)

@@ -17,6 +17,8 @@ Azure Private Link over IPv6 enables you to privately access Azure PaaS services
 
 This article shows you how to configure the virtual network, private endpoint, DNS, ExpressRoute, and routing components that Private Link over IPv6 requires, and how to validate connectivity.
 
+:::image type="content" source="./media/private-link-ipv6/private-link-ipv6-diagram.png" alt-text="Diagram of an on-premises network connected through ExpressRoute and a Virtual Network Routing Appliance in a dual-stack virtual network to an IPv6 private endpoint that reaches Azure PaaS services over Private Link." lightbox="./media/private-link-ipv6/private-link-ipv6-diagram.png":::
+
 > [!IMPORTANT]
 > Azure Private Link over IPv6 is currently in preview and is available in limited regions. This preview is provided without a service-level agreement, and we don't recommend it for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
