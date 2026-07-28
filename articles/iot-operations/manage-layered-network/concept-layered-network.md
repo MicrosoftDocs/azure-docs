@@ -31,7 +31,7 @@ This setup lets you Arc-enable clusters at every layer and keep them connected w
 You can deploy Azure IoT Operations components across layers based on your architecture and data flow needs:
 
 - **Connector for OPC UA** — place at the lower layer, closer to your assets and OPC UA servers.
-- **MQTT broker** — deploy at the layers where you want to enrich, consume, or transfer data toward the cloud. You don't needto deploy a broker at every layer.
+- **MQTT broker** — deploy at the layers where you want to enrich, consume, or transfer data toward the cloud. You don't need to deploy a broker at every layer.
 - **Data Flows** — place on nodes with enough compute resources, as this component typically uses more compute. With extra configuration, Data Flows can also route traffic east-west between components at the same or upper levels.
 
 This article describes an architecture where Azure IoT Operations runs on levels 2, 3, and 4. This specific architecture is one option, not a requirement. The enterprise layer (level 4) can instead run only an Envoy proxy as an egress node, with no Azure IoT Operations components and no Azure Arc enablement. In that variant, the topmost Azure IoT Operations instance is at level 3, and its data flow sends data to the cloud through the level 4 Envoy proxy. The [tutorial](../end-to-end-tutorials/tutorial-layered-network-private-connectivity.md) uses this level 4 egress-only variant.
