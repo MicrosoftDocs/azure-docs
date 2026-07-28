@@ -12,7 +12,7 @@ ms.date: 04/01/2026
 
 > **Applies to:** Microsoft Discovery (Public Preview)
 
-This article describes how to create a **Supercomputer** and **NodePools** using the Azure portal. It follows Learn.microsoft.com conventions and is safe for public preview documentation.
+This article describes how to create a **Supercomputer** and **NodePools** using the Azure portal. It follows Microsoft Learn conventions and is safe for preview documentation.
 
 ---
 
@@ -37,6 +37,14 @@ Before you begin, make sure the following requirements are met:
   - `supercomputerNodepoolSubnet` – used by Node Pools
 - A **user-assigned managed identity (UAMI)** with the required role assignments.
 - Sufficient quota for the VM type you plan to use in the target region.
+
+If you plan to deploy node pools with GPU capabilities, register the `ManagedGPUExperiencePreview` flag by using the [az feature register](/cli/azure/feature#az-feature-register) command before creating your Supercomputer.
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli
+az feature register --namespace Microsoft.ContainerService --name ManagedGPUExperiencePreview
+```
 
 ---
 
@@ -123,7 +131,7 @@ Nodepools define the compute capacity (VMs) attached to a Supercomputer. You can
 
 1. Choose a **Virtual Machine type** for the Node Pool.
 
-   :::image type="content" source="./media/how-to-manage-supercomputers/create-supercomputer-node-pool-vm-configuration.jpg" alt-text="SCreenshot of Azure portal showing Nodepool select VM type." lightbox="./media/how-to-manage-supercomputers/create-supercomputer-node-pool-vm-configuration.jpg":::
+   :::image type="content" source="./media/how-to-manage-supercomputers/create-supercomputer-node-pool-vm-configuration.jpg" alt-text="Screenshot of Azure portal showing Nodepool select VM type." lightbox="./media/how-to-manage-supercomputers/create-supercomputer-node-pool-vm-configuration.jpg":::
 
 > [!NOTE]
 > The selected Virtual Machine type must be available and quota-approved in the selected region.

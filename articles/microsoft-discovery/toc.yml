@@ -156,6 +156,9 @@ items:
           - name: Run and manage jobs on Supercomputer using REST APIs
             href: how-to-run-jobs-supercomputer-rest-api.md
             displayName: Microsoft Discovery, services, how to, jobs, supercomputers
+          - name: Configure secure networking for Supercomputer
+            href: how-to-configure-supercomputer-network-security.md
+            displayName: Microsoft Discovery, supercomputer, secure networking, virtual network, subnets, egress
           - name: Manage Workspaces
             href: how-to-manage-workspaces.md
             displayName: Microsoft Discovery, workspace, create, update, delete, networking, supercomputers
