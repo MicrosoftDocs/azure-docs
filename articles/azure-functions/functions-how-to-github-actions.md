@@ -162,6 +162,11 @@ For Azure Container Registry (ACR), you can use the same service principal crede
 
 ## Add credentials to GitHub secrets
 
+Depending on your chosen authentication method, you might need to store credentials in GitHub that are used to access your function app during deployment.  
+
+>[!TIP]  
+>OIDC is preferred over other authentication methods because you aren't required to store credentials in GitHub. 
+
 1. In [GitHub](https://github.com/), go to your repository.
 
 1. Go to **Settings**.
@@ -172,6 +177,10 @@ For Azure Container Registry (ACR), you can use the same service principal crede
 
 1. Define the secret, which depends on your chosen credential:
 
+    ### [OIDC token](#tab/oidc-token)
+
+    Stored secrets aren't required when using OIDC authentication.
+    
     ### [Publish profile](#tab/publish-profile)
 
     + **Name**: `AZURE_FUNCTIONAPP_PUBLISH_PROFILE`
