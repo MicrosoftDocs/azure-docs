@@ -308,7 +308,7 @@ The following snippet shows the Launch mode additions to the `Microsoft.AzureFle
 In Launch mode, don't set the `spotPriorityProfile.maintain` preference - it applies only to Managed mode. Because provisioning is asynchronous, use the [List VMs API](launch-mode.md#retrieve-and-monitor-vms) to retrieve the VM resource IDs and monitor provisioning status after the deployment is submitted.
 
 > [!IMPORTANT]
-> Launch mode for Azure Compute Fleet is currently in preview. For more information, see [What is Launch mode for Azure Compute Fleet? (Preview)](launch-mode.md).
+> Launch mode for Azure Compute Fleet is currently in preview. For more information, see [Launch mode for Azure Compute Fleet (Preview)](launch-mode.md).
 
 ## Clean up resources
 
