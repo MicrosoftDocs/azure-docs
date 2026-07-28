@@ -33,7 +33,7 @@ For the latest pricing details, see the [Azure Firewall Manager pricing](https:/
 
 
 > [!NOTE]
-> For the Rules with low utilization metric, the support is currently limited for a Time period of 30 days only.
+> For the **Rules with low utilization** metric, support currently exists for a time period of 30 days only.
 
 ## Enable Policy Analytics
 
