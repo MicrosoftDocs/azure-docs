@@ -80,6 +80,8 @@ Before you run these examples, upload a blob to any container in your storage ac
 
 # [C# (InProc)](#tab/csharp-inproc-large-payload)
 
+This example requires the [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs) NuGet package.
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -139,6 +141,8 @@ public static class LargePayloadFunctions
 
 # [C# (Isolated)](#tab/csharp-isolated-large-payload)
 
+This example requires the [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs) NuGet package.
+
 ```csharp
 using System;
 using System.Threading.Tasks;
@@ -190,6 +194,8 @@ public static class LargePayloadFunctions
 
 # [JavaScript](#tab/javascript-large-payload)
 
+This example requires the [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) npm package.
+
 ```javascript
 const { randomUUID } = require("crypto");
 const { BlobServiceClient } = require("@azure/storage-blob");
@@ -236,6 +242,8 @@ df.app.activity("processLargePayloadActivity", {
 
 # [Python](#tab/python-large-payload)
 
+This example requires the [azure-storage-blob](https://pypi.org/project/azure-storage-blob/) package. Add it to *requirements.txt*.
+
 ```python
 import os
 import uuid
@@ -257,8 +265,12 @@ def process_large_payload(context: df.DurableOrchestrationContext):
 
 @app.activity_trigger(input_name="input_reference")
 def process_large_payload_activity(input_reference: dict) -> dict:
-    service = BlobServiceClient.from_connection_string(
-        os.environ["PAYLOAD_STORAGE_CONNECTION_STRING"])
+    connection_string = os.getenv("PAYLOAD_STORAGE_CONNECTION_STRING")
+    if not connection_string:
+        raise ValueError(
+            "PAYLOAD_STORAGE_CONNECTION_STRING is not set.")
+
+    service = BlobServiceClient.from_connection_string(connection_string)
 
     input_blob = service.get_blob_client(
         container=input_reference["container"],
@@ -282,6 +294,8 @@ def process_large_payload_activity(input_reference: dict) -> dict:
 ```
 
 # [PowerShell](#tab/powershell-large-payload)
+
+This example requires the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module. Add it to *requirements.psd1* and make sure managed dependencies are enabled in *host.json*.
 
 **Orchestrator `run.ps1`:**
 
@@ -346,6 +360,8 @@ Use the standard `orchestrationTrigger` and `activityTrigger` bindings described
 
 # [Java](#tab/java-large-payload)
 
+This example requires the `com.azure:azure-storage-blob` and `com.microsoft:durabletask-azure-functions` Maven packages.
+
 ```java
 import com.azure.core.util.BinaryData;
 import com.azure.storage.blob.BlobContainerClient;
@@ -377,7 +393,9 @@ public class LargePayloadFunctions {
     public BlobReference runOrchestrator(
             @DurableOrchestrationTrigger(name = "ctx")
             TaskOrchestrationContext ctx) {
-        BlobReference inputReference = ctx.getInput(BlobReference.class);
+        BlobReference inputReference = Objects.requireNonNull(
+            ctx.getInput(BlobReference.class),
+            "A blob reference is required.");
         return ctx.callActivity(
             "ProcessLargePayloadActivity",
             inputReference,
@@ -416,8 +434,6 @@ public class LargePayloadFunctions {
 ```
 
 ---
-
-The examples require the Azure Blob Storage client library for the selected language (`Azure.Storage.Blobs`, `@azure/storage-blob`, `azure-storage-blob`, `Az.Storage`, or `com.azure:azure-storage-blob`). The Java example also requires `com.microsoft:durabletask-azure-functions`.
 
 If parallel activities produce multiple large results, return a list of references and pass that list to a final aggregation activity. The aggregation activity should load and combine the payloads and then write one final output blob. Don't load or concatenate the large results in the orchestrator.
 
