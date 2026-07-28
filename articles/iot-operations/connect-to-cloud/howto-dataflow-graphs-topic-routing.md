@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/23/2026
+ms.date: 07/24/2026
 ai-usage: ai-assisted
 
 ---
@@ -23,6 +23,10 @@ Two pieces work together:
 
 1. **Inside the transform**: A map rule writes a string value to `$metadata.topic`.
 2. **In the destination**: The `dataDestination` field references `${outputTopic}`, which resolves to the value the transform wrote.
+
+[!INCLUDE [dataflow-graphs-expressions-intro](../includes/dataflow-graphs-expressions-intro.md)]
+
+This article writes to message metadata. For the metadata paths you can read and write, see [Metadata fields](concept-dataflow-graphs-expressions.md#metadata-fields).
 
 <!-- For more on metadata fields, see [Metadata fields](concept-dataflow-graphs-expressions.md#metadata-fields). -->
 
