@@ -76,7 +76,7 @@ Run `gpupdate /force` on domain controllers and on the clients that will mount A
 
 ### Step 3: Enable AES encryption on the service account
 
-When you enable AES encryption on the service account, Azure NetApp Files automatically uses the service account to update the msDS-SupportedEncryptionTypes attribute on the computer objects. Enabling AES encryption on the service account allows new computer objects to be created. If AES encryption is not enabled, the service account will fail authentication.
+When you enable AES encryption on the service account, Azure NetApp Files automatically uses the service account to update the `msDS-SupportedEncryptionTypes` attribute on the computer objects. Enabling AES encryption on the service account allows new computer objects to be created. If you don't enable AES encryption, the service account fails authentication.
 
 ### Step 4: Enable AES encryption on the Azure NetApp Files Active Directory connection
 
