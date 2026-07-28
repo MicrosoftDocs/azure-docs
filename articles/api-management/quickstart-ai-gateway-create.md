@@ -55,17 +55,26 @@ The gateway is a dedicated resource in your Azure subscription. You don't choose
 
 ## 3. Add a model
 
-The fastest way to create a model is by importing it from Microsoft Foundry accounts. You can also discover and import resources across multiple subscriptions automatically using the [first-time configuration wizard that can discover Foundry accounts and MCP Servers deployed in Azure-hosted services](ai-gateway-setup.md).
+The fastest way to create a model is by importing it from Microsoft Foundry accounts.
 
-To import a model from Foundry:
+1. Under **Home**, **Configure your gateway**, select **Get started** option or open the setup page directly at the `/settings/start` route.
 
-1. In the gateway, select **Models**, and then select **Add models**.
-1. Select **Import from Foundry**.
-1. On **Select resource**, choose your subscription and Foundry resource. The wizard lists the model deployments in that resource. Note the name of a chat model (this quickstart uses `gpt-5.6-sol`).
-1. On **Provider details**, enter a provider name and display name (short identifiers shown in the Models list and in telemetry; they don't need to match the Foundry resource name), and choose an authentication method:
-   - **Key-based** (fastest for this quickstart): the gateway stores the provider key. No role assignment is required.
-   - **Managed identity**: available when the provider supports Microsoft Entra ID authentication. Before you use it, assign the gateway identity the required backend role (for Microsoft Foundry, **Foundry User**). See [Govern, secure, and operate](./ai-gateway-govern-secure-assets.md#use-managed-identity-for-backend-authentication).
-1. Select **Create**. There's no separate validation step; the gateway sets up the connection when you create the provider.
+   :::image type="content" source="./media/ai-gateway-setup/aigw-configure-your-gateway-home.png" alt-text="Screenshot of the AI Gateway tier portal in a newly created resource."  :::
+
+1. Select one or more **subscriptions** to scan. Optionally, apply a **resource group** filter to narrow the results.
+
+1. Review the discovered accounts. Deployments are grouped by their parent Foundry account (the Azure resource). Selection is **per account**: when you select an account, the wizard imports all of its model deployments.
+
+   :::image type="content" source="./media/ai-gateway-setup/aigw-foundry-select-accounts.png" alt-text="A screenshot showing multiple Foundry accounts selected with models to import."  :::
+
+1. Choose a **backend authentication** method for this import:
+
+   - **Key-based** (default). The gateway stores the account's API key and sends it in the `api-key` header. The wizard retrieves the key at import time.
+   - **Managed identity (Microsoft Entra ID)**. The gateway authenticates with its managed identity. If the gateway has no managed identity, the wizard enables a system-assigned identity. If one already exists, you choose which identity to use. The wizard grants the identity the **Foundry User** role on each selected account.
+
+1. Select **Import**.
+
+1. When you select **Import**, the wizard runs a **Verifying requirements** check for each selected account before it creates anything. This check confirms that authentication is configured correctly and that model names don't conflict with models already on the gateway. Accounts that pass are imported; accounts that fail are skipped with an inline warning, and the rest of the run continues.
 
 To connect a non-Foundry provider (AWS Bedrock, Google Vertex, OpenAI, or Anthropic), select **Add a custom model** instead. See [Manage models and tools](./ai-gateway-manage-models-tools.md#import-models).
 
