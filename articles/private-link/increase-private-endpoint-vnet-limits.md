@@ -93,6 +93,12 @@ Resources
 
 To enable this feature, configure *Private Endpoint virtual network Policies*. We recommend enabling this property for all virtual networks you want to include in this feature and for all connected compute virtual networks in peering scenarios.
 
+> [!IMPORTANT]
+
+> When using a User Defined Route (UDR) with **Next Hop Type = Virtual Network** for Private Endpoint traffic, configuring `privateEndpointNetworkPolicies` on the Private Endpoint subnet alone isn't sufficient.
+> The virtual network must also have `privateEndpointVNetPolicies` configured as `Basic`.
+> Otherwise, the system-generated Private Endpoint route can be invalidated when Private Endpoint network policies are enabled, while the UDR doesn't become the effective route, resulting in connectivity failure to the Private Endpoint.
+
 > [!WARNING]
 > Upgrading or downgrading this feature triggers a platform update and results in a one-time connection reset. We recommend performing this action during a maintenance window.
 
