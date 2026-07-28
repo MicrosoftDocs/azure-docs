@@ -4,19 +4,20 @@ description: Get started with Azure Enclave by registering the required resource
 author: aserfass-msft
 ms.author: aserfass
 ms.topic: how-to
-ms.date: 9/30/2025
+ms.service: azure-enclave
+ms.date: 7/20/2026
 ---
 
 # Get started with Azure Enclave
 
-Use this quickstart to onboard to Azure Enclave by registering the required resource providers and granting the permissions needed to manage Azure Enclave resources in your subscription.
+Use this article to onboard to Azure Enclave by registering the required resource providers and preparing the permissions needed to manage Azure Enclave resources in your subscription.
 
 ## Prerequisites
 
   - You must already have an Azure tenant and subscription.
   - You must be an Owner of an existing Azure subscription.
 
-## Register the `Microsoft.Mission` resource provider and grant permissions
+## Register the required resource providers and configure `NetworkWatcherRG` access
 
 ### Option 1: PowerShell
 
@@ -32,7 +33,7 @@ You can run the following code to quickly register all required resource provide
 1. Set the Azure context for your subscription. For example, run `Set-AzContext -Subscription <subscription-id>`.
 1. Copy and paste this code into Cloud Shell, and then press Enter.
 
-```
+```powershell
 # Register the Azure Enclave Resource Provider and grant permissions to the Resource Provider application
 
 $resourceProviders = @(
@@ -51,7 +52,7 @@ $resourceProviders = @(
    "Microsoft.DesktopVirtualization",
    "Microsoft.Features",
    "Microsoft.GuestConfiguration",
-   "Microsoft.insights",
+   "Microsoft.Insights",
    "Microsoft.KeyVault",
    "Microsoft.Logic",
    "Microsoft.ManagedIdentity",
@@ -70,7 +71,7 @@ $resourceProviders = @(
    "Microsoft.SerialConsole",
    "Microsoft.SqlVirtualMachine",
    "Microsoft.Storage",
-   "Microsoft.support",
+   "Microsoft.Support",
    "Microsoft.Web",
    "Microsoft.Mission"
 )
@@ -99,14 +100,14 @@ az provider register --namespace Microsoft.Compute
 ### Option 2: Azure portal
 
 1. Sign in to your Azure tenant and open the subscription.
-1. Under **Settings**, open **Resource providers**.
+1. Under **Settings**, select **Resource providers**.
 1. Register the resource providers listed in [Option 1: PowerShell](#option-1-powershell) in the subscription. The PowerShell script is the fastest option and the authoritative source for the required registrations. These images show the expected end state.
 
    :::image type="content" source="./media/onboard-providers-1.png" alt-text="Screenshot showing the first set of resource providers required by Azure Enclave." border="true" lightbox="./media/onboard-providers-1.png":::
 
    :::image type="content" source="./media/onboard-providers-2.png" alt-text="Screenshot showing the second set of resource providers required by Azure Enclave." border="true" lightbox="./media/onboard-providers-2.png":::
 
-1. Search for and select `Microsoft.Mission`, and then select **Register**.
+1. Search for and select `Microsoft.Mission`, and then select `Register`.
 
    ![Screenshot showing the Microsoft.Mission resource provider registered successfully.](./media/onboard-mission-registered.png)
 
@@ -114,26 +115,24 @@ az provider register --namespace Microsoft.Compute
 
 For reference, you can also review the generic instructions for enabling a [preview feature](/azure/azure-resource-manager/management/preview-features).
 
-### Configure Network Watcher resource group
+### Configure `NetworkWatcherRG` access
 
-To avoid potential issues with [virtual network flow log](/azure/network-watcher/vnet-flow-logs-overview) creation, set up the `NetworkWatcherRG` resource group manually in advance and assign the `Mission Enclave` app the `Owner` role on that resource group, or verify that setup and role assignment happened automatically before creating your first enclave in the subscription.
-
-To mitigate this potential issue, for each subscription, manually create the NetworkWatcher resource group called `NetworkWatcherRG` in new subscriptions, and then grant the `Mission Enclave` Azure Enclave App `Owner` on the NetworkWatcherRG:
+To avoid potential problems with [virtual network flow log](/azure/network-watcher/vnet-flow-logs-overview) creation, make sure the `NetworkWatcherRG` resource group exists in each subscription and that the `Mission Enclave` app has the `Owner` role on that group before you create your first enclave. If the subscription automatically creates the group and role, verify that they already exist.
 1. Select the `NetworkWatcherRG` resource group, select `Access control (IAM)`, then select `Add` and `Add role assignment`.
 
-   :::image type="content" source="./media/onboard-network-watcher-add-role.png" alt-text="Screenshot showing resource group add role selection in the portal." border="True" lightbox="./media/onboard-network-watcher-add-role.png":::
+   :::image type="content" source="./media/onboard-network-watcher-add-role.png" alt-text="Screenshot showing role assignment selection in the NetworkWatcherRG resource group." border="true" lightbox="./media/onboard-network-watcher-add-role.png":::
 
-1. Select `Privileged administrator roles`, select `owner`, then select `Next`.
+1. Select `Privileged administrator roles`, select `Owner`, and then select `Next`.
 
-   :::image type="content" source="./media/onboard-add-role-select-owner.png" alt-text="Screenshot showing the add owner role selection view in the portal." border="True" lightbox="./media/onboard-add-role-select-owner.png":::
+   :::image type="content" source="./media/onboard-add-role-select-owner.png" alt-text="Screenshot showing Owner role selection in the role assignment wizard." border="true" lightbox="./media/onboard-add-role-select-owner.png":::
 
-1. Select `Select members`, type `Mission Enclave` in the search and select the `Mission Enclave` app, select `Select`, then `Next`.
+1. Select `Select members`, type `Mission Enclave` in the search box, select the `Mission Enclave` app, and then select `Select` and `Next`.
 
-   :::image type="content" source="./media/onboard-select-mission-enclave-app.png" alt-text="Screenshot showing how to select the Mission Enclave app in the portal." border="True" lightbox="./media/onboard-select-mission-enclave-app.png":::
+   :::image type="content" source="./media/onboard-select-mission-enclave-app.png" alt-text="Screenshot showing Mission Enclave app selection in the members picker." border="true" lightbox="./media/onboard-select-mission-enclave-app.png":::
 
 1. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, then select `Review + assign`.
 
-   :::image type="content" source="./media/onboard-add-condition.png" alt-text="Screenshot showing the add condition view if your subscription requires it." border="True" lightbox="./media/onboard-add-condition.png":::
+   :::image type="content" source="./media/onboard-add-condition.png" alt-text="Screenshot showing role assignment selection condition when required by the subscription." border="true" lightbox="./media/onboard-add-condition.png":::
 
 1. Once the update is complete, you can start deploying Azure Enclave resources.
 
@@ -148,7 +147,7 @@ Existing preview customers must re-register the Azure Enclave resource provider 
 
 Complete these steps to use the latest Azure Enclave API:
 1. In the Azure portal, navigate to your subscription.
-1. Under **Settings**, open **Resource providers**.
+1. Under **Settings**, select **Resource providers**.
 1. Search for and select `Microsoft.Mission`, and then select **Re-register**.
 1. Repeat these steps for any additional subscriptions.
 
@@ -170,5 +169,5 @@ After registering the Azure Enclave resource provider, you can start deploying A
     - [Create a community endpoint](./create-community-endpoint-portal.md)
 
   - Create resources within your workloads to meet your objectives:
-     - Create resources from the [service catalog](./list-service-catalog-templates.md)
-     - Create resources with a [template](/azure/azure-resource-manager/templates/deploy-to-resource-group) or [bicep template](/azure/azure-resource-manager/bicep/deploy-to-resource-group) from [these examples](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)
+    - Create resources from the [service catalog](./list-service-catalog-templates.md)
+    - Create resources with a [template](/azure/azure-resource-manager/templates/deploy-to-resource-group) or [bicep template](/azure/azure-resource-manager/bicep/deploy-to-resource-group) from [these examples](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts)
