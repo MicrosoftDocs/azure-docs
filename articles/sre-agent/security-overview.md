@@ -23,7 +23,7 @@ The agent's reasoning engine and tool execution run in separate compute boundari
 
 ### Sandbox architecture
 
-Each agent has its own sandbox. This means that each gets a dedicated compute environment running in a micro VM that's separate from the reasoning loop.
+Each agent has its own sandbox. This architecture provides each agent with a dedicated compute environment that runs in a micro VM and stays separate from the reasoning loop.
 
 | Component | Runs in | Role |
 |---|---|---|
