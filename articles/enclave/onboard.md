@@ -82,7 +82,7 @@ $resourceProviders | foreach {Register-AzResourceProvider -ProviderNamespace $_ 
 
 1. (Optional) Enable the `EncryptionAtHost` feature
 
-The `EncryptionAtHost` feature enables encryption at the compute host level.
+The [EncryptionAtHost](/azure/virtual-machines/linux/disks-enable-host-based-encryption-cli) feature enables encryption at the compute host level.
 
 ```azurecli
 # Register the feature
