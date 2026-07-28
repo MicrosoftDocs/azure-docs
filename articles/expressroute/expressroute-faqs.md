@@ -213,7 +213,7 @@ You can achieve high availability by connecting up to 4 ExpressRoute circuits in
 
 ExpressRoute Circuits are available in 3 different resiliency tiers: standard, high, and max. The best option will depend on your specific requirements and use case, but Microsoft recommends high resiliency at minimum for all production workloads. In some locations, the creation of standard resiliency has been disabled for service providers that support high resiliency. This policy is in place to ensure that customers use the optimal service architecture – as ExpressRoute Metro (high resiliency) offers improved availability at the same cost as a standard resiliency ExpressRoute Circuit. 
 
-See [here](./designing-for-high-availability-with-expressroute.md) for designing for high availability.
+For more information, see [designing for high availability with ExpressRoute](./designing-for-high-availability-with-expressroute.md).
 
 ### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering is preferred on the ExpressRoute path?
 
