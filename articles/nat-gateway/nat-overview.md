@@ -7,7 +7,7 @@ description: Overview of Azure NAT Gateway features, resources, architecture, an
 author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: overview
-ms.date: 05/15/2026
+ms.date: 07/27/2026
 ms.author: alittleton
 ms.customs: references_regions
 
@@ -58,10 +58,8 @@ To learn more about how to deploy a StandardV2 NAT gateway, see [Create a Standa
 * The following regions don't support StandardV2 NAT gateways:
 
   * Canada East
-  * Chile Central
   * Indonesia Central
   * Israel Northwest
-  * Malaysia West
   * Qatar Central
   * Sweden South
   * West India

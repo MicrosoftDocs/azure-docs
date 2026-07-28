@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure ExpressRoute
 description: Start here to learn how to monitor Azure ExpressRoute by using Azure Monitor. This article includes links to other resources.
-ms.date: 03/12/2026
+ms.date: 07/27/2026
 ms.custom: horz-monitor, subject-monitoring, FY 23 content-maintenance
 ms.topic: concept-article
 author: duongau
@@ -169,6 +169,8 @@ These queries work with the [new language](/azure/azure-monitor/logs/log-query-o
   | render timechart
   ```
 
+  The `ArpAvailability` metric measures ARP (Layer-2) resolution from the MSEE towards all peers, reported as a percentage. Every circuit is measured across two peers, the Primary and Secondary ExpressRoute routers, and the metric uses average as its default aggregation across both. A value of **100%** means ARP resolves on both peers, and a value of **50%** means ARP failed on one of them. Split by the **Peer** dimension to identify which router is affected. For the dimensions and aggregation this metric supports, see [ARP Availability](monitor-expressroute-reference.md#arp).
+
 - Query for graph of BGP availability in 5-minute intervals.
 
   ```kusto
@@ -177,6 +179,10 @@ These queries work with the [new language](/azure/azure-monitor/logs/log-query-o
   | summarize by Average, bin(TimeGenerated, 5m), Resource
   | render timechart
   ```
+
+  The `BgpAvailability` metric measures BGP (Layer-3) session state from the MSEE towards all peers. A value of **100%** means all BGP sessions are established and peers are exchanging routes. A value of **0%** means the session is down, for example because the peer didn't receive keepalive messages within the hold-time interval. The default hold time is 180 seconds and the default keepalive interval is 60 seconds. Split by the **Peer** dimension to isolate which router is affected.
+
+  To separate a Layer-2 problem from a Layer-3 one, compare `BgpAvailability` against `ArpAvailability` over the same period. BGP runs over the Layer-2 adjacency that ARP resolves, so a drop in `ArpAvailability` brings BGP down with it. If BGP drops while `ArpAvailability` stays at 100%, the cause is above Layer 2: either a BGP-specific problem such as a configuration mismatch or hold-timer expiry, or platform maintenance as described in the following note. For faster failure detection, consider enabling [Bidirectional Forwarding Detection (BFD)](expressroute-bfd.md), which reduces detection time from up to three minutes to less than one second.
 
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
