@@ -189,7 +189,7 @@ In the previous file, some of the key settings are:
 - `name` and `description`: The name and description of the connector displayed in the Azure portal.
 - `imageConfigurationSettings`: The name and tag of the connector code container image you published to the container registry.
 - `endpointType`: The type of inbound endpoint supported by the connector. In this example, the connector supports the `Contoso.Http` endpoint type.
-- `datasetConfigurationSchema` and `dataPointConfigurationSchema`: The JSON schema definitions for the dataset and data point configuration options exposed in the operations experience UI. The connector code reads these configuration options - `SamplingInterval` and `HttpRequestMethod` - to control its behavior.
+- `datasetConfigurationSchema` and `dataPointConfigurationSchema`: The JSON schema definitions for the dataset and data point configuration options exposed in the operations experience UI. Currently, the example connector code doesn't read these configuration options - `SamplingInterval` and `HttpRequestMethod` - to control its behavior. Instead, the connector code uses hard-coded values for these settings. However, you can modify the connector code to read these configuration options and use them to control its behavior. If a user sets these values in the UI, currently they're ignored.
 
 > [!TIP]
 > Review the schema for connector metadata files at [Connector metadata schema](https://raw.githubusercontent.com/SchemaStore/schemastore/refs/heads/master/src/schemas/json/aio-connector-metadata-9.0-preview.json) to learn more about the available settings.
@@ -322,7 +322,7 @@ To create a device and asset in the operations experience web UI that use your c
     - For **Retain**, select `Never`.
     - For **Quality of Service**, select `Qos1`.
     - Leave **TTL** blank.
-    - For **SamplingInterval**, enter `4000`. You defined this setting the connector metadata file for the connector code to read.
+    - For **SamplingInterval**, enter `4000`. You defined this setting the connector metadata file. Currently, the sample connector code doesn't read this setting and uses a hard-coded value instead.
 
     Select **Create and next** to create the dataset and move to the next page:
 
@@ -333,12 +333,12 @@ To create a device and asset in the operations experience web UI that use your c
     For the first data point:
       - For **Data source**,  enter `/api/thermostat/current`.
       - For **Data point name**, enter `currentTemperature`.
-      - For **HttpRequestMethod**, select `GET`. You defined this setting the connector metadata file for the connector code to read.
+      - For **HttpRequestMethod**, select `GET`. Currently, the sample connector code doesn't read this setting and defaults to a `GET` request.
 
     For the second data point:
       - For **Data source**,  enter `/api/thermostat/desired`.
       - For **Data point name**, enter `desiredTemperature`.
-      - For **HttpRequestMethod**, select `GET`. You defined this setting the connector metadata file for the connector code to read.
+      - For **HttpRequestMethod**, select `GET`. You defined this setting the connector metadata file. Currently, the sample connector code doesn't read this setting and defaults to a `GET` request.
 
     :::image type="content" source="media/howto-develop-akri-connectors/create-data-point.png" alt-text="Screenshot that shows how to create a data point in the operations experience. The page includes the custom property defined in the connector metadata file." lightbox="media/howto-develop-akri-connectors/create-data-point.png":::
 
