@@ -25,13 +25,32 @@ Understanding the terminology related to performance and capacity in Azure NetAp
 - **Throughput**: The amount of data transmitted across the wire (read/write/other) between Azure NetApp Files and the client. Throughput in Azure NetApp Files is measured in bytes per second. 
 - **Latency**: Latency is the amount of time for a storage operation to complete within storage from the time it arrives to the time it's processed and is ready to be sent back to the client. Azure NetApp Files measures latency in milliseconds (ms).
 
-## Metric aggregation interval
+## Metric collection interval
 
-Unless otherwise specified, Azure NetApp Files metrics represent values aggregated over a five-minute collection interval. As a result, reported metric values reflect the average activity during that interval rather than instantaneous values.
+Unless otherwise specified, Azure NetApp Files metrics represent values over a five-minute average. As a result, reported metric values reflect the average activity during that interval rather than instantaneous values. Short-duration spikes or transient workload behavior may not be fully visible in the reported metrics.
 
-Because metrics aggregate over five minutes, short-duration spikes or transient workload behavior might not be fully reflected in the displayed metric values.
+Metrics with collection interval explicitly describe their collection or reporting methodology in the metric definition.
 
-Metrics with different aggregation behavior explicitly describe their collection or reporting methodology in the metric definition.
+For example: Suppose throughput is sampled repeatedly during a 5-minute interval. During those 5 minutes:
+
+   Minute 1: 100 MiB/s 
+   
+   Minute 2: 120 MiB/s
+   
+   Minute 3: 500 MiB/s (brief spike)
+   
+   Minute 4: 110 MiB/s
+   
+   Minute 5: 120 MiB/s
+
+The metric shown for that interval might be approximately: 
+(100 + 120 + 500 + 110 + 120) / 5 = 190 MiB/s
+
+Instead of showing the instantaneous peak of 500 MiB/s, Azure Monitor would display the aggregated value of about 190 MiB/s for that 5-minute collection interval.
+
+### Why this matters
+
+If you're troubleshooting Azure NetApp Files performance, a very short spike (e.g., a 30-second burst to maximum throughput) may be diluted by the other 4½ minutes of lower activity. The graph may look relatively smooth even though the workload experienced brief periods of saturation. You should interpret the metric as "average behavior during the 5-minute interval", and not "what happened at a specific second". 
 
 ## About storage performance operation metrics 
 
