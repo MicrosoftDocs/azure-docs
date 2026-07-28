@@ -4,7 +4,7 @@ description: Learn how to configure a site-to-site VPN for use with Azure Files 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 04/22/2026
+ms.date: 07/28/2026
 ms.author: kendownie
 ms.custom: sfi-image-nochange
 # Customer intent: As a network administrator, I want to configure a site-to-site VPN for Azure Files, so that I can securely mount and access Azure file shares from my on-premises network without sending data over the open internet.
@@ -20,7 +20,7 @@ You can use a site-to-site VPN connection to mount your Azure file shares from y
 
 ![A chart illustrating the topology of an Azure VPN gateway connecting an Azure file share to an on-premises site using a site-to-site VPN](media/storage-files-configure-s2s-vpn/site-to-site-topology.png)
 
-We strongly recommend that you read [Azure Files networking overview](storage-files-networking-overview.md) before continuing with this article for a complete discussion of the networking options available for Azure Files.
+Before continuing, read [Azure Files networking overview](storage-files-networking-overview.md) for a complete discussion of the networking options available for Azure Files.
 
 The article details the steps to configure a site-to-site VPN to mount Azure file shares directly on-premises. If you're looking to route sync traffic for Azure File Sync over a site-to-site VPN, see [configuring Azure File Sync proxy and firewall settings](../file-sync/file-sync-firewall-and-proxy.md).
 
@@ -40,7 +40,7 @@ To configure a new or existing virtual network and restrict storage account acce
 
 # [Portal](#tab/azure-portal)
 
-1. Sign in to the Azure portal and navigate to the storage account containing the Azure file share you would like to mount on-premises.
+1. Sign in to the Azure portal and go to the storage account containing the Azure file share you would like to mount on-premises.
 
 1. In the service menu, under **Security + networking**, select **Networking**. Unless you added a virtual network to your storage account when you created it, the resulting pane should have the radio button for **Enabled from all networks** selected under **Public network access**.
 
@@ -209,7 +209,7 @@ Without a private endpoint, `storageaccount.file.core.windows.net` resolves to t
 
 # [Portal](#tab/azure-portal)
 
-1. Navigate to the storage account in the Azure portal. In the service menu, under **Security + networking**, select **Networking**, and then select the **Private endpoint connections** tab.
+1. Go to the storage account in the Azure portal. In the service menu, under **Security + networking**, select **Networking**, and then select the **Private endpoint connections** tab.
 
 1. Select **+ Private endpoint**.
 
@@ -344,7 +344,7 @@ To deploy a virtual network gateway, follow these steps.
    - **Region**: Select the region in which you want to create this resource. The region for the virtual network gateway must be the same as the virtual network.
    - **Gateway type**: Select **VPN**. VPN gateways use the virtual network gateway type **VPN**.
    - **SKU**: Select the gateway SKU that supports the features you want to use from the dropdown. The SKU controls the number of allowed Site-to-Site tunnels and desired performance of the VPN. See [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Don't use the Basic SKU if you want to use IKEv2 authentication (route-based VPN).
-   - **Generation**: Select the generation you want to use. We recommend using a Generation2 SKU. For more information, see [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
+   - **Generation**: Select the generation you want to use. Generation2 SKUs are recommended. For more information, see [Gateway SKUs](../../vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
    - **Virtual network**: From the dropdown, select the virtual network you configured in the previous step.
    - **Subnet**: This field should be grayed out and list the name of the gateway subnet you created, along with its IP address range. If you instead see a **Gateway subnet address range** field with a text box, then you haven't yet configured a gateway subnet on the virtual network.
 
@@ -359,7 +359,7 @@ To deploy a virtual network gateway, follow these steps.
    - **Enable active-active mode**: Select **Disabled**. Only enable this setting if you're creating an active-active gateway configuration. To learn more about active-active mode, see [Highly available cross-premises and VNet-to-VNet connectivity](../../vpn-gateway/vpn-gateway-highlyavailable.md).
    - **Configure BGP**: Select **Disabled**, unless your configuration specifically requires Border Gateway Protocol. If you do require this setting, the default ASN is 65515, although this value can be changed. To learn more about this setting, see [About BGP with Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
 
-1. Select **Review + create** to run validation. Once validation passes, select **Create** to deploy the virtual network gateway. Deployment can take up to 45 minutes to complete.
+1. Select **Review + create** to run validation. After validation passes, select **Create** to deploy the virtual network gateway. Deployment can take up to 45 minutes to complete.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -379,7 +379,7 @@ To deploy a virtual network gateway, follow these steps.
 
 1. Run the following script to create the VPN gateway.
 
-   Replace `<resource-group>` with the same resource group as your virtual network. Specify the [gateway SKU](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) that supports the features you want to use. The gateway SKU controls the number of allowed Site-to-Site tunnels and desired performance of the VPN. We recommend using a Generation 2 SKU. Don't use the Basic SKU if you want to use IKEv2 authentication (route-based VPN).
+   Replace `<resource-group>` with the same resource group as your virtual network. Specify the [gateway SKU](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) that supports the features you want to use. The gateway SKU controls the number of allowed Site-to-Site tunnels and desired performance of the VPN. Generation 2 SKUs are recommended. Don't use the Basic SKU if you want to use IKEv2 authentication (route-based VPN).
 
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name MyVnetGateway -ResourceGroupName <resource-group> -Location "East US" -IpConfigurations $gwipconfig -GatewayType "Vpn" -VpnType RouteBased -GatewaySku VpnGw2 -VpnGatewayGeneration Generation2
@@ -403,7 +403,7 @@ To deploy a virtual network gateway, follow these steps.
 
 1. Run the following script to create the VPN gateway. Creating a gateway can take 45 minutes or more, depending on the gateway SKU you specify.
 
-   Replace `<resource-group>` with the same resource group as your virtual network. Specify the [gateway SKU](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) that supports the features you want to use. The gateway SKU controls the number of allowed Site-to-Site tunnels and desired performance of the VPN. We recommend using a Generation 2 SKU. Don't use the Basic SKU if you want to use IKEv2 authentication (route-based VPN).
+   Replace `<resource-group>` with the same resource group as your virtual network. Specify the [gateway SKU](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) that supports the features you want to use. The gateway SKU controls the number of allowed Site-to-Site tunnels and desired performance of the VPN. Generation 2 SKUs are recommended. Don't use the Basic SKU if you want to use IKEv2 authentication (route-based VPN).
 
    ```azurecli-interactive
    az network vnet-gateway create -n MyVnetGateway -l eastus --public-ip-address mypublicip -g <resource-group> --vnet <virtual-network-name> --gateway-type Vpn --sku VpnGw2 --vpn-gateway-generation Generation2 --no-wait
@@ -441,7 +441,7 @@ A local network gateway is an Azure resource that represents your on-premises ne
 
 1. If your organization requires BGP, select the **Advanced** tab to configure BGP settings. To learn more, see [About BGP with Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
 
-1. Select **Review + create** to run validation. Once validation passes, select **Create** to create the local network gateway.
+1. Select **Review + create** to run validation. After validation passes, select **Create** to create the local network gateway.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -471,7 +471,7 @@ The specific steps to configure your on-premises network appliance depend on the
 
 When configuring your network appliance, you'll need the following items:
 
-* **A shared key.** This is the same shared key that you specify when creating your site-to-site VPN connection. In our examples, we use a basic shared key such as 'abc123'. We recommend that you generate a more complex key to use that complies with your organization's security requirements.
+* **A shared key.** This is the same shared key that you specify when creating your site-to-site VPN connection. In these examples, a basic shared key such as 'abc123' is used. Generate a more complex key that complies with your organization's security requirements.
 * **The public IP address of your virtual network gateway.** To find the public IP address of your virtual network gateway using PowerShell, run the following command. In this example, `mypublicip` is the name of the public IP address resource that you created in an earlier step.
 
   ```azurepowershell-interactive
@@ -486,7 +486,7 @@ To complete the deployment of a site-to-site VPN, you must create a connection b
 
 # [Portal](#tab/azure-portal)
 
-1. Navigate to the virtual network gateway you created. In the table of contents for the virtual network gateway, select **Settings > Connections**, and then select **+ Add**.
+1. Go to the virtual network gateway you created. In the table of contents for the virtual network gateway, select **Settings > Connections**, and then select **+ Add**.
 
 1. On the **Basics** tab, fill in the values for **Project details** and **Instance details**.
 
@@ -511,7 +511,7 @@ To complete the deployment of a site-to-site VPN, you must create a connection b
    - **Enable Custom BGP Addresses**: Leave unchecked unless your organization specifically requires this setting.
    - **FastPath**: FastPath is designed to improve the datapath performance between your on-premises network and your virtual network. [Learn more](https://aka.ms/erfastpath).
    - **IPsec / IKE policy**: The IPsec / IKE policy that will be negotiated for the connection. Leave **Default** selected unless your organization requires a custom policy. [Learn more](../../vpn-gateway/vpn-gateway-about-compliance-crypto.md).
-   - **Use policy based traffic selector**: Leave disabled unless you need to configure the Azure VPN gateway to connect to a policy-based VPN firewall on premises. If you enable this field, you must ensure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to/from the Azure virtual network prefixes, instead of any-to-any. For example, if your on-premises network prefixes are 10.1.0.0/16 and 10.2.0.0/16, and your virtual network prefixes are 192.168.0.0/16 and 172.16.0.0/16, you would need to specify the following traffic selectors:
+   - **Use policy based traffic selector**: Leave disabled unless you need to configure the Azure VPN gateway to connect to a policy-based VPN firewall on premises. If you enable this field, you must make sure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to/from the Azure virtual network prefixes, instead of any-to-any. For example, if your on-premises network prefixes are 10.1.0.0/16 and 10.2.0.0/16, and your virtual network prefixes are 192.168.0.0/16 and 172.16.0.0/16, you would need to specify the following traffic selectors:
      - 10.1.0.0/16 <====> 192.168.0.0/16
      - 10.1.0.0/16 <====> 172.16.0.0/16
      - 10.2.0.0/16 <====> 192.168.0.0/16
@@ -522,7 +522,7 @@ To complete the deployment of a site-to-site VPN, you must create a connection b
      - **ResponderOnly**: Azure VPN gateway will never initiate the connection. The on-premises VPN gateway must initiate the connection.
      - **InitiatorOnly**: Azure VPN gateway will initiate the connection and reject any connection attempts from the on-premises VPN gateway.
 
-1. Select **Review + create** to run validation. Once validation passes, select **Create** to create the connection. You can verify the connection has been made successfully through the virtual network gateway's **Connections** page.
+1. Select **Review + create** to run validation. After validation passes, select **Create** to create the connection. You can verify the connection has been made successfully through the virtual network gateway's **Connections** page.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -545,7 +545,7 @@ For more options, see the documentation for the [New-AzVirtualNetworkGatewayConn
    -ConnectionType IPsec -SharedKey 'abc123'
    ```
 
-1. After a short while, the connection will be established. You can verify your VPN connection by running the following command. If prompted, select 'A' in order to run 'All'.
+1. After a short while, the connection will be established. You can verify your VPN connection by running the following command. If prompted, select 'A' to run 'All'.
 
    ```azurepowershell-interactive
    Get-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName <resource-group>
@@ -558,13 +558,13 @@ For more options, see the documentation for the [New-AzVirtualNetworkGatewayConn
 
 Run the following commands to create the site-to-site VPN connection between your virtual network gateway and your on-premises device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration.
 
-For more options, see the documentation for the [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) command.
+For more options, see the documentation for the [az network vpn-connection create](/cli/azure/network/vpn-connection#az-network-vpn-connection-create) command.
 
 ```azurecli-interactive
-az network vpn-connection create --name VNet1toSite1 --resource-group <resource-group> --vnet-gateway1 MyVnetGateway -l eastus --shared-key abc123 --local-gateway MyLocalGateway
+az network vpn-connection create --name VNet1toSite1 --resource-group <resource-group> --vnet-gateway1 MyVnetGateway -l eastus --shared-key abc123 --local-gateway2 MyLocalGateway
 ```
 
-After a short while, the connection will be established. You can verify your VPN connection by running the following command. When the connection is in the process of being established, its connection status shows 'Connecting'. Once the connection is established, the status changes to 'Connected'.
+After a short while, the connection will be established. You can verify your VPN connection by running the following command. When the connection is in the process of being established, its connection status shows 'Connecting'. After the connection is established, the status changes to 'Connected'.
 
 ```azurecli-interactive
 az network vpn-connection show --name VNet1toSite1 --resource-group <resource-group>
@@ -604,11 +604,11 @@ nslookup storageaccount.file.core.windows.net
 
 If the result returns a public IP address instead of a private IP (for example, `10.0.x.x`), your DNS forwarding isn't configured correctly and the mount traffic won't traverse the VPN tunnel.
 
-## Mount Azure file share
+## Mount the Azure file share over VPN
 
 Before mounting, confirm that DNS resolution returns the private endpoint's private IP address (see previous section). If DNS resolution returns a public IP, the mount traffic will bypass the VPN tunnel.
 
-Once DNS resolution is confirmed, mount your Azure file share on-premises. See the instructions to mount by OS:
+After DNS resolution is confirmed, mount your Azure file share on-premises. See the instructions to mount by OS:
 
 - [Windows](storage-how-to-use-files-windows.md)
 - [macOS](storage-how-to-use-files-mac.md)
