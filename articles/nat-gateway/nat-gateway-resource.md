@@ -80,7 +80,7 @@ To enable NAT64, go to your StandardV2 NAT Gateway resource in the Azure portal,
 > [!NOTE]
 > NAT64 requires a third-party DNS64 solution to synthesize AAAA records for IPv4-only destinations.
 
-DNS64 synthesizes AAAA (IPv6) records for domains that only have A (IPv4) records. Without DNS64, IPv6 clients cannot resolve IPv4-only destinations to the NAT64 well-known prefix.
+DNS64 synthesizes AAAA (IPv6) records for domains that only have A (IPv4) records. Without DNS64, IPv6 clients can't resolve IPv4-only destinations to the NAT64 well-known prefix.
 
 ### How NAT64 works
 
