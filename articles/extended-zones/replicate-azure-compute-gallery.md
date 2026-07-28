@@ -6,28 +6,28 @@ ms.author: svaldes
 ms.reviewer: halkazwini
 ms.service: azure-extended-zones
 ms.topic: tutorial
-ms.date: 08/26/2025
+ms.date: 07/28/2026
 ---
 
-# Tutorial: Replicate 3rd Party (3P) Images into an Azure Extended Zone with Azure Compute Gallery
+# Tutorial: Replicate third-party (3P) images into an Azure Extended Zone with Azure Compute Gallery
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Create a user-assigned managed identity.
 > - Assign a Contributor role to the managed identity.
 > - Assign the managed identity to an Azure Compute Gallery.
-> - Replicate 3rd Party (3P) Images into an Azure Extended Zone with Azure Compute Gallery.
+> - Replicate third-party images into an Azure Extended Zone with Azure Compute Gallery.
 
-Azure Compute Gallery (previously Shared Image Gallery) is available in Extended Zones for 3rd parties, following a separate workflow.  
+Azure Compute Gallery (previously Shared Image Gallery) is available in Extended Zones for third parties, following a separate workflow.  
 
 > [!NOTE]
-> Platform Image Repositories are currently being replicated in Extended Zones to be on par with the region. Should you not be able to find your required image within a given Extended Zone, contact aezsupport@microsoft.com. The product’s engineering team is happy to help replicating it ahead of the broader replication. 
+> Platform image repositories are currently being replicated in Extended Zones to be on par with the region. If you can't find your required image within a given Extended Zone, contact aezsupport@microsoft.com. The product's engineering team is happy to help replicating it ahead of the broader replication. 
 
 ## Prerequisites
 - An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - If you're unfamiliar with managed identities for Azure resources, check out the [overview section](/entra/identity/managed-identities-azure-resources/overview). Be sure to review the [difference between a system-assigned and user-assigned managed identity](/entra/identity/managed-identities-azure-resources/overview#managed-identity-types).
 - Both gallery and gallery image definition need to be created in the same region for these instructions to work; they can't be in different regions.
-- A user assigned managed identity is required to be set to the gallery, so that features available on that subscription can be queried. One of the features is set by EdgeZone Resource Provider, when the subscription is given access to use the Extended Zone. Azure Compute Gallery will query Azure Resource Manager with the assigned managed identity to get the list of features.
+- You need to set a user-assigned managed identity to the gallery, so you can query features available on that subscription. One of the features is set by EdgeZone Resource Provider, when the subscription is given access to use the Extended Zone. Azure Compute Gallery queries Azure Resource Manager by using the assigned managed identity to get the list of features.
  
 ## Create a user-assigned managed identity
 To create a user-assigned managed identity, your account needs the [Managed Identity Reader](/azure/role-based-access-control/built-in-roles#general) role assignment.
@@ -39,11 +39,11 @@ To create a user-assigned managed identity, your account needs the [Managed Iden
 1. Select **Add**, and enter values in the following boxes in the **Create User Assigned Managed Identity** pane:
     - **Subscription**: Choose the subscription to create the user-assigned managed identity under.
     - **Resource group**: Choose a resource group to create the user-assigned managed identity in, or select **Create new** to create a new resource group.
-    - **Region**: Choose a region to deploy the user-assigned managed identity, for example, **West US**. **Remember that both gallery and gallery image definition need to be created in the same region.**
-    - **Name**: Enter the name for your user-assigned managed identity, for example, UAI1.
+    - **Region**: Choose a region to deploy the user-assigned managed identity, such as **West US**. **Remember that both gallery and gallery image definition need to be created in the same region.**
+    - **Name**: Enter the name for your user-assigned managed identity, such as UAI1.
 
     > [!NOTE]
-    > When you create user-assigned managed identities, the name must start with a letter or number, and may include a combination of alphanumeric characters, hyphens (-) and underscores (_). For the assignment to a virtual machine or virtual machine scale set to work properly, the name is limited to 24 characters.
+    > When you create user-assigned managed identities, the name must start with a letter or number, and can include a combination of alphanumeric characters, hyphens (-), and underscores (_). For the assignment to a virtual machine or virtual machine scale set to work properly, the name is limited to 24 characters.
 
 1. Select **Review + create** to review the changes.
 1. Select **Create**.
@@ -69,14 +69,14 @@ if ($null -eq $existingIdentity) { Write-Output "Managed Identity '$identityName
 ---
 
 ## Assign a Reader role to the managed identity
-Once the identity is created, you should be able to find it in the resources section of the subscription. You'll need to give the Managed Identity **Reader** (or higher) role to the subscription to read the features registered for that subscription.
+After you create the identity, you can find it in the resources section of the subscription. You need to give the Managed Identity the **Reader** role (or higher) to the subscription so it can read the features registered for that subscription.
 
 # [**Portal**](#tab/portal)
 
-1. Select on the recently created identity and select on **JSON View** to get the resource ID. Copy and save it for a later step.
-1. Select on **Access Control**, on the left side menu, and select **Add**.
+1. Select the recently created identity and select **JSON View** to get the resource ID. Copy and save it for a later step.
+1. Select **Access Control** in the left side menu, and select **Add**.
 1. Within **Job function roles**, select **Reader** from the list. 
-1. Select the user-assigned managed identity recently created.
+1. Select the user-assigned managed identity you created.
 1. In the **Members** tab, select **Managed identity**.
 1. Verify it's added by selecting **Azure role assignments** and confirming in the listed managed identities.
 
@@ -97,9 +97,9 @@ New-AzRoleAssignment `
 ```
 ---
 ## Assign the managed identity to an Azure Compute Gallery
-Assigning the managed identity to the gallery is currently only possible through a REST API PATCH call. You can use tools like Postman, Fiddler, or PowerShell. 
+You can currently assign the managed identity to the gallery only through a REST API PATCH call. You can use tools like Postman, Fiddler, or PowerShell. 
 
-PATCH: The region should be the region where gallery is located. Use the same region in the following steps.
+PATCH: The region should be the region where the gallery is located. Use the same region in the following steps.
 
 ```
 Url:
@@ -124,10 +124,10 @@ $requestBodyJson = $requestBody | convertto-json -Depth 8 $uri = "https://$locat
 ## Code/script version
 
 ## Replicate 3rd Party (3P) Images into an Azure Extended Zone with Azure Compute Gallery
-Having fulfilled the previous steps, you can use the following CLI or PowerShell scripts to replicate your images. 
+After you complete the previous steps, use the following CLI or PowerShell scripts to replicate your images. 
 
 > [!NOTE]
-> Allowed Storage Account types are Standard_LRS, Standard_ZRS, and Premium_LRS.
+> Allowed storage account types are Standard_LRS, Standard_ZRS, and Premium_LRS.
 
 
 ```azurecli
