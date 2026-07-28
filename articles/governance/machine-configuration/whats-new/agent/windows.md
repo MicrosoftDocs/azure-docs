@@ -143,7 +143,7 @@ for each section includes the specific version for that release and the date for
 ### New features 
 
 - Today our extension uses a maximum of 5% CPU. For cases where this needs to be configured, a
-  configuration file `cpu_config.json` can be written under the path, `/var/opt/azcmagent/`. This
+  configuration file `cpu_config.json` can be written under the path, `C:\ProgramData\AzureConnectedMachineAgent\Config`. This
   file should contain the following configuration:
 
 ```json
