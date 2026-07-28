@@ -120,19 +120,19 @@ For reference, you can also review the generic instructions for enabling a [prev
 To avoid potential problems with [virtual network flow log](/azure/network-watcher/vnet-flow-logs-overview) creation, make sure the `NetworkWatcherRG` resource group exists in each subscription and that the `Mission Enclave` app has the `Owner` role on that group before you create your first enclave. If the subscription automatically creates the group and role, verify that they already exist.
 1. Select the `NetworkWatcherRG` resource group, select `Access control (IAM)`, then select `Add` and `Add role assignment`.
 
-   :::image type="content" source="./media/onboard-network-watcher-add-role.png" alt-text="Select role assignment in the NetworkWatcherRG resource group." border="true" lightbox="./media/onboard-network-watcher-add-role.png":::
+   :::image type="content" source="./media/onboard-network-watcher-add-role.png" alt-text="Screenshot showing role assignment selection in the NetworkWatcherRG resource group." border="true" lightbox="./media/onboard-network-watcher-add-role.png":::
 
 1. Select `Privileged administrator roles`, select `Owner`, and then select `Next`.
 
-   :::image type="content" source="./media/onboard-add-role-select-owner.png" alt-text="Select the Owner role in the role assignment wizard." border="true" lightbox="./media/onboard-add-role-select-owner.png":::
+   :::image type="content" source="./media/onboard-add-role-select-owner.png" alt-text="Screenshot showing Owner role selection in the role assignment wizard." border="true" lightbox="./media/onboard-add-role-select-owner.png":::
 
 1. Select `Select members`, type `Mission Enclave` in the search box, select the `Mission Enclave` app, and then select `Select` and `Next`.
 
-   :::image type="content" source="./media/onboard-select-mission-enclave-app.png" alt-text="Select the Mission Enclave app in the members picker." border="true" lightbox="./media/onboard-select-mission-enclave-app.png":::
+   :::image type="content" source="./media/onboard-select-mission-enclave-app.png" alt-text="Screenshot showing Mission Enclave app selection in the members picker." border="true" lightbox="./media/onboard-select-mission-enclave-app.png":::
 
 1. If your subscription requires a condition, select `Allow user to assign all roles except privileged administrator roles Owner, UAA, RBAC (Recommended)`, then select `Review + assign`.
 
-   :::image type="content" source="./media/onboard-add-condition.png" alt-text="Select the role assignment condition when required by the subscription." border="true" lightbox="./media/onboard-add-condition.png":::
+   :::image type="content" source="./media/onboard-add-condition.png" alt-text="Screenshot showing role assignment selection condition when required by the subscription." border="true" lightbox="./media/onboard-add-condition.png":::
 
 1. Once the update is complete, you can start deploying Azure Enclave resources.
 
