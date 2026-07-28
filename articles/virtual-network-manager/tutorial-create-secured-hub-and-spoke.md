@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: tutorial
-ms.date: 06/22/2026
+ms.date: 07/28/2026
 ms.custom:
   - FY23 content-maintenance
   - engagement-FY24
@@ -141,7 +141,7 @@ In your Azure Virtual Network Manager instance **vnm-learn-eastus-001**, use Azu
     | Condition | Enter **-prod** for the condition in the text box. |
 
 1. Select **Preview resources** to view the **Effective virtual networks** pane and select **Close**. This page shows the virtual networks that are added to the network group based on the conditions defined in Azure Policy.
-1. Select **Save** to deploy the group membership. It can take up to one minute for the policy to take effect and be added to your network group.
+1. Select **Save** to deploy the group membership. For this single-subscription scope, it can take a few minutes for the policy to take effect and update your network group membership. For timing details for larger policy scopes, see [Deployment latency and timing](concept-deployments.md#deployment-latency-and-timing).
 1. On the **Network Group** page under **Settings**, select **Group Members** to view the membership of the group based on the conditions defined in Azure Policy. The **Source** is listed as **azpol-learn-prod-eastus-001**.
 
     :::image type="content" source="media/create-virtual-network-manager-portal/group-members-list.png" alt-text="Screenshot of dynamic group membership under Group Membership.":::
