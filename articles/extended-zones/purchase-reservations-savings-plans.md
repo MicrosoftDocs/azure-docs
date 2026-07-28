@@ -3,6 +3,7 @@ title: Purchase Reservations and Savings Plans - Azure Portal
 description: Learn how to purchase a reservation or a savings plan for your Azure Extended Zones resources by using the Azure portal.
 author: svaldesgzz
 ms.author: svaldes
+ms.reviewer: halkazwini
 ms.service: azure-extended-zones
 ms.topic: how-to
 ms.date: 08/30/2025
