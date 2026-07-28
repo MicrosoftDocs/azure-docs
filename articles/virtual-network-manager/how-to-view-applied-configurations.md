@@ -85,7 +85,7 @@ At the virtual machine level, you can view security rules applied by Virtual Net
 
 1. Then select **Effective routes** under *Support + troubleshooting*.
 
-2. Routes with a next hop type of *ConnectedGroup* are part of a mesh configuration or provide [*direct connectivity*](concept-connectivity-configuration.md#enable-direct-connectivity) between spoke virtual networks in the same network group. Routes between hub and spoke virtual networks have a next hop type of *VNetPeering* or *GlobalVNetPeering*.
+1. Routes with a next hop type of *ConnectedGroup* are part of a mesh configuration or provide [*direct connectivity*](concept-connectivity-configuration.md#enable-direct-connectivity) between spoke virtual networks in the same network group. Routes between hub and spoke virtual networks have a next hop type of *VNetPeering* or *GlobalVNetPeering*.
 
     :::image type="content" source="./media/how-to-view-applied-configurations/effective-routes.png" alt-text="Screenshot of effective routes that shows connected groups and hub routes." lightbox="./media/how-to-view-applied-configurations/effective-routes-expanded.png":::
 
