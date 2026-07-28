@@ -2,7 +2,7 @@
 title: Use GitHub Actions to make code updates in Azure Functions
 description: Learn how to use GitHub Actions to define a workflow to build and deploy Azure Functions projects in GitHub.
 ms.topic: how-to
-ms.date: 03/02/2026
+ms.date: 07/28/2026
 ms.custom: devx-track-csharp, github-actions-azure
 zone_pivot_groups: github-actions-deployment-options
 ---
@@ -13,8 +13,40 @@ You can use a [GitHub Actions workflow](https://docs.github.com/actions/learn-gi
 
 | Method | Action | Tasks |
 | ---- | ---- | ---- |
-| Code-only | `Azure/functions-action` | 1. Set up the environment.<br/>2. Build the code project.<br/>3. Deploy the package to a function app in Azure.   |
-| Container | `Azure/functions-container-action` | 1. Set up the environment.<br/>2. Build the Docker container.<br/>3. Push the image to the container registry.<br/>4. Deploy the container to Azure. | 
+| Code-only | `Azure/functions-action` | 1. Set up the environment.<br/>2. Build the code project.<br/>3. Deploy the package to a function app in Azure. |
+| Container | `Azure/functions-container-action` | 1. Set up the environment.<br/>2. Build the Docker container.<br/>3. Push the image to the container registry.<br/>4. Deploy the container to Azure. |
+
+To deploy using GitHub Actions, you complete these three key steps:
+
+1. [Create a user-assigned managed identity](#create-a-managed-identity-for-github-actions-deployment) in Azure with a federated credential that trusts your GitHub repository, and assign it the Website Contributor role on your function app.
+1. Add the identity's client ID, tenant ID, and subscription ID as [repository variables](https://docs.github.com/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables) in GitHub.
+1. Add a workflow YAML file to your repository that uses `azure/login` with OpenID Connect (OIDC) to authenticate, then calls `Azure/functions-action` to deploy.
+
+## Authentication overview
+
+GitHub Actions authenticates with Azure to deploy your code. The recommended method is OpenID Connect (OIDC), which uses workload identity federation with a user-assigned managed identity. With OIDC, no secrets are stored in GitHub — only non-sensitive configuration values (client ID, tenant ID, subscription ID) are stored as repository variables. The workflow requests a short-lived token from GitHub's OIDC provider, which Azure validates against the federated credential you configured.
+
+Other supported methods (service principal secret and publish profile) require storing sensitive credentials in GitHub and are not recommended for new deployments. The following inline example shows the core OIDC authentication and deployment pattern used in all workflow templates:
+
+```yml
+permissions:
+  id-token: write
+  contents: read
+
+steps:
+  - name: 'Login via OIDC'
+    uses: azure/login@v3
+    with:
+      client-id: ${{ vars.AZURE_CLIENT_ID }}
+      tenant-id: ${{ vars.AZURE_TENANT_ID }}
+      subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+
+  - name: 'Deploy to Azure Functions'
+    uses: Azure/functions-action@v1
+    with:
+      app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
+      package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
+```
 
 A YAML file (.yml) that defines the workflow configuration is maintained in the `/.github/workflows/` path in your repository. This definition contains the actions and parameters that make up the workflow, which is specific to the development language of your functions. 
 
@@ -36,7 +68,7 @@ If you don't want to create your YAML file by hand, select a different method at
 
 + One of these deployment targets:
 
-    + A working function app hosted on Azure. This function app must have [basic authentication enabled on the `scm` endpoint](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments).
+    + A working function app hosted on Azure. When using publish profile authentication, this function app must have [basic authentication enabled on the `scm` endpoint](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments). Basic authentication isn't required when using OIDC.
 
     + An existing container registry, such as [Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md), a private container registry hosted in Azure. Examples in this article feature Azure Container Registry.   
 ::: zone pivot="method-cli,method-manual,method-template"
@@ -50,53 +82,77 @@ Since GitHub Actions requires credentials to be able to access Azure resources, 
 
 There are several supported authentication credentials you can use when deploying your code to Azure using GitHub Actions:
 
-| Credential | Set in... | Deployment type | Usage |
-| ---- | ---- |  --- |  --- |
-| OpenID Connect (OIDC) token | [`Azure/login`](https://github.com/Azure/login) | Code-only<br/>Containers | Federated credentials are used to create a trust relationship between your GitHub organization and Microsoft Entra. This trust is used to generate a tightly-scoped access token that is used in the deployment. | 
-| Service principal secret |[`Azure/login`](https://github.com/Azure/login) | Code-only<br/>Containers | Using the [credentials of an Azure service principal](https://github.com/marketplace/actions/azure-login?version=v1.6.1#login-with-a-service-principal-secret) to perform identity-based authentication during deployment. |
-| Publish profile | [`Azure/functions-action`](https://github.com/marketplace/actions/azure-functions-action) | Code-only | Use the basic authentication credentials in the publish profile to connect to the `scm` deployment endpoint. |
-| Docker credentials | [`docker/login-action`](https://github.com/marketplace/actions/docker-login) | Container | When accessing a private Docker container registry. For an Azure Container Registry, you can also use an Azure service principal secret. |  
+| Credential | Status | Set in... | Deployment type | Usage |
+| ---- | ---- | ---- | --- | --- |
+| OpenID Connect (OIDC) token | **Recommended** | [`Azure/login`](https://github.com/Azure/login) | Code-only<br/>Containers | Federated credentials create a trust relationship between your GitHub repository and a user-assigned managed identity in Microsoft Entra. No secrets are stored in GitHub. |
+| Service principal secret | Not recommended | [`Azure/login`](https://github.com/Azure/login) | Code-only<br/>Containers | Requires you to manage and rotate a client secret in GitHub. |
+| Publish profile | Not recommended | [`Azure/functions-action`](https://github.com/marketplace/actions/azure-functions-action) | Code-only | Uses basic authentication credentials to connect to the `scm` deployment endpoint. Requires [basic authentication to be enabled](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments). |
+| Docker credentials | Depends on registry | [`docker/login-action`](https://github.com/marketplace/actions/docker-login) | Container | Required when pushing to a private Docker container registry. For Azure Container Registry, you can use OIDC with a managed identity instead. |  
 
 Authentication considerations:
 
-+ When you enable a GitHub Actions-based deployment in the Azure portal, OIDC authentication is used in your GitHub Actions deployment. 
-+ You must securely store the required credentials in GitHub secrets for use by GitHub Actions during deployment. 
-+ You use Azure role-based access control (Azure RBAC) to limit access only to the Azure resources required for your specific.
++ OIDC is the most secure authentication method and is recommended for all new deployments. OIDC uses [workload identity federation](/entra/workload-id/workload-identity-federation) and only supports user-assigned managed identities.
++ When you enable a GitHub Actions-based deployment in the Azure portal, OIDC authentication is used by default.
++ With OIDC, the managed identity's client ID, tenant ID, and subscription ID are stored as GitHub repository **variables** (not secrets), since these values aren't sensitive.
++ Publish profile authentication requires [basic authentication to be enabled](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments) on your function app's `scm` endpoint, which is a security concern.
++ Service principal authentication requires you to manage and manually rotate the client secret stored in GitHub.
++ You use Azure role-based access control (Azure RBAC) to limit access only to the Azure resources required for your deployment.
 + Unless otherwise noted, this article shows you how to configure a workflow that uses OIDC authentication.
-+ When using the `Azure/functions-container-action` with a container registry other than Azure Container Registry, you also need to store those access credentials in your GitHub Action secrets.
++ When using the `Azure/functions-container-action` with a container registry other than Azure Container Registry, you also need to store those access credentials in your GitHub Actions secrets.
 
-## Create a managed identity
+## Create a managed identity for GitHub Actions deployment
 
-GitHub Actions deployments use a user-assigned managed identity that has been granted deployment permissions in your function app. 
+OpenID Connect (OIDC) is the recommended authentication method for GitHub Actions deployments to Azure Functions. With OIDC, you configure a user-assigned managed identity in Azure and create a trust relationship with your GitHub repository. The workflow can then authenticate with Azure without storing credentials as secrets.
 
-1. Use the [az identity create](/cli/azure/identity#az-identity-create) and [az functionapp identity assign](/cli/azure/functionapp/identity#az-functionapp-identity-assign) commands to create a user-assigned managed identity named `myGitHubDeployment` and assign it to your function app resource:
+1. Use the [az identity create](/cli/azure/identity#az-identity-create) command to create a user-assigned managed identity:
 
     ```azurecli
-    IDENTITY_ID=$(az identity create --name myGitHubDeployIdentity --resource-group <RESOURCE_GROUP> --query 'id' -o tsv)
-    az functionapp identity assign --name <APP_NAME> --resource-group <RESOURCE_GROUP> --identities $IDENTITY_ID
+    az identity create --name myGitHubDeployIdentity --resource-group <RESOURCE_GROUP>
+    ```
+
+    Replace `<RESOURCE_GROUP>` with the name of your resource group.
+
+1. From the output, copy the values for `clientId`, `subscriptionId` (from the `id` field), and `tenantId`. You need these values later.
+
+1. Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to assign the [`Website Contributor`](/azure/role-based-access-control/built-in-roles/web-and-mobile#website-contributor) role to the managed identity, scoped to your function app:
+
+    ```azurecli
+    IDENTITY_PRINCIPAL=$(az identity show --name myGitHubDeployIdentity --resource-group <RESOURCE_GROUP> --query 'principalId' -o tsv)
+    FUNCTION_APP_ID=$(az functionapp show --name <APP_NAME> --resource-group <RESOURCE_GROUP> --query 'id' -o tsv)
+    az role assignment create --assignee $IDENTITY_PRINCIPAL --role "Website Contributor" --scope $FUNCTION_APP_ID
     ```
 
     Replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the names of your app and resource group, respectively.
 
-1. Use the [az resource update](/cli/azure/resource#az-resource-update) command to assign the managed identity to your function app.
+1. Use the [az identity federated-credential create](/cli/azure/identity/federated-credential#az-identity-federated-credential-create) command to create a federated credential that trusts tokens from your GitHub repository:
 
     ```azurecli
-    IDENTITY_ID=$(az identity show --name myUserAssignedIdentity --resource-group <RESOURCE_GROUP> --query 'id' -o tsv)
-    RESOURCE_ID=$(az vm show --name myVM --resource-group myResourceGroup --query 'id' -o tsv)
-    
-    # Assign the managed identity to the Azure resource
-    az resource update --ids $RESOURCE_ID --set identity.type=UserAssigned --set identity.userAssignedIdentities.$IDENTITY_ID={}
+    az identity federated-credential create \
+        --identity-name myGitHubDeployIdentity \
+        --resource-group <RESOURCE_GROUP> \
+        --name github-deploy-credential \
+        --issuer https://token.actions.githubusercontent.com \
+        --subject repo:<GITHUB_ORG>/<REPO_NAME>:ref:refs/heads/<BRANCH_NAME> \
+        --audiences api://AzureADTokenExchange
     ```
 
-    Replace `<RESOURCE_GROUP>` with the names of your resource group.
+    Replace `<RESOURCE_GROUP>`, `<GITHUB_ORG>`, `<REPO_NAME>`, and `<BRANCH_NAME>` with your values. The subject must match the branch that triggers your workflow.
 
-1. If you are deploying a container from Azure Container Registry, you must also grant permissions in the registry to the identity. (Optional) To deploy a containerized function app from Azure Container Registry, use this [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to add the `acrpull` role to the new service principal:
+1. In your GitHub repository, [create these repository variables](https://docs.github.com/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables#defining-configuration-variables-for-multiple-workflows) using the values from step 2:
 
-    ```azurecli    
-    az role assignment create --assignee <SERVICE_PRINCIPAL_ID> --scope /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerRegistry/registries/<REGISTRY_NAME> --role acrpull
+    + `AZURE_CLIENT_ID`: the `clientId` of the managed identity
+    + `AZURE_TENANT_ID`: the `tenantId` of the managed identity
+    + `AZURE_SUBSCRIPTION_ID`: the subscription ID that contains your function app
+
+1. (Optional) If you're deploying a container from Azure Container Registry, also assign the `acrpull` role to the managed identity:
+
+    ```azurecli
+    IDENTITY_PRINCIPAL=$(az identity show --name myGitHubDeployIdentity --resource-group <RESOURCE_GROUP> --query 'principalId' -o tsv)
+    az role assignment create --assignee $IDENTITY_PRINCIPAL --role acrpull \
+        --scope /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerRegistry/registries/<REGISTRY_NAME>
     ```
 
-    Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<REGISTRY_NAME>` with the names of your subscription, resource group, and registry.Replace `<SERVICE_PRINCIPAL_ID>` with the `clientID` from the credentials you obtained in the previous step. The role you added is scoped to your specific Azure Container Registry instance.
+    Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<REGISTRY_NAME>` with your values.
  
 ### [Docker credentials](#tab/docker-credentials)
 
@@ -159,31 +215,31 @@ The best way to manually create a workflow configuration is to start from the of
     
     ---
 
-1. Copy the language-specific template from the Azure Functions actions repository using the following link:  
+1. Copy the language-specific template from the Azure Functions actions repository using the following link. These templates use the recommended OIDC authentication:
 
     ### [.NET](#tab/dotnet/windows)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/windows-dotnet-functionapp-on-azure.yml> 
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/windows-dotnet-functionapp-on-azure-oidc.yml> 
     
     ### [.NET](#tab/dotnet/linux)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-dotnet-functionapp-on-azure.yml>
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/linux-dotnet-functionapp-on-azure-oidc.yml>
     
     ### [Java](#tab/java/windows)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/windows-java-functionapp-on-azure.yml>
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/windows-java-functionapp-on-azure-oidc.yml>
     
     ### [Java](#tab/java/linux)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-java-functionapp-on-azure.yml>
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/linux-java-functionapp-on-azure-oidc.yml>
     
     ### [JavaScript](#tab/javascript/windows)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/windows-node.js-functionapp-on-azure.yml> 
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/windows-node-functionapp-on-azure-oidc.yml> 
     
     ### [JavaScript](#tab/javascript/linux)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-node.js-functionapp-on-azure.yml>
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/linux-node-functionapp-on-azure-oidc.yml>
     
     ### [Python](#tab/python/windows)
     
@@ -191,15 +247,15 @@ The best way to manually create a workflow configuration is to start from the of
     
     ### [Python](#tab/python/linux)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-python-functionapp-on-azure.yml>
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/python-functionapp-on-azure-oidc.yml>
     
     ### [PowerShell](#tab/powershell/windows)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/windows-powershell-functionapp-on-azure.yml>
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/powershell-functionapp-on-azure-oidc.yml>
     
     ### [PowerShell](#tab/powershell/linux)
     
-    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-powershell-functionapp-on-azure.yml> 
+    <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/oidc-auth-samples/powershell-functionapp-on-azure-oidc.yml> 
 
     ### [Container](#tab/container/windows)
     
@@ -209,41 +265,19 @@ The best way to manually create a workflow configuration is to start from the of
     
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-container-functionapp-on-azure.yml> 
 
+    > [!IMPORTANT]
+    > For function apps hosted natively on Azure Container Apps, use the Container Apps deployment methods instead. See [Deploy to Azure Container Apps with GitHub Actions](/azure/container-apps/github-actions).
+
     Remember to do the following before you use this YAML file:
     
     + Update the values of `REGISTRY`, `NAMESPACE`, `IMAGE`, and `TAG` based on your container registry. 
-    + Update the container respository credentials in the `docker/login-action` action. To use service principal credentials with Azure Container Registry, add an environment variable for the credentials object to your file:
+    + Update the container repository credentials in the `docker/login-action` action.
     
-        ```yml
-        - env: 
-            creds: ${{ secrets.AZURE_CREDENTIALS }}
-        ```
-    
-        Then replace the existing `azure/docker-Login` action with this `docker/login-action`:
-
-        ```yml
-        - name: Login to ACR
-          uses: docker/login-action@v3
-          with:
-            registry: <registry-name>.azurecr.io
-            username: ${{ fromJson(creds.clientId) }}
-            password: ${{ fromJson(creds.clientSecret) }}
-        ```
     --- 
 
-1. Update the `env.AZURE_FUNCTIONAPP_NAME` parameter with the name of your function app resource in Azure. You may optionally need to update the parameter that sets the language version used by your app, such as `DOTNET_VERSION` for C#. 
- 
-1. To connect to your app using service principal credentials instead of a publish profile, remove `publish-profile` from the `azure/functions-action` and add this `azure/login` action before `azure/functions-action`:
-
-    ```yml
-    - name: 'Login w/ service principal'
-      uses: azure/login@v2
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-    ---
-
 1. Update the `env.AZURE_FUNCTIONAPP_NAME` parameter with the name of your function app resource in Azure. You may optionally need to update the parameter that sets the language version used by your app, such as `DOTNET_VERSION` for C#.
+
+1. The OIDC templates already include the `azure/login` step with OIDC authentication. Verify that the `vars.AZURE_CLIENT_ID`, `vars.AZURE_TENANT_ID`, and `vars.AZURE_SUBSCRIPTION_ID` references match the [repository variables you created](#create-a-managed-identity-for-github-actions-deployment).
 
 1. Add this new YAML file in the `/.github/workflows/` path in your repository.
 
@@ -285,6 +319,9 @@ You can get started quickly with GitHub Actions through the Deployment tab when 
 ## Add workflow configuration to your repository
 
 You can use the [`az functionapp deployment github-actions add`](/cli/azure/functionapp/deployment/github-actions) command to generate a workflow configuration file from the correct template for your function app. The new YAML file is then stored in the correct location (`/.github/workflows/`) in the GitHub repository you provide, while the publish profile file for your app is added to GitHub secrets in the same repository.
+
+> [!NOTE]
+> This command currently configures publish profile authentication, which is not the recommended approach. For the recommended OIDC authentication, use the [manual workflow setup method](#create-the-workflow-from-a-template) instead.
 
 1. Run this `az functionapp` command, replacing the values `githubUser/githubRepo`, `MyResourceGroup`, and `MyFunctionapp`:
 
@@ -332,13 +369,18 @@ You can create the GitHub Actions workflow configuration file from the Azure Fun
 
 1. In the newly created YAML file, update the `env.AZURE_FUNCTIONAPP_NAME` parameter with the name of your function app resource in Azure. You may optionally need to update the parameter that sets the language version used by your app, such as `DOTNET_VERSION` for C#.  
 
-1. To use service principal credentials instead of a publish profile, remove `publish-profile` from the `azure/functions-action` and add this `azure/login` action before `azure/functions-action`:
+1. The default templates might use publish profile authentication, which aren't recommended because they use shared secret keys. To use the recommended OIDC authentication instead, replace the `publish-profile` parameter in `azure/functions-action` with an `azure/login` step:
 
     ```yml
-    - name: 'Login w/ service principal'
-      uses: azure/login@v2
+    - name: 'Login via OIDC'
+      uses: azure/login@v3
       with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+        client-id: ${{ vars.AZURE_CLIENT_ID }}
+        tenant-id: ${{ vars.AZURE_TENANT_ID }}
+        subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+    ```
+
+    You also need to add `id-token: write` and `contents: read` permissions to the job. For the complete OIDC setup, see [Create a managed identity for GitHub Actions deployment](#create-a-managed-identity-for-github-actions-deployment).
 
 1. Verify that the new workflow file is being saved in `/.github/workflows/` and select **Commit changes...**.  
 ::: zone-end
@@ -349,7 +391,7 @@ If for some reason you need to update or change an existing workflow configurati
 
 ## Example: workflow configuration file
 
-The following template example uses version 1 of the `functions-action` and a `publish profile` for authentication. The template depends on your chosen language and the operating system on which your function app is deployed:
+The following template example uses the `functions-action` and OIDC for authentication. The template depends on your chosen language and the operating system on which your function app is deployed:
 
 ### [Windows](#tab/windows)
 
@@ -363,27 +405,27 @@ If your function app runs on Windows, select **Windows**.
 
 ### [.NET](#tab/dotnet/windows)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-dotnet-functionapp-on-azure.yml" range="1-5,13-44":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/windows-dotnet-functionapp-on-azure-oidc.yml":::
 
 ### [.NET](#tab/dotnet/linux)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-dotnet-functionapp-on-azure.yml" range="1-5,13-44":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/linux-dotnet-functionapp-on-azure-oidc.yml":::
 
 ### [Java](#tab/java/windows)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-java-functionapp-on-azure.yml" range="1-5,13-45":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/windows-java-functionapp-on-azure-oidc.yml":::
 
 ### [Java](#tab/java/linux)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-java-functionapp-on-azure.yml" range="1-5,13-45":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/linux-java-functionapp-on-azure-oidc.yml":::
 
 ### [JavaScript](#tab/javascript/windows)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-node.js-functionapp-on-azure.yml" range="1-5,13-46":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/windows-node-functionapp-on-azure-oidc.yml":::
 
 ### [JavaScript](#tab/javascript/linux)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-node.js-functionapp-on-azure.yml" range="1-5,13-46":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/linux-node-functionapp-on-azure-oidc.yml":::
 
 ### [Python](#tab/python/windows)
 
@@ -391,22 +433,25 @@ Python functions aren't supported on Windows. Choose Linux instead.
 
 ### [Python](#tab/python/linux)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-python-functionapp-on-azure.yml" range="1-5,13-47":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/python-functionapp-on-azure-oidc.yml":::
 
 ### [PowerShell](#tab/powershell/windows)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/windows-powershell-functionapp-on-azure.yml" range="1-5,13-31":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/powershell-functionapp-on-azure-oidc.yml":::
 
 ### [PowerShell](#tab/powershell/linux)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-powershell-functionapp-on-azure.yml" range="1-5,13-31":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/powershell-functionapp-on-azure-oidc.yml":::
 
 ### [Container](#tab/container/windows)
     
 Container deployments aren't supported on Windows. Choose Linux instead.
 
 ### [Container](#tab/container/linux)
-  
+
+> [!IMPORTANT]
+> The `Azure/functions-container-action` deploys containers to function apps on Premium and Dedicated plans. For function apps hosted natively on Azure Container Apps, see [Deploy to Azure Container Apps with GitHub Actions](/azure/container-apps/github-actions).
+
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-container-functionapp-on-azure.yml" range="9-57":::   
 
 --- 
@@ -456,15 +501,15 @@ Keep the following considerations in mind when using the Azure Functions action:
     | Hosting plan | Deployment method |
     | ---- | ----- |
     | [Flex Consumption](./flex-consumption-plan.md) | [One deploy](./functions-deployment-technologies.md#one-deploy) |
-    | [Elastic Premium](./functions-premium-plan.md) | [Zip deploy](deployment-zip-push.md) to apps on the [Consumption](./consumption-plan.md) |
-    | [Dedicated (App Service)](./dedicated-plan.md) | [Zip deploy](deployment-zip-push.md) to apps on the [Consumption](./consumption-plan.md) |
+    | [Elastic Premium](./functions-premium-plan.md) | [Zip deploy](deployment-zip-push.md) |
+    | [Dedicated (App Service)](./dedicated-plan.md) | [Zip deploy](deployment-zip-push.md) |
     | [Consumption](./consumption-plan.md) | Windows: [Zip deploy](deployment-zip-push.md)<br/>Linux: [external package URL](./functions-deployment-technologies.md#external-package-url)<sup>*</sup> |
 
     \* The ability to run your apps on Linux in a Consumption plan is planned for retirement. For more information, see [Azure Functions Consumption plan hosting](consumption-plan.md).
 
-+ The credentials required by GitHub to connect to Azure for deployment are stored as Secrets in your GitHub repository and accessed in the deployment as `secrets.<SECRET_NAME>`.
++ The credentials required by GitHub to connect to Azure for deployment are stored as variables or secrets in your GitHub repository and accessed in the deployment as `vars.<VARIABLE_NAME>` or `secrets.<SECRET_NAME>`.
 
-+ The easiest way for GitHub Actions to authenticate with Azure Functions for deployment is by using a publish profile. You can also authenticate using a service principal. To learn more, see [this GitHub Actions repository](https://github.com/Azure/functions-action).
++ OIDC with a user-assigned managed identity is the recommended way for GitHub Actions to authenticate with Azure Functions for deployment. You can also use a service principal or publish profile, but these methods are not recommended. To learn more, see [this GitHub Actions repository](https://github.com/Azure/functions-action).
 
 + The actions for setting up the environment and running a build are generated from the templates and are language specific.
 
