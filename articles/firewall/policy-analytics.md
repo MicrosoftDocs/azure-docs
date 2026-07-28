@@ -32,6 +32,9 @@ For the latest pricing details, see the [Azure Firewall Manager pricing](https:/
 - **Single Rule analysis**: Analyzes a single rule to learn what traffic hits that rule to refine the access it provides and improve the overall security posture.
 
 
+> [!NOTE]
+> For the Rules with low utilization metric, the support is currently limited for a Time period of 30 days only.
+
 ## Enable Policy Analytics
 
 Policy analytics starts monitoring the flows in the DNAT, Network, and Application rule analysis only after you enable the feature. It can't analyze rules hit before the feature is enabled.  
@@ -42,7 +45,7 @@ Policy analytics starts monitoring the flows in the DNAT, Network, and Applicati
 3. In the pane that opens, select the **Enable Policy Analytics** checkbox. 
 4. Next, choose a log analytics workspace. The log analytics workspace should be the same workspace configured in the firewall Diagnostic settings.
 5. Select **Save** after you choose the log analytics workspace.
-
+   
 > [!TIP]
 > Policy Analytics has a dependency on both Log Analytics and Azure Firewall resource specific logging. Verify the Firewall is configured appropriately or follow the previous instructions. Be aware that logs take 60 minutes to appear after enabling them for the first time. This is because logs are aggregated in the backend every hour. You can check logs are configured appropriately by running a log analytics query on the resource specific tables such as **AZFWNetworkRuleAggregation**, **AZFWApplicationRuleAggregation**, and **AZFWNatRuleAggregation**.
 
