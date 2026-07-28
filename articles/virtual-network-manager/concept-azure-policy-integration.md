@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 07/11/2025
+ms.date: 07/17/2026
 ms.custom: template-concept, engagement-fy23, seo-fy24
 #customer intent: As a network administrator, I want to learn how to use Azure Policy to define dynamic network group membership in Azure Virtual Network Manager so that I can create scalable and dynamically adapting virtual network environments in my organization.
 ---
@@ -25,7 +25,7 @@ Creating and implementing a policy in Azure Policy begins with creating a policy
 With Azure Virtual Network Manager's [network groups](concept-network-groups.md), your policy definition includes your conditional expression for matching virtual networks that meet your criteria, and specifies the network group that those matching virtual networks join. The `addToNetworkGroup` effect is used to place resources in the destination network group. Here's a sample of a policy rule definition with the `addToNetworkGroup` effect. For all custom policies, the `mode` property is set to `Microsoft.Network.Data` to target the network group resource provider and is required for creating a policy definition for Azure Virtual Network Manager.
 
 > [!NOTE]
-> Azure Policy currently only supports the definition of network group membership for virtual networks.
+> Azure Policy currently only supports the definition of network group membership for virtual networks. Azure Policy-based dynamic network group membership also doesn't currently apply to [cross-tenant](concept-cross-tenant.md) virtual networks. You can only add those virtual networks manually. For more information, see [known limitations](concept-cross-tenant.md#known-limitations).
 
 ```json
 "mode": "Microsoft.Network.Data",
