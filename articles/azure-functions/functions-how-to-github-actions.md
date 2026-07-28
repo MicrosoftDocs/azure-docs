@@ -48,42 +48,49 @@ If you don't want to create your YAML file by hand, select a different method at
 
 Since GitHub Actions requires credentials to be able to access Azure resources, you first need to get the credentials you need from Azure and store them securely in your repository as [GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets). 
 
-There are several supported authentication credentials you can use when deploying your code to Azure using GitHub Actions. This article supports these credentials: 
+There are several supported authentication credentials you can use when deploying your code to Azure using GitHub Actions:
 
 | Credential | Set in... | Deployment type | Usage |
 | ---- | ---- |  --- |  --- |
-| Publish profile | [`Azure/functions-action`](https://github.com/marketplace/actions/azure-functions-action) | Code-only | Use the basic authentication credentials in the publish profile to connect to the `scm` deployment endpoint. |
+| OpenID Connect (OIDC) token | [`Azure/login`](https://github.com/Azure/login) | Code-only<br/>Containers | Federated credentials are used to create a trust relationship between your GitHub organization and Microsoft Entra. This trust is used to generate a tightly-scoped access token that is used in the deployment. | 
 | Service principal secret |[`Azure/login`](https://github.com/Azure/login) | Code-only<br/>Containers | Using the [credentials of an Azure service principal](https://github.com/marketplace/actions/azure-login?version=v1.6.1#login-with-a-service-principal-secret) to perform identity-based authentication during deployment. |
+| Publish profile | [`Azure/functions-action`](https://github.com/marketplace/actions/azure-functions-action) | Code-only | Use the basic authentication credentials in the publish profile to connect to the `scm` deployment endpoint. |
 | Docker credentials | [`docker/login-action`](https://github.com/marketplace/actions/docker-login) | Container | When accessing a private Docker container registry. For an Azure Container Registry, you can also use an Azure service principal secret. |  
 
-You must securely store the required credentials in GitHub secrets for use by GitHub Actions during deployment. 
+Authentication considerations:
 
-## Get the service access credentals
++ When you enable a GitHub Actions-based deployment in the Azure portal, OIDC authentication is used in your GitHub Actions deployment. 
++ You must securely store the required credentials in GitHub secrets for use by GitHub Actions during deployment. 
++ You use Azure role-based access control (Azure RBAC) to limit access only to the Azure resources required for your specific.
++ Unless otherwise noted, this article shows you how to configure a workflow that uses OIDC authentication.
++ When using the `Azure/functions-container-action` with a container registry other than Azure Container Registry, you also need to store those access credentials in your GitHub Action secrets.
 
->[!IMPORTANT]
->In this section you are working with valuable credentials that allow access to Azure resources. Make sure you always transport and store credentials securely. In GitHub, these credentials **must** only be stored as GitHub secrets.
+## Create a managed identity
 
-### [Publish profile](#tab/publish-profile)
+GitHub Actions deployments use a user-assigned managed identity that has been granted deployment permissions in your function app. 
 
-Publish profile is an XML-formated object that contains basic authentication credentials used to access the `scm` deployment endpoint. These credentials are used by tools like Visual Studio and Azure Functions Core Tools to deploy code to your function app. Publish profiles require you to [enable basic authentication](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments) on the `scm` management endoint.
-
-[!INCLUDE [functions-download-publish-profile](../../includes/functions-download-publish-profile.md)]
-
-### [Service principal secret](#tab/service-principal)
-
-You can use the identity of a service principal in Azure when connecting to your app's `scm` deployment endpoint. This is also the recommended way to connect to an Azure Container Registry from your GitHub account. You use Azure role-based access control (Azure RBAC) to limit access only to the Azure resources required for publishing.
-
-1. Use this [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command to create a service principal and get its credential:
+1. Use the [az identity create](/cli/azure/identity#az-identity-create) and [az functionapp identity assign](/cli/azure/functionapp/identity#az-functionapp-identity-assign) commands to create a user-assigned managed identity named `myGitHubDeployment` and assign it to your function app resource:
 
     ```azurecli
-    az ad sp create-for-rbac --name "<APP_NAME>_deployment" --role contributor --scopes /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.Web/sites/<APP_NAME> --sdk-auth
+    IDENTITY_ID=$(az identity create --name myGitHubDeployIdentity --resource-group <RESOURCE_GROUP> --query 'id' -o tsv)
+    az functionapp identity assign --name <APP_NAME> --resource-group <RESOURCE_GROUP> --identities $IDENTITY_ID
     ```
 
-    Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<APP_NAME>` with the names of your subscription, resource group, and function app. 
+    Replace `<APP_NAME>` and `<RESOURCE_GROUP>` with the names of your app and resource group, respectively.
 
-    The output from this command is a JSON object that is the credential that GitHub Actions uses to connect to your app.You need to securely retain this output until you can add as a GitHub secret.
+1. Use the [az resource update](/cli/azure/resource#az-resource-update) command to assign the managed identity to your function app.
 
-1. (Optional) To deploy a containerized function app from Azure Container Registry, use this [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to add the `acrpull` role to the new service principal:
+    ```azurecli
+    IDENTITY_ID=$(az identity show --name myUserAssignedIdentity --resource-group <RESOURCE_GROUP> --query 'id' -o tsv)
+    RESOURCE_ID=$(az vm show --name myVM --resource-group myResourceGroup --query 'id' -o tsv)
+    
+    # Assign the managed identity to the Azure resource
+    az resource update --ids $RESOURCE_ID --set identity.type=UserAssigned --set identity.userAssignedIdentities.$IDENTITY_ID={}
+    ```
+
+    Replace `<RESOURCE_GROUP>` with the names of your resource group.
+
+1. If you are deploying a container from Azure Container Registry, you must also grant permissions in the registry to the identity. (Optional) To deploy a containerized function app from Azure Container Registry, use this [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to add the `acrpull` role to the new service principal:
 
     ```azurecli    
     az role assignment create --assignee <SERVICE_PRINCIPAL_ID> --scope /subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/providers/Microsoft.ContainerRegistry/registries/<REGISTRY_NAME> --role acrpull
@@ -241,9 +248,12 @@ The best way to manually create a workflow configuration is to start from the of
 
 ## Create the workflow configuration in the portal
 
-When you use the portal to enable GitHub Actions, Functions creates a workflow file based on your application stack and commits it to your GitHub repository in the correct directory.
+When you use the portal to enable GitHub Actions, Functions automatically performs these tasks, both in your Azure subscription and in your GitHub repository:
 
-The portal automatically gets your publish profile and adds it to the GitHub secrets for your repository.
++ Creates a workflow file based on your application stack under `.github/workflows` and commits it to your GitHub repository.
++ Creates a user-assigned managed identity in your subscription and assigns it to the [Website Contributor role](/azure/role-based-access-control/built-in-roles/web-and-mobile#website-contributor) in your function app. 
++ Adds a federated credential to the new user-assigned managed identity, which GitHub uses when connecting during deployment. 
++ Adds the client ID, subscription ID, and tenant ID values of the new managed identity to the GitHub Actions secrets for your repository. The names of these secrets match the references in the workflow file.
 
 ### During function app create
 
