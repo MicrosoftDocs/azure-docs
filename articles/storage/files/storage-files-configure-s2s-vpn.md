@@ -16,23 +16,23 @@ ms.custom: sfi-image-nochange
 
 :heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider
 
-You can use a site-to-site VPN connection to mount your Azure file shares from your on-premises network, without sending data over the open internet. You can set up a site-to-site VPN using [Azure VPN Gateway](/azure/vpn-gateway/), which is an Azure resource offering VPN services. You deploy VPN Gateway in a resource group alongside storage accounts or other top-level Azure resources.
+You can use a site-to-site VPN connection to mount your Azure file shares from your on-premises network, without sending data over the open internet. You can set up a site-to-site VPN by using [Azure VPN Gateway](/azure/vpn-gateway/), which is an Azure resource offering VPN services. You deploy VPN Gateway in a resource group alongside storage accounts or other top-level Azure resources.
 
 ![A chart illustrating the topology of an Azure VPN gateway connecting an Azure file share to an on-premises site using a site-to-site VPN](media/storage-files-configure-s2s-vpn/site-to-site-topology.png)
 
 Before continuing, read [Azure Files networking overview](storage-files-networking-overview.md) for a complete discussion of the networking options available for Azure Files.
 
-The article details the steps to configure a site-to-site VPN to mount Azure file shares directly on-premises. If you want to route sync traffic for Azure File Sync over a site-to-site VPN, see [configure Azure File Sync proxy and firewall settings](../file-sync/file-sync-firewall-and-proxy.md).
+This article details the steps to configure a site-to-site VPN to mount Azure file shares directly on-premises. If you want to route sync traffic for Azure File Sync over a site-to-site VPN, see [configure Azure File Sync proxy and firewall settings](../file-sync/file-sync-firewall-and-proxy.md).
 
 ## Prerequisites
 
 - An Azure classic file share you want to mount on-premises. See [Create an Azure classic file share](create-classic-file-share.md).
 
-- A private endpoint for the storage account deployed in the virtual network you'll use for VPN Gateway. A private endpoint assigns the storage account a private IP address from within your virtual network address space, enabling on-premises clients to access Azure Files through the VPN tunnel. To learn how to create a private endpoint, see [Configure Azure Files network endpoints](storage-files-networking-endpoints.md).
+- A private endpoint for the storage account deployed in the virtual network you use for VPN Gateway. A private endpoint assigns the storage account a private IP address from within your virtual network address space, enabling on-premises clients to access Azure Files through the VPN tunnel. To learn how to create a private endpoint, see [Configure Azure Files network endpoints](storage-files-networking-endpoints.md).
 
 - A network appliance or server in your on-premises data center that's compatible with Azure VPN Gateway. Azure Files is agnostic of the on-premises network appliance chosen, but Azure VPN Gateway maintains a [list of tested devices](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
-If you don't have an existing network appliance, Windows Server contains a built-in Server Role called **Routing and Remote Access (RRAS)**, which can be used as the on-premises network appliance. To learn more about how to configure Routing and Remote Access in Windows Server, see [RAS Gateway](/windows-server/remote/remote-access/ras-gateway/ras-gateway).
+If you don't have an existing network appliance, Windows Server contains a built-in server role called **Routing and Remote Access (RRAS)**, which you can use as the on-premises network appliance. To learn more about how to configure Routing and Remote Access in Windows Server, see [RAS Gateway](/windows-server/remote/remote-access/ras-gateway/ras-gateway).
 
 ## Configure virtual network and network access
 
@@ -40,7 +40,7 @@ To configure a new or existing virtual network and restrict storage account acce
 
 # [Portal](#tab/azure-portal)
 
-1. Sign in to the Azure portal and go to the storage account containing the Azure file share you would like to mount on-premises.
+1. Sign in to the Azure portal and go to the storage account containing the Azure file share you want to mount on-premises.
 
 1. In the service menu, under **Security + networking**, select **Networking**. Unless you added a virtual network to your storage account when you created it, the resulting pane should have the radio button for **Enabled from all networks** selected under **Public network access**.
 
@@ -467,11 +467,11 @@ az network local-gateway create --gateway-ip-address 5.4.3.2 --name MyLocalGatew
 
 ## Configure on-premises network appliance
 
-The specific steps to configure your on-premises network appliance depend on the network appliance your organization has selected. Consult your device manufacturer's documentation, or use the [Azure VPN Gateway list of tested devices](/azure/vpn-gateway/vpn-gateway-about-vpn-devices) and their associated configuration guidance. For a general overview of how partner devices are configured, see [Overview of partner VPN device configurations](/azure/vpn-gateway/vpn-gateway-3rdparty-device-config-overview). If your device supports downloadable configuration scripts, see [Download VPN device configuration scripts](/azure/vpn-gateway/vpn-gateway-download-vpndevicescript).
+The specific steps to configure your on-premises network appliance depend on the network appliance your organization selects. Consult your device manufacturer's documentation, or use the [Azure VPN Gateway list of tested devices](/azure/vpn-gateway/vpn-gateway-about-vpn-devices) and their associated configuration guidance. For a general overview of how partner devices are configured, see [Overview of partner VPN device configurations](/azure/vpn-gateway/vpn-gateway-3rdparty-device-config-overview). If your device supports downloadable configuration scripts, see [Download VPN device configuration scripts](/azure/vpn-gateway/vpn-gateway-download-vpndevicescript).
 
 When configuring your network appliance, you'll need the following items:
 
-* **A shared key.** This is the same shared key that you specify when creating your site-to-site VPN connection. In these examples, a basic shared key such as 'abc123' is used. Generate a more complex key that complies with your organization's security requirements.
+* **A shared key.** This key is the same shared key that you specify when creating your site-to-site VPN connection. In these examples, a basic shared key such as `abc123` is used. Generate a more complex key that complies with your organization's security requirements.
 * **The public IP address of your virtual network gateway.** To find the public IP address of your virtual network gateway using PowerShell, run the following command. In this example, `mypublicip` is the name of the public IP address resource that you created in an earlier step.
 
   ```azurepowershell-interactive
@@ -508,8 +508,8 @@ To complete the deployment of a site-to-site VPN, you must create a connection b
    - **Enable BGP**: Leave unchecked unless your organization specifically requires this setting.
    - **Enable Custom BGP Addresses**: Leave unchecked unless your organization specifically requires this setting.
    - **FastPath**: FastPath is designed to improve the datapath performance between your on-premises network and your virtual network. [Learn more](https://aka.ms/erfastpath).
-   - **IPsec / IKE policy**: The IPsec / IKE policy that will be negotiated for the connection. Leave **Default** selected unless your organization requires a custom policy. To learn about default parameter values (IKE version, DH group, encryption algorithms, SA lifetime, and more), see [Default IPsec/IKE parameters](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec). To configure a custom policy, see [Configure custom IPsec/IKE policies](/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell). For cryptographic requirements, see [About cryptographic requirements and Azure VPN gateways](/azure/vpn-gateway/vpn-gateway-about-compliance-crypto).
-   - **Use policy based traffic selector**: Leave disabled unless you need to configure the Azure VPN gateway to connect to a policy-based VPN firewall on premises. If you enable this field, you must make sure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to/from the Azure virtual network prefixes, instead of any-to-any. For example, if your on-premises network prefixes are 10.1.0.0/16 and 10.2.0.0/16, and your virtual network prefixes are 192.168.0.0/16 and 172.16.0.0/16, you would need to specify the following traffic selectors:
+   - **IPsec / IKE policy**: The IPsec / IKE policy that the connection negotiates. Leave **Default** selected unless your organization requires a custom policy. To learn about default parameter values (IKE version, DH group, encryption algorithms, SA lifetime, and more), see [Default IPsec/IKE parameters](/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec). To configure a custom policy, see [Configure custom IPsec/IKE policies](/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell). For cryptographic requirements, see [About cryptographic requirements and Azure VPN gateways](/azure/vpn-gateway/vpn-gateway-about-compliance-crypto).
+   - **Use policy based traffic selector**: Leave disabled unless you need to configure the Azure VPN gateway to connect to a policy-based VPN firewall on-premises. If you enable this field, you must make sure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to/from the Azure virtual network prefixes, instead of any-to-any. For example, if your on-premises network prefixes are 10.1.0.0/16 and 10.2.0.0/16, and your virtual network prefixes are 192.168.0.0/16 and 172.16.0.0/16, you need to specify the following traffic selectors:
      - 10.1.0.0/16 <====> 192.168.0.0/16
      - 10.1.0.0/16 <====> 172.16.0.0/16
      - 10.2.0.0/16 <====> 192.168.0.0/16
@@ -520,7 +520,7 @@ To complete the deployment of a site-to-site VPN, you must create a connection b
      - **ResponderOnly**: Azure VPN gateway will never initiate the connection. The on-premises VPN gateway must initiate the connection.
      - **InitiatorOnly**: Azure VPN gateway will initiate the connection and reject any connection attempts from the on-premises VPN gateway.
 
-1. Select **Review + create** to run validation. After validation passes, select **Create** to create the connection. You can verify the connection has been made successfully through the virtual network gateway's **Connections** page.
+1. Select **Review + create** to run validation. After validation passes, select **Create** to create the connection. You can verify the connection is made successfully through the virtual network gateway's **Connections** page.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -543,7 +543,7 @@ For more options, see the documentation for the [New-AzVirtualNetworkGatewayConn
    -ConnectionType IPsec -SharedKey 'abc123'
    ```
 
-1. After a short while, the connection will be established. You can verify your VPN connection by running the following command. If prompted, select 'A' to run 'All'.
+1. After a short while, the connection is established. You can verify your VPN connection by running the following command. If prompted, select 'A' to run 'All'.
 
    ```azurepowershell-interactive
    Get-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName <resource-group>
@@ -562,7 +562,7 @@ For more options, see the documentation for the [az network vpn-connection creat
 az network vpn-connection create --name VNet1toSite1 --resource-group <resource-group> --vnet-gateway1 MyVnetGateway -l eastus --shared-key abc123 --local-gateway2 MyLocalGateway
 ```
 
-After a short while, the connection will be established. You can verify your VPN connection by running the following command. When the connection is in the process of being established, its connection status shows 'Connecting'. After the connection is established, the status changes to 'Connected'.
+After a short while, the connection is established. You can verify your VPN connection by running the following command. When the connection is in the process of being established, its connection status shows 'Connecting'. After the connection is established, the status changes to 'Connected'.
 
 ```azurecli-interactive
 az network vpn-connection show --name VNet1toSite1 --resource-group <resource-group>
@@ -606,7 +606,7 @@ If the result returns a public IP address instead of a private IP (for example, 
 
 Before mounting, confirm that DNS resolution returns the private endpoint's private IP address (see previous section). If DNS resolution returns a public IP, the mount traffic will bypass the VPN tunnel.
 
-After DNS resolution is confirmed, mount your Azure file share on-premises. See the instructions to mount by OS:
+After confirming DNS resolution, mount your Azure file share on-premises. See the instructions to mount by OS:
 
 - [Windows](storage-how-to-use-files-windows.md)
 - [macOS](storage-how-to-use-files-mac.md)
