@@ -6,7 +6,7 @@ ms.author: svaldes
 ms.reviewer: halkazwini
 ms.service: azure-extended-zones
 ms.topic: how-to
-ms.date: 08/30/2025
+ms.date: 07/28/2026
 #customer intent: As a user, I want to purchase a reservation or a savings plan for my Azure Extended Zones resources so that I can optimize my cloud spend.
 ---
 
@@ -17,7 +17,7 @@ In this article, you learn how to purchase a reservation or a savings plan for y
 > [!NOTE]
 > Meters must be minted for both reservations and savings plans, so the functionality applies only to versions with live meters supported in the respective Azure extended zone. Most meters should be supported by the end of 2025. If your version isn't supported yet, check back later or contact support for more information.
 
-Reservations for extended zones are currently available for purchase only through the **Recommendations** workflow and work as expected after they're contracted. The **All Products** list workflow isn't currently enabled. After you select the **All Products** list workflow, you might notice that no extended zone is listed under the **Region** filter.
+You can currently purchase reservations for extended zones only through the **Recommendations** workflow. They work as expected after they're contracted. The **All Products** list workflow isn't currently enabled. After you select the **All Products** list workflow, you might notice that no extended zone is listed under the **Region** filter.
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ After reservation purchases are deployed and configured, they appear on the init
 
 ## Purchase a savings plan in the Azure portal
 
-To purchase savings plans for your Azure Extended Zones resources by using the Azure portal, you follow steps that are consistent with similar resources that are deployed in Azure regions. Follow the steps outlined in the section "Buy a savings plan in the Azure portal" found in [Purchase a savings plan - Azure portal](/azure/cost-management-billing/savings-plan/buy-savings-plan).
+To purchase savings plans for your Azure Extended Zones resources by using the Azure portal, follow steps that are consistent with similar resources that are deployed in Azure regions. Follow the steps outlined in the section "Buy a savings plan in the Azure portal" found in [Purchase a savings plan - Azure portal](/azure/cost-management-billing/savings-plan/buy-savings-plan).
 
 ## Related content
 
