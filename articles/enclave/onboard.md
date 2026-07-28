@@ -103,9 +103,9 @@ az provider register --namespace Microsoft.Compute
 1. Under **Settings**, select **Resource providers**.
 1. Register the resource providers listed in [Option 1: PowerShell](#option-1-powershell) in the subscription. The PowerShell script is the fastest option and the authoritative source for the required registrations. These images show the expected end state.
 
-   :::image type="content" source="./media/onboard-providers-1.png" alt-text="First set of resource providers required by Azure Enclave." border="true" lightbox="./media/onboard-providers-1.png":::
+   :::image type="content" source="./media/onboard-providers-1.png" alt-text="Screenshot showing the first set of resource providers required by Azure Enclave." border="true" lightbox="./media/onboard-providers-1.png":::
 
-   :::image type="content" source="./media/onboard-providers-2.png" alt-text="Second set of resource providers required by Azure Enclave." border="true" lightbox="./media/onboard-providers-2.png":::
+   :::image type="content" source="./media/onboard-providers-2.png" alt-text="Screenshot showing the second set of resource providers required by Azure Enclave." border="true" lightbox="./media/onboard-providers-2.png":::
 
 1. Search for and select `Microsoft.Mission`, and then select `Register`.
 
