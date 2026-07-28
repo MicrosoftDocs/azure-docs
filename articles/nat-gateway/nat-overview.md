@@ -7,7 +7,7 @@ description: Overview of Azure NAT Gateway features, resources, architecture, an
 author: alittleton
 ms.service: azure-nat-gateway
 ms.topic: overview
-ms.date: 07/27/2026
+ms.date: 07/28/2026
 ms.author: alittleton
 ms.customs: references_regions
 
@@ -59,6 +59,7 @@ To learn more about how to deploy a StandardV2 NAT gateway, see [Create a Standa
 
   * Canada East
   * Indonesia Central
+  * India South Central
   * Israel Northwest
   * Qatar Central
   * Sweden South

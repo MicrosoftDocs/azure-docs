@@ -7,7 +7,7 @@ ms.author: alittleton
 ms.service: azure-nat-gateway 
 ms.topic: how-to 
 ms.customs: references_regions 
-ms.date: 07/27/2026
+ms.date: 07/28/2026
 
 #customer intent: "As a cloud engineer who uses Azure NAT Gateway, I need guidance on migrating my workloads from the Standard SKU to the StandardV2 SKU so that I can take advantage of zone redundancy with higher throughput." 
 ---
@@ -44,6 +44,7 @@ Before you migrate to a StandardV2 NAT gateway, make sure that your specific sce
 
   * Canada East
   * Indonesia Central
+  * India South Central
   * Israel Northwest
   * Qatar Central
   * Sweden South
