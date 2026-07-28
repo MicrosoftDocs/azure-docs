@@ -467,7 +467,7 @@ az network local-gateway create --gateway-ip-address 5.4.3.2 --name MyLocalGatew
 
 ## Configure on-premises network appliance
 
-The specific steps to configure your on-premises network appliance depend on the network appliance your organization has selected. Consult your device manufacturer's documentation, or use the [Azure VPN Gateway list of tested devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) and their associated configuration guidance.
+The specific steps to configure your on-premises network appliance depend on the network appliance your organization has selected. Consult your device manufacturer's documentation, or use the [Azure VPN Gateway list of tested devices](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices) and their associated configuration guidance. For a general overview of how partner devices are configured, see [Overview of partner VPN device configurations](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-3rdparty-device-config-overview). If your device supports downloadable configuration scripts, see [Download VPN device configuration scripts](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-download-vpndevicescript).
 
 When configuring your network appliance, you'll need the following items:
 
@@ -508,7 +508,7 @@ To complete the deployment of a site-to-site VPN, you must create a connection b
    - **Enable BGP**: Leave unchecked unless your organization specifically requires this setting.
    - **Enable Custom BGP Addresses**: Leave unchecked unless your organization specifically requires this setting.
    - **FastPath**: FastPath is designed to improve the datapath performance between your on-premises network and your virtual network. [Learn more](https://aka.ms/erfastpath).
-   - **IPsec / IKE policy**: The IPsec / IKE policy that will be negotiated for the connection. Leave **Default** selected unless your organization requires a custom policy. [Learn more](../../vpn-gateway/vpn-gateway-about-compliance-crypto.md).
+   - **IPsec / IKE policy**: The IPsec / IKE policy that will be negotiated for the connection. Leave **Default** selected unless your organization requires a custom policy. To learn about default parameter values (IKE version, DH group, encryption algorithms, SA lifetime, and more), see [Default IPsec/IKE parameters](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec). To configure a custom policy, see [Configure custom IPsec/IKE policies](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell). For cryptographic requirements, see [About cryptographic requirements and Azure VPN gateways](https://learn.microsoft.com/azure/vpn-gateway/vpn-gateway-about-compliance-crypto).
    - **Use policy based traffic selector**: Leave disabled unless you need to configure the Azure VPN gateway to connect to a policy-based VPN firewall on premises. If you enable this field, you must make sure your VPN device has the matching traffic selectors defined with all combinations of your on-premises network (local network gateway) prefixes to/from the Azure virtual network prefixes, instead of any-to-any. For example, if your on-premises network prefixes are 10.1.0.0/16 and 10.2.0.0/16, and your virtual network prefixes are 192.168.0.0/16 and 172.16.0.0/16, you would need to specify the following traffic selectors:
      - 10.1.0.0/16 <====> 192.168.0.0/16
      - 10.1.0.0/16 <====> 172.16.0.0/16
@@ -620,7 +620,3 @@ After DNS resolution is confirmed, mount your Azure file share on-premises. See 
 - [Configuring DNS forwarding for Azure Files](storage-files-networking-dns.md)
 - [Configure a Point-to-Site VPN on Windows for use with Azure Files](storage-files-configure-p2s-vpn-windows.md)
 - [Configure a Point-to-Site VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md)
-- [Download VPN device configuration scripts for site-to-site VPN connections](../../vpn-gateway/vpn-gateway-download-vpndevicescript.md)
-- [Overview of partner VPN device configurations](../../vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md)
-- [Default IPsec/IKE parameters for Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec)
-- [Configure custom IPsec/IKE policies for site-to-site VPN connections](../../vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)
