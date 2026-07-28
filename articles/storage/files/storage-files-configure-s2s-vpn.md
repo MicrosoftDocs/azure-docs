@@ -16,23 +16,23 @@ ms.custom: sfi-image-nochange
 
 :heavy_multiplication_x: **Doesn't apply to:** File shares created with the Microsoft.FileShares resource provider
 
-You can use a site-to-site VPN connection to mount your Azure file shares from your on-premises network, without sending data over the open internet. You can set up a site-to-site VPN using [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md), which is an Azure resource offering VPN services. You deploy VPN Gateway in a resource group alongside storage accounts or other Azure resources.
+You can use a site-to-site VPN connection to mount your Azure file shares from your on-premises network, without sending data over the open internet. You can set up a site-to-site VPN using [Azure VPN Gateway](/azure/vpn-gateway/), which is an Azure resource offering VPN services. You deploy VPN Gateway in a resource group alongside storage accounts or other top-level Azure resources.
 
 ![A chart illustrating the topology of an Azure VPN gateway connecting an Azure file share to an on-premises site using a site-to-site VPN](media/storage-files-configure-s2s-vpn/site-to-site-topology.png)
 
 Before continuing, read [Azure Files networking overview](storage-files-networking-overview.md) for a complete discussion of the networking options available for Azure Files.
 
-The article details the steps to configure a site-to-site VPN to mount Azure file shares directly on-premises. If you're looking to route sync traffic for Azure File Sync over a site-to-site VPN, see [configuring Azure File Sync proxy and firewall settings](../file-sync/file-sync-firewall-and-proxy.md).
+The article details the steps to configure a site-to-site VPN to mount Azure file shares directly on-premises. If you want to route sync traffic for Azure File Sync over a site-to-site VPN, see [configure Azure File Sync proxy and firewall settings](../file-sync/file-sync-firewall-and-proxy.md).
 
 ## Prerequisites
 
-- An Azure file share you would like to mount on-premises. Azure file shares are deployed within storage accounts, which are management constructs that represent a shared pool of storage in which you can deploy multiple file shares, as well as other storage resources, such as blobs or queues. You can learn more about how to deploy Azure file shares and storage accounts in [Create an Azure file share](storage-how-to-create-file-share.md).
+- An Azure classic file share you want to mount on-premises. See [Create an Azure classic file share](create-classic-file-share.md).
 
-- A private endpoint for the storage account deployed in the virtual network you'll use for VPN Gateway. A private endpoint assigns the storage account a private IP address from within your virtual network address space, enabling on-premises clients to access Azure Files through the VPN tunnel. To learn how to create a private endpoint, see [Configuring Azure Files network endpoints](storage-files-networking-endpoints.md).
+- A private endpoint for the storage account deployed in the virtual network you'll use for VPN Gateway. A private endpoint assigns the storage account a private IP address from within your virtual network address space, enabling on-premises clients to access Azure Files through the VPN tunnel. To learn how to create a private endpoint, see [Configure Azure Files network endpoints](storage-files-networking-endpoints.md).
 
-- A network appliance or server in your on-premises data center that's compatible with Azure VPN Gateway. Azure Files is agnostic of the on-premises network appliance chosen, but Azure VPN Gateway maintains a [list of tested devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md). Different network appliances offer different features, performance characteristics, and management functionalities, so consider these when selecting a network appliance.
+- A network appliance or server in your on-premises data center that's compatible with Azure VPN Gateway. Azure Files is agnostic of the on-premises network appliance chosen, but Azure VPN Gateway maintains a [list of tested devices](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).
 
-If you don't have an existing network appliance, Windows Server contains a built-in Server Role, Routing and Remote Access (RRAS), which can be used as the on-premises network appliance. To learn more about how to configure Routing and Remote Access in Windows Server, see [RAS Gateway](/windows-server/remote/remote-access/ras-gateway/ras-gateway).
+If you don't have an existing network appliance, Windows Server contains a built-in Server Role called **Routing and Remote Access (RRAS)**, which can be used as the on-premises network appliance. To learn more about how to configure Routing and Remote Access in Windows Server, see [RAS Gateway](/windows-server/remote/remote-access/ras-gateway/ras-gateway).
 
 ## Configure virtual network and network access
 
