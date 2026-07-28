@@ -467,7 +467,7 @@ az network local-gateway create --gateway-ip-address 5.4.3.2 --name MyLocalGatew
 
 ## Configure on-premises network appliance
 
-The specific steps to configure your on-premises network appliance depend on the network appliance your organization has selected.
+The specific steps to configure your on-premises network appliance depend on the network appliance your organization has selected. Consult your device manufacturer's documentation, or use the [Azure VPN Gateway list of tested devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) and their associated configuration guidance.
 
 When configuring your network appliance, you'll need the following items:
 
@@ -477,8 +477,6 @@ When configuring your network appliance, you'll need the following items:
   ```azurepowershell-interactive
   Get-AzPublicIpAddress -Name mypublicip -ResourceGroupName <resource-group>
   ```
-
-[!INCLUDE [Configure VPN device](../../../includes/vpn-gateway-configure-vpn-device-rm-include.md)]
 
 ## Create the site-to-site connection
 
@@ -622,3 +620,7 @@ After DNS resolution is confirmed, mount your Azure file share on-premises. See 
 - [Configuring DNS forwarding for Azure Files](storage-files-networking-dns.md)
 - [Configure a Point-to-Site VPN on Windows for use with Azure Files](storage-files-configure-p2s-vpn-windows.md)
 - [Configure a Point-to-Site VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md)
+- [Download VPN device configuration scripts for site-to-site VPN connections](../../vpn-gateway/vpn-gateway-download-vpndevicescript.md)
+- [Overview of partner VPN device configurations](../../vpn-gateway/vpn-gateway-3rdparty-device-config-overview.md)
+- [Default IPsec/IKE parameters for Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec)
+- [Configure custom IPsec/IKE policies for site-to-site VPN connections](../../vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)
