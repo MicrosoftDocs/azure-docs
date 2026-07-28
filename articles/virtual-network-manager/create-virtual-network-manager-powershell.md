@@ -155,7 +155,7 @@ $vnet_02 | Set-AzVirtualNetwork
 
 ## Create a network group
 
-Virtual Network Manager applies configurations to groups of virtual networks by placing them in network groups. Create a network group by using [New-AzNetworkManagerGroup](/powershell/module/az.network/new-aznetworkmanagergroup). This example creates a network group named *network-group* in the *(US) West US 2* region:
+Virtual Network Manager applies configurations to groups of virtual networks by placing them in network groups. Create a network group for the mesh topology by using [New-AzNetworkManagerGroup](/powershell/module/az.network/new-aznetworkmanagergroup). This example creates a network group named *network-group* in the *(US) West US 2* region:
 
 ```azurepowershell
 $ng = @{
