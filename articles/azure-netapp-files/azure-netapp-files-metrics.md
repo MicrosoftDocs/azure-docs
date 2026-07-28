@@ -27,11 +27,11 @@ Understanding the terminology related to performance and capacity in Azure NetAp
 
 ## Metric collection interval
 
-Unless otherwise specified, Azure NetApp Files metrics represent values over a five-minute average. As a result, reported metric values reflect the average activity during that interval rather than instantaneous values. Short-duration spikes or transient workload behavior may not be fully visible in the reported metrics.
+Unless otherwise specified, Azure NetApp Files metrics represent values over a five-minute average. As a result, reported metric values reflect the average activity during that interval rather than instantaneous values. Short-duration spikes or transient workload behavior might not be fully visible in the reported metrics.
 
 Metrics with collection interval explicitly describe their collection or reporting methodology in the metric definition.
 
-For example: Suppose throughput is sampled repeatedly during a 5-minute interval. During those 5 minutes:
+For example, suppose throughput is sampled repeatedly during a 5-minute interval. During those 5 minutes:
 
    Minute 1: 100 MiB/s 
    
@@ -46,11 +46,11 @@ For example: Suppose throughput is sampled repeatedly during a 5-minute interval
 The metric shown for that interval might be approximately: 
 (100 + 120 + 500 + 110 + 120) / 5 = 190 MiB/s
 
-Instead of showing the instantaneous peak of 500 MiB/s, Azure Monitor would display the aggregated value of about 190 MiB/s for that 5-minute collection interval.
+Instead of showing the instantaneous peak of 500 MiB/s, Azure Monitor displays the aggregated value of about 190 MiB/s for that 5-minute collection interval.
 
-### Why this matters
+### Why does this matter?
 
-If you're troubleshooting Azure NetApp Files performance, a very short spike (e.g., a 30-second burst to maximum throughput) may be diluted by the other 4½ minutes of lower activity. The graph may look relatively smooth even though the workload experienced brief periods of saturation. You should interpret the metric as "average behavior during the 5-minute interval", and not "what happened at a specific second". 
+If you're troubleshooting Azure NetApp Files performance, a very short spike (for example, a 30-second burst to maximum throughput) might be diluted by the other 4½ minutes of lower activity. The graph might look relatively smooth even though the workload experienced brief periods of saturation. Interpret the metric as "average behavior during the 5-minute interval", and not "what happened at a specific second".
 
 ## About storage performance operation metrics 
 
