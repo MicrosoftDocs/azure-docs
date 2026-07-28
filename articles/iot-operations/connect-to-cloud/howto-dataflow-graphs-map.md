@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/23/2026
+ms.date: 07/24/2026
 ai-usage: ai-assisted
 
 ---
@@ -16,6 +16,8 @@ ai-usage: ai-assisted
 A map transform takes each incoming message and produces an output message based on your rules. You can rename fields, reorganize them into new structures, compute derived values, or remove unwanted fields. Wildcard rules let you copy all fields at once.
 
 For an overview of data flow graphs and how transforms compose in a pipeline, see [Data flow graphs overview](concept-dataflow-graphs.md).
+
+[!INCLUDE [dataflow-graphs-expressions-intro](../includes/dataflow-graphs-expressions-intro.md)]
 
 ## Prerequisites
 
@@ -33,7 +35,7 @@ Each map rule has four parts:
 | `expression` | No | Formula applied to the input values. If omitted, the first input value is copied directly. |
 | `description` | No | Human-readable label for the rule, included in error messages. |
 
-Inputs are assigned positional variables based on their order: the first input is `$1`, the second is `$2`, and so on. Use these variables in the `expression`.
+Inputs are assigned positional variables in order. For example, if `inputs` is `['Position', 'Office']`, then `$1` is the value of `Position` and `$2` is the value of `Office`.
 
 ## Rename a field
 
@@ -225,7 +227,9 @@ Given `Position: "Analyst"` and `Office: "Kent, WA"`, the output is `"Analyst, K
 
 ## Transform values with expressions
 
-Use the `expression` field to apply built-in functions or arithmetic.
+Use the `expression` field to apply built-in functions or arithmetic. The following example uses `cToF`, a built-in unit conversion function that converts a Celsius value to Fahrenheit. Remember that `$1` refers to the first input, not to a field name.
+
+For the complete list of operators, functions, and advanced features, see the [Expressions reference](concept-dataflow-graphs-expressions.md). Functions are grouped by category, such as [unit conversion](concept-dataflow-graphs-expressions.md#unit-conversion-functions), [scaling and rounding](concept-dataflow-graphs-expressions.md#scaling-and-rounding-functions), [math](concept-dataflow-graphs-expressions.md#math-functions), and [string](concept-dataflow-graphs-expressions.md#string-functions) functions.
 
 # [Operations experience](#tab/portal)
 
@@ -306,8 +310,6 @@ To scale a sensor reading:
 ```
 
 ---
-
-For the complete list of operators, functions, and advanced features, see [Expressions reference](concept-dataflow-graphs-expressions.md).
 
 ## Copy all fields with wildcards
 
@@ -648,7 +650,9 @@ This rule uses the current value when present, falls back to the last known valu
 
 ## Enrich with external data
 
-You can augment messages with data from an external state store by configuring datasets. For example, look up a device's metadata by its ID and include it in the output. For details, see [Enrich with external data](howto-dataflow-graphs-enrich.md).
+Enrichment is optional. You only need it if you want to combine incoming messages with reference data that's stored in the state store, such as a lookup table of device metadata. If your messages already contain everything you need, skip this section.
+
+When you need enrichment, configure a *contextualization dataset* that the runtime looks up during processing. For example, look up a device's metadata by its ID and include it in the output. For details, see [Enrich with external data](howto-dataflow-graphs-enrich.md).
 
 ## Data flow graph exclusive features
 

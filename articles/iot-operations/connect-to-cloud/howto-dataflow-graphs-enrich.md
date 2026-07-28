@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/23/2026
+ms.date: 07/24/2026
 ai-usage: ai-assisted
 
 ---
@@ -16,6 +16,10 @@ ai-usage: ai-assisted
 Sometimes the incoming message doesn't contain everything you need. A temperature reading might arrive with a device ID, but the display name, location, and calibration offset live in a separate lookup table. Enrichment lets you pull that external data into your transform rules.
 
 For an overview of data flow graphs, see [Data flow graphs overview](concept-dataflow-graphs.md).
+
+[!INCLUDE [dataflow-graphs-expressions-intro](../includes/dataflow-graphs-expressions-intro.md)]
+
+Enrichment is optional, and it's a separate feature from the datasets you might define on an asset. In data flow graphs, a *dataset* always means a contextualization dataset that's read from the [state store](../develop-edge-apps/overview-state-store.md). If your messages already contain the fields you need, you don't need to configure datasets at all.
 
 ## Prerequisites
 

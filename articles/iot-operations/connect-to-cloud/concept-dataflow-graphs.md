@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 06/19/2026
+ms.date: 07/24/2026
 ai-usage: ai-assisted
 
 ---
@@ -41,6 +41,9 @@ Each transform is a pre-built processing step that you configure with rules and 
 [!INCLUDE [dataflow-graphs-built-in-transforms](../includes/dataflow-graphs-built-in-transforms.md)]
 
 All transforms share an [expression language](concept-dataflow-graphs-expressions.md) for operators, functions, and field references. You can also [enrich](howto-dataflow-graphs-enrich.md) messages with external data from a state store in map, filter, and branch transforms.
+
+> [!TIP]
+> Expressions use positional variables, so `$1` is the first input, `$2` is the second, and so on. Built-in functions like `cToF` are listed in the [Expressions reference](concept-dataflow-graphs-expressions.md), which covers every operator, function, and metadata field available to transforms.
 
 ## How transforms compose
 

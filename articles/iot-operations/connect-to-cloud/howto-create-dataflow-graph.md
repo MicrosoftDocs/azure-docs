@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/23/2026
+ms.date: 07/24/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to create a data flow graph to process data with transforms like map, filter, and window.
@@ -17,6 +17,8 @@ ai-usage: ai-assisted
 A data flow graph is a composable processing pipeline that transforms data as it moves between sources and destinations. A standard [data flow](howto-create-dataflow.md) follows a fixed enrich, filter, map sequence. A data flow graph lets you chain transforms in any order, branch into parallel paths, and aggregate data over time windows.
 
 This article walks through creating a data flow graph step by step. For an overview of data flow graphs and the available transforms, see [Data flow graphs overview](concept-dataflow-graphs.md).
+
+[!INCLUDE [dataflow-graphs-expressions-intro](../includes/dataflow-graphs-expressions-intro.md)]
 
 > [!IMPORTANT]
 > Data flow graphs currently support only MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).

@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/23/2026
+ms.date: 07/24/2026
 ai-usage: ai-assisted
 
 ---
@@ -17,6 +17,8 @@ Data flow graphs provide two ways to control which messages flow through your pi
 
 For an overview of data flow graphs and how transforms compose in a pipeline, see [Data flow graphs overview](concept-dataflow-graphs.md).
 
+[!INCLUDE [dataflow-graphs-expressions-intro](../includes/dataflow-graphs-expressions-intro.md)]
+
 ## Prerequisites
 
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
@@ -26,6 +28,11 @@ For an overview of data flow graphs and how transforms compose in a pipeline, se
 
 A filter transform evaluates each incoming message against one or more rules and decides whether the message continues through the pipeline or gets dropped.
 
+> [!IMPORTANT]
+> A filter expression selects the messages to **remove**, not the ones to keep. When the expression is true, the message is dropped. This behavior is the opposite of a map expression, which computes a value that's kept.
+>
+> To keep the messages that match a condition, invert the expression. For example, to keep only readings above 90, filter on `$1 <= 90`.
+
 ### How filter rules work
 
 Each filter rule has these properties:
@@ -33,7 +40,7 @@ Each filter rule has these properties:
 | Property | Required | Description |
 |----------|----------|-------------|
 | `inputs` | Yes | List of field paths to read from the incoming message. |
-| `expression` | Yes | Formula applied to the input values. Must return a boolean. |
+| `expression` | Yes | Formula applied to the input values. Must return a boolean. When it returns true, the message is dropped. |
 | `description` | No | Human-readable label used in error messages. |
 
 Inputs are assigned positional variables based on their order: the first input is `$1`, the second is `$2`, and so on.
@@ -43,6 +50,7 @@ When you define multiple rules, they use **OR logic**: if *any* rule evaluates t
 Key constraints:
 
 - **Expression is required.** Every filter rule must include an `expression`.
+- **`filter` takes an array.** Provide rules as a JSON array, `"filter": [ { ... } ]`, even for a single rule. Passing a bare object fails to load the transform, and the resulting error points at the artifact and registry rather than the rules payload. This constraint differs from `branch`, which takes a single object.
 - **No wildcard inputs.** Each input must reference a specific field path.
 - **Missing fields cause errors.** If a field referenced in `inputs` doesn't exist, the filter returns an error rather than silently passing the message.
 - **Non-boolean results cause errors.** If an expression returns a non-boolean value (such as a string or number), the filter returns an error.
@@ -99,6 +107,68 @@ filter: [
 ---
 
 Messages where the temperature is 100 or less pass through. Messages above 100 are dropped.
+
+### Keep messages by condition
+
+Often, you want the opposite result: keep only the messages that match a condition. Because a filter expression selects what to remove, invert the comparison.
+
+To keep only readings above 90, drop everything at or below 90:
+
+# [Operations experience](#tab/portal)
+
+In the filter transform configuration, add a rule:
+
+| Setting | Value |
+|---------|-------|
+| **Input** | `temperature` |
+| **Expression** | `$1 <= 90` |
+| **Description** | `Drop readings at or below 90` |
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply):
+
+```json
+"filter": [
+  {
+    "inputs": [
+      "temperature"
+    ],
+    "expression": "$1 <= 90",
+    "description": "Drop readings at or below 90"
+  }
+]
+```
+
+# [Bicep](#tab/bicep)
+
+```bicep
+filter: [
+  {
+    inputs: [ 'temperature' ]
+    expression: '$1 <= 90'
+    description: 'Drop readings at or below 90'
+  }
+]
+```
+
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
+```yaml
+- inputs:
+    - temperature     # $1
+  expression: "$1 <= 90"
+  description: "Drop readings at or below 90"
+```
+
+---
+
+Only messages with values above 90 continue through the pipeline. Writing `$1 > 90` here would do the opposite of what you want: it would drop every reading above 90 and keep the cooler ones.
+
+> [!TIP]
+> Use the `description` field to record the rule's intent in terms of what it drops. A description like `Drop readings at or below 90` stays accurate, while `Keep hot readings` invites the inverted-expression mistake and shows up in error messages that then read backwards.
 
 ### Use multiple conditions
 

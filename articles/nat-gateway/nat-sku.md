@@ -1,7 +1,7 @@
 ---
 title: Azure NAT Gateway SKUs
 description: Overview of available Azure NAT Gateway SKUs and their differences.
-ms.date: 07/27/2026
+ms.date: 07/28/2026
 ms.topic: overview
 ms.service: azure-nat-gateway
 author: alittleton
@@ -85,7 +85,8 @@ NAT64 is a translation feature available exclusively on StandardV2 NAT gateways.
 * The following regions don't support StandardV2 NAT gateways:
 
   * Canada East   
-  * Indonesia Central  
+  * Indonesia Central 
+  * India South Central 
   * Israel Northwest   
   * Qatar Central
   * Sweden South

@@ -289,15 +289,15 @@ items:
               - name: Schemas
                 href: connect-to-cloud/concept-dataflow-graphs-schema.md
                 displayName: data flow, graph, schema, nodeConnections, serialization
+              - name: Expressions reference
+                href: connect-to-cloud/concept-dataflow-graphs-expressions.md
+                displayName: data flow, expression, function, operator, metadata, variable, conversion, cToF, positional
           - name: Destination
             href: connect-to-cloud/howto-configure-dataflow-destination.md
             displayName: data flow, MQTT, Kafka, topic, container, table, dynamic
           - name: Buffering and disk persistence
             href: connect-to-cloud/howto-configure-disk-persistence.md
             displayName: data flow, destination outage, restart, state, MQTT broker
-          - name: Expressions reference
-            href: connect-to-cloud/concept-dataflow-graphs-expressions.md
-            displayName: data flow, expression, function, operator, metadata, variable, conversion
           - name: Profiles
             href: connect-to-cloud/howto-configure-dataflow-profile.md
             displayName: data flow, scale, scaling

@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/23/2026
+ms.date: 07/24/2026
 ai-usage: ai-assisted
 
 ---
@@ -14,6 +14,10 @@ ai-usage: ai-assisted
 # Aggregate data over time in data flow graphs
 
 A window transform collects messages over a fixed time interval and produces a single output message with aggregated values. Instead of forwarding every reading individually, you can compute statistics like averages, minimums, or counts and send one consolidated result downstream.
+
+[!INCLUDE [dataflow-graphs-expressions-intro](../includes/dataflow-graphs-expressions-intro.md)]
+
+Window transforms add aggregation functions such as `average`, `min`, and `max`, which are available only in accumulation rules. For the full list, see [Aggregation functions](concept-dataflow-graphs-expressions.md#aggregation-functions-window-transforms-only).
 
 <!-- For an overview of data flow graphs and how transforms compose in a pipeline, see [Data flow graphs overview](concept-dataflow-graphs.md). -->
 

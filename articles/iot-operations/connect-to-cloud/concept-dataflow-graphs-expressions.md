@@ -1,17 +1,17 @@
 ---
-title: Expressions reference for data flows
-description: Reference for the expression language used in data flow and data flow graph transforms in Azure IoT Operations. Covers operators, functions, data types, metadata, and conditionals.
+title: Expressions reference for data flows and data flow graphs
+description: Expression language reference for Azure IoT Operations data flows and data flow graphs. Includes positional variables ($1, $2), functions like cToF, operators.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: reference
-ms.date: 06/23/2026
+ms.date: 07/24/2026
 ai-usage: ai-assisted
 
 ---
 
-# Expressions reference for data flows
+# Expressions reference for data flows and data flow graphs
 
 This reference applies to both [data flows](overview-dataflow.md) and [data flow graphs](concept-dataflow-graphs.md). Both use the same expression language for map, filter, and enrichment transforms. Data flow graphs also support branch and window (accumulate) transforms, which are noted where applicable.
 
@@ -290,6 +290,15 @@ JSON objects and arrays are preserved as-is when fields are copied without an ex
 
 ## Feature support by transform type
 
+The same expression language works across transforms, but the *result* of an expression means something different in each one:
+
+| Transform | What the expression result does |
+|-----------|--------------------------------|
+| Map | Produces the value written to `output` |
+| Filter | When true, the message is **dropped**. To keep matching messages, invert the expression. |
+| Branch | Routes the message to the `true` or `false` path. Nothing is dropped. |
+| Window (accumulate) | Produces the aggregated value for the window |
+
 | Feature | Map | Filter | Branch | Window (accumulate) |
 |---------|-----|--------|--------|---------------------|
 | Positional variables | Yes | Yes | Yes | Yes |
@@ -477,9 +486,15 @@ For details on configuring contextualization datasets, see [Enrich data by using
 
 ## Related content
 
-- [Map data by using data flows](concept-dataflow-mapping.md)
-- [Filter data in a data flow](howto-dataflow-filter.md)
-- [Transform data with map in data flow graphs](howto-dataflow-graphs-map.md)
-- [Filter and route data in data flow graphs](howto-dataflow-graphs-filter-route.md)
-- [Aggregate data over time](howto-dataflow-graphs-window.md)
-- [Enrich with external data](howto-dataflow-graphs-enrich.md)
+If you arrived here looking for the syntax used in a specific transform, these articles show expressions in context:
+
+| To do this | See |
+|------------|-----|
+| Rename, restructure, or compute fields, including unit conversions like `cToF` | [Transform data with map in data flow graphs](howto-dataflow-graphs-map.md) |
+| Drop messages or route them down different paths with a condition | [Filter and route data in data flow graphs](howto-dataflow-graphs-filter-route.md) |
+| Compute averages, sums, or counts over a time window | [Aggregate data over time](howto-dataflow-graphs-window.md) |
+| Look up reference data from the state store | [Enrich with external data](howto-dataflow-graphs-enrich.md) |
+| Set the output MQTT topic from message content | [Route messages to different topics](howto-dataflow-graphs-topic-routing.md) |
+| Build the pipeline that contains these transforms | [Process data with data flow graphs](howto-create-dataflow-graph.md) |
+
+For data flows, see [Map data by using data flows](concept-dataflow-mapping.md) and [Filter data in a data flow](howto-dataflow-filter.md).
