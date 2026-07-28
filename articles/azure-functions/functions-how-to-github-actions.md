@@ -70,7 +70,7 @@ If you don't want to create your YAML file by hand, select a different method at
 
     + A working function app hosted on Azure. When using publish profile authentication, this function app must have [basic authentication enabled on the `scm` endpoint](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments). Basic authentication isn't required when using OIDC.
 
-    + An existing container registry, such as [Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md), a private container registry hosted in Azure. Examples in this article feature Azure Container Registry.   
+    + An existing container registry, such as [Azure Container Registry](/azure/container-registry/container-registry-get-started-azure-cli), a private container registry hosted in Azure. Examples in this article feature Azure Container Registry.   
 ::: zone pivot="method-cli,method-manual,method-template"
 + [Azure CLI](/cli/azure/install-azure-cli), when developing locally. You can also use the Azure CLI in Azure Cloud Shell.
 ::: zone-end
@@ -153,14 +153,12 @@ OpenID Connect (OIDC) is the recommended authentication method for GitHub Action
     ```
 
     Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<REGISTRY_NAME>` with your values.
- 
-### [Docker credentials](#tab/docker-credentials)
+
+### Docker credentials
 
 You need to use registry-specific credentials when deploying a container from a private container registry. The way you obtain this credential depends on the container registry. For more information, see [Docker Login Action](https://github.com/marketplace/actions/docker-login#usage).
 
 For Azure Container Registry (ACR), you can use the same service principal credentials you use to deploy to Azure.
-
----
 
 ## Add credentials to GitHub secrets
 
