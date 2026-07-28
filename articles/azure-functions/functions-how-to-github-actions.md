@@ -16,7 +16,7 @@ You can use a [GitHub Actions workflow](https://docs.github.com/actions/learn-gi
 | Code-only | `Azure/functions-action` | 1. Set up the environment.<br/>2. Build the code project.<br/>3. Deploy the package to a function app in Azure. |
 | Container | `Azure/functions-container-action` | 1. Set up the environment.<br/>2. Build the Docker container.<br/>3. Push the image to the container registry.<br/>4. Deploy the container to Azure. |
 
-To deploy using GitHub Actions, you complete these three key steps:
+To deploy by using GitHub Actions, complete these three key steps:
 
 1. [Create a user-assigned managed identity](#create-a-managed-identity-for-github-actions-deployment) in Azure with a federated credential that trusts your GitHub repository, and assign it the Website Contributor role on your function app.
 1. Add the identity's client ID, tenant ID, and subscription ID as [repository variables](https://docs.github.com/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables) in GitHub.
@@ -24,9 +24,9 @@ To deploy using GitHub Actions, you complete these three key steps:
 
 ## Authentication overview
 
-GitHub Actions authenticates with Azure to deploy your code. The recommended method is OpenID Connect (OIDC), which uses workload identity federation with a user-assigned managed identity. With OIDC, no secrets are stored in GitHub — only non-sensitive configuration values (client ID, tenant ID, subscription ID) are stored as repository variables. The workflow requests a short-lived token from GitHub's OIDC provider, which Azure validates against the federated credential you configured.
+GitHub Actions authenticates with Azure to deploy your code. The recommended method is OpenID Connect (OIDC), which uses workload identity federation with a user-assigned managed identity. By using OIDC, you don't store any secrets in GitHub. Instead, store only non-sensitive configuration values, such as the client ID, tenant ID, and subscription ID, as repository variables. The workflow requests a short-lived token from GitHub's OIDC provider, which Azure validates against the federated credential you configured.
 
-Other supported methods (service principal secret and publish profile) require storing sensitive credentials in GitHub and are not recommended for new deployments. The following inline example shows the core OIDC authentication and deployment pattern used in all workflow templates:
+Other supported methods, such as service principal secret and publish profile, require storing sensitive credentials in GitHub and aren't recommended for new deployments. The following inline example shows the core OIDC authentication and deployment pattern used in all workflow templates:
 
 ```yml
 permissions:
@@ -48,9 +48,9 @@ steps:
       package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
 ```
 
-A YAML file (.yml) that defines the workflow configuration is maintained in the `/.github/workflows/` path in your repository. This definition contains the actions and parameters that make up the workflow, which is specific to the development language of your functions. 
+You maintain a YAML file (.yml) that defines the workflow configuration in the `/.github/workflows/` path in your repository. This definition contains the actions and parameters that make up the workflow, which is specific to the development language of your functions. 
 
-You can create a workflow configuration file for your deployment manually. You can also generate the file from a set of language-specific templates in one of these ways:  
+You can create a workflow configuration file for your deployment manually. You can also generate the file from a set of language-specific templates by using one of these methods:  
 
 + In the Azure portal
 + Using the Azure CLI
@@ -78,9 +78,9 @@ If you don't want to create your YAML file by hand, select a different method at
 
 ## <a name="generate-deployment-credentials"></a>Choose deployment credentials
 
-Since GitHub Actions requires credentials to be able to access Azure resources, you first need to get the credentials you need from Azure and store them securely in your repository as [GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets). 
+Since GitHub Actions requires credentials to access Azure resources, first get the credentials you need from Azure and store them securely in your repository as [GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets). 
 
-There are several supported authentication credentials you can use when deploying your code to Azure using GitHub Actions:
+Several supported authentication credentials are available when deploying your code to Azure by using GitHub Actions:
 
 | Credential | Status | Set in... | Deployment type | Usage |
 | ---- | ---- | ---- | --- | --- |
@@ -96,7 +96,7 @@ Authentication considerations:
 + With OIDC, the managed identity's client ID, tenant ID, and subscription ID are stored as GitHub repository **variables** (not secrets), since these values aren't sensitive.
 + Publish profile authentication requires [basic authentication to be enabled](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments) on your function app's `scm` endpoint, which is a security concern.
 + Service principal authentication requires you to manage and manually rotate the client secret stored in GitHub.
-+ You use Azure role-based access control (Azure RBAC) to limit access only to the Azure resources required for your deployment.
++ Use Azure role-based access control (Azure RBAC) to limit access only to the Azure resources required for your deployment.
 + Unless otherwise noted, this article shows you how to configure a workflow that uses OIDC authentication.
 + When using the `Azure/functions-container-action` with a container registry other than Azure Container Registry, you also need to store those access credentials in your GitHub Actions secrets.
 
@@ -156,9 +156,9 @@ OpenID Connect (OIDC) is the recommended authentication method for GitHub Action
  
 ### [Docker credentials](#tab/docker-credentials)
 
-You need to use registry-specific credentials when deploying a container from a private container registry. The way that you obtain this credential depends on the container registry. For more information, see [Docker Login Action](https://github.com/marketplace/actions/docker-login#usage).
+You need to use registry-specific credentials when deploying a container from a private container registry. The way you obtain this credential depends on the container registry. For more information, see [Docker Login Action](https://github.com/marketplace/actions/docker-login#usage).
 
-For Azure Container Registry (ACR), you can instead use the same service principal credentials you use to deploy to Azure.
+For Azure Container Registry (ACR), you can use the same service principal credentials you use to deploy to Azure.
 
 ---
 
@@ -215,7 +215,7 @@ The best way to manually create a workflow configuration is to start from the of
     
     ---
 
-1. Copy the language-specific template from the Azure Functions actions repository using the following link. These templates use the recommended OIDC authentication:
+1. Copy the language-specific template from the Azure Functions actions repository by using the following link. These templates use the recommended OIDC authentication:
 
     ### [.NET](#tab/dotnet/windows)
     
@@ -266,16 +266,16 @@ The best way to manually create a workflow configuration is to start from the of
     <https://github.com/Azure/actions-workflow-samples/blob/master/FunctionApp/linux-container-functionapp-on-azure.yml> 
 
     > [!IMPORTANT]
-    > For function apps hosted natively on Azure Container Apps, use the Container Apps deployment methods instead. See [Deploy to Azure Container Apps with GitHub Actions](/azure/container-apps/github-actions).
+    > For new container-based function app deployments, use the native Azure Container Apps hosting model. See [Deploy to Azure Container Apps with GitHub Actions](/azure/container-apps/github-actions). The `Azure/functions-container-action` shown here deploys container images to existing function app resources in Azure.
 
-    Remember to do the following before you use this YAML file:
+    Before you use this YAML file, complete the following steps:
     
     + Update the values of `REGISTRY`, `NAMESPACE`, `IMAGE`, and `TAG` based on your container registry. 
     + Update the container repository credentials in the `docker/login-action` action.
     
     --- 
 
-1. Update the `env.AZURE_FUNCTIONAPP_NAME` parameter with the name of your function app resource in Azure. You may optionally need to update the parameter that sets the language version used by your app, such as `DOTNET_VERSION` for C#.
+1. Update the `env.AZURE_FUNCTIONAPP_NAME` parameter with the name of your function app resource in Azure. You might also need to update the parameter that sets the language version used by your app, such as `DOTNET_VERSION` for C#.
 
 1. The OIDC templates already include the `azure/login` step with OIDC authentication. Verify that the `vars.AZURE_CLIENT_ID`, `vars.AZURE_TENANT_ID`, and `vars.AZURE_SUBSCRIPTION_ID` references match the [repository variables you created](#create-a-managed-identity-for-github-actions-deployment).
 
@@ -318,10 +318,10 @@ You can get started quickly with GitHub Actions through the Deployment tab when 
 
 ## Add workflow configuration to your repository
 
-You can use the [`az functionapp deployment github-actions add`](/cli/azure/functionapp/deployment/github-actions) command to generate a workflow configuration file from the correct template for your function app. The new YAML file is then stored in the correct location (`/.github/workflows/`) in the GitHub repository you provide, while the publish profile file for your app is added to GitHub secrets in the same repository.
+Use the [`az functionapp deployment github-actions add`](/cli/azure/functionapp/deployment/github-actions) command to generate a workflow configuration file from the correct template for your function app. The new YAML file is stored in the correct location (`/.github/workflows/`) in the GitHub repository you provide. The command also adds the publish profile file for your app to GitHub secrets in the same repository.
 
 > [!NOTE]
-> This command currently configures publish profile authentication, which is not the recommended approach. For the recommended OIDC authentication, use the [manual workflow setup method](#create-the-workflow-from-a-template) instead.
+> This command currently configures publish profile authentication, which isn't the recommended approach. For the recommended OIDC authentication, use the [manual workflow setup method](#create-the-workflow-from-a-template) instead.
 
 1. Run this `az functionapp` command, replacing the values `githubUser/githubRepo`, `MyResourceGroup`, and `MyFunctionapp`:
 
@@ -331,13 +331,13 @@ You can use the [`az functionapp deployment github-actions add`](/cli/azure/func
 
     This command uses an interactive method to retrieve a personal access token for your GitHub account.
 
-1. In your terminal window, you should see something like the following message:
+1. In your terminal window, you see a message similar to the following example:
 
     ```output
     Please navigate to https://github.com/login/device and enter the user code XXXX-XXXX to activate and retrieve your GitHub personal access token.
     ```  
 
-1. Copy the unique `XXXX-XXXX` code, browse to <https://github.com/login/device>, and enter the code you copied. After entering your code, you should see something like the following message:
+1. Copy the unique `XXXX-XXXX` code, browse to <https://github.com/login/device>, and enter the code you copied. After entering your code, you see a message similar to the following example:
 
     ```output
     Verified GitHub repo and branch
@@ -367,9 +367,9 @@ You can create the GitHub Actions workflow configuration file from the Azure Fun
 
 1. In the displayed functions app workflows authored by Microsoft Azure, find the one that matches your code language and select **Configure**.
 
-1. In the newly created YAML file, update the `env.AZURE_FUNCTIONAPP_NAME` parameter with the name of your function app resource in Azure. You may optionally need to update the parameter that sets the language version used by your app, such as `DOTNET_VERSION` for C#.  
+1. In the newly created YAML file, update the `env.AZURE_FUNCTIONAPP_NAME` parameter with the name of your function app resource in Azure. You might also need to update the parameter that sets the language version used by your app, such as `DOTNET_VERSION` for C#.  
 
-1. The default templates might use publish profile authentication, which aren't recommended because they use shared secret keys. To use the recommended OIDC authentication instead, replace the `publish-profile` parameter in `azure/functions-action` with an `azure/login` step:
+1. The default templates might use publish profile authentication, which isn't recommended because it uses shared secret keys. To use the recommended OIDC authentication instead, replace the `publish-profile` parameter in `azure/functions-action` with an `azure/login` step:
 
     ```yml
     - name: 'Login via OIDC'
@@ -382,12 +382,12 @@ You can create the GitHub Actions workflow configuration file from the Azure Fun
 
     You also need to add `id-token: write` and `contents: read` permissions to the job. For the complete OIDC setup, see [Create a managed identity for GitHub Actions deployment](#create-a-managed-identity-for-github-actions-deployment).
 
-1. Verify that the new workflow file is being saved in `/.github/workflows/` and select **Commit changes...**.  
+1. Verify that the new workflow file is saved in `/.github/workflows/` and select **Commit changes**.  
 ::: zone-end
 
 ## Update a workflow configuration
 
-If for some reason you need to update or change an existing workflow configuration, just navigate to the `/.github/workflows/` location in your repository, open the specific YAML file, make any needed changes, and then commit the updates to the repository.
+To update or change an existing workflow configuration, go to the `/.github/workflows/` location in your repository. Open the specific YAML file, make any needed changes, and then commit the updates to the repository.
 
 ## Example: workflow configuration file
 
@@ -450,7 +450,7 @@ Container deployments aren't supported on Windows. Choose Linux instead.
 ### [Container](#tab/container/linux)
 
 > [!IMPORTANT]
-> The `Azure/functions-container-action` deploys containers to function apps on Premium and Dedicated plans. For function apps hosted natively on Azure Container Apps, see [Deploy to Azure Container Apps with GitHub Actions](/azure/container-apps/github-actions).
+> For new container-based function app deployments, use the native Azure Container Apps hosting model. See [Deploy to Azure Container Apps with GitHub Actions](/azure/container-apps/github-actions). The `Azure/functions-container-action` shown here deploys container images to existing function app resources in Azure.
 
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-container-functionapp-on-azure.yml" range="9-57":::   
 
@@ -462,41 +462,41 @@ The Azure Functions action (`Azure/functions-action`) defines how your code is p
 
 ### Parameters
 
-The following parameters are required for all function app plans:
+All function app plans require the following parameters:
 
-|Parameter |Explanation  |
-|--------- | --------- |
-|_**app-name**_ | The name of your function app. |
-|***package*** | This is the location in your project to be published. By default, this value is set to `.`, which means all files and folders in the GitHub repository will be deployed.|
+| Parameter | Explanation |
+| --------- | --------- |
+| ***app-name*** | The name of your function app. |
+| ***package*** | The location in your project to publish. By default, this value is set to `.`, which means all files and folders in the GitHub repository are deployed. |
 
-The following parameters are required for the Flex Consumption plan:
+The Flex Consumption plan requires the following parameters:
 
-|Parameter |Explanation  |
-|---------|---------|
-|_**sku**_ | Set this to `flexconsumption` when authenticating with publish-profile. When using RBAC credentials or deploying to a non-Flex Consumption plan, the Action can resolve the value, so the parameter doesn't need to be included. |
-|_**remote-build**_ | Set this to `true` to enable a build action from Kudu when the package is deployed to a Flex Consumption app. Oryx build is always performed during a remote build in Flex Consumption; don't set **scm-do-build-during-deployment** or **enable-oryx-build**. By default, this parameter is set to `false`. |
+| Parameter | Explanation |
+| --------- | --------- |
+| ***sku*** | Set this parameter to `flexconsumption` when authenticating with publish-profile. When using RBAC credentials or deploying to a non-Flex Consumption plan, the Action can resolve the value, so you don't need to include this parameter. |
+| ***remote-build*** | Set this parameter to `true` to enable a build action from Kudu when the package is deployed to a Flex Consumption app. Oryx build is always performed during a remote build in Flex Consumption; don't set **scm-do-build-during-deployment** or **enable-oryx-build**. By default, this parameter is set to `false`. |
 
 The following parameters are specific to the Consumption, Elastic Premium, and App Service (Dedicated) plans:
 
-|Parameter |Explanation  |
-|--------- |--------- |
-|_**scm-do-build-during-deployment**_ | (Optional) Allow the Kudu site (for example, `https://<APP_NAME>.scm.azurewebsites.net/`) to perform pre-deployment operations, such as [remote builds](functions-deployment-technologies.md#remote-build). By default, this is set to `false`. Set this to `true` when you do want to control deployment behaviors using Kudu instead of resolving dependencies in your GitHub workflow. For more information, see the [`SCM_DO_BUILD_DURING_DEPLOYMENT`](./functions-app-settings.md#scm_do_build_during_deployment) setting.|
-|_**enable-oryx-build**_ | (Optional) Allow Kudu site to resolve your project dependencies with Oryx. By default, this is set to `false`. If you want to use [Oryx](https://github.com/Microsoft/Oryx) to resolve your dependencies instead of the GitHub Workflow, set both **scm-do-build-during-deployment** and **enable-oryx-build** to `true`.|
-
-Optional parameters for all function app plans:
-
-|Parameter | Explanation |
+| Parameter | Explanation |
 | --------- | --------- |
-| ***slot-name*** | This is the [deployment slot](functions-deployment-slots.md) name to be deployed to. By default, this value is empty, which means the GitHub Action will deploy to your production site. When this setting points to a non-production slot, ensure the **publish-profile** parameter contains the credentials for the slot instead of the production site. _Currently not supported in Flex Consumption_. |
-|***publish-profile*** | The name of the GitHub secret that contains your publish profile.|
-| _**respect-pom-xml**_ | Used only for Java functions. Whether it's required for your app's deployment artifact to be derived from the pom.xml file. When deploying Java function apps, you should set this parameter to `true` and set `package` to `.`. By default, this parameter is set to `false`, which means that the `package` parameter must point to your app's artifact location, such as `./target/azure-functions/` |
-| _**respect-funcignore**_ | Whether GitHub Actions honors your .funcignore file to exclude files and folders defined in it. Set this value to `true` when your repository has a .funcignore file and you want to use it exclude paths and files, such as text editor configurations, .vscode/, or a Python virtual environment (.venv/). The default setting is `false`. |
+| ***scm-do-build-during-deployment*** | (Optional) Allow the Kudu site (for example, `https://<APP_NAME>.scm.azurewebsites.net/`) to perform pre-deployment operations, such as [remote builds](functions-deployment-technologies.md#remote-build). By default, this value is `false`. Set this value to `true` when you want to control deployment behaviors by using Kudu instead of resolving dependencies in your GitHub workflow. For more information, see the [`SCM_DO_BUILD_DURING_DEPLOYMENT`](./functions-app-settings.md#scm_do_build_during_deployment) setting.|
+| ***enable-oryx-build*** | (Optional) Allow Kudu site to resolve your project dependencies by using Oryx. By default, this value is `false`. If you want to use [Oryx](https://github.com/Microsoft/Oryx) to resolve your dependencies instead of the GitHub Workflow, set both **scm-do-build-during-deployment** and **enable-oryx-build** to `true`. |
+
+All function app plans accept the following optional parameters:
+
+| Parameter | Explanation |
+| --------- | --------- |
+| ***slot-name*** | The [deployment slot](functions-deployment-slots.md) name to deploy to. By default, this value is empty, which means the GitHub Action deploys to your production site. When this setting points to a non-production slot, ensure the **publish-profile** parameter contains the credentials for the slot instead of the production site. _Currently not supported in Flex Consumption_. |
+| ***publish-profile*** | The name of the GitHub secret that contains your publish profile.|
+| ***respect-pom-xml*** | Used only for Java functions. Whether it's required for your app's deployment artifact to be derived from the pom.xml file. When deploying Java function apps, set this parameter to `true` and set `package` to `.`. By default, this parameter is set to `false`, which means that the `package` parameter must point to your app's artifact location, such as `./target/azure-functions/` |
+| ***respect-funcignore*** | Whether GitHub Actions honors your .funcignore file to exclude files and folders defined in it. Set this value to `true` when your repository has a .funcignore file and you want to use it to exclude paths and files, such as text editor configurations, .vscode/, or a Python virtual environment (.venv/). The default setting is `false`. |
 
 ### Considerations
 
 Keep the following considerations in mind when using the Azure Functions action:
 
-+ When using GitHub Actions, the way that your code is deployed depends on your hosting plan, as shown in this table:
++ When using GitHub Actions, the way that your code is deployed depends on your hosting plan, as shown in the following table:
 
     | Hosting plan | Deployment method |
     | ---- | ----- |
@@ -507,9 +507,9 @@ Keep the following considerations in mind when using the Azure Functions action:
 
     \* The ability to run your apps on Linux in a Consumption plan is planned for retirement. For more information, see [Azure Functions Consumption plan hosting](consumption-plan.md).
 
-+ The credentials required by GitHub to connect to Azure for deployment are stored as variables or secrets in your GitHub repository and accessed in the deployment as `vars.<VARIABLE_NAME>` or `secrets.<SECRET_NAME>`.
++ Store the credentials that GitHub needs to connect to Azure for deployment as variables or secrets in your GitHub repository. Access these credentials in the deployment as `vars.<VARIABLE_NAME>` or `secrets.<SECRET_NAME>`.
 
-+ OIDC with a user-assigned managed identity is the recommended way for GitHub Actions to authenticate with Azure Functions for deployment. You can also use a service principal or publish profile, but these methods are not recommended. To learn more, see [this GitHub Actions repository](https://github.com/Azure/functions-action).
++ Use OIDC with a user-assigned managed identity as the recommended way for GitHub Actions to authenticate with Azure Functions for deployment. You can also use a service principal or publish profile, but these methods aren't recommended. To learn more, see [this GitHub Actions repository](https://github.com/Azure/functions-action).
 
 + The actions for setting up the environment and running a build are generated from the templates and are language specific.
 
