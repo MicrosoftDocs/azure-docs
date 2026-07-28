@@ -48,7 +48,7 @@ The flow works as follows:
 
 The example above places the final, cloud-bound Data Flow at level 4. If level 4 is an egress-only Envoy Proxy node (as in the [tutorial](../end-to-end-tutorials/tutorial-layered-network-private-connectivity.md)), the final Data Flow runs at level 3 instead and sends data to the cloud through the level 4 Envoy Proxy. In that case, level 4 forwards traffic (pass-through) rather than terminating it.
 
-At every layer where an MQTT broker is deployed, the data is fully terminated on that broker, it isn't tunneled or pass-through. This gives you the ability to:
+At every layer where an MQTT broker is deployed, the data is fully terminated on that broker, it isn't tunneled or pass-through. This architecture gives you the ability to:
 
 - **Enrich data at each level** — add contextual metadata (product, line, factory) that lower-layer assets don't know about.
 - **Filter or aggregate** — reduce data volume or drop irrelevant messages before forwarding upward.
