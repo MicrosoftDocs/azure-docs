@@ -2,12 +2,13 @@
 title: Quickstart - Install Azure Backup extension in an AKS cluster
 description: In this quickstart, learn how to install the Azure Backup extension in an AKS cluster and get it ready to configure backup.
 ms.topic: quickstart
-ms.date: 11/14/2023
+ms.date: 01/09/2026
 ms.service: azure-backup
 ms.custom:
-  - ignite-2023
+  - ignite-2023, engagement-fy24
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a DevOps engineer, I want to install the backup extension in an AKS cluster, so that I can efficiently manage backup and restore operations for my containerized applications."
 ---
 
 # Quickstart: Install Azure Backup extension in an AKS cluster  
@@ -57,6 +58,7 @@ Follow these steps:
 
 ## Next steps
 
-- [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-backup-overview.md)
-
+- [About Azure Kubernetes Service cluster backup](azure-kubernetes-service-backup-overview.md).
+- Configure AKS backup using [Azure portal](azure-kubernetes-service-cluster-backup.md), [Azure PowerShell](azure-kubernetes-service-cluster-backup-using-powershell.md), [Azure CLI](azure-kubernetes-service-cluster-backup-using-cli.md), [ARM template](quick-kubernetes-backup-arm.md), [Bicep template](quick-kubernetes-backup-bicep.md), [Terraform](quick-kubernetes-backup-terraform.md).
+- [Configure item-level backup for an AKS cluster](tutorial-configure-backup-aks.md).
  

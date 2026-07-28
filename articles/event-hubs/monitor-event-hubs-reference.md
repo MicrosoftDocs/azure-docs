@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Event Hubs
 description: This article contains important reference material you need when you monitor Azure Event Hubs by using Azure Monitor.
-ms.date: 06/20/2024
+ms.date: 07/14/2025
 ms.custom: horz-monitor, subject-monitoring
 ms.topic: reference
 ---
@@ -133,7 +133,7 @@ Azure Event Hubs now has the capability to dispatch logs to either of two destin
 
 :::image type="content" source="media/monitor-event-hubs-reference/destination-table-toggle.png" alt-text="Screenshot of dialog box to set destination table." lightbox="media/monitor-event-hubs-reference/destination-table-toggle.png":::
 
-Azure Event Hubs uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. For a list of Kusto tables the service uses, see [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#event-hubs).
+Azure Event Hubs uses Kusto tables from Azure Monitor Logs. You can query these tables with Log Analytics. 
 
 You can view our sample queries to get started with different log categories.
 
@@ -222,16 +222,26 @@ Application metrics logs capture the aggregated information on certain metrics r
 
 | Name | Description |
 |:-------|:------- |
-| `ConsumerLag` | Indicate the lag between consumers and producers.  |
+| `ConsumerLag` |Indicate the lag between consumers and producers.  For more details, see [Consumer lag](#consumer-lag) section.|
 | `NamespaceActiveConnections` | Details of active connections established from a client to the event hub.  |
 | `GetRuntimeInfo` | Obtain run time information from Event Hubs.  |
 | `GetPartitionRuntimeInfo` | Obtain the approximate runtime information for a logical partition of an event hub.  |
-| `IncomingMessages` | Details of number of messages published to Event Hubs.  |
+| `IncomingMessages` | Details of number of messages published to Event Hubs using AMQP protocol. |
 | `IncomingBytes` | Details of Publisher throughput sent to Event Hubs |
-| `OutgoingMessages` | Details of number of messages consumed from Event Hubs.  |
+| `OutgoingMessages` | Details of number of messages consumed from Event Hubs using AMQP protocol.|
 | `OutgoingBytes` | Details of Consumer throughput from Event Hubs. |
 | `OffsetCommit` | Number of offset commit calls made to the event hub  |
 | `OffsetFetch` | Number of offset fetch calls made to the event hub. |
+
+#### Consumer lag
+
+- The following points govern the emission of consumer lag for Kafka consumers.
+    - A namespace is idle from Kafka offset commit point of view if there are no offset commits for any Kafka consumer group under the namespace.
+  - If namespace is idle for an hour, then emission of lag metrics stops. 
+    
+  - As long as the namespace is not idle for offset commit, metrics are emitted for all Kafka consumer groups under that namespace.
+    - If a namespace is non-idle and the last offset commit for a consumer group predates the hub or topic's retention period, consumer lag will no longer be emitted.
+- For AMQP consumers, consumer lag is emitted only as long as there are active receivers on the consumer group. 
 
 ### Diagnostic Error Logs
 

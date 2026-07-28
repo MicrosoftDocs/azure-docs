@@ -2,12 +2,13 @@
 title: Use with Internal Load Balancer - Azure Application Gateway
 description: This article provides instructions to create, configure, start, and delete an Azure application gateway with internal load balancer (ILB)
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 09/13/2022
-ms.author: greglin 
+ms.author: mbender 
 ms.custom: devx-track-azurepowershell
+# Customer intent: As a cloud engineer, I want to create and configure an application gateway with an internal load balancer, so that I can efficiently manage traffic for internal applications without exposing them to the Internet.
 ---
 
 # Create an application gateway with an internal load balancer (ILB)
@@ -29,7 +30,7 @@ This article walks you through the steps to configure a Standard v1 Application 
 * **Backend server pool:** The list of IP addresses of the backend servers. The IP addresses listed should either belong to the virtual network but in a different subnet for the application gateway or should be a public IP/VIP.
 * **Backend server pool settings:** Every pool has settings like port, protocol, and cookie-based affinity. These settings are tied to a pool and are applied to all servers within the pool.
 * **Frontend port:** This port is the public port that is opened on the application gateway. Traffic hits this port, and then gets redirected to one of the backend servers.
-* **Listener:** The listener has a frontend port, a protocol (Http or Https, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).
+* **Listener:** The listener has a frontend port, a protocol (HTTP or HTTPS, these are case-sensitive), and the SSL certificate name (if configuring SSL offload).
 * **Rule:** The rule binds the listener and the backend server pool and defines which backend server pool the traffic should be directed to when it hits a particular listener. Currently, only the *basic* rule is supported. The *basic* rule is round-robin load distribution.
 
 ## Create an application gateway

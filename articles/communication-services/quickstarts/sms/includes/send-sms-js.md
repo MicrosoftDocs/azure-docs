@@ -9,23 +9,25 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 05/25/2022
 ms.topic: include
-ms.custom: include file
 ms.author: bertong
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
-Get started with Azure Communication Services by using the Communication Services JavaScript SMS SDK to send SMS messages.
+Get started with Azure Communication Services using the Communication Services JavaScript SMS SDK to send SMS messages.
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+Completing this article incurs a small cost of a few USD cents or less in your Azure account.
 
 > [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-sms).
+> See the finalized code Azure Samples GitHub [Send an SMS message using JavaScript](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/send-sms).
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 are recommended).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- An SMS-enabled telephone number. [Get a phone number](../../telephony/get-phone-number.md).
+- An SMS-enabled telephone number, short code, or alphanumeric sender ID. [Get a phone number](../../telephony/get-phone-number.md).
 
 ### Prerequisite check
 
@@ -52,7 +54,7 @@ To set up an environment for sending messages, take the steps in the following s
 
 1. Use a text editor to create a file called **send-sms.js** in the project root directory.
 
-In the following sections, you'll add all the source code for this quickstart to the **send-sms.js** file that you just created.
+In the following sections, add all the source code for this quickstart to the **send-sms.js** file that you created.
 
 ### Install the package
 
@@ -124,8 +126,8 @@ main();
 
 Make these replacements in the code:
 
-- Replace `<from-phone-number>` with an SMS-enabled phone number that's associated with your Communication Services resource.
-- Replace `<to-phone-number-1>` and `<to-phone-number-2>` with the phone numbers that you'd like to send a message to.
+- Replace `<from-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource.
+- Replace `<to-phone-number-1>` and `<to-phone-number-2>` with the phone numbers that you want to send a message to.
 
 > [!WARNING]
 > Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<from-phone-number>` can also be a short code, for example, 23456 or an alphanumeric sender ID, for example, CONTOSO.
@@ -163,7 +165,7 @@ main();
 
 Make these replacements in the code:
 
-- Replace `<from-phone-number>` with an SMS-enabled phone number that's associated with your Communication Services resource.
+- Replace `<from-phone-number>` with an SMS-enabled phone number associated with your Communication Services resource.
 - Replace `<to-phone-number-1>` and `<to-phone-number-2>` with phone numbers that you'd like to send a message to.
 
 > [!WARNING]
@@ -171,6 +173,54 @@ Make these replacements in the code:
 
 The `enableDeliveryReport` parameter is an optional parameter that you can use to configure delivery reporting. This functionality is useful when you want to emit events when SMS messages are delivered. See the [Handle SMS Events](../handle-sms-events.md) quickstart to configure delivery reporting for your SMS messages.
 The `tag` parameter is optional. You can use it to apply a tag to the delivery report.
+
+## Send SMS globally with Messaging Connect
+
+[!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include.md)]
+
+If you're using a phone number provisioned via Messaging Connect, you can send SMS messages using the standard Azure Communication Services JavaScript SDK. The only difference is that you must include the `messagingConnect` object to specify the partner name and API key.
+
+```javascript
+async function main() {
+  const sendResults = await smsClient.send({
+    from: "<from-messaging-connect-number>",
+    to: ["<to-phone-number-1>", "<to-phone-number-2>"],
+    message: "Weekly Promotion!"
+  }, {
+    // Optional parameters
+    enableDeliveryReport: true,
+    tag: "marketing", // custom tag
+    messagingConnect: {
+      apiKey: "<partner-api-key>",
+      partner: "infobip"
+    }
+  });
+
+  for (const sendResult of sendResults) {
+    if (sendResult.successful) {
+      console.log("Success:", sendResult);
+    } else {
+      console.error("Failed to send message:", sendResult);
+    }
+  }
+}
+
+main();
+``` 
+Replace these values:
+
+- `<from-messaging-connect-number>`: The phone number acquired through Messaging Connect and linked to your ACS resource.
+- `<to-phone-number-1>` and `<to-phone-number-2>`: The recipient phone numbers.
+- `<partner-api-key>`: The API key from your Messaging Connect partner (for example, Infobip).
+
+> [!TIP]
+> Want to learn more about global messaging? Check out the [Messaging Connect page](../../../concepts/sms/messaging-connect.md)
+
+> [!WARNING]
+> Phone numbers must follow the E.164 international standard format (for example, +14255550123). The `<from-messaging-connect-number>` must be a Messaging Connect number or a Dynamic Alpha Sender ID (for example, CONTOSO) already provisioned and synced to your ACS resource.
+
+The `enableDeliveryReport` parameter allows you to configure delivery reporting. The `tag` parameter is optional and lets you apply a custom tag to the delivery report. To configure SMS delivery reporting, see the [Handle SMS Events](../handle-sms-events.md) quickstart.
+
 
 ## Run the code
 

@@ -2,7 +2,7 @@
 title: Diagnostics logs for Hybrid Connections
 description: This article provides an overview of all the activity and diagnostics logs that are available for Azure Relay. 
 ms.topic: how-to
-ms.date: 06/21/2022
+ms.date: 01/24/2026
 ---
 # Enable diagnostics logs for Azure Relay Hybrid Connections
 When you start using your Azure Relay Hybrid Connections, you might want to monitor how and when your listeners and senders are opened and closed, and how your Hybrid Connections are created and messages are sent. This article provides an overview of activity and diagnostics logs provided by the Azure Relay service. 
@@ -137,6 +137,7 @@ Resource specific table entry:
 | ListenerAcceptingHttpRequestFailed  | The listener accepting HTTP request failed due to an exception. |
 | ListenerAcceptingRequestTimeout     | The listener accepting request has timed out.                   |
 | ListenerClosingFromExpiredToken     | The listener is closing because the security token has expired. |
+| ListenerClosingFromUnauthorizedRenewToken | The listener is closing because a token renewal request failed with an Unauthorized response. |
 | ListenerRejectedConnection          | The listener has rejected the connection.                       |
 | ListenerReturningHttpResponse       | The listener is returning an HTTP response.                     |
 | ListenerReturningHttpResponseFailed | The listener is returning an HTTP response with a failure code. |

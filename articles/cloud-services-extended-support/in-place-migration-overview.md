@@ -2,15 +2,20 @@
 title: Migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support)
 description: Overview of migration from Cloud Services (classic) to Cloud Service (extended support)
 ms.topic: how-to
-ms.service: azure-cloud-services-extended-support
-ms.subservice: classic-to-arm-migration
+ms.service: azure-cloud-services-classic
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
 ms.date: 07/24/2024
+ms.update-cycle: 365-days
+ms.custom: cloud-services-extended-support, classic-to-arm-migration
+# Customer intent: As a cloud administrator, I want to migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support) so that I can leverage improved regional resiliency, Azure Resource Manager capabilities, and feature parity with minimal disruption to existing applications.
 ---
  
 # Migrate Azure Cloud Services (classic) to Azure Cloud Services (extended support)
+
+> [!IMPORTANT]
+> As of March 31, 2025, cloud Services (extended support) is deprecated and will be fully retired on March 31, 2027. [Learn more](https://aka.ms/csesretirement) about this deprecation and [how to migrate](https://aka.ms/cses-retirement-march-2025).
 
 This document provides an overview for migrating Cloud Services (classic) to Cloud Services (extended support).     
 
@@ -112,7 +117,7 @@ For more information, see [Overview of Platform-supported migration of IaaS reso
 - 	User Defined Routes
 - 	Internal load balancer
 - 	Certificate migration to key vault
-- 	Plugins and Extension (XML and Json based)
+- 	Plugins and Extension (XML and JSON based)
 - 	On Start / On Stop Tasks
 - 	Deployments with Accelerated Networking
 - 	Deployments using single or multiple roles

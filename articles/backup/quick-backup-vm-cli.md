@@ -3,14 +3,15 @@ title: Quickstart - Back up a VM with Azure CLI
 description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on a VM, and create the initial recovery point with Azure CLI.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 05/05/2022
+ms.date: 12/19/2025
 ms.custom: mvc, devx-track-azurecli, mode-api
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a cloud administrator, I want to use the command line to create a Recovery Services vault and enable backup for my Azure VM, so that I can ensure data protection and recovery capabilities for my virtual machines.
 ---
 
-# Back up a virtual machine in Azure with the Azure CLI
+# Quickstart: Back up a virtual machine in Azure with the Azure CLI
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) in Azure with the Azure CLI. You can also perform these steps with [Azure PowerShell](quick-backup-vm-powershell.md) or in the [Azure portal](quick-backup-vm-portal.md).
 
@@ -20,7 +21,7 @@ This quickstart enables backup on an existing Azure VM. If you need to create a 
 
  - This quickstart requires version 2.0.18 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-## Create a Recovery Services vault
+## Create a Recovery Services vault for Azure VM backup
 
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
@@ -83,16 +84,16 @@ AZ_KEYVAULT_RGROUP=TestKeyVaultRG
 AZ_KEYVAULT_NAME=TestKeyVault
 
 # Get the object id for the Backup Management Service on your subscription
-AZ_ABM_OBJECT_ID=$( az ad sp list --display-name "Backup Management Service" --query '[].objectId' -o tsv --only-show-errors )
+AZ_ABM_OBJECT_ID=$( ad sp list --display-name "Backup Management Service" --query '[].id' -o tsv --only-show-errors )
 
 # This command will grant the permissions required by the Backup Management Service to access the key vault
 az keyvault set-policy --key-permissions get list backup --secret-permissions get list backup \
   --resource-group $AZ_KEYVAULT_RGROUP --name $AZ_KEYVAULT_NAME --object-id $AZ_ABM_OBJECT_ID
 ```
 
-## Start a backup job
+## Trigger an Azure VM backup job
 
-To start a backup now rather than wait for the default policy to run the job at the scheduled time, use [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now). This first backup job creates a full recovery point. Each backup job after this initial backup creates incremental recovery points. Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
+To trigger a backup job rather than wait for the default policy to run the job at the scheduled time, use [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now). This first backup job creates a full recovery point. Each backup job after this initial backup creates incremental recovery points. Incremental recovery points are storage and time-efficient, as they only transfer changes made since the last backup.
 
 The following parameters are used to back up the VM:
 
@@ -112,7 +113,7 @@ az backup protection backup-now \
     --retain-until 18-10-2017
 ```
 
-## Monitor the backup job
+## Monitor the backup job for the Azure VM
 
 To monitor the status of backup jobs, use [az backup job list](/cli/azure/backup/job#az-backup-job-list):
 
@@ -134,7 +135,7 @@ fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31
 
 When the *Status* of the backup job reports *Completed*, your VM is protected with Recovery Services and has a full recovery point stored.
 
-## Clean up deployment
+## Clean up deployment for the Azure VM backup
 
 When no longer needed, you can disable protection on the VM, remove the restore points and Recovery Services vault, then delete the resource group and associated VM resources. If you used an existing VM, you can skip the final [az group delete](/cli/azure/group#az-group-delete) command to leave the resource group and VM in place.
 
@@ -159,4 +160,5 @@ az group delete --name myResourceGroup
 In this quickstart, you created a Recovery Services vault, enabled protection on a VM, and created the initial recovery point. To learn more about Azure Backup and Recovery Services, continue to the tutorials.
 
 > [!div class="nextstepaction"]
-> [Back up multiple Azure VMs](./tutorial-backup-vm-at-scale.md)
+>- [Back up multiple Azure VMs](./tutorial-backup-vm-at-scale.md)
+>- [Restore an Azure VM using REST API](backup-azure-arm-userestapi-restoreazurevms.md)

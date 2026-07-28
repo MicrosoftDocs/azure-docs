@@ -7,20 +7,19 @@ ms.service: azure-communication-services
 ms.subservice: call-automation
 ms.date: 11/20/2023
 ms.topic: include
-ms.topic: include file
 ms.author: kpunjabi
 ---
 
 ## Prerequisites
 
-- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
+- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Save the connection string for this resource. 
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - The latest [.NET library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - Obtain the latest [NuGet package](https://www.nuget.org/packages/Azure.Communication.CallAutomation/).
 
 ### For AI features
-- Create and connect [Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
+- Create and connect [Foundry Tools to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
 - Create a [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) for your Azure AI services resource. 
 
 ## Create a new C# application
@@ -79,7 +78,7 @@ var playSource = new FileSource(new Uri(audioUri));
 
 ### Play source - Text-To-Speech
 
-To play audio using Text-To-Speech through Azure AI services, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Azure AI services, full list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
+To play audio using Text-To-Speech through Foundry Tools, you need to provide the text you wish to play, as well either the SourceLocale, and VoiceKind or the VoiceName you wish to use. We support all voice names supported by Foundry Tools, full list [here](/azure/ai-services/speech-service/language-support?tabs=tts).
 
 ``` csharp
 String textToPlay = "Welcome to Contoso";
@@ -103,7 +102,7 @@ var playSource = new TextSource(textToPlay, "en-US-ElizabethNeural");
 
 ### Play source - Text-To-Speech with SSML
 
-If you want to customize your Text-To-Speech output even more with Azure AI services you can use [Speech Synthesis Markup Language SSML](/azure/ai-services/speech-service/speech-synthesis-markup) when invoking your play action through Call Automation. With SSML you can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume and attribute multiple voices.
+If you want to customize your Text-To-Speech output even more with Foundry Tools you can use [Speech Synthesis Markup Language SSML](/azure/ai-services/speech-service/speech-synthesis-markup) when invoking your play action through Call Automation. With SSML you can fine-tune the pitch, pause, improve pronunciation, change speaking rate, adjust volume and attribute multiple voices.
 
 ``` csharp
 String ssmlToPlay = "<speak version=\"1.0\" xmlns=\"http://www.w3.org/2001/10/synthesis\" xml:lang=\"en-US\"><voice name=\"en-US-JennyNeural\">Hello World!</voice></speak>"; 
@@ -114,7 +113,7 @@ var playSource = new SsmlSource(ssmlToPlay);
 ### Custom voice models
 If you wish to enhance your prompts more and include custom voice models, the play action Text-To-Speech now supports these custom voices. These are a great option if you are trying to give customers a more local, personalized experience or have situations where the default models may not cover the words and accents you're trying to pronounce. To learn more about creating and deploying custom models you can read this [guide](/azure/ai-services/speech-service/how-to-custom-voice).
 
-**Custom voice names regular text exmaple**
+**Custom voice names regular text example**
 ``` csharp
 String textToPlay = "Welcome to Contoso"; 
  
@@ -144,7 +143,7 @@ var playResponse = await callAutomationClient.GetCallConnection(callConnectionId
 ```
 
 ### Support for barge-in
-During scenarios where you're playing audio on loop to all participants e.g. waiting lobby you maybe playing audio to the participants in the lobby and keep them updated on their number in the queue. When you use the barge-in support, this will cancel the on-going audio and play your new message. Then if you wanted to continue playing your original audio you would make another play request.
+During scenarios where you're playing audio on loop to all participants e.g. waiting lobby you maybe playing audio to the participants in the lobby and keep them updated on their number in the queue. When you use the barge-in support, this will cancel the ongoing audio and play your new message. Then if you wanted to continue playing your original audio you would make another play request.
 
 ```csharp
 var GoodbyePlaySource = new TextSource("Good bye")

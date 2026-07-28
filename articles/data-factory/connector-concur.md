@@ -2,19 +2,22 @@
 title: Copy data from Concur (Preview) 
 description: Learn how to copy data from Concur to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
-ms.custom: synapse
-ms.topic: conceptual
-ms.date: 09/04/2024
-ms.author: jianleishen
+ms.topic: concept-article
+ms.date: 06/22/2026
+ms.update-cycle: 1095-days
+ms.author: tinglee
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 # Copy data from Concur using Azure Data Factory or Synapse Analytics(Preview)
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 > [!IMPORTANT]
-> This connector will be deprecated on **December 31, 2024**. You are recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver before that date. 
+> This connector is at [End of Support stage](connector-deprecation-plan.md). You're recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver.
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Concur. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -31,6 +34,8 @@ This Concur connector is supported for the following capabilities:
 
 For a list of data stores that are supported as sources/sinks, see the [Supported data stores](connector-overview.md#supported-data-stores) table.
 
+The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
+
 > [!NOTE]
 > Partner account is currently not supported.
 
@@ -42,7 +47,7 @@ For a list of data stores that are supported as sources/sinks, see the [Supporte
 
 Use the following steps to create a linked service to Concur in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -89,30 +94,30 @@ The following properties are supported for Concur linked service:
 
 ```json
 { 
-    "name": "ConcurLinkedService", 
-    "properties": {
-        "type": "Concur",
-        "typeProperties": {
-            "connectionProperties": {
-                "host":"<host e.g. implementation.concursolutions.com>",
-                "baseUrl": "<base URL for authorization e.g. us-impl.api.concursolutions.com>",
-                "authenticationType": "OAuth_2.0_Bearer",
-                "clientId": "<client id>",
-                "clientSecret": {
+    "name": "ConcurLinkedService", 
+    "properties": {
+        "type": "Concur",
+        "typeProperties": {
+            "connectionProperties": {
+                "host":"<host e.g. implementation.concursolutions.com>",
+                "baseUrl": "<base URL for authorization e.g. us-impl.api.concursolutions.com>",
+                "authenticationType": "OAuth_2.0_Bearer",
+                "clientId": "<client id>",
+                "clientSecret": {
                     "type": "SecureString",
                     "value": "<client secret>"
                 },
-                "username": "fakeUserName",
-                "password": {
+                "username": "fakeUserName",
+                "password": {
                     "type": "SecureString",
                     "value": "<password>"
                 },
-                "useEncryptedEndpoints": true,
-                "useHostVerification": true,
-                "usePeerVerification": true
-            }
-        }
-    }
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true,
+                "usePeerVerification": true
+            }
+        }
+    }
 } 
 ```
 
@@ -141,7 +146,7 @@ Note the following is a legacy linked service model without `connectionPropertie
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by Concur dataset.
 
-To copy data from Concur, set the type property of the dataset to **ConcurObject**. There is no additional type-specific property in this type of dataset. The following properties are supported:
+To copy data from Concur, set the type property of the dataset to **ConcurObject**. There's no additional type-specific property in this type of dataset. The following properties are supported:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |

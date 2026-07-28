@@ -1,5 +1,5 @@
 ---
-title: Azure infrastructure for SAP ASCS/SCS HA with WSFC&file Share
+title: Azure infrastructure for SAP ASCS/SCS HA with WSFC &file Share
 description: Azure infrastructure preparation for SAP high availability using a Windows failover cluster and file Share for SAP ASCS/SCS instances
 author: rdeltcheva
 manager: juergent
@@ -8,9 +8,10 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 12/16/2022
+ms.date: 03/07/2026
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
+# Customer intent: As a cloud architect, I want to prepare Azure infrastructure for SAP high availability using Windows failover clustering and file shares, so that I can ensure robust performance and reliability for SAP ASCS/SCS instances.
 ---
 
 # Prepare Azure infrastructure for SAP high availability by using a Windows failover cluster and file share for SAP ASCS/SCS instances

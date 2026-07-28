@@ -4,11 +4,11 @@ description: Describes critical open issues and resolutions for the Azure Data B
 services: databox
 author: stevenmatthew
  
-ms.service: databox
-ms.subservice: gateway
+ms.service: azure-data-box-gateway
 ms.topic: release-notes
 ms.date: 11/11/2020
 ms.author: shaas
+# Customer intent: As a cloud administrator, I want to review the release notes for Azure Data Box Gateway 1905, so that I can understand critical issues and updates before deploying the software.
 ---
 
 # Azure Data Box Edge and Azure Data Box Gateway 1905 release notes

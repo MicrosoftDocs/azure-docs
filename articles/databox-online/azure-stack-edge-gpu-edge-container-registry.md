@@ -1,12 +1,14 @@
 ---
 title: Enable an Edge container registry on Azure Stack Edge Pro GPU device
 description: Describes how to enable a local Edge container registry on Azure Stack Edge Pro GPU device.
-author: alkohli
-ms.service: databox
-ms.subservice: edge
+author: sipastak
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 02/22/2021
-ms.author: alkohli
+ms.author: sipastak
+ms.custom:
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 # Enable Edge container registry on your Azure Stack Edge Pro GPU device
 

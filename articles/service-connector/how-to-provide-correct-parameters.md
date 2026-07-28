@@ -1,11 +1,12 @@
 ---
 title: Provide correct parameters to Service Connector
-description: Learn how to pass correct parameters to Service Connector. 
-author: houk-ms
+description: Learn how to pass correct parameters to Service Connector to generate service connections between your Cloud resources.
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 09/11/2023
+ms.date: 06/18/2026
 ms.author: honc
+ms.custom:
+  - build-2025
 ---
 # Provide correct parameters to Service Connector
 
@@ -23,9 +24,9 @@ Source services are usually Azure compute services. Service Connector is an [Azu
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Azure App Service      | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`                                                |
 | Azure App Service slot | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}/slots/{slot}`                                   |
+| Azure Kubernetes Service (AKS) | `/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.ContainerService/managedClusters/{aks-cluster-name}`                                         |
 | Azure Functions        | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.Web/sites/{site}`                                                |
 | Azure Spring Apps      | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.AppPlatform/Spring/{spring}/apps/{app}/deployments/{deployment}` |
-| Azure Container Apps   | `/subscriptions/{subscription}/resourceGroups/{source_resource_group}/providers/Microsoft.App/containerApps/{app}`                                         |
 
 ## Target service
 
@@ -34,8 +35,7 @@ Target services are backing services or dependency services that your compute se
 | Target service type                | Resource ID format                                                                                                                                                            |
 | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Azure App Configuration            | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.AppConfiguration/configurationStores/{config_store}`                              |
-| Azure Cache for Redis              | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.Cache/redis/{server}/databases/{database}`                                        |
-| Azure Cache for Redis (Enterprise) | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.Cache/redisEnterprise/{server}/databases/{database}`                              |
+| Azure Managed Redis                | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.Cache/redisEnterprise/{server}/databases/{database}`                              |
 | Azure Cosmos DB (NoSQL)            | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.DocumentDB/databaseAccounts/{account}/sqlDatabases/{database}`                    |
 | Azure Cosmos DB (MongoDB)          | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.DocumentDB/databaseAccounts/{account}/mongodbDatabases/{database}`                |
 | Azure Cosmos DB (Gremlin)          | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.DocumentDB/databaseAccounts/{account}/gremlinDatabases/{database}/graphs/{graph}` |
@@ -53,6 +53,7 @@ Target services are backing services or dependency services that your compute se
 | Azure Storage (File)               | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.Storage/storageAccounts/{account}/fileServices/default`                           |
 | Azure Storage (Table)              | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.Storage/storageAccounts/{account}/tableServices/default`                          |
 | Azure Web PubSub                   | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/Microsoft.SignalRService/WebPubSub/{webpubsub}`                                             |
+| MongoDB Atlas            | `/subscriptions/{subscription}/resourceGroups/{target_resource_group}/providers/MongoDB.Atlas/organization/{organization-id}`                                               |
 
 ## Authentication type
 
@@ -82,9 +83,9 @@ Client type refers to your compute service's runtime stack or development framew
 * `ruby`
 * `springBoot`
 
-A different subset of the client types can be used when specifying a different target service and a different authentication type, check [how to integrate with target services](./how-to-integrate-postgres.md) for their combinations.
+A different subset of the client types can be used when specifying a different target service and a different authentication type, check [how to integrate with target services](./how-to-integrate-ai-services.md) for their combinations.
 
-## Next steps
+## Related links
 
-> [!div class="nextstepaction"]
-> [How to integrate target services](./how-to-integrate-postgres.md)
+- [How to integrate target services](./how-to-integrate-ai-services.md)
+- [Create connections with IaC tools](./how-to-build-connections-with-iac-tools.md)

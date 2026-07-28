@@ -5,6 +5,7 @@ description: A tutorial explaining how Azure SignalR and OpenAI Completion API a
 ms.author: kevinguo
 ms.topic: tutorial
 ms.date: 09/09/2024
+ms.service: azure-signalr-service
 uid: tutorials/ai-powered-group-chat
 ---
 
@@ -49,7 +50,7 @@ In this section, we walk through the key parts of the code that integrate Signal
 The `GroupChatHub` class manages user connections, message broadcasting, and AI interactions. When a user sends a message starting with `@gpt`, the hub forwards it to OpenAI, which generates a response. The AI's response is streamed back to the group in real-time.
 ```csharp
 var chatClient = _openAI.GetChatClient(_options.Model);
-await foreach (var completion in chatClient.CompleteChatStreamingAsync(messagesInludeHistory))
+await foreach (var completion in chatClient.CompleteChatStreamingAsync(messagesIncludeHistory))
 {   
     // ...
     // Buffering and sending the AI's response in chunks

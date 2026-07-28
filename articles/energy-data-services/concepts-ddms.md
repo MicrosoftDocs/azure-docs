@@ -3,8 +3,8 @@ title: Domain data management services concepts
 description: Learn how to use Domain Data Management Services
 author: marielgherz
 ms.author: marielherzog
-ms.service: energy-data-services
-ms.topic: conceptual
+ms.service: azure-data-manager-energy
+ms.topic: concept-article
 ms.date: 08/18/2022
 ms.custom: template-concept
 ---

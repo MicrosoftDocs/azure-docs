@@ -13,10 +13,9 @@ zone_pivot_groups: programming-languages-set-functions-lang-workers
 
 # RabbitMQ trigger for Azure Functions overview
 
-> [!NOTE]
-> The RabbitMQ bindings are only fully supported on **Premium and Dedicated** plans. Consumption is not supported.
-
 Use the RabbitMQ trigger to respond to messages from a RabbitMQ queue.
+
+[!INCLUDE [functions-rabbitmq-plans-support-note](../../includes/functions-rabbitmq-plans-support-note.md)]
 
 For information on setup and configuration details, see the [overview](functions-bindings-rabbitmq.md).
 
@@ -28,11 +27,11 @@ For information on setup and configuration details, see the [overview](functions
 
 [!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
-# [Isolated worker model](#tab/isolated-process)
+### [Isolated worker model](#tab/isolated-process)
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="12-23" :::
 
-# [In-process model](#tab/in-process)
+### [In-process model](#tab/in-process)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that reads and logs the RabbitMQ message as a [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html):
 
@@ -70,7 +69,7 @@ namespace Company.Function
 }
 ```
 
-Like with Json objects, an error will occur if the message isn't properly formatted as a C# object. If it is, it's then bound to the variable pocObj, which can be used for what whatever it's needed for.
+Like with JSON objects, an error will occur if the message isn't properly formatted as a C# object. If it is, it's then bound to the variable pocObj, which can be used for what whatever it's needed for.
 
 ---
 
@@ -148,45 +147,62 @@ def main(myQueueItem) -> None:
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"
+PowerShell examples aren't currently available.
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
-
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated worker process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a [function.json configuration file](#configuration).
+Both [isolated worker process](dotnet-isolated-process-guide.md) and [in-process](functions-dotnet-class-library.md) C# libraries use `RabbitMQTriggerAttribute` to define the function, where specific properties of the attribute depend on the extension version.
 
-The attribute's constructor takes the following parameters:
+### [Extension v2.x+](#tab/extensionv2/isolated-process)
+
+The attribute's constructor accepts these parameters:
+
+|Parameter | Description|
+|---------|----------------------|
+|**QueueName**| Name of the queue from which to receive messages. |
+|**HostName**| This parameter is no longer supported and is ignored. It will be removed in a future version. |
+|**ConnectionStringSetting**|The name of the app setting that contains the connection string for your RabbitMQ server. This setting only takes an app setting key name, you can't directly set a connection string value. For more information, see [Connections](#connections).|
+|**UserNameSetting**| This parameter is no longer supported and is ignored. It will be removed in a future version. |
+|**PasswordSetting**| This parameter is no longer supported and is ignored. It will be removed in a future version. |
+|**Port**|Gets or sets the port used. Defaults to 0, which points to the RabbitMQ client's default port setting of `5672`. |
+
+### [Extension v2.x+](#tab/extensionv2/in-process)
+
+The attribute constructor accepts these parameters:
+
+|Parameter | Description|
+|---------|----------------------|
+|**QueueName**| Name of the queue from which to receive messages. |
+|**ConnectionStringSetting**|The name of the app setting that contains the connection string for your RabbitMQ server. This setting only takes an app setting key name, you can't directly set a connection string value. For more information, see [Connections](#connections).|
+|**DisableAck**| Optional value that defaults to `False`. Set to `True` when message acknowledgements from the service are disabled and are done manually using `RabbitMQMessageActions`. |
+|**DisableCertificateValidation**|Boolean value that can be set to `true` indicating that certificate validation should be disabled. Default value is `false`. Not recommended for production. Doesn't apply when SSL is disabled.| 
+
+### [Extension v1.x](#tab/extensionv1/isolated-process)
+
+The attribute's constructor accepts these parameters:
 
 |Parameter | Description|
 |---------|----------------------|
 |**QueueName**| Name of the queue from which to receive messages. |
 |**HostName**|Hostname of the queue, such as 10.26.45.210. Ignored when using `ConnectStringSetting`.|
+|**ConnectionStringSetting**|The name of the app setting that contains the connection string for your RabbitMQ server. This setting only takes an app setting key name, you can't directly set a connection string value. For more information, see [Connections](#connections).|
 |**UserNameSetting**|Name of the app setting that contains the username to access the queue, such as `UserNameSetting: "%< UserNameFromSettings >%"`. Ignored when using `ConnectStringSetting`.|
 |**PasswordSetting**|Name of the app setting that contains the password to access the queue, such as `PasswordSetting: "%< PasswordFromSettings >%"`. Ignored when using `ConnectStringSetting`.|
-|**ConnectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. The trigger won't work when you specify the connection string directly instead through an app setting. For example, when you have set `ConnectionStringSetting: "rabbitMQConnection"`, then in both the *local.settings.json* and in your function app you need a setting like `"RabbitMQConnection" : "< ActualConnectionstring >"`.|
 |**Port**|Gets or sets the port used. Defaults to 0, which points to the RabbitMQ client's default port setting of `5672`. |
 
-# [Isolated worker model](#tab/isolated-process)
+### [Extension v1.x](#tab/extensionv1/in-process)
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [RabbitMQTrigger](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/extension/WebJobs.Extensions.RabbitMQ/Trigger/RabbitMQTriggerAttribute.cs) attribute.
+The attribute's constructor accepts these parameters:
 
-Here's a `RabbitMQTrigger` attribute in a method signature for an isolated worker process library:
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/RabbitMQ/RabbitMQFunction.cs" range="12-16":::
-
-# [In-process model](#tab/in-process)
-
-In [C# class libraries](functions-dotnet-class-library.md), use the [RabbitMQTrigger](https://github.com/Azure/azure-functions-rabbitmq-extension/blob/dev/extension/WebJobs.Extensions.RabbitMQ/Trigger/RabbitMQTriggerAttribute.cs) attribute.
-
-Here's a `RabbitMQTrigger` attribute in a method signature for an in-process library:
-
-```csharp
-[FunctionName("RabbitMQTest")]
-public static void RabbitMQTest([RabbitMQTrigger("queue")] string message, ILogger log)
-{
-    ...
-}
-```
+|Parameter | Description|
+|---------|----------------------|
+|**QueueName**| Name of the queue from which to receive messages. |
+|**HostName**|Hostname of the queue, such as 10.26.45.210. Ignored when using `ConnectStringSetting`.|
+|**ConnectionStringSetting**|The name of the app setting that contains the connection string for your RabbitMQ server. This setting only takes an app setting key name, you can't directly set a connection string value. For more information, see [Connections](#connections).|
+|**UserNameSetting**|Name of the app setting that contains the username to access the queue, such as `UserNameSetting: "%< UserNameFromSettings >%"`. Ignored when using `ConnectStringSetting`.|
+|**PasswordSetting**|Name of the app setting that contains the password to access the queue, such as `PasswordSetting: "%< PasswordFromSettings >%"`. Ignored when using `ConnectStringSetting`.|
+|**Port**|Gets or sets the port used. Defaults to 0, which points to the RabbitMQ client's default port setting of `5672`. |
 
 ---
 
@@ -197,6 +213,18 @@ public static void RabbitMQTest([RabbitMQTrigger("queue")] string message, ILogg
 
 The `RabbitMQTrigger` annotation allows you to create a function that runs when a RabbitMQ message is created. 
 
+### [Extension v2.x+](#tab/extensionv2)
+
+The annotation supports the following configuration options:
+
+|Parameter | Description|
+|---------|----------------------|
+|**queueName**| Name of the queue from which to receive messages. |
+|**connectionStringSetting**|The name of the app setting that contains the connection string for your RabbitMQ server. This setting only takes an app setting key name, you can't directly set a connection string value. For more information, see [Connections](#connections).|
+|**disableCertificateValidation**|Boolean value that can be set to `true` indicating that certificate validation should be disabled. Default value is `false`. Not recommended for production. Does not apply when SSL is disabled.|
+
+### [Extension v1.x](#tab/extensionv1)
+
 The annotation supports the following configuration options:
 
 |Parameter | Description|
@@ -205,8 +233,10 @@ The annotation supports the following configuration options:
 |**hostName**|Hostname of the queue, such as 10.26.45.210. Ignored when using `ConnectStringSetting`.|
 |**userNameSetting**|Name of the app setting that contains the username to access the queue, such as `UserNameSetting: "%< UserNameFromSettings >%"`. Ignored when using `ConnectStringSetting`.|
 |**passwordSetting**|Name of the app setting that contains the password to access the queue, such as `PasswordSetting: "%< PasswordFromSettings >%"`. Ignored when using `ConnectStringSetting`.|
-|**connectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. The trigger won't work when you specify the connection string directly instead through an app setting. For example, when you have set `ConnectionStringSetting: "rabbitMQConnection"`, then in both the *local.settings.json* and in your function app you need a setting like `"RabbitMQConnection" : "< ActualConnectionstring >"`.|
+|**connectionStringSetting**|The name of the app setting that contains the connection string for your RabbitMQ server. This setting only takes an app setting key name, you can't directly set a connection string value. For more information, see [Connections](#connections).|
 |**port**|Gets or sets the port used. Defaults to 0, which points to the RabbitMQ client's default port setting of `5672`. |
+
+---
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
@@ -214,6 +244,19 @@ The annotation supports the following configuration options:
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file.
+
+### [Extension v2.x+](#tab/extensionv2)
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** |  Must be set to `RabbitMQTrigger`.|
+|**direction** | Must be set to `in`.|
+|**name** | The name of the variable that represents the queue in function code. |
+|**queueName**| Name of the queue from which to receive messages. |
+|**connectionStringSetting**|The name of the app setting that contains the connection string for your RabbitMQ server. This setting only takes an app setting key name, you can't directly set a connection string value. For more information, see [Connections](#connections).|
+|**disableCertificateValidation**|Boolean value that can be set to `true` indicating that certificate validation should be disabled. Default value is `false`. Not recommended for production. Does not apply when SSL is disabled.|
+
+### [Extension v1.x](#tab/extensionv1)
 
 |function.json property | Description|
 |---------|----------------------|
@@ -224,8 +267,10 @@ The following table explains the binding configuration properties that you set i
 |**hostName**|Hostname of the queue, such as 10.26.45.210. Ignored when using `connectStringSetting`.|
 |**userNameSetting**|Name of the app setting that contains the username to access the queue, such as `UserNameSetting: "%< UserNameFromSettings >%"`. Ignored when using `connectStringSetting`.|
 |**passwordSetting**|Name of the app setting that contains the password to access the queue, such as `PasswordSetting: "%< PasswordFromSettings >%"`. Ignored when using `connectStringSetting`.|
-|**connectionStringSetting**|The name of the app setting that contains the RabbitMQ message queue connection string. The trigger won't work when you specify the connection string directly instead through an app setting. For example, when you have set `connectionStringSetting: "rabbitMQConnection"`, then in both the *local.settings.json* and in your function app you need a setting like `"rabbitMQConnection" : "< ActualConnectionstring >"`.|
+|**connectionStringSetting**|The name of the app setting that contains the connection string for your RabbitMQ server. This setting only takes an app setting key name, you can't directly set a connection string value. For more information, see [Connections](#connections).|
 |**port**|Gets or sets the port used. Defaults to 0, which points to the RabbitMQ client's default port setting of `5672`. |
+
+---
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -234,15 +279,14 @@ The following table explains the binding configuration properties that you set i
 See the [Example section](#example) for complete examples.
 
 ## Usage
-
 ::: zone pivot="programming-language-csharp"  
 The parameter type supported by the RabbitMQ trigger depends on the C# modality used.
 
-# [Isolated worker model](#tab/isolated-process)
+### [Isolated worker model](#tab/isolated-process)
 
 The RabbitMQ bindings currently support only string and serializable object types when running in an isolated process.
 
-# [In-process model](#tab/in-process)
+### [In-process model](#tab/in-process)
 
 The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq-dotnet-client/api/RabbitMQ.Client.Events.BasicDeliverEventArgs.html), and the `Body` property of the RabbitMQ Event can be read as the types listed below:
 
@@ -253,84 +297,18 @@ The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq
 
 ---
 
-For a complete example, see C# [example](#example).
-
-::: zone-end  
-::: zone pivot="programming-language-java"
-
-Refer to Java [annotations](#annotations).
-
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"  
-
 The queue message is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in function.json. If the payload is JSON, the value is deserialized into an object.
-
 ::: zone-end   
-::: zone pivot="programming-language-powershell"
-::: zone-end  
-::: zone pivot="programming-language-python"  
 
-Refer to the Python [example](#example).
+[!INCLUDE [functions-rabbitmq-connections](../../includes/functions-rabbitmq-connections.md)]
 
-::: zone-end  
+### Dead letter queues
 
-## Dead letter queues
 Dead letter queues and exchanges can't be controlled or configured from the RabbitMQ trigger.  To use dead letter queues, pre-configure the queue used by the trigger in RabbitMQ. Refer to the [RabbitMQ documentation](https://www.rabbitmq.com/dlx.html).
 
-## host.json settings
-
-[!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
-
-```json
-{
-    "version": "2.0",
-    "extensions": {
-        "rabbitMQ": {
-            "prefetchCount": 100,
-            "queueName": "queue",
-            "connectionString": "amqp://user:password@url:port",
-            "port": 10
-        }
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------|
-|prefetchCount|30|Gets or sets the number of messages that the message receiver can simultaneously request and is cached.|
-|queueName|n/a| Name of the queue to receive messages from.|
-|connectionString|n/a|The RabbitMQ message queue connection string. The connection string is directly specified here and not through an app setting.|
-|port|0|(ignored if using connectionString) Gets or sets the Port used. Defaults to 0, which points to rabbitmq client's default port setting: 5672.|
-
-## Local testing
-
-> [!NOTE]
-> The connectionString takes precedence over "hostName", "userName", and "password". If these are all set, the connectionString will override the other two.
-
-If you're testing locally without a connection string, you should set the "hostName" setting and "userName" and "password" if applicable in the "rabbitMQ" section of *host.json*:
-
-```json
-{
-    "version": "2.0",
-    "extensions": {
-        "rabbitMQ": {
-            ...
-            "hostName": "localhost",
-            "username": "userNameSetting",
-            "password": "passwordSetting"
-        }
-    }
-}
-```
-
-|Property  |Default | Description |
-|---------|---------|---------|
-|hostName|n/a|(ignored if using connectionString) <br>Hostname of the queue (Ex: 10.26.45.210)|
-|userName|n/a|(ignored if using connectionString) <br>Name to access the queue |
-|password|n/a|(ignored if using connectionString) <br>Password to access the queue|
-
-
-## Enable Runtime Scaling
+### Enable Runtime Scaling
 
 In order for the RabbitMQ trigger to scale out to multiple instances, the **Runtime Scale Monitoring** setting must be enabled. 
 
@@ -338,18 +316,20 @@ In the portal, this setting can be found under **Configuration** > **Function ru
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 
-In the CLI, you can enable **Runtime Scale Monitoring** by using the following command:
+In the Azure CLI, you can enable **Runtime Scale Monitoring** by using this command:
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
+az resource update -resource-group <RESOURCE_GROUP> -name <APP_NAME>/config/web \
+    --set properties.functionsRuntimeScaleMonitoringEnabled=1 \
+    --resource-type Microsoft.Web/sites
 ```
 
-## Monitoring RabbitMQ endpoint
+### Monitoring a RabbitMQ endpoint
 To monitor your queues and exchanges for a certain RabbitMQ endpoint:
 
 * Enable the [RabbitMQ management plugin](https://www.rabbitmq.com/management.html)
-* Browse to http://{node-hostname}:15672 and log in with your user name and password.
+* Browse to `http://{node-hostname}:15672` and log in with your user name and password.
 
-## Next steps
+## Related article
 
 - [Send RabbitMQ messages from Azure Functions (Output binding)](./functions-bindings-rabbitmq-output.md)

@@ -1,12 +1,14 @@
 ---
 title: Integrate OSDU Service Logs with Azure Monitor - Microsoft Azure Data Manager for Energy
 description: This how-to article shows you how to integrate OSDU service logs with Azure Monitor. This feature helps you better troubleshoot, debug, & monitor the OSDU services.
-author: nitinnms
-ms.author: nitindwivedi
-ms.service: energy-data-services
+author: bharathim
+ms.author: bselvaraj
+ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 04/19/2023
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 ---
 
 # Integrate OSDU Service Logs with Azure Monitor

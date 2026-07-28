@@ -1,12 +1,13 @@
 ---
 title: Manage resources that are created during the virtual machine move process in Azure Resource Mover
 description: Learn how to manage resources that are created during the virtual machine move process in Azure Resource Mover.
-author: ankitaduttaMSFT 
+author: RochakSingh-blr
+ms.author: v-rochak2
+ms.date: 07/31/2025
 ms.service: azure-resource-mover
 ms.topic: how-to
-ms.date: 03/29/2024
-ms.author: ankitadutta
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud administrator, I want to manage and delete resources created during the virtual machine move process, so that I can maintain an organized and efficient resource environment following migrations."
 ---
 
 # Manage resources created for the virtual machine move

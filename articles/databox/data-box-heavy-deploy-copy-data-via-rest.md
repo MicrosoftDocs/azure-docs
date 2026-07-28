@@ -4,13 +4,13 @@ description: In this tutorial, learn how to connect to Azure Data Box Blob stora
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: heavy
+ms.service: azure-data-box-heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: shaas
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box Heavy to upload on-premises data from my server onto Azure.
 
+# Customer intent: "As an IT administrator, I want to copy data to Azure Data Box Blob storage using REST APIs, so that I can efficiently transfer on-premises data from my server to the cloud."
 ---
 
 # Tutorial: Copy data to Azure Data Box Blob storage via REST APIs

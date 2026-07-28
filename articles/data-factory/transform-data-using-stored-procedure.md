@@ -2,11 +2,12 @@
 title: Transform data by using the Stored Procedure activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Explains how to use SQL Server Stored Procedure Activity to invoke a stored procedure in an Azure SQL Database/Data Warehouse from an Azure Data Factory or Synapse Analytics pipeline.
-ms.topic: conceptual
+ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # Transform data by using the SQL Server Stored Procedure activity in Azure Data Factory or Synapse Analytics
@@ -29,7 +30,7 @@ You can use the Stored Procedure Activity to invoke a stored procedure in one of
 >
 > When copying data from Azure SQL Database or SQL Server or Azure Synapse Analytics, you can configure **SqlSource** in copy activity to invoke a stored procedure to read data from the source database by using the **sqlReaderStoredProcedureName** property. For more information, see the following connector articles: [Azure SQL Database](connector-azure-sql-database.md), [SQL Server](connector-sql-server.md), [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md)          
 
-When the stored procedure has Output parameters, instead of using stored procedure activity, use lookup acitivty and Script activity. Stored procedure activity does not support calling SPs with Output parameter yet.  
+When the stored procedure has Output parameters, instead of using stored procedure activity, use lookup activity and Script activity. Stored procedure activity does not support calling SPs with Output parameter yet.  
 
 If you call a stored procedure with output parameters using stored procedure activity, following error occurs.
 
@@ -92,7 +93,6 @@ The data type you specify for the parameter is the internal service type that ma
 ## Related content
 See the following articles that explain how to transform data in other ways: 
 
-* [U-SQL Activity](transform-data-using-data-lake-analytics.md)
 * [Hive Activity](transform-data-using-hadoop-hive.md)
 * [Pig Activity](transform-data-using-hadoop-pig.md)
 * [MapReduce Activity](transform-data-using-hadoop-map-reduce.md)

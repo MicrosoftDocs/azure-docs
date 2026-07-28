@@ -7,14 +7,18 @@ manager: juergent
 ms.service: sap-on-azure
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.custom: linux-related-content
-ms.date: 07/22/2024
+ms.date: 06/24/2026
 ms.author: radeltch
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
+  - sfi-ropc-nochange
+# Customer intent: "As a system administrator managing RHEL clusters on Azure, I want to configure a high availability cluster using Pacemaker, so that I can ensure redundancy and fault tolerance for my applications."
 ---
 
 # Set up Pacemaker on Red Hat Enterprise Linux in Azure
 
-This article describes how to configure a basic Pacemaker cluster on Red Hat Enterprise Server (RHEL). The instructions cover RHEL 7, RHEL 8, and RHEL 9.
+This article describes how to configure a basic Pacemaker cluster on Red Hat Enterprise Server (RHEL). The instructions cover RHEL 8, RHEL 9, and RHEL 10.
 
 ## Pre-requisites
 
@@ -42,12 +46,12 @@ Read the following SAP Notes and articles first:
 ## Overview
 
 > [!IMPORTANT]
-> Pacemaker clusters that span multiple Virtual networks(VNets)/subnets are not covered by standard support policies.
+> Pacemaker clusters that span multiple Virtual networks(VNets)/subnets aren't covered by standard support policies.
 
 There are two options available on Azure for configuring the fencing in a pacemaker cluster for RHEL: Azure fence agent, which restarts a failed node via the Azure APIs, or you can use SBD device.
 
 > [!IMPORTANT]
-> In Azure, RHEL high availability cluster with storage based fencing (fence_sbd) uses software-emulated watchdog. It is important to review [Software-Emulated Watchdog Known Limitations](https://access.redhat.com/articles/7034141) and [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691) when selecting SBD as the fencing mechanism.
+> In Azure, RHEL high availability cluster with storage based fencing (fence_sbd) uses software-emulated watchdog. It's important to review [Software-Emulated Watchdog Known Limitations](https://access.redhat.com/articles/7034141) and [Support Policies for RHEL High Availability Clusters - sbd and fence_sbd](https://access.redhat.com/articles/2800691) when selecting SBD as the fencing mechanism.
 
 ### Use an SBD device
 
@@ -65,9 +69,9 @@ You can configure the SBD device by using either of two options:
   ![Diagram of pacemaker with iSCSI target server as SBD device in RHEL](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
   > [!IMPORTANT]
-  > When you're planning to deploy and configure Linux pacemaker cluster nodes and SBD devices, do not allow the routing between your virtual machines and the VMs that are hosting the SBD devices to pass through any other devices, such as a [network virtual appliance (NVA)](https://azure.microsoft.com/solutions/network-appliances/).
+  > When you're planning to deploy and configure Linux pacemaker cluster nodes and SBD devices, don't allow the routing between your virtual machines and the VMs that are hosting the SBD devices to pass through any other devices, such as a [network virtual appliance (NVA)](https://azure.microsoft.com/solutions/network-appliances/).
   >
-  > Maintenance events and other issues with the NVA can have a negative impact on the stability and reliability of the overall cluster configuration. For more information, see [user-defined routing rules](../../virtual-network/virtual-networks-udr-overview.md).
+  > Maintenance events and other issues with the NVA can have a negative effect on the stability and reliability of the overall cluster configuration. For more information, see [user-defined routing rules](../../virtual-network/virtual-networks-udr-overview.md).
 
 * SBD with Azure shared disk
 
@@ -104,14 +108,14 @@ You first need to create the iSCSI target virtual machines. You can share iSCSI 
 
 1. Deploy virtual machines that run on supported RHEL OS version, and connect to them via SSH. The VMs don't have to be of large size. VM sizes such as Standard_E2s_v3 or Standard_D2s_v3 are sufficient. Be sure to use Premium storage for the OS disk.
 
-2. It isn't necessary to use RHEL for SAP with HA and Update Services, or RHEL for SAP Apps OS image for the iSCSI target server. A standard RHEL OS image can be used instead. However, be aware that the support life cycle varies between different OS product releases.
+2. It isn't necessary to use RHEL for SAP with HA and Update Services, or RHEL for SAP Apps OS image for the iSCSI target server. A standard RHEL OS image can be used instead. However, the support life cycle varies between different OS product releases.
 
 3. Run following commands on all iSCSI target virtual machines.
 
    1. Update RHEL.
 
       ```bash
-      sudo yum -y update
+      sudo dnf -y update
       ```
 
       > [!NOTE]
@@ -120,7 +124,7 @@ You first need to create the iSCSI target virtual machines. You can share iSCSI 
    2. Install iSCSI target package.
 
       ```bash
-      sudo yum install targetcli
+      sudo dnf install targetcli
       ```
 
    3. Start and configure target to start at boot time.
@@ -234,13 +238,13 @@ On the cluster nodes, connect and discover iSCSI device that was created in the 
 1. **[A]** Install or update iSCSI initiator utils on all cluster nodes.
 
    ```bash
-   sudo yum install -y iscsi-initiator-utils
+   sudo dnf install -y iscsi-initiator-utils
    ```
 
 2. **[A]** Install cluster and SBD packages on all cluster nodes.
 
    ```bash
-   sudo yum install -y pcs pacemaker sbd fence-agents-sbd
+   sudo dnf install -y pcs pacemaker sbd fence-agents-sbd
    ```
 
 3. **[A]** Enable iSCSI service.
@@ -375,7 +379,7 @@ On the cluster nodes, connect and discover iSCSI device that was created in the 
        [...]
        SBD_STARTMODE=always
        [...]
-       SBD_DELAY_START=yes
+       SBD_DELAY_START=no
        [...]
        ```
 
@@ -390,18 +394,6 @@ On the cluster nodes, connect and discover iSCSI device that was created in the 
     ```bash
     echo softdog > /etc/modules-load.d/watchdog.conf
     systemctl restart systemd-modules-load
-    ```
-
-16. **[A]** The SBD service timeout value is set to 90 s by default. However, if the `SBD_DELAY_START` value is set to `yes`, the SBD service will delay its start until after the `msgwait` timeout. Therefore, the SBD service timeout value should exceed the `msgwait` timeout when `SBD_DELAY_START` is enabled.
-
-    ```bash
-    sudo mkdir /etc/systemd/system/sbd.service.d
-    echo -e "[Service]\nTimeoutSec=144" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
-    sudo systemctl daemon-reload
-    
-    systemctl show sbd | grep -i timeout
-    # TimeoutStartUSec=2min 24s
-    # TimeoutStopUSec=2min 24s
     ```
 
 ## SBD with an Azure shared disk
@@ -450,7 +442,7 @@ foreach ($vmName in $vmNames) {
 1. **[A]** Install cluster and SBD packages on all cluster nodes.
 
    ```bash
-   sudo yum install -y pcs pacemaker sbd fence-agents-sbd
+   sudo dnf install -y pcs pacemaker sbd fence-agents-sbd
    ```
 
 2. **[A]** Make sure the attached disk is available.
@@ -506,7 +498,7 @@ foreach ($vmName in $vmNames) {
       sudo vi /etc/sysconfig/sbd
       ```
 
-   2. Change the property of the SBD device, enable the pacemaker integration, and change the start mode of SBD
+   2. Change the property of the SBD device, enable the pacemaker integration, change the start mode of SBD, and adjust SBD_DELAY_START value.
 
       ```bash
       [...]
@@ -516,7 +508,7 @@ foreach ($vmName in $vmNames) {
       [...]
       SBD_STARTMODE=always
       [...]
-      SBD_DELAY_START=yes
+      SBD_DELAY_START=no
       [...]
       ```
 
@@ -533,18 +525,6 @@ foreach ($vmName in $vmNames) {
    systemctl restart systemd-modules-load
    ```
 
-8. **[A]** The SBD service timeout value is set to 90 seconds by default. However, if the `SBD_DELAY_START` value is set to `yes`, the SBD service will delay its start until after the `msgwait` timeout. Therefore, the SBD service timeout value should exceed the `msgwait` timeout when `SBD_DELAY_START` is enabled.
-
-   ```bash
-   sudo mkdir /etc/systemd/system/sbd.service.d
-   echo -e "[Service]\nTimeoutSec=144" | sudo tee /etc/systemd/system/sbd.service.d/sbd_delay_start.conf
-   sudo systemctl daemon-reload
-   
-   systemctl show sbd | grep -i timeout
-   # TimeoutStartUSec=2min 24s
-   # TimeoutStopUSec=2min 24s
-   ```
-
 ## Azure fence agent configuration
 
 The fencing device uses either a managed identity for Azure resource or a service principal to authorize against Azure. Depending on the identity management method, follow the appropriate procedures -
@@ -555,9 +535,11 @@ The fencing device uses either a managed identity for Azure resource or a servic
 
    #### [Managed identity](#tab/msi)
 
-   To create a managed identity (MSI), [create a system-assigned](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity already exists, then it would be used. Don't use user-assigned managed identities with Pacemaker at this time. A fence device, based on managed identity, is supported on RHEL 7.9 and RHEL 8.x/RHEL 9.x.
+   To create a managed identity (MSI), [create a system-assigned](/entra/identity/managed-identities-azure-resources/how-to-configure-managed-identities?pivots=qs-configure-portal-windows-vm#system-assigned-managed-identity) managed identity for each VM in the cluster. If a system-assigned managed identity already exists, then it would be used. Don't use user-assigned managed identities with Pacemaker at this time.
 
    #### [Service principal](#tab/spn)
+   > [!CAUTION]
+   > Service principal-based authentication relies on a static secret, which adds credential management overhead and increases security risk. We recommend the use of managed identity for fence agent.
 
    Follow these steps to create a service principal, if you aren't using managed identity.
 
@@ -606,14 +588,14 @@ The fencing device uses either a managed identity for Azure resource or a servic
 
    #### [Managed identity](#tab/msi)
 
-   Assign the custom role `Linux Fence Agent Role` that was created in the last section to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For more information, see [Assign a managed identity access to a resource by using the Azure portal](../../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md). Verify that each VM's managed identity role assignment contains all the cluster VMs.
+   Assign the custom role `Linux Fence Agent Role` that was created in the last section to each managed identity of the cluster VMs. Each VM system-assigned managed identity needs the role assigned for every cluster VM's resource. For more information, see [Assign a managed identity access to a resource by using the Azure portal](/entra/identity/managed-identities-azure-resources/grant-managed-identity-resource-access-azure-portal). Verify that each VM's managed identity role assignment contains all the cluster VMs.
 
    > [!IMPORTANT]
-   > Be aware that assignment and removal of authorization with managed identities [can be delayed](../../active-directory/managed-identities-azure-resources/managed-identity-best-practice-recommendations.md#limitation-of-using-managed-identities-for-authorization) until effective.
+   > Be aware that assignment and removal of authorization with managed identities [can be delayed](/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations#limitation-of-using-managed-identities-for-authorization) until effective.
 
    #### [Service principal](#tab/spn)
 
-   Assign the custom role `Linux Fence Agent Role` that was created in the last section to the service principal. *Don't use the Owner role anymore.* For more information, see [Assign Azure roles by using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+   Assign the custom role `Linux Fence Agent Role` that was created in the last section to the service principal. *Don't use the Owner role anymore.* For more information, see [Assign Azure roles by using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
    Make sure to assign the role for both cluster nodes.
 
@@ -621,33 +603,25 @@ The fencing device uses either a managed identity for Azure resource or a servic
 
 ## Cluster installation
 
-Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 9 are marked in the document.
+Differences in the commands or the configuration between different RHEL versions are marked in the document.
 
 1. **[A]** Install the RHEL HA add-on.
 
    ```bash
-   sudo yum install -y pcs pacemaker nmap-ncat
+   sudo dnf install -y pcs pacemaker nmap-ncat
    ```
 
-2. **[A]** On RHEL 9.x, install the resource agents for cloud deployment.
+2. **[A]** On RHEL 9.x/10.x, install the resource agents for cloud deployment.
 
     ```bash
-    sudo yum install -y resource-agents-cloud
+    sudo dnf install -y resource-agents-cloud
     ```
 
 3. **[A]** Install the fence-agents package if you're using a fencing device based on Azure fence agent.
 
    ```bash
-   sudo yum install -y fence-agents-azure-arm 
+   sudo dnf install -y fence-agents-azure-arm 
    ```
-
-   > [!IMPORTANT]
-   > We recommend the following versions of the Azure fence agent (or later) for customers who want to use managed identities for Azure resources instead of service principal names for the fence agent:
-   >
-   > * RHEL 8.4: fence-agents-4.2.1-54.el8.
-   > * RHEL 8.2: fence-agents-4.2.1-41.el8_2.4  
-   > * RHEL 8.1: fence-agents-4.2.1-30.el8_1.4  
-   > * RHEL 7.9: fence-agents-4.2.1-41.el7_9.4.
 
    > [!IMPORTANT]
    > On RHEL 9, we recommend the following package versions (or later) to avoid issues with the Azure fence agent:
@@ -660,7 +634,7 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
 
    ```bash
    # Check the version of the Azure Fence Agent
-   sudo yum info fence-agents-azure-arm
+   sudo dnf info fence-agents-azure-arm
    ```
 
    > [!IMPORTANT]
@@ -716,62 +690,84 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
 
    Run the following commands to authenticate the nodes and create the cluster. Set the token to 30000 to allow memory preserving maintenance. For more information, see [this article for Linux](/azure/virtual-machines/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot).
 
-   If you're building a cluster on **RHEL 7.x**, use the following commands:  
-
-   ```bash
-   sudo pcs cluster auth prod-cl1-0 prod-cl1-1 -u hacluster
-   sudo pcs cluster setup --name nw1-azr prod-cl1-0 prod-cl1-1 --token 30000
-   sudo pcs cluster start --all
-   ```
-
-   If you're building a cluster on **RHEL 8.x/RHEL 9.x**, use the following commands:  
-
    ```bash
    sudo pcs host auth prod-cl1-0 prod-cl1-1 -u hacluster
    sudo pcs cluster setup nw1-azr prod-cl1-0 prod-cl1-1 totem token=30000
    sudo pcs cluster start --all
    ```
 
-   Verify the cluster status by running the following command:  
+9. **[A]** Starting Pacemaker immediately after boot lets the node rejoin the cluster before failover completes, preventing failover or delaying recovery. Delay Pacemaker startup using the steps below.
 
-   ```bash
-   # Run the following command until the status of both nodes is online
-   sudo pcs status
-   
-   # Cluster name: nw1-azr
-   # WARNING: no stonith devices and stonith-enabled is not false
-   # Stack: corosync
-   # Current DC: prod-cl1-1 (version 1.1.18-11.el7_5.3-2b07d5c5a9) - partition with quorum
-   # Last updated: Fri Aug 17 09:18:24 2018
-   # Last change: Fri Aug 17 09:17:46 2018 by hacluster via crmd on prod-cl1-1
-   #
-   # 2 nodes configured
-   # 0 resources configured
-   #
-   # Online: [ prod-cl1-0 prod-cl1-1 ]
-   #
-   # No resources
-   #
-   # Daemon Status:
-   #   corosync: active/disabled
-   #   pacemaker: active/disabled
-   #   pcsd: active/enabled
-   ```
+    ```bash
+    cat <<'EOF' > /etc/systemd/system/pacemaker.timer
+    [Unit]
+    Description=Delay start of pacemaker.service after boot
+    [Timer]
+    OnBootSec=186
+    Unit=pacemaker.service
+    [Install]
+    WantedBy=timers.target
+    EOF
+    ```
 
-9. **[A]** Set expected votes.
+    Enable pacemaker.timer service:
 
-   ```bash
-   # Check the quorum votes 
-   pcs quorum status
-   
-   # If the quorum votes are not set to 2, execute the next command
-   sudo pcs quorum expected-votes 2
-   ```
+    ```bash
+    systemctl enable pacemaker.timer
+    ```
 
-   > [!TIP]
-   > If you're building a multinode cluster, that is, a cluster with more than two nodes, don't set the votes to 2.
+    Disable the cluster service from starting on boot. The pacemaker.timer service will start it after the configured delay.
 
-10. **[1]** Allow concurrent fence actions.
+    ```bash
+    pcs cluster disable --all
+
+    systemctl is-enabled pacemaker.timer pacemaker corosync
+    # Example output
+    # enabled
+    # disabled
+    # disabled
+    ```
+
+10. **[1]** Verify the cluster status by running the following command:  
+
+    ```bash
+    # Run the following command until the status of both nodes is online
+    sudo pcs status
+    
+    # Cluster name: nw1-azr
+    # WARNING: no stonith devices and stonith-enabled is not false
+    # Stack: corosync
+    # Current DC: prod-cl1-1 (version 1.1.18-11.el7_5.3-2b07d5c5a9) - partition with quorum
+    # Last updated: Fri Aug 17 09:18:24 2018
+    # Last change: Fri Aug 17 09:17:46 2018 by hacluster via crmd on prod-cl1-1
+    #
+    # 2 nodes configured
+    # 0 resources configured
+    #
+    # Online: [ prod-cl1-0 prod-cl1-1 ]
+    #
+    # No resources
+    #
+    # Daemon Status:
+    #   corosync: active/disabled
+    #   pacemaker: active/disabled
+    #   pcsd: active/enabled
+    ```
+
+11. **[A]** Set expected votes.
+
+    ```bash
+    # Check the quorum votes 
+    pcs quorum status
+    
+    # If the quorum votes are not set to 2, execute the next command
+    sudo pcs quorum expected-votes 2
+    ```
+
+    > [!TIP]
+    > If you're building a multinode cluster, that is, a cluster with more than two nodes, don't set the votes to 2.
+
+12. **[1]** Allow concurrent fence actions.
 
     ```bash
     sudo pcs property set concurrent-fencing=true
@@ -781,7 +777,7 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
 
 > [!TIP]
 >
-> * To avoid fence races within a two-node pacemaker cluster, you can configure the `priority-fencing-delay` cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521).
+> * To avoid fence races within a two-node pacemaker cluster, you can configure the `priority-fencing-delay` cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [Can Pacemaker fence the cluster node with the fewest running resources?](https://access.redhat.com/solutions/5110521)
 > * The property `priority-fencing-delay` is applicable for Pacemaker version 2.0.4-6.el8 or higher and on a two-node cluster. If you configure the `priority-fencing-delay` cluster property, you don't need to set the `pcmk_delay_max` property. But if the Pacemaker version is less than 2.0.4-6.el8, you need to set the `pcmk_delay_max` property.
 > * For instructions on how to set the `priority-fencing-delay` cluster property, see the respective SAP ASCS/ERS and SAP HANA scale-up HA documents.
 
@@ -798,29 +794,22 @@ Based on the selected fencing mechanism, follow only one section for relevant in
 2. **[1]** For the SBD device configured using iSCSI target servers or Azure shared disk, run the following commands.
 
    ```bash
-   sudo pcs property set stonith-timeout=144
+   sudo pcs property set stonith-timeout=210
    sudo pcs property set stonith-enabled=true
 
    # Replace the device IDs with your device ID. 
-   pcs stonith create sbd fence_sbd \
-   devices=/dev/disk/by-id/scsi-3600140585d254ed78e24ec48b0decac2,/dev/disk/by-id/scsi-3600140587122bfc8a0b4006b538d0a6d,/dev/disk/by-id/scsi-36001405d2ddc548060c49e7bb792bb65 \
-   op monitor interval=600 timeout=15
+   sudo pcs stonith create sbd fence_sbd \
+       devices=/dev/disk/by-id/scsi-3600140585d254ed78e24ec48b0decac2,/dev/disk/by-id/scsi-3600140587122bfc8a0b4006b538d0a6d,/dev/disk/by-id/scsi-36001405d2ddc548060c49e7bb792bb65 \
+       op monitor interval=600 timeout=120
    ```
 
 3. **[1]** Restart the cluster
 
    ```bash
    sudo pcs cluster stop --all
-
-   # It would take time to start the cluster as "SBD_DELAY_START" is set to "yes"
+   
    sudo pcs cluster start --all
    ```
-
-   > [!NOTE]
-   > If you encounter following error while starting the pacemaker cluster, you can disregard the message. Alternatively, you can start the cluster using the command `pcs cluster start --all --request-timeout 140`.
-   >
-   > Error: unable to start all nodes
-   > node1/node2: Unable to connect to node1/node2, check if pcsd is running there or try setting higher timeout with `--request-timeout` option (Operation timed out after 60000 milliseconds with 0 bytes received)
 
 #### Azure fence agent as fencing device
 
@@ -834,65 +823,47 @@ Based on the selected fencing mechanism, follow only one section for relevant in
 2. **[1]** Run the appropriate command depending on whether you're using a managed identity or a service principal for the Azure fence agent.
 
    > [!NOTE]
-   > The option `pcmk_host_map` is *only* required in the command if the RHEL hostnames and the Azure VM names are *not* identical. Specify the mapping in the format **hostname:vm-name**.
-   >
-   > Refer to the bold section in the command. For more information, see [What format should I use to specify node mappings to fencing devices in pcmk_host_map?](https://access.redhat.com/solutions/2619961).
+   > When using Azure government cloud, you must specify `cloud=` option when configuring fence agent. For example, `cloud=usgov` for the Azure US government cloud. For details on RedHat support on Azure government cloud, see [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341).
+
+   > [!TIP]
+   > The option `pcmk_host_map` is *only* required in the command if the RHEL hostnames and the Azure VM names aren't* identical. Specify the mapping in the format **hostname:vm-name**. For more information, see [What format should I use to specify node mappings to fencing devices in pcmk_host_map?](https://access.redhat.com/solutions/2619961)
 
    #### [Managed identity](#tab/msi)
 
-   For RHEL **7.x**, use the following command to configure the fence device:
-
    ```bash
-   sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="resource group" \ 
-   subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
-   power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
-   op monitor interval=3600
-   ```
-
-   For RHEL **8.x/9.x**, use the following command to configure the fence device:  
-
-   ```bash
-   # Run following command if you are setting up fence agent on (two-node cluster and pacemaker version greater than 2.0.4-6.el8) OR (HANA scale out)
+   # Adjust the command with your subscription ID and resource group of the VM
    sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="resource group" \
-   subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
-   power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
-   op monitor interval=3600
+       subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
+       power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
+       meta failure-timeout=120s \
+       op monitor interval=3600
 
-   # Run following command if you are setting up fence agent on (two-node cluster and pacemaker version less than 2.0.4-6.el8)
+   # For SAP HANA scale-out only, configure fence_azure_arm using following command
    sudo pcs stonith create rsc_st_azure fence_azure_arm msi=true resourceGroup="resource group" \
-   subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
-   power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
-   op monitor interval=3600
+       subscriptionId="subscription id" pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
+       power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=-1 \
+       meta failure-timeout=120s \
+       op monitor interval=3600
    ```
 
    #### [Service principal](#tab/spn)
 
-   For RHEL **7.x**, use the following command to configure the fence device:
-
    ```bash
-   sudo pcs stonith create rsc_st_azure fence_azure_arm login="login ID" passwd="password" \
-   resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
-   pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
-   power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
-   op monitor interval=3600
-   ```
-
-   For RHEL **8.x/9.x**, use the following command to configure the fence device:  
-
-   ```bash
-   # Run following command if you are setting up fence agent on (two-node cluster and pacemaker version greater than 2.0.4-6.el8) OR (HANA scale out)
+   # Adjust the command with your subscription ID, resource group of the VM, tenant ID, service principal application ID and password
    sudo pcs stonith create rsc_st_azure fence_azure_arm username="login ID" password="password" \
-   resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
-   pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
-   power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 \
-   op monitor interval=3600
+       resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
+       pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
+       power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
+       meta failure-timeout=120s \
+       op monitor interval=3600
 
-   # Run following command if you are setting up fence agent on (two-node cluster and pacemaker version less than 2.0.4-6.el8)
+   # For SAP HANA scale-out only, configure fence_azure_arm using following command
    sudo pcs stonith create rsc_st_azure fence_azure_arm username="login ID" password="password" \
-   resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
-   pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
-   power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=3 pcmk_delay_max=15 \
-   op monitor interval=3600
+       resourceGroup="resource group" tenantId="tenant ID" subscriptionId="subscription id" \
+       pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
+       power_timeout=240 pcmk_reboot_timeout=900 pcmk_monitor_timeout=120 pcmk_monitor_retries=4 pcmk_action_limit=-1 \
+       meta failure-timeout=120s \
+       op monitor interval=3600
    ```
 
     ---
@@ -906,11 +877,13 @@ The monitoring and fencing operations are deserialized. As a result, if there's 
 
 ## Configure Pacemaker for Azure scheduled events
 
-Azure offers [scheduled events](/azure/virtual-machines/linux/scheduled-events). Scheduled events are sent via the metadata service and allow time for the application to prepare for such events.
+Azure offers [scheduled events](/azure/virtual-machines/linux/scheduled-events). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events. 
 
-The Pacemaker resource agent `azure-events-az` monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a cluster health attribute.
+Resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a node-level health attribute `#health-azure` to `-1000000`.
 
-When the cluster health attribute is set for a node, the location constraint triggers and all resources with names that don't start with `health-` are migrated away from the node with the scheduled event. After the affected cluster node is free of running cluster resources, the scheduled event is acknowledged and can execute its action, such as a restart.
+When this special cluster health attribute is set for a node, the node is considered unhealthy by the cluster and all resources are migrated away from the affected node. The location constraint ensures resources with name starting with ‘health-‘ are excluded, as the agent needs to run in this unhealthy state. Once the affected cluster node is free of running cluster resources, scheduled event can execute its action, such as restart, without risk to running resources.
+
+The `#heath-azure` attribute is set back to `0` on pacemaker startup once all events have been processed, marking the node as healthy again.
 
 1. **[A]** Make sure that the package for the `azure-events-az` agent is already installed and up to date.
 
@@ -929,7 +902,7 @@ When the cluster health attribute is set for a node, the location constraint tri
 2. **[1]** Configure the resources in Pacemaker.
 
    ```bash
-   #Place the cluster in maintenance mode
+   # Place the cluster in maintenance mode
    sudo pcs property set maintenance-mode=true
    ```
 
@@ -938,9 +911,14 @@ When the cluster health attribute is set for a node, the location constraint tri
    ```bash
    sudo pcs property set node-health-strategy=custom
 
+   # For RHEL 8.x/9.x
    sudo pcs constraint location 'regexp%!health-.*' \
-   rule score-attribute='#health-azure' \
-   defined '#uname'
+       rule score-attribute='#health-azure' \
+       defined '#uname'
+   # For RHEL 10.x
+   sudo pcs constraint location 'regexp%!health-.*' \
+       rule score-attribute='#health-azure' \
+       "defined #uname"
    ```
 
    > [!IMPORTANT]
@@ -958,11 +936,15 @@ When the cluster health attribute is set for a node, the location constraint tri
 
    ```bash
    sudo pcs resource create health-azure-events \
-   ocf:heartbeat:azure-events-az \
-   op monitor interval=10s timeout=240s \
-   op start timeout=10s start-delay=90s
+       ocf:heartbeat:azure-events-az \
+       meta failure-timeout=120s \
+       op monitor interval=10s timeout=240s \
+       op start timeout=10s start-delay=90s
 
-   sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true failure-timeout=120s
+   # For RHEL 8.x/9.x
+   sudo pcs resource clone health-azure-events allow-unhealthy-nodes=true
+   # For RHEL 10.x
+   sudo pcs resource clone health-azure-events meta allow-unhealthy-nodes=true
    ```
 
 6. Take the Pacemaker cluster out of maintenance mode.
@@ -989,7 +971,7 @@ If you need to collect diagnostic information within the VM, it might be useful 
 > [!IMPORTANT]
 > Be aware that when `fence_kdump` is configured as a first-level fencing device, it introduces delays in the fencing operations and, respectively, delays in the application resources failover.
 >
-> If a crash dump is successfully detected, the fencing is delayed until the crash recovery service completes. If the failed node is unreachable or if it doesn't respond, the fencing is delayed by time determined, the configured number of iterations, and the `fence_kdump` timeout. For more information, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971).
+> If a crash dump is successfully detected, the fencing is delayed until the crash recovery service completes. If the failed node is unreachable or if it doesn't respond, the fencing is delayed by time determined, the configured number of iterations, and the `fence_kdump` timeout. For more information, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971)
 >
 > The proposed `fence_kdump` timeout might need to be adapted to the specific environment.
 >
@@ -997,12 +979,13 @@ If you need to collect diagnostic information within the VM, it might be useful 
 
 The following Red Hat KB articles contain important information about configuring `fence_kdump` fencing:
 
-* See [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971).
+* See [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971)
 * See [How to configure/manage fencing levels in an RHEL cluster with Pacemaker](https://access.redhat.com/solutions/891323).
 * See [fence_kdump fails with "timeout after X seconds" in an RHEL 6 or 7 HA cluster with kexec-tools older than 2.0.14](https://access.redhat.com/solutions/2388711).
-* For information on how to change the default timeout, see [How do I configure kdump for use with the RHEL 6, 7, 8 HA Add-On?](https://access.redhat.com/articles/67570).
-* For information on how to reduce failover delay when you use `fence_kdump`, see [Can I reduce the expected delay of failover when adding fence_kdump configuration?](https://access.redhat.com/solutions/5512331).
+* For information on how to change the default timeout, see [How do I configure kdump for use with the RHEL 6, 7, 8 HA Add-On?](https://access.redhat.com/articles/67570)
+* For information on how to reduce failover delay when you use `fence_kdump`, see [Can I reduce the expected delay of failover when adding fence_kdump configuration?](https://access.redhat.com/solutions/5512331)
   
+
 Run the following optional steps to add `fence_kdump` as a first-level fencing configuration, in addition to the Azure fence agent configuration.
 
 1. **[A]** Verify that `kdump` is active and configured.
@@ -1016,7 +999,7 @@ Run the following optional steps to add `fence_kdump` as a first-level fencing c
 1. **[A]** Install the `fence_kdump` fence agent.
 
     ```bash
-    yum install fence-agents-kdump
+    dnf install fence-agents-kdump
     ```
 
 1. **[1]** Create a `fence_kdump` fencing device in the cluster.
@@ -1066,7 +1049,7 @@ Run the following optional steps to add `fence_kdump` as a first-level fencing c
     systemctl restart kdump
     ```
 
-1. **[A]** Ensure that the `initramfs` image file contains the `fence_kdump` and `hosts` files. For more information, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971).
+1. **[A]** Ensure that the `initramfs` image file contains the `fence_kdump` and `hosts` files. For more information, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971)
 
     ```bash
     lsinitrd /boot/initramfs-$(uname -r)kdump.img | egrep "fence|hosts"
@@ -1075,7 +1058,7 @@ Run the following optional steps to add `fence_kdump` as a first-level fencing c
     # -rwxr-xr-x   1 root     root        15560 Jun 17 14:59 usr/libexec/fence_kdump_send
     ```
 
-1. Test the configuration by crashing a node. For more information, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971).  
+1. Test the configuration by crashing a node. For more information, see [How do I configure fence_kdump in a Red Hat Pacemaker cluster?](https://access.redhat.com/solutions/2876971)  
 
     > [!IMPORTANT]
     > If the cluster is already in productive use, plan the test accordingly because crashing a node has an impact on the application.

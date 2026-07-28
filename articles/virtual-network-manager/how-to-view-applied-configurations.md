@@ -6,7 +6,9 @@ ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
 ms.date: 03/22/2024
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 ---
 # View configurations applied by Azure Virtual Network Manager
 
@@ -51,14 +53,13 @@ Learn more about [Azure Resource Graph queries using Resource Graph Explorer](..
 
 Once your configuration has been deployed by Virtual Network Manager, you can view the applied configuration from the virtual network resource. 
 
-1. Go to your virtual network resource and select **Network Manager** under *Settings*. On the Connectivity tab, you see all the connectivity configurations the virtual network is associated with. 
+1. Go to your virtual network resource and select **Network Manager** under *Settings*. On the Connectivity tab, view all the connectivity configurations the virtual network is associated with. 
 
     :::image type="content" source="./media/how-to-view-applied-configurations/vnet-connectivity.png" alt-text="Screenshot of connectivity configuration associated to a virtual network.":::
 
-2. Select the **Security admin configurations** tab to see all the security rules currently applied to your virtual network.
+2. Select the **Security admin configurations** tab to view all the security rules currently applied to your virtual network.
 
     :::image type="content" source="./media/how-to-view-applied-configurations/vnet-security.png" alt-text="Screenshot of security rules associated to a virtual network.":::
-
 
 ## Virtual machine visibility
 
@@ -72,19 +73,19 @@ At the virtual machine level, you can view security rules applied by Virtual Net
 
     :::image type="content" source="./media/how-to-view-applied-configurations/vm-inbound-rules.png" alt-text="Screenshot of virtual machine outbound security rules.":::
 
-3. Select the **Outbound port rules** tab to see the outbound security rules for the virtual machine.
+3. Select the **Outbound port rules** tab to view the outbound security rules for the virtual machine.
 
     :::image type="content" source="./media/how-to-view-applied-configurations/vm-outbound-rules.png" alt-text="Screenshot of virtual machine inbound security rules.":::
 
 ### Effective routes
 
-1. To see the effective routes for the applied connectivity configuration, select the network interface name under the *Networking* settings of the virtual machine.
+1. To view the effective routes for the applied connectivity configuration, select the network interface name under the *Networking* settings of the virtual machine.
 
     :::image type="content" source="./media/how-to-view-applied-configurations/vm-network-interface.png" alt-text="Screenshot of selecting virtual machine network interface card.":::
 
 1. Then select **Effective routes** under *Support + troubleshooting*.
 
-2. Routes with the next hop type of *ConnectedGroup* are either part of mesh configuration or when [*Direct connectivity*](concept-connectivity-configuration.md#direct-connectivity) is enabled for a network group. Routes between the hub and spoke virtual networks will appear as next hop type *VNetPeering* or *GlobalVNetPeering*.
+2. Routes with the next hop type of *ConnectedGroup* are either part of mesh configuration or when [*Direct connectivity*](concept-connectivity-configuration.md#enable-direct-connectivity) is enabled for a network group. Routes between the hub and spoke virtual networks will appear as next hop type *VNetPeering* or *GlobalVNetPeering*.
 
     :::image type="content" source="./media/how-to-view-applied-configurations/effective-routes.png" alt-text="Screenshot of effective routes that shows connected groups and hub routes." lightbox="./media/how-to-view-applied-configurations/effective-routes-expanded.png":::
 

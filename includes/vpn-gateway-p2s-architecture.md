@@ -1,12 +1,12 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 08/07/2023
- ms.author: cherylmc
+ ms.author: duau
 
 ---
-P2S Azure certificate authentication connections use the following items, which you'll configure in this exercise:
+P2S Azure certificate authentication connections use the following items:
 
 * A route-based VPN gateway (not policy-based). For more information about VPN type, see [VPN Gateway settings](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#vpntype).
 * The public key (.cer file) for a root certificate, which is uploaded to Azure. Once the certificate is uploaded, it's considered a trusted certificate and is used for authentication.

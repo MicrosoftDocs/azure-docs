@@ -10,25 +10,37 @@
 - name: Concepts
   expanded: false
   items:
-  - name: Best Practices
+  - name: Getting Started
     expanded: false
     items:
-      - name: Onboard and deploy a Network Function
-        href: best-practices-onboard-deploy.md
-      - name: Roles and Interfaces
+      - name: Role-Based Persona Model
         href: roles-interfaces.md
+      - name: Tenants, Subscriptions and Regions
+        href: publisher-resource-preview-management.md
+      - name: Onboarding and Deploying Basics
+        href: best-practices-onboard-deploy.md
+  - name: Publisher Best Practices
+    expanded: false
+    items:
       - name: Helm Package Requirements
         href: helm-requirements.md
-      - name: Publisher Tenants, subscriptions, regions and preview management
-        href: publisher-resource-preview-management.md
-  - name: Azure Operator Service Manager CLI Extension
+      - name: Publisher Resource Cleanup Management
+        href: resource-cleanup-management.md
+      - name: Publisher Artifact Store Resiliency
+        href: publisher-artifact-store-resiliency.md
+  - name: Designer Best Practices
+    expanded: false
+    items:
+      - name: Workload Configuration Management 
+        href: configuration-guide.md
+  - name: Azure CLI Extension
     expanded: false
     items:
       - name: About the Azure Operator Service Manager CLI extension
         href: concepts-about-azure-operator-service-manager-cli.md
-      - name: CLI container image onboarding
+      - name: Container image onboarding using CLI
         href: concepts-cli-containerized-network-function-image-upload.md
-      - name: Exposing parameters in a configuration group schema
+      - name: Exposing parameters via CGS using CLI
         href: concepts-expose-parameters-configuration-group-schema.md
   - name: Safe Upgrade Practices
     expanded: false
@@ -37,6 +49,8 @@
         href: safe-upgrade-practices.md
       - name: Control Upgrade Failure Behavior
         href: safe-upgrades-nf-level-rollback.md
+      - name: Run Tests After Install or Upgrade
+        href: safe-upgrades-helm-test.md
   - name: Edge Registry and Private Link
     expanded: false
     items:
@@ -82,6 +96,8 @@
   items:
   - name: Manage the network function operator extension
     href: manage-network-function-operator.md
+  - name: Interrupt a service deployment operation
+    href: how-to-cancel-service-deployments.md
   - name: Create required subscription, roles and identities
     expanded: false
     items:
@@ -91,7 +107,7 @@
         href: how-to-create-custom-role.md
       - name: Assign a custom role
         href: how-to-assign-custom-role.md
-      - name: Create a user assigned managed identity
+      - name: Create, assign and use a user assigned managed identity
         href: how-to-create-user-assigned-managed-identity.md
   - name: Onboard network functions and Azure resources
     expanded: false
@@ -131,3 +147,8 @@
     href: glossary.md
   - name: REST API
     href: /rest/api/hybridnetwork
+
+
+
+
+

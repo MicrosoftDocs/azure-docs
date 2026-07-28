@@ -1,15 +1,17 @@
 ---
 title: Configure Visual Studio caches for your dev box image
 titleSuffix: Microsoft Dev Box
-description: Learn how to generate Visual Studio caches for your customized Dev Box image.
+description: Learn how to get started on solutions quickly by generating Visual Studio caches for your customized Dev Box image.
 services: dev-box
 ms.service: dev-box
 ms.custom:
   - ignite-2023
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 11/14/2023
+ms.date: 02/23/2025
 ms.topic: how-to
+
+#customer intent: As a platform engineer, I want to learn how to precache Visual Studio solutions for Microsoft Dev Boxes, so that developers can get started on VS solutions more quickly.
 ---
 
 # Optimize the Visual Studio experience on Microsoft Dev Box
@@ -32,7 +34,7 @@ To leverage precaching of your source code and Visual Studio IDE customizations 
 - [Create a custom VM image for dev box](how-to-customize-devbox-azure-image-builder.md) that includes your source code and pregenerated caches. 
 
   This article guides you through the creation of an Azure Resource Manager template. In the following sections, you'll modify that template to include processes to [generate the Visual Studio solution cache](#enable-visual-studio-caches-in-dev-box-images) and further improve Visual Studio performance by [preparing the git commit graph](#enable-git-commit-graph-optimizations-in-dev-box-images) for your project. 
-  You can then use the resulting image to [create new dev boxes](quickstart-configure-dev-box-service.md#create-a-dev-box-definition) for your team.
+  You can then use the resulting image to [create new dev boxes](how-to-manage-dev-box-definitions.md#create-a-dev-box-definition) for your team.
 
 ## Enable Visual Studio caches in dev box images
 
@@ -46,7 +48,7 @@ You can generate caches for your Visual Studio solution as part of an automated 
     devenv SolutionName /PopulateSolutionCache /LocalCache /Build [SolnConfigName [/Project ProjName [/ProjectConfig ProjConfigName]] [/Out OutputFilename]]
     ```
     
-    This command will open your solution, execute a build, and generate the caches for the specified solution. The generated caches will then be included in the [custom image](how-to-customize-devbox-azure-image-builder.md) and available to dev box users once [posted to a connected Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries). You can then [create a new dev box](quickstart-configure-dev-box-service.md#create-a-dev-box-definition) based off this image.
+    This command will open your solution, execute a build, and generate the caches for the specified solution. The generated caches will then be included in the [custom image](how-to-customize-devbox-azure-image-builder.md) and available to dev box users once posted to an [attached Azure Compute Gallery](how-to-configure-azure-compute-gallery.md). You can then [create a new dev box](how-to-manage-dev-box-definitions.md#create-a-dev-box-definition) based off this image.
     
     The `/Build` flag is optional, but without it some caches that require a build to have completed won't be available. For more information on the `build` command, see [Build command-line reference](/visualstudio/ide/reference/build-devenv-exe). 
 
@@ -62,22 +64,21 @@ You can enable Git commit-graph optimizations in your dev box image if you meet 
 * You can [create a custom dev box image](how-to-customize-devbox-azure-image-builder.md) that includes the Git source code repository for your project.
 * You're using [Visual Studio 17.8 or higher](https://visualstudio.microsoft.com/vs/).
  
-To enable the commit-graph optimization, execute the following `git` commands from your Git repository’s location as part of your custom image build process: 
+To enable the commit-graph optimization, execute the following `git` commands from your Git repository's location as part of your custom image build process: 
 
 ```bash
 # Enables the Git repo to use the commit-graph file, if the file is present 
 git config --local core.commitGraph true
 
-# Update the Git repository’s commit-graph file to contain all reachable commits
+# Update the Git repository's commit-graph file to contain all reachable commits
 git commit-graph write --reachable
 ```
 
-The generated caches will then be included in the [custom image](how-to-customize-devbox-azure-image-builder.md) and available to dev box users once [posted to a connected Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries). 
+The generated caches will then be included in the [custom image](how-to-customize-devbox-azure-image-builder.md) and available to dev box users once posted to an attached Azure Compute Gallery, as described in [Configure Azure Compute Gallery for Microsoft Dev Box](how-to-configure-azure-compute-gallery.md).
 
-## Next steps
+## Related content
 
-Get started with Visual Studio precaching in Microsoft Dev Box:
+- [Quickstart: Configure Microsoft Dev Box by using an ARM template](quickstart-configure-dev-box-arm-template.md)
+- [Download and install Visual Studio 17.8 or later](https://visualstudio.microsoft.com/vs/)
 
-- [Download and install Visual Studio 17.8 or later](https://visualstudio.microsoft.com/vs/).
-
-We’d love to hear your feedback, input, and suggestions on Visual Studio precaching in Microsoft Dev Box via the [Developer Community](https://developercommunity.visualstudio.com/home).
+We'd love to hear your feedback, input, and suggestions on Visual Studio precaching in Microsoft Dev Box via the [Developer Community](https://developercommunity.visualstudio.com/home).

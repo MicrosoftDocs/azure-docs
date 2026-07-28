@@ -3,10 +3,11 @@ title: Quickstart - Cross region restore for PostgreSQL database with PowerShell
 description: In this Quickstart, learn how to restore PostgreSQL database across region with the Azure PowerShell module.
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 02/01/2024
+ms.date: 12/03/2025
 ms.custom: mvc, devx-track-azurepowershell, mode-api
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to restore an Azure Database for PostgreSQL across regions using PowerShell, so that I can ensure data availability and disaster recovery in different geographical locations."
 ---
 
 # Quickstart: Restore Azure Database for PostgreSQL server across regions with PowerShell by using Azure Backup
@@ -58,7 +59,7 @@ To restore the database to a secondary region after enabling Cross Region Restor
       ```azurepowershell
       $targetResourceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx/resourceGroups/targetrg/providers/providers/Microsoft.DBforPostgreSQL/servers/targetossserver/databases/emprestored21"
       ```
-   2. Use the `Intialize-AzDataProtectionRestoreRequest` cmdlet to prepare the restore request with relevant details.
+   2. Use the `Initialize-AzDataProtectionRestoreRequest` cmdlet to prepare the restore request with relevant details.
 
       ```azurepowershell
       $OssRestoreReq = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureDatabaseForPostgreSQL -SourceDataStore VaultStore -RestoreLocation $vault.ReplicatedRegion[0] -RestoreType AlternateLocation -RecoveryPoint $recoveryPointsCrr[0].Property.RecoveryPointId -TargetResourceId $targetResourceId -SecretStoreURI $secretURI -SecretStoreType AzureKeyVault
@@ -76,7 +77,7 @@ To restore the database to a secondary region after enabling Cross Region Restor
       $contURI = https://testossstorageaccount.blob.core.windows.net/testcontainerrestore
       ```
       
-   2. Use the `Intialize-AzDataProtectionRestoreRequest` cmdlet to prepare the restore request with relevant details.
+   2. Use the `Initialize-AzDataProtectionRestoreRequest` cmdlet to prepare the restore request with relevant details.
 
       ```azurepowershell
       $OssRestoreReq = Initialize-AzDataProtectionRestoreRequest -DatasourceType AzureDatabaseForPostgreSQL -SourceDataStore VaultStore -RestoreLocation $vault.ReplicatedRegion[0] -RestoreType RestoreAsFiles -RecoveryPoint $recoveryPointsCrr[0].Property.RecoveryPointId -TargetContainerURI $targetContainerURI -FileNamePrefix $fileNamePrefix
@@ -90,7 +91,7 @@ To validate the probabilities of success for the restore operation, run the foll
 $validate = Test-AzDataProtectionBackupInstanceRestore -ResourceGroupName $ResourceGroupName -Name $instance[0].Name -VaultName $VaultName -RestoreRequest $OssRestoreReq -SubscriptionId $SubscriptionId -RestoreToSecondaryRegion #-Debug
 ```
 
-## Trigger the restore operation
+## Trigger the restore operation for PostgreSQL database
 
 To trigger the restore operation, run the following cmdlet:
 
@@ -98,7 +99,7 @@ To trigger the restore operation, run the following cmdlet:
 $restoreJob = Start-AzDataProtectionBackupInstanceRestore -BackupInstanceName $instance.Name -ResourceGroupName $ResourceGroupName -VaultName $vaultName -SubscriptionId $SubscriptionId -Parameter $OssRestoreReq -RestoreToSecondaryRegion  # -Debug
 ```
 
-## Track the restore job
+## Track the restore job for PostgreSQL database
 
 To monitor the restore job progress, choose one of the methods:
 

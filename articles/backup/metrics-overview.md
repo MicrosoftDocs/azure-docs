@@ -2,10 +2,11 @@
 title: Monitor the health of your backups using Azure Backup Metrics (preview)
 description: In this article, learn about the metrics available for Azure Backup to monitor your backup health
 ms.topic: overview
-ms.date: 09/11/2024
+ms.date: 11/27/2025
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As an IT admin, I want to monitor the health of my backups using built-in metrics and configure alerts, so that I can ensure data integrity and promptly address any backup issues."
 ---
 
 # Monitor the health of your backups using Azure Backup Metrics (preview)
@@ -33,7 +34,7 @@ Azure Backup offers the following key capabilities:
 
 - Metrics can be viewed for all Recovery Services vaults in each region and subscription at a time. Viewing metrics for a larger scope in the Azure portal is currently not supported. The same limits are also applicable to configure metric alert rules.
 
-## Supported built-in metrics
+## Supported metrics
 
 Currently, Azure Backup supports the following metrics:
 
@@ -56,16 +57,26 @@ The following table lists the dimensions that Backup Health Events and Restore H
 | Backup Instance Name        | Friendly name of the backup instance for easy readability. It's of the format `{protectedContainerName};{backupItemFriendlyName}`. <br><br> For example, `testStorageAccount;testFileShare`      |
 | Health Status               | Represents the health of the backup item after the job had completed. It can take one of the following values: Healthy, Transient Unhealthy, Persistent Unhealthy, Transient Degraded, Persistent Degraded. <br> <br> <ul> <li> When a backup/restore job is successful, a health event with status _Healthy_ appears. </li><br><br><li>_Unhealthy_ appears to job failures due to service errors, and _Degraded_ appears to failures due to user errors. </li> <br><br><li> When the same error happens for the same backup item repeatedly, the state changes from _Transient Unhealthy/Degraded_ to _Persistent Unhealthy/Degraded_. </li></ul> |
 
-## Monitoring scenarios
-
-### View metrics in the Azure portal
+## View metrics in the Azure portal
 
 To view metrics in the Azure portal, follow the below steps:
 
-1. Go to **Backup center** in the Azure portal and click **Metrics** from the menu.
+1. In the [Azure portal](https://ms.portal.azure.com/), go to the **Resiliency** > **Monitoring + Reporting** > **Metrics**.
 
-   :::image type="content" source="./media/metrics-overview/backup-center-metrics-selection-inline.png" alt-text="Screenshot showing to select Metrics in Backup center." lightbox="./media/metrics-overview/backup-center-metrics-selection-expanded.png":::
+   Alternatively, you can go to the **Recovery Services vault** or **Azure Monitor**, and select **Metrics**.
 
+1. To filter the metrics, select the following data type:
+
+   - **Scope**
+   - **Subscription** (only 1 can be selected at a time)
+   - **Recovery Services vault**/ **Backup vault** as the resource type
+   - **Location**
+
+   >[!Note]
+   >- If you go to **Metrics** from **Recovery Services vault**/ **Backup vault**, the metric scope is preselected.
+   >- Selection of the **Recovery Services vault**/ **Backup vault** as the resource type allows you to track the backup related built-in metrics - **Backup health events** and **Restore health events**.
+   >- Currently, the scope to view metrics is available for all Recovery Services vaults in a particular subscription and region. For example, all Recovery Services vaults in East US in TestSubscription1.
+   
 1. Select a vault or a group of vaults for which you want to view metrics.
 
    Currently, the maximum scope for which you can view metrics is: All Recovery Services vaults in a particular subscription and region. For example, All Recovery Services vaults in East US in _TestSubscription1_.
@@ -74,7 +85,7 @@ To view metrics in the Azure portal, follow the below steps:
 
    This renders a chart which shows the count of health events for the vault(s). You can adjust the time range and aggregation granularity by using the filters at the top of the screen.
 
-   :::image type="content" source="./media/metrics-overview/metrics-chart-inline.png" alt-text="Screenshot showing the process to select a metric." lightbox="./media/metrics-overview/metrics-chart-expanded.png":::
+   :::image type="content" source="./media/metrics-overview/metrics-chart.png" alt-text="Screenshot showing the process to select a metric." lightbox="./media/metrics-overview/metrics-chart.png":::
 
 1. To filter metrics by different dimensions, click the **Add Filter** button and select the relevant dimension values. 
 
@@ -82,74 +93,27 @@ To view metrics in the Azure portal, follow the below steps:
    - To view health events for a particular datasource or backup instance within the vault, use the datasource ID/backup instance ID filters.
    - To view health events only for failed backups, use a filter on HealthStatus, by selecting the values corresponding to unhealthy or degraded health state.
 
-   :::image type="content" source="./media/metrics-overview/metrics-filters-inline.png" alt-text="Screenshot showing the process to filter metrics by different dimensions." lightbox="./media/metrics-overview/metrics-filters-expanded.png":::
+   :::image type="content" source="./media/metrics-overview/metrics-filters.png" alt-text="Screenshot showing the process to filter metrics by different dimensions." lightbox="./media/metrics-overview/metrics-filters.png":::
 
-### Configure alerts and notifications on your metrics
-
-To configure alerts and notifications on your metrics, follow these steps:
-
-1. Click **New Alert Rule** at the top of the metric charts.
-
-1. Select the scope for which you want to create alerts.   <br><br>    The scope limits are the same as the limits described in the [View metrics](#view-metrics-in-the-azure-portal) section.
-
-1. Select the condition on which the alert should be fired.      <br><br>   By default, some fields are pre-populated based on the selections in the metric chart. You can edit the parameters as needed. To generate individual alerts for each datasource in the vault, use the **dimensions** selection in the metric alerts rule. Following are some scenarios:
-
-   - Firing alerts on failed backup jobs for each datasource:
-
-     **Alert Rule: Fire an alert if Backup Health Events > 0 in the last 24 hours for**:
-     - Dimensions["HealthStatus"]= “Persistent Unhealthy / Transient Unhealthy”
-     - Dimensions["DatasourceId"]= “All current and future values”
-
-   - Firing alerts if all backups in the vault were successful for the day:
-
-     **Alert Rule: Fire an alert if Backup Health Events < 1 in the last 24 hours for**:
-     - Dimensions["HealthStatus"]="Persistent Unhealthy / Transient Unhealthy / Persistent Degraded / Transient Degraded"
-
-   :::image type="content" source="./media/metrics-overview/metric-alert-condition-inline.png" alt-text="Screenshot showing the option to select the condition on which the alert should be fired." lightbox="./media/metrics-overview/metric-alert-condition-expanded.png":::
-
-   >[!NOTE]
-   >If you select more dimensions as part of the alert rule condition, the cost increases (that's proportional to the number of unique combinations of dimension values possible). Selection of more dimensions allows you to get more context on a fired alert.
-
-
-1. To configure notifications for these alerts using Action Groups, configure an Action Group as part of the alert rule, or create a separate action rule.
-
-   We support various notification channels, such as email, ITSM, webhook, Logic App, SMS. [Learn more about Action Groups](/azure/azure-monitor/alerts/action-groups).
-
-   :::image type="content" source="./media/metrics-overview/action-group-inline.png" alt-text="Screenshot showing the process to configure notifications for these alerts using Action Groups." lightbox="./media/metrics-overview/action-group-expanded.png":::
-
-1. Configure auto-resolution behavior - You can configure metric alerts as _stateless_ or _stateful_ as required.
-
-   - To generate an alert on every job failure irrespective of the failure is due to the same underlying cause (stateless behavior), deselect the **Automatically resolve alerts** option in the alert rule.
-   - Alternately, to configure the alerts as stateful, select the same checkbox. Therefore, when a metric alert is fired on the scope, another failure won't create a new metric alert. The alert gets auto-resolved if the alert generation condition evaluates to false for three successive evaluation cycles. New alerts are generated if the condition evaluates to true again.
-
-[Learn more about stateful and stateless behavior of Azure Monitor metric alerts](/azure/azure-monitor/alerts/alerts-troubleshoot-metric#the-metric-alert-is-not-triggered-every-time-the-condition-is-met).
-
-:::image type="content" source="./media/metrics-overview/auto-resolve-alert-inline.png" alt-text="Screenshot showing the process to configure auto-resolution behavior." lightbox="./media/metrics-overview/auto-resolve-alert-expanded.png":::
-
-### Managing Alerts
+## Manage alerts
 
 To view your fired metric alerts, follow these steps:
 
-1. Go to **Backup center** > **Alerts**.
+1. In the [Azure portal](https://ms.portal.azure.com/), go to the **Resiliency** > **Monitoring + Reporting** > **Alerts**.
 1. Filtering for **Signal Type** = **Metric** and **Alert Type** = **Configured**.
 1. Click an alert to view more details about the alert and change its state.
 
-   :::image type="content" source="./media/metrics-overview/backup-center-metric-alerts-inline.png" alt-text="Screenshot showing the process to view your fired metric alerts." lightbox="./media/metrics-overview/backup-center-metric-alerts-expanded.png":::
-
 >[!NOTE]
 >The alert has two fields - **Monitor condition (fired/resolved)** and **Alert State (New/Ack/Closed)**.
->- **Alert state**: Youcan edit this field (as shown in below screenshot).
+>- **Alert state**: You can edit this field (as shown in below screenshot).
 >- **Monitor condition**: You can't edit this field. This field is used more in scenarios where the service itself resolves the alert. For example, auto-resolution behavior in metric alerts uses the **Monitor condition** field to resolve an alert.
 
 
 #### Datasource alerts and Global alerts
 
-Based on the alert rules configuration, the fired alert appears under the **Datasource Alerts** section or the **Global Alerts** section in Backup center:
+Based on the alert rules configuration, the fired alert appears on the **Alerts** blade in the **Resiliency**.
 
-- If the alert has a datasource ID dimension associated with it, the fired alert appears under **Datasource Alerts**.
-- If the alert doesn't have a datasource ID dimension associated with it, the fired alert appears under **Global Alerts** as no information that ties the alert to a specific datasource is present.
-
-[Learn more about datasource and global alerts here](backup-center-monitor-operate.md#alerts)
+[Learn how to view and filter alerts](../business-continuity-center/tutorial-monitor-alerts-metrics.md#monitor-alerts).
 
 >[!Note]
 >Currently, in case of blob restore alerts, alerts appear under datasource alerts only if you select both the dimensions - *datasourceId* and *datasourceType* while creating the alert rule. If any dimensions aren't selected, the alerts appear under global alerts.
@@ -164,7 +128,7 @@ You can use the different programmatic clients, such as PowerShell, CLI, or REST
 
 **Alert Rule: Fire an alert if Backup Health Events < 1 in last 24 hours for**:
 
-Dimensions["HealthStatus"] != "Healthy"
+Dimensions["HealthStatus"]!= "Healthy"
 	 
 #### Fire an alert after every failed backup job
 

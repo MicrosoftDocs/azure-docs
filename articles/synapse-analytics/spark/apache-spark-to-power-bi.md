@@ -3,7 +3,7 @@ title: 'Azure Synapse Studio notebooks'
 description: This tutorial provides an overview on how to create a Power BI dashboard using Apache Spark and a Serverless SQL pool.
 author: midesa
 ms.author: midesa 
-ms.reviewer: whhender 
+ 
 ms.service: azure-synapse-analytics
 ms.subservice: spark
 ms.topic: tutorial
@@ -12,7 +12,7 @@ ms.date: 11/16/2020
 
 # Tutorial: Create a Power BI report using Apache Spark and Azure Synapse Analytics
 
-Organizations often need to process large volumes of data before serving to key business stakeholders. In this tutorial, you will learn how to leverage the integrated experiences in Azure Synapse Analytics to process data using Apache Spark and later serve the data to end-users through Power BI and Serverless SQL.
+Organizations often need to process large volumes of data before serving to key business stakeholders. In this tutorial, you'll learn how to leverage the integrated experiences in Azure Synapse Analytics to process data using Apache Spark and later serve the data to end-users through Power BI and Serverless SQL.
 
 ## Before you begin
 - [Azure Synapse Analytics workspace](../quickstart-create-workspace.md) with an ADLS Gen2 storage account configured as the default storage. 
@@ -21,29 +21,29 @@ Organizations often need to process large volumes of data before serving to key 
 - Serverless Apache Spark pool in your Synapse Analytics workspace. For details, see [create a serverless Apache Spark pool](../quickstart-create-apache-spark-pool-studio.md)
   
 ## Download and prepare the data
-In this example, you will use Apache Spark to perform some analysis on taxi trip tip data from New York. The data is available through [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). This subset of the dataset contains information about yellow taxi trips, including information about each trip, the start and end time and locations, the cost, and other interesting attributes.
+In this example, you'll use Apache Spark to perform some analysis on taxi trip tip data from New York. The data is available through [Azure Open Datasets](https://azure.microsoft.com/services/open-datasets/catalog/nyc-taxi-limousine-commission-yellow-taxi-trip-records/). This subset of the dataset contains information about yellow taxi trips, including information about each trip, the start, and end time and locations, the cost, and other interesting attributes.
 
 1. Run the following lines to create a Spark dataframe by pasting the code into a new cell. This retrieves the data via the Open Datasets API. Pulling all of this data generates about 1.5 billion rows. The following code example uses start_date and end_date to apply a filter that returns a single month of data.
    
    ```python
-    from azureml.opendatasets import NycTlcYellow
-    from dateutil import parser
-    from datetime import datetime
+   from azureml.opendatasets import NycTlcYellow
+   from dateutil import parser
+   from datetime import datetime
 
-    end_date = parser.parse('2018-06-06')
-    start_date = parser.parse('2018-05-01')
-    nyc_tlc = NycTlcYellow(start_date=start_date, end_date=end_date)
-    filtered_df = nyc_tlc.to_spark_dataframe()
+   end_date = parser.parse('2018-06-06')
+   start_date = parser.parse('2018-05-01')
+   nyc_tlc = NycTlcYellow(start_date=start_date, end_date=end_date)
+   filtered_df = spark.createDataFrame(nyc_tlc.to_pandas_dataframe())
    ```
-2. Using Apache Spark SQL, we will create a database called NycTlcTutorial. We will use this database to store the results of our data processing.
+2. Using Apache Spark SQL, we'll create a database called NycTlcTutorial. We'll use this database to store the results of our data processing.
    ```python
    %%pyspark
-    spark.sql("CREATE DATABASE IF NOT EXISTS NycTlcTutorial")
+   spark.sql("CREATE DATABASE IF NOT EXISTS NycTlcTutorial")
    ```
-3. Next, we will use Spark dataframe operations to process the data. In the following code, we perform the following transformations:
-   1. The removal of columns which are not needed.
+3. Next, we'll use Spark dataframe operations to process the data. In the following code, we perform the following transformations:
+   1. The removal of columns which aren't needed.
    2. The removal of outliers/incorrect values through filtering.
-   3. The creation of new features like ```tripTimeSecs``` and ```tipped``` for additional analysis.
+   3. The creation of new features like ```tripTimeSecs``` and ```tipped``` for extra analysis.
     ```python
     from pyspark.sql.functions import unix_timestamp, date_format, col, when
 
@@ -62,11 +62,11 @@ In this example, you will use Apache Spark to perform some analysis on taxi trip
                                     & (filtered_df.rateCodeId <= 5)
                                     & (filtered_df.paymentType.isin({"1", "2"})))
     ```
-4. Finally, we will save our dataframe using the Apache Spark ```saveAsTable``` method. This will allow you to later query and connect to the same table using serverless SQL pools.
-  ```python
-     taxi_df.write.mode("overwrite").saveAsTable("NycTlcTutorial.nyctaxi")
-  ```
-   
+4. Finally, we'll save our dataframe using the Apache Spark ```saveAsTable``` method. This will allow you to later query and connect to the same table using serverless SQL pools.
+    ```python
+    taxi_df.write.mode("overwrite").saveAsTable("NycTlcTutorial.nyctaxi")
+    ```
+
 ## Query data using serverless SQL pools
 Azure Synapse Analytics allows the different workspace computational engines to share databases and tables between its serverless Apache Spark pools and serverless SQL pool. This is powered through the Synapse [shared metadata management](../metadata/overview.md) capability. As a result, the Spark created databases and their parquet-backed tables become visible in the workspace serverless SQL pool.
 
@@ -80,7 +80,7 @@ To query your Apache Spark table using your serverless SQL pool:
    3. You can continue to refine your query or even visualize your results using the SQL charting options.
 
 ## Connect to Power BI
-Next, we will connect our serverless SQL pool to our Power BI workspace. Once you have connected your workspace, you will be able to create Power BI reports both directly from Azure Synapse Analytics as well as from Power BI desktop.
+Next, we'll connect our serverless SQL pool to our Power BI workspace. Once you have connected your workspace, you'll be able to create Power BI reports both directly from Azure Synapse Analytics and from Power BI desktop.
 
 >[!Note]
 > Before you begin, you will need to set up a linked service to your [Power BI workspace](../quickstart-power-bi.md) and download the [Power BI desktop](/power-bi/service-create-the-new-workspaces).  
@@ -104,7 +104,7 @@ To connect our serverless SQL pool to our Power BI workspace:
 
 2. On the Power BI desktop Home tab, select **Publish** and **Save** changes. Enter a file name and save this report to the *NycTaxiTutorial Workspace*.
    
-3. In addition, you can also create Power BI visualizations from within your Azure Synapse Analytics workspace. To do this, navigate to the **Develop** tab in your Azure Synapse workspace and open the Power BI tab. From here, you can select your report and continue building additional visualizations. 
+3. In addition, you can also create Power BI visualizations from within your Azure Synapse Analytics workspace. To do this, navigate to the **Develop** tab in your Azure Synapse workspace and open the Power BI tab. From here, you can select your report and continue building more visualizations. 
    
    :::image type="content" source="../spark/media/apache-spark-power-bi/power-bi-synapse.png" alt-text="Azure Synapse Analytics Workspace." border="true":::
 

@@ -1,13 +1,16 @@
 ---
-title: 'About Azure Point-to-Site VPN connections'
+title: About Azure Point-to-Site VPN connections
 titleSuffix: Azure VPN Gateway
 description: Learn about Point-to-Site VPN.
-author: cherylmc
+author: duongau
 ms.service: azure-vpn-gateway
-ms.custom: linux-related-content
-ms.topic: conceptual
-ms.date: 09/18/2024
-ms.author: cherylmc
+ms.topic: concept-article
+ms.date: 06/08/2026
+ms.author: duau
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: "As a telecommuter, I want to set up a Point-to-Site VPN connection to my Azure virtual network, so that I can securely access company resources from remote locations."
 ---
 # About Point-to-Site VPN
 
@@ -17,9 +20,9 @@ A Point-to-Site (P2S) VPN gateway connection lets you create a secure connection
 
 Point-to-site VPN can use one of the following protocols:
 
-* **OpenVPN® Protocol**, an SSL/TLS based VPN protocol. A TLS VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which TLS uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux, and Mac devices (macOS versions 10.13 and above).
+* **OpenVPN® Protocol**, an SSL/TLS based VPN protocol. A TLS VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which TLS uses. OpenVPN can be used to connect from Android, iOS (versions 11.0 and above), Windows, Linux, and Mac devices (macOS versions 10.13 and above). Supported versions are TLS 1.2 and TLS 1.3 based on TLS handshake.
 
-* **Secure Socket Tunneling Protocol (SSTP)**, a proprietary TLS-based VPN protocol. A TLS VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which TLS uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP and support TLS 1.2 (Windows 8.1 and later).
+* **Secure Socket Tunneling Protocol (SSTP)**, a proprietary TLS-based VPN protocol. A TLS VPN solution can penetrate firewalls, since most firewalls open TCP port 443 outbound, which TLS uses. SSTP is only supported on Windows devices. Azure supports all versions of Windows that have SSTP and support TLS 1.2 (Windows 8.1 and later). 
 
 * **IKEv2 VPN**, a standards-based IPsec VPN solution. IKEv2 VPN can be used to connect from Mac devices (macOS versions 10.11 and above).
 
@@ -43,7 +46,7 @@ When you configure your P2S gateway for certificate authentication, you upload t
 
 To authenticate, each client that connects must have an installed client certificate that's generated from the trusted root certificate. This is in addition to VPN client software. The validation of the client certificate is performed by the VPN gateway and happens during establishment of the P2S VPN connection.
 
-#### <a name='certificate-workflow'></a>Certificate authentication workflow
+#### <a name="certificate-workflow"></a>Certificate authentication workflow
 
 At a high level, you need to perform the following steps to configure Certificate authentication:
 
@@ -53,13 +56,13 @@ At a high level, you need to perform the following steps to configure Certificat
 1. Configure the VPN client on the client computer using the settings found in the VPN profile configuration package.
 1. Connect.
 
-### <a name='entra-id'></a>Microsoft Entra ID authentication
+### <a name="entra-id"></a>Microsoft Entra ID authentication
 
 You can configure your P2S gateway to allow VPN users to authenticate using Microsoft Entra ID credentials. With Microsoft Entra ID authentication, you can use Microsoft Entra Conditional Access and multifactor authentication (MFA) features for VPN. Microsoft Entra ID authentication is supported only for the OpenVPN protocol. To authenticate and connect, clients must use the Azure VPN Client.
 
 [!INCLUDE [entra app id descriptions](../../includes/vpn-gateway-entra-app-id-descriptions.md)]
 
-#### <a name='entra-workflow'></a>Microsoft Entra ID authentication workflow
+#### <a name="entra-workflow"></a>Microsoft Entra ID authentication workflow
 
 At a high level, you need to perform the following steps to configure Microsoft Entra ID authentication:
 
@@ -69,7 +72,7 @@ At a high level, you need to perform the following steps to configure Microsoft 
 1. Download, install, and configure the Azure VPN Client on the client computer.
 1. Connect.
 
-### <a name='active-directory'></a>RADIUS - Active Directory (AD) Domain Server authentication
+### <a name="active-directory"></a>RADIUS - Active Directory (AD) Domain Server authentication
 
 AD Domain authentication allows users to connect to Azure using their organization domain credentials. It requires a RADIUS server that integrates with the AD server. Organizations can also use their existing RADIUS deployment.
 
@@ -83,7 +86,7 @@ A RADIUS server can also integrate with other external identity systems. This op
 
 For P2S gateway configuration steps, see [Configure P2S - RADIUS](point-to-site-how-to-radius-ps.md).
 
-## What are the client configuration requirements?
+## <a name="client"></a>What are the client configuration requirements?
 
 The client configuration requirements vary, based on the VPN client that you use, the authentication type, and the protocol. The following table shows the available clients and the corresponding articles for each configuration.
 
@@ -95,13 +98,15 @@ For information about available Azure VPN Client versions, release dates, and wh
 
 ## <a name="gwsku"></a>Which gateway SKUs support P2S VPN?
 
-The following table shows gateway SKUs by tunnel, connection, and throughput. For more information, see  [About gateway SKUs](about-gateway-skus.md).
-
-[!INCLUDE [aggregate throughput sku](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+See [About Gateway SKUs](about-gateway-skus.md) for the list of SKUs that support P2S VPN, and the number of tunnels and connections supported on each SKU.
 
 > [!NOTE]
 > The Basic SKU has limitations and does not support IKEv2, IPv6, or RADIUS authentication. For more information, see [VPN Gateway settings](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
->
+
+### <a name="certificate-migration"></a>What is P2S gateway root certificate migration?
+
+Azure periodically rotates the root certificates that VPN gateways use for point-to-site (P2S) VPN connections. Root certificate migration (also called root certificate rotation) is the scheduled process of transitioning a VPN gateway from an older root certificate to a new one. Microsoft provides advance notice before each migration. This change affects all P2S client connections, not just clients that connect via Certificate Authentication. When a gateway server certificate is migrated, the gateway continues to function as normal, but you must generate and update your VPN client profile to maintain connectivity. For more information, see [VPN Gateway certificate migration](point-to-site-about-gateway-certificate-migration.md).
+
 
 ## <a name="IKE/IPsec policies"></a>What IKE/IPsec policies are configured on VPN gateways for P2S?
 
@@ -154,7 +159,7 @@ The tables in this section show the values for the default policies. However, th
 
 A P2S configuration requires quite a few specific steps. The following articles contain the steps to walk you through common P2S configuration steps.
 
-* [Certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Certificate authentication](point-to-site-certificate-gateway.md)
 * [Microsoft Entra ID authentication](point-to-site-entra-gateway.md)
 * [RADIUS authentication](point-to-site-how-to-radius-ps.md)
 
@@ -175,7 +180,7 @@ There are multiple FAQ entries for point-to-site. See the [VPN Gateway FAQ](vpn-
 
 ## Next Steps
 
-* [Configure a P2S connection - Azure certificate authentication](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+* [Configure a P2S connection - Azure certificate authentication](point-to-site-certificate-gateway.md)
 * [Configure a P2S connection - Microsoft Entra ID authentication](point-to-site-entra-gateway.md)
 
 **"OpenVPN" is a trademark of OpenVPN Inc.**

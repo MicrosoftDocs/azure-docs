@@ -2,18 +2,18 @@
 title: Introduction to cost allocation
 titleSuffix: Microsoft Cost Management
 description: This article introduces you to different Azure tools and features to enable you to allocate costs effectively and efficiently.
-author: bandersmsft
-ms.author: banders
-ms.date: 02/26/2024
-ms.topic: conceptual
+author: vikramdesai01
+ms.author: vikdesai
+ms.date: 06/27/2025
+ms.topic: concept-article
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: sadoulta
+ms.reviewer: vikdesai
 ---
 
 # Introduction to cost allocation
 
-Cost allocation, as defined by the [FinOps Foundation](/cloud-computing/finops/capabilities-allocation), is the set of practices to divide up a consolidated invoice. Or, to bill the people responsible for its various component parts. It's the process of assigning costs to different groups within an organization based on their consumption of resources and application of benefits. By providing visibility into costs to groups who are responsible for it, cost allocation helps organizations track and optimize their spending, improve budgeting and forecasting, and increase accountability and transparency.
+Cost allocation, as defined by the [FinOps Foundation](/cloud-computing/finops/framework/understand/allocation), is the set of practices to divide up a consolidated invoice. Or, to bill the people responsible for its various component parts. It's the process of assigning costs to different groups within an organization based on their consumption of resources and application of benefits. By providing visibility into costs to groups who are responsible for it, cost allocation helps organizations track and optimize their spending, improve budgeting and forecasting, and increase accountability and transparency.
 
 This article introduces you to different Azure tools and features to enable you to allocate costs effectively and efficiently.
 
@@ -96,7 +96,7 @@ For more information about tag inheritance and billing tags, see [Apply billing 
 
 ## Cost allocation rules
 
-With cost allocation rules, you can split the costs of shared services by moving costs between subscriptions, resource groups, and tags. Splitting costs is especially useful in scenarios where you have central subscriptions hosting shared infrastructure services used by different teams within your organization. Creating the right cost allocation rules ensures that the teams consuming the shared services get visibility into their portion of the costs. And, they can also be accountable for those costs.
+With cost allocation rules, you can split the costs of shared services by moving costs between subscriptions, resource groups, and tags. Splitting costs is especially useful in scenarios where you have central subscriptions hosting shared infrastructure services used by different teams within your organization. Creating the right set of cost allocation rules ensures that the teams consuming the shared services get visibility into their portion of the costs. And, they can also be accountable for those costs.
 
 For more information about how to manage and allocate shared costs, see [Allocate costs](allocate-costs.md).
 

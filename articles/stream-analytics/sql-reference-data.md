@@ -6,6 +6,7 @@ ms.author: anboisve
 ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 04/20/2022
+ms.custom: sfi-image-nochange
 ---
 # Use reference data from a SQL Database for an Azure Stream Analytics job
 
@@ -31,7 +32,7 @@ Use the following steps to add Azure SQL Database as a reference input source us
 
    ![Inputs is selected in the left navigation pane. On Inputs, + Add reference input is selected, revealing a drop-down list that shows the values Blob storage and SQL Database.](./media/sql-reference-data/stream-analytics-inputs.png)
 
-2. Fill out the Stream Analytics Input Configurations. Choose the database name, server name, username and password. If you want your reference data input to refresh periodically, choose “On” to specify the refresh rate in DD:HH:MM. If you have large data sets with a short refresh rate.  Delta query enables you to track changes within your reference data by retreiving all of the rows in SQL Database that were inserted or deleted within a start time, @deltaStartTime, and an end time @deltaEndTime. 
+2. Fill out the Stream Analytics Input Configurations. Choose the database name, server name, username and password. If you want your reference data input to refresh periodically, choose “On” to specify the refresh rate in DD:HH:MM. If you have large data sets with a short refresh rate.  Delta query enables you to track changes within your reference data by retrieving all of the rows in SQL Database that were inserted or deleted within a start time, @deltaStartTime, and an end time @deltaEndTime. 
 
 Please see [delta query](sql-reference-data.md#delta-query).
 
@@ -210,7 +211,7 @@ When using the delta query, [temporal tables in Azure SQL Database](/azure/azure
 
 5. Choose your connection.
 
-   ![The dialog box says "Create a connection profile from the list below", and the list has one entry, which is hightlighted.](./media/sql-reference-data/choose-connection.png)
+   ![The dialog box says "Create a connection profile from the list below", and the list has one entry, which is highlighted.](./media/sql-reference-data/choose-connection.png)
 
 6. Review and verify your query result.
 

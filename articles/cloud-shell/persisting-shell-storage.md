@@ -50,7 +50,7 @@ directory, which might include sensitive information including access tokens or 
 
 ## Restrict resource creation with an Azure resource policy
 
-Storage accounts that created in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`.
+Storage accounts that are created in Cloud Shell are tagged with `ms-resource-usage:azure-cloud-shell`.
 If you want to disallow users from creating storage accounts in Cloud Shell, create an
 [Azure resource policy][02] that's triggered by this specific tag.
 
@@ -116,7 +116,7 @@ MountPoint         : /home/user/clouddrive
 Name               : cs7xxxxxxxxxxxxxxx
 ResourceGroupName  : cloud-shell-storage-southcentralus
 StorageAccountName : cs7xxxxxxxxxxxxxxx
-SubscriptionId     : 78a66d97-7204-4a0d-903f-43d3d4170e5b
+SubscriptionId     : aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e
 ```
 
 ### Unmount the file share
@@ -142,7 +142,7 @@ mount a new file share on your next session
 
 <!-- link references -->
 [01]: ../azure-resource-manager/management/tag-resources.md
-[02]: ../governance/policy/samples/index.md
+[02]: /azure/governance/policy/samples/index
 [03]: ../storage/files/storage-files-introduction.md
 [04]: get-started/existing-storage.md
 [05]: get-started/new-storage.md

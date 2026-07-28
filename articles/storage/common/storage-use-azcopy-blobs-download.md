@@ -4,30 +4,31 @@ description: This article contains a collection of AzCopy example commands that 
 author: normesta
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 04/02/2021
+ms.date: 10/28/2025
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.reviewer: dineshm
+# Customer intent: "As a data engineer, I want to use AzCopy to efficiently download blobs from Azure Blob Storage, so that I can manage and process storage data as needed in my projects."
 ---
 
 # Download blobs from Azure Blob Storage by using AzCopy
 
-You can download blobs and directories from Blob storage by using the AzCopy v10 command-line utility.
+You can use the AzCopy v10 command-line utility to download blobs and directories from Blob storage.
 
-To see examples for other types of tasks such as uploading files, synchronizing with Blob storage, or copying blobs between accounts, see the links presented in the [Next Steps](#next-steps) section of this article.
+For examples of other types of tasks, such as uploading files, synchronizing with Blob storage, or copying blobs between accounts, see the links in the [Next Steps](#next-steps) section of this article.
 
 ## Get started
 
 See the [Get started with AzCopy](storage-use-azcopy-v10.md) article to download AzCopy and learn about the ways that you can provide authorization credentials to the storage service.
 
 > [!NOTE]
-> The examples in this article assume that you've provided authorization credentials by using Microsoft Entra ID.
+> The examples in this article assume that you provide authorization credentials by using Microsoft Entra ID.
 >
 > If you'd rather use a SAS token to authorize access to blob data, then you can append that token to the resource URL in each AzCopy command. For example: `'https://<storage-account-name>.blob.core.windows.net/<container-name><SAS-token>'`.
 
 ## Download a blob
 
-Download a blob by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
+Download a blob by using the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -53,7 +54,7 @@ azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFil
 
 ## Download a directory
 
-Download a directory by using the [azcopy copy](storage-ref-azcopy-copy.md) command.
+Download a directory by using the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command.
 
 > [!TIP]
 > This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes ('').
@@ -107,7 +108,7 @@ You can download specific blobs by using complete file names, partial names with
 
 #### Specify multiple complete blob names
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-path` option. Separate individual blob names by using a semicolon (`;`).
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-path` option. Separate individual blob names by using a semicolon (`;`).
 
 **Syntax**
 
@@ -127,11 +128,11 @@ azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirec
 
 In this example, AzCopy transfers the `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` directory and the `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/documents/myFile.txt` file. Include the `--recursive` option to transfer all blobs in the `https://mystorageaccount.blob.core.windows.net/mycontainer/FileDirectory/photos` directory.
 
-You can also exclude blobs by using the `--exclude-path` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+You can also exclude blobs by using the `--exclude-path` option. To learn more, see [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) reference docs.
 
 #### Use wildcard characters
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolin (`;`).
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-pattern` option. Specify partial names that include the wildcard characters. Separate names by using a semicolin (`;`).
 
 **Syntax**
 
@@ -149,13 +150,13 @@ azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDire
 azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory' 'C:\myDirectory'  --include-pattern 'myFile*.txt;*.pdf*'
 ```
 
-You can also exclude blobs by using the `--exclude-pattern` option. To learn more, see [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+You can also exclude blobs by using the `--exclude-pattern` option. To learn more, see [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) reference docs.
 
 The `--include-pattern` and `--exclude-pattern` options apply only to blob names and not to the path.  If you want to copy all of the text files (blobs) that exist in a directory tree, use the `-recursive` option to get the entire directory tree, and then use the `-include-pattern` and specify `*.txt` to get all of the text files.
 
 #### Download blobs that were modified before or after a date and time
 
-Use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--include-before` or `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`).
+Use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--include-before` or `--include-after` option. Specify a date and time in ISO-8601 format (For example: `2020-08-19T15:04:00Z`).
 
 The following examples download files that were modified on or after the specified date.
 
@@ -175,11 +176,11 @@ azcopy copy 'https://mystorageaccount.blob.core.windows.net/mycontainer/FileDire
 azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/FileDirectory/*' 'C:\myDirectory'  --include-after '2020-08-19T15:04:00Z'
 ```
 
-For detailed reference, see the [azcopy copy](storage-ref-azcopy-copy.md) reference docs.
+For detailed reference, see the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) reference docs.
 
 #### Download previous versions of a blob
 
-If you've enabled [blob versioning](../blobs/versioning-enable.md), you can download one or more previous versions of a blob.
+If you enable [blob versioning](../blobs/versioning-enable.md), you can download one or more previous versions of a blob.
 
 First, create a text file that contains a list of [version IDs](../blobs/versioning-overview.md). Each version ID must appear on a separate line. For example:
 
@@ -189,7 +190,7 @@ First, create a text file that contains a list of [version IDs](../blobs/version
 2020-08-17T05:50:36.7607103Z
 ```
 
-Then, use the [azcopy copy](storage-ref-azcopy-copy.md) command with the `--list-of-versions` option. Specify the location of the text file that contains the list of versions (For example: `D:\\list-of-versions.txt`).
+Then, use the [azcopy copy](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy) command with the `--list-of-versions` option. Specify the location of the text file that contains the list of versions (For example: `D:\\list-of-versions.txt`).
 
 #### Download a blob snapshot
 
@@ -212,7 +213,7 @@ azcopy copy 'https://mystorageaccount.dfs.core.windows.net/mycontainer/myTextFil
 ```
 
 > [!NOTE]
-> If you are using a SAS token to authorize access to blob data, then append snapshot **DateTime** after the SAS token. For example: `'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z'`.
+> If you use a SAS token to authorize access to blob data, append snapshot **DateTime** after the SAS token. For example: `'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=/SOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B/3Eykf/JLs%3D&sharesnapshot=2020-09-23T08:21:07.0000000Z'`.
 
 ## Download with optional flags
 
@@ -221,10 +222,27 @@ You can tweak your download operation by using optional flags. Here's a few exam
 |Scenario|Flag|
 |---|---|
 |Automatically decompress files.|**--decompress**|
-|Specify how detailed you want your copy-related log entries to be.|**--log-level**=\[WARNING\|ERROR\|INFO\|NONE\]|
-|Specify if and how to overwrite the conflicting files and blobs at the destination.|**--overwrite**=\[true\|false\|ifSourceNewer\|prompt\]|
+|Specify how detailed you want your copy-related log entries to be.|**--log-level**=[WARNING\|ERROR\|INFO\|NONE]|
+|Specify if and how to overwrite the conflicting files and blobs at the destination.|**--overwrite**=[true\|false\|ifSourceNewer\|prompt]|
 
-For a complete list, see [options](storage-ref-azcopy-copy.md#options).
+For a complete list, see [options](https://github.com/Azure/azure-storage-azcopy/wiki/azcopy_copy#options).
+
+## Download static website contents
+
+AzCopy doesn't support downloading data from static websites hosted in Azure Storage through the public endpoint, such as `https://mystorageaccount.z12.web.core.windows.net`. Instead, use the `$web` container at the blob endpoint to download files from your static website.
+
+```azcopy
+azcopy copy 'https://mystorageaccount.blob.core.windows.net/$web/*' 'C:\myDirectory' --recursive
+```
+
+## Specify source and destination types
+
+AzCopy uses the `--from-to` parameter to explicitly define the source and destination resource types when automatic detection might fail - such as in piping scenarios or emulators. This parameter helps AzCopy understand the context of the transfer and optimize accordingly.
+
+| FromTo Value           | Description                                                                           |
+|------------------------|---------------------------------------------------------------------------------------|
+| `BlobFSLocal`          | Download from Azure Data Lake Gen2 (BlobFS) to local file system                      |
+| `BlobLocal`            | Download from Azure Blob Storage to local file system                                 |
 
 ## Next steps
 
@@ -236,7 +254,6 @@ Find more examples in these articles:
 - [Examples: Amazon S3 buckets](storage-use-azcopy-s3.md)
 - [Examples: Google Cloud Storage](storage-use-azcopy-google-cloud.md)
 - [Examples: Azure Files](storage-use-azcopy-files.md)
-- [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](storage-use-azcopy-migrate-on-premises-data.md)
 
 See these articles to configure settings, optimize performance, and troubleshoot issues:
 

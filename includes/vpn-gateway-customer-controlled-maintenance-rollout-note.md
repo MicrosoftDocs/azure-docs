@@ -1,6 +1,6 @@
 ---
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.date: 10/27/2023
 ms.service: azure-vpn-gateway
 ms.topic: include
@@ -9,4 +9,4 @@ ms.topic: include
 ---
 
 > [!NOTE]
-> Customer-controlled gateway maintenance (Preview) is currently rolling out to all regions.
+> Customer-controlled gateway maintenance for User VPN (Point-to-Site VPN) in Virtual WAN is in Preview, and currently rolling out to all regions.

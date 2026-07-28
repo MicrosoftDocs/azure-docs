@@ -3,11 +3,11 @@ title: Rule set actions
 titleSuffix: Azure Front Door
 description: This article provides a list of various actions you can do with Azure Front Door rule sets.
 services: frontdoor
-author: duongau
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 07/16/2024
-ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
@@ -51,7 +51,7 @@ When **Caching** is set to **Enabled**, set the following properties:
 | Query parameters | The list of query string parameter names, separated by commas. This property is only set when *Query string caching behavior* is set to *Ignore Specified Query Strings* or *Include Specified Query Strings*. |
 | Compression | <ul><li>**Enabled:** Front Door dynamically compresses content at the edge, resulting in a smaller and faster response. For more information, see [File compression](front-door-caching.md#file-compression). In ARM templates, set the `isCompressionEnabled` property to `Enabled`.</li><li>**Disabled.** Front Door doesn't perform compression. In ARM templates, set the `isCompressionEnabled` property to `Disabled`.</li></ul> |
 | Cache behavior | <ul><li>**Honor origin:** Front Door always honors origin response header directive. If the origin directive is missing, Front Door caches contents anywhere from 1 to 3 days. In ARM templates, set the `cacheBehavior` property to `HonorOrigin`.</li><li>**Override always:** The TTL value returned from your origin is overwritten with the value specified in the action. This behavior only gets applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `OverrideAlways`.</li><li>**Override if origin missing:** If no TTL value gets returned from your origin, the rule sets the TTL to the value specified in the action. This behavior only gets applied if the response is cacheable. In ARM templates, set the `cacheBehavior` property to `OverrideIfOriginMissing`.</li></ul> |
-| Cache duration | When _Cache behavior_ is set to `Override always` or `Override if origin missing`, these fields must specify the cache duration to use. The maximum duration is 366 days. For a value of 0 seconds, the CDN caches the content, but must revalidate each request with the origin server. This property is only set when *Cache behavior* is set to *Override always* or *Override if origin missing*.<ul><li>In the Azure portal: specify the days, hours, minutes, and seconds.</li><li>In ARM templates: use the `cacheDuration` to specify the duration in the format `d.hh:mm:ss`. |
+| Cache duration | When _Cache behavior_ is set to `Override always` or `Override if origin missing`, these fields must specify the cache duration to use. The maximum duration is 366 days. This property is only set when *Cache behavior* is set to *Override always* or *Override if origin missing*.<ul><li>In the Azure portal: specify the days, hours, minutes, and seconds.</li><li>In ARM templates: use the `cacheDuration` to specify the duration in the format `d.hh:mm:ss`. |
 
 ### Examples
 
@@ -359,7 +359,7 @@ Use the **URL redirect** action to redirect clients to a new URL. Clients are se
 
 | Property | Supported values |
 |----------|------------------|
-| Redirect type | The response type to return to the requestor. <ul><li>In the Azure portal: Found (302), Moved (301), Temporary Redirect (307), Permanent Redirect (308).</li><li>In ARM templates: `Found`, `Moved`, `TemporaryRedirect`, `PermanentRedirect`</li></ul> |
+| Redirect type | The response type to return to the requester. <ul><li>In the Azure portal: Found (302), Moved (301), Temporary Redirect (307), Permanent Redirect (308).</li><li>In ARM templates: `Found`, `Moved`, `TemporaryRedirect`, `PermanentRedirect`</li></ul> |
 | Redirect protocol | <ul><li>In the Azure portal: `Match Request`, `HTTP`, `HTTPS`</li><li>In ARM templates: `MatchRequest`, `Http`, `Https`</li></ul> |
 | Destination host | The host name you want the request to be redirected to. Leave blank to preserve the incoming host. |
 | Destination path | The path to use in the redirect. Include the leading `/`. Leave blank to preserve the incoming path. |
@@ -416,7 +416,7 @@ Use the **URL rewrite** action to rewrite the path of a request that's en route 
 
 | Property | Supported values |
 |----------|------------------|
-| Source pattern | Define the source pattern in the URL path to replace. Currently, source pattern uses a prefix-based match. To match all URL paths, use a forward slash (`/`) as the source pattern value. |
+| Source pattern | Define the source pattern in the URL path to replace. Currently, source pattern uses a prefix-based match. To match all URL paths, use a forward slash (`/`) as the source pattern value. Note that only the path after the patterns to match in the route configuration is taken into consideration for the source pattern. For more information, see [source pattern.](front-door-url-rewrite.md?pivots=front-door-standard-premium#source-pattern) |
 | Destination | Define the destination path to use in the rewrite. The destination path overwrites the source pattern. |
 | Preserve unmatched path | If set to _Yes_, the remaining path after the source pattern is appended to the new destination path. |
 

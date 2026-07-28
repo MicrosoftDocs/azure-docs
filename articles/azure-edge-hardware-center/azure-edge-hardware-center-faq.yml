@@ -3,12 +3,12 @@ metadata:
   title: Azure Edge Hardware Center FAQ | Microsoft Docs in data 
   description: Contains frequently asked questions and answers for Azure Edge Hardware Center, a service that lets you order hardware devices as per your business need.
   services: databox
-  author: alkohli
   
   ms.service: azure-edge-hardware-center
   ms.topic: faq
   ms.date: 06/06/2022
-  ms.author: alkohli
+  author: soumya-jain19
+  ms.author: sojain
   ms.custom: references_regions
 title: "Azure Edge Hardware Center: Frequently Asked Questions"
 summary: |
@@ -39,7 +39,7 @@ sections:
       - question: |
           Can I ship different hardware units within a single order to different locations?
         answer: |
-          Yes. While creating the order, you can add multiple shipping addresses in the **Shipping + quantity** tab. Make sure that all the addresses are within the same country. To ship hardware to addresses across different countries/regions, you'll have to create separate orders.            
+          Yes. While creating the order, you can add multiple shipping addresses in the **Shipping + quantity** tab. Make sure that all the addresses are within the same country/region. To ship hardware to addresses across different countries/regions, you'll have to create separate orders.            
 
       - question: |
           In which regions, can I create Azure Edge Hardware Center orders? 
@@ -67,7 +67,7 @@ sections:
       - question: |
           What happens to my order if the entire region associated with the order fails?
         answer: |
-          In extreme circumstances where a region is lost because of a significant disaster, Microsoft may initiate a regional failover. No action on your part is required in this case. Your order will be fulfilled through the failover region if it is within the same country or commerce boundary. 
+          In extreme circumstances where a region is lost because of a significant disaster, Microsoft may initiate a regional failover. No action on your part is required in this case. Your order will be fulfilled through the failover region if it is within the same country/region or commerce boundary. 
           However, some Azure regions don't have a paired region in the same geographic or commerce boundary. If there's a disaster in any of those regions, you will need to create the Edge Hardware Center order again from a different region that is available. For more information, see [Data residency for Azure Stack Edge](../databox-online/azure-stack-edge-gpu-data-residency.md#azure-edge-hardware-center-ordering-and-management-resource).
 
       - question: |

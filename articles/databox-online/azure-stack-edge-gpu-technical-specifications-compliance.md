@@ -2,13 +2,12 @@
 title: Microsoft Azure Stack Edge Pro with GPU technical specifications and compliance| Microsoft Docs
 description: Learn about the technical specifications and compliance for your Azure Stack Edge Pro device with GPU
 services: databox
-author: alkohli
+author: sipastak
 
-ms.service: databox
-ms.subservice: edge
-ms.topic: conceptual
+ms.service: azure-stack-edge
+ms.topic: concept-article
 ms.date: 04/12/2023
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Technical specifications and compliance for Azure Stack Edge Pro with GPU 
@@ -35,7 +34,7 @@ A Graphics Processing Unit (GPU) is included on every Azure Stack Edge Pro devic
 
 | Specification           | Value                  |
 |-------------------------|----------------------------|
-| GPU   | One or two nVidia T4 GPUs <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).|
+| GPU   | One or two NVIDIA T4 GPUs <br> For more information, see [NVIDIA T4](https://www.nvidia.com/en-us/data-center/tesla-t4/).|
 
 
 ## Power supply unit specifications
@@ -74,7 +73,7 @@ Here are the details for the Mellanox card:
 
 For a full list of supported cables, switches, and transceivers for these network cards, go to:
 
-- [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
+- [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/content/dam/marvell/en/public-collateral/ethernet-adaptersandcontrollers/marvell-ethernet-adapters-fastlinq-41000-interoperability-matrix.pdf).
 
 ## Storage specifications
 

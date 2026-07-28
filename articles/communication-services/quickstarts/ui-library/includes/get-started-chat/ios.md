@@ -1,6 +1,6 @@
 ---
-author: Leah-Xia-Microsoft
-ms.author: leahxia
+author: awang119
+ms.author: awang119
 ms.date: 01/04/2023
 ms.topic: include
 ms.service: azure-communication-services
@@ -8,15 +8,15 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
-Get the sample iOS application for this [quickstart](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-chat) in the open source Azure Communication Services [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios).
+Get the sample iOS application at [Azure Samples iOS SDK for chat](https://github.com/Azure-Samples/communication-services-ios-quickstarts/tree/main/ui-chat) in the open-source Azure Communication Services [UI Library for iOS](https://github.com/Azure/communication-ui-library-ios).
 
 ## Prerequisites
 
-- An Azure account and an active Azure subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account and an active Azure subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A Mac running [Xcode](https://go.microsoft.com/fwLink/p/?LinkID=266532) 13 or later and a valid developer certificate installed in your keychain. [CocoaPods](https://cocoapods.org/) must also be installed to fetch dependencies.
-- A deployed [Azure Communication Services resource](../../../create-communication-resource.md), note the endpoint URL.
+- A deployed [Azure Communication Services resource](../../../create-communication-resource.md). Note the endpoint URL.
 - An Azure Communication Services [access token](../../../identity/quick-create-identity.md) and user identifier.
-- An Azure Communication Services [chat thread](../../../chat/get-started.md) and now add the user you created in the last step to this chat thread.
+- An Azure Communication Services [chat thread](../../../chat/get-started.md). Add the user you created in the previous step to this chat thread.
 
 ## Set up the project
 
@@ -24,21 +24,21 @@ Complete the following sections to set up the quickstart project.
 
 ### Create a new Xcode project
 
-In Xcode, create a new project:
+In Xcode, create a new project.
 
-1. In the **File** menu, select **New** > **Project**.
+1. On the **File** menu, select **New** > **Project**.
 
-1. In **Choose a template for your new project**, select the **iOS** platform and select the **App** application template. The quickstart uses the UIKit storyboards.
+1. On **Choose a template for your new project**, select the **iOS** platform and select the **App** application template. The quickstart uses the UIKit storyboards.
 
    :::image type="content" source="../../media/xcode-new-project-template-select.png" alt-text="Screenshot that shows the Xcode new project dialog, with iOS and the App template selected.":::
 
-1. In **Choose options for your new project**, for the product name, enter **UILibraryQuickStart**. For the interface, select **Storyboard**. The quickstart doesn't create tests, so you can clear the **Include Tests** checkbox.
+1. On **Choose options for your new project**, for the product name, enter **UILibraryQuickStart**. For the interface, select **Storyboard**. The quickstart doesn't create tests, so you can clear the **Include Tests** checkbox.
 
    :::image type="content" source="../../media/xcode-new-project-details.png" alt-text="Screenshot that shows setting new project options in Xcode.":::
 
 ### Install the package and dependencies
 
-1. (Optional) For MacBook with M1, install and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode.
+1. (Optional) For MacBook with M1, install, and enable [Rosetta](https://support.apple.com/en-us/HT211861) in Xcode.
 
 1. In your project root directory, run `pod init` to create a Podfile. If you encounter an error, update [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to the current version.
 
@@ -49,7 +49,7 @@ In Xcode, create a new project:
     
     target 'UILibraryQuickStart' do
         use_frameworks!
-        pod 'AzureCommunicationUIChat', '1.0.0-beta.4'
+        pod 'AzureCommunicationUIChat', '1.0.0-beta.5'
     end
     ```
 
@@ -57,11 +57,13 @@ In Xcode, create a new project:
 
 1. In Xcode, open the generated *xcworkspace* file.
 
-### Turn off Bitcode
+### Turn off User Script Sandboxing
 
-In the Xcode project, under **Build Settings**, set the **Enable Bitcode** option to **No**. To find the setting, change the filter from **Basic** to **All** or use the search bar.
+Some of the scripts within the linked libraries write files during the build process. To enable file writing, disable the User Script Sandboxing in Xcode.
 
-:::image type="content" source="../../media/xcode-bitcode-option.png" alt-text="Screenshot that shows the Build Settings option to turn off Bitcode.":::
+In the Xcode project, under **Build Settings**, set the **User Script Sandboxing** option to **No**. To find the setting, change the filter from **Basic** to **All** or use the search bar.
+
+:::image type="content" source="../../media/xcode-sandbox-option.png" alt-text="Screenshot that shows the Build Settings option to turn off User Script Sandboxing.":::
 
 ## Initialize the composite
 
@@ -69,7 +71,7 @@ To initialize the composite:
 
 1. Go to `ViewController`.
 
-2. Add the following code to initialize your composite components for a chat. Replace `<USER_ID>` with user identifier. Replace `<USER_ACCESS_TOKEN>` with your access token. Replace `<ENDPOINT_URL>` with your endpoint URL. Replace `<THREAD_ID>` with your chat thread ID. Replace `<DISPLAY_NAME>` with your name. (The string length limit for `<DISPLAY_NAME>` is 256 characters). 
+1. Add the following code to initialize your composite components for a chat. Replace `<USER_ID>` with user identifier. Replace `<USER_ACCESS_TOKEN>` with your access token. Replace `<ENDPOINT_URL>` with your endpoint URL. Replace `<THREAD_ID>` with your chat thread ID. Replace `<DISPLAY_NAME>` with your name. (The string length limit for `<DISPLAY_NAME>` is 256 characters).
 
     ```swift
     import UIKit
@@ -83,9 +85,11 @@ To initialize the composite:
             super.viewDidLoad()
     
             let button = UIButton()
-            button.contentEdgeInsets = UIEdgeInsets(top: 10.0, left: 20.0, bottom: 10.0, right: 20.0)
+            var configuration = UIButton.Configuration.filled()
+            configuration.contentInsets = NSDirectionalEdgeInsets(top: 10.0, leading: 20.0, bottom: 10.0, trailing: 20.0)
+            configuration.baseBackgroundColor = .systemBlue
+            button.configuration = configuration
             button.layer.cornerRadius = 10
-            button.backgroundColor = .systemBlue
             button.setTitle("Start Experience", for: .normal)
             button.addTarget(self, action: #selector(startChatComposite), for: .touchUpInside)
     
@@ -149,14 +153,14 @@ To initialize the composite:
 
     ```
 
-3. If you choose to put chat view in a frame that is smaller than the screen size, the recommended minimum width is 250 and the recommended minimum height is 300.
+1. If you choose to put chat view in a frame that's smaller than the screen size, we recommend the minimum width of 250 and the minimum height of 300.
 
 ## Run the code
 
-To build and run your app on the iOS simulator, select **Product** > **Run** or use the (&#8984;-R) keyboard shortcut. Then, try out the chat experience on the simulator:
+To build and run your app on the iOS simulator, select **Product** > **Run**. You can also use the (&#8984;-R) keyboard shortcut. Then, try out the chat experience on the simulator.
 
 1. Select **Start Experience**.
-2. The chat client will join the chat thread and you can start typing and sending messages.
-3. If the client isn't able to join the thread, and you see `chatJoin` failed errors, verify that your user's access token is valid and that the user has been added to the chat thread by REST API call, or by using the az command line interface.
+1. The chat client joins the chat thread, and you can start typing and sending messages.
+1. If the client can't join the thread and you see `chatJoin` failed errors, verify that your user's access token is valid and that the user was added to the chat thread by REST API call or by using the az command-line interface.
 
 :::image type="content" source="../../media/quick-start-chat-composite-running-ios.gif" alt-text="GIF animation that demonstrates the final look and feel of the quickstart iOS app.":::

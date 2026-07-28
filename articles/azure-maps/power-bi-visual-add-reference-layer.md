@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps Power BI visual
 description: This article describes how to use the reference layer in Azure Maps Power BI visual.
 author: deniseatmicrosoft
 ms.author: limingchen
-ms.date: 07/10/2024
+ms.date: 01/17/2025
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: power-bi-visual
@@ -56,7 +56,7 @@ To use a hosted spatial dataset as a reference layer:
 
 The following map displays [2016 census tracts for Colorado]. The areas are colored, based on population, using the reference layer.
 
-:::image type="content" source="./media/power-bi-visual/reference-layer-CO-census-tract.png" alt-text="A map displaying 2016 census tracts for Colorado, colored by population as a reference layer.":::
+:::image type="content" source="./media/power-bi-visual/reference-layer-CO-census-tract.png" lightbox="./media/power-bi-visual/reference-layer-CO-census-tract.png" alt-text="A map displaying 2016 census tracts for Colorado, colored by population as a reference layer.":::
 
 The following are all settings in the **Format** pane that are available in the **Reference layer** section.
 
@@ -113,9 +113,9 @@ POINT(-122.13284 47.63699)
 
 The _Custom style for reference layer via format pane_ feature in Azure Maps enables you to personalize the appearance of reference layers. You can define the color, border width, and transparency of points, lines, and polygons directly in the Azure Maps Power BI visual interface, to enhance the visual clarity and impact of your geospatial data.
 
-:::image type="content" source="./media/power-bi-visual/custom-style-for-reference-layer-via-format-pane.png" alt-text="A map displaying the custom style for reference layer via format pane feature.":::
+:::image type="content" source="./media/power-bi-visual/custom-style-for-reference-layer-via-format-pane.png" lightbox="./media/power-bi-visual/custom-style-for-reference-layer-via-format-pane.png" alt-text="A map displaying the custom style for reference layer via format pane feature.":::
 
-### Enabling Custom Styles
+### Enabling custom styles
 
 To use the custom styling options for reference layers, follow these steps:
 
@@ -124,16 +124,16 @@ To use the custom styling options for reference layers, follow these steps:
 3. **Customize Styles**: Use to adjust the appearance of your reference layer by setting the fill color, border color, border width, and transparency for points, lines, and polygons.
 
 > [!NOTE]
-> If your geospatial files (GeoJSON, KML) include predefined style properties, Power BI will utilize those styles rather than the settings configured in the format pane. Make sure your files are styled according to your requirements before uploading if you intend to use custom properties defined within them.
+> If your geospatial files (GeoJSON, KML) include predefined style properties, Power BI utilizes those styles rather than the settings configured in the format pane. Make sure your files are styled according to your requirements before uploading if you intend to use custom properties defined within them.
 
-### Style Configuration
+### Style configuration
 
 | Setting name        | Description                                          | Setting values                                                       |
 |---------------------|------------------------------------------------------|----------------------------------------------------------------------|
-| Fill Colors         | Fill color of points and polygons.                   | Set colors for different data category or gradient for numeric data. |
-| Border Color        | The color of the points, lines, and polygons outline.| Color picker                                                         |
-| Border width        | The width of the border in pixels. Default: 3 px     | Width 1-10 pixels                                                    |
-| Border transparency |  The transparency of the borders. Default: 0%        | Transparency 0-100%                                                  |
+| Fill color          | Fill color of points and polygons.                   | Set colors for different data category or gradient for numeric data. |
+| Border color        | The color of the points, lines, and polygons outline.| Color picker                                                         |
+| Border width        | The width of the border in pixels. Default: 3 px     | Width 1-20 pixels                                                    |
+| Border transparency | The transparency of the borders. Default: 0%         | Transparency 0-100%                                                  |
 
 The **Points** section of the format visual pane:
 
@@ -143,9 +143,175 @@ The **Lines** section of the format visual pane:
 
 :::image type="content" source="./media/power-bi-visual/lines.png" alt-text="A screenshot displaying the lines section of the format visual pane.":::
 
-The **polygons** section of the format visual pane:
+The **Polygons** section of the format visual pane:
 
 :::image type="content" source="./media/power-bi-visual/polygons.png" alt-text="A screenshot displaying the polygons section of the format visual pane.":::
+
+## Data-bound reference layer
+
+The data-bound reference layer enables the association of data with specific shapes in the reference layer based on common attributes.
+
+To use the data-bound reference layer, drag the column containing unique identifiers (can be location data or not) to the Location field of the Azure Maps visual.
+
+:::image type="content" source="media/power-bi-visual/data-bound-reference-layer/location-field.png" alt-text="A screenshot showing the location field in Power BI desktop.":::
+
+Azure Maps matches these identifiers with the corresponding properties in the uploaded spatial file, automatically linking your data to the shapes on the map.
+
+In scenarios with multiple properties, Azure Maps identifies a common property in each shape and compares its value with the selected data column in the Location field. It then uses the property that has the highest number of matches with the selected data column.
+
+:::image type="content" source="media/power-bi-visual/data-bound-reference-layer/data-bound-reference-layer.png"  lightbox="media/power-bi-visual/data-bound-reference-layer/data-bound-reference-layer.png" alt-text="A screenshot showing the data-bound reference layer example in Power BI desktop.":::
+
+If one or more shapes in the reference layer can't be automatically mapped to any data point, you can manage these unmapped objects by following these steps:
+
+1. Select the **Format visual** tab in the **Visualizations** pane.
+1. Select **Reference layer**.
+1. Select **Unmapped Objects**.
+1. Select the **Show** toggle switch to toggle On/Off. This highlights shapes that aren't mapped to any data points.
+
+Optionally, select the **Use custom colors** toggle switch to toggle On/Off custom fill and border colors for unmapped objects to make them visually distinct on the map.
+
+:::image type="content" source="media/power-bi-visual/data-bound-reference-layer/data-bound-reference-layer-unmapped-objects.png" lightbox="media/power-bi-visual/data-bound-reference-layer/data-bound-reference-layer-unmapped-objects.png" alt-text="A screenshot showing the data-bound reference layer example in Power BI desktop with unmapped objects showing in a different color.":::
+
+<!----------------------------------------------------------------------------
+### Key matching example
+
+#### Semantic model
+
+| Datapoint   | Country/region | City     | Office name |
+|-------------|---------|----------|-------------|
+| Datapoint_1 | US      | New York | Office C    |
+| Datapoint_1 | US      | Seattle  | Office A    |
+| Datapoint_1 | US      | LA       | Office B    |
+
+#### Reference layer data (take GeoJSON as an example)
+
+```json
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Office A",
+        "shape": "Shape_1",
+        "id": "Office A"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          ...
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Office B",
+        "shape": "Shape_2",
+        "id": "Office B"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          ...
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Office C",
+        "shape": "Shape_3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          ...
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Office D",
+        "shape": "Shape_4"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          ...
+        ]
+      }
+    }
+  ]
+}
+```
+
+#### the mapping results
+
+|                 | Location bucket|Mapping result                                                                  |
+|-----------------|----------------|--------------------------------------------------------------------------------|
+| Case 1          | Office name    | Shape_1 ↔ Datapoint_2                                                          |
+|                 |                | Shape_2 ↔ Datapoint_3                                                          |
+|                 |                | Shape_3 ↔ Datapoint_1                                                          |
+|                 |                | Shape_4 ↔ x (Since there’s no datapoint with Office name “Office D”)           |
+| Case 2          | City           | Nothing is mapped, since there’s no property that contains matched City names. |
+
+Note that there is a property “id” also has “Office x” values that is not being used, but instead the property “name” is used for data mapping since it has 3 datapoints matched and “id” only has 2 datapoints matched.
+
+---------------------------------------------------------------------------------------------------------------------------->
+
+## Conditional formatting
+
+Conditional formatting can be applied to data to dynamically change the appearance of shapes on a map based on the provided data. For instance, gradient colors can visualize various data values such as population density, sales performance, or other metrics. This is a powerful tool for combining spatial and business data to create interactive and visually compelling reports.
+
+:::image type="content" source="media/power-bi-visual/data-bound-reference-layer/conditional-formatting.png" alt-text="A screenshot showing the conditional formatting controls for points, lines, polygons, and unmanaged objects in the reference layer control in Power BI desktop.":::
+
+There are several ways to set colors to the shapes. The following table shows the priorities used:
+
+| Priority | Source                        | Description                                                     |
+|----------|-------------------------------|-----------------------------------------------------------------|
+| 1        | Preset style in spatial files | Color and style as defined in the spatial file                  |
+| 2        | Unmapped object colors        | Custom colors used when the geometry isn’t data-bound           |
+| 3        | Legend colors                 | Colors provided by Legend/Series                                |
+| 4        | Conditional formatting colors | Colors provided by conditional formatting                       |
+| 5        | Custom formatting colors      | User defined custom styles in the Reference Layer options in the formatting pane |
+| 6        | Default colors                | Default colors defined in the Azure Maps visual                 |
+
+> [!TIP]
+>
+> The Azure Maps Power BI Visual can only perform geocoding on valid location data such as geographical coordinates, addresses, or place names. If no valid location data is uploaded, data layers that depend on geocoded locations, such as heat maps or bubble layers, don’t display on the map.
+>
+> The data-bound reference layer appears on the map as long as the data column contains unique identifiers that match properties in the spatial file, but to ensure correct results, your data column must include valid geographic information.
+
+## Map US ZIP Codes
+
+Public spatial files, such as the US Census ZIP Code Tabulation Areas (ZCTAs), can serve as a reference layer to visualize data by ZIP Code. These files are often large and detailed, so you typically need to reduce their size and complexity before you use them in the Azure Maps Power BI visual. The following workflow shows how to prepare a nationwide ZIP Code boundary file.
+
+### Download and prepare the source data
+
+1. Download the ZIP Code Tabulation Area shapefiles from the US Census Bureau [Cartographic Boundary Files] page.
+1. Unzip each downloaded archive to extract the shapefile components.
+1. Convert each shapefile to GeoJSON, then minify the resulting JSON to reduce file size. Save each file with a `_zip_codes_geo.min.json` suffix so the merge step can find it.
+
+### Merge and simplify the data
+
+The raw shapefiles total around 1.2 GB and provide sub-meter accuracy, which is far more detail than a Power BI map needs. Use the [mapshaper] command-line tool to merge the individual files into a single GeoJSON file while reducing its size. The following command combines every file, simplifies the geometry, removes unnecessary fields, and rounds coordinates:
+
+```bash
+mapshaper -i *_zip_codes_geo.min.json combine-files -merge-layers -simplify visvalingam 5% -filter-fields ZCTA5CE10 -o format=geojson precision=0.0001 us_zip_codes_simplified.json
+```
+
+This command applies the following optimizations:
+
+- `combine-files -merge-layers` combines the individual state files into a single layer.
+- `-simplify visvalingam 5%` retains 5% of the original points by using the Visvalingam algorithm, which significantly reduces file size while preserving the overall shape of each boundary.
+- `-filter-fields ZCTA5CE10` keeps only the `ZCTA5CE10` field, which holds the five-digit ZIP Code used to bind your data, and removes all other attributes.
+- `precision=0.0001` rounds coordinates to about 10 meters of accuracy, which is sufficient for ZIP Code visualizations.
+
+The resulting `us_zip_codes_simplified.json` file is small enough to upload as a reference layer. To bind your data to the boundaries, drag the column that contains five-digit ZIP Codes to the **Location** field, and Azure Maps matches the values against the `ZCTA5CE10` property. For more information, see [Data-bound reference layer](#data-bound-reference-layer).
+
+> [!NOTE]
+> The Azure Maps Power BI visual renders only the first 30,000 features from a reference layer. If your file contains more shapes than this limit, any features beyond the first 30,000 don't display on the map.
 
 ## Next steps
 
@@ -168,3 +334,5 @@ Add more context to the map:
 [Show real-time traffic]: power-bi-visual-show-real-time-traffic.md
 [DAX]: /dax/
 [Expression-based titles in Power BI Desktop]: /power-bi/create-reports/desktop-conditional-format-visual-titles
+[Cartographic Boundary Files]: https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html
+[mapshaper]: https://github.com/mbloch/mapshaper

@@ -3,9 +3,10 @@ title: Tutorial of IoT Connected logistics
 description: Learn how to deploy and use an IoT Central connected logistics application from an application template
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-central
+ms.service: azure-iot-central
 ms.topic: tutorial
-ms.date: 06/13/2024
+ms.date: 08/07/2025
+ms.custom: sfi-image-nochange
 
 #customer intent: As a developer, I want to learn how to deploy and use an IoT Central connected logistics application from an application template so that I can build similar solutions in the future.
 ---
@@ -36,7 +37,7 @@ In this tutorial, you:
 
 ## Prerequisites
 
-An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Solution architecture
 

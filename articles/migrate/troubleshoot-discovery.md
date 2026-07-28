@@ -6,8 +6,13 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 08/21/2024
-ms.custom: engagement-fy25
+ms.custom:
+  - engagement-fy25
+  - sfi-image-nochange
+  - sfi-ropc-nochange
+# Customer intent: "As an IT administrator, I want to troubleshoot server discovery and software inventory issues, so that I can ensure accurate data collection and reporting in the migration project."
 ---
 
 # Troubleshoot ongoing server discovery, software inventory, and SQL and web apps discovery
@@ -77,6 +82,16 @@ The software inventory discovery runs once every 24 hours. This process might ta
 1. Under **Manage**, select **Appliances**.
 1. Select **Refresh services**.
 Wait for the refresh operation to finish. You should now see up-to-date information.
+
+## Database discovery blocked due to software inventory halt
+ 
+This error occurs when Linux or Windows guest credentials required to retrieve configuration data that is expired or invalid. Configuration data is crucial for identifying the current state and detecting newly deployed database instances on the systems.
+ 
+### Remediation
+Ensure that the Linux or Windows guest credentials provided on the appliance are correct. Verify the credentials by attempting to connect to the server.
+If the credentials are outdated or invalid, edit the credentials directly within the appliance.
+After updating the credentials, refresh all services running on the appliance through the portal to ensure proper functionality.
+
 
 ## Unable to export software inventory data
 
@@ -158,7 +173,7 @@ The table below summarizes all errors encountered when gathering software invent
 | **10009**: Unable to write the discovered metadata in the file on the server. | The role associated to the credentials provided on the appliance or a group policy on-premises is restricting writing in the file on the server. The issue was encountered when you tried the following credentials on the server: \<FriendlyNameOfCredentials>. | 1. Check if the credentials provided on the appliance have write file permissions on the folder <folder path/folder name> in the server.<br/> 2. If the credentials provided on the appliance don't have the required permissions, either provide another set of credentials or edit an existing one. (Find the friendly name of the credentials tried by Azure Migrate in the possible causes.) |
 | **10010**: Unable to discover because the command- %CommandName; required to collect some metadata is missing on the server. | The package containing the command %CommandName; isn't installed on the server. | Ensure that the package containing the command %CommandName; is installed on the server. |
 | **10011**: The credentials provided on the appliance were used to log in and log off for an interactive session. | The interactive login and log-off forces the registry keys to be unloaded in the profile of the account being used. This condition makes the keys unavailable for future use. | Use the resolution methods documented on [this website](/sharepoint/troubleshoot/administration/800703fa-illegal-operation-error#resolutionus/sharepoint/troubleshoot/administration/800703fa-illegal-operation-error). |
-| **10012**: Credentials haven't been provided on the appliance for the server. | Either no credentials were provided for the server or you provided domain credentials with an incorrect domain name on the appliance. [Learn more](troubleshoot-discovery.md#error-10012-credentialnotprovided) about the cause of this error. | 1. Ensure that the credentials are provided on the appliance for the server and the server is accessible by using the credentials. <br/> 2. You can now add multiple credentials on the appliance for servers. Go back to the appliance configuration manager to provide credentials for the server.|
+| **10012**: Credentials haven't been provided on the appliance for the server. | 1. No credentials were provided for the server. (or) <br/> 2. Domain credentials were provided with an incorrect domain name on the appliance. (or) <br/> 3. Domain credentials were provided but the servers are not domain-joined. <br/> [Learn more](troubleshoot-discovery.md#error-10012-credentialnotprovided) about the cause of this error. | 1. Go back to the appliance configuration manager and ensure that the credentials are provided on the appliance for the server and the server is accessible by using the credentials. You can even add multiple credentials on the appliance for servers. <br/> 2. Go back to the appliance configuration manager and validate the provided domain name. <br/> 3. If you intend to use domain credentials, ensure the target servers are domain-joined. <br/> 4. If you intend to use domain credentials, ensure the target servers are domain-joined and validate the domain name in the server. | 
 
 ## Error 9014: HTTPGetRequestToRetrieveFileFailed
 
@@ -196,7 +211,7 @@ Make sure that the user account provided in the appliance has access to WMI name
 1. Select **Security** to open the **Security for ROOT** dialog.
 1. Select **Advanced** to open the **Advanced Security Settings for Root** dialog.
 1. Select **Add** to open the **Permission Entry for Root** dialog.
-1. Click **Select a principal** to open the **Select Users, Computers, Service Accounts or Groups** dialog.
+1. Select **Select a principal** to open the **Select Users, Computers, Service Accounts or Groups** dialog.
 1. Select the usernames or groups you want to grant access to the WMI, and select **OK**.
 1. Ensure you grant execute permissions, and select **This namespace and subnamespaces** in the **Applies to** dropdown list.
 1. Select **Apply** to save the settings and close all dialogs.
@@ -249,10 +264,10 @@ There can be multiple reasons for this issue. One reason is when the username pr
 ## Error 10012: CredentialNotProvided
 
 ### Cause
-This error occurs when you've provided a domain credential with the wrong domain name on the appliance configuration manager. For example, if you provided a domain credential with the username user@abc.com but provided the domain name as def.com, those credentials won't be attempted if the server is connected to def.com and you'll get this error message.
+This error occurs when you've not provided any credentials to connect to the server (or) you've provided a domain credential with an incorrect domain name on the appliance configuration manager (or) you've provided a domain credential but the servers themselves are not domain-joined. For example, if you provided a domain credential with the username user@abc.com but provided the domain name as def.com, those credentials won't be attempted if the server is connected to def.com and you'll get this error message.
 
 ### Remediation
-- Go to the appliance configuration manager to add a server credential or edit an existing one as explained in the cause.
+- Go to the appliance configuration manager to add a valid server credential or edit an existing incorrect one.
 - After you take the remediation steps, verify if the error was resolved by following the steps on [this website](troubleshoot-discovery.md#mitigation-verification).
 
 ## Mitigation verification

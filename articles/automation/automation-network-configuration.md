@@ -2,7 +2,9 @@
 title: Azure Automation network configuration details
 description: This article provides details of network information required by Azure Automation State Configuration, Azure Automation Hybrid Runbook Worker, Update Management, and Change Tracking and Inventory
 ms.topic: overview
-ms.date: 09/09/2024
+ms.date: 11/29/2024
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Azure Automation network configuration details
@@ -20,7 +22,13 @@ The following port and URLs are required for the Hybrid Runbook Worker, and for 
 
 ### Network planning for Hybrid Runbook Worker
 
-For either a system or user Hybrid Runbook Worker to connect to and register with Azure Automation, it must have access to the port number and URLs described in this section. The worker must also have access to the [ports and URLs required for the Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent) to connect to the Azure Monitor Log Analytics workspace.
+If you use a firewall to restrict access to the Internet, you must configure the firewall to permit access. The following port and URLs are required for the Hybrid Runbook Worker, and for [Automation State Configuration](./automation-dsc-overview.md) to communicate with Azure Automation.
+
+| Property | Description |
+| --- | --- |
+| Port | 443 for outbound internet access |
+| Global URL | *.azure-automation.net |
+| Global URL of US Gov Virginia | *.azure-automation.us |
 
 If you have an Automation account that's defined for a specific region, you can restrict Hybrid Runbook Worker communication to that regional datacenter. Review the [DNS records used by Azure Automation](how-to/automation-region-dns-records.md) for the required DNS records.
 

@@ -4,10 +4,9 @@ description: Explains how to use SQL pool stored procedure activity to invoke a 
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: pipeline 
-author: linda33wj
-ms.author: jingwang
-ms.reviewer: whhender
-ms.date: 05/13/2021
+author: juluczni
+ms.author: juluczni
+ms.date: 12/11/2024
 ---
 
 # Transform data by using SQL pool stored procedure activity in Azure Synapse Analytics

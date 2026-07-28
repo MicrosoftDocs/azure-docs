@@ -1,17 +1,19 @@
 ---
-title: Unregister a VMM server script
-description: This article describes the cleanup script on the VMM server
-manager: evansma
+title: Unregister a Virtual Machine Manager server script
+ms.reviewer: v-gajeronika
+description: This article describes the cleanup script on the Virtual Machine Manager server
 ms.service: azure-site-recovery
-ms.topic: conceptual
-ms.date: 03/25/2021
-ms.author: ankitadutta
-author: ankitaduttaMSFT
+ms.topic: concept-article
+ms.date: 11/05/2025
+ms.author: v-gajeronika
+author: Jeronika-MS
+ms.custom: sfi-ropc-nochange
+# Customer intent: "As a systems administrator, I want to execute a cleanup script on a VMM server, so that I can remove old recovery settings and unregister a VMM to ensure proper operational state and restore functionality."
 ---
 
 # Cleanup script on a VMM server
-If your VMM server was in a Disconnected state, then download and run the cleanup script on the VMM server.
 
+If your VMM server was in a Disconnected state, then download and run the cleanup script on the VMM server.
 
 ```
 pushd .
@@ -481,7 +483,7 @@ try
                     $cmd = New-Object System.Data.SqlClient.SqlCommand($sql,$conn)
                     $cmd.Transaction = $transaction
                     $cmd.ExecuteNonQuery() | Out-Null
-                    # Done removing stale enteries
+                    # Done removing stale entries
 
                     # Cloud publish settings and registration details are cleaned up even if there are no paired clouds.
                     if($SCVMM2012R2Detected)

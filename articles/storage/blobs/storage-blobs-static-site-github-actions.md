@@ -6,8 +6,9 @@ ms.service: azure-blob-storage
 ms.topic: how-to
 ms.author: shaas
 ms.reviewer: dineshm
-ms.date: 01/24/2022
+ms.date: 02/12/2025
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
+# Customer intent: As a web developer, I want to set up a GitHub Actions workflow for deploying my static website to Azure Storage, so that I can automate updates and improve deployment efficiency every time I push changes to my GitHub repository.
 ---
 
 # Use GitHub Actions workflow to deploy your static website in Azure Storage
@@ -22,7 +23,7 @@ Get started with [GitHub Actions](https://docs.github.com/en/actions) by using a
 
 An Azure subscription and GitHub account.
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - A GitHub repository with your static website code. If you do not have a GitHub account, [sign up for free](https://github.com/join).
 - A working static website hosted in Azure Storage. Learn how to [host a static website in Azure Storage](storage-blob-static-website-how-to.md). To follow this example, you should also deploy [Azure CDN](static-website-content-delivery-network.md).
 
@@ -38,95 +39,6 @@ An Azure subscription and GitHub account.
 [!INCLUDE [include](~/reusable-content/github-actions/create-secrets-with-openid.md)]
 
 ## Add your workflow
-
-# [Service principal](#tab/userlevel)
-
-
-1. Go to **Actions** for your GitHub repository.
-
-    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub Actions menu item":::
-
-1. Select **Set up your workflow yourself**.
-
-1. Delete everything after the `on:` section of your workflow file. For example, your remaining workflow may look like this.
-
-    ```yaml
-    name: CI
-
-    on:
-        push:
-            branches: [ main ]
-    ```
-
-1. Rename your workflow `Blob storage website CI` and add the checkout and login actions. These actions will check out your site code and authenticate with Azure using the `AZURE_CREDENTIALS` GitHub secret you created earlier.
-
-    ```yaml
-    name: Blob storage website CI
-
-    on:
-        push:
-            branches: [ main ]
-
-    jobs:
-      build:
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v3
-        - uses: azure/login@v1
-          with:
-              creds: ${{ secrets.AZURE_CREDENTIALS }}
-    ```
-
-1. Use the Azure CLI action to upload your code to blob storage and to purge your CDN endpoint. For `az storage blob upload-batch`, replace the placeholder with your storage account name. The script will upload to the `$web` container. For `az cdn endpoint purge`, replace the placeholders with your CDN profile name, CDN endpoint name, and resource group. To speed up your CDN purge, you can add the `--no-wait` option to `az cdn endpoint purge`. To enhance security, you can also add the `--account-key` option with your [storage account key](../common/storage-account-keys-manage.md).
-
-    ```yaml
-        - name: Upload to blob storage
-          uses: azure/CLI@v1
-          with:
-            inlineScript: |
-                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME>  --auth-mode key -d '$web' -s .
-        - name: Purge CDN endpoint
-          uses: azure/CLI@v1
-          with:
-            inlineScript: |
-               az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
-    ```
-
-1. Complete your workflow by adding an action to logout of Azure. Here is the completed workflow. The file will appear in the `.github/workflows` folder of your repository.
-
-    ```yaml
-    name: Blob storage website CI
-
-    on:
-        push:
-            branches: [ main ]
-
-    jobs:
-      build:
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v3
-        - uses: azure/login@v1
-          with:
-              creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-        - name: Upload to blob storage
-          uses: azure/CLI@v1
-          with:
-            inlineScript: |
-                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> --auth-mode key -d '$web' -s .
-        - name: Purge CDN endpoint
-          uses: azure/CLI@v1
-          with:
-            inlineScript: |
-               az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
-
-      # Azure logout
-        - name: logout
-          run: |
-                az logout
-          if: always()
-    ```
 
 # [OpenID Connect](#tab/openid)
 
@@ -179,7 +91,7 @@ An Azure subscription and GitHub account.
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v3
-        - uses: azure/login@v1
+        - uses: azure/login@v2
           with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -219,7 +131,7 @@ An Azure subscription and GitHub account.
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v3
-        - uses: azure/login@v1
+        - uses: azure/login@v2
           with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -242,6 +154,96 @@ An Azure subscription and GitHub account.
                 az logout
           if: always()
     ```
+
+# [Service principal](#tab/userlevel)
+
+
+1. Go to **Actions** for your GitHub repository.
+
+    :::image type="content" source="media/storage-blob-static-website/storage-blob-github-actions-header.png" alt-text="GitHub Actions menu item":::
+
+1. Select **Set up your workflow yourself**.
+
+1. Delete everything after the `on:` section of your workflow file. For example, your remaining workflow may look like this.
+
+    ```yaml
+    name: CI
+
+    on:
+        push:
+            branches: [ main ]
+    ```
+
+1. Rename your workflow `Blob storage website CI` and add the checkout and login actions. These actions will check out your site code and authenticate with Azure using the `AZURE_CREDENTIALS` GitHub secret you created earlier.
+
+    ```yaml
+    name: Blob storage website CI
+
+    on:
+        push:
+            branches: [ main ]
+
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v3
+        - uses: azure/login@v2
+          with:
+              creds: ${{ secrets.AZURE_CREDENTIALS }}
+    ```
+
+1. Use the Azure CLI action to upload your code to blob storage and to purge your CDN endpoint. For `az storage blob upload-batch`, replace the placeholder with your storage account name. The script will upload to the `$web` container. For `az cdn endpoint purge`, replace the placeholders with your CDN profile name, CDN endpoint name, and resource group. To speed up your CDN purge, you can add the `--no-wait` option to `az cdn endpoint purge`. To enhance security, you can also add the `--account-key` option with your [storage account key](../common/storage-account-keys-manage.md).
+
+    ```yaml
+        - name: Upload to blob storage
+          uses: azure/CLI@v1
+          with:
+            inlineScript: |
+                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME>  --auth-mode key -d '$web' -s .
+        - name: Purge CDN endpoint
+          uses: azure/CLI@v1
+          with:
+            inlineScript: |
+               az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
+    ```
+
+1. Complete your workflow by adding an action to logout of Azure. Here is the completed workflow. The file will appear in the `.github/workflows` folder of your repository.
+
+    ```yaml
+    name: Blob storage website CI
+
+    on:
+        push:
+            branches: [ main ]
+
+    jobs:
+      build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v3
+        - uses: azure/login@v2
+          with:
+              creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+        - name: Upload to blob storage
+          uses: azure/CLI@v1
+          with:
+            inlineScript: |
+                az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> --auth-mode key -d '$web' -s .
+        - name: Purge CDN endpoint
+          uses: azure/CLI@v1
+          with:
+            inlineScript: |
+               az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
+
+      # Azure logout
+        - name: logout
+          run: |
+                az logout
+          if: always()
+    ```
+
 ---
 
 ## Review your deployment

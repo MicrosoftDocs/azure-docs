@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: Azure Orbital
-    tocHref: /azure/orbital/
-    topicHref: /azure/orbital/index

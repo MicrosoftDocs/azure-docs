@@ -1,7 +1,7 @@
 ---
-title: Request real-time and forecasted weather data using Azure Maps Weather services
+title: Request real-time and forecasted weather data using Azure Maps Weather service
 titleSuffix: Microsoft Azure Maps
-description: Learn how to request real-time (current) and forecasted (minute, hourly, daily) weather data using Microsoft Azure Maps Weather services 
+description: Learn how to request real-time (current) and forecasted (minute, hourly, daily) weather data using Microsoft Azure Maps Weather service 
 author: farazgis
 ms.author: fsiddiqui
 ms.date: 08/08/2024
@@ -12,9 +12,9 @@ ms.custom: mvc
 ---
 
 
-# Request real-time and forecasted weather data using Azure Maps Weather services
+# Request real-time and forecasted weather data using Azure Maps Weather service
 
-Azure Maps [Weather services] are a set of RESTful APIs that allows developers to integrate highly dynamic historical, real-time, and forecasted weather data and visualizations into their solutions.
+Azure Maps [Weather service] are a set of RESTful APIs that allows developers to integrate highly dynamic historical, real-time, and forecasted weather data and visualizations into their solutions.
 
 This article demonstrates how to request both real-time and forecasted weather data:
 
@@ -24,7 +24,7 @@ This article demonstrates how to request both real-time and forecasted weather d
 * Request hourly forecasts using the [Get Hourly Forecast API].
 * Request minute by minute forecasts using the [Get Minute Forecast API].
 
-This video provides examples for making REST calls to Azure Maps Weather services.
+This video provides examples for making REST calls to Azure Maps Weather service.
 
 </br>
 
@@ -41,7 +41,7 @@ This video provides examples for making REST calls to Azure Maps Weather service
 >
 > In the URL examples in this article you will need to replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
-This tutorial uses the [bruno] application, but you can choose a different API development environment.
+This tutorial uses the [Bruno] application, but you can choose a different API development environment.
 
 ## Request real-time weather data
 
@@ -49,7 +49,7 @@ The [Get Current Conditions API] returns detailed weather conditions such as pre
 
 In this example, you use the [Get Current Conditions API] to retrieve current weather conditions at coordinates located in Seattle, WA.
 
-1. Open the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+1. Open the Bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
@@ -61,7 +61,7 @@ In this example, you use the [Get Current Conditions API] to retrieve current we
 
 1. Select the run button.
 
-   :::image type="content" source="./media/weather-service/bruno-run.png" alt-text="A screenshot showing the Request real-time weather data URL with the run button highlighted in the bruno app.":::
+   :::image type="content" source="./media/weather-service/bruno-run.png" alt-text="A screenshot showing the Request real-time weather data URL with the run button highlighted in the Bruno app.":::
 
    The response body contains current weather information.
 
@@ -245,7 +245,7 @@ In this example, you use the [Get Severe Weather Alerts API] to retrieve current
 > [!NOTE]
 > This example retrieves severe weather alerts at the time of this writing. It is likely that there are no longer any severe weather alerts at the requested location. To retrieve actual severe alert data when running this example, you'll need to retrieve data at a different coordinate location.
 
-1. In the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+1. In the Bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
@@ -257,7 +257,7 @@ In this example, you use the [Get Severe Weather Alerts API] to retrieve current
 
 1. Select the run button.
 
-   :::image type="content" source="./media/weather-service/bruno-run-request-severe-weather-alerts.png" alt-text="A screenshot showing the Request severe weather alerts URL with the run button highlighted in the bruno app.":::
+   :::image type="content" source="./media/weather-service/bruno-run-request-severe-weather-alerts.png" alt-text="A screenshot showing the Request severe weather alerts URL with the run button highlighted in the Bruno app.":::
 
     If there are no severe weather alerts, the response body contains an empty `results[]` array. If there are severe weather alerts, the response body contains something like the following JSON response:
 
@@ -307,7 +307,7 @@ The [Get Daily Forecast API] returns detailed daily weather forecast such as tem
 
 In this example, you use the [Get Daily Forecast API] to retrieve the five-day weather forecast for coordinates located in Seattle, WA.
 
-1. In the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+1. In the Bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
@@ -319,7 +319,7 @@ In this example, you use the [Get Daily Forecast API] to retrieve the five-day w
 
 1. Select the run button.
 
-   :::image type="content" source="./media/weather-service/bruno-run-request-daily-weather-forecast-data.png" alt-text="A screenshot showing the Request daily weather forecast data URL with the run button highlighted in the bruno app.":::
+   :::image type="content" source="./media/weather-service/bruno-run-request-daily-weather-forecast-data.png" alt-text="A screenshot showing the Request daily weather forecast data URL with the run button highlighted in the Bruno app.":::
 
     The response body contains the five-day weather forecast data. For the sake of brevity, the following JSON response shows the forecast for the first day.
 
@@ -558,7 +558,7 @@ The [Get Hourly Forecast API] returns detailed weather forecast by the hour for 
 
 In this example, you use the [Get Hourly Forecast API] to retrieve the hourly weather forecast for the next 12 hours at coordinates located in Seattle, WA.
 
-1. In the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+1. In the Bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
@@ -570,7 +570,7 @@ In this example, you use the [Get Hourly Forecast API] to retrieve the hourly we
 
 1. Select the run button.
 
-   :::image type="content" source="./media/weather-service/bruno-run-request-hourly-weather-forecast-data.png" alt-text="A screenshot showing the Request hourly weather forecast data URL with the run button highlighted in the bruno app.":::
+   :::image type="content" source="./media/weather-service/bruno-run-request-hourly-weather-forecast-data.png" alt-text="A screenshot showing the Request hourly weather forecast data URL with the run button highlighted in the Bruno app.":::
 
     The response body contains weather forecast data for the next 12 hours. The following example JSON response only shows the first hour:
 
@@ -670,7 +670,7 @@ In this example, you use the [Get Hourly Forecast API] to retrieve the hourly we
 
 In this example, you use the [Get Minute Forecast API] to retrieve the minute-by-minute weather forecast at coordinates located in Seattle, WA. The weather forecast is given for the next 120 minutes. Our query requests that the forecast is given at 15-minute intervals, but you can adjust the parameter to be either 1 or 5 minutes.
 
-1. In the bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
+1. In the Bruno app, select **NEW REQUEST** to create the request. In the **NEW REQUEST** window, set **Type** to **HTTP**. Enter a **Name** for the request.
 
 1. Select the **GET** HTTP method in the **URL** drop-down list, then enter the following URL:
 
@@ -682,7 +682,7 @@ In this example, you use the [Get Minute Forecast API] to retrieve the minute-by
 
 1. Select the run button.
 
-   :::image type="content" source="./media/weather-service/bruno-run-request-minute-by-minute-weather-forecast-data.png" alt-text="A screenshot showing the Request minute-by-minute weather forecast data URL with the run button highlighted in the bruno app.":::
+   :::image type="content" source="./media/weather-service/bruno-run-request-minute-by-minute-weather-forecast-data.png" alt-text="A screenshot showing the Request minute-by-minute weather forecast data URL with the run button highlighted in the Bruno app.":::
 
     The response body contains weather forecast data for the next 120 minutes, in 15-minute intervals.
 
@@ -781,7 +781,7 @@ In this example, you use the [Get Minute Forecast API] to retrieve the minute-by
 > [Weather service concepts]
 
 > [!div class="nextstepaction"]
-> [Weather services]
+> [Weather service]
 
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Get Current Conditions API]: /rest/api/maps/weather/getcurrentconditions
@@ -790,7 +790,7 @@ In this example, you use the [Get Minute Forecast API] to retrieve the minute-by
 [Get Minute Forecast API]: /rest/api/maps/weather/getminuteforecast
 [Get Severe Weather Alerts API]: /rest/api/maps/weather/getsevereweatheralerts
 [Manage the pricing tier of your Azure Maps account]: how-to-manage-pricing-tier.md
-[bruno]: https://www.usebruno.com/
+[Bruno]: https://www.usebruno.com/
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Weather service concepts]: weather-services-concepts.md
-[Weather services]: /rest/api/maps/weather
+[Weather service]: /rest/api/maps/weather

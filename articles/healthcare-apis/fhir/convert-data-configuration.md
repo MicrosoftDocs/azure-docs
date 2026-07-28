@@ -1,17 +1,15 @@
 ---
 title: Configure $convert-data settings for the FHIR service in Azure Health Data Services
 description: Learn how to configure settings for the $convert-data operation to convert healthcare data into FHIR R4 format.
-author: msjasteppe
+author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 05/13/2024
-ms.author: jasteppe
+ms.date: 08/12/2025
+ms.author: kesheth
 ---
 
 # Configure settings for $convert-data by using the Azure portal
-
-[!INCLUDE [Converter redirect statement](../includes/converter-redirect-statement.md)]
 
 This article illustrates how to configure settings for `$convert-data` using the Azure portal to convert health data into [FHIR&reg; R4](https://www.hl7.org/fhir/R4/index.html).
 
@@ -157,7 +155,7 @@ To reference specific template versions in the API, be sure to use the exact ima
 
 7. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-For more information about assigning roles in the Azure portal, see [Azure built-in roles](../../role-based-access-control/role-assignments-portal.yml).
+For more information about assigning roles in the Azure portal, see [Azure built-in roles](/azure/role-based-access-control/role-assignments-portal).
 
 ### Step 5: Register the Azure Container Registry server in the FHIR service
 
@@ -174,6 +172,11 @@ You can register up to 20 ACR servers in the FHIR service.
 > [!NOTE]
 > It might take a few minutes for the registration to take effect.
 
+> [!IMPORTANT]
+> When registering an Azure Container Registry (ACR) image in the FHIR service:
+>  - If a _digest is specified_ only the image with the exact digest will be used.
+>  - If a _digest is *not* specified_ the image can be resolved using both tagging and digest.
+
 ### Step 6: Configure the Azure Container Registry firewall for secure access
 
 There are many methods for securing ACR using the built-in firewall depending on your particular use case.
@@ -185,6 +188,7 @@ There are many methods for securing ACR using the built-in firewall depending on
 * [Allow trusted services to securely access a network-restricted container registry](/azure/container-registry/allow-access-trusted-services)
 * [Configure rules to access an Azure container registry behind a firewall](/azure/container-registry/container-registry-firewall-access-rules)
 * [Azure IP Ranges and Service Tags – Public Cloud](https://www.microsoft.com/download/details.aspx?id=56519)
+
 
 > [!NOTE]
 > The FHIR service has been registered as a trusted Microsoft service with Azure Container Registry.

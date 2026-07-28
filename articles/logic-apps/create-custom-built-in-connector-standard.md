@@ -1,14 +1,17 @@
 ---
-title: Create built-in connectors for Standard logic apps
-description: Create your own custom built-in connectors for Standard workflows in single-tenant Azure Logic Apps.
+title: Create Built-in Connectors for Standard Workflows
+description: Create your own built-in connectors for Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, daviburg, apseth, psrivas, azla
 ms.topic: how-to
-ms.date: 08/06/2024
+ms.update-cycle: 1095-days
+ms.date: 07/10/2026
+ms.custom: sfi-image-nochange
+#Customer intent: As an automation and integration developer who works in Azure Logic Apps, I want to create my built-in connector for use in Standard workflows.
 ---
 
-# Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps
+# Create custom built-in connectors for Standard workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -31,7 +34,7 @@ For more information, review the following documentation:
 
 ## Prerequisites
 
-* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account and subscription. If you don't have a subscription, [sign up for a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 * Basic knowledge about single-tenant Azure Logic Apps, Standard logic app workflows, connectors, and how to use Visual Studio Code for creating single tenant-based workflows. For more information, review the following documentation:
 
@@ -156,7 +159,7 @@ public string GetBindingConnectionInformation(string operationId, InsensitiveDic
    return ServiceOperationsProviderUtilities
       .GetRequiredParameterValue(
          serviceId: ServiceId,
-         operationId: operationID,
+         operationId: operationId,
          parameterName: "connectionString",
          parameters: connectionParameters)?
       .ToValue<string>();
@@ -195,7 +198,7 @@ This method has a default implementation, so you don't need to explicitly implem
 
 ## Register your connector
 
-To load your custom built-in connector extension during the Azure Functions runtime start process, you have to add the Azure Functions extension registration as a startup job and register your connector as a service provider in service provider list. Based on the type of data that your built-in trigger needs as inputs, optionally add the converter. This example converts the **Document** data type for Azure Cosmos DB documents to a **JObject** array.
+To load your custom built-in connector extension during the Azure Functions runtime start process, you have to add the Azure Functions extension registration as a startup job and register your connector as a service provider in the service provider list. Based on the type of data that your built-in trigger needs as inputs, optionally add the converter. This example converts the **Document** data type for Azure Cosmos DB documents to a **JObject** array.
 
 The following sections show how to register your custom built-in connector as an Azure Functions extension.
 
@@ -222,7 +225,7 @@ The following sections show how to register your custom built-in connector as an
          public void Configure(IWebJobsBuilder builder)
          {
                // Register the extension.
-               builder.AddExtension<CosmosDbServiceProvider>)();
+               builder.AddExtension<CosmosDbServiceProvider>();
 
                // Use dependency injection (DI) for the trigger service operation provider.
                builder.Services.TryAddSingleton<CosmosDbTriggerServiceOperationsProvider>();
@@ -333,7 +336,7 @@ To add the NuGet reference from the previous section, in the extension bundle na
    If the extension for your custom built-in connector was successfully installed, you get output that looks similar to the following example:
 
    ```output
-   C:\Users\{your-user-name}\Desktop\demoproj\cdbproj>powershell - file C:\myrepo\github\logicapps-connector-extensions\src\Common\tools\add-extension.ps1 C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\CosmosDB
+   C:\Users\{your-user-name}\Desktop\demoproj\cdbproj>powershell -file C:\myrepo\github\logicapps-connector-extensions\src\Common\tools\add-extension.ps1 C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\CosmosDB
 
    Nuget extension path is C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\
    Extension dll path is C:\myrepo\github\logicapps-connector-extensions\src\CosmosDB\bin\Debug\netcoreapp3.1\Microsoft.Azure.Workflows.ServiceProvider.Extensions.CosmosDB.dll
@@ -452,4 +455,4 @@ To add the NuGet reference from the previous section, in the extension bundle na
 
 * [Source for sample custom built-in Azure Cosmos DB connector - Azure Logic Apps Connector Extensions](https://github.com/Azure/logicapps-connector-extensions/tree/CosmosDB/src/CosmosDB)
 
-* [Built-in Service Bus trigger: batching and session handling](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-running-anywhere-built-in-service-bus-trigger/ba-p/2079995)
+* [Built-in Service Bus trigger: batching and session handling](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-logic-apps-running-anywhere---built-in-service-bus-trigger-batching-and-se/2079995)

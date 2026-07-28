@@ -62,47 +62,63 @@ cuOpt is included with NVIDIA AI Enterprise. Visit [Azure Marketplace] to get st
 
 ## Get the travel cost
 
-Itinerary optimization requires a square matrix of some travel metric that is passed to the cuOpt solver. This could include travel time or distance cost. A cost matrix is a square matrix that represents the cost of traveling between every pair of locations in the problem.
+Itinerary optimization requires a square matrix of a travel metric, such as time or distance cost, that is passed to the cuOpt solver. A cost matrix represents the travel cost between every pair of locations in the problem set, enabling efficient route planning and optimization.
 
-The Azure Maps [Route Matrix] API calculates the time and distance cost of routing from origin to every destination. The set of origins and the set of destinations can be thought of as the column and row headers of a table and each cell in the table contains the costs of routing from the origin to the destination for that cell.
+The Azure Maps [Route Matrix] API calculates travel metrics, such as time and distance, from each origin to every destination. These origins and destinations form the column and row headers of a cost matrix, where each cell represents the routing cost between a specific origin-destination pair.
 
-For example, a restaurant has two drivers that need to deliver food to four locations. To solve this case, call the Route Matrix API to get the travel times between all locations. This example assumes that the drivers’ start, and end location is the restaurant. If the start and end locations are different from the depot, they must be included in the cost matrices.
+For example, a restaurant has two drivers who need to deliver food to four locations. To solve this scenario, use the Route Matrix API to calculate travel times between all relevant points. This example assumes that both drivers start and end at the restaurant. If the start or end locations differ from the depot, those locations must be explicitly included in the cost matrix.
 
-Number of origins = Number of destinations = 1 (restaurant also known as _depot_) + 4 (deliveries)
+Number of origins = Number of destinations = 1 (restaurant, also referred to as the _depot_) + 4 (delivery locations) = 5
 
 Matrix size = 5 origins x 5 destinations = 25
 
 > [!NOTE]
-> Azure Maps Route Matrix can support up to 700 matrix cells which approximate to a square matrix of 26x26. You can use it to plan the itinerary for 26 locations including depots and deliveries.
+> Azure Maps Route Matrix can support up to 50,000 matrix cells for asynchronous requests and 2,500 matrix cells for synchronous requests, which approximate to square matrices of 223x223 and 50x50, respectively. You can use it to plan the itinerary for up to 223 locations including depots and deliveries.
 
 The Route Matrix POST request:
 
 ```html
-https://atlas.microsoft.com/route/matrix/json?api-version=1.0&routeType=shortest
+https://atlas.microsoft.com/route/matrix?api-version=2025-01-01&routeType=shortest&subscription-key={Your-Azure-Maps-Subscription-key}
 ```
 
 ```json
 {
-  "origins": { 
-    "type": "MultiPoint", 
-    "coordinates": [ 
-      [4.85106, 52.36006], //restaurant or depot 
-      [4.85056, 52.36187], //delivery location 1 
-      [4.85003, 52.36241], //delivery location 2 
-      [4.42937, 52.50931], //delivery location 3 
-      [4.42940, 52.50843]  //delivery location 4 
-    ] 
-  }, 
-  "destinations": { 
-    "type": "MultiPoint", 
-      [4.85106, 52.36006], //restaurant or depot 
-      [4.85056, 52.36187], //delivery location 1 
-      [4.85003, 52.36241], //delivery location 2 
-      [4.42937, 52.50931], //delivery location 3 
-      [4.42940, 52.50843]  //delivery location 4 
-    ] 
-  } 
-} 
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+            [4.85106, 52.36006], //restaurant or depot 
+            [4.85056, 52.36187], //delivery location 1 
+            [4.85003, 52.36241], //delivery location 2 
+            [4.42937, 52.50931], //delivery location 3 
+            [4.42940, 52.50843]  //delivery location 4 
+        ]
+      },
+      "properties": {
+        "pointType": "origins"
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiPoint",
+        "coordinates": [
+            [4.85106, 52.36006], //restaurant or depot 
+            [4.85056, 52.36187], //delivery location 1 
+            [4.85003, 52.36241], //delivery location 2 
+            [4.42937, 52.50931], //delivery location 3 
+            [4.42940, 52.50843]  //delivery location 4 
+        ]
+      },
+      "properties": {
+        "pointType": "destinations"
+      }
+    }
+  ]
+}
 ```
 
 The Route Matrix response returns a 5x5 multi-dimensional array where each row represents the origins and columns represent the destinations. Use the field `travelTimeInSeconds` to get the time cost for each location pair. The time unit should be consistent across the solution. Once the preprocessing stage is complete, the order, depot, fleet info and the cost matrix, are sent over and imported to the cuOpt Server via API calls.
@@ -133,7 +149,7 @@ This section describes how to build request data for cuOpt calls. For more examp
 
 ### Set Cost Matrix
 
-Parse the Azure Maps Route Matrix API response to get the travel time between locations to construct the cost matrix. In the following example, “0” represents the key that represents a specific vehicle type.  
+Parse the Azure Maps Route Matrix API response to get the travel time between locations to construct the cost matrix. In the following example, "0" represents the key that represents a specific vehicle type.  
 
 ```json
 "data": {" cost_matrix_data ": {
@@ -148,7 +164,7 @@ Parse the Azure Maps Route Matrix API response to get the travel time between lo
     }}}
 ```
 
-Multiple cost matrices can optionally be provided depending on the types of vehicles. Some vehicles can travel faster while others might incur more costs when traveling through certain areas. This can be modeled using more cost matrices one for each vehicle type. The next example has two matrices, “0” represents first vehicle, which could be a car and “1” represents second vehicle, which could be a truck. Note, if your fleet has vehicles with similar profiles you need to specify the cost matrix only once.
+Multiple cost matrices can optionally be provided depending on the types of vehicles. Some vehicles can travel faster while others might incur more costs when traveling through certain areas. This can be modeled using more cost matrices one for each vehicle type. The next example has two matrices, "0" represents first vehicle, which could be a car and "1" represents second vehicle, which could be a truck. Note, if your fleet has vehicles with similar profiles you need to specify the cost matrix only once.
 
 ```json
 "data": {" cost_matrix_data ": {
@@ -197,9 +213,9 @@ Fleet data could describe the fleet description such as the number of vehicles, 
 ```
 
 - **Vehicle locations**: In the above example, fleet data indicates two vehicles, one array for each vehicle. Both vehicles start at location 0 and end trip at location 1. In the context of a cost matrix description of the environment, these vehicle locations correspond to row (or column) indices in the cost matrix.
-- **Capacities**: The capacity array indicates the vehicle capacity; the first vehicle has a capacity of two and second vehicle has a capacity of three. Capacity could represent various things, for example package weight, service skills and their amounts transported by each vehicle. In the next section, you'll create a task json that will require a demand dimension for each task location and the count of demand dimension will correspond to the number of capacity dimensions in the fleet data. ​​​For example, if a truck is delivering goods, the capacity would be how much weight in total each vehicle can carry, and the demand would be the weight of each order. Make sure the same unit is used for both (such as pounds or kilograms).​
-- **Vehicle time windows**: Time windows specify the operating time of the vehicle to complete the tasks. This could be the agent’s shift start and end time. Raw data can include Universal Time Stamp (UTC) date/time format or string format that must be converted to floating value. (Example: 9:00 am - 6:00 pm converted to minutes in a 24-hour period starting at 12:00 am, would be [540, 1080]). All time/cost units provided to the cuOpt solver should be in the same unit.
-- **Vehicle breaks**: Vehicle break windows and duration can also be specified. This could represent the agent’s lunch break, or other breaks as needed. The break window format would be same as the vehicle time window format. All time/cost units provided to the cuOpt solver should be in the same unit.
+- **Capacities**: The capacity array indicates the vehicle capacity; the first vehicle has a capacity of two and second vehicle has a capacity of three. Capacity could represent various things, for example package weight, service skills and their amounts transported by each vehicle. In the next section, you'll create a task JSON that will require a demand dimension for each task location and the count of demand dimension will correspond to the number of capacity dimensions in the fleet data. ​​​For example, if a truck is delivering goods, the capacity would be how much weight in total each vehicle can carry, and the demand would be the weight of each order. Make sure the same unit is used for both (such as pounds or kilograms).​
+- **Vehicle time windows**: Time windows specify the operating time of the vehicle to complete the tasks. This could be the agent's shift start and end time. Raw data can include Universal Time Stamp (UTC) date/time format or string format that must be converted to floating value. (Example: 9:00 am - 6:00 pm converted to minutes in a 24-hour period starting at 12:00 am, would be [540, 1080]). All time/cost units provided to the cuOpt solver should be in the same unit.
+- **Vehicle breaks**: Vehicle break windows and duration can also be specified. This could represent the agent's lunch break, or other breaks as needed. The break window format would be same as the vehicle time window format. All time/cost units provided to the cuOpt solver should be in the same unit.
 
 ### Set task data
 
@@ -348,7 +364,7 @@ Sample response
 
 ## Call Azure Maps Route Directions API for routing
 
-After the locations in the cuOpt response are mapped to the corresponding coordinates, the cuOpt service can be used with the Azure Maps [Route Directions] API and web SDK to create a web app that displays the assigned itineraries and optimized routes on the map. You can color code the route path for individual vehicles based on the assigned stops and display it on the Azure Maps base data.
+After the locations in the cuOpt response are mapped to the corresponding coordinates, the cuOpt service can be used with the Azure Maps [Route Directions] API and Web SDK to create a web app that displays the assigned itineraries and optimized routes on the map. You can color code the route path for individual vehicles based on the assigned stops and display it on the Azure Maps base data.
 
 :::image type="content" source="media/multi-itinerary-optimization-service/multi-itinerary-route.png" alt-text="A screenshot showing the multi-itinerary route on a map.":::
 
@@ -366,15 +382,15 @@ After the locations in the cuOpt response are mapped to the corresponding coordi
 [Authentication with Azure Maps]: azure-maps-authentication.md
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps code samples]: https://samples.azuremaps.com/
-[Azure Maps Route Directions API]: /rest/api/maps/route/post-directions
+[Azure Maps Route Directions API]: /rest/api/maps/route/post-route-directions
 [Azure Maps Route Matrix API]: /rest/api/maps/route/post-route-matrix
 [Azure Maps]: /azure/azure-maps/
 [Azure Marketplace]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps/nvidia.nvidia-ai-enterprise?tab=Overview
-[cuOpt best practices]: https://docs.nvidia.com/cuopt/user-guide/best-practices.html
-[cuOpt Supported Features]: https://docs.nvidia.com/cuopt/user-guide/supported-features.html
-[List of cuOpt supported features]: https://docs.nvidia.com/cuopt/user-guide/supported-features.html
+[cuOpt best practices]: https://docs.nvidia.com/cuopt/service/latest/best-practices.html
+[cuOpt Supported Features]: https://docs.nvidia.com/cuopt/user-guide/index.html
+[List of cuOpt supported features]: https://docs.nvidia.com/cuopt/user-guide/index.html
 [Multi Itinerary Optimization]: https://samples.azuremaps.com/rest-services/mio
 [NVIDIA cuOpt]: https://www.nvidia.com/en-us/ai-data-science/products/cuopt/
-[Route Directions]: /rest/api/maps/route/post-directions
+[Route Directions]: /rest/api/maps/route/post-route-directions
 [Route Matrix]: /rest/api/maps/route/post-route-matrix
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

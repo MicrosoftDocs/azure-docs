@@ -13,7 +13,7 @@ ms.custom: devx-track-azurecli
 
 In this tutorial, you learn how to route MQTT messages received by an Azure Event Grid namespace to an Azure function via an Event Grid custom topic by following these steps:
 
-If you don't have an Azure subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/dotnet).
+If you don't have an Azure subscription, you can sign up for a [free trial](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 Follow instructions from [Create an Azure function using Visual Studio Code](../azure-functions/functions-develop-vs-code.md), but use the **Azure Event Grid Trigger** instead of using the **HTTP Trigger**. You should see code similar to the following example:
@@ -115,7 +115,7 @@ Follow instructions from [Quickstart: Publish and subscribe to MQTT messages on 
 1. Create two clients.
 1. Create a topic space.
 1. Create publisher and subscriber permission bindings. 
-1. Test using [MQTTX app](mqtt-publish-and-subscribe-portal.md#connecting-the-clients-to-the-eg-namespace-using-mqttx-app) to confirm that clients are able to send and receive messages. 
+1. Test using [MQTTX app](mqtt-publish-and-subscribe-portal.md#connect-clients-to-the-namespace-by-using-mqttx-app) to confirm that clients are able to send and receive messages. 
 
 ## Enable managed identity for the namespace
 
@@ -158,7 +158,7 @@ The script uses the [`az eventgrid namespace update`](/cli/azure/eventgrid/names
 ## Send test MQTT messages using MQTTX
 Send test MQTT messages to the namespace and confirm that the function receives them.
 
-Follow instructions from the [Publish, subscribe messages using MQTTX app](mqtt-publish-and-subscribe-portal.md#publishsubscribe-using-mqttx-app) article to send a few test messages to the Event Grid namespace.
+Follow instructions from the [Publish, subscribe messages using MQTTX app](mqtt-publish-and-subscribe-portal.md#publish-and-subscribe-by-using-mqttx-app) article to send a few test messages to the Event Grid namespace.
 
 Here's the flow of the events or messages:
 

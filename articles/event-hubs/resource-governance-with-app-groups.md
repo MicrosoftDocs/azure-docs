@@ -3,7 +3,10 @@ title: Govern resources for client applications with application groups
 description: Learn how to use application groups to govern resources for client applications that connect with Event Hubs.
 ms.topic: how-to
 ms.date: 10/12/2022
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 # Govern resources for client applications with application groups
@@ -266,7 +269,7 @@ az eventhubs namespace application-group policy add --namespace-name mynamespace
 ```
 
 ### [Azure PowerShell](#tab/powershell)
-Use the [Set-AzEventHubApplicationGroup](/powershell/module/az.eventhub/set-azeventhubapplicationgroup) command with `-ThrottingPolicyConfig` set to appropriate values. 
+Use the [Set-AzEventHubApplicationGroup](/powershell/module/az.eventhub/set-azeventhubapplicationgroup) command with `-ThrottlingPolicyConfig` set to appropriate values. 
 
 **Example:**
 ```azurepowershell-interactive

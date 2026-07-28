@@ -1,15 +1,16 @@
 ---
-title: Azure Monitor logs data model 
+title: Data Model for Legacy diagnostic events
 description: In this article, learn about the Azure Monitor Log Analytics data model details for Azure Backup data.
 ms.topic: how-to
-ms.date: 06/29/2024
+ms.date: 11/27/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a data analyst, I want to utilize the Azure Monitor Log Analytics data model for Azure Backup, so that I can create custom queries and alerts based on diagnostic events to enhance data management and reporting capabilities.
 ---
 
-# Log Analytics data model for Azure Backup data
+# Data Model for Legacy diagnostic events
 
 This article describes the Log Analytics data model for Azure Backup that's added to the Azure Diagnostics table (if your vaults are configured with diagnostics settings to send data to a Log Analytics workspace in Azure Diagnostics mode). You can use this data model to write queries on Log Analytics data to create custom alerts or reporting dashboards.
 
@@ -370,7 +371,7 @@ The following table provides basic recovery point related fields.
 | LatestRecoveryPointTime_s |Text |Date time of the latest recovery point for the backup item|
 | LatestRecoveryPointLocation_s |Text |Location of the latest recovery point for the backup item|
 
-## Sample Kusto queries
+## Sample Kusto queries for Azure Backup data
 
 Below are a few samples to help you write queries on Azure Backup data that resides in the Azure Diagnostics table:
 
@@ -463,7 +464,7 @@ Below are a few samples to help you write queries on Azure Backup data that resi
     | project-away Resource
     ````
 
-## V1 schema vs V2 schema
+## V1 schema vs V2 schema for Azure Backup diagnostic data
 
 Earlier, diagnostics data for Azure Backup Agent and Azure VM backup was sent to Azure Diagnostics table in a schema referred to as ***V1 schema***. Subsequently, new columns were added to support other scenarios and workloads, and diagnostics data was pushed in a new schema referred to as ***V2 schema***.  
 

@@ -4,12 +4,13 @@ description: In this tutorial, learn how to connect to and copy data from your h
 services: databox
 author: stevenmatthew
 
-ms.service: databox
-ms.subservice: heavy
+ms.service: azure-data-box-heavy
 ms.topic: tutorial
 ms.date: 03/25/2024
 ms.author: shaas
+ms.custom: sfi-image-nochange
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box Heavy to upload on-premises data from my server onto Azure.
+# Customer intent: As an IT administrator, I want to connect and copy data to Azure Data Box Heavy using SMB, so that I can efficiently transfer on-premises data to the cloud for storage and processing.
 ---
 ::: zone target = "docs"
 

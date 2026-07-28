@@ -1,13 +1,13 @@
 ---
 title: Enterprise Agreement reservation details file schema
 description: Learn about the data fields available in the Enterprise Agreement reservation details file.
-author: bandersmsft
-ms.reviewer: jojo
+author: vikramdesai01
+ms.reviewer: vikdesai
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: reference
-ms.date: 05/02/2024
-ms.author: banders
+ms.date: 06/26/2025
+ms.author: vikdesai
 ---
 
 # Enterprise Agreement reservation details file schema

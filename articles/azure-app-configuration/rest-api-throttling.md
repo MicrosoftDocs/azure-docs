@@ -52,4 +52,4 @@ retry-after-ms: 787
 
 To view the **Total Requests** quota usage, App Configuration provides a metric named **Request Quota Usage**. The request quota usage metric shows the current quota usage as a percentage.
 
-For more information on the request quota usage metric and other App Configuration metrics see [Monitoring App Configuration data reference](./monitor-app-configuration-reference.md).
+For more information on the request quota usage metric and other App Configuration metrics see [App Configuration Metrics](/azure/azure-monitor/reference/supported-metrics/microsoft-appconfiguration-configurationstores-metrics).

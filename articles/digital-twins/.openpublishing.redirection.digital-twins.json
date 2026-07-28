@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "how-to-integrate-azure-signalr.md",
+      "redirect_url": "/previous-versions/azure/digital-twins/how-to-integrate-azure-signalr",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "how-to-provision-using-device-provisioning-service.md",
       "redirect_url": "/previous-versions/azure/digital-twins/how-to-provision-using-device-provisioning-service",
       "redirect_document_id": false

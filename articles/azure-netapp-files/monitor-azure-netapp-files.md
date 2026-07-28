@@ -1,12 +1,15 @@
 ---
-title: Ways to monitor Azure NetApp Files | Microsoft Docs
+title: Ways to monitor Azure NetApp Files
 description: Describes ways to monitor Azure NetApp Files, including the Activity log, metrics, and capacity utilization monitoring.
 services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
-ms.topic: conceptual
-ms.date: 01/24/2022
+ms.topic: concept-article
+ms.date: 04/18/2025
 ms.author: anfdocs
+ms.custom:
+  - build-2025
+# Customer intent: As an IT admin managing Azure NetApp Files, I want to monitor activity logs, metrics, and capacity utilization, so that I can ensure optimal performance and resource management of my storage solution.
 ---
 # Ways to monitor Azure NetApp Files
 
@@ -20,6 +23,12 @@ To understand how Activity log works, see [Azure Activity log](/azure/azure-moni
 
 For Activity log warnings for Azure NetApp Files volumes, see [Activity log warnings for Azure NetApp Files volumes](troubleshoot-volumes.md#activity-log-warnings-for-volumes).
 
+## File access logs
+
+Azure NetApp Files provides file access logging for individual volumes, capturing file system operations on selected volumes. Standard file system operations are captured in the logs.
+
+To learn more about enabling and using this feature, see [file access logs](manage-file-access-logs.md).
+
 ## Azure NetApp Files metrics 
 
 Azure NetApp Files provides metrics on allocated storage, actual storage usage, volume IOPS, and latency. With these metrics, you can gain a better understanding on the usage pattern and volume performance of your NetApp accounts.
@@ -32,7 +41,7 @@ For more information about Azure NetApp Files metrics, see [Metrics for Azure Ne
 
 The [Azure Service Health dashboard](https://azure.microsoft.com/features/service-health) keeps you informed about the health of your environment. It provides a personalized view of the status of your Azure services in the regions where they are used. The dashboard provides upcoming planned maintenance and relevant health advisories while allowing you to manage service health alerts.
 
-For more information, see [Azure Service Health dashboard](/azure/service-health/service-health-overview) documentation. 
+For more information, see [Azure Service Health dashboard](/azure/service-health/overview) documentation. 
 
 ## Capacity utilization monitoring 
 
@@ -43,6 +52,7 @@ For more information, see [Monitor capacity utilization](volume-hard-quota-guide
 ## Next steps  
 
 * [Azure Activity log](/azure/azure-monitor/essentials/activity-log)
+* [File access logs](manage-file-access-logs.md)
 * [Activity log warnings for Azure NetApp Files volumes](troubleshoot-volumes.md#activity-log-warnings-for-volumes)
 * [Metrics for Azure NetApp Files](azure-netapp-files-metrics.md)
 * [Monitor capacity utilization](volume-hard-quota-guidelines.md#how-to-operationalize-the-volume-hard-quota-change)

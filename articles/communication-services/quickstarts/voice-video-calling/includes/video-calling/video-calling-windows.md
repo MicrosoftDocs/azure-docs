@@ -7,7 +7,7 @@ In this quickstart, you learn how to start a 1:1 video call using the Azure Comm
 
 To complete this tutorial, you need the following prerequisites:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Install [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) with Universal Windows Platform development workload.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You need to **record your connection string** for this quickstart.
 - A [User Access Token](../../../identity/access-tokens.md) for your Azure Communication Service. You can also use the Azure CLI and run the command with your connection string to create a user and an access token.
@@ -351,14 +351,14 @@ Add the methods to start or join the different types of Call (1:1 Azure Communic
 ```C#
 private async Task<CommunicationCall> StartAcsCallAsync(string acsCallee)
 {
-    var options = await GetStartCallOptionsAsynnc();
+    var options = await GetStartCallOptionsAsync();
     var call = await this.callAgent.StartCallAsync( new [] { new UserCallIdentifier(acsCallee) }, options);
     return call;
 }
 
 private async Task<CommunicationCall> StartPhoneCallAsync(string acsCallee, string alternateCallerId)
 {
-    var options = await GetStartCallOptionsAsynnc();
+    var options = await GetStartCallOptionsAsync();
     options.AlternateCallerId = new PhoneNumberCallIdentifier(alternateCallerId);
 
     var call = await this.callAgent.StartCallAsync( new [] { new PhoneNumberCallIdentifier(acsCallee) }, options);
@@ -383,7 +383,7 @@ private async Task<CommunicationCall> JoinTeamsMeetingByLinkAsync(Uri teamsCallL
     return call;
 }
 
-private async Task<StartCallOptions> GetStartCallOptionsAsynnc()
+private async Task<StartCallOptions> GetStartCallOptionsAsync()
 {
     return new StartCallOptions() {
         OutgoingAudioOptions = new OutgoingAudioOptions() { IsOutgoingAudioMuted = true, OutgoingAudioStream = micStream  },
@@ -403,8 +403,8 @@ private async Task<JoinCallOptions> GetJoinCallOptionsAsync()
 Add the code to create the LocalVideoStream depending on the selected camera on the `CameraList_SelectionChanged` method.
 
 ```C#
-var selectedCamerea = CameraList.SelectedItem as VideoDeviceDetails;
-cameraStream = new LocalOutgoingVideoStream(selectedCamerea);
+var selectedCamera = CameraList.SelectedItem as VideoDeviceDetails;
+cameraStream = new LocalOutgoingVideoStream(selectedCamera);
 
  var localUri = await cameraStream.StartPreviewAsync();
 await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
@@ -641,7 +641,7 @@ For more information on user IDs (identity) check the [User Access Tokens](../..
 
 To complete this tutorial, you need the following prerequisites:
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). 
 - Install [Visual Studio 2022](https://visualstudio.microsoft.com/downloads/) and [Windows App SDK version 1.2 preview 2](/windows/apps/windows-app-sdk/preview-channel#version-12-preview-2-120-preview2). 
 - Basic understanding of how to create a WinUI 3 app. [Create your first WinUI 3 (Windows App SDK) project](/windows/apps/winui/winui3/create-your-first-winui3-app?pivots=winui3-packaged-csharp) is a good resource to start with.
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md). You need to **record your connection string** for this quickstart.
@@ -848,8 +848,8 @@ if (this.deviceManager.Cameras?.Count > 0)
     var videoDeviceInfo = this.deviceManager.Cameras?.FirstOrDefault();
     if (videoDeviceInfo != null)
     {
-        var selectedCamerea = CameraList.SelectedItem as VideoDeviceDetails;
-        cameraStream = new LocalOutgoingVideoStream(selectedCamerea);
+        var selectedCamera = CameraList.SelectedItem as VideoDeviceDetails;
+        cameraStream = new LocalOutgoingVideoStream(selectedCamera);
 
         var localUri = await cameraStream.StartPreviewAsync();
         await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
@@ -883,8 +883,8 @@ if (this.deviceManager.Cameras?.Count > 0)
     var videoDeviceInfo = this.deviceManager.Cameras?.FirstOrDefault();
     if (videoDeviceInfo != null)
     {
-        var selectedCamerea = CameraList.SelectedItem as VideoDeviceDetails;
-        cameraStream = new LocalOutgoingVideoStream(selectedCamerea);
+        var selectedCamera = CameraList.SelectedItem as VideoDeviceDetails;
+        cameraStream = new LocalOutgoingVideoStream(selectedCamera);
 
         var localUri = await cameraStream.StartPreviewAsync();
         await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>

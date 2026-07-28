@@ -7,6 +7,8 @@ ms.author: mbender
 author: mbender-ms
 ms.service: azure-virtual-network
 ms.topic: how-to
+ms.custom: sfi-image-nochange
+# Customer intent: As a network administrator, I want to configure a public IP address with an Internet routing preference, so that I can effectively manage inbound and outbound internet traffic for my Azure resources.
 ---
 
 # Configure routing preference for a public IP address
@@ -53,18 +55,25 @@ If you choose to install and use PowerShell locally, this article requires the A
 2. Select **Create a resource**.
 3. In the search box, type *Public IP address*.
 3. In the search results, select **Public IP address**. Next, in the **Public IP address** page, select **Create**.
-1. For SKU, select **Standard**.
-1. For **Routing preference**, select **Internet**.
-
-      ![Create a public ip address](./media/routing-preference-portal/public-ip-new.png)
-1. In the **IPv4 IP Address Configuration** section, enter or select this information:
+1. In the **Create public IP address** page, enter or select this information:
 
     | Setting | Value |
     | ------- | ----- |
-    | Subscription | Select your subscription.|
+    | **Project details** |   |
+    | Subscription | Select your subscription. |
     | Resource group | Select **Create new**, enter *RoutingPreferenceResourceGroup*, then select **OK**. |
-    | Location | Select **East US**.|
-    | Availability zone | Keep the default value - **Zone-redundant**. |
+    | **Instance details** |   |
+    | Region | Select **East US**. |
+    | **Configuration details** |   |
+    | Name | Enter a name for the public IP address. |
+    | IP version | Select **IPv4**. |
+    | SKU | Select **Standard**. |
+    | Tier | Select **Regional**. |
+    | Availability zone | Select **Zone-redundant**. |
+    | IP address assignment | Select **Static**. |
+    | Routing preference | Select **Internet**. |
+    | DNS name label | Enter a DNS name label if desired. |
+
 1. Select **Create**.
 
     > [!NOTE]
@@ -126,7 +135,6 @@ You can associate the above created public IP address with a [Windows](/azure/vi
 
 
 ## Next steps
-- Learn more about [public IP with routing preference](routing-preference-overview.md).
-- [Configure routing preference for a VM](./tutorial-routing-preference-virtual-machine-portal.md).
-- [Configure routing preference for a VM using the Azure CLI](./configure-routing-preference-virtual-machine-cli.md).
-- [Configure routing preference for a VM using the Azure PowerShell](./configure-routing-preference-virtual-machine-powershell.md).
+
+> [!div class="nextstepaction"]
+> [Configure routing preference for a virtual machine](./configure-routing-preference-virtual-machine.md)

@@ -3,21 +3,26 @@ title: Replace your tape infrastructure by using Azure Backup
 description: Learn how Azure Backup provides tape-like semantics that enable you to back up and restore data in Azure
 ms.service: azure-backup
 ms.topic: how-to
-ms.date: 03/29/2024
+ms.date: 12/12/2025
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: "As an IT administrator looking to transition from tape storage, I want to implement Azure Backup for my long-term retention needs, so that I can ensure reliable and flexible data backup and recovery while reducing dependency on physical tape infrastructure."
 ---
 
-# Move your long-term storage from tape to the Azure cloud
+# Move the long-term storage from tape to the Azure cloud using Azure Backup
 
-This article describes how you can enable backup and retention policies. If you're using tapes to address your long-term-retention needs, Azure Backup provides a powerful and viable alternative with the availability of this feature. The feature is enabled in the Azure Backup service (which is available [here](https://aka.ms/azurebackup_agent)). If you're using System Center DPM, then you must update to, at least, DPM 2012 R2 UR5 before using DPM with the Azure Backup service.
+This article describes how to enable backup and retention policies. If you use tapes for long-term retention, Azure Backup offers a powerful alternative with this feature, which you need to [enable in the Azure Backup service](https://aka.ms/azurebackup_agent). If you use System Center DPM, update to at least DPM 2012 R2 UR5 before using DPM with Azure Backup.
+
+## Key features for protecting tape data in Azure
 
 Azure Backup and System Center Data Protection Manager enable you to:
 
 * Back up data in schedules, which best suit the organizational needs.
 * Retain the backup data for longer periods.
 * Make Azure a part of your long-term retention needs (instead of tape).
+
+[!INCLUDE [The functionality of Azure Backup trim process.](../../includes/backup-trim-process-notification.md)]
 
 ## What is the Backup Schedule?
 
@@ -37,7 +42,7 @@ The retention policy specifies the duration for which the backup must be stored.
 
 The total number of “retention points” specified in this policy is 90 (daily points) + 40 (one each quarter for 10 years) = 130.
 
-## Example protection policy
+## Example protection policy for tape data
 
 ![Screenshot shows the sample protection policy.](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
@@ -59,7 +64,7 @@ The total number of recovery points is 56.
 > Using Azure Backup you can create up to 9999 recovery points per protected instance. A protected instance is a computer, server (physical or virtual), or workload that backs up to Azure.
 >
 
-## Advanced configuration
+## Advanced configuration for retention policy
 
 By selecting **Modify** in the preceding screen, you have further flexibility in specifying retention schedules.
 

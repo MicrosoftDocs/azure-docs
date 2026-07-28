@@ -3,11 +3,11 @@ title: Transform data
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Transform data or process data in Azure Data Factory or Azure Synapse Analytics using Hadoop, ML Studio (classic), or Azure Data Lake Analytics.
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: overview
 author: nabhishek
 ms.author: abnarain
 ms.custom: synapse
-ms.date: 05/15/2024
+ms.date: 02/13/2025
 ---
 
 # Transform data in Azure Data Factory and Azure Synapse Analytics
@@ -21,7 +21,6 @@ ms.date: 05/15/2024
 > * [HDInsight Spark](transform-data-using-spark.md)
 > * [ML Studio (classic)](transform-data-using-machine-learning.md) 
 > * [Stored Procedure](transform-data-using-stored-procedure.md)
-> * [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md)
 > * [Azure Synapse notebook](../synapse-analytics/synapse-notebook-activity.md)
 > * [Databricks notebook](transform-data-databricks-notebook.md)
 > * [Databricks Jar](transform-data-databricks-jar.md)
@@ -82,9 +81,6 @@ See [Use ML Studio (classic) activities](transform-data-using-machine-learning.m
 ### Stored procedure activity
 You can use the SQL Server Stored Procedure activity in a Data Factory pipeline to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure Synapse Analytics, SQL Server Database in your enterprise or an Azure VM. See [Stored Procedure activity](transform-data-using-stored-procedure.md) article for details.  
 
-### Data Lake Analytics U-SQL activity
-Data Lake Analytics U-SQL activity runs a U-SQL script on an Azure Data Lake Analytics cluster. See [Data Analytics U-SQL activity](transform-data-using-data-lake-analytics.md) article for details. 
-
 ### Azure Synapse Notebook activity 
 
 The Azure Synapse Notebook Activity in a Synapse pipeline runs a Synapse notebook in your Azure Synapse workspace. See [Transform data by running an Azure Synapse notebook](../synapse-analytics/synapse-notebook-activity.md).
@@ -104,7 +100,7 @@ The Azure Databricks Python Activity in a pipeline runs a Python file in your Az
 ### Custom activity
 If you need to transform data in a way that is not supported by Data Factory, you can create a custom activity with your own data processing logic and use the activity in the pipeline. You can configure the custom .NET activity to run using either an Azure Batch service or an Azure HDInsight cluster. See [Use custom activities](transform-data-using-dotnet-custom-activity.md) article for details. 
 
-You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory and Synapse pipelines](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample). 
+You can create a custom activity to run R scripts on your HDInsight cluster with R installed. See [Run R Script using Azure Data Factory and Synapse pipelines](https://github.com/Azure/Azure-DataFactory/tree/main/SamplesV2). 
 
 ### Compute environments
 You create a linked service for the compute environment and then use the linked service when defining a transformation activity. There are two supported types of compute environments. 

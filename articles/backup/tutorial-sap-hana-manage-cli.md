@@ -2,10 +2,11 @@
 title: 'Tutorial: Manage backed-up SAP HANA DB using CLI' 
 description: In this tutorial, learn how to manage backed-up SAP HANA databases running on an Azure VM using Azure CLI.
 ms.topic: tutorial
-ms.date: 08/11/2022
+ms.date: 10/17/2025
 ms.custom: devx-track-azurecli
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: As a database administrator, I want to manage my backed-up SAP HANA databases using command-line interface commands, so that I can efficiently monitor, change policies, and control backup jobs without relying on a graphical interface.
 ---
 
 # Tutorial: Manage SAP HANA databases in an Azure VM using Azure CLI
@@ -14,17 +15,7 @@ Azure CLI is used to create and manage Azure resources from the Command Line or 
 
 Use [Azure Cloud Shell](tutorial-sap-hana-backup-cli.md) to run CLI commands.
 
-By the end of this tutorial, you'll be able to:
-
-> [!div class="checklist"]
->
-> * Monitor backup and restore jobs
-> * Protect new databases added to an SAP HANA instance
-> * Change the policy
-> * Stop protection
-> * Resume protection
-
-If you've used [Back up an SAP HANA database in Azure using CLI](tutorial-sap-hana-backup-cli.md) to back up your SAP HANA database, then you're using the following resources:
+If you have [Backed up an SAP HANA database in Azure using CLI](tutorial-sap-hana-backup-cli.md), then use the following resources:
 
 * a resource group named *saphanaResourceGroup*
 * a vault named *saphanaVault*
@@ -37,7 +28,7 @@ Azure CLI makes it easy to manage an SAP HANA database running on an Azure VM th
 >[!Note]
 >See the [SAP HANA backup support matrix](sap-hana-backup-support-matrix.md) to know more about the supported configurations and scenarios.
 
-## Monitor backup and restore jobs
+## Monitor SAP HANA database backup and restore jobs
 
 To monitor completed or currently running jobs (backup or restore), use the [az backup job list](/cli/azure/backup/job#az-backup-job-list) cmdlet. CLI also allows you to [suspend a currently running job](/cli/azure/backup/job#az-backup-job-stop) or [wait until a job completes](/cli/azure/backup/job#az-backup-job-wait).
 
@@ -58,7 +49,7 @@ ccdb4dce-8b15-47c5-8c46-b0985352238f  Backup (Full)          Completed   hxe [hx
 F7c68818-039f-4a0f-8d73-e0747e68a813  Restore (Log)          Completed   hxe [hxehost]   2019-12-03T05:44:51.081607+00:00
 ```
 
-## Change policy
+## Change policy for SAP HANA database backup
 
 To change the policy underlying the SAP HANA backup configuration, use the [az backup policy set](/cli/azure/backup/policy#az-backup-policy-set) cmdlet. The name parameter in this cmdlet refers to the backup item whose policy we want to change. For this tutorial, we'll be replacing the policy of our SAP HANA database *saphanadatabase;hxe;hxe* with a new policy *newsaphanaPolicy*. New policies can be created using the [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create) cmdlet.
 
@@ -78,7 +69,7 @@ Name                                  Resource Group
 cb110094-9b15-4c55-ad45-6899200eb8dd  SAPHANA
 ```
 
-## Create incremental backup policy
+## Create incremental backup policy for SAP HANA database
 
 To create an incremental backup policy, execute the [az backup policy create](/cli/azure/backup/policy#az-backup-policy-create) command with the following parameters:
 
@@ -99,7 +90,7 @@ Sample JSON (sappolicy.json):
 
 ```json
   "eTag": null,
-  "id": "/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/saphanaResourceGroup/providers/Microsoft.RecoveryServices/vaults/saphanaVault/backupPolicies/sappolicy",
+  "id": "/Subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/saphanaResourceGroup/providers/Microsoft.RecoveryServices/vaults/saphanaVault/backupPolicies/sappolicy",
   "location": null,
   "name": "sappolicy",
   "properties": {
@@ -392,7 +383,7 @@ g0f15dae-7cac-4475-d833-f52c50e5b6c3  saphanaResourceGroup
 
 To check the status of this operation, use the [az backup job show](/cli/azure/backup/job#az-backup-job-show) cmdlet.
 
-## Resume protection
+## Resume protection for an SAP HANA database
 
 When you stop protection for the SAP HANA database with retain data, you can later resume protection. If you don't retain the backed-up data, you won't be able to resume protection.
 

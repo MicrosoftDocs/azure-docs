@@ -5,8 +5,15 @@ ms.topic: reference
 ms.date: 03/06/2023
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, cc996988-fb4f-47, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
+ms.custom:
+  - devx-track-csharp
+  - cc996988-fb4f-47
+  - devx-track-python
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-ts
+  - sfi-ropc-nochange
 ---
 
 # Azure Queue storage output bindings for Azure Functions
@@ -24,6 +31,10 @@ For information on setup and configuration details, see the [overview](./functio
 ::: zone-end
 
 ## Example
+
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -594,9 +605,11 @@ There are two options for writing from your function to the configured queue:
 
 - **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as a Queue storage message.
 
+The output function parameter must be defined as `func.Out[func.QueueMessage]`, `func.Out[str]`, or `func.Out[bytes]`. Refer to the [output example](#example) for details.
+
 ::: zone-end  
 
-[!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-queue-connections.md)]
+[!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-connections.md)]
 
 ## Exceptions and return codes
 

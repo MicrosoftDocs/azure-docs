@@ -6,12 +6,12 @@ description: String claims transformation examples for the Identity Experience F
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.subservice: B2C
+ms.subservice: b2c
 
 
 #Customer intent: As a developer using Azure AD B2C, I want to understand how to use string claims transformations, so that I can manipulate and compare string claims in my custom policies.
@@ -435,18 +435,18 @@ The following example generates an error message when an account is already in t
 
   <LocalizedResources Id="api.localaccountsignup.en">
     <LocalizedStrings>
-      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessage_EmailExists">The email '{0}' is already an account in this organization. Click Next to sign in with that account.</LocalizedString>
       </LocalizedStrings>
     </LocalizedResources>
   <LocalizedResources Id="api.localaccountsignup.es">
     <LocalizedStrings>
-      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessge_EmailExists">Este correo electrónico "{0}" ya es una cuenta de esta organización. Haga clic en Siguiente para iniciar sesión con esa cuenta.</LocalizedString>
+      <LocalizedString ElementType="FormatLocalizedStringTransformationClaimType" StringId="ResponseMessage_EmailExists">Este correo electrónico "{0}" ya es una cuenta de esta organización. Haga clic en Siguiente para iniciar sesión con esa cuenta.</LocalizedString>
     </LocalizedStrings>
   </LocalizedResources>
 </Localization>
 ```
 
-The claims transformation creates a response message based on the localized string. The message contains the user's email address embedded into the localized sting *ResponseMessge_EmailExists*.
+The claims transformation creates a response message based on the localized string. The message contains the user's email address embedded into the localized string *ResponseMessage_EmailExists*.
 
 ```xml
 <ClaimsTransformation Id="SetResponseMessageForEmailAlreadyExists" TransformationMethod="FormatLocalizedString">
@@ -454,7 +454,7 @@ The claims transformation creates a response message based on the localized stri
     <InputClaim ClaimTypeReferenceId="email" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessge_EmailExists" />
+    <InputParameter Id="stringFormatId" DataType="string" Value="ResponseMessage_EmailExists" />
   </InputParameters>
   <OutputClaims>
     <OutputClaim ClaimTypeReferenceId="responseMsg" TransformationClaimType="outputClaim" />
@@ -465,7 +465,7 @@ The claims transformation creates a response message based on the localized stri
 - Input claims:
   - **inputClaim**: sarah@contoso.com
 - Input parameters:
-  - **stringFormat**:  ResponseMessge_EmailExists
+  - **stringFormat**:  ResponseMessage_EmailExists
 - Output claims:
   - **outputClaim**: The email 'sarah@contoso.com' is already an account in this organization. Select Next to sign in with that account.
 
@@ -704,11 +704,11 @@ The following example looks up the domain name in one of the inputParameters col
 ```
 
 - Input claims:
-  - **inputParameterId**: test.com
+  - **inputParameterId**: `test.com`
 - Input parameters:
-  - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-  - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
-  - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
+  - **`contoso.com`**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+  - **`microsoft.com`**: 0213308f-17cb-4398-b97e-01da7bd4804e
+  - **`test.com`**: c7026f88-4299-4cdb-965d-3f166464b8a9
   - **errorOnFailedLookup**: false
 - Output claims:
   - **outputClaim**:    c7026f88-4299-4cdb-965d-3f166464b8a9
@@ -739,11 +739,11 @@ The following example looks up the domain name in one of the inputParameters col
 ```
 
 - Input claims:
-  - **inputParameterId**: live.com
+  - **inputParameterId**: `live.com`
 - Input parameters:
-  - **contoso.com**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
-  - **microsoft.com**: 0213308f-17cb-4398-b97e-01da7bd4804e
-  - **test.com**: c7026f88-4299-4cdb-965d-3f166464b8a9
+  - **`contoso.com`**: 13c15f79-8fb1-4e29-a6c9-be0d36ff19f1
+  - **`microsoft.com`**: 0213308f-17cb-4398-b97e-01da7bd4804e
+  - **`test.com`**: c7026f88-4299-4cdb-965d-3f166464b8a9
   - **errorOnFailedLookup**: true
 - Error:
   - No match found for the input claim value in the list of input parameter IDs and errorOnFailedLookup is true.

@@ -9,7 +9,7 @@ ms.custom: devdivchpfy22
 ::: zone pivot="programming-language-python"  
 ## <a name="create-venv"></a>Create and activate a virtual environment
 
-In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Make sure to use one of the [Python versions](../articles/azure-functions/functions-reference-python.md#python-version) supported by Azure Functions.
+In a suitable folder, run the following commands to create and activate a virtual environment named `.venv`. Make sure to use one of the [Python versions](../articles/azure-functions/functions-reference-python.md#supported-python-versions) supported by Azure Functions.
 
 # [bash](#tab/bash)
 

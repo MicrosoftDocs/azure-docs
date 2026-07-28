@@ -4,7 +4,7 @@ metadata:
   description: This article discusses popular general questions about Azure Site Recovery.
   ms.topic: faq
   ms.service: azure-site-recovery
-  ms.date: 04/10/2024
+  ms.date: 05/30/2025
 
 
 title: General questions about Azure Site Recovery
@@ -97,12 +97,12 @@ sections:
       - question: |
          Where can I find pricing information?
         answer: |
-              Review [Site Recovery pricing](https://azure.microsoft.com/pricing/details/site-recovery/) details.
+              Review [Site Recovery pricing](https://learn.microsoft.com/azure/site-recovery/site-recovery-cost) details.
 
       - question: |
          How can I calculate approximate charges during the use of Site Recovery?
         answer: |
-              You can use the [pricing calculator](https://aka.ms/asr_pricing_calculator) to estimate costs while using Site Recovery.
+              You can use the [pricing calculator](https://aka.ms/asr_a2a_calculator) to estimate costs while using Site Recovery.
 
               For detailed estimate on costs, run the deployment planner tool for [VMware](./site-recovery-deployment-planner.md) or [Hyper-V](https://aka.ms/asr-deployment-planner), and use the [cost estimation report](./site-recovery-vmware-deployment-planner-cost-estimation.md).
 
@@ -124,7 +124,7 @@ sections:
       - question: |
          Is there a cost associated to perform disaster recovery drills/test failover?
         answer: |
-              There isn't any separate cost for disaster recovery drill. There is compute charges after the virtual machine is created after the test failover.
+              There isn't any separate cost for disaster recovery drill. There are compute charges after the virtual machine is created after the test failover.
 
 
   - name: Security
@@ -161,7 +161,7 @@ sections:
               >The modernized experience uses TLS 1.2 for all the communication and enforces it by default. 
 
       - question: |
-         How can I enforce TLS 1.2 on HyperV-to-Azure Site Recovery scenarios?
+         How can I enforce TLS 1.2 on Hyper-V-to-Azure Site Recovery scenarios?
         answer: |
              All communication between the microservices of Azure Site Recovery happens on TLS 1.2 protocol. Site Recovery uses security providers configured in the system (OS) and uses the latest available TLS protocol. One needs to explicitly enable the TLS 1.2 in the Registry and then Site Recovery will start using TLS 1.2 for communication with services.
 
@@ -179,6 +179,10 @@ sections:
               - Classic storage accounts:
                 - [Classic Storage Account Contributor](../role-based-access-control/built-in-roles.md#classic-storage-account-contributor)
                 - [Classic Storage Account Key Operator Service Role](../role-based-access-control/built-in-roles.md#classic-storage-account-key-operator-service-role)
+
+               Cache storage account is not supported for managed identity.
+
+
 
       - question: |
          Can Azure Site Recovery track source virtual machine changes outside the Source OS?
@@ -239,7 +243,7 @@ sections:
       - question: |
          Can I replicate over a site-to-site VPN to Azure?
         answer: |
-             Azure Site Recovery replicates data to an Azure storage account or managed disks, over a public endpoint. However, replication can be performed over Site-to-Site VPN as well. Site-to-Site VPN connectivity allows organizations to connect existing networks to Azure, or Azure networks to each other. Site-to-Site VPN occurs over IPSec tunneling over the internet, using existing on-premises edge network equipment and network appliances in Azure, either native features like Azure Virtual Private Network (VPN) Gateway or third party options such as Check Point CloudGaurd, Palo Alto NextGen Firewall.
+             Azure Site Recovery replicates data to an Azure storage account or managed disks, over a public endpoint. However, replication can be performed over Site-to-Site VPN as well. Site-to-Site VPN connectivity allows organizations to connect existing networks to Azure, or Azure networks to each other. Site-to-Site VPN occurs over IPsec tunneling over the internet, using existing on-premises edge network equipment and network appliances in Azure, either native features like Azure Virtual Private Network (VPN) Gateway or third party options such as Check Point CloudGuard, Palo Alto NextGen Firewall.
                 
              - Private connectivity over the public Internet to Microsoft Edge
              - Recovery Service Vaults configured for security with Private Endpoints
@@ -258,8 +262,7 @@ sections:
         answer: |
               Yes, [ExpressRoute can be used](concepts-expressroute-with-site-recovery.md) to replicate on-premises virtual machines to Azure.
 
-              - Azure Site Recovery replicates data to an Azure Storage over a public endpoint. You need to set up [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) or use an existing [public peering](../expressroute/about-public-peering.md) (deprecated for new circuits) to use ExpressRoute for Site Recovery replication.
-              - Microsoft peering is the recommended routing domain for replication.
+              - Azure Site Recovery replicates data to an Azure Storage over a public endpoint. You need to set up [Microsoft peering](../expressroute/expressroute-circuit-peerings.md#microsoftpeering) to use ExpressRoute for Site Recovery replication.
               - Replication is supported over private peering only when private endpoints are enabled for the vault.
               - If you're protecting VMware machines or physical machines, ensure that the [Networking Requirements](vmware-azure-configuration-server-requirements.md#network-requirements) for Configuration Server are also met. Connectivity to specific URLs is required by Configuration Server for orchestration of Site Recovery replication. ExpressRoute cannot be used for this connectivity.
               - After the virtual machines have been failed over to an Azure virtual network, you can access them using the [private peering](../expressroute/expressroute-circuit-peerings.md#privatepeering) setup with the Azure virtual network.
@@ -328,10 +331,10 @@ sections:
                       echo "Usage: $0 [--pre | --post]"
                       exit 1
                   elif [ "$1" == "--pre" ]; then
-                      echo "Freezing app IO"
-                      exit 0
+                     echo "Freezing app IO"  ##command to freeze the application 
+                     exit 0
                   elif [ "$1" == "--post" ]; then
-                      echo "Thawed app IO"
+                      echo "Thawed app IO"  ##command to unfreeze the application 
                       exit 0
                   fi
               ```

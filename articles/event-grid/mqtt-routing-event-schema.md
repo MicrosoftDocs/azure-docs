@@ -1,7 +1,7 @@
 ---
 title: 'Event Schema for MQTT Routed Messages'
 description: 'An overview of the Event Schema for MQTT Routed Messages.'
-ms.topic: conceptual
+ms.topic: reference
 ms.custom:
   - build-2023
   - ignite-2023
@@ -55,7 +55,7 @@ For MQTT v5 messages that are already enveloped in a CloudEvent according to the
 
 ```json
 {
-	"specverion": "1.0",
+	"specversion": "1.0",
 	"id": "9aeb0fdf-c01e-0131-0922-9eb54906e20", // original id stamped by the client. 
 	"time": "2019-11-18T15:13:39.4589254Z", // timestamp when the message was received by the client
 	"type": "Custom.Type", // original type value stamped by the client.

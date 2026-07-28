@@ -4,18 +4,22 @@ description: In this tutorial, you learn how to deliver location-based push noti
 services: notification-hubs
 keywords: push notifications,push notifications
 author: sethmanheim
-manager: femila
+manager: lizross
 editor: jwargo
 
 ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: csharp
 ms.topic: tutorial
-ms.custom: "mvc, devx-track-csharp"
 ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
+ms.custom:
+  - mvc
+  - devx-track-csharp
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Send location-based push notifications with Notification Hubs and Bing Spatial Data
@@ -32,7 +36,7 @@ In this tutorial, you take the following steps:
 
 ## Prerequisites
 
-* **Azure subscription**. If you don't have an Azure subscription,  [create a free Azure account](https://azure.microsoft.com/free/) before you begin.
+* **Azure subscription**. If you don't have an Azure subscription,  [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * [Visual Studio 2015 Update 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) or later ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409).
 * Latest version of the [Azure SDK](https://azure.microsoft.com/downloads/).
 * [Bing Maps Dev Center account](https://www.bingmapsportal.com/) (you can create one for free and associate it with your Microsoft account).
@@ -347,8 +351,6 @@ In this tutorial, you take the following steps:
     ![Screenshot of the Solution right-click menu with the Store and Associate App with the Store options highlighted.](./media/notification-hubs-geofence/vs-associate-with-store.png)
 3. Once you sign in to your developer account, make sure you select an existing app or create a new one and associate the package with it.
 4. Go to the Dev Center and open the app that you created. Choose **Services** > **Push Notifications** > **Live Services site**.
-
-    ![Screenshot of Windows Dev Center displaying the Push notifications page with Live Services site highlighted.](./media/notification-hubs-geofence/ms-live-services.png)
 5. On the site, take note of the **Application Secret** and the **Package SID**. You need both in the Azure portal – open your notification hub, choose **Settings** > **Notification Services** > **Windows (WNS)** and enter the information in the required fields.
 
     ![Screenshot showing the Settings page with the Notification Services and Windows (WNS) options highlighted and the Package SID and Security Key values filled in.](./media/notification-hubs-geofence/notification-hubs-wns.png)

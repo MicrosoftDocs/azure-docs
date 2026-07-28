@@ -4,12 +4,13 @@ description: include file
 services: backup
 ms.service: azure-backup
 ms.topic: include
-ms.date: 02/17/2023
-author: jyothisuri
-ms.author: jsuri
+ms.date: 11/13/2025
+author: AbhishekMallick-MS
+ms.author: v-mallicka
+ms.custom: sfi-image-nochange
 ---
 
-## Configure snapshot backup
+## Configure snapshot backup for SAP HANA database instance
 
 Before you configure a snapshot backup in this section, [configure the backup for the database](/azure/backup/backup-azure-sap-hana-database#configure-backup).
 
@@ -43,7 +44,7 @@ Then, to configure a snapshot backup, do the following:
 
    :::image type="content" source="./media/backup-azure-configure-sap-hana-database-instance-backup/enable-hana-database-instance-backup.png" alt-text="Screenshot that shows that the HANA database instance backup is ready to be enabled.":::
  
-## Run an on-demand backup
+## Run an on-demand backup for SAP HANA database instance snapshot
 
 To run an on-demand backup, do the following:
 
@@ -65,7 +66,7 @@ To run an on-demand backup, do the following:
 
    :::image type="content" source="./media/backup-azure-configure-sap-hana-database-instance-backup/trigger-backup-hana-snapshot.png" alt-text="Screenshot showing to trigger HANA database snapshot instance backup.":::
 
-## Track a backup job
+## Track a backup job for SAP HANA database instance snapshot
 
 The Azure Backup service creates a job if you schedule backups or if you trigger an on-demand backup operation for tracking. To view the backup job status, do the following:
 

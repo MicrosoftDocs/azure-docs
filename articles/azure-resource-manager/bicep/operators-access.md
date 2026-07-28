@@ -3,7 +3,7 @@ title: Bicep accessor operators
 description: Describes Bicep resource access operator and property access operator.
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 07/11/2024
+ms.date: 12/22/2025
 ---
 
 # Bicep accessor operators
@@ -13,6 +13,7 @@ The accessor operators are used to access child resources, properties on objects
 | Operator | Name |
 | ---- | ---- |
 | `[]` | [Index accessor](#index-accessor) |
+| `[^index]` | [Reverse index accessor](#reverse-index-accessor) |
 | `.`  | [Function accessor](#function-accessor) |
 | `::` | [Nested resource accessor](#nested-resource-accessor) |
 | `.`  | [Property accessor](#property-accessor) |
@@ -35,7 +36,7 @@ The following example gets an element in an array.
 var arrayVar = [
   'Coho'
   'Contoso'
-  'Fabrikan'
+  'Fabrikam'
 ]
 
 output accessorResult string = arrayVar[1]
@@ -68,6 +69,35 @@ Output from the example:
 | ---- | ---- | ---- |
 | accessorResult | string | 'Development' |
 
+## Reverse index accessor
+
+Beginning with [Bicep CLI version 0.34.x](https://github.com/Azure/bicep/releases/tag/v0.34.1), the reverse index accessor operator (`^`) allows you to retrieve an element from an array by counting from the end. This one-based index means `^1` returns the last item, `^2` the second-to-last, and so on. The index must be a positive integer greater than zero and can be specified as a literal or an expression that evaluates to an integer.
+
+`array[^index]`
+
+If the index exceeds the length of the array, a compilation error occurs for static indices, or a runtime error occurs for dynamic indices.
+
+For constant arrays, the operator is evaluated at compile time. For dynamic inputs, such as [parameters](./parameters.md), evaluation occurs at deployment time.
+
+### Example
+
+```bicep
+var items = [
+  'apple'
+  'banana'
+  'orange'
+  'grape'
+]
+
+output secondToLast string = items[^2]
+```
+
+Output from the example:
+
+| Name | Type | Value |
+| ---- | ---- | ---- |
+| secondToLast | string | 'orange' |
+
 ## Function accessor
 
 `resourceName.functionName()`
@@ -79,7 +109,7 @@ Two functions - [getSecret](bicep-functions-resource.md#getsecret) and [list*](b
 The following example references an existing key vault, then uses `getSecret` to pass a secret to a module.
 
 ```bicep
-resource kv 'Microsoft.KeyVault/vaults@2023-07-01' existing = {
+resource kv 'Microsoft.KeyVault/vaults@2025-05-01' existing = {
   name: kvName
   scope: resourceGroup(subscriptionId, kvResourceGroup )
 }
@@ -166,7 +196,7 @@ Output from the example:
 Typically, you use the property accessor with a resource deployed in the Bicep file. The following example creates a public IP address and uses property accessors to return a value from the deployed resource.
 
 ```bicep
-resource publicIp 'Microsoft.Network/publicIPAddresses@2023-11-01' = {
+resource publicIp 'Microsoft.Network/publicIPAddresses@2025-01-01' = {
   name: publicIpResourceName
   location: location
   properties: {

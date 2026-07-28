@@ -5,9 +5,11 @@ author: dominicbetts
 ms.author: dobett
 ms.date: 08/20/2024
 ms.topic: tutorial
-ms.service: iot-central
-ms.custom: devx-track-azurecli
+ms.service: azure-iot-central
 services: iot-central
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 # Customer intent: As a solution developer, I want to learn how to use the REST API to manage and interact with and IoT Central application.
 ---
 
@@ -29,7 +31,7 @@ In this tutorial, you learn how to:
 
 To complete the steps in this tutorial, you need:
 
-- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 - An Android or iOS smartphone on which you're able to install a free app from one of the official app stores.
 

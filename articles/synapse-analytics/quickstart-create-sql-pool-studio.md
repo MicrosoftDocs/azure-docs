@@ -1,9 +1,8 @@
 ---
 title: "Quickstart: Create a dedicated SQL pool using Synapse Studio"
 description: Create a dedicated SQL pool using Synapse Studio by following the steps in this guide.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: whhender
+author: azaricstefan
+ms.author: stefanazaric
 ms.date: 02/21/2023
 ms.service: azure-synapse-analytics
 ms.subservice: sql
@@ -17,11 +16,11 @@ Azure Synapse Analytics offers various analytics engines to help you ingest, tra
 
 This quickstart describes the steps to create a dedicated SQL pool in a Synapse workspace using Synapse Studio.
 
-If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/free/).
+If you don't have an Azure subscription, [create a free account before you begin](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Prerequisites
 
-- You'll need an Azure subscription. If needed, [create a free Azure account](https://azure.microsoft.com/free/)
+- You'll need an Azure subscription. If needed, [create a free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 - [Azure Synapse workspace](quickstart-create-workspace.md)
 
 ## Sign in to the Azure portal

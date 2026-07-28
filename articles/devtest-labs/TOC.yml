@@ -4,6 +4,9 @@
   items:
   - name: What is DevTest Labs?
     href: devtest-lab-overview.md
+  - name: Roadmap for Azure DevTest Labs
+    displayName: roadmap, future, features, enhancements, coming soon, in development
+    href: devtest-labs-roadmap.md
 - name: Quickstart
   items:
   - name: Create a lab - Portal
@@ -104,10 +107,14 @@
         href: devtest-lab-configure-vnet.md
       - name: Select IP configuration option
         href: devtest-lab-shared-ip.md
+      - name: Standard Load Balancer and Standard SKU Public IP addresses
+        href: devtest-lab-standard-load-balancer.md
     - name: Delete a lab or VM in a lab
       href: devtest-lab-delete-lab-vm.md
     - name: Export or delete personal data
       href: personal-data-delete-export.md
+    - name: Configure lab secrets
+      href: devtest-lab-configure-lab-secrets.md
   - name: Use VMs in a lab
     items:
     - name: Create a VM
@@ -132,12 +139,18 @@
         href: connect-virtual-machine-through-browser.md
     - name: Start or stop a VM using PowerShell or CLI
       href: use-command-line-start-stop-virtual-machines.md
+    - name: Hibernate a VM
+      href: devtest-lab-hibernate-vm.md
     - name: Restart a VM
       href: devtest-lab-restart-vm.md
     - name: Resize a VM
       href: devtest-lab-resize-vm.md
     - name: Redeploy a VM
       href: devtest-lab-redeploy-vm.md
+    - name: Create a VM with Generation 2 base image
+      href: devtest-lab-gen2-vm.md
+    - name: Trusted Launch for Generation 2 VMs
+      href: devtest-lab-trusted-launch.md
     - name: Create and manage claimable VMs
       href: devtest-lab-add-claimable-vm.md
     - name: Configure secrets
@@ -186,15 +199,6 @@
         href: devtest-lab-upload-vhd-using-storage-explorer.md
     - name: Manage formulas
       href: devtest-lab-manage-formulas.md
-    - name: Create an image factory
-      href: image-factory-create.md
-      items:
-      - name: Run an image factory from Azure DevOps
-        href: image-factory-set-up-devops-lab.md
-      - name: Save custom images and distribute to multiple labs
-        href: image-factory-save-distribute-custom-images.md
-      - name: Set retention policy and run cleanup scripts
-        href: image-factory-set-retention-policy-cleanup.md
   - name: Manage artifacts
     items:
     - name: Add artifacts to a VM
@@ -209,14 +213,6 @@
       href: devtest-lab-troubleshoot-apply-artifacts.md
   - name: Encrypt OS disks using customer-managed keys
     href: encrypt-disks-customer-managed-keys.md
-  - name: Integrate with CI/CD
-    items:
-    - name: Integrate labs into your Azure Pipelines CI/CD pipeline
-      href: devtest-lab-integrate-ci-cd.md
-    - name: Integrate environments into your Azure Pipelines CI/CD pipeline
-      href: integrate-environments-devops-pipeline.md
-    - name: Use DevTest Labs in Azure Pipelines build and release pipelines
-      href: use-devtest-labs-build-release-pipelines.md
   - name: Extend DevTest Labs
     items:
     - name: Use Azure Functions to extend DevTest Labs
@@ -242,7 +238,7 @@
     - name: Troubleshoot issues when applying artifacts
       href: devtest-lab-troubleshoot-apply-artifacts.md
     - name: Troubleshoot VM deployment failures
-      href: troubleshoot-vm-deployment-failures.md  
+      href: troubleshoot-vm-deployment-failures.md
   - name: Monitor
     items:
     - name: View activity logs
@@ -261,6 +257,8 @@
     href: https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Modules/Library
   - name: REST API
     href: /rest/api/dtl/
+  - name: Deploy a DevTest Lab
+    href: https://github.com/Azure/bicep-registry-modules/tree/main/avm/res/dev-test-lab/lab
   - name: ARM templates
     href: /azure/templates/microsoft.devtestlab/allversions
 - name: Resources
@@ -270,4 +268,4 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/devtest-lab/
   - name: DevTest Labs Developer Community
-    href: https://aka.ms/dtl/communityforum  
+    href: https://aka.ms/dtl/developer-community-forum

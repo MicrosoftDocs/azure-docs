@@ -2,11 +2,12 @@
 title: Azure Firewall remote work support
 description: This article shows how Azure Firewall can support your remote work force requirements.
 services: firewall
-author: vhorne
+author: duongau
 ms.service: azure-firewall
-ms.topic: conceptual
-ms.date: 05/04/2020
-ms.author: victorh
+ms.topic: concept-article
+ms.date: 12/31/2025
+ms.author: duau
+# Customer intent: "As an IT manager, I want to implement Azure Firewall for our remote workforce, so that I can ensure secure access and protect our Virtual Desktop Infrastructure from potential threats."
 ---
 
 # Azure Firewall remote work support
@@ -15,7 +16,7 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 
 ## Virtual Desktop Infrastructure (VDI) deployment support
 
-Work from home policies requires many IT organizations to address fundamental changes in capacity, network, security, and governance. Employees aren't protected by the layered security policies associated with on-premises services while working from home. Virtual Desktop Infrastructure (VDI) deployments on Azure can help organizations rapidly respond to this changing environment. However, you need a way to protect inbound/outbound Internet access to and from these VDI deployments. You can use Azure Firewall [DNAT rules](rule-processing.md) along with its [threat intelligence](threat-intel.md) based filtering capabilities to protect your VDI deployments.
+Remote and hybrid work policies require IT organizations to manage capacity, network, security, and governance effectively. Employees working remotely may not be protected by the layered security policies associated with on-premises services. Virtual Desktop Infrastructure (VDI) deployments on Azure help organizations provide secure access to corporate resources. You can use Azure Firewall [DNAT rules](rule-processing.md) along with its [threat intelligence](threat-intel.md) based filtering capabilities to protect inbound and outbound Internet access to and from these VDI deployments.
 
 ## Azure Virtual Desktop support
 
@@ -23,4 +24,4 @@ Azure Virtual Desktop is a comprehensive desktop and app virtualization service 
 
 ## Next steps
 
-Learn more about [Azure Virtual Desktop](../virtual-desktop/overview.md).
+Learn more about [Azure Virtual Desktop](/azure/virtual-desktop/overview).

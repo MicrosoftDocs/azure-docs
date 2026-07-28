@@ -9,6 +9,7 @@ ms.topic: article
 ms.date: 09/16/2024
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
+# Customer intent: As an IT administrator managing SAP HANA systems on cloud infrastructure, I want to configure Azure resources and networking for optimal SAP HANA deployment, so that I can ensure reliable operations and scalability for both production and non-production environments.
 ---
 
 # SAP HANA infrastructure configurations and operations on Azure
@@ -52,8 +53,6 @@ Deploy the VMs in Azure by using:
 - The Azure portal.
 - Azure PowerShell cmdlets.
 - The Azure CLI.
-
-You also can deploy a complete installed SAP HANA platform on the Azure VM services through the [SAP Cloud platform](https://cal.sap.com). The installation process is described in [Deploy SAP S/4HANA or BW/4HANA on Azure](./cal-s4h.md).
 
 >[!IMPORTANT]
 > In order to use M208xx_v2 VMs, you need to be careful selecting your Linux image. For more information, see [Memory optimized virtual machine sizes](/azure/virtual-machines/mv2-series).
@@ -133,7 +132,7 @@ The basic configuration of a VM node for SAP HANA scale-out looks like:
 - All other disk volumes aren't shared among the different nodes and aren't based on NFS. Installation configurations and steps for scale-out HANA installations with non-shared **/hana/data** and **/hana/log** is provided further later in this document. For HANA certified storage that can be used, check the article [SAP HANA Azure virtual machine storage configurations](./hana-vm-operations-storage.md).
 
 
-Sizing the volumes or disks, you need to check the document [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2017/09/e6519450-d47c-0010-82c7-eda71af511fa.html), for the size required dependent on the number of worker nodes. The document releases a formula you need to apply to get the required capacity of the volume
+Sizing the volumes or disks, you need to check the document [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2024/03/146274d3-ae7e-0010-bca6-c68f7e60039b.html), for the size required dependent on the number of worker nodes. The document releases a formula you need to apply to get the required capacity of the volume
 
 The other design criteria that is displayed in the graphics of the single node configuration for a scale-out SAP HANA VM is the VNet, or better the subnet configuration. SAP highly recommends a separation of the client/application facing traffic from the communications between the HANA nodes. As shown in the graphics, this goal is achieved by having two different vNICs attached to the VM. Both vNICs are in different subnets, have two different IP addresses. You then control the flow of traffic with routing rules using NSGs or user-defined routes.
 
@@ -153,7 +152,7 @@ From a networking point of view the minimum required network architecture would 
 Installing a scale-out SAP configuration, you need to perform rough steps of:
 
 - Deploying new or adapting an existing Azure VNet infrastructure
-- Deploying the new VMs using Azure Managed Premium Storage, Ultra disk volumes, and/or NFS volumes based on ANF
+- Deploying the new VMs using Azure Managed Premium Storage, Ultra Disk volumes, and/or NFS volumes based on ANF
 - - Adapt network routing to make sure that, for example, intra-node communication between VMs isn't routed through an [NVA](https://azure.microsoft.com/solutions/network-appliances/). 
 - Install the SAP HANA main node.
 - Adapt configuration parameters of the SAP HANA main node
@@ -163,7 +162,7 @@ Installing a scale-out SAP configuration, you need to perform rough steps of:
 As your Azure VM infrastructure is deployed, and all other preparations are done, you need to install the SAP HANA scale-out configurations in these steps:
 
 - Install the SAP HANA main node according to SAP's documentation
-- When using Azure Premium Storage or Ultra disk storage with non-shared disks of `/hana/data` and `/hana/log`, add the parameter `basepath_shared = no` to the `global.ini` file. This parameter enables SAP HANA to run in scale-out without shared `/hana/data` and `/hana/log` volumes between the nodes. Details are documented in [SAP Note #2080991](https://launchpad.support.sap.com/#/notes/2080991). If you're using NFS volumes based on ANF for /hana/data and /hana/log, you don't need to make this change
+- When using Azure Premium Storage or Ultra Disk storage with non-shared disks of `/hana/data` and `/hana/log`, add the parameter `basepath_shared = no` to the `global.ini` file. This parameter enables SAP HANA to run in scale-out without shared `/hana/data` and `/hana/log` volumes between the nodes. Details are documented in [SAP Note #2080991](https://launchpad.support.sap.com/#/notes/2080991). If you're using NFS volumes based on ANF for /hana/data and /hana/log, you don't need to make this change
 - After the eventual change in the global.ini parameter, restart the SAP HANA instance
 - Add more worker nodes. For more information, see [Add Hosts Using the Command-Line Interface](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.00/en-US/0d9fe701e2214e98ad4f8721f6558c34.html). Specify the internal network for SAP HANA inter-node communication during the installation or afterwards using, for example, the local hdblcm. For more detailed documentation, see [SAP Note #2183363](https://launchpad.support.sap.com/#/notes/2183363). 
 

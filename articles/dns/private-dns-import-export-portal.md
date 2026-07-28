@@ -3,16 +3,18 @@ title: Import and export a private DNS zone file - Azure portal
 titleSuffix: Azure DNS
 description: Learn how to import and export a private DNS (Domain Name System) zone file to Azure DNS by using Azure portal.
 services: dns
-author: greg-lindsay
+author: asudbring
 ms.service: azure-dns
-ms.date: 06/20/2024
-ms.author: greglin
+ms.date: 02/07/2025
+ms.author: allensu
 ms.topic: how-to
+ms.custom: sfi-image-nochange
+# Customer intent: "As a DNS administrator, I want to import and export DNS zone files using a management portal, so that I can efficiently transfer DNS records to and from Azure DNS while maintaining accurate configurations."
 ---
 
 # Import and export a private DNS zone file using the Azure portal
 
-In this article, you learn how to  import and export a DNS zone file in Azure Private DNS using Azure portal. You can also [import and export a zone file using Azure CLI](private-dns-import-export.md).
+In this article, you learn how to  import and export a DNS zone file in Azure Private DNS using Azure portal. You can also [import and export a zone file using Azure CLI](private-dns-import-export.md). Import and export cmdlets are not currently available in Azure PowerShell.
 
 ## Introduction to DNS zone migration
 
@@ -103,7 +105,7 @@ The following notes provide more details about the zone import process.
 6. Select **Review + Create** and then select **Create**.
 7. When deployment is complete, select **Go to resource** and then select **Recordsets**. An SOA record compatible with Azure Private DNS is automatically added to the zone. See the following example:
 
-    [ ![creenshot showing the private.contoso.com zone record sets.](./media/private-dns-import-export-portal/recordsets.png) ](./media/private-dns-import-export-portal/recordsets.png#lightbox)
+    [ ![Screenshot showing the private.contoso.com zone record sets.](./media/private-dns-import-export-portal/recordsets.png) ](./media/private-dns-import-export-portal/recordsets.png#lightbox)
 
 ## Export a zone file
 

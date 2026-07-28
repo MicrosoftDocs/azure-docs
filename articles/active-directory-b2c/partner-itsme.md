@@ -2,32 +2,31 @@
 title: itsme OpenID Connect with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with itsme OIDC using client_secret user flow policy. itsme is a digital ID app. It allows you to log in securely without card-readers, passwords, two-factor authentication, and multiple PIN codes.
-
-author: kengaderdus
-manager: CelesteDG
-
-ms.service: active-directory
-
+author: gargi-sinha
+manager: martinco
+ms.author: gasinh
+ms.service: entra-id
 ms.topic: how-to
-ms.date: 01/11/2024
-ms.author: kengaderdus
-ms.subservice: B2C
+ms.date: 06/02/2026
+ms.subservice: b2c
 
 
-#Customer intent: As a developer integrating Azure AD B2C authentication with itsme OpenID Connect (OIDC), I want to configure the itsme Identity Provider in Azure AD B2C, so that users can sign in securely using their itsme digital ID app without the need for passwords or multiple PIN codes.
+#Customer intent: As a developer integrating Azure AD B2C authentication with itsme OpenID Connect (OIDC), I want to configure the itsme Identity Provider in Azure AD B2C, so users can sign in securely using their itsme digital ID app without passwords or multiple PIN codes.
 
 ---
 
 # Configure itsme OpenID Connect (OIDC) with Azure Active Directory B2C
 
-The itsme digital ID app allows you to sign in securely without card-readers, passwords, two-factor authentication, or multiple PIN codes. The itsme app provides strong customer authentication with a verified identity. In this article, learn how to integrate Azure AD B2C authentication with itsme OpenID Connect (OIDC) using a client secret user flow policy.
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
+
+The itsme digital ID app allows you to sign in securely without card-readers, passwords, two-factor authentication, or multiple PIN codes. The itsme app has strong customer authentication with a verified identity. In this article, learn how to integrate Azure AD B2C authentication with itsme OIDC using a client secret user flow policy.
 
 ## Prerequisites
 
-To get started, you'll need:
+To get started, you need:
 
-* An Azure subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* [An Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
+* An Azure subscription. If you don't have one, you can get a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+* [An Azure AD B2C tenant](tutorial-create-tenant.md) linked to your Azure subscription.
 * Your Client ID, also known as Partner code, provided by itsme.
 * Your Service code provided by itsme.
 * Your client secret for your itsme account.
@@ -36,30 +35,27 @@ To get started, you'll need:
 
 ![itsme architecture diagram](media/partner-itsme/itsme-architecture-diagram.png)
 
-<!--
-Please clarify step 1 in the description below - we don't have steps in this tutorial for "adapting in the Azure AD B2C Custom Policy- User Journeys" - should this be added somewhere?
--->
 
 | Step | Description |
 |------|------|
-|1     | On your website or application, include the **Log in with itsme** button by adapting in the Azure AD B2C user flow. The interaction flow starts when the user clicks on this button.  |
-|2     | Azure AD B2C starts the OpenID connect flow by sending an Authorize request to the itsme client secret API. A well-known/OpenID-configuration endpoint is available containing information about the endpoints.  |
+|1     | On your website or application, include the **Log in with itsme** button with the Azure AD B2C user flow. The interaction flow starts when the user clicks this button.  |
+|2     | Azure AD B2C starts the OIDC flow by sending an Authorize request to the itsme client secret API. A well-known/OpenID-configuration endpoint is available containing information about the endpoints.  |
 |3     | The itsme environment redirects the user to the itsme identify yourself page, allowing the user to fill in their phone number.  |
 |4     | The itsme environment receives the phone number from the user and validates the correctness.  |
 |5     | If the phone number belongs to an active itsme user, an Action is created for the itsme app.  |
 |6     | The user opens the itsme app, checks the request, and confirms the action.  |
-|7     |  The app informs the itsme environment the action has been confirmed. |
-|8     |  The itsme environment returns the OAuth authorize code to Azure AD B2C. |
-|9     |  Using the authorize code, the Azure AD B2C does a token request. |
+|7     | The app informs the itsme environment the action has been confirmed. |
+|8     | The itsme environment returns the OAuth authorize code to Azure AD B2C. |
+|9     | Using the authorize code, the Azure AD B2C does a token request. |
 | 10 | The itsme environment checks the token request, and if still valid, returns the OAuth access token and the ID token containing the requested user information. |
 | 11 | Finally, the user is redirected to the redirect URL as an authenticated user.  |
 |   |   |
 
 ## Onboard with itsme
 
-1. To create an account with itsme, visit itsme at the [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
+1. To create an itsme account, visit [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace).
 
-1. Activate your itsme account by sending an email to onboarding@itsme.be. You'll receive a **Partner code** and **Service code** that will be needed for your B2C setup.
+1. Activate your itsme account by sending an email to onboarding@itsme.be. You'll receive a **Partner code** and **Service code** for your B2C setup.
 
 1. After activation of your itsme partner account, you'll receive an email with a one-time link to the **client secret**.
 
@@ -67,10 +63,10 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 ## Integrate with Azure AD B2C
 
-### Set up a new Identity Provider in Azure AD B2C
+### Set up a new identity provider in Azure AD B2C
 
 > [!NOTE]
-> If you don't have one already, [create an Azure AD B2C tenant](tutorial-create-tenant.md) that is linked to your Azure subscription.
+> If you don't have one, [create an Azure AD B2C tenant](tutorial-create-tenant.md) linked to your Azure subscription.
 
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Under **Azure services**, select **Azure AD B2C** (or select **More services** and use the **All services** search box to search for *Azure AD B2C*).
@@ -81,7 +77,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
    |------------ |------- |
    | Name | itsme |
    | Metadata URL | `https://oidc.<environment>.itsme.services/clientsecret-oidc/csapi/v0.1/.well-known/openid-configuration` <br>where `<environment>` is either `e2e` (test environment) or `prd` (production)  |
-   | ClientID     | Your **Client ID**, also known as **Partner code**  |
+   | ClientID     | Your **Client ID**, or **Partner code**  |
    | Client Secret | Your **client_secret** |
    | Scope  | openid service:YOURSERVICECODE profile email [phone] [address]  |
    |Response Type | code |
@@ -109,7 +105,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 1. Select **Create**.
 
-1. Open the newly created user flow by selecting the user flow name.
+1. Open the created user flow by selecting the user flow name.
 
 1. Select **Properties** and adjust the following values:
 
@@ -126,9 +122,18 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 1. Select **Register**.
 
-   a. For testing purposes, select **Authentication**, and under **Implicit Grant**, select the **Access Tokens** and **ID Tokens** check boxes.  
+To use this app registration to test the user flow, you need to enable implicit grant flow: 
 
-   b. Select **Save**.
+1. Select the app registration you created.
+
+1. Under **Manage**, select **Authentication**.
+
+1. Under **Implicit grant and hybrid flows**, select both the **Access tokens (used for implicit flows)** and **ID tokens (used for implicit and hybrid flows)** check boxes.
+
+1. Select **Save**.
+
+> [!NOTE]
+> If you enable implicit grant to test a user flow, disable the implicit grant flow settings before you deploy your app to production.
 
 ## Test the user flow
 
@@ -138,9 +143,9 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 1. Select **Run user flow**.
 
-   a. **Application**: *select the registered app*
+   a. For **Application**, select the app that you registered.
 
-   b. **Reply URL**: *select the redirect URL*
+   b. For **Reply URL**, select the redirect URL that you added to your app. For testing purposes, select `https://jwt.ms`.
 
 1. The itsme **Identify yourself** page appears.  
 
@@ -150,7 +155,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 
 ## Next steps
 
-For additional information, review the following articles:
+For additional information, see the following articles:
 
 * [Custom policies in Azure AD B2C](custom-policy-overview.md)
 

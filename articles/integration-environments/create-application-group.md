@@ -1,14 +1,17 @@
 ---
-title: Create application groups to organize Azure resources
-description: Create an application group to logically organize and manage Azure resources related to your integration solutions.
-ms.service: integration-environments
+title: Organize Azure Resources with Application Groups
+description: Learn how to organize and manage Azure resources based on your integration solutions by creating application groups.
+ms.service: azure
+ms.subservice: azure-integration-environments
 ms.topic: how-to
 ms.reviewer: estfan, azla
-ms.date: 06/07/2024
-# CustomerIntent: As an integration developer, I want a way to logically organize and manage the Azure resoruces related to my organization's integration solutions.
+ms.date: 09/11/2025
+ms.update-cycle: 1095-days
+ms.custom: sfi-image-nochange
+# Customer intent: As an integration developer, I want a way to logically organize and manage the Azure resources related to my organization's integration solutions.
 ---
 
-# Create an application group (Preview)
+# Organize and manage Azure resources by creating application groups (Preview)
 
 > [!NOTE]
 >
@@ -35,13 +38,13 @@ After you create an integration environment, create one or more application grou
 
 ## Create an application group with resources
 
-1. In the [Azure portal](https://portal.azure.com), find and open your integration environment.
+1. In the [Azure portal](https://portal.azure.com), find and open your integration environment resource.
 
-1. On your integration environment menu, under **Environment**, select **Applications**.
+1. On the resource sidebar, under **Environment**, select **Applications**.
 
 1. On the **Applications** page toolbar, select **Create**.
 
-   :::image type="content" source="media/create-application-group/create-application-group.png" alt-text="Screenshot shows Azure portal, integration environment shortcut menu with Applications selected, and toolbar with Create selected." lightbox="media/create-application-group/create-application-group.png":::
+   :::image type="content" source="media/create-application-group/create-application-group.png" alt-text="Screenshot shows Azure portal, integration environment sidebar with Applications selected, and toolbar with Create selected." lightbox="media/create-application-group/create-application-group.png":::
 
 1. On the **Basics** tab, provide the following information:
 
@@ -49,8 +52,9 @@ After you create an integration environment, create one or more application grou
    |----------|----------|-------|-------------|
    | **Name** | Yes | <*application-name*> | A name for your application group that uses only alphanumeric characters, hyphens, underscores, or periods. |
    | **Description** | No | <*application-description*> | The purpose for your application group. |
+   | **Default log analytics workspace** | No | <*Log-Analytics-workspace*> | The name for the Log Analytics workspace to use as the central store where your application group sends performance metrics and other telemetry. <br><br>If you don't have a workspace, select **Create new**. For more information, see the following articles: <br><br>- [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-portal) <br>- [Monitor health and performance for Azure resources in applications](monitor-resources-create-alerts.md) |
 
-1. Select the **Resources** tab, and then select **Add resource**.
+1. Select **Next: Resources** or the **Resources** tab, and then select **Add resource**.
 
 1. On the **Add resources to this application** pane that opens, follow these steps:
 
@@ -88,11 +92,11 @@ After you add resources to your application group, you can view those resources 
 
 For a business process, you can view and open the process editor directly from an integration environment by following these steps:
 
-In the Azure portal, on the integration environment menu, under **Environment**, select either option: 
+In the Azure portal, on the integration environment sidebar, under **Environment**, select either option: 
 
-- **Applications** > <*application-group-name*> > <*business-process-name*> > **Business process tracking** > **Editor**.
+- **Resources** **>** <*business-process-name*> **>** **Editor**.
 
-- **Resources** > <*business-process-name*> > **Business process tracking** > **Editor**.
+- **Applications** **>** <*application-group-name*> **>** **Business process tracking** **>** **Business processes** **>** <*business-process-name*> **>** **Editor**.
 
 ## Related content
 

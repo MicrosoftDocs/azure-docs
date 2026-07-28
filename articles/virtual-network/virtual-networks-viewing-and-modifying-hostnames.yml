@@ -1,7 +1,7 @@
 ### YamlMime:HowTo
 ---
 metadata:
-  title: View and Modify hostnames
+  title: View and modify hostnames
   description: Learn how to view and modify hostnames for your Azure virtual machines by using the Azure portal or a remote connection.
   author: asudbring
   ms.author: allensu
@@ -10,6 +10,7 @@ metadata:
   ms.service: azure-virtual-network
   ms.topic: how-to
   ms.custom:
+    - sfi-image-nochange
     - ge-structured-content-pilot
 
 title: |
@@ -27,18 +28,17 @@ introduction: |
 
   ### Azure portal
 
-  In the Azure portal, go to your VM, and select **Properties** from the left
-  navigation. On the **Properties** page, you can view the hostname under
+  In the Azure portal, go to your VM, and on the service menu, select **Properties**. On the **Properties** page, you can view the hostname under
   **Computer Name**.
 
-  :::image type="content" source="./media/virtual-networks-viewing-and-modifying-hostnames/virtual-machine-properties.png" alt-text="Screenshot that shows the Properties page of a virtual machine and highlights the Computer Name.":::
+  :::image type="content" source="./media/virtual-networks-viewing-and-modifying-hostnames/virtual-machine-properties.png" alt-text="Screenshot that shows the Properties page of a virtual machine and highlights Computer Name.":::
 
-  ### Remote Desktop
+  ### Remote desktop
 
-  You can connect to your VM using a remote desktop tool like Remote Desktop (Windows), Windows PowerShell remoting (Windows), SSH (Linux and Windows) or Bastion (Azure portal). You can then view the hostname in a few ways:
+  You can connect to your VM by using a remote desktop tool like Remote Desktop (Windows), Windows PowerShell remoting (Windows), SSH (Linux and Windows) or Bastion (Azure portal). You can then view the hostname in a few ways:
 
-  * Type *hostname* in PowerShell, the command prompt, or SSH terminal.
-  * Type *ipconfig /all* in the command prompt (Windows only).
+  * Enter **hostname** in PowerShell, the command prompt, or an SSH terminal.
+  * Enter `ipconfig /all` in the command prompt (Windows only).
   * View the computer name in the system settings (Windows only).
 
 procedureSection:
@@ -59,15 +59,15 @@ procedureSection:
         GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{vmName}?api-version=2022-11-01`. 
         ```
 
-        For more information on GET requests for virtual machines, see
-        [Virtual Machines - Get](/rest/api/compute/virtual-machines/get).
+        For more information on GET requests for VMs, see
+        [Virtual machines - GET](/rest/api/compute/virtual-machines/get).
       - |
-        Look for the **osProfile** and then the **computerName** element to find the host name.
+        Look for the `osProfile` and then the `computerName` element to find the hostname.
 
         > [!WARNING]
         > You can also view the internal domain suffix for your cloud service by
         > running `ipconfig /all` from a command prompt in a remote desktop
-        > session (Windows), or by running `cat /etc/resolv.conf` from an SSH
+        > session (Windows) or by running `cat /etc/resolv.conf` from an SSH
         > terminal (Linux).
 
   - title: |
@@ -85,10 +85,10 @@ procedureSection:
           * For Linux, you can change the hostname by using `hostnamectl`.
 
         * From the Azure portal:
-          You can also use run these commands to find the hostname for your VM
+          You can also run these commands to find the hostname for your VM
           from the Azure portal by using **Run command**. In the Azure portal,
-          go to your VM, and select **Run command** from the left navigation.
-          From the **Run command** page in the Azure portal:
+          go to your VM, and on the service menu, select **Run command**.
+          On the **Run command** page in the Azure portal:
 
           * For Windows, select **RunPowerShellScript** and use `Rename-Computer`
             in the **Run Command Script** pane.
@@ -105,35 +105,34 @@ procedureSection:
         ### Azure classic deployment model
 
         The Azure classic deployment model uses a configuration file that you
-        can download and upload to change the host name. To allow your host name
+        can download and upload to change the hostname. To allow your hostname
         to reference your role instances, you must set the value for the host
         name in the service configuration file for each role. You do that by
-        adding the desired host name to the **vmName** attribute of the **Role**
-        element. The value of the **vmName** attribute is used as a base for the
-        host name of each role instance.
+        adding the hostname that you want to the `vmName` attribute of the `Role`
+        element. The value of the `vmName` attribute is used as a base for the
+        hostname of each role instance.
 
-        For example, if **vmName** is *webrole* and there are three instances of
-        that role, the host names of the instances are *webrole0*, *webrole1*,
-        and *webrole2*. You don't need to specify a host name for virtual
-        machines in the configuration file, because the host name for a VM is
-        populated based on the virtual machine name. For more information about
-        configuring a Microsoft Azure service, see
-        [Azure Service Configuration Schema (.cscfg File)](/previous-versions/azure/reference/ee758710(v=azure.100))
+        For example, if `vmName` is `webrole` and there are three instances of
+        that role, the hostnames of the instances are `webrole0`, `webrole1`,
+        and `webrole2`. You don't need to specify a hostname for VMs in the configuration file because the hostname for a VM is
+        populated based on the VM name. For more information about
+        configuring an Azure service, see
+        [Azure service configuration schema (.cscfg File)](/previous-versions/azure/reference/ee758710(v=azure.100)).
 
         ### Service configuration file
 
         In the Azure classic deployment model, you can download the service
         configuration file for a deployed service from the **Configure** pane of
-        the service in the Azure portal. You can then look for the **vmName**
-        attribute for the **Role name** element to see the host name. Keep in
-        mind that this host name is used as a base for the host name of each
-        role instance. For example, if **vmName** is *webrole* and there are
-        three instances of that role, the host names of the instances are
-        *webrole0*, *webrole1*, and *webrole2*. For more information, see
-        [Azure Virtual Network Configuration Schema](/previous-versions/azure/reference/jj157100(v=azure.100))
+        the service in the Azure portal. You can then look for the `vmName`
+        attribute for the `Role name` element to see the hostname. This hostname is used as a base for the hostname of each
+        role instance. For example, if `vmName` is `webrole` and there are
+        three instances of that role, the hostnames of the instances are
+        `webrole0`, `webrole1`,
+        and `webrole2`. For more information, see
+        [Azure Virtual Network configuration schema](/previous-versions/azure/reference/jj157100(v=azure.100)).
 
 relatedContent:
-  - text: Name Resolution (DNS)
+  - text: Name resolution (DNS)
     url: virtual-networks-name-resolution-for-vms-and-role-instances.md
-  - text: Specify DNS settings using network configuration files
+  - text: Specify DNS settings by using network configuration files
     url: /previous-versions/azure/virtual-network/virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file

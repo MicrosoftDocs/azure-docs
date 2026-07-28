@@ -7,8 +7,8 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.custom: synapse
-ms.topic: conceptual
-ms.date: 11/15/2023
+ms.topic: how-to
+ms.date: 09/26/2024
 ---
 
 # Parameterizing mapping data flows

@@ -6,6 +6,7 @@ ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 07/10/2023
 ms.author: mattmcinnes
+# Customer intent: As a cloud administrator, I want to configure the Microsoft Azure Network Adapter for my Windows VMs, so that I can enhance their networking performance and improve overall availability in the Azure environment.
 ---
 
 # Windows VMs with the Microsoft Azure Network Adapter
@@ -16,16 +17,12 @@ For Linux support, see [Linux VMs with the Microsoft Azure Network Adapter](./ac
 
 For more info about MANA, see [Microsoft Azure Network Adapter overview](./accelerated-networking-mana-overview.md).
 
-> [!IMPORTANT]
-> MANA is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 ## Supported Azure Marketplace images
 
-The following Windows images from [Azure Marketplace](/marketplace/azure-marketplace-overview) have built-in support for the Ethernet driver in MANA:
+Several Windows images from [Azure Marketplace](/marketplace/azure-marketplace-overview) have built-in support for the Ethernet driver in MANA:
 
-- Windows Server 2016
-- Windows Server 2019
-- Windows Server 2022
+Operating system support details are listed at [Azure Accelerated Networking Overview](accelerated-networking-overview.md).
+
 
 ## Check the status of MANA support
 
@@ -61,12 +58,21 @@ Ethernet                  Microsoft Hyper-V Network Adapter            13 Up    
 Ethernet 3                Microsoft Azure Network Adapter #2            8 Up           00-0D-3A-AA-00-AA       200 Gbps
 ```
 
+If you do not see the "Microsoft Azure Network Adapter" listed, either your VM has landed on hardware with a different network interface or your operating system does not support MANA. You can check that the MANA device is present using the following command.
+
+```powershell
+PS C:\Users\testVM> Get-PnpDevice -PresentOnly | Where-Object { $_.InstanceId -match '^PCI\\VEN_1414&DEV_00BA&' }
+
+Status     Class           FriendlyName                                                                     InstanceId
+------     -----           ------------                                                                     ----------
+OK         MultiFunction   Microsoft Azure Network Adapter Virtual Bus                                      PCI\VEN_1414...
+```
+If the output is missing or blank, your VM has landed on hardware with a different network adapter. If you see the output above from ```Get-PnpDevice``` but not from ```Get-NetAdapter```, you are missing MANA driver support in your operating system.  
+
 #### Device Manager
 
 1. Open Device Manager.
 2. Expand **Network adapters**, and then select **Microsoft Azure Network Adapter**. The properties for the adapter show that the device is working properly.
-
-   ![Screenshot of Windows Device Manager that shows an MANA network card successfully detected.](media/accelerated-networking-mana/device-manager-mana.png)
 
 ## Install drivers
 
@@ -85,6 +91,7 @@ Name                             ReceivedBytes ReceivedUnicastPackets       Sent
 ----                             ------------- ----------------------       --------- ------------------
 Ethernet 5                       1230513627217            22739256679 ...724576506362       381331993845
 ```
+If the values associated with MANA are 0 or do not increment, you are not using the virtual function. 
 
 ## Next steps
 

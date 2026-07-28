@@ -1,12 +1,12 @@
 ---
 title: include file
 description: include file
-author: kgremban
-ms.service: iot-hub
+author: sethmanheim
+ms.service: azure-iot-hub
 services: iot-hub
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 04/28/2019
-ms.author: kgremban
+ms.author: sethm
 ms.custom: include file
 ---
 

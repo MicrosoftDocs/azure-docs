@@ -1,8 +1,13 @@
 ---
-title: Azure Key Vault as Event Grid source
-description: Describes the properties and schema provided for Azure Key Vault events with Azure Event Grid
-ms.topic: conceptual
-ms.date: 01/17/2024
+title: Azure Key Vault as Event Grid Source Overview
+description: "Azure Key Vault events: Discover how to use Azure Key Vault as an Event Grid source, including event types, schema details, and integration tips."
+#customer intent: As an architect, I want to understand which Azure Key Vault events are available in Event Grid so that I can design event-driven solutions.
+ms.topic: concept-article
+ms.date: 03/26/2026
+author: spelluru
+ms.author: spelluru
+ms.reviewer: spelluru
+# Customer intent: As an architect or a developer, I want to know whether I can use Azure Key Vault as an Event Grid source. 
 ---
 
 # Azure Key Vault as Event Grid source
@@ -32,7 +37,7 @@ An Azure Key Vault account generates the following event types:
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreated**:
+The following example shows the schema for **Microsoft.KeyVault.SecretNewVersionCreated**:
 
 ```JSON
 [
@@ -58,7 +63,7 @@ The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreat
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreated**:
+The following example shows the schema for **Microsoft.KeyVault.SecretNewVersionCreated**:
 
 ```JSON
 [
@@ -94,7 +99,7 @@ An event has the following top-level data:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `source` | string | Full resource path to the event source. This field isn't writable. Event Grid provides this value. |
 | `subject` | string | Publisher-defined path to the event subject. |
 | `type` | string | One of the registered event types for this event source. |
 | `time` | string | The time the event is generated based on the provider's UTC time. |
@@ -107,7 +112,7 @@ An event has the following top-level data:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `topic` | string | Full resource path to the event source. This field isn't writable. Event Grid provides this value. |
 | `subject` | string | Publisher-defined path to the event subject. |
 | `eventType` | string | One of the registered event types for this event source. |
 | `eventTime` | string | The time the event is generated based on the provider's UTC time. |
@@ -139,9 +144,8 @@ The data object has the following properties:
 | [Tutorial: Create and monitor Key Vault events with Event Grid](/azure/key-vault/general/event-grid-logicapps) | Learn how to set up Event Grid notifications for Key Vault. |
 
 
-## Next steps
+## Related content
 
-* For an introduction to Azure Event Grid, see [What is Event Grid?](overview.md).
 * For more information about how to create an Azure Event Grid subscription, see [Event Grid subscription schema](subscription-creation-schema.md).
 * For more information about Key Vault, see [What is Azure Key Vault?](/azure/key-vault/general/overview)
 

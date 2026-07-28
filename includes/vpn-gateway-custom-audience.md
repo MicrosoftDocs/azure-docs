@@ -1,9 +1,10 @@
 ---
-author: cherylmc
-ms.author: cherylmc
-ms.date: 08/05/2024
+author: duongau
+ms.author: duau
+ms.date: 02/14/2025
 ms.service: azure-vpn-gateway
 ms.topic: include
+ms.custom: sfi-image-nochange
 
 # This include is for both VWAN and VPN Gateway
 ---
@@ -23,7 +24,7 @@ There are a couple of different ways to get to the **App registrations** page. O
 1. Leave **Redirect URI (optional)** alone for now as you configure a redirect URI in the next section.
 1. Select **Register** to complete the initial app registration.
 
-When registration finishes, the Microsoft Entra admin center displays the app registration's **Overview** pane. You see the **Application (client) ID**. Also called the *client ID*, this value uniquely identifies your application in the Microsoft identity platform. This is the custom audience value that you use when you configure your P2S gateway. Even though this value is present, you still need to complete the next sections to associate the Micrsoft-registered application to your application ID.
+When registration finishes, the Microsoft Entra admin center displays the app registration's **Overview** pane. You see the **Application (client) ID**. Also called the *client ID*, this value uniquely identifies your application in the Microsoft identity platform. This is the custom audience value that you use when you configure your P2S gateway. Even though this value is present, you still need to complete the next sections to associate the Microsoft-registered application to your application ID.
 
 ## Expose an API and add a scope
 
@@ -69,4 +70,4 @@ In this section, you associate the Microsoft-registered Azure VPN Client applica
 On the **Overview** page for your application, make a note of the following values that you need when you configure your point-to-site VPN gateway for Microsoft Entra ID authentication.
 
 * Application (client) ID: This is the custom Audience ID that you use for the **Audience** field when you configure your P2S VPN gateway.
-* Directory (tenent) ID: This value is part of the value required for the **Tenant** and **Issuer** field for the P2S VPN gateway.
+* Directory (tenant) ID: This value is part of the value required for the **Tenant** and **Issuer** field for the P2S VPN gateway.

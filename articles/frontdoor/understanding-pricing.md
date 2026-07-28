@@ -1,15 +1,16 @@
 ---
-title: Compare pricing between Azure Front Door tiers
-description: This article describes the billing model for Azure Front Door and compares the pricing for the Standard, Premium, and (classic) tiers.
-services: frontdoor
-author: duongau
+title: Compare Pricing Between Azure Front Door Tiers
+description: Learn about Azure Front Door billing models and compare pricing across Standard, Premium, and Classic tiers.
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
-ms.topic: conceptual
-ms.date: 08/12/2024
-ms.author: duau
+ms.topic: concept-article
+ms.date: 09/25/2025
 ---
 
 # Compare pricing between Azure Front Door tiers
+
+**Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium :heavy_check_mark: Front Door (classic)
 
 > [!NOTE]
 > Prices shown in this article are examples and are for illustration purposes only. For pricing information according to your region, see the [Pricing page](https://azure.microsoft.com/pricing/details/frontdoor/)
@@ -37,7 +38,7 @@ Azure Front Door has three tiers: Standard, Premium, and (classic). This article
 ## Cost assessment
 
 > [!NOTE]
-> Azure Front Door Standard and Premium has a lower total cost of ownership than Azure Front Door (classic). If you have a request heavy workload, it's recommended to estimate the impact of the request meter of the new tiers. If you have multiple instance of Azure Front Door, it's recommended to estimate the impact of the base fee of the new tiers.
+> Azure Front Door Standard and Premium have a lower total cost of ownership than Azure Front Door (classic). If you have a request heavy workload, it's recommended to estimate the impact of the request meter of the new tiers. If you have multiple instances of Azure Front Door, it's recommended to estimate the impact of the base fee of the new tiers.
 
 The following are general guidance for getting the right metrics to estimate the cost of the new tiers.
 
@@ -76,8 +77,8 @@ Azure Front Door Standard/Premium cost less than Azure Front Door (classic) in t
 | Egress from Azure Front Door edge to client | $3,200 = (10 TB * $0.17/GB) + (10 TB * $0.15/GB) | $1,490 = (10 TB * $0.083/GB) + (10 GB * $0.066/GB) |
 | Egress from Azure Front Door edge to origin | $0 | $2 = 100 GB * $0.02/GB | 
 | Ingress from client to Azure Front Door edge | $1 = 100 GB * $0.01/GB | $0 |
-| Ingress from origin to Azure Front Door edge | $78.30 = (0.1 TB * $0/GB) + (0.9 TB * $0.087/GB) | $) |
-| Requests | $0 | $180 = 200M requests * $0.009/10k requests) |
+| Ingress from origin to Azure Front Door edge | $78.30 = (0.1 TB * $0/GB) + (0.9 TB * $0.087/GB) | $ |
+| Requests | $0 | $180 = 200M requests * $0.009/10k requests |
 | Routing rules | $153.15 = (($0.03 * 5 rules) + ($0.012 * 5 rules)) * 730 hours | $0 |
 | WAF policy | $5 =  $1 * 1 policy/month | $0 |
 | WAF custom rules | $10 = $1 = * 10 rules/month | $0 |
@@ -132,7 +133,7 @@ Azure Front Door Standard is ~68% cheaper than Azure Front Door (classic) for fi
 
 ### Scenario 4: Request heavy scenario with WAF protection
 
-* 150 routing rules are configured to origins in different countries.
+* 150 routing rules are configured to origins in different countries/regions.
 * 20 TB of outbound data transfer.
 * 10 TB of inbound data transfer.
 * 5 billion requests from client to Azure Front Door edge.
@@ -206,7 +207,7 @@ The following table shows the cost breakdown for migrating 60 Azure Front Door (
 | WAF managed/ defaults rule set requests processed | $20 = 20 million requests * $1 per million requests | $0 |
 | Total | $17,551.30 | $4,885 |
 
-## Next steps
+## Related content
 
 * Learn about how [settings are mapped](tier-mapping.md) from Azure Front Door (classic) to Azure Front Door Standard/Premium.
 * Learn about [Azure Front Door (classic) tier migration](tier-migration.md).

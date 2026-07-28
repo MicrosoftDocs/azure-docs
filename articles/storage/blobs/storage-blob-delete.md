@@ -3,14 +3,15 @@ title: Delete and restore a blob with .NET
 titleSuffix: Azure Storage
 description: Learn how to delete and restore a blob in your Azure Storage account using the .NET client library
 services: storage
-author: pauljewellmsft
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.date: 08/12/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to delete and restore blobs using the Azure Storage client library, so that I can manage data effectively and recover from accidental deletions.
 ---
 
 # Delete and restore a blob with .NET
@@ -49,6 +50,8 @@ If the blob has any associated snapshots, you must delete all of its snapshots t
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/DeleteBlob.cs" id="Snippet_DeleteBlobSnapshots":::
 
 To delete *only* the snapshots and not the blob itself, you can pass the parameter `DeleteSnapshotsOption.OnlySnapshots`.
+
+When a container is deleted, you can't create a container with the same name for at least 30 seconds. The container might not be available for more than 30 seconds if the service is still processing the request. While the container is being deleted, attempts to create a container of the same name generate a conflict and fail with status code 409. The service indicates that the container is being deleted. All other operations, including operations on any blobs within the container, fail with status code 404 (Not Found) while the container is being deleted.
 
 ## Restore a deleted blob
 

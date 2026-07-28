@@ -9,12 +9,16 @@ ms.subservice: storage-common-concepts
 ms.topic: how-to
 ms.date: 01/10/2023
 ms.reviewer: santoshc 
-ms.custom: template-how-to, engagement-fy23
+ms.custom:
+  - template-how-to
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As a storage administrator, I want to restrict the source of copy operations by configuring the permitted scope in storage accounts, so that I can enhance security by preventing unwanted data from untrusted tenants or networks.
 ---
 
 # Restrict the source of copy operations to a storage account
 
-For security reasons, storage administrators might want to limit the environments from which data can be copied to secured accounts. Limiting the scope of permitted copy operations helps prevent the infiltration of unwanted data from untrusted tenants or virtual networks.
+For security reasons, storage administrators might want to limit the environments from which data can be copied to storage accounts. Limiting the scope of permitted copy operations helps prevent the infiltration of unwanted data from untrusted tenants or virtual networks.
 
 This article shows you how to limit the source accounts of copy operations to accounts within the same tenant as the destination account, or with private links to the same virtual network as the destination.
 
@@ -30,7 +34,24 @@ The **AllowedCopyScope** property of a storage account is used to specify the en
 - **Microsoft Entra ID**: Permits copying only from accounts within the same Microsoft Entra tenant as the destination account.
 - **PrivateLink**:  Permits copying only from storage accounts that have private links to the same virtual network as the destination account.
 
-The setting applies to [Copy Blob](/rest/api/storageservices/copy-blob) and [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) operations. Examples of tools that use Copy Blob are AzCopy and Azure Storage Explorer.
+The following table details operations that require the `x-ms-copy-source` request header that this setting applies to:
+ 
+| REST API |  Permitted scope applies | 
+| --- | --- | 
+| [Put Block From Url](/rest/api/storageservices/put-block-from-url?tabs=microsoft-entra-id) | Yes | 
+| [Append Block From Url](/rest/api/storageservices/append-block-from-url?tabs=microsoft-entra-id) | Yes |
+| [Put Blob From Url](/rest/api/storageservices/put-blob-from-url?tabs=microsoft-entra-id) | Yes | 
+| [Put Page From Url](/rest/api/storageservices/put-page-from-url?tabs=microsoft-entra-id) | Yes |
+| [Copy Blob](/rest/api/storageservices/copy-blob) | Yes | 
+| [Copy Blob From URL](/rest/api/storageservices/copy-blob-from-url) | Yes |
+| [Incremental Copy Blob](/rest/api/storageservices/incremental-copy-blob) | Yes | 
+| [Put Range From Url](/rest/api/storageservices/put-range-from-url) | Yes |
+| [Copy File](/rest/api/storageservices/copy-file) | Yes |  
+ 
+> [!NOTE]
+> Storage clients such as [AzCopy](/azure/storage/common/storage-use-azcopy-v10) that rely on these APIs will be impacted by this setting. Please review the APIs associated with other features and services to ensure compatibility.
+
+The error “The copy operation is not within the allowed copy scope” indicates that the attempted copy operation falls outside the permitted scope for your account. Should you encounter the error “This request is not authorized to perform this operation” please verify whether permitted scope or a related firewall rule is denying the request.
 
 When the source of a copy request does not meet the requirements specified by this setting, the request fails with HTTP status code 403 (Forbidden).
 

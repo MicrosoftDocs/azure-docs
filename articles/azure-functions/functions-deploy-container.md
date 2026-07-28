@@ -1,10 +1,10 @@
 ---
 title: Create your first containerized Azure Functions
 description: Get started by deploying your first function app from a Linux image in a container registry to Azure Functions.
-ms.date: 05/08/2023
+ms.date: 12/29/2023
 ms.topic: quickstart
 ms.custom: build-2023, devx-track-azurecli, devx-track-azurepowershell, devx-track-extended-java, devx-track-js, devx-track-python, linux-related-content, devx-track-ts
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ---
 
 # Create your first containerized Azure Functions 
@@ -13,11 +13,8 @@ In this article, you create a function app running in a Linux container and depl
 
 Deploying your function code to Azure Functions in a container requires [Premium plan](functions-premium-plan.md) or [Dedicated (App Service) plan](dedicated-plan.md) hosting. Completing this article incurs costs of a few US dollars in your Azure account, which you can minimize by [cleaning-up resources](#clean-up-resources) when you're done.
 
-Other options for deploying your function app container to Azure include:
-
-+ Azure Container Apps: to learn more, see [Deploy a container to Azure Container apps](./functions-deploy-container-apps.md).
-
-+ Azure Arc (currently in preview): to learn more, see [Deploy a container to Azure Arc](./create-first-function-arc-custom-container.md).
+> [!TIP]
+> When you need to run your event-driven functions in Azure in the same environment as other microservices, APIs, websites, workflows, or any container hosted programs, consider instead hosting your containerized function apps in Azure Container Apps. Functions provides integrated support for developing, deploying, and managing containerized function apps on Container Apps. For more information, see [Azure Container Apps hosting of Azure Functions](../container-apps/functions-overview.md). 
 
 [!INCLUDE [functions-create-container-registry](../../includes/functions-create-container-registry.md)]
 
@@ -28,6 +25,9 @@ Before you can deploy your container to Azure, you need to create three resource
 * A [resource group](../azure-resource-manager/management/overview.md), which is a logical container for related resources.
 * A [Storage account](../storage/common/storage-account-create.md), which is used to maintain state and other information about your functions.
 * A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources. 
+
+>[!IMPORTANT]
+>This article currently shows how to connect to both the Azure Storage account and your container registry by using connection strings and other shared secret credentials. For the best security, you should instead use only a managed identity-based connection to both your storage account and to Azure Container Registry using Microsoft Entra authentication. For more information, see the [Functions developer guide](./manage-connections.md).
 
 Use the following commands to create these items. Both Azure CLI and PowerShell are supported. To create your Azure resources using Azure PowerShell, you also need the [Az PowerShell module](/powershell/azure/install-az-ps), version 5.9.0 or later.
 
@@ -160,6 +160,9 @@ A function app on Azure manages the execution of your functions in your Azure Fu
 
     ---    
 
+    >[!IMPORTANT]
+    >This article currently shows how to connect to the default storage account by using a connection string. For the best security, you should instead create a managed identity-based connection to Azure Storage using Microsoft Entra authentication. For more information, see the [Functions developer guide](./manage-connections.md).
+
     Replace `<STORAGE_NAME>` with the name of the storage account you created earlier.
 
 1. Use the following command to add the setting to the function app:
@@ -193,6 +196,8 @@ To avoid ongoing costs, delete the `AzureFunctionsContainers-rg` resource group 
 ```azurecli
 az group delete --name AzureFunctionsContainers-rg
 ```
+
+
 
 ## Next steps
 

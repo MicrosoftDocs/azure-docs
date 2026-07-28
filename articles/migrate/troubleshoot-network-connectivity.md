@@ -3,9 +3,13 @@ title: Troubleshoot network connectivity issues | Microsoft Docs
 description: Provides troubleshooting tips for common errors in using Azure Migrate with private endpoints.
 author: vijain
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.topic: troubleshooting
 ms.date: 09/09/2024
-ms.custom: engagement-fy25
+ms.custom:
+  - engagement-fy25
+  - sfi-image-nochange
+# Customer intent: "As a cloud operations engineer, I want to troubleshoot network connectivity issues with private endpoints in Azure Migrate, so that I can ensure seamless data migration and application performance."
 ---
 
 # Troubleshoot network connectivity
@@ -259,7 +263,7 @@ If you have enabled the appliance for private endpoint connectivity, use the fol
 |--- | ---|
 |*.disc.privatelink.prod.migration.windowsazure.com | Azure Migrate Discovery service endpoint
 |*.asm.privatelink.prod.migration.windowsazure.com  | Azure Migrate Assessment service endpoint  
-|*.hub.privatelink.prod.migration.windowsazure.com  | Azure Migrate hub endpoint to receive data from other Microsoft or external [independent software vendor (ISV)](./migrate-services-overview.md#isv-integration) offerings
+|*.hub.privatelink.prod.migration.windowsazure.com  | Azure Migrate hub endpoint to receive data from other Microsoft or external offerings
 |*.privatelink.siterecovery.windowsazure.com | Azure Site Recovery service endpoint to orchestrate replications
 |*.vault.azure.net | Key Vault endpoint
 |*.blob.core.windows.net | Storage account endpoint for dependency and performance data  
@@ -326,7 +330,7 @@ This error might occur if the export/import/download request was not initiated f
 
 **Option 1** _(recommended)_:
   
-To resolve this error, retry the import/export/download operation from a client residing in a virtual network that is connected to Azure over a private link. You can open the Azure portal in your on-premises network or your appliance VM and retry the operation.
+To resolve this error, retry the import/export/download operation from a client residing in a virtual network that is connected to Azure over a private link. You can go to the Azure portal in your on-premises network or your appliance VM and retry the operation.
 
 **Option 2**:
 

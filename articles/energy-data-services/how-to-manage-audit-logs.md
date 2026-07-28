@@ -3,10 +3,12 @@ title: How to manage audit logs for Microsoft Azure Data Manager for Energy
 description: Learn how to use audit logs on Azure Data Manager for Energy
 author: sandeepchads
 ms.author: sancha
-ms.service: energy-data-services    
+ms.service: azure-data-manager-energy
 ms.topic: how-to
 ms.date: 04/11/2023
-ms.custom: template-how-to
+ms.custom:
+  - template-how-to
+  - sfi-image-nochange
 #Customer intent: As a developer, I want to use audit logs to check audit trail for data plane APIs for Azure Data Manager for Energy.
 ---
 

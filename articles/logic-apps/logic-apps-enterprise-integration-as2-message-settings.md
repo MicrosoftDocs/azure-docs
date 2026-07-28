@@ -6,8 +6,9 @@ ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
-ms.topic: reference
-ms.date: 08/15/2023
+ms.topic: concept-article
+ms.date: 07/16/2025
+ms.custom: sfi-image-nochange
 ---
 
 # Reference for AS2 message settings in agreements for Azure Logic Apps
@@ -51,7 +52,7 @@ This reference describes the properties that you can set in an AS2 agreement for
 | **Request signed MDN** | No | Specifies whether to receive signed MDNs for all outgoing messages. If you require signing, from the **MIC Algorithm** list, select the algorithm to use for signing messages. |
 | **Request asynchronous MDN** | No | Specifies whether to receive MDNs asynchronously. If you select asynchronous MDNs, in the **URL** box, specify the URL for where to send the MDNs. |
 | **Enable NRR** | No | Specifies whether to require non-repudiation receipt (NRR). This communication attribute provides evidence that the data was received as addressed. |
-| **SHA2 Algorithm format** | No | Specifies the MIC algorithm format to use for signing in the headers for the outgoing AS2 messages or MDN |
+| **SHA2 Algorithm format** | No | Specifies the MIC algorithm format to use for signing in the headers for the outgoing AS2 messages or MDN. |
 
 ## Next steps
 

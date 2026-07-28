@@ -6,7 +6,7 @@ author: Kunaal
 services: azure-communication-services
 ms.author: kpunjabi
 ms.date: 02/06/2024
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-communication-services
 ms.subservice: data
 ---
@@ -43,8 +43,8 @@ Here's an example of a closed caption summary log:
   "OperationName": "ClosedCaptionsSummary",
   "Category": "ACSCallClosedCaptionsSummary",
   "Level": "Informational",
-  "CorrelationId": "336a0049-d98f-48ca-8b21-d39244c34486",
-  "ResourceId": "d2241234-bbbb-4321-b789-cfff3f4a6666",
+  "CorrelationId": "aaaa0000-bb11-2222-33cc-444444dddddd",
+  "ResourceId": "a0a0a0a0-bbbb-cccc-dddd-e1e1e1e1e1e1",
   "ResultType": "Succeeded",
   "SpeechRecognitionSessionId": "eyJQbGF0Zm9ybUVuZHBvaW50SWQiOiI0MDFmNmUwMC01MWQyLTQ0YjAtODAyZi03N2RlNTA2YTI3NGYiLCJffffffXJjZVNwZWNpZmljSWQiOiIzOTc0NmE1Ny1lNzBkLTRhMTctYTI2Yi1hM2MzZTEwNTk0Mwwwww",
   "SpokenLanguage": "cn-zh",

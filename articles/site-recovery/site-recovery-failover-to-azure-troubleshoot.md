@@ -1,22 +1,26 @@
 ---
-title: 'Troubleshoot failover to Azure failures | Microsoft Docs'
+title: Troubleshoot failover to Azure failures
 description: This article describes ways to troubleshoot common errors in failing over to Azure
-author: ankitaduttaMSFT
 ms.service: azure-site-recovery
-ms.custom: linux-related-content
 services: site-recovery
 ms.topic: article
-ms.date: 09/10/2024
-ms.author: ankitadutta
+ms.date: 12/09/2025
+author: Jeronika-MS
+ms.author: v-gajeronika 
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: As an IT administrator managing virtual machines, I want to troubleshoot failover errors when migrating to the cloud, so that I can ensure successful disaster recovery and maintain operational continuity.
 ---
 # Troubleshoot errors when failing over VMware VM or physical machine to Azure
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
-
 You may receive one of the following errors while doing failover of a virtual machine to Azure. To troubleshoot, use the described steps for each error condition.
 
-## Failover failed with Error ID 28031
+## Failover errors
+
+Failover failed with the following errors:
+
+# [Error ID 28031](#tab/28031)
 
 Site Recovery wasn't able to create a failed over virtual machine in Azure. It could happen because of one of the following reasons:
 
@@ -26,17 +30,17 @@ Site Recovery wasn't able to create a failed over virtual machine in Azure. It c
 
 * There's a policy on the subscription that prevents creation of a virtual machine. Change the policy to allow creation of a virtual machine and then retry failover.
 
-## Failover failed with Error ID 28092
+# [Error ID 28092](#tab/28092)
 
 Site Recovery wasn't able to create a network interface for the failed over virtual machine. Make sure you have sufficient quota available to create network interfaces in the subscription. You can check the available quota by going to Subscription -> Usage + quotas. You can open a [new support request](https://aka.ms/getazuresupport) to increase the quota. If you have sufficient quota, then this might be an intermittent issue, try the operation again. If the issue persists even after retries, then leave a comment at the end of this document.  
 
-## Failover failed with Error ID 70038
+# [Error ID 70038](#tab/70038)
 
 Site Recovery wasn't able to create a failed over Classic virtual machine in Azure. It could happen because:
 
 * One of the resources such as a virtual network that is required for the virtual machine to be created doesn't exist. Create the virtual network as provided under Network settings of the virtual machine or modify the setting to a virtual network that already exists and then retry failover.
 
-## Failover failed with Error ID 170010
+# [Error ID 170010](#tab/170010)
 
 Site Recovery wasn't able to create a failed over virtual machine in Azure. It could happen because an internal activity of hydration failed for the on-premises virtual machine.
 
@@ -74,11 +78,19 @@ To manually change the startup type of drivers for **Windows Guest OS**, follow 
 
 ## Failover failed with an error stating replica IP addresses for the network adapter of virtual machine is invalid 
 
+# [replica IP addresses for the network adapter of VM is invalid](#tab/ip-address)
+
 Test failover or failover operation can fail for a machine with the error "One or more replica IP addresses for the network adapter of virtual machine is invalid", if proper cleanup of a previous test failover operation didn't happen. Due to this, the test machine might still be present in Azure environment and it might be using the same IP address. It causes the target configuration of virtual machine to become critical. 
 
 To resolve this issue, ensure that a complete test failover cleanup has been performed, so that the failover or test failover operation can succeed. 
 
-## Unable to connect/RDP/SSH to the failed over virtual machine due to grayed out Connect button on the virtual machine
+---
+
+## Unable to connect/RDP/SSH
+
+Unable to connect/RDP/SSH due to the following errors:
+
+# [Grayed out Connect button on the virtual machine](#tab/connect-button)
 
 For detailed troubleshooting instructions on RDP issues, please see our documentation [here](/troubleshoot/azure/virtual-machines/troubleshoot-rdp-connection).
 
@@ -94,7 +106,7 @@ If the **Connect** button on the failed over VM in Azure is grayed out and you a
 6. Now, to save the changes made, select **Save**.
 7. Close the panels and navigate to **Overview** section of virtual machine to connect/RDP.
 
-## Unable to connect/RDP/SSH - VMConnect button available
+# [VMConnect button available](#tab/vmconnect-button)
 
 If the **Connect** button on the failed over VM in Azure is available (not grayed out), then check **Boot diagnostics** on your Virtual Machine and check for errors as listed in [this article](/troubleshoot/azure/virtual-machines/boot-diagnostics).
 
@@ -116,6 +128,8 @@ If the **Connect** button on the failed over VM in Azure is available (not graye
 >[!Note]
 >Enabling any setting other than Boot Diagnostics would require Azure VM Agent to be installed in the virtual machine before the failover
 
+---
+
 ## Unable to open serial console after failover of a UEFI based machine into Azure
 
 If you're able to connect to the machine using RDP but can't open serial console, follow the below steps:
@@ -124,12 +138,6 @@ If you're able to connect to the machine using RDP but can't open serial console
 
   ```console
   grub2-mkconfig -o /boot/efi/EFI/redhat/grub.cfg
-  ```
-
-* If the machine OS is CentOS 7.*, run the following command on the failover Azure VM with root permissions. Reboot the VM after the command.
-
-  ```console
-  grub2-mkconfig -o /boot/efi/EFI/centos/grub.cfg
   ```
 
 ## Unexpected shutdown message (Event ID 6008)

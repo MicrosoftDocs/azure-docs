@@ -2,17 +2,26 @@
 title: Monitor Azure Synapse Link for Azure SQL Database through Synapse Studio and Azure Monitor
 description: Learn how to monitor your Azure Synapse Link for Azure SQL Database link connections.
 author: shaween18
+ms.author: sbahadur
+ms.reviewer: imotiwala, yexu
 ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
-ms.date: 11/10/2022
-ms.author: sbahadur
-ms.reviewer: imotiwala, yexu
+ms.date: 10/31/2025
+ms.update-cycle: 1825-days
+ms.custom: sfi-image-nochange
 ---
 
 # Monitor Azure Synapse Link for Azure SQL Database through Synapse Studio and Azure Monitor
 
 This article provides a guide on how to get started with monitoring your Azure Synapse Link for Azure SQL Database connections. Before you go through this article, you should know how to create and start an Azure Synapse Link for Azure SQL Database link connection from [Get started with Azure Synapse Link for Azure SQL Database](connect-synapse-link-sql-database.md). Once you've created and started your Synapse Link connection, you can monitor your link connection through Synapse Studio or Azure Monitor. 
+
+> [!IMPORTANT]
+> **Mirroring to Microsoft Fabric is now available.** Mirroring to Fabric provides all the capabilities of Azure Synapse Link with better analytical performance, the ability to unify your data estate with OneLake in Fabric, and open access to your data in Delta Parquet format. Instead of Azure Synapse Link, use Fabric Mirroring. 
+>
+> With Mirroring to Microsoft Fabric, you can continuously replicate your existing data estate directly into OneLake in Fabric, including data from SQL Server 2016+, Azure SQL Database, Azure SQL Managed Instance, Cosmos DB, Oracle, Snowflake, and more. 
+> 
+> For more information, see [Microsoft Fabric mirrored databases](/fabric/database/mirrored-database/overview).
 
 ## Monitor the status of an Azure Synapse Link for Azure SQL Database connection in Synapse Studio
 
@@ -55,8 +64,6 @@ You can monitor the status of your Azure Synapse Link connection, see which tabl
 
 1. After clicking on your link connection, you'll see the tables and their corresponding table-level metrics that summarize a few details about the tables that you're replicating over in your link connection.
 
-   :::image type="content" source="../media/connect-synapse-link-sql-database/studio-monitor-show-all-tables.png" alt-text="Screenshot that shows the details of each of the tables under a particular Azure Synapse Link connection." lightbox="../media/connect-synapse-link-sql-database/studio-monitor-show-all-tables.png":::
-
 1. The table-level connection grid contains the following columns: 
     
     | **Column Name** | **Description** |
@@ -67,7 +74,8 @@ You can monitor the status of your Azure Synapse Link connection, see which tabl
     | Link table ID | ID of the table in the link connection. *Helpful when troubleshooting any issues and contacting Microsoft support. |
     | Processed rows | Row counts processed by Synapse Link for SQL |
     | Processed data volume | Data volume in bytes processed by Synapse Link for SQL |
-    | Time of last processed data | Time when last processed change data arrived in the landing zone (Month, Date, Year, HH:MM:SS AM/PM) |
+    | Time of last processed data | Time when last processed change data arrived in data warehouse (Month, Date, Year, HH:MM:SS AM/PM) |
+    | Time of last data commit on source store | Time when last processed change data arrived in the landing zone (Month, Date, Year, HH:MM:SS AM/PM) |
 
 1. You need to manually select the **Refresh** button to refresh the list of tables in the link connections and their corresponding monitoring details. Autorefresh is currently not supported.
    :::image type="content" source="../media/connect-synapse-link-sql-database/studio-monitor-refresh-tables.png" alt-text="Screenshot that shows where to press the Refresh button to refresh the statuses and details of the tables under a particular Azure Synapse Link connection.":::
@@ -87,13 +95,13 @@ The most important type of Monitor data is the metric, which is also called the 
 
 For a list of metrics that Azure Synapse Link emits to Azure Monitor, see [Azure Synapse Link metrics](../monitor-synapse-analytics-reference.md#azure-synapse-link-metrics).
 
-Now let’s step through how we can see these metrics in the Azure portal.
+Now let's step through how we can see these metrics in the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for your **Synapse workspace** that your link connection resides in. 
 
-1. Once you've landed on the overview page for your Synapse Workspace, click on the **Metrics** tab underneath “Monitoring”.
+1. Once you've landed on the overview page for your Synapse Workspace, click on the **Metrics** tab underneath "Monitoring".
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/monitor-click-on-metrics.png" alt-text="Screenshot that shows where to go to get to the Metrics tab to create a new metric in the Azure portal.":::
 
@@ -127,13 +135,13 @@ Now let’s step through how we can see these metrics in the Azure portal.
 
 ### Alerts
 
-In this section, we're going to walk through how you can set up [alerts](../monitor-synapse-analytics.md#alerts) for your Azure Synapse Link connection through Azure Synapse Analytics. Let’s say, for example, that you're running your link connection and realize that you want to monitor the latency of your link connection. The workload requirements for this scenario require that any link connection with a maximum latency over 900 seconds (or 15 minutes) needs to be alerted to your Engineering team. Let’s walk through how we would set up an alert for this example: 
+In this section, we're going to walk through how you can set up [alerts](../monitor-synapse-analytics.md#alerts) for your Azure Synapse Link connection through Azure Synapse Analytics. Let's say, for example, that you're running your link connection and realize that you want to monitor the latency of your link connection. The workload requirements for this scenario require that any link connection with a maximum latency over 900 seconds (or 15 minutes) needs to be alerted to your Engineering team. Let's walk through how we would set up an alert for this example: 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for your **Synapse workspace** that your link connection resides in.
  
-1. Once you've landed on the overview page for your Synapse Workspace, click on the **Alerts** tab underneath “Monitoring”. 
+1. Once you've landed on the overview page for your Synapse Workspace, click on the **Alerts** tab underneath "Monitoring". 
 
     :::image type="content" source="../media/connect-synapse-link-sql-database/monitor-click-on-alerts.png" alt-text="Screenshot that shows where to go to get to the Alerts tab to create a new alert in the Azure portal.":::
 
@@ -149,7 +157,7 @@ In this section, we're going to walk through how you can set up [alerts](../moni
 
     a. Click **+Add condition**
     
-    b. You can see the 5 link connection **signal names**. For this example, let’s choose the **Link latency in seconds** signal. 
+    b. You can see the 5 link connection **signal names**. For this example, let's choose the **Link latency in seconds** signal. 
     
     :::image type="content" source="../media/connect-synapse-link-sql-database/monitor-select-an-alert.png" alt-text="Screenshot that shows how to select one of the Link signals.":::
 
@@ -186,11 +194,11 @@ In this section, we're going to walk through how you can set up [alerts](../moni
 
    :::image type="content" source="../media/connect-synapse-link-sql-database/monitor-create-action-group.png" alt-text="Screenshot that shows how to create an action group and specify notifications when an alert rule's conditions are met.":::
 
-1. On the **Actions** tab, let’s select an option for **Action type**. 
+1. On the **Actions** tab, let's select an option for **Action type**. 
  
 1. In this example, let's use the **Event Hubs** action type, so we'll need to input the **subscription name**, **Event Hub namespace**, and select an **Event Hub name**. Then click on **OK**. 
 
-    a. If you don’t have an Event Hub created, refer to the document here to create one: [Configure an expiration policy for shared accessed signatures (SAS)](/rest/api/eventhub/create-event-hub)
+    a. If you don't have an Event Hub created, refer to the document here to create one: [Configure an expiration policy for shared accessed signatures (SAS)](/rest/api/eventhub/create-event-hub)
     
     :::image type="content" source="../media/connect-synapse-link-sql-database/monitor-create-action-group-2.png" alt-text="Screenshot that shows how to create an action group and specify an action type when an alert rule's conditions are met.":::
 
@@ -204,23 +212,23 @@ This was just one example of how to create an alert rule following an example. Y
 
 ### Logs
 
-Azure Monitor Logs is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. Several features of Azure Monitor store their data in Logs and present this data in various ways to assist you in monitoring the performance and availability of your cloud and hybrid applications and their supporting components. You can analyze Logs data by using a sophisticated query language that’s capable of quickly analyzing millions of records.
+Azure Monitor Logs is a feature of Azure Monitor that collects and organizes log and performance data from monitored resources. Several features of Azure Monitor store their data in Logs and present this data in various ways to assist you in monitoring the performance and availability of your cloud and hybrid applications and their supporting components. You can analyze Logs data by using a sophisticated query language that's capable of quickly analyzing millions of records.
 
-Now let’s step through how we can see logs for our Azure Synapse Link connections in the Azure portal:
+Now let's step through how we can see logs for our Azure Synapse Link connections in the Azure portal:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. Search for your **Synapse workspace** that your link connection resides in. 
 
-1. Once you've landed on the overview page for your Synapse Workspace, click on the **Logs** tab underneath “Monitoring”. 
+1. Once you've landed on the overview page for your Synapse Workspace, click on the **Logs** tab underneath "Monitoring". 
 
     :::image type="content" source="../media/connect-synapse-link-sql-database/monitor-click-on-logs.png" alt-text="Screenshot that shows where to go to get to the Logs tab to create a new log in the Azure portal.":::
 
 1. You're immediately greeted with a workspace that is roughly the equivalent of a database in Azure Data Explorer. Tables are structured the same, and both use [Kusto Query Language (KQL)](/azure/data-explorer/kusto/query/)
 
-    a. There is a table called “**SynapseLinkEvent**” that stores many different values for each of the link connections. The table and the details are shown on the left-hand side.
+    a. There is a table called "**SynapseLinkEvent**" that stores many different values for each of the link connections. The table and the details are shown on the left-hand side.
     
-    b. You can perform a query in the query pane that retrieves a specific set of records. In this case, we'll type in “**SynapseLinkEvent**” in the query pane and then press the blue **Run** button. We can see the link connections that ran in the Results section where you can see details about each of the link connections.  
+    b. You can perform a query in the query pane that retrieves a specific set of records. In this case, we'll type in "**SynapseLinkEvent**" in the query pane and then press the blue **Run** button. We can see the link connections that ran in the Results section where you can see details about each of the link connections.  
     
     :::image type="content" source="../media/connect-synapse-link-sql-database/monitor-display-results-of-log-query.png" alt-text="Screenshot that shows the tables, query, and results of the log query that was run." lightbox="../media/connect-synapse-link-sql-database/monitor-display-results-of-log-query.png":::
 

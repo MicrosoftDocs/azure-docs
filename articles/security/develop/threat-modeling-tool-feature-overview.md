@@ -3,7 +3,7 @@ title: Microsoft Threat Modeling Tool feature overview - Azure
 description: Learn about all the features available in the Threat Modeling Tool, such as the analysis view and reports. 
 author: jegeib
 ms.author: jegeib
-ms.service: information-protection
+ms.service: azure-information-protection
 ms.topic: article
 ms.date: 08/17/2017
 ---
@@ -78,7 +78,7 @@ Based on the template you select, you can find all the stencils available to use
 | **Process** | Applications, browser plug-ins, threads, virtual machines |
 | **External interactor** | Authentication providers, browsers, users, web applications |
 | **Data store** | Cache, storage, configuration files, databases, registry |
-| **Data flow** | Binary, ALPC, HTTP, HTTPS/TLS/SSL, IOCTL, IPSec, named pipe, RPC/DCOM, SMB, UDP |
+| **Data flow** | Binary, ALPC, HTTP, HTTPS/TLS/SSL, IOCTL, IPsec, named pipe, RPC/DCOM, SMB, UDP |
 | **Trust line/Border boundary** | Corporate networks, internet, machine, sandbox, user/kernel mode |
 
 ### Notes/messages

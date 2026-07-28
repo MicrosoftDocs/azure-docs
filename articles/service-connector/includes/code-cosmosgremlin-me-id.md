@@ -1,10 +1,9 @@
 ---
-author: wchigit
 description: managed identity, code sample
 ms.service: service-connector
 ms.topic: include
-ms.date: 12/04/2023
-ms.author: wchi
+ms.date: 17/06/2026
+ms.reviewer: wchi
 ---
 
 ### [.NET](#tab/dotnet)
@@ -15,7 +14,7 @@ ms.author: wchi
     dotnet add package Azure.Identity
     ```
 
-1. Get an access token for the managed identity or service principal using client library [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Use the access token and `AZURE_COSMOS_LISTKEYURL` to get the password. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for Apache Gremlin. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get an access token for the managed identity or service principal by using Azure.Identity. Use the access token and AZURE_COSMOS_LISTKEYURL to get the password. Then use connection information from environment variables added by Service Connector to connect to Azure Cosmos DB for Apache Gremlin. In the code below, uncomment the section for your authentication type:
 
     ```csharp
     using System;
@@ -104,7 +103,7 @@ ms.author: wchi
     import javax.net.ssl.*;
     import java.net.InetSocketAddress;
     import com.azure.identity.*;
-    import com.azure.core.credentital.*;
+    import com.azure.core.credential.*;
     import java.net.http.*;
     import java.net.URI;
 
@@ -230,7 +229,7 @@ ms.author: wchi
         endpoint = os.getenv("AZURE_COSMOS_RESOURCEENDPOINT")
         port = os.getenv("AZURE_COSMOS_PORT")
         listKeyUrl = os.Getenv("AZURE_COSMOS_LISTKEYURL")
-        scope = os.Getenv("AZUE_COSMOS_SCOPE")
+        scope = os.Getenv("AZURE_COSMOS_SCOPE")
 
         // Uncomment the following lines corresponding to the authentication type you want to use.
         // For system-assigned identity.
@@ -283,7 +282,7 @@ ms.author: wchi
     const axios = require('axios');
     
     let username = process.env.AZURE_COSMOS_USERNAME;
-    let endoint = process.env.AZURE_COSMOS_RESOURCEENDPOINT;
+    let endpoint = process.env.AZURE_COSMOS_RESOURCEENDPOINT;
     let port = process.env.AZURE_COSMOS_PORT;
     let listKeyUrl = process.env.AZURE_COSMOS_LISTKEYURL;
     let scope = process.env.AZURE_COSMOS_SCOPE;

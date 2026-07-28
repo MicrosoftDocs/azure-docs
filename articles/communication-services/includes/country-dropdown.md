@@ -6,7 +6,7 @@ ms.date: 07/20/2023
 ms.author: krkutser
 ms.custom: references_regions
 ---
-> **Use the drop-down menu to check phone number availability for other countries**
+> **Use the drop-down menu to check phone number availability for other countries/regions**
 > [!div class="op_single_selector"]
 >
 > - [Argentina](../concepts/numbers/phone-number-management-for-argentina.md)

@@ -2,11 +2,12 @@
 title: Troubleshoot SQL Server database backup
 description: Troubleshooting information for backing up SQL Server databases running on Azure VMs with Azure Backup.
 ms.topic: troubleshooting
-ms.date: 09/19/2024
+ms.date: 11/12/2025
 ms.service: azure-backup
 ms.custom: engagement-fy24
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to troubleshoot SQL Server database backup issues on Azure VMs, so that I can ensure successful backups and data recovery for my organization's databases."
 ---
 
 # Troubleshoot SQL Server database backup by using Azure Backup
@@ -115,7 +116,7 @@ If you'd like to trigger a restore on the healthy SQL instances, do the followin
 
 | Error message | Possible causes | Recommended actions |
 |---|---|---|
-| Backup file manipulation operations (such as ALTER DATABASE ADD FILE) and encryption changes on a database must be serialized. | The following are the cases where this error code might surface:<br><ul><li>Adding or dropping files to a database while a backup is happening.</li><li>Shrinking files while database backups are happening.</li><li>A database backup by another backup product configured for the database is in progress and a backup job is triggered by Azure Backup extension.</li></ul>| Disable the other backup product to resolve the issue.
+| Backup file manipulation operations (such as ALTER DATABASE ADD FILE) and encryption changes on a database must be serialized. | The following are the cases where this error code might surface:<br><ul><li>Adding or dropping files to a database while a backup is happening.</li><li>Shrinking files while database backups are happening.</li><li>A database backup by another backup product configured for the database is in progress and a backup job is triggered by Azure Backup extension.</li><li>Another Azure Backup job may be in progress.</li></ul>| Disable the other backup product to resolve the issue. In case there is any other Azure Backup job in progress, wait for its completion.
 
 
 ### UserErrorSQLPODoesNotExist
@@ -267,7 +268,7 @@ These symptoms may arise for one or more of the following reasons:
 - The VM was deleted, and another VM was created with the same name and in the same resource group as the deleted VM.
 - One of the availability group nodes didn't receive the complete backup configuration. This can happen when the availability group is registered to the vault or when a new node is added.
 
-In the preceding scenarios, we recommend that you trigger a re-register operation on the VM. See [here](./backup-azure-sql-automation.md#enable-backup) for instructions on how to perform this task in PowerShell.
+In the preceding scenarios, we recommend that you trigger a re-register operation on the VM. See [here](./backup-azure-sql-automation.md#enable-backup-for-sql-databases) for instructions on how to perform this task in PowerShell.
 
 ## Size limit for files
 
@@ -276,19 +277,19 @@ The total string size of files depends not only on the number of files but also 
 ```sql
 SELECT mf.name AS LogicalName, Physical_Name AS Location FROM sys.master_files mf
                INNER JOIN sys.databases db ON db.database_id = mf.database_id
-               WHERE db.name = N'<Database Name>'"
+               WHERE db.name = N'<Database Name>'
 ```
 
 Now arrange them in the following format:
 
 ```json
-[{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]}
+[{"path":"<Location>","logicalName":"<LogicalName>","isDir":false},{"path":"<Location>","logicalName":"<LogicalName>","isDir":false}]
 ```
 
 Here's an example:
 
 ```json
-[{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]}
+[{"path":"F:\\Data\\TestDB12.mdf","logicalName":"TestDB12","isDir":false},{"path":"F:\\Log\\TestDB12_log.ldf","logicalName":"TestDB12_log","isDir":false}]
 ```
 
 If the string size of the content exceeds 20,000 bytes, the database files are stored differently. During recovery, you won't be able to set the target file path for restore. The files will be restored to the default SQL path provided by SQL Server.
@@ -336,7 +337,7 @@ In the preceding content, you can get the logical name of the database file by u
 ```sql
 SELECT mf.name AS LogicalName FROM sys.master_files mf
                 INNER JOIN sys.databases db ON db.database_id = mf.database_id
-                WHERE db.name = N'<Database Name>'"
+                WHERE db.name = N'<Database Name>'
 ```
 
 This file should be placed before you trigger the restore operation.

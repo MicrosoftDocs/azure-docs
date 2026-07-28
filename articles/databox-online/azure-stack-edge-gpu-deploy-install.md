@@ -2,13 +2,12 @@
 title: Tutorial to install - Unpack, rack, cable Azure Stack Edge Pro GPU physical device | Microsoft Docs
 description: The second tutorial about installing Azure Stack Edge Pro GPU involves how to unpack, rack, and cable the physical device.
 services: databox
-author: alkohli
+author: sipastak
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.topic: tutorial
 ms.date: 07/05/2022
-ms.author: alkohli
+ms.author: sipastak
 zone_pivot_groups: azure-stack-edge-device-deployment
 # Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge Pro in datacenter so I can use it to transfer data to Azure.  
 ---
@@ -252,7 +251,7 @@ The backplane of Azure Stack Edge device:
 
 For a full list of supported cables, switches, and transceivers for these network adapter cards, see:
 
-- [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/documents/xalflardzafh32cfvi0z/).
+- [`Qlogic` Cavium 25G NDC adapter interoperability matrix](https://www.marvell.com/content/dam/marvell/en/public-collateral/ethernet-adaptersandcontrollers/marvell-ethernet-adapters-fastlinq-41000-interoperability-matrix.pdf).
 
 > [!NOTE]
 > Using USB ports to connect any external device, including keyboards and monitors, is not supported for Azure Stack Edge devices.

@@ -4,6 +4,9 @@ description: Learn storage best practices for migrating on-premises Hadoop clust
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 07/24/2024
 ---
 

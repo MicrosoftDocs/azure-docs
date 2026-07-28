@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - set-backend-service (Dapr) | Microsoft Docs
 description: Reference for the set-backend-service policy available for use in Dapr integration with Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 03/18/2024
-ms.author: danlep
 ---
 
 # Send request to a service
@@ -37,7 +35,7 @@ The policy assumes that Dapr runs in a sidecar container in the same pod as the 
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) self-hosted
 

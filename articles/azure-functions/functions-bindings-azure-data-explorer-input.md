@@ -5,7 +5,7 @@ author: ramacg
 ms.topic: reference
 ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python
 ms.date: 05/04/2023
-ms.author: shsagir
+ms.author: spelluru
 ms.reviewer: ramacg
 zone_pivot_groups: programming-languages-set-functions-data-explorer
 ---
@@ -623,6 +623,8 @@ The following table explains the binding configuration properties that you set i
 The attribute's constructor takes the database and the attributes `KQLCommand` and `KQLParameters` and the connection setting name. The KQL command can be a KQL statement or a KQL function. The connection string setting name corresponds to the application setting (in `local.settings.json` for local development) that contains the [Kusto connection strings](/azure/data-explorer/kusto/api/connection-strings/kusto). For example: `"KustoConnectionString": "Data Source=https://your_cluster.kusto.windows.net;Database=your_Database;Fed=True;AppClientId=your_AppId;AppKey=your_AppKey;Authority Id=your_TenantId`. Queries executed by the input binding are parameterized. The values provided in the KQL parameters are used at runtime.
 
 ::: zone-end
+
+[!INCLUDE [functions-azure-data-explorer-authentication-note](../../includes/functions-azure-data-explorer-authentication-note.md)]
 
 ## Next steps
 

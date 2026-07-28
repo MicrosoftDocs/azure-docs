@@ -17,7 +17,7 @@ To learn more about the concept of soft delete feature, see [Soft-Delete in Azur
 
 ## Prerequisites
 
-* An Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
+* An Azure subscription - [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 
 * Refer to the [Soft-Delete in Azure App Configuration](./concept-soft-delete.md#permissions-to-recover-a-deleted-store) section for permissions requirements.
 
@@ -53,7 +53,7 @@ To create a new App Configuration store in the  Azure portal, follow these steps
 ## Enable Purge Protection in an existing store
 
 1. Log in to the Azure portal.
-1. Select your standard tier App Configuration store.
+1. Select your Standard or Premium tier App Configuration store.
 1. Refer to the screenshot below on where to check for the soft delete status of an existing store.
 
     :::image type="content" source="./media/how-to-soft-delete-app-config-1.png" alt-text="In Overview, Soft-delete is highlighted.":::

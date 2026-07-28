@@ -1,7 +1,7 @@
 ---
 title: Azure Event Grid - Monitor data reference (pull delivery)
 description: This article provides reference documentation for metrics and diagnostic logs for Azure Event Grid's push and pull delivery of events.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom:
   - build-2023
   - ignite-2023
@@ -24,7 +24,7 @@ This article provides a reference of log and metric data collected to analyze th
 | FailedPublishedEvents | Failed to publish events | Number of events that failed because Event Grid didn't accept them. This count doesn't include events that were published but failed to reach Event Grid due to a network issue. | 
 | SuccessfulReceivedEvents | Successful received event | Number of events that were successfully returned to (received by) clients. |
 | FailedReceivedEvents | Failed to receive event | Number of events requested by clients that Event Grid couldn't deliver successfully. |
-| SuccessfulAcknowlegedEvents | Successful acknowledged events | Number of events acknowledged by clients. |
+| SuccessfulAcknowledgedEvents | Successful acknowledged events | Number of events acknowledged by clients. |
 | FailedAcknowledgedEvents | Failed to acknowledge events | Number of events that clients didn't acknowledge. |
 | SuccessfulReleasedEvents | Successful released events | Number of events released by queue subscriber clients. |
 | FailedReleasedEvents | Failed to release event counts | Number of events that failed to be released back to Event Grid. |

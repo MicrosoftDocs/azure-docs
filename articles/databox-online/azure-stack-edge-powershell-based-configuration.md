@@ -2,12 +2,11 @@
 title: Use a config file to deploy an Azure Stack Edge device | Microsoft Docs
 description: Describes how to use PowerShell to provision and activate an Azure Stack Edge device.
 services: databox
-author: alkohli
-ms.service: databox
-ms.subservice: edge
+author: sipastak
+ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 12/21/2023
-ms.author: alkohli
+ms.author: sipastak
 ---
 # Use a config file to deploy an Azure Stack Edge device
 

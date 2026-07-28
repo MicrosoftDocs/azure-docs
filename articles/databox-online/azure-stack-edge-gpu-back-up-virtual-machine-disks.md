@@ -2,14 +2,16 @@
 title: Back up VM disks on Azure Stack Edge Pro GPU device via PowerShell
 description: Describes how to back up data on virtual machine disks running on your Azure Stack Edge Pro GPU device.
 services: databox
-author: alkohli
+author: sipastak
 
-ms.service: databox
-ms.subservice: edge
-ms.custom: devx-track-azurepowershell, devx-track-arm-template
+ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/25/2021
-ms.author: alkohli
+ms.author: sipastak
+ms.custom:
+  - devx-track-azurepowershell
+  - devx-track-arm-template
+  - sfi-ropc-nochange
 #Customer intent: As an IT admin, I need to understand how to create and upload Azure VM images that I can use with my Azure Stack Edge Pro device so that I can deploy VMs on the device.
 ---
 

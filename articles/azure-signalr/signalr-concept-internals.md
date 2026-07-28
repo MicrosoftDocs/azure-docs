@@ -3,7 +3,7 @@ title: Azure SignalR Service internals
 description: Learn about Azure SignalR Service internals, the architecture, the connections and how data is transmitted.
 author: vicancy
 ms.service: azure-signalr-service
-ms.topic: conceptual
+ms.topic: concept-article
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 08/09/2024
@@ -60,7 +60,7 @@ There are three steps to establish persistent connections between the client and
         ```
         {
             "url":"https://test.service.signalr.net/client/?hub=chat&...",
-            "accessToken":"<a typical JWT token>"
+            "accessToken":"<a typical JWT>"
         }
         ```
     - For ASP.NET SignalR, a typical redirect response looks like:
@@ -68,7 +68,7 @@ There are three steps to establish persistent connections between the client and
         {
             "ProtocolVersion":"2.0",
             "RedirectUrl":"https://test.service.signalr.net/aspnetclient",
-            "AccessToken":"<a typical JWT token>"
+            "AccessToken":"<a typical JWT>"
         }
         ```
 

@@ -2,12 +2,13 @@
 title: Implement a retry policy using the Azure Storage client library for .NET
 titleSuffix: Azure Storage
 description: Learn about retry policies and how to implement them for Blob Storage. This article helps you set up a retry policy for Blob Storage requests using the Azure Storage client library for .NET. 
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 11/19/2024
 ms.custom: devx-track-dotnet, devguide-csharp
+# Customer intent: "As a software developer, I want to implement a retry policy for Azure Blob Storage requests, so that my application can handle transient faults effectively and maintain stability during network or service interruptions."
 ---
 
 # Implement a retry policy with .NET
@@ -26,9 +27,12 @@ The following table lists the properties of the [RetryOptions](/dotnet/api/azure
 | --- | --- | --- | --- |
 | [Delay](/dotnet/api/azure.core.retryoptions.delay) | [TimeSpan](/dotnet/api/system.timespan) | The delay between retry attempts for a fixed approach or the delay on which to base calculations for a backoff-based approach. If the service provides a Retry-After response header, the next retry is delayed by the duration specified by the header value. | 0.8 second |
 | [MaxDelay](/dotnet/api/azure.core.retryoptions.maxdelay) | [TimeSpan](/dotnet/api/system.timespan) | The maximum permissible delay between retry attempts when the service doesn't provide a Retry-After response header. If the service provides a Retry-After response header, the next retry is delayed by the duration specified by the header value. | 1 minute |
-| [MaxRetries](/dotnet/api/azure.core.retryoptions.maxretries) | int | The maximum number of retry attempts before giving up. | 5 |
+| [MaxRetries](/dotnet/api/azure.core.retryoptions.maxretries) | int | The maximum number of retry attempts before giving up. | 5 (see note) |
 | [Mode](/dotnet/api/azure.core.retryoptions.mode) | [RetryMode](/dotnet/api/azure.core.retrymode) | The approach to use for calculating retry delays. | Exponential |
 | [NetworkTimeout](/dotnet/api/azure.core.retryoptions.networktimeout) | [TimeSpan](/dotnet/api/system.timespan) | The timeout applied to an individual network operation. | 100 seconds |
+
+> [!NOTE]
+> `StorageClientOptions` increases the default value for `MaxRetries` from 3 to 5. All other properties have the same default values as `RetryOptions`.
 
 In this code example for Blob Storage, we configure the retry options in the `Retry` property of the [BlobClientOptions](/dotnet/api/azure.storage.blobs.blobclientoptions) class. Then, we create a client object for the blob service using the retry options.
 

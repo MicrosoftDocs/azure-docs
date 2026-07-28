@@ -1,14 +1,14 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
-ms.date: 12/17/2021
+ms.date: 09/01/2025
 ---
 
 To modify the sample code to use the X.509 certificates:
 
-1. In the **IoTHubDeviceSamples** Visual Studio solution, open the *Parameter.cs* file in the **TemperatureController** project.
+1. In the **IoTHubDeviceSamples** Visual Studio solution, open the _Parameter.cs_ file in the **TemperatureController** project.
 
 1. Add the following two parameter definitions to the class:
 
@@ -30,7 +30,7 @@ To modify the sample code to use the X.509 certificates:
 
     Save the changes.
 
-1. In the **IoTHubDeviceSamples** Visual Studio solution, open the *Program.cs* file in the **TemperatureController** project.
+1. In the **IoTHubDeviceSamples** Visual Studio solution, open the _Program.cs_ file in the **TemperatureController** project.
 
 1. Add the following `using` statements:
 

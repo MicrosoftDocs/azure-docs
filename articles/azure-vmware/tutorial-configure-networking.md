@@ -2,9 +2,12 @@
 title: "Tutorial: Configure networking for your VMware private cloud in Azure"
 description: Learn to create and configure the necessary network resources for deploying your private cloud in Azure.
 ms.topic: tutorial
-ms.custom: engagement-fy23
 ms.service: azure-vmware
-ms.date: 6/12/2024
+ms.date: 4/06/2026
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: "As a cloud architect, I want to configure the networking resources for my VMware private cloud in Azure, so that I can ensure seamless integration and connectivity between my on-premises and cloud environments."
 ---
 
 # Tutorial: Configure networking for your VMware private cloud in Azure
@@ -26,13 +29,13 @@ This tutorial assumes that you completed the [previous tutorial about creating a
 > [!NOTE]
 > Before you create a virtual network, evaluate whether you want to connect to Azure VMware Solution by using an existing virtual network or by creating a new one:
 >
-> * To use an existing virtual network in the same Azure subscription as Azure VMware Solution, use the [Azure VNet connect](#select-an-existing-virtual-network) tab on the **Connectivity** pane.
+> * To use an existing virtual network in the same Azure subscription as Azure VMware Solution, use the [Azure virtual network connect](#select-an-existing-virtual-network) tab on the **Connectivity** pane.
 > * To use an existing virtual network in a different Azure subscription from Azure VMware Solution, use the guidance for [connecting to the private cloud manually](#connect-to-the-private-cloud-manually).
-> * To create a new virtual network in the same Azure subscription as Azure VMware Solution, use the [Azure VNet connect](#create-a-new-virtual-network) tab or create one [manually](#create-a-virtual-network-manually).
+> * To create a new virtual network in the same Azure subscription as Azure VMware Solution, use the [Azure virtual network connect](#create-a-new-virtual-network) tab or create one [manually](#create-a-virtual-network-manually).
 
 ## Prerequisites
 
-* Make sure that the virtual network that you use for this tutorial:
+* Verify the virtual network you use for this tutorial meets the following requirements:
 
   * Contains a gateway subnet.
   * Is in the same region as the Azure VMware Solution private cloud.
@@ -51,7 +54,7 @@ You can take advantage of the **Azure VNet connect** feature if you want to conn
 
 When you select an existing virtual network, the Azure Resource Manager (ARM) template that creates the virtual network and other resources is redeployed. The resources, in this case, are the public IP address, gateway, gateway connection, and ExpressRoute authorization key.
 
-If everything is set up, the deployment doesn't change anything. However, if anything is missing, it's created automatically. For example, if the gateway subnet is missing, it's added during the deployment.
+If everything is set up, the deployment doesn't change anything. However, if anything is missing, it gets created automatically. For example, if the gateway subnet is missing, it gets added during the deployment.
 
 1. In the Azure portal, go to the Azure VMware Solution private cloud.
 
@@ -118,7 +121,7 @@ After the deployment is complete, your virtual network appears in the resource g
 
 ### Create a virtual network gateway
 
-Now that you've created a virtual network, create a virtual network gateway:
+Now that you created a virtual network, create a virtual network gateway:
 
 1. In your resource group, select **+ Add** to add a new resource.
 
@@ -135,12 +138,12 @@ Now that you've created a virtual network, create a virtual network gateway:
    | **Name** | Enter a unique name for the virtual network gateway. |
    | **Region** | Select the geographical location of the virtual network gateway. |
    | **Gateway type** | Select **ExpressRoute**. |
-   | **SKU** | Select the gateway type that's appropriate for your workload. <br> For Azure NetApp Files datastores, select **UltraPerformance** or **ErGw3Az**. |
+   | **SKU** | Select the gateway type that's appropriate for your workload. <br> For external storage such as Azure Elastic SAN or Azure NetApp Files datastores, select **UltraPerformance** or **ErGw3Az**. |
    | **Virtual network** | Select the virtual network that you created previously. If you don't see the virtual network, make sure the gateway's region matches the region of your virtual network. |
    | **Gateway subnet address range** | The value is populated when you select the virtual network. Don't change the default value. |
    | **Public IP address** | Select **Create new**. |
-
-   :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Screenshot that shows the details for a virtual network gateway." border="true":::
+   
+      :::image type="content" source="./media/tutorial-configure-networking/create-virtual-network-gateway.png" alt-text="Screenshot that shows the details for a virtual network gateway." border="true":::
 
 1. Verify that the details are correct, and then select **Create** to start deployment of your virtual network gateway.
 
@@ -148,7 +151,7 @@ After the deployment finishes, move to the next section to connect ExpressRoute 
 
 ### Connect ExpressRoute to the virtual network gateway
 
-Now that you've deployed a virtual network gateway, add a connection between it and your Azure VMware Solution private cloud:
+Now that you deployed a virtual network gateway, add a connection between it and your Azure VMware Solution private cloud:
 
 [!INCLUDE [connect-expressroute-to-vnet](includes/connect-expressroute-vnet.md)]
 

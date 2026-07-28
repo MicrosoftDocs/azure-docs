@@ -1,18 +1,18 @@
 ---
 title: Supported platforms for IoT Edge for Linux on Windows
 description: Learn which operating systems and container engines are supported for Azure IoT Edge for Linux on Windows
-author: PatAltimore
-ms.author: patricka
-ms.date: 06/05/2024
-ms.topic: conceptual
-ms.service: iot-edge
+author: sethmanheim
+ms.author: sethm
+ms.date: 04/02/2026
+ms.topic: concept-article
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ---
 
 # Azure IoT Edge for Linux on Windows supported systems
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article provides details about which systems support IoT Edge for Linux on Windows, whether generally available or in preview. 
 
@@ -48,9 +48,10 @@ Azure IoT Edge for Linux on Windows supports the following architectures:
 
 | Version | AMD64 | ARM64 |
 | ---------------- | ----- |  ----- |
-| EFLOW 1.1 LTS | ![AMD64](./media/support/green-check.png) | |
-| EFLOW Continuous Release (CR) ([Public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)) | ![AMD64](./media/support/green-check.png) | ![ARM64](./media/support/green-check.png) |
-| EFLOW 1.4 LTS | ![AMD64](./media/support/green-check.png) | ![ARM64](./media/support/green-check.png) |
+| EFLOW 1.5 LTS | ![AMD64](./media/support/green-check.png) | ![ARM64](./media/support/green-check.png) |
+
+> [!NOTE]
+> EFLOW 1.1 LTS (end of support: December 2022), EFLOW Continuous Release (end of support: August 2022), and EFLOW 1.4 LTS (end of support: November 2024) are no longer supported. For version history and release dates, see [IoT Edge version history](version-history.md).
 
 For more information about Windows ARM64 supported processors, see [Windows Processor Requirements](/windows-hardware/design/minimum/windows-processor-requirements).
 
@@ -60,10 +61,8 @@ Azure IoT Edge for Linux on Windows (EFLOW) can run in Windows virtual machines.
 
 | Version | Hyper-V VM | Azure VM | VMware ESXi VM | Other Hypervisor | 
 | ---------------- | ----- |  ----- | ----- | ----- | 
-| EFLOW 1.1 LTS | ![1.1LTS](./media/support/green-check.png) |  ![1.1LTS](./media/support/green-check.png) |  ![1.1LTS](./media/support/green-check.png) | - |  
-| EFLOW Continuous Release (CR) ([Public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)) | ![CR](./media/support/green-check.png) | ![CR](./media/support/green-check.png) |  ![CR](./media/support/green-check.png) | - |
-| EFLOW 1.4 LTS | ![1.4LTS](./media/support/green-check.png) |  ![1.4LTS](./media/support/green-check.png) |  ![1.4LTS](./media/support/green-check.png) | - |  
- 
+| EFLOW 1.5 LTS | ![1.5LTS](./media/support/green-check.png) |  ![1.5LTS](./media/support/green-check.png) |  ![1.5LTS](./media/support/green-check.png) | - |  
+
 For more information, see [EFLOW Nested virtualization](./nested-virtualization.md).
 
 ### VMware virtual machine
@@ -75,11 +74,13 @@ IoT Edge for Linux on Windows release assets and release notes are available on 
 
 The following table lists the components included in each release. Each release train is independent, and we don't guarantee backwards compatibility and migration between versions. For more information about IoT Edge version, see [IoT Edge platform support](./support.md).
 
-| Release | IoT Edge | CBL-Mariner | Defender for IoT |
+| Release | IoT Edge | Azure Linux | Defender for IoT |
 | ------- | -------- | ----------- | ---------------- |
 | **1.1 LTS** | 1.1 | 2.0 | - |
 | **Continuous Release** | 1.3 | 2.0 | 3.12.3 |
 | **1.4 LTS** | 1.4 | 2.0 | 3.12.3 |
+| **1.5 LTS** | 1.5 | 2.0 | 3.12.3 |
+| **1.5 LTS** | 1.5 | 3.0 | 3.12.3 |
 
 
 ## Minimum system requirements

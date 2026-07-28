@@ -1,11 +1,12 @@
 ---
 title: Create Azure HDInsight - Azure Data Lake Storage Gen2 - portal
 description: Learn how to use Azure Data Lake Storage Gen2 with Azure HDInsight clusters using the portal.
-author: yeturis
-ms.author: sairamyeturi
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, subject-rbac-steps
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 09/06/2024
 ---
 
@@ -15,7 +16,7 @@ The Azure portal is a web-based management tool for services and resources hoste
 
 [!INCLUDE [delete-cluster-warning](includes/hdinsight-delete-cluster-warning.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 To create an HDInsight cluster that uses Data Lake Storage Gen2 for storage, follow these steps to configure a storage account that has a hierarchical namespace.
 
@@ -78,7 +79,7 @@ Assign the managed identity to the **Storage Blob Data Owner** role on the stora
 
    The user-assigned identity that you selected is now listed under the selected role.
 
-   For more information about role assignments, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml)
+   For more information about role assignments, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
 
 1. After this initial setup is complete, you can create a cluster through the portal. The cluster must be in the same Azure region as the storage account. In the **Storage** tab of the cluster creation menu, select the following options:
 

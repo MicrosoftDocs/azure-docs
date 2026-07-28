@@ -23,7 +23,7 @@ This article shows you how to create a managed identity for Azure SignalR Servic
 
 To use a managed identity, you must have the following items:
 
-- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - An Azure SignalR Service resource.
 - Upstream resources that you want to access, such as an Azure Key Vault resource.
 - An Azure Functions app (function app).
@@ -80,10 +80,17 @@ After you add a [system-assigned identity](#add-a-system-assigned-identity) or [
 1. In the managed identity authentication settings, for **Audience in the issued token**, you can specify the target **resource**. The **resource** will become an `aud` claim in the obtained access token, which can be used as a part of validation in your upstream endpoints. The resource can be in one of the following formats:
 
    - Application (client) ID of the service principal.
+
+     When using Application (client) ID, the application has to be in the same tenant that the Azure SignalR resource is in. If your application is in a different tenant, please follow these steps:
+     1. [Convert single-tenant app to multitenant on Microsoft Entra ID](/entra/identity-platform/single-and-multi-tenant-apps) to convert your application to a multitenant application.
+     2. [Create an enterprise application from a multitenant application in Microsoft Entra ID](/entra/identity/enterprise-apps/create-service-principal-cross-tenant?pivots=admin-consent-url) to provision your application in the current tenant.
+     
+     Then you'll be able to find the enterprise application by clicking the "Or select from existing applications".
+   
    - Application ID URI of the service principal.
 
    > [!IMPORTANT]
-   > Using empty resource actully acquire a token targets to Microsoft Graph. As today, Microsoft Graph enables token encryption so it's not available for application to authenticate the token other than Microsoft Graph. In common practice, you should always create a service principal to represent your upstream target. And set the **Application ID** or **Application ID URI** of the service principal you've created.
+   > Using empty resource actually acquire a token targets to Microsoft Graph. As today, Microsoft Graph enables token encryption so it's not available for application to authenticate the token other than Microsoft Graph. In common practice, you should always create a service principal to represent your upstream target. And set the **Application ID** or **Application ID URI** of the service principal you've created.
 
 #### Authentication in a function app
 

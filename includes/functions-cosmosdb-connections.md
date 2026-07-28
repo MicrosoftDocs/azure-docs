@@ -1,38 +1,21 @@
 ---
-author: mattchenderson
+author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 11/12/2021
-ms.author: mahender
+ms.date: 07/11/2026
+ms.author: glenga
 ---
 
 ## Connections
 
-The `connectionStringSetting`/`connection` and `leaseConnectionStringSetting`/`leaseConnection` properties are references to environment configuration which specifies how the app should connect to Azure Cosmos DB. They may specify:
+The `connection` and `leaseConnection` properties are set to keys in application settings that return values used by the Functions runtime to connect to the Azure Cosmos DB account endpoints used by the extension. The value of these property settings depend on the type of connection: 
 
-- The name of an application setting containing a [connection string](#connection-string)
-- The name of a shared prefix for multiple application settings, together defining an [identity-based connection](#identity-based-connections). This option is only available for the `connection` and `leaseConnection` versions from [version 4.x or higher of the extension].
++ **Managed identity connection**: The `connection` property is a `<CONNECTION_NAME_PREFIX>` shared by a group of settings that together define an identity-based connection to the account. For more information, see [Define identity connections](../articles/azure-functions/manage-connections.md?pivots=functions-auth-identity&tabs=bindings#define-connections).
++ **[Key Vault reference](/azure/key-vault/general/overview)**: The `connection` property setting returns an Azure Key Vault reference to the location where the connection string is centrally maintained. For more information, see [Define Key Vault connections](../articles/azure-functions/manage-connections.md?pivots=functions-auth-keyvault&tabs=bindings#define-connections).
++ **[App Configuration reference](../articles/azure-app-configuration/quickstart-azure-functions-csharp.md)**: The `connection` property setting returns an Azure App Configuration reference that returns a connection string or a Key Vault reference. For more information, see [Azure App Configuration](../articles/azure-functions/manage-connections.md#azure-app-configuration) in the connections article. 
++ **Connection string**: The `connection` property setting returns the actual account connection string. Because the connection string contains shared secret keys, you should consider using a managed identity connection, when possible. For more information, see [Define connections](../articles/azure-functions/manage-connections.md?pivots=functions-auth-secret&tabs=bindings#define-connections).
 
-If the configured value is both an exact match for a single setting and a prefix match for other settings, the exact match is used.
+To learn more about bindings connections, see [Manage connection in Azure Functions](../articles/azure-functions/manage-connections.md?pivots=functions-auth-identity&tabs=bindings). To obtain a connection string, navigate to your Azure Cosmos DB account, select **Keys**, and then copy the **PRIMARY CONNECTION STRING** or **SECONDARY CONNECTION STRING** values. These connection strings contain shared secret keys and must be kept secure. 
 
-### Connection string
+In earlier versions of the extension, the connection properties were named `connectionStringSetting` and `leaseConnectionStringSetting`.
 
-The connection string for your database account should be stored in an application setting with a name matching the value specified by the connection property of the binding configuration.
-
-### Identity-based connections
-
-If you are using [version 4.x or higher of the extension], instead of using a connection string with a secret, you can have the app use an [Microsoft Entra identity](../articles/active-directory/fundamentals/active-directory-whatis.md). To do this, you would define settings under a common prefix which maps to the connection property in the trigger and binding configuration.
-
-In this mode, the extension requires the following properties:
-
-| Property                  | Environment variable template                       | Description                                | Example value                                        |
-|---------------------------|-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
-| Account Endpoint | `<CONNECTION_NAME_PREFIX>__accountEndpoint` | The Azure Cosmos DB account endpoint URI. | https://<database_account_name>.documents.azure.com:443/ |
-
-Additional properties may be set to customize the connection. See [Common properties for identity-based connections](../articles/azure-functions/functions-reference.md#common-properties-for-identity-based-connections).
-
-[!INCLUDE [functions-identity-based-connections-configuration](./functions-identity-based-connections-configuration.md)]
-
-[!INCLUDE [functions-cosmos-permissions](./functions-cosmos-permissions.md)]
-
-[version 4.x or higher of the extension]: ../articles/azure-functions/functions-bindings-cosmosdb-v2.md?tabs=extensionv4

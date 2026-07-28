@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 320" font-family="'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="white"/>
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="#333">Automated Health Check Workflow</text>
+  
+  <!-- Step 1: Schedule -->
+  <g transform="translate(100, 90)">
+    <circle cx="0" cy="0" r="40" fill="#5E35B1" stroke="#4527A0" stroke-width="2"/>
+    <text x="0" y="-20" text-anchor="middle" font-size="28" fill="white">🕒</text>
+    <text x="0" y="5" text-anchor="middle" font-size="11" font-weight="bold" fill="white">Schedule</text>
+    <text x="0" y="60" text-anchor="middle" font-size="10" fill="#555">Daily at 8 AM</text>
+    <text x="0" y="73" text-anchor="middle" font-size="10" fill="#555">Every hour</text>
+    <text x="0" y="86" text-anchor="middle" font-size="10" fill="#555">Weekly on Mon</text>
+  </g>
+  
+  <!-- Step 2: Agent Runs -->
+  <g transform="translate(280, 90)">
+    <rect x="-50" y="-40" width="100" height="80" rx="8" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+    <text x="0" y="-12" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Agent Runs</text>
+    <text x="0" y="5" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Automatically</text>
+    <text x="0" y="60" text-anchor="middle" font-size="10" fill="#555">No manual trigger</text>
+    <text x="0" y="73" text-anchor="middle" font-size="10" fill="#555">Runs even if you're</text>
+    <text x="0" y="86" text-anchor="middle" font-size="10" fill="#555">offline</text>
+  </g>
+  
+  <!-- Step 3: Analyzes Systems -->
+  <g transform="translate(460, 90)">
+    <rect x="-50" y="-40" width="100" height="80" rx="8" fill="#F57C00" stroke="#E65100" stroke-width="2"/>
+    <text x="0" y="-12" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Analyzes</text>
+    <text x="0" y="5" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Systems</text>
+    <text x="0" y="60" text-anchor="middle" font-size="9" fill="#555">Checks health metrics</text>
+    <text x="0" y="72" text-anchor="middle" font-size="9" fill="#555">Reviews error rates</text>
+    <text x="0" y="84" text-anchor="middle" font-size="9" fill="#555">Verifies backups</text>
+    <text x="0" y="96" text-anchor="middle" font-size="9" fill="#555">Validates configs</text>
+  </g>
+  
+  <!-- Step 4: Reports Findings -->
+  <g transform="translate(640, 90)">
+    <rect x="-50" y="-40" width="100" height="80" rx="8" fill="#388E3C" stroke="#2E7D32" stroke-width="2"/>
+    <text x="0" y="-12" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Reports</text>
+    <text x="0" y="5" text-anchor="middle" font-size="13" font-weight="bold" fill="white">Findings</text>
+    <text x="0" y="60" text-anchor="middle" font-size="9" fill="#555">Posts to Teams</text>
+    <text x="0" y="72" text-anchor="middle" font-size="9" fill="#555">Creates tickets</text>
+    <text x="0" y="84" text-anchor="middle" font-size="9" fill="#555">Sends email</text>
+    <text x="0" y="96" text-anchor="middle" font-size="9" fill="#555">Updates dashboard</text>
+  </g>
+  
+  <!-- Step 5: Optional Action -->
+  <g transform="translate(820, 90)">
+    <rect x="-50" y="-40" width="100" height="80" rx="8" fill="#D32F2F" stroke="#B71C1C" stroke-width="2"/>
+    <text x="0" y="-18" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Optionally</text>
+    <text x="0" y="-3" text-anchor="middle" font-size="12" font-weight="bold" fill="white">Takes Action</text>
+    <text x="0" y="60" text-anchor="middle" font-size="9" fill="#555">Restarts services</text>
+    <text x="0" y="72" text-anchor="middle" font-size="9" fill="#555">Scales resources</text>
+    <text x="0" y="84" text-anchor="middle" font-size="9" fill="#555">Clears caches</text>
+    <text x="0" y="96" text-anchor="middle" font-size="9" fill="#555">(if Autonomous)</text>
+  </g>
+  
+  <!-- Flow arrows -->
+  <path d="M 145 90 L 225 90" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowHealth)"/>
+  <path d="M 335 90 L 405 90" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowHealth)"/>
+  <path d="M 515 90 L 585 90" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowHealth)"/>
+  <path d="M 695 90 L 765 90" stroke="#333" stroke-width="2" fill="none" marker-end="url(#arrowHealth)"/>
+  
+  <!-- Loop back arrow -->
+  <path d="M 100 130 Q 100 260 850 230 Q 880 220 880 90" stroke="#9E9E9E" stroke-width="2" stroke-dasharray="5,5" fill="none" marker-end="url(#arrowHealthDashed)"/>
+  <text x="450" y="270" text-anchor="middle" font-size="12" fill="#666">Repeats on schedule</text>
+  
+  <!-- Arrow markers -->
+  <defs>
+    <marker id="arrowHealth" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#333"/>
+    </marker>
+    <marker id="arrowHealthDashed" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#9E9E9E"/>
+    </marker>
+  </defs>
+</svg>

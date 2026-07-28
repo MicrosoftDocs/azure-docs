@@ -2,23 +2,27 @@
 title: Creating Enterprise Azure Dev/Test subscriptions
 description: Create Enterprise and Organizational Azure Dev/Test subscriptions for teams and large organizations.
 ms.author: amast
-author: rigel512
+author: joseb-rdc
 ms.service: visual-studio-family
 ms.subservice: subscriptions
 ms.topic: how-to
-ms.date: 10/18/2023
+ms.date: 04/30/2026
 ms.custom: devtestoffer
 ---
 
 # Creating Enterprise and Organization Azure Dev/Test Subscriptions
 
+This Learn document is specific to customers using the Azure Enterprise Agreement billing model, and the actions described apply to users with EA roles such as Account Owners or Enterprise Administrators.
+
 Enterprise Dev/Test Subscriptions are available for team development in large organizations
 
 - For team development in large enterprises  
 - Enterprise-wide billing – no separate payments  
-- Create an enterprise dev/test offer subscription through the Azure Enterprise Portal  
+- Create an enterprise dev/test subscription in the Azure portal  
 
 ## Prerequisites
+
+These prerequisites apply to customers using the Azure Enterprise Agreement (EA) billing model. If your organization uses a different billing model (such as Microsoft Customer Agreement or pay-as-you-go), these roles and steps don't apply.
 
 To create an enterprise Azure dev/test subscription, you must have an account owner role on an Enrollment Account to make the subscription. There are two ways to access this role:  
 
@@ -27,63 +31,49 @@ To create an enterprise Azure dev/test subscription, you must have an account ow
 
 ### Important information before you add Account Owners
 
-An EA Account Owner **cannot** use the same sign-in account for the EA Portal and other Azure offers. Suppose you were added to the EA Portal as an Account Owner and used the same credentials you used for your individual Visual Studio Benefits. In that case, that Visual Studio subscription is converted to the EA Dev/Test offer.  
+An EA Account Owner **can't** use the same sign-in account for the Enterprise Agreement enrollment (in the Azure portal) and other Azure offers. If you're added as an Account Owner and used the same credentials associated with your individual Visual Studio Benefits. In that case, your Visual Studio Subscription is converted to the EA Dev/Test offer.  
 
-> [!Note]  
-> The first time you sign in to the EA Portal as an account owner, you'll see a warning pop-up. It’s essential to read and understand. Your existing subscriptions will be converted to a billable EA offer. If you're a Visual Studio subscriber added as an Account Owner, you'll lose your individual monthly Azure credit until you take further action.
+> [!NOTE]  
+> The first time you sign in as an EA Account Owner, you see a warning message explaining how Azure subscriptions are affected. It's important to review this information carefully. In some cases, subscriptions might be converted to a billable Enterprise Agreement offer, and individual Visual Studio Azure credits associated with the same account might be removed.
 
 ### To recover your individual Visual Studio Azure Benefits  
+
+These steps describe common ways to recover access to individual Visual Studio Azure benefits. Depending on your account and subscription configuration, recovery options might vary. For more information about managing Azure subscriptions, billing access, and roles, see [Azure Cost Management and Billing documentation](/azure/cost-management-billing/).
 
 After you authenticate your role as an EA Account Owner, you can either:  
 
 - Remove or move any Azure subscriptions you own  
-- Delete your role as Account Owner in the EA Portal  
-- Sign up for your individual Visual Studio Azure benefits again  
-- Or delete the subscriber from the Visual Studio Administrator site in the VLSC and reassign the subscription, using a different sign-in, then you can sign up for an individual Visual Studio Azure benefits anew  
+- Remove your role as Account Owner in the Enterprise Agreement  
+- Sign up again for your individual Visual Studio Azure benefits  
+- Or remove the subscriber from the Visual Studio Subscriptions Administration site, then reassign the subscription using a different sign-in. After assignment, you can sign up again for individual Visual Studio Azure benefits  
 
 ## Create your subscription
 
-To create your enterprise dev/test subscriptions, first choose an enrollment account as a dev/test account.  
+To create an Enterprise Dev/Test subscription, you must have appropriate permissions within your Enterprise Agreement enrollment. An Enterprise Administrator or Account Owner can create new subscriptions in the Azure portal.
 
-1. To get started, go to [Ea.azure.com](https://ea.azure.com). The Azure Enterprise Portal is where you can manage your company's enrollments  
-2. Within the Manage tab, select your agreement number  
+To create a subscription:
+1. Sign in to the [Azure portal]( https://portal.azure.com/)
+2. Navigate to **Subscriptions** and select **Add**
+3. Select the appropriate **billing account and enrollment account**
+4. Choose the **Enterprise Dev/Test offer** (if enabled)
+5. Enter the required subscription details and complete creation
 
-    > [!Note]
-    > The enrollment can change based on your Enterprise Agreement renewal cycle.
-    
-    ![A screenshot of the Enterprise Agreement management portal page.](media/quickstart-create-enterprise-devtest-subscriptions/ea-manage-portal.png "Manage your company's enrollments from the Azure Enterprise Portal.")
-    
-3. Once you’ve selected the appropriate enrollment number, select the **Account** tab  
-4. From here, you can edit the Account(s) and toggle the dev/test flag to **Yes**.  
-
-To add an account:  
-
-1. In the Azure Enterprise portal, select Manage in the left navigation area.  
-2. Select the Account tab on the Account page, select +Add Account.  
-3. You can pick a department, or leave it blank.
-4. Pick the desired authentication type.  
-5. Enter a friendly name to identify the Account in reporting.  
-6. Enter the Account Owner Email address to associate with the new Account.  
-7. Confirm the email address and then select Add.  
-
-![A screenshot of the Azure Enterprise Portal management page with +Add Account selected.](media/quickstart-create-enterprise-devtest-subscriptions/add-account.png "Select Add Account.")
+For detailed steps and current requirements, see [Create and Enterprise Agreement subscription](/azure/cost-management-billing/manage/create-enterprise-subscription).
 
 ## Add your Azure Enterprise Dev/Test Subscription
 
-After you've chosen the account to create an enterprise Azure dev/test subscription, add the appropriate subscription offer. There are two ways. No matter what you pick, the experience is the same.  
+After you create an Enterprise Dev/Test subscription, you can view and manage it in the Azure portal.
+To access your subscription:
 
-1. The subscription tab in each portal has a **+/Add** button.
+1. Sign in to the [Azure portal]( https://portal.azure.com/)
+1. Navigate to **Subscriptions**
+1. Locate your Enterprise Dev/Test subscription in the list
 
-    1. Go to a sign-in page.
-    1. Sign in with your Microsoft Azure credentials.
-    1. After you sign in, you're directed to a page that lists the offers available. Toggle **Yes** in the EA portal to see enterprise offers.
-    
-1. Select the enterprise dev/test offer and create your subscription.
-
-    1. You must have access and permissions associated with your identity.
-    1. You must designate the Account as a dev/test account within the enrollment portal.
+You can use this subscription to deploy and manage development and testing workloads in accordance with Enterprise Dev/Test usage guidelines.
+For more information about managing subscriptions and billing scopes, see [Azure Cost Management and Billing documentation](/azure/cost-management-billing/).
 
 ## Related content  
 
-- [Azure EA portal administration](../../cost-management-billing/manage/ea-portal-administration.md)
-- [Get started with the Azure Enterprise portal](../../cost-management-billing/manage/ea-portal-get-started.md)
+- [Create an Enterprise Agreement subscription](/azure/cost-management-billing/manage/create-enterprise-subscription)
+- [Understand Azure Enterprise Agreement roles](/azure/cost-management-billing/manage/understand-ea-roles)
+- [Azure Cost Management and Billing documentation](/azure/cost-management-billing/)

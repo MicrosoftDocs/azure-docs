@@ -43,6 +43,8 @@ A client can publish to other clients only when it's *authorized* to do so. A cl
 | `webpubsub.sendToGroup` | The client can publish messages to any group. |
 | `webpubsub.joinLeaveGroup.<group>` | The client can join or leave group `<group>`. |
 | `webpubsub.sendToGroup.<group>` | The client can publish messages to group `<group>`. |
+| `webpubsub.joinLeaveGroups.<pattern>` | The client can join/leave any group whose name matches `<pattern>` (see [Wildcard group role patterns](./concept-wildcard-group-roles.md)). |
+| `webpubsub.sendToGroups.<pattern>` | The client can publish messages to any group whose name matches `<pattern>` (see [Wildcard group role patterns](./concept-wildcard-group-roles.md)). |
 | | |
 
 ## Authentication and authorization
@@ -59,10 +61,10 @@ This is the default workflow, shown as follows:
 
 1. The client negotiates with your auth server. The auth server contains the authorization middleware, which handles the client request and signs a JWT for the client to connect to the service.
 1. The auth server returns the JWT to the client.
-1. The client tries to connect to the Web PubSub service with the JWT token returned from the auth server. The token can be in either the query string, as `/clients/mqtt/hubs/{hub}?access_token={token}`, or the `Authorization` header, as `Authorization: Bearer {token}`.
+1. The client tries to connect to the Web PubSub service with the JWT returned from the auth server. The token can be in either the query string, as `/clients/mqtt/hubs/{hub}?access_token={token}`, or the `Authorization` header, as `Authorization: Bearer {token}`.
 
 #### Supported claims
-You could also configure properties for the client connection when generating the access token by specifying special claims inside the JWT token:
+You could also configure properties for the client connection when generating the access token by specifying special claims inside the JWT:
 
 | Description | Claim type | Claim value | Notes |
 | --- | --- | --- | --- |

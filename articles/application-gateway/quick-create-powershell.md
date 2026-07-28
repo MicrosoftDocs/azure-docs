@@ -3,12 +3,13 @@ title: 'Quickstart: Direct web traffic using PowerShell'
 titleSuffix: Azure Application Gateway
 description: In this quickstart, you learn how to use Azure PowerShell to create an Azure Application Gateway that directs web traffic to virtual machines in a backend pool.
 services: application-gateway
-author: greg-lindsay
-ms.author: greglin
+author: mbender-ms
+ms.author: mbender
 ms.date: 05/30/2024
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurepowershell, mvc, mode-api
+# Customer intent: "As a cloud architect, I want to use Azure PowerShell to create and configure an application gateway, so that I can effectively manage web traffic to my backend resources with improved routing and load balancing."
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway using Azure PowerShell
@@ -26,7 +27,7 @@ You can also complete this quickstart using [Azure CLI](quick-create-cli.md) or 
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure PowerShell version 1.0.0 or later](/powershell/azure/install-azure-powershell) (if you run Azure PowerShell locally).
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
@@ -169,6 +170,9 @@ New-AzApplicationGateway `
 
 > [!TIP]
 > You can modify values of the `Name` and `Tier` parameters to use a different SKU. For example: `Basic`.
+
+> [!NOTE]
+> In regions that support availability zones, if you don't specify zones during creation via CLI, PowerShell, ARM/Bicep, or the REST API—Azure Application Gateway automatically enables zone redundancy, distributing instances across multiple availability zones for enhanced resiliency
 
 ### Backend servers
 

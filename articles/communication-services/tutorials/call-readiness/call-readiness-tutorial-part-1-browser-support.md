@@ -122,7 +122,7 @@ const App = (): JSX.Element => {
 
 ### Performing an Environment information check
 
-First create a utility file call `environmentSupportUtils.ts`. Inside this call, we add a method `checkEnvironmentSupport`. This method uses the [Calling Stateful Client](https://azure.github.io/communication-ui-library/?path=/docs/statefulclient-overview--page) to perform a request for the environment information that the Calling Stateful Client is running on.
+First create a utility file call `environmentSupportUtils.ts`. Inside this call, we add a method `checkEnvironmentSupport`. This method uses the [Calling Stateful Client](https://azure.github.io/communication-ui-library/?path=/docs/stateful-client-overview--docs) to perform a request for the environment information that the Calling Stateful Client is running on.
 
 `src/environmentSupportUtils.ts`
 
@@ -164,7 +164,7 @@ import { Modal } from '@fluentui/react';
 
 /**
  * Modal dialog that shows a Browser Version Unsupported Prompt
- * Use the `onTroubleShootingClick` argument to redirect the user to further troublshooting.
+ * Use the `onTroubleShootingClick` argument to redirect the user to further troubleshooting.
  * Use the `onContinueAnywayClick` argument to allow the user to continue to the next step even though they are on an unsupported browser version.
  */
 export const BrowserVersionUnsupportedPrompt = (props: { isOpen: boolean, onContinueAnyway:() => void }): JSX.    Element => (
@@ -178,7 +178,7 @@ export const BrowserVersionUnsupportedPrompt = (props: { isOpen: boolean, onCont
 
 /**
  * Modal dialog that shows a Browser Unsupported Prompt
- * Use the `onTroubleShootingClick` argument to redirect the user to further troublshooting.
+ * Use the `onTroubleShootingClick` argument to redirect the user to further troubleshooting.
  */
 export const BrowserUnsupportedPrompt = (props: { isOpen: boolean }): JSX.Element => (
   <Modal isOpen={props.isOpen}>
@@ -190,7 +190,7 @@ export const BrowserUnsupportedPrompt = (props: { isOpen: boolean }): JSX.Elemen
 
 /**
  * Modal dialog that shows an Operating System Unsupported Prompt
- * Use the `onTroubleShootingClick` argument to redirect the user to further troublshooting.
+ * Use the `onTroubleShootingClick` argument to redirect the user to further troubleshooting.
  */
 export const OperatingSystemUnsupportedPrompt = (props: { isOpen: boolean }): JSX.Element => (
   <Modal isOpen={props.isOpen}>

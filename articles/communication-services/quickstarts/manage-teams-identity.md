@@ -11,7 +11,13 @@ ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 zone_pivot_groups: acs-js-csharp-java-python
-ms.custom: mode-other, devx-track-extended-java, devx-track-js, devx-track-python, has-azure-ad-ps-ref
+ms.custom:
+  - mode-other
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - has-azure-ad-ps-ref
+  - sfi-ga-nochange
 ---
 # Quickstart: Set up and manage access tokens for Teams users
 
@@ -21,7 +27,7 @@ In this quickstart, you'll build a .NET console application to authenticate a Mi
 > When you're in a production environment, we recommend that you implement this exchange mechanism in back-end services, because requests for an exchange are signed with a secret.
 
 ## Prerequisites
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An active Azure Communication Services resource and connection string. For more information, see [Create an Azure Communication Services resource](./create-communication-resource.md).
 - A Microsoft Entra instance with users that have a Teams license.  For more information, see [Teams License requirements](./eligible-teams-licenses.md).
 
@@ -55,7 +61,7 @@ The following application settings influence the experience:
 
 For more detailed information, see [Register an application with the Microsoft identity platform](/entra/identity-platform/quickstart-register-app#register-an-application). 
 
-When the application is registered, you'll see an [identifier in the overview](../concepts/troubleshooting-info.md#getting-application-id). This identifier, *Application (client) ID*, is used in the next steps.
+When the application is registered, you'll see an [identifier in the overview](../concepts/troubleshooting-info.md#get-an-application-id). This identifier, *Application (client) ID*, is used in the next steps.
 
 ### Step 2: Allow public client flows
 
@@ -87,11 +93,11 @@ The following roles can provide consent on behalf of a company:
 - Application admin
 - Cloud application admin
 
-If you want to check roles in Azure portal, see [List Azure role assignments](../../role-based-access-control/role-assignments-list-portal.yml).
+If you want to check roles in Azure portal, see [List Azure role assignments](/azure/role-based-access-control/role-assignments-list-portal).
 
 To construct an Administrator consent URL, the Fabrikam Microsoft Entra Administrator does the following steps:
 
-1. In the URL *https://login.microsoftonline.com/{Tenant_ID}/adminconsent?client_id={Application_ID}*, the Administrator replaces {Tenant_ID} with the Fabrikam [Tenant ID](../concepts/troubleshooting-info.md#getting-directory-id), and replaces {Application_ID} with the Contoso [Application ID](../concepts/troubleshooting-info.md#getting-application-id).
+1. In the URL *https://login.microsoftonline.com/{Tenant_ID}/adminconsent?client_id={Application_ID}*, the Administrator replaces {Tenant_ID} with the Fabrikam [Tenant ID](../concepts/troubleshooting-info.md#get-a-directory-id), and replaces {Application_ID} with the Contoso [Application ID](../concepts/troubleshooting-info.md#get-an-application-id).
 1. The Administrator logs in and grants permissions on behalf of the organization.
 
 The service principal of the Contoso application in the Fabrikam tenant is created if consent is granted. The Fabrikam Administrator can review the consent in Microsoft Entra ID by doing the following steps:

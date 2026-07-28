@@ -2,23 +2,24 @@
 title: Enable resource logging in Azure Traffic Manager
 description: Learn how to enable resource logging for your Traffic Manager profile and access the log files that are created as a result.
 services: traffic-manager
-author: greg-lindsay
+author: asudbring
 ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 08/08/2024
-ms.author: greglin
+ms.author: allensu
 ms.custom: template-how-to, devx-track-azurepowershell
+# Customer intent: "As a cloud administrator, I want to enable resource logging for my Traffic Manager profile, so that I can monitor probe health results and gain insights into the performance and availability of my endpoints."
 ---
 
 # Enable resource logging in Azure Traffic Manager
 
-This article describes how to enable collection of diagnostic resource logs and access log data for a Traffic Manager profile.
+This article describes how to enable the collection of diagnostic resource logs, including Traffic Manager Probe Health Results, for a Traffic Manager profile.
 
 Azure Traffic Manager resource logs can provide insight into the behavior of the Traffic Manager profile resource. For example, you can use the profile's log data to determine why individual probes have timed out against an endpoint.
 
 ## Prerequisites
 
-* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * This guide requires a Traffic Manager profile. To learn more, see [Create a Traffic Manager profile](./quickstart-create-traffic-manager-profile.md).
 
 * This guide requires an Azure Storage account. To learn more, see [Create a storage account](../storage/common/storage-account-create.md).

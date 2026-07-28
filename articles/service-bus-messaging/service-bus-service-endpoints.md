@@ -3,7 +3,11 @@ title: Configure network service endpoints
 description: This article provides information on how to add a Microsoft.ServiceBus service endpoint to a virtual network. 
 ms.topic: how-to
 ms.date: 07/31/2024
-ms.custom: fasttrack-edit, devx-track-azurecli, devx-track-azurepowershell
+ms.custom:
+  - fasttrack-edit
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - sfi-image-nochange
 # Customer intent: As a developer or IT Admin, I want to know how to allow access to my Service Bus namespace only from selected networks. 
 ---
 
@@ -96,6 +100,9 @@ This section shows you how to use Azure portal to add a virtual network service 
 
     > [!NOTE]
     > For instructions on allowing access from specific IP addresses or ranges, see [Allow access from specific IP addresses or ranges](service-bus-ip-filtering.md).
+
+    > [!NOTE]
+    > To delete a Virtual Network rule, first remove any Azure Resource Manager delete lock on the Virtual Network.
 
 [!INCLUDE [service-bus-trusted-services](./includes/service-bus-trusted-services.md)]
 
@@ -234,7 +241,7 @@ From API version **2021-06-01-preview onwards**, the default value of the `defau
 
 The API version **2021-06-01-preview onwards** also introduces a new property named `publicNetworkAccess`. If it's set to `Disabled`, operations are restricted to private links only. If it's set to `Enabled`, operations are allowed over the public internet. 
 
-For more information about these properties, see [Create or Update Network Rule Set](/rest/api/servicebus/controlplane-preview/namespaces-network-rule-set/create-or-update-network-rule-set) and [Create or Update Private Endpoint Connections](/rest/api/servicebus/controlplane-preview/private-endpoint-connections/create-or-update).
+For more information about these properties, see [Create or Update Private Endpoint Connections](/rest/api/servicebus/controlplane-preview/private-endpoint-connections/create-or-update).
 
 > [!NOTE]
 > None of the above settings bypass validation of claims via SAS or Microsoft Entra authentication. The authentication check always runs after the service validates the network checks that are configured by `defaultAction`, `publicNetworkAccess`, `privateEndpointConnections` settings.

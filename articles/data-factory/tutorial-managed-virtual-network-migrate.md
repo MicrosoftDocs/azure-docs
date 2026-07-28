@@ -1,10 +1,11 @@
 ---
 title: Move existing Azure integration runtime to an Azure integration runtime in a managed virtual network
 description: This tutorial provides steps to move existing Azure integration runtime to an Azure integration runtime in a managed virtual network.
-author: lrtoyou1223
-ms.author: lle
+author: kromerm
+ms.author: makromer
 ms.topic: tutorial
-ms.date: 05/15/2024
+ms.date: 10/03/2024
+ms.subservice: data-movement
 ---
 
 # Tutorial: How to move existing Azure integration runtime to an Azure integration runtime in a managed virtual network

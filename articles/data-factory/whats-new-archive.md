@@ -1,11 +1,11 @@
 ---
 title: What's new archive
 description: This page archives older months' highlights of new features and recent improvements for Azure Data Factory. Data Factory is a managed cloud service that's built for complex hybrid extract-transform-and-load (ETL), extract-load-and-transform (ELT), and data integration projects.
-author: pennyzhou-msft
-ms.author: xupzhou
+author: kromerm
+ms.author: makromer
 ms.topic: overview
 ms.custom: references_regions
-ms.date: 08/11/2023
+ms.date: 09/25/2024
 ---
 # What's new archive for Azure Data Factory
 
@@ -47,7 +47,7 @@ Added support for metadata driven pipelines for dynamic full and incremental pro
 
 ### Integration runtime
 
-Self-hosted integration runtime now supports self-contained interactive authoring (Preview) [Learn more](create-self-hosted-integration-runtime.md?tabs=data-factory#self-contained-interactive-authoring-preview)
+Self-hosted integration runtime now supports self-contained interactive authoring (Preview) [Learn more](create-self-hosted-integration-runtime.md?tabs=data-factory#self-contained-interactive-authoring)
 
 ## July 2023
 

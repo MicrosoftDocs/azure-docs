@@ -1,13 +1,13 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
- ms.date: 01/23/2024
- ms.author: cherylmc
+ ms.date: 06/10/2026
+ ms.author: duau
 ---
 ### Is NAT supported on all Azure VPN Gateway SKUs?
 
-NAT is supported on VpnGw2 to VpnGw25 and on VpnGw2AZ to VpnGw5AZ.
+NAT is supported on VpnGw2 to VpnGw5 and on VpnGw2AZ to VpnGw5AZ.
 
 ### Can I use NAT on VNet-to-VNet or P2S connections?
 
@@ -15,7 +15,7 @@ No.
 
 ### How many NAT rules can I use on a VPN gateway?
 
-You can create up to 100 NAT rules (ingress and egress rules combined) on a VPN gateway.
+You can create up to 500 NAT rules (ingress and egress rules combined) on a VPN gateway.
 
 ### Can I use a slash (/) in a NAT rule name?
 
@@ -57,8 +57,8 @@ In either case, you don't need destination network address translation (DNAT) ru
 
 You need to create one NAT rule for each prefix, because each NAT rule can include only one address prefix for NAT. For example, if the address space for the local network gateway consists of 10.0.1.0/24 and 10.0.2.0/25, you can create two rules:
 
-* **IngressSNAT** rule 1: Map 10.0.1.0/24 to 100.0.1.0/24.
-* **IngressSNAT** rule 2: Map 10.0.2.0/25 to 100.0.2.0/25.
+* **IngressSNAT** rule 1: Map 10.0.1.0/24 to 192.168.1.0/24.
+* **IngressSNAT** rule 2: Map 10.0.2.0/25 to 192.168.2.0/25.
 
 The two rules must match the prefix lengths of the corresponding address prefixes. The same guideline applies to **EgressSNAT** rules for the VNet address space.
 

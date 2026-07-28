@@ -53,7 +53,7 @@ To get started, see [Quickstart: Create and publish an Azure Managed Application
     },
     "authorizations": [
       {
-        "principalId": "d6b7fbd3-4d99-43fe-8a7a-f13aef11dc18",
+        "principalId": "aaaaaaaa-bbbb-cccc-1111-222222222222",
         "roleDefinitionId": "8e3af657-a8ff-443c-a75c-2fe8c4bcb635"
       },
     ...

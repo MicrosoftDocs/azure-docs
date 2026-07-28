@@ -3,8 +3,11 @@ title: 'Tutorial: Apache Spark Streaming & Apache Kafka - Azure HDInsight'
 description: Learn how to use Apache Spark streaming to get data into or out of Apache Kafka. In this tutorial, you stream data using a Jupyter Notebook from Spark on HDInsight.
 ms.service: azure-hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive
-ms.date: 12/05/2023
+ms.date: 12/02/2024
+ms.custom:
+  - hdinsightactive
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 #Customer intent: As a developer, I want to learn how to use Spark Structured Streaming with Kafka on HDInsight.
 ---
 
@@ -237,7 +240,7 @@ This example demonstrates how to use Spark Structured Streaming with Kafka on HD
 1. Declare a schema. The following command demonstrates how to use a schema when reading JSON data from kafka. Enter the command in your next Jupyter cell.
 
     ```scala
-    // Import bits useed for declaring schemas and working with JSON data
+    // Import bits used for declaring schemas and working with JSON data
     import org.apache.spark.sql._
     import org.apache.spark.sql.types._
     import org.apache.spark.sql.functions._

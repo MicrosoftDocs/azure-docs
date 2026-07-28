@@ -5,115 +5,54 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 04/30/2024
+ms.date: 12/17/2025
 #customer intent: As a network engineer, I want to deploy User-Defined Routes (UDRs) with Azure Virtual Network Manager.
 ---
 
 # Create User-Defined Routes (UDRs) in Azure Virtual Network Manager
 
-In this article, you learn how to deploy [User-Defined Routes (UDRs)](concept-user-defined-route-management.md) with Azure Virtual Network Manager in the Azure portal. UDRs allow you to describe your desired routing behavior, and Virtual Network Manager orchestrates UDRs to create and maintain that behavior. You deploy all the resources needed to create UDRs, including the following resources:
-    
-- Virtual Network Manager instance
-    
-- Two virtual networks and a network group
-    
-- Routing configuration to create UDRs for the network group
-
-[!INCLUDE [virtual-network-manager-udr-preview](../../includes/virtual-network-manager-udr-preview.md)]
+In this article, you learn how to deploy [User-Defined Routes (UDRs)](concept-user-defined-route-management.md) with Azure Virtual Network Manager in the Azure portal. UDRs allow you to describe your desired routing behavior, and Virtual Network Manager orchestrates UDRs to create and maintain that behavior. You deploy all the resources needed to create UDRs in an existing network manager instance including a network group, routing configuration, and rule collection.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- You need to have the **Network Contributor Role** for the scope that you want to use for your virtual network manager instance. 
+- You need to have the **Network Contributor Role** for the scope that you want to use for your virtual network manager instance.
 
-## Create a Virtual Network Manager instance
-
-In this step, you deploy a Virtual Network Manager instance with the defined scope and access that you need. 
-
-1. Sign in to the [Azure portal](https://portal.azure.com/).
-
-1. Select **+ Create a resource** and search for **Network Manager**. Then select **Network Manager** > **Create** to begin setting up Virtual Network Manager.
-
-1. On the **Basics** tab, enter or select the following information, and then select **Review + create**.
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Subscription** | Select the subscription where you want to deploy Virtual Network Manager. |
-    | **Resource group** | Select **Create new** and enter **rg-vnm**.</br> Select **Ok**. |
-    | **Name** | Enter **vnm-1**. |
-    | **Region** | Select **(US) East US** or a region of your choosing. Virtual Network Manager can manage virtual networks in any region. The selected region is where the Virtual Network Manager instance is deployed. |
-    | **Description** | *(Optional)* Provide a description about this Virtual Network Manager instance and the task it's managing. |
-    | [Features](concept-network-manager-scope.md#features) | Select **User defined routing** from the dropdown list. |
-
-1. Select the **Management scope** tab or select **Next: Management scope >** to continue.
-
-1. On the **Management scope** tab, select **+ Add**.
-
-1. In **Add scopes**, select your subscription then choose **Select**. 
-
-1. Select **Review + create** and then select **Create** to deploy the Virtual Network Manager instance.
+- A Virtual Network Manager instance with *user defined routing* and *Connectivity* features enabled during setup. In this how-to, your Virtual Network Manager instance is named **network-manager**. If you don't have a Virtual Network Manager instance, see [Create a Virtual Network Manager instance](./create-virtual-network-manager-portal.md) for instructions.
 
 ## Create virtual networks and subnets
 
-In this step, you create two virtual networks to become members of a network group.
+In this step, you create two virtual networks to become members of a network group. Before beginning, make sure you're using the same subscription and resource group as your Virtual Network Manager instance.
 
-1. From the **Home** screen, select **+ Create a resource** and search for **Virtual network**. 
+1. From the **Home** screen, select **+ Create a resource** and search for **Virtual networks**. 
 
-1. Select **Virtual network > Create** to begin configuring a virtual network.
+1. Select **Virtual networks > Create** to begin configuring a virtual network.
 
 1. On the **Basics** tab, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | **Subscription** | Select the subscription where you want to deploy this virtual network. |
-    | **Resource group** | Select **rg-vnm**. |
-    | **Virtual network name** | Enter **vnet-spoke-001**. |
-    | **Region** | Select **(US) East US**. |
+    | **Resource group** | Select **resource-group**. |
+    | **Virtual network name** | Enter **vnet-001**. |
+    | **Region** | Select **(US) West US 2**. |
 
-1. Select **Next > Next** or the **IP addresses** tab.
+1. Select **Next: Security** > **Next: IP Addresses** or the **IP addresses** tab.
 
+1. On the **IP addresses** tab, enter an IPv4 address range of **10.1.0.0** and **/16**. The default subnet will be **10.1.0.0/24**
 
-1. On the **IP addresses** tab, enter an IPv4 address range of **10.0.0.0** and **/16**.
+1. Select **Review + create** > **Create**.
 
-1. Under **Subnets**, select **default** and enter the following information in the **Edit Subnet** window:
+1. Return to **Home**. From the home screen, create another virtual network in **West US 2** called **vnet-002** with an IPv4 address range of **10.2.0.0/16**. The default subnet will be **10.2.0.0/24**. Use the same subscription, resource group, and region as the first virtual network.
 
-    | Setting | Value |
-    | -------- | ----- |
-    | **Subnet purpose** | Leave as **Default**. |
-    | **Name** | Leave as **default**. |
-    | **IPv4** | |
-    | **IPv4 address range** | Select **10.0.0.0/16**. |
-    | **Starting address** | Enter **10.0.1.0**. |
-    | **Size** | Enter **/24 (256 addresses)**. |
-
-    :::image type="content" source="media/how-to-deploy-user-defined-routes/edit-subnet.png" alt-text="Screenshot of subnet settings in Azure portal.":::
-
-1. Select **Save** then **Review + create > Create**.
-
-1. Return to home and repeat the preceding steps to create another virtual network with the following information:
-
-    | Setting | Value |
-    | ------- | ----- |
-    | **Subscription** | Select the same subscription that you selected in step 2. |
-    | **Resource group** | Select **rg-vnm**. |
-    | **Virtual network name** | Enter **vnet-spoke-002**. |
-    | **Region** | Select **(US) East US**. |
-    | **Edit subnet window** | |
-    | **Subnet purpose** | Leave as **Default**. |
-    | **Name** | Leave as **default**. |
-    | **IPv4** | |
-    | **IPv4 address range** | Select **10.1.0.0/16**. |
-    | **Starting address** | Enter **10.1.1.0**. |
-    | **Size** | Enter **/24 (256 addresses)**. |
-
-1. Select **Save** then **Review + create > Create**.
+1. Select **Save** then **Review + create** > **Create**.
 
 ## Create a network group with Azure Policy
 
 In this step, you create a network group containing your virtual networks using Azure policy.
 
-1. From the **Home** page, select **Resource groups** and browse to the **rg-vnm** resource group, and select the **vnm-1** Virtual Network Manager instance.
+1. From the **Home** page, select **Resource groups** and browse to the **resource-group** resource group, and select the network manager instance.
 
 1. Under **Settings**, select **Network groups**. Then select **Create**.
 
@@ -121,21 +60,18 @@ In this step, you create a network group containing your virtual networks using 
    
     | Setting | Value |
     | ------- | ----- |
-    | **Name** | Enter **ng-spoke**. |
+    | **Name** | Enter **network-group**. |
     | **Description** | *(Optional)* Provide a description about this network group. |
     | **Member type** | Select **Virtual network**. |
 
 1. Select **Create**.
 
-1. Select **ng-spoke** and choose **Create Azure Policy**.
-   
-   :::image type="content" source="media/how-to-deploy-user-defined-routes/network-group-page.png" alt-text="Screenshot of network group page with options for group creation and membership view.":::
-
+1. Select **network-group** and choose **Create Azure Policy**.
 1. In **Create Azure Policy**, enter or select the following information:
    
     | Setting | Value |
     | ------- | ----- |
-    | **Policy name** | Enter **ng-azure-policy**. |
+    | **Policy name** | Enter **azure-policy**. |
     | **Scope** | Select **Select Scope** and choose your subscription, if not already selected. |
 
 1. Under **Criteria**, enter a conditional statement to define the network group membership. Enter or select the following information:
@@ -144,15 +80,10 @@ In this step, you create a network group containing your virtual networks using 
     | ------- | ----- |
     | **Parameter** | Select **Name** from the dropdown menu. |
     | **Operator** | Select **Contains** from the dropdown menu. |
-    | **Condition** | Enter **-spoke-**. |
+    | **Condition** | Enter **vnet**. |
 
-    :::image type="content" source="media/how-to-deploy-user-defined-routes/create-azure-policy.png" alt-text="Screenshot of create Azure Policy window defining a conditional statement for network group membership.":::
-        ```
-1. Select **Preview Resources** to see the resources included in the network group, and select **Close**.
-   
-   :::image type="content" source="media/how-to-deploy-user-defined-routes/azure-policy-preview-resources.png" alt-text="Screenshot of preview screen for Azure Policy resources based on conditional statement.":::
-
-1. Select **Save** to create the policy.
+1. Select **Preview Resources** to see the resources included in the network group. The virtual networks that match the condition will be listed. 
+1. Select **Close** then select **Save** to create the policy.
    
 ## Create a routing configuration and rule collection
 
@@ -179,13 +110,8 @@ In this step, you define the UDRs for the network group by creating a routing co
     | ------- | ----- |
     | **Name** | Enter **rule-collection-1**. |
     | **Description** | *(Optional)* Provide a description about this rule collection. |
-    | **Local route setting** | Select **Direct routing within virtual network**. |
-    | **Target network groups** | select **ng-spoke**. |
-
-    :::image type="content" source="media/how-to-deploy-user-defined-routes/add-rule-collection.png" alt-text="Screenshot of Add a rule collection window with target network group selected.":::
-
-    > [!NOTE]
-    > With the **Local route setting** option, you can choose how to route traffic within the same virtual network or subnet. For more information, see [Local route settings](concept-user-defined-route-management.md#local-routing-settings).
+    | **Enable BGP route propagation** | Leave **unchecked**. |
+    | **Target network groups** | select **network-group**. |
 
 1. Under **Routing rules**, select **+ add**.
 
@@ -200,8 +126,6 @@ In this step, you define the UDRs for the network group by creating a routing co
     | **Next hop** | |
     | **Next hop type** | Select **Virtual network**. |
 
-    :::image type="content" source="media/how-to-deploy-user-defined-routes/add-routing-rule-virtual-network.png" alt-text="Screenshot of Add a routing rule window with selections for virtual network next hop.":::
-
 1. Select **Add** and **Add to save the routing rule collection.
 
 1. Select **Review + create** and then **Create** to create the routing configuration.
@@ -211,9 +135,6 @@ In this step, you define the UDRs for the network group by creating a routing co
 In this step, you deploy the routing configuration to create the UDRs for the network group.
 
 1. On the **Configurations** page, select the checkbox for **routing-configuration** and choose **Deploy** from the taskbar.
-   
-   :::image type="content" source="media/how-to-deploy-user-defined-routes/deploy-routing-configuration.png" alt-text="Screenshot of routing configurations with configuration selected and deploy link.":::
-
 1. In **Deploy a configuration** , select, or enter the **routing-configuration**
    
    | Setting | Value |
@@ -222,17 +143,14 @@ In this step, you deploy the routing configuration to create the UDRs for the ne
     | **Include user defined routing configurations in your goal state** | Select checkbox. |
     | **User defined routing configurations** | Select **routing-configuration**. |
     | **Region** |  |
-    | **Target regions** | Select **(US) East US**. |
+    | **Target regions** | Select **(US) West US 2**. |
 
 1. Select **Next** and then **Deploy** to deploy the routing configuration.
 
 > [!NOTE]
-> When you create and deploy a routing configuration, you need to be aware of the impact of existing routing rules. For more information, see [limitations for UDR management](./concept-user-defined-route.md#limitations-of-udr-management).
+> When you create and deploy a routing configuration, you need to be aware of the impact of existing routing rules. For more information, see [Impacts of user-defined routes](./concept-user-defined-route.md).
 
 ## Next steps
 
 > [!div class="nextstepaction"]
 > [Learn more about User-Defined Routes (UDRs)](../virtual-network/virtual-networks-udr-overview.md)
-
-
-

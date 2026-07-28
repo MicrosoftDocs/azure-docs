@@ -7,8 +7,9 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
-ms.date: 08/24/2023
-ms.custom: template-how-to, engagement-fy23
+ms.date: 01/07/2025
+ms.custom: sfi-image-nochange
+# Customer intent: As an IT network engineer, I want to manage public IP addresses with a load balancer, so that I can efficiently configure and optimize resource accessibility and egress for backend services, while preparing for future infrastructure changes.
 ---
 
 # Manage a public IP address with a load balancer
@@ -27,7 +28,7 @@ In this article, you learn how to:
 > [!div class="checklist"]
 > * Create a load balancer with an existing public IP address in your subscription. 
 > * Change the current public IP associated to a load balancer. 
-> * Change the frontend configuration of a load balancer from a public IP address to a public IP prefix.  
+> * Change the frontend configuration of a load balancer from a public IP address to a public IP prefix. 
 
 Finally, the article reviews unique aspects of using public IPs and public IP prefixes with a load balancer. 
 
@@ -36,7 +37,7 @@ Finally, the article reviews unique aspects of using public IPs and public IP pr
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Two standard SKU public IP addresses in your subscription. The IP addresses can't be associated with any resources. For more information on creating a standard SKU public IP address, see [Create a public IP address using the Azure portal](./create-public-ip-portal.md).
     - For the purposes of the examples in this article, name the new public IP addresses **myStandardPublicIP-1** and **myStandardPublicIP-2**.
 - A public IP prefix in your subscription. For more information on creating a public IP prefix, see [Create a public IP address prefix using the Azure portal](./create-public-ip-prefix-portal.md).
@@ -54,13 +55,13 @@ In this section, you create a standard SKU load balancer. You select the IP addr
 
 4. Select **+ Create**.
 
-5. In the **Basics** tab of **Create Load balancer**, enter or select the following information:
+5. In the **Basics** tab of **Create Load balancer**, enter, or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **myResourceGroupIP**. </br> Select **OK**. |
+    | Resource group | Select **Create new**.</br> Enter **myResourceGroupIP**.</br> Select **OK**. |
     | **Instance details** |   |
     | Name | Enter **myLoadBalancer**. |
     | Region | Select **(US) West US 2**. |
@@ -108,17 +109,13 @@ To change the IP, you associate a new public IP address previously created with 
 6. In **Frontend IP configuration**, select **myFrontend** or your load balancer frontend.
 
 7. In the load balancer frontend configuration, select **myStandardPublicIP-2** in **Public IP address**.
-
 8. Select **Save**.
-
-    :::image type="content" source="./media/configure-public-ip-load-balancer/change-public-ip-address.png" alt-text="Screenshot of changing the public I P address of the load balancer.":::
-
 9. In **Frontend IP configuration**, verify the load balancer frontend displays the new IP address named **myStandardPublicIP-2**.
 
     :::image type="content" source="./media/configure-public-ip-load-balancer/verify-new-ip.png" alt-text="Screenshot of the load balancer Frontend I P configuration page showing the new public I P address.":::
 
 > [!NOTE]
-> This technique can be utilized when transitioning from a non-zonal frontend to a zone-redundant frontend in regions that support availability zones.  See [Load Balancer and Availability Zones](../../load-balancer/load-balancer-standard-availability-zones.md)
+> This technique can be utilized when transitioning from a non-zonal frontend to a zone-redundant frontend in regions that support availability zones. See [Load Balancer and Availability Zones](../../load-balancer/load-balancer-standard-availability-zones.md)
 
 ## Add public IP prefix
 
@@ -146,8 +143,6 @@ In this section, you change the frontend configuration used for outbound connect
 
 9. Select **Save**.
 
-    :::image type="content" source="./media/configure-public-ip-load-balancer/change-public-ip-prefix.png" alt-text="Screenshot of changing the public IP prefix of the load balancer.":::
-
 10. In **Frontend IP configuration**, verify the load balancer frontend displays the public IP prefix named **myPublicIPPrefixOutbound**.
 
     :::image type="content" source="./media/configure-public-ip-load-balancer/verify-new-ip-prefix.png" alt-text="Screenshot of the load balancer Frontend IP configuration page showing the new public IP prefix.":::
@@ -162,9 +157,9 @@ In this section, you change the frontend configuration used for outbound connect
 
 ## Caveats
 
-* Standard public load balancers can use standard SKU static IPv6 addresses as their frontend public IPs or public IP prefixes.  Every deployment must be dual-stack with both IPv4 and IPv6 frontends. NAT64 translation is unavailable. For more information, see [Deploy an IPv6 dual stack application in Azure - PowerShell](../../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) (Basic public load balancers can use basic SKU dynamic IPv6 addresses as their frontend public IPs.).
+* Standard public load balancers can use standard SKU static IPv6 addresses as their frontend public IPs or public IP prefixes. Every deployment must be dual-stack with both IPv4 and IPv6 frontends. NAT64 translation is unavailable. For more information, see [Deploy an IPv6 dual stack application in Azure - PowerShell](../../load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md) (Basic public load balancers can use basic SKU dynamic IPv6 addresses as their frontend public IPs.).
 
-* When multiple frontends are assigned to a public load balancer, there isn't a method to assign flows from particular backend instances to egress on a specific IP.  For more information, see [Multiple frontends for Azure Load Balancer](../../load-balancer/load-balancer-multivip-overview.md).
+* When multiple frontends are assigned to a public load balancer, there isn't a method to assign flows from particular backend instances to egress on a specific IP. For more information, see [Multiple frontends for Azure Load Balancer](../../load-balancer/load-balancer-multivip-overview.md).
 
 ## Next steps
 

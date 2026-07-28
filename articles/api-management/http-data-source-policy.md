@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - http-data-source | Microsoft Docs
 description: Reference for the http-data-source resolver policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 07/23/2024
-ms.author: danlep
 ---
 
 # HTTP data source for a resolver
@@ -128,7 +126,7 @@ type User {
 </http-data-source>
 ```
 
-### Resolver for a GraqhQL query that returns a list, using a liquid template
+### Resolver for a GraphQL query that returns a list, using a liquid template
 
 The following example uses a liquid template, supported for use in the [set-body](set-body-policy.md) policy, to return a list in the HTTP response to a query.  It also renames the `username` field in the response from the REST API to `name` in the GraphQL response.
 

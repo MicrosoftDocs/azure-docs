@@ -1,11 +1,13 @@
 ---
 title: Set up the configuration server for disaster recovery of physical servers to Azure using Azure Site Recovery
+ms.reviewer: v-gajeronika
 description: This article describes how to set up the on-premises configuration server for disaster recovery of on-premises physical servers to Azure.
-author: ankitaduttaMSFT
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
-ms.date: 07/03/2019
-ms.author: ankitadutta
+ms.date: 12/08/2025
+ms.author: v-gajeronika
+# Customer intent: "As an IT administrator, I want to set up a configuration server for disaster recovery to Azure, so that I can ensure the protection and recovery of our on-premises physical servers in the event of a failure."
 ---
 
 # Set up the configuration server for disaster recovery of physical servers to Azure
@@ -20,6 +22,7 @@ The article assumes that you already have:
 - If you've disabled TLS 1.0 on the machine on which you're installing the configuration server, make sure that TLs 1.2 is enabled, and that the .NET Framework version 4.6 or later is installed on the machine (with strong cryptography enabled). [Learn more](https://support.microsoft.com/help/4033999/how-to-resolve-azure-site-recovery-agent-issues-after-disabling-tls-1).
 
 ### Configuration server minimum requirements
+
 The following table lists the minimum hardware, software, and network requirements for a configuration server.
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-and-scaleout-process-server-requirements.md)]
 
@@ -31,21 +34,21 @@ The following table lists the minimum hardware, software, and network requiremen
 1. In the Azure portal, go to the **Recovery Services** vaults blade and select your vault.
 2. In the **Resource** menu of the vault, click **Getting Started** > **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
 
-    ![Screenshot that shows where to select the protection goal.](./media/physical-azure-set-up-source/choose-goals.png)
+    :::image type="content" source="./media/physical-azure-set-up-source/choose-goals.png" alt-text="Screenshot that shows where to select the protection goal.":::
 3. In **Protection goal**, select **To Azure** and **Not virtualized/Other**, and then click **OK**.
 
-    ![Choose goals](./media/physical-azure-set-up-source/physical-protection-goal.png)
+    :::image type="content" source="./media/physical-azure-set-up-source/physical-protection-goal.png" alt-text="Screenshot that shows goals to choose.":::
 
 ## Set up the source environment
 
 1. In **Prepare source**, if you don’t have a configuration server, click **+Configuration server** to add one.
 
-   ![Screenshot that shows how to select the configuration server.](./media/physical-azure-set-up-source/plus-config-srv.png)
+   :::image type="content" source="./media/physical-azure-set-up-source/plus-config-srv.png" alt-text="Screenshot that shows how to select the configuration server.":::
 2. In the **Add Server** blade, check that **Configuration Server** appears in **Server type**.
 4. Download the Site Recovery Unified Setup installation file.
 5. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for five days after you generate it.
 
-	![Set up source](./media/physical-azure-set-up-source/set-source2.png)
+	:::image type="content" source="./media/physical-azure-set-up-source/set-source2.png" alt-text="Screenshot showing Set up source page.":::
 6. On the machine you’re using as the configuration server, run **Azure Site Recovery Unified Setup** to install the configuration server, the process server, and the master target server.
 
 #### Run Azure Site Recovery Unified Setup

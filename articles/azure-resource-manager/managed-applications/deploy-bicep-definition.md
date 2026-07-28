@@ -21,7 +21,7 @@ To deploy a managed application definition from your service catalog, do the fol
 To complete the tasks in this article, you need the following items:
 
 - Deployed a definition with [Quickstart: Use Bicep to create and publish an Azure Managed Application definition](publish-bicep-definition.md).
-- An Azure account with an active subscription. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
+- An Azure account with an active subscription. If you don't have an account, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com/) with the latest [Azure Resource Manager Tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools). For Bicep files, install the [Bicep extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-bicep).
 - The latest version of [Azure PowerShell](/powershell/azure/install-az-ps) or [Azure CLI](/cli/azure/install-azure-cli).
 
@@ -76,7 +76,7 @@ The command lists all the available definitions in the specified resource group,
 The following command parses the output to show only the definition name and resource group name. You use the names when you deploy the managed application.
 
 ```azurecli
-az managedapp definition list --resource-group bicepDefinitionGroup --query "[].{Name:name, ResourcGroup:resourceGroup}"
+az managedapp definition list --resource-group bicepDefinitionGroup --query "[].{Name:name, ResourceGroup:resourceGroup}"
 ```
 
 ---

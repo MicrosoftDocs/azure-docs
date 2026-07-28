@@ -8,8 +8,9 @@ author: normesta
 ms.service: azure-data-lake-storage
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 03/09/2023
+ms.date: 11/18/2024
 ms.author: normesta
+# Customer intent: "As a data engineer, I want to use the HDFS command line interface with Azure Data Lake Storage, so that I can efficiently manage and interact with data within my storage account."
 ---
 
 # Using the HDFS CLI with Data Lake Storage

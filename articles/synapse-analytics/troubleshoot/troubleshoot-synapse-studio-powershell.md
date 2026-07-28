@@ -1,13 +1,13 @@
 ---
 title: Troubleshoot Synapse Studio connectivity
-description: Troubleshoot Azure Synapse Studio connectivity using PowerShell
-author: whhender 
+description: In this article we provide steps to troubleshoot Azure Synapse Studio connectivity problems using PowerShell.
+author: Danzhang-msft
 ms.service: azure-synapse-analytics
 ms.subservice: troubleshooting
-ms.topic: conceptual
-ms.date: 10/30/2020 
-ms.author: whhender 
-ms.reviewer: whhender
+ms.topic: troubleshooting-general
+ms.date: 11/14/2024 
+ms.author: danzhang
+ms.custom: sfi-image-nochange
 ---
 
 # Troubleshoot Synapse Studio connectivity with PowerShell
@@ -24,11 +24,9 @@ Azure Synapse Studio depends on a set of Web API endpoints to work properly. Thi
 
 ## Troubleshooting steps
 
-Right-click on the following link, and select "Save target as":
+Open the link and save the opened script file. Don't save the address of the link, as it could change in the future.
 
 - [Test-AzureSynapse.ps1](https://go.microsoft.com/fwlink/?linkid=2119734)
-
-Alternatively, you can open the link directly, and save the opened script file. Don't save the address of the link, as it could change in the future.
 
 In file explorer, right-click on the downloaded script file, and select "Run with PowerShell".
 
@@ -53,6 +51,6 @@ If you're a network administrator and tuning your firewall configuration for Azu
 * All the test items (requests) marked with "Passed" mean they have passed connectivity tests, regardless of the HTTP status code.
  For the failed requests, the reason is shown in yellow, such as `NamedResolutionFailure` or `ConnectFailure`. These reasons might help you figure out whether there are misconfigurations with your network environment.
 
-
 ## Next steps
+
 If the previous steps don't help to resolve your issue, [create a support ticket](../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md).

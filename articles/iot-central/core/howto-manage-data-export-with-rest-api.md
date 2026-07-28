@@ -1,11 +1,11 @@
 ---
 title: Use the REST API to manage data export in Azure IoT Central
-description: How to use the IoT Central REST API to manage data export in an application. Export data to desinations such as blob storage, event hubs, and service bus.
+description: How to use the IoT Central REST API to manage data export in an application. Export data to destinations such as blob storage, event hubs, and service bus.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/13/2023
+ms.date: 10/22/2024
 ms.topic: how-to
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
 
 ---
@@ -208,7 +208,7 @@ The request body has some required fields:
 
 There are some optional fields you can use to add more details to the export.
 
-* `enrichments`: Extra pieces of information to include with each sent message. Data is represented as a set of key/value pairs, where the key is the name of the enrichment that will appear in the output message and the value identifies the data to send.
+* `enrichments`: Extra pieces of information to include with each sent message. Data is represented as a set of key/value pairs, where the key is the name of the enrichment to appear in the output message and the value identifies the data to send.
 * `filter`: Query defining which events from the source should be exported.
 
 The response to this request looks like the following example:

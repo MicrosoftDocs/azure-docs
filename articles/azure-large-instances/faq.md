@@ -2,12 +2,13 @@
 title: Azure Large Instances FAQ
 titleSuffix: Azure Large Instances
 description: Provides resolutions for common issues that arise in working with Azure Large Instances for the Epic workload.
-ms.topic: conceptual
+ms.topic: faq
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.custom: references_regions
 ms.service: azure-large-instances
 ms.date: 06/01/2023
+# Customer intent: As a cloud architect, I want to understand the configuration and support requirements for Azure Large Instances, so that I can effectively deploy and manage the Epic workload in my organization.
 ---
 
 # Frequently asked questions about the Epic workload on Azure Large Instances
@@ -76,5 +77,5 @@ In the dropdown menu you can look for the Epic key word and then "Azure Large In
 
 ## What resources are available to learn more?
 
-See [What is Azure Large Instances?](what-is-azure-large-instances.md).
+See [What is Azure Large Instances?](what-is-azure-large-instances.md)
 

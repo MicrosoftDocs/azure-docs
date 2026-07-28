@@ -2,13 +2,13 @@
 title: Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview
 titleSuffix: Microsoft Cost Management
 description: This article provides an overview about migrating from Azure Enterprise Reporting to Microsoft Cost Management APIs.
-author: bandersmsft
-ms.author: banders
-ms.date: 05/15/2024
-ms.topic: conceptual
+author: vikramdesai01
+ms.author: vikdesai
+ms.date: 07/01/2025
+ms.topic: overview
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: vikdesai
 ---
 
 # Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs overview

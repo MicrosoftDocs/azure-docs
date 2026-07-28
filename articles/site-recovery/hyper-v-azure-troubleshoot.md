@@ -1,20 +1,21 @@
 ---
 title: Troubleshoot Hyper-V disaster recovery with Azure Site Recovery 
-description: Describes how to troubleshoot disaster recovery issues with Hyper-V to Azure replication using Azure Site Recovery
-services: site-recovery
-author: ankitaduttaMSFT
+description: Describes how to troubleshoot disaster recovery issues with Hyper-V to Azure replication using Azure Site Recovery.
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 03/02/2023
-ms.author: ankitadutta
+ms.date: 12/09/2025
+author: Jeronika-MS
+ms.author: v-gajeronika 
 ms.custom: engagement-fy23
 
+# Customer intent: "As an IT administrator managing Hyper-V disaster recovery, I want to troubleshoot replication issues to Azure, so that I can ensure seamless backup and recovery of virtual machines."
 ---
+
 # Troubleshoot Hyper-V to Azure replication and failover
 
 This article describes common issues that you might come across when replicating on-premises Hyper-V VMs to Azure, using [Azure Site Recovery](site-recovery-overview.md).
 
-## Enable protection issues
+## Enable protection issues 
 
 If you experience issues when you enable protection for Hyper-V VMs, check the following recommendations:
 
@@ -23,7 +24,7 @@ If you experience issues when you enable protection for Hyper-V VMs, check the f
 3. Check that the Hyper-V Virtual Machine Management service is running on Hyper-V hosts.
 4. Check for issues that appear in the Hyper-V-VMMS\Admin sign in to the VM. This log is located in **Applications and Services Logs** > **Microsoft** > **Windows**.
 5. On the guest VM, verify that WMI is enabled and accessible.
-   - [Learn about](https://techcommunity.microsoft.com/t5/ask-the-performance-team/bg-p/AskPerf) basic WMI testing.
+   - [Learn about](https://techcommunity.microsoft.com/blog/askperf/basic-wmi-testing/372423) basic WMI testing.
    - [Troubleshoot](/windows/win32/wmisdk/wmi-troubleshooting) WMI.
    - [Troubleshoot](/previous-versions/tn-archive/ff406382(v=msdn.10)#H22) problems with WMI scripts and services.
 6. On the guest VM, ensure that the latest version of Integration Services is running.
@@ -39,7 +40,7 @@ When you're enabling replication for a machine and you encounter an error statin
 
 ### The VSS writer NTDS failed with status 11 and writer specific failure code 0x800423F4
 
-When trying to enable replication, you may face an error informing that enable replication failed ast NTDS failed. One of the possible causes for this issue is that the virtual machine's operating system in Windows Server 2012 and not Windows Server 2012 R2. To fix this issue, try the below steps:
+When trying to enable replication, you may face an error informing that enable replication failed as NTDS failed. One of the possible causes for this issue is that the virtual machine's operating system in Windows Server 2012 and not Windows Server 2012 R2. To fix this issue, try the below steps:
 
 - Upgrade to Windows Server R2 with 4072650 applied.
 - Ensure that Hyper-V Host is also Windows 2016 or higher.
@@ -48,7 +49,7 @@ When trying to enable replication, you may face an error informing that enable r
 
 Troubleshoot issues with initial and ongoing replication as follows:
 
-1. Make sure you're running the [latest version](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx) of Site Recovery services.
+1. Make sure you're running the [latest version](./site-recovery-whats-new.md) of Site Recovery services.
 2. Verify whether replication is paused:
    - Check the VM health status in the Hyper-V Manager console.
    - If it's critical, right-click the VM > **Replication** > **View Replication Health**.
@@ -75,7 +76,7 @@ Network bandwidth limitations can affect replication. Troubleshoot issues as fol
 3. After running the profiler, follow the [bandwidth](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) and [storage](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation) recommendations.
 4. Check [data churn limitations](hyper-v-deployment-planner-analyze-report.md#azure-site-recovery-limits). If you see high data churn on a VM, do the following:
    - Check if your VM is marked for resynchronization.
-   - Follow [these steps](https://techcommunity.microsoft.com/t5/virtualization/bg-p/Virtualization) to investigate the source of the churn.
+   - Follow [these steps](./monitoring-high-churn.md) to investigate the source of the churn.
    - Churn can occur when the HRL log files exceed 50% of the available disk space. If this is the issue, provision more storage space for all VMs on which the issue occurs.
    - Check that replication isn't paused. If it is, it continues writing the changes to the hrl file, which can contribute to its increased size.
  
@@ -96,7 +97,7 @@ Network bandwidth limitations can affect replication. Troubleshoot issues as fol
 
 An app-consistent snapshot is a point-in-time snapshot of the application data inside the VM. Volume Shadow Copy Service (VSS) ensures that apps on the VM are in a consistent state when the snapshot is taken.  This section details some common issues you might experience.
 
-### VSS failing inside the VM
+# [VSS failing inside the VM](#tab/inside-vm)
 
 1. Check that the latest version of Integration services is installed and running.  Check if an update is available by running the following command from an elevated PowerShell prompt on the Hyper-V host: **get-vm  | select Name, State, IntegrationServicesState**.
 2. Check that VSS services are running and healthy:
@@ -105,7 +106,7 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
        - **Vssadmin list shadows**
        - **Vssadmin list providers**
    - Check the output. If writers are in a failed state, do the following:
-       - Check the application event log on the VM for VSS operation errors.
+       - Check the Application event log on the VM for VSS operation errors.
    - Try restarting these services associated with the failed writer:
      - Volume Shadow Copy
        - Azure Site Recovery VSS Provider
@@ -129,8 +130,7 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
 9. Run the [Deployment Planner](hyper-v-deployment-planner-run.md).
 10. Review the recommendations for [network](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input) and [storage](hyper-v-deployment-planner-analyze-report.md#recommendations-with-available-bandwidth-as-input).
 
-
-### VSS failing inside the Hyper-V Host
+# [VSS failing inside the Hyper-V Host](#tab/inside-hyper-v)
 
 1. Check event logs for VSS errors and recommendations:
     - On the Hyper-V host server, open the Hyper-V Admin event log in **Event Viewer** > **Applications and Services Logs** > **Microsoft** > **Windows** > **Hyper-V** > **Admin**.
@@ -140,7 +140,9 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
 2. To generate VSS snapshots for the VM, check that Hyper-V Integration Services is installed on the VM, and that the Backup (VSS) Integration Service is enabled.
     - Ensure that the Integration Services VSS service/daemons are running on the guest, and are in an **OK** state.
     - You can check this from an elevated PowerShell session on the Hyper-V host with command **Get-VMIntegrationService -VMName\<VMName>-Name VSS** You can also get this information by logging into the guest VM. [Learn more](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services).
-    - Ensure that the Backup/VSS integration Services on the VM is running and in healthy state. If not, restart these services, and the Hyper-V Volume Shadow Copy requestor service on the Hyper-V host server.
+    - Ensure that the Backup/VSS integration Services on the VM is running and in healthy state. If not, restart these services, and the Hyper-V Volume Shadow Copy requester service on the Hyper-V host server.
+
+---
 
 ### Common errors
 
@@ -148,8 +150,6 @@ An app-consistent snapshot is a point-in-time snapshot of the application data i
 --- | --- | ---
 **0x800700EA** | "Hyper-V failed to generate VSS snapshot set for virtual machine: More data is available. (0x800700EA). VSS snapshot set generation can fail if backup operation is in progress.<br/><br/> Replication operation for virtual machine failed: More data is available." | Check if your VM has dynamic disk enabled. This isn't supported.
 **0x80070032** | "Hyper-V Volume Shadow Copy Requestor failed to connect to virtual machine <./VMname> because the version does not match the version expected by Hyper-V | Check if the latest Windows updates are installed.<br/><br/> [Upgrade](/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services#keep-integration-services-up-to-date) to the latest version of Integration Services.
-
-
 
 ## Collect replication logs
 
@@ -178,4 +178,4 @@ All Hyper-V replication events are logged in the Hyper-V-VMMS\Admin log, located
 This tool can help with advanced troubleshooting:
 
 -	For VMM, perform Site Recovery log collection using the [Support Diagnostics Platform (SDP) tool](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
--	For Hyper-V without VMM, [download this tool](https://answers.microsoft.com/en-us/windows/forum/all/unable-to-open-diagcab-files/e7f8e4e5-b442-4e53-af7a-90e74985a73f), and run it on the Hyper-V host to collect the logs.
+- [Enable logging](/troubleshoot/azure/site-recovery/backup/asr-enable-debug-logging) for the Azure Site Recovery in Hyper-V Site Protection. 

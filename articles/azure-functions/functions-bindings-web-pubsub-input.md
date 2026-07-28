@@ -6,7 +6,7 @@ ms.topic: reference
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 09/02/2024
+ms.date: 04/24/2026
 ms.author: zityang
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
@@ -21,7 +21,7 @@ Our extension provides two input binding targeting different needs.
 
 - [`WebPubSubContext`](#webpubsubcontext)
 
-  When using is Static Web Apps, `HttpTrigger` is the only supported trigger and under Web PubSub scenario, we provide the `WebPubSubContext` input binding helps users deserialize upstream http request from service side under Web PubSub protocols. So customers can get similar results comparing to `WebPubSubTrigger` to easily handle in functions.
+  When using Static Web Apps, `HttpTrigger` is the only supported trigger. In Web PubSub scenarios, the `WebPubSubContext` input binding helps users deserialize upstream HTTP requests from the service under Web PubSub protocols. So customers can get similar results comparing to `WebPubSubTrigger` to easily handle in functions.
   When used with `HttpTrigger`, customer requires to configure the HttpTrigger exposed url in event handler accordingly.
 
 ## `WebPubSubConnection`
@@ -397,7 +397,7 @@ Limited to the binding parameter types don't support a way to pass list nor arra
 
 ::: zone pivot="programming-language-csharp"
 
-When customer needs to add roles or delay buildinging the access token in the function, we suggest you to work with [server SDK for C#](/dotnet/api/overview/azure/messaging.webpubsub-readme).
+When customer needs to add roles or delay building the access token in the function, we suggest you to work with [server SDK for C#](/dotnet/api/overview/azure/messaging.webpubsub-readme).
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -656,8 +656,9 @@ The following table explains the binding configuration properties that you set i
 | **type** | n/a | Must be set to `webPubSubContext`. |
 | **direction** | n/a | Must be set to `in`. |
 | **name** | n/a | Variable name used in function code for input Web PubSub request. |
-| **connection** | Connection | Optional - the name of an app settings or setting collection that specifies the upstream Azure Web PubSub service. The value is used for [Abuse Protection](https://github.com/cloudevents/spec/blob/v1.0.1/http-webhook.md#4-abuse-protection) and Signature validation. The value is auto resolved with "WebPubSubConnectionString" by default. And `null` means the validation isn't needed and always succeed. |
+| **connections** | Connections | Optional - An array of app setting names or setting collection prefixes that identify the upstream Azure Web PubSub service connections. These values are used for abuse protection and signature validation. When not specified, falls back to the global `WebPubSubConnectionString` app setting. When neither is configured, validation is skipped and all requests are accepted.<br> Example: `["CustomWebPubSubConnection1", "CustomWebPubSubConnection2"]` </br> |
 
+[!INCLUDE [functions-azure-web-pubsub-authorization-note](../../includes/functions-azure-web-pubsub-authorization-note.md)]
 
 ### Usage
 
@@ -682,4 +683,5 @@ For `WebPubSubEventRequest`, it's deserialized to different classes that provide
 | `DisconnectedEventRequest` | Used in system `Disconnected` event type | Reason |
 
 > [!NOTE]
-> Though the `WebPubSubContext` is a input binding provides similar request deserialize way under `HttpTrigger` comparing to `WebPubSubTrigger`, there's limitations, i.e. connection state post merge isn't supported. The return response is still respected by the service side, but users require to build the response themselves. If users have needs to set the event response, you should return a `HttpResponseMessage` contains `ConnectEventResponse` or messages for user event as **response body** and put connection state with key `ce-connectionstate` in **response header**.
+
+> Though the `WebPubSubContext` is an input binding provides similar request deserialize way under `HttpTrigger` comparing to `WebPubSubTrigger`, there's limitations, i.e. connection state post merge isn't supported. The return response is still respected by the service side, but users require to build the response themselves. If users have needs to set the event response, you should return a `HttpResponseMessage` contains `ConnectEventResponse` or messages for user event as **response body** and put connection state with key `ce-connectionstate` in **response header**.

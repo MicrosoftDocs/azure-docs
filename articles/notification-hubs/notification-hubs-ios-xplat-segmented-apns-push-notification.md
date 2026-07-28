@@ -3,7 +3,7 @@ title: Send push notifications to specific iOS devices using Azure Notification 
 description: In this tutorial, you learn how to use Azure Notification Hubs to send push notifications to specific iOS devices.
 services: notification-hubs
 author: sethmanheim
-manager: femila
+manager: lizross
 
 ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-ios
@@ -13,6 +13,7 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
+ms.custom: sfi-ropc-nochange
 ---
 
 # Tutorial: Send push notifications to specific iOS devices using Azure Notification Hubs
@@ -21,9 +22,9 @@ ms.lastreviewed: 11/07/2019
 
 ## Overview
 
-This tutorial shows you how to use Azure Notification Hubs to broadcast breaking news notifications to an iOS app. When complete, you are able to register for breaking news categories you are interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, for example, RSS reader, apps for music fans, etc.
+This tutorial shows you how to use Azure Notification Hubs to broadcast breaking news notifications to an iOS app. When complete, you're able to register for breaking news categories you're interested in, and receive only push notifications for those categories. This scenario is a common pattern for many apps where notifications have to be sent to groups of users that have previously declared interest in them, for example, RSS reader, apps for music fans, etc.
 
-Broadcast scenarios are enabled by including one or more *tags* when creating a registration in the notification hub. When notifications are sent to a tag, devices that have registered for the tag receive the notification. Because tags are simply strings, they do not have to be provisioned in advance. For more information about tags, see [Notification Hubs Routing and Tag Expressions](notification-hubs-tags-segment-push-message.md).
+Broadcast scenarios are enabled by including one or more *tags* when creating a registration in the notification hub. When notifications are sent to a tag, devices that have registered for the tag receive the notification. Because tags are simply strings, they don't have to be provisioned in advance. For more information about tags, see [Notification Hubs Routing and Tag Expressions](notification-hubs-tags-segment-push-message.md).
 
 In this tutorial, you take the following steps:
 
@@ -43,16 +44,16 @@ The first step is to add the UI elements to your existing storyboard that enable
 
 1. In your **MainStoryboard_iPhone.storyboard** add the following components from the object library:
 
-   * A label with "Breaking News" text,
-   * Labels with category texts "World", "Politics", "Business", "Technology", "Science", "Sports",
+   * A label with **Breaking News**" text.
+   * Labels with category texts **World**, **Politics**, **Business**, **Technology**, **Science**, and **Sports**.
    * Six switches, one per category, set each switch **State** to be **Off** by default.
-   * One button labeled "Subscribe"
+   * One button labeled **Subscribe**.
 
      Your storyboard should look as follows:
 
      ![Xcode interface builder][3]
 
-2. In the assistant editor, create outlets for all the switches and call them "WorldSwitch", "PoliticsSwitch", "BusinessSwitch", "TechnologySwitch", "ScienceSwitch", "SportsSwitch"
+2. In the assistant editor, create outlets for all the switches and call them **WorldSwitch**, **PoliticsSwitch**, **BusinessSwitch**, **TechnologySwitch**, **ScienceSwitch**, and **SportsSwitch**.
 
 3. Create an Action for your button called `subscribe`; your `ViewController.h` should contain the following code:
 
@@ -144,7 +145,7 @@ The first step is to add the UI elements to your existing storyboard that enable
     ```
 
     > [!NOTE]
-    > Because credentials that are distributed with a client app are not generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations cannot be modified and notifications cannot be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.
+    > Because credentials that are distributed with a client app aren't generally secure, you should only distribute the key for listen access with your client app. Listen access enables your app to register for notifications, but existing registrations can't be modified and notifications can't be sent. The full access key is used in a secured backend service for sending notifications and changing existing registrations.
 
 9. In the `didRegisterForRemoteNotificationsWithDeviceToken` method in `AppDelegate.m`, replace the code in the method with the following code to pass the device token to the `notifications` class. The `notifications` class performs the registering for notifications with the categories. If the user changes category selections, call the `subscribeWithCategories` method in response to the **subscribe** button to update them.
 
@@ -235,13 +236,13 @@ The first step is to add the UI elements to your existing storyboard that enable
 
 The app can now store a set of categories in the device local storage used to register with the notification hub whenever the app starts. The user can change the selection of categories at runtime and click the `subscribe` method to update the registration for the device. Next, you update the app to send the breaking news notifications directly in the app itself.
 
-## (optional) Send tagged notifications
+## (Optional) Send tagged notifications
 
 If you don't have access to Visual Studio, you can skip to the next section and send notifications from the app itself. You can also send the proper template notification from the [Azure portal] using the debug tab for your notification hub.
 
 [!INCLUDE [notification-hubs-send-categories-template](../../includes/notification-hubs-send-categories-template.md)]
 
-## (optional) Send notifications from the device
+## (Optional) Send notifications from the device
 
 Normally notifications would be sent by a backend service but, you can send breaking news notifications directly from the app. To do so, you update the `SendNotificationRESTAPI` method that you defined in the [Get started with Notification Hubs][get-started] tutorial.
 

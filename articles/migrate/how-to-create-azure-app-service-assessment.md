@@ -1,12 +1,12 @@
 ---
 title: Create an Azure App Service assessment
 description: Learn how to assess web apps for migration to Azure App Service
-author: rashi-ms
-ms.author: rajosh
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.date: 04/01/2024
+ms.reviewer: v-uhabiba
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud architect, I want to assess my ASP.NET/Java web apps for migration to Azure App Service, so that I can determine their cloud readiness, estimate costs, and identify potential migration risks."
 ---
 
 # Create an Azure App Service assessment
@@ -36,12 +36,13 @@ An Azure App Service assessment provides one sizing criteria:
 
 Run an assessment as follows:
 
-1. On the **Overview** page > **Servers, databases and web apps**, select **Discover, assess and migrate**.
+1. In **Servers, databases and web apps**, select **Discover, assess and migrate**.
+
     :::image type="content" source="./media/tutorial-assess-webapps/discover-assess-migrate.png" alt-text="Overview page for Azure Migrate":::
-2. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Azure App Service**.
+1. On **Azure Migrate: Discovery and assessment**, select **Assess** and choose the assessment type as **Azure App Service**.
     :::image type="content" source="./media/tutorial-assess-webapps/assess.png" alt-text="Dropdown to choose assessment type as Azure App Service":::
-3. In **Create assessment**, you'll see the assessment type pre-selected as **Azure App Service** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
-4. Select **Edit** to review the assessment properties.
+1. In **Create assessment**, you'll see the assessment type pre-selected as **Azure App Service** and the discovery source defaulted to **Servers discovered from Azure Migrate appliance**.
+1. Select **Edit** to review the assessment properties.
 
     :::image type="content" source="./media/tutorial-assess-webapps/assess-webapps.png" alt-text="Edit button from where assessment properties can be customized":::
 
@@ -51,7 +52,7 @@ Run an assessment as follows:
     | --- | --- |
     | **Target location** | The Azure region to which you want to migrate. Azure App Service configuration and cost recommendations are based on the location that you specify. |
     | **Isolation required** | Select *Yes* if you want your web apps to run in a private and dedicated environment in an Azure datacenter using Dv2-series VMs. It provides faster processors, SSD storage, and double the memory to core ratio compared to Standard plans. |
-   | **Savings options (compute)** | Specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. <br><br> [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.<br><br> [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-compute-overview.md) (1 year or 3 year savings plan) provide more flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation is first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. <br><br> When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.<br><br> You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' setting isn't applicable. The monthly cost estimates are calculated by multiplying 744 hours with the hourly price of the recommended SKU.|
+   | **Savings options (compute)** | Specify the savings option that you want the assessment to consider to help optimize your Azure compute cost. <br><br> [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md) (1 year or 3 year reserved) are a good option for the most consistently running resources.<br><br> [Azure Savings Plan](../cost-management-billing/savings-plan/savings-plan-overview.md) (1 year or 3 year savings plan) provide more flexibility and automated cost optimization. Ideally post migration, you could use Azure reservation and savings plan at the same time (reservation is first), but in the Azure Migrate assessments, you can only see cost estimates of 1 savings option at a time. <br><br> When you select 'None', the Azure compute cost is based on the Pay as you go rate or based on actual usage.<br><br> You need to select pay-as-you-go in offer/licensing program to be able to use Reserved Instances or Azure Savings Plan. When you select any savings option other than 'None', the 'Discount (%)' setting isn't applicable. The monthly cost estimates are calculated by multiplying 744 hours with the hourly price of the recommended SKU.|
     | **Offer** | The [Azure offer](https://azure.microsoft.com/support/legal/offer-details/) in which you're enrolled. The assessment estimates the cost for that offer. |
     | **Currency** | The billing currency for your account. |
     | **Discount (%)** | Any subscription-specific discounts you receive on top of the Azure offer. The default setting is 0%. |
@@ -63,7 +64,7 @@ Run an assessment as follows:
 1. In **Select or create a group** > select **Create New** and specify a group name.
 1. Select the appliance, and select the servers you want to add to the group. Select **Next**.
 1. In **Review + create assessment**, review the assessment details, and select **Create Assessment** to create the group and run the assessment.
-1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** tile and refresh the tile data by clicking on the **Refresh** option on top of the tile. Wait for data to get refreshed.
+1. After the assessment is created, go to **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment** tile and refresh the tile data by selecting the **Refresh** option on top of the tile. Wait for data to get refreshed.
      :::image type="content" source="./media/tutorial-assess-webapps/tile-refresh.png" alt-text="Refresh discovery and assessment tool data":::
 1. Select the number next to Azure App Service assessment.
      :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-navigation.png" alt-text="Navigation to created assessment":::
@@ -73,7 +74,7 @@ Run an assessment as follows:
 
 **To view an assessment**:
 
-1. **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**,  select the number next to Azure App Service assessment.
+1. In **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select the number next to Azure App Service assessment.
 2. Select the assessment name that you wish to view.
       :::image type="content" source="./media/tutorial-assess-webapps/assessment-webapps-summary.png" alt-text="App Service assessment overview":::
 3. Review the assessment summary. You can also edit the assessment properties or recalculate the assessment.

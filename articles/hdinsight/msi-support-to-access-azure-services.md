@@ -3,8 +3,13 @@ title: MSI Support to Access Azure services
 description: Learn how to provide MSI Support to Access Azure services.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
-ms.date: 07/09/2024
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
+ms.date: 12/04/2024
+ms.custom:
+  - hdinsightactive
+  - sfi-ropc-nochange
 ---
 
 # MSI Support to access Azure services
@@ -49,16 +54,28 @@ Downloading the JAR in a Maven Build from Maven Central directly.
         </snapshots>
     </repository>
     ```
+    There are two types of client JARs are available in the Maven central.  
     
-1. Following is the sample code snippet of HDInsight OAuth client utility library dependency, add the `dependency` section to your pom.xml
+1. Following is the sample code snippet of HDInsight OAuth client utility library dependency, add the `dependency` section to your pom.xml.
+    1. Simple JAR which contains only the convenient Java utility classes to fetch MSI access token.
+       
+       ```
+        <dependency>
+        <groupId>com.microsoft.azure.hdinsight</groupId>
+        <artifactId>hdi-oauth-token-utils</artifactId>
+        <version>1.0.0</version>
+        </dependency>
+       ```
 
-```
-<dependency>
-  <groupId>com.microsoft.azure.hdinsight</groupId>
-  <artifactId>hdi-oauth-token-utils</artifactId>
-  <version>1.0.0</version>
-</dependency>
-```
+    1. Shaded utility JAR bundled with transitive dependent JARs. 
+
+       ```
+       <dependency>
+       <groupId>com.microsoft.azure.hdinsight</groupId>
+       <artifactId>hdi-oauth-token-utils-shaded</artifactId>
+       <version>1.0.2</version>
+       </dependency>
+       ```
 
 > [!IMPORTANT]
 >
@@ -89,7 +106,7 @@ public class AccessToken {
 
 ## Option 1 - HDInsight utility and  API usage to fetch access token
 
-Implemented a convenient java utility class to fetch MSI access token by providing target resource URI, which can be EH, KV, Kusto, SqlDB, Cosmos DB etc.
+Implemented a convenient java utility class to fetch MSI access token by providing target resource URI, which can be EH, KV, Kusto, SqlDB, Cosmos DB.
 
 ### How to use the API
 
@@ -99,7 +116,7 @@ To fetch the token, you can invoke the API in your job application code.
 import com.microsoft.azure.hdinsight.oauthtoken.utils.HdiIdentityTokenServiceUtils;
 import com.azure.core.credential.AccessToken;
 
-// uri can be EH, Kusto etc. 
+// uri can be EH, Kusto 
 // By default, the Scope is “.default”. 
 // We will provide a mechanism to take user supplied scope, in future.
 String msiResourceUri = https://vault.azure.net/;
@@ -161,7 +178,7 @@ EventHubProducerClient producer = new EventHubClientBuilder()
 ```
 
 
-**If the client is a MySql Database**
+**If the client is a MySQL Database**
 
 Example of Azure Sql Database, which doesn't directly fetch an access token.
 

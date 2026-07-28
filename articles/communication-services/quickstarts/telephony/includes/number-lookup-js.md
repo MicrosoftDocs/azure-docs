@@ -1,11 +1,11 @@
-Get started with the Phone Numbers client library for JavaScript to look up operator information for phone numbers, which can be used to determine whether and how to communicate with that phone number. Follow these steps to install the package and look up operator information about a phone number.
+Get started with the Phone Numbers client library for JavaScript to look up operator information for phone numbers. Use the operator information to determine whether and how to communicate with that phone number. Follow these steps to install the package and look up operator information about a phone number.
 
 > [!NOTE]
-> Find the code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/lookup-phone-number).
+> To view the source code for this example, see [Manage Phone Numbers - JavaScript | GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/lookup-phone-number).
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Node.js](https://nodejs.org/) Active LTS _(long-term support)_ and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 
@@ -46,7 +46,7 @@ main();
 Use the `npm install` command to install the Azure Communication Services Phone Numbers client library for JavaScript.
 
 ```console
-npm install @azure/communication-phone-numbers@1.3.0-beta.4 --save
+npm install @azure/communication-phone-numbers@1.3.0 --save
 ```
 
 The `--save` option adds the library as a dependency in your **package.json** file.
@@ -91,7 +91,7 @@ let searchResults = await phoneNumbersClient.searchOperatorInformation([ "<targe
 ```
 
 > [!WARNING]
-> Using this functionality will incur a charge to your account.
+> Using this function incurs a charge to your account.
 
 ### Use operator information
 
@@ -112,7 +112,7 @@ console.log(operatorInfo.phoneNumber + " is a " + (operatorInfo.numberType ? ope
     + operatorInfo.isoCountryCode + " by " + (operatorInfo.operatorDetails.name ? operatorInfo.operatorDetails.name : "an unknown operator"));
 ```
 
-You may also use the operator information to determine whether to send an SMS. For more information on sending an SMS, see the [SMS Quickstart](../../sms/send.md).
+You can also use the operator information to determine whether to send an SMS. For more information, see [Send an SMS message](../../sms/send.md).
 
 ## Run the code
 
@@ -124,4 +124,4 @@ node number-lookup-quickstart.js
 
 ## Sample code
 
-You can download the sample app from [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/lookup-phone-number)).
+You can download the sample app from [Manage Phone Numbers - JavaScript | GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/lookup-phone-number)).

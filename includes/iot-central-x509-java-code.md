@@ -1,16 +1,16 @@
 ---
 author: dominicbetts
 ms.author: dobett
-ms.service: iot-develop
+ms.service: azure-iot
 ms.topic: include
-ms.date: 12/17/2021
+ms.date: 09/01/2025
 ---
 
 To modify the sample code to use the X.509 certificates:
 
 1. Navigate to the _azure-iot-sdk-java/device/iot-device-samples/pnp-device-sample/temperature-controller-device-sample_ folder that contains the *pom.xml* file and *src* folder for the temperature controller device sample.
 
-1. Edit the *pom.xml* file to add the following dependency configuration in the `<dependencies>` node:
+1. Edit the _pom.xml_ file to add the following dependency configuration in the `<dependencies>` node:
 
     ```xml
     <dependency>
@@ -22,7 +22,7 @@ To modify the sample code to use the X.509 certificates:
 
     Save the changes.
 
-1. Open the *src/main/java/samples/com/microsoft/azure/sdk/iot/device/TemperatureController.java* file in your text editor.
+1. Open the _src/main/java/samples/com/microsoft/azure/sdk/iot/device/TemperatureController.java_ file in your text editor.
 
 1. Replace the `SecurityProviderSymmetricKey` import with the following imports:
 

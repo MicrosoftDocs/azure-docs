@@ -4,7 +4,7 @@ description: This article describes how to integrate an Azure Stream Analytics j
 author: ahartoon
 ms.author: anboisve
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 03/31/2022
 ---
 # Integrate Azure Stream Analytics with Azure Machine Learning
@@ -26,7 +26,7 @@ Complete the following steps before you add a machine learning model as a functi
 
 You can add Azure Machine Learning functions to your Stream Analytics job directly from the Azure portal or Visual Studio Code.
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4RMir]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=7ee6ffaf-c26e-434b-aa4c-718d4c42fd6e]
 
 ### Azure portal
 
@@ -66,7 +66,7 @@ FROM input
 WHERE <model-specific-data-structure> is not null
 ```
 
-If your input data sent to the ML UDF is inconsistent with the schema that is expected, the endpoint will return a response with error code 400, which will cause your Stream Analytics job to go to a failed state. It's recommended that you [enable resource logs](stream-analytics-job-diagnostic-logs.md#send-diagnostics-to-azure-monitor-logs) for your job, which will enable you to easily debug and troubleshoot such problems. Therefore, it's strongly recommended that you:
+If your input data sent to the ML UDF is inconsistent with the schema that is expected, the endpoint will return a response with error code 400, which will cause your Stream Analytics job to go to a failed state. It's recommended that you [enable resource logs](stream-analytics-job-diagnostic-logs.md#send-stream-analytics-diagnostics-to-azure-monitor-logs) for your job, which will enable you to easily debug and troubleshoot such problems. Therefore, it's strongly recommended that you:
 
 - Validate input to your ML UDF isn't null
 - Validate the type of every field that is an input to your ML UDF to ensure it matches what the endpoint expects

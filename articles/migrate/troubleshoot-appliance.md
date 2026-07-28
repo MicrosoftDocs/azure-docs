@@ -6,15 +6,14 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.date: 08/08/2024
+ms.reviewer: v-uhabiba
+ms.date: 10/16/2024
 ms.custom: engagement-fy25
+# Customer intent: "As an IT administrator, I want to troubleshoot issues with the Azure Migrate appliance, so that I can ensure successful deployment and connectivity for on-premises server migrations."
 ---
 
 
 # Troubleshoot the Azure Migrate appliance
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article helps you troubleshoot issues when you deploy the [Azure Migrate](migrate-services-overview.md) appliance and use the appliance to discover on-premises servers.
 
@@ -28,7 +27,7 @@ You get the error "The provided manifest file is invalid: Invalid OVF manifest e
 
 ### Remediation
 
-1. Verify that the Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. [Learn more](./tutorial-discover-vmware.md). If the hash value doesn't match, download the OVA file again and retry the deployment.
+1. Verify that the Azure Migrate appliance OVA file is downloaded correctly by checking its hash value. [Learn more](tutorial-discover-vmware.md). If the hash value doesn't match, download the OVA file again and retry the deployment.
 1. If deployment still fails and you're using the VMware vSphere client to deploy the OVF file, try deploying it through the vSphere web client. If deployment still fails, try using a different web browser.
 1. If you're using the vSphere web client and trying to deploy it on vCenter Server 6.5 or 6.7, try to deploy the OVA directly on the ESXi host:
    - Connect to the ESXi host directly (instead of vCenter Server) with the web client (https://<*host IP Address*>/ui).
@@ -112,7 +111,7 @@ This issue happens when the Azure user account that was used to sign in from the
 You have two options:
 
 - To complete the registration of the appliance, use the same Azure user account that generated the Azure Migrate project key on the portal.
-- You can also assign the required roles and [permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account) to the other Azure user account being used for appliance registration.
+- You can also assign the required roles and [permissions](tutorial-discover-vmware.md#prepare-an-azure-user-account) to the other Azure user account being used for appliance registration.
 
 <a name='azure-active-directory-aad-operation-failed-with-status-forbidden-error-occurs-during-appliance-registration'></a>
 
@@ -122,7 +121,7 @@ You're unable to complete registration because of insufficient Microsoft Entra I
 
 ### Remediation
 
-Ensure that you have the [required permissions](./tutorial-discover-vmware.md#prepare-an-azure-user-account) to create and manage Microsoft Entra applications in Azure. You should have the **Application Developer** role *or* the user role with **User can register applications** allowed at the tenant level.
+Ensure that you have the [required permissions](tutorial-discover-vmware.md#prepare-an-azure-user-account) to create and manage Microsoft Entra applications in Azure. You should have the **Application Developer** role *or* the user role with **User can register applications** allowed at the tenant level.
 
 ## "Forbidden to access Key Vault" error occurs during appliance registration
 
@@ -132,7 +131,7 @@ This issue usually happens when the Azure user account used to register the appl
 
 ### Remediation
 
-1. Ensure that the currently signed-in user account on the appliance has the required permissions on the key vault mentioned in the error message. The user account needs permissions as mentioned at [this website](./tutorial-discover-vmware.md#prepare-an-azure-user-account).
+1. Ensure that the currently signed-in user account on the appliance has the required permissions on the key vault mentioned in the error message. The user account needs permissions as mentioned at [this website](tutorial-discover-vmware.md#prepare-an-azure-user-account).
 1. Go to the key vault and ensure that your user account has an access policy with all the **Key**, **Secret**, and **Certificate** permissions assigned under **Key Vault Access Policy**. [Learn more](/azure/key-vault/general/assign-access-policy-portal).
 1. If you enabled the appliance for **private endpoint connectivity**, ensure that the appliance is either hosted in the same virtual network where the key vault was created or it's connected to the Azure virtual network where the key vault was created over a private link. Make sure that the key vault private link is resolvable from the appliance. Go to **Azure Migrate: Discovery and assessment** > **Properties** to find the details of private endpoints for resources like the key vault created during the Azure Migrate key creation. [Learn more](./troubleshoot-network-connectivity.md).
 1. If you have the required permissions and connectivity, retry the registration on the appliance after some time.
@@ -227,7 +226,7 @@ You can also run the commands from the command prompt on the appliance server by
 ssh <username>@<servername>
 ````
 
-Few Linux machines like Oracle/CentOS have a configuration value that requires **tty** option to be enabled by default which can cause an error. In such cases, you can disable this setting by adding **a "!"** character in the **/etc/sudoers** file. You can also add the following at the end of **/etc/sudoers/** file to ensure that no other configuration in the file can override this:
+Few Linux machines like Oracle have a configuration value that requires **tty** option to be enabled by default which can cause an error. In such cases, you can disable this setting by adding **a "!"** character in the **/etc/sudoers** file. You can also add the following at the end of **/etc/sudoers/** file to ensure that no other configuration in the file can override this:
 - Defaults    !visiblepw 
 - Defaults    !requiretty 
 
@@ -256,8 +255,8 @@ if ($Session -eq $null -or $Session.TestConnection() -eq $false)
 Write-Host "Connection established with $Hostname"
 #Get-WmiObject -Query "select uuid from Win32_ComputerSystemProduct" 
 
-$HostIntance = $Session.QueryInstances($HostNS, "WQL", "Select UUID from Win32_ComputerSystemProduct")
-$HostIntance | fl *
+$HostInstance = $Session.QueryInstances($HostNS, "WQL", "Select UUID from Win32_ComputerSystemProduct")
+$HostInstance | fl *
 ````
 
 When you run the preceding code, you need to provide the hostname of the target server. It can be IP address/FQDN/hostname. After that, you're prompted to provide the credentials to connect to the server.
@@ -293,8 +292,8 @@ You get the error "WS-Management service cannot process the request. The WMI ser
     1. The wmimgmt console opens where you can find **WMI Control (Local)** in the left pane. Right-click it, and select **Properties** from the menu.
     1. In the **WMI Control (Local) Properties** dialog, select the **Securities** tab.
     1. On the **Securities** tab, expand the **Root** folder in the namespace tree and select the **cimv2** namespace.
-    1. Select **Security** to open the **Security for ROOT\cimv2** dialog.
-    1. Under the **Group or users names** section, select **Add** to open the **Select Users, Computers, Service Accounts or Groups** dialog.
+    1. Select **Security** to go to the **Security for ROOT\cimv2** dialog.
+    1. Under the **Group or users names** section, select **Add** to go to the **Select Users, Computers, Service Accounts or Groups** dialog.
     1. Search for the user account, select it, and select **OK** to return to the **Security for ROOT\cimv2** dialog.
     1. In the **Group or users names** section, select the user account just added. Check if the following permissions are allowed:<br/>
        - Enable account <br/>
@@ -323,6 +322,6 @@ This error can occur if the appliance is in a shut-down state or the DRA service
 ## Next steps
 
 - Set up an appliance for [VMware](how-to-set-up-appliance-vmware.md), [Hyper-V](how-to-set-up-appliance-hyper-v.md), or [physical servers](how-to-set-up-appliance-physical.md).
-- Learn how to migrate [VMware VMs](./vmware/tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), or [physical servers](tutorial-migrate-physical-virtual-machines.md).
+- Learn how to migrate [VMware VMs](tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), or [physical servers](tutorial-migrate-physical-virtual-machines.md).
 
 

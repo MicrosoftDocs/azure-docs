@@ -29,6 +29,8 @@ You can set **prefetch_count** on the [azure.servicebus.ServiceBusReceiver](/pyt
 
 While messages are available in the prefetch buffer, any subsequent receive calls are immediately fulfilled from the buffer. The buffer is replenished in the background as space becomes available. If there are no messages available for delivery, the receive operation empties the buffer and then waits or blocks, as expected.
 
+It's important to note that `PrefetchCount` defines the maximum number of messages that can exist in the local buffer at any time. This also means that it acts as a strict upper limit on how many messages can be processed concurrently. If `MaxConcurrentCalls` is set higher than `PrefetchCount`, the processor will not be able to utilize all concurrent message handlers, as only up to `PrefetchCount` messages can be active in memory at once.
+
 ## Why is Prefetch not the default option?
 Prefetch speeds up the message flow by having a message readily available for local retrieval before the application asks for one. This throughput gain is the result of a trade-off that the application author must make explicitly.
 

@@ -5,10 +5,10 @@ description: Get started learning about using Azure Instance Metadata Service to
 services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
-ms.topic: conceptual
-ms.date: 06/26/2024
+ms.topic: concept-article
+ms.date: 01/29/2026
 ms.author: mbender
-ms.custom: template-concept, engagement-fy23
+# Customer intent: "As a cloud infrastructure engineer, I want to retrieve load balancer and virtual machine IP information using the Instance Metadata Service, so that I can efficiently manage and troubleshoot my virtual machine instances behind the load balancer."
 ---
 
 # Retrieve load balancer information by using Azure Instance Metadata Service
@@ -29,7 +29,7 @@ For more information on how to access the load balancer metadata, see [Use Azure
 
 ## Troubleshoot common error codes
 
-For more information on common error codes and their mitigation methods, see [Troubleshoot common error codes when using IMDS](troubleshoot-load-balancer-imds.md). 
+For more information on support and troubleshooting resources, see [Support and troubleshooting for Azure Load Balancer](load-balancer-support-help.md).
 
 ## Support
 

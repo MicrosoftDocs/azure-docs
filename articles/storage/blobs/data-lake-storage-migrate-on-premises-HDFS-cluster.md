@@ -5,15 +5,17 @@ description: Migrate data from an on-premises HDFS store into Azure Storage (blo
 author: normesta
 
 ms.service: azure-data-lake-storage
-ms.date: 03/09/2023
+ms.date: 04/18/2025
 ms.author: normesta
 ms.topic: how-to
 ms.reviewer: jamesbak
+ms.custom: sfi-image-nochange
+# Customer intent: As a data engineer, I want to migrate data from an on-premises HDFS store to Azure Storage using a Data Box device, so that I can leverage cloud capabilities for data storage and processing.
 ---
 
 # Migrate from on-premises HDFS store to Azure Storage with Azure Data Box
 
-You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage) by using a Data Box device. You can choose from Data Box Disk, an 80-TB Data Box or a 770-TB Data Box Heavy.
+You can migrate data from an on-premises HDFS store of your Hadoop cluster into Azure Storage (blob storage or Data Lake Storage) by using a Data Box device. You can choose from Data Box Disk, a Data Box with a capacity of either 80, 120, or 525 TiB, or a 770 TiB Data Box Heavy.
 
 This article helps you complete these tasks:
 
@@ -126,7 +128,7 @@ Follow these steps to copy data via the REST APIs of Blob/Object storage to your
 
     - Replace the `<container-name>` placeholder with the name of your container.
 
-    - Replace the `<exlusion_filelist_file>` placeholder with the name of the file that contains your list of file exclusions.
+    - Replace the `<exclusion_filelist_file>` placeholder with the name of the file that contains your list of file exclusions.
 
     - Replace the `<source_directory>` placeholder with the name of the directory that contains the data that you want to copy.
 
@@ -297,7 +299,7 @@ Before you move your data onto a Data Box device, you need to download some help
 
 If the size of your data exceeds the size of a single Data Box device, you can split up files into groups that you can store onto multiple Data Box devices.
 
-If your data doesn't exceed the size of a singe Data Box device, you can proceed to the next section.
+If your data doesn't exceed the size of a single Data Box device, you can proceed to the next section.
 
 1. With elevated permissions, run the `generate-file-list` script that you downloaded by following the guidance in the previous section.
 

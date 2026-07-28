@@ -1,7 +1,7 @@
 ---
 title: Azure Event Grid - Set custom headers on delivered events 
 description: Describes how you can set custom headers (or delivery properties) on delivered events. 
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 02/21/2023
 ---
@@ -17,6 +17,8 @@ You can set custom headers on the events that are delivered to the following des
 - Azure Functions
 - Azure Relay Hybrid Connections
 
+> [!NOTE]
+> Non-conformant values in well-known headers cause the header to be dropped during event delivery to webhook destinations, but not during webhook validation.
 
 When creating an event subscription in the Azure portal, you can use the **Delivery Properties** tab to set custom HTTP headers. This page lets you set fixed and dynamic header values.
 
@@ -110,5 +112,5 @@ For the Azure Storage Queues destination, you can only configure the time-to-liv
 For more information about event delivery, see the following article:
 
 - [Delivery and retry](delivery-and-retry.md)
-- [Webhook event delivery](webhook-event-delivery.md)
+- [Endpoint validation](end-point-validation-cloud-events-schema.md)
 - [Event filtering](event-filtering.md)

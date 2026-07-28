@@ -6,10 +6,20 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 08/31/2024
-ms.custom: mvc, devx-track-java, devx-track-azurecli, devx-track-extended-java, AppServiceConnectivity, linux-related-content
+ms.date: 06/26/2026
+ms.update-cycle: 180-days
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
+ms.custom:
+  - mvc
+  - devx-track-java
+  - devx-track-azurecli
+  - devx-track-extended-java
+  - AppServiceConnectivity
+  - linux-related-content
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Build a Java Spring Boot web app with Azure App Service on Linux and Azure Cosmos DB
@@ -21,17 +31,21 @@ In this tutorial, you learn how to build, configure, and deploy a secure Spring 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create an Azure Cosmos DB database.
-> * Connect a sample app to the database and test it locally
-> * Deploy the sample app to Azure
-> * Stream diagnostic logs from App Service
-> * Add additional instances to scale out the sample app
+> * Create a secure-by-default architecture for Azure App Service and Azure Cosmos DB with MongoDB API.
+> * Secure connection secrets using a managed identity and Key Vault references.
+> * Deploy a Spring Boot sample app to App Service from a GitHub repository.
+> * Access App Service app settings in the application code.
+> * Make updates and redeploy the application code.
+> * Stream diagnostic logs from App Service.
+> * Manage the app in the Azure portal.
+> * Provision the same architecture and deploy by using Azure Developer CLI.
+> * Optimize your development workflow with GitHub Codespaces and GitHub Copilot.
 
-**To complete this tutorial, you'll need:**
+## Prerequisites
 
 ::: zone pivot="azure-portal"  
 
-* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/java/).
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * A GitHub account. you can also [get one for free](https://github.com/join).
 * Knowledge of Java with Spring Framework development.
 * **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
@@ -40,7 +54,7 @@ In this tutorial, you learn how to:
 
 ::: zone pivot="azure-developer-cli"
 
-* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/java).
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed. You can follow the steps with the [Azure Cloud Shell](https://shell.azure.com) because it already has Azure Developer CLI installed.
 * Knowledge of Java with Spring Framework development.
 * **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
@@ -54,7 +68,7 @@ You can quickly deploy the sample app in this tutorial and see it running in Azu
 ```bash
 mkdir msdocs-spring-boot-mongodb-sample-app
 cd msdocs-spring-boot-mongodb-sample-app
-azd init --template msdocs-spring-boot-mongodb-sample-app
+azd init --template msdocs-spring-boot-mongodb-sample-app .
 azd up
 ```
 
@@ -113,7 +127,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 First, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Cosmos DB. For the creation process, you specify:
 
-* The **Name** for the web app. It's used as part of the DNS name for your app in the form of `https://<app-name>-<hash>.<region>.azurewebsites.net`.
+* The **Name** for the web app. It's used as part of the DNS name for your app.
 * The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
 * The **Runtime stack** for the app. It's where you select the version of Java to use for your app.
 * The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
@@ -121,55 +135,46 @@ First, you create the Azure resources. The steps used in this tutorial create a 
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
 
-:::row:::
-    :::column span="2":::
-        **Step 1:** In the Azure portal:
-        1. Enter "web app database" in the search bar at the top of the Azure portal.
-        1. Select the item labeled **Web App + Database** under the **Marketplace** heading.
-        You can also navigate to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-create-app-cosmosdb-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App + Database creation wizard." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-create-app-cosmosdb-1.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2:** In the **Create Web App + Database** page, fill out the form as follows.
-        1. *Resource Group*: Select **Create new** and use a name of **msdocs-spring-cosmosdb-tutorial**.
-        1. *Region*: Any Azure region near you.
-        1. *Name*: **msdocs-spring-cosmosdb-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
-        1. *Runtime stack*: **Java 21**.
-        1. *Java web server stack*: **Java SE (Embedded Web Server)**.
-        1. *Engine*: **Cosmos DB API for MongoDB**. Cosmos DB is a fully managed NoSQL, relational, and vector database as a service on Azure.
-        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
-        1. Select **Review + create**.
-        1. After validation completes, select **Create**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-create-app-cosmosdb-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-create-app-cosmosdb-2.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
-        - **Resource group**: The container for all the created resources.
-        - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
-        - **App Service**: Represents your app and runs in the App Service plan.
-        - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
-        - **Azure Cosmos DB**: Accessible only from behind its private endpoint. A database is created for you on the database account.
-        - **Private endpoints**: Access endpoints for the database server and the Redis cache in the virtual network.
-        - **Private DNS zones**: Enable DNS resolution of the database server and the Redis cache in the virtual network.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-create-app-cosmosdb-3.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-create-app-cosmosdb-3.png":::
-    :::column-end:::
-:::row-end:::
+1. In the Azure portal:
+    * In the search bar at the top, enter *app service*.
+    * Under the **Services** heading, select **App Service**.
+    * Select **Create** > **Web App**.
+
+    You can also go directly to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.WebSite).
+
+1. In the **Create Web App** page, on the **Basics** tab, fill out the form as follows:
+    * *Resource Group*: Select **Create new** and use a name of **msdocs-spring-cosmosdb-tutorial**.
+    * *Name*: **msdocs-spring-cosmosdb-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
+    * *Runtime stack*: **Java 25**.
+    * *Java web server stack*: **Java SE (Embedded Web Server)**.
+    * *Operating System*: **Linux**.
+    * *Region*: Any Azure region near you.
+    * *Pricing plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
+
+1. Select the **Database** tab and configure the database:
+    * Select **Create a Database**.
+    * In **Engine**, select **Cosmos DB API for MongoDB**. Cosmos DB is a fully managed NoSQL, relational, and vector database as a service on Azure.
+    * Don't select **Create an Azure Cache for Redis**.
+
+1. Select **Review + create**. After validation completes, select **Create**.
+
+1. When deployment finishes, select the **Go to resource** button. You're taken directly to the App Service app. 
+
+The following resources are created:
+
+* **Resource group**: The container for all the created resources.
+* **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
+* **App Service**: Represents your app and runs in the App Service plan.
+* **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
+* **Azure Cosmos DB**: Accessible only from behind its private endpoint. A database is created for you on the database account.
+* **Private endpoints**: Access endpoints for the database server in the virtual network.
+* **Private DNS zones**: Enable DNS resolution of the database server in the virtual network.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 3. Secure connection secrets
 
-The creation wizard generated the connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
+The creation wizard generated the connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to a key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
 
 :::row:::
     :::column span="2":::
@@ -212,7 +217,7 @@ The creation wizard generated the connectivity string for you already as an [app
         1. Select **Review + create**, then select **Create**. Wait for the key vault deployment to finish. You should see "Your deployment is complete."
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-3.png" alt-text="A screenshot showing how secure a key vault with a private endpoint." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-3.png":::
+        :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-3.png" alt-text="A screenshot showing how to secure a key vault with a private endpoint." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -247,7 +252,7 @@ The creation wizard generated the connectivity string for you already as an [app
         **Step 6:** You're back in the edit dialog for **defaultConnector**.
         1. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the **Key Vault Connection** dropdown automatically selects it.
         1. Select **Next: Networking**.
-        1. Select **Configure firewall rules to enable access to target service**. If you see the message, "No Private Endpoint on the target service," ignore it. The app creation wizard already secured the SQL database with a private endpoint.
+        1. Select **Configure firewall rules to enable access to target service**. If you see the message, "No Private Endpoint on the target service," ignore it. The app creation wizard already secured the Cosmos DB database with a private endpoint.
         1. Select **Save**. Wait until the **Update succeeded** notification appears.
     :::column-end:::
     :::column:::
@@ -259,7 +264,7 @@ The creation wizard generated the connectivity string for you already as an [app
         **Step 7:** To verify your changes: 
         1. From the left menu, select **Environment variables** again.
         1. Make sure that the app setting **spring.data.mongodb.uri** exists. The default connector generated it for you, and your Spring Boot application already uses the variable.
-        1. Next to the app setting, select **Show value**. The value should be `@Microsoft.KeyValut(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
+        1. Next to the app setting, select **Show value**. The value should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-7.png" alt-text="A screenshot showing how to see the value of the Spring Boot environment variable in Azure." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-secure-connection-secrets-7.png":::
@@ -271,8 +276,6 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 ## 4. Deploy sample code
 
 In this step, you configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository kicks off the build and deploy action.
-
-Like the Tomcat convention, if you want to deploy to the root context of Tomcat, name your built artifact *ROOT.war*.
 
 :::row:::
     :::column span="2":::
@@ -303,7 +306,7 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
         **Step 3:** 
         1. Select the **Logs** tab. See that a new deployment already ran, but the status is **Failed**.
         1. Select **Build/Deploy Logs**.
-        A browser tab opens to the **Actions** tab of your forked repository in GitHub. In **Annotations**, you see the error `The string 'java21' is not valid SeVer notation for a Java version`. If you want, select the failed **build** step in the page to get more information.
+        A browser tab opens to the **Actions** tab of your forked repository in GitHub. In **Annotations**, you see the error `The string 'java25' is not valid SemVer notation for a Java version`. If you want, select the failed **build** step in the page to get more information.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-deploy-sample-code-3.png" alt-text="A screenshot showing an error in the deployment center's Logs page." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-deploy-sample-code-3.png":::
@@ -322,7 +325,7 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
     :::column span="2":::
         **Step 5 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
-        1. Ask, "*@workspace Why do I get the error in GitHub actions: The string 'java21' is not valid SemVer notation for a Java version.*" Copilot might give you an explanation and even give you the link to the workflow file that you need to fix.
+        1. Ask, "*@workspace Why do I get the error in GitHub actions: The string 'java25' is not valid SemVer notation for a Java version.*" Copilot might give you an explanation and even give you the link to the workflow file that you need to fix.
         1. Open *.github/workflows/starter-no-infra_msdocs-spring-cosmosdb-123.yaml* in the explorer and make the suggested fix.
         GitHub Copilot doesn't give you the same response every time, you might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
@@ -334,7 +337,7 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
     :::column span="2":::
         **Step 5 (Option 2: without GitHub Copilot):**  
         1. Open *.github/workflows/starter-no-infra_msdocs-spring-cosmosdb-123.yaml* in the explorer and find the `setup-java@v4` action.
-        1. Change the value of `java-version` to `'21'`.
+        1. Change the value of `java-version` to `'25'`.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-deploy-sample-code-5.png" alt-text="A screenshot showing a GitHub codespace and the autogenerated workflow file opened." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-deploy-sample-code-5.png":::
@@ -475,7 +478,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
 1. From the repository root, run `azd init`.
 
     ```bash
-    azd init --template javase-app-service-cosmos-redis-infra
+    azd init --template javase-app-service-cosmos-redis-infra .
     ```
 
 1. When prompted, give the following answers:
@@ -498,7 +501,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     azd up
     ```  
 
-    The `azd up` command takes about 15 minutes to complete (the Redis cache takes the most time). It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command takes about 15 minutes to complete. It also compiles and deploys your application code, but you need to modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deployed application.
 
     This AZD template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -507,10 +510,10 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **App Service**: Represents your app and runs in the App Service plan.
     - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
     - **Azure Cosmos DB account with MongoDB API**: Accessible only from behind its private endpoint. A database is created for you on the server.
-    - **Azure Cache for Redis**: Accessible only from within the virtual network.
+    - **Azure Managed Redis**: Accessible only from within the virtual network.
     - **Key vault**: Accessible only from behind its private endpoint. Used to manage secrets for the App Service app.
-    - **Private endpoints**: Access endpoints for the key vault, the database server, and the Redis cache in the virtual network.
-    - **Private DNS zones**: Enable DNS resolution of the Cosmos DB database, the Redis cache, and the key vault in the virtual network.
+    - **Private endpoints**: Access endpoints for the key vault, the database server, and Azure Managed Redis in the virtual network.
+    - **Private DNS zones**: Enable DNS resolution of the Cosmos DB database, Azure Managed Redis, and the key vault in the virtual network.
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
@@ -542,7 +545,7 @@ The AZD template you use generated the connectivity variables for you already as
 
 1. For your convenience, the AZD template output shows you the direct link to the app's app settings page. Find the link and open it in a new browser tab.
 
-    If you look at the value of `spring.data.mongodb.uri`, it should be `@Microsoft.KeyValut(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is managed in the key vault.
+    If you look at the value of `spring.data.mongodb.uri`, it should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is managed in the key vault.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -554,7 +557,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: https://&lt;app-name>-&lt;hash>.azurewebsites.net/
+      - Endpoint: &lt;URL>
     </pre>
 
 2. Add a few tasks to the list.
@@ -576,7 +579,7 @@ The sample application includes standard Log4j logging statements to demonstrate
 In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
 
 <pre>
-Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
+Stream App Service logs at: &lt;URL>
 </pre>
 
 Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
@@ -604,7 +607,7 @@ Depending on your subscription and the region you select, you might see the depl
 
 `Sorry, we are currently experiencing high demand in <region> region, and cannot fulfill your request at this time.`
 
-The error is most likely caused by a limit on your subscription for the region you select. Try choosing a different region for your deployment.
+This error most likely occurs because of a limit on your subscription for the region you select. Try choosing a different region for your deployment. Capacity for the other resources in the deployment can also vary by region and subscription, so make sure the region you choose has capacity for the App Service plan and the Azure Managed Redis (`Balanced_B0`) instance as well.
 
 #### The deployed sample app doesn't show the tasks list app
 
@@ -623,7 +626,7 @@ Pricing for the created resources is as follows:
 
 - The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 - The Azure Cosmos DB account is created in **Serverless** tier and there's a small cost associated with this tier. See [Azure Cosmos DB pricing](https://azure.microsoft.com/pricing/details/cosmos-db/serverless/).
-- The Azure Cache for Redis is created in **Basic** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
+- The Azure Managed Redis instance is created in the **Balanced B0** (`Balanced_B0`) tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Managed Redis pricing](https://azure.microsoft.com/pricing/details/managed-redis/).
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 
@@ -632,7 +635,7 @@ Pricing for the created resources is as follows:
 The Java SE container in App Service already has network connectivity to Cosmos DB, but doesn't contain any migration tools or other MongoDB tools. You have a few options:
 
 - Run database migrations automatically at app start, such as with Hibernate and or Flyway.
-- In the app's [SSH session](configure-language-java-deploy-run.md#linux-troubleshooting-tools), install a migration tool like [Flyway CLI](https://documentation.red-gate.com/fd/command-line-184127404.html), then run the migration script. Remember that the installed tool won't persist after an app restart unless it's in the */home* directory.
+- In the app's [SSH session](configure-language-java-deploy-run.md#linux-troubleshooting-tools), install a migration tool like Flyway, then run the migration script. Remember that the installed tool won't persist after an app restart unless it's in the */home* directory.
 - [Integrate the Azure cloud shell](../cloud-shell/private-vnet.md) with the virtual network and run database migrations from there.
 
 #### How does local app development work with GitHub Actions?

@@ -5,7 +5,7 @@ author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: how-to
-ms.date: 03/11/2024
+ms.date: 06/15/2025
 ms.author: buchvarun
 ms.custom: mode-api
 ---
@@ -56,6 +56,12 @@ The DICOM service is granted access to the data like any other service or applic
 ## Access tiers
 
 You can manage costs for imaging data stored by the DICOM service by using Azure Storage access tiers for the data lake storage account. The DICOM service only supports online access tiers (either hot, cool, or cold), and can retrieve imaging data in those tiers immediately. The hot tier is the best choice for data that is in active use. The cool or cold tier is ideal for data that is accessed less frequently but still must be available for reading and writing.
+
+Using the data lake, users can manage their storage costs efficiently by moving files between Hot, Cool and Cold tiers based on their usage patterns. For example, users can move files from Hot tier to Cool or Cold tiers after an initial time period. This may reduce long-term storage costs if the files which are moved, are accessed infrequently after a period of initial use.
+
+Users can add a lifecycle policy that automatically moves files to the Cool or Cold tier after a certain number of days. If a file is accessed after being moved, the policy can bring it back to the Hot tier. To implement this policy, users need to enable access tracking, which allows the Azure to monitor and respond to file access patterns.
+
+:::image type="content" source="media/data-lake-storage-tier.png" alt-text="Screenshot showing how to efficiently manage data lake storage using Life cycle management policies." lightbox="media/data-lake-storage-tier.png":::
 
 To learn more about access tiers, including cost tradeoffs and best practices, see [Azure Storage access tiers](/azure/storage/blobs/access-tiers-overview)
 

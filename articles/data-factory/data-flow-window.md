@@ -5,9 +5,9 @@ description: Learn how to use the mapping data flow Window Transformation in Azu
 author: kromerm
 ms.author: makromer
 ms.subservice: data-flows
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: synapse
-ms.date: 09/23/2024
+ms.date: 04/27/2026
 ---
 
 # Window transformation in mapping data flow
@@ -16,11 +16,14 @@ ms.date: 09/23/2024
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
+> [!TIP]
+> If you're new to data integration, start with [Fabric Data Factory](/fabric/data-factory/data-factory-overview), the next generation of Azure Data Factory. The Window transformation isn't currently supported in Dataflow Gen2. For a list of supported transformations and their equivalents, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
+
 The Window transformation is where you define window-based aggregations of columns in your data streams. In the Expression Builder, you can define different types of aggregations that are based on data or time windows (SQL OVER clause) such as LEAD, LAG, NTILE, CUMEDIST, and RANK. A new field is generated in your output that includes these aggregations. You can also include optional group-by fields.
 
 :::image type="content" source="media/data-flow/windows1.png" alt-text="Screenshot shows Windowing selected from the menu.":::
 
-> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4IAVu]
+> [!VIDEO https://learn-video.azurefd.net/vod/player?id=f4c22cfd-df94-4add-a3e1-c072e897f50b]
 
 ## Over
 Set the partitioning of column data for your window transformation. The SQL equivalent is the ```Partition By``` in the Over clause in SQL. If you wish to create a calculation or create an expression to use for the partitioning, you can do that by hovering over the column name and selecting **Computed column**.

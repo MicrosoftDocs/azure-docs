@@ -2,11 +2,11 @@
 title: Deploy an Azure Firewall Manager security partner provider
 description: Learn how to deploy an Azure Firewall Manager security partner provider using the Azure portal. 
 services: firewall-manager
-author: vhorne
+author: duongau
 ms.service: azure-firewall-manager
 ms.topic: how-to
-ms.date: 09/28/2023
-ms.author: victorh
+ms.date: 11/19/2024
+ms.author: duau
 ---
 
 # Deploy a security partner provider
@@ -19,16 +19,14 @@ To learn more about supported scenarios and best practice guidelines, see [What 
 Integrated third-party Security as a service (SECaaS) partners are now available: 
 
 - **Zscaler**
-- **[Check Point](check-point-overview.md)**
-- **iboss**
 
 ## Deploy a third-party security provider in a new hub
 
 Skip this section if you're deploying a third-party provider into an existing hub.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In **Search**, type **Firewall Manager** and select it under **Services**.
-3. Navigate to **Overview**. Select **View secured virtual hubs**.
+1. In **Search**, type **Network Security** and select it under **Services**.
+1. Go to **Secure your resources**. Select **Virtual hubs**.
 4. Select **Create new secured virtual hub**.
 5. Enter your subscription and resource group, select a supported region, and add your hub and virtual WAN information. 
 6. Select **Include VPN gateway to enable Security Partner Providers**.
@@ -46,7 +44,7 @@ Skip this section if you're deploying a third-party provider into an existing hu
 
 The VPN gateway deployment can take more than 30 minutes.
 
-To verify that the hub has been created, navigate to Azure Firewall Manager->Overview->View secured virtual hubs. You see the security partner provider name and the security partner status as **Security Connection Pending**.
+To verify that the hub is created, go to **Network Security** > **Secure your resources** > **Virtual hubs**. You see the security partner provider name and the security partner status as **Security Connection Pending**.
 
 Once the hub is created and the security partner is set up, continue on to connect the security provider to the hub.
 
@@ -83,14 +81,14 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
 1. Follow your partner provided instructions to complete the setup. This includes submitting Microsoft Entra information to detect and connect to the hub, update the egress policies, and check connectivity status and logs.
 
    - [Zscaler: Configure Microsoft Azure Virtual WAN integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration).
-   - [Check Point: Configure Microsoft Azure Virtual WAN integration](https://www.checkpoint.com/cloudguard/microsoft-azure-security/wan).
-   - [iboss: Configure Microsoft Azure Virtual WAN integration](https://www.iboss.com/solution-briefs/microsoft-virtual-wan/). 
-   
-2. You can look at the tunnel creation status on the Azure Virtual WAN portal in Azure. Once the tunnels show **connected** on both Azure and the partner portal, continue with the next steps to set up routes to select which branches and VNets should send Internet traffic to the partner.
+  
+ 2. You can look at the tunnel creation status on the Azure Virtual WAN portal in Azure. Once the tunnels show **connected** on both Azure and the partner portal, continue with the next steps to set up routes to select which branches and VNets should send Internet traffic to the partner.
+ 
+You can add other network virtual appliances to your virtual WAN hub. For more information, see [About NVAs in a Virtual WAN hub](../virtual-wan/about-nva-hub.md).
 
 ## Configure security with Firewall Manager
 
-1. Browse to the Azure Firewall Manager -> Secured Hubs. 
+1. In **Network Security**, under **Secure your resources**, select **Virtual hubs**.
 2. Select a hub. The hub status should now show **Provisioned** instead of **Security Connection Pending**.
 
    Ensure the third-party provider can connect to the hub. The tunnels on the VPN gateway should be in a **Connected** state. This state is more reflective of the connection health between the hub and the third-party partner, compared to previous status.
@@ -118,7 +116,7 @@ After you finish the route setting steps, the virtual network virtual machines a
 
 Use the partner portal to configure firewall rules. Azure Firewall passes the traffic through.
 
-For example, you may observe allowed traffic through the Azure Firewall, even though there's no explicit rule to allow the traffic. This is because Azure Firewall passes the traffic to the next hop security partner provider (ZScalar, CheckPoint, or iBoss). Azure Firewall still has rules to allow outbound traffic, but the rule name isn't logged.
+For example, you may observe allowed traffic through the Azure Firewall, even though there's no explicit rule to allow the traffic. This is because Azure Firewall passes the traffic to the next hop security partner provider (ZScalar). Azure Firewall still has rules to allow outbound traffic, but the rule name isn't logged.
 
 For more information, see the partner documentation.
 

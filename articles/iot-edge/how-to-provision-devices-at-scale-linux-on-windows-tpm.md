@@ -1,19 +1,18 @@
 ---
 title: Create and provision an IoT Edge for Linux on Windows device by using a TPM
 description: Use a simulated TPM on a Linux on Windows device to test the Azure device provisioning service for Azure IoT Edge.
-author: PatAltimore
-ms.author: patricka
-ms.reviewer: fcabrera
-ms.date: 06/03/2024
+author: sethmanheim
+ms.author: sethm
+ms.date: 01/21/2025
 ms.topic: how-to
-ms.service: iot-edge
+ms.service: azure-iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ---
 
 # Create and provision an IoT Edge for Linux on Windows device at scale by using a TPM
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article provides instructions for autoprovisioning an Azure IoT Edge for Linux on Windows device by using a Trusted Platform Module (TPM). You can automatically provision Azure IoT Edge devices with the [Azure IoT Hub device provisioning service](../iot-dps/index.yml). If you're unfamiliar with the process of autoprovisioning, review the [provisioning overview](../iot-dps/about-iot-dps.md#provisioning-process) before you continue.
 

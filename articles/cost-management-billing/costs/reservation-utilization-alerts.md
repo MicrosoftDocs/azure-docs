@@ -1,13 +1,14 @@
 ---
 title: Reservation utilization alerts
 description: This article helps you set up and use reservation utilization alerts.
-author: bandersmsft
-ms.author: banders
-ms.date: 08/30/2023
+author: vikramdesai01
+ms.author: vikdesai
+ms.date: 06/26/2025
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: jojoh
+ms.reviewer: vikdesai
+ms.custom: sfi-image-nochange
 ---
 
 # Reservation utilization alerts
@@ -16,7 +17,21 @@ This article helps you set up and use reservation utilization alerts. The alerts
 
 ## Reservations that you can monitor
 
-The reservation utilization alert is used to monitor the utilization of most categories of reservations. However, utilization alerts don't support prepurchase plans, including [Databricks](../reservations/prepay-databricks-reserved-capacity.md) and [Synapse Analytics - Pre-Purchase](../reservations/synapse-analytics-pre-purchase-plan.md).
+The reservation utilization alert is used to monitor the utilization of most categories of reservations. However, utilization alerts don't support prepurchase plans, including [Databricks](../reservations/prepay-databricks-reserved-capacity.md), [Microsoft Defender for Cloud](/azure/defender-for-cloud/prepurchase-plan), and [Synapse Analytics - Pre-Purchase](../reservations/synapse-analytics-pre-purchase-plan.md).
+
+### Regular reservations
+
+Regular reservations, such as those for Virtual Machines (VMs), must be utilized within the committed duration. If these reservations are not used during that period, the reserved amount will remain unutilized and ultimately wasted. To help customers manage this, Cost Management provides reservation utilization alerts. This alert rule notifies customers about underutilization of their reservation commitments, allowing them to take necessary actions to optimize usage.
+
+### Prepurchase plan-based reservations
+
+On the other hand, prepurchase plan-based reservations offer more flexibility. These reservations can be fully utilized at any time during the coverage period. This means that the regular reservation utilization alert is not effective for these types of reservations, as the utilization pattern differs.
+
+To illustrate:
+
+- **Regular reservations**: If you reserve a Virtual Machine for one year but don't fully use it during that year, the reserved amount is wasted. The reservation utilization alert helps by notifying you if the reservation is underutilized.
+
+- **Prepurchase plan-based reservations**: If you purchase a plan that covers a year, you can utilize the reserved amount at any time during that year, without concern for specific time frames. The regular reservation utilization alert does not apply in this scenario.
 
 ## Supported scopes and required permissions
 
@@ -26,7 +41,7 @@ You can create a reservation utilization alert rule at any of the following scop
 | --- | --- | --- | --- |
 | Enterprise Agreement | Billing account | Enterprise admin, enterprise read only| Create, read, update, delete |
 |• Microsoft Customer Agreement (MCA) in the Enterprise motion where you buy Azure services through a Microsoft representative. Also called an MCA-E agreement.<br><br>• Microsoft Customer Agreement (MCA) that you bought through the Azure website. Also called an MCA-online agreement. | Billing profile |Billing profile owner, billing profile contributor, billing profile reader, and invoice manager | Create, read, update, delete|
-| Microsoft Partner Agreement (MPA) | Customer scope | Global admin, admin agent | Create, read, update, delete |
+| Microsoft Partner Agreement (MPA) | Customer scope | Admin agent, billing admin | Create, read, update, delete |
 
 For more information, see [scopes and roles](understand-work-scopes.md).
 
@@ -88,7 +103,7 @@ The following information provides more detail.
 
 **Creation portal** - Azure portal of partner tenant.
 
-**Permissions required for creation and management** - Global admin or admin agent.
+**Permissions required for creation and management** - Admin agent or [billing admin](/partner-center/account-settings/permissions-overview#billing-admin-role).
 
 **Supported scope** - Customer scope. All the reservations that are active for the selected customer are monitored by default.
 

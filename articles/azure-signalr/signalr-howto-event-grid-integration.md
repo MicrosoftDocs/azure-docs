@@ -19,6 +19,8 @@ Azure Event Grid is a fully managed event routing service that provides uniform 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
  - The Azure CLI commands in this article are formatted for the **Bash** shell. If you're using a different shell like PowerShell or Command Prompt, you may need to adjust line continuation characters or variable assignment lines accordingly. This article uses variables to minimize the amount of command editing required.
+ 
+[!INCLUDE [Connection string security](includes/signalr-connection-string-security.md)]
 
 ## Create a resource group
 
@@ -139,6 +141,8 @@ When the subscription is completed, you should see output similar to the followi
 
 Switch to the service mode to `Serverless Mode` and set up a client connection to the SignalR Service. You can take [Serverless Sample](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) as a reference.
 
+[!INCLUDE [Connection string security comment](includes/signalr-connection-string-security-comment.md)]
+
 ```bash
 git clone git@github.com:aspnet/AzureSignalR-samples.git
 
@@ -146,7 +150,7 @@ cd samples/Management
 
 # Start the negotiation server
 # Negotiation server is responsible for generating access token for clients
-cd NegotitationServer
+cd NegotiationServer
 dotnet user-secrets set Azure:SignalR:ConnectionString "<Connection String>"
 dotnet run
 
@@ -161,7 +165,7 @@ dotnet run
 You've now connected a client to the SignalR Service. Navigate to your Event Grid Viewer web app, and you should see a `ClientConnectionConnected` event. If you terminate the client, you'll also see a `ClientConnectionDisconnected` event.
 
 <!-- LINKS - External -->
-[azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F
+[azure-account]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [sample-app]: https://github.com/dbarkol/azure-event-grid-viewer
 
 <!-- LINKS - Internal -->

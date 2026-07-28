@@ -7,10 +7,11 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 09/11/2024
 ms.author: fipopovi
-ms.reviewer: whhender
 ---
 
 # How to use OPENROWSET using serverless SQL pool in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 The `OPENROWSET(BULK...)` function allows you to access files in Azure Storage. `OPENROWSET` function reads content of a remote data source (for example file) and returns the content as a set of rows. Within the serverless SQL pool resource, the OPENROWSET bulk rowset provider is accessed by calling the OPENROWSET function and specifying the BULK option.  
 

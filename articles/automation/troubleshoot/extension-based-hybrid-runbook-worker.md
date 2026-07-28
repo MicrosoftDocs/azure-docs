@@ -2,9 +2,11 @@
 title: Troubleshoot extension-based Hybrid Runbook Worker issues in Azure Automation 
 description: This article tells how to troubleshoot and resolve issues that arise with Azure Automation extension-based Hybrid Runbook Workers.
 services: automation
-ms.date: 08/26/2024
+ms.date: 04/15/2026
 ms.topic: troubleshooting 
 ms.custom:
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Troubleshoot VM extension-based Hybrid Runbook Worker issues in Automation
@@ -73,6 +75,51 @@ To help troubleshoot issues with extension-based Hybrid Runbook Workers:
     /home/hweautomation
     ```
 
+
+### Scenario: Jobs on Linux Hybrid Worker may get stuck in Running status
+
+#### Issue
+Jobs on Linux Hybrid Worker may get stuck in Running status while the CPU core usage is less than 25%.
+
+#### Cause
+Each CPU core has a default quota limit of 25% for Linux Hybrid Worker.
+
+#### Resolution
+You can remove this limit and make it unrestricted with the following steps:
+
+**Switch to sudo permissions** -
+  1. sudo su
+  1. systemctl status hwd.service // check and make sure hwd service is running well.
+
+**Update the setting in the below file in Hybrid Worker**
+  1. vi /lib/systemd/system/hwd.service
+  1. Update the setting from CPUQuota=25% to CPUQuota= as shown below to make the usage unrestricted.
+
+  ```
+    root@ubuntu2204:~# cat /lib/systemd/system/hwd.service
+    [Unit]
+    Description=HW Service
+    After=network.target
+    
+    [Service]
+    Type=simple
+    ExecStart=/usr/bin/python3 /var/lib/waagent/Microsoft.Azure.Automation.HybridWorker.HybridWorkerForLinux-1.1.16/HybridWorkerAgent/DaemonScripts/Scripts/3.x/automationWorkerStarterScript.py
+    TimeoutStartSec=5
+    Restart=always
+    RestartSec=10s
+    TimeoutStopSec=600
+    CPUQuota=
+    KillMode=process
+    
+    [Install]
+    WantedBy=multi-user.target
+    
+   ```
+
+**Restart hwd service**
+  1. systemctl daemon-reload
+  1. systemctl restart hwd.service
+
 ### Scenario: Runbooks go into a suspended state on a Hybrid Runbook Worker when using a custom account on a server with User Account Control (UAC) enabled
 
 #### Issue
@@ -83,13 +130,25 @@ Jobs fail and go into a suspended state on the Hybrid Runbook Worker. The Micros
 When a system has UAC/LUA in place, permissions must be granted directly and not through any group membership and when user has to elevate permissions, the jobs begin to fail.
 
 #### Resolution
-For Custom user on the Hybrid Runbook Worker, update the permissions in the following folders:
+For Custom user on the Hybrid Runbook Worker, update the permissions in the following folders and registry:
 
-| Folder |Permissions |
+| Folder | Permissions |
 |--- | --- |
 | `C:\ProgramData\AzureConnectedMachineAgent\Tokens` | Read |
 | `C:\Packages\Plugins\Microsoft.Azure.Automation.HybridWorker.HybridWorkerForWindows` | Read and Execute |
 
+| Registry | Permissions |
+|--- | --- |
+| `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog` | Read |
+| `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WinSock2\Parameters` | Full access |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Wbem\CIMOM` | Full access |
+| `HKEY_LOCAL_MACHINE\Software\Policies\Microsoft\SystemCertificates\Root` | Full access |
+| `HKEY_LOCAL_MACHINE\Software\Microsoft\SystemCertificates` | Full access |
+| `HKEY_LOCAL_MACHINE\Software\Microsoft\EnterpriseCertificates` | Full access |
+| `HKEY_LOCAL_MACHINE\software\Microsoft\HybridRunbookWorker` | Full access |
+| `HKEY_LOCAL_MACHINE\software\Microsoft\HybridRunbookWorkerV2` | Full access |
+| `HKEY_CURRENT_USER\SOFTWARE\Policies\Microsoft\SystemCertificates\Disallowed` | Full access |
+| `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Setup\PnpLockdownFiles` | Full access |
 
 ### Scenario: Job failed to start as the Hybrid Worker wasn't available when the scheduled job started
 
@@ -122,7 +181,7 @@ Jobs might get suspended due to any of the following reasons:
 - Hybrid Worker might not be polling as expected every 30 seconds. This could happen if the Worker isn't healthy or there are network issues.  
 
 #### Resolution
-- If the job limit for a Hybrid Worker exceeds four jobs per 30 seconds, you can add more Hybrid Workers to the Hybrid Worker group for high availability and load balancing. You can also schedule jobs so they do not exceed the limit of four jobs per 30 seconds. The processing time of the jobs queue depends on the Hybrid worker hardware profile and load. Ensure that the Hybrid Worker is healthy and gives a heartbeat. 
+- If the job limit for a Hybrid Worker exceeds four jobs per 30 seconds, you can add more Hybrid Workers to the Hybrid Worker group for high availability and load balancing. You can also schedule jobs so they don't exceed the limit of four jobs per 30 seconds. The processing time of the jobs queue depends on the Hybrid worker hardware profile and load. Ensure that the Hybrid Worker is healthy and gives a heartbeat. 
 - Troubleshoot any network issues by checking the Microsoft-SMA event logs on the Workers in the Hybrid Runbook Worker Group that tried to run this job. 
 - You can also monitor the [HybridWorkerPing](/azure/azure-monitor/essentials/metrics-supported#microsoftautomationautomationaccounts) metric that provides the number of pings from a Hybrid Worker and can help to check ping-related issues. 
 
@@ -130,10 +189,10 @@ Jobs might get suspended due to any of the following reasons:
 
 #### Issue
 
-You are deploying an extension-based Hybrid Runbook Worker on a VM and it fails with error: *Authentication failed for private links*.
+You're deploying an extension-based Hybrid Runbook Worker on a VM and it fails with error: *Authentication failed for private links*.
 
 #### Cause
-The virtual network of the VM is different from the private endpoint of Azure Automation account, **or** they are not connected.  
+The virtual network of the VM is different from the private endpoint of Azure Automation account, **or** they aren't connected.  
 
 #### Resolution
 Ensure that the private end point of Azure Automation account is connected to the same Virtual Network, to which the VM is connected. Follow the steps mentioned in [Planning based on your network](../how-to/private-link-security.md#planning-based-on-your-network) to connect to a private endpoint. Also [set public network access flags](../how-to/private-link-security.md#set-public-network-access-flags) to configure an Automation account to deny all public configuration and allow only connections through private endpoints. For more information on how to configure DNS settings for private endpoints, see [DNS configuration](../how-to/private-link-security.md#dns-configuration)
@@ -141,7 +200,7 @@ Ensure that the private end point of Azure Automation account is connected to th
 ### Scenario: Hybrid Worker deployment fails when the provided Hybrid Worker group does not exist
 
 #### Issue
-You are deploying an extension-based Hybrid Runbook Worker on a VM and it fails with error: *Account/Group specified does not exist*.
+You're deploying an extension-based Hybrid Runbook Worker on a VM and it fails with error: *Account/Group specified does not exist*.
 
 #### Cause
 The Hybrid Runbook Worker group to which the Hybrid Worker is to be deployed is already deleted. 
@@ -152,21 +211,21 @@ Ensure that you create the Hybrid Runbook Worker group and add the VM as a Hybri
 ### Scenario: Hybrid Worker deployment fails when system-assigned managed identity is not enabled on the VM
 
 ### Issue
-You are deploying an extension-based Hybrid Runbook Worker on a VM and it fails with error:  
+You're deploying an extension-based Hybrid Runbook Worker on a VM and it fails with error:  
 *Unable to retrieve IMDS identity endpoint for non-Azure VM. Ensure that the Azure connected machine agent is installed and System-assigned identity is enabled.*
 
 ### Cause
-You are deploying the extension-based Hybrid Worker on a non-Azure VM that does not have Arc connected machine agent installed on it. 
+You're deploying the extension-based Hybrid Worker on a non-Azure VM that doesn't have Arc connected machine agent installed on it. 
 
 ### Resolution
 Non-Azure machines must have the Arc connected machine agent installed on it, before deploying it as an extension-based Hybrid Runbook worker. To install the `AzureConnectedMachineAgent`, see [connect hybrid machines to Azure from the Azure portal](/azure/azure-arc/servers/onboard-portal)
-for Arc-enabled servers or [Manage VMware virtual machines Azure Arc](/azure/azure-arc/vmware-vsphere/manage-vmware-vms-in-azure#enable-guest-management) to enable guest management for Arc-enabled VMware VM. 
+for Arc-enabled servers or [Manage VMware virtual machines Azure Arc](/azure/azure-vmware/arc-enable-guest-management) to enable guest management for Arc-enabled VMware VM. 
  
 
 ### Scenario: Hybrid Worker deployment fails due to System assigned identity not enabled
 
 ### Issue
-You are deploying an extension-based Hybrid Runbook Worker on a VM, and it fails with error: *Invalid Authorization Token*.
+You're deploying an extension-based Hybrid Runbook Worker on a VM, and it fails with error: *Invalid Authorization Token*.
 
 ### Cause
 User-assigned managed identity of the VM is enabled, but system-assigned managed identity isn't enabled. 
@@ -255,7 +314,7 @@ Sometimes the uninstallation process might get stuck.
    ```
 1. **Remove registry key**, if present: `HKLM:\Software\Microsoft\Azure\HybridWorker`
 
-   1. PowerShell code to remove the registry key along with any subkeys and values under it.:
+   1. PowerShell code to remove the registry key along with any sub keys and values under it.:
    
       ```powershell
       Get-Item HKLM:\Software\Microsoft\Azure\HybridWorker | Remove-Item -Recurse
@@ -263,7 +322,7 @@ Sometimes the uninstallation process might get stuck.
       
 1. **Remove the registry key**, if present: `HKLM:\Software\Microsoft\HybridRunbookWorkerV2`
 
-   1. PowerShell code to remove the registry key along with any subkeys and values under it.:
+   1. PowerShell code to remove the registry key along with any sub keys and values under it.:
    
       ```powershell
       Get-Item HKLM:\Software\Microsoft\HybridRunbookWorkerV2 | Remove-Item -Recurse
@@ -397,10 +456,27 @@ The Hybrid Runbook Worker machine hasn't pinged Azure Automation for more than 3
 
 Start the worker machine, and then re-register it with Azure Automation. For instructions on how to install the runbook environment and connect to Azure Automation, see [Deploy a Windows Hybrid Runbook Worker](../automation-windows-hrw-install.md).
 
+
+### Scenario: Hybrid Runbook Worker job execution on Azure Arc-enabled Windows server that uses a custom credential is unexpectedly suspended
+
+#### Issue
+
+Runbook jobs executed from an Azure Arc-enabled server that use a custom credential suddenly begin to go into a suspended state.
+
+#### Cause
+
+This is caused by a known issue where folder permissions are removed when the Azure Connected Machine agent is updated. The folder permissions on `C:\ProgramData\AzureConnectedMachineAgent\Tokens` are removed when the Azure Connected Machine agent is updated.
+
+#### Resolution
+
+The current resolution is to reapply the folder permissions to `C:\ProgramData\AzureConnectedMachineAgent\Tokens` when the Azure Connected Machine agent is updated. See [Permissions for Hybrid worker credentials](../extension-based-hybrid-runbook-worker-install.md#permissions-for-hybrid-worker-credentials).
+
+
 ## Next steps
 
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for more support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 * Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+* If you plan to open a support case for an unresolved issue, collect the required diagnostic data before opening it. See [Data to collect when opening a case for Microsoft Azure Automation](collect-data-microsoft-azure-automation-case.md).
 * File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

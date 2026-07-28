@@ -1,18 +1,12 @@
 ---
-# Mandatory fields.
 title: Data history (with Azure Data Explorer)
 titleSuffix: Azure Digital Twins
 description: Understand the data history feature for Azure Digital Twins.
 author: baanders
-ms.author: baanders # Microsoft employees only
-ms.date: 01/26/2024
-ms.topic: conceptual
+ms.author: baanders
+ms.date: 01/27/2025
+ms.topic: concept-article
 ms.service: azure-digital-twins
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.reviewer: MSFT-alias-of-reviewer
-# manager: MSFT-alias-of-manager-or-PM-counterpart
 ---
 
 # Azure Digital Twins data history (with Azure Data Explorer)
@@ -40,7 +34,7 @@ These resources are connected into the following flow:
 
 When the digital twin graph is updated, the information passes through the event hub into the target Azure Data Explorer cluster, where Azure Data Explorer stores the data as a timestamped record in the corresponding table.
 
-When working with data history, it's recommended to use the [2023-01-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/stable/2023-01-31) version or later of the APIs. With the [2022-05-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/Microsoft.DigitalTwins/stable/2022-05-31) version, only twin properties (not twin lifecycle or relationship lifecycle events) can be historized. With earlier versions, data history is not available.
+When working with data history, it's recommended to use the [2023-01-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/DigitalTwins/stable/2023-01-31) version or later of the APIs. With the [2022-05-31](https://github.com/Azure/azure-rest-api-specs/tree/main/specification/digitaltwins/data-plane/DigitalTwins/stable/2022-05-31) version, only twin properties (not twin lifecycle or relationship lifecycle events) can be historized. With earlier versions, data history is not available.
 
 ### Required permissions
 

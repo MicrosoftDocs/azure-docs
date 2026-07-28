@@ -3,10 +3,11 @@ title: Tutorial - Azure IoT water quality monitoring
 description: This tutorial shows you how to deploy and use the water quality monitoring application template for IoT Central.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/13/2024
+ms.date: 08/07/2025
 ms.topic: tutorial
-ms.service: iot-central
+ms.service: azure-iot-central
 services: iot-central
+ms.custom: sfi-image-nochange
 
 #customer intent: As a developer, I want to learn how to deploy and use the water quality monitoring application template for IoT Central so that I can build water quality monitoring solutions.
 ---
@@ -30,7 +31,7 @@ In this tutorial, you:
 
 ## Prerequisites
 
-An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Solution architecture
 
@@ -40,7 +41,7 @@ An active Azure subscription. If you don't have an Azure subscription, create a 
 
 Water management solutions use smart water devices such as flow meters, water quality monitors, smart valves, leak detectors.
 
-Devices in smart water solutions might connect through low-power wide area networks (LPWAN) or through a network operator. For these types of devices, use the [Azure IoT Central Device Bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT application in Azure IoT Central. You can also use an IP capable device gateway that connects directly to your IoT Central application.
+Devices in smart water solutions might connect through low-power wide area networks (LPWAN) or through a network operator. For these types of devices, use the [Azure IoT Central device bridge](../core/howto-build-iotc-device-bridge.md) to send your device data to your IoT application in Azure IoT Central. You can also use an IP capable device gateway that connects directly to your IoT Central application.
 
 ### IoT Central
 
@@ -187,7 +188,7 @@ The water quality monitoring application you created from the application templa
 1. Explore the **Device Properties** tab and the **Device Dashboard** tab.
 
 > [!NOTE]
-> All tabs have been configured from **Device template views**.
+> All tabs are configured from **Device template views**.
 
 ### Add new devices
 

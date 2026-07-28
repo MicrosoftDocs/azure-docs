@@ -5,23 +5,45 @@ author: cephalin
 ms.author: cephalin
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 09/13/2024
-ms.custom: mvc, devx-track-extended-java, AppServiceConnectivity, devx-track-extended-azdevcli, linux-related-content
+ms.date: 06/25/2026
+ms.update-cycle: 180-days
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot
+ms.service: azure-app-service
+ms.custom:
+  - mvc
+  - devx-track-extended-java
+  - AppServiceConnectivity
+  - devx-track-extended-azdevcli
+  - linux-related-content
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
 
 # Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL
 
-This tutorial shows how to build, configure, and deploy a secure Tomcat application in Azure App Service that connects to a MySQL database (using [Azure Database for MySQL](/azure/mysql/)). Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you'll have a Tomcat app running on [Azure App Service on Linux](overview.md).
+This tutorial shows how to build, configure, and deploy a secure Tomcat application in Azure App Service that connects to a MySQL database (using [Azure Database for MySQL](/azure/mysql/)). Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you have a Tomcat app running on [Azure App Service on Linux](overview.md).
 
 :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Tomcat application storing data in MySQL.":::
 
-**To complete this tutorial, you'll need:**
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a secure-by-default architecture for Azure App Service and Azure Database for MySQL.
+> * Secure connection secrets using a managed identity and Key Vault references.
+> * Deploy a Tomcat sample app to App Service from a GitHub repository.
+> * Access App Service app settings in the application code.
+> * Make updates and redeploy the application code.
+> * Stream diagnostic logs from App Service.
+> * Manage the app in the Azure portal.
+> * Provision the same architecture and deploy by using Azure Developer CLI.
+> * Optimize your development workflow with GitHub Codespaces and GitHub Copilot.
+
+## Prerequisites
 
 ::: zone pivot="azure-portal"  
 
-* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/java/).
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * A GitHub account. you can also [get one for free](https://github.com/join).
 * Knowledge of Java with Tomcat development.
 * **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
@@ -30,7 +52,7 @@ This tutorial shows how to build, configure, and deploy a secure Tomcat applicat
 
 ::: zone pivot="azure-developer-cli"
 
-* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/java).
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed. You can follow the steps with the [Azure Cloud Shell](https://shell.azure.com) because it already has Azure Developer CLI installed.
 * Knowledge of Java with Tomcat development.
 * **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
@@ -44,7 +66,7 @@ You can quickly deploy the sample app in this tutorial and see it running in Azu
 ```bash
 mkdir msdocs-tomcat-mysql-sample-app
 cd msdocs-tomcat-mysql-sample-app
-azd init --template msdocs-tomcat-mysql-sample-app
+azd init --template msdocs-tomcat-mysql-sample-app .
 azd up
 ```
 
@@ -102,7 +124,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 First, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for MySQL. For the creation process, you specify:
 
-* The **Name** for the web app. It's used as part of the DNS name for your app in the form of `https://<app-name>-<hash>.<region>.azurewebsites.net`.
+* The **Name** for the web app. It's used as part of the DNS name.
 * The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
 * The **Runtime stack** for the app. It's where you select the version of Java to use for your app.
 * The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
@@ -110,60 +132,51 @@ First, you create the Azure resources. The steps used in this tutorial create a 
 
 Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps to create your Azure App Service resources.
 
-:::row:::
-    :::column span="2":::
-        **Step 1:** In the Azure portal:
-        1. Enter "web app database" in the search bar at the top of the Azure portal.
-        1. Select the item labeled **Web App + Database** under the **Marketplace** heading.
-        You can also navigate to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.AppServiceWebAppDatabaseV3) directly.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-create-app-mysql-1.png" alt-text="A screenshot showing how to use the search box in the top tool bar to find the Web App + Database creation wizard." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-create-app-mysql-1.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 2:** In the **Create Web App + Database** page, fill out the form as follows.
-        1. *Resource Group*: Select **Create new** and use a name of **msdocs-tomcat-mysql-tutorial**.
-        1. *Region*: Any Azure region near you.
-        1. *Name*: **msdocs-tomcat-mysql-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
-        1. *Runtime stack*: **Java 17**.
-        1. *Java web server stack*: **Apache Tomcat 10.1**.
-        1. **MySQL - Flexible Server** is selected for you by default as the database engine. If not, select it. Azure Database for MySQL is a fully managed MySQL database as a service on Azure, compatible with the latest community editions.
-        1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
-        1. Select **Review + create**.
-        1. After validation completes, select **Create**.
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-create-app-mysql-2.png" alt-text="A screenshot showing how to configure a new app and database in the Web App + Database wizard." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-create-app-mysql-2.png":::
-    :::column-end:::
-:::row-end:::
-:::row:::
-    :::column span="2":::
-        **Step 3:** The deployment takes a few minutes to complete. Once deployment completes, select the **Go to resource** button. You're taken directly to the App Service app, but the following resources are created:
-        - **Resource group**: The container for all the created resources.
-        - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
-        - **App Service**: Represents your app and runs in the App Service plan.
-        - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
-        - **Azure Database for MySQL flexible server**: Accessible only from the virtual network. A database and a user are created for you on the server.
-        - **Private DNS zones**: Enable DNS resolution of the database server in the virtual network.
-        <!-- Author note: Azure Database for MySQL's networking is not the same as other databases. It integrates with a private DNS zone, not with a private endpoint. -->
-    :::column-end:::
-    :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-create-app-mysql-3.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-create-app-mysql-3.png":::
-    :::column-end:::
-:::row-end:::
+1. In the Azure portal:
+    * In the search bar at the top, enter *app service*.
+    * Under the **Services** heading, select **App Service**.
+    * Select **Create** > **Web App**.
+
+    You can also go directly to the [creation wizard](https://portal.azure.com/?feature.customportal=false#create/Microsoft.WebSite).
+
+1. In the **Create Web App** page, on the **Basics** tab, fill out the form as follows:
+    * *Resource Group*: Select **Create new** and use a name of **msdocs-tomcat-mysql-tutorial**.
+    * *Name*: **msdocs-tomcat-mysql-XYZ**, where *XYZ* is any three random characters.
+    * *Runtime stack*: **Java 25**.
+    * *Java web server stack*: **Apache Tomcat 11.0**.
+    * *Operating System*: **Linux**.
+    * *Region*: Any Azure region near you.
+    * *Pricing plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier.
+
+1. Select the **Database** tab and configure the database:
+    * Select **Create a Database**.
+    * In **Engine**, select **MySQL - Flexible Server**. Azure Database for MySQL - Flexible Server is a fully managed MySQL database as a service on Azure, compatible with the latest community editions.
+    * Don't select **Create an Azure Cache for Redis**.
+
+1. Select **Review + create**. After validation completes, select **Create**.
+
+1. When deployment finishes, select the **Go to resource** button. You're taken directly to the App Service app. 
+
+The following resources are created:
+
+* **Resource group**: The container for all the created resources.
+* **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *Basic* tier is created.
+* **App Service**: Represents your app and runs in the App Service plan.
+* **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
+* **Azure Database for MySQL Flexible Server**: Accessible only from the virtual network. A database and a user are created for you on the server.
+* **Private DNS zones**: Enable DNS resolution of the database server in the virtual network.
+<!-- Author note: Azure Database for MySQL's networking is not the same as other databases. It integrates with a private DNS zone, not with a private endpoint. -->
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 3. Secure connection secrets
 
-The creation wizard generated the connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
+The creation wizard generated the database connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You move your secrets to a key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
 
 :::row:::
     :::column span="2":::
-        **Step 1:** In the App Service page:
-        1. In the left menu, select **Settings > Environment variables**. 
+        **Step 1: Retrieve the existing connection string** 
+        1. In the left menu of the App Service page, select **Settings > Environment variables**. 
         1. Select **AZURE_MYSQL_CONNECTIONSTRING**. It contains a JDBC connection string. If you add an app setting that contains a valid Oracle, SQL Server, PostgreSQL, or MySQL connection string, App Service injects it as a Java Naming and Directory Interface (JNDI) data source in the Tomcat server's *context.xml* file. 
         1. In **Add/Edit application setting**, in the **Value** field, find the *password=* part at the end of the string.
         1. Copy the password string after *Password=* for use later.
@@ -175,11 +188,11 @@ The creation wizard generated the connectivity string for you already as an [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2:** Create a key vault for secure management of secrets.
+        **Step 2:  Create a key vault for secure management of secrets**
         1. In the top search bar, type "*key vault*", then select **Marketplace** > **Key Vault**.
         1. In **Resource Group**, select **msdocs-tomcat-mysql-tutorial**.
         1. In **Key vault name**, type a name that consists of only letters and numbers.
-        1. In **Region**, set it to the sample location as the resource group.
+        1. In **Region**, set it to the same location as the resource group.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-2.png" alt-text="A screenshot showing how to create a key vault." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-2.png":::
@@ -187,13 +200,13 @@ The creation wizard generated the connectivity string for you already as an [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 3:**
+        **Step 3: Secure the key vault with a Private Endpoint**
         1. Select the **Networking** tab.
         1. Unselect **Enable public access**.
         1. Select **Create a private endpoint**.
         1. In **Resource Group**, select **msdocs-tomcat-mysql-tutorial**.
-        1. In **Key vault name**, type a name that consists of only letters and numbers.
-        1. In **Region**, set it to the sample location as the resource group.
+        1. In **Name**, type a name for the private endpoint that consists of only letters and numbers.
+        1. In **Region**, set it to the same location as the resource group.
         1. In the dialog, in **Location**, select the same location as your App Service app.
         1. In **Resource Group**, select **msdocs-tomcat-mysql-tutorial**.
         1. In **Name**, type **msdocs-tomcat-mysql-XYZVaultEndpoint**.
@@ -208,7 +221,7 @@ The creation wizard generated the connectivity string for you already as an [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 4:**
+        **Step 4: Configure the Service Connector**
         1. In the top search bar, type *msdocs-tomcat-mysql*, then the App Service resource called **msdocs-tomcat-mysql-XYZ**.
         1. In the App Service page, in the left menu, select **Settings > Service Connector**. There's already a connector, which the app creation wizard created for you.
         1. Select checkbox next to the connector, then select **Edit**.
@@ -225,8 +238,8 @@ The creation wizard generated the connectivity string for you already as an [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 5:** In the **Create connection** dialog for the Key Vault connection:
-        1. In **Key Vault**, select the key vault you created earlier.
+        **Step 5: Establish the Key Vault connection**        
+        1. In the **Create connection** dialog for the Key Vault connection, in **Key Vault**, select the key vault you created earlier.
         1. Select **Review + Create**. You should see that **System assigned managed identity** is set to **Selected**.
         1. When validation completes, select **Create**.
     :::column-end:::
@@ -236,8 +249,8 @@ The creation wizard generated the connectivity string for you already as an [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 6:** You're back in the edit dialog for **defaultConnector**.
-        1. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the **Key Vault Connection** dropdown automatically selects it.
+        **Step 6: Finalize the Service Connector configuration** 
+        1. You're back in the edit dialog for **defaultConnector**. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the **Key Vault Connection** dropdown automatically selects it.
         1. Select **Next: Networking**.
         1. Select **Save**. Wait until the **Update succeeded** notification appears.
     :::column-end:::
@@ -247,24 +260,36 @@ The creation wizard generated the connectivity string for you already as an [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7:** To verify your changes: 
-        1. From the left menu, select **Environment variables > Connection strings** again.
-        1. Next to **AZURE_MYSQL_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyValut(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
+        **Step 7: Verify the Key Vault integration**
+        1. From the left menu, select **Settings > Environment variables** again.
+        1. Next to **AZURE_MYSQL_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyVault(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-7.png" alt-text="A screenshot showing how to see the value of the MySQL environment variable in Azure." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-7.png":::
     :::column-end:::
 :::row-end:::
 
+To summarize, the process involved retrieving the MySQL connection string from the App Service's environment variables, creating an Azure Key Vault for secure secret management with private access, and updating the service connector to store the password in the key vault. A secure connection between the App Service app and key vault was established using a system-assigned managed identity, and the setup was verified by confirming the connection string uses a Key Vault reference.
+
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 4. Confirm JNDI data source
 
-If you add an app setting that contains a valid JDBC connection string for Oracle, SQL Server, PostgreSQL, or MySQL, App Service adds a Java Naming and Directory Interface (JNDI) data source for it in the Tomcat server's *context.xml* file. In this step, you use the SSH connection to the app container to verify the JNDI data source. In the process, you learn how to access the SSH shell for the Tomcat container.
+If your app settings contain a valid JDBC connection string for Oracle, SQL Server, PostgreSQL, or MySQL, *and* the app setting `WEBSITE_AUTOCONFIGURE_DATABASE` is set to `true`, App Service adds a Java Naming and Directory Interface (JNDI) data source for it in the Tomcat server's *context.xml* file. In this step, you add this app setting, then use the SSH connection to the app container to verify the JNDI data source. In the process, you learn how to access the SSH shell for the Tomcat container.
 
 :::row:::
     :::column span="2":::
-        **Step 1:** Back in the App Service page:
+        **Step 1:** You're still on the **Environment variables** page from the previous section. Add an app setting to enable data-source autoconfiguration:
+        1. Select **Add**.
+        1. Set **Name** to `WEBSITE_AUTOCONFIGURE_DATABASE` and **Value** to `true`.
+        1. Select **Apply**, then **Apply** again to save and restart the app.
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** Back in the App Service page:
         1. In the left menu, select **SSH**.
         1. Select **Go**. 
     :::column-end:::
@@ -274,7 +299,7 @@ If you add an app setting that contains a valid JDBC connection string for Oracl
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 2:** In the SSH terminal, run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` was added. You'll use this data source later.
+        **Step 3:** In the SSH terminal, run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` was added. You use this data source later.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png":::
@@ -333,7 +358,7 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
         1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about the `jdbc/MYSQLDS` data source and how it's configured. 
         1. Ask, "*@workspace I want to replace the data source defined in persistence.xml with an existing JNDI data source in Tomcat but I want to do it dynamically.*". Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the [ContextListener](https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app/blob/starter-no-infra/src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java) class. 
         1. Open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java* in the explorer and add the code suggestion in the `contextInitialized` method.
-        GitHub Copilot doesn't give you the same response every time, you might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+        GitHub Copilot doesn't give you the same response every time, you might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-java-tomcat-mysql-app/github-copilot-1.png" alt-text="A screenshot showing how to ask a question in a new GitHub Copilot chat session." lightbox="media/tutorial-java-tomcat-mysql-app/github-copilot-1.png":::
@@ -434,7 +459,7 @@ Azure App Service captures all messages output to the console to help you diagno
     :::column-end:::
 :::row-end:::
 
-Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
+Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -485,7 +510,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
 1. From the repository root, run `azd init`.
 
     ```bash
-    azd init --template tomcat-app-service-mysql-infra
+    azd init --template tomcat-app-service-mysql-infra .
     ```
 
 1. When prompted, give the following answers:
@@ -508,7 +533,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     azd up
     ```  
 
-    The `azd up` command takes about 15 minutes to complete (the Redis cache takes the most time). It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command takes about 10 minutes to complete. It also compiles and deploys your application code, but you modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
     This AZD template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -516,12 +541,14 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **App Service plan**: Defines the compute resources for App Service. A Linux plan in the *B1* tier is created.
     - **App Service**: Represents your app and runs in the App Service plan.
     - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
-    - **Azure Database for MySQL flexible server**: Accessible only from the virtual network through the DNS zone integration. A database is created for you on the server.
-    - **Azure Cache for Redis**: Accessible only from within the virtual network.
-    - **Private endpoints**: Access endpoints for the key vault and the Redis cache in the virtual network.
-    - **Private DNS zones**: Enable DNS resolution of the key vault, the database server, and the Redis cache in the virtual network.
+    - **Azure Database for MySQL Flexible Server**: Accessible only from the virtual network through the DNS zone integration. A database is created for you on the server.
+    - **Azure Managed Redis**: Accessible only from within the virtual network.
+    - **Private endpoints**: Access endpoints for the key vault and the Managed Redis instance in the virtual network.
+    - **Private DNS zones**: Enable DNS resolution of the key vault, the database server, and the Managed Redis instance in the virtual network.
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
     - **Key vault**: Used to keep your database password the same when you redeploy with AZD.
+
+    Once the command finishes creating resources and deploying the application code the first time, the deployed sample app doesn't work yet because you must make small changes to make it connect to the database in Azure.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -554,10 +581,10 @@ In this step, you use the SSH connection to the app container to verify the JNDI
 1. In the AZD output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
     <pre>
-    Open SSH session to App Service container at: https://&lt;app-name>-&lt;hash>.scm.azurewebsites.net/webssh/host
+    Open SSH session to App Service container at: &lt;URL>
     </pre>
 
-1. In the SSH terminal, run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` was added. You'll use this data source later.
+1. In the SSH terminal, run `cat /usr/local/tomcat/conf/context.xml`. You should see that a JNDI resource called `jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS` was added. You use this data source later. App Service automatically creates this data source because the AZD template sets the app setting `WEBSITE_AUTOCONFIGURE_DATABASE` to `true`.
 
     :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-check-config-in-ssh-2.png" alt-text="A screenshot showing the commands to run in the SSH shell and their output.":::
 
@@ -571,7 +598,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 # [With GitHub Copilot](#tab/copilot)
 
-1. Back in the GitHub codespace of your sample fork, start a new chat session by clicking the **Chat** view, then clicking **+**. 
+1. In the GitHub codespace, start a new chat session by clicking the **Chat** view, then clicking **+**. 
 
 1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about the `jdbc/MYSQLDS` data source and how it's configured.
 
@@ -579,9 +606,9 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 1. Open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java* in the explorer and add the code suggestion in the `contextInitialized` method.
 
-    GitHub Copilot doesn't give you the same response every time, you might need to ask other questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+    GitHub Copilot doesn't give you the same response every time, you might need to ask other questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
 
-1. Back in the codespace terminal, run `azd deploy`.
+1. In the codespace terminal, run `azd deploy`.
  
     ```bash
     azd deploy
@@ -589,7 +616,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 # [Without GitHub Copilot](#tab/nocopilot)
 
-1. Back in the GitHub codespace of your sample fork, from the explorer, open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java*. When the application starts, this class loads the database settings in *src/main/resources/META-INF/persistence.xml*.
+1. From the explorer, open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java*. When the application starts, this class loads the database settings in *src/main/resources/META-INF/persistence.xml*.
 
 1. In the `contextIntialized()` method, find the commented code (lines 29-33) and uncomment it. 
 
@@ -626,7 +653,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: https://&lt;app-name>-&lt;hash>.azurewebsites.net/
+      - Endpoint: &lt;URL>
     </pre>
 
 2. Add a few tasks to the list.
@@ -648,10 +675,10 @@ The sample application includes standard Log4j logging statements to demonstrate
 In the AZD output, find the link to stream App Service logs and navigate to it in the browser. The link looks like this in the AZD output:
 
 <pre>
-Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
+Stream App Service logs at: &lt;URL>
 </pre>
 
-Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
+Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python, and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -680,7 +707,7 @@ You can ignore the warnings. The Maven Jetty plugin shows the warnings because t
 
 Depending on your subscription and the region you select, you might see the deployment status for Azure Database for MySQL Flexible Server to be `Conflict`, with the following message in Operation details:
 
-`InternalServerError: An unexpected error occured while processing the request.`
+`InternalServerError: An unexpected error occurred while processing the request.`
 
 This error is most likely caused by a limit on your subscription for the region you select. Try choosing a different region for your deployment.
 
@@ -698,6 +725,7 @@ Make sure that you made the code changes to use the `java:comp/env/jdbc/AZURE_MY
 - [How do I connect to the MySQL server behind the virtual network with other tools?](#how-do-i-connect-to-the-mysql-server-behind-the-virtual-network-with-other-tools)
 - [How does local app development work with GitHub Actions?](#how-does-local-app-development-work-with-github-actions)
 - [I don't have permissions to create a user-assigned identity](#i-dont-have-permissions-to-create-a-user-assigned-identity)
+- [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
 
 #### How much does this setup cost?
 
@@ -705,7 +733,7 @@ Pricing for the created resources is as follows:
 
 - The App Service plan is created in **Basic** tier and can be scaled up or down. See [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/).
 - The MySQL flexible server is created in **B1ms** tier and can be scaled up or down. With an Azure free account, **B1ms** tier is free for 12 months, up to the monthly limits. See [Azure Database for MySQL pricing](https://azure.microsoft.com/pricing/details/mysql/flexible-server/).
-- The Azure Cache for Redis is created in **Basic** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Cache for Redis pricing](https://azure.microsoft.com/pricing/details/cache/).
+- The Azure Managed Redis instance is created in the **Balanced B0** tier with the minimum cache size. There's a small cost associated with this tier. You can scale it up to higher performance tiers for higher availability, clustering, and other features. See [Azure Managed Redis pricing](https://azure.microsoft.com/pricing/details/managed-redis/).
 - The virtual network doesn't incur a charge unless you configure extra functionality, such as peering. See [Azure Virtual Network pricing](https://azure.microsoft.com/pricing/details/virtual-network/).
 - The private DNS zone incurs a small charge. See [Azure DNS pricing](https://azure.microsoft.com/pricing/details/dns/). 
 
@@ -740,7 +768,7 @@ A few tips for you when you talk to GitHub Copilot:
 - To let GitHub Copilot have access to all of the files in the repository when preparing its answers, begin your question with `@workspace`. For more information, see [Use the @workspace agent](https://github.blog/2024-03-25-how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/#10-use-the-workspace-agent).
 - In the chat session, GitHub Copilot can suggest changes and (with `@workspace`) even where to make the changes, but it's not allowed to make the changes for you. It's up to you to add the suggested changes and test it.
 
-Here are some other things you can say to fine-tune the answer you get.
+Here are some other things you can say to fine-tune the answer you get:
 
 * Change this code to use the data source jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS.
 * Some imports in your code are using javax but I have a Jakarta app.

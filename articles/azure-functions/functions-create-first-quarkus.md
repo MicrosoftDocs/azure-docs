@@ -2,12 +2,19 @@
 title: Deploy serverless Java apps with Quarkus on Azure Functions
 description: Learn how to develop, build, and deploy a serverless Java app by using Quarkus on Azure Functions.
 author: KarlErickson
-ms.author: edburns
+ms.author: karler
+ms.reviewer: edburns
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 01/10/2023
 ms.devlang: java
-ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, devx-track-javaee-quarkus-functions, devx-track-extended-java
+ms.custom:
+  - devx-track-java
+  - devx-track-javaee
+  - devx-track-javaee-quarkus
+  - devx-track-javaee-quarkus-functions
+  - devx-track-extended-java
+  - sfi-image-nochange
 ---
 
 # Deploy serverless Java apps with Quarkus on Azure Functions
@@ -72,7 +79,6 @@ The resource group is not necessary for this part of the instructions, but it's 
 1. Invoke Quarkus dev mode:
 
     ```bash
-    cd functions-azure
     mvn -DskipTests -DresourceGroup=<yourResourceGroupName> quarkus:dev
     ```
 
@@ -107,7 +113,7 @@ The resource group is not necessary for this part of the instructions, but it's 
 
 ## Add dependency injection to the function
 
-The open-standard technology Jakarta EE Contexts and Dependency Injection (CDI) provides dependency injection in Quarkus. For a high-level overview of injection in general, and CDI specifically, see the [Jakarta EE tutorial](https://eclipse-ee4j.github.io/jakartaee-tutorial/#injection).
+The open-standard technology Jakarta EE Contexts and Dependency Injection (CDI) provides dependency injection in Quarkus.
 
 1. Add a new function that uses dependency injection.
 
@@ -323,6 +329,6 @@ In this article, you learned how to:
 To learn more about Azure Functions and Quarkus, see the following articles and references:
 
 * [Azure Functions Java developer guide](./functions-reference-java.md)
-* [Quickstart: Create a Java function in Azure using Visual Studio Code](./create-first-function-vs-code-java.md)
+* [Quickstart: Create a Java function in Azure using Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-java)
 * [Azure Functions documentation](./index.yml)
 * [Quarkus guide to deploying on Azure](https://quarkus.io/guides/deploying-to-azure-cloud)

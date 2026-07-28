@@ -4,16 +4,17 @@ titleSuffix: Azure Virtual Network
 description: This article shows you how to upgrade all public IP address attached to a VM in an Availability Set to a standard public IP address
 author: mbender-ms
 ms.author: mbratschun
-ms.date: 08/27/2024
+ms.date: 11/20/2025
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
+# Customer intent: "As a cloud administrator, I want to upgrade public IP addresses attached to VMs in an Availability Set from Basic to Standard SKU, so that I can ensure compliance with upcoming retirement policies and benefit from enhanced security features."
 ---
 
 # Upgrade all public IP addresses attached to VMs in an Availability Set from Basic to Standard
 
->[!Important]
->On September 30, 2025, Basic SKU public IPs will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs prior to the retirement date. This article will help guide you through the upgrade process.
+> [!IMPORTANT]
+> On September 30, 2025, Basic SKU public IPs were retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/). If you are currently using Basic SKU public IPs, make sure to upgrade to Standard SKU public IPs as soon as possible. This article will help guide you through the upgrade process.
 
 For more information about the retirement of Basic SKU Public IPs and the benefits of Standard SKU Public IPs, see [here](public-ip-basic-upgrade-guidance.md)
 
@@ -21,7 +22,7 @@ For more information about the retirement of Basic SKU Public IPs and the benefi
 
 This script upgrades any Public IP Addresses attached to the Virtual Machines (VMs) in an Availability Set from Basic to Standard SKU. In order to perform the upgrade, the Public IP Address allocation method is set to static before being disassociated from each VM. Once disassociated, the Public IP SKU is upgraded to Standard, then the IP is reassociated with original VM until all IPs are upgraded.
 
-Because the Public IP allocation is set to 'Static' before detaching from the VMs, the IP addresses don't change during the upgrade process, even in the event of a script failure. The module double-checks that the Public IP allocation method is 'Static' before detaching the Public IP from the VM. 
+Because the Public IP allocation is set to 'Static' before detaching from the VMs, the IP addresses don't change during the upgrade process, even with a script failure. The module double-checks that the Public IP allocation method is 'Static' before detaching the Public IP from the VM. 
 
 The module logs all upgrade activity to a file named `AvSetPublicIPUpgrade.log`, created in the same location where the module was executed (by default). 
 
@@ -41,18 +42,24 @@ Install-Module -Name AzureAvSetBasicPublicIPUpgrade -Scope CurrentUser -Reposito
 
 ## Use the module
 
+1. Use `Connect-AzAccount` to connect to the required Microsoft Entra tenant and Azure subscription
+
+    ```powershell
+    PS C:\> Connect-AzAccount -Tenant <TenantId> -Subscription <SubscriptionId>
+    ```
+
 1. Use `Select-AzSubscription` to select the Azure subscription where your Availability Set exists
 
     ```powershell
     Select-AzSubscription -Subscription <SubscriptionId>
     ```
-2. Locate the Availability Set with the attached Basic Public IPs that you wish to upgrade. Record its name and resource group name.
+1. Locate the Availability Set with the attached Basic Public IPs that you wish to upgrade. Record its name and resource group name.
 
-3. Examine the module parameters:
+1. Examine the module parameters:
     - *AvailabilitySetName  [string] Required* - This parameter is the name of your Availability Set.
     - *ResourceGroupName [string] Required* - This parameter is the resource group for your Availability Set with the Basic Public IPs attached that you want to upgrade.
 
-4. Run the upgrade, using the following examples or `Get-Help Start-AzAvSetPublicIPUpgrade` for guidance.
+1. Run the upgrade, using the following examples or `Get-Help Start-AzAvSetPublicIPUpgrade` for guidance.
 
 ### Example uses of the script
 
@@ -66,7 +73,7 @@ Evaluate VMs in a single Availability Set, without making any changes
 Start-AzAvSetPublicIPUpgrade -availabilitySetName 'myAvSet' -resourceGroupName 'myRG' -WhatIf
 ```
 
-Attempt upgrade of VMs in every Availability Set the user has access to. VMs without Public IPs, which are already upgraded, or which do not have NSGs are skipped.
+Attempt upgrade of VMs in every Availability Set the user has access to. VMs without Public IPs, which are already upgraded, or which don't have NSGs are skipped.
 ```powershell
 Get-AzAvailabilitySet -resourceGroupName 'myRG' | Start-AzAvSetPublicIPUpgrade -skipVMMissingNSG
 ```
@@ -83,7 +90,7 @@ If a migration fails due to a transient issue, such as a network outage or clien
 To recover from a failed upgrade, pass the recovery log file path to the script with the `-recoverFromFile` parameter and identify the Availability Set to recover with the `-AvailabilitySetName` parameter, as shown in this example.
 
 ```powershell
-Start-VMPublicIPUpgrade -RecoverFromFile ./AvSetPublicIPUpgrade_Recovery_2020-01-01-00-00.csv -AvailabilitySetName myAvSet -ResourceGroupName rg-myrg
+Start-AzAvSetPublicIPUpgrade -RecoverFromFile ./AvSetPublicIPUpgrade_Recovery_2020-01-01-00-00.csv -AvailabilitySetName myAvSet -ResourceGroupName rg-myrg
 ```
 
 ## Common questions
@@ -98,7 +105,7 @@ It isn't possible to downgrade a Public IP address from Standard to Basic.
 
 ### Can I test a migration before executing? 
 
-There is no way to evaluate upgrading a Public IP without completing the action. However, this script includes a `-WhatIf` parameter, which checks that your Availability Set VMs will support the upgrade and walks through the steps without taking action. 
+There is no way to evaluate upgrading a Public IP without completing the action. However, this script includes a `-WhatIf` parameter, which checks that your Availability Set VMs support the upgrade and walks through the steps without taking action. 
 
 ### Does the script support Zonal Basic SKU Public IPs? 
 

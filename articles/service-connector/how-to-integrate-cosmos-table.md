@@ -5,12 +5,12 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/02/2024
+ms.date: 06/17/2026
 ---
 
 # Integrate the Azure Cosmos DB for Table with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect the Azure Cosmos DB for Table to other cloud services using Service Connector. You might still be able to connect to the Azure Cosmos DB for Table in other programming languages without using Service Connector. This page also shows default environment variable names and values you get when you create the service connection. 
+This article shows supported authentication methods and clients, and provides sample code for connecting Azure Cosmos DB for Table to cloud services using Service Connector. You can also connect using other programming languages without Service Connector. The article includes default environment variable names and values you receive when creating a service connection. 
 
 ## Supported compute services
 
@@ -18,7 +18,7 @@ Service Connector can be used to connect the following compute services to Azure
 
 - Azure App Service
 - Azure Functions
-- Azure Container Apps
+- Azure Kubernetes Service (AKS)
 - Azure Spring Apps
 
 ## Supported authentication types and client types
@@ -36,9 +36,12 @@ The table below shows which combinations of client types and authentication meth
 
 This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to Azure Cosmos DB for Table using Service Connector.
 
+> [!NOTE]
+> Cosmos DB does not natively support authentication via managed identity. Therefore, Service Connector uses the managed identity to retrieve the connection string, and the connection is subsequently established using that connection string.
+
 ## Default environment variable names or application properties and sample code
 
-Use the connection details below to connect your compute services to Azure Cosmos DB for Table. For each example below, replace the placeholder texts `<account-name>`, `<table-name>`, `<account-key>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`, `<client-secret>`, `<tenant-id>` with your own information. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Refer to the connection details below to connect your compute services to Azure Cosmos DB for Table. Replace placeholder text such as `<account-name>`, `<table-name>`, and `<account-key>` with your actual values. For naming conventions, see [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention).
 
 #### System-assigned managed identity
 
@@ -50,7 +53,7 @@ Use the connection details below to connect your compute services to Azure Cosmo
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for Table using a system-assigned managed identity.
+To connect using a system-assigned managed identity:
 [!INCLUDE [code sample for cosmos table](./includes/code-cosmostable-me-id.md)]
 
 #### User-assigned managed identity
@@ -64,7 +67,8 @@ Refer to the steps and code below to connect to Azure Cosmos DB for Table using 
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for Table using a user-assigned managed identity.
+To connect using a user-assigned managed identity, the following code uses the managed identity to retrieve the connection string, then establishes the connection:
+
 [!INCLUDE [code sample for cosmos table](./includes/code-cosmostable-me-id.md)]
 
 #### Connection string
@@ -78,7 +82,8 @@ Refer to the steps and code below to connect to Azure Cosmos DB for Table using 
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for Table using a connection string.
+To connect using a connection string:
+
 [!INCLUDE [code sample for cosmos table](./includes/code-cosmostable-secret.md)]
 
 #### Service principal
@@ -94,7 +99,7 @@ Refer to the steps and code below to connect to Azure Cosmos DB for Table using 
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for Table using a service principal.
+To connect using a service principal:
 [!INCLUDE [code sample for cosmos table](./includes/code-cosmostable-me-id.md)]
 
 ## Next steps

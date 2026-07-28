@@ -1,20 +1,21 @@
 ---
-title: Use JavaScript to manage properties and metadata for a blob container
+title: Use JavaScript or TypeScript to manage properties and metadata for a blob container
 titleSuffix: Azure Storage
 description: Learn how to set and retrieve system properties and store custom metadata on blob containers in your Azure Storage account using the JavaScript client library.
 services: storage
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 10/28/2024
 
 ms.devlang: javascript
-ms.custom: devx-track-js, devguide-js
+ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer, I want to manage blob container properties and metadata using JavaScript or TypeScript, so that I can effectively organize and retrieve additional information about my storage resources.
 ---
 
-# Manage container properties and metadata with JavaScript
+# Manage container properties and metadata with JavaScript or TypeScript
 
 [!INCLUDE [storage-dev-guide-selector-manage-properties-container](../../../includes/storage-dev-guides/storage-dev-guide-selector-manage-properties-container.md)]
 
@@ -38,53 +39,49 @@ Blob containers support system properties and user-defined metadata, in addition
 
 ## Retrieve container properties
 
-To retrieve container properties, create a [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) object then use the following method:
+To retrieve container properties, use the following method:
 
-- ContainerClient.[getProperties](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-getproperties) (returns [ContainerProperties](/javascript/api/@azure/storage-blob/containerproperties))
+- [ContainerClient.getProperties](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-getproperties)
 
-The following code example fetches a container's properties and writes the property values to a console window:
+The following code example fetches a container's properties and writes some property values to a console window:
 
-```javascript
-async function getContainerProperties(containerClient) {
+## [JavaScript](#tab/javascript)
 
-  // Get Properties including existing metadata
-  const containerProperties = await containerClient.getProperties();
-  if(!containerProperties.errorCode){
-    console.log(containerProperties);
-  }
-}
-```
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/container-set-properties-and-metadata.js" id="snippet_getContainerProperties":::
+
+## [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/container-set-properties-and-metadata.ts" id="snippet_getContainerProperties":::
+
+---
 
 ## Set and retrieve metadata
 
 You can specify metadata as one or more name-value pairs container resource. To set metadata, create a [ContainerClient](/javascript/api/@azure/storage-blob/containerclient) object then use the following method:
 
-- ContainerClient.[setMetadata](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-setmetadata)
+- [ContainerClient.setMetadata](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-setmetadata)
 
-The following code example sets metadata on a container.
+The following code example sets metadata on a container:
 
-```javascript
-/*
-const metadata = {
-  // values must be strings
-  lastFileReview: currentDate.toString(),
-  reviewer: `johnh`
-}
-*/
-async function setContainerMetadata(containerClient, metadata) {
+## [JavaScript](#tab/javascript)
 
-  await containerClient.setMetadata(metadata);
+:::code language="javascript" source="~/azure-storage-snippets/blobs/howto/JavaScript/NodeJS-v12/dev-guide/container-set-properties-and-metadata.js" id="snippet_setContainerMetadata":::
 
-}
-```
+## [TypeScript](#tab/typescript)
 
-To retrieve metadata, [get the container properties](#retrieve-container-properties) then use the returned **metadata** property. 
+:::code language="typescript" source="~/azure-storage-snippets/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/container-set-properties-and-metadata.ts" id="snippet_setContainerMetadata":::
 
-- [ContainerClient.getProperties](/javascript/api/@azure/storage-blob/containerclient#@azure-storage-blob-containerclient-getproperties)
+---
+
+To retrieve metadata, [get the container properties](#retrieve-container-properties) then use the returned **metadata** property.
 
 ## Resources
 
 To learn more about setting and retrieving container properties and metadata using the Azure Blob Storage client library for JavaScript, see the following resources.
+
+### Code samples
+
+- View [JavaScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/container-set-properties-and-metadata.js) and [TypeScript](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/TypeScript/NodeJS-v12/dev-guide/src/container-set-properties-and-metadata.ts) code samples from this article (GitHub)
 
 ### REST API operations
 
@@ -96,8 +93,5 @@ The Azure SDK for JavaScript contains libraries that build on top of the Azure R
 
 The `getProperties` method retrieves container properties and metadata by calling both the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation and the [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) operation.
 
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/JavaScript/NodeJS-v12/dev-guide/container-set-properties-and-metadata.js)
-
 [!INCLUDE [storage-dev-guide-resources-javascript](../../../includes/storage-dev-guides/storage-dev-guide-resources-javascript.md)]
+

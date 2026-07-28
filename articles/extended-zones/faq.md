@@ -1,43 +1,63 @@
 ---
 title: Azure Extended Zones FAQ
-description: This article provides answers to some of the frequently asked questions asked about Azure Extended Zones. 
-author: halkazwini
-ms.author: halkazwini
+description: This article provides answers to some of the frequently asked questions about Azure Extended Zones. 
+author: svaldesgzz
+ms.author: svaldes
 ms.service: azure-extended-zones
 ms.topic: concept-article
-ms.date: 08/16/2024
+ms.date: 02/25/2026
 ---
 
-# Azure Extended Zones frequently asked questions (FAQ)
+# Azure Extended Zones FAQ
 
-This article provides answers to some of the frequently asked questions asked about Azure Extended Zones.
+This article provides answers to some of the frequently asked questions about Azure Extended Zones.
 
-## Where is customer data stored and processed when deploying to an Azure Extended Zone?
+## How can I access extended zones?
 
-An Azure Extended Zone might be associated with a parent region in the same or a different country. Customer Data will be stored and processed in the Extended Zone location, which may be outside of the associated geography and parent region. For Extended Zones with parent regions in the same country, customer Data will remain within the associated geography.
+To learn how to request access to an extended zone, see [Request access to an Azure extended zone](request-access.md).
 
-## Are all Azure services offered at the Azure Extended Zone?
+## What are the available Azure extended zones?
 
-No, given the size, hardware, and targeted use cases for the Azure Extended Zone, only a small subset of the Azure services can be offered at the Azure Extended Zone. Access to the complete set of Azure services is available in the parent region.
+To learn how to request access to extended zones, see [Request access to an Azure extended zone](request-access.md). A comprehensive list of extended zones appears in the process.
 
-## What are the available Azure Extended Zones?
+## Where is customer data stored and processed when it's deployed to an Azure extended zone?
 
-Currently, Los Angeles is the only available Azure Extended Zone.
+An Azure extended zone might be associated with a parent region in the same or different country or region. Customer data is stored and processed in the extended zone location, which might be outside of the associated geography and parent region. For extended zones with parent regions in the same country or region, customer data remains within the associated geography.
 
-## How will I be charged for resources I create in an Azure Extended Zone?
+## Are all Azure services offered at the Azure extended zone?
 
-Currently, you won't be billed for any resources that you create in Los Angles Extended Zone. However, any resources you create in the parent region are subject to charges. For example, if you create a virtual machine in Los Angeles with a network security group in West US, you'll only be billed for the network security group.
+No. Based on the size, hardware, and targeted use cases for Azure extended zones, only a [subset of the Azure services](overview.md#service-offerings-for-azure-extended-zones) is offered at the Azure extended zones. Access to the complete set of Azure services is available in the parent region.
 
-## Will there be SKUs specific to the Azure Extended Zones?
+## Can I use the parent region network security groups (NSGs) or user-defined routes (UDRs)?
 
-No, SKUs are consistent across the corresponding Azure Region, so VMs offered in the Azure Extended Zones don't have specific SKUs.
+Yes. With Azure Extended Zones, you can use network security groups and user-defined routes that you created in the parent region.
 
-## Can I use the parent region network security groups (NSGs) or user defined routes (UDRs)?
+## Are the public IP addresses geolocated/tagged to the extended zone?
 
-Yes. In Azure Extended Zone, you can use network security groups and user defined routes that you created in the parent region.
+The public IP addresses use the same space as the parent Azure region but they're tagged as the extended zone if allocated to a resource inside it.
+
+## How am I charged for resources that I create in Azure extended zones?
+
+The billing experience of Azure Extended Zones is consistent with the rest of Azure. Reach out to your sales representative to get more detailed information on protocols and pricing.
+
+## Are discount programs supported in Azure Extended Zones?
+
+Discounts for Enterprise Agreements, Azure Credit Offers, and Azure Consumption Discounts apply. They're agnostic to a region and specific to customer use across Azure.
+
+## Are reserved instances and savings plans supported in Azure Extended Zones?
+
+Yes. To learn more about how to purchase these solutions, see [Purchase reservations and savings plans - Azure portal](purchase-reservations-savings-plans.md).
+
+## Is there a program for partners so that they can find out about launches and get ready for them?
+
+There's no specific program, but partners can reach out to the team for early access and testing.
+
+## Does the extended zone share the same marketplace for using non-Microsoft products?
+
+Yes, the extended zone shares the same marketplace for using non-Microsoft products.
 
 ## Related content
 
 - [What is Azure Extended Zones?](overview.md)
-- [Deploy a virtual machine in an Extended Zone](deploy-vm-portal.md)
+- [Deploy a virtual machine in an extended zone](deploy-vm-portal.md)
 - [Back up a virtual machine](backup-virtual-machine.md)

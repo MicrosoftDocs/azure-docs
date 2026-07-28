@@ -6,8 +6,10 @@ ms.author: sunishvohra
 ms.manager: vijain
 ms.topic: how-to
 ms.service: azure-migrate
+ms.reviewer: v-uhabiba
 ms.date: 08/21/2024
 ms.custom: engagement-fy25
+# Customer intent: "As a cloud architect, I want to add migration tools in Azure Migrate, so that I can efficiently manage the migration of servers, databases, and web apps to Azure."
 ---
 
 
@@ -63,7 +65,7 @@ To migrate large amounts of data to Azure,  you can order an Azure Data Box for 
 2. In **Explore more**, select **Data box**.
 3. In **Get started with Data Box**, select the subscription and resource group you want to use when ordering a Data Box.
 4. The **Transfer type** is an import to Azure. Specify the country/region in which the data resides, and the Azure region to which you want to transfer the data. 
-5. Click **Apply** to save the settings.
+5. Select **Apply** to save the settings.
 
 ## Next steps
 

@@ -5,12 +5,12 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/02/2024
+ms.date: 06/17/2026
 ---
 
 # Integrate the Azure Cosmos DB for Gremlin with Service Connector
 
-This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Cosmos DB for Apache Gremlin to other cloud services using Service Connector. You might still be able to connect to Azure Cosmos DB for Gremlin in other programming languages without using Service Connector. This page also shows default environment variable names and values you get when you create the service connection.
+This article shows supported authentication methods and clients, and provides sample code for connecting Azure Cosmos DB for Apache Gremlin to cloud services using Service Connector. You can also connect using other programming languages without Service Connector. The article includes default environment variable names and values you receive when creating a service connection.
 
 ## Supported compute services
 
@@ -18,7 +18,7 @@ Service Connector can be used to connect the following compute services to Azure
 
 - Azure App Service
 - Azure Functions
-- Azure Container Apps
+- Azure Kubernetes Service (AKS)
 - Azure Spring Apps
 
 ## Supported authentication types and client types
@@ -37,9 +37,12 @@ The table below shows which combinations of client types and authentication meth
 
 This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to Azure Cosmos DB for Apache Gremlin using Service Connector.
 
+> [!NOTE]
+> Cosmos DB does not natively support authentication via managed identity. Therefore, Service Connector uses the managed identity to retrieve the connection string, and the connection is subsequently established using that connection string.
+
 ## Default environment variable names or application properties and sample code
 
-Use the connection details below to connect your compute services to Azure Cosmos DB for Apache Gremlin. For each example below, replace the placeholder texts `<Azure-Cosmos-DB-account>`, `<database>`, `<collection or graphs>`, `<username>`, `<password>`, `<resource-group-name>`, `<subscription-ID>`, `<client-ID>`,`<client-secret>`, and `<tenant-id>` with your own information. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Refer to the following connection details to connect your compute services to Azure Cosmos DB for Apache Gremlin. Replace placeholder text such as `<Azure-Cosmos-DB-account>`, `<username>`, and `<password>` with your actual values. For naming conventions, see [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention).
 
 
 ### System-assigned managed identity
@@ -55,7 +58,10 @@ Use the connection details below to connect your compute services to Azure Cosmo
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for Gremlin using a system-assigned managed identity.
+Refer to the following steps and code to connect to Azure Cosmos DB for Gremlin using a system-assigned managed identity.
+
+Since Cosmos DB doesn't natively support authentication via managed identity, in the following code sample, we use the managed identity to retrieve the connection string, and the connection is then established using that connection string.
+
 [!INCLUDE [code sample for gremlin](./includes/code-cosmosgremlin-me-id.md)]
 
 ### User-assigned managed identity
@@ -69,9 +75,13 @@ Refer to the steps and code below to connect to Azure Cosmos DB for Gremlin usin
 | AZURE_COSMOS_PORT                 | Connection port                               | 443                                                                                                                                                                                                   |
 | AZURE_COSMOS_USERNAME             | Your username                                 | `/dbs/<database>/colls/<collection or graphs>`                                                                                                                                                        |
 | AZURE_CLIENTID                    | Your client ID                                | `<client_ID>`                                                                                                                                                                                         |
+
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for Gremlin using a user-assigned managed identity.
+Refer to the following steps and code to connect using a user-assigned managed identity.
+
+Since Cosmos DB doesn't natively support authentication via managed identity, in the following code sample, we use the managed identity to retrieve the connection string, and the connection is then established using that connection string.
+
 [!INCLUDE [code sample for gremlin](./includes/code-cosmosgremlin-me-id.md)]
 
 ### Connection string
@@ -88,7 +98,7 @@ Refer to the steps and code below to connect to Azure Cosmos DB for Gremlin usin
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for Gremlin using a connection string.
+To connect using a connection string:
 [!INCLUDE [code sample for gremlin](./includes/code-cosmosgremlin-secret.md)]
 
 ### Service principal
@@ -107,7 +117,7 @@ Refer to the steps and code below to connect to Azure Cosmos DB for Gremlin usin
 
 #### Sample code
 
-Refer to the steps and code below to connect to Azure Cosmos DB for Gremlin using a service principal.
+To connect using a service principal:
 [!INCLUDE [code sample for gremlin](./includes/code-cosmosgremlin-me-id.md)]
 
 ## Next steps

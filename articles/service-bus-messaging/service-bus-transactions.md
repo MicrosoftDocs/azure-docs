@@ -1,10 +1,13 @@
 ---
-title: Overview of transaction processing in Azure Service Bus
+title: Transactions in Azure Service Bus
 description: This article gives you an overview of transaction processing and the send via feature in Azure Service Bus.
-ms.topic: article
-ms.date: 11/13/2023
+ms.topic: concept-article
+ms.date: 12/19/2024
 ms.devlang: csharp
-ms.custom: devx-track-csharp
+ms.custom:
+  - devx-track-csharp
+  - sfi-ropc-nochange
+# Customer intent: I want to know how Azure Service Bus supports transactions. 
 ---
 
 # Overview of Service Bus transaction processing
@@ -89,11 +92,10 @@ To learn more about the `EnableCrossEntityTransactions` property, see the follow
 A transaction times out after 2 minutes. The transaction timer starts when the first operation in the transaction starts. 
 
 
-## Next steps
+## Related content
 
 For more information about Service Bus queues, see the following articles:
 
-* [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [Chaining Service Bus entities with autoforwarding](service-bus-auto-forwarding.md)
 * [Working with transactions sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample06_Transactions.md) (`Azure.Messaging.ServiceBus` library)
 * [Azure Queue Storage and Service Bus queues compared](service-bus-azure-and-service-bus-queues-compared-contrasted.md)

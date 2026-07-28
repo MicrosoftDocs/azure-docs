@@ -1,110 +1,269 @@
 ---
 title: Create Elastic application
-description: This article describes how to use the Azure portal to create an instance of Elastic.
+description: This article describes how to use the Azure portal to create an instance of Elastic, including Elastic Search, Elastic Observability, and Elastic Security.
+author: pdjokar96
+ms.author: piyushdash
 ms.topic: quickstart
-ms.date: 06/01/2023
-author: flang-msft
-ms.author: franlanglois
+zone_pivot_groups: elastic-resource-type
+ms.date: 12/01/2025
+ms.custom: sfi-image-nochange
+#customer intent: As an Azure developer, I want to create Elastic resources to use search, log analytics, and security monitoring functions for Azure environments.
 
 ---
+---
 
-# QuickStart: Get started with Elastic
+# QuickStart: Create an Elastic resource
 
-In this quickstart, you use the Azure portal to integrate an instance of Elastic with your Azure solutions.
+In this quickstart, you create an Elastic resource in Azure and configure it to start collecting logs from your Azure environment.
+
+## What to expect
+
+After you complete this quickstart, you have:
+
+- An Elastic resource (`Microsoft.Elastic/monitors`) in your chosen resource group
+- An Elastic deployment (serverless or cloud-hosted) running in your selected Azure region
+- (Optional) Azure subscription activity logs and resource logs flowing to Elastic
+- (Optional) Azure OpenAI connected for AI-powered search capabilities
+- SSO enabled automatically for all Azure users in your tenant
 
 ## Prerequisites
 
-- Subscription owner - The Elastic integration with Azure can only be created by users who have _Owner_ or _Contributor_ permissions on the Azure subscription. [Confirm that you have the appropriate access](../../role-based-access-control/check-access.md) before starting the setup.
-- Single sign-on app - The ability to automatically navigate between the Azure portal and Elastic Cloud is enabled via single sign-on (SSO). This option is automatically enabled and turned on for all Azure users.
+[!INCLUDE [create-prerequisites](../includes/create-prerequisites.md)]
 
-## Find offer
+> [!NOTE]
+> A given email address can only be part of one Elastic organization at a time. When you create your first Elastic resource from Azure with a new email, a new organization is created along with your first deployment or serverless project. For subsequent resources created with the same email, all deployments and projects go into the same organization.
 
-Use the Azure portal to find the Elastic application.
+> [!NOTE]
+> Single sign-on (SSO) between the Azure portal and Elastic Cloud is automatically enabled for all Azure users. No additional configuration is required.
 
-1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in.
+> [!IMPORTANT]
+> Azure free credits and most Azure free trial offers **can't** be used to purchase Azure Marketplace third-party offers, including Elastic. Your Elastic charges are billed against a payment method that supports Marketplace purchases (for example, a pay-as-you-go subscription or an Enterprise Agreement). For details, see [Understand your Azure Marketplace charges](/azure/cost-management-billing/understand/understand-azure-marketplace-charges#azure-credit-eligibility).
 
-1. If you've visited the **Marketplace** in a recent session, select the icon from the available options. Otherwise, search for _Marketplace_.
+## Choose your Elastic service
 
-    :::image type="content" source="media/create/marketplace.png" alt-text="Image of marketplace icon.":::
+Elastic on Azure offers three services. Select the tab that matches your use case:
 
-1. Search for _Elastic_ and select **Elastic Cloud (Elasticsearch) - An Azure Native ISV Service** from the available offerings.
+| Service | Best for |
+|---------|----------|
+| **Elastic Search** | Full-text search, vector search, application search, analytics |
+| **Elastic Observability** | Log analytics, APM, infrastructure monitoring, alerting |
+| **Elastic Security** | SIEM, threat detection, endpoint protection, compliance |
 
-1. Select **Set up + subscribe**.
+## Create an Elastic resource
 
-   :::image type="content" source="media/create/set-up.png" alt-text="select offer.":::
+You can start the creation workflow from either entry point:
 
-## Create resource
+- **Azure portal**: open the [Elastic resource browse page](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Elastic%2Fmonitors) and select **Create**.
+- **Azure Marketplace**: open the offering that matches the service you chose and select **Get It Now**.
 
-After you've selected the offer for Elastic, you're ready to set up the application.
+  - [Elastic Cloud (Elasticsearch)](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)
+  - [Elastic Observability](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-observability?tab=Overview)
+  - [Elastic Security](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-security?tab=Overview)
 
-1. On the **Create Elastic Resource** basics page, provide the following values.
+Alternatively, from the Azure portal global search bar, search for **Elastic Cloud** and select the matching service.
 
-    :::image type="content" source="media/create/create-resource.png" alt-text="Form to set up Elastic resource.":::
+:::image type="content" source="media/create/create-elastic.png" alt-text="Screenshot shows the create page for Elastic Cloud with options to create Elastic Search, Elastic Observability, and Elastic Security." lightbox="media/create/create-elastic.png":::
 
-    | Property | Description |
-    | ---- | ---- |
-    | **Subscription** | From the drop-down, select an Azure subscription where you have owner access. |
-    | **Resource group** | Specify whether you want to create a new resource group or use an existing resource group. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/management/overview.md). |
-    | **Elastic account name** | Provide the name for the Elastic account you want to create |
-    | **Region** | Select the region you want to deploy to. |
-    | **Pricing Plan** | **Pay as you go**. |
-    | **Price** | Specified based on the selected Elastic plan. |
+::: zone pivot="elastic-search"
 
-   When you've finished, select **Next: Logs and Metrics**.
+Select **Elastic Search**.
 
-1. On **Logs & metrics**, specify which logs to send to Elastic.
+### Basics tab
 
-    :::image type="content" source="media/create/configure-logs.png" alt-text="Select logs to send.":::
+1. In the **Basics** tab, enter values for the settings:
 
-   There are two types of logs that can be emitted from Azure to Elastic.
+    | Field               | Action                                                    |
+    |---------------------|-----------------------------------------------------------|
+    | Subscription        | Select a subscription from the options. You must be an *Owner* or *Contributor*.   |
+    | Resource group      | Use an existing resource group or create a new one.       |
+    | Resource name       | Specify a unique name for the resource.                   |
+    | Hosting Type        | Select **Serverless** or **Cloud Hosted**. See [Serverless vs. cloud-hosted](overview.md#serverless-vs-cloud-hosted) for guidance. |
+    | Configuration (**Serverless** only) | Select **General purpose** or **Optimized for Vectors**. Choose Vectors if you plan to use vector search or semantic search. |
+    | Region              | Select a region to deploy your resource.                  |
+    | Version (**Cloud Hosted** only) | Select an Elasticsearch version.              |
+    | Size (**Cloud Hosted** only) | Review the cluster size and configuration.       |
+    | Plan                | To choose a different plan, select **Change plan**.       |
+    | Billing term        | Select monthly or annual billing.                         |
+    | Price + Payment options | Review the pricing details for your configuration.    |
 
-   **Subscription logs** provide insights into the operations on each Azure resource in the subscription from the [management plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). The logs also provide updates on Service Health events. Use the activity log to determine what, who, and when for any write operations (PUT, POST, DELETE) on the resources in your subscription. There's a single activity log for each Azure subscription.
+1. At the bottom of the page, select **Next: Logs & metrics**.
 
-   **Azure resource logs** provide insights into operations that happen within the [data plane](../../azure-resource-manager/management/control-plane-and-data-plane.md). For example, getting a secret from a key vault or making a request to a database are data plane activities. The content of resource logs varies by the Azure service and resource type. The types of Azure resource logs are listed in [Azure Monitor Resource Log categories](/azure/azure-monitor/essentials/resource-logs-categories).
+### Logs & metrics tab (optional)
 
-   To filter the Azure resources that send logs to Elastic, use resource tags. The tag rules for sending logs are:
+Configure which Azure resources send logs to Elastic. You can change these settings at any time after creation.
 
-   - By default, logs are collected for all resources.
-   - Resources with _Include_ tags send logs to Elastic.
-   - Resources with _Exclude_ tags don't send logs to Elastic.
-   - If there's a conflict between inclusion and exclusion rules, exclusion takes priority.
+| Setting | What it does |
+|---------|-------------|
+| **Send subscription activity logs** | Forwards management plane operations (resource creation, deletion, role assignments) to Elastic |
+| **Send Azure resource logs for all defined sources** | Forwards diagnostic logs from supported Azure resources to Elastic |
 
-   Select **Next: Azure OpenAI configuration** to create and configure Azure OpenAI connector that can be used within Elastic's AI Assistant.
+For Observability and Security resource types, log forwarding is enabled by default.
 
-1. On **Azure OpenAI configuration**, specify the Azure OpenAI resource and the deployment that would be required to configure the connector. The details of the deployment (url, API keys etc.) are passed on to Elastic to prepare the connector to be used with Elastic's AI Assistant.
+You can refine which resources send logs by specifying tag-based include/exclude rules under **Logs**. For more information, see [tag rules for sending logs](../metrics-logs.md#tag-rules-for-sending-logs).
 
-    :::image type="content" source="media/create/configure-aoai-connector.png" alt-text="Screenshot of how to configure Azure OpenAI Connector.":::
+> [!NOTE]
+> Automatic metrics collection isn't supported yet. To send metrics of Azure services to Elastic, see [Azure Metrics integration](https://www.elastic.co/docs/reference/integrations/azure_metrics) in the Elastic documentation.
 
-   >[!Note]
-   >Only deployments of text/chat completion models (like gpt4) are supported currently. Learn more about Elastic Connectors [here](https://www.elastic.co/guide/en/kibana/current/openai-action-type.html).
+At the bottom of the page, select **Next: Azure OpenAI configuration**.
 
-   Select **Next: Tags** to set up tags for the new Elastic resource.
+### Azure OpenAI configuration tab
 
-1. In **Tags**, add custom tags for the new Elastic resource. Each tag consists of a name and value. When you've finished adding tags, select **Next: Review+Create** to navigate to the final step for resource creation.
+Connect an Azure OpenAI resource to enable AI-powered search experiences such as semantic search and retrieval-augmented generation (RAG).
 
-   :::image type="content" source="media/create/add-tags.png" alt-text="Screenshot of add tags to Elastic resource.":::
+1. Select an existing **Azure OpenAI Resource**.
 
-1. On **Review + create**, your configuration is validated. You can review the selections you made in the earlier forms. You can also review the terms for this offering.
+1. Select an existing **Azure OpenAI Deployment**.
 
-   :::image type="content" source="media/create/review-validation.png" alt-text="Review and validation selections":::
+    > [!TIP]
+    > You can skip this step and configure Azure OpenAI later from the manage experience. See [Manage your Elastic resource](manage.md).
 
-   After validation has succeeded and you've reviewed the terms, select **Create**.
+1. At the bottom of the page, select **Next: Tags**.
 
-1. Azure starts the deployment.
+### Tags tab (optional)
 
-   :::image type="content" source="media/create/deployment-in-progress.png" alt-text="Deployment status":::
+[!INCLUDE [tags](../includes/tags.md)]
 
-1. After the deployment is finished, select **Go to resource** to view the deployed resource.
+### Review + create tab
 
-    :::image type="content" source="media/create/deployment-complete.png" alt-text="Screenshot of view status of deployment.":::
+[!INCLUDE [review-create](../includes/review-create.md)]
+
+::: zone-end
+
+::: zone pivot="elastic-observability"
+
+Select **Elastic Observability**.
+
+### Basics tab
+
+1. In the **Basics** tab, enter values for the settings:
+
+    | Field               | Action                                                    |
+    |---------------------|-----------------------------------------------------------|
+    | Subscription        | Select a subscription from the options. You must be an *Owner* or *Contributor*.   |
+    | Resource group      | Use an existing resource group or create a new one.       |
+    | Resource name       | Specify a unique name for the resource.                   |
+    | Hosting Type        | Select **Serverless** or **Cloud Hosted**. See [Serverless vs. cloud-hosted](overview.md#serverless-vs-cloud-hosted) for guidance. |
+    | Region              | Select a region to deploy your resource.                  |
+    | Version (**Cloud Hosted** only) | Select an Elasticsearch version.              |
+    | Size (**Cloud Hosted** only) | Review the cluster size and configuration.       |
+    | Plan                | To choose a different plan, select **Change plan**.       |
+    | Billing term        | Select monthly or annual billing.                         |
+    | Price + Payment options | Review the pricing details for your configuration.    |
+
+1. At the bottom of the page, select **Next: Logs & metrics**.
+
+### Logs & metrics tab (optional)
+
+Configure which Azure resources send logs and metrics to Elastic. You can change these settings at any time after creation. For details on what gets forwarded and worked include/exclude examples, see [tag rules for sending metrics](../metrics-logs.md#tag-rules-for-sending-metrics) and [tag rules for sending logs](../metrics-logs.md#tag-rules-for-sending-logs) in [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md).
+
+| Setting | What it does |
+|---------|-------------|
+| **Send subscription activity logs** | Forwards management plane operations to Elastic |
+| **Send Azure resource logs for all defined sources** | Forwards diagnostic logs from supported Azure resources to Elastic (enabled by default) |
+
+You can refine which resources send logs by specifying tag-based include/exclude rules under **Logs**.
+
+> [!NOTE]
+> Automatic metrics collection isn't supported yet. To send metrics of Azure services to Elastic, see [Azure Metrics integration](https://www.elastic.co/docs/reference/integrations/azure_metrics) in the Elastic documentation.
+
+At the bottom of the page, select **Next: Azure OpenAI configuration**.
+
+### Azure OpenAI configuration tab
+
+Connect an Azure OpenAI resource to enable AI-assisted analysis of your observability data.
+
+1. Select an existing **Azure OpenAI Resource**.
+
+1. Select an existing **Azure OpenAI Deployment**.
+
+1. At the bottom of the page, select **Next: Tags**.
+
+### Tags tab (optional)
+
+[!INCLUDE [tags](../includes/tags.md)]
+
+### Review + create tab
+
+[!INCLUDE [review-create](../includes/review-create.md)]
+
+::: zone-end
+
+::: zone pivot="elastic-security"
+
+Select **Elastic Security**.
+
+### Basics tab
+
+1. In the **Basics** tab, enter values for the settings:
+
+    | Field               | Action                                                    |
+    |---------------------|-----------------------------------------------------------|
+    | Subscription        | Select a subscription from the options. You must be an *Owner* or *Contributor*.   |
+    | Resource group      | Use an existing resource group or create a new one.       |
+    | Resource name       | Specify a unique name for the resource.                   |
+    | Hosting Type        | Select **Serverless** or **Cloud Hosted**. See [Serverless vs. cloud-hosted](overview.md#serverless-vs-cloud-hosted) for guidance. |
+    | Region              | Select a region to deploy your resource.                  |
+    | Version (**Cloud Hosted** only) | Select an Elasticsearch version.              |
+    | Size (**Cloud Hosted** only) | Review the cluster size and configuration.       |
+    | Plan                | To choose a different plan, select **Change plan**.       |
+    | Billing term        | Select monthly or annual billing.                         |
+    | Price + Payment options | Review the pricing details for your configuration.    |
+
+1. At the bottom of the page, select **Next: Logs & metrics**.
+
+### Logs & metrics tab (optional)
+
+Configure which Azure resources send security-related logs to Elastic. You can change these settings at any time after creation.
+
+| Setting | What it does |
+|---------|-------------|
+| **Send subscription activity logs** | Forwards management plane operations for security auditing |
+| **Send Azure resource logs for all defined sources** | Forwards diagnostic logs for security analysis (enabled by default) |
+
+You can refine which resources send logs by specifying tag-based include/exclude rules under **Logs**. For more information, see [tag rules for sending logs](../metrics-logs.md#tag-rules-for-sending-logs).
+
+> [!NOTE]
+> Automatic metrics collection isn't supported yet. To send metrics of Azure services to Elastic, see [Azure Metrics integration](https://www.elastic.co/docs/reference/integrations/azure_metrics) in the Elastic documentation.
+
+At the bottom of the page, select **Next: Azure OpenAI configuration**.
+
+### Azure OpenAI configuration tab
+
+Connect an Azure OpenAI resource to enable AI-assisted security analysis and threat investigation.
+
+1. Select an existing **Azure OpenAI Resource**.
+
+1. Select an existing **Azure OpenAI Deployment**.
+
+1. At the bottom of the page, select **Next: Tags**.
+
+### Tags tab (optional)
+
+[!INCLUDE [tags](../includes/tags.md)]
+
+### Review + create tab
+
+[!INCLUDE [review-create](../includes/review-create.md)]
+
+::: zone-end
+
+## Verify your deployment
+
+After the resource is created:
+
+1. Navigate to your Elastic resource in the Azure portal.
+2. In the **Overview** pane, confirm the **Status** shows as *Active*.
+3. Select the **Elastic portal** link to open your Elastic deployment.
+4. In the Elastic portal, verify that data is arriving (allow a few minutes for initial ingestion).
+
+> [!TIP]
+> If logs aren't appearing after 10 minutes, see [Troubleshooting](troubleshoot.md) for common causes and solutions.
 
 ## Next steps
 
-- [Manage the Elastic resource](manage.md)
-- Get started with Elastic Cloud (Elasticsearch) - An Azure Native ISV Service on
+> [!div class="nextstepaction"]
+> [Manage your Elastic resource](manage.md)
 
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Elastic%2Fmonitors)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)
+- [Configure log forwarding rules](manage.md#reconfigure-rules-for-logs-and-metrics)
+- [Deploy Elastic Agents to VMs](manage.md#elastic-agent-deployment)
+- [Set up Azure OpenAI integration](manage.md#azure-openai-integration)

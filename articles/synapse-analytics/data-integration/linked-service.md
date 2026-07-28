@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: security
 ms.date: 04/15/2020
 ms.author: seshin
-ms.reviewer: whhender
+ms.custom: sfi-image-nochange
 ---
 
 # Secure a linked service with Private Links
@@ -16,7 +16,7 @@ In this article, you'll learn how to secure a linked service in Synapse with a p
 
 ## Prerequisites
 
-* **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
+* **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 * **Azure Storage account**: You use Azure Data Lake Gen 2 as a *source* data store. If you don't have a storage account, see [Create an Azure Storage account](../../storage/common/storage-account-create.md) for steps to create one. Make sure that the Storage Account has the Synapse Studio IP filtering for accessing it and that you only allow **Selected networks** to access the Storage account. The setting under the blade **Firewalls and virtual networks** should look like the picture below.
 
 ![Secured Storage Account](./media/secure-storage-account.png)

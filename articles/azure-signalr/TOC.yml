@@ -73,14 +73,14 @@
       href: ../azure-functions/functions-bindings-signalr-service.md
     - name: Configure upstream endpoints
       href: concept-upstream.md
-  - name: High availability
+  - name: Reliability
     items:
+    - name: Reliability in Azure SignalR Service
+      href: /azure/reliability/reliability-signalr?toc=/azure/azure-signalr/TOC.json
     - name: Gracefully shut down your app server
       href: server-graceful-shutdown.md
-    - name: Resiliency and disaster recovery
+    - name: Disaster recovery
       href: signalr-concept-disaster-recovery.md
-    - name: Availability zones
-      href: availability-zones.md
   - name: Messages and connections
     href: signalr-concept-messages-and-connections.md
   - name: Performance considerations
@@ -93,6 +93,8 @@
         href: signalr-concept-authorize-azure-active-directory.md
   - name: Event handling
     href: signalr-concept-event-grid-integration.md
+  - name: Disconnections and reconnections
+    href: signalr-concept-client-disconnections.md
   - name: Security
     items:
     - name: Security baseline
@@ -124,7 +126,7 @@
     - name: Access key rotation
       href: signalr-howto-key-rotation.md
     - name: Application firewall
-      href: signalr-howto-configure-application-firewall.md  
+      href: signalr-howto-configure-application-firewall.md
     - name: Use Azure Service Tags
       href: howto-service-tags.md
     - name: Use Azure Private Endpoints
@@ -141,7 +143,9 @@
       href: signalr-howto-authorize-application.md
     - name: Authorize from managed identity
       href: signalr-howto-authorize-managed-identity.md
-    - name: Disable local authentication.
+    - name: Configure cross tenant authorization
+      href: signalr-howto-authorize-cross-tenant.md
+    - name: Disable local authentication
       href: howto-disable-local-auth.md
     - name: Custom domain
       href: howto-custom-domain.md
@@ -193,6 +197,8 @@
       items:
       - name: Versions
         items:
+          - name: v20241201
+            href: swagger/signalr-data-plane-rest-v20241201.md
           - name: v20220601
             href: swagger/signalr-data-plane-rest-v20220601.md
           - name: v1
@@ -227,7 +233,7 @@
     href: https://azure.microsoft.com/pricing/details/signalr-service/
   - name: Videos
     href: https://www.youtube.com/results?search_query=Azure+SignalR+Core
-  - name: StackOverflow
+  - name: Stack Overflow
     href: https://stackoverflow.com/search?q=signalr+service
   - name: X
     href: https://x.com/SignalR

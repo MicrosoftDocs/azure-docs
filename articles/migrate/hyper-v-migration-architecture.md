@@ -4,10 +4,12 @@ description: Learn about Hyper-V migration with Azure Migrate
 author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
-ms.date: 12/12/2022
-ms.custom: engagement-fy23
+ms.reviewer: v-uhabiba
+ms.date: 06/30/2023
+ms.custom: engagement-fy25
+# Customer intent: As a cloud administrator, I want to understand the Hyper-V migration process using agentless replication, so that I can efficiently migrate on-premises workloads to Azure without installing agents on individual VMs.
 ---
 
 

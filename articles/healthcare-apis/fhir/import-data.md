@@ -5,13 +5,13 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 02/06/2024
+ms.date: 10/09/2025
 ms.author: kesheth
 ---
 
 # Import FHIR data
 
-You can use the `import` operation to ingest FHIR&reg; data into the FHIR server with high throughput.
+You can use the `import` operation to ingest FHIR&reg; data into the FHIR server with high throughput. The import operation enables importing FHIR data in the NDJSON format to the FHIR server. 
 
 ## Import operation modes
 
@@ -21,7 +21,7 @@ The `import` operation supports two modes: initial and incremental. Each mode ha
 
 - Intended for loading FHIR resources into an empty FHIR server.
 
-- Supports only `create` operations and (when enabled) blocks API writes to the FHIR server.
+- Blocks API writes to the FHIR server.
 
 ### Incremental mode
 
@@ -30,12 +30,10 @@ The `import` operation supports two modes: initial and incremental. Each mode ha
 - Allows you to load `lastUpdated` and `versionId` values from resource metadata if they're present in the resource JSON.
 
 - Allows you to load resources in a nonsequential order of versions.
- 
-  - If import files don't have the `version` and `lastUpdated` field values specified, there's no guarantee of importing resources in the FHIR service.
+  Note for non-sequential ingestion of resources
+  - If import files don't have the `version` and `lastUpdated` field values specified, there's no guarantee of importing all resources in the FHIR service.
   - If import files have resources with duplicate `version` and `lastUpdated` field values, only one resource is randomly ingested in the FHIR service.
-  - If multiple resources share the same resource ID, only one of those resources is imported at random. An error is logged for the resources that share the same resource ID.
-
-- Allows you to ingest soft-deleted resources. This capability is beneficial when you migrate from Azure API for FHIR to the FHIR service in Azure Health Data Services.
+  - During parallel execution, if multiple resources share the same resource ID, only one of those resources is imported at random.
 
 The following table shows the difference between import modes.
 
@@ -43,7 +41,7 @@ The following table shows the difference between import modes.
 |------------- |-------------|-----|
 |Capability|Initial load of data into FHIR service|Continuous ingestion of data into FHIR service (Incremental or Near Real Time).|
 |Concurrent API calls|Blocks concurrent write operations|Data can be ingested concurrently while executing API CRUD operations on the FHIR server.|
-|Ingestion of versioned resources|Not supported|Enables ingestion of  multiple versions of FHIR resources in single batch while maintaining resource history.|
+|Ingestion of versioned resources|Not supported, only the latest version is retained, and lastUpdated is set to the time of import|Supported. Enables ingestion of multiple versions of FHIR resources in single batch while maintaining resource history and original lastUpdated values. <br>**Note**: Use incremental import mode if you need to retain historical versions or preserve original lastUpdated timestamps|
 |Retain lastUpdated field value|Not supported|Retain the lastUpdated field value in FHIR resources during the ingestion process.|
 |Billing| Doesn't incur any charge|Incurs charges based on successfully ingested resources. Charges are incurred per API pricing.|
 
@@ -56,6 +54,8 @@ To achieve the best performance with the `import` operation, consider the follow
 - **Import FHIR resource files as a single batch**. For optimal performance, import all the FHIR resource files that you want to ingest in the FHIR server in one `import` operation. Importing all the files in one operation reduces the overhead of creating and managing multiple import jobs. Optimally, the total size of files in a single import should be large (>=100 GB or >=100M resources, no upper limit).
 
 - **Limit the number of parallel import jobs**. You can run multiple `import` jobs at the same time, but might affect the overall throughput of the `import` operation. 
+
+To achieve high throughput,`import` operation runs on distributed computing infrastructure. It splits input files in data units and processes these units in parallel and independent of each other.
 
 ## Perform the import operation
 
@@ -90,6 +90,7 @@ The following tables describe the body parameters and inputs.
 | `inputFormat`| String that represents the name of the data source format. Only FHIR NDJSON files are supported. | 1..1 | `application/fhir+ndjson` |
 | `mode`| Import mode value. | 1..1 | For an initial-mode import,  use the `InitialLoad` mode value. For incremental-mode import, use the `IncrementalLoad` mode value. If you don't provide a mode value, the `IncrementalLoad` mode value is used by default. |
 | `allowNegativeVersions`|	Allows FHIR server assigning negative versions for resource records with explicit lastUpdated value and no version specified when input doesn't fit in contiguous space of positive versions existing in the store. | 0..1 |	To enable this feature, pass true. By default it's false. |
+|`errorContainerName`|  String that represents the name of the container where errors encountered during the import process will be logged.  | 0..1 | Custom container name for error logs. The name should be between 3-63 characters and only contain lowercase letters, numbers, and hyphens. If not specified, the default container will be used. |
 | `input`| Details of the input files. | 1..* | A JSON array with the three parts described in the following table. |
 
 
@@ -114,6 +115,10 @@ The following tables describe the body parameters and inputs.
         {
             "name": "allowNegativeVersions",
             "valueBoolean": true
+        },
+        {
+            "name": "errorContainerName",
+            "valueString": "import-error-logs"
         },
         {
             "name": "input",
@@ -245,15 +250,18 @@ The `import` operation fails and returns `403 Forbidden`. The response body cont
 
 **import operation failed for reason: Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature.**
 Cause: The FHIR service uses a managed identity for source storage authentication. This error indicates a missing or incorrect role assignment.
-Solution: Assign the **Storage Blob Data Contributor** role to the FHIR server. For more information, see [Assign Azure roles](../../role-based-access-control/role-assignments-portal.yml?tabs=current).
+Solution: Assign the **Storage Blob Data Contributor** role to the FHIR server. For more information, see [Assign Azure roles](/azure/role-based-access-control/role-assignments-portal?tabs=current).
 
 ### 500 Internal Server Error
 
 The `import` operation fails and returns `500 Internal Server Error`. The response body contains diagnostic content
 
 **import operation failed for reason: The database '****' has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions.**
+
 Cause: You reached the storage limit of the FHIR service.
+
 Solution: Reduce the size of your data or consider Azure API for FHIR, which has a higher storage limit.
+
 
 ### 423 Locked
 

@@ -3,10 +3,11 @@ author: cephalin
 ms.author: cephalin
 ms.topic: include
 ms.custom: devx-track-azurecli
-ms.date: 01/22/2024
+ms.date: 01/16/2025
+ms.service: azure-app-service
 ---
 
-To deploy with OpenID Connect using the managed identity you configured, use the `azure/login@v1` action with the `client-id`, `tenant-id`, and `subscription-id` keys and reference the GitHub secrets that you [created earlier](../../deploy-github-actions.md?tabs=openid#2-configure-the-github-secret).
+To deploy with OpenID Connect by using the managed identity you configured, use the `azure/login@v2` action with the `client-id`, `tenant-id`, and `subscription-id` keys. Reference the GitHub secrets that you created earlier.
 
 # [ASP.NET Core](#tab/aspnetcore)
 
@@ -20,18 +21,18 @@ permissions:
       contents: read
 
 env:
-  AZURE_WEBAPP_NAME: my-app    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  DOTNET_VERSION: '6.0.x'           # set this to the dot net version to use
+  AZURE_WEBAPP_NAME: my-app    # Set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # Set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '6.0.x'           # Set this to the dot net version to use
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout the repo
+      # Check out the repo
       - uses: actions/checkout@main
-      - uses: azure/login@v1
+      - uses: azure/login@v2
         with:
           client-id: ${{ secrets.AZURE_CLIENT_ID }}
           tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -65,7 +66,7 @@ jobs:
 
 # [ASP.NET](#tab/aspnet)
 
-Build and deploy a ASP.NET MVC app to Azure using an Azure service principal. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
+Build and deploy an ASP.NET model-view-controller (MVC) app to Azure by using an Azure service principal. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the sign-in action.
 
 ```yaml
 name: Deploy ASP.NET MVC App deploy to Azure Web App
@@ -77,19 +78,19 @@ permissions:
       contents: read
 
 env:
-  AZURE_WEBAPP_NAME: my-app    # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
-  NUGET_VERSION: '5.3.x'           # set this to the dot net version to use
+  AZURE_WEBAPP_NAME: my-app    # Set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # Set this to the path to your web app project, defaults to the repository root
+  NUGET_VERSION: '5.3.x'           # Set this to the dot net version to use
 
 jobs:
   build-and-deploy:
     runs-on: windows-latest
     steps:
 
-    # checkout the repo
+    # Check out the repo
     - uses: actions/checkout@main
     
-    - uses: azure/login@v1
+    - uses: azure/login@v2
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -122,7 +123,7 @@ jobs:
 
 # [Java SE](#tab/java)
 
-Build and deploy a Java Spring app to Azure using an Azure service principal. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
+Build and deploy a Java Spring Boot app to Azure by using an Azure service principal. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the sign-in action.
 
 ```yaml
 name: Java CI with Maven
@@ -140,7 +141,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-    - uses: azure/login@v1
+    - uses: azure/login@v2
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -170,9 +171,9 @@ jobs:
 name: Build and deploy WAR app to Azure Web App using OpenID Connect
 
 env:
-  JAVA_VERSION: '11'                  # set this to the Java version to use
-  DISTRIBUTION: microsoft             # set this to the Java distribution
-  AZURE_WEBAPP_NAME: sampleapp        # set this to the name of your web app
+  JAVA_VERSION: '11'                  # Set this to the Java version to use
+  DISTRIBUTION: microsoft             # Set this to the Java distribution
+  AZURE_WEBAPP_NAME: sampleapp        # Set this to the name of your web app
 
 on: [push]
 
@@ -212,9 +213,12 @@ jobs:
           package: '*.war'
 ```
 
-You can find this full example using multiple jobs for build and deploy [here](https://github.com/Azure-Samples/onlinebookstore/blob/master/.github/workflows/azure-webapps-java-war-oidc.yml) as well.
+Here's a [full example](https://github.com/Azure-Samples/onlinebookstore/blob/master/.github/workflows/azure-webapps-java-war-oidc.yml) that uses multiple jobs for build and deploy.
 
 # [Node.js](#tab/nodejs)
+
+> [!IMPORTANT]
+> If you're deploying a Node.js app with TypeScript or other compiled languages using `azure/webapps-deploy@v3`, build your app first in GitHub Actions and then deploy the compiled output folder (such as `dist/` or `build/`). If instead you want to use App Service build automation, [set the `SCM_DO_BUILD_DURING_DEPLOYMENT` app setting](../../configure-common.md#configure-app-settings) to `true`. 
 
 ```yaml
 name: JavaScript CI
@@ -228,19 +232,19 @@ permissions:
 name: Node.js
 
 env:
-  AZURE_WEBAPP_NAME: my-app   # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '18.x'                # set this to the node version to use
+  AZURE_WEBAPP_NAME: my-app   # Set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # Set this to the path to your web app project, defaults to the repository root
+  NODE_VERSION: '24.x'                # Set this to the node version to use
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    # checkout the repo
+    # Check out the repo
     - name: 'Checkout GitHub Action' 
       uses: actions/checkout@main
    
-    - uses: azure/login@v1
+    - uses: azure/login@v2
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -258,7 +262,7 @@ jobs:
         npm run test --if-present
       working-directory:  my-app-path
                
-    # deploy web app using Azure credentials
+    # Deploy web app by using Azure credentials
     - uses: azure/webapps-deploy@v3
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
@@ -283,8 +287,8 @@ permissions:
       contents: read
 
 env:
-  AZURE_WEBAPP_NAME: my-app # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_NAME: my-app # Set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.' # Set this to the path to your web app project, defaults to the repository root
 
 jobs:
   build:
@@ -292,7 +296,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     
-    - uses: azure/login@v1
+    - uses: azure/login@v2
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
@@ -316,4 +320,4 @@ jobs:
         az logout
 ```
 
------
+---

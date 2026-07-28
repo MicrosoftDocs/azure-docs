@@ -3,9 +3,11 @@ title: Enforce job execution on Azure Automation Hybrid Runbook Worker
 description: This article tells how to use a custom Azure Policy definition to enforce job execution on an Azure Automation Hybrid Runbook Worker.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/09/2024
+ms.date: 11/17/2025
 ms.topic: overview
 ms.service: azure-automation
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Use Azure Policy to enforce job execution on Hybrid Runbook Worker
@@ -192,7 +194,7 @@ When one of the Automation REST operations are executed without reference to a H
   "error": {
     "code": "RequestDisallowedByPolicy",
     "target": "Start_VMS",
-    "message": "Resource 'Start_VMS' was disallowed by policy. Policy identifiers: '[{\"policyAssignment\":{\"name\":\"Enforce Jobs on Automation Hybrid Runbook Workers\",\"id\":\"/subscriptions/75475e1e-9643-4f3d-859e-055f4c31b458/resourceGroups/MAIC-RG/providers/Microsoft.Authorization/policyAssignments/fd5e2cb3842d4eefbc857917\"},\"policyDefinition\":{\"name\":\"Enforce Jobs on Automation Hybrid Runbook Workers\",\"id\":\"/subscriptions/75475e1e-9643-4f3d-859e-055f4c31b458/providers/Microsoft.Authorization/policyDefinitions/4fdffd35-fd9f-458e-9779-94fe33401bfc\"}}]'.",
+    "message": "Resource 'Start_VMS' was disallowed by policy. Policy identifiers: '[{\"policyAssignment\":{\"name\":\"Enforce Jobs on Automation Hybrid Runbook Workers\",\"id\":\"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MAIC-RG/providers/Microsoft.Authorization/policyAssignments/fd5e2cb3842d4eefbc857917\"},\"policyDefinition\":{\"name\":\"Enforce Jobs on Automation Hybrid Runbook Workers\",\"id\":\"/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Authorization/policyDefinitions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f\"}}]'.",
     "additionalInfo": [
       {
         "type": "PolicyViolation",
@@ -219,13 +221,13 @@ When one of the Automation REST operations are executed without reference to a H
               }
             ]
           },
-          "policyDefinitionId": "/subscriptions/75475e1e-9643-4f3d-859e-055f4c31b458/providers/Microsoft.Authorization/policyDefinitions/4fdffd35-fd9f-458e-9779-94fe33401bfc",
-          "policyDefinitionName": "4fdffd35-fd9f-458e-9779-94fe33401bfc",
+          "policyDefinitionId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/providers/Microsoft.Authorization/policyDefinitions/bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
+          "policyDefinitionName": "bbbb1b1b-cc2c-dd3d-ee4e-ffffff5f5f5f",
           "policyDefinitionEffect": "Deny",
-          "policyAssignmentId": "/subscriptions/75475e1e-9643-4f3d-859e-055f4c31b458/resourceGroups/MAIC-RG/providers/Microsoft.Authorization/policyAssignments/fd5e2cb3842d4eefbc857917",
+          "policyAssignmentId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MAIC-RG/providers/Microsoft.Authorization/policyAssignments/fd5e2cb3842d4eefbc857917",
           "policyAssignmentName": "fd5e2cb3842d4eefbc857917",
           "policyAssignmentDisplayName": "Enforce Jobs on Automation Hybrid Runbook Workers",
-          "policyAssignmentScope": "/subscriptions/75475e1e-9643-4f3d-859e-055f4c31b458/resourceGroups/MAIC-RG",
+          "policyAssignmentScope": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/MAIC-RG",
           "policyAssignmentParameters": {}
         }
       }

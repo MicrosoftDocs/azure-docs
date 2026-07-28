@@ -206,11 +206,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/defender-for-iot/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/defender-for-iot-security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/devtest-labs/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/devtest-labs-security-baseline",
       "redirect_document_id": false
@@ -283,11 +278,6 @@
     {
       "source_path_from_root": "/articles/azure-resource-manager/management/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/resource-manager-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/sentinel/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/sentinel-security-baseline",
       "redirect_document_id": false
     },
     {

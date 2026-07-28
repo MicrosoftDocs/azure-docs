@@ -2,20 +2,21 @@
 title: Create a pool across availability zones
 description: Learn how to create a Batch pool with zonal policy to help protect against failures.
 ms.topic: how-to
-ms.date: 08/12/2024
+ms.date: 06/16/2026
 ms.devlang: csharp
 ms.custom:
+# Customer intent: As a cloud architect, I want to create a Batch pool across multiple Availability Zones, so that I can enhance fault tolerance and ensure my compute resources remain available during datacenter-level failures.
 ---
 
 # Create an Azure Batch pool across Availability Zones
 
 Azure regions which support [Availability Zones](https://azure.microsoft.com/global-infrastructure/availability-zones/) have a minimum of three separate zones, each with their own independent power source, network, and cooling system. When you create an Azure Batch pool using Virtual Machine Configuration, you can choose to provision your Batch pool across Availability Zones. Creating your pool with this zonal policy helps protect your Batch compute nodes from Azure datacenter-level failures.
 
-For example, you could create your pool with zonal policy in an Azure region which supports three Availability Zones. If an Azure datacenter in one Availability Zone has an infrastructure failure, your Batch pool will still have healthy nodes in the other two Availability Zones, so the pool will remain available for task scheduling.
+For example, you could create your pool with a zonal policy in an Azure region that supports three Availability Zones. If an Azure datacenter in one Availability Zone has an infrastructure failure, your Batch pool still has healthy nodes in the other two Availability Zones, so the pool remains available for task scheduling.
 
 ## Regional support and other requirements
 
-Batch maintains parity with Azure on supporting Availability Zones. To use the zonal option, your pool must be created in a [supported Azure region](../availability-zones/az-region.md).
+Batch maintains parity with Azure on supporting Availability Zones. To use the zonal option, your pool must be created in a [supported Azure region](/azure/reliability/availability-zones-region-support).
 
 In order for your Batch pool to be allocated across availability zones, the Azure region in which the pool is created must support the requested VM SKU in more than one zone. You can validate this by calling the [Resource Skus List API](/rest/api/compute/resourceskus/list) and check the **locationInfo** field of [resourceSku](/rest/api/compute/resourceskus/list#resourcesku). Be sure that more than one zone is supported for the requested VM SKU.
 
@@ -28,7 +29,7 @@ Also note that you can't create a pool with a zonal policy if it has inter-node 
 The following examples show how to create a Batch pool across Availability Zones.
 
 > [!NOTE]
-> When creating your pool with a zonal policy, the Batch service will try to allocate your pool across all Availability Zones in the selected region; you can't specify a particular allocation across the zones.
+> When creating your pool with a zonal policy, the Batch service tries to allocate your pool across all Availability Zones in the selected region; you can't specify a particular allocation across the zones.
 
 ### Batch Management Client .NET SDK
 

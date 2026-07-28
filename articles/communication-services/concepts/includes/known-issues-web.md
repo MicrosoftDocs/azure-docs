@@ -224,3 +224,7 @@ The following limitations are known issues in the Communication Services Call Au
 - Calls between tenant users of Microsoft Teams and Communication Services users or server application entities aren't allowed.
 
 - If an application dials out to two or more PSTN identities and then quits the call, the call between the other PSTN entities drops.
+
+## Job Router
+
+The Azure Communication Services Job Router's `GetQueueStatisticsAsync` API may return inaccurate queue statistics data in certain scenarios. Specifically, the API returns incorrect values for metrics such as `LongestJobWaitTimeMinutes` and `EstimatedWaitTimes`, including zero wait times and inconsistent estimates. If you encounter unexpected or inconsistent values, consider implementing additional logic in your application to validate or smooth out the reported statistics and avoid using these values for application-specific logic. The product team is aware of this issue and is actively working on a fix. For the latest updates, refer to the [Azure Communication Services documentation](/azure/communication-services/).

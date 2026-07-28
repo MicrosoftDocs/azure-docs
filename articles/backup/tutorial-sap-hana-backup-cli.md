@@ -2,11 +2,12 @@
 title: Tutorial - SAP HANA DB backup on Azure using Azure CLI 
 description: In this tutorial, learn how to back up SAP HANA databases running on an Azure VM to an Azure Backup Recovery Services vault using Azure CLI.
 ms.topic: tutorial
-ms.date: 03/20/2024
+ms.date: 01/09/2026
 ms.custom: devx-track-azurecli, engagement-fy24
 ms.service: azure-backup
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
+# Customer intent: "As a database administrator, I want to back up SAP HANA databases on Azure using CLI, so that I can ensure data protection and disaster recovery for my applications running in Azure VMs."
 ---
 
 # Tutorial: Back up SAP HANA databases in an Azure VM using Azure CLI
@@ -76,7 +77,7 @@ az backup vault create --resource-group hanarghsr2     --name hanavault10     --
 
 ## Register and protect the SAP HANA instance
 
-For the SAP HANA instance (the VM with SAP HANA installed on it) to be discovered by the Azure services, a [pre-registration script](https://aka.ms/scriptforpermsonhana) must be run on the SAP HANA machine. Make sure that all the [prerequisites](./tutorial-backup-sap-hana-db.md#prerequisites) are met before running the script. To learn more about what the script does, refer to the [What the pre-registration script does](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) section.
+For the SAP HANA instance (the VM with SAP HANA installed on it) to be discovered by the Azure services, a [pre-registration script](https://aka.ms/scriptforpermsonhana) must be run on the SAP HANA machine. Make sure that all the [prerequisites](./tutorial-backup-sap-hana-db.md#prerequisites) are met before running the script. To learn more about what the script does, refer to the [What the pre-registration script does](tutorial-backup-sap-hana-db.md#preregistration-script-functionality-for-sap-hana-database-backup) section.
 
 Once the script is run, the SAP HANA instance can be registered with the Recovery Services vault we created earlier. 
 
@@ -120,13 +121,13 @@ To register and protect database instance, follow these steps:
 1. To register and protect the SAP HANA database running on primary Azure VM, run the following command:
 
     ```azurecli
-    az backup container register --resource-group hanarghsr2 --vault-name hanavault10 --workload-type SAPHANA --backup-management-type AzureWorkload --resource-id "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-primary"
+    az backup container register --resource-group hanarghsr2 --vault-name hanavault10 --workload-type SAPHANA --backup-management-type AzureWorkload --resource-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-primary"
     ```
 
 1. To register and protect the SAP HANA database running on secondary Azure VM, run the following command:
 
     ```azurecli
-    az backup container register --resource-group hanarghsr2 --vault-name hanavault10 --workload-type SAPHANA --backup-management-type AzureWorkload --resource-id "/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-secondary"
+    az backup container register --resource-group hanarghsr2 --vault-name hanavault10 --workload-type SAPHANA --backup-management-type AzureWorkload --resource-id "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-secondary"
     ```
 
    To identify `resource-id`, run the following command:
@@ -135,7 +136,7 @@ To register and protect database instance, follow these steps:
     az vm show --name hsr-primary --resource-group hanarghsr2
     ```
 
-    For example, `id` is `/subscriptions/ef4ab5a7-c2c0-4304-af80-af49f48af3d1/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-primary`.
+    For example, `id` is `/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/hanarghsr2/providers/Microsoft.Compute/virtualMachines/hsr-primary`.
 
 1. To check if primary and secondary servers are registered to the vault, run the following command:
 
@@ -253,7 +254,7 @@ To enable database instance backup, follow these steps:
 
 ---
 
-## Trigger an on-demand backup
+## Trigger an on-demand backup for SAP HANA database
 
 While the section above details how to configure a scheduled backup, this section talks about triggering an on-demand backup. To do this, we use the [az backup protection backup-now](/cli/azure/backup/protection#az-backup-protection-backup-now) command.
 

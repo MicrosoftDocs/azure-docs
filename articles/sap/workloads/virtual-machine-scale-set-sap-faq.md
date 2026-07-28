@@ -6,8 +6,9 @@ manager: rdeltcheva
 ms.author: depadia
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: conceptual
-ms.date: 08/19/2024
+ms.topic: concept-article
+ms.date: 03/31/2025
+# Customer intent: As an IT professional managing SAP workloads, I want to understand the deployment and migration processes for flexible virtual machine scale sets, so that I can effectively utilize autoscaling and ensure high availability for my applications.
 ---
 
 # FAQs for Virtual Machine Scale Set for SAP workload
@@ -50,7 +51,9 @@ You can enable managed system identity at the VM level after a VM is manually de
 
 ### How can I migrate my current Availability set or Availability zone deployment of SAP workload to flexible scale set with zonal deployment (FD=1)?
 
-To migrate SAP VMs to a flexible scale set, you need to re-create the VMs and the disks with zone constraints (if necessary) from existing resources. There's no direct way to migrate SAP workloads deployed in availability sets or availability zones to flexible scale with FD=1. An [open-source project](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper) includes PowerShell functions that you can use as a sample, and a [blog post](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-easily-migrate-an-existing-sap-system-vms-to-flexible/ba-p/3833548) shows you how to modify a HA or non-HA SAP system deployed in availability set or availability zone to flexible scale set with FD=1.
+To migrate SAP VMs deployed in availability set to a flexible scale set, you need to re-create the VMs and the disks with zone constraints (if necessary) from existing resources. There's no direct way to migrate SAP workloads deployed in availability sets to flexible scale with FD=1. An [open-source project](https://github.com/Azure/SAP-on-Azure-Scripts-and-Utilities/tree/main/Move-VM-from-AvSet-to-AvZone/Move-Regional-SAP-HA-To-Zonal-SAP-HA-WhitePaper) includes PowerShell functions that you can use as a sample, and a [blog post](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/how-to-easily-migrate-an-existing-sap-system-vms-to-flexible/ba-p/3833548) shows you how to modify a HA or non-HA SAP system deployed in availability set to flexible scale set with FD=1.
+
+For VMs deployed in an availability zone, you can attach the VM directly to a scale set with FD=1 in the same zone. For example, if your VM is deployed in availability zone 1, you can attach it to a scale set FD=1 in the same zone. For more details on how to attach a VM to a scale set and the limitations, see [Attach or detach a Virtual Machine to or from a Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm)
 
 ### How can an existing deployment of SAP HANA configured with availability set pinning and proximity placement group, currently utilizing application volume group be migrated to flexible scale set with FD=1?
 
@@ -63,6 +66,9 @@ The volumes (/hana/data, /hana/log, and /hana/shared) configured for SAP HANA ca
 
 To attach an existing VM deployed in availability zones to a scale set with FD=1, see [Attach an existing Virtual Machine to a Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#attach-an-existing-virtual-machine-to-a-virtual-machine-scale-set). The scale set created without a scaling profile default to having the singlePlacementGroup property set to null. To attach VMs to a scale set without a scaling profile, you need to create a scale set with singlePlacementGroup property explicitly set to false. Additionally, refer to [Limitations for attaching an existing Virtual Machine to a scale set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-attach-detach-vm?tabs=portal-1%2Cportal-2%2Cportal-3#limitations-for-attaching-an-existing-virtual-machine-to-a-scale-set)
 
-### How to configure SAP HANA using Azure NetApp Files (ANF) Application Volume Groups (AVG) in a specific availability zone?
+### How to configure Azure NetApp Files in a specific availability zone and set up an Application Volume Group for SAP HANA?
 
-You can create new volumes in your preferred logical availability zone as described in [availability zones volume placement feature](../../azure-netapp-files/manage-availability-zone-volume-placement.md) guide. For configuring AVG for SAP HANA, follow the steps described in the article [Configuring Azure NetApp Files (ANF) Application Volume Group (AVG) for zonal SAP HANA deployment](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/configuring-azure-netapp-files-anf-application-volume-group-avg/ba-p/3943801).
+You can create new volumes in your preferred logical availability zone as described in [availability zones volume placement feature](../../azure-netapp-files/manage-availability-zone-volume-placement.md) guide. To configure Application Volume Group for SAP HANA, see [Understand application volume groups for SAP HANA](../../azure-netapp-files/application-volume-group-introduction.md).
+
+> [!NOTE]
+> For VMs deployed in VMSS Flex with FD=1, we do not recommend using a proximity placement group. To configure Azure NetApp Files, set up the Application Volume Group with availability zone placement.

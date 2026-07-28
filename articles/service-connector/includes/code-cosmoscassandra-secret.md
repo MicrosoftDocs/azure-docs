@@ -1,15 +1,14 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/31/2023
-ms.author: wchi
+ms.date: 6/17/2026
+ms.reviewer: wchi
 ---
 
 
 ### [.NET](#tab/dotnet)
 
-1. Install dependencies
+1. Install dependency.
     ```bash
     dotnet add package CassandraCSharpDriver --version 3.19.3
     ```
@@ -134,7 +133,7 @@ Set up your Spring App application according to [How to use Spring Data with Azu
     ssl_context = SSLContext(PROTOCOL_TLSv1_2)
     ssl_context.verify_mode = CERT_NONE
     auth_provider = PlainTextAuthProvider(username, password)
-    cluster = Cluster([contanctPoint], port = port, auth_provider=auth_provider,ssl_context=ssl_context)
+    cluster = Cluster([contactPoint], port = port, auth_provider=auth_provider,ssl_context=ssl_context)
     session = cluster.connect()
     ```
 

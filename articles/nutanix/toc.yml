@@ -1,0 +1,12 @@
+- name: Nutanix (NC2) Cloud Clusters on Azure
+  items:
+  - name: About Nutanix Cloud Clusters on Azure
+    href: about-nc2-on-azure.md
+  - name: Available Regions and SKUs
+    href: available-regions-skus.md
+  - name: Architecture
+    href: architecture.md  
+  - name: Get started
+    href: get-started.md
+  - name: FAQ
+    href: faq.md

@@ -9,19 +9,21 @@ ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/12/2022
 ms.topic: include
-ms.custom: include file
 ms.author: mayssamm
+ms.custom:
+  - include file
+  - sfi-ropc-nochange
 ---
 
 Get started with Azure Communication Services by using the Communication module in Azure CLI to send SMS messages.
 
-Completing this quickstart incurs a small cost of a few USD cents or less in your Azure account.
+Completing this article incurs a small cost of a few USD cents or less in your Azure account.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
-- An SMS-enabled telephone number. [Get a phone number](../../telephony/get-phone-number.md).
+- An SMS-enabled telephone number, short code, or alphanumeric sender ID. [Get a phone number](../../telephony/get-phone-number.md).
 - The latest [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) version for your operating system.
 
 ### Prerequisite check
@@ -32,14 +34,15 @@ Completing this quickstart incurs a small cost of a few USD cents or less in you
 
 ### Install the communication module
 
-Run the following command in a terminal or command window to install the communication module.
+To install the communication module, run the following command in a terminal or command window.
 
 ```azurecli-interactive
 az extension add --name communication
 ```
 
 ### Sign in to Azure CLI
-You'll need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
+
+You need to [sign in to Azure CLI](/cli/azure/authenticate-azure-cli). You can sign in running the ```az login``` command from the terminal and providing your credentials.
 
 ### Make sure you're using the correct subscription
 
@@ -54,7 +57,7 @@ az account show
 If you need to change subscription, you can do that by running the following command.
 
 ```azurecli-interactive
-az account set --subscription "<yourSubcriptionId>"
+az account set --subscription "<yourSubscriptionId>"
 ```
 
 You need to replace `<yourSubscriptionId>` with your actual subscription ID, which you can find in the Subscriptions section in Azure portal.
@@ -107,7 +110,7 @@ az communication sms send --sender "<fromPhoneNumber>" --recipient "<toPhoneNumb
 
 Make these replacements in the code:
 
-- Replace `<fromPhoneNumber>` with an SMS-enabled phone number that's associated with your Communication Services resource.
+- Replace `<fromPhoneNumber>` with an SMS-enabled phone number associated with your Communication Services resource.
 - Replace `<toPhoneNumber>` with a phone number that you'd like to send a message to.
 - Replace `<yourConnectionString>` with your connection string.
 
@@ -124,9 +127,30 @@ az communication sms send --sender "<fromPhoneNumber>" --recipient "<toPhoneNumb
 
 Make these replacements in the code:
 
-- Replace `<fromPhoneNumber>` with an SMS-enabled phone number that's associated with your Communication Services resource.
+- Replace `<fromPhoneNumber>` with an SMS-enabled phone number associated with your Communication Services resource.
 - Replace `<toPhoneNumberN>` with the N'th phone number that you'd like to send a message to.
 - Replace `<yourConnectionString>` with your connection string.
 
 > [!WARNING]
+> Provide phone numbers in E.164 international standard format, such as +14255550123. The value for `<fromPhoneNumber>` can also be a short code, such as 23456 or an alphanumeric sender ID, such as CONTOSO.
+
+## Send an SMS message with DeliveryReport and Tag
+
+```azurecli-interactive
+az communication sms send --sender "<fromPhoneNumber>" --recipient "<toPhoneNumber>" --message "Hello world via SMS for Azure CLI!" --connection-string "<yourConnectionString>" --deliveryReport --tag "<yourCustomTag>"
+```
+
+The `deliveryReport` parameter is an optional parameter you can use to configure delivery reporting. Use this function if you want to emit events when SMS messages are delivered. See [Handle SMS Events](../handle-sms-events.md) to configure delivery reporting for your SMS messages.
+
+The `tag` parameter is an optional parameter that you can use to apply a tag to the delivery report.
+
+Make these replacements in the code:
+
+- Replace `<fromPhoneNumber>` with an SMS-enabled phone number associated with your Communication Services resource.
+- Replace `<toPhoneNumber>` with a phone number that you'd like to send a message to.
+- Replace `<yourConnectionString>` with your connection string.
+- Replace `<yourCustomTag>` with your custom tag.
+
+> [!WARNING]
 > Provide phone numbers in E.164 international standard format, for example, +14255550123. The value for `<fromPhoneNumber>` can also be a short code, for example, 23456 or an alphanumeric sender ID, for example, CONTOSO.
+

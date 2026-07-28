@@ -3,8 +3,9 @@ title: Backup solutions for Azure VMware Solution virtual machines
 description: Learn about leading backup and restore solutions for your Azure VMware Solution virtual machines.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 12/12/2023
+ms.date: 2/2/2026
 ms.custom: engagement-fy23
+# Customer intent: As an IT manager using Azure VMware Solution, I want to explore backup and restore options for my virtual machines, so that I can ensure data protection and recovery in my cloud environment.
 ---
 
 # Backup solutions for Azure VMware Solution virtual machines (VMs)
@@ -16,12 +17,17 @@ Our backup partners have industry-leading backup and restore solutions in VMware
 Back up network traffic between Azure VMware Solution VMs and the backup repository in Azure travels over a high-bandwidth, low-latency link. Replication traffic across regions travels over the internal Azure backplane network, which lowers bandwidth costs for users.
 
 >[!NOTE]
->For common questions, see [our third-party backup solution FAQ](./faq.yml).
+>**Support Guidance for 3P Backup and recovery solution customer(s):**
+>For any issues related to 3P backup and Recovery solutions, customers must contact the respective partner's support team directly. Azure VMware Solution doesn't provide direct support for partner products. If advanced troubleshooting becomes necessary, the partner’s support team engages Azure VMware Solution support as appropriate. We appreciate your understanding and recommend not opening a support request with Microsoft for partner solution-related matters.
+
+> [!IMPORTANT] 
+> Azure VMware Solution supports the use of custom roles with equal or lesser privileges than the CloudAdmin role. Use the CloudAdmin role to create, modify, or delete custom roles with privileges less than or equal to their current role. Roles with privileges greater than CloudAdmin are unsupported. Refer to the /azure/azure-vmware/architecture-identity.
+
 
 You can find more information on these backup solutions here:
 - [Cohesity](https://www.cohesity.com/blogs/expanding-cohesitys-support-for-microsofts-ecosystem-azure-stack-and-azure-vmware-solution/)
-- [Commvault](https://documentation.commvault.com/v11/essential/azure_vmware_solution.html)
-- [Dell Technologies](https://www.delltechnologies.com/asset/en-us/products/data-protection/briefs-summaries/cyber-recovery-with-powerprotect-for-multi-cloud-solution-brief.pdf)
+- [Commvault](https://documentation.commvault.com/11.40/software/azure_vmware_solution.html)
+- [Dell PPDM](https://www.dell.com/support/manuals/en-us/enterprise-copy-data-management/pp-dm_19.19_virtual_machines_ug/azure-vmware-solution-avs-on-microsoft-azure?guid=guid-600e65ba-95f3-4d7c-b8bb-4950abf2f9ad&lang=en-us)
 - [Rubrik](https://www.rubrik.com/en/products/cloud-data-management)
 - [Veeam](https://www.veeam.com/kb4012)
-- [Veritas](https://vrt.as/nb4avs)
+- [Veritas](https://www.veritas.com/support/en_US/doc/21902280-139625479-0/v19545363-139625479)

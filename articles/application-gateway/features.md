@@ -2,11 +2,12 @@
 title: Azure Application Gateway features
 description: Learn about Azure Application Gateway features
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
-ms.topic: conceptual
-ms.date: 03/24/2023
-ms.author: greglin
+ms.topic: concept-article
+ms.date: 07/16/2026
+ms.author: mbender
+# Customer intent: "As a web application administrator, I want to configure and manage an application gateway, so that I can optimize traffic distribution, enhance security, and ensure high availability for my web applications."
 ---
 
 # Azure Application Gateway features
@@ -66,13 +67,9 @@ For more information, see [URL Path Based Routing overview](url-route-overview.m
 
 ## Multiple-site hosting
 
-With Application Gateway, you can configure routing based on host name or domain name for more than one web application on the same application gateway. It allows you to configure a more efficient topology for your deployments by adding up to 100+ websites to one application gateway. Each website can be directed to its own backend pool. For example, three domains, contoso.com, fabrikam.com, and adatum.com, point to the IP address of the application gateway. You'd create three multi-site listeners and configure each listener for the respective port and protocol setting. 
+Multiple-site hosting lets you configure routing based on host name or domain name for more than one web application on the same application gateway. You can host more than 100 websites, each directed to its own backend pool. You can also host subdomains of the same parent domain and define wildcard host names, with up to five host names per listener.
 
-Requests for `http://contoso.com` are routed to ContosoServerPool, `http://fabrikam.com` are routed to FabrikamServerPool, and so on.
-
-Similarly, two subdomains of the same parent domain can be hosted on the same application gateway deployment. Examples of using subdomains could include `http://blog.contoso.com` and `http://app.contoso.com` hosted on a single application gateway deployment. For more information, see [Application Gateway multiple site hosting](multiple-site-overview.md).
-
-You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener](multiple-site-overview.md#wildcard-host-names-in-listener).
+For a detailed explanation and examples, see [Application Gateway multiple site hosting](multiple-site-overview.md) and the [multi-site listener details in Application Gateway components](application-gateway-components.md#listeners). For wildcard host names, see [wildcard host names in listener](multiple-site-overview.md#wildcard-host-names-in-listener).
 
 ## Redirection
 
@@ -94,7 +91,7 @@ The cookie-based session affinity feature is useful when you want to keep a user
 
 For more information, see [How an application gateway works](how-application-gateway-works.md#modifications-to-the-request).
 
-## Websocket and HTTP/2 traffic
+## WebSocket and HTTP/2 traffic
 
 Application Gateway provides native support for the WebSocket and HTTP/2 protocols. There's no user-configurable setting to selectively enable or disable WebSocket support.
 
@@ -104,16 +101,13 @@ For more information, see [WebSocket support](application-gateway-websocket.md) 
 
 ## Connection draining
 
-Connection draining helps you achieve graceful removal of backend pool members during planned service updates or problems with backend health. This setting is enabled via the [Backend Setting](configuration-http-settings.md) and is applied to all backend pool members during rule creation. Once enabled, the application gateway ensures all deregistering instances of a backend pool don't receive any new requests while allowing existing requests to complete within a configured time limit. It applies to cases where backend instances are:
-- explicitly removed from the backend pool after a configuration change by a user
-- reported as unhealthy by the health probes, or
-- removed during a scale-in operation
+Connection draining helps you gracefully remove Azure Application Gateway backend pool members during planned service updates, rolling deployments, scale-in events, or problems with backend health. Enable connection draining to reduce intermittent 502 errors and connection loss when backend instances are explicitly removed from the backend pool.
 
-The only exception is when requests continue to be proxied to the deregistering instances because of gateway-managed session affinity. 
+This setting is enabled via the [Backend Setting](configuration-http-settings.md) and is applied to all backend pool members during rule creation. Once enabled, the application gateway ensures all deregistering instances of a backend pool don't receive any new requests while allowing existing requests to complete within a configured time limit. It applies to cases where backend instances are explicitly removed from the backend pool after a configuration change by a user.
 
 The connection draining is honored for WebSocket connections as well. Connection draining is invoked for every single update to the gateway. To prevent connection loss to existing members of the backend pool, make sure to enable connection draining.
 
-For information on time limits, see [Backend Settings configuration](configuration-http-settings.md#connection-draining).
+For more details, see [Backend Settings configuration](configuration-http-settings.md#connection-draining).
 
 ## Custom error pages
 
@@ -141,7 +135,7 @@ Application Gateway Standard_v2 can be configured for autoscaling or fixed size 
 
 The Application Gateway Standard (v1) is offered in three sizes: **Small**, **Medium**, and **Large**. Small instance sizes are intended for development and testing scenarios.
 
-For a complete list of application gateway limits, see [Application Gateway service limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
+For a complete list of application gateway limits, see [Application Gateway service limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#azure-application-gateway-limits).
 
 The following table shows an average performance throughput for each application gateway v1 instance with SSL offload enabled:
 

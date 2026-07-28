@@ -1,113 +1,178 @@
 ---
-title: Asset management overview
-description: Understand concepts and options needed to manage the assets that are part of your Azure IoT Operations solution.
+title: Asset and Device Management
+description: Understand concepts and options for managing the devices and assets that are part of your Azure IoT Operations solution.
 author: dominicbetts
 ms.author: dobett
+ms.service: azure-iot-operations
 ms.topic: overview
-ms.date: 05/13/2024
+ms.date: 07/27/2026
 ai-usage: ai-assisted
+ms.custom: sfi-image-nochange
 
-# CustomerIntent: As an industrial edge IT or operations user, I want to understand the key components in the Azure IoT Operations for managing assets, so that I can effectively manage the assets in my solution. 
+#customer intent: As an industrial edge IT or operations user, I want to understand the key components in Azure IoT Operations for managing devices and assets, so that I can effectively manage the devices and assets in my solution. 
 ---
 
-# What is asset management in Azure IoT Operations Preview
+# What is asset and device management in Azure IoT Operations?
 
-[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+In Azure IoT Operations, a key task is to manage the assets and devices that are part of your solution. This article:
 
-In Azure IoT Operations Preview, a key task is to manage the assets that are part of your solution. This article:
+- Defines assets and devices for Azure IoT Operations.
+- Provides an overview of services for managing assets and devices.
+- Explains common use cases for these services.
 
-- Defines what assets are in the context Azure IoT Operations.
-- Provides an overview the services you use to manage your assets.
-- Explains the most common use cases for the services.
+## Physical assets and devices
 
-## Understand assets
+In the context of Azure IoT Operations, the terms *asset* and *device* can refer to both physical entities that connect to Azure IoT Operations and configuration resources within Azure IoT Operations and Azure Device Registry.
 
-Assets are a core element of an Azure IoT Operations solution.
+This diagram shows the key components of asset management in Azure IoT Operations.
 
-An *asset* in an industrial edge environment is any item of value that you want to manage, monitor, and collect data from. An asset can be a machine, a software component, an entire system, or a physical object of value such as a field of crops, or a building. These assets are examples that exist in manufacturing, retail, energy, healthcare, and other sectors.
+<!-- Art Library Source# ConceptArt-0-000-92 -->
 
-An *asset* in Azure IoT Operations is a logical entity that you create to represent a real asset. An Azure IoT Operations asset can emit telemetry and events. You use these logical asset instances to manage the real assets in your industrial edge environment.
+:::image type="content" source="media/overview-manage-assets/azure-iot-operations-architecture.svg" alt-text="Diagram that shows services for managing assets." lightbox="media/overview-manage-assets/azure-iot-operations-architecture.png" border="false":::
+
+In the preceding diagram:
+
+- Cameras are examples of physical devices that connect directly to Azure IoT Operations through the media connector or the Open Network Video Interface Forum (ONVIF) connector.
+- Assets like **Asset-01**, which might be an oven, are physical assets that connect indirectly through an OPC Unified Architecture (OPC UA) server.
+- OPC UA servers are physical devices that connect to Azure IoT Operations by using the OPC UA connector.
+
+A physical device can connect by using various protocols. It might use a connector like the media connector. If it uses the MQTT protocol, it connects directly to the MQTT broker and bypasses the connectors.
+
+This diagram shows how physical devices connect to Azure IoT Operations.
+
+:::image type="content" source="media/overview-manage-assets/physical-assets-devices.svg" alt-text="Diagram that shows how physical assets and devices connect." border="false":::
+
+<!--
+```mermaid
+graph LR
+    subgraph Physical devices and assets
+        D2[Device connects directly to<br>the edge-based MQTT broker]
+        D3[Physical device such as an<br>ONVIF compliant camera]
+        D4[OPC UA server]
+        D5[Physical asset<br>such as an oven]
+    end
+
+    subgraph IoT Operations edge cluster
+        B2[MQTT broker]
+        B3[Connectors such as<br>OPC UA or ONVIF]
+    end
+
+    D2 -- Publish --&gt; B2
+
+    B3 -- Publish --&gt; B2
+    D3 -- Communicates using ONVIF protocol --&gt; B3
+    D4 -- Communicates using OPC UA protocol --&gt; B3
+    D5 --&gt; D4
+```
+-->
+
+## Configuration resources
+
+[!INCLUDE [assets-devices-logical-entities](../includes/assets-devices-logical-entities.md)]
+
+An operator configures and manages devices and assets in the operations experience web UI or by using the Azure IoT Operations CLI.
+
+Learn more in [Assets and devices](concept-assets-devices.md).
+
+## Southbound and northbound connectivity
+
+In Azure IoT Operations, *southbound connectivity* refers to the connection between the edge cluster and physical devices and assets. *Northbound connectivity* refers to the connection between the edge cluster and cloud services.
+
+The connectors in this article enable southbound connectivity by letting the edge cluster communicate with physical devices and assets. Learn about northbound connectivity in [Process and route data with data flows](../connect-to-cloud/overview-dataflow.md).
+
+## Services for managing devices and assets
+
+Azure IoT Operations includes several services that help you manage devices and assets.
+
+### Azure Device Registry
+
+Azure Device Registry is a back-end service that enables the cloud and edge management of devices and assets from the Azure portal.
+
+Device Registry maps assets from your edge environment to Azure resources in the cloud. It offers a unified registry so that apps and services that interact with your assets connect to a single source. Device Registry syncs assets in the cloud with custom resources in Kubernetes on the edge.
+
+When you create a device or asset in the operations experience or by using the Azure IoT Operations CLI, that device or asset is defined in Device Registry.
+
+#### Assets and devices
+
+Device Registry maps assets and devices to Azure resources. Enterprises can use Azure Resource Manager for the deployment and management of both assets and devices. Resource Manager supports resource groups, tags, role-based access control (RBAC), policies, logging, and auditing.
+
+#### Schemas
+
+You can use the schema registry to define and manage schemas for your assets. Data flows use schemas to deserialize and serialize messages.
+
+#### Namespaces
+
+Device Registry uses namespaces to organize assets and devices. Each Azure IoT Operations instance uses one namespace for its assets and devices. Multiple instances can share a namespace.
+
+#### Synchronization
+
+Manage devices and assets through the operations experience or through Azure APIs and tools like Azure Resource Graph. Changes made in the cloud sync to the edge and appear as custom resources in the Kubernetes cluster.
+
+[!INCLUDE [cloud-source-of-truth](../includes/cloud-source-of-truth.md)]
+
+### Akri services
+
+Akri services in Azure IoT Operations:
+
+- Provide an extensible framework for building and deploying connectors that enable connectivity protocols like ONVIF and HTTP/REST.
+- Enable automatic discovery, onboarding, and monitoring of physical devices and assets at the edge.
+
+#### Connectivity
+
+You can use Akri services to deploy and set up connectivity protocols at the edge. Akri services use the asset and device resources in Device Registry to model device and protocol connections in your environment. They let you easily onboard and provision assets with open standards. They provide an extensible framework for all device protocols and a single view for all assets.
+
+Connectors include:
+
+- **Connector for OPC UA**. A data ingress and protocol translation service that lets Azure IoT Operations ingest data from OPC UA servers. A key requirement in industrial environments is a common standard or protocol for machine-to-machine and machine-to-cloud data exchange. [OPC UA](https://opcfoundation.org/about/opc-technologies/opc-ua/) is a specification for a platform-independent, service-oriented architecture that enables data exchange in industrial environments. The connector receives messages and events from your assets and publishes the data to topics in the MQTT broker.
+
+- **Media connector**. A service that makes media from sources like edge-attached cameras available to other Azure IoT Operations components.
+
+- **Connector for ONVIF**. A service that discovers and registers ONVIF assets like cameras. You can use the connector to manage and control ONVIF assets connected to your cluster.
+
+- **Connector for HTTP/REST**. A service for connecting to HTTP/REST endpoints and publishing data to the MQTT broker.
+
+- **Connector for SSE**. A service for connecting to server-sent event (SSE) endpoints and publishing event data to the MQTT broker.
+
+- **Connector for MQTT**. A service for subscribing to topics on MQTT brokers and publishing data to the Azure IoT Operations MQTT broker. This connector is designed for connecting to other MQTT brokers in your environment.
+
+  You can also use a data flow to connect to a Kafka endpoint and route messages to the MQTT broker. Learn how in [Connect to Kafka endpoints](howto-connect-kafka.md).
+
+- **Custom connectors**. Services that you create to connect to other data sources and publish data to the MQTT broker. Use the Azure IoT Operations SDKs to create custom connectors that meet your specific requirements.
+
+Each connector organizes asset data into datasets, event groups, management groups, and streams. For detailed descriptions of each data type, see [Assets and devices](concept-assets-devices.md#assets).
+
+The following table summarizes which data types each connector supports.
+
+| Connector       | Datasets | Event groups | Management groups | Streams |
+|-----------------|:--------:|:------------:|:-----------------:|:-------:|
+| OPC UA          | Yes      | Yes          | Yes               |         |
+| ONVIF           |          | Yes          | Yes               |         |
+| Media           |          |              |                   | Yes     |
+| HTTP/REST       | Yes      |              |                   |         |
+| SSE             | Yes      | Yes          |                   |         |
+| MQTT            | Yes      |              | Yes               |         |
 
 > [!TIP]
-> Assets maybe related to IoT devices. While all IoT devices are assets, not all assets are devices. An *IoT device* is a physical object connected to the internet to collect, generate, and communicate data. IoT devices typically contain embedded components to perform specific functions. They can manage or monitor other things in their environment. Examples of IoT devices include crop sensors, smart thermostats, connected security cameras, wearable devices, and monitoring devices for manufacturing machinery or vehicles.
+> To learn more about how management groups and actions work across connectors, see [Enable and run management actions](howto-use-management-actions.md).
 
-## Understand services for managing assets
+#### Discovery
 
-Azure IoT Operations includes several services that help you manage your assets.
+You can use Akri services to automatically discover physical devices and assets. Akri services also help operational technology (OT) users set up devices and assets in the operations experience web UI. The connectors described earlier all use the framework that Akri services provide to implement their core capabilities.
 
-The following diagram shows the high-level architecture of Azure IoT Operations. The services that you use to manage assets are highlighted in red:
+Akri services simplify the creation of assets by automatically onboarding assets with preconfigured datasets and endpoints. The connectors generate these datasets and endpoints to represent capabilities and devices on the network.
 
-:::image type="content" source="media/overview-manage-assets/azure-iot-operations-architecture.svg" alt-text="Diagram that highlights the services used to manage assets." lightbox="media/overview-manage-assets/azure-iot-operations-architecture.png":::
+#### Monitoring
 
-- The **operations experience** is a web UI that lets you create and configure assets in your solution. The web UI simplifies the task of managing assets and is the recommended service to manage assets.
-- **Azure Device Registry Preview** is a service that projects assets defined in your edge environment as Azure resources in the cloud. Device Registry lets you manage your assets in the cloud as Azure resources contained in a single unified registry.
-- **Akri services** automatically discover assets at the edge. The services can detect assets in the address space of an OPC UA server.
-- The _connector for OPC UA_ is a data ingress and protocol translation service that enables Azure IoT Operations to ingress data from your assets. The broker receives telemetry and events from your assets and publishes the data to topics in the MQTT broker. The broker is based on the widely used OPC UA standard.
+Akri services provide monitoring capabilities for physical devices and assets. These capabilities include tracking the status and health of devices. The monitoring framework works seamlessly with the connectors and Device Registry to help you gain insights into your edge environment.
 
-Each of these services is explained in greater detail in the following sections.
+### Operations experience
 
-## Create and manage assets remotely
+The operations experience is a web UI where OT users can create and configure devices and assets in an Azure IoT Operations instance. This web UI simplifies managing devices and assets, and it's the recommended service for this task.
 
-The following tasks are useful for operations teams in sectors such as industry, retail, and health:
+:::image type="content" source="media/overview-manage-assets/operations-experience.png" alt-text="Screenshot of the operations experience web UI." lightbox="media/overview-manage-assets/operations-experience.png":::
 
-- Create assets remotely
-- To access asset data, subscribe to OPC UA tags and events
+### Azure portal
 
-The operations experience web UI lets operations teams perform these tasks in a simplified web interface. The operations experience uses the other services described previously, to complete these tasks. You can also use the Azure IoT Operations CLI to manage assets by using the `az iot ops asset` command.
+The Azure portal is a web-based application where IT users can manage Azure resources from a unified console. Use the Azure portal to create and manage Azure IoT Operations instances, monitor IoT solutions, manage assets and devices, and troubleshoot problems. Device Registry is integrated with the Azure portal, so you can view and manage your namespaces, schemas registries, assets, and devices in the cloud.
 
-The operations experience uses the connector for OPC UA to exchange data with local OPC UA servers. OPC UA servers are software applications that communicate with assets. The connector for OPC UA exposes:
-
-- OPC UA tags that represent data points. OPC UA tags provide real-time or historical data about the asset, and you can configure how frequently to sample the tag value.
-- OPC UA events that represent state changes. OPC UA events provide real-time status information for your assets that let you configure alarms and notifications.
-
-The operations experience lets users create assets and subscribe to OPC UA tags in a user-friendly interface. Users can create custom assets by providing asset details and configurations. Users can create or import tag and event definitions, subscribe to them, and assign them to an asset.
-
-## Manage assets as Azure resources in a centralized registry
-
-In an industrial edge environment with many assets, it's useful for IT and operations teams to have a single registry for devices and assets. Azure Device Registry Preview provides this capability, and projects your industrial assets as Azure resources. Teams that use Device Registry together with the operations experience, have a consistent deployment and management experience across cloud and edge environments.
-
-Device Registry provides several capabilities that help teams to manage assets:
-
-- **Unified registry**. The Device Registry serves as the single source of truth for your asset metadata. Having a single registry can streamline and simplify the process of managing assets. It gives you a way to access and manage this data across Azure, partner, and customer applications running in the cloud or on the edge.
-- **Assets as Azure resources**. Because Device Registry projects assets as true Azure resources, you can manage assets using established Azure features and services. Enterprises can use [Azure Resource Manager](../../azure-resource-manager/management/overview.md), Azure's native deployment and management service, with industrial assets. Azure Resource Manager provides capabilities such as resource groups, tags, role-based access controls ([RBAC](../../role-based-access-control/overview.md)), policy, logging, and audit.
-- **Cloud management of assets**. You use Device Registry within the operations experience to remotely manage assets in the cloud. All interactions with the asset resource are also available by using Azure APIs and using management tools such as [Azure Resource Graph](../../governance/resource-graph/overview.md). Regardless which method you use to manage assets, changes made in the cloud are synced to the edge and exposed as custom resources in the Kubernetes cluster.
-
-The following screenshot shows an example thermostat asset in the operations experience:
-
-:::image type="content" source="media/overview-manage-assets/asset-operations-portal.png" alt-text="A screenshot that shows the thermostat asset in the operations experience.":::
-
-The following screenshot shows the example thermostat asset in the Azure portal:
-
-:::image type="content" source="media/overview-manage-assets/asset-portal.png" alt-text="A screenshot that shows the thermostat asset in the Azure portal.":::
-
-The following screenshot shows the example thermostat asset as a Kubernetes custom resource:
-
-:::image type="content" source="media/overview-manage-assets/asset-kubernetes.png" alt-text="A screenshot that shows the thermostat asset as a Kubernetes custom resource.":::
-
-The following features are supported in Azure Device Registry:
-
-| Feature  | Supported |
-| -------- | :-------: |
-| Asset resource management by using Azure API | ✅ |
-| Asset resource management by using operations experience | ✅ |
-| Asset synchronization to Kubernetes cluster running Azure IoT Operations | ✅ |
-| Asset as Azure resource (with capabilities such as Azure resource groups and tags) | ✅ |
-
-## Discover edge assets
-
-A common task in complex edge solutions is to discover assets and automatically add them to your Kubernetes cluster. The Akri services provide this capability. For administrators who attach or remove assets from the cluster, the Akri services reduce the amount of coordination and manual configuration.
-
-The Akri services include fixed-network discovery handlers. Discovery handlers enable assets from known network endpoints to find leaf devices as they appear on device interfaces or local subnets. Examples of network endpoints include OPC UA servers at a fixed IP address, and network scanning discovery handlers.
-
-The Akri services are installed as part of Azure IoT Operations and you can configure them alongside the OPC UA simulation PLC server. The OPC UA discovery handler starts automatically and inspects the OPC UA simulation PLC server's address space. The discovery handler reports assets back to the Akri services and triggers deployment of the `AssetEndpointProfile` and `Asset` custom resources into the cluster.
-
-## Use a common data exchange standard for your edge solution
-
-A key requirement in industrial environments is for a common standard or protocol for machine-to-machine and machine-to-cloud data exchange. By using a widely supported data exchange protocol, you can simplify the process to enable diverse industrial assets to exchange data with each other, with workloads running in your Kubernetes cluster, and with the cloud. [OPC UA](https://opcfoundation.org/about/opc-technologies/opc-ua/) is a specification for a platform independent service-oriented architecture that enables data exchange in industrial environments.
-
-An industrial environment that uses the OPC UA standard, includes the following basic OPC UA elements:
-
-- An **OPC UA server** is software based on the OPC UA specification that communicates with assets and provides core OPC UA services to those assets.
-- An **OPC UA client**. An OPC UA client is software that interacts with an OPC UA server in a request and response network pattern. An OPC UA client connects to OPC UA servers, and submits requests for actions such as reads and writes on data items.
-
-The connector for OPC UA is an OPC UA client that enables data ingress from OPC UA servers into your edge solution based on the OPC UA standard. The connector for OPC UA is installed as part of Azure IoT Operations. You can optionally install an OPC UA simulation server, which lets you test and use the service.
+:::image type="content" source="media/overview-manage-assets/azure-portal.png" alt-text="Screenshot of the Azure portal." lightbox="media/overview-manage-assets/azure-portal.png":::

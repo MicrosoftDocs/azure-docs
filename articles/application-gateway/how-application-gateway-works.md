@@ -2,11 +2,12 @@
 title: How an application gateway works
 description: This article provides information about how an application gateway accepts incoming requests and routes them to the backend.
 services: application-gateway
-author: greg-lindsay
+author: mbender-ms
 ms.service: azure-application-gateway
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/01/2024
-ms.author: greglin
+ms.author: mbender
+# Customer intent: As a network engineer, I want to understand how an application gateway processes and routes requests, so that I can effectively configure and optimize it for load balancing and security in my network architecture.
 ---
 
 # How an application gateway works
@@ -35,8 +36,7 @@ If a request is valid and not blocked by WAF, the application gateway evaluates 
 
 Based on the request routing rule, the application gateway determines whether to route all requests on the listener to a specific backend pool, route requests to different backend pools based on the URL path, or redirect requests to another port or external site.
 > [!NOTE]
-> Rules are processed in the order they're listed in the portal for v1 SKU. 
-
+> Rules are processed in the order they're listed in the portal for v1 SKU.
 When the application gateway selects the backend pool, it sends the request to one of the healthy backend servers in the pool (y.y.y.y). The health of the server is determined by a health probe. If the backend pool contains multiple servers, the application gateway uses a round-robin algorithm to route the requests between healthy servers. This load balances the requests on the servers.
 
 After the application gateway determines the backend server, it opens a new TCP session with the backend server based on HTTP settings. HTTP settings specify the protocol, port, and other routing-related settings that are required to establish a new session with the backend server.
@@ -44,6 +44,9 @@ After the application gateway determines the backend server, it opens a new TCP 
 The port and protocol used in HTTP settings determine whether the traffic between the application gateway and backend servers is encrypted (thus accomplishing end-to-end TLS) or is unencrypted.
 
 When an application gateway sends the original request to the backend server, it honors any custom configuration made in the HTTP settings related to overriding the hostname, path, and protocol. This action maintains cookie-based session affinity, connection draining, host-name selection from the backend, and so on.
+
+> [!NOTE]
+> Application Gateway does not forward the request to WAF when no backend pool members are available
 
  > [!NOTE]
 > If the backend pool:

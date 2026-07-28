@@ -3,11 +3,12 @@ title: Create Recovery Services vaults using REST API for Azure Backup
 description: In this article, learn how to manage backup and restore operations of Azure VM Backup using REST API.
 ms.service: azure-backup
 ms.topic: how-to
-ms.date: 04/09/2024
+ms.date: 12/17/2025
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
 author: AbhishekMallick-MS
-ms.author: v-abhmallick
+ms.author: v-mallicka
 ms.custom: engagement-fy24
+# Customer intent: As a cloud administrator, I want to create a Recovery Services vault using REST API so that I can manage backup and restore operations for virtual machines and other workloads efficiently.
 ---
 # Create Azure Recovery Services vault using REST API for Azure Backup
 
@@ -17,7 +18,10 @@ A Recovery Services vault is a storage entity in Azure that houses data. The dat
 
 ## Before you start
 
-The creation of an Azure Recovery Services vault using REST API is outlined in [create vault REST API](/rest/api/recoveryservices/vaults/createorupdate) article. Let's use this article as a reference to create a vault named `testVault` in `West US`.
+Before you start creating the Recovery Services vault, review the following details:
+
+- The vault creation process  uses `api-version=2016-06-01`.
+- The creation of an Azure Recovery Services vault using REST API is outlined in [create vault REST API](/rest/api/recoveryservices/vaults/createorupdate) article. Let's use this article as a reference to create a vault named `testVault` in `West US`.
 
 To create or update an Azure Recovery Services vault, use the following *PUT* operation:
 
@@ -25,7 +29,7 @@ To create or update an Azure Recovery Services vault, use the following *PUT* op
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.RecoveryServices/vaults/{vaultName}?api-version=2016-06-01
 ```
 
-## Create a request
+## Create a request to create the Recovery Services vault
 
 To create the *PUT* request, the `{subscription-id}` parameter is required. If you have multiple subscriptions, see [Working with multiple subscriptions](/cli/azure/manage-azure-subscriptions-azure-cli). You define a `{resourceGroupName}` and `{vaultName}` for your resources, along with the `api-version` parameter. This article uses `api-version=2016-06-01`.
 
@@ -38,7 +42,7 @@ The following headers are required:
 
 For more information about how to create the request, see [Components of a REST API request/response](/rest/api/azure/#components-of-a-rest-api-requestresponse).
 
-## Create the request body
+## Create the request body to create the Recovery Services vault
 
 The following common definitions are used to build a request body:
 
@@ -52,7 +56,7 @@ The following common definitions are used to build a request body:
 
 Note that vault name and resource group name are provided in the PUT URI. The request body defines the location.
 
-## Example request body
+## Example request body for the Recovery Services vault creatiom
 
 The following example body is used to create a vault in `West US`. Specify the location. The SKU is always `Standard`.
 

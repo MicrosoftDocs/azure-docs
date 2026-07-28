@@ -1,16 +1,16 @@
 ---
- title: include file
- description: include file
+ title: Use cases for event domains in Azure Event Grid
+ description: Use case for an event domain in Azure Event Grid. 
  author: spelluru
  ms.service: azure-event-grid
  ms.topic: include
- ms.date: 11/17/2022
+ ms.date: 12/16/2024
  ms.author: spelluru
  ms.custom: include file
 ---
 
 
-Event domains are most easily explained using an example. Let's say you run Contoso Construction Machinery, where you manufacture tractors, digging equipment, and other heavy machinery. As a part of running the business, you push real-time information to customers about equipment maintenance, systems health, and contract updates. All of this information goes to various endpoints including your app, customer endpoints, and other infrastructure that customers have set up.
+Event domains are most easily explained using an example. Let's say you run Contoso Construction Machinery, where you manufacture tractors, digging equipment, and other heavy machinery. As a part of running the business, you push real-time information to customers about equipment maintenance, systems health, and contract updates. All of this information goes to various endpoints including your app, customer endpoints, and other infrastructure that your customers have set up.
 
 Event domains allow you to model Contoso Construction Machinery as a single Event Grid entity. Each of your customers is represented as a topic within the domain. Authentication and authorization are handled using Microsoft Entra ID. Each of your customers can subscribe to their topic and get their events delivered to them. Managed access through the event domain ensures they can only access their topic.
 

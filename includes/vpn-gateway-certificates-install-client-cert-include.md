@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: vpn-gateway
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
- ms.date: 08/07/2023
- ms.author: cherylmc
+ ms.date: 10/07/2024
+ ms.author: duau
  ms.custom: include file
 ---
 1. Once the client certificate is exported, locate and copy the *.pfx* file to the client computer.

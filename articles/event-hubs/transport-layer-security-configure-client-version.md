@@ -7,6 +7,7 @@ author: EldertGrootenboer
 ms.topic: article
 ms.date: 04/25/2022
 ms.author: egrootenboer
+ms.custom: sfi-ropc-nochange
 ---
 
 # Configure Transport Layer Security (TLS) for an Event Hubs client application

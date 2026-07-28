@@ -4,11 +4,11 @@ description: Learn how to discover new third-party solutions that are tightly in
 author: gillharmeet
 ms.author: harmeetgill
 manager: santoshb
-ms.reviewer: omafnan, wiassaf
+ms.reviewer: omafnan
 ms.date: 06/14/2023
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # Discover partner solutions through Synapse Studio

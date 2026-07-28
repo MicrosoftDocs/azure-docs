@@ -6,6 +6,7 @@ author: alexlzx
 ms.author: zhenxilin
 ms.date: 12/27/2022
 ms.topic: how-to
+ms.custom: sfi-image-nochange
 ---
 
 # Test Stream Analytics queries locally with sample data using Visual Studio Code

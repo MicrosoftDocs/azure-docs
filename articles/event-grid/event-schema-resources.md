@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Notifications - Resource Management events in Azure Event Grid
 description: This article provides information on Azure Event Grid events supported by Azure Resource Notifications resources. It provides the schema and links to how-to articles. 
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/06/2023
 ---
 
@@ -243,7 +243,7 @@ This section shows the `CreatedOrUpdated` event generated when an Azure Storage 
   "data": {
     "resourceInfo": {
       "tags": {},
-      "id": "/subscriptions/{subcription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
+      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
       "name": "StorageAccount-name",
       "type": "Microsoft.Storage/storageAccounts",
       "location": "eastus",
@@ -320,7 +320,7 @@ This section shows the `CreatedOrUpdated` event generated when an Azure Storage 
   "data": {
     "resourceInfo": {
       "tags": {},
-      "id": "/subscriptions/{subcription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
+      "id": "/subscriptions/{subscription-id}/resourceGroups/{rg-name}/providers/Microsoft.Storage/storageAccounts/{storageAccount-name}",
       "name": "StorageAccount-name",
       "type": "Microsoft.Storage/storageAccounts",
       "location": "eastus",

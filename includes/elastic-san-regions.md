@@ -5,43 +5,14 @@
  author: roygara
  ms.service: azure-storage
  ms.topic: include
- ms.date: 05/28/2024
+ ms.date: 07/20/2026
  ms.author: rogarana
  ms.custom: include file
 ---
-The following list contains the regions Elastic SAN is currently available in, and which regions support both zone-redundant storage (ZRS) and locally redundant storage (LRS), or only LRS:
+The following table contains the regions where Elastic SAN is currently available and the supported redundancy options.
 
-- South Africa North - LRS
-- East Asia - LRS
-- Southeast Asia - LRS
-- Brazil South - LRS
-- Canada Central - LRS
-- France Central - LRS & ZRS
-- Germany West Central - LRS
-- Australia East - LRS
-- North Europe - LRS & ZRS
-- West Europe - LRS & ZRS 
-- UK South - LRS
-- Japan East - LRS
-- Korea Central - LRS
-- Central US - LRS
-- East US - LRS 
-- South Central US - LRS
-- East US 2 - LRS 
-- West US 2 - LRS & ZRS
-- West US 3 - LRS
-- Sweden Central - LRS
-- Switzerland North - LRS
-- Norway East - LRS
-- UAE North - LRS
-- India Central - LRS
-
-Elastic SAN is also available in the following regions, but without Availability Zone support: 
-- Canada East - LRS
-- North Central US - LRS
-- Japan West - LRS
-
-To enable these regions, run the following command to register the necessary feature flag: 
-```azurepowershell
-Register-AzProviderFeature -FeatureName "EnableElasticSANRegionalDeployment" -ProviderNamespace "Microsoft.ElasticSan"
-```
+|Redundancy options  |Regions  |
+|---------|---------|
+|LRS only - with Availability Zone support     |India South         |
+|LRS and ZRS - with Availability Zone support     |Australia East<br/>Brazil South<br/>Canada Central<br/>Central US, East US, East US 2, South Central US, West US 2, West US 3<br/>East Asia, Southeast Asia<br/>France Central<br/>Germany West Central<br/>India Central<br/>Italy North<br/>Japan East<br/>Korea Central<br/>Mexico Central<br/>North Europe, West Europe<br/>Norway East<br/>Poland Central<br/>Qatar Central<br/>South Africa North<br/>Spain Central<br/>Sweden Central<br/>Switzerland North<br/>UAE North<br/>UK South         |
+|LRS - no Availability Zone support (must use either the Azure PowerShell module or Azure CLI to deploy in these regions)     |Australia Central, Australia Central 2, Australia Southeast<br/>Brazil Southeast<br/>Canada East<br/>France South<br/>Germany North<br/>Japan West<br/>Korea South<br/>Malaysia South<br/>North Central US, West Central US, West US<br/>Norway West<br/>South Africa West<br/>Sweden South<br/>Switzerland West<br/>Taiwan North<br/>UAE Central<br/>UK West         |

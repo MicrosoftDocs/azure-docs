@@ -6,8 +6,9 @@ ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: article
 ms.date: 08/22/2024
-ms.author: sujaj
+ms.author: jacobjaygbay
 #Customer intent: As a developer, I want to configure a SAP NetWeaver provider so that I can use Azure Monitor for SAP solutions.
+# Customer intent: As a system administrator, I want to configure the SAP NetWeaver provider for Azure Monitor, so that I can effectively collect and analyze performance metrics from my SAP systems.
 ---
 
 
@@ -38,6 +39,7 @@ You can collect the following metric using SAP NetWeaver Provider:
 - Transactional RFC (**transaction code - SM59**) (RFC)
 - STMS Change Transport System Metrics (**transaction code - STMS**) (RFC)
 
+> Please note: SMON metrics (as listed above) are currently not available for SAP S/4HANA 2023 SP1 and later versions. This limitation is due to an underlying issue in SAP, where the APIs used to retrieve SMON data are not supported in these versions. As a result, Azure Monitor for SAP solutions cannot collect SMON metrics for these systems. This is a known limitation and is dependent on SAP for resolution.
 
 ## Prerequisites
 
@@ -93,7 +95,7 @@ to unprotect the web-methods in the SAP Windows virtual machine.
 RFC metrics are only supported for **AS ABAP applications** and don't apply to SAP JAVA systems. This step is **mandatory** when the connection type selected is **SOAP+RFC**. 
 Below steps need to be performed as a prerequisite to enable RFC
 
-1. **Create or upload role** in the SAP NW ABAP system. Azure Monitor for SAP solutions requires this role to connect to SAP. The role uses the least privileged access. Download and unzip [Z_AMS_NETWEAVER_MONITORING.zip](https://github.com/MicrosoftDocs/azure-docs-pr/files/12528831/Z_AMS_NETWEAVER_MONITORING.zip)
+1. **Create or upload role** in the SAP NW ABAP system. Azure Monitor for SAP solutions requires this role to connect to SAP. The role uses the least privileged access. Download and unzip [Z_AMS_NETWEAVER_MONITORING.zip](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/raw/main/Files/Z_AMS_NETWEAVER_MONITORING.zip)
 
 
     1. Sign in to your SAP system.

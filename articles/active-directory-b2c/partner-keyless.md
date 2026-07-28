@@ -5,18 +5,20 @@ description: Tutorial to configure Keyless with Azure Active Directory B2C for p
 author: gargi-sinha
 manager: martinco
 ms.reviewer: kengaderdus
-ms.service: active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 08/09/2024
 
 ms.author: gasinh
-ms.subservice: B2C
+ms.subservice: b2c
 
 # Customer intent: I'm a developer integrating Azure AD B2C with Keyless for passwordless authentication. I need to configure Keyless with Azure AD B2C, so I can provide a secure and convenient passwordless authentication experience for my customer applications.
 
 ---
 
 # Tutorial: Configure Keyless with Azure Active Directory B2C
+
+[!INCLUDE [active-directory-b2c-end-of-sale-notice-b](../../includes/active-directory-b2c-end-of-sale-notice-b.md)]
 
 Learn to configure Azure Active Directory B2C (Azure AD B2C) with the Keyless passwordless solution. With Azure AD B2C as an identity provider (IdP), integrate Keyless with customer applications to provide passwordless authentication. The Keyless Zero-Knowledge Biometric (ZKB) is passwordless multifactor authentication that helps eliminate fraud, phishing, and credential reuse, while enhancing the customer experience and protecting privacy.
 
@@ -30,7 +32,7 @@ Go to keyless.io to learn about:
 To get started, you'll need:
 
 * An Azure subscription 
-  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/free/)
+  * If you don't have one, get an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 * An [Azure AD B2C tenant](./tutorial-create-tenant.md) linked to the Azure subscription
 * A Keyless cloud tenant
   * Go to keyless.io to [Request a demo](https://keyless.io/demo-request)

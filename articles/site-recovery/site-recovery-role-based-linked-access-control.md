@@ -2,11 +2,12 @@
 title: Manage Azure role-based access control in Azure Site Recovery
 description: This article describes how to apply Azure role-based access control (Azure RBAC) to manage Azure Site Recovery access.
 ms.service: azure-site-recovery
-ms.date: 04/08/2019
-author: ankitaduttaMSFT
+ms.date: 07/21/2025
+author: Jeronika-MS
 ms.topic: overview
-ms.author: ankitadutta
+ms.author: v-gajeronika
 
+# Customer intent: As an IT administrator, I want to manage access permissions for Azure Site Recovery using role-based access control, so that I can ensure appropriate access levels for team members involved in disaster recovery operations.
 ---
 # Manage Site Recovery access with Azure role-based access control (Azure RBAC)
 
@@ -40,6 +41,7 @@ A user needs the following permissions to complete replication of a new virtual 
 | --- | --- | --- |
 | Compute | Resource Manager | Microsoft.Compute/availabilitySets/read |
 |  |  | Microsoft.Compute/virtualMachines/read |
+|  |  | Microsoft.compute/disks/delete |
 |  |  | Microsoft.Compute/virtualMachines/write |
 |  |  | Microsoft.Compute/virtualMachines/delete |
 |  | Classic | Microsoft.ClassicCompute/domainNames/read |
@@ -57,18 +59,18 @@ A user needs the following permissions to complete replication of a new virtual 
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | Classic | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Storage | Resource Manager | Microsoft.Storage/storageAccounts/read |
+| Storage | Resource Manager | microsoft.storage/storageaccounts/write |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | Classic | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
-| Resource Group | Resource Manager | Microsoft.Resources/deployments/* |
+| Resource Group | Resource Manager | Microsoft.RecoveryServices/register/action |
 |  |  | Microsoft.Resources/subscriptions/resourceGroups/read |
 
 Consider using the 'Virtual Machine Contributor' and 'Classic Virtual Machine Contributor' [built-in roles](../role-based-access-control/built-in-roles.md) for Resource Manager and Classic deployment models respectively.
 
 ## Next steps
 
-- [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml): Get started with Azure RBAC in the Azure portal.
+- [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal): Get started with Azure RBAC in the Azure portal.
 - Learn how to manage access with:
     - [PowerShell](../role-based-access-control/role-assignments-powershell.md)
     - [Azure CLI](../role-based-access-control/role-assignments-cli.md)

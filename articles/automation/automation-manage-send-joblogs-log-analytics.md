@@ -3,10 +3,12 @@ title: Forward Azure Automation job data to Azure Monitor logs
 description: This article tells how to send job status and runbook job streams to Azure Monitor logs.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/09/2024
+ms.date: 11/17/2025
 ms.topic: how-to
 ms.custom: engagement-fy24
 ms.service: azure-automation
+ms.author: v-rochak2
+author: RochakSingh-blr
 ---
 
 # Forward Azure Automation diagnostic logs to Azure Monitor
@@ -110,7 +112,7 @@ Azure Automation diagnostics create the following types of records in Azure Moni
 | Caller_s |Caller that initiated the operation. Possible values are either an email address or system for scheduled jobs. |
 | Tenant_g | GUID (globally unique identifier) that identifies the tenant for the caller. |
 | JobId_g |GUID that identifies the runbook job. |
-| ResultType |Status of the runbook job. Possible values are:<br>- New<br>- Created<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Completed |
+| ResultType |Status of the runbook job. Possible values are:<br>- Created<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Completed |
 | Category | Classification of the type of data. For Automation, the value is JobLogs. |
 | OperationName | Type of operation performed in Azure. For Automation, the value is Job. |
 | Resource | Name of the Automation account |

@@ -1,12 +1,14 @@
----
-title: Use deployment scripts in templates | Microsoft Docs
+﻿---
+title: Use deployment scripts in Azure Resource Manager templates 
 description: Use deployment scripts in Azure Resource Manager templates.
-ms.custom: devx-track-arm-template
-ms.topic: conceptual
-ms.date: 06/14/2024
+ms.custom:
+  - devx-track-arm-template
+  - build-2025
+ms.topic: article
+ms.date: 01/02/2026
 ---
 
-# Use deployment scripts in ARM templates
+# Use deployment scripts in Azure Resource Manager templates
 
 Learn how to use deployment scripts in Azure Resource Manager (ARM) templates. With the [`deploymentScripts`](/azure/templates/microsoft.resources/deploymentscripts) resource, users can execute scripts in ARM deployments and review execution results.
 
@@ -24,15 +26,20 @@ These scripts can be used for performing custom steps such as:
 
 The benefits of deployment script:
 
-- Easy to code, use, and debug. You can develop deployment scripts in your favorite development environments. The scripts can be embedded in templates or in external script files.
+- You can develop deployment scripts in your favorite development environments. The scripts can be embedded in templates or in external script files.
 - You can specify the script language and platform. Currently, Azure PowerShell and Azure CLI deployment scripts on the Linux environment are supported.
 - Allow passing command-line arguments to the script.
 - Can specify script outputs and pass them back to the deployment.
 
 The deployment script resource is only available in the regions where Azure Container Instance is available.  See [Resource availability for Azure Container Instances in Azure regions](/azure/container-instances/container-instances-region-availability). Currently, deployment script only uses public networking.
 
-> [!IMPORTANT]
-> The deployment script service requires two supporting resources for script execution and troubleshooting: a storage account and a container instance. You can specify an existing storage account, otherwise the script service creates one for you. The two automatically-created supporting resources are usually deleted by the script service when the deployment script execution gets in a terminal state. You are billed for the supporting resources until they are deleted. For the price information, see [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Storage pricing](https://azure.microsoft.com/pricing/details/storage/). To learn more, see [Clean-up deployment script resources](#clean-up-deployment-script-resources).
+
+The deployment script service creates two supporting resources - a storage account and a container instance - to run and troubleshoot scripts. The names of these resources are generated using a deterministic hash of the deployment script's resource ID, with the suffix azscripts appended (for example, *jgczqtxom5oreazscripts*). As a result, repeated executions of the same deployment script may reuse the same storage account.
+
+In rare cases, you may encounter the error "The storage account named \<storage-account-name> is already taken." This typically occurs when a storage account created by a previous execution of the same deployment script was not cleaned up successfully.
+
+> [!WARNING]
+> Generally, the service cleans up these supporting resources after the deployment script finishes. You incur charges for these resources until they're removed. For pricing information, see [Azure Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/) and [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/). To learn more, see [Clean up deployment script resources](#clean-up-deployment-script-resources).
 
 > [!NOTE]
 > Retry logic for Azure sign in is now built in to the wrapper script. If you grant permissions in the same template as your deployment scripts, the deployment script service retries sign in for 10 minutes with 10-second interval until the managed identity role assignment is replicated.
@@ -45,7 +52,7 @@ If you would rather learn about deployment scripts through step-by-step guidance
 
 For deployment script API version 2020-10-01 or later, there are two principals involved in deployment script execution:
 
-- **Deployment principal** (the principal used to deploy the template): this principal is used to create underlying resources required for the deployment script resource to execute — a storage account and an Azure container instance. To configure the least-privilege permissions, assign a custom role with the following properties to the deployment principal:
+- **Deployment principal** (the principal used to deploy the template): this principal is used to create underlying resources required for the deployment script resource to execute - a storage account and an Azure container instance. To configure the least-privilege permissions, assign a custom role with the following properties to the deployment principal:
 
     ```json
     {
@@ -61,6 +68,9 @@ For deployment script API version 2020-10-01 or later, there are two principals 
             "Microsoft.Resources/deployments/*",
             "Microsoft.Resources/deploymentScripts/*"
           ],
+         "dataActions": [
+            "Microsoft.Storage/storageAccounts/fileServices/*"
+          ]
         }
       ],
       "assignableScopes": [
@@ -71,10 +81,10 @@ For deployment script API version 2020-10-01 or later, there are two principals 
 
     If the Azure Storage and the Azure Container Instance resource providers haven't been registered, you also need to add `Microsoft.Storage/register/action` and `Microsoft.ContainerInstance/register/action`.
 
-- **Deployment script principal**: This principal is only required if the deployment script needs to authenticate to Azure and call Azure CLI/PowerShell. There are two ways to specify the deployment script principal:
+- **Deployment script principal**: This principal is only required if the deployment script needs to authenticate to Azure and call the Azure CLI or Azure PowerShell. There are two ways to specify the deployment script principal:
 
   - Specify a user-assigned managed identity in the `identity` property (see [Sample templates](#sample-templates)). When specified, the script service calls `Connect-AzAccount -Identity` before invoking the deployment script. The managed identity must have the required access to complete the operation in the script. Currently, only user-assigned managed identity is supported for the `identity` property. To log in with a different identity, use the second method in this list.
-  - Pass the service principal credentials as secure environment variables, and then can call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) or [az login](/cli/azure/reference-index#az-login) in the deployment script.
+  - Pass the service principal credentials as secure environment variables, and then call [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) or [az login](/cli/azure/reference-index#az-login) in the deployment script.
 
   If a managed identity is used, the deployment principal needs the **Managed Identity Operator** role (a built-in role) assigned to the managed identity resource.
 
@@ -85,7 +95,7 @@ The following JSON is an example. For more information, see the latest [template
 ```json
 {
   "type": "Microsoft.Resources/deploymentScripts",
-  "apiVersion": "2020-10-01",
+  "apiVersion": "2023-08-01",
   "name": "runPowerShellInline",
   "location": "[resourceGroup().location]",
   "tags": {
@@ -96,7 +106,7 @@ The following JSON is an example. For more information, see the latest [template
   "identity": {
     "type": "userAssigned",
     "userAssignedIdentities": {
-      "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID": {}
+      "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myID": {}
     }
   },
   "properties": {
@@ -108,7 +118,7 @@ The following JSON is an example. For more information, see the latest [template
       "storageAccountName": "myStorageAccount",
       "storageAccountKey": "myKey"
     },
-    "azPowerShellVersion": "9.7",  // or "azCliVersion": "2.47.0",
+    "azPowerShellVersion": "14.0",  // or "azCliVersion": "2.47.0",
     "arguments": "-name \\\"John Dole\\\"",
     "environmentVariables": [
       {
@@ -161,7 +171,7 @@ Property value details:
   See a list of [supported Azure CLI versions](https://mcr.microsoft.com/v2/azure-cli/tags/list).
 
   > [!IMPORTANT]
-  > Deployment script uses the available CLI images from Microsoft Container Registry (MCR). It typically takes approximatedly one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli). If an unsupported version is used, the error message lists the supported versions.
+  > Deployment script uses the available CLI images from Microsoft Container Registry (MCR). It typically takes approximately one month to certify a CLI image for deployment script. Don't use the CLI versions that were released within 30 days. To find the release dates for the images, see [Azure CLI release notes](/cli/azure/release-notes-azure-cli). If an unsupported version is used, the error message lists the supported versions.
 
 - `arguments`: Specify the parameter values. The values are separated by spaces.
 
@@ -188,25 +198,70 @@ Property value details:
 
 ### More samples
 
-- [Sample 1](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json): create a key vault and use deployment script to assign a certificate to the key vault.
-- [Sample 2](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-subscription.json): create a resource group at the subscription level, create a key vault in the resource group, and then use deployment script to assign a certificate to the key vault.
-- [Sample 3](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json): create a user-assigned managed identity, assign the contributor role to the identity at the resource group level, create a key vault, and then use deployment script to assign a certificate to the key vault.
-- [Sample 4](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-lock-sub.json): it is the same scenario as Sample 1 in this list. A new resource group is created to run the deployment script. This template is a subscription level template.
-- [Sample 5](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-lock-group.json): it is the same scenario as Sample 4. This template is a resource group level template.
-- [Sample 6](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/deployment-script-azcli-graph-azure-ad): manually create a user-assigned managed identity and assign it permission to use the Microsoft Graph API to create Microsoft Entra applications; in the ARM template, use a deployment script to create a Microsoft Entra application and service principal, and output the object IDs and client ID.
+- [Sample 1](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json): Create a key vault and use deployment script to assign a certificate to the key vault.
+- [Sample 2](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-subscription.json): Create a resource group at the subscription level, create a key vault in the resource group, and then use deployment script to assign a certificate to the key vault.
+- [Sample 3](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json): Create a user-assigned managed identity, assign the contributor role to the identity at the resource group level, create a key vault, and then use deployment script to assign a certificate to the key vault.
+- [Sample 4](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-lock-sub.json): It is the same scenario as Sample 1 in this list. A new resource group is created to run the deployment script. This template is a subscription level template.
+- [Sample 5](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-lock-group.json): It is the same scenario as Sample 4. This template is a resource group level template.
+- [Sample 6](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.resources/deployment-script-azcli-graph-azure-ad): Manually create a user-assigned managed identity and assign it permission to use the Microsoft Graph API to create Microsoft Entra applications; in the ARM template, use a deployment script to create a Microsoft Entra application and service principal, and output the object IDs and client ID.
 
 ## Use inline scripts
 
-The following template has one resource defined with the `Microsoft.Resources/deploymentScripts` type. The highlighted part is the inline script.
+The following template has one resource defined with the `Microsoft.Resources/deploymentScripts` type:
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-helloworld.json" range="1-44" highlight="24-30":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": {
+      "type": "string",
+      "defaultValue": "\\\"John Dole\\\""
+    },
+    "utcValue": {
+      "type": "string",
+      "defaultValue": "[utcNow()]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2023-08-01",
+      "name": "runPowerShellInlineWithOutput",
+      "location": "[resourceGroup().location]",
+      "kind": "AzurePowerShell",
+      "properties": {
+        "forceUpdateTag": "[parameters('utcValue')]",
+        "azPowerShellVersion": "8.3",
+        "scriptContent": "
+          param([string] $name)
+          $output = \"Hello {0}\" -f $name
+          Write-Output $output
+          $DeploymentScriptOutputs = @{}
+          $DeploymentScriptOutputs['text'] = $output
+        ",
+        "arguments": "[concat('-name', ' ', parameters('name'))]",
+        "timeout": "PT1H",
+        "cleanupPreference": "OnSuccess",
+        "retentionInterval": "P1D"
+      }
+    }
+  ],
+  "outputs": {
+    "result": {
+      "value": "[reference('runPowerShellInlineWithOutput').outputs.text]",
+      "type": "string"
+    }
+  }
+}
+```
 
 > [!NOTE]
-> Because the inline deployment scripts are enclosed in double quotes, the strings inside the deployment scripts need to be escaped by using a backslash (**&#92;**) or enclosed in single quotes. You can also consider using string substitution as it is shown in the previous JSON sample.
+> Because the inline deployment scripts are enclosed in double quotes, the strings inside the deployment scripts need to be escaped by using a backslash (**&#92;**) or enclosed in single quotes. You can also consider using string substitution as it's shown in the previous JSON sample.
 
 The script takes one parameter, and output the parameter value. `DeploymentScriptOutputs` is used for storing outputs. In the outputs section, the `value` line shows how to access the stored values. `Write-Output` is used for debugging purpose. To learn how to access the output file, see [Monitor and troubleshoot deployment scripts](#monitor-and-troubleshoot-deployment-scripts). For the property descriptions, see [Sample templates](#sample-templates).
 
-To run the script, select **Try it** to open the Cloud Shell, and then paste the following code into the shell pane.
+To run the script, select **Try it** to open the Cloud Shell, and then paste the following code into the shell pane:
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to be created"
@@ -221,7 +276,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 The output looks like:
 
-:::image type="content" source="./media/deployment-script-template/resource-manager-template-deployment-script-helloworld-output.png" alt-text="Screenshot of Resource Manager template deployment script hello world output.":::
+:::image type="content" source="./media/deployment-script-template/resource-manager-template-deployment-script-helloworld-output.png" alt-text="Screenshot of Azure Resource Manager template deployment script output, **hello world**.":::
 
 ## Use external scripts
 
@@ -261,7 +316,76 @@ The supporting files are copied to `azscripts/azscriptinput` at the runtime. Use
 
 The following template shows how to pass values between two `deploymentScripts` resources:
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-68" highlight="30-31,50":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": {
+      "type": "string",
+      "defaultValue": "John Dole"
+    },
+    "utcValue": {
+      "type": "string",
+      "defaultValue": "[utcNow()]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2023-08-01",
+      "name": "scriptInTemplate1",
+      "location": "[resourceGroup().location]",
+      "kind": "AzurePowerShell",
+      "properties": {
+        "forceUpdateTag": "[parameters('utcValue')]",
+        "azPowerShellVersion": "8.3",
+        "timeout": "PT1H",
+        "arguments": "[concat('-name', ' ', concat('\\\"', parameters('name'), '\\\"'))]",
+        "scriptContent": "
+          param([string] $name)
+          $output = 'Hello {0}' -f $name
+          Write-Output $output
+          $DeploymentScriptOutputs = @{}
+          $DeploymentScriptOutputs['text'] = $output
+        ",
+        "cleanupPreference": "Always",
+        "retentionInterval": "P1D"
+      }
+    },
+    {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2023-08-01",
+      "name": "scriptInTemplate2",
+      "location": "[resourceGroup().location]",
+      "kind": "AzurePowerShell",
+      "dependsOn": [
+        "scriptInTemplate1"
+      ],
+      "properties": {
+        "forceUpdateTag": "[parameters('utcValue')]",
+        "azPowerShellVersion": "8.3",
+        "timeout": "PT1H",
+        "arguments": "[concat('-textToEcho', ' ', concat('\\\"', reference('scriptInTemplate1').outputs.text, '\\\"'))]",
+        "scriptContent": "
+          param([string] $textToEcho)
+          Write-Output $textToEcho
+          $DeploymentScriptOutputs = @{}
+          $DeploymentScriptOutputs['text'] = $textToEcho
+        ",
+        "cleanupPreference": "Always",
+        "retentionInterval": "P1D"
+      }
+    }
+  ],
+  "outputs": {
+    "result": {
+      "value": "[reference('scriptInTemplate2').outputs.text]",
+      "type": "string"
+    }
+  }
+}
+```
 
 In the first resource, you define a variable called `$DeploymentScriptOutputs`, and use it to store the output values. To access the output value from another resource within the template, use:
 
@@ -273,7 +397,62 @@ reference('<ResourceName>').outputs.text
 
 In contrast to the Azure PowerShell deployment scripts, CLI/bash doesn't expose a common variable for storing script outputs. Instead, it utilizes an environment variable named `AZ_SCRIPTS_OUTPUT_PATH` to indicate the location of the script outputs file. When executing a deployment script within an ARM template, the Bash shell automatically configures this environment variable for you. Its predefined value is set as */mnt/azscripts/azscriptoutput/scriptoutputs.json*. The outputs are required to conform to a valid JSON string object structure. The file's contents should be formatted as a key-value pair. For instance, an array of strings should be saved as { "MyResult": [ "foo", "bar"] }. Storing only the array results, such as [ "foo", "bar" ], is considered invalid.
 
-:::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json" range="1-44" highlight="32":::
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "identity": {
+      "type": "string"
+    },
+    "utcValue": {
+      "type": "string",
+      "defaultValue": "[utcNow()]"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Resources/deploymentScripts",
+      "apiVersion": "2023-08-01",
+      "name": "runBashWithOutputs",
+      "location": "[resourceGroup().location]",
+      "kind": "AzureCLI",
+      "identity": {
+        "type": "UserAssigned",
+        "userAssignedIdentities": {
+          "[parameters('identity')]": {
+          }
+        }
+      },
+      "properties": {
+        "forceUpdateTag": "[parameters('utcValue')]",
+        "AzCliVersion": "2.40.0",
+        "timeout": "PT30M",
+        "arguments": "'foo' 'bar'",
+        "environmentVariables": [
+          {
+            "name": "UserName",
+            "value": "jdole"
+          },
+          {
+            "name": "Password",
+            "secureValue": "jDolePassword"
+          }
+        ],
+        "scriptContent": "result=$(az keyvault list); echo \"arg1 is: $1\"; echo \"arg2 is: $2\"; echo \"Username is: $UserName\"; echo \"password is: $Password\"; echo $result | jq -c '{Result: map({id: .id})}' > $AZ_SCRIPTS_OUTPUT_PATH",
+        "cleanupPreference": "OnExpiration",
+        "retentionInterval": "P1D"
+      }
+    }
+  ],
+  "outputs": {
+    "result": {
+      "value": "[reference('runBashWithOutputs').outputs]",
+      "type": "object"
+    }
+  }
+}
+```
 
 [jq](https://stedolan.github.io/jq/) is used in the previous sample. It comes with the container images. See [Configure development environment](#configure-development-environment).
 
@@ -390,20 +569,20 @@ The `Get-AzDeploymentScript` output is similar to:
 
 ```output
 Name                : runPowerShellInlineWithOutput
-Id                  : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput
+Id                  : /subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myds0618rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput
 ResourceGroupName   : myds0618rg
 Location            : centralus
-SubscriptionId      : 01234567-89AB-CDEF-0123-456789ABCDEF
+SubscriptionId      : aaaabbbb-0000-cccc-1111-dddd2222eeee
 ProvisioningState   : Succeeded
-Identity            : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/mydentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami
+Identity            : /subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/mydentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami
 ScriptKind          : AzurePowerShell
-AzPowerShellVersion : 9.7
+AzPowerShellVersion : 14.0
 StartTime           : 5/11/2023 7:46:45 PM
 EndTime             : 5/11/2023 7:49:45 PM
 ExpirationDate      : 5/12/2023 7:49:45 PM
 CleanupPreference   : OnSuccess
-StorageAccountId    : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.Storage/storageAccounts/ftnlvo6rlrvo2azscripts
-ContainerInstanceId : /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0618rg/providers/Microsoft.ContainerInstance/containerGroups/ftnlvo6rlrvo2azscripts
+StorageAccountId    : /subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myds0618rg/providers/Microsoft.Storage/storageAccounts/ftnlvo6rlrvo2azscripts
+ContainerInstanceId : /subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myds0618rg/providers/Microsoft.ContainerInstance/containerGroups/ftnlvo6rlrvo2azscripts
 Outputs             :
                       Key                 Value
                       ==================  ==================
@@ -435,14 +614,14 @@ The list command output is similar to:
     },
     "environmentVariables": null,
     "forceUpdateTag": "20231101T163748Z",
-    "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runBashWithOutputs",
+    "id": "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runBashWithOutputs",
     "identity": {
-      "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+      "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
       "type": "userAssigned",
       "userAssignedIdentities": {
-        "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myidentity/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
-          "clientId": "01234567-89AB-CDEF-0123-456789ABCDEF",
-          "principalId": "01234567-89AB-CDEF-0123-456789ABCDEF"
+        "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourcegroups/myidentity/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
+          "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444",
+          "principalId": "aaaabbbb-0000-cccc-1111-dddd2222eeee"
         }
       }
     },
@@ -452,7 +631,7 @@ The list command output is similar to:
     "outputs": {
       "Result": [
         {
-          "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/mytest/providers/Microsoft.KeyVault/vaults/mykv1027",
+          "id": "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/mytest/providers/Microsoft.KeyVault/vaults/mykv1027",
           "resourceGroup": "mytest"
         }
       ]
@@ -463,7 +642,7 @@ The list command output is similar to:
     "retentionInterval": "1 day, 0:00:00",
     "scriptContent": "result=$(az keyvault list); echo \"arg1 is: $1\"; echo $result | jq -c '{Result: map({id: .id})}' > $AZ_SCRIPTS_OUTPUT_PATH",
     "status": {
-      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/mytest/providers/Microsoft.ContainerInstance/containerGroups/eg6n7wvuyxn7iazscripts",
+      "containerInstanceId": "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/mytest/providers/Microsoft.ContainerInstance/containerGroups/eg6n7wvuyxn7iazscripts",
       "endTime": "2023-11-01T16:39:12.080950+00:00",
       "error": null,
       "expirationTime": "2023-11-02T16:39:12.080950+00:00",
@@ -506,7 +685,7 @@ The following example uses [ARMClient](https://github.com/projectkudu/ARMClient)
 
 ```azurepowershell
 armclient login
-armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2020-10-01
+armclient get /subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourcegroups/myrg/providers/microsoft.resources/deploymentScripts/myDeployementScript?api-version=2020-10-01
 ```
 
 The output is similar to:
@@ -516,11 +695,11 @@ The output is similar to:
   "kind": "AzurePowerShell",
   "identity": {
     "type": "userAssigned",
-    "tenantId": "01234567-89AB-CDEF-0123-456789ABCDEF",
+    "tenantId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
     "userAssignedIdentities": {
-      "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
-        "principalId": "01234567-89AB-CDEF-0123-456789ABCDEF",
-        "clientId": "01234567-89AB-CDEF-0123-456789ABCDEF"
+      "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myidentity1008rg/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myuami": {
+        "principalId": "aaaabbbb-0000-cccc-1111-dddd2222eeee",
+        "clientId": "00001111-aaaa-2222-bbbb-3333cccc4444"
       }
     }
   },
@@ -536,15 +715,15 @@ The output is similar to:
   "properties": {
     "provisioningState": "Succeeded",
     "forceUpdateTag": "20220625T025902Z",
-    "azPowerShellVersion": "9.7",
+    "azPowerShellVersion": "14.0",
     "scriptContent": "\r\n          param([string] $name)\r\n          $output = \"Hello {0}\" -f $name\r\n          Write-Output $output\r\n          $DeploymentScriptOutputs = @{}\r\n          $DeploymentScriptOutputs['text'] = $output\r\n        ",
     "arguments": "-name \\\"John Dole\\\"",
     "retentionInterval": "P1D",
     "timeout": "PT1H",
     "containerSettings": {},
     "status": {
-      "containerInstanceId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
-      "storageAccountId": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts",
+      "containerInstanceId": "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myds0624rg/providers/Microsoft.ContainerInstance/containerGroups/64lxews2qfa5uazscripts",
+      "storageAccountId": "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myds0624rg/providers/Microsoft.Storage/storageAccounts/64lxews2qfa5uazscripts",
       "startTime": "2023-05-11T02:59:07.5951401Z",
       "endTime": "2023-05-11T03:00:16.7969234Z",
       "expirationTime": "2023-05-12T03:00:16.7969234Z"
@@ -554,7 +733,7 @@ The output is similar to:
     },
     "cleanupPreference": "OnSuccess"
   },
-  "id": "/subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
+  "id": "/subscriptions/aaaabbbb-0000-cccc-1111-dddd2222eeee/resourceGroups/myds0624rg/providers/Microsoft.Resources/deploymentScripts/runPowerShellInlineWithOutput",
   "type": "Microsoft.Resources/deploymentScripts",
   "name": "runPowerShellInlineWithOutput"
 }
@@ -709,7 +888,7 @@ The following ARM template shows how to configure the environment for running a 
   "resources": [
     {
       "type": "Microsoft.Network/virtualNetworks",
-      "apiVersion": "2023-09-01",
+      "apiVersion": "2025-01-01",
       "name": "[parameters('vnetName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -744,7 +923,7 @@ The following ARM template shows how to configure the environment for running a 
     },
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2023-01-01",
+      "apiVersion": "2025-06-01",
       "name": "[parameters('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -869,3 +1048,4 @@ In this article, you learned how to use deployment scripts. To walk through a de
 
 > [!div class="nextstepaction"]
 > [Learn module: Extend ARM templates by using deployment scripts](/training/modules/extend-resource-manager-template-deployment-scripts/)
+

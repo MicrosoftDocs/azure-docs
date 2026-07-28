@@ -1,13 +1,15 @@
 ---
 title: Automatic update of the Mobility service in Azure Site Recovery
 description: Overview of automatic update of the Mobility service when replicating Azure VMs by using Azure Site Recovery.
-author: ankitaduttaMSFT
-manager: rochakm
+author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.date: 03/24/2023
-ms.author: ankitadutta
-ms.custom: engagement-fy23
+ms.author: v-gajeronika
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
+# Customer intent: As an IT administrator managing Azure virtual machines, I want to automate the updates of the Mobility service through Site Recovery, so that I can ensure efficient disaster recovery without manually overseeing each upgrade.
 ---
 
 # Automatic update of the Mobility service in Azure-to-Azure replication
@@ -83,9 +85,9 @@ param(
     [Parameter(Mandatory=$false)]
     [String] $AutomationAccountArmId
 )
-$SiteRecoveryRunbookName = "Modify-AutoUpdateForVaultForPatner"
+$SiteRecoveryRunbookName = "Modify-AutoUpdateForVaultForPartner"
 $TaskId = [guid]::NewGuid().ToString()
-$SubscriptionId = "00000000-0000-0000-0000-000000000000"
+$SubscriptionId = "aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e"
 $AsrApiVersion = "2021-12-01"
 $ArmEndPoint = "https://management.azure.com"
 $AadAuthority = "https://login.windows.net/"

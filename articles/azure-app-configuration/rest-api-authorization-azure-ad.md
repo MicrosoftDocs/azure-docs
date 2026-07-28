@@ -32,7 +32,7 @@ Roles contain a list of actions that users assigned to that role can perform. Az
 - `Microsoft.AppConfiguration/configurationStores/keyValues/write`: This action allows write access to App Configuration key-value resources.
 - `Microsoft.AppConfiguration/configurationStores/keyValues/delete`: This action allows App Configuration key-value resources to be deleted. Note that deleting a resource returns the key-value that was deleted.
 - `Microsoft.AppConfiguration/configurationStores/snapshots/read`: This action allows read access to App Configuration snapshot resources, as well as any key-values contained within snapshots.
-- `Microsoft.AppConfiguration/configurationStores/snapshots/write`: This action allows write access to App Configuration snapshot resouces.
+- `Microsoft.AppConfiguration/configurationStores/snapshots/write`: This action allows write access to App Configuration snapshot resources.
 - `Microsoft.AppConfiguration/configurationStores/snapshots/archive/action`: This action allows access to archive and recover App Configuration snapshot resources.
 
 ## Error
@@ -46,4 +46,4 @@ HTTP/1.1 403 Forbidden
 
 ## Managing role assignments
 
-You can manage role assignments by using [Azure RBAC procedures](../role-based-access-control/overview.md) that are standard across all Azure services. You can do this through the Azure CLI, PowerShell, and the Azure portal. For more information, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
+You can manage role assignments by using [Azure RBAC procedures](../role-based-access-control/overview.md) that are standard across all Azure services. You can do this through the Azure CLI, PowerShell, and the Azure portal. For more information, see [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).

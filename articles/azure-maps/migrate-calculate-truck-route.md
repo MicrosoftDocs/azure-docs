@@ -1,11 +1,11 @@
 ---
 title: Migrate Bing Maps Calculate a Truck Route API to Azure Maps Route Directions API
 titleSuffix: Microsoft Azure Maps
-description: Learn how to Migrate the Bing Maps Calculate a Truck Route API to the Azure Maps Route Directions API.
+description: Learn how to migrate the Bing Maps Calculate a Truck Route API to the Azure Maps Route Directions API.
 author: farazgis
 ms.author: fsiddiqui 
 ms.date: 05/16/2024
-ms.topic: how-to
+ms.topic: upgrade-and-migration-article
 ms.service: azure-maps
 ms.subservice: routing
 ---
@@ -25,7 +25,7 @@ This article explains how to migrate the Bing Maps [Calculate a Truck Route] API
 - Bing Maps Calculate a Truck Route is a standalone API dedicated to truck routing. Azure Maps Route Directions API provides truck routing support when `travelMode=truck` is specified in the request.
 - Bing Maps Calculate a Truck Route API supports GET or POST requests. Azure Maps Route Directions API supports POST requests.
 - Bing Maps Calculate a Truck Route API supports XML and JSON response formats. Azure Maps Route Directions API supports the GeoJSON response format.
-- Bing Maps Calculate a Truck Route API supports a maximum of 25 waypoints or viaWaypoints per request. Azure Maps Route Directions API supports up to 150 waypoints per request, but doesn’t support viaWaypoints.
+- Bing Maps Calculate a Truck Route API supports a maximum of 25 waypoints or viaWaypoints per request. Azure Maps Route Directions API supports up to 150 waypoints per request, but doesn't support viaWaypoints.
 - Unlike Bing Maps for Enterprise, Azure Maps is a global service that supports specifying a geographic scope, allowing limits to data residency to the European (EU) or United States (US) geographic areas (geos). All requests (including input data) are processed exclusively in the specified geographic area. For more information, see [geographic scope].
 
 ## Security and authentication
@@ -94,7 +94,7 @@ Included in the body of the request:
 Azure Maps _Route Directions_ API POST request:
 
 ``` http
-https://atlas.microsoft.com/route/directions?api-version=2023-10-01-preview&subscription-key={Your-Azure-Maps-Subscription-key} 
+https://atlas.microsoft.com/route/directions?api-version=2025-01-01&subscription-key={Your-Azure-Maps-Subscription-key} 
 ```
 
 Included in the body of the request:
@@ -149,9 +149,9 @@ The following table lists the fields that can appear in the HTTP response when r
 
 | Bing Maps Field        | Azure Maps Field          | Description                                                                                                                         |
 |------------------------|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
-| actualEnd              | Point feature object      | Point feature object with _type=”waypoint”_ and _inputIndex = last_ defines the routable end location.                              |
-| actualStart            | Point feature object      | Point feature object with _type=”waypoint”_ and _inputIndex = 0_ defines the routable start location.                               |
-| alternateVias          | alternativeRoutes         | Bing Maps `alternateVias` identifies the separate routes. In Azure maps Route Directions API, alternate routes are returned as a new feature collection under `alternativeRoutes`.  |
+| actualEnd              | Point feature object      | Point feature object with _type="waypoint"_ and _inputIndex = last_ defines the routable end location.                              |
+| actualStart            | Point feature object      | Point feature object with _type="waypoint"_ and _inputIndex = 0_ defines the routable start location.                               |
+| alternateVias          | alternativeRoutes         | Bing Maps `alternateVias` identifies the separate routes. In Azure Maps Route Directions API, alternate routes are returned as a new feature collection under `alternativeRoutes`.  |
 | compassDegrees         | Not supported             |                                                                                                                                     |
 | compassDirection       | Not supported             |                                                                                                                                     |
 | description            | Not supported             |                                                                                                                                     |
@@ -159,7 +159,7 @@ The following table lists the fields that can appear in the HTTP response when r
 | distanceUnit           | Not applicable            | Azure Maps Route Directions API returns the distance in meters by default.                                                          |
 | durationUnit           | Not  applicable           | Azure Maps Route Directions API returns the duration in seconds.                                                                    |
 | endPathIndices         | range                     | Azure Maps Route Directions API returns the start and end index covered by a specific leg of a route as a range.                    |
-| endWaypoint            | Not supported             | In Azure Maps Route Directions API response, the end waypoint can be derived from _type=”waypoint”_ and _inputIndex = last_ index   |
+| endWaypoint            | Not supported             | In Azure Maps Route Directions API response, the end waypoint can be derived from _type="waypoint"_ and _inputIndex = last_ index   |
 | formattedText          | formattedText             |                                                                                                                                     |
 | hints                  | Not supported             |                                                                                                                                     |
 | hintType               | Not supported             |                                                                                                                                     |
@@ -179,7 +179,7 @@ The following table lists the fields that can appear in the HTTP response when r
 | routeSubLegs           | subLegs                   |                                                                                                                                     |
 | sideOfStreet           | sideOfStreet              |                                                                                                                                     |
 | startPathIndices       | range                     | Azure Maps Route Directions API returns the start and end index covered by a specific leg of a route as a range.                    |
-| startWaypoint          | Not supported             | In Azure Maps Route Directions API response, the start waypoint can be derived from _type=”waypoint”_ and _inputIndex = first_ index|
+| startWaypoint          | Not supported             | In Azure Maps Route Directions API response, the start waypoint can be derived from _type="waypoint"_ and _inputIndex = first_ index|
 | towardsRoadName        | towardsRoadName           |                                                                                                                                     |
 | trafficCongestion      | Not supported             |                                                                                                                                     |
 | trafficDataUsed        | trafficDataUsed           |                                                                                                                                     |
@@ -198,7 +198,7 @@ The following JSON sample shows what is returned in the body of the HTTP respons
 {
     "authenticationResultCode": "ValidCredentials",
     "brandLogoUri": "https://dev.virtualearth.net/Branding/logo_powered_by.png",
-    "copyright": "Copyright © 2024 Microsoft and its suppliers. All rights reserved. This API cannot be accessed and the content and any results may not be used, reproduced or transmitted in any manner without express written permission from Microsoft Corporation.",
+    "copyright": "Copyright &copy; 2024 Microsoft and its suppliers. All rights reserved. This API cannot be accessed and the content and any results may not be used, reproduced or transmitted in any manner without express written permission from Microsoft Corporation.",
     "resourceSets": [
         {
             "estimatedTotal": 1,
@@ -573,15 +573,15 @@ Support
 [Azure Account]: https://azure.microsoft.com/
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Calculate a Truck Route]: /bingmaps/rest-services/routes/calculate-a-truck-route
-[Definitions]: /rest/api/maps/route/post-directions#definitions
+[Definitions]: /rest/api/maps/route/post-route-directions#definitions
 [geographic scope]: geographic-scope.md
 [Microsoft Entra ID]: azure-maps-authentication.md#microsoft-entra-authentication
 [Microsoft Q&A Forum]: /answers/tags/209/azure-maps
-[Post Directions Batch]: /rest/api/maps/route/post-directions-batch
-[Route Directions]: /rest/api/maps/route/post-directions
-[RouteOutputOption]: /rest/api/maps/route/post-directions#routeoutputoption
+[Post Directions Batch]: /rest/api/maps/route/post-route-directions-batch
+[Route Directions]: /rest/api/maps/route/post-route-directions
+[RouteOutputOption]: /rest/api/maps/route/post-route-directions#routeoutputoption
 [Security section]: /rest/api/maps/route/get-route-range?#security
 [Shared Access Signature (SAS) Token]: azure-maps-authentication.md#shared-access-signature-token-authentication
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Understanding Azure Maps Transactions]: understanding-azure-maps-transactions.md
-[URI Parameters]: /rest/api/maps/route/post-directions#uri-parameters
+[URI Parameters]: /rest/api/maps/route/post-route-directions#uri-parameters

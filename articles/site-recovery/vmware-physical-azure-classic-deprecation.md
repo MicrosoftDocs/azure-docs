@@ -3,9 +3,10 @@ title: Deprecation of classic experience to protect VMware and physical machines
 description: Details about upcoming deprecation of classic experience to protect VMware and physical machines to Azure and alternate options
 ms.service: azure-site-recovery
 ms.topic: overview
-ms.date: 03/14/2023
-ms.author: ankitadutta
+ms.date: 03/26/2025
+ms.author: v-gajeronika
 
+# Customer intent: "As an IT administrator managing VMware and physical machines, I want to migrate from the classic experience to the modernized experience of Azure Site Recovery, so that I can ensure ongoing disaster recovery support and avoid disruptions after the deprecation date."
 ---
 
 # Deprecation of classic experience to protect VMware and Physical machines using Azure Site Recovery 
@@ -21,13 +22,15 @@ Classic experience to protect VMware and physical machines to Azure using Site R
 
 - Starting March 15, 2023, you'll receive Azure portal notifications & email communications for the upcoming deprecation of classic replication experience of VMware and physical machines. This capability will no longer be supported after March 30, 2026.
 
-- Starting March 15, 2023, you can only use the modernized experience to enable Azure Site Recovery for all newly created Recovery Services vaults.
+- Starting March 15, 2023, you can only use the modernized experience to enable Azure Site Recovery for all Recovery Services vaults.
 
-- Existing VMware and physical machines can remain on the classic management experience until March 30, 2026. After 30 March 2026, changes to any configurations of the replication on these existing VMware and physical machines will require upgrade to the new modernized experience. 
+- Existing VMware and physical machines can remain on the classic management experience until March 30, 2026. After 30 March 2026, changes to any configurations of the replication on these existing VMware and physical machines will require upgrade to the new modernized experience.
 
 - Support for new features or improvements, along with mobility agent support for new Linux distros, will only be available on the modernized experience.
 
 - If you do not migrate your machines by March 30, 2026, the replication health of your machines may be disrupted and you will no longer be able to view, manage, or perform any disaster recovery-related operations through the Azure Site Recovery experience in the Azure portal.
+
+- Enable replication for Classic Appliance from portal is blocked and PowerShell will be blocked by January 31, 2026.
 
 
 ## Alternatives 
@@ -38,7 +41,7 @@ The [modernized experience](vmware-azure-architecture-modernized.md) is an alter
 
 Follow these steps to move your existing replications to the modernized experience:
 
-1. [Check the required infrastructure for your setup](move-from-classic-to-modernized-vmware-disaster-recovery.md#how-to-define-required-infrastructure) and the [FAQs](move-from-classic-to-modernized-vmware-disaster-recovery.md#faqs) for all related information.
+1. [Check the required infrastructure for your setup](move-from-classic-to-modernized-vmware-disaster-recovery.md#how-to-define-required-infrastructure) and the [FAQs](./classic-to-modernized-common-questions.md) for all related information.
 2. [Check the architecture and minimum version of all components](move-from-classic-to-modernized-vmware-disaster-recovery.md#architecture) required for this migration.
 3. Check all the [resources required](move-from-classic-to-modernized-vmware-disaster-recovery.md#required-infrastructure) and deploy the [Azure Site Recovery replication appliance](deploy-vmware-azure-replication-appliance-modernized.md).  
 4. [Prepare the classic Recovery Services vault](move-from-classic-to-modernized-vmware-disaster-recovery.md#prepare-classic-recovery-services-vault) used by your existing replications.
@@ -47,6 +50,6 @@ Follow these steps to move your existing replications to the modernized experien
 
 ## Next steps
 
-Plan ahead for the deprecation and move to the modernized experience to take advantage of its [benefits](move-from-classic-to-modernized-vmware-disaster-recovery.md#why-should-i-migrate-my-machines-to-the-modernized-architecture) and stay up-to-date. 
+Plan ahead for the deprecation and move to the modernized experience to take advantage of its [benefits](./classic-to-modernized-common-questions.md#why-should-i-migrate-my-machines-to-the-modernized-architecture) and stay up-to-date. 
 
 In case you have any queries regarding this deprecation, reach out to Microsoft Support.

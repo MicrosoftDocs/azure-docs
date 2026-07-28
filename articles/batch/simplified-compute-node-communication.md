@@ -2,8 +2,9 @@
 title: Use simplified compute node communication
 description: Learn about the simplified compute node communication mode in the Azure Batch service and how to enable it.
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 04/21/2026
 ms.custom: references_regions
+# Customer intent: "As a cloud administrator managing workload execution on Batch pools, I want to switch to simplified compute node communication mode, so that I can reduce networking complexity and enhance security for my batch processing environment."
 ---
 
 # Use simplified compute node communication
@@ -16,11 +17,19 @@ Batch supports two types of communication modes:
 
 This article describes the *simplified* communication mode and the associated network configuration requirements.
 
-> [!TIP]
-> Information in this document pertaining to networking resources and rules such as NSGs doesn't apply to Batch pools with [no public IP addresses](simplified-node-communication-pool-no-public-ip.md) that use the node management private endpoint without internet outbound access.
-
 > [!WARNING]
-> The *classic* compute node communication mode will be retired on **31 March 2026** and replaced with the *simplified* communication mode described in this document. For more information, see the communication mode [migration guide](batch-pools-to-simplified-compute-node-communication-model-migration-guide.md).
+> The *classic* compute node communication mode will be retired on **31 March 2026** and replaced with the *simplified* communication mode described in this document.
+
+> [!IMPORTANT]
+> **Understand two independent settings before configuring simplified mode:**
+>
+> - **Pool public IP addresses** control the networking of compute nodes themselves (whether VMs have public IPs for outbound internet access).
+> - **Account public network access** (`publicNetworkAccess`) controls whether the Batch service endpoints (including the *node management endpoint*) accept connections from the public internet.
+>
+> These settings are independent. A pool can have public IPs on its compute nodes, while the Batch account has public network access disabled. In simplified mode, compute nodes initiate outbound connections to the Batch *node management endpoint*. If the Batch account has `publicNetworkAccess` set to **Disabled**, the node management endpoint rejects public connections — even if the pool has public IPs and the NSG allows outbound traffic. In this case, you **must** create a [**nodeManagement** private endpoint](private-connectivity.md) so that compute nodes can reach the node management service through a private connection.
+
+> [!TIP]
+> If your pool uses [no public IP addresses](simplified-node-communication-pool-no-public-ip.md) with a **nodeManagement** private endpoint and has no internet outbound access, the NSG and firewall rules described in this document don't apply to your configuration.
 
 ## Supported regions
 
@@ -43,13 +52,24 @@ Batch pools with the *classic* communication mode require the following networki
   - Destination port `443` over TCP to `Storage.<region>`
   - Destination port `443` over TCP to `BatchNodeManagement.<region>` for certain workloads that require communication back to the Batch Service, such as Job Manager tasks
 
-Batch pools with the *simplified* communication mode only need outbound access to Batch account's node management endpoint (see [Batch account public endpoints](public-network-access.md#batch-account-public-endpoints)). They require the following networking rules in NSGs, UDRs, and firewalls:
+Batch pools with the *simplified* communication mode only need outbound access to Batch account's node management endpoint (see [Batch account public endpoints](public-network-access.md#batch-account-public-endpoints)). When the Batch account has `publicNetworkAccess` set to **Enabled** (the default), they require the following networking rules in NSGs, UDRs, and firewalls:
 
 - Inbound:
   - None
 
 - Outbound:
   - Destination port `443` over ANY to `BatchNodeManagement.<region>`
+
+When the Batch account has `publicNetworkAccess` set to **Disabled**, the preceding outbound rule to `BatchNodeManagement.<region>` alone is **not** sufficient — the node management endpoint rejects public connections. In this case, you must:
+
+1. Create a [**nodeManagement** private endpoint](private-connectivity.md) in the pool's virtual network.
+1. Configure DNS so the node management endpoint resolves to the private endpoint IP address.
+1. Ensure the network path (NSG, UDR) allows TCP/443 from the pool subnet to the private endpoint subnet.
+
+For more information, see [Use private endpoints with Batch accounts](private-connectivity.md).
+
+> [!IMPORTANT]
+> If account public network access is disabled and no **nodeManagement** private endpoint is configured, compute nodes in simplified communication mode can't connect to the node management service — **even if the pool has public IPs and the NSG allows outbound traffic to `BatchNodeManagement.<region>`**. This results in nodes going to an **unusable** state. To resolve, create the **nodeManagement** private endpoint and verify DNS resolution. For details, see the [troubleshooting section](simplified-node-communication-pool-no-public-ip.md#troubleshooting).
 
 Outbound requirements for a Batch account can be discovered using the [List Outbound Network Dependencies Endpoints API](/rest/api/batchmanagement/batch-account/list-outbound-network-dependencies-endpoints). This API reports the base set of dependencies, depending upon the Batch account pool communication mode. User-specific workloads might need extra rules such as opening traffic to other Azure resources (such as Azure Storage for Application Packages, Azure Container Registry) or endpoints like the Microsoft package repository for virtual file system mounting functionality.
 
@@ -76,6 +96,7 @@ If either of these cases applies to you, then follow the steps outlined in the n
 
 The following steps are required to migrate to the new communication mode:
 
+1. **Check your Batch account's public network access setting.** If `publicNetworkAccess` is set to **Disabled**, you must create a [**nodeManagement** private endpoint](private-connectivity.md) in the pool's virtual network and configure DNS before proceeding. Without this, compute nodes in simplified mode can't connect to the Batch service regardless of NSG rules. For details, see [Use private endpoints with Azure Batch accounts](private-connectivity.md).
 1. Ensure your networking configuration as applicable to Batch pools (NSGs, UDRs, firewalls, etc.) includes a union of the modes, that is, the combined network rules of both classic and simplified modes. At a minimum, these rules would be:
    - Inbound:
      - Destination ports `29876`, `29877` over TCP from `BatchNodeManagement.<region>`
@@ -86,7 +107,7 @@ The following steps are required to migrate to the new communication mode:
 1. Use one of the following options to update your workloads to use the new communication mode.
    - Create new pools with the `targetNodeCommunicationMode` set to *simplified* and validate that the new pools are working correctly. Migrate your workload to the new pools and delete any earlier pools.
    - Update existing pools `targetNodeCommunicationMode` property to *simplified* and then resize all existing pools to zero nodes and scale back out.
-1. Use the [Get Pool](/rest/api/batchservice/pool/get) API, [List Pool](/rest/api/batchservice/pool/list) API, or the Azure portal to confirm the `currentNodeCommunicationMode` is set to the desired communication mode of *simplified*.
+1. Use the [Get Pool](/rest/api/batchservice/pools/get-pool) API, [List Pool](/rest/api/batchservice/pools/list-pools) API, or the Azure portal to confirm the `currentNodeCommunicationMode` is set to the desired communication mode of *simplified*.
 1. Modify all applicable networking configuration to the simplified communication rules, at the minimum (note any extra rules needed as discussed above):
    - Inbound:
      - None
@@ -103,7 +124,7 @@ If you follow these steps, but later want to switch back to *classic* compute no
 
 ## Specify the communication mode on a Batch pool
 
-The [targetNodeCommunicationMode](/rest/api/batchservice/pool/add) property on Batch pools allows you to indicate a preference to the Batch service for which communication mode to utilize between the Batch service and compute nodes. The following are the allowable options on this property:
+The [targetNodeCommunicationMode](/rest/api/batchservice/pools/create-pool) property on Batch pools allows you to indicate a preference to the Batch service for which communication mode to utilize between the Batch service and compute nodes. The following are the allowable options on this property:
 
 - **Classic**: creates the pool using classic compute node communication.
 - **Simplified**: creates the pool using simplified compute node communication.
@@ -130,7 +151,7 @@ To display the current node communication mode for a pool, navigate to the **Poo
 
 ### REST API
 
-This example shows how to use the [Batch Service REST API](/rest/api/batchservice/pool/add) to create a pool with simplified compute node communication.
+This example shows how to use the [Batch Service REST API](/rest/api/batchservice/pools/create-pool) to create a pool with simplified compute node communication.
 
 ```http
 POST {batchURL}/pools?api-version=2022-10-01.16.0
@@ -168,9 +189,8 @@ client-request-id: 00000000-0000-0000-0000-000000000000
 
 The following are known limitations of the simplified communication mode:
 
-- Limited migration support for previously created pools [without public IP addresses](batch-pool-no-public-ip-address.md). These pools can only be migrated if created in a [virtual network](batch-virtual-network.md), otherwise they won't use simplified compute node communication, even if specified on the pool. For more information, see the [migration guide](batch-pools-without-public-ip-addresses-classic-retirement-migration-guide.md).
-- Cloud Service Configuration pools are currently not supported for simplified compute node communication and are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Specifying a communication mode for these types of pools aren't honored and always results in *classic* communication mode. We recommend using Virtual Machine Configuration for your Batch pools. For more information, see [Migrate Batch pool configuration from Cloud Services to Virtual Machine](batch-pool-cloud-service-to-virtual-machine-configuration.md).
-
+- Limited migration support for previously created pools [without public IP addresses](batch-pool-no-public-ip-address.md). These pools can only be migrated if created in a [virtual network](batch-virtual-network.md), otherwise they won't use simplified compute node communication, even if specified on the pool.
+- Cloud Service Configuration pools are not supported for simplified compute node communication and are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/). Specifying a communication mode for these types of pools aren't honored and always results in *classic* communication mode. We recommend using Virtual Machine Configuration for your Batch pools.
 ## Next steps
 
 - Learn how to [use private endpoints with Batch accounts](private-connectivity.md).

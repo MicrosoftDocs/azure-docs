@@ -1,9 +1,9 @@
 ---
 ms.topic: include
 ms.date: 10/29/2021
-author: PatAltimore
-ms.author: patricka
-ms.service: iot-edge
+author: sethmanheim
+ms.author: sethm
+ms.service: azure-iot-edge
 services: iot-edge
 ---
 

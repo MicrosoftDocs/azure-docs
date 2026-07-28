@@ -7,8 +7,8 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.custom: synapse
-ms.topic: conceptual
-ms.date: 10/20/2023
+ms.topic: how-to
+ms.date: 09/25/2024
 ---
 
 # Build expressions in mapping data flow

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment using Azure portal"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using Azure portal.
-ms.date: 07/03/2024
+ms.date: 03/04/2025
 ms.topic: quickstart
 ---
 
@@ -13,7 +13,7 @@ The first step in understanding compliance in Azure is to identify the status of
 
 ## Prerequisites
 
-- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- If you don't have an Azure account, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 - A resource group with at least one virtual machine that doesn't use managed disks.
 
 ## Create a policy assignment
@@ -40,7 +40,7 @@ In this quickstart, you create a policy assignment with a built-in policy defini
    | **Resource selectors** | Skip resource selectors for this example. Resource selectors let you refine the resources affected by the policy assignment. |
    | **Policy definition** | Select the ellipsis (`...`) to open the list of available definitions. |
    | **Available Definitions** | Search the policy definitions list for _Audit VMs that do not use managed disks_ definition, select the policy, and select **Add**. There's a column that shows the latest version of the definition. |
-   | **Version (preview)** | Accept the version in format `1.*.*` to ingest major, minor, and patch versions. <br/><br/> Select the ellipsis (`...`) to view available versions and the options to enroll in minor version updates or preview versions. You must select a version to change the options. For more information, go to [definition version within assignment](./concepts/assignment-structure.md#policy-definition-id-and-version-preview). |
+   | **Version (preview)** | Accept the version in format `1.*.*` to ingest major, minor, and patch versions. <br/><br/> Select the ellipsis (`...`) to view available versions and the options to enroll in minor version updates or preview versions. You must select a version to change the options. For more information, go to [definition version within assignment](./concepts/assignment-structure.md#policy-definition-id-and-version). |
    | **Assignment name** | By default uses the name of the selected policy. You can change it but for this example, use the default name. |
    | **Description** | Optional to provide details about this policy assignment. |
    | **Policy enforcement** | Defaults to _Enabled_. For more information, go to [enforcement mode](./concepts/assignment-structure.md#enforcement-mode). |
@@ -58,7 +58,7 @@ In this quickstart, you create a policy assignment with a built-in policy defini
    | Tab name | Options |
    | ---- | ---- |
    | **Parameters** | If the policy definition you selected on the **Basics** tab has parameters, you configure them on the **Parameters** tab. This example doesn't use parameters. |
-   | **Remediation** | You can create a managed identity. For this example, **Create a Managed Identity** is unchecked. <br><br> This box _must_ be checked when a policy or initiative includes a policy with either the [deployIfNotExists](./concepts/effects.md#deployifnotexists) or [modify](./concepts/effects.md#modify) effect. For more information, go to [managed identities](../../active-directory/managed-identities-azure-resources/overview.md) and [how remediation access control works](./how-to/remediate-resources.md#how-remediation-access-control-works). |
+   | **Remediation** | You can create a managed identity. For this example, **Create a Managed Identity** is unchecked. <br><br> This box _must_ be checked when a policy or initiative includes a policy with either the [deployIfNotExists](./concepts/effect-deploy-if-not-exists.md) or [modify](./concepts/effect-modify.md) effect. For more information, go to [managed identities](/entra/identity/managed-identities-azure-resources/overview) and [how remediation access control works](./how-to/remediate-resources.md#how-remediation-access-control-works). |
 
 1. Select **Next** and on the **Non-compliance messages** tab create a **Non-compliance message** like _Virtual machines should use managed disks_.
 

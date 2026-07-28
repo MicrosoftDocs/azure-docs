@@ -1,10 +1,10 @@
 ---
 title: Work with farm activities data in Azure Data Manager for Agriculture
 description: Learn how to integrate with data providers for farm activities and ingest data into Azure Data Manager for Agriculture. 
-author: lbpudi
-ms.author: lbethapudi
+author: BlackRider97
+ms.author: ramithar
 ms.service: azure-data-manager-agriculture
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/14/2023
 ms.custom: template-concept
 ---
@@ -21,7 +21,7 @@ New operation data can be pushed into the service via the APIs for operation and
 
 [!INCLUDE [public-preview-notice.md](includes/public-preview-notice.md)]
 
-Azure Data Manager for Agriculture supports a range of data about farm activities. For more information, see [What is Azure Data Manager for Agriculture?](/rest/api/data-manager-for-agri).
+Azure Data Manager for Agriculture supports a range of data about farm activities. For more information, see [What is Azure Data Manager for Agriculture?](/rest/api/data-manager-for-agri)
 
 ## Integration with manufacturers of farm equipment
 

@@ -6,6 +6,7 @@ ms.author: zityang
 ms.service: azure-web-pubsub
 ms.topic: tutorial
 ms.date: 07/12/2024
+ms.custom: sfi-ropc-nochange
 ---
 
 # Tutorial - Authenticate and authorize MQTT clients based on client certificates with event handlers
@@ -14,7 +15,7 @@ In this tutorial, you'll learn how to write a .NET web server to authenticate an
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't have an Azure account, you can [create an account for free](https://azure.microsoft.com/free/).
+* An Azure account with an active subscription. If you don't have an Azure account, you can [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * An Azure Web PubSub service (must be Standard tier or above).
 * A client certificate in PEM format.
 * [.NET Runtime](https://dotnet.microsoft.com/download/dotnet) installed.
@@ -210,9 +211,9 @@ awps-tunnel run --hub {hubName} --upstream http://localhost:{portExposedByYourAu
 
 ## Implement MQTT clients
 
-We will implement the client side in Node.JS.
+We will implement the client side in Node.js.
 
-Initialize a NodeJS project with the following command.
+Initialize a Node.js project with the following command.
 ```bash
 npm init
 ```

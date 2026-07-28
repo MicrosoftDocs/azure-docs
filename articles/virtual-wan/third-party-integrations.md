@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual WAN
 description: Learn about third-party integrations available in a Virtual WAN hub.
 author: wtnlee
 ms.service: azure-virtual-wan
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/26/2024
 ms.author: wellee
 # Customer intent: As someone with a networking background, I want to learn about third-party integrations in a Virtual WAN hub.
@@ -43,7 +43,7 @@ For more information and resources on each Integrated NVA solution, see [NVA in 
 
 ## Software-as-a-service (SaaS) solutions
 
-Softeware-as-a-service (SaaS) solutions in Virtual WAN are managed by SaaS providers and are deployed directly into your Virtual WAN hub. Software-as-a-service solutions are deployed and transacted through Azure Marketplace. SaaS solutions abstract the underlying infrastructure required to run networking and security software in Virtual WAN,  providing customers with a cloud-native operational interface for programming and customizing SaaS configurations.
+Software-as-a-service (SaaS) solutions in Virtual WAN are managed by SaaS providers and are deployed directly into your Virtual WAN hub. Software-as-a-service solutions are deployed and transacted through Azure Marketplace. SaaS solutions abstract the underlying infrastructure required to run networking and security software in Virtual WAN,  providing customers with a cloud-native operational interface for programming and customizing SaaS configurations.
 
 The SaaS provider handles the complete lifecycle management of the SaaS software, management, and configuration of Azure infrastructure, as well as scalability of the SaaS solution. For specifics on  configurations and architecture of Virtual WAN SaaS solutions, consult your SaaS provider's documentation.
 
@@ -57,4 +57,4 @@ Azure Firewall Manager's security partner integrations simplify the process of c
 
 :::image type="content" source="./media/third-party-solutions/security-as-a-service.png" alt-text="SECaaS architecture diagram." lightbox="./media/third-party-solutions/security-as-a-service.png":::
 
-Management and configuration of the SECaaS solution are accessible through tools provided by the SECaaS provider. Currently, Virtual WAN's SECaaS solutions include the following partners: Check Point, iBoss and zScalar. For more information about Azure Firewall Manager's security partner providers, refer to both [Azure Firewall Manager documentation](../firewall-manager/trusted-security-partners.md) and your preferred provider's documentation.
+Management and configuration of the SECaaS solution are accessible through tools provided by the SECaaS provider. Currently, Virtual WAN's SECaaS solutions include the following partners: Check Point, iBoss and Zscaler. For more information about Azure Firewall Manager's security partner providers, refer to both [Azure Firewall Manager documentation](../firewall-manager/trusted-security-partners.md) and your preferred provider's documentation.

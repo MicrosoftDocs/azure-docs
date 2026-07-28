@@ -6,7 +6,7 @@ author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: reference
-ms.date: 1/18/2024
+ms.date: 07/15/2025
 ms.author: buchvarun
 ---
 
@@ -46,7 +46,7 @@ This version of the conformance statement corresponds to the `v2` version of the
 
 For more information on how to specify the version when making requests, see the [API Versioning Documentation](api-versioning-dicom-service.md).
 
-You can find example requests for supported transactions in the [Postman collection](https://github.com/microsoft/dicom-server/blob/main/docs/resources/Conformance-as-Postman.postman_collection.json).
+You can find example requests for supported transactions in the Postman collection.
 
 ## Preamble Sanitization
 
@@ -98,7 +98,7 @@ Each file stored must have a unique combination of `StudyInstanceUID`, `SeriesIn
 Only transfer syntaxes with explicit Value Representations are accepted.
 
 > [!NOTE]
-> Requests are limited to 4GB. No single DICOM file or combination of files might exceed this limit.
+> Requests are limited to 4 GB. No single DICOM file or combination of files might exceed this limit.
 
 #### Store changes from v1
 In previous versions, a Store request would fail if any of the [required](#store-required-attributes) or [searchable attributes](#searchable-attributes) failed validation. Beginning with V2, the request fails only if **required attributes** fail validation.
@@ -107,6 +107,26 @@ Failed validation of attributes not required by the API results in the file bein
 When a sequence contains an attribute that fails validation, or when there are multiple issues with a single attribute, only the first failing attribute reason is noted.
 
 If an attribute is padded with nulls, the attribute is indexed when searchable and is stored as is in dicom+json metadata. No validation warning is provided.
+
+#### Store DICOM file with external metadata
+
+The [external metadata](external-metadata.md#store-stow-rs) documentation explains the ability to store DICOM file with external metadata.
+
+#### Store DICOM file with Expiry
+Expiry headers allow users to specify a future deletion time when storing.
+
+In order to set an expiry time, the following headers must be set on POST or PUT requests.
+
+| Header                                | Accepted Values    | Description                                                                                  | Required |
+| :------------------------------------ | :----------------- | :------------------------------------------------------------------------------------------- | :------- |
+| `msdicom-expiry-time-milliseconds`    | `Integer Value`> 0 | The number of milliseconds after which the study should be deleted.                          | Yes      |
+| `msdicom-expiry-option`               | `RelativeToNow`    | How the deletion time is calculated. Currently the only supported option is `RelativeToNow`  | No       |
+| `msdicom-expiry-level`                | `Study`            | The level at which the expiry should be set. Currently only supported at the `Study` level.  | No       |
+
+
+At this time, expiry is only supported at the study level, meaning that all instances of a study will be deleted at the same time. If multiple instances are stored for the same study in separate requests, the deletion will be based on the expiry headers sent in the last STOW request. In the case that the last STOW request doesn't specify expiry headers, the study won't be scheduled for deletion and any previously sent expiry headers will be ignored.
+
+The `RelativeToNow` expiry option will calculate the expiry time based on the time the request is received by the DICOM service. The deletion may not happen at the exact time calculated, but within a few hours of the calculated time. 
 
 #### Store response status codes
 
@@ -124,7 +144,7 @@ If an attribute is padded with nulls, the attribute is indexed when searchable a
 | `500 (Internal Server Error)`  | The server encountered an unknown internal error. Try again later.                                                                                                                                                 |
 | `503 (Service Unavailable)`    | The service is unavailable or busy. Try again later.                                                                                                                                                               |
 
-### Store response paylo
+### Store response payload
 
 The response payload populates a DICOM dataset with the following elements:
 
@@ -277,6 +297,7 @@ An example response with `Accept` header `application/dicom+json` with a FailedA
 | `43265` | The provided instance `StudyInstanceUID` didn't match the specified `StudyInstanceUID` in the store request. |
 | `45070` | A DICOM instance with the same `StudyInstanceUID`, `SeriesInstanceUID`, and `SopInstanceUID` was already stored. If you want to update the contents, delete this instance first. |
 | `45071` | A DICOM instance is being created by another process, or the previous attempt to create failed and the cleanup process isn't complete. Delete the instance first before attempting to create again. |
+| `45073` | A DICOM instance was deleted by the user, before the write operation for that instance could be committed successfully. |
 
 #### Store warning reason codes
 
@@ -376,6 +397,9 @@ Retrieving metadata doesn't return attributes with the following value represent
 | UN      | Unknown                |
 
 Retrieved metadata includes the null character when the attribute was padded with nulls and stored as is.
+
+> [!NOTE]
+> The [external metadata](external-metadata.md#store-stow-rs) documentation explains the ability to retrieve DICOM file with external metadata.
 
 ### Retrieve metadata cache validation (for study, series, or instance)
 
@@ -485,7 +509,7 @@ We support searching the following attributes and search types.
 | `SOPInstanceUID`                  |             |            |       X       |                |         X         |            X            |
 
 > [!NOTE]
-> We do not support searching using empty string for any attributes.
+> We don't support searching using empty string for any attributes.
 
 #### Search matching
 
@@ -496,6 +520,7 @@ We support the following matching types.
 | Range Query | `StudyDate`/`PatientBirthDate` | `{attributeID}={value1}-{value2}`. For date/time values, we support an inclusive range on the tag. This range is mapped to `attributeID >= {value1} AND attributeID <= {value2}`. If `{value1}` isn't specified, all occurrences of dates/times prior to, and including `{value2}` are matched. Likewise, if `{value2}` isn't specified, all occurrences of `{value1}` and subsequent dates/times are matched. However, one of these values has to be present. `{attributeID}={value1}-` and `{attributeID}=-{value2}` are valid, however, `{attributeID}=-` is invalid. |
 | Exact Match | All supported attributes | `{attributeID}={value1}` |
 | Fuzzy Match | `PatientName`, `ReferringPhysicianName` | Matches any component of the name that starts with the value |
+| UID List Match | `StudyInstanceUID` | Matches studies identified by the values provided in the list. Supports comma (,) or a backslash (\\) as a valid separator. `{attributeID}=1.2.3,5.6.7,8.9.0` will return details associated with all the studies, given they exist. |
 
 #### Attribute ID
 
@@ -509,6 +534,9 @@ Tags can be encoded in several ways for the query parameter. We partially implem
 Example query searching for instances:
 
 `../instances?Modality=CT&00280011=512&includefield=00280010&limit=5&offset=0`
+
+> [!NOTE]
+> The [external metadata](external-metadata.md#store-stow-rs) documentation explains the ability to query DICOM file with external metadata.
 
 ### Search response
 
@@ -614,6 +642,7 @@ The query API returns one of the following status codes in the response.
 | `400 (Bad Request)` | The server was unable to perform the query because the query component was invalid. The response body contains details of the failure. |
 | `401 (Unauthorized)` | The client isn't authenticated. |
 | `403 (Forbidden)` | The user isn't authorized. |
+| `414 (URI Too Long)` | URI exceeded maximum supported length of 8,192 characters. |
 | `424 (Failed Dependency)` | The DICOM service can't access a resource it depends on to complete this request. An example is failure to access the connected Data Lake store, or the key vault for supporting customer-managed key encryption. |
 | `503 (Service Unavailable)` | The service is unavailable or busy. Try again later. |
 
@@ -644,7 +673,7 @@ Parameters `study`, `series`, and `instance` correspond to the DICOM attributes 
 There are no restrictions on the request's `Accept` header, `Content-Type` header, or body content.
 
 > [!NOTE]
-> After a Delete transaction, the deleted instances will not be recoverable.
+> After a Delete transaction, the deleted instances won't be recoverable.
 
 ### Response status codes
 
@@ -903,7 +932,7 @@ The following parameters for each query are supported:
 | --------- | ------------- | ------------ | --------------------------------------------------------------------- |
 | `{attributeID}=` | `{value}` | 0...N | Search for attribute/value matching in query. |
 | `includefield=`  | `{attributeID}`<br/>`all` | 0...N | The other attributes to return in the response. Only top-level attributes can be included - not attributes that are part of sequences. Both public and private tags are supported. When `all` is provided. See [Search Response](#search-response) for more information about which attributes are returned for each query type. If a mixture of `{attributeID}` and `all` is provided, the server defaults to using 'all'. |
-| `limit=`         | `{value}` | 0...1 | Integer value to limit the number of values returned in the response. Value can be between the range `1 >= x <= 200`. Defaulted to `100`. |
+| `limit=`         | `{value}` | 0...1 | Integer value to limit the number of values returned in the response. Value can be between the range `1 >= x <= 4000`. Defaulted to `100`. |
 | `offset=` | `{value}` | 0...1 | Skip {value} results. If an offset is provided larger than the number of search query results, a `204 (no content)` response is returned. |
 | `fuzzymatching=` | `true` \ `false` | 0...1 | If true fuzzy matching is applied to any attributes with the Person Name (PN) Value Representation (VR). It does a prefix word match of any name part inside these attributes. For example, if `PatientName` is `John^Doe`, then `joh`, `do`, `jo do`, `Doe` and `John Doe` all match. However `ohn` doesn't match. |
 
@@ -925,7 +954,7 @@ We support searching on the following attributes.
 | `StudyInstanceUID`                                         |
 
 > [!NOTE]
-> We do not support searching using empty string for any attributes.
+> We don't support searching using empty string for any attributes.
 
 ##### Search Matching
 

@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - set-header | Microsoft Docs
 description: Reference for the set-header policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
-ms.topic: article
+ms.topic: reference
 ms.date: 03/18/2024
-ms.author: danlep
 ---
 
 # Set header
@@ -44,7 +42,7 @@ The `set-header` policy assigns a value to an existing HTTP response and/or requ
 
 ## Usage
 
-- [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
+- [**Policy sections:**](./api-management-howto-policies.md#understanding-policy-configuration) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
 -  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
@@ -67,10 +65,11 @@ User-Agent: value2
 User-Agent: value3
 ```
 
-The following limitations apply:
+#### Limitations
 
-- Removal of `Server` header isn't supported.
-- Headers: `Connection`, `ContentLength`, `KeepAlive`, `TransferEncoding` cannot be modified or deleted. 
+- The following headers can't be appended, overridden, or deleted: `Connection`, `Content-Length`, `Keep-Alive`, `Transfer-Encoding`
+- The client IP address value in the `X-Forwarded-For` header can't be deleted
+- The `Server` header can't be deleted in responses
 
 ## Examples
 

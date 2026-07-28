@@ -2,20 +2,21 @@
 title: Copy data from Zoho (Preview) 
 description: Learn how to copy data from Zoho to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.custom: synapse
-ms.topic: conceptual
-ms.date: 10/20/2023
-ms.author: jianleishen
+ms.topic: how-to
+ms.date: 06/22/2026
+ms.update-cycle: 1095-days
+ms.author: tinglee
 ---
 # Copy data from Zoho using Azure Data Factory or Synapse Analytics (Preview)
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Zoho. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
 > [!IMPORTANT]
-> This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
+> This connector is at [End of Support stage](connector-deprecation-plan.md). You're recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver.
+
+This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Zoho. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 ## Supported capabilities
 
@@ -42,7 +43,7 @@ The service provides a built-in driver to enable connectivity, therefore you don
 
 Use the following steps to create a linked service to Zoho in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -77,7 +78,7 @@ The following properties are supported for Zoho linked service:
 | endpoint | The endpoint of the Zoho server (`crm.zoho.com/crm/private`). | Yes |
 | authenticationType | Allowed values are `OAuth_2.0` and `Access Token`. | Yes |
 | clientId | The client ID associated with your Zoho application. | Yes for OAuth 2.0 authentication | 
-| clientSecrect | The clientsecret associated with your Zoho application. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes for OAuth 2.0 authentication | 
+| clientSecret | The clientsecret associated with your Zoho application. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes for OAuth 2.0 authentication | 
 | refreshToken | The OAuth 2.0 refresh token associated with your Zoho application, used to refresh the access token when it expires. Refresh token will never expire. To get a refresh token, you must request the `offline` access_type, learn more from [this article](https://www.zoho.com/crm/developer/docs/api/auth-request.html). <br>Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md).| Yes for OAuth 2.0 authentication |
 | accessToken | The access token for Zoho authentication. Mark this field as a SecureString to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | useEncryptedEndpoints | Specifies whether the data source endpoints are encrypted using HTTPS. The default value is true.  | No |
@@ -94,24 +95,24 @@ The following properties are supported for Zoho linked service:
         "typeProperties": {
             "connectionProperties": { 
                 "authenticationType":"OAuth_2.0", 
-                "endpoint": "crm.zoho.com/crm/private", 
-                "clientId": "<client ID>", 
-                "clientSecrect": {
+                "endpoint": "crm.zoho.com/crm/private", 
+                "clientId": "<client ID>", 
+                "clientSecret": {
                     "type": "SecureString",
                     "value": "<client secret>"
                 },
-                "accessToken": {
+                "accessToken": {
                     "type": "SecureString",
                     "value": "<access token>"
                 }, 
-                "refreshToken": {
+                "refreshToken": {
                     "type": "SecureString",
                     "value": "<refresh token>"
                 }, 
-                "useEncryptedEndpoints": true,
-                "useHostVerification": true, 
-                "usePeerVerification": true
-            }
+                "useEncryptedEndpoints": true,
+                "useHostVerification": true, 
+                "usePeerVerification": true
+            }
         }
     }
 }
@@ -127,15 +128,15 @@ The following properties are supported for Zoho linked service:
         "typeProperties": {
             "connectionProperties": { 
                 "authenticationType":"Access Token", 
-                "endpoint": "crm.zoho.com/crm/private", 
-                "accessToken": {
+                "endpoint": "crm.zoho.com/crm/private", 
+                "accessToken": {
                     "type": "SecureString",
                     "value": "<access token>"
                 }, 
-                "useEncryptedEndpoints": true, 
-                "useHostVerification": true, 
-                "usePeerVerification": true
-            }
+                "useEncryptedEndpoints": true, 
+                "useHostVerification": true, 
+                "usePeerVerification": true
+            }
         }
     }
 }

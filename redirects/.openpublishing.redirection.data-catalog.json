@@ -1,0 +1,159 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-developer-concepts.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-developer-concepts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-dsr.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-dsr",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-frequently-asked-questions.yml",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-frequently-asked-questions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-get-started.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-how-to-annotate.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-annotate",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-how-to-big-data.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-big-data",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-how-to-business-glossary.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-business-glossary",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-how-to-connect.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-connect",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-how-to-data-profile.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-data-profile",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-how-to-discover.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-discover",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-how-to-documentation.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-documentation",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-how-to-manage.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-manage",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-how-to-register.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-register",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-how-to-save-pin.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-save-pin",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-how-to-secure-catalog.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-secure-catalog",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-how-to-view-related-data-assets.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-how-to-view-related-data-assets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-keyboard-shortcuts.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-keyboard-shortcuts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-migration-to-microsoft-purview.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-migration-to-microsoft-purview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-samples.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-samples",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-terminology.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-terminology",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/index.yml",
+            "redirect_url": "/previous-versions/azure/data-catalog/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/overview.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/register-data-assets-tutorial.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/register-data-assets-tutorial",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/troubleshoot-policy-configuration.md",
+            "redirect_url": "/previous-versions/azure/data-catalog/troubleshoot-policy-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-prerequisites.md",
+            "redirect_url": "/azure/data-catalog/data-catalog-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-release-notes.md",
+            "redirect_url": "/azure/data-catalog/data-catalog-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-whats-new.md",
+            "redirect_url": "/azure/data-catalog/data-catalog-get-started",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-what-is-data-catalog.md",
+            "redirect_url": "/azure/data-catalog/overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-adopting-data-catalog.md",
+            "redirect_url": "/azure/data-catalog/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-common-scenarios.md",
+            "redirect_url": "/azure/data-catalog/overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/data-catalog/data-catalog-migration-to-azure-purview.md",
+            "redirect_url": "/azure/data-catalog/data-catalog-migration-to-microsoft-purview",
+            "redirect_document_id": false
+        }
+    ]
+}

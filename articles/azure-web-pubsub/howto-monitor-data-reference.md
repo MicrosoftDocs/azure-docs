@@ -5,7 +5,7 @@ author: wanlwanl
 ms.service: azure-web-pubsub
 ms.topic: how-to
 ms.date: 05/15/2023
-ms.author: wanl
+ms.author: jixin
 ---
 
 # Monitoring Azure Web PubSub data reference
@@ -25,6 +25,8 @@ Metrics provide insights into the operational state of the service. The availabl
 |Inbound Traffic|Bytes|Sum|The inbound traffic to the service.|No Dimensions|
 |Outbound Traffic|Bytes|Sum|The outbound traffic from the service.|No Dimensions|
 |Server Load|Percent|Max / Avg|The percentage of server load.|No Dimensions|
+|Rest API Response Time|Count|Sum|The response time of REST API request categorized by endpoint.|ResponseTime, RestApiCategory|
+|Client Request Status Code|Count|Sum|The status code of client connection requests.|ClientType, Status|
 
 For more information, see [Metrics](concept-metrics.md).
 
@@ -57,10 +59,10 @@ userId | Identity of the user
 message | Detailed message of log event
 hub | User-defined Hub Name |
 routeTemplate | The route template of the API |
-httpMethod | The Http method (POST/GET/PUT/DELETE) |
+httpMethod | The HTTP method (POST/GET/PUT/DELETE) |
 url | The uniform resource locator |
 traceId | The unique identifier to the invocation |
-statusCode | The Http response code |
+statusCode | The HTTP response code |
 duration | The duration between the request is received and processed |
 headers | The additional information passed by the client and the server with an HTTP request or response |
 
@@ -104,7 +106,7 @@ TransportType | Transport type of the connection. Allowed values are: `Websocket
 
 ## Azure Monitor Logs tables
 
-Azure Web PubSub uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. For a list of Kusto tables Azure Web PubSub uses, see the [Azure Monitor Logs table reference](/azure/azure-monitor/reference/tables/tables-resourcetype#signalr-service-webpubsub) article.
+Azure Web PubSub uses Kusto tables from Azure Monitor Logs. You can query these tables with Log analytics. 
 
 ## See also
 

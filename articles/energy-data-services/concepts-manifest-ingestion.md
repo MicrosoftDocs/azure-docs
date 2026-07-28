@@ -3,8 +3,8 @@ title: Microsoft Azure Data Manager for Energy manifest ingestion concepts
 description: This article describes manifest ingestion concepts
 author: bharathim
 ms.author: bselvaraj
-ms.service: energy-data-services
-ms.topic: conceptual
+ms.service: azure-data-manager-energy
+ms.topic: concept-article
 ms.date: 08/18/2022
 ms.custom: template-concept
 ---

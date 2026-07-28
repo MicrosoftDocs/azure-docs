@@ -1,201 +1,278 @@
 ---
-title: Manage a Datadog resource
-description: This article describes management of a Datadog resource in the Azure portal. How to set up single sign-on, delete a Confluent organization, and get support.
-author: flang-msft
-
-ms.author: franlanglois
-ms.topic: conceptual
-ms.date: 06/01/2023
+title: Manage settings for your Datadog resource via Azure portal
+description: Manage settings, view resources, reconfigure metrics/logs, and more for your Datadog resource via Azure portal.
+author: pdjokar96
+ms.author: piyushdash
+ms.topic: how-to
+ms.date: 03/10/2025
+ms.custom:
+  - ai-gen-docs-bap
+  - ai-gen-desc
+  - ai-seo-date:12/03/2024
+  - ai-gen-title
+  - sfi-image-nochange
 ---
 
-# Manage a Datadog - An Azure Native ISV Service resource
+# Manage your Datadog resource
 
-This article shows how to manage the settings for your Datadog - An Azure Native ISV Service.
+This article covers day-to-day management tasks for your Datadog Azure Native Integration resource. It includes configuring metrics and logs, managing agents, setting up multi-subscription monitoring, and more.
 
 ## Resource overview
 
-To see details of your Datadog resource, select **Overview** in the left pane.
+To open your Datadog resource:
 
-:::image type="content" source="media/manage/resource-overview.png" alt-text="Datadog resource overview" border="true" lightbox="media/manage/resource-overview.png":::
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+1. Open the [Datadog resources browse view](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors) (or search for **Datadog** in the global search bar and select **Datadog – An Azure Native ISV Service**).
+1. Select your Datadog resource. The Azure portal opens the **Overview** pane by default.
 
-The details include:
+:::image type="content" source="media/manage/resource-overview.png" alt-text="A screenshot of a Datadog resource in the Azure portal with the overview displayed in the working pane." lightbox="media/manage/resource-overview.png":::
 
-- Resource group name
-- Location/Region
-- Subscription
-- Tags
-- Single sign-on link to Datadog organization
-- Datadog offer/plan
-- Billing term
+The overview pane shows these details:
 
-It also provides links to Datadog dashboards, logs, and host maps.
+| Detail | Description |
+|--------|-------------|
+| Resource group name | The resource group containing this Datadog resource |
+| Location | The Azure region where the resource is deployed |
+| Subscription / Subscription ID | The Azure subscription linked to this resource |
+| Tags | Azure resource tags applied to this resource |
+| Datadog organization | The Datadog organization linked to this resource |
+| Status | Active, Creating, or Failed |
+| Pricing Plan | The current Datadog billing plan |
+| Billing Term | Monthly or annual billing term |
 
-The overview screen provides a summary of the resources sending logs and metrics to Datadog.
+Below the essentials, you can navigate to:
 
-- Resource type - Azure resource type.
-- Total resources  - Count of all resources for the resource type.
-- Resources sending logs - Count of resources sending logs to Datadog through the integration.
-- Resources sending metrics - Count of resources sending metrics to Datadog through the integration.
+- **View Dashboards** — Insights on health and performance in the Datadog portal
+- **View Logs** — Search and analyze logs with ad-hoc queries in the Datadog portal
+- **View host maps** — A complete view of all monitored hosts (Azure Virtual Machines, Azure Virtual Machine Scale Sets, Azure App Service plans)
+
+The working pane also shows a summary of monitored resources:
+
+| Column | Description |
+|--------|-------------|
+| Resource type | Azure resource type |
+| Total resources | Count of all resources for the resource type |
+| Resources sending logs | Count of resources sending logs to Datadog through the integration |
+| Resources sending metrics | Count of resources sending metrics to Datadog through the integration |
 
 ## Reconfigure rules for metrics and logs
 
-To change the configuration rules for metrics and logs, select **Metrics and Logs** in the left pane.
+To change which resources send metrics and logs to Datadog:
 
-:::image type="content" source="media/manage/reconfigure-metrics-and-logs.png" alt-text="Screenshot showing how to modify the configuration of logs and metrics for the Datadog resource." border="true":::
+1. Select **Datadog organization configurations > Metrics and Logs** from the service menu.
+2. Update the tag rules or toggle individual settings. See [tag rules for sending metrics](../metrics-logs.md#tag-rules-for-sending-metrics) and [tag rules for sending logs](../metrics-logs.md#tag-rules-for-sending-logs) for include/exclude examples.
+3. Changes take effect within a few minutes as diagnostic settings are updated on matching resources.
 
-For more information, see [Configure metrics and logs](create.md#configure-metrics-and-logs).
+For a full reference on what data is forwarded and how tag rules behave, see [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md).
+
+## Resource collection and Cloud Security Posture Management
+
+The **Resource collection** blade (under **Datadog organization configurations**) controls two features:
+
+| Setting | Default | What it does |
+|---------|---------|--------------|
+| **Enable resource collection** | On | Datadog collects metadata (types, tags, configurations) for every Azure resource in the linked subscription and populates the Datadog [Resource Catalog](https://docs.datadoghq.com/infrastructure/resource_catalog/). There's no additional Datadog charge. |
+| **Enable Datadog Cloud Security Posture Management** | Off | Continuously assesses your Azure configuration against CIS, PCI DSS, SOC 2, HIPAA, and other benchmarks. Learn more about [Cloud Security Posture Management](https://www.datadoghq.com/knowledge-center/cloud-security-posture-management/). |
+
+To change these settings:
+
+1. Open your Datadog resource and select **Datadog organization configurations > Resource collection** from the service menu.
+1. Toggle **Enable resource collection** and/or **Enable Datadog Cloud Security Posture Management**.
+1. Select **Save** from the command bar.
+
+> [!IMPORTANT]
+> Cloud Security Posture Management can be enabled only when **Enable resource collection** is on. If you clear **Enable resource collection**, the CSPM checkbox is automatically disabled and any active CSPM scanning stops for the subscription.
 
 ## View monitored resources
 
-To see the list of resources emitting logs to Datadog, select **Monitored Resources** in the Resource menu.
+To view the list of resources emitting logs to Datadog, select **Datadog organization configurations > Monitored Resources** in the service menu.
 
-:::image type="content" source="media/manage/view-monitored-resources.png" alt-text="View resources monitored by Datadog" border="true":::
+> [!TIP]
+> You can filter the list of resources by resource type, subscription, resource group name, location, and whether the resource is sending logs and metrics.
 
-You can filter the list of resources by resource type, subscription, resource group name, location, and whether the resource is sending logs and metrics. Only the resource types supported by Azure Monitor are monitored. Check out the list of [resource types supported by Azure Monitor](/azure/azure-monitor/essentials/resource-logs-categories).
+The column **Logs to Datadog** indicates whether the resource is sending logs to Datadog. If a resource you expect to see isn't sending data, check:
 
-The column **Logs to Datadog** indicates whether the resource is sending logs to Datadog. If the resource isn't sending logs, this field indicates why logs aren't being sent to Datadog. The reasons could be:
-
-- Resource doesn't support sending logs. Only resources types with monitoring log categories can be configured to send logs to Datadog.
-- Limit of five diagnostic settings reached. Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings).
-- Error. The resource is configured to send logs to Datadog, but is blocked by an error.
-- Logs not configured. Only Azure resources that have the appropriate resource tags are configured to send logs to Datadog.
-- Region not supported. The Azure resource is in a region that doesn't currently support sending logs to Datadog.
-- Datadog agent not configured. Virtual machines without the Datadog agent installed don't emit logs to Datadog.
+- The resource type supports Azure Monitor diagnostic logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
+- Your tag rules include (not exclude) the resource.
+- The resource hasn't reached the limit of five diagnostic settings.
 
 ## Monitor multiple subscriptions
 
-While monitoring resources in a subscription is straightforward, observing multiple subscriptions, each with their own set of resources becomes tricky. Instead, you can monitor multiple subscriptions by linking them to a single Datadog resource that is tied to a Datadog organization. This provides a single pane of glass view for all resources across multiple subscriptions.
+A single Datadog resource can monitor Azure resources across multiple subscriptions. This capability is useful when you have separate subscriptions for dev, staging, and production but want unified monitoring.
 
-To manage multiple subscriptions that you want to monitor, select **Monitored Subscriptions** in the **Datadog organization configurations** section of the Resource menu.
+When you add or remove subscriptions for Datadog monitoring, the system updates the Monitoring Reader role assignment on the System Managed Identity linked to the resource.
 
-:::image type="content" source="media/manage/datadog-monitored-subscriptions.png" alt-text="Screenshot showing Monitored Subscriptions selected in the Resource menu.":::
+### Prerequisites
 
-From **Monitored Subscriptions** in the Resource menu, select the **Add Subscriptions**. The **Add Subscriptions** experience that opens and shows the subscriptions you have _Owner_ role assigned to and any Datadog resource created in those subscriptions that is already linked to the same Datadog organization as the current resource.
+- To perform these actions, you must have both of the following Azure permissions:
 
-If the subscription you want to monitor has a resource already linked to the same Datadog org, we recommended that you delete the Datadog resources to avoid shipping duplicate data, and incurring double the charges.
+   - `Microsoft.Authorization/roleAssignments/write`
+   - `Microsoft.Authorization/roleAssignments/delete`
 
-Select the subscriptions you want to monitor through the Datadog resource and select **Add**.
+- The resource provider for Datadog (`Microsoft.Datadog`) must be registered in the target subscription. See [Verify resource provider registration](prerequisites.md#verify-resource-provider-registration).
 
-:::image type="content" source="media/manage/datadog-add-subscription.png" alt-text="Screenshot showing subscriptions to add.":::
+### Add subscriptions
 
-If the list doesn’t get updated automatically, select **Refresh**  to view the subscriptions and their monitoring status. You might see an intermediate status of _In Progress_ while a subscription gets added. When the subscription is successfully added, you see the status is updated to **Active**. If a subscription fails to get added, **Monitoring Status** shows as **Failed**.
+To monitor multiple subscriptions:
 
-:::image type="content" source="media/manage/datadog-monitored-subscriptions-list.png" alt-text="Screenshot showing statuses of monitored subscriptions.":::
+1. Select **Datadog organization configurations > Monitored Subscriptions**.
 
-The set of tag rules for metrics and logs defined for the Datadog resource apply to all subscriptions that are added for monitoring. Setting separate tag rules for different subscriptions isn't supported. Diagnostics settings are automatically added to resources in the added subscriptions that match the tag rules defined for the Datadog resource. To reconfigure the rules, check [Reconfigure rules for metrics and logs](#reconfigure-rules-for-metrics-and-logs).
+1. Select **Add subscriptions** from the Command bar.
 
-### Remove/unlink subscriptions from a Datadog resource
+    The **Add Subscriptions** experience that opens and shows subscriptions you have _Owner_ role assigned to and any Datadog resource created in those subscriptions that is already linked to the same Datadog organization as the current resource.
 
-You can unlink subscriptions you don't want monitored through the Datadog resource by selecting **Monitored Subscriptions** from the Resource menu. Then, select any subscription you want to remove, and select **Remove subscriptions**. Select **Refresh** to view the updated list of subscriptions being monitored.
+    If the subscription you want to monitor has a resource already linked to the same Datadog org, delete the Datadog resources to avoid shipping duplicate data and incurring double the charges.
 
-:::image type="content" source="media/manage/datadog-remove-subscriptions.png" alt-text="Screenshot showing subscriptions to remove.":::
+1. Select the subscriptions you want to monitor through the Datadog resource and select **Add**.
+
+    > [!IMPORTANT]
+    > - When you link a subscription to a Datadog resource, ensure that the subscription isn't scope locked (read-only or delete locks). Scope locks can prevent the addition and removal of diagnostic settings. For more information, see [Lock your Azure resources](../../azure-resource-manager/management/lock-resources.md).
+    > - Setting separate tag rules for different subscriptions isn't supported. The tag rules from the primary resource apply to all monitored subscriptions.
+
+    Diagnostics settings are automatically added to the subscription's resources that match the defined tag rules.
+
+    Select **Refresh** to view the subscriptions and their monitoring status.
+
+Once the subscription is added, the status changes to *Active*.
+
+### Remove subscriptions
+
+> [!IMPORTANT]
+> When you unlink a subscription from a Datadog resource, ensure that the subscription isn't scope locked (read-only or delete locks). Scope locks can prevent the addition and removal of diagnostic settings. For more information, see [Lock your Azure resources](../../azure-resource-manager/management/lock-resources.md).
+
+To unlink subscriptions from a Datadog resource:
+
+1. Select **Datadog organization configurations > Monitored Subscriptions** from the service menu.
+
+1. Select the subscription you want to remove.
+
+1. Choose **Remove subscriptions**.
+
+To view the updated list of monitored subscriptions, select **Refresh** from the Command bar.
 
 ## API keys
 
-To view the list of API keys for your Datadog resource, select the **Keys** in the left pane. You see information about the keys.
+To view and manage API keys for your Datadog resource:
 
-:::image type="content" source="media/manage/keys.png" alt-text="API keys for the Datadog organization." border="true":::
+1. Select **Settings > Keys** from the service menu.
 
-The Azure portal provides a read-only view of the API keys. To manage the keys, select the Datadog portal link. After making changes in the Datadog portal, refresh the Azure portal view.
+    The Azure portal provides a read-only view of the API keys.
 
-The Azure Datadog integration provides you with the ability to install Datadog agent on a virtual machine or app service. If a default key isn't selected, the Datadog agent installation fails.
+1. To create or manage keys, select the **Datadog portal** link.
 
-## Monitor virtual machines using the Datadog agent
+    The Datadog portal opens in a new tab.
 
-You can install Datadog agents on virtual machines as an extension. Go to **Virtual machine agent** under the **Datadog organization configurations** in the Resource menu. This screen shows all the virtual machines across all subscriptions where you have the “Owner” role assigned to. All subscriptions are selected by default. You can select a subset of subscriptions to narrow down the list of virtual machines shown in the subscription.
+After making changes in the Datadog portal, refresh the Azure portal view.
 
-<!-- screenshot - pending Showing Virtual machine agent selected in the Resource menu and a list of virtual machines in the working pane. -->
+> [!IMPORTANT]
+> One API key must be set as the **Default Key**. This key is used when deploying Datadog agents to VMs and App Services. If no default key is set, agent installations fail.
 
-For each virtual machine, the following data is displayed:
+## Monitor resources with Datadog agents
 
-- Resource Name – Virtual machine name
-- Resource Status – Whether the virtual machine is stopped or running. The Datadog agent can only be installed on virtual machines that are running. If the virtual machine is stopped, installing the Datadog agent is disabled.
-- Agent version – The Datadog agent version number.
-- Agent status – Whether the Datadog agent is running on the virtual machine.
-- Integrations enabled – The key metrics that are being collected by the Datadog agent.
-- Install Method – The specific tool used to install the Datadog agent. For example, Chef or Script.
-- Sending logs – Whether the Datadog agent is sending logs to Datadog.
+You can install Datadog agents on virtual machines, App Service extensions, Azure Kubernetes Services, and Azure Arc Machines.
 
-Select the virtual machine to install the Datadog agent on. Select **Install Agent**.
+> [!IMPORTANT]
+> If a default key isn't selected, your Datadog agent installation fails. See [API keys](#api-keys).
 
-The portal asks for confirmation that you want to install the agent with the default key. Select **OK** to begin installation. Azure shows the status as **Installing** until the agent is installed and provisioned.
+The agent collects detailed host-level metrics, traces, and logs that aren't available through Azure platform metrics alone. This includes process-level data, custom application metrics, and APM traces.
 
-After the Datadog agent is installed, the status changes to Installed.
+#### [Virtual machines](#tab/virtual-machines)
 
-To see that the Datadog agent has been installed, select the virtual machine and navigate to the Extensions window.
+Select **Datadog organization configurations > Virtual machine agent** from the service menu to see every running VM in the linked subscription. The pane shows the VM name, power state, current Datadog Agent version, Agent status (Running/Stopped/Not installed), install method, and whether the Agent is forwarding logs.
 
-You can uninstall Datadog agents on a virtual machine by going to **Virtual machine agent**. Select the virtual machine and **Uninstall agent**.
+To install the Datadog Agent as a VM extension:
 
-## Monitor App Services using the Datadog agent as an extension
+1. Make sure a [default API key](#api-keys) is set. Installation fails without it.
+1. Select the target VM (must be in **Running** state).
+1. Select **Install Extension** and confirm. Azure installs the Datadog Agent as a VM extension using the default API key, and the status changes from **Installing** to **Installed**. The Datadog Agent doesn't require a host reboot.
 
-You can install Datadog agents on app services as an extension. Go to **App Service extension** in left pane. This screen shows the list of all app services across all subscriptions you have “Owner” role assigned to. All subscriptions are selected by default. You can select a subset of subscriptions to narrow down the list of app services shown.
+To uninstall, select the VM and choose **Uninstall Extension**. If the Agent was installed by another method (Chef, Ansible, manual install, etc.), this pane shows status but the Azure-managed uninstall option is disabled.
 
-:::image type="content" source="media/manage/datadog-app-services.png" alt-text="Screenshot showing App Service extension selected in the Resource menu.":::
+#### [App Service](#tab/app-service)
 
-For each app service, the following data elements are displayed:
+Select **Datadog organization configurations > App Service extension** from the service menu to see all App Services in the linked subscription, with the App Service plan, Datadog extension version, and install status for each.
 
-- Resource Name – Virtual machine name.
-- Resource Status – Whether the app service is stopped or running. The Datadog agent can only be installed on app services that are running. If the app service is stopped, installing the Datadog agent is disabled.
-- App service plan – The specific plan configured for the app service.
-- Agent version – The Datadog agent version number.
+To install the Datadog extension on an App Service:
 
-To install the Datadog agent, select the app service and **Install Extension**. The latest Datadog agent is installed on the app service as an extension.
+1. Confirm a [default API key](#api-keys) is set.
+1. Select an App Service in **Running** state with a [Datadog-supported runtime](https://docs.datadoghq.com/serverless/azure_app_services/#requirements).
+1. Select **Install Extension** and confirm.
 
-The portal confirms that you want to install the Datadog agent. Also, the application settings for the specific app service are updated with the default key. The app service is restarted after the install of the Datadog agent completes.
+    Azure adds the following app settings, restarts the App Service, and installs the extension:
 
-Select **OK** to begin the installation process for the Datadog agent. The portal shows the status as **Installing** until the agent is installed. After the Datadog agent is installed, the status changes to Installed.
+    - `DD_API_KEY = <default API key>`
+    - `DD_SITE = us3.datadoghq.com`
 
-To uninstall Datadog agents on the app service, go to **App Service Extension**. Select the app service and **Uninstall Extension**
+To uninstall, select the App Service and choose **Uninstall Extension**. The portal removes the extension and the Datadog app settings.
+
+> [!NOTE]
+> Installing or uninstalling the extension restarts your App Service.
+
+#### [Azure Kubernetes Service](#tab/azure-kubernetes-services)
+
+Select **Datadog organization configurations > Azure Kubernetes Services** from the service menu to see AKS clusters in the linked subscription. The Datadog Agent is deployed to AKS through the **Datadog AKS Cluster Extension**.
+
+To install:
+
+1. Select the AKS cluster(s) from the list.
+1. Select **Install Extension**.
+1. Azure installs the Datadog AKS Cluster Extension on the selected cluster(s) using the default API key.
+
+To uninstall, select the AKS cluster and choose **Uninstall Extension**.
+
+#### [Azure Arc machines](#tab/azure-arc-machines)
+
+Select **Datadog organization configurations > Azure Arc Machines** from the service menu to install the Datadog Agent on hybrid and multicloud machines projected into Azure through Azure Arc.
+
+1. Confirm a [default API key](#api-keys) is set.
+1. Select the Arc-enabled machine and choose **Install Extension**.
+
+Status transitions from **Installing** to **Installed** once the Arc agent provisions the Datadog extension on the target host. To uninstall, select the machine and choose **Uninstall Extension**.
+
+---
 
 ## Reconfigure single sign-on
 
-If you would like to reconfigure single sign-on, select **Single sign-on** in the left pane.
+[!INCLUDE [reconfigure-sso](../includes/reconfigure-sso.md)]
 
-To establish single sign-on through Microsoft Entra ID, select **Enable single sign-on through Microsoft Entra ID**.
+## Change your billing plan
 
-The portal retrieves the appropriate Datadog application from Microsoft Entra ID. The app comes from the enterprise app name you selected when setting up integration. Select the Datadog app name:
+To change the Datadog billing plan associated with your resource:
 
-:::image type="content" source="media/manage/reconfigure-single-sign-on.png" alt-text="Reconfigure single sign-on application." border="true":::
+1. On the **Overview** pane of your Datadog resource, select **Change Plan** from the command bar.
 
-## Change Plan
+    Azure retrieves all Datadog plans available to your tenant, including any [private offers](/marketplace/private-offers-in-azure-marketplace) you've accepted.
 
-To change the Datadog billing plan, go to **Overview** and select **Change Plan**.
+1. Select the new plan and choose **Change Plan**.
 
-:::image type="content" source="media/manage/datadog-select-change-plan.png" alt-text="Select change Datadog billing plan." border="true":::
+Usage on Marketplace-billed Datadog plans counts toward your organization's [Microsoft Azure Consumption Commitment (MACC)](/marketplace/azure-consumption-commitment-benefit), where applicable.
 
-The portal retrieves all the available Datadog plans for your tenant. Select the appropriate plan and select on **Change Plan**.
+## Manage logs and metrics
 
-:::image type="content" source="media/manage/datadog-change-plan.png" alt-text="Select the Datadog billing plan to change." border="true":::
-  
-## Disable or enable integration
+To stop sending logs and metrics from Azure to Datadog:
 
-You can stop sending logs and metrics from Azure to Datadog. You continue to be billed for other Datadog services that aren't related to monitoring metrics and logs.
+1. Open your Datadog resource from the [Datadog resources browse view](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors).
+1. Select **Disable** from the command bar.
 
-To disable the Azure integration with Datadog, go to **Overview**. Select **Disable** and **OK**.
+> [!IMPORTANT]
+> Disabling the integration stops the flow of Azure platform metrics and logs to Datadog. However, billing continues for other Datadog services that aren't related to monitoring Azure metrics and logs (such as APM, infrastructure agents, or log indexing in Datadog).
 
-:::image type="content" source="media/manage/disable.png" alt-text="Disable Datadog resource." border="true":::
+## Delete a resource
 
-To enable the Azure integration with Datadog, go to **Overview**. Select **Enable** and **OK**. Selecting **Enable** retrieves any previous configuration for metrics and logs. The configuration determines which Azure resources emit metrics and logs to Datadog. After you complete this step, metrics and logs are sent to Datadog.
+[!INCLUDE [delete-resource](../includes/delete-resource.md)]
 
-:::image type="content" source="media/manage/enable.png" alt-text="Enable Datadog resource." border="true":::
+> [!NOTE]
+> Deleting the Datadog resource in Azure stops Azure data forwarding and billing through Azure Marketplace. It doesn't delete your Datadog organization or any data stored in Datadog.
 
-## Delete Datadog resource
+## Get support
 
-Go to **Overview** in left pane and select **Delete**. Confirm that you want to delete Datadog resource. Select **Delete**.
+Contact [Datadog](https://www.datadoghq.com/support) for customer support.
 
-:::image type="content" source="media/manage/delete.png" alt-text="Delete Datadog resource" border="true":::
+You can also request support in the Azure portal from the [resource overview](#resource-overview).
 
-If only one Datadog resource is mapped to a Datadog organization, logs and metrics are no longer sent to Datadog. All billing stops for Datadog through Azure Marketplace.
+Select **Support + Troubleshooting** > **New support request** from the service menu, then choose the link to [log a support request in the Datadog portal](https://www.datadoghq.com/support).
 
-If more than one Datadog resource is mapped to the Datadog organization, deleting the Datadog resource only stops sending logs and metrics for that Datadog resource. Because the Datadog organization is linked to other Azure resources, billing continues through the Azure Marketplace.
+## Related content
 
-## Next steps
+- [Troubleshooting Datadog on Azure](troubleshoot.md)
 
-- For help with troubleshooting, see [Troubleshooting Datadog solutions](troubleshoot.md).
-- Get started with Datadog – An Azure Native ISV Service on
-
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Datadog%2Fmonitors)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview)

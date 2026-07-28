@@ -4,7 +4,7 @@
  author: spelluru
  ms.service: azure-event-grid
  ms.topic: include
- ms.date: 02/29/2024
+ ms.date: 06/25/2025
  ms.author: spelluru
  ms.custom: include file
 ---
@@ -12,10 +12,11 @@
 ## Create a namespace topic
 
 1. If you aren't on the Event Grid Namespace page, follow the [create, view, and manage namespaces](../create-view-manage-namespaces.md) steps to view the namespace you want to use to create the topic.
-2. On the **Event Grid Namespace** page, select **Topics** option in the **Event broker** section on the left menu.
-3. On the **Topics** page, select **+ Topic** button on the command bar.
+1. On the **Event Grid Namespace** page, under **Event broker**, select **Topics**.
+1. On the **Topics** page, select **+ Topic**.
 
-    :::image type="content" source="../media/create-view-manage-namespace-topics/namespace-topic-creation.png" alt-text="Screenshot showing Event Grid namespace topic creation." lightbox="../media/create-view-manage-namespace-topics/namespace-topic-creation.png":::
-4. On the **Create Topic** page, type the name of the topic you want to create and select **Create**.
+   :::image type="content" source="../media/create-view-manage-namespace-topics/namespace-topic-creation.png" alt-text="Screenshot showing Event Grid namespace topic creation." lightbox="../media/create-view-manage-namespace-topics/namespace-topic-creation.png":::
 
-    :::image type="content" source="../media/create-view-manage-namespace-topics/namespace-topic-creation-basics.png" alt-text="Screenshot showing Event Grid namespace topic creation basics.":::
+1. On the **Create Topic** page, type the name of the topic you want to create and select **Create**.
+
+   :::image type="content" source="../media/create-view-manage-namespace-topics/namespace-topic-creation-basics.png" alt-text="Screenshot showing Event Grid namespace topic creation basics.":::

@@ -3,7 +3,8 @@ author: karlerickson
 ms.author: v-shilichen
 ms.service: azure-spring-apps
 ms.topic: include
-ms.date: 10/17/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
 ---
 
 <!-- 
@@ -15,7 +16,7 @@ To reuse the Spring Apps instance creation steps in other articles, a separate m
 
 Use the following steps to update the YAML file to use your Microsoft Entra registered application information to establish a relationship with the RESTful API application:
 
-1. Locate *src/main/resources/application.yml* file for the `simple-todo-api` app. Update the configuration in the `spring.cloud.azure.active-directory` section to match the following example. Be sure to replace the placeholders with the values you created previously.
+1. Locate **src/main/resources/application.yml** file for the `simple-todo-api` app. Update the configuration in the `spring.cloud.azure.active-directory` section to match the following example. Be sure to replace the placeholders with the values you created previously.
 
    ```yaml
    spring:

@@ -2,9 +2,12 @@
 author: KarlErickson
 ms.author: v-shilichen
 ms.service: azure-spring-apps
-ms.custom: devx-track-azurecli
 ms.topic: include
-ms.date: 10/02/2023
+ms.date: 08/19/2025
+ms.update-cycle: 1095-days
+ms.custom:
+  - devx-track-azurecli
+  - sfi-image-nochange
 ---
 
 <!-- 
@@ -59,7 +62,7 @@ Use the following steps to connect your service instances:
 
 1. From the navigation menu, open **Apps**, and then select **Create App**.
 
-1. On the **Create App** page, fill in the app name *simple-todo-api*, and then select **Java artifacts** as the deployment type.
+1. On the **Create App** page, fill in the app name **simple-todo-api**, and then select **Java artifacts** as the deployment type.
 
 1. Select **Create** to finish the app creation and then select the app to view the details.
 
@@ -74,7 +77,7 @@ Use the following steps to connect your service instances:
    - **Service type**: **DB for PostgreSQL flexible server**
    - **Connection name**: An automatically generated name is populated, which can also be modified.
    - **Subscription**: Select your subscription.
-   - **PostgreSQL flexible server**: *my-demo-pgsql*
+   - **PostgreSQL flexible server**: **my-demo-pgsql**
    - **PostgreSQL database**: Select the database you created.
    - **Client type**: **SpringBoot**
 
@@ -82,9 +85,11 @@ Use the following steps to connect your service instances:
 
 1. Configure the **Next: Authentication** tab with the following information:
 
+   [!INCLUDE [security-note](../../../includes/security-note.md)]
+
    - **Select the authentication type you'd like to use between your compute service and target service.**: Select **Connection string**.
    - **Continue with...**: Select **Database credentials**
-   - **Username**: *myadmin*
+   - **Username**: **myadmin**
    - **Password**: Enter your password.
 
    :::image type="content" source="../../media/quickstart-deploy-restful-api-app/app-service-connector-authentication.png" alt-text="Screenshot of the Azure portal that shows the Authentication tab of the Create connection pane with the Connection string option highlighted." lightbox="../../media/quickstart-deploy-restful-api-app/app-service-connector-authentication.png":::
@@ -106,6 +111,8 @@ Use the following steps to connect your service instances:
 ### 3.1. Provide names for each resource
 
 Create variables to hold the resource names by using the following commands. Be sure to replace the placeholders with your own values.
+
+[!INCLUDE [security-note](../../../includes/security-note.md)]
 
 ```azurecli
 export RESOURCE_GROUP=myresourcegroup
@@ -211,6 +218,8 @@ The Spring web app uses H2 for the database in localhost and Azure Database for 
 
 Use the following command to create a PostgreSQL instance:
 
+[!INCLUDE [security-note](../../../includes/security-note.md)]
+
 ```azurecli
 az postgres flexible-server create \
     --name ${POSTGRESQL_SERVER} \
@@ -236,6 +245,8 @@ After the application instance and the PostgreSQL instance are created, the appl
    ```
 
 1. Use the following command to provide the `spring.datasource.` properties to the app through environment variables:
+
+   [!INCLUDE [security-note](../../../includes/security-note.md)]
 
    ```azurecli
    az spring app update \
@@ -423,6 +434,8 @@ Use the following steps to register the client application:
 #### Add user to access the RESTful APIs
 
 Use the following command to create a member user in your Microsoft Entra tenant. Then, the user can manage the data of the `ToDo` application through RESTful APIs:
+
+[!INCLUDE [security-note](../../../includes/security-note.md)]
 
 ```azurecli
 az ad user create \

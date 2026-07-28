@@ -7,6 +7,7 @@ ms.service: azure-web-pubsub
 ms.custom: linux-related-content
 ms.topic: how-to 
 ms.date: 07/12/2024
+#customer intent: As a developer or support engineer, I want concise, platform-specific steps to collect network traces (Fiddler, tcpdump, browser HAR) so that I can diagnose connectivity and messaging issues while protecting sensitive data.
 ---
 
 # How to collect a network trace

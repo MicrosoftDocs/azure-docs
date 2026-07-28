@@ -4,6 +4,9 @@ description: Learn infrastructure best practices for migrating on-premises Hadoo
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
 ms.date: 07/12/2024
 ---
 
@@ -176,7 +179,7 @@ HDInsight supports [virtual network service endpoints](../../virtual-network/vir
 For more information, see the following articles:
 
 - [Virtual network service endpoints](../../virtual-network/virtual-network-service-endpoints-overview.md)
-- [Enhance HDInsight security with service endpoints](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
+- [Enhance HDInsight security with service endpoints](https://learn.microsoft.com/azure/hdinsight/service-endpoint-policies)
 
 ## Connect HDInsight to the on-premises network
 

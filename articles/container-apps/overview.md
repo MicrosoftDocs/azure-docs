@@ -5,14 +5,14 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: overview
-ms.date: 11/14/2023
+ms.date: 07/07/2026
 ms.author: cshoe
 ms.custom: build-2023
 ---
 
 # Azure Container Apps overview
 
-Azure Container Apps is a serverless platform that allows you to maintain less infrastructure and save costs while running containerized applications. Instead of worrying about server configuration, container orchestration, and deployment details, Container Apps provides all the up-to-date server resources required to keep your applications stable and secure.
+Azure Container Apps is a serverless platform for running containerized applications without managing the underlying infrastructure. Instead of configuring servers, orchestrating containers, and handling deployment details yourself, let Container Apps provide the up-to-date resources that keep your applications stable, secure, and scalable. This approach reduces operational overhead and helps you save on costs.
 
 Common uses of Azure Container Apps include:
 
@@ -26,7 +26,7 @@ Additionally, applications built on Azure Container Apps can dynamically scale b
 - HTTP traffic
 - Event-driven processing
 - CPU or memory load
-- Any [KEDA-supported scaler](https://keda.sh/docs/scalers/)
+- Any [KEDA-supported scaler](https://keda.sh/docs/latest/scalers/)
 
 :::image type="content" source="media/overview/azure-container-apps-example-scenarios.png" alt-text="Example scenarios for Azure Container Apps.":::
 
@@ -43,13 +43,13 @@ With Azure Container Apps, you can:
 
 - [**Use the Azure CLI extension, Azure portal or ARM templates**](get-started.md) to manage your applications.
 
-- [**Enable HTTPS or TCP ingress**](ingress.md) without having to manage other Azure infrastructure.
+- [**Enable HTTPS or TCP ingress**](ingress-overview.md) without having to manage other Azure infrastructure.
 
 - [**Build microservices with Dapr**](microservices.md) and [access its rich set of APIs](./dapr-overview.md).
 
 - [**Run jobs**](jobs.md) on-demand, on a schedule, or based on events.
 
-- Add [**Azure Functions**](https://aka.ms/functionsonaca) and [**Azure Spring Apps**](https://aka.ms/asaonaca) to your Azure Container Apps environment.
+- [**Run Azure Functions**](../container-apps/functions-overview.md) for [event-driven scenarios](../azure-functions/functions-scenarios.md) using triggers, bindings, and automatic scaling.
 
 - [**Use specialized hardware**](plans.md) for access to increased compute resources.
 
@@ -75,9 +75,9 @@ With Azure Container Apps, you can:
 
 ## Introductory video
 
-> [!VIDEO https://www.youtube.com/embed/b3dopSTnSRg]
+> [!VIDEO https://www.youtube.com/embed/OxmVds31qL8]
 
-### Next steps
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Deploy your first container app](get-started.md)

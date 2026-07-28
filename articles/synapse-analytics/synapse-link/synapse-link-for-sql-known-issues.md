@@ -1,18 +1,28 @@
 ---
 title: Limitations and known issues with Azure Synapse Link for SQL
 description: Learn about limitations and known issues with Azure Synapse Link for SQL.
-author: jonburchel
-ms.author: jburchel
-ms.reviewer: jburchel, chuckheinzelman, wiassaf, imotiwala
-ms.date: 07/24/2024
+author: im-microsoft
+ms.author: imotiwala
+ms.reviewer: wiassaf, yexu
+ms.date: 10/31/2025
 ms.service: azure-synapse-analytics
 ms.subservice: synapse-link
 ms.topic: troubleshooting
+ms.update-cycle: 1825-days
+ms.custom:
+  - build-2025
 ---
 
 # Limitations and known issues with Azure Synapse Link for SQL
 
 This article lists the [limitations](#limitations) and [known issues](#known-issues) with Azure Synapse Link for SQL.
+
+> [!IMPORTANT]
+> **Mirroring to Microsoft Fabric is now available.** Mirroring to Fabric provides all the capabilities of Azure Synapse Link with better analytical performance, the ability to unify your data estate with OneLake in Fabric, and open access to your data in Delta Parquet format. Instead of Azure Synapse Link, use Fabric Mirroring. 
+>
+> With Mirroring to Microsoft Fabric, you can continuously replicate your existing data estate directly into OneLake in Fabric, including data from SQL Server 2016+, Azure SQL Database, Azure SQL Managed Instance, Cosmos DB, Oracle, Snowflake, and more. 
+> 
+> For more information, see [Microsoft Fabric mirrored databases](/fabric/database/mirrored-database/overview).
 
 ## Limitations
 
@@ -28,7 +38,7 @@ The following sections list limitations for Azure Synapse Link for SQL.
   * **sql_variant**
   * **timestamp**
 - Source table row size can't exceed 7,500 bytes. For tables where variable-length columns are stored off-row, a 24-byte pointer is stored in the main record.
-- When source tables are being initially snapshotted, any source table data containing large object (LOB) data greater than 1 MB in size is not supported. These LOB data types include: **varchar(max)**, **nvarchar(max)**, **varbinary(max)**. An error is thrown and data is not exported to Azure Synapse Analytics. Use the stored procedure [sp_configure](/sql/database-engine/configure-windows/configure-the-max-text-repl-size-server-configuration-option) to increase the configured maximum value for `max text repl size` option, which defaults to 64 K. A configured value of `-1` indicates no limit, other than the limit imposed by the data type.
+- When source tables are being initially snapshotted, any source table data containing large object (LOB) data greater than 1 MB in size isn't supported. These LOB data types include: **varchar(max)**, **nvarchar(max)**, **varbinary(max)**. An error is thrown and data isn't exported to Azure Synapse Analytics. Use the stored procedure [sp_configure](/sql/database-engine/configure-windows/configure-the-max-text-repl-size-server-configuration-option) to increase the configured maximum value for `max text repl size` option, which defaults to 64 K. A configured value of `-1` indicates no limit, other than the limit imposed by the data type.
 - Tables enabled for Azure Synapse Link for SQL can have a maximum of 1,020 columns (not 1,024).
 - While a database can have multiple links enabled, a given table can't belong to multiple links.
 - When a database owner doesn't have a mapped login, Azure Synapse Link for SQL runs into an error when enabling a link connection. User can set database owner to a valid user with the `ALTER AUTHORIZATION` command to fix this issue.
@@ -50,7 +60,7 @@ The following sections list limitations for Azure Synapse Link for SQL.
   * Rename Table
 - If data definition language (DDL) + data manipulation language (DML) is executed in an explicit transaction (between `BEGIN TRANSACTION` and `END TRANSACTION` statements), replication for corresponding tables fails within the link connection.
   > [!NOTE]
-  > If a table is critical for transactional consistency at the link connection level, please review the state of the Azure Synapse Link table in the Monitoring tab.
+  > If a table is critical for transactional consistency at the link connection level, review the state of the Azure Synapse Link table in the Monitoring tab.
 - Azure Synapse Link for SQL can't be enabled if any of the following features are in use for the source table.
   * Change Data Capture
   * Temporal history table
@@ -89,6 +99,7 @@ The following sections list limitations for Azure Synapse Link for SQL.
 - With asynchronous replicas in an availability group, transactions must be written to all replicas before publishing to Azure Synapse Link for SQL.
 - Azure Synapse Link for SQL isn't supported on databases with database mirroring enabled.
 - Restoring an Azure Synapse Link for SQL-enabled database from on-premises to Azure SQL Managed Instance isn't supported.
+- Azure Synapse Link for SQL is not supported on SQL Server 2025 instances.
 
 > [!CAUTION]
 > Azure Synapse Link for SQL is not supported on databases that are also using Azure SQL Managed Instance Link. Caution that in these scenarios, when the managed instance transitions to read-write mode, you might encounter transaction log full issues. 

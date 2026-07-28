@@ -96,13 +96,15 @@ landingContent:
     linkLists:       
       - linkListType: concept
         links:
-          - text: High availability
+          - text: Reliability in Azure Web PubSub
+            url: /azure/reliability/reliability-web-pubsub?toc=/azure/azure-web-pubsub/toc.json
+          - text: Disaster recovery
             url: concept-disaster-recovery.md
           - text: Performance consideration
             url: concept-performance.md
       - linkListType: how-to-guide
         links:
-          - text: Create reliable Websocket clients
+          - text: Create reliable WebSocket clients
             url: howto-develop-reliable-clients.md
           - text: Troubleshoot with resource logs
             url: howto-troubleshoot-resource-logs.md

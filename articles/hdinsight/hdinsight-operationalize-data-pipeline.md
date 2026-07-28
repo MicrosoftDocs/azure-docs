@@ -3,8 +3,13 @@ title: Operationalize a data analytics pipeline - Azure
 description: Set up and run an example data pipeline that is triggered by new data and produces concise results.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
-ms.date: 01/10/2024
+author: abhishjain002
+ms.author: abhishjain
+ms.reviewer: sairamyeturi
+ms.date: 01/02/2025
+ms.custom:
+  - hdinsightactive
+  - sfi-ropc-nochange
 ---
 
 # Operationalize a data analytics pipeline
@@ -159,7 +164,7 @@ The sample data is now available. However, the pipeline requires two Hive tables
 
 5. Select **Execute** to create the table.
 
-    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png" alt-text="hdi ambari services hive query.":::
+    :::image type="content" source="./media/hdinsight-operationalize-data-pipeline/hdi-ambari-services-hive-query.png" alt-text="Screenshot of HDInsight Ambari services hive query.":::
 
 6. To create the `flights` table, replace the text in the query text area with the following statements. The `flights` table is a Hive-managed table that partitions data loaded into it by year, month, and day of month. This table will contain all historical flight data, with the lowest granularity present in the source data of one row per flight.
 

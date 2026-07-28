@@ -1,6 +1,6 @@
 ---
 title: Create elevation data & services using open data
-titeSuffix: Microsoft Azure Maps
+titleSuffix: Microsoft Azure Maps
 description: a guide to help developers build Elevation services and tiles using open data on the Microsoft Azure Cloud.
 author: farazgis
 ms.author: fsiddiqui
@@ -8,6 +8,7 @@ ms.date: 3/17/2023
 ms.topic: quickstart
 ms.service: azure-maps
 ms.subservice: general
+ms.custom: sfi-image-nochange
 ---
 
 # Create elevation data & services
@@ -174,7 +175,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     gxc = min(max(gx * mapSize + 0.5, 0), mapSize - 1);            
     gyc = min(max(gy * mapSize + 0.5, 0), mapSize - 1);            
 
-    # Calclate the tile x and y covering the lng / lat
+    # Calculate the tile x and y covering the lng / lat
     tileX = int(gxc / 256)
     tileY = int(gyc / 256)
 
@@ -265,7 +266,7 @@ PostgreSQL to return vector tiles.
 
 1. You can now use an Azure Function to Query PostgreSQL and return
     vector tiles for the contour lines. The tile server can be used with
-    the Azure Maps web SDK to create a web app that displays contour
+    the Azure Maps Web SDK to create a web app that displays contour
     lines on the map.
 
     ```python
@@ -358,12 +359,12 @@ To see the results of the code sample, run it locally:
 http://localhost:7071/api/tileserver?zoom={z}&x={x}&y={y}
 ```
 
-[Microsoft Azure Cloud]: https://azure.microsoft.com/free/cloud-services
+[Microsoft Azure Cloud]: https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn
 [USGS EarthExplorer]: https://earthexplorer.usgs.gov/
 [QGIS]: https://www.qgis.org/en/site/forusers/download.html
 [rio-rgbify]: https://pypi.org/project/rio-rgbify/
 [PostgreSQL]: https://www.postgresql.org/download/
-[PostGIS]: https://postgis.net/install/
+[PostGIS]: https://postgis.net/documentation/getting_started/#learn-about-spatial-sql
 [Azure Maps Web SDK]: about-azure-maps.md#web-sdk
 [Create Contour line vector tiles and RGB-encoded DEM tiles]: #create-contour-line-vector-tiles-and-rgb-encoded-dem-tiles
 [Create Contour line vector tile service using Azure Function and PostgreSQL]: #create-contour-line-vector-tile-service-using-azure-function-and-postgresql

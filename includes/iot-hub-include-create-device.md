@@ -2,12 +2,14 @@
  title: include file
  description: include file
  services: iot-hub
- author: kgremban
- ms.service: iot-hub
+ author: SoniaLopezBravo
+ ms.service: azure-iot-hub
  ms.topic: include
  ms.date: 12/20/2022
- ms.author: kgremban
- ms.custom: include file
+ ms.author: sonialopez
+ ms.custom:
+   - include file
+   - sfi-image-nochange
 ---
 <!-- put the ## header in the file that includes this file -->
 

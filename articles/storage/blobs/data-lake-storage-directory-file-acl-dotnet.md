@@ -1,21 +1,22 @@
 ---
 title: Use .NET to manage data in Azure Data Lake Storage
 titleSuffix: Azure Storage
-description: Use the Azure Storage client library for .NET to manage directories and files in storage accounts that have a hierarchical namespace enabled.
-author: pauljewellmsft
+description: Learn how to use the Azure Storage client library for .NET to manage directories and files in Data Lake Storage.
+author: stevenmatthew
 
-ms.author: pauljewell
+ms.author: shaas
 ms.service: azure-data-lake-storage
-ms.date: 07/24/2023
+ms.date: 07/23/2026
 ms.topic: how-to
 ms.reviewer: prishet
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
+# Customer intent: As a .NET developer, I want to manage directories and files in Azure Data Lake Storage using the client library, so that I can efficiently organize and access large amounts of data in my applications.
 ---
 
 # Use .NET to manage directories and files in Azure Data Lake Storage
 
-This article shows you how to use .NET to create and manage directories and files in storage accounts that have a hierarchical namespace.
+This article shows you how to use .NET to create and manage directories and files in storage accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2).
 
 To learn about how to get, set, and update the access control lists (ACL) of directories and files, see [Use .NET to manage ACLs in Azure Data Lake Storage](data-lake-storage-acl-dotnet.md).
 
@@ -25,7 +26,7 @@ To learn about how to get, set, and update the access control lists (ACL) of dir
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- A storage account that has hierarchical namespace enabled. Follow [these](create-data-lake-storage-account.md) instructions to create one.
+- A storage account that has hierarchical namespace enabled. Follow [these instructions](create-data-lake-storage-account.md) to create one.
 
 ## Set up your project
 
@@ -33,7 +34,7 @@ To get started, install the [Azure.Storage.Files.DataLake](https://www.nuget.org
 
 For more information about how to install NuGet packages, see [Install and manage packages in Visual Studio using the NuGet Package Manager](/nuget/consume-packages/install-use-packages-visual-studio).
 
-Then, add these using statements to the top of your code file.
+Then, add these `using` statements to the top of your code file.
 
 ```csharp
 using Azure;
@@ -47,13 +48,13 @@ using System.IO;
 
 ## Authorize access and connect to data resources
 
-To work with the code examples in this article, you need to create an authorized [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that represents the storage account. You can authorize a `DataLakeServiceClient` object using Microsoft Entra ID, an account access key, or a shared access signature (SAS).
+To work with the code examples in this article, you need to create an authorized [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that represents the storage account. You can authorize a `DataLakeServiceClient` object by using Microsoft Entra ID, an account access key, or a shared access signature (SAS).
 
 <a name='azure-ad'></a>
 
 ### [Microsoft Entra ID](#tab/azure-ad)
 
-You can use the [Azure identity client library for .NET](/dotnet/api/overview/azure/identity-readme) to authenticate your application with Microsoft Entra ID.
+Use the [Azure identity client library for .NET](/dotnet/api/overview/azure/identity-readme) to authenticate your application by using Microsoft Entra ID.
 
 Create a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance and pass in a new instance of the [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) class.
 
@@ -73,7 +74,7 @@ To learn more about generating and managing SAS tokens, see the following articl
 
 ### [Account key](#tab/account-key)
 
-You can authorize access to data using your account access keys (Shared Key). This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that is authorized with the account key.
+You can authorize access to data by using your account access keys (Shared Key). This example creates a [DataLakeServiceClient](/dotnet/api/azure.storage.files.datalake.datalakeserviceclient) instance that's authorized by using the account key.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Authorize_DataLake.cs" id="Snippet_AuthorizeWithKey":::
 
@@ -91,13 +92,15 @@ The following code example creates a container and returns a [DataLakeFileSystem
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_CreateContainer":::
 
+After the operation completes, the container is available as a file system in the storage account.
+
 ## Create a directory
 
 You can create a directory reference in the container by using the following method:
 
 - [DataLakeFileSystemClient.CreateDirectoryAsync](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.createdirectoryasync)
 
-The following code example adds a directory to a container, then adds a subdirectory and returns a [DataLakeDirectoryClient](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient) object for later use:
+The following code example adds a directory to a container, then adds a subdirectory, and returns a [DataLakeDirectoryClient](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient) object for later use:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_CreateDirectory":::
 
@@ -107,7 +110,7 @@ You can rename or move a directory by using the following method:
 
 - [DataLakeDirectoryClient.RenameAsync](/dotnet/api/azure.storage.files.datalake.datalakedirectoryclient.renameasync)
 
-Pass the path of the desired directory as a parameter. The following code example shows how to rename a subdirectory:
+Using a `DataLakeDirectoryClient` you created earlier, pass the path of the directory as a parameter. The following code example shows how to rename a subdirectory:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_RenameDirectory":::
 
@@ -121,32 +124,32 @@ You can upload content to a new or existing file by using the following method:
 
 - [DataLakeFileClient.UploadAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.uploadasync)
 
-The following code example shows how to upload a local file to a directory using the `UploadAsync` method:
+The following code example uses a `DataLakeDirectoryClient` created earlier to upload a local file to a directory by using the `UploadAsync` method:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_UploadFile":::
 
-You can use this method to create and upload content to a new file, or you can set the `overwrite` parameter to `true` to overwrite an existing file.
+After the upload completes, the file appears in the target directory with the specified name.
 
 ## Append data to a file
 
-You can upload data to be appended to a file by using the following method:
+To append data to a file, use the following method:
 
 - [DataLakeFileClient.AppendAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync)
 
-The following code example shows how to append data to the end of a file using these steps:
+The following code example shows how to append data to the end of a file by using these steps:
 
-- Create a [DataLakeFileClient](/dotnet/api/azure.storage.files.datalake.datalakefileclient) object to represent the file resource you're working with. 
-- Upload data to the file using the  [DataLakeFileClient.AppendAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) method.
+- Create a [DataLakeFileClient](/dotnet/api/azure.storage.files.datalake.datalakefileclient) object to represent the file resource you're working with.
+- Upload data to the file by using the [DataLakeFileClient.AppendAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.appendasync) method.
 - Complete the upload by calling the [DataLakeFileClient.FlushAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.flushasync) method to write the previously uploaded data to the file.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_AppendDataToFile":::
 
 ## Download from a directory
 
-The following code example shows how to download a file from a directory to a local file using these steps:
+The following code example shows how to download a file from a directory to a local file by using these steps:
 
-- Create a [DataLakeFileClient](/dotnet/api/azure.storage.files.datalake.datalakefileclient) instance to represent the file that you want to download. 
-- Use the [DataLakeFileClient.ReadAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.readasync) method, then parse the return value to obtain a [Stream](/dotnet/api/system.io.stream) object. Use any .NET file processing API to save bytes from the stream to a file.
+- Create a [DataLakeFileClient](/dotnet/api/azure.storage.files.datalake.datalakefileclient) instance to represent the file that you want to download.
+- Use the [DataLakeFileClient.ReadStreamingAsync](/dotnet/api/azure.storage.files.datalake.datalakefileclient.readstreamingasync) method, then parse the return value to obtain a [Stream](/dotnet/api/system.io.stream) object. Use any .NET file processing API to save bytes from the stream to a file.
 
 This example uses a [BinaryReader](/dotnet/api/system.io.binaryreader) and a [FileStream](/dotnet/api/system.io.filestream) to save bytes to a file.
 
@@ -158,9 +161,9 @@ You can list directory contents by using the following method and enumerating th
 
 - [FileSystemClient.GetPathsAsync](/dotnet/api/azure.storage.files.datalake.datalakefilesystemclient.getpathsasync)
 
-Enumerating the paths in the result may make multiple requests to the service while fetching the values.
+Enumerating the paths in the result might make multiple requests to the service while fetching the values.
 
-The following code example prints the names of each file that is located in a directory:
+The following code example prints the names of each file that's located in a directory:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_ListFilesInDirectory":::
 
@@ -188,7 +191,9 @@ The following code example shows how to list deleted paths and restore a soft-de
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/CRUD_DataLake.cs" id="Snippet_RestoreDirectory":::
 
-If you rename the directory that contains the soft-deleted items, those items become disconnected from the directory. If you want to restore those items, you have to revert the name of the directory back to its original name or create a separate directory that uses the original directory name. Otherwise, you receive an error when you attempt to restore those soft-deleted items.
+After the operation completes, the restored directory and its paths return to their original location.
+
+If you rename the directory that contains the soft-deleted items, those items become disconnected from the directory. If you want to restore those items, you need to revert the name of the directory back to its original name or create a separate directory that uses the original directory name. Otherwise, you receive an error when you attempt to restore those soft-deleted items.
 
 ## Create a user delegation SAS for a directory
 
@@ -202,7 +207,7 @@ The following code example shows how to generate a user delegation SAS for a dir
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_GetUserDelegationSasDirectory":::
 
-The following example tests the user delegation SAS created in the previous example from a simulated client application. If the SAS is valid, the client application is able to list file paths for this directory. If the SAS is invalid (for example, the SAS is expired), the Storage service returns error code 403 (Forbidden).
+The following example tests the user delegation SAS created in the previous example from a simulated client application. If the SAS is valid, the client application can list file paths for this directory. If the SAS is invalid (for example, the SAS is expired), the Storage service returns error code 403 (Forbidden).
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/dotnet-v12/Sas.cs" id="Snippet_ListFilePathsWithDirectorySasAsync":::
 
@@ -210,7 +215,7 @@ To learn more about creating a user delegation SAS, see [Create a user delegatio
 
 ## Create a service SAS for a directory
 
-In a storage account with a hierarchical namespace enabled, you can create a service SAS for a directory. To create the service SAS, make sure you have installed version 12.5.0 or later of the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) package.
+In a storage account with a hierarchical namespace enabled, you can create a service SAS for a directory. To create the service SAS, ensure that you install version 12.5.0 or later of the [Azure.Storage.Files.DataLake](https://www.nuget.org/packages/Azure.Storage.Files.DataLake/) package.
 
 The following example shows how to create a service SAS for a directory:
 
@@ -226,3 +231,4 @@ To learn more about creating a service SAS, see [Create a service SAS with .NET]
 - [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
 - [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
+

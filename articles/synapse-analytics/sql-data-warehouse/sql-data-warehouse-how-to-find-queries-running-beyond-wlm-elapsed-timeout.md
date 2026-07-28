@@ -1,9 +1,8 @@
 ---
 title: Identify queries running beyond workload group query execution timeout
 description: Identify queries that are running beyond the workload groups query execution timeout value.
-author: WilliamDAssafMSFT
-ms.author: wiassaf
-ms.reviewer: wiassaf
+author: ajagadish-24
+ms.author: ajagadish
 ms.date: 06/13/2022
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
@@ -12,6 +11,8 @@ ms.custom: template-how-to
 ---
 
 # Identify queries running beyond workload group query execution timeout
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This article covers guidance on how to identify queries that are running beyond the query_execution_timeout_sec value configured for the workload group. 
 

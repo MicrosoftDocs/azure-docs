@@ -1,16 +1,18 @@
 ---
-title: Query resources with Azure Resource Graph in Azure Update Manager
+title: Query Resources with Azure Resource Graph in Azure Update Manager
 description: This article provides details on how Access Azure Update Manager operations data using Azure Resource Graph.
 ms.service: azure-update-manager
-author: SnehaSudhirG
-ms.author: sudhirsneha
-ms.date: 08/27/2024
+author: habibaum
+ms.author: v-uhabiba
+ms.date: 08/21/2025
 ms.topic: overview
+ms.update-cycle: 1095-days
+# Customer intent: "As a cloud administrator, I want to access Azure Update Manager operation logs via Azure Resource Graph, so that I can analyze and visualize update assessments and installations for effective reporting and maintenance management."
 ---
 
 # Access Azure Update Manager operations data using Azure Resource Graph
 
-Logs created from operations like update assessments and installations are stored by Azure Update Manager in [Azure Resource Graph](../governance/resource-graph/overview.md). Resource Graph is a service in Azure designed to be the store for Azure service details without any cost or deployment requirements. Update Manager uses Resource Graph to store its results. You can view the update assessment history for the last 7 days and update installations history for the last 30 days from the Resource Graph.
+Logs created from operations like update assessments and installations are stored by Azure Update Manager in [Azure Resource Graph](../governance/resource-graph/overview.md). Resource Graph is a service in Azure designed to be the store for Azure service details without any cost or deployment requirements. Update Manager uses Resource Graph to store its results. You can view the most recent update assessment history for the last 7 days and update installations history for the last 30 days from the Resource Graph.
 
 This article describes the structure of the logs from Update Manager and how you can use [Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md) to analyze them in support of your reporting, visualizing, and export needs.
 
@@ -41,9 +43,9 @@ The table `patchassessmentresources` includes resources related to machine patch
 | `ZONES` | Intentionally left blank for future use. |
 | `EXTENDEDLOCATION` | Intentionally left blank for future use. |
 
-### Description of the patchassessmentresources property
+### Description of the patchassessmentResults properties
 
-If the property for the resource type is `patchassessmentresources`, it includes the information in the following table.
+If the property for the resource type is `patchassessmentresults`, it includes the information in the following table.
 
 |Value |Description |
 |------|------------|

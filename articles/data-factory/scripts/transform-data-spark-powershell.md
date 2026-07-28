@@ -3,10 +3,11 @@ title: Transform data in cloud using PowerShell
 description: "This PowerShell script transforms data in the cloud by running Spark program on an Azure HDInsight Spark cluster."
 author: dcstwh
 ms.author: weetok
-ms.reviewer: jburchel
-ms.topic: conceptual
+ms.reviewer: whhender
+ms.topic: sample
 ms.custom: devx-track-azurepowershell
-ms.date: 01/05/2024
+ms.date: 10/03/2024
+ms.subservice: orchestration
 ---
 
 # PowerShell script - transform data in cloud using Azure Data Factory
@@ -62,7 +63,7 @@ This sample PowerShell script creates a pipeline that transforms data in the clo
 > [!IMPORTANT]
 > This script creates JSON files that define Data Factory entities (linked service, dataset, and pipeline) on your hard drive in the c:\ folder.
 
-[!code-powershell[main](../../../powershell_scripts/data-factory/transform-data-using-spark/transform-data-using-spark.ps1 "Transform data using Spark")]
+[!code-powershell[main](~/powershell_scripts/data-factory/transform-data-using-spark/transform-data-using-spark.ps1 "Transform data using Spark")]
 
 ## Clean up deployment
 

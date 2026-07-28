@@ -2,12 +2,15 @@
 title: Connect to GitHub
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Use GitHub to specify your Common Data Model entity references
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
-ms.custom: synapse
-ms.topic: conceptual
-ms.date: 10/20/2023
-ms.author: jianleishen
+ms.topic: how-to
+ms.date: 06/22/2026
+ms.update-cycle: 1095-days
+ms.author: tinglee
+ms.custom:
+  - synapse
+  - sfi-image-nochange
 ---
 
 # Use GitHub to read Common Data Model entity references
@@ -20,7 +23,7 @@ The GitHub connector in Azure Data Factory and Synapse Analytics pipelines is on
 
 Use the following steps to create a linked service to GitHub in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
    # [Azure Data Factory](#tab/data-factory)
 

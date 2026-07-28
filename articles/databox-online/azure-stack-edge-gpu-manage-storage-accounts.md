@@ -2,14 +2,13 @@
 title: Azure Stack Edge Pro GPU storage account management | Microsoft Docs 
 description: Describes how to use the Azure portal to manage storage account on your Azure Stack Edge Pro GPU.
 services: databox
-author: alkohli
+author: sipastak
 
-ms.service: databox
-ms.subservice: edge
+ms.service: azure-stack-edge
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 04/18/2022
-ms.author: alkohli
+ms.date: 02/05/2025
+ms.author: sipastak
 ---
 # Use the Azure portal to manage Edge storage accounts on your Azure Stack Edge Pro GPU
 
@@ -88,6 +87,9 @@ You can now select a container from this list and select **+ Delete container** 
 ## Sync storage keys
 
 Each Azure Storage account has two 512-bit storage access keys that are used for authentication when the storage account is accessed. One of these two keys must be supplied when your Azure Stack Edge device accesses your cloud storage service provider (in this case, Azure).
+
+> [!NOTE]
+> Access to your Azure Storage Account using storage access keys from an Azure Stack Edge Pro device has been deprecated in 2501. Tiering data from an Azure Stack Edge Pro device to the mapped Azure Storage account uses Managed Service Identity to authorize the data access from 2501. For more information, see [Assign an Azure role for access to blob data](../storage/blobs/assign-azure-role-data-access.md?tabs=portal#assign-an-azure-role).
 
 An Azure administrator can regenerate or change the access key by directly accessing the storage account (via the Azure Storage service). The Azure Stack Edge service and the device do not see this change automatically.
  

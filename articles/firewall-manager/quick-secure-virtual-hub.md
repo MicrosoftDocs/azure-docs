@@ -2,8 +2,8 @@
 title: 'Quickstart: Secure virtual hub using Azure Firewall Manager - Resource Manager template'
 description: In this quickstart, you learn how to secure your virtual hub using Azure Firewall Manager.
 services: firewall-manager
-author: vhorne
-ms.author: victorh
+author: duongau
+ms.author: duau
 ms.date: 08/28/2020
 ms.topic: quickstart
 ms.service: azure-firewall-manager
@@ -16,7 +16,7 @@ In this quickstart, you use an Azure Resource Manager template (ARM template) to
 
 [!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
-For more information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md).
+For more information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md)
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -24,7 +24,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
 ## Review the template
 

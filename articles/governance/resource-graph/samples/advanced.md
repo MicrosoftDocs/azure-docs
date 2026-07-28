@@ -5,7 +5,7 @@ ms.date: 06/15/2022
 ms.topic: sample
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.author: daphnema
-author: daphnema
+author: daphnemamsft
 ---
 # Advanced Resource Graph query samples
 
@@ -31,7 +31,7 @@ We'll walk through the following advanced queries:
 - [Get virtual networks and subnets of network interfaces](#get-virtual-networks-and-subnets-of-network-interfaces)
 - [Summarize virtual machine by the power states extended property](#summarize-virtual-machine-by-the-power-states-extended-property)
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free)
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn)
 before you begin.
 
 ## Language support

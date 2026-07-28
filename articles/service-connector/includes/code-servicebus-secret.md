@@ -1,17 +1,18 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/30/2023
-ms.author: wchi
+ms.date: 06/17/2026
+ms.reviewer: wchi
 ---
 
 ### [.NET](#tab/dotnet)
 
 1. Install dependencies.
+
     ```bash
     dotnet add package Azure.Messaging.ServiceBus
     ```
+
 1. Get the Service Bus connection string from the environment variables added by Service Connector.
     
     ```csharp
@@ -24,6 +25,7 @@ ms.author: wchi
 ### [Java](#tab/java)
 
 1. Add the following dependency in your *pom.xml* file:
+
     ```xml
     <dependency>
         <groupId>com.azure</groupId>
@@ -31,6 +33,7 @@ ms.author: wchi
         <version>7.13.3</version>
     </dependency>
     ```
+
 1. Get the Service Bus connection string from the environment variables added by Service Connector.
 
     ```java
@@ -46,31 +49,36 @@ ms.author: wchi
             .buildClient();
     ```
 
-### [SpringBoot](#tab/springBoot)
+### [Spring Boot](#tab/springBoot)
 
 1. Add the following dependencies to your pom.xml file:
+
     ```xml
     <dependencyManagement>
       <dependencies>
         <dependency>
           <groupId>com.azure.spring</groupId>
           <artifactId>spring-cloud-azure-dependencies</artifactId>
-          <version>4.12.0</version>
+          <version>5.20.0</version>
           <type>pom</type>
           <scope>import</scope>
         </dependency>
       </dependencies>
     </dependencyManagement>
     ```
-1. Set up a Spring application. The Service Bus connection string `spring.cloud.azure.servicebus.connection-string` is set to Spring Apps by Service Connector. For more information, check [Use Azure Service Bus in Spring applications](/azure/developer/java/spring-framework/using-service-bus-in-spring-applications).
+
+1. Set up a Spring application. The Service Bus connection string `spring.cloud.azure.servicebus.connection-string` is set to Spring Apps by Service Connector. For more information, see [Use Azure Service Bus in Spring applications](/azure/developer/java/spring-framework/using-service-bus-in-spring-applications).
 
 ### [Python](#tab/python)
 
 1. Install dependencies.
+
     ```bash
     pip install azure-servicebus
     ```
+
 1. Get the Service Bus connection string from the environment variables added by Service Connector.
+
     ```python
     import os
     from azure.servicebus.aio import ServiceBusClient
@@ -83,9 +91,11 @@ ms.author: wchi
 ### [Go](#tab/go)
 
 1. Install dependencies.
+
     ```bash
     go get github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus
     ```
+
 1. Get the Service Bus connection string from the environment variables added by Service Connector.
     
     ```go
@@ -113,9 +123,11 @@ ms.author: wchi
 ### [NodeJS](#tab/nodejs)
 
 1. Install dependencies.
+
     ```bash
     npm install @azure/service-bus
     ```
+
 1. Get the Service Bus connection string from the environment variables added by Service Connector.
     
     ```javascript

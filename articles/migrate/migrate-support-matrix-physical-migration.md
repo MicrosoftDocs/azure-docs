@@ -4,15 +4,17 @@ description: Learn about support for physical server migration in Azure Migrate 
 author: vijain
 ms.author: vijain
 ms.manager: kmadnani
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-migrate
-ms.date: 06/18/2024
-ms.custom: engagement-fy24
+ms.reviewer: v-uhabiba
+ms.date: 01/27/2025
+ms.custom: engagement-fy25
+# Customer intent: As a cloud architect, I want to evaluate the migration capabilities for physical servers and other virtual machines to Azure, so that I can determine the best strategy for transitioning our on-premises infrastructure to the cloud.
 ---
 
 # Support matrix for migration of physical servers, AWS VMs, and GCP VMs
 
-This article summarizes support settings and limitations for migrating physical servers, Amazon Web Services (AWS) virtual machines (VMs), and Google Cloud Platform (GCP) VMs to Azure with [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) . If you're looking for information about assessing physical servers for migration to Azure, see the [assessment support matrix](migrate-support-matrix-physical.md).
+This article summarizes support settings and limitations for migrating physical servers, Amazon Web Services (AWS) virtual machines (VMs), and Google Cloud Platform (GCP) VMs to Azure with [Migration and modernization](migrate-services-overview.md) . If you're looking for information about assessing physical servers for migration to Azure, see the [assessment support matrix](migrate-support-matrix-physical.md).
 
 ## Migrate machines as physical
 
@@ -42,8 +44,8 @@ Azure requirements | For the latest information, see the [Azure network](../site
 Mobility service | Install the Mobility service agent on each machine you want to migrate.
 UEFI boot | Supported. <br/><br/> Windows : NTFS  <br/><br/> Linux: The following filesystem types are supported: ext4, xfs, btrfs. Some filesystems such as ZFS, UFS, ReiserFS, and DazukoFS may not be supported subject to additional command requirements to mount them.
 UEFI - Secure boot         | Not supported for migration.
-Target disk | Machines can be migrated only to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
-Ultra disk | Ultra disk migration isn't supported from the Azure Migrate and Modernize portal. You have to do an out-of-band migration for the disks that are recommended as Ultra disks. That is, you can migrate selecting it as premium disk type and change it to Ultra disk after migration.
+Target disk | Machines can be migrated only to managed disks (Standard HDD, Standard SSD, Premium SSD) in Azure.
+Ultra Disk | Ultra Disk migration isn't supported from the Azure Migrate and Modernize portal. You have to do an out-of-band migration for the disks that are recommended as Ultra Disks. That is, you can migrate selecting it as premium disk type and change it to Ultra Disk after migration.
 Disk size | Up to 2-TB OS disk for gen 1 VM. Up to 4-TB OS disk for gen 2 VM and 32 TB for data disks.
 Disk limits |  Up to 63 disks per machine.
 Encrypted disks/volumes |  Machines with encrypted disks/volumes aren't supported for migration.
@@ -74,7 +76,7 @@ Component | Requirements | Details
 --- | --- | ---
 Guest operating system | Verifies supported operating systems.<br/> You can migrate any workload running on a supported OS. | Check fails if unsupported.
 Guest operating system architecture | 64 bit. | Check fails if unsupported.
-Operating system disk size | Up to 2,048 GB. | Check fails if unsupported.
+Operating system disk size | Up to 2TB for Gen1 VM and 4TB for Gen2 VM. | Check fails if unsupported.
 Operating system disk count | 1. | Check fails if unsupported.
 Data disk count | 64 or less. | Check fails if unsupported.
 Data disk size | Up to 32 TB. | Check fails if unsupported.

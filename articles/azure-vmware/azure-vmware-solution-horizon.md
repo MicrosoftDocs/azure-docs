@@ -3,8 +3,9 @@ title: Deploy Horizon on Azure VMware Solution
 description: Learn how to deploy VMware Horizon on Azure VMware Solution.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 4/1/2024
+ms.date: 05/22/2026
 ms.custom: engagement-fy23
+# Customer intent: "As a cloud architect, I want to deploy VMware Horizon on Azure VMware Solution so that I can provide virtual desktop infrastructure and applications accessible from anywhere, while maximizing scalability and ensuring seamless management within the Azure environment."
 ---
 
 # Deploy Horizon on Azure VMware Solution 
@@ -12,15 +13,15 @@ ms.custom: engagement-fy23
 >[!NOTE]
 >This document focuses on the VMware Horizon product, formerly known as Horizon 7. Horizon is a different solution than Horizon Cloud on Azure, although there are some shared components. Key advantages of the Azure VMware Solution include both a more straightforward sizing method and the integration of Software-Defined Data Center (SDDC) private cloud management into the Azure portal.
 
-[VMware Horizon](https://www.vmware.com/products/horizon.html)®, a virtual desktop and applications platform, runs in the data center and provides simple and centralized management. It delivers virtual desktops and applications on any device, anywhere. Horizon lets you create, and broker connections to Windows and Linux virtual desktops, Remote Desktop Server (RDS) hosted applications, desktops, and physical machines.
+[VMware Horizon](https://www.omnissa.com/products/horizon-8/)®, a virtual desktop and applications platform, runs in the data center and provides simple and centralized management. It delivers virtual desktops and applications on any device, anywhere. Horizon lets you create, and broker connections to Windows and Linux virtual desktops, Remote Desktop Server (RDS) hosted applications, desktops, and physical machines.
 
-Here, we focus specifically on deploying Horizon on Azure VMware Solution. For general information on VMware Horizon, refer to the Horizon production documentation:
+In this article, learn about how to deploy Horizon on Azure VMware Solution. For general information on VMware Horizon, refer to the following Horizon production documentation:
 
-* [What is VMware Horizon?](https://www.vmware.com/products/horizon.html)
+* [What is VMware Horizon?](https://www.omnissa.com/products/horizon-8/)
 
-* [Learn more about VMware Horizon](https://docs.vmware.com/en/VMware-Horizon/index.html)
+* [Learn more about VMware Horizon](https://docs.omnissa.com/category/Horizon_8)
 
-* [Horizon Reference Architecture](https://techzone.vmware.com/resource/workspace-one-and-horizon-reference-architecture)
+* [Horizon Reference Architecture](https://techzone.omnissa.com/reference-architecture)
 
 With Horizon's introduction on Azure VMware Solution, there are now two Virtual Desktop Infrastructure (VDI) solutions on the Azure platform:
 
@@ -28,14 +29,14 @@ With Horizon's introduction on Azure VMware Solution, there are now two Virtual 
 
 * VMware Horizon Cloud (Desktop-as-a-Service Model)
 
-Horizon 2006 and later versions on the Horizon 8 release line supports both on-premises and Azure VMware Solution deployment. There are a few Horizon features that are supported on-premises but not on Azure VMware Solution. Other products in the Horizon ecosystem are also supported. For more information, see [feature parity and interoperability](https://kb.vmware.com/s/article/80850).
+Horizon 2006 and later versions on the Horizon 8 release line supports both on-premises and Azure VMware Solution deployment. There are a few Horizon features that are supported on-premises but not on Azure VMware Solution. Other products in the Horizon ecosystem are also supported. For more information, see [feature parity and interoperability](https://kb.omnissa.com/s/article/80850).
 
 ## Deploy Horizon in a hybrid cloud
 
-You can deploy Horizon in a hybrid cloud environment by using Horizon Cloud Pod Architecture (CPA) to interconnect on-premises and Azure data centers. CPA scales up your deployment, builds a hybrid cloud, and provides redundancy for Business Continuity and Disaster Recovery.  For more information, see [Expanding Existing Horizon 7 Environments](https://techzone.vmware.com/resource/business-continuity-vmware-horizon#_Toc41650874).
+You can deploy Horizon in a hybrid cloud environment by using Horizon Cloud Pod Architecture (CPA) to interconnect on-premises and Azure data centers. CPA scales up your deployment, builds a hybrid cloud, and provides redundancy for Business Continuity and Disaster Recovery. For more information, see [Expanding Existing Horizon 7 Environments](https://techzone.omnissa.com/resource/horizon-8-azure-vmware-solution-architecture#cloud-pod-architecture).
 
 >[!IMPORTANT]
->CPA is not a stretched deployment; each Horizon pod is distinct, and all Connection Servers that belong to each of the individual pods are required to be located in a single location and run on the same broadcast domain from a network perspective.
+>CPA isn't a stretched deployment. Each Horizon pod is distinct. All Connection Servers that belong to the individual pods are required to be located in a single location and run on the same broadcast domain from a network perspective.
 
 Like on-premises or private data centers, you can deploy Horizon in an Azure VMware Solution private cloud. In the following sections, we discuss the key differences in deploying Horizon on-premises and Azure VMware Solution.
 
@@ -44,7 +45,7 @@ The _Azure private cloud_ is conceptually the same as the _VMware SDDC_, a term 
 The Horizon Cloud Connector is required for Horizon on Azure VMware Solution to manage subscription licenses. You can deploy Cloud Connector in Azure Virtual Network alongside Horizon Connection Servers.
 
 >[!IMPORTANT]
->Horizon Control Plane support for Horizon on Azure VMware Solution is not yet available. Be sure to download the VHD version of Horizon Cloud Connector.
+>Horizon Control Plane support for Horizon on Azure VMware Solution isn't yet available. Be sure to download the virtual hard disk (VHD) version of Horizon Cloud Connector.
 
 ## vCenter Server Cloud Admin role
 
@@ -68,7 +69,7 @@ Customers are required to use the Cloud Admin role, which has a limited set of v
 
 A typical Horizon architecture design uses a pod and block strategy. A block is a single vCenter Server, while multiple blocks combined make a pod. A Horizon pod is a unit of organization determined by Horizon scalability limits. Each Horizon pod has a separate management portal, and so a standard design practice is to minimize the number of pods.
 
-Every cloud has its own network connectivity scheme. Combine that with VMware NSX, the Azure VMware Solution network connectivity presents unique requirements for deploying Horizon that is different from on-premises.
+Every cloud has its own network connectivity scheme. Combine that with VMware NSX, the Azure VMware Solution network connectivity presents unique requirements for deploying Horizon that's different from on-premises.
 
 Each Azure VMware Solution private cloud and SDDC can handle 4,000 desktop or application sessions, assuming:
 
@@ -79,7 +80,7 @@ Each Azure VMware Solution private cloud and SDDC can handle 4,000 desktop or ap
 * NSX Edge is configured to be large.
 
 >[!NOTE]
->Your workload profile and needs may be different, and therefore results may vary based on your use case. User Data volumes may lower scale limits in the context of your workload. Size and plan your deployment accordingly. For more information, see the sizing guidelines in the [Size Azure VMware Solution hosts for Horizon deployments](#size-azure-vmware-solution-hosts-for-horizon-deployments) section.
+>Your workload profile and needs can differ. Results can vary based on your use case. User Data volumes could lower scale limits in the context of your workload. Size and plan your deployment accordingly. For more information, see the sizing guidelines in the [Size Azure VMware Solution hosts for Horizon deployments](#size-azure-vmware-solution-hosts-for-horizon-deployments) section.
 
 Given the Azure private cloud and SDDC max limit, we recommend a deployment architecture where the Horizon Connection Servers and VMware Unified Access Gateways (UAGs) are running inside the Azure Virtual Network. It effectively turns each Azure private cloud and SDDC into a block. In turn, maximizing the scalability of Horizon running on Azure VMware Solution.
 
@@ -95,9 +96,9 @@ This section lays out the network architecture at a high level with some common 
 
 :::image type="content" source="media/vmware-horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Diagram showing a single Horizon pod on Azure VMware Solution." border="false" lightbox="media/vmware-horizon/single-horizon-pod-azure-vmware-solution.png":::
 
-A single Horizon pod is the most straight forward deployment scenario because you deploy just one Horizon pod in the US East region.  Since each private cloud and SDDC is estimated to handle 4,000 desktop sessions, you deploy the maximum Horizon pod size.  You can plan the deployment of up to three private clouds/SDDCs.
+A single Horizon pod is the most straight forward deployment scenario because you deploy just one Horizon pod in the US East region. Since each private cloud and SDDC is estimated to handle 4,000 desktop sessions, you deploy the maximum Horizon pod size. You can plan the deployment of up to three private clouds/SDDCs.
 
-With the Horizon infrastructure virtual machines (VMs) deployed in Azure Virtual Network, you can reach the 12,000 sessions per Horizon pod. The connection between each private cloud and SDDC to the Azure Virtual Network is an ExpressRoute Connection (FastPath enabled).  No east-west traffic between private clouds is needed. 
+With the Horizon infrastructure virtual machines (VMs) deployed in Azure Virtual Network, you can reach the 12,000 sessions per Horizon pod. The connection between each private cloud and SDDC to the Azure Virtual Network is an ExpressRoute Connection (FastPath enabled). No east-west traffic between private clouds is needed. 
 
 Key assumptions for this basic deployment example include that:
 
@@ -184,7 +185,7 @@ In general, VDI deployments are either CPU or RAM constrained, which determines 
 For this example, the total number of hosts factors out to 18, yielding a VM-per-host density of 111.
 
 >[!IMPORTANT]
->Customer workloads will vary from this example of a LoginVSI Knowledge Worker. As a part of planning your deployment, work with your VMware EUC SEs for your specific sizing and performance needs. Be sure to run your own performance testing using the actual, planned workload before finalizing host sizing and adjust accordingly.
+>Customer workloads vary from this example of a LoginVSI Knowledge Worker. As a part of planning your deployment, work with your VMware EUC SEs for your specific sizing and performance needs. Be sure to run your own performance testing using the actual, planned workload before finalizing host sizing and adjust accordingly.
 
 ## Horizon on Azure VMware Solution licensing 
 
@@ -210,11 +211,8 @@ Work with your VMware EUC sales team to determine the Horizon licensing cost bas
 
 ### Azure Instance Types
 
-To understand the Azure virtual machine sizes that are required for the Horizon Infrastructure, see [Horizon Installation on Azure VMware Solution](https://techzone.vmware.com/resource/horizon-on-azure-vmware-solution-configuration#horizon-installation-on-azure-vmware-solution).
+To understand the Azure virtual machine sizes that are required for the Horizon Infrastructure, see [Horizon Installation on Azure VMware Solution](https://techzone.omnissa.com/resource/horizon-8-azure-vmware-solution-configuration#instance-types-for-federated-deployment).
 
 ## References
-[System Requirements For Horizon Agent for Linux](https://docs.vmware.com/en/VMware-Horizon/2012/linux-desktops-setup/GUID-E268BDBF-1D89-492B-8563-88936FD6607A.html)
-
-
-## Next steps
-To learn more about VMware Horizon on Azure VMware Solution, read the [VMware Horizon FAQ](https://www.vmware.com/docs/vmw-horizon-faqs).
+[System Requirements For Horizon Agent for Linux](https://docs.omnissa.com/bundle/Desktops-and-Applications-in-HorizonV2406/page/SystemRequirementsforHorizonAgentforLinux.html)
+[Horizon 8 on Azure VMware Solution Architecture](https://techzone.omnissa.com/resource/horizon-8-azure-vmware-solution-architecture)

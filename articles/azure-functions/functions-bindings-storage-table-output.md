@@ -5,8 +5,14 @@ ms.topic: reference
 ms.date: 11/11/2022
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
+ms.custom:
+  - devx-track-csharp
+  - devx-track-python
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-ts
+  - sfi-ropc-nochange
 ---
 
 # Azure Tables output bindings for Azure Functions
@@ -23,6 +29,10 @@ For information on setup and configuration details, see the [overview](./functio
 ::: zone-end
 
 ## Example
+
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
 
 ::: zone pivot="programming-language-csharp"
 
@@ -290,6 +300,34 @@ foreach ($i in 1..10) {
 
 The following example demonstrates how to use the Table storage output binding. Configure the `table` binding in the *function.json* by assigning values to `name`, `tableName`, `partitionKey`, and `connection`:
 
+# [v2](#tab/python-v2)
+The following function generates a unique UUI for the `rowKey` value and persists the message into Table storage.
+
+```python
+import logging
+import uuid
+import json
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.route(route="table_out_binding")
+@app.table_output(arg_name="message",
+                  connection="AzureWebJobsStorage",
+                  table_name="messages")
+def table_out_binding(req: func.HttpRequest, message: func.Out[str]):
+    row_key = str(uuid.uuid4())
+    data = {
+        "Name": "Output binding message",
+        "PartitionKey": "message",
+        "RowKey": row_key
+    }
+    table_json = json.dumps(data)
+    message.set(table_json)
+    return table_json
+```
+
+# [v1](#tab/python-v1)
 ```json
 {
   "scriptFile": "__init__.py",
@@ -471,7 +509,7 @@ The following table explains the binding configuration properties that you set i
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 ::: zone-end  
 
-[!INCLUDE [functions-table-connections](../../includes/functions-table-connections.md)]
+[!INCLUDE [functions-storage-connections](../../includes/functions-storage-connections.md)]
 
 ## Usage
 

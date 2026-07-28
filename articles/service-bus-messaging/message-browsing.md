@@ -3,6 +3,7 @@ title: Azure Service Bus - Browse or peek messages
 description: Browse and peek Service Bus messages enables an Azure Service Bus client to enumerate all messages in a queue or subscription.
 ms.topic: concept-article
 ms.date: 07/25/2024
+ms.custom: sfi-ropc-nochange
 #customer intent: As a developer, I want to know how to browse or peek messages in a queue or a subscription, for diagnostic and debugging purposes. 
 ---
 

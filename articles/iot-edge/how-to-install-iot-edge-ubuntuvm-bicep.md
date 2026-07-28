@@ -1,21 +1,25 @@
 ---
 title: Run Azure IoT Edge on Ubuntu VMs by using Bicep
 description: Learn how to run Azure IoT Edge on Ubuntu virtual machines by deploying and provisioning using Bicep.
-author: PatAltimore
-ms.service: iot-edge
-ms.custom: devx-track-azurecli, devx-track-bicep
+author: sethmanheim
+ms.author: sethm
+ms.service: azure-iot-edge
 services: iot-edge
 ms.topic: how-to
-ms.date: 06/10/2024
-ms.author: patricka
+ms.date: 07/21/2025
+ms.custom:
+  - devx-track-azurecli
+  - devx-track-bicep
+  - sfi-image-nochange
+  - sfi-ropc-nochange
 ---
-# Run Azure IoT Edge on Ubuntu Virtual Machines by using Bicep
+# Run Azure IoT Edge on Ubuntu virtual machines by using Bicep
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-The Azure IoT Edge runtime is what turns a device into an IoT Edge device. The runtime can be deployed on devices as small as a Raspberry Pi or as large as an industrial server. Once a device is configured with the IoT Edge runtime, you can start deploying business logic to it from the cloud.
+The Azure IoT Edge runtime turns a device into an IoT Edge device. You can deploy the runtime on devices as small as a Raspberry Pi or as large as an industrial server. After you set up the IoT Edge runtime, deploy business logic to the device from the cloud.
 
-To learn more about how the IoT Edge runtime works and what components are included, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
+To learn more about how the IoT Edge runtime works and what components it includes, see [Understand the Azure IoT Edge runtime and its architecture](iot-edge-runtime.md).
 
 ## Deploy from Azure CLI
 
@@ -40,9 +44,9 @@ You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://ra
       az account list --output table
       ```
 
-   1. Copy the SubscriptionID field for the subscription you'd like to use.
+   1. Copy the *SubscriptionID* field for the subscription you want to use.
 
-   1. Set your working subscription with the ID that you copied:
+   1. Set your working subscription with the ID you copied:
 
       ```azurecli
       az account set -s <SubscriptionId>
@@ -69,7 +73,7 @@ You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://ra
    --parameters adminPasswordOrKey="<REPLACE_WITH_SECRET_PASSWORD>"
    ```
 
-   To authenticate with an SSH key, you may do so by specifying an **authenticationType** of `sshPublicKey`, then provide the value of the SSH key in the **adminPasswordOrKey** parameter. For example:
+   To authenticate with an SSH key, specify an **authenticationType** of `sshPublicKey`, then provide the value of the SSH key in the `adminPasswordOrKey` parameter. For example:
 
    ```azurecli
    #Generate the SSH Key
@@ -86,9 +90,9 @@ You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://ra
    --parameters adminPasswordOrKey="$(< ~/.ssh/iotedge-vm-key.pub)"
    ```
 
-1. Verify that the deployment completed successfully. A virtual machine resource should be deployed into the selected resource group. Take note of the machine name, this should be in the format `vm-0000000000000`. Also, take note of the associated **DNS Name**, which should be in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
+1. Check that the deployment completed successfully. A virtual machine resource is deployed into the selected resource group. Note the machine name, which is in the format `vm-0000000000000`. Also, note the associated **DNS Name**, which is in the format `<dnsLabelPrefix>`.`<location>`.cloudapp.azure.com.
 
-    The **DNS Name** can be obtained from the JSON-formatted output of the previous step, within the **outputs** section as part of the **public SSH** entry. The value of this entry can be used to SSH into to the newly deployed machine.
+    You can get the **DNS Name** from the JSON-formatted output of the previous step, in the **outputs** section as part of the **public SSH** entry. Use this value to SSH into the newly deployed machine.
 
     ```bash
     "outputs": {
@@ -99,9 +103,9 @@ You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://ra
     }
     ```
 
-    The **DNS Name** can also be obtained from the **Overview** section of the newly deployed virtual machine within the Azure portal.
+    You can also get the **DNS Name** from the **Overview** section of the newly deployed virtual machine in the Azure portal.
 
-    :::image type="content" source="./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png" alt-text="Screenshot showing the DNS name of the I o T Edge virtual machine." lightbox="./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png":::
+    :::image type="content" source="./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png" alt-text="Screenshot showing the DNS name of the IoT Edge virtual machine." lightbox="./media/how-to-install-iot-edge-ubuntuvm/iotedge-vm-dns-name.png":::
 
 1. If you want to SSH into this VM after setup, use the associated **DNS Name** with the command:
     `ssh <adminUsername>@<DNS_Name>`
@@ -110,7 +114,7 @@ You can't deploy a remote Bicep file. Save a copy of the [Bicep file](https://ra
 
 Now that you have an IoT Edge device provisioned with the runtime installed, you can [deploy IoT Edge modules](how-to-deploy-modules-portal.md).
 
-If you are having problems with the IoT Edge runtime installing properly, check out the [troubleshooting](troubleshoot.md) page.
+If you're having problems with the IoT Edge runtime installing properly, check out the [troubleshooting](troubleshoot.md) page.
 
 To update an existing installation to the newest version of IoT Edge, see [Update the IoT Edge security daemon and runtime](how-to-update-iot-edge.md).
 

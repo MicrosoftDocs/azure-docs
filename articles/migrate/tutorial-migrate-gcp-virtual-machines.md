@@ -4,9 +4,17 @@ description: This article describes how to migrate GCP VMs to Azure with Azure M
 author: vijain
 ms.author: vijain
 ms.topic: tutorial
-ms.date: 03/20/2024
+ms.date: 02/07/2025
 ms.service: azure-migrate
-ms.custom: MVC, engagement-fy24
+ms.reviewer: v-uhabiba
+ms.collection:
+ - migration
+ - gcp-to-azure
+ms.custom:
+  - MVC
+  - engagement-fy24
+  - sfi-image-nochange
+# Customer intent: "As a cloud migration specialist, I want to migrate Google Cloud Platform VMs to Azure, so that I can ensure seamless integration and improved resource management in our cloud environment."
 ---
 
 # Discover, assess, and migrate Google Cloud Platform (GCP) VMs to Azure
@@ -244,7 +252,7 @@ A Mobility service agent must be preinstalled on the source GCP VMs to be migrat
     - **Availability Zone**: Specify the availability zone to use.
     - **Availability Set**: Specify the availability set to use.
 
-1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
+1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (Standard SSD/HDD or premium managed disks) in Azure. Then select **Next**.
     - You can exclude disks from replication.
     - If you exclude disks, won't be present on the Azure VM after migration.
 

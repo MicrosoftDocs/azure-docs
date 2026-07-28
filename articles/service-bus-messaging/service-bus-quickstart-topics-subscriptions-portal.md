@@ -1,25 +1,29 @@
 ---
-title: Use the Azure portal to create Service Bus topics and subscriptions
-description: 'Quickstart: In this quickstart, you learn how to create a Service Bus topic and subscriptions to that topic by using the Azure portal.'
+title: Create Service Bus Topics and Subscriptions in Azure
+description: "Quickstart: In this quickstart, you learn how to create a Service Bus topic and subscriptions to that topic by using the Azure portal."
 author: spelluru
 ms.author: spelluru
-ms.date: 11/28/2023
+ms.date: 02/13/2026
 ms.topic: quickstart
 ms.custom: mode-ui
 #Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 ---
 
 # Use the Azure portal to create a Service Bus topic and subscriptions to the topic
+
 In this quickstart, you use the Azure portal to create a Service Bus topic and then create subscriptions to that topic. 
 
 ## What are Service Bus topics and subscriptions?
-Service Bus topics and subscriptions support a *publish/subscribe* messaging communication model. When you use topics and subscriptions, components of a distributed application don't communicate directly with each other; instead they exchange messages via a topic, which acts as an intermediary.
 
-:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/sb-topics-01.png" alt-text="Image showing how topics and subscriptions work.":::
+Service Bus topics and subscriptions support a *publish/subscribe* communication model. With this pattern, components of a distributed application don't communicate directly with each other. Instead, they exchange messages through a topic, which acts as an intermediary.
 
-In contrast with Service Bus queues, in which each message is processed by a single consumer, topics and subscriptions provide a one-to-many form of communication, using a publish/subscribe pattern. It's possible to register multiple subscriptions to a topic. When a message is sent to a topic, it's then made available to each subscription to handle/process independently. A subscription to a topic resembles a virtual queue that receives copies of the messages that were sent to the topic. You can optionally register filter rules for a topic on subscriptions, which allows you to filter or restrict which messages to a topic are received by which topic subscriptions.
+:::image type="content" source="./media/service-bus-java-how-to-use-topics-subscriptions/service-bus-topics-subscriptions.png" alt-text="Diagram that shows how topics and subscriptions work." lightbox="./media/service-bus-java-how-to-use-topics-subscriptions/service-bus-topics-subscriptions.png":::
 
-Service Bus topics and subscriptions enable you to scale to process a large number of messages across a large number of users and applications.
+Service Bus queues deliver each message to a single consumer. In contrast, topics and subscriptions provide one-to-many communication using a publish/subscribe pattern. You can register multiple subscriptions to a single topic. When a message is sent to the topic, each subscription receives its own copy to process independently.
+
+A subscription works like a virtual queue that receives copies of messages sent to the topic. You can also define filter rules on a subscription to control which messages it receives.
+
+Service Bus topics and subscriptions enable you to scale to process a large number of messages across many users and applications.
 
 [!INCLUDE [service-bus-create-namespace-portal](./includes/service-bus-create-namespace-portal.md)]
 

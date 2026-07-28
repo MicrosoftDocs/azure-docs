@@ -4,10 +4,12 @@ description: Learn how to use the IoT Central data export capability to continuo
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/05/2024
+ms.date: 08/06/2025
 ms.topic: how-to
-ms.service: iot-central
-ms.custom: devx-track-azurecli
+ms.service: azure-iot-central
+ms.custom:
+  - devx-track-azurecli
+  - sfi-ropc-nochange
 ---
 
 # Export IoT data to Event Hubs
@@ -32,7 +34,7 @@ Event Hubs destinations let you configure the connection with a *connection stri
 
 # [Managed identity](#tab/managed-identity)
 
-This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a manged identity.
+This article shows how to create a managed identity using the Azure CLI. You can also use the Azure portal to create a managed identity.
 
 If you don't have an existing Event Hubs namespace to export to, run the following script in the Azure Cloud Shell bash environment. The script creates a resource group, Event Hubs namespace, and event hub. The script then enables the managed identity for your IoT Central application and assigns the role it needs to access your event hub:
 
@@ -132,4 +134,4 @@ For Event Hubs, IoT Central exports new messages data to your event hub in near 
 
 ## Next steps
 
-Now that you know how to export to Event Hubs, a suggested next step is to learn [Export to Azure Data Explorer](howto-export-to-azure-data-explorer.md).
+Now that you know how to export to Event Hubs, a suggested next step is to learn how to [export IoT data to Azure Data Explorer](howto-export-to-azure-data-explorer.md).

@@ -7,6 +7,7 @@ ms.topic: reference
 ms.service: azure-table-storage
 author: normesta
 ms.author: normesta
+# Customer intent: As a cloud administrator, I want to access monitoring metrics and logs for Azure Table Storage, so that I can effectively track performance and troubleshoot issues in my data storage solution.
 ---
 
 # Azure Table Storage monitoring data reference

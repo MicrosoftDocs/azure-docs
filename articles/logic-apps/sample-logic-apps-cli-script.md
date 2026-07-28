@@ -1,15 +1,16 @@
 ---
-title: Azure CLI script sample - create a logic app
-description: Sample script to create a logic app through the Logic Apps extension in the Azure CLI.
+title: Azure CLI Script Sample - Create Consumption Workflow
+description: Sample script to create a Consumption logic app workflow by using the Azure Logic Apps extension in the Azure CLI.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
-ms.topic: conceptual
+ms.topic: concept-article
+ms.update-cycle: 1095-days
+ms.date: 07/10/2026
 ms.custom: mvc, devx-track-azurecli
-ms.date: 01/04/2024
 ---
 
-# Azure CLI script sample - create a logic app
+# Azure CLI script sample - create a Consumption logic app workflow
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
@@ -20,7 +21,7 @@ This script creates a sample logic app through the [Azure CLI Logic Apps extensi
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* An Azure account with an active subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * The [Azure CLI](/cli/azure/install-azure-cli) installed on your local computer.
 * The [Logic Apps Azure CLI extension](/cli/azure/azure-cli-extensions-list) installed on your computer. To install this extension, use this command: `az extension add --name logic`
 * A [workflow definition](quickstart-logic-apps-azure-cli.md#workflow-definition) for your logic app. This JSON file must follow the [Workflow Definition language schema](logic-apps-workflow-definition-language.md).
@@ -196,7 +197,7 @@ This sample script uses the following commands to create a new resource group an
 | ------- | ----- |
 | [`az group create`](/cli/azure/group#az-group-create) | Creates a resource group in which your logic app's resources are stored. |
 | [`az logic workflow create`](/cli/azure/logic/workflow#az-logic-workflow-create) | Creates a logic app based on the workflow defined in the parameter `--definition`. |
-| [`az group delete`](/cli/azure/vm/extension) | Deletes a resource group and all of its nested resources. |
+| [`az group delete`](/cli/azure/group#az-group-delete) | Deletes a resource group and all of its nested resources. |
 
 ## Next steps
 

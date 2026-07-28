@@ -13,7 +13,7 @@ ms.author: midesa
 
 Apache Spark is a parallel processing framework that supports in-memory processing to boost the performance of big-data analytic applications. Apache Spark in Azure Synapse Analytics is one of Microsoft's implementations of Apache Spark in the cloud. 
 
-Azure Synapse now offers the ability to create Azure Synapse GPU-enabled pools to run Spark workloads using underlying [RAPIDS libraries](https://nvidia.github.io/spark-rapids/) that use the massive parallel processing power of GPUs to accelerate processing. The RAPIDS Accelerator for Apache Spark allows you to run your existing Spark applications **without any code change** by just enabling a configuration setting, which comes pre-configured for a GPU-enabled pool.
+Azure Synapse now offers the ability to create Azure Synapse GPU-enabled pools to run Spark workloads using underlying [RAPIDS libraries](https://nvidia.github.io/cudf-spark/) that use the massive parallel processing power of GPUs to accelerate processing. The RAPIDS Accelerator for Apache Spark allows you to run your existing Spark applications **without any code change** by just enabling a configuration setting, which comes pre-configured for a GPU-enabled pool.
 You can choose to turn on/off the RAPIDS-based GPU acceleration for your workload or parts of your workload by setting this configuration:
 
 ```
@@ -23,14 +23,9 @@ spark.conf.set('spark.rapids.sql.enabled','true/false')
 > [!NOTE]
 > The Preview for Azure Synapse GPU-enabled pools has now been deprecated.
 
-> [!CAUTION]
-> Deprecation and disablement notification for GPUs on the Azure Synapse Runtime for Apache Spark 3.1 and 3.2
-> - The GPU accelerated preview is now deprecated on the [Apache Spark 3.2 (deprecated) runtime](../spark/apache-spark-32-runtime.md). Deprecated runtimes will not have bug and feature fixes. This runtime and the corresponding GPU accelerated preview on Spark 3.2 has been retired and disabled as of July 8, 2024.
-> - The GPU accelerated preview is now deprecated on the [Azure Synapse 3.1 (deprecated) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its end of support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
-
 ## RAPIDS Accelerator for Apache Spark
 
-The Spark RAPIDS accelerator is a plugin that works by overriding the physical plan of a Spark job by supported GPU operations, and running those operations on the GPUs, thereby accelerating processing. This library is currently in preview and doesn't support all Spark operations (here is a list of [currently supported operators](https://nvidia.github.io/spark-rapids/docs/supported_ops.html), and more support is being added incrementally through new releases).
+The Spark RAPIDS accelerator is a plugin that works by overriding the physical plan of a Spark job with supported GPU operations. It runs those operations on the GPUs, which accelerates processing. This library is currently in preview and doesn't support all Spark operations. For a list of supported operations, see [currently supported operators](https://nvidia.github.io/cudf-spark/docs/supported_ops.html). More support is added incrementally through new releases.
 
 ## Cluster configuration options
 

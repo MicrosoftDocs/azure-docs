@@ -6,17 +6,16 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 06/18/2024
+ms.date: 10/17/2024
 ms.author: mbender
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
+# Customer intent: As a cloud architect, I want to attach a cross-subscription backend to an Azure Load Balancer, so that I can efficiently manage and distribute network traffic across virtual networks in different subscriptions.
 ---
 
 # Attach a cross-subscription backend to an Azure Load Balancer
 In this article, you learn how to attach a cross-subscription backend to an Azure Load Balancer by creating a cross-subscription backend pool and attaching cross-subscription network interfaces to the backend pool of the load balancer.
 
 A [cross-subscription load balancer](cross-subscription-overview.md) can reference a virtual network that resides in a different subscription other than the load balancers. This feature allows you to deploy a load balancer in one subscription and reference a virtual network in another subscription.
-
-[!INCLUDE [load-balancer-cross-subscription-preview](../../includes/load-balancer-cross-subscription-preview.md)]
 
 [!INCLUDE [load-balancer-cross-subscription-prerequisites](../../includes/load-balancer-cross-subscription-prerequisites.md)]
 

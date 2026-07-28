@@ -4,7 +4,10 @@ description: Learn how to create Azure HDInsight clusters using the cross-platfo
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli, linux-related-content
-ms.date: 11/21/2023
+author: hareshg
+ms.author: hgowrisankar
+ms.reviewer: nijelsf
+ms.date: 11/25/2024
 ---
 
 # Create HDInsight clusters using the Azure CLI
@@ -126,6 +129,7 @@ The steps in this document walk-through creating a HDInsight 4.0 cluster using t
 
 After you complete the article, you may want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it isn't in use. You're also charged for an HDInsight cluster, even when it's not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they aren't in use.
 
+
 Enter all or some of the following commands to remove resources:
 
 ```azurecli-interactive
@@ -156,6 +160,7 @@ If you run into issues with creating HDInsight clusters, see [access control req
 ## Next steps
 
 Now that you've successfully created an HDInsight cluster using the Azure CLI, use the following to learn how to work with your cluster:
+
 
 ### Apache Hadoop clusters
 

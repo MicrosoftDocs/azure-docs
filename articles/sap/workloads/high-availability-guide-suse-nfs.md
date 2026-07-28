@@ -1,15 +1,20 @@
 ---
-title: High availability for NFS on Azure VMs on SLES | Microsoft Docs
+title: High availability for NFS on Azure VMs on SUSE Linux Enterprise Server | Microsoft Docs
 description: High availability for NFS on Azure VMs on SUSE Linux Enterprise Server
 services: virtual-machines-windows,virtual-network,storage
 author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.custom: linux-related-content
 ms.topic: article
-ms.date: 06/19/2024
+
+ms.date: 02/02/2026
+
 ms.author: radeltch
+ms.custom:
+  - linux-related-content
+  - sfi-image-nochange
+# Customer intent: "As a system administrator managing SAP applications on Azure VMs, I want to set up a highly available NFS server on SUSE Linux, so that I can ensure reliable shared data storage and uninterrupted service for multiple SAP systems."
 ---
 
 # High availability for NFS on Azure VMs on SUSE Linux Enterprise Server
@@ -28,16 +33,12 @@ ms.author: radeltch
 [1984787]:https://launchpad.support.sap.com/#/notes/1984787
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
 
-[sles-hae-guides]:https://www.suse.com/documentation/sle-ha-12/
-[sles-for-sap-bp]:https://www.suse.com/documentation/sles-for-sap-12/
-[suse-ha-12sp3-relnotes]:https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP3/
-
 [template-file-server]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fapplication-workloads%2Fsap%2Fsap-file-server-md%2Fazuredeploy.json
 
 [sap-hana-ha]:sap-hana-high-availability.md
 
 > [!NOTE]
-> We recommend deploying one of the Azure first-party NFS services: [NFS on Azure Files](../../storage/files/storage-files-quick-create-use-linux.md) or [NFS ANF volumes](../../azure-netapp-files/azure-netapp-files-create-volumes.md) for storing shared data in a highly available SAP system. Be aware, that we are de-emphasizing SAP reference architectures, utilizing NFS clusters.  
+> We recommend deploying one of the Azure first-party NFS services: [NFS on Azure Files](../../storage/files/storage-files-quick-create-use-linux.md) or [NFS ANF volumes](../../azure-netapp-files/azure-netapp-files-create-volumes.md) for storing shared data in a highly available SAP system. Be aware, that we're de-emphasizing SAP reference architectures, utilizing NFS clusters.  
 
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, and install a highly available NFS server that can be used to store the shared data of a highly available SAP system.
 This guide describes how to set up a highly available NFS server that is used by two SAP systems, NW1 and NW2. The names of the resources (for example virtual machines, virtual networks) in the example assume that you have used the [SAP file server template][template-file-server] with resource prefix **prod**.
@@ -65,10 +66,10 @@ Read the following SAP Notes and papers first
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux (this article)][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
-* [SUSE Linux Enterprise High Availability Extension 12 SP3 best practices guides][sles-hae-guides]
-  * Highly Available NFS Storage with DRBD and Pacemaker
-* [SUSE Linux Enterprise Server for SAP Applications 12 SP3 best practices guides][sles-for-sap-bp]
-* [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
+* [SUSE Linux Enterprise High Availability Extension 12 SP5 Highly Available NFS Storage with DRBD and Pacemaker](https://documentation.suse.com/fr-fr/sle-ha/12-SP5/html/SLE-HA-all/art-ha-quick-nfs.html)
+* [SUSE Linux Enterprise Server for SAP Applications 12 SP5 best practices guides](https://documentation.suse.com/en-us/sles-sap/12-SP5/html/SLES4SAP-guide/pre-s4s.html)
+* [SUSE Linux Enterprise Server for SAP Applications 12 SP5 Release Notes](https://www.suse.com/releasenotes/x86_64/SLE-HA/12-SP5)
+
 
 ## Overview
 
@@ -84,6 +85,9 @@ The NFS server uses a dedicated virtual hostname and virtual IP addresses for ev
 * Probe port 61001 for NW2
 
 ## Set up a highly available NFS server
+
+
+Use the following steps to deploy and configure a highly available NFS infrastructure for SAP workloads on SLES. Complete each subsection in order, because later steps depend on resources created in earlier steps.
 
 ### Deploy Linux manually via Azure portal
 
@@ -111,7 +115,7 @@ Follow [create load balancer](../../load-balancer/quickstart-load-balancer-stand
      * Check "Enable Floating IP"
 
 > [!NOTE]
-> Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. So to control the number of successful or failed consecutive probes, set the property "probeThreshold" to 2. It is currently not possible to set this property using Azure portal, so use either the [Azure CLI](/cli/azure/network/lb/probe) or [PowerShell](/powershell/module/az.network/new-azloadbalancerprobeconfig) command.
+> Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. So to control the number of successful or failed consecutive probes, set the property "probeThreshold" to 2. It's currently not possible to set this property using Azure portal, so use either the [Azure CLI](/cli/azure/network/lb/probe) or [PowerShell](/powershell/module/az.network/new-azloadbalancerprobeconfig) command.
 
 > [!NOTE]
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -119,7 +123,7 @@ Follow [create load balancer](../../load-balancer/quickstart-load-balancer-stand
 > [!IMPORTANT]
 >
 > * Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
-> * To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update saptune version to 3.1.1 or higher. For more details, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
+> * To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update saptune version to 3.1.1 or higher. For more details, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/)
 
 ### Create Pacemaker cluster
 
@@ -387,13 +391,15 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Setup drbd split-brain detection
 
-    When using drbd to synchronize data from one host to another, a so called split brain can occur. A split brain is a scenario where both cluster nodes promoted the drbd device to be the primary and went out of sync. It might be a rare situation but you still want to handle and resolve a split brain as fast as possible. It is therefore important to be notified when a split brain happened.
+    When using drbd to synchronize data from one host to another, a so called split brain can occur. A split brain is a scenario where both cluster nodes promoted the drbd device to be the primary and went out of sync. It might be a rare situation but you still want to handle and resolve a split brain as fast as possible. It's therefore important to be notified when a split brain happened.
 
     Read [the official drbd documentation](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-split-brain-notification) on how to set up a split brain notification.
 
-    It is also possible to automatically recover from a split brain scenario. For more information, read [Automatic split brain recovery policies](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-automatic-split-brain-recovery-configuration)
+    It's also possible to automatically recover from a split brain scenario. For more information, read [Automatic split brain recovery policies](https://www.linbit.com/drbd-user-guide/users-guide-drbd-8-4/#s-automatic-split-brain-recovery-configuration)
 
 ### Configure Cluster Framework
+
+After you complete the DRBD and NFS base configuration, add Pacemaker resources for each SAP system and define the required ordering and colocation constraints.
 
 1. **[1]** Add the NFS drbd devices for SAP system NW1 to the cluster configuration
 
@@ -405,7 +411,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    > * For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.  
    >
    > Note that the change will require brief downtime.  
-   > For existing Pacemaker clusters, if the configuration was already changed to use socat as described in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), there is no requirement to switch immediately to azure-lb resource agent.
+   > For existing Pacemaker clusters, if the configuration was already changed to use socat as described in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), there's no requirement to switch immediately to azure-lb resource agent.
 
    ```bash
    sudo crm configure rsc_defaults resource-stickiness="200"

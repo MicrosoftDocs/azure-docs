@@ -2,14 +2,17 @@
 title: 'Tutorial: Create an alias record to refer to a resource record in a zone'
 titleSuffix: Azure DNS
 description: In this tutorial, you learn how to configure an alias record to reference a resource record within the zone.
-author: greg-lindsay
-ms.author: greglin
+author: asudbring
+ms.author: allensu
 ms.service: azure-dns
 services: dns
 ms.topic: tutorial
 ms.date: 11/30/2023
-ms.custom: template-tutorial #Required; leave this attribute/value as-is.
+ms.custom:
+  - template-tutorial #Required; leave this attribute/value as-is.
+  - sfi-image-nochange
 #Customer intent: As an experienced network administrator, I want to configure Azure an DNS alias record to refer to a resource record within the zone.
+# Customer intent: "As a network administrator, I want to configure an alias record in Azure DNS to point to a resource record, so that I can effectively manage the DNS records and enhance resource referencing within my domain."
 ---
 
 # Tutorial: Create an alias record to refer to a zone resource record
@@ -23,7 +26,7 @@ In this tutorial, you learn how to:
 > * Create an alias record for the resource record.
 > * Test the alias record.
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 
@@ -59,7 +62,7 @@ Create an alias record that points to a resource record in the zone.
 1. Select the **server** record for the **Zone record set**.
 1. Select **OK**.
 
-    :::image type="content" source="./media/tutorial-alias-rr/add-alias-record-set-inline.png" alt-text="Screentshot of adding the alias record set in the Add record set page." lightbox="./media/tutorial-alias-rr/add-alias-record-set-expanded.png":::
+    :::image type="content" source="./media/tutorial-alias-rr/add-alias-record-set-inline.png" alt-text="Screenshot of adding the alias record set in the Add record set page." lightbox="./media/tutorial-alias-rr/add-alias-record-set-expanded.png":::
 
 ## Test the alias record
 

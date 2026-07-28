@@ -2,13 +2,13 @@
 title: Migrate from the EA Billing Periods API
 titleSuffix: Microsoft Cost Management
 description: This article has information to help you migrate from the EA Billing Periods API.
-author: bandersmsft
-ms.author: banders
-ms.date: 05/16/2024
-ms.topic: conceptual
+author: vikramdesai01
+ms.author: vikdesai
+ms.date: 07/01/2025
+ms.topic: upgrade-and-migration-article
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: maminn
+ms.reviewer: vikdesai
 ---
 
 # Migrate from the EA Billing Periods API

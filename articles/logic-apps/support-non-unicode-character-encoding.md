@@ -1,10 +1,14 @@
 ---
-title: Convert non-Unicode encoded text for compatibility
-description: Handle non-Unicode characters in Azure Logic Apps by converting text payloads to UTF-8 with base64 encoding and Azure Functions.
+title: Convert Non-Unicode Encoded Text for Compatibility
+description: Handle non-Unicode characters in logic app workflows for Azure Logic Apps by converting text payloads to UTF-8 with base64 encoding and Azure Functions.
+services: logic-apps
 ms.service: azure-logic-apps
+ms.suite: integration
 ms.topic: how-to
-ms.reviewer: estfan, azla
-ms.date: 08/21/2024
+ms.reviewers: estfan, azla
+ms.update-cycle: 1095-days
+ms.date: 03/27/2025
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to learn how to edit and manage logic app workflows in the Azure portal.
 ---
 
 # Support non-Unicode character encoding in Azure Logic Apps
@@ -50,7 +54,7 @@ If you set the `Content-Type` header to `application/octet-stream`, you also mig
 
 ## Base64 encode content
 
-Before you [base64 encode](workflow-definition-language-functions-reference.md#base64) content to a string, make sure that you [convert the text to UTF-8](#convert-payload-encoding). Otherwise, characters might return corrupted.
+Before you [base64 encode](expression-functions-reference.md#base64) content to a string, make sure that you [convert the text to UTF-8](#convert-payload-encoding). Otherwise, characters might return corrupted.
 
 Next, convert any .NET-supported encoding to another .NET-supported encoding. Review the [Azure Functions code example](#azure-functions-version) or the [.NET code example](#net-version):
 
@@ -211,7 +215,7 @@ Example output:
 
 If you need to send a non-Unicode payload from your workflow, do the steps for [converting the payload to UTF-8](#convert-payload-encoding) in reverse. Keep the text in UTF-8 as long as possible within your system. Next, use the same function to convert the base64-encoded UTF-8 characters to the required encoding. Then, apply base64 decoding to the text, and send your payload.
 
-When you consume the return value from Azure Functions, make sure to use the [**base64ToBinary** function](workflow-definition-language-functions-reference.md#base64tobinary), not the **base64ToString** function.
+When you consume the return value from Azure Functions, make sure to use the [**base64ToBinary** function](expression-functions-reference.md#base64tobinary), not the **base64ToString** function.
 
 ## Convert payloads for AS2
 

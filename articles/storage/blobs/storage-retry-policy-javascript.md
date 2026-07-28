@@ -2,15 +2,16 @@
 title: Implement a retry policy using the Azure Storage client library for JavaScript
 titleSuffix: Azure Storage
 description: Learn about retry policies and how to implement them for Blob Storage. This article helps you set up a retry policy for Blob Storage requests using the Azure Storage client library for JavaScript. 
-author: pauljewellmsft
-ms.author: pauljewell
+author: stevenmatthew
+ms.author: shaas
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
-ms.custom: devx-track-js, devguide-js
+ms.date: 10/28/2024
+ms.custom: devx-track-js, devguide-js, devx-track-ts, devguide-ts
+# Customer intent: As a developer using the Azure Storage client library for JavaScript, I want to implement a customizable retry policy for Blob Storage requests, so that my application can gracefully handle transient faults and improve overall stability and resiliency.
 ---
 
-# Implement a retry policy with JavaScript
+# Implement a retry policy with JavaScript or TypeScript
 
 Any application that runs in the cloud or communicates with remote services and resources must be able to handle transient faults. It's common for these applications to experience faults due to a momentary loss of network connectivity, a request timeout when a service or resource is busy, or other factors. Developers should build applications to handle transient faults transparently to improve stability and resiliency. 
 
@@ -33,6 +34,8 @@ The following table lists the parameters available when creating a [StorageRetry
 
 In the following code example, we configure the retry options in an instance of [StorageRetryOptions](/javascript/api/@azure/storage-blob/storageretryoptions), pass it to a new [StoragePipelineOptions](/javascript/api/@azure/storage-blob/storagepipelineoptions) instance, and pass `pipeline` when instantiating `BlobServiceClient`:
 
+### [JavaScript](#tab/javascript)
+
 ```javascript
 const options = {
   retryOptions: {
@@ -51,6 +54,29 @@ const blobServiceClient = new BlobServiceClient(
   pipeline
 );
 ```
+
+### [TypeScript](#tab/typescript)
+
+```typescript
+const options: StoragePipelineOptions = {
+  retryOptions: {
+    maxTries: 4,
+    retryDelayInMs: 3 * 1000,
+    maxRetryDelayInMs: 120 * 1000,
+    retryPolicyType: StorageRetryPolicyType.EXPONENTIAL
+  },
+};
+
+const pipeline: Pipeline = newPipeline(credential, options);
+
+const blobServiceClient = new BlobServiceClient(
+  `https://${accountName}.blob.core.windows.net`,
+  credential,
+  pipeline
+);
+```
+
+---
 
 In this example, each service request issued from the `BlobServiceClient` object uses the retry options as defined in `retryOptions`. This policy applies to client requests. You can configure various retry strategies for service clients based on the needs of your app.
 

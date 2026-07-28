@@ -5,7 +5,9 @@ ms.topic: how-to
 ms.date: 12/16/2022
 author: RoseHJM
 ms.author: rosemalcolm
-ms.custom: engagement-fy23
+ms.custom:
+  - engagement-fy23
+  - sfi-image-nochange
 ---
 
 # Configure Canvas to use Azure Lab Services

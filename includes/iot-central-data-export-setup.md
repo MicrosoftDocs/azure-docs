@@ -3,9 +3,9 @@
  description: include file
  services: iot-central
  author: dominicbetts
- ms.service: iot-central
+ ms.service: azure-iot-central
  ms.topic: include
- ms.date: 05/22/2023
+ ms.date: 09/02/2025
  ms.author: dobett
  ms.custom: include file
 ---
@@ -29,19 +29,19 @@ Now that you have a destination to export your data to, set up data export in yo
 
     | Data type | Description | Data format |
     | :------------- | :---------- | :----------- |
-    |  Telemetry | Export telemetry messages from devices in near-real time. Each exported message contains the full contents of the original device message, normalized.   |  [Telemetry message format](#telemetry-format)   |
-    | Property changes | Export changes to device and cloud properties in near-real time. For read-only device properties, changes to the reported values are exported. For read-write properties, both reported and desired values are exported. | [Property change message format](#property-changes-format) |
-    | Device connectivity | Export device connected and disconnected events. | [Device connectivity message format](#device-connectivity-changes-format) |
-    | Device lifecycle | Export device registered, deleted, provisioned, enabled, disabled, displayNameChanged, and deviceTemplateChanged events. | [Device lifecycle changes message format](#device-lifecycle-changes-format) |
-    | Device template lifecycle | Export published device template changes including created, updated, and deleted. | [Device template lifecycle changes message format](#device-template-lifecycle-changes-format) |
-    | Audit logs | Logs of user-initiated updates to entities in the application. To learn more, see [Use audit logs to track activity in your IoT Central application](../articles/iot-central/core/howto-use-audit-logs.md) | [Audit log message format](#audit-log-format) |
+    |  Telemetry | Export telemetry messages from devices in near-real time. Each exported message contains the full contents of the original device message, normalized.   |  [Telemetry format](#telemetry-format)   |
+    | Property changes | Export changes to device and cloud properties in near-real time. For read-only device properties, changes to the reported values are exported. For read-write properties, both reported and desired values are exported. | [Property changes format](#property-changes-format) |
+    | Device connectivity | Export device connected and disconnected events. | [Device connectivity changes format](#device-connectivity-changes-format) |
+    | Device lifecycle | Export device registered, deleted, provisioned, enabled, disabled, displayNameChanged, and deviceTemplateChanged events. | [Device lifecycle changes format](#device-lifecycle-changes-format) |
+    | Device template lifecycle | Export published device template changes including created, updated, and deleted. | [Device template lifecycle changes format](#device-template-lifecycle-changes-format) |
+    | Audit logs | Logs of user-initiated updates to entities in the application. To learn more, see [Use audit logs to track activity in your IoT Central application](../articles/iot-central/core/howto-use-audit-logs.md) | [Audit log format](#audit-log-format) |
 
 1. Optionally, add filters to reduce the amount of data exported. There are different types of filter available for each data export type:
     <a name="DataExportFilters"></a>
 
     | Type of data | Available filters|
     |--------------|------------------|
-    |Telemetry|<ul><li>Filter by device name, device ID, device template, and if the device is simulated</li><li>Filter stream to only contain telemetry that meets the filter conditions</li><li>Filter stream to only contain telemetry from devices with properties matching the filter conditions</li><li>Filter stream to only contain telemetry that has *message properties* meeting the filter condition. *Message properties* (also known as *application properties*) are sent in a bag of key-value pairs on each telemetry message. To create a message property filter, enter the message property key you're looking for, and specify a condition. Only telemetry messages with properties that match the specified filter condition are exported. [Learn more about application properties from IoT Hub docs](../articles/iot-hub/iot-hub-devguide-messages-construct.md) </li></ul>|
+    |Telemetry|<ul><li>Filter by device name, device ID, device template, and if the device is simulated</li><li>Filter stream to only contain telemetry that meets the filter conditions</li><li>Filter stream to only contain telemetry from devices with properties matching the filter conditions</li><li>Filter stream to only contain telemetry that has *message properties* meeting the filter condition. *Message properties* (also known as *application properties*) are sent in a bag of key-value pairs on each telemetry message. To create a message property filter, enter the message property key you're looking for, and specify a condition. Only telemetry messages with properties that match the specified filter condition are exported. To learn more about application properties, see [IoT Hub documentation](../articles/iot-hub/iot-hub-devguide-messages-construct.md). </li></ul>|
     |Property changes|<ul><li>Filter by device name, device ID, device template, and if the device is simulated</li><li>Filter stream to only contain property changes that meet the filter conditions</li></ul>|
     |Device connectivity|<ul><li>Filter by device name, device ID, device template, organizations, and if the device is simulated</li><li>Filter stream to only contain changes from devices with properties matching the filter conditions</li></ul>|
     |Device lifecycle|<ul><li>Filter by device name, device ID, device template, and if the device is provisioned, enabled, or simulated</li><li>Filter stream to only contain changes from devices with properties matching the filter conditions</li></ul>|
@@ -49,7 +49,7 @@ Now that you have a destination to export your data to, set up data export in yo
     |Audit logs|N/A|
 
 1. Optionally, enrich exported messages with extra key-value pair metadata. The following enrichments are available for the telemetry, property changes, device connectivity, and device lifecycle data export types:
-<a name="DataExportEnrichmnents"></a>
+<a name="DataExportEnrichments"></a>
     - **Custom string**: Adds a custom static string to each message. Enter any key, and enter any string value.
     - **Property**, which adds to each message:
        - Device metadata such as device name, device template name, enabled, organizations, provisioned, and simulated.
@@ -93,4 +93,4 @@ Each exported message contains a normalized form of the full message the device 
 - `enrichments`: Any enrichments set up on the export.
 - `module`: The IoT Edge module that sent this message. This field only appears if the message came from an IoT Edge module.
 - `component`: The component that sent this message. This field only appears if the capabilities sent in the message were modeled as a component in the device template
-- `messageProperties`: Other properties that the device sent with the message. These properties are sometimes referred to as *application properties*. [Learn more from IoT Hub docs](../articles/iot-hub/iot-hub-devguide-messages-construct.md).
+- `messageProperties`: Other properties that the device sent with the message. These properties are sometimes referred to as *application properties*. To learn more, see [IoT Hub documentation](../articles/iot-hub/iot-hub-devguide-messages-construct.md).

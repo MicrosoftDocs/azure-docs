@@ -1,51 +1,175 @@
 ---
-title: Elastic integration overview
-description: Learn about using the Elastic Cloud-Native Observability Platform in the Azure Marketplace.
-ms.topic: conceptual
-ms.date: 05/15/2023
-author: flang-msft
-ms.author: franlanglois
+title: Elastic integrations overview
+description: Learn about using the Elastic Cloud-Native Observability Platform in Azure Marketplace.
+author: pdjokar96
+ms.author: piyushdash
+ms.topic: overview
+ms.date: 07/01/2025
+ms.custom:
+  - references_regions
+ai-usage: ai-assisted
 ---
 
-# What is Elastic Cloud (Elasticsearch) - An Azure Native ISV Service?
+# What is Elastic on Azure?
 
-Azure Native ISV Services enable you to easily provision, manage, and tightly integrate independent software vendor (ISV) software and services on Azure. This Azure Native ISV Service is developed and managed by Microsoft and Elastic.
+[!INCLUDE [what-is](../includes/what-is.md)]
 
-You can find Elastic Cloud (Elasticsearch) - An Azure Native ISV Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Elastic%2Fmonitors) or get it on [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview).
+Elastic on Azure is a set of managed services that deliver search, log analytics, and security monitoring functions for Azure environments. You deploy Elastic resources directly from the Azure portal, and billing flows through your Azure subscription.
 
-This article describes the Elastic software as a service (SaaS) application that is available through the Azure Marketplace. The offering enables deeper integration of the Elastic service with Azure.
+## Why use the Azure Native Integration?
 
-Elastic's Cloud-Native Observability Platform centralizes log, metric, and tracing analytics in one place. You can more easily monitor the health and performance of your Azure environment. This information helps you troubleshoot your services more quickly.
+You can run Elastic independently, but the Azure Native Integration simplifies the experience:
 
-With the Elastic offering, you can manage the solution through the Azure portal. You implement Elastic as a monitoring solution for your cloud workloads through a streamlined workflow.
+| Capability | Without integration | With Azure Native Integration |
+|-----------|-------------------|------------------------------|
+| **Deployment** | Sign up on elastic.co, configure separately | Deploy from Azure portal or CLI |
+| **Billing** | Separate Elastic invoice | Consolidated on your Azure bill |
+| **Authentication** | Separate Elastic credentials | Single sign-on via Microsoft Entra ID |
+| **Log forwarding** | Manual pipeline configuration | Automated Azure diagnostic log routing |
+| **Agent deployment** | Manual agent installation per VM | One-click agent deployment from Azure portal |
+| **OpenAI integration** | Manual setup | Built-in Azure OpenAI configuration |
 
-You can now provision the Elastic resources through a resource provider named **Microsoft.Elastic**. You create, provision, and manage Elastic resources through the Azure portal. Elastic owns and runs the SaaS application including the Elastic accounts created.
+## Available services
+
+Elastic on Azure offers three distinct services, each tailored to a specific workload:
+
+| Service | Use case | What it does |
+|---------|----------|-------------|
+| **Elastic Cloud (Elasticsearch)** | Search and analytics | Stores, searches, and analyzes structured and unstructured data at scale. Supports full-text search, vector search, and semantic search |
+| **Elastic Observability** | Monitoring and APM | Collects logs, metrics, and traces to monitor application performance and infrastructure health. Includes alerting and anomaly detection |
+| **Elastic Security** | Threat detection and response | Analyzes security events for threat detection, investigation, and incident response across Azure resources. Includes SIEM and endpoint protection |
+
+Each service is available as a separate Marketplace offering with its own pricing and configuration:
+
+- [Elastic Cloud (Elasticsearch)](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)
+- [Elastic Observability](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-observability?tab=Overview)
+- [Elastic Security](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-security?tab=Overview)
+
+## How it works
+
+When you create an Elastic resource in Azure:
+
+1. **Azure provisions a managed resource** (`Microsoft.Elastic/monitors`) in your chosen resource group and region.
+2. **Elastic creates the deployment** — either a serverless project (auto-scaling, usage-based) or a cloud-hosted cluster (dedicated, managed) in the same region.
+3. **Azure configures log forwarding** — subscription activity logs and resource diagnostic logs are routed to Elastic based on your tag rules.
+4. **SSO is established** — Microsoft Entra ID is linked so your team can access the Elastic portal without separate credentials.
+
+Data stays in the Azure region where the service is deployed.
+
+## Integrated billing
+
+Azure Native ISV Service includes integrated billing: Elastic resource costs are posted to your Azure subscription through the Microsoft Commercial Marketplace. You can create multiple Elastic Cloud resources (deployments) across different Azure subscriptions, and all costs associated with a single Elastic Cloud organization are posted to one Azure subscription — the one used to create the first Elastic resource.
+
+The following terms describe how the pieces fit together:
+
+- **Azure Marketplace SaaS ID** — A unique identifier generated one time by the Microsoft Commercial Marketplace when a user creates their first Elastic resource through Azure (portal, API, SDK, or Terraform). It's mapped 1:1 to an Azure user identity and an Azure subscription.
+- **Elastic Cloud organization** — The top-level container in Elastic Cloud under which everything is grouped and managed. The organization is created automatically as part of your first Elastic resource creation. The initial member can invite additional users.
+- **Elastic resource (deployment)** — An Elastic Cloud deployment (or Serverless project) that runs an Elasticsearch cluster and other Elastic products. Multiple users in the same Elastic Cloud organization can create deployments from different Azure subscriptions, or from the Elastic Cloud Console directly.
+
+### How Azure and Elastic Cloud IDs map
+
+The Azure Marketplace SaaS ID maps **1:1** to an Elastic Cloud organization, which in turn can hold **many** Elastic deployments — and those deployments can live in different Azure subscriptions. All Elastic Cloud organization costs are posted to the Azure Marketplace SaaS ID, which maps to a single Azure subscription. Charges show up on the Azure Marketplace invoice as a single line item.
 
 > [!IMPORTANT]
-> The Elastic service on Azure only stores and processes customer data in the region where the service was deployed. No data is stored outside of that region.
+> Azure free credits and most Azure free trial offers can't be used to purchase Azure Marketplace third-party offers, including Elastic. For details, see [Understand your Azure Marketplace charges](/azure/cost-management-billing/understand/understand-azure-marketplace-charges#azure-credit-eligibility).
 
-## Capabilities
+For more Elastic specific billing details, see the Elastic [Billing FAQ](https://www.elastic.co/guide/en/cloud/current/ec-faq-billing.html).
 
-Here are the key capabilities provided by the Elastic integration with Azure:
+## Serverless vs. cloud-hosted
 
-- **Simplified onboarding** - Use Elastic SaaS software as an integrated service on Azure.
-- **Unified billing** - Manage costs for Elastic through Azure monthly bill. 
-- **Single-Sign on to Elastic** - No separate sign-up needed from Elastic portal.
-- **Log forwarder** - Forward subscription activity and resource logs to Elastic.
-- **Management experience** - Provides a single location for monitoring how shipping logs for Azure services are sent to Elastic.
-- **Elastic Agent Deployment** - Set up Elastic agents on virtual machine hosts through a single step. 
+When creating an Elastic resource, you choose between two hosting types:
+
+| Aspect | Serverless | Cloud hosted |
+|--------|-----------|-------------|
+| **Scaling** | Automatic, usage-based | Manual or autoscaling with configured limits |
+| **Version management** | Always on latest version | You choose and manage the Elasticsearch version |
+| **Pricing** | Pay per usage (ingestion, storage, search) | Pay for provisioned capacity |
+| **Best for** | Variable workloads, getting started quickly | Predictable workloads, specific version requirements |
+
+For more information about differences between hosting types, see [Differences from other Elasticsearch offerings](https://www.elastic.co/docs/deploy-manage/deploy/elastic-cloud/differences-from-other-elasticsearch-offerings) in the Elastic documentation.
+
+## Key capabilities
+
+### Integrated onboarding
+
+Deploy Elastic resources directly from the Azure portal using the `Microsoft.Elastic` resource provider. No separate Elastic account creation needed.
+
+### Azure billing integration
+
+All Elastic consumption is tracked and billed through your Azure subscription. View charges in Azure Cost Management alongside your other Azure resources.
+
+### Single sign-on with Microsoft Entra ID
+
+Access Elastic services using your Entra ID credentials. SSO is automatically enabled for all Azure users when you create an Elastic resource.
+
+### Automated log forwarding
+
+Route Azure subscription activity logs and resource diagnostic logs to Elastic for indexing and analysis. Configure which resources send logs using tag-based rules. For more information, see [Monitor & Observe Azure resources with Azure Native Integrations](../metrics-logs.md).
+
+### Elastic Agent deployment
+
+Deploy and manage Elastic Agents on Azure virtual machines directly from the Azure portal. Agents collect host-level metrics, logs, and security data.
+
+### Azure OpenAI integration
+
+Connect your Elastic deployment with Azure OpenAI to enable AI-powered search experiences, including semantic search and retrieval-augmented generation (RAG).
+
+### Traffic filters
+
+Restrict network access to your Elastic deployment using Azure Private Link or IP-based traffic filters for enhanced security.
+
+## Region availability
+
+Elastic on Azure is available in the following regions. Select a region close to your workloads to minimize latency.
+
+### Serverless regions
+
+- East US
+- West US 2
+- Australia East
+- Southeast Asia
+- North Europe
+- Germany West Central
+- Spain Central
+- East US 2
+
+### Cloud-hosted regions
+
+- East US
+- West US 2
+- Australia East
+- Southeast Asia
+- North Europe
+- West Europe
+- UK South
+- Central US
+- South Africa North
+- Central India
+- Japan East
+- Canada Central
+- France Central
+- Brazil South
+- East US 2
+- South Central US
+
+## Subscribe to Elastic
+
+[!INCLUDE [subscribe](../includes/subscribe.md)]
+
+- [Elastic Cloud (Elasticsearch)](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)
+- [Elastic Observability](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-observability?tab=Overview)
+- [Elastic Security](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-security?tab=Overview)
+
+[!INCLUDE [subscribe](../includes/subscribe-from-azure-portal.md)]
 
 ## Elastic links
 
-For more help with using the Elastic service, see the [Elastic documentation](https://www.elastic.co/guide/en/cloud/current/ec-azure-marketplace-native.html) for Azure integration.
+For more help using the Elastic service, see the [Elastic documentation](https://www.elastic.co/guide/en/cloud/current/ec-azure-marketplace-native.html) for Azure integration.
 
 ## Next steps
 
-- To create an instance of Elastic, see [QuickStart: Get started with Elastic](create.md).
-- Get started with Elastic Cloud (Elasticsearch) - An Azure Native ISV Service on
+> [!div class="nextstepaction"]
+> [QuickStart: Create an Elastic resource](create.md)
 
-    > [!div class="nextstepaction"]
-    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Elastic%2Fmonitors)
-
-    > [!div class="nextstepaction"]
-    > [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/elastic.ec-azure-pp?tab=Overview)
+- [Manage your Elastic resource](manage.md)
+- [FAQ](faq.yml)

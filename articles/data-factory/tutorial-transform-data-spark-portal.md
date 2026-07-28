@@ -4,7 +4,9 @@ description: 'This tutorial provides step-by-step instructions for transforming 
 ms.topic: tutorial
 author: nabhishek
 ms.author: abnarain
-ms.date: 10/20/2023
+ms.date: 10/03/2024
+ms.subservice: orchestration
+ms.custom: sfi-image-nochange
 ---
 # Transform data in the cloud by using a Spark activity in Azure Data Factory
 
@@ -20,7 +22,7 @@ You perform the following steps in this tutorial:
 > * Trigger a pipeline run.
 > * Monitor the pipeline run.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 ## Prerequisites
 

@@ -1,13 +1,13 @@
 ---
 title: How an Azure reservation discount is applied
 description: This article helps you understand how reserved instance discounts are applied.
-author: bandersmsft
+author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.topic: conceptual
-ms.date: 07/12/2024
-ms.author: banders
+ms.topic: concept-article
+ms.date: 07/17/2026
+ms.author: primittal
 ---
 
 # How a reservation discount is applied
@@ -54,7 +54,7 @@ Service plans:
 Read the following articles that apply to you to learn how discounts apply to a specific Azure service:
 
 - [App Service](reservation-discount-app-service.md)
-- [Azure Cache for Redis](understand-azure-cache-for-redis-reservation-charges.md)
+- [Azure Managed Redis](../../redis/reserved-pricing.md)
 - [Azure Cosmos DB](understand-cosmosdb-reservation-charges.md)
 - [Azure SQL Edge](discount-sql-edge.md)
 - [Database for MySQL](understand-reservation-charges-mysql.md)

@@ -1,29 +1,30 @@
----
-title: Manage resource groups - Python
+﻿---
+title: Manage Resource Groups - Python
 description: Use Python to manage your resource groups through Azure Resource Manager. Shows how to create, list, and delete resource groups.
-ms.topic: conceptual
+ms.topic: article
 ms.custom: devx-track-arm-template, devx-track-python
-ms.date: 01/27/2024
+ms.date: 02/10/2025
 content_well_notification: 
   - AI-contribution
 ai-usage: ai-assisted
 ---
+
 # Manage Azure resource groups by using Python
 
 Learn how to use Python with [Azure Resource Manager](overview.md) to manage your Azure resource groups.
 
 ## Prerequisites
 
-* Python 3.8 or later installed. To install the latest, see [Python.org](https://www.python.org/downloads/)
+* Python 3.8 or later installed. To install the latest, see [Python.org](https://www.python.org/downloads/).
 
-* The following Azure library packages for Python installed in your virtual environment. To install any of the packages, use `pip install {package-name}`
+* The following Azure library packages for Python installed in your virtual environment. To install any of the packages, use `pip install {package-name}`:
   * azure-identity
   * azure-mgmt-resource
   * azure-mgmt-storage
 
-  If you have older versions of these packages already installed in your virtual environment, you may need to update them with `pip install --upgrade {package-name}`
+  If you have older versions of these packages already installed in your virtual environment, you might need to update them with `pip install --upgrade {package-name}`.
 
-* The examples in this article use CLI-based authentication (`AzureCliCredential`). Depending on your environment, you may need to run `az login` first to authenticate.
+* The examples in this article use CLI-based authentication (`AzureCliCredential`). Depending on your environment, you might need to run `az login` first to authenticate.
 
 * An environment variable with your Azure subscription ID. To get your Azure subscription ID, use:
 
@@ -40,9 +41,9 @@ Learn how to use Python with [Azure Resource Manager](overview.md) to manage you
   ```
 
   > [!NOTE]
-  > If you only need to access the environment variable in the current running console, you can set the environment variable with `set` instead of `setx`.
+  > If you only need to access the environment variable in the current running console, set the environment variable with `set` instead of `setx`.
 
-  After you add the environment variables, you may need to restart any running programs that will need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
+  After you add the environment variables, you might need to restart any running programs that need to read the environment variable, including the console window. For example, if you're using Visual Studio as your editor, restart Visual Studio before running the example.
 
   #### [Linux](#tab/linux)
 
@@ -56,7 +57,7 @@ Learn how to use Python with [Azure Resource Manager](overview.md) to manage you
 
   ##### Bash
 
-  Edit your .bash_profile, and add the environment variables:
+  Edit your `.bash_profile`, and add the environment variables:
 
   ```bash
   export AZURE_SUBSCRIPTION_ID=your-subscription-id
@@ -66,13 +67,13 @@ Learn how to use Python with [Azure Resource Manager](overview.md) to manage you
 
 ## What is a resource group?
 
-A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to add resources to resource groups based on what makes the most sense for your organization. Generally, add resources that share the same lifecycle to the same resource group so you can easily deploy, update, and delete them as a group.
+A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how to add resources to resource groups based on what makes the most sense for your organization. Generally, add resources that share the same lifecycle to the same resource group so you can easily deploy, update, and delete them as a group.
 
-The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you may need to ensure that your data is stored in a particular region.
+The resource group stores metadata about the resources. When you specify a location for the resource group, you're specifying where that metadata is stored. For compliance reasons, you might need to ensure that your data is stored in a particular region.
 
 ## Create resource groups
 
-To create a resource group, use [ResourceManagementClient.resource_groups.create_or_update](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-resourcegroupsoperations-create-or-update).
+To create a resource group, use [ResourceManagementClient.resource_groups.create_or_update](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.resourcegroupsoperations#azure-mgmt-resource-resources-operations-resourcegroupsoperations-create-or-update).
 
 ```python
 import os
@@ -96,7 +97,7 @@ print(f"Provisioned resource group with ID: {rg_result.id}")
 
 ## List resource groups
 
-To list the resource groups in your subscription, use [ResourceManagementClient.resource_groups.list](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-resourcegroupsoperations-list).
+To list the resource groups in your subscription, use [ResourceManagementClient.resource_groups.list](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.resourcegroupsoperations#azure-mgmt-resource-resources-operations-resourcegroupsoperations-list).
 
 ```python
 import os
@@ -114,7 +115,7 @@ for rg in rg_list:
     print(rg.name)
 ```
 
-To get one resource group, use [ResourceManagementClient.resource_groups.get](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-resourcegroupsoperations-get) and provide the name of the resource group.
+To get one resource group, use [ResourceManagementClient.resource_groups.get](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.resourcegroupsoperations#azure-mgmt-resource-resources-operations-resourcegroupsoperations-get) and provide the name of the resource group.
 
 ```python
 import os
@@ -133,7 +134,7 @@ print(f"Retrieved resource group {rg_result.name} in the {rg_result.location} re
 
 ## Delete resource groups
 
-To delete a resource group, use [ResourceManagementClient.resource_groups.begin_delete](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-resourcegroupsoperations-begin-delete).
+To delete a resource group, use [ResourceManagementClient.resource_groups.begin_delete](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.resourcegroupsoperations#azure-mgmt-resource-resources-operations-resourcegroupsoperations-begin-delete).
 
 ```python
 import os
@@ -156,7 +157,7 @@ You can deploy Azure resources by using Python classes or by deploying an Azure 
 
 ### Deploy resources by using Python classes
 
-The following example creates a storage account by using [StorageManagementClient.storage_accounts.begin_create](/python/api/azure-mgmt-storage/azure.mgmt.storage.v2022_09_01.operations.storageaccountsoperations#azure-mgmt-storage-v2022-09-01-operations-storageaccountsoperations-begin-create). The name for the storage account must be unique across Azure.
+The following example creates a storage account by using [StorageManagementClient.storage_accounts.begin_create](/azure/storage/blobs/storage-blob-python-get-started). The name for the storage account must be unique across Azure.
 
 ```python
 import os
@@ -186,7 +187,7 @@ storage_account_result = storage_client.storage_accounts.begin_create(
 
 ### Deploy resources by using an ARM template
 
-To deploy an ARM template, use [ResourceManagementClient.deployments.begin_create_or_update](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.deploymentsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-deploymentsoperations-begin-create-or-update). The following example requires a local template named `storage.json`.
+To deploy an ARM template, use [ResourceManagementClient.deployments.begin_create_or_update](/python/api/azure-mgmt-resource-deployments/azure.mgmt.resource.deployments.operations.deploymentsoperations#azure-mgmt-resource-deployments-operations-deploymentsoperations-begin-create-or-update). The following example requires a local template named `storage.json`.
 
 ```python
 import os
@@ -260,7 +261,7 @@ For more information about deploying an ARM template, see [Deploy resources with
 
 Locking prevents other users in your organization from accidentally deleting or modifying critical resources.
 
-To prevent a resource group and its resources from being deleted, use [ManagementLockClient.management_locks.create_or_update_at_resource_group_level](/python/api/azure-mgmt-resource/azure.mgmt.resource.locks.v2016_09_01.operations.managementlocksoperations#azure-mgmt-resource-locks-v2016-09-01-operations-managementlocksoperations-create-or-update-at-resource-group-level).
+To prevent a resource group and its resources from being deleted, use [ManagementLockClient.management_locks.create_or_update_at_resource_group_level](/python/api/azure-mgmt-resource-locks/azure.mgmt.resource.locks.operations.managementlocksoperations#azure-mgmt-resource-locks-operations-managementlocksoperations-create-or-update-at-resource-group-level).
 
 ```python
 import os
@@ -281,7 +282,7 @@ lock_result = lock_client.management_locks.create_or_update_at_resource_group_le
 )
 ```
 
-To get the locks for a resource group, use [ManagementLockClient.management_locks.list_at_resource_group_level](/python/api/azure-mgmt-resource/azure.mgmt.resource.locks.v2016_09_01.operations.managementlocksoperations#azure-mgmt-resource-locks-v2016-09-01-operations-managementlocksoperations-list-at-resource-group-level).
+To get the locks for a resource group, use [ManagementLockClient.management_locks.list_at_resource_group_level](/python/api/azure-mgmt-resource-locks/azure.mgmt.resource.locks.operations.managementlocksoperations#azure-mgmt-resource-locks-operations-managementlocksoperations-list-at-resource-group-level).
 
 ```python
 import os
@@ -298,7 +299,7 @@ lock_result = lock_client.management_locks.get_at_resource_group_level("exampleG
 print(f"Lock {lock_result.name} applies {lock_result.level} lock")
 ```
 
-To delete a lock on a resource group, use [ManagementLockClient.management_locks.delete_at_resource_group_level](/python/api/azure-mgmt-resource/azure.mgmt.resource.locks.v2016_09_01.operations.managementlocksoperations#azure-mgmt-resource-locks-v2016-09-01-operations-managementlocksoperations-delete-at-resource-group-level).
+To delete a lock on a resource group, use [ManagementLockClient.management_locks.delete_at_resource_group_level](/python/api/azure-mgmt-resource-locks/azure.mgmt.resource.locks.operations.managementlocksoperations#azure-mgmt-resource-locks-operations-managementlocksoperations-delete-at-resource-group-level).
 
 ```python
 import os
@@ -317,7 +318,7 @@ For more information, see [Lock resources with Azure Resource Manager](lock-reso
 
 ## Tag resource groups
 
-You can apply tags to resource groups and resources to logically organize your assets. For information, see [Using tags to organize your Azure resources](tag-resources.md).
+You can apply tags to resource groups and resources to logically organize your assets. For more information, see [Using tags to organize your Azure resources](tag-resources.md).
 
 ## Export resource groups to templates
 
@@ -325,9 +326,10 @@ To assist with creating ARM templates, you can export a template from existing r
 
 ## Manage access to resource groups
 
-[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way that you manage access to resources in Azure. For more information, see [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
+[Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) is the way you manage access to resources in Azure. For more information, see [Add or remove Azure role assignments using Azure CLI](../../role-based-access-control/role-assignments-cli.md).
 
 ## Next steps
 
-- To learn Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
-- For more information about authentication options, see [Authenticate Python apps to Azure services by using the Azure SDK for Python](/azure/developer/python/sdk/authentication-overview).
+* To learn about Azure Resource Manager, see [Azure Resource Manager overview](overview.md).
+* For more information about authentication options, see [Authenticate Python apps to Azure services by using the Azure SDK for Python](/azure/developer/python/sdk/authentication-overview).
+

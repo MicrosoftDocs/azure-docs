@@ -2,7 +2,7 @@
 title: "Tutorial: Create an Azure custom role with Azure PowerShell - Azure RBAC"
 description: Get started creating an Azure custom role using Azure PowerShell and Azure role-based access control (Azure RBAC) in this tutorial.
 author: rolyon
-manager: amycolannino
+manager: pmwongera
 ms.service: role-based-access-control
 ms.custom: devx-track-azurepowershell
 ms.topic: tutorial
@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > * Update a custom role
 > * Delete a custom role
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 [!INCLUDE [az-powershell-update](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
@@ -41,7 +41,7 @@ Sign in to [Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 The easiest way to create a custom role is to start with a built-in role, edit it, and then create a new role.
 
-1. In PowerShell, use the [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) command to get the list of operations for the Microsoft.Support resource provider. It's helpful to know the operations that are available to create your permissions. You can also see a list of all the operations at [Azure resource provider operations](resource-provider-operations.md#microsoftsupport).
+1. In PowerShell, use the [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) command to get the list of operations for the Microsoft.Support resource provider. It's helpful to know the operations that are available to create your permissions. You can also see a list of all the operations at [Azure resource provider operations](permissions/general.md#microsoftsupport).
 
     ```azurepowershell
     Get-AzProviderOperation "Microsoft.Support/*" | FT Operation, Description -AutoSize
@@ -211,7 +211,7 @@ To update the custom role, you can update the JSON file or use the `PSRoleDefini
     AssignableScopes : {/subscriptions/00000000-0000-0000-0000-000000000000}
     ```
 
-1. To use the `PSRoleDefintion` object to update your custom role, first use the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) command to get the role.
+1. To use the `PSRoleDefinition` object to update your custom role, first use the [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) command to get the role.
 
     ```azurepowershell
     $role = Get-AzRoleDefinition "Reader Support Tickets"
