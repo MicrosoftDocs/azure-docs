@@ -52,38 +52,36 @@ Azure Virtual Network encryption is generally available in all Azure public regi
 
 Azure Virtual Network encryption has the following limitations:
 
-- In scenarios where a PaaS is involved, the virtual machine where the PaaS is hosted dictates if virtual network encryption is supported. The virtual machine must meet the listed requirements. 
-
-- For Internal load balancer, all virtual machines behind the load balancer must be on a supported virtual machine SKU.
-
-- **AllowUnencrypted** is the only supported enforcement at general availability. **DropUnencrypted** enforcement will be supported in the future.
-
-- Virtual networks with encryption enabled don't support [Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview), [Application Gateway](/azure/application-gateway/overview), and [Azure Firewall](/azure/firewall/overview).
-
-- Virtual Network Encryption **should not** be enabled in virtual networks that have [Azure ExpressRoute Gateways](/azure/expressroute/expressroute-introduction).
-    - ```Enabling VNET Encryption for Virtual Networks with ExpressRoute Gateways will break communication to On-premises.```
-
-- Virtual networks configured with the Azure Private Link service don't support Virtual Network encryption, so Virtual Network encryption shouldn't be enabled on these virtual networks. 
-
-- The backend pool of an internal load balancer must not include any network interface secondary IPv4 configurations to prevent connection failures to the load balancer.
-
-- Virtual Network encryption shouldn't be enabled in virtual networks that have Azure confidential computing VM SKUs. If you want to use Azure confidential computing VMs in virtual networks where Virtual Network encryption is enabled, then:
-
+- **AllowUnencrypted** is the only supported enforcement at general availability.
+- **DropUnencrypted** enforcement will be supported in the future.
+- Don't enable Virtual Network encryption if the VM SKU doesn't support [Accelerated Networking](/azure/virtual-network/accelerated-networking-overview?tabs=NetworkManager) or Virtual Network encryption.
+- Don't enable Virtual Network encryption in virtual networks that use [Azure confidential computing](/azure/confidential-computing/confidential-vm-overview) VM SKUs. If you want to use Azure confidential computing VMs in virtual networks where Virtual Network encryption is enabled, then:
     - Enable Accelerated Networking on the VM's NIC if it's supported.
     - If Accelerated Networking isn't supported, change the VM SKU to one that supports Accelerated Networking or Virtual Network encryption.
-    
-    Don't enable Virtual Network encryption if the VM SKU doesn't support Accelerated Networking or Virtual Network encryption.
 
-## Supported scenarios
+## Scenarios list
+Supported - traffic connectivity is preserved when encryption is enabled.
+Encrypted - traffic is encrypted on the datapath.
 
-Virtual network encryption is supported in the following scenarios:
-
-| Scenario | Support |
-| --- | --- |
-| Virtual machines in the same virtual network (including virtual machine scale sets and their internal load balancer) | Supported on traffic between virtual machines from these [SKUs](#requirements). |
-| Virtual network peering | Supported on traffic between virtual machines across regional peering. |
-| Global virtual network peering | Supported on traffic between virtual machines across global peering. |
-| Azure Kubernetes Service (AKS) | - Supported on AKS using Azure CNI (regular or overlay mode), Kubenet, or BYOCNI: node and pod traffic is encrypted.<br> - Partially supported on AKS using Azure CNI Dynamic Pod IP Assignment (podSubnetId specified): node traffic is encrypted, but pod traffic isn't encrypted.<br> - Traffic to the AKS managed control plane egresses from the virtual network and thus isn't in scope for virtual network encryption. However, this traffic is always encrypted via TLS. |
+> [!NOTE]
+> A scenario can be "Supported=Yes" and still be "Encrypted=No".
+ 
+| Scenario | Supported | Encrypted |
+| --- | --- | --- |
+| Virtual machines in the same virtual network (including virtual machine scale sets and their internal load balancer) | **Yes** | **Yes** <br> - on traffic between virtual machines from these [SKUs](#requirements). |
+| [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) | **Yes** | **Yes** <br> - on traffic between virtual machines across regional peering. |
+| Global virtual network peering | **Yes** | **Yes** <br> - on traffic between virtual machines across global peering. |
+| [Azure ExpressRoute Gateways](/azure/expressroute/expressroute-introduction) | **Yes** | **No**. <br> - Traffic to and from Azure ExpressRoute Gateways isn't encrypted. |
+| [Azure Private Link service](/azure/private-link/private-link-overview) <br> [Azure Private Endpoint](/azure/private-link/private-endpoint-overview) | **Yes** | **No**. <br> - Traffic to and from Private Link Service/Private Endpoint isn't encrypted. |
+| [Azure Application Gateway](/azure/application-gateway/overview) | **Yes** | **No** |
+| [Azure Firewall Premium](/azure/firewall/overview) | **Yes** | **Yes** |
+| [Azure Firewall Standard](/azure/firewall/overview) | **Yes** | **No** <br> - Operates on VM SKUs that don't support virtual network encryption. |
+| [Internal Load Balancer](/azure/load-balancer/quickstart-load-balancer-standard-internal-portal) + Supported VM [SKUs](#requirements) for backend pool | **Yes** | **Yes**. <br> - All virtual machines behind the load balancer must be on supported VM [SKUs](#requirements) |
+| [Internal Load Balancer](/azure/load-balancer/quickstart-load-balancer-standard-internal-portal) + Mixed SKUs for backend pool | **No** | N/A |
+| [Internal Load Balancer](/azure/load-balancer/quickstart-load-balancer-standard-internal-portal) + backend pool with network interface secondary IPv4 configurations | **No** | N/A. <br> - The backend pool of an internal load balancer must not include any network interface secondary IPv4 configurations to prevent connection failures to the load balancer. |
+| [Azure DNS Private Resolver](/azure/dns/dns-private-resolver-overview) | **No** | N/A |
+| PaaS | **Yes** | The virtual machine where the PaaS is hosted dictates if virtual network encryption is supported. <br> - **Yes** - supported VM [SKUs](#requirements). <br> - **No** - unsupported VM SKUs. <br> - The virtual machine must meet the above listed requirements. |
+| [Azure Kubernetes Service (AKS)](/azure/aks/) | **Yes** | - Supported on AKS using Azure CNI (regular or overlay mode), Kubenet, or BYOCNI: node and pod traffic is encrypted.<br> - Partially supported on AKS using Azure CNI Dynamic Pod IP Assignment (podSubnetId specified): node traffic is encrypted, but pod traffic isn't encrypted.<br> - Traffic to the AKS managed control plane egresses from the virtual network and thus isn't in scope for virtual network encryption. However, this traffic is always encrypted via TLS. |
 
 > [!NOTE]
 > Other services that currently don't support virtual network encryption are included in our future roadmap.

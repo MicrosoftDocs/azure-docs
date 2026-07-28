@@ -1134,15 +1134,6 @@ groups:
   - id: programming-language-java
     title: Java
 # Owner: alkohli
-- id: azure-stack-edge-device-deployment
-  title: Azure Stack Edge device deployment
-  prompt: Choose deployment type
-  pivots:
-  - id: single-node
-    title: Single node device
-  - id: two-node
-    title: Two node cluster
-# Owner: alkohli
 - id: data-box-shipping
   title: Data Box shipping
   prompt: Choose shipping location
