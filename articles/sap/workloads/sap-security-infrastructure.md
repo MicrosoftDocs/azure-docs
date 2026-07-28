@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: concept-article
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 02/23/2026
+ms.date: 07/22/2026
 ms.author: cgardin
 # Customer intent: Secure Azure infrastructure for SAP applications
 ---
@@ -165,7 +165,14 @@ Here are resources for hardening Linux OS distributions:
 
 ### SELinux
 
-SELinux is supported on the latest Red Hat Enterprise Linux (RHEL) releases. Microsoft supports running SAP workloads on RHEL in accordance with SAP and Red Hat guidance. Microsoft does not deliver, or provide support on managing SELinux policies. Customers are responsible for configuring, maintaining, and validating any SELinux policy changes required for their environments.
+SELinux is supported for SAP workloads on the latest Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES) releases. Microsoft supports running SAP workloads on both distributions in accordance with SAP, and OS vendor guidance. Microsoft does not deliver or provide support for managing SELinux policies. Customers are responsible for configuring, maintaining, and validating any SELinux policy changes required for their environments.
+
+For more details about SELinux on SLES, see:
+
+- [Understanding SELinux Basics (SUSE documentation)](https://documentation.suse.com/sles/16.0/html/SLES-SELinux/)
+- [Using SELinux with SAP Workloads (SUSE documentation)](https://documentation.suse.com/sles/16.0/html/SLES-SELinux-sap/)
+- [3565382 - SUSE Linux Enterprise Server 16: Installation Note](https://me.sap.com/notes/3565382)
+- [3577842 - SAP HANA DB: Recommended OS settings for SLES 16 / SLES for SAP Applications 16](https://me.sap.com/notes/3577842)
 
 For more details about SELinux on RHEL, see:
 

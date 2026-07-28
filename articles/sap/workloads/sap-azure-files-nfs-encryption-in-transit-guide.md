@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
-ms.date: 02/23/2026
+ms.date: 07/22/2026
 ms.author: anjbanerjee
 # Customer intent: As a system administrator, I want to configure encryption in transit on Azure Files using NFS for SAP NetWeaver on Azure VMs, so that I can secure and encrypt the fileshares of SAP applications running on Linux Enterprise Server.
 ---
@@ -31,7 +31,7 @@ Steps for setting up Azure Files NFS Encryption in Transit for these two scenari
 > [!Important]
 > For SAP on Azure environments in High Availability(HA)  configuration, and file system managed by Pacemaker, support for Azure Files NFS Encryption in Transit (EiT) is restricted to:
 >
-> - SLES for SAP 15 SP 4 and higher
+> - SLES for SAP 15 SP 4 and higher, 16
 > - RHEL for SAP 8.8, 8.10, 9.x and higher, 10.0
 >
 > Refer to [SAP Note 1928533](https://me.sap.com/notes/1928533) for Operating system supportability for SAP on Azure systems.

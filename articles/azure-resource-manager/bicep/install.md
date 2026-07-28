@@ -2,7 +2,7 @@
 title: Install Bicep tools
 description: Learn how to install tools to set up Bicep development and deployment environments.
 ms.topic: how-to
-ms.date: 06/26/2026
+ms.date: 07/23/2026
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ---
 
@@ -260,6 +260,40 @@ If you'd like to try the latest pre-release bits of Bicep before they're release
 The Bicep team has made the [Azure.Bicep.Core NuGet package](https://www.nuget.org/packages/Azure.Bicep.Core) publicly available on nuget.org. While it's public, it isn't a supported package. Any dependency you take on this package will be done at your own risk, and Microsoft reserves the right to push breaking changes to this package at any time.
 
 For more information about installing and consuming NuGet packages, see [Package consumption workflow](/nuget/consume-packages/overview-and-workflow).
+
+## Bicep language server .NET tool
+
+The Bicep language server is published as the [`Azure.Bicep.LangServer`](https://www.nuget.org/packages/Azure.Bicep.LangServer) .NET global tool. Install it to integrate Bicep language intelligence (diagnostics, go-to-definition, hover information) into AI coding tools and other [Language Server Protocol (LSP)](https://microsoft.github.io/language-server-protocol/) clients.
+
+To install the tool globally:
+
+```dotnetcli
+dotnet tool install --global Azure.Bicep.LangServer
+```
+
+This command makes the `bicep-ls` command available on your PATH. You can also use `dnx` to run the server on demand without a permanent installation:
+
+```
+dnx -y Azure.Bicep.LangServer
+```
+
+### Use with Claude Code
+
+[Claude Code](https://code.claude.com) supports LSP plugins. To configure Bicep language intelligence, add the following code to your plugin's `.lsp.json`:
+
+```json
+{
+  "bicep": {
+    "command": "bicep-ls",
+    "extensionToLanguage": {
+      ".bicep": "bicep",
+      ".bicepparam": "bicep"
+    }
+  }
+}
+```
+
+For more information, see [LSP servers](https://code.claude.com/docs/en/plugins-reference#lsp-servers) in the Claude Code documentation.
 
 ## Next steps
 

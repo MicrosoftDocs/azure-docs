@@ -553,7 +553,7 @@ This section provides a step-by-step walkthrough to create and configure an OTEL
 
 ### Step 1: Create a new OTEL data flow endpoint
 
-When you create a new data flow endpoint, select **OpenTelemetry (OTEL)** as the endpoint type. Make sure the host is prefixed with `http://`.
+When you create a new data flow endpoint, select **OpenTelemetry (OTEL)** as the endpoint type. Include the protocol (`http://` or `https://`) and port number.
 
 :::image type="content" source="media/open-telemetry/create-dataflow.png" alt-text="Screenshot showing configuration of new endpoint." lightbox="media/open-telemetry/create-dataflow.png":::
 

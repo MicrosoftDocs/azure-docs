@@ -52,14 +52,14 @@ This example demonstrates the creation process, where the HTTP GET function that
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
 
-:::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="4-5,63-79":::
+:::code language="javascript" source="~/functions-openai-extension/samples/assistant/javascript/src/functions/assistantApis.js" range="4-5,64-80":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-typescript"
 
 This example demonstrates the creation process, where the HTTP GET function that queries the conversation history of the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="4-5,63-79":::
+:::code language="typescript" source="~/functions-openai-extension/samples/assistant/typescript/src/functions/assistantApis.ts" range="4-5,64-80":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
@@ -78,7 +78,7 @@ For more information about *function.json* file properties, see the [Configurati
 ::: zone pivot="programming-language-python"  
 This example demonstrates the creation process, where the HTTP GET function that queries the conversation history of the assistant chat bot. The response to the prompt is returned in the HTTP response.
 
-:::code language="python" source="~/functions-openai-extension/samples/assistant/python/assistant_apis.py" range="55-65":::
+:::code language="python" source="~/functions-openai-extension/samples/assistant/python/assistant_apis.py" range="56-66":::
 
 ::: zone-end  
 <!--- End code examples section -->  

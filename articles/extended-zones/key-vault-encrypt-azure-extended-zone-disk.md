@@ -3,6 +3,7 @@ title: Encrypt Disks with Customer-Managed Keys in an Azure Extended Zone
 description: Learn how to use Azure Key Vault, Disk Encryption Sets, and the Azure CLI to encrypt disks for virtual machines deployed in an Azure extended zone.
 author: svaldesgzz
 ms.author: svaldes
+ms.reviewer: halkazwini
 ms.service: azure-extended-zones
 ms.topic: how-to
 ms.date: 03/04/2026
