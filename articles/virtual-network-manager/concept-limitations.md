@@ -35,7 +35,7 @@ This article provides an overview of the current limitations when you're using [
 
 * A virtual network can be peered with up to 1,000 virtual networks using Azure Virtual Network Manager's hub-and-spoke connectivity configuration, meaning you can peer up to 1,000 spoke virtual networks to a hub virtual network.
 
-* By default, the maximum number of private endpoints per connected group is 2,000. You can increase this limit to 20,000 by [enabling high-scale private endpoints in connected groups](./concept-connectivity-configuration.md#enable-high-scale-private-endpoints-in-azure-virtual-network-manager-connected-groups).
+* By default, each connected group supports up to 2,000 private endpoints. You can increase this limit to 20,000 by [enabling high-scale private endpoints in connected groups](./concept-connectivity-configuration.md#enable-high-scale-private-endpoints-in-azure-virtual-network-manager-connected-groups).
 
 * By default, each [connected group](concept-connectivity-configuration.md#behind-the-scenes-connected-group) supports up to 250 virtual networks. This default is a soft limit. You can increase it to 1,000 virtual networks by submitting a request through [this form](https://forms.office.com/pages/responsepage.aspx?id=v4j5cvGGr0GRqy180BHbRzeHatNxLHpJshECDnD5QidURTM2OERMQlYxWkE1UTNBMlRNUkJUNkhDTy4u&route=shorturl). In supported regions, register the `AllowHighScaleConnectedGroup` preview feature to enable a [high-scale connected group](concept-connectivity-configuration.md#enable-high-scale-connectivity-in-azure-virtual-network-manager-connected-groups) that contains up to 5,000 virtual networks.
 
