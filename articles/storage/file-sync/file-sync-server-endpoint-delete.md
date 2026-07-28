@@ -20,7 +20,7 @@ If it's ok to permanently lose the data that you're currently syncing, you can s
 
 ## Scenario 1: I want to delete a server endpoint, and I don't need Azure File Sync server local data
 
-The goal here is to make sure your data is up to date in your cloud endpoint. To have your complete set of files up to date in your server endpoints instead, see [Scenario 2](#scenario-2-i-want-to-delete-server-endpoint-and-i-need-the-azure-file-sync-server-to-have-the-entire-dataset).
+The goal is to make sure your data is up to date in your cloud endpoint. To have your complete set of files up to date in your server endpoints instead, see [Scenario 2](#scenario-2-i-want-to-delete-server-endpoint-and-i-need-the-azure-file-sync-server-to-have-the-entire-dataset).
 
 Some use cases that fall in this category include:
 
@@ -36,7 +36,7 @@ For this scenario, there are three steps to take before deleting your server end
 
 ### Remove user access to your server endpoint
 
-Before deprovisioning, stop user access to the server endpoint so no new file changes are made while the final sync runs. This gives the cloud a chance to catch up with the current state of your data.
+Before deprovisioning, stop user access to the server endpoint so no new file changes occur while the final sync runs. This step gives the cloud a chance to catch up with the current state of your data.
 
 Removing access means downtime. To reduce downtime, consider redirecting user access to your cloud endpoint.
 
@@ -44,7 +44,7 @@ Record the date and time you removed user access, and then move on to the next s
 
 ### Initiate a special Volume Snapshot Service (VSS) upload session
 
-Every day, Azure File Sync creates a temporary VSS snapshot on the server to sync files that are currently open or locked by applications (files with open handles). To make sure your final sync session uploads the latest data and to reduce per-item errors, initiate a special session for VSS upload. This also triggers a special sync upload session that begins after the snapshot is taken.  
+Every day, Azure File Sync creates a temporary VSS snapshot on the server to sync files that are currently open or locked by applications (files with open handles). To make sure your final sync session uploads the latest data and to reduce per-item errors, initiate a special session for VSS upload. This step also triggers a special sync upload session that begins after the snapshot is taken.  
 
 To do so, open **Task Scheduler** on your local server, go to **Microsoft\StorageSync**, right-click the `VssSyncScheduledTask` task, and select **Run**.
 
@@ -78,7 +78,7 @@ For this scenario, there are four steps to take before deleting your server endp
 
 ### Disable Azure File Sync cloud tiering
 
-Go to the cloud tiering section in **Server Endpoint Properties** for the server endpoint you would like to deprovision, and disable cloud tiering.
+Go to the cloud tiering section in **Server Endpoint Properties** for the server endpoint you want to deprovision, and disable cloud tiering.
 
 ### Recall all tiered files to the local server
 
@@ -111,9 +111,9 @@ This step might take a while to complete.
 
 ### Wait for a final sync session to complete
 
-To make sure your data is up to date on your local server, you need to wait for a final sync upload session to complete. 
+To make sure your data is up to date on your local server, wait for the final sync upload session to complete. 
 
-To check this, go to **Event Viewer** on your local server. Go to the telemetry event log **(Applications and Services\Microsoft\FileSync\Agent)**. Make sure you see a 9102 event with 'sync direction' = download, 'HResult' = 0 (no errors), and 'PerItemErrorCount' = 0 (all files synced successfully) that occurred after the date/time cloud change detection finished.
+To check this status, go to **Event Viewer** on your local server. Go to the telemetry event log **(Applications and Services\Microsoft\FileSync\Agent)**. Make sure you see a 9102 event with `sync direction` = download, `HResult` = 0 (no errors), and `PerItemErrorCount` = 0 (all files synced successfully) that occurred after the date and time cloud change detection finished.
 
 ![A screenshot of checking if a final sync session has completed.](media/file-sync-server-endpoint-delete/event-viewer.png)
 
