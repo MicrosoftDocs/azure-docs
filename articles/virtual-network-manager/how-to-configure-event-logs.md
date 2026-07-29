@@ -60,7 +60,7 @@ In this task, you access the event logs for your Azure Virtual Network Manager i
 
 ### Run a query in Log Analytics workspace
 
-1. Navigate to the network manager whose logs you want to view.
+1. Go to the network manager whose logs you want to view.
 1. Under **Monitoring** in the left pane, select **Logs**.
 1. In the **Diagnostics** window, select **Run** under **Get recent Network Group Membership Changes** or any other preloaded query available from your selected schema(s).
 1. When choosing **Run**, the **Results** tab displays the event logs, and you can expand each log to view the details.
@@ -74,7 +74,7 @@ In this task, you access the event logs for your Azure Virtual Network Manager i
 
 ### Run a query in Log Analytics workspace with preloaded queries
 
-1. Navigate to the network manager whose logs you want to view.
+1. Go to the network manager whose logs you want to view.
 1. Under **Monitoring** in the left pane, select **Logs**.
 1. In the **Diagnostics** window, select **Load to editor** under **Get recent Network Group Membership Changes** or any other preloaded query available from your selected schema(s).
 1. When choosing **Load to editor**, the **Query editor** window displays the query. Choose **Run** to display the event logs and you can expand each log to view the details.

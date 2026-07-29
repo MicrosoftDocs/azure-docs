@@ -22,7 +22,7 @@ These issues can prevent your configuration changes from being applied:
 
 ### The configuration isn't applied to the regions where virtual networks are located
 
-You need to check the regions where the virtual networks are located. The configuration is only applied to the regions where the virtual networks are located. If you have a virtual network in a region that isn't included in the configuration, the configuration isn't applied to that virtual network.
+Check the regions where the virtual networks are located. The configuration only applies to the regions where the virtual networks are located. If you have a virtual network in a region that isn't included in the configuration, the configuration isn't applied to that virtual network.
 
 To resolve this issue, add the region where the virtual network is located to the configuration. 
 
@@ -40,7 +40,7 @@ To resolve this issue, deploy the configuration after you create or modify it.
 
 You need to wait for the configuration changes to apply. The base time to apply a configuration after you commit it is a few minutes. The time to update network group membership varies by membership type: manually added members update immediately, conditionally added members in environments with fewer than 1,000 subscriptions update within a few minutes, and conditionally added members in environments with more than 1,000 subscriptions are notified by Azure Policy within a 24-hour window, after which the configuration applies in a few minutes. For more information, see [Deployment latency and timing](concept-deployments.md#deployment-latency-and-timing).
 
-### Updated configuration changes aren't reflected in Azure Virtual Network Manager
+### Updated configuration changes don't appear in Azure Virtual Network Manager
 
 You need to deploy the new configuration after you modify the configuration. 
 
@@ -50,7 +50,7 @@ Here are common reasons why your connectivity configuration isn't working as exp
 
 ### The virtual network peering creation fails
 
-In a hub-and-spoke topology, if you enable the option to *use the hub as a gateway*, you need to have a gateway in the hub virtual network. Otherwise, the creation of the virtual network peering between the hub and the spoke virtual networks fails. 
+In a hub-spoke topology, if you enable the option to *use the hub as a gateway*, you need to have a gateway in the hub virtual network. Otherwise, the creation of the virtual network peering between the hub and the spoke virtual networks fails. 
 
 ### Members in the network group can't communicate with each other
 
@@ -58,7 +58,7 @@ If you want members in the network group to communicate with each other across r
 
 ## Resource group creation fails
 
-When you deploy network manager configurations with Azure Virtual Network Manager, the service creates a managed resource group to host AVNM-managed resources. In certain cases, Azure Policy assignments can cause this process to fail.
+When you deploy network manager configurations by using Azure Virtual Network Manager, the service creates a managed resource group to host AVNM-managed resources. In certain cases, Azure Policy assignments can cause this process to fail.
 
 ### Why does resource group creation fail?
 

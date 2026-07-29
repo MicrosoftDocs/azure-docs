@@ -39,13 +39,13 @@ When you commit a configuration deployment, the API forms a POST operation. Once
 
 :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deployment-in-progress.png" alt-text="Screenshot of deployment in progress in deployment list.":::
 
-The deployment status reflects only the overall success or failure of the configuration deployment, not the result for an individual resource such as a single virtual network or subnet. Error messages are populated only when the deployment status is **Failed**. When a deployment succeeds, the error message field remains empty, so you can focus on actionable errors rather than on internal or resource-level failures that don't affect the overall deployment.
+The deployment status reflects only the overall success or failure of the configuration deployment, not the result for an individual resource such as a single virtual network or subnet. Error messages appear only when the deployment status is **Failed**. When a deployment succeeds, the error message field remains empty, so you can focus on actionable errors rather than on internal or resource-level failures that don't affect the overall deployment.
 
 The deployment status has the following values:
 
 | Status | What it reflects | Where to get resource-level detail |
 | --- | --- | --- |
-| **NotStarted** | The deployment request is accepted but hasn't begun. | Not applicable. |
+| **NotStarted** | The deployment request is accepted but didn't start. | Not applicable. |
 | **Deploying** | Azure Virtual Network Manager is applying the goal state to the targeted regions. | The deployment details for the deployment. |
 | **Deployed** | The configuration deployment succeeded across the targeted regions. The error message field is empty. | The deployment details for the deployment. |
 | **Failed** | The configuration deployment didn't succeed. The error message states the reason for the failure. | The deployment details and logs, which show why an individual virtual network or subnet failed. |
