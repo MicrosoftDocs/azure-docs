@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # Azure Functions on Azure Container Apps overview
 
-Azure Functions on Azure Container Apps offers a fully managed serverless hosting environment that combines the event-driven capabilities of Azure Functions with Container Apps features. These capabilities include Kubernetes-based orchestration, built-in autoscaling powered by Kubernetes Event-driven Autoscaling (KEDA), Dapr integration, GPU workload support, sidecar support, virtual network (VNet) connectivity, and revision management.
+Azure Functions on Azure Container Apps provides a fully managed serverless hosting environment that combines the event-driven capabilities of Azure Functions with Container Apps features. These capabilities include Kubernetes-based orchestration, built-in autoscaling powered by Kubernetes Event-driven Autoscaling (KEDA), Dapr integration, GPU workload support, sidecar support, virtual network (VNet) connectivity, and revision management.
 
 This approach is useful when you want your functions to run alongside other containerized apps like microservices, APIs, or websites. Containerizing your function apps can also help when you need custom dependencies or want to scale to zero to reduce costs. For compute-heavy tasks like AI inference, Container Apps supports GPU-based hosting through serverless GPUs and Dedicated workload profiles.
 
@@ -146,7 +146,7 @@ This makes Container Apps ideal for both bursty and steady-state workloads. To l
 Azure Functions on Container Apps uses Container Apps [networking](../container-apps/networking.md) and [security features](../container-apps/security.md):
 
 - **VNet integration**: Access private resources securely via internal endpoints and private databases.
-- **Managed identity**: Authenticate with Azure services using system-assigned or user-assigned identities. You don't need to manage secrets or connection strings.
+- **Managed identity**: Authenticate with Azure services by using system-assigned or user-assigned identities. You don't need to manage secrets or connection strings.
 - **Dapr support**: Enable pub/sub, state management, and secure service invocation via Dapr sidecars. For more information, see [Microservice APIs powered by Dapr](../container-apps/dapr-overview.md).
 - **Ingress and TLS**: Expose secure HTTP endpoints with TLS/mTLS, custom domains, or keep them internal.
 - **Environment isolation**: Functions share Container Apps environment boundaries for secure, scoped communication.
@@ -156,7 +156,7 @@ Azure Functions on Container Apps uses Container Apps [networking](../container-
 Azure Functions on Container Apps integrates with Azure observability tools for performance tracking and issue diagnosis:
 
 - **Application Insights:** Provides telemetry for requests, dependencies, exceptions, and custom traces. For more information, see [Monitor Azure Functions](../azure-functions/monitor-functions.md#application-insights).
-- **Log Analytics:** Captures container lifecycle and scaling events (for example, `FunctionsScalerInfo` entries). For more information, see [Application logging in Azure Container Apps](../container-apps/logging.md).
+- **Log Analytics:** Captures container lifecycle and scaling events, such as `FunctionsScalerInfo` entries. For more information, see [Application logging in Azure Container Apps](../container-apps/logging.md).
 - **Custom logging:** Supports standard frameworks like ILogger and console logging for structured output.  
 - **Centralized monitoring:** Container Apps environment offers unified dashboards and alerts across all apps.
 
@@ -171,8 +171,8 @@ For a full list of system-provided environment variables, see [Environment varia
 
 Keep these other considerations in mind when using Azure Functions on Azure Container Apps:
 
-- **Ingress requirement for autoscaling**: To enable automatic scaling based on events, [ingress must be enabled](../container-apps/ingress-how-to.md), either publicly or within the Container Apps internal environment.
-- **Mandatory storage account**: Every function app deployed on Container Apps must be linked to a storage account. This is required for managing triggers, logs, and state. Review the [storage account guidance](../azure-functions/storage-considerations.md) for best practices.
+- **Ingress requirement for autoscaling**: To enable automatic scaling based on events, [enable ingress](../container-apps/ingress-how-to.md), either publicly or within the Container Apps internal environment.
+- **Mandatory storage account**: Every function app deployed on Container Apps must be linked to a storage account. This storage account manages triggers, logs, and state. Review the [storage account guidance](../azure-functions/storage-considerations.md) for best practices.
 - **Multi-revision storage**: When deploying with multiple active revisions, assign a dedicated storage account to each revision. Using a dedicated storage account helps prevent conflicts and ensures proper isolation. Alternatively, if you do not require concurrent revisions, consider using the default single revision mode for simplified management.
 - **Multi-revision triggers**: If you are using multi-revision mode with a pull-based trigger, use a different event source for each revision to avoid conflicts related to competing consumers. Functions that use Azure Queue Storage, Azure Event Hubs, Azure Service Bus, or Durable Functions triggers are examples of pull-based triggers.
 - **Cold start latency**: When your container app scales in to zero during idle periods, the first request after inactivity experiences a cold start. Learn more about [reducing cold start times](../container-apps/cold-start.md).
