@@ -12,8 +12,6 @@ ms.service: azure-file-storage
 
 # Monitor Azure File Sync
 
-Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
-
 This article describes how to monitor your Azure File Sync deployment by using Azure Monitor, Storage Sync Service, and Windows Server. It covers the following scenarios:
 
 - View Azure File Sync metrics in Azure Monitor.
@@ -27,7 +25,7 @@ Metrics for Azure File Sync are enabled by default and are sent to Azure Monitor
 
 To view Azure File Sync metrics in Azure Monitor:
 
-1. Go to your **Storage Sync Service** in the **Azure portal** and select **Metrics**.
+1. Sign into the [Azure portal](https://portal.azure.com), go to your Storage Sync Service, and select **Metrics**.
 1. Select the **Metric** drop-down and select the metric you want to view.
 
 :::image type="content" source="media/storage-sync-files-troubleshoot/file-sync-metrics.png" alt-text="Screenshot of Azure File Sync metrics in the Azure portal.":::
@@ -38,26 +36,25 @@ Alerts proactively notify you when important conditions are found in your monito
 
 To create alerts for Azure File Sync:
 
-1. Go to your **Storage Sync Service** in the **Azure portal**. 
-2. Select **Alerts** in the Monitoring section and then select **+ New alert rule**.
-3. Select **Select condition** and provide the following information for the alert: 
+1. Go to your Storage Sync Service in the Azure portal. 
+1. Select **Alerts** in the Monitoring section and then select **+ New alert rule**.
+1. Select **Select condition** and provide the following information for the alert: 
     - **Metric**
     - **Dimension name**
     - **Alert logic**
-4. Select **Select action group** and add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
-5. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
-6. Select **Create alert rule** to create the alert.  
+1. Select **Select action group** and add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
+1. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
+1. Select **Create alert rule** to create the alert.  
 
   > [!NOTE]
   > If you configure an alert using the Server Name dimension and the server is renamed, the alert needs to be updated to monitor the new server name.
 
 ### Monitor using Storage Sync Service
 
-To view the health of your Azure File Sync deployment in the **Azure portal**, navigate to the **Storage Sync Service**. The following information is available:
+To view the health of your Azure File Sync deployment in the Azure portal, go to your Storage Sync Service. The following information is available:
 
 - Registered server health
 - Server endpoint health
-
   - Persistent sync errors
   - Transient sync errors
   - Sync activity (Upload to cloud, Download to server)
@@ -65,31 +62,29 @@ To view the health of your Azure File Sync deployment in the **Azure portal**, n
   - Tiering errors
   - Recall errors
 
-- Metrics
-
 #### Registered server health
 
-To view the **registered server health** in the portal, navigate to the **Registered servers** section of the **Storage Sync Service**.
+To view the registered server health in the Azure portal, go to the **Registered servers** section of the Storage Sync Service.
 
-:::image type="content" source="media/storage-sync-files-troubleshoot/file-sync-registered-servers.png" alt-text="Screenshot shows the registered servers page with server name and state.":::
+:::image type="content" source="media/storage-sync-files-troubleshoot/file-sync-registered-servers.png" alt-text="Screenshot showing the registered servers page with server name and state.":::
 
 - If the **Registered server** state is **Online**, the server is successfully communicating with the service.
-- If the **Registered server** state is **Appears Offline**, the Storage Sync Monitor process (AzureStorageSyncMonitor.exe) isn't running or the server is unable to access the Azure File Sync service. For more information, see the [troubleshooting documentation](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-group-management?toc=/azure/storage/file-sync/toc.json#server-endpoint-noactivity).
+- If the **Registered server** state is **Appears Offline**, the Storage Sync Monitor process (AzureStorageSyncMonitor.exe) isn't running or the server is unable to access the Azure File Sync service. For more information, see the [troubleshoot sync group management](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-group-management?toc=/azure/storage/file-sync/toc.json#server-endpoint-noactivity).
 
 #### Server endpoint health
 
-To view the health of a **server endpoint** in the portal, navigate to the **Sync groups** section of the **Storage Sync Service** and select a **sync group**.
+To view the health of a server endpoint in the Azure portal, go to the **Sync groups** section of the Storage Sync Service and select a sync group.
 
-:::image type="content" source="media/storage-sync-files-troubleshoot/file-sync-server-endpoint-health.png" alt-text="Screenshot that shows the server endpoint health in the Azure portal." border="true":::
+:::image type="content" source="media/storage-sync-files-troubleshoot/file-sync-server-endpoint-health.png" alt-text="Screenshot showing the server endpoint health in the Azure portal." border="true":::
 
-- The **server endpoint health** and **sync activity** (Upload to cloud, Download to server) in the portal is based on the sync events that are logged in the Telemetry event log at the server (ID 9102 and 9302). If a sync session fails because of a transient error, such as error canceled, the server endpoint still shows as **Healthy** in the portal as long as the current sync session is making progress (files are applied). Event ID 9302 is the sync progress event and Event ID 9102 is logged once a sync session completes. For more information, see [sync health](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#broken-sync) and [sync progress](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#how-do-i-monitor-the-progress-of-a-current-sync-session). If the server endpoint health shows a status other than **Healthy**, see the [troubleshooting documentation](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#broken-sync) for guidance.
-- The **Persistent sync errors** and **Transient sync errors** count in the portal is based on the Event ID 9121 that is logged in the Telemetry event log at the server. This event is logged for each per-item error once the sync session completes. To view the errors in the portal, go to the **Server Endpoint Properties** and navigate to the **Errors + troubleshooting** section. To resolve per-item errors, see [How do I see if there are specific files or folders that aren't syncing?](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
+- The **server endpoint health** and **sync activity** (Upload to cloud, Download to server) in the Azure portal is based on the sync events that are logged in the Telemetry event log at the server (ID 9102 and 9302). If a sync session fails because of a transient error, such as error canceled, the server endpoint still shows as **Healthy** in the portal as long as the current sync session is making progress (files are applied). Event ID 9302 is the sync progress event and Event ID 9102 is logged once a sync session completes. For more information, see [sync health](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#broken-sync) and [sync progress](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#how-do-i-monitor-the-progress-of-a-current-sync-session). If the server endpoint health shows a status other than **Healthy**, see the [troubleshooting documentation](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#broken-sync) for guidance.
+- The **Persistent sync errors** and **Transient sync errors** count in the Azure portal is based on the Event ID 9121 that is logged in the Telemetry event log at the server. This event is logged for each per-item error once the sync session completes. To view the errors in the portal, go to the **Server Endpoint Properties** and navigate to the **Errors + troubleshooting** section. To resolve per-item errors, see [How do I see if there are specific files or folders that aren't syncing?](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-sync-errors?toc=/azure/storage/file-sync/toc.json#how-do-i-see-if-there-are-specific-files-or-folders-that-are-not-syncing)
 - The **Cloud tiering space savings** provides the amount of disk space saved by cloud tiering. The data provided for **Cloud tiering space savings** is based on Event ID 9071 that is logged in the Telemetry event log at the server. To view other cloud tiering information and metrics, go to the **Server Endpoint Properties** and navigate to the **Cloud tiering status** section. To learn more, see [Monitor cloud tiering](file-sync-monitor-cloud-tiering.md).
 - To view **Tiering errors** and **Recall errors** in the portal, go to the **Server Endpoint Properties** and navigate to the **Errors + troubleshooting** section. **Tiering errors** is based on Event ID 9003 that is logged in the Telemetry event log at the server and **Recall errors** is based on Event ID 9006. For more information about files that fail to tier or recall, see [How to troubleshoot files that fail to tier](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json#how-to-troubleshoot-files-that-fail-to-tier) and [How to troubleshoot files that fail to be recalled](/troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json#how-to-troubleshoot-files-that-fail-to-be-recalled).
 
 #### Metric charts
 
-The following metric charts are viewable in the Storage Sync Service portal:
+You can view the following metric charts in the Storage Sync Service:
 
 | Metric name | Description | Page name |
 |-|-|-|
@@ -114,15 +109,15 @@ The following metric charts are viewable in the Storage Sync Service portal:
 | Tiered Data by Tiering Policies | Number of Files Tiered with reason for tiering | Server Endpoint - Cloud Tiering Status |
 
 > [!NOTE]
-> The charts in the Storage Sync Service portal have a time range of 24 hours. To view different time ranges or dimensions, use Azure Monitor.
+> The metric charts in the Storage Sync Service have a time range of 24 hours. To view different time ranges or dimensions, use Azure Monitor.
 
 ### Monitor using Windows Server
 
-On the **Windows Server** that has the Azure File Sync agent installed, you can view the health of the server endpoints on that server using the **event logs** and **performance counters**.
+On the Windows Server that has the Azure File Sync agent installed, you can view the health of the server endpoints on that server using the event logs and performance counters.
 
 #### Event logs
 
-To monitor registered server, sync, and cloud tiering health, use the Telemetry event server log. The Telemetry event log is located in Event Viewer under *Applications and Services\Microsoft\FileSync\Agent*.
+To monitor registered server, sync, and cloud tiering health, use the Telemetry event server log. The Telemetry event log is located in Event Viewer under `Applications and Services\Microsoft\FileSync\Agent`.
 
 - Sync health
 
@@ -141,13 +136,13 @@ To monitor registered server, sync, and cloud tiering health, use the Telemetry 
 
 - Cloud tiering health
 
-  - To monitor tiering activity on a server, use Event ID 9003, 9016 and 9029 in the Telemetry event log, which is located in Event Viewer under *Applications and Services\Microsoft\FileSync\Agent*.
+  - To monitor tiering activity on a server, use Event ID 9003, 9016 and 9029 in the Telemetry event log, which is located in Event Viewer under `Applications and Services\Microsoft\FileSync\Agent`.
 
     - Event ID 9003 provides error distribution for a server endpoint. For example: Total Error Count and ErrorCode. One event is logged per error code.
     - Event ID 9016 provides ghosting results for a volume. For example: Free space percent is, Number of files ghosted in session, and Number of files failed to ghost.
     - Event ID 9029 provides ghosting session information for a server endpoint. For example: Number of files attempted in the session, Number of files tiered in the session, and Number of files already tiered.
 
-  - To monitor recall activity on a server, use Event ID 9005, 9006, 9009, 9059 and 9071 in the Telemetry event log, which is located in Event Viewer under *Applications and Services\Microsoft\FileSync\Agent*.
+  - To monitor recall activity on a server, use Event ID 9005, 9006, 9009, 9059 and 9071 in the Telemetry event log, which is located in Event Viewer under `Applications and Services\Microsoft\FileSync\Agent`.
 
     - Event ID 9005 provides recall reliability for a server endpoint. For example: Total unique files accessed, and Total unique files with failed access.
     - Event ID 9006 provides recall error distribution for a server endpoint. For example: Total Failed Requests, and ErrorCode. One event is logged per error code.
@@ -195,11 +190,11 @@ Azure File Sync provides a set of pre-configured recommended alerts to help you 
 
 To configure recommended alerts:
 
-1. In the [Azure portal](https://portal.azure.com), navigate to your **Storage Sync Service**.
-2. Select **Alerts** from the left menu, or select **Set up recommended alerts** from the top of the overview page.
-3. A panel opens on the right side of the page listing all available alerts.
-4. The **Status** column indicates whether each alert has already been created or is available for creation.
-5. Select the alerts you want to enable and follow the prompts to complete setup.
+1. In the Azure portal, go to your Storage Sync Service.
+1. Select **Alerts** from the left menu, or select **Set up recommended alerts** from the top of the overview page.
+1. A panel opens on the right side of the page listing all available alerts.
+1. The **Status** column indicates whether each alert has already been created or is available for creation.
+1. Select the alerts you want to enable and follow the prompts to complete setup.
 
 > [!NOTE]
 > Recommended alerts are pre-configured with default thresholds and evaluation periods. You can customize notification settings, such as action groups and alert recipients, during or after setup.
@@ -237,16 +232,16 @@ This section provides some example alerts for Azure File Sync. If you create an 
 
 This alert fires when a sync session fails to complete successfully, indicating that data might not be in sync between the server and the cloud endpoint.
 
-1. In the **Azure portal**, navigate to your **Storage Sync Service**.
+1. In the Azure portal, go to your Storage Sync Service.
 1. Go to the **Monitoring** section and select **Alerts**.
 1. Select **+ New alert rule** to create a new alert rule.
 1. Configure condition by clicking **Select condition**.
-1. Within **Configure signal logic** section, select **Sync session result** under signal name.  
+1. Within the **Configure signal logic** section, select **Sync session result** under signal name.  
 1. Select the following dimension configuration:
      - Dimension name: **Server Endpoint Name**  
      - Operator: **=**
      - Dimension values: **All current and future values**  
-1. Navigate to **Alert Logic** and complete the following:
+1. Go to **Alert Logic** and complete the following:
      - Threshold set to **Static**
      - Operator: **Less than**
      - Aggregation type: **Maximum**  
@@ -261,16 +256,16 @@ This alert fires when a sync session fails to complete successfully, indicating 
 
 This alert fires when individual files consistently fail to sync, which might indicate per-item errors such as unsupported characters or permission issues.
 
-1. In the **Azure portal**, navigate to your **Storage Sync Service**.
+1. In the Azure portal, go to your Storage Sync Service.
 1. Go to the **Monitoring** section and select **Alerts**.
 1. Select **+ New alert rule** to create a new alert rule.
 1. Configure condition by selecting **Select condition**.
-1. Within **Configure signal logic** section, select **Files not syncing** under signal name.  
+1. Within the **Configure signal logic** section, select **Files not syncing** under signal name.  
 1. Select the following dimension configuration:
      - Dimension name: **Server Endpoint Name**  
      - Operator: **=**
      - Dimension values: **All current and future values**  
-1. Navigate to **Alert Logic** and complete the following:
+1. Go to **Alert Logic** and complete the following:
      - Threshold set to **Static**
      - Operator: **Greater than**
      - Aggregation type: **Average**  
@@ -285,16 +280,16 @@ This alert fires when individual files consistently fail to sync, which might in
 
 This alert fires when a server has not sent a heartbeat to the Storage Sync Service within the expected interval, which might indicate network issues, service outages, or agent problems.
 
-1. In the **Azure portal**, navigate to your **Storage Sync Service**.
+1. In the Azure portal, go to your Storage Sync Service.
 1. Go to the **Monitoring** section and select **Alerts**.
 1. Select **+ New alert rule** to create a new alert rule.
 1. Configure condition by selecting **Select condition**.
-1. Within **Configure signal logic** section, select **Server online status** under signal name.  
+1. Within the **Configure signal logic** section, select **Server online status** under signal name.  
 1. Select the following dimension configuration:
      - Dimension name: **Server name**  
      - Operator: **=**
      - Dimension values: **All current and future values**  
-1. Navigate to **Alert Logic** and complete the following:
+1. Go to **Alert Logic** and complete the following:
      - Threshold set to **Static**
      - Operator: **Less than**
      - Aggregation type: **Maximum**  
@@ -310,16 +305,16 @@ This alert fires when a server has not sent a heartbeat to the Storage Sync Serv
 
 This alert fires when the total data recalled from Azure exceeds 500 GiB in 24 hours, which might indicate unexpected access patterns such as antivirus scans, backup agents, or search indexers accessing tiered files.
 
-1. In the **Azure portal**, navigate to your **Storage Sync Service**.
+1. In the Azure portal, go to your Storage Sync Service.
 1. Go to the **Monitoring** section and select **Alerts**.
 1. Select **+ New alert rule** to create a new alert rule.
 1. Configure condition by selecting **Select condition**.
-1. Within **Configure signal logic** section, select **Cloud tiering recall size** under signal name.  
+1. Within the **Configure signal logic** section, select **Cloud tiering recall size** under signal name.  
 1. Select the following dimension configuration:
      - Dimension name: **Server name**  
      - Operator: **=**
      - Dimension values: **All current and future values**  
-1. Navigate to **Alert Logic** and complete the following:
+1. Go to **Alert Logic** and complete the following:
      - Threshold set to **Static**
      - Operator: **Greater than**
      - Aggregation type: **Total**  
@@ -334,16 +329,16 @@ This alert fires when the total data recalled from Azure exceeds 500 GiB in 24 h
 
 When a server enters low disk space mode, Azure File Sync adjusts its behavior to protect the server from running out of space. File recall and cloud tiering policies might be affected. Resolve the underlying disk space condition to restore normal operation.
 
-1. In the **Azure portal**, navigate to your **Storage Sync Service**.
+1. In the Azure portal, go to your Storage Sync Service.
 1. Go to the **Monitoring** section and select **Alerts**.
 1. Select **+ New alert rule** to create a new alert rule.
 1. Configure condition by selecting **Select condition**.
-1. Within **Configure signal logic** section, select **Cloud tiering low disk space mode** under signal name.
+1. Within the **Configure signal logic** section, select **Cloud tiering low disk space mode** under signal name.
 1. Select the following dimension configuration:
      - Dimension name: **Server Endpoint Name**
      - Operator: **=**
      - Dimension values: **All current and future values**
-1. Navigate to **Alert Logic** and complete the following:
+1. Go to **Alert Logic** and complete the following:
      - Threshold set to **Static**
      - Operator: **Greater than or equal to**
      - Aggregation type: **Maximum**
@@ -358,16 +353,16 @@ When a server enters low disk space mode, Azure File Sync adjusts its behavior t
 
 Azure File Sync agents expire on a regular cadence to ensure servers are running supported versions. An expired agent can't connect to the Storage Sync Service, which causes sync to stop. This alert gives you a 90-day advance warning to plan and execute the agent update before expiration causes an outage. Update the agent by downloading and installing the latest version from the [Azure File Sync agent download page](https://www.microsoft.com/download/details.aspx?id=57643).
 
-1. In the **Azure portal**, navigate to your **Storage Sync Service**.
+1. In the Azure portal, go to your Storage Sync Service.
 1. Go to the **Monitoring** section and select **Alerts**.
 1. Select **+ New alert rule** to create a new alert rule.
 1. Configure condition by selecting **Select condition**.
-1. Within **Configure signal logic** section, select **Agent version expiration information** under signal name.
+1. Within the **Configure signal logic** section, select **Agent version expiration information** under signal name.
 1. Select the following dimension configuration:
      - Dimension name: **Server name**
      - Operator: **=**
      - Dimension values: **All current and future values**
-1. Navigate to **Alert Logic** and complete the following:
+1. Go to **Alert Logic** and complete the following:
      - Threshold set to **Static**
      - Operator: **Greater than**
      - Aggregation type: **Maximum**
@@ -381,6 +376,6 @@ Azure File Sync agents expire on a regular cadence to ensure servers are running
 ## Related content
 
 - [Azure File Sync monitoring data reference](monitor-file-sync-reference.md)
-- [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)
+- [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)
 - [Consider firewall and proxy settings](file-sync-firewall-and-proxy.md)
 - [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)
