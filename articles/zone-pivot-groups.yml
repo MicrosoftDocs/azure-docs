@@ -27,7 +27,7 @@ groups:
     title: Azure portal
   - id: python
     title: Python
-# Owner: dlepow
+# Owner: patricka
 - id: api-management-credential-auth-scenario
   title: Authentication scenario
   prompt: Choose authorization credential

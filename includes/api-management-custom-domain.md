@@ -1,9 +1,9 @@
 ---
-author: dlepow
+author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 12/08/2021
-ms.author: danlep
+ms.author: patricka
 ---
 ## How API Management proxy server responds with SSL certificates in the TLS handshake
 
