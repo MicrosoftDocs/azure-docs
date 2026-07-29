@@ -9,13 +9,25 @@ zone_pivot_groups: github-actions-deployment-options
 
 # Continuous delivery by using GitHub Actions
 
-You can use a [GitHub Actions workflow](https://docs.github.com/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) to automatically build and deploy your function code to Azure using the [`Azure/functions-action`](https://github.com/Azure/functions-action).
+You can use a [GitHub Actions workflow](https://docs.github.com/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) to automatically build and deploy your function code to Azure by using the [`Azure/functions-action`](https://github.com/Azure/functions-action).
 
 To deploy by using GitHub Actions, complete these three key steps:
 
 1. [Create a user-assigned managed identity](#create-a-managed-identity-for-github-actions-deployment) in Azure with a federated credential that trusts your GitHub repository, and assign it the Website Contributor role on your function app.
 1. Add the identity's client ID, tenant ID, and subscription ID as [repository variables](https://docs.github.com/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables) in GitHub.
 1. Add a workflow YAML file to your repository that uses `azure/login` with OpenID Connect (OIDC) to authenticate, then calls `Azure/functions-action` to deploy.
+
+## Create a workflow configuration
+
+You maintain a YAML file (.yml) that defines the workflow configuration in the `/.github/workflows/` path in your repository. This definition contains the actions and parameters that make up the workflow, which is specific to the development language of your functions. 
+
+You can create a workflow configuration file for your deployment manually. You can also generate the file from a set of language-specific templates by using one of these methods:  
+
++ In the Azure portal
++ Using the Azure CLI
++ From your GitHub repository
+
+If you don't want to create your YAML file by hand, select a different method at the top of the article.
 
 ## Authentication overview
 
@@ -60,16 +72,6 @@ steps:
       app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
       package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
 ```
-
-You maintain a YAML file (.yml) that defines the workflow configuration in the `/.github/workflows/` path in your repository. This definition contains the actions and parameters that make up the workflow, which is specific to the development language of your functions. 
-
-You can create a workflow configuration file for your deployment manually. You can also generate the file from a set of language-specific templates by using one of these methods:  
-
-+ In the Azure portal
-+ Using the Azure CLI
-+ From your GitHub repository
-
-If you don't want to create your YAML file by hand, select a different method at the top of the article.
 
 ## Prerequisites
 
@@ -486,7 +488,7 @@ The following table shows which parameters are supported for each hosting plan:
 
 ### Deployment methods
 
-When using GitHub Actions, the deployment method used depends on your hosting plan:
+When you use GitHub Actions, the deployment method depends on your hosting plan:
 
 | Hosting plan | Deployment method |
 | ---- | ----- |
