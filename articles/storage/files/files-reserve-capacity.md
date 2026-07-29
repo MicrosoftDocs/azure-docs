@@ -19,7 +19,8 @@ ms.author: kendownie
 
 You can save money on the storage costs for Azure file shares with Azure Files Reservations. Azure Files Reservations (also referred to as *reserved instances*) offer you a discount on capacity for storage costs when you commit to a Reservation for either one year or three years. A Reservation provides a fixed amount of storage capacity for the term of the Reservation.
 
-Azure Files reservations can significantly reduce your capacity costs for storing data in Azure file shares. How much you save depends on the duration of your Reservation, the total storage capacity you choose to reserve, and the tier and redundancy settings that you've chosen for your Azure file shares. Reservations provide a billing discount and don't affect the state of your Azure file shares. Reservations have no effect on performance.
+Azure Files reservations can significantly reduce your capacity costs for storing data in Azure file shares. How much you save depends on the duration of your Reservation, the total storage capacity you choose to reserve, and the tier and redundancy settings that you choose for your Azure file shares. Reservations provide a billing discount and don't affect the state of your Azure file shares. Reservations have no effect on performance.
+
 
 For pricing information about Azure Files Reservations, see [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/).
 
@@ -44,7 +45,7 @@ If you're taking snapshots of Azure file shares, there are differences in how Re
 
 ### Supported billing models and redundancy options
 
-Azure Files Reservations are available for SSD provisioned v1 file shares (premium storage), and for HDD pay-as-you-go file shares (standard storage) in the hot and cool access tiers. Reservations aren't available for the provisioned v2 billing model or for pay-as-you-go file shares in the transaction optimized access tier. All storage redundancies support Reservations. For more information about redundancy options, see [Azure Files redundancy](storage-files-planning.md#redundancy).
+Azure Files Reservations are available for SSD provisioned v1 file shares (premium storage) and for HDD pay-as-you-go file shares (standard storage) in the hot and cool access tiers. Reservations aren't available for the provisioned v2 billing model or for pay-as-you-go file shares in the transaction optimized access tier. All storage redundancies support Reservations. For more information about redundancy options, see [Azure Files redundancy](storage-files-planning.md#redundancy).
 
 ### Security requirements for purchase
 
