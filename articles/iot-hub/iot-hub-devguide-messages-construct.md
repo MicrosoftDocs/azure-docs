@@ -129,13 +129,13 @@ The system property names vary based on the endpoint to which the messages are b
 
 ## Message schema at routing endpoints
 
-When IoT Hub routes a device-to-cloud message to a custom endpoint, the message is delivered in three parts:
+When IoT Hub routes a device-to-cloud message to a custom endpoint, it delivers the message in three parts:
 
 * **Body**: The message body is delivered as-is (not base64 encoded) to Event Hubs, Service Bus queues, and Service Bus topics. For Azure Storage and Azure Cosmos DB, encoding depends on the message content type and content encoding system properties. For more information, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md#custom-endpoints-for-message-routing).
 
-* **System properties**: IoT Hub system properties are surfaced at the endpoint using the destination-specific names listed in [System property names](#system-property-names). These properties preserve the device identity and message metadata. For example, `iothub-connection-device-id` identifies the originating device.
+* **System properties**: IoT Hub system properties appear at the endpoint by using the destination-specific names listed in [System property names](#system-property-names). These properties preserve the device identity and message metadata. For example, `iothub-connection-device-id` identifies the originating device.
 
-* **Application properties**: Application properties set by the device or added through [message enrichments](iot-hub-message-enrichments-overview.md) are passed through unchanged.
+* **Application properties**: Application properties that the device sets or that you add through [message enrichments](iot-hub-message-enrichments-overview.md) pass through unchanged.
 
 The following example shows a logical view of a telemetry message routed to an Event Hubs endpoint:
 
