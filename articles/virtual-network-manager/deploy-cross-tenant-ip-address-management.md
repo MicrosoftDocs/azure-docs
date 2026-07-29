@@ -72,7 +72,7 @@ In this task, you confirm the allocation from both sides. Tenant A is the manage
 
 ## Remove IPAM allocation
 
-You remove the allocation from the management tenant (Tenant A), which hosts the network manager and the IPAM pool, and authenticate to the managed tenant (Tenant B), which contains the allocated virtual network.
+Remove the allocation from the management tenant (Tenant A), which hosts the network manager and the IPAM pool, and authenticate to the managed tenant (Tenant B), which contains the allocated virtual network.
 
 To remove an IP allocation from a cross-tenant resource:
 

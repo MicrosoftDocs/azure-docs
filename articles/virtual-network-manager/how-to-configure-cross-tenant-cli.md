@@ -39,7 +39,7 @@ az network manager scope-connection create --resource-group "myRG" --network-man
 
 ## Create a network manager connection on a subscription in another tenant 
 
-You run the commands in this section in the target managed tenant, not in the central management tenant. They create a network manager connection on a subscription in the managed tenant that points back to the network manager in the central management tenant, which completes the pairing you started with the scope connection. You also verify the connection state.
+Run the commands in this section in the target managed tenant, not in the central management tenant. These commands create a network manager connection on a subscription in the managed tenant that points back to the network manager in the central management tenant. This connection completes the pairing you started with the scope connection. You also verify the connection state.
 
 1. Enter the following command to connect to the target managed tenant by using your administrative account:
 
