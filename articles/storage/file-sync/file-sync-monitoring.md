@@ -338,7 +338,7 @@ When a server enters low disk space mode, Azure File Sync adjusts its behavior t
      - Dimension name: **Server Endpoint Name**
      - Operator: **=**
      - Dimension values: **All current and future values**
-1. Go to **Alert Logic** and complete the following:
+1. Go to **Alert Logic** and complete the following steps:
      - Threshold set to **Static**
      - Operator: **Greater than or equal to**
      - Aggregation type: **Maximum**
