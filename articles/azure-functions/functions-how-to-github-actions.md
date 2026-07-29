@@ -31,9 +31,7 @@ If you don't want to create your YAML file by hand, select a different method at
 
 ## Authentication overview
 
-GitHub Actions authenticates with Azure to deploy your code. The recommended method is OpenID Connect (OIDC), which uses workload identity federation with a user-assigned managed identity. By using OIDC, you don't store any secrets in GitHub. Instead, store only non-sensitive configuration values, such as the client ID, tenant ID, and subscription ID, as repository variables. The workflow requests a short-lived token from GitHub's OIDC provider, which Azure validates against the federated credential you configured.
-
-Other supported methods, such as service principal secret and publish profile, require storing sensitive credentials in GitHub and aren't recommended for new deployments.
+GitHub Actions must authenticate with Azure to deploy your code. The following table summarizes the supported methods:
 
 | Credential | Status | Set in... | Usage |
 | ---- | ---- | ---- | --- |
@@ -41,15 +39,7 @@ Other supported methods, such as service principal secret and publish profile, r
 | Service principal secret | Not recommended | [`Azure/login`](https://github.com/Azure/login) | Requires you to manage and rotate a client secret in GitHub. |
 | Publish profile | Not recommended | [`Azure/functions-action`](https://github.com/marketplace/actions/azure-functions-action) | Uses basic authentication credentials to connect to the `scm` deployment endpoint. Requires [basic authentication to be enabled](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments). |
 
-Authentication considerations:
-
-+ OIDC uses [workload identity federation](/entra/workload-id/workload-identity-federation) and only supports user-assigned managed identities.
-+ When you enable a GitHub Actions-based deployment in the Azure portal, OIDC authentication is used by default.
-+ With OIDC, the managed identity's client ID, tenant ID, and subscription ID are stored as GitHub repository **variables** (not secrets), since these values aren't sensitive.
-+ Publish profile authentication requires [basic authentication to be enabled](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments) on your function app's `scm` endpoint, which is a security concern.
-+ Service principal authentication requires you to manage and manually rotate the client secret stored in GitHub.
-+ Use Azure role-based access control (Azure RBAC) to limit access only to the Azure resources required for your deployment.
-+ Unless otherwise noted, this article shows you how to configure a workflow that uses OIDC authentication.
+### OIDC authentication example
 
 The following inline example shows the core OIDC authentication and deployment pattern used in all workflow templates:
 
@@ -72,6 +62,16 @@ steps:
       app-name: ${{ env.AZURE_FUNCTIONAPP_NAME }}
       package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
 ```
+
+### Authentication considerations
+
++ OIDC uses [workload identity federation](/entra/workload-id/workload-identity-federation) and only supports user-assigned managed identities.
++ When you enable a GitHub Actions-based deployment in the Azure portal, OIDC authentication is used by default.
++ With OIDC, the managed identity's client ID, tenant ID, and subscription ID are stored as GitHub repository **variables** (not secrets), since these values aren't sensitive.
++ Publish profile authentication requires [basic authentication to be enabled](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments) on your function app's `scm` endpoint, which is a security concern.
++ Service principal authentication requires you to manage the client secret stored in GitHub, including key rotation.
++ Use Azure role-based access control (Azure RBAC) to limit access only to the Azure resources required for your deployment.
++ Unless otherwise noted, this article shows you how to configure a workflow that uses OIDC authentication.
 
 ## Prerequisites
 
