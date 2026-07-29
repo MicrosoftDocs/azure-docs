@@ -3,7 +3,7 @@ title: Agent Reasoning in Azure SRE Agent
 description: Learn how your agent processes requests, selects tools, classifies actions, and explains its thinking.
 ms.topic: concept-article
 ms.service: azure-sre-agent
-ms.date: 07/16/2026
+ms.date: 07/28/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -42,7 +42,7 @@ Adaptive reasoning gets stronger when the agent can draw from your environment. 
 > - It comes from three context sources: **connectors**, **knowledge and memory**, and **workspace tools**.
 > - Connected source code repositories let the agent read, search, and navigate your codebase when workspace tools are enabled.
 
-Workspace tools, including file operations, terminal commands, and Python execution, must be enabled before the agent can use them. Contact your agent administrator, or turn them on through the **Experimental Settings** page in the portal.
+File operations and terminal commands require workspace tools. Contact your agent administrator, or turn them on through the **Experimental Settings** page in the portal. Python execution is available by default through the [Code Interpreter](code-interpreter.md). When workspace tools are enabled, Python execution runs through the workspace sandbox instead of the default Code Interpreter session.
 
 Deep context isn't a single feature you enable. It grows as these context sources work together.
 
@@ -50,7 +50,7 @@ Deep context isn't a single feature you enable. It grows as these context source
 |---|---|---|
 | **Connectors** | Live data from GitHub, Azure DevOps, Kusto, Azure Monitor, and other services | Connect service data sources. See [Connectors](connectors.md). |
 | **Knowledge and memory** | Uploaded runbooks, architecture docs, team procedures, user preferences, and facts from past conversations | Upload knowledge, create skills, or tell the agent to remember facts. See [Memory and knowledge](memory.md). |
-| **Workspace tools** | Direct access to read, search, and analyze source code, run terminal commands, and execute Python | Connect a repository and enable workspace tools in **Experimental Settings**. |
+| **Workspace tools** | Direct access to read, search, and analyze source code, run terminal commands, and execute sandboxed Python | Connect a repository and enable workspace tools in **Experimental Settings**. |
 
 ### Why deep context matters
 
@@ -83,7 +83,7 @@ Background insight generation aggregates past conversations and other enabled da
 
 ### Workspace tools
 
-Workspace tools give your agent direct access to your connected repository and execution environment. When you enable them, the agent can read files, search code, analyze project structure, run terminal commands, and execute Python during an investigation.
+Workspace tools give your agent direct access to your connected repository and execution environment. When you enable them, the agent can read files, search code, analyze project structure, run terminal commands, and execute Python in the workspace sandbox during an investigation. Python execution is otherwise available by default through the Code Interpreter.
 
 When you connect a code repository, the agent automatically analyzes its project structure, technology stack, deployment configurations, and service dependencies. It then opens a PR that adds an `SREAGENT.md` file to your repo.
 
@@ -98,7 +98,7 @@ The more knowledge you provide, such as runbooks, architecture docs, and team pr
 
 ### Security
 
-You must enable workspace tools through **Experimental Settings** before the agent can use file operations, terminal commands, or Python execution. Code execution runs in a sandboxed or isolated session, depending on the configured sandbox mode, separate from the agent host. Azure CLI write commands require explicit user approval before they run.
+You must enable workspace tools through **Experimental Settings** before the agent can use file operations and terminal commands, or to route Python execution into the workspace sandbox. Python execution itself is available by default through the Code Interpreter. Code execution runs in a sandboxed or isolated session, depending on the configured sandbox mode, separate from the agent host. Azure CLI write commands require explicit user approval before they run.
 
 ## Tool selection
 
