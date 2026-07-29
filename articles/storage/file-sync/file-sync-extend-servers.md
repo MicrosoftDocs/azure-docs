@@ -67,7 +67,7 @@ At this point, you created a storage account and a file share with one file in i
 1. Under **Instance details**, enter a VM name. For example, use *myVM*.
 1. Don't change the default settings for **Region**, **Availability options**, and **Security type**.
 1. Under **Image**, select your preferred Windows Server version. Leave **Size** set to the default.
-1. Under **Administrator account**, enter a **Username** and **Password** for the VM. The username must be between 1 and 20 characters long and can't contain special characters \\/""[]:|<>+=;,?*@& or end with '.' The password must be between 12 and 123 characters long, and must have 3 of the following: 1 lowercase character, 1 uppercase character, 1 number, and 1 special character.
+1. Under **Administrator account**, enter a **Username** and **Password** for the VM. The username must be between 1 and 20 characters long and can't contain special characters \\/""[]:|<>+=;,?*@& or end with '.' The password must be between 12 and 123 characters long, and must have three of the following: one lowercase character, one uppercase character, one number, and one special character.
 
     :::image type="content" source="media/storage-sync-files-extend-servers/vm-username-and-password.png" alt-text="Screenshot showing how to set the username, password, and inbound port rules for the V M.":::
 
@@ -132,7 +132,7 @@ Now you can add the data disk to the VM.
 
 ### Add the data disk
 
-1. While still in the VM, select **File Explorer** and storage services** > **Volumes** > **Disks**.
+1. While still in the VM, select **File and Storage Services** > **Volumes** > **Disks**.
 
    :::image type="content" source="media/storage-sync-files-extend-servers/your-disk.png" alt-text="Screenshot showing how to bring the data disk online and create a volume." lightbox="media/storage-sync-files-extend-servers/your-disk.png":::
 
@@ -225,9 +225,9 @@ The Azure File Sync agent is a downloadable package that enables Windows Server 
 1. Select **Install**.
 1. Select **Finish**.
 
-You deployed the Azure Sync Service and installed the agent on the Windows Server VM. Now you need to register the VM with the Storage Sync Service.
+You deployed the Storage Sync Service and installed the agent on the Windows Server VM. Now you need to register the VM with the Storage Sync Service.
 
-## Register Windows Server
+## Register Windows Server with the Storage Sync Service
 
 When you register your Windows Server with a Storage Sync Service, you create a trust relationship between your server (or cluster) and the Storage Sync Service. You can register a server to only one Storage Sync Service. The server can sync with other servers and Azure file shares that are associated with that Storage Sync Service.
 
@@ -262,7 +262,7 @@ A sync group defines the sync topology for a set of files. A sync group must con
 
    | Value | Description |
    | ----- | ----- |
-   | **Sync group name** | This name must be unique within the Storage Sync Service, but can be any name that is logical for you.|
+   | **Sync group name** | This name must be unique within the Storage Sync Service, but can be any name that's logical for you.|
    | **Subscription** | The subscription where you deployed the Storage Sync Service for this tutorial. |
    | **Storage account** | Choose **Select storage account**. On the pane that appears, select the storage account that has the Azure file share you created. |
    | **Azure file share** | The name of the Azure file share you created. |
