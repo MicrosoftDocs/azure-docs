@@ -205,6 +205,9 @@ To reprotect the virtual machine, follow these steps:
 
 ## Monitor protection
 
+> [!NOTE]
+> For Azure VMs using shared disks, shared disk details are shown under the Cluster Group and may not appear under the Disks section of individual replicated items. To verify shared disk replication, review the corresponding Cluster Group.
+
 Once the enable replication is in progress, you can view the protected cluster by navigating to the **Protected items** > **Replicated items**. 
     :::image type="content" source="media/tutorial-shared-disk/replicated-items.png" alt-text="Screenshot showing replicated items.":::
 
