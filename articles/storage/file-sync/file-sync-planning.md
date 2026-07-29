@@ -4,7 +4,7 @@ description: Plan for a deployment with Azure File Sync, a service that allows y
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 05/22/2026
+ms.date: 07/28/2026
 ms.author: kendownie
 ms.custom: references_regions
 # Customer intent: "As an IT administrator, I want to plan for an Azure File Sync deployment so that I can effectively manage on-premises file caching and ensure seamless integration with cloud file shares."
@@ -410,6 +410,10 @@ Based on your organization's policy or unique regulatory requirements, you might
 If you want to communicate with your Azure file share over SMB but port 445 is blocked, consider using SMB over QUIC. This method offers a zero-configuration VPN for SMB access to your Azure file shares through the QUIC transport protocol over port 443. Although Azure Files doesn't directly support SMB over QUIC, you can create a lightweight cache of your Azure file shares on a Windows Server Datacenter: Azure Edition VM by using Azure File Sync. To learn more about this option, see [SMB over QUIC](file-sync-networking-overview.md#smb-over-quic).
 
 To learn more about Azure File Sync and networks, see [Networking considerations for Azure File Sync](file-sync-networking-overview.md).
+
+> [!IMPORTANT]
+> Don't hardcode a storage account's IP address in hosts files, DNS, or firewall rules. During failover or when an account is migrated to another tenant or region, an Azure Storage Account's IP addresses can change. A stale IP breaks connectivity, causing sync failures and preventing file recall. Let the agent resolve the endpoint via DNS or use a [private endpoint](file-sync-networking-endpoints.md) with its private DNS zone if you need private routing.
+
 
 ## Encryption
 
