@@ -9,12 +9,7 @@ zone_pivot_groups: github-actions-deployment-options
 
 # Continuous delivery by using GitHub Actions
 
-You can use a [GitHub Actions workflow](https://docs.github.com/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) to automatically build and deploy your function code to Azure. This article supports these GitHub Actions-based deployment methods: 
-
-| Method | Action | Tasks |
-| ---- | ---- | ---- |
-| Code-only | `Azure/functions-action` | 1. Set up the environment.<br/>2. Build the code project.<br/>3. Deploy the package to a function app in Azure. |
-| Container | `Azure/functions-container-action` | 1. Set up the environment.<br/>2. Build the Docker container.<br/>3. Push the image to the container registry.<br/>4. Deploy the container to Azure. |
+You can use a [GitHub Actions workflow](https://docs.github.com/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) to automatically build and deploy your function code to Azure using the [`Azure/functions-action`](https://github.com/Azure/functions-action).
 
 To deploy by using GitHub Actions, complete these three key steps:
 
@@ -26,7 +21,25 @@ To deploy by using GitHub Actions, complete these three key steps:
 
 GitHub Actions authenticates with Azure to deploy your code. The recommended method is OpenID Connect (OIDC), which uses workload identity federation with a user-assigned managed identity. By using OIDC, you don't store any secrets in GitHub. Instead, store only non-sensitive configuration values, such as the client ID, tenant ID, and subscription ID, as repository variables. The workflow requests a short-lived token from GitHub's OIDC provider, which Azure validates against the federated credential you configured.
 
-Other supported methods, such as service principal secret and publish profile, require storing sensitive credentials in GitHub and aren't recommended for new deployments. The following inline example shows the core OIDC authentication and deployment pattern used in all workflow templates:
+Other supported methods, such as service principal secret and publish profile, require storing sensitive credentials in GitHub and aren't recommended for new deployments.
+
+| Credential | Status | Set in... | Usage |
+| ---- | ---- | ---- | --- |
+| OpenID Connect (OIDC) token | **Recommended** | [`Azure/login`](https://github.com/Azure/login) | Federated credentials create a trust relationship between your GitHub repository and a user-assigned managed identity in Microsoft Entra. No secrets are stored in GitHub. |
+| Service principal secret | Not recommended | [`Azure/login`](https://github.com/Azure/login) | Requires you to manage and rotate a client secret in GitHub. |
+| Publish profile | Not recommended | [`Azure/functions-action`](https://github.com/marketplace/actions/azure-functions-action) | Uses basic authentication credentials to connect to the `scm` deployment endpoint. Requires [basic authentication to be enabled](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments). |
+
+Authentication considerations:
+
++ OIDC uses [workload identity federation](/entra/workload-id/workload-identity-federation) and only supports user-assigned managed identities.
++ When you enable a GitHub Actions-based deployment in the Azure portal, OIDC authentication is used by default.
++ With OIDC, the managed identity's client ID, tenant ID, and subscription ID are stored as GitHub repository **variables** (not secrets), since these values aren't sensitive.
++ Publish profile authentication requires [basic authentication to be enabled](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments) on your function app's `scm` endpoint, which is a security concern.
++ Service principal authentication requires you to manage and manually rotate the client secret stored in GitHub.
++ Use Azure role-based access control (Azure RBAC) to limit access only to the Azure resources required for your deployment.
++ Unless otherwise noted, this article shows you how to configure a workflow that uses OIDC authentication.
+
+The following inline example shows the core OIDC authentication and deployment pattern used in all workflow templates:
 
 ```yml
 permissions:
@@ -66,39 +79,15 @@ If you don't want to create your YAML file by hand, select a different method at
 
 + Project source code in a GitHub repository.
 
-+ One of these deployment targets:
++ A basic understanding of GitHub Actions workflows. If you're new to GitHub Actions, see [Understanding GitHub Actions](https://docs.github.com/actions/about-github-actions/understanding-github-actions).
 
-    + A working function app hosted on Azure. When using publish profile authentication, this function app must have [basic authentication enabled on the `scm` endpoint](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments). Basic authentication isn't required when using OIDC.
++ A working function app hosted on Azure (code-only or container-based).
 
-    + An existing container registry, such as [Azure Container Registry](/azure/container-registry/container-registry-get-started-azure-cli), a private container registry hosted in Azure. Examples in this article feature Azure Container Registry.   
++ (Container deployments only) An existing container registry, such as [Azure Container Registry](/azure/container-registry/container-registry-get-started-azure-cli).   
 ::: zone pivot="method-cli,method-manual,method-template"
 + [Azure CLI](/cli/azure/install-azure-cli), when developing locally. You can also use the Azure CLI in Azure Cloud Shell.
 ::: zone-end
 ::: zone pivot="method-manual,method-template"
-
-## <a name="generate-deployment-credentials"></a>Choose deployment credentials
-
-Since GitHub Actions requires credentials to access Azure resources, first get the credentials you need from Azure and store them securely in your repository as [GitHub secrets](https://docs.github.com/en/actions/reference/encrypted-secrets). 
-
-Several supported authentication credentials are available when deploying your code to Azure by using GitHub Actions:
-
-| Credential | Status | Set in... | Deployment type | Usage |
-| ---- | ---- | ---- | --- | --- |
-| OpenID Connect (OIDC) token | **Recommended** | [`Azure/login`](https://github.com/Azure/login) | Code-only<br/>Containers | Federated credentials create a trust relationship between your GitHub repository and a user-assigned managed identity in Microsoft Entra. No secrets are stored in GitHub. |
-| Service principal secret | Not recommended | [`Azure/login`](https://github.com/Azure/login) | Code-only<br/>Containers | Requires you to manage and rotate a client secret in GitHub. |
-| Publish profile | Not recommended | [`Azure/functions-action`](https://github.com/marketplace/actions/azure-functions-action) | Code-only | Uses basic authentication credentials to connect to the `scm` deployment endpoint. Requires [basic authentication to be enabled](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments). |
-| Docker credentials | Depends on registry | [`docker/login-action`](https://github.com/marketplace/actions/docker-login) | Container | Required when pushing to a private Docker container registry. For Azure Container Registry, you can use OIDC with a managed identity instead. |  
-
-Authentication considerations:
-
-+ OIDC is the most secure authentication method and is recommended for all new deployments. OIDC uses [workload identity federation](/entra/workload-id/workload-identity-federation) and only supports user-assigned managed identities.
-+ When you enable a GitHub Actions-based deployment in the Azure portal, OIDC authentication is used by default.
-+ With OIDC, the managed identity's client ID, tenant ID, and subscription ID are stored as GitHub repository **variables** (not secrets), since these values aren't sensitive.
-+ Publish profile authentication requires [basic authentication to be enabled](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments) on your function app's `scm` endpoint, which is a security concern.
-+ Service principal authentication requires you to manage and manually rotate the client secret stored in GitHub.
-+ Use Azure role-based access control (Azure RBAC) to limit access only to the Azure resources required for your deployment.
-+ Unless otherwise noted, this article shows you how to configure a workflow that uses OIDC authentication.
-+ When using the `Azure/functions-container-action` with a container registry other than Azure Container Registry, you also need to store those access credentials in your GitHub Actions secrets.
 
 ## Create a managed identity for GitHub Actions deployment
 
@@ -392,21 +381,17 @@ You can create the GitHub Actions workflow configuration file from the Azure Fun
 1. Verify that the new workflow file is saved in `/.github/workflows/` and select **Commit changes**.  
 ::: zone-end
 
-## Update a workflow configuration
-
-To update or change an existing workflow configuration, go to the `/.github/workflows/` location in your repository. Open the specific YAML file, make any needed changes, and then commit the updates to the repository.
-
 ## Example: workflow configuration file
 
 The following template example uses the `functions-action` and OIDC for authentication. The template depends on your chosen language and the operating system on which your function app is deployed:
 
 ### [Windows](#tab/windows)
 
-If your function app runs on Linux, select **Linux**.
+Windows deployments use `runs-on: windows-latest` in the workflow. The `Azure/functions-action` uses [zip deploy][Zip deploy] on Windows for all plans except Flex Consumption (which uses one deploy).
 
 ### [Linux](#tab/linux)
 
-If your function app runs on Windows, select **Windows**.
+Linux deployments use `runs-on: ubuntu-latest` in the workflow. On the Consumption plan, Linux uses an external package URL for deployment. Container deployments require Linux.
 
 ---
 
@@ -499,28 +484,20 @@ The following table shows which parameters are supported for each hosting plan:
 | **respect-pom-xml** | Optional (Java) | Optional (Java) | Optional (Java) | Optional (Java) |
 | **respect-funcignore** | Optional | Optional | Optional | Optional |
 
-### Considerations
+### Deployment methods
 
-Keep the following considerations in mind when using the Azure Functions action:
+When using GitHub Actions, the deployment method used depends on your hosting plan:
 
-+ When using GitHub Actions, the way that your code is deployed depends on your hosting plan, as shown in the following table:
+| Hosting plan | Deployment method |
+| ---- | ----- |
+| [Flex Consumption](./flex-consumption-plan.md) | [One deploy] |
+| [Elastic Premium](./functions-premium-plan.md) | [Zip deploy] |
+| [Dedicated (App Service)](./dedicated-plan.md) | [Zip deploy] |
+| [Consumption](./consumption-plan.md) | Windows: [Zip deploy]<br/>Linux: [external package URL](./functions-deployment-technologies.md#external-package-url)<sup>*</sup> |
 
-    | Hosting plan | Deployment method |
-    | ---- | ----- |
-    | [Flex Consumption](./flex-consumption-plan.md) | [One deploy](./functions-deployment-technologies.md#one-deploy) |
-    | [Elastic Premium](./functions-premium-plan.md) | [Zip deploy](deployment-zip-push.md) |
-    | [Dedicated (App Service)](./dedicated-plan.md) | [Zip deploy](deployment-zip-push.md) |
-    | [Consumption](./consumption-plan.md) | Windows: [Zip deploy](deployment-zip-push.md)<br/>Linux: [external package URL](./functions-deployment-technologies.md#external-package-url)<sup>*</sup> |
+\* The ability to run your apps on Linux in a Consumption plan is planned for retirement. For more information, see [Azure Functions Consumption plan hosting](consumption-plan.md).
 
-    \* The ability to run your apps on Linux in a Consumption plan is planned for retirement. For more information, see [Azure Functions Consumption plan hosting](consumption-plan.md).
-
-+ Store the credentials that GitHub needs to connect to Azure for deployment as variables or secrets in your GitHub repository. Access these credentials in the deployment as `vars.<VARIABLE_NAME>` or `secrets.<SECRET_NAME>`.
-
-+ Use OIDC with a user-assigned managed identity as the recommended way for GitHub Actions to authenticate with Azure Functions for deployment. You can also use a service principal or publish profile, but these methods aren't recommended. To learn more, see [this GitHub Actions repository](https://github.com/Azure/functions-action).
-
-+ The actions for setting up the environment and running a build are generated from the templates and are language specific.
-
-+ The templates use `env` elements to define settings unique to your build and deployment.
+For more information, see [Deployment technologies in Azure Functions](functions-deployment-technologies.md).
 
 ## Next steps
 
@@ -528,3 +505,5 @@ Keep the following considerations in mind when using the Azure Functions action:
 - [Learn more about Azure and GitHub integration](/azure/developer/github/)
 
 [Azure portal]: https://portal.azure.com
+[Zip deploy]: functions-deployment-technologies.md#zip-deploy
+[One deploy]: functions-deployment-technologies.md#one-deploy
