@@ -20,7 +20,7 @@ To help ensure your function apps continue to receive support, follow the instru
 
 ::: zone pivot="programming-language-csharp"   
 > [!NOTE]
-> This article shows you how to update the .NET version of a function app that uses the [isolated worker model](dotnet-isolated-process-guide.md). If your function app runs on an older version of .NET and uses the [in-process model](functions-dotnet-class-library.md), you need to [migrate from the in-process model to the isolated worker model](migrate-dotnet-to-isolated-model.md) before November 10, 2026.
+> This article shows you how to update the .NET version of a function app that uses the [isolated worker model](dotnet-isolated-process-guide.md). If your function app uses the [in-process model](functions-dotnet-class-library.md), you must [migrate from the in-process model to the isolated worker model](migrate-dotnet-to-isolated-model.md) before November 10, 2026.
 ::: zone-end  
 
 ## Prepare your function app
