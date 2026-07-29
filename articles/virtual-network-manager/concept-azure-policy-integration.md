@@ -51,7 +51,7 @@ With Azure Virtual Network Manager's [network groups](concept-network-groups.md)
 > [!IMPORTANT]
 > When you define a policy, the `networkGroupId` must be the full resource ID of the target network group as seen in the sample definition. It doesn't support parameterization in the policy definition. If you need to parameterize the network group, you can utilize an Azure Resource Manager template to create the policy definition and assignment.
 
-When Azure Policy is used with Azure Virtual Network Manager, the policy targets a [Resource Provider property](../governance/policy/concepts/definition-structure.md#resource-provider-modes) of `Microsoft.Network.Data`. Because of this behavior, the policy definition must have a `policyType` of `Custom`. How that value gets set depends on where you create the definition:
+When you use Azure Policy with Azure Virtual Network Manager, the policy targets a [Resource Provider property](../governance/policy/concepts/definition-structure.md#resource-provider-modes) of `Microsoft.Network.Data`. Because of this behavior, the policy definition must have a `policyType` of `Custom`. How you set that value depends on where you create the definition:
 
 - **From the Azure Virtual Network Manager dashboard**: when you [create a policy to dynamically add members](how-to-exclude-elements.md), Azure Virtual Network Manager sets `policyType` to `Custom` for you when the policy is created. You don't need to set it yourself.
 - **Through Azure Policy or other tooling**: when you [create a policy definition](../governance/policy/tutorials/create-and-manage.md) outside the Azure Virtual Network Manager dashboard, set `policyType` to `Custom` in the definition yourself.

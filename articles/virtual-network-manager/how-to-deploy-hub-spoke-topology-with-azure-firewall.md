@@ -39,10 +39,10 @@ Many organizations use Azure Firewall to protect their virtual networks from thr
 In this task, you create a routing configuration and rule collection that includes your spoke network group. Routing configurations define the routing rules for traffic between virtual networks.
 
 1. In the network manager instance, select **Configurations** under **Settings**.
-2. Select **+ Create** > **Routing configuration - Preview**.
-3. On the **Create a routing configuration** page, enter the routing configuration's **Name** and **Description** on the **Basics** tab, then select **Next: Rule collection >**.
-4. Select **Add** on the **Rule collections** tab.
-5. In the **Add a rule collection** window, enter or select the following settings for the rule collection:
+1. Select **+ Create** > **Routing configuration - Preview**.
+1. On **Create a routing configuration**, enter the routing configuration's **Name** and **Description** on the **Basics** tab, and then select **Next: Rule collection >**.
+1. Select **Add** on the **Rule collections** tab.
+1. In **Add a rule collection**, enter or select the following settings for the rule collection:
 
     | **Setting** | **Value** |
     |---|---|
@@ -52,8 +52,8 @@ In this task, you create a routing configuration and rule collection that includ
     | **Enable BGP route propagation** | (Optional) Select **Enable BGP route propagation** if you want to enable Border Gateway Protocol (BGP) route propagation. |
     | **Target network group** | Select your spoke network group. |
 
-6. Under **Routing rules**, select **Add** to create a new routing rule.
-7. In the **Add a routing rule** window, enter or select the following settings for the routing rule:
+1. Under **Routing rules**, select **Add** to create a new routing rule.
+1. In **Add a routing rule**, enter or select the following settings for the routing rule:
 
     | **Setting** | **Value** |
     |---|---|
@@ -65,9 +65,9 @@ In this task, you create a routing configuration and rule collection that includ
     | **Next hop type** | Select **Virtual Appliance**.<br> Select **Import Azure firewall private IP address**. |
     | **Azure firewalls** | Select your Azure firewall then choose **Select**. | 
 
-8. Select **Add** to add the routing rule to the rule collection.
-9. Select **Add** to add the rule collection to the routing configuration.
-10. Select **Review + create** then select **Create**.
+1. Select **Add** to add the routing rule to the rule collection.
+1. Select **Add** to add the rule collection to the routing configuration.
+1. Select **Review + create** and then select **Create**.
 
 ## Deploy the routing configuration
 
@@ -76,7 +76,7 @@ In this task, you deploy the routing configuration to create the routing rules f
 1. In the network manager instance, select **Deployments** under **Settings**.
 2. Select **Deploy configurations** then select **Routing configuration - Preview**.
 3. In the **Deploy a configuration** window, select the routing configuration you created, and select the **Target regions** you wish to deploy the configuration to.
-4. Select **Next** or **Review + deploy** to review the deployment then select **Deploy**.
+1. Select **Next** or **Review + deploy** to review the deployment, and then select **Deploy**.
 
 ## Delete all resources
 

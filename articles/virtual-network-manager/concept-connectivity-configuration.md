@@ -78,7 +78,7 @@ In this step, you configure the connectivity configuration's mesh topology setti
 
 ### <a name="enable-high-scale-connectivity-in-azure-virtual-network-manager-connected-groups"></a>Enable up to 5,000 virtual networks in a connected group
 
-The high-scale connected group feature extends the number of virtual networks a connected group can contain. To use this feature, register the `AllowHighScaleConnectedGroup` preview feature on your subscription; its display name is **Enable High Scale Connected Group**. For the steps to register a preview feature, see [Set up preview features in an Azure subscription](../azure-resource-manager/management/preview-features.md). After the feature is registered, a connected group can contain up to 5,000 virtual networks.
+The high-scale connected group feature extends the number of virtual networks a connected group can contain. To use this feature, register the `AllowHighScaleConnectedGroup` preview feature on your subscription. Its display name is **Enable High Scale Connected Group**. For the steps to register a preview feature, see [Set up preview features in an Azure subscription](../azure-resource-manager/management/preview-features.md). After the feature is registered, a connected group can contain up to 5,000 virtual networks.
 
 ## Hub-and-spoke topology
 

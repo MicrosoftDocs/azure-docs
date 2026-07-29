@@ -74,7 +74,7 @@ In this step, you create two connectivity configurations in your network manager
   |-------|-------|
   | **Topology** | Select **Hub and spoke**. |
   | **Hub** | Choose **Select a hub** and select the hub virtual network in region 1. |
-  | **Spoke network groups** | Select **Add**.<br> In the **Add network groups** window, select the spoke network group from region 1: **ng-spoke-*\<region1\>***. |
+  | **Spoke network groups** | Select **Add**.<br> In **Add network groups**, select the spoke network group from region 1: **ng-spoke-*\<region1\>***. |
 
 6. Select the **Visualization** tab or **Next: Visualization** to review the topology.
 7. Select **Review + create** then **Create and start deployment** to deploy the connectivity configuration.
