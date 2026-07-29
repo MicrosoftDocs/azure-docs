@@ -127,6 +127,44 @@ The system property names vary based on the endpoint to which the messages are b
 |dt-dataschema|dt-dataschema|dt-dataschema|dt-dataschema|dt-dataschema|
 |dt-subject|dt-subject|dt-subject|dt-subject|dt-subject|
 
+## Message schema at routing endpoints
+
+When IoT Hub routes a device-to-cloud message to a custom endpoint, the message is delivered in three parts:
+
+* **Body**: The message body is delivered as-is (not base64 encoded) to Event Hubs, Service Bus queues, and Service Bus topics. For Azure Storage and Azure Cosmos DB, encoding depends on the message content type and content encoding system properties. For more information, see [IoT Hub endpoints](iot-hub-devguide-endpoints.md#custom-endpoints-for-message-routing).
+
+* **System properties**: IoT Hub system properties are surfaced at the endpoint using the destination-specific names listed in [System property names](#system-property-names). These properties preserve the device identity and message metadata. For example, `iothub-connection-device-id` identifies the originating device.
+
+* **Application properties**: Application properties set by the device or added through [message enrichments](iot-hub-message-enrichments-overview.md) are passed through unchanged.
+
+The following example shows a logical view of a telemetry message routed to an Event Hubs endpoint:
+
+```json
+{
+  "body": {
+    "timestamp": "2022-02-08T20:10:46Z",
+    "tag_name": "spindle_speed",
+    "tag_value": 100
+  },
+  "systemProperties": {
+    "message-id": "a1b2c3d4-0000-1111-2222-333344445555",
+    "iothub-connection-device-id": "sample-device-01",
+    "iothub-connection-auth-method": "{\"scope\":\"device\",\"type\":\"sas\",\"issuer\":\"iothub\"}",
+    "iothub-enqueuedtime": "2022-02-08T20:10:46.143Z",
+    "content-type": "application/json",
+    "content-encoding": "utf-8"
+  },
+  "applicationProperties": {
+    "iothub-creation-time-utc": "2022-02-08T20:10:46.021Z"
+  }
+}
+```
+
+<!-- TODO (WI 599257): Verify the exact per-endpoint representation (for example, how system properties surface as AMQP annotations vs. application properties at an Event Hubs endpoint) with the feature team before publishing. -->
+
+> [!NOTE]
+> Routing to a Microsoft Fabric Event Stream endpoint uses the CloudEvents schema instead of the schema described here. For more information, see [Microsoft Fabric Event Streams as a routing endpoint](iot-hub-devguide-endpoints.md#microsoft-fabric-event-streams-as-a-routing-endpoint-preview).
+
 ## Message size
 
 IoT Hub measures message size in a protocol-agnostic way, considering only the actual payload. The size in bytes is calculated as the sum of the following values:
