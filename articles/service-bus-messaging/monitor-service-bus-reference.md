@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Service Bus
 description: This article contains important reference material you need when you monitor Azure Service Bus by using Azure Monitor.
-ms.date: 08/12/2025
+ms.date: 07/28/2026
 ms.custom: horz-monitor
 ms.topic: reference
 author: spelluru
