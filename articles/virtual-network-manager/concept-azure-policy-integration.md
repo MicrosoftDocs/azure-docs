@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 07/17/2026
+ms.date: 07/29/2026
 ms.custom: template-concept, engagement-fy23, seo-fy24
 #customer intent: As a network administrator, I want to learn how to use Azure Policy to define dynamic network group membership in Azure Virtual Network Manager so that I can create scalable and dynamically adapting virtual network environments in my organization.
 ---
@@ -51,7 +51,10 @@ With Azure Virtual Network Manager's [network groups](concept-network-groups.md)
 > [!IMPORTANT]
 > When you define a policy, the `networkGroupId` must be the full resource ID of the target network group as seen in the sample definition. It doesn't support parameterization in the policy definition. If you need to parameterize the network group, you can utilize an Azure Resource Manager template to create the policy definition and assignment.
 
-When Azure Policy is used with Azure Virtual Network Manager, the policy targets a [Resource Provider property](../governance/policy/concepts/definition-structure.md#resource-provider-modes) of `Microsoft.Network.Data`. Because of this behavior, you need to specify a *policyType* of `Custom` in your policy definition. When you [create a policy to dynamically add members](how-to-exclude-elements.md) in Azure Virtual Network Manager, it is applied automatically when the policy is created. You only need to choose `custom` when [creating a new policy definition](../governance/policy/tutorials/create-and-manage.md) through Azure Policy or other tooling outside of the Azure Virtual Network Manager dashboard.
+When Azure Policy is used with Azure Virtual Network Manager, the policy targets a [Resource Provider property](../governance/policy/concepts/definition-structure.md#resource-provider-modes) of `Microsoft.Network.Data`. Because of this behavior, the policy definition must have a `policyType` of `Custom`. How that value gets set depends on where you create the definition:
+
+- **From the Azure Virtual Network Manager dashboard**: when you [create a policy to dynamically add members](how-to-exclude-elements.md), Azure Virtual Network Manager sets `policyType` to `Custom` for you when the policy is created. You don't need to set it yourself.
+- **Through Azure Policy or other tooling**: when you [create a policy definition](../governance/policy/tutorials/create-and-manage.md) outside the Azure Virtual Network Manager dashboard, set `policyType` to `Custom` in the definition yourself.
 
 Here's a sample of a policy definition with the `policyType` property set to `Custom`.
 

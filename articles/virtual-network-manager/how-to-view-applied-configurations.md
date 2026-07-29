@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 07/17/2026
+ms.date: 07/29/2026
 ms.custom:
   - template-how-to
   - sfi-image-nochange
@@ -123,9 +123,9 @@ The following list contains operations you see in the activity log:
 | ListDeploymentStatus | Viewing the deployment status of a connectivity or security admin configuration. |
 | ListActiveConnectivityConfiguration | Viewing the list of connectivity configurations applied to the virtual network.|
 | ListActiveSecurityAdminRules | Viewing the list of security admin configurations applied to the virtual network. |
-| Write ConnectivityConfiguration. | Creating a new connectivity configuration. |
+| Write ConnectivityConfiguration | Creating a new connectivity configuration. |
 | Write NetworkGroups | Creating a new network group. |
-| Delete StaticMembers | Adding a member from a network group.|
+| Write StaticMembers | Adding a member to a network group.|
 | Write NetworkManager | Creating a new Azure Virtual Network Manager instance. |
 | Write Rules | Creating a new security rule to add to a rule collection. |
 | Write RuleCollections | Creating a new rule collection to add to a security admin configuration. |
