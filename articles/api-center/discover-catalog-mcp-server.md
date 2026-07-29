@@ -50,7 +50,7 @@ https://<service name>.data.<region>.azure-apicenter.ms/mcp
 Example: `https://myapicenter.data.eastus.azure-apicenter.ms/mcp`
 
 > [!IMPORTANT]
-> MCP endpoint can only be enabled for the Standard tier. If your API Center is in the Free tier, you must upgrade to Standard to enable the MCP server. For more information on upgrading your API center, see the [FAQ](frequently-asked-questions.yml#how-do-i-upgrade-my-api-center-from-the-free-plan-to-the-standard-plan).
+> You can enable the MCP endpoint only for the Standard tier. If your API Center is in the Free tier, you must upgrade to Standard to enable the MCP server. For more information on upgrading your API center, see the [FAQ](frequently-asked-questions.yml#how-do-i-upgrade-my-api-center-from-the-free-plan-to-the-standard-plan).
 
 ## Connect to the MCP server
 
