@@ -46,6 +46,12 @@ landingContent:
             url: concepts-index-and-search.md
           - text: Syncing Reference data values
             url: concepts-reference-data-values.md
+          - text: Monitoring data reference
+            url: concepts-monitor-data-reference.md
+      - linkListType: how-to-guide
+        links:
+          - text: Monitor Azure Data Manager for Energy
+            url: how-to-monitor-data-manager-energy.md
       - linkListType: whats-new
         links:
           - text: Release notes
