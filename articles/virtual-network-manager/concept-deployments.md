@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 07/11/2025
+ms.date: 07/29/2026
 ---
 
 # Manage configuration deployments in Azure Virtual Network Manager
@@ -39,14 +39,16 @@ When you commit a configuration deployment, the API forms a POST operation. Once
 
 :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deployment-in-progress.png" alt-text="Screenshot of deployment in progress in deployment list.":::
 
-### Deployment Status Visibility
-The deployment status is visible on the Deployment page of your Azure Virtual Network Manager instance. This status reflects only the overall success or failure of the configuration deployment, not the individual resource-level (e.g., virtual network or subnet) results.
-### Error Message Emission
-Error messages are only populated when the deployment status is "Failed." If the deployment is successful, the error message field remains empty. This ensures customers focus on actionable errors and avoids confusion from internal or resource-level failures that do not impact the overall deployment.
-### Error Message Content
-For failed deployments, the error message should provide the reason for the failure.
-### Resource-Level Monitoring
-Detailed status for individual virtual networks or subnets, such as why a specific resource failed,  is available through deployment details and logs.
+The deployment status reflects only the overall success or failure of the configuration deployment, not the result for an individual resource such as a single virtual network or subnet. Error messages are populated only when the deployment status is **Failed**. When a deployment succeeds, the error message field remains empty, so you can focus on actionable errors rather than on internal or resource-level failures that don't affect the overall deployment.
+
+The deployment status has the following values:
+
+| Status | What it reflects | Where to get resource-level detail |
+| --- | --- | --- |
+| **NotStarted** | The deployment request is accepted but hasn't begun. | Not applicable. |
+| **Deploying** | Azure Virtual Network Manager is applying the goal state to the targeted regions. | The deployment details for the deployment. |
+| **Deployed** | The configuration deployment succeeded across the targeted regions. The error message field is empty. | The deployment details for the deployment. |
+| **Failed** | The configuration deployment didn't succeed. The error message states the reason for the failure. | The deployment details and logs, which show why an individual virtual network or subnet failed. |
 
 ## <a name = "goalstate"></a> Goal state model
 

@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
-ms.date: 07/17/2026
+ms.date: 07/29/2026
 ms.custom:
   - template-quickstart
   - mode-ui
@@ -51,7 +51,7 @@ This quickstart uses the following sample values for creating resources. Use the
 
 ## Create virtual networks
 
-Create three virtual networks by using the portal. Each virtual network has a `networkType` tag that's used in Azure Policy for network group membership. If you have existing virtual networks for your mesh configuration, add the tags listed in the table to your virtual networks and skip to the next section.
+Create three virtual networks by using the portal. Each virtual network has a `NetworkType` tag that's used in Azure Policy for network group membership. If you have existing virtual networks for your mesh configuration, add the tags listed in the table to your virtual networks and skip to the next section.
 
 1. From the **Home** screen, select **+ Create a resource** and search for **Virtual networks**. Then select **Create** to begin configuring a virtual network.
 
