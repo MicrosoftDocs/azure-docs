@@ -1,6 +1,6 @@
 ---
 title: Run Automated Workflows from Foundry Agents
-description: Run integration workflows in Azure Logic Apps from Foundry agents to automate business tasks with 1,400+ connectors.
+description: Set up Foundry agents to automate business processes with Consumption workflows in Azure Logic Apps.
 services: azure-logic-apps, cognitive-services, azure-ai-foundry
 author: ecfan
 ms.suite: integration
@@ -8,9 +8,9 @@ ms.reviewers: estfan, divswa, psamband, aahi, azla
 ms.topic: how-to
 ai-usage: ai-assisted
 zone_pivot_groups: azure-logic-apps
-ms.date: 03/23/2026
+ms.date: 07/29/2026
 ms.update-cycle: 180-days
-# Customer intent: As an AI integration developer who works with Azure Logic Apps and Microsoft Foundry, I want to run workflows to perform tasks as actions from agents with Foundry Agent Service (classic).
+# Customer intent: As an automation and AI integration developer who works with Azure Logic Apps and Microsoft Foundry, I want to run workflows as actions from agents to complete business tasks by using Foundry Agent Service (classic).
 ms.custom:
   - build-2025
   - azure-ai-agents
@@ -20,10 +20,16 @@ ms.custom:
 
 [!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 
-> [!NOTE]
+> [!IMPORTANT]
 >
-> This feature is in preview, might incur charges, and is subject to the
-> [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Microsoft Foundry classic agents and their [tools](/azure/foundry-classic/agents/how-to/tools-classic/overview) are now deprecated and retire on March 31, 2027. Instead, use the latest Microsoft Foundry portal and agents in the generally available [Microsoft Foundry Agents Service](/azure/foundry/agents/overview).
+>
+> 🔍 For more information, see:
+>
+> - [Agent tools overview for Foundry Agent Service](/azure/foundry/agents/concepts/tool-catalog).
+> - [Migrate to the latest agents developer experience guide](/azure/foundry/agents/how-to/migrate)
+>
+> This feature is in preview, might incur charges, and is subject to the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Agents often need to work with external systems, such as calling APIs, updating systems, or coordinating multiple steps. However, if you mix agent and integration logic, or if you directly embed integration logic in agent code, your solutions become harder to maintain, test, update, and evolve. Agents can adeptly choose actions to take or tools to use. However, they're not designed to manage retry attempts, long‑running steps, or external system failures.
 
