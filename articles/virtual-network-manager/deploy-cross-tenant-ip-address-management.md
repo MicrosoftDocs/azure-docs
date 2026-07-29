@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: tutorial
-ms.date: 05/21/2025
+ms.date: 07/29/2026
 ms.custom:
   - references_regions
   - ai-gen-docs-bap
@@ -58,6 +58,8 @@ Managing IP addresses across multiple Azure tenants can be complex, especially i
 
 ### Verify the cross-tenant association
 
+In this task, you confirm the allocation from both sides. Tenant A is the management tenant that hosts the network manager and the IPAM pool. Tenant B is the managed tenant that contains the virtual network receiving the allocation.
+
 1. In Tenant A's portal view, navigate to your IP address pool and select **Allocations** under **Settings**.
 
 1. Select **Resources** and verify that the virtual network from Tenant B is listed as an allocated resource.
@@ -69,6 +71,8 @@ Managing IP addresses across multiple Azure tenants can be complex, especially i
     :::image type="content" source="media/deploy-cross-tenant-ip-address-management/managed-tenant-virtual-network-subnets-settings-thumb.png" alt-text="Screenshot of virtual network subnet settings to verify IPAM pool matches management tenant pool." lightbox="media/deploy-cross-tenant-ip-address-management/managed-tenant-virtual-network-subnets-settings.png":::
 
 ## Remove IPAM allocation
+
+You remove the allocation from the management tenant (Tenant A), which hosts the network manager and the IPAM pool, and authenticate to the managed tenant (Tenant B), which contains the allocated virtual network.
 
 To remove an IP allocation from a cross-tenant resource:
 

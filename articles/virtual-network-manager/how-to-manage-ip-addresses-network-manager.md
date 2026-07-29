@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 05/01/2026
+ms.date: 07/29/2026
 ms.custom:
   - references_regions
   - sfi-image-nochange
@@ -30,6 +30,8 @@ Azure Virtual Network Manager allows you to manage IP addresses by creating and 
 ## Create an IP address pool
 
 In this step, you create an IP address pool for your virtual network.
+
+IP address management (IPAM) in Azure Virtual Network Manager is generally available in all regions where Azure Virtual Network Manager is available, except Chile Central, Jio India West, Malaysia West, Qatar Central, South Africa West, and West India. Some IP address management menu items in the Azure portal still carry a **Preview** label.
 
 1. In the Azure portal, search for and select **Network managers**.
 1. Select your network manager instance.

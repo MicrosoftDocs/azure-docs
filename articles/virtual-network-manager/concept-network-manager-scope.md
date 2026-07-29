@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 07/17/2026
+ms.date: 07/29/2026
 ---
 
 # Understand and work with Azure Virtual Network Manager scopes
@@ -48,7 +48,7 @@ Features are the [configuration types](#azure-virtual-network-manager-resource-o
 
 ## Hierarchy
 
-Azure Virtual Network Manager allows for management of your network resources in a hierarchy. A hierarchy means you can have multiple network managers with overlapping scopes, and subsequently overlapping configurations.
+Azure Virtual Network Manager allows for management of your network resources in a hierarchy. A hierarchy means you can have multiple network managers with overlapping scopes, and subsequently overlapping configurations. Overlapping scopes are supported only when the overlapping network managers have different features enabled. You can't create multiple network managers with an overlapping scope of the same hierarchy and the same features selected.
 
 For example, one network manager can have the top-level [management group](../governance/management-groups/overview.md) as its scope, while another network manager has a child management group as its scope. When you have a configuration conflict between network managers containing the same resource, the configuration from the network manager with the higher scope is applied.
 
