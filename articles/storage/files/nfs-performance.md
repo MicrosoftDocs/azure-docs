@@ -20,7 +20,7 @@ This article provides various ways to improve performance for network file syste
 
 The `read_ahead_kb` kernel parameter in Linux represents the amount of data that should be "read ahead" or prefetched during a sequential read operation. Linux kernel versions before 5.4 set the read-ahead value to the equivalent of 15 times the mounted file system's `rsize`, which represents the client-side mount option for read buffer size. This sets the read-ahead value high enough to improve client sequential read throughput in most cases.
 
-However, beginning with Linux kernel version 5.4, the Linux NFS client uses a default `read_ahead_kb` value of 128 KiB. This small value might reduce the amount of read throughput for large files. Users upgrading from Linux releases with the larger read-ahead value to releases with the 128 KiB default might experience a decrease in sequential read performance.
+However, beginning with Linux kernel version 5.4, the Linux NFS client uses a default `read_ahead_kb` value of 128 KiB. This smaller value might reduce the amount of read throughput for large files. Users upgrading from Linux releases with the larger read-ahead value to releases with the 128 KiB default might experience a decrease in sequential read performance.
 
 For Linux kernels 5.4 or later, persistently set the `read_ahead_kb` to 15 MiB for improved performance.
 
@@ -42,7 +42,7 @@ To change this value, set the read-ahead size by adding a rule in udev, a Linux 
    ```
 
 ## NFS nconnect
-NFS nconnect is a client-side mount option for NFS file shares that allows you to use multiple TCP connections between the client and your NFS file share. It's particularly useful for large-scale workloads where a single TCP connection becomes a bottleneck.
+NFS nconnect is a client-side mount option for NFS file shares that you use to create multiple TCP connections between the client and your NFS file share. It's particularly useful for large-scale workloads where a single TCP connection becomes a bottleneck.
 
 ### nconnect benefits
 
@@ -85,7 +85,7 @@ Queue depth is the number of pending I/O requests that a storage resource can se
 
 ### Per mount configuration
 
-If a workload requires mounting multiple shares with one or more storage accounts with different nconnect settings from a single client, those settings aren't guaranteed to persist when mounting over the public endpoint. Per mount configuration is only supported when a single Azure file share is used per storage account over the private endpoint as described in Scenario 1.
+If a workload requires mounting multiple shares with one or more storage accounts with different nconnect settings from a single client, the settings aren't guaranteed to persist when mounting over the public endpoint. Per mount configuration supports only a single Azure file share per storage account over the private endpoint as described in Scenario 1.
 
 #### Scenario 1: per mount configuration over private endpoint with multiple storage accounts (supported)
 
@@ -103,7 +103,7 @@ If a workload requires mounting multiple shares with one or more storage account
   - `Mount StorageAccount2.file.core.windows.net:/StorageAccount2/FileShare1`
 
 > [!NOTE]
-> Even if the storage account resolves to a different IP address, that address isn't guaranteed to persist because public endpoints aren't static addresses.
+> Even if the storage account resolves to a different IP address, the address isn't guaranteed to persist because public endpoints aren't static addresses.
 
 #### Scenario 3: per mount configuration over private endpoint with multiple shares on single storage account (not supported)
 
@@ -114,7 +114,7 @@ If a workload requires mounting multiple shares with one or more storage account
 
 ### Performance test configuration
 
-The following resources and benchmarking tools were used to achieve and measure the results outlined in this article.
+To achieve and measure the results outlined in this article, use the following resources and benchmarking tools.
 
 - **Single client:** Azure VM ([DSv4-Series](/azure/virtual-machines/dv4-dsv4-series#dsv4-series)) with single NIC
 - **OS:** Linux (Ubuntu 20.04)
@@ -126,7 +126,7 @@ The following resources and benchmarking tools were used to achieve and measure 
 
 ### Benchmarking tools and tests
 
-These tests use Flexible I/O Tester (FIO), a free, open-source disk I/O tool used both for benchmark and stress/hardware verification. To install FIO, follow the Binary Packages section in the [FIO README file](https://github.com/axboe/fio#readme) to install for the platform of your choice.
+These tests use Flexible I/O Tester (FIO), a free, open-source disk I/O tool that's used for both benchmarking and stress or hardware verification. To install FIO, see the Binary Packages section in the [FIO README file](https://github.com/axboe/fio#readme) and follow the instructions for the platform you choose.
 
 While these tests focus on random I/O access patterns, you get similar results when using sequential I/O.
 
