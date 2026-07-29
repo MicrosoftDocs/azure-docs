@@ -3,7 +3,7 @@ title: File attachments in Azure SRE Agent
 description: Share screenshots, logs, config files, and code directly in chat for AI-powered multimodal analysis in Azure SRE Agent.
 ms.topic: article
 ms.service: azure-sre-agent
-ms.date: 03/16/2026
+ms.date: 07/20/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -17,7 +17,7 @@ By using file attachments, you can share screenshots, log files, configuration f
 > [!TIP]
 > - Drag and drop files, use the file picker, or paste clipboard screenshots directly into chat.
 > - The agent automatically applies the right analysis: multimodal vision for images, workspace tools for text and code, and Python for binary documents.
-> - Supports images, text, data files, and documents (31 file types total).
+> - Supports images, text, data files, documents, and archives (37 file types total).
 > - Up to five files per message, 10 MB each, 50 MB total per message.
 
 ## The problem
@@ -59,6 +59,7 @@ The agent automatically determines how to process each file based on its type.
 | Images (.png, .jpg, .jpeg, .gif, .webp, .svg) | Sent directly to the LLM for multimodal vision analysis | Screenshot of an error dashboard, architecture diagram |
 | Text and code (.txt, .md, .json, .csv, .log, .yaml, .yml, .xml) | Saved to the agent workspace and read with file tools | Log file analysis, config file review, query results |
 | Binary documents (.pdf, .docx, .pptx) | Saved to workspace and parsed using Python tools | Incident postmortem PDF, runbook document |
+| Archives (.zip, .gz, .tgz, .7z, .rar, .cab) | Validated by extension, size, and file signature (magic bytes), then saved to the agent workspace | Diagnostic log bundle, packaged runbook set |
 
 Sent messages display file cards with the file name, size, and a download link so you can retrieve uploaded files later in the thread.
 

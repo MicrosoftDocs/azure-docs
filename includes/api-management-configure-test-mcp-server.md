@@ -1,11 +1,11 @@
 ---
-author: dlepow
+author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 01/16/2026
 ms.collection: ce-skilling-ai-copilot
 ms.update-cycle: 180-days
-ms.author: danlep
+ms.author: patricka
 ---
 ## Configure policies for the MCP server
 
