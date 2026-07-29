@@ -1,11 +1,10 @@
-S---
+---
 title: Request host quota for Azure VMware Solution
 description: Learn how to request host quota/capacity for Azure VMware Solution. You can also request more hosts in an existing Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 03/19/2026
-#Customer intent: As an Azure service admin, I want to request hosts for either a new private cloud deployment or I want to have more hosts allocated in an existing private cloud.
-# Customer intent: As an Azure service administrator, I want to request host quota for a new or existing Azure VMware Solution private cloud, so that I can ensure adequate provisioning of resources for my deployment needs.
+ms.date: 07/29/2026
+#Customer intent: As an Azure service administrator, I want to request host quota for a new or existing Azure VMware Solution private cloud, so that I can ensure adequate provisioning of resources for my deployment needs.
 ---
 
 # Request Host Quota for Azure VMware Solution
