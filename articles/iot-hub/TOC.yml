@@ -257,6 +257,9 @@
     - name: Transport Layer Security (TLS) support
       href: iot-hub-tls-support.md
       displayName: security, Transport Layer Security
+    - name: Update private endpoints for TLS 1.3
+      href: iot-hub-tls-1-3-update-private-endpoint.md
+      displayName: security, Transport Layer Security, TLS 1.3, Private Link, private endpoint
     - name: Migrate to a new TLS certificate root
       href: migrate-tls-certificate.md
     - name: Virtual networks support with Azure Private Link

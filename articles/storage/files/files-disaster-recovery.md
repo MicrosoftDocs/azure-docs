@@ -25,13 +25,13 @@ After a storage account failover completes (for example, from Canada Central to 
 Follow these steps to complete a failover for Azure File Sync: 
 
 1. Contact Microsoft Support to request that Azure File Sync honor the new storage account location.
-1. Once updated, Azure File Sync will route server traffic (data plane) to the new region. The Storage Sync Service control plane might still reflect the original region in the Azure portal.
+1. After Azure File Sync is updated, it routes server traffic (data plane) to the new region. The Storage Sync Service control plane might still reflect the original region in the Azure portal.
 
 The Azure portal displays only the control plane location for Storage Sync. It doesn't expose the data plane endpoint. You can validate that servers are pointing to the correct region by working with Microsoft Support.
 
 ## Customer-managed planned failover
 
-Customer-managed planned failover can also be utilized in multiple scenarios, including planned disaster recovery testing, a proactive approach to large scale disasters, or to recover from nonstorage related outages. 
+You can use customer-managed planned failover in multiple scenarios, including planned disaster recovery testing, a proactive approach to large scale disasters, or to recover from nonstorage related outages. 
 
 During the planned failover process, the primary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary region. At the same time, the original secondary region is promoted and becomes the new primary. After the failover completes, users can proceed to access data in the new primary region and administrators can validate their disaster recovery plan. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated. 
 
@@ -56,22 +56,22 @@ The cost of DR generally increases with lower or zero RPO/RTO. Companies that ne
 
 Azure Files offers different redundancy options to protect your data from planned and unplanned events ranging from transient hardware failures, network and power outages, to natural disasters. All Azure file shares can use locally redundant (LRS) or zone-redundant storage (ZRS). For more information, see [Azure Files redundancy](files-redundancy.md).
 
-Azure Files supports account failover for HDD file shares configured with geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) for protection against regional outages. With account failover, you can initiate the failover process for your storage account if the primary endpoint becomes unavailable. The failover updates the secondary endpoint to become the primary endpoint for your storage account. Once the failover is complete, clients can begin writing to the new primary endpoint.
+Azure Files supports account failover for HDD file shares configured with geo-redundant storage (GRS) and geo-zone redundant storage (GZRS) for protection against regional outages. With account failover, you can initiate the failover process for your storage account if the primary endpoint becomes unavailable. The failover updates the secondary endpoint to become the primary endpoint for your storage account. When the failover is complete, clients can begin writing to the new primary endpoint.
 
-GRS and GZRS still carry a [risk of data loss](#anticipate-data-loss) because data is copied to the secondary region asynchronously, meaning there's a delay before a write to the primary region is copied to the secondary region. In the event of an outage, write operations to the primary endpoint that haven't yet been copied to the secondary endpoint will be lost. This means a failure that affects the primary region might result in data loss if the primary region can't be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is the RPO. Azure Files typically has an RPO of 15 minutes or less, although there's currently no SLA on how long it takes to replicate data to the secondary region.
+GRS and GZRS still carry a [risk of data loss](#anticipate-data-loss-during-failover) because data is copied to the secondary region asynchronously, meaning there's a delay before a write to the primary region is copied to the secondary region. In the event of an outage, write operations to the primary endpoint that haven't yet been copied to the secondary endpoint will be lost. This means a failure that affects the primary region might result in data loss if the primary region can't be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is the RPO. Azure Files typically has an RPO of 15 minutes or less, although there's currently no SLA on how long it takes to replicate data to the secondary region.
 
 > [!IMPORTANT]
 > GRS/GZRS aren't supported for SSD file shares. However, you can [sync between two Azure file shares](https://github.com/Azure-Samples/azure-files-samples/tree/master/SyncBetweenTwoAzureFileSharesForDR) to achieve geographic redundancy.
 
 ## Design for high availability
 
-It's important to design your application for high availability from the start. Refer to these Azure resources for guidance on designing your application and planning for disaster recovery:
+Design your application for high availability from the start. See these Azure resources for guidance on designing your application and planning for disaster recovery:
 
 - [Designing resilient applications for Azure](/azure/architecture/framework/resiliency/app-design): An overview of the key concepts for architecting highly available applications in Azure.
 - [Resiliency checklist](/azure/architecture/checklist/resiliency-per-service): A checklist for verifying that your application implements the best design practices for high availability.
 - [Use geo-redundancy to design highly available applications](../common/geo-redundant-design.md): Design guidance for building applications to take advantage of geo-redundant storage for SMB file shares.
 
-We also recommend that you design your application to prepare for the possibility of write failures. Your application should expose write failures in a way that alerts you to the possibility of an outage in the primary region.
+Also design your application to prepare for the possibility of write failures. Your application should expose write failures in a way that alerts you to the possibility of an outage in the primary region.
 
 As a best practice, design your application to check the [Last Sync Time property](#check-the-last-sync-time-property) to evaluate expected data loss. For example, if you're logging all write operations, then you can compare the time of your last write operations to the last sync time to determine which writes haven't been synced to the secondary.
 
@@ -81,32 +81,24 @@ You can subscribe to the [Azure Service Health Dashboard](https://azure.microsof
 
 ## Understand the account failover process
 
-Customer-managed account failover enables you to fail your entire storage account over to the secondary region if the primary becomes unavailable for any reason. When you force a failover to the secondary region, clients can begin writing data to the secondary endpoint after the failover is complete. The failover typically takes about an hour. We recommend suspending your workload as much as possible before initiating an account failover.
+When you use customer-managed account failover, you can fail your entire storage account over to the secondary region if the primary region becomes unavailable for any reason. When you force a failover to the secondary region, clients can begin writing data to the secondary endpoint after the failover is complete. The failover typically takes about an hour. Suspend your workload as much as possible before initiating an account failover.
 
 To learn how to initiate an account failover, see [Initiate an account failover](../common/storage-initiate-account-failover.md).
 
 ### How an account failover works
 
-Under normal circumstances, a client writes data to a storage account in the primary region, and that data is copied asynchronously to the secondary region. The following image shows the scenario when the primary region is available:
+Under normal circumstances, a client writes data to a storage account in the primary region, and the system copies that data asynchronously to the secondary region.
 
-[ ![Diagram showing how clients write data to the storage account in the primary region.](media/files-disaster-recovery/primary-available.png) ](media/files-disaster-recovery/primary-available.png#lightbox)
+If the primary endpoint becomes unavailable for any reason, the client can't write to the storage account. You can then initiate an account failover. This action updates the DNS entry provided by Azure Storage so that the secondary endpoint becomes the new primary endpoint for your storage account.
 
-If the primary endpoint becomes unavailable for any reason, the client is no longer able to write to the storage account. The following image shows the scenario where the primary has become unavailable, but no recovery has happened yet:
-
-[ ![Diagram showing the primary is unavailable, so clients can't write data.](media/files-disaster-recovery/primary-unavailable-before-failover.png) ](media/files-disaster-recovery/primary-unavailable-before-failover.png#lightbox)
-
-The customer initiates the account failover to the secondary endpoint. The failover process updates the DNS entry provided by Azure Storage so that the secondary endpoint becomes the new primary endpoint for your storage account, as shown in the following image:
-
-[ ![Diagram showing the customer initiates account failover to secondary endpoint.](media/files-disaster-recovery/failover-to-secondary.png) ](media/files-disaster-recovery/failover-to-secondary.png#lightbox)
-
-Write access is restored for geo-redundant accounts once the DNS entry has been updated and requests are being directed to the new primary endpoint. Existing storage service endpoints remain the same after the failover. File handles and leases aren't retained on failover, so clients must unmount and remount the file shares.
+Write access is restored for geo-redundant accounts after the DNS entry is updated and requests are directed to the new primary endpoint. Existing storage service endpoints stay the same after the failover. File handles and leases aren't retained on failover, so clients must unmount and remount the file shares.
 
 > [!IMPORTANT]
-> After the failover is complete, the storage account is configured to be locally redundant in the new primary endpoint/region. To resume replication to the new secondary, configure the account for geo-redundancy again.
+> After the failover is complete, the storage account is configured to be locally redundant in the new primary region. To resume replication to the new secondary, configure the account for geo-redundancy again.
 >
 > Keep in mind that converting a locally redundant storage account to use geo-redundancy incurs both cost and time. For more information, see [The time and cost of failing over](../common/storage-disaster-recovery-guidance.md#the-time-and-cost-of-failing-over).
 
-### Anticipate data loss
+### Anticipate data loss during failover
 
 > [!CAUTION]
 > An account failover usually involves some data loss. It's important to understand the implications of initiating an account failover.
@@ -115,13 +107,13 @@ Because data is written asynchronously from the primary region to the secondary 
 
 When you force a failover, all data in the primary region is lost as the secondary region becomes the new primary region. The new primary region is configured to be locally redundant after the failover.
 
-All data already copied to the secondary is maintained when the failover happens. However, any data written to the primary that has not also been copied to the secondary will be lost permanently.
+The failover process maintains all data already copied to the secondary. However, any data written to the primary that isn't also copied to the secondary is lost permanently.
 
 ### Check the Last Sync Time property
 
 The **Last Sync Time (LST)** property indicates the most recent time that data from the primary region is guaranteed to have been written to the secondary region. All data written prior to the last sync time is available on the secondary, while data written after the last sync time might not have been written to the secondary and might be lost. Use this property in the event of an outage to estimate the amount of data loss you might incur by initiating an account failover.
 
-To ensure file shares are in a consistent state when a failover occurs, a system snapshot is created in the primary region every 15 minutes and is replicated to the secondary region. When a failover occurs to the secondary region, the share state is based on the latest system snapshot in the secondary region. If a failure happens in the primary region, the secondary region is likely behind the primary region, as all writes to the primary won't yet have been replicated to the secondary. Due to geo-lag or other issues, the latest system snapshot in the secondary region might be older than 15 minutes.
+To ensure file shares are in a consistent state when a failover occurs, the primary region creates a system snapshot every 15 minutes and replicates it to the secondary region. When a failover occurs to the secondary region, the share state is based on the latest system snapshot in the secondary region. If a failure happens in the primary region, the secondary region is likely behind the primary region, as all writes to the primary aren't yet replicated to the secondary. Due to geo-lag (replication delay between regions) or other issues, the latest system snapshot in the secondary region might be older than 15 minutes.
 
 All write operations written to the primary region prior to the LST have been successfully replicated to the secondary region, meaning that they're available to be read from the secondary. Any write operations written to the primary region after the last sync time might or might not have been replicated to the secondary region, meaning that they might not be available for read operations.
 

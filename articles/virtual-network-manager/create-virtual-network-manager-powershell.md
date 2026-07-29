@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
-ms.date: 01/15/2025
+ms.date: 07/17/2026
 ms.custom: template-quickstart, mode-api, engagement-fy23, devx-track-azurepowershell
 ---
 
@@ -21,7 +21,7 @@ In this quickstart, you deploy three virtual networks and use Azure Virtual Netw
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - Perform this quickstart by using PowerShell locally, not through Azure Cloud Shell. The version of *Az.Network* in Azure Cloud Shell doesn't currently support the Azure Virtual Network Manager cmdlets.
-- To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization isn't supported.
+- To modify dynamic network groups, see the [required permissions](concept-azure-policy-integration.md#required-permissions).
 
 ## Sign in to your Azure account and select your subscription
 

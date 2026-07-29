@@ -1,9 +1,9 @@
 ---
-author: dlepow
+author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 04/17/2025
-ms.author: danlep
+ms.author: patricka
 ms.custom: sfi-image-nochange
 ---
 

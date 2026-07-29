@@ -67,7 +67,7 @@ The agent operates through five extension primitives:
 
 - **Python tools**: Custom logic, data transformations, and API integrations for scenarios that require code rather than configuration.
 
-- **MCP servers**: Connect to 40+ pre-built connectors (Datadog, New Relic, Splunk, Elasticsearch, Dynatrace, and more) or any custom tool through the Model Context Protocol standard.
+- **MCP servers**: Connect to 40+ pre-configured connectors (Datadog, New Relic, Splunk, Elasticsearch, Dynatrace, and more) or any custom tool through the Model Context Protocol standard.
 
 - **Agent hooks**: Event-triggered automations that run at defined points in the agent lifecycle, either before investigation or after resolution. Two executor types are supported: command hooks run deterministic CLI operations, and prompt hooks produce LLM-evaluated structured JSON output. Use hooks to enforce policies, emit telemetry, or integrate with external approval workflows. See [agent hooks](agent-hooks.md).
 

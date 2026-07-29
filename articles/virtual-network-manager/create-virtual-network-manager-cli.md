@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
-ms.date: 01/15/2025
+ms.date: 07/17/2026
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -131,7 +131,7 @@ az network vnet subnet create \
 
 ## Define membership for a mesh configuration
 
-Azure Virtual Network Manager allows two methods for adding membership to a network group. Static membership involves manually adding virtual networks, and dynamic membership involves using Azure Policy to dynamically add virtual networks based on conditions. Choose the option that you want to complete for your mesh configuration membership.
+Choose [static membership](concept-network-groups.md#static-membership) or [dynamic membership](concept-network-groups.md#dynamic-membership) for your mesh configuration membership.
 
 # [Manual membership](#tab/manualmembership)
 
