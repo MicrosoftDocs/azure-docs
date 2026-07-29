@@ -1,4 +1,4 @@
----
+S---
 title: Request host quota for Azure VMware Solution
 description: Learn how to request host quota/capacity for Azure VMware Solution. You can also request more hosts in an existing Azure VMware Solution private cloud.
 ms.topic: how-to
@@ -47,9 +47,9 @@ You need an Azure account in an Azure subscription that adheres to one of the fo
 
 > [!NOTE]
 > - **Azure VMware Solution requires a minimum of three hosts** and recommends redundancy of N+1 hosts.
-> - Any unused or undeployed quota expires after 30 days. A new request is required to obtain additional quota.  This does not apply to customers with a valid VCF license key and/or Azure VMware Solution Reserved Instances, for whom quota equivalent to the reserved instance count does not expire after 30 days.
-> - **NEW** Azure VMware Solution no longer includes VMware licenses for new deployments and now requires Portable [VMware Cloud Foundation (VCF)](/azure/azure-vmware/vmware-cloud-foundations-license-portability) licenses. 
-> - **VCF Disclaimer** For quota extensions to an existing Azure VMware Solution private cloud, a Portable VMware Cloud Foundation (VCF) license must be configured before quota is allocated.  For net-new Azure VMware Solution deployments, quota is allocated automatically, and the Portable VCF license must be configured during deployment.
+> - Any unused or undeployed quota expires after 30 days. To obtain additional quota, a new quota request must be submitted.  This policy does not apply to customers with an Azure VMware Solution Reserved Instances. For those customers, quota equivalent to the number of reserved instances does not expire after 30 days.
+> - **VCF Disclaimer** Azure VMware Solution no longer includes VMware licenses for new deployments.  Customers must provide Portable [VMware Cloud Foundation (VCF)](/azure/azure-vmware/vmware-cloud-foundations-license-portability) licenses for all new Azure VMware Solution deployments, including both net-new and add-on deployments. 
+
 
 > [!NOTE]
 >If you have an Availability Zone requirement for integrating with other Azure services; for example, Azure NetApp Files, create a technical **[New support request](https://portal.azure.com/#create/Microsoft.Support)** once the quota is allocated and **before** provisioning.
@@ -104,9 +104,9 @@ Access the Azure portal using the **Admin On Behalf Of (AOBO)** procedure from P
 
 > [!NOTE]
 > - **Azure VMware Solution requires a minimum of three hosts** and recommends redundancy of N+1 hosts.
-> - Any unused or undeployed quota expires after 30 days. A new request is required to obtain additional quota.  This does not apply to customers with a valid VCF license key and/or Azure VMware Solution Reserved Instances, for whom quota equivalent to the reserved instance count does not expire after 30 days.
-> - **NEW** Azure VMware Solution no longer includes VMware licenses for new deployments and now requires Portable [VMware Cloud Foundation (VCF)](/azure/azure-vmware/vmware-cloud-foundations-license-portability) licenses.
-> - **VCF Disclaimer** For quota extensions to an existing Azure VMware Solution private cloud, a Portable VMware Cloud Foundation (VCF) license must be configured before quota is allocated.  For net-new Azure VMware Solution deployments, quota is allocated automatically, and the Portable VCF license must be configured during deployment.
+> - Any unused or undeployed quota expires after 30 days. To obtain additional quota, a new quota request must be submitted.  This policy does not apply to customers with Azure VMware Solution Reserved Instances. For those customers, quota equivalent to the number of reserved instances does not expire after 30 days.
+> - **VCF Disclaimer** Azure VMware Solution no longer includes VMware licenses for new deployments.  Customers must provide Portable [VMware Cloud Foundation (VCF)](/azure/azure-vmware/vmware-cloud-foundations-license-portability) licenses for all new Azure VMware Solution deployments, including both net-new and add-on deployments.
+
 
 > [!Note]
 >If you have an Availability Zone requirement for integrating with other Azure services; for example, Azure NetApp Files, create a technical **[New support request](https://portal.azure.com/#create/Microsoft.Support)** once the quota is allocated and before creating.
