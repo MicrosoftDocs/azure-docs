@@ -1,9 +1,9 @@
 ---
-author: dlepow
+author: PatAltimore
 ms.service: azure-api-management
 ms.topic: include
 ms.date: 03/27/2025
-ms.author: danlep
+ms.author: patricka
 ---
 ## Go to your API Management instance
 
