@@ -14,8 +14,6 @@ ms.service: azure-file-storage
 
 Use Azure File Sync to centralize your organization's file shares in Azure Files, while keeping the flexibility, performance, and compatibility of an on-premises file server. Azure File Sync transforms Windows Server into a quick cache of your Azure file share. You can use any protocol that's available on Windows Server to access your data locally, including SMB, NFS, and FTPS. You can have as many caches as you need across the world.
 
-## Built in monitoring for Azure File Sync
-
 This article describes how to monitor your Azure File Sync deployment by using Azure Monitor, Storage Sync Service, and Windows Server. It covers the following scenarios:
 
 - View Azure File Sync metrics in Azure Monitor.
@@ -36,7 +34,7 @@ To view Azure File Sync metrics in Azure Monitor:
 
 Alerts proactively notify you when important conditions are found in your monitoring data. To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview).
 
-### Alerts
+### Configure Azure Monitor alerts
 
 To create alerts for Azure File Sync:
 
@@ -51,9 +49,9 @@ To create alerts for Azure File Sync:
 6. Select **Create alert rule** to create the alert.  
 
   > [!NOTE]
-  > If you configure an alert using the Server Name dimension and the server is renamed, the alert will need to be updated to monitor the new server name.
+  > If you configure an alert using the Server Name dimension and the server is renamed, the alert needs to be updated to monitor the new server name.
 
-### Storage Sync Service
+### Monitor using Storage Sync Service
 
 To view the health of your Azure File Sync deployment in the **Azure portal**, navigate to the **Storage Sync Service**. The following information is available:
 
@@ -118,7 +116,7 @@ The following metric charts are viewable in the Storage Sync Service portal:
 > [!NOTE]
 > The charts in the Storage Sync Service portal have a time range of 24 hours. To view different time ranges or dimensions, use Azure Monitor.
 
-### Windows Server
+### Monitor using Windows Server
 
 On the **Windows Server** that has the Azure File Sync agent installed, you can view the health of the server endpoints on that server using the **event logs** and **performance counters**.
 
@@ -226,12 +224,12 @@ The following table summarizes the default thresholds and evaluation periods for
 | Sync session failed | `ServerSyncSessionResult` | 1 hour | 24 hours | Value < 1 |
 | Server failed to connect to sync service | `StorageSyncServerHeartbeat` | 1 hour | 6 hours | Value < 1 |
 | Server endpoint in low disk space mode | `StorageSyncLowDiskModeCount` | 1 hour | 12 hours | Value ≥ 1 |
-| Recall size exceeded 500 GB | `StorageSyncRecallTotalSizeBytes` | 1 hour | 24 hours | Total > 500 GB |
+| Recall size exceeded 500 GiB | `StorageSyncRecallTotalSizeBytes` | 1 hour | 24 hours | Total > 500 GiB |
 | Installed agent is expiring | `StorageSyncAgentVersionExpirationDays` | 1 hour | 12 hours | Value > 0 |
 
 [!INCLUDE [azmon-horz-alerts-part-two](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/azmon-horz-alerts-part-two.md)]
 
-### Alert examples
+### Alert configuration examples
 
 This section provides some example alerts for Azure File Sync. If you create an alert and it's too noisy, adjust the threshold value and alert logic.
 
@@ -239,7 +237,7 @@ This section provides some example alerts for Azure File Sync. If you create an 
 
 This alert fires when a sync session fails to complete successfully, indicating that data might not be in sync between the server and the cloud endpoint.
 
-1. In the **Azure portal**, navigate to respective **Storage Sync Service**.
+1. In the **Azure portal**, navigate to your **Storage Sync Service**.
 1. Go to the **Monitoring** section and select **Alerts**.
 1. Select **+ New alert rule** to create a new alert rule.
 1. Configure condition by clicking **Select condition**.
@@ -263,7 +261,7 @@ This alert fires when a sync session fails to complete successfully, indicating 
 
 This alert fires when individual files consistently fail to sync, which might indicate per-item errors such as unsupported characters or permission issues.
 
-1. In the **Azure portal**, navigate to respective **Storage Sync Service**.
+1. In the **Azure portal**, navigate to your **Storage Sync Service**.
 1. Go to the **Monitoring** section and select **Alerts**.
 1. Select **+ New alert rule** to create a new alert rule.
 1. Configure condition by selecting **Select condition**.
@@ -287,7 +285,7 @@ This alert fires when individual files consistently fail to sync, which might in
 
 This alert fires when a server has not sent a heartbeat to the Storage Sync Service within the expected interval, which might indicate network issues, service outages, or agent problems.
 
-1. In the **Azure portal**, navigate to respective **Storage Sync Service**.
+1. In the **Azure portal**, navigate to your **Storage Sync Service**.
 1. Go to the **Monitoring** section and select **Alerts**.
 1. Select **+ New alert rule** to create a new alert rule.
 1. Configure condition by selecting **Select condition**.
@@ -312,7 +310,7 @@ This alert fires when a server has not sent a heartbeat to the Storage Sync Serv
 
 This alert fires when the total data recalled from Azure exceeds 500 GiB in 24 hours, which might indicate unexpected access patterns such as antivirus scans, backup agents, or search indexers accessing tiered files.
 
-1. In the **Azure portal**, navigate to respective **Storage Sync Service**.
+1. In the **Azure portal**, navigate to your **Storage Sync Service**.
 1. Go to the **Monitoring** section and select **Alerts**.
 1. Select **+ New alert rule** to create a new alert rule.
 1. Configure condition by selecting **Select condition**.
@@ -325,7 +323,7 @@ This alert fires when the total data recalled from Azure exceeds 500 GiB in 24 h
      - Threshold set to **Static**
      - Operator: **Greater than**
      - Aggregation type: **Total**  
-     - Threshold value (in bytes): **67108864000**
+     - Threshold value (in bytes): **536870912000**
      - Evaluated based on: Aggregation granularity = **24 hours** | Frequency of evaluation = **Every hour**
      - Select **Done.** 
 1. Select **Select action group** to add an action group (email, SMS, etc.) to the alert either by selecting an existing action group or creating a new action group.
@@ -336,7 +334,7 @@ This alert fires when the total data recalled from Azure exceeds 500 GiB in 24 h
 
 When a server enters low disk space mode, Azure File Sync adjusts its behavior to protect the server from running out of space. File recall and cloud tiering policies might be affected. Resolve the underlying disk space condition to restore normal operation.
 
-1. In the **Azure portal**, navigate to respective **Storage Sync Service**.
+1. In the **Azure portal**, navigate to your **Storage Sync Service**.
 1. Go to the **Monitoring** section and select **Alerts**.
 1. Select **+ New alert rule** to create a new alert rule.
 1. Configure condition by selecting **Select condition**.
@@ -360,7 +358,7 @@ When a server enters low disk space mode, Azure File Sync adjusts its behavior t
 
 Azure File Sync agents expire on a regular cadence to ensure servers are running supported versions. An expired agent can't connect to the Storage Sync Service, which causes sync to stop. This alert gives you a 90-day advance warning to plan and execute the agent update before expiration causes an outage. Update the agent by downloading and installing the latest version from the [Azure File Sync agent download page](https://www.microsoft.com/download/details.aspx?id=57643).
 
-1. In the **Azure portal**, navigate to respective **Storage Sync Service**.
+1. In the **Azure portal**, navigate to your **Storage Sync Service**.
 1. Go to the **Monitoring** section and select **Alerts**.
 1. Select **+ New alert rule** to create a new alert rule.
 1. Configure condition by selecting **Select condition**.
