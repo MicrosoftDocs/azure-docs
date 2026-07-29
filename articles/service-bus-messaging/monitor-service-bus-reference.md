@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Service Bus
 description: This article contains important reference material you need when you monitor Azure Service Bus by using Azure Monitor.
-ms.date: 08/12/2025
+ms.date: 07/28/2026
 ms.custom: horz-monitor
 ms.topic: reference
 author: spelluru
@@ -125,7 +125,6 @@ The following metrics are *geo-replication* metrics:
 
 - **EntityName** Service Bus supports messaging entities under the namespace. With the Incoming Requests metric, the Entity Name dimension has a value of `-NamespaceOnlyMetric-` in addition to all your queues and topics. This value represents the request, which was made at the namespace level. Examples include a  request to list all queues/topics under the namespace or requests to entities that failed authentication or authorization.
 - **MessagingErrorSubCode**
-- **OperationResult**
 
 > [!NOTE]
 > Azure Monitor doesn't include dimensions in the exported metrics data sent to a destination like Azure Storage, Azure Event Hubs, or Azure Monitor Logs.
