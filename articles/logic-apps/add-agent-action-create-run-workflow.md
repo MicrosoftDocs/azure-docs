@@ -22,7 +22,7 @@ ms.custom:
 
 > [!IMPORTANT]
 >
-> Microsoft Foundry classic agents and their [tools](/azure/foundry-classic/agents/how-to/tools-classic/overview) are now deprecated and retire on March 31, 2027. Instead, use the latest Microsoft Foundry portal and agents in the generally available [Microsoft Foundry Agents Service](/azure/foundry/agents/overview).
+> Microsoft Foundry classic agents and their [tools](/azure/foundry-classic/agents/how-to/tools-classic/overview) are deprecated and retire on March 31, 2027. Instead, use the latest Microsoft Foundry portal and agents in the generally available [Microsoft Foundry Agents Service](/azure/foundry/agents/overview).
 >
 > 🔍 For more information, see:
 >
