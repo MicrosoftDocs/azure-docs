@@ -362,7 +362,7 @@ Azure File Sync agents expire on a regular cadence to ensure servers are running
      - Dimension name: **Server name**
      - Operator: **=**
      - Dimension values: **All current and future values**
-1. Go to **Alert Logic** and complete the following:
+1. Go to **Alert Logic** and complete the following steps:
      - Threshold set to **Static**
      - Operator: **Greater than**
      - Aggregation type: **Maximum**
