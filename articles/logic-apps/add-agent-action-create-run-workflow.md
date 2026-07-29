@@ -1,5 +1,5 @@
 ---
-title: Run Automated Workflows from Foundry Agents
+title: "Run Automation Workflows from Foundry Agents (Classic)"
 description: Set up Foundry classic agents to automate business processes with Consumption workflows in Azure Logic Apps.
 services: azure-logic-apps, cognitive-services, azure-ai-foundry
 author: ecfan
