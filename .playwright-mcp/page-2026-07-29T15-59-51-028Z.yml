@@ -1,0 +1,614 @@
+- main [ref=e2]:
+  - generic [ref=e3]:
+    - generic [ref=e4]:
+      - heading "Contradiction Work Items" [level=1] [ref=e5]
+      - paragraph [ref=e6]: Hussein's user stories
+    - generic [ref=e7]:
+      - text: Azure DevOps snapshot
+      - strong [ref=e8]: July 28, 2026
+  - region "Summary" [ref=e9]:
+    - generic [ref=e10]:
+      - strong [ref=e11]: "35"
+      - generic [ref=e12]: Total stories
+    - generic [ref=e13]:
+      - strong [ref=e14]: "6"
+      - generic [ref=e15]: Services
+    - generic [ref=e16]:
+      - strong [ref=e17]: "21"
+      - generic [ref=e18]: New
+    - generic [ref=e19]:
+      - strong [ref=e20]: "14"
+      - generic [ref=e21]: Committed or closed
+  - region "Table filters" [ref=e22]:
+    - generic [ref=e23]:
+      - text: Search
+      - searchbox "Search" [ref=e24]
+    - generic [ref=e25]:
+      - text: Service
+      - combobox "Service" [ref=e26]:
+        - option "All services" [selected]
+        - option "CDN"
+        - option "Front Door"
+        - option "Internet Peering"
+        - option "Network Watcher"
+        - option "Peering Service"
+        - option "Web Application Firewall"
+    - generic [ref=e27]:
+      - text: Severity
+      - combobox "Severity" [ref=e28]:
+        - option "All severities" [selected]
+        - option "High"
+        - option "Medium"
+    - generic [ref=e29]:
+      - text: State
+      - combobox "State" [ref=e30]:
+        - option "All states" [selected]
+        - option "New"
+        - option "Committed"
+        - option "Closed"
+  - paragraph [ref=e31]: Showing 35 of 35 contradictory user stories.
+  - table [ref=e33]:
+    - rowgroup [ref=e34]:
+      - row [ref=e35]:
+        - columnheader "Service" [ref=e36]
+        - columnheader "Severity" [ref=e37]
+        - columnheader "User story" [ref=e38]
+        - columnheader "Title" [ref=e39]
+        - columnheader "Articles to correct" [ref=e40]
+        - columnheader "Finding" [ref=e41]
+        - columnheader "State" [ref=e42]
+        - columnheader "Parent feature" [ref=e43]
+    - rowgroup [ref=e44]:
+      - row [ref=e45]:
+        - cell "CDN" [ref=e46]
+        - cell "High" [ref=e47]
+        - cell [ref=e49]:
+          - link "#599040" [ref=e50] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599040
+        - cell "SDK tutorials create retired Verizon/Edgio CDN SKUs" [ref=e51]
+        - cell [ref=e52]:
+          - link "https://learn.microsoft.com/azure/cdn/cdn-app-dev-net" [ref=e53] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/cdn/cdn-app-dev-net
+          - link "https://learn.microsoft.com/azure/cdn/cdn-app-dev-node" [ref=e54] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/cdn/cdn-app-dev-node
+        - cell "F-2585" [ref=e55]
+        - cell "New" [ref=e56]
+        - cell [ref=e58]:
+          - link "#598979" [ref=e59] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598979
+      - row [ref=e60]:
+        - cell "CDN" [ref=e61]
+        - cell "High" [ref=e62]
+        - cell [ref=e64]:
+          - link "#599041" [ref=e65] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599041
+        - cell "Classic CDN creation guidance conflicts with August 2025 cutoff" [ref=e66]
+        - cell [ref=e67]:
+          - link "https://learn.microsoft.com/azure/cdn/onboard-apex-domain" [ref=e68] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/cdn/onboard-apex-domain
+          - link "https://learn.microsoft.com/azure/cdn/cdn-add-to-web-app" [ref=e69] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/cdn/cdn-add-to-web-app
+          - link "https://learn.microsoft.com/azure/cdn/scripts/cli/cdn-azure-cli-create-endpoint" [ref=e70] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/cdn/scripts/cli/cdn-azure-cli-create-endpoint
+        - cell "F-2604" [ref=e71]
+        - cell "New" [ref=e72]
+        - cell [ref=e74]:
+          - link "#598979" [ref=e75] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598979
+      - row [ref=e76]:
+        - cell "CDN" [ref=e77]
+        - cell "High" [ref=e78]
+        - cell [ref=e80]:
+          - link "#599042" [ref=e81] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599042
+        - cell "Maximum CDN file size is documented as both 300 GB and unlimited" [ref=e82]
+        - cell [ref=e83]:
+          - link "https://learn.microsoft.com/azure/cdn/cdn-how-caching-works" [ref=e84] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/cdn/cdn-how-caching-works
+          - link "https://learn.microsoft.com/azure/cdn/cdn-large-file-optimization" [ref=e85] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/cdn/cdn-large-file-optimization
+        - cell "F-026" [ref=e86]
+        - cell "New" [ref=e87]
+        - cell [ref=e89]:
+          - link "#598979" [ref=e90] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598979
+      - row [ref=e91]:
+        - cell "CDN" [ref=e92]
+        - cell "High" [ref=e93]
+        - cell [ref=e95]:
+          - link "#599043" [ref=e96] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599043
+        - cell "Rules engine match-condition limit is inconsistent" [ref=e97]
+        - cell [ref=e98]:
+          - link "https://learn.microsoft.com/azure/cdn/cdn-standard-rules-engine-match-conditions" [ref=e99] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/cdn/cdn-standard-rules-engine-match-conditions
+        - cell "F-2595" [ref=e100]
+        - cell "New" [ref=e101]
+        - cell [ref=e103]:
+          - link "#598979" [ref=e104] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598979
+      - row [ref=e105]:
+        - cell "CDN" [ref=e106]
+        - cell "Medium" [ref=e107]
+        - cell [ref=e109]:
+          - link "#599044" [ref=e110] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599044
+        - cell "Streaming optimization guidance names different optimization types" [ref=e111]
+        - cell [ref=e112]:
+          - link "https://learn.microsoft.com/azure/cdn/cdn-optimization-overview" [ref=e113] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/cdn/cdn-optimization-overview
+        - cell "F-2616" [ref=e114]
+        - cell "New" [ref=e115]
+        - cell [ref=e117]:
+          - link "#598979" [ref=e118] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598979
+      - row [ref=e119]:
+        - cell "CDN" [ref=e120]
+        - cell "High" [ref=e121]
+        - cell [ref=e123]:
+          - link "#599045" [ref=e124] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599045
+        - cell "Azure Storage origin transfer is described as both free and billable" [ref=e125]
+        - cell [ref=e126]:
+          - link "https://learn.microsoft.com/azure/cdn/cdn-storage-custom-domain-https" [ref=e127] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/cdn/cdn-storage-custom-domain-https
+        - cell "F-2611" [ref=e128]
+        - cell "New" [ref=e129]
+        - cell [ref=e131]:
+          - link "#598979" [ref=e132] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598979
+      - row [ref=e133]:
+        - cell "CDN" [ref=e134]
+        - cell "High" [ref=e135]
+        - cell [ref=e137]:
+          - link "#599046" [ref=e138] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599046
+        - cell "Default anonymous access guidance for storage-backed CDN content conflicts" [ref=e139]
+        - cell [ref=e140]:
+          - link "https://learn.microsoft.com/azure/cdn/cdn-sas-storage-support" [ref=e141] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/cdn/cdn-sas-storage-support
+        - cell "F-2597" [ref=e142]
+        - cell "New" [ref=e143]
+        - cell [ref=e145]:
+          - link "#598979" [ref=e146] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598979
+      - row [ref=e147]:
+        - cell "Front Door" [ref=e148]
+        - cell "High" [ref=e149]
+        - cell [ref=e151]:
+          - link "#599089" [ref=e152] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599089
+        - cell "ARM template quickstart lists classic Front Door resource type for a Standard/Premium deployment" [ref=e153]
+        - cell [ref=e154]:
+          - link "https://learn.microsoft.com/azure/frontdoor/create-front-door-template" [ref=e155] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/frontdoor/create-front-door-template
+        - cell "F-2805" [ref=e156]
+        - cell "Closed" [ref=e157]
+        - cell [ref=e159]:
+          - link "#598987" [ref=e160] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598987
+      - row [ref=e161]:
+        - cell "Front Door" [ref=e162]
+        - cell "High" [ref=e163]
+        - cell [ref=e165]:
+          - link "#599090" [ref=e166] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599090
+        - cell "Classic docs still point users to create classic profiles after creation is disabled" [ref=e167]
+        - cell [ref=e168]:
+          - link "https://learn.microsoft.com/azure/frontdoor/blue-green-deployment" [ref=e169] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/frontdoor/blue-green-deployment
+        - cell "F-2827" [ref=e170]
+        - cell "Closed" [ref=e171]
+        - cell [ref=e173]:
+          - link "#598987" [ref=e174] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598987
+      - row [ref=e175]:
+        - cell "Front Door" [ref=e176]
+        - cell "Medium" [ref=e177]
+        - cell [ref=e179]:
+          - link "#599091" [ref=e180] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599091
+        - cell "Front Door (classic) compression MIME type configurability conflicts" [ref=e181]
+        - cell [ref=e182]:
+          - link "https://learn.microsoft.com/azure/frontdoor/front-door-cdn-comparison" [ref=e183] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/frontdoor/front-door-cdn-comparison
+        - cell "F-2822" [ref=e184]
+        - cell "New" [ref=e185]
+        - cell [ref=e187]:
+          - link "#598987" [ref=e188] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598987
+      - row [ref=e189]:
+        - cell "Front Door" [ref=e190]
+        - cell "High" [ref=e191]
+        - cell [ref=e193]:
+          - link "#599092" [ref=e194] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599092
+        - cell "Managed TLS certificate autorotation described as unconditional but apex domains are an exception" [ref=e195]
+        - cell [ref=e196]:
+          - link "https://learn.microsoft.com/azure/frontdoor/best-practices" [ref=e197] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/frontdoor/best-practices
+        - cell "F-2808" [ref=e198]
+        - cell "New" [ref=e199]
+        - cell [ref=e201]:
+          - link "#598987" [ref=e202] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598987
+      - row [ref=e203]:
+        - cell "Front Door" [ref=e204]
+        - cell "Medium" [ref=e205]
+        - cell [ref=e207]:
+          - link "#599093" [ref=e208] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599093
+        - cell "Managed WAF rule guidance is not SKU-scoped consistently" [ref=e209]
+        - cell [ref=e210]:
+          - link "https://learn.microsoft.com/azure/frontdoor/best-practices" [ref=e211] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/frontdoor/best-practices
+          - link "https://learn.microsoft.com/azure/frontdoor/classic-retirement-faq" [ref=e212] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/frontdoor/classic-retirement-faq
+        - cell "F-2807" [ref=e213]
+        - cell "New" [ref=e214]
+        - cell [ref=e216]:
+          - link "#598987" [ref=e217] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598987
+      - row [ref=e218]:
+        - cell "Front Door" [ref=e219]
+        - cell "High" [ref=e220]
+        - cell [ref=e222]:
+          - link "#599094" [ref=e223] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599094
+        - cell "Classic guidance still describes operations the retirement FAQ says are unsupported" [ref=e224]
+        - cell [ref=e225]:
+          - link "https://learn.microsoft.com/azure/frontdoor/front-door-how-to-onboard-apex-domain" [ref=e226] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/frontdoor/front-door-how-to-onboard-apex-domain
+          - link "https://learn.microsoft.com/azure/frontdoor/front-door-quickstart-template-samples" [ref=e227] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/frontdoor/front-door-quickstart-template-samples
+        - cell "F-2823" [ref=e228]
+        - cell "Committed" [ref=e229]
+        - cell [ref=e231]:
+          - link "#598987" [ref=e232] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598987
+      - row [ref=e233]:
+        - cell "Front Door" [ref=e234]
+        - cell "High" [ref=e235]
+        - cell [ref=e237]:
+          - link "#599095" [ref=e238] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599095
+        - cell "Front Door (classic) profile creation cutoff date conflicts" [ref=e239]
+        - cell [ref=e240]:
+          - link "https://learn.microsoft.com/azure/frontdoor/front-door-custom-domain" [ref=e241] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/frontdoor/front-door-custom-domain
+          - link "https://learn.microsoft.com/azure/frontdoor/front-door-custom-domain-https" [ref=e242] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/frontdoor/front-door-custom-domain-https
+        - cell "F-2815" [ref=e243]
+        - cell "Committed" [ref=e244]
+        - cell [ref=e246]:
+          - link "#598987" [ref=e247] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598987
+      - row [ref=e248]:
+        - cell "Front Door" [ref=e249]
+        - cell "High" [ref=e250]
+        - cell [ref=e252]:
+          - link "#599096" [ref=e253] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599096
+        - cell "Domain DNS guidance conflicts with apex-domain DNS requirements" [ref=e254]
+        - cell [ref=e255]:
+          - link "https://learn.microsoft.com/azure/frontdoor/domain" [ref=e256] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/frontdoor/domain
+        - cell "F-2812" [ref=e257]
+        - cell "New" [ref=e258]
+        - cell [ref=e260]:
+          - link "#598987" [ref=e261] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598987
+      - row [ref=e262]:
+        - cell "Front Door" [ref=e263]
+        - cell "Medium" [ref=e264]
+        - cell [ref=e266]:
+          - link "#599097" [ref=e267] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599097
+        - cell "Azure Front Door default hostname format is inconsistent" [ref=e268]
+        - cell [ref=e269]:
+          - link "https://learn.microsoft.com/azure/frontdoor/best-practices" [ref=e270] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/frontdoor/best-practices
+          - link "https://learn.microsoft.com/azure/frontdoor/create-front-door-portal" [ref=e271] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/frontdoor/create-front-door-portal
+        - cell "F-2806" [ref=e272]
+        - cell "New" [ref=e273]
+        - cell [ref=e275]:
+          - link "#598987" [ref=e276] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598987
+      - row [ref=e277]:
+        - cell "Front Door" [ref=e278]
+        - cell "High" [ref=e279]
+        - cell [ref=e281]:
+          - link "#599811" [ref=e282] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599811
+        - cell "Classic guidance still describes operations the retirement FAQ says are unsupported - 2nd article" [ref=e283]
+        - cell [ref=e284]:
+          - link "https://learn.microsoft.com/azure/frontdoor/front-door-quickstart-template-samples" [ref=e285] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/frontdoor/front-door-quickstart-template-samples
+        - cell "F-2823" [ref=e286]
+        - cell "Closed" [ref=e287]
+        - cell [ref=e289]:
+          - link "#598987" [ref=e290] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598987
+      - row [ref=e291]:
+        - cell "Internet Peering" [ref=e292]
+        - cell "Medium" [ref=e293]
+        - cell [ref=e295]:
+          - link "#599098" [ref=e296] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599098
+        - cell "Legacy peerings are described as both outside Azure resources and in a subscription" [ref=e297]
+        - cell [ref=e298]:
+          - link "https://learn.microsoft.com/azure/internet-peering/howto-legacy-direct-portal" [ref=e299] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/internet-peering/howto-legacy-direct-portal
+          - link "https://learn.microsoft.com/azure/internet-peering/howto-legacy-exchange-portal" [ref=e300] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/internet-peering/howto-legacy-exchange-portal
+        - cell "F-2845" [ref=e301]
+        - cell "New" [ref=e302]
+        - cell [ref=e304]:
+          - link "#598989" [ref=e305] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598989
+      - row [ref=e306]:
+        - cell "Internet Peering" [ref=e307]
+        - cell "High" [ref=e308]
+        - cell [ref=e310]:
+          - link "#599099" [ref=e311] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599099
+        - cell "Exchange route server docs disagree on whether Use for Peering Service is disabled or automatic" [ref=e312]
+        - cell [ref=e313]:
+          - link "https://learn.microsoft.com/azure/internet-peering/peering-service-partner-overview" [ref=e314] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/internet-peering/peering-service-partner-overview
+        - cell "F-135" [ref=e315]
+        - cell "Committed" [ref=e316]
+        - cell [ref=e318]:
+          - link "#598989" [ref=e319] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598989
+      - row [ref=e320]:
+        - cell "Internet Peering" [ref=e321]
+        - cell "Medium" [ref=e322]
+        - cell [ref=e324]:
+          - link "#599100" [ref=e325] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599100
+        - cell "Exchange peering deprovisioning contact email differs" [ref=e326]
+        - cell [ref=e327]:
+          - link "https://learn.microsoft.com/azure/internet-peering/howto-exchange-portal" [ref=e328] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/internet-peering/howto-exchange-portal
+        - cell "F-2855" [ref=e329]
+        - cell "Closed" [ref=e330]
+        - cell [ref=e332]:
+          - link "#598989" [ref=e333] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598989
+      - row [ref=e334]:
+        - cell "Internet Peering" [ref=e335]
+        - cell "Medium" [ref=e336]
+        - cell [ref=e338]:
+          - link "#599101" [ref=e339] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599101
+        - cell "Direct peering deprovisioning points to different Microsoft contact emails" [ref=e340]
+        - cell [ref=e341]:
+          - link "https://learn.microsoft.com/azure/internet-peering/howto-direct-portal" [ref=e342] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/internet-peering/howto-direct-portal
+        - cell "F-2847" [ref=e343]
+        - cell "Closed" [ref=e344]
+        - cell [ref=e346]:
+          - link "#598989" [ref=e347] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598989
+      - row [ref=e348]:
+        - cell "Network Watcher" [ref=e349]
+        - cell "High" [ref=e350]
+        - cell [ref=e352]:
+          - link "#599019" [ref=e353] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599019
+        - cell "Virtual network flow log default storage container path conflicts" [ref=e354]
+        - cell [ref=e355]:
+          - link "https://learn.microsoft.com/azure/network-watcher/flow-logs-power-bi" [ref=e356] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/network-watcher/flow-logs-power-bi
+        - cell "F-2970" [ref=e357]
+        - cell "Committed" [ref=e358]
+        - cell [ref=e360]:
+          - link "#598992" [ref=e361] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598992
+      - row [ref=e362]:
+        - cell "Network Watcher" [ref=e363]
+        - cell "High" [ref=e364]
+        - cell [ref=e366]:
+          - link "#599020" [ref=e367] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599020
+        - cell "Linux Network Watcher Agent uninstall command uses obsolete/inconsistent PowerShell cmdlet" [ref=e368]
+        - cell [ref=e369]:
+          - link "https://learn.microsoft.com/azure/network-watcher/network-watcher-agent-linux" [ref=e370] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/network-watcher/network-watcher-agent-linux
+        - cell "F-2978" [ref=e371]
+        - cell "Committed" [ref=e372]
+        - cell [ref=e374]:
+          - link "#598992" [ref=e375] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598992
+      - row [ref=e376]:
+        - cell "Network Watcher" [ref=e377]
+        - cell "High" [ref=e378]
+        - cell [ref=e380]:
+          - link "#599021" [ref=e381] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599021
+        - cell "On-premises source agent guidance conflicts on Log Analytics agent support" [ref=e382]
+        - cell [ref=e383]:
+          - link "https://learn.microsoft.com/azure/network-watcher/connection-monitor-create-using-portal" [ref=e384] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/network-watcher/connection-monitor-create-using-portal
+          - link "https://learn.microsoft.com/azure/network-watcher/connection-monitor-create-using-powershell" [ref=e385] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/network-watcher/connection-monitor-create-using-powershell
+        - cell "F-016" [ref=e386]
+        - cell "Committed" [ref=e387]
+        - cell [ref=e389]:
+          - link "#598992" [ref=e390] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598992
+      - row [ref=e391]:
+        - cell "Network Watcher" [ref=e392]
+        - cell "High" [ref=e393]
+        - cell [ref=e395]:
+          - link "#599022" [ref=e396] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599022
+        - cell "IP flow verify deny examples show Access as Allow" [ref=e397]
+        - cell [ref=e398]:
+          - link "https://learn.microsoft.com/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli" [ref=e399] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-cli
+          - link "https://learn.microsoft.com/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-powershell" [ref=e400] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/network-watcher/diagnose-vm-network-traffic-filtering-problem-powershell
+        - cell "F-2963" [ref=e401]
+        - cell "Committed" [ref=e402]
+        - cell [ref=e404]:
+          - link "#598992" [ref=e405] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598992
+      - row [ref=e406]:
+        - cell "Network Watcher" [ref=e407]
+        - cell "Medium" [ref=e408]
+        - cell [ref=e410]:
+          - link "#599023" [ref=e411] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599023
+        - cell "Azure CLI NSG flow log guidance incorrectly calls the created resource a virtual network flow log" [ref=e412]
+        - cell [ref=e413]:
+          - link "https://learn.microsoft.com/azure/network-watcher/nsg-flow-logs-manage" [ref=e414] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/network-watcher/nsg-flow-logs-manage
+        - cell "F-2985" [ref=e415]
+        - cell "New" [ref=e416]
+        - cell [ref=e418]:
+          - link "#598992" [ref=e419] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598992
+      - row [ref=e420]:
+        - cell "Peering Service" [ref=e421]
+        - cell "High" [ref=e422]
+        - cell [ref=e424]:
+          - link "#599118" [ref=e425] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599118
+        - cell "Conflicting onboarding guidance on whether Azure/Microsoft registration is required" [ref=e426]
+        - cell [ref=e427]:
+          - link "https://learn.microsoft.com/azure/peering-service/about" [ref=e428] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/peering-service/about
+        - cell "F-3028" [ref=e429]
+        - cell "New" [ref=e430]
+        - cell [ref=e432]:
+          - link "#598990" [ref=e433] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598990
+      - row [ref=e434]:
+        - cell "Peering Service" [ref=e435]
+        - cell "Medium" [ref=e436]
+        - cell [ref=e438]:
+          - link "#599119" [ref=e439] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599119
+        - cell "Backup peering location redundancy requirements conflict with the overview" [ref=e440]
+        - cell [ref=e441]:
+          - link "https://learn.microsoft.com/azure/peering-service/about" [ref=e442] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/peering-service/about
+          - link "https://learn.microsoft.com/azure/peering-service/peering-service-prefix-requirements" [ref=e443] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/peering-service/peering-service-prefix-requirements
+        - cell "F-3029" [ref=e444]
+        - cell "New" [ref=e445]
+        - cell [ref=e447]:
+          - link "#598990" [ref=e448] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598990
+      - row [ref=e449]:
+        - cell "Peering Service" [ref=e450]
+        - cell "Medium" [ref=e451]
+        - cell [ref=e453]:
+          - link "#599120" [ref=e454] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599120
+        - cell "Prefix validation troubleshooting points users to different requirement sources" [ref=e455]
+        - cell [ref=e456]:
+          - link "https://learn.microsoft.com/azure/peering-service/azure-portal" [ref=e457] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/peering-service/azure-portal
+          - link "https://learn.microsoft.com/azure/peering-service/peering-service-prefix-requirements" [ref=e458] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/peering-service/peering-service-prefix-requirements
+        - cell "F-3030" [ref=e459]
+        - cell "New" [ref=e460]
+        - cell [ref=e462]:
+          - link "#598990" [ref=e463] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598990
+      - row [ref=e464]:
+        - cell "Web Application Firewall" [ref=e465]
+        - cell "High" [ref=e466]
+        - cell [ref=e468]:
+          - link "#599183" [ref=e469] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599183
+        - cell "Overview implies Allow custom rules bypass all managed rules, conflicting with HTTP DDoS ruleset precedence" [ref=e470]
+        - cell [ref=e471]:
+          - link "https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview" [ref=e472] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview
+        - cell "F-3295" [ref=e473]
+        - cell "Committed" [ref=e474]
+        - cell [ref=e476]:
+          - link "#598999" [ref=e477] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598999
+      - row [ref=e478]:
+        - cell "Web Application Firewall" [ref=e479]
+        - cell "Medium" [ref=e480]
+        - cell [ref=e482]:
+          - link "#599184" [ref=e483] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599184
+        - cell "DRS action list omits AnomalyScoring for DRS 2.0+" [ref=e484]
+        - cell [ref=e485]:
+          - link "https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs" [ref=e486] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs
+        - cell "F-3305" [ref=e487]
+        - cell "New" [ref=e488]
+        - cell [ref=e490]:
+          - link "#598999" [ref=e491] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598999
+      - row [ref=e492]:
+        - cell "Web Application Firewall" [ref=e493]
+        - cell "Medium" [ref=e494]
+        - cell [ref=e496]:
+          - link "#599185" [ref=e497] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599185
+        - cell "PowerShell custom-rules article uses DRS version 1.0 conflicting with current version guidance" [ref=e498]
+        - cell [ref=e499]:
+          - link "https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-custom-rules-powershell" [ref=e500] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-custom-rules-powershell
+        - cell "F-3297" [ref=e501]
+        - cell "New" [ref=e502]
+        - cell [ref=e504]:
+          - link "#598999" [ref=e505] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598999
+      - row [ref=e506]:
+        - cell "Web Application Firewall" [ref=e507]
+        - cell "Medium" [ref=e508]
+        - cell [ref=e510]:
+          - link "#599186" [ref=e511] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599186
+        - cell "Rate limiting IP terminology conflicts (client/source vs socket IP) across articles" [ref=e512]
+        - cell [ref=e513]:
+          - link "https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview" [ref=e514] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/web-application-firewall/afds/afds-overview
+          - link "https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-rate-limit-configure" [ref=e515] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-rate-limit-configure
+        - cell "F-3312" [ref=e516]
+        - cell "New" [ref=e517]
+        - cell [ref=e519]:
+          - link "#598999" [ref=e520] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598999
+      - row [ref=e521]:
+        - cell "Web Application Firewall" [ref=e522]
+        - cell "Medium" [ref=e523]
+        - cell [ref=e525]:
+          - link "#599187" [ref=e526] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599187
+        - cell "Azure OpenAI how-to pins Bot Manager 1.0 conflicting with latest available versions" [ref=e527]
+        - cell [ref=e528]:
+          - link "https://learn.microsoft.com/azure/web-application-firewall/afds/protect-azure-open-ai" [ref=e529] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/web-application-firewall/afds/protect-azure-open-ai
+        - cell "F-3304" [ref=e530]
+        - cell "New" [ref=e531]
+        - cell [ref=e533]:
+          - link "#598999" [ref=e534] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598999
+      - row [ref=e535]:
+        - cell "Web Application Firewall" [ref=e536]
+        - cell "High" [ref=e537]
+        - cell [ref=e539]:
+          - link "#599188" [ref=e540] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/599188
+        - cell "Sentinel article implies default blocking without qualifying prevention vs detection mode" [ref=e541]
+        - cell [ref=e542]:
+          - link "https://learn.microsoft.com/azure/web-application-firewall/afds/automated-detection-response-with-sentinel" [ref=e543] [cursor=pointer]:
+            - /url: https://learn.microsoft.com/azure/web-application-firewall/afds/automated-detection-response-with-sentinel
+        - cell "F-3296" [ref=e544]
+        - cell "Committed" [ref=e545]
+        - cell [ref=e547]:
+          - link "#598999" [ref=e548] [cursor=pointer]:
+            - /url: https://dev.azure.com/msft-skilling/Content/_workitems/edit/598999

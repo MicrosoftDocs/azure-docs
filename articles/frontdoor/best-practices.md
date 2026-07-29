@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 09/25/2025
+ms.date: 07/29/2026
 ---
 
 # Best practices for Azure Front Door
@@ -58,7 +58,7 @@ You can configure Azure Front Door to automatically redirect HTTP requests to us
 
 When Azure Front Door manages your TLS certificates, it reduces your operational costs and helps you avoid costly outages caused by forgetting to renew a certificate. Azure Front Door automatically issues and rotates the managed TLS certificates.
 
-For more information, see [Configure HTTPS on an Azure Front Door custom domain using the Azure portal](standard-premium/how-to-configure-https-custom-domain.md).
+For apex domains, automatic certificate rotation might require you to revalidate domain ownership. If the domain enters the **Pending revalidation** state, regenerate the DNS TXT token and update the TXT record to allow certificate renewal. For more information, see [Azure Front Door managed TLS certificate rotation](apex-domain.md#azure-front-door-managed-tls-certificate-rotation). To learn how to configure HTTPS, see [Configure HTTPS on an Azure Front Door custom domain](standard-premium/how-to-configure-https-custom-domain.md).
 
 ### Use the latest version for customer-managed certificates
 
