@@ -2,7 +2,7 @@
 title: Discover APIs With Azure API Center MCP Server
 description: "Enable the Azure API Center MCP server so developers can discover APIs, plugins, MCP servers, and skills registered in your API center's inventory."
 #customer intent: As the administrator of an API center, I want to enable the API Center MCP server so developers can connect to the MCP Server and discover APIs and AI assets from my organization's catalog within their agent workflows.
-ms.date: 06/01/2026
+ms.date: 07/29/2026
 ms.topic: how-to
 ms.service: azure-api-center
 ms.collection: ce-skilling-ai-copilot
@@ -48,6 +48,9 @@ https://<service name>.data.<region>.azure-apicenter.ms/mcp
 ```
 
 Example: `https://myapicenter.data.eastus.azure-apicenter.ms/mcp`
+
+> [!IMPORTANT]
+> MCP endpoint can only be enabled for the Standard tier. If your API Center is in the Free tier, you must upgrade to Standard to enable the MCP server. For more information on upgrading your API center, see the [FAQ](frequently-asked-questions.yml#how-do-i-upgrade-my-api-center-from-the-free-plan-to-the-standard-plan).
 
 ## Connect to the MCP server
 
