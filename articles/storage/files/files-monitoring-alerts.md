@@ -156,7 +156,7 @@ Follow these steps to create an alert that fires when the file share IOPS utiliz
 
 1. From the service menu, select **Monitoring** > **Metrics**, and then select **+ Add metric**.
 
-1. Under **Metric Namespace**, select **File**. Under **Metric**, select **Percentage File Share IOPS Utilization**. You can either view the average utilization for the storage account, or select **Apply splitting** to view the metric for individual file shares. Leave **Aggregation** set to **Avg** unless you want to catch brief peaks that push the share to its limit, in which case you should set **Aggregation** to **Max**.
+1. Under **Metric Namespace**, select **File**. Under **Metric**, select **Percentage File Share IOPS Utilization**. You can either view the average utilization for the storage account, or select **Apply splitting** to view the metric for individual file shares. Leave **Aggregation** set to **Avg** unless you want to catch brief peaks that push the share to its limit, in which case set **Aggregation** to **Max**.
 
 1. Select **New alert rule**. On the **Condition** tab of the **Create an alert rule** dialog box, under **Signal name**, you see **Percentage File Share IOPS Utilization**.
 
