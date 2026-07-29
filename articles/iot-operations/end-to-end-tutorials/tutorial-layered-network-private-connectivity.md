@@ -60,6 +60,9 @@ Outbound traffic to Azure is routed through an explicit proxy and Private Link (
 | L3 | CoreDNS, Envoy Proxy, Azure IoT Operations Dataflows, Azure IoT Operations MQTT Broker | Aggregates and transforms data, resolves DNS to reach L4, and securely forwards telemetry |
 | L4 | Envoy Proxy | Forwards enriched telemetry to Event Grid through Azure Firewall Explicit Proxy and Private Endpoint over ExpressRoute |
 
+> [!NOTE]
+> This tutorial uses a Level 4 *egress-only* topology: L4 runs only an Envoy proxy, isn't Arc-enabled, and passes traffic through rather than terminating it. The topmost Azure IoT Operations instance is at L3, and its data flow sends telemetry to the cloud through the L4 Envoy proxy. This architecture is valid. [Layered networking for Azure IoT Operations](../manage-layered-network/concept-layered-network.md) describes the general architecture, where Azure IoT Operations (including an MQTT broker and data flow) can also run at L4 and terminate telemetry there. Choose the architecture that fits your environment.
+
 ## Prepare your layered network environment
 
 Each layer of the network (Level 2, 3, and 4) uses static IPs and strict firewall rules to enforce isolation. Each layer only communicates with its adjacent layer (for example, L2 ↔ L3 ↔ L4), implementing the Purdue model zones.
