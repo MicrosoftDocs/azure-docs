@@ -412,7 +412,7 @@ If you want to communicate with your Azure file share over SMB but port 445 is b
 To learn more about Azure File Sync and networks, see [Networking considerations for Azure File Sync](file-sync-networking-overview.md).
 
 > [!IMPORTANT]
-> Don't hardcode a storage account's IP address in hosts files, DNS, or firewall rules. During failover or when an account is migrated to another tenant or region an Azure Storage Account's IP addresses can change. A stale IP breaks connectivity, causing sync failures and preventing file recall. Let the agent resolve the endpoint via DNS, and use a [private endpoint](file-sync-networking-endpoints.md) with its private DNS zone if you need private routing.
+> Don't hardcode a storage account's IP address in hosts files, DNS, or firewall rules. During failover or when an account is migrated to another tenant or region an Azure Storage Account's IP addresses can change. A stale IP breaks connectivity, causing sync failures and preventing file recall. Let the agent resolve the endpoint via DNS OR use a [private endpoint](file-sync-networking-endpoints.md) with its private DNS zone if you need private routing.
 
 
 ## Encryption
