@@ -74,6 +74,9 @@ With built-in Azure Monitor alerts, alerts for critical operations/failures gene
 
 The current email notification solution works in parallel with the new built-in Azure Monitor alerts solution. Try the Azure Monitor based alerting to familiarize yourself with the new experience and use its capabilities.
 
+> [!IMPORTANT]
+> If **Use only Azure Monitor alerts for Site Recovery** is enabled, Azure Monitor based alerts take precedence over the Site Recovery Events email notification settings. In this configuration, Site Recovery email notifications might not be used even if they're configured in the Site Recovery Events blade. To continue using Site Recovery email notifications, ensure that this option isn't enabled.
+
 ### What is the difference between alert rule, alert processing rule, and action group?
 
 - Alert rule: A user-created rule that specifies the condition for firing an alert.
