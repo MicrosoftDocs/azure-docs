@@ -11,13 +11,13 @@ ms.date: 07/29/2026
 
 # Best practices for Azure Front Door
 
-This article summarizes best practices for using Azure Front Door.
+This article provides best practices for configuring and using Azure Front Door.
 
 ## General best practices
 
 ### Understand when to combine Traffic Manager and Azure Front Door
 
-For most solutions, we recommend the use of *either* Azure Front Door *or* [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md), but not both. Traffic Manager is a DNS-based load balancer. It sends traffic directly to your origin's endpoints. In contrast, Azure Front Door terminates connections at points of presence (PoPs) near to the client and establishes separate long-lived connections to the origins. The products work differently and are intended for different use cases.
+For most solutions, use *either* Azure Front Door *or* [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md), but not both. Traffic Manager is a DNS-based load balancer. It sends traffic directly to your origin's endpoints. In contrast, Azure Front Door terminates connections at points of presence (PoPs) near to the client and establishes separate long-lived connections to the origins. The products work differently and are intended for different use cases.
 
 If you need content caching and delivery, TLS termination, advanced routing capabilities, or a web application firewall (WAF), consider using Azure Front Door. For simple global load balancing with direct connections from your client to your endpoints, consider using Traffic Manager. For more information about selecting a load balancing option, see [Load-balancing options](/azure/architecture/guide/technology-choices/load-balancing-overview).
 
@@ -32,11 +32,11 @@ The features of Azure Front Door work best when traffic flows only through Azure
 
 ### Use the latest API version and SDK version
 
-When you work with Azure Front Door by using APIs, Azure Resource Manager templates, Bicep, or Azure SDKs, it's important to use the latest available API or SDK version. API and SDK updates occur when new functionality is available, and they contain important security patches and bug fixes.
+When you work with Azure Front Door by using APIs, Azure Resource Manager templates, Bicep, or Azure SDKs, use the latest available API or SDK version. API and SDK updates occur when new functionality is available, and they contain important security patches and bug fixes.
 
 ### Configure logs
 
-Azure Front Door tracks extensive performance data for every request. When you enable caching, your origin servers might not receive every request. It's important that you use the Azure Front Door logs to understand how your solution is running and responding to your clients. For more information about the metrics and logs that Azure Front Door records, see [Monitor metrics and logs in Azure Front Door](front-door-diagnostics.md) and [WAF logs](../web-application-firewall/afds/waf-front-door-monitor.md#waf-logs).
+Azure Front Door tracks extensive performance data for every request. When you enable caching, your origin servers might not receive every request. Use the Azure Front Door logs to understand how your solution is running and responding to your clients. For more information about the metrics and logs that Azure Front Door records, see [Monitor metrics and logs in Azure Front Door](front-door-diagnostics.md) and [WAF logs](../web-application-firewall/afds/waf-front-door-monitor.md#waf-logs).
 
 To configure logging for your own application, see [Configure Azure Front Door logs](./standard-premium/how-to-logs.md).
 
@@ -44,21 +44,21 @@ To configure logging for your own application, see [Configure Azure Front Door l
 
 ### Use end-to-end TLS
 
-Azure Front Door terminates TCP and TLS connections from clients. It then establishes new connections from each PoP to the origin. It's a good practice to secure each of these connections with TLS, even for origins that are hosted in Azure. This approach keeps your data encrypted during transit.
+Azure Front Door terminates TCP and TLS connections from clients. It then establishes new connections from each point of presence (PoP) to the origin. Secure each of these connections with TLS, even for origins that are hosted in Azure. This approach keeps your data encrypted during transit.
 
 For more information, see [End-to-end TLS with Azure Front Door](end-to-end-tls.md).
 
 ### Use HTTP-to-HTTPS redirection
 
-It's a good practice for clients to use HTTPS to connect to your service. However, sometimes you need to accept HTTP requests to allow for older clients or clients that might not follow the best practice.
+Clients should use HTTPS to connect to your service. However, sometimes you need to accept HTTP requests to allow for older clients or clients that might not follow the best practice.
 
-You can configure Azure Front Door to automatically redirect HTTP requests to use the HTTPS protocol. You should enable the **Redirect all traffic to use HTTPS** setting on your route.
+You can configure Azure Front Door to automatically redirect HTTP requests to use the HTTPS protocol. Enable the **Redirect all traffic to use HTTPS** setting on your route.
 
 ### Use managed TLS certificates
 
-When Azure Front Door manages your TLS certificates, it reduces your operational costs and helps you avoid costly outages caused by forgetting to renew a certificate. Azure Front Door automatically issues and rotates the managed TLS certificates.
+When Azure Front Door manages your TLS certificates, it reduces your operational costs and helps you avoid costly outages caused by forgetting to renew a certificate. Azure Front Door automatically issues and rotates the managed TLS certificates for most custom domains.
 
-For apex domains, automatic certificate rotation might require you to revalidate domain ownership. If the domain enters the **Pending revalidation** state, regenerate the DNS TXT token and update the TXT record to allow certificate renewal. For more information, see [Azure Front Door managed TLS certificate rotation](apex-domain.md#azure-front-door-managed-tls-certificate-rotation). To learn how to configure HTTPS, see [Configure HTTPS on an Azure Front Door custom domain](standard-premium/how-to-configure-https-custom-domain.md).
+For apex domains, automatic certificate rotation requires domain ownership revalidation. When the domain enters the **Pending revalidation** state, regenerate the DNS TXT token and update the TXT record. For more information, see [Azure Front Door managed TLS certificate rotation](apex-domain.md#azure-front-door-managed-tls-certificate-rotation). To learn how to configure HTTPS, see [Configure HTTPS on an Azure Front Door custom domain](standard-premium/how-to-configure-https-custom-domain.md).
 
 ### Use the latest version for customer-managed certificates
 
@@ -82,7 +82,7 @@ Before you rewrite the `Host` header of your requests, carefully consider whethe
 
 ## WAF best practices
 
-For internet-facing applications, we recommend that you enable the Azure Front Door WAF and configure it to use managed rules. Using a WAF and Microsoft-managed rules helps protect your application from a wide range of attacks. For more information, see [Web Application Firewall (WAF) on Azure Front Door](web-application-firewall.md).
+For internet-facing applications, enable the Azure Front Door WAF and configure it to use managed rules. Using a WAF and Microsoft-managed rules helps protect your application from a wide range of attacks. For more information, see [Web Application Firewall (WAF) on Azure Front Door](web-application-firewall.md).
 
 The WAF for Azure Front Door has its own set of best practices for its configuration and use. For more information, see [Best practices for Web Application Firewall in Azure Front Door](../web-application-firewall/afds/waf-front-door-best-practices.md).
 
