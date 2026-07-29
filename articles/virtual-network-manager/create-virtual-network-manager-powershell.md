@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
-ms.date: 01/15/2025
+ms.date: 07/29/2026
 ms.custom: template-quickstart, mode-api, engagement-fy23, devx-track-azurepowershell
 ---
 
@@ -89,7 +89,7 @@ $avnm = @{
     NetworkManagerScopeAccess = $access
     Location = $location
 }
-$networkmanager = New-AzNetworkManager @avnm
+$networkManager = New-AzNetworkManager @avnm
 ```
 
 ## Create three virtual networks

@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 07/28/2026
+ms.date: 07/29/2026
 ms.custom: template-concept, engagement-fy23
 ---
 
@@ -82,7 +82,7 @@ You only want to select virtual networks that whose tag has a key value pair of 
     :::image type="content" source="media/how-to-define-network-group-membership-azure-policy/add-key-value-pair-tag.png" alt-text="Screenshot of Create Azure Policy window setting tag with key value pair.":::
 
 1. Select **Close** and **Save**. 
-1. After a few minutes, select your network group and select **Group Members** under **Settings**. You should only see myVNet01-WestUS and myVNet01-WestUS.
+1. After a few minutes, select your network group and select **Group Members** under **Settings**. You should only see myVNet01-EastUS and myVNet01-WestUS.
 
 > [!IMPORTANT] 
 > The **basic editor** is only available during the creation of an Azure Policy. Once a policy is created, all edits will be done using JSON in the **Policies** section of virtual network manager or via Azure Policy.
