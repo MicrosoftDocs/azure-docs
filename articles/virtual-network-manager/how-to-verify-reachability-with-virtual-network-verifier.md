@@ -101,7 +101,7 @@ In this step, you view the results of the analysis you started in the previous s
 
 ## Delegate a verifier workspace to other users
 
-Optionally, you can delegate a verifier workspace to other users. This allows other users to use network verifier by granting them access to the verifier workspace, reachability analysis intents, analysis ability, and reachability analysis results. Each verifier workspace in a network manager has its own permissions, so granting a user access to one verifier workspace doesn't result in access to all verifier workspaces under the same network manager. Granting a user permission to a verifier workspace also doesn't result in any access to the rest of the parent network manager.
+Optionally, you can delegate a verifier workspace to other users. When you grant access to the verifier workspace, you give other users the ability to use network verifier, including reachability analysis intents, analysis ability, and reachability analysis results. Each verifier workspace in a network manager has its own permissions, so granting a user access to one verifier workspace doesn't grant access to all verifier workspaces under the same network manager. Granting a user permission to a verifier workspace doesn't grant any access to the rest of the parent network manager.
 
 1. In the verifier workspace, select **Access control (IAM)**.
 2. Select **+ Add** and **Add role assignment**.
