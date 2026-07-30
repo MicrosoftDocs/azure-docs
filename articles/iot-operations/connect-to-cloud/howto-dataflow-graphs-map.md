@@ -789,8 +789,7 @@ The Azure CLI applies a data flow graph from a single JSON config file. Create a
 }
 ```
 
-> [!TIP]
-> To generate the escaped string, save the rules to a file like `rules.json`, then run `jq -c . rules.json` and paste the single-line output into the `value` field.
+[!INCLUDE [dataflow-jq-tip](../includes/dataflow-jq-tip.md)]
 
 Apply the config file. The `extendedLocation` is added automatically from the instance and resource group, so don't include it in the file.
 
@@ -908,4 +907,5 @@ For the full `DataflowGraph` resource structure, see [Data flow graphs overview]
 - [Aggregate data over time](howto-dataflow-graphs-window.md)
 - [Enrich with external data](howto-dataflow-graphs-enrich.md)
 - [Route messages to different topics](howto-dataflow-graphs-topic-routing.md)
+- [Throttle data](howto-dataflow-graphs-throttle.md)
 - [Expressions reference](concept-dataflow-graphs-expressions.md)

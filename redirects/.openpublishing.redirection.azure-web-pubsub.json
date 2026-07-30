@@ -29,6 +29,11 @@
             "source_path_from_root": "/articles/azure-web-pubsub/chat-hub-quickstart.md",
             "redirect_url": "/azure/azure-web-pubsub/chat-quickstart",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-web-pubsub/quickstarts-livetry.md",
+            "redirect_url": "/azure/azure-web-pubsub/quickstarts-playground",
+            "redirect_document_id": false
         }
     ]
 }

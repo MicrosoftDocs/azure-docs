@@ -23,7 +23,7 @@ SAP systems on Azure commonly use several services together. For example, an SAP
 | Monitor SAP application, database, cluster, and operating system data | [Azure Monitor for SAP solutions](monitor/about-azure-monitor-sap-solutions.md) | It collects SAP-specific data into Azure Monitor Logs for visualization, queries, and alerts. |
 | Connect SAP processes or data to Microsoft services | [SAP integration with Microsoft services](workloads/integration-get-started.md) | It helps you integrate SAP with services such as Microsoft Entra ID, Power Platform, Power BI, and Azure Integration Services. |
 
-## Scenario A: Deploy a new S/4HANA system with guided Azure management
+## Scenario: Deploy a new S/4HANA system with guided Azure management
 
 **Situation:** Your organization is moving a new S/4HANA production system to Azure. The SAP operations team wants a guided deployment and a single Azure resource that represents the SAP system.
 
@@ -35,7 +35,7 @@ SAP systems on Azure commonly use several services together. For example, an SAP
 
 **Next step:** [Prepare a network for a new VIS deployment](center-sap-solutions/prepare-network.md).
 
-## Scenario B: Bring existing Azure-hosted SAP systems into a common operations view
+## Scenario: Bring existing Azure-hosted SAP systems into a common operations view
 
 **Situation:** Your organization already runs several SAP systems on Azure VMs. Administrators use separate tools and views for each system and need a central SAP-aware inventory and health experience without redeploying the systems.
 
@@ -47,7 +47,7 @@ SAP systems on Azure commonly use several services together. For example, an SAP
 
 **Next step:** [Register an existing SAP system](center-sap-solutions/register-existing-system.md).
 
-## Scenario C: Create consistent development, test, and production landscapes
+## Scenario: Create consistent development, test, and production landscapes
 
 **Situation:** A platform team must deploy the same SAP architecture across development, quality assurance, and production. The team needs version-controlled configuration, repeatable installation, and a way to apply environment changes consistently.
 
@@ -59,7 +59,7 @@ SAP systems on Azure commonly use several services together. For example, an SAP
 
 **Next step:** [Plan for the SAP Deployment Automation Framework](automation/plan-deployment.md).
 
-## Scenario D: Design a custom SAP architecture with infrastructure-level control
+## Scenario: Design a custom SAP architecture with infrastructure-level control
 
 **Situation:** An SAP architecture team needs to select the VM sizes, storage layout, network topology, and high-availability design for a business-critical SAP workload. The architecture has requirements that extend beyond a guided deployment flow.
 
@@ -71,7 +71,7 @@ SAP systems on Azure commonly use several services together. For example, an SAP
 
 **Next step:** [Get started with SAP on Azure VM workloads](workloads/get-started.md).
 
-## Scenario E: Investigate slow transactions and prevent SAP outages
+## Scenario: Investigate slow transactions and prevent SAP outages
 
 **Situation:** Business users report slow SAP transactions intermittently. The operations team needs to correlate SAP HANA, SAP NetWeaver, Linux, cluster, and Azure infrastructure data, and create alerts before an issue affects users.
 
@@ -83,7 +83,7 @@ SAP systems on Azure commonly use several services together. For example, an SAP
 
 **Next step:** [Deploy Azure Monitor for SAP solutions in the Azure portal](monitor/quickstart-portal.md).
 
-## Scenario F: Integrate SAP business processes with Microsoft services
+## Scenario: Integrate SAP business processes with Microsoft services
 
 **Situation:** A business process team wants employees to access SAP-connected workflows through Microsoft 365 and Power Platform, while the integration team needs governed connectivity between SAP and other enterprise systems.
 
@@ -95,7 +95,7 @@ SAP systems on Azure commonly use several services together. For example, an SAP
 
 **Next step:** [Get started with SAP and Azure integration scenarios](workloads/integration-get-started.md).
 
-## Scenario G: Meet a requirement for dedicated hardware or high-performance NFS storage
+## Scenario: Meet a requirement for dedicated hardware or high-performance NFS storage
 
 **Situation:** A compliance requirement calls for dedicated physical hardware, or an SAP workload requires enterprise NFS storage with consistent low latency.
 
@@ -107,7 +107,7 @@ SAP systems on Azure commonly use several services together. For example, an SAP
 
 **Next step:** Review [SAP storage considerations](workloads/planning-guide-storage.md).
 
-## Scenario H: Protect SAP data and prepare for a regional disruption
+## Scenario: Protect SAP data and prepare for a regional disruption
 
 **Situation:** A risk and compliance team needs scheduled SAP HANA backups, documented recovery procedures, and a plan for restoring service after a regional outage.
 

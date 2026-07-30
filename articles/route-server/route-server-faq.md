@@ -90,6 +90,10 @@ Azure Route Server keepalive timer is 60 seconds and the hold timer is 180 secon
 
 Azure Route Server supports **NO_ADVERTISE** BGP community. If a network virtual appliance (NVA) advertises routes with this community string to the Route Server, the Route Server doesn't advertise it to other peers including the ExpressRoute gateway. This feature can help reduce the number of routes sent from Azure Route Server to ExpressRoute.
 
+### Can I use route maps to control routing on Azure Route Server?
+
+Yes. Route maps lets you filter routes, aggregate prefixes, and modify BGP attributes such as AS-PATH and Community on BGP peerings, ExpressRoute gateway connections, and VPN gateway connections. For more information, see [About route maps for Azure Route Server](route-maps-about.md) and [Configure route maps](route-maps-how-to.md).
+
 ### When a virtual network peering is created between my hub virtual network and spoke virtual network, does this cause a BGP soft reset between Azure Route Server and its peered NVAs?
 
 Yes. If a virtual network peering is created between your hub virtual network and spoke virtual network, Azure Route Server performs a BGP soft reset by sending route refresh requests to all its peered NVAs. If the NVAs don't support BGP route refresh, then Azure Route Server performs a BGP hard reset with the peered NVAs, which might cause connectivity disruption for traffic traversing the NVAs.
