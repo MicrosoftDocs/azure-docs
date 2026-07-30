@@ -21,7 +21,7 @@ Azure DNS is a hosted DNS management and name resolution service. You can use it
 * For dynamically allocated IP addresses, you can create a DNS CNAME record that maps to the DNS name that Azure created for your service. DNS standards prevent you from using a CNAME record for the zone apex. You can use an alias record instead. For more information, see [Tutorial: Configure an alias record to refer to an Azure Public IP address](tutorial-alias-pip.md).
 * For statically allocated IP addresses, you can create a DNS A record by using any name, which includes a *naked domain* name at the zone apex.
 
-The following table outlines the supported record types you can use for various Azure services. As the table shows, Azure DNS supports only DNS records for Internet-facing network resources. Azure DNS can't be used for name resolution of internal, private addresses.
+The following table outlines the supported record types you can use for various Azure services. This article covers Azure DNS public zones, which support DNS records for Internet-facing network resources. Public zones can't be used for name resolution of internal, private addresses. For private name resolution, use [Azure Private DNS zones](private-dns-overview.md), and use [Azure DNS Private Resolver](dns-private-resolver-overview.md) to resolve private zone queries from on-premises networks.
 
 | Azure service | Network interface | Description |
 | --- | --- | --- |
