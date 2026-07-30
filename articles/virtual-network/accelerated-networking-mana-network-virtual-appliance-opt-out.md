@@ -52,7 +52,6 @@ You can apply the `LegacyVMNVA` tag to temporarily avoid placement on MANA‑ena
     | Management Group | Multiple subscriptions |
     | Subscription | All resource groups and resources in the subscription |
     | Resource Group | Resources in that resource group |
-    | Resource | Single resource |
 
    Microsoft recommends applying policy enforcement gradually, following your organization's safe rollout strategies. Azure Policy supports safe rollout primitives that let you incrementally roll out enforcement by region and resource type. For a detailed breakdown of available mechanisms, see [Azure Policy Safe Deployment Practices](../governance/policy/how-to/policy-safe-deployment-practices.md).
 
