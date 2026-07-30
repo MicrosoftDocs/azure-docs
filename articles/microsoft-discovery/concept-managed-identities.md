@@ -170,5 +170,5 @@ For guidance on choosing between shared and separate identities, see [Managed id
 - For step-by-step instructions on how to create a UAMI and assign roles, see [Configure managed identities for Microsoft Discovery](how-to-configure-managed-identity.md).
 - For built-in Discovery roles and persona-based assignment guidance, see [Role assignments in Microsoft Discovery](concept-role-assignments.md).
 - For Storage account requirements, including identity access, see [Azure Blob Storage in Microsoft Discovery](concept-storage-account.md).
-- For end-to-end setup, including UAMI creation, see [Quickstart: Deploy infrastructure by using the Azure portal](quickstart-infrastructure-portal.md).
+- For end-to-end setup, including UAMI creation, see [Quickstart: Deploy Microsoft Discovery infrastructure](quickstart-infrastructure.md).
 - For Azure platform documentation on managed identities, see [What are managed identities for Azure resources?](/entra/identity/managed-identities-azure-resources/overview).
