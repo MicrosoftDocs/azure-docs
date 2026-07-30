@@ -608,6 +608,9 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
+#### 1.17.0
+Introducing Scoped Enforcement Action. Users can now select which enforcement action can happen in which enforcement points (audit.gatekeeper.sh, validation.gatekeeper.sh, vap.k8s.io).
+
 Security improvements.
 - Released: Aug 2026
 - Kubernetes: 1.30+
