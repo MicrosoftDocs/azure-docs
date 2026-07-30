@@ -1,17 +1,17 @@
 ---
-title: Azure Backup Offline Backup Options
+title: Offline Backup Options in Azure Backup
 description: Learn how Azure Backup transfers initial backups offline, and compare Azure Data Box with Azure Import/Export for low-bandwidth environments.
 ms.topic: overview
 ms.date: 07/30/2026
 ms.custom: references_regions 
 author: AbhishekMallick-MS
 ms.author: v-mallicka
-# Customer intent: As a backup administrator, I want to compare Azure Backup offline backup options so that I can transfer large initial backups without consuming network bandwidth.
+# Customer intent: As a backup administrator, I want to compare offline backup options in Azure Backup so that I can transfer large initial backups without consuming network bandwidth.
 ---
 
-# What is Azure Backup offline backup?
+# What is offline backup in Azure Backup?
 
-Azure Backup offline backup transfers initial full backup data to a Recovery Services vault without consuming network bandwidth. Use offline backup when limited network bandwidth or large data volumes would make the initial online backup take several days.
+Offline backup in Azure Backup transfers initial full backup data to a Recovery Services vault without consuming network bandwidth. Use offline backup when limited network bandwidth or large data volumes would make the initial online backup take several days.
 
 Azure Backup copies the initial backup data to physical storage devices that you ship to an Azure datacenter. You can use Microsoft-managed Azure Data Box devices or your own disks through the Azure Import/Export service. After Azure uploads the initial data to the vault, subsequent incremental backups continue online.
 
