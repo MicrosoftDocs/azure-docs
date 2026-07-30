@@ -211,7 +211,7 @@ Each MCP server has its own authentication requirements. The portal supports the
 | **OAuth** | Remote MCP servers that support spec-compliant OAuth (interactive sign-in) | Registers the agent dynamically, completes an authorization-code flow with PKCE, and refreshes tokens automatically. Requires a public HTTPS endpoint. |
 | **Managed identity** | Azure services via stdio connectors | Uses your agent's managed identity for Azure AD tokens |
 
-For partner connectors, the authentication method is set. You enter the credentials.
+For partner connectors, set the authentication method and enter the credentials.
 
 ## What makes this different
 
