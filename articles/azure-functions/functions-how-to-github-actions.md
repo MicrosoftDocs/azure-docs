@@ -1,13 +1,13 @@
 ---
-title: Use GitHub Actions to make code updates in Azure Functions
-description: Learn how to use GitHub Actions to define a workflow to build and deploy Azure Functions projects in GitHub.
+title: Deploy to Azure Functions by using GitHub Actions
+description: Set up continuous deployment for your Azure Functions app by using GitHub Actions with OpenID Connect (OIDC) authentication.
 ms.topic: how-to
 ms.date: 07/30/2026
 ms.custom: devx-track-csharp, github-actions-azure
 zone_pivot_groups: github-actions-deployment-options
 ---
 
-# Continuous delivery by using GitHub Actions
+# Deploy to Azure Functions by using GitHub Actions
 
 You can use a [GitHub Actions workflow](https://docs.github.com/actions/learn-github-actions/introduction-to-github-actions#the-components-of-github-actions) to automatically build and deploy your function code to Azure by using the [`Azure/functions-action`](https://github.com/Azure/functions-action).
 
@@ -21,7 +21,7 @@ To deploy by using GitHub Actions, complete these three key steps:
 When you [use the Azure portal](./functions-how-to-github-actions.md?pivots=method-portal) to enable GitHub Actions, Functions automatically performs these tasks, both in your Azure subscription and in your GitHub repository.
 ::: zone-end
 
-## Create a workflow configuration
+## Create a workflow configuration for Azure Functions
 
 You maintain a YAML file (.yml) that defines the workflow configuration in the `/.github/workflows/` path in your repository. This definition contains the actions and parameters that make up the workflow, which is specific to the development language of your functions. 
 
@@ -67,7 +67,7 @@ steps:
       package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
 ```
 
-### Authentication considerations
+### GitHub Actions authentication considerations
 
 + OIDC uses [workload identity federation](/entra/workload-id/workload-identity-federation) and only supports user-assigned managed identities.
 + When you enable a GitHub Actions-based deployment in the Azure portal, OIDC authentication is used by default.
@@ -143,12 +143,6 @@ OpenID Connect (OIDC) is the recommended authentication method for GitHub Action
 
     Replace `<SUBSCRIPTION_ID>`, `<RESOURCE_GROUP>`, and `<REGISTRY_NAME>` with your values.
 
-### Docker credentials
-
-You need to use registry-specific credentials when deploying a container from a private container registry. The way you obtain this credential depends on the container registry. For more information, see [Docker Login Action](https://github.com/marketplace/actions/docker-login#usage).
-
-For Azure Container Registry (ACR), you can use the same service principal credentials you use to deploy to Azure.
-
 ## Add credentials to GitHub
 
 Depending on your chosen authentication method, you need to store either variables or secrets in your GitHub repository.  
@@ -198,7 +192,9 @@ OIDC uses repository variables (not secrets) since these values aren't sensitive
     + **Name**: `AZURE_CREDENTIALS`
     + **Secret**: Paste the entire JSON output you obtained when you created your service principal.
 
-### [Docker credentials](#tab/docker-credentials)
+### [Container registry credentials](#tab/docker-credentials)
+
+You need registry-specific credentials when deploying a container from a private container registry. For more information, see [Docker Login Action](https://github.com/marketplace/actions/docker-login#usage).
 
 1. In [GitHub](https://github.com/), go to your repository.
 
@@ -404,7 +400,7 @@ You can create the GitHub Actions workflow configuration file from the Azure Fun
 
 ## Example: workflow configuration file
 
-The following template example uses the `functions-action` and OIDC for authentication. The template depends on your chosen language and the operating system on which your function app is deployed:
+The following examples show the complete OIDC workflow files for reference. Choose the template that matches your language and operating system:
 
 ### [Windows](#tab/windows)
 
