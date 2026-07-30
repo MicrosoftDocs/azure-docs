@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/16/2026
+ms.date: 07/22/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure registry endpoints in Azure IoT Operations so that I can pull custom connectors, WASM modules, and graph definitions from container registries for use in data flow graphs and connectors.
@@ -470,7 +470,7 @@ resource defaultRegistryEndpoint 'Microsoft.IoTOperations/instances/registryEndp
 
 ---
 
-The built-in data flow graph transforms (map, filter, branch, concatenate, window) use this endpoint to pull processing artifacts from MCR. When you use `registryEndpointRef: default` in a `DataflowGraph` resource, no extra registry configuration is needed. For more information about built-in transforms, see [Data flow graphs overview](../connect-to-cloud/concept-dataflow-graphs.md).
+The built-in data flow graph transforms (map, filter, branch, concatenate, window, throttle) use this endpoint to pull processing artifacts from MCR. When you use `registryEndpointRef: default` in a `DataflowGraph` resource, you don't need extra registry configuration. For more information about built-in transforms, see [Data flow graphs overview](../connect-to-cloud/concept-dataflow-graphs.md).
 
 > [!NOTE]
 > For custom WASM transforms or third-party artifacts, you need to create a separate registry endpoint that points to the registry where your artifacts are stored.

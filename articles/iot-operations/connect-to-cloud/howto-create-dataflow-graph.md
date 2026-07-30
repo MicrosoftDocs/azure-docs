@@ -57,7 +57,7 @@ A data flow graph contains three types of elements: **sources** that bring data 
 
        :::image type="content" source="media/howto-create-dataflow-graph/source-configuration.png" alt-text="Screenshot of the operations experience source configuration panel showing endpoint dropdown and topic input." lightbox="media/howto-create-dataflow-graph/source-configuration.png":::
 
-       1. **Add transforms**: Select one or more transforms to process the data. Available transforms include map, filter, branch, concatenate, and window. For details on each transform type, see [Data flow graphs overview](concept-dataflow-graphs.md#available-transforms).
+       1. **Add transforms**: Select one or more transforms to process the data. Available transforms include map, filter, branch, concatenate, window, and throttle. For details on each transform type, see [Data flow graphs overview](concept-dataflow-graphs.md#available-transforms).
 
        :::image type="content" source="media/howto-create-dataflow-graph/transform-selection.png" alt-text="Screenshot of the operations experience transform selection menu showing available transform types." lightbox="media/howto-create-dataflow-graph/transform-selection.png":::
 
@@ -415,9 +415,7 @@ The `configuration` property takes these rules as a string, so the rules JSON is
 }
 ```
 
-> [!TIP]
-> To generate the escaped string, save the rules to a file like `rules.json`, then run `jq -c . rules.json` and paste the single-line output into the `value` field.
-
+[!INCLUDE [dataflow-jq-tip](../includes/dataflow-jq-tip.md)]
 
 # [Bicep](#tab/bicep)
 
@@ -652,4 +650,5 @@ kubectl logs -l app=dataflow -n azure-iot-operations --tail=50
 - [Filter and route data](howto-dataflow-graphs-filter-route.md)
 - [Aggregate data over time](howto-dataflow-graphs-window.md)
 - [Enrich with external data](howto-dataflow-graphs-enrich.md)
+- [Throttle data](howto-dataflow-graphs-throttle.md)
 - [Expressions reference](concept-dataflow-graphs-expressions.md)

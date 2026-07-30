@@ -311,7 +311,7 @@ To enable schema validation, set `validateSchema` to `true` in the filter config
 
 # [Operations experience](#tab/portal)
 
-The filter transform configuration includes a **Validate schema** checkbox. However, the Operations experience doesn't currently support configuring or viewing the `schemaRef` on node connections. To use schema validation, configure the node connection's `schemaRef` through Bicep or Kubernetes manifests.
+The filter transform configuration includes a **Validate schema** checkbox. However, the operations experience doesn't currently support configuring or viewing the `schemaRef` on node connections. To use schema validation, configure the node connection's `schemaRef` through Bicep or Kubernetes manifests.
 
 # [Azure CLI](#tab/cli)
 
@@ -350,8 +350,7 @@ The CLI applies the whole graph from one config file, so add this to the corresp
 ]
 ```
 
-> [!TIP]
-> To generate the escaped string, save the rules to a file like `rules.json`, then run `jq -c . rules.json` and paste the single-line output into the `value` field.
+[!INCLUDE [dataflow-jq-tip](../includes/dataflow-jq-tip.md)]
 
 # [Bicep](#tab/bicep)
 
@@ -615,6 +614,127 @@ configuration: [
 
 Messages where `severity` is greater than 5 go to the `true` path. All others go to the `false` path.
 
+### Validate messages against a schema
+
+Starting from version `1.1.0`, you can configure a branch transform to validate incoming messages against a JSON schema before evaluating the branch expression.
+
+To enable schema validation, set `validateSchema` to `true` in the branch configuration. The `validateSchema` field is optional and defaults to `false`. When enabled, the branch retrieves the schema from the `schemaRef` on the incoming node connection (the `from` side of the `nodeConnections` entry that feeds into the branch node).
+
+- Messages that pass schema validation continue to branch evaluation.
+- Messages that fail schema validation are routed to the `false` path.
+
+# [Operations experience](#tab/portal)
+
+The branch transform configuration includes a **Validate schema** checkbox. However, the operations experience doesn't currently support configuring or viewing the `schemaRef` on node connections. To use schema validation, configure the node connection's `schemaRef` through Bicep or Kubernetes manifests.
+
+# [Azure CLI](#tab/cli)
+
+The CLI applies the whole graph from one config file, so add this to the corresponding place in your `graph.json` and apply it with [`az iot ops dataflowgraph apply`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-apply). In the `graph.json` file, each transform's rules are stored in the `value` field as an escaped JSON string. For the readable form of each transform's rules, see the how-to for that transform type.
+
+```json
+"nodes": [
+  {
+    "nodeType": "Graph",
+    "name": "schema-branch",
+    "graphSettings": {
+      "registryEndpointRef": "default",
+      "artifact": "azureiotoperations/graph-dataflow-branch:1.1.0",
+      "configuration": [
+        {
+          "key": "rules",
+          "value": "{\"validateSchema\":true,\"branch\":{\"inputs\":[\"severity\"],\"expression\":\"$1 > 5\"}}"
+        }
+      ]
+    }
+  }
+],
+"nodeConnections": [
+  {
+    "from": {
+      "name": "sensors",
+      "schema": {
+        "schemaRef": "aio-sr://my-namespace/sensor-schema:1",
+        "serializationFormat": "Json"
+      }
+    },
+    "to": {
+      "name": "schema-branch"
+    }
+  }
+]
+```
+
+[!INCLUDE [dataflow-jq-tip](../includes/dataflow-jq-tip.md)]
+
+# [Bicep](#tab/bicep)
+
+Include `validateSchema` in the branch rules JSON and configure `schemaRef` on the incoming node connection:
+
+```bicep
+nodes: [
+  {
+    nodeType: 'Graph'
+    name: 'schema-branch'
+    graphSettings: {
+      registryEndpointRef: 'default'
+      artifact: 'azureiotoperations/graph-dataflow-branch:1.1.0'
+      configuration: [
+        {
+          key: 'rules'
+          value: '{"validateSchema":true,"branch":{"inputs":["severity"],"expression":"$1 > 5"}}'
+        }
+      ]
+    }
+  }
+]
+nodeConnections: [
+  {
+    from: {
+      name: 'sensors'
+      schema: {
+        schemaRef: 'aio-sr://my-namespace/sensor-schema:1'
+        serializationFormat: 'Json'
+      }
+    }
+    to: { name: 'schema-branch' }
+  }
+]
+```
+
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
+
+```yaml
+nodes:
+  - nodeType: Graph
+    name: schema-branch
+    graphSettings:
+      registryEndpointRef: default
+      artifact: azureiotoperations/graph-dataflow-branch:1.1.0
+      configuration:
+        - key: rules
+          value: |
+            {
+              "validateSchema": true,
+              "branch": {
+                "inputs": ["severity"],
+                "expression": "$1 > 5"
+              }
+            }
+
+nodeConnections:
+  - from:
+      name: sensors
+      schema:
+        schemaRef: "aio-sr://my-namespace/sensor-schema:1"
+        serializationFormat: Json
+    to:
+      name: schema-branch
+```
+
+---
+
 ### Connect branch outputs
 
 In the pipeline configuration, use the node name followed by `.output.true` or `.output.false` to wire each path to a downstream transform.
@@ -788,7 +908,7 @@ The Azure CLI applies a data flow graph from a single JSON config file. Create a
       "name": "severity-check",
       "graphSettings": {
         "registryEndpointRef": "default",
-        "artifact": "azureiotoperations/graph-dataflow-branch:1.0.0",
+        "artifact": "azureiotoperations/graph-dataflow-branch:1.1.0",
         "configuration": [
           {
             "key": "rules",
@@ -950,7 +1070,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
         name: 'severity-check'
         graphSettings: {
           registryEndpointRef: 'default'
-          artifact: 'azureiotoperations/graph-dataflow-branch:1.0.0'
+          artifact: 'azureiotoperations/graph-dataflow-branch:1.1.0'
           configuration: [
             {
               key: 'rules'
@@ -1059,7 +1179,7 @@ spec:
       name: severity-check
       graphSettings:
         registryEndpointRef: default
-        artifact: azureiotoperations/graph-dataflow-branch:1.0.0
+        artifact: azureiotoperations/graph-dataflow-branch:1.1.0
         configuration:
           - key: rules
             value: |
@@ -1139,4 +1259,5 @@ spec:
 - [Aggregate data over time](howto-dataflow-graphs-window.md)
 - [Enrich with external data](howto-dataflow-graphs-enrich.md)
 - [Route messages to different topics](howto-dataflow-graphs-topic-routing.md)
+- [Throttle data](howto-dataflow-graphs-throttle.md)
 - [Expressions reference](concept-dataflow-graphs-expressions.md)
