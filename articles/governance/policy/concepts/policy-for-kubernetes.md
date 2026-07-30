@@ -620,7 +620,7 @@ Example 1: If you select `Enforcement Action: Deny` and `Enforcement Points: ["v
 
 Example 2: If you select `Enforcement Action: Audit` and `Enforcement Points: ["vap.k8s.io"]`, VAP audits the violating resource but doesn't deny it because the enforcement action is `Audit`. Also, it doesn't show in compliance due to the absence of `audit.gatekeeper.sh` enforcement point.
 
-Introducing delete operation protection feature. This feature allows Gatekeeper to receive DELETE admission requests while preventing existing policies from automatically enforcing on deletions unless explicitly configured. Policies must opt-in to DELETE enforcement by specifying `operations` in their constraint templates.
+Introducing delete operation protection feature. This feature allows Gatekeeper to receive DELETE admission requests while preventing existing policies from automatically enforcing on deletions unless explicitly configured. Policies must opt-in to DELETE enforcement by specifying `operations` in their constraint templates. `operations` list can contain any combination of CREATE, UPDATE, DELETE, CONNECT, or *.
 
 Example:
 
