@@ -325,7 +325,7 @@ In other cases, escaping is necessary, for example: `nsu=http://opcfoundation.or
 While a data flow parses a path, it treats only two characters as special:
 
 * Dots (`.`) act as field separators.
-* Single quotation marks, when placed at the beginning or the end of a segment, start an escaped section where dots aren't treated as field separators.
+* Double quotation marks, when placed at the beginning or the end of a segment, start an escaped section where dots aren't treated as field separators.
 
 Any other characters are treated as part of the field name. This flexibility is useful in formats like JSON, where field names can be arbitrary strings.
 
@@ -339,6 +339,7 @@ The primary function of escaping in a dot-notated path is to accommodate the use
 
 * **Escape each segment separately:** If multiple segments contain dots, those segments must be enclosed in double quotation marks. Other segments can also be quoted, but it doesn't affect the path interpretation. For example: `Payload."Tag.10".Measurements."Vibration.$12".Value`
 
+* **Quote a segment only when it needs escaping:** Add double quotation marks only around a segment that contains a dot or another character that would otherwise be misinterpreted. Don't wrap an ordinary field name in double quotation marks when it doesn't need escaping. In some tools, including the operations experience data flow editor, unnecessary quotation marks are captured as literal characters that become part of the field name. When that happens, the mapping doesn't match the intended field, and the exported data flow definition shows the field name with escaped quotation marks (for example, `\"TagName\"`). To fix a mapping that's affected this way, remove the surrounding quotation marks from the field name.
     
 * **Proper use of double quotation marks:** Double quotation marks must open and close an escaped segment. Any quotation marks in the middle of the segment are considered part of the field name. For example, the path `Payload.He said: "Hello", and waved` defines two fields: `Payload` and `He said: "Hello", and waved`. When a dot appears under these circumstances, it continues to serve as a separator. For example, the path `Payload.He said: "No. It is done"` is split into the segments `Payload`, `He said: "No`, and `It is done"` (starting with a space).
     
