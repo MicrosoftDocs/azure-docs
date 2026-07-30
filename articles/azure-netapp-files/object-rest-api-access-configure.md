@@ -157,11 +157,11 @@ To enable object REST API, you must create a bucket on an Azure NetApp Files vol
 
             * **Secret name**
 
-                Enter the name of the secret. The secret name is user-defined and can be any value, that meets the naming guidelines. 
+                Enter the name of the secret. The secret name is user-defined and can be any value that meets the naming guidelines. 
             
         * **Access key**
 
-            When selecting this option, access keys are generated after the bucket is created and are displayed once in the Azure portal. You must manually copy both these values and store them securely.
+            When you select this option, the portal generates access keys after the bucket is created and displays them once in the Azure portal. You must manually copy both these values and store them securely.
 
 1. Select **Create**. 
 
