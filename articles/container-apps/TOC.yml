@@ -183,12 +183,8 @@ items:
       items:
         - name: Communicate between multiple apps
           href: connect-apps.md
-        - name: Connect to a cloud service using Service Connector
-          items:
-            - name: .NET app with Blob Storage
-              href: service-connector.md
-            - name: Java Quarkus app with Postgres DB
-              href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
+        - name: Java Quarkus app with Postgres DB
+          href: tutorial-java-quarkus-connect-managed-identity-postgresql-database.md
     - name: Build a multiple app scenario
       items:
         - name: Deploy a backend microservice app
