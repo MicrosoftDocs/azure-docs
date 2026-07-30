@@ -119,7 +119,7 @@ Exemptions support an optional property `resourceSelectors` that works the same 
 ```
 
 The follow resource selectors `kinds` are supported in the policy exemptions object:
-- resourceLocation: This property is used to select resources based on their type. Can't be used in the same resource selector as resourceWithoutLocation.
+- resourceLocation: This property is used to select resources based on their location. Can't be used in the same resource selector as resourceWithoutLocation.
 - resourceType: This property is used to select resources based on their type.
 - resourceWithoutLocation: This property is used to select resources at the subscription level that don't have a location. Currently only supports subscriptionLevelResources. Can't be used in the same resource selector as resourceLocation.
 - in: The list of allowed values for the specified kind. Can't be used with notIn. Can contain up to 50 values.

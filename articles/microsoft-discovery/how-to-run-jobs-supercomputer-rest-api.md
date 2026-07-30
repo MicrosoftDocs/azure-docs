@@ -599,5 +599,5 @@ if __name__ == "__main__":
 
 ## Related content
 
-- [Discovery quickstart guide](quickstart-infrastructure-portal.md)
+- [Discovery quickstart guide](quickstart-infrastructure.md)
 - [Azure CLI authentication](/cli/azure/authenticate-azure-cli)

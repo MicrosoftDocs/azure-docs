@@ -68,7 +68,7 @@
       - name: Apex domains
         href: apex-domain.md
       - name: Add a root or apex domain
-        href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-standard-premium
+        href: apex-domain-onboard.md
       - name: Wildcard domains
         href: front-door-wildcard-domain.md?pivots=front-door-standard-premium
   - name: Rules engine
@@ -309,8 +309,6 @@
           href: scripts/custom-domain.md
       - name: Configure HTTPS on a custom domain
         href: front-door-custom-domain-https.md
-      - name: Add a root or apex domain
-        href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-classic
       - name: Set up a Rules Engine (classic)
         href: front-door-tutorial-rules-engine.md
     - name: CDN (classic) from Microsoft

@@ -3,7 +3,7 @@ title: File attachments in Azure SRE Agent
 description: Share screenshots, logs, config files, and code directly in chat for AI-powered multimodal analysis in Azure SRE Agent.
 ms.topic: article
 ms.service: azure-sre-agent
-ms.date: 07/20/2026
+ms.date: 07/30/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -69,7 +69,7 @@ Sent messages display file cards with the file name, size, and a download link s
 
 File attachments provide capabilities that set them apart from text-only interactions.
 
-- **Automatic file type detection.** Drop any supported file and the agent determines the right processing approach—vision for images, file tools for text, Python for binary documents. No manual selection needed.
+- **Automatic file type detection.** Drop any supported file and the agent determines the right processing approach: vision for images, file tools for text, Python for binary documents. No manual selection needed.
 
 - **Native clipboard integration.** During incident response, speed matters. Screenshot a dashboard, paste into chat, and ask "what do you see?" The entire round trip takes seconds.
 
@@ -81,11 +81,11 @@ The following table compares common workflows with and without file attachments.
 
 | Scenario | Before | After |
 |---|---|---|
-| **Sharing a screenshot** | Describe the chart verbally or paste a URL | Drop the screenshot into chat—agent analyzes it visually |
-| **Reviewing a log file** | Copy and paste text, lose formatting | Upload the .log file—agent parses it with tools |
-| **Config file review** | Copy and paste YAML/JSON into chat | Upload the file—agent reads it with full context |
-| **Runbook reference** | Recall steps from memory during incidents | Upload runbook—agent follows and applies it to the situation |
-| **Binary documents** | Can't share PDFs or Office docs | Upload directly—agent uses Python to extract content |
+| **Sharing a screenshot** | Describe the chart verbally or paste a URL | Drop the screenshot into chat. The agent analyzes it visually. |
+| **Reviewing a log file** | Copy and paste text, lose formatting | Upload the .log file. The agent parses it with tools. |
+| **Config file review** | Copy and paste YAML/JSON into chat | Upload the file. The agent reads it with full context. |
+| **Runbook reference** | Recall steps from memory during incidents | Upload the runbook. The agent follows and applies it to the situation. |
+| **Binary documents** | Can't share PDFs or Office docs | Upload directly. The agent uses Python to extract content. |
 
 ## Get started
 
