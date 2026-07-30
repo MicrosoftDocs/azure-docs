@@ -1,5 +1,5 @@
 ---
-title: Agentless Crash-Consistent Azure VM Backup
+title: Agentless Multi-Disk Crash-Consistent Azure VM Backup
 description: Learn when to use agentless multi-disk crash-consistent backup for Azure VMs, how it compares with application-consistent backup, pricing, and support.
 ms.topic: overview
 ms.date: 07/25/2025
@@ -10,11 +10,9 @@ ms.author: v-mallicka
 
 # What is agentless multi-disk crash-consistent backup for Azure VMs?
 
-Agentless multi-disk crash-consistent backup protects Azure virtual machines (VMs) without relying on the VM agent or snapshot extension. It creates multi-disk [crash-consistent restore points](/azure/virtual-machines/virtual-machines-create-restore-points) and reduces VM I/O quiescing time for performance-sensitive workloads that can tolerate crash-consistent recovery.
+Azure Backup supports agentless virtual machine (VM) backups by using multi-disk [crash-consistent restore points](/azure/virtual-machines/virtual-machines-create-restore-points).
 
-With the [Enhanced VM backup policy](backup-azure-vms-enhanced-policy.md), you can configure application-consistent or crash-consistent restore points. For supported VMs, Azure Backup can also retry with a crash-consistent snapshot if an application-consistent snapshot fails.
-
-This article explains when to use agentless crash-consistent backup, its limitations and pricing, and the supported Azure VM configurations.
+The [Enhanced VM backup policy](backup-azure-vms-enhanced-policy.md) enables you to configure the consistency type of backups as application-consistent or crash-consistent restore points for Azure VMs. For supported VMs, Azure Backup can also retry the backup operation with a crash-consistent snapshot if the application-consistent snapshot fails.
 
 >[!Note]
 >The agentless multi-disk crash consistent VM backup feature is generally available. This release includes changes to billing; see the [pricing details](#pricing-for-agentless-multi-disk-crash-consistent-backup).
