@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.custom: devx-track-terraform
 author: mbender-ms
 ms.author: mbender
-ms.date: 07/17/2026
+ms.date: 07/29/2026
 content_well_notification: 
   - AI-contribution
 zone_pivot_groups: azure-virtual-network-manager-quickstart-options
@@ -42,7 +42,7 @@ In this article, you learn how to:
 
 :::zone pivot="sub"
 
-## Implement the Terraform code
+## Implement the Terraform code at subscription scope
 
 This code sample implements Azure Virtual Network Manager at the subscription scope.
 
@@ -74,9 +74,9 @@ This code sample implements Azure Virtual Network Manager at the subscription sc
 :::zone pivot="mgmt-grp"
 
 
-## Implement the Terraform code
+## Implement the Terraform code at management group scope
 
-This code sample will implement Azure Virtual Network Manager at the management group scope.
+This code sample implements Azure Virtual Network Manager at the management group scope.
  
 > [!NOTE]
 > The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/101-virtual-network-manager-create-management-group-scope). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/blob/master/quickstart/101-virtual-network-manager-create-management-group-scope/TestRecord.md).
