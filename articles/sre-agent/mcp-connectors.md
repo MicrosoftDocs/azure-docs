@@ -1,9 +1,9 @@
 ---
 title: MCP connectors and tools in Azure SRE Agent
-description: Extend your agent to any external system including observability platforms, source code, ticketing systems, and custom APIs which uses the Model Context Protocol.
+description: Extend your agent to external systems, including observability platforms, source code, ticketing systems, and custom APIs that use the Model Context Protocol.
 ms.topic: article
 ms.service: azure-sre-agent
-ms.date: 07/20/2026
+ms.date: 07/30/2026
 author: craigshoemaker
 ms.author: cshoe
 ms.ai-usage: ai-assisted
@@ -15,7 +15,7 @@ ms.custom: mcp, model context protocol, connectors, tools, extensibility, datado
 
 
 > [!TIP]
-> - Connect any MCP-compatible service - Datadog, Splunk, GitHub, New Relic, and more - in minutes.
+> - Connect MCP-compatible services, such as Datadog, Splunk, GitHub, and New Relic.
 > - Select which connector tools your agent can call directly - no custom agent needed for simple tool use.
 > - Your agent auto-discovers tools from connected servers and monitors connection health.
 > - Tool capacity bar shows your budget (80 tools per agent) with color-coded warnings.
@@ -25,7 +25,7 @@ ms.custom: mcp, model context protocol, connectors, tools, extensibility, datado
 
 Your agent has deep built-in access to Azure services - Application Insights, Log Analytics, Azure Monitor, Resource Graph. But your operational toolchain doesn't stop at Azure. Metrics live in Datadog. Security logs live in Splunk. Source code lives in GitHub.
 
-During an incident, that gap forces you to manually bridge systems - querying Datadog in one tab, correlating with Azure Monitor in another, copy-pasting findings between tools. Your agent is powerful, but it only sees the Azure side.
+During an incident, that gap forces you to manually bridge systems by querying Datadog in one tab, correlating with Azure Monitor in another, and copying findings between tools. The agent only sees the Azure side.
 
 ## How MCP connectors work
 
@@ -69,9 +69,9 @@ Run an MCP server as a process inside your agent's cloud environment. Provide th
 >
 > Docker containers aren't supported as stdio commands. Only preinstalled runtimes are available.
 
-## Preconfigured partner connectors
+## Partner connectors
 
-Your agent includes preconfigured connectors for popular platforms. These connectors have prefilled URLs, default authentication settings, and branded icons. Select the card, enter your credentials, and connect.
+Your agent includes connectors for popular platforms. These connectors have prefilled URLs, default authentication settings, and branded icons. Select the card, enter your credentials, and connect.
 
 | Partner | Transport | What you provide | What your agent gets |
 |---------|-----------|-----------------|---------------------|
@@ -83,7 +83,7 @@ Your agent includes preconfigured connectors for popular platforms. These connec
 | **Elasticsearch** | Streamable-HTTP | Authorization header | Search, analytics, log management |
 | **Hawkeye (NeuBird)** | Streamable-HTTP | Bearer token | AI-powered observability |
 
-For partner connectors, the authentication method is preconfigured and locked. You just enter the credential values.
+For partner connectors, the authentication method is set and locked. You enter the credential values.
 
 > [!TIP]
 > Browse [Azure MCP Center](https://mcp.azure.com) for verified MCP servers for Azure services.
@@ -211,11 +211,11 @@ Each MCP server has its own authentication requirements. The portal supports the
 | **OAuth** | Remote MCP servers that support spec-compliant OAuth (interactive sign-in) | Registers the agent dynamically, completes an authorization-code flow with PKCE, and refreshes tokens automatically. Requires a public HTTPS endpoint. |
 | **Managed identity** | Azure services via stdio connectors | Uses your agent's managed identity for Azure AD tokens |
 
-For partner connectors, the auth method is preconfigured - you just enter the credentials.
+For partner connectors, the authentication method is set. You enter the credentials.
 
 ## What makes this different
 
-- **Unlike custom integrations**, MCP connectors use an open standard. You don't write adapter code - any MCP-compatible server works out of the box. The protocol handles discovery, invocation, and error handling.
+- **Unlike custom integrations**, MCP connectors use an open standard. You don't write adapter code because the protocol handles discovery, invocation, and error handling.
 
 - **Unlike static tool configurations**, your agent discovers tools dynamically. When an MCP server adds a new tool, your agent picks it up automatically. Wildcard patterns (`datadog-mcp/*`) ensure new tools are available without reconfiguration.
 
@@ -229,7 +229,7 @@ For partner connectors, the auth method is preconfigured - you just enter the cr
 | **Using connector tools** | Create custom agent → assign tools → invoke via `/agent` | Select tools on connector → ask your agent directly |
 | **Data correlation** | Manual copy-paste between systems | Agent correlates across all connected systems |
 | **Time to gather context** | 15–30 minutes | 2–5 minutes |
-| **Adding new tools** | Wait for built-in integration or write custom scripts | Connect any MCP server in minutes |
+| **Adding new tools** | Wait for built-in integration or write custom scripts | Connect an MCP server directly |
 | **Tool capacity management** | Hit 80-tool limit with cryptic server error | Capacity bar with color-coded warnings |
 | **Failure handling** | Scripts break when APIs change | Health monitoring with auto-recovery |
 
