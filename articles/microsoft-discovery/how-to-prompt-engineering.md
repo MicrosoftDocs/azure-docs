@@ -23,7 +23,7 @@ This article covers techniques for both instruction authoring and user prompt co
 
 - An active [Azure subscription](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 
-- A deployed Microsoft Discovery workspace with at least one project. For setup instructions, see [Get started with Microsoft Discovery infrastructure](quickstart-infrastructure-portal.md).
+- A deployed Microsoft Discovery workspace with at least one project. For setup instructions, see [Get started with Microsoft Discovery infrastructure](quickstart-infrastructure.md).
 
 - At least one prompt agent created in your project. For details, see [Create agents in Microsoft Discovery](how-to-agent-creation.md).
 
