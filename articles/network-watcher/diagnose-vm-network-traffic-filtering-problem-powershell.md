@@ -6,15 +6,15 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: quickstart
-ms.date: 02/17/2026
+ms.date: 07/30/2026
 ms.custom: devx-track-azurepowershell, mode-api
 
 # Customer intent: "As a cloud administrator, I want to diagnose network traffic filter issues on a virtual machine using IP flow verify, so that I can identify and resolve security rules causing connectivity problems."
 ---
 
-# Quickstart: Diagnose a virtual machine network traffic filter problem using Azure PowerShell
+# Quickstart: Diagnose a virtual machine network traffic filter problem by using Azure PowerShell
 
-In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the security rule that's blocking the traffic and causing the communication failure and learn how you can resolve it. You also learn how to use the [effective security rules](effective-security-rules-overview.md) for a network interface to determine why a security rule is allowing or denying traffic.
+In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. By using the IP flow verify results, you can determine the security rule that's blocking the traffic and causing the communication failure. You also learn how you can resolve the problem. You also learn how to use the [effective security rules](effective-security-rules-overview.md) for a network interface to determine why a security rule is allowing or denying traffic.
 
 :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
 
@@ -28,41 +28,41 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     The steps in this article run the Azure PowerShell cmdlets interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code and then paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-    You can also install Azure PowerShell locally to run the cmdlets. This quickstart requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-InstalledModule -Name Az`. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+    You can also install Azure PowerShell locally to run the cmdlets. This quickstart requires the Az PowerShell module. For more information, see [How to install Azure PowerShell](/powershell/azure/install-azure-powershell). To find the installed version, run `Get-InstalledModule -Name Az`. If you run PowerShell locally, sign in to Azure by using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ## Create a virtual machine
 
 In this section, you create a virtual network and a subnet in the East US region. Then, you create a virtual machine in the subnet with a default network security group.
 
-1. Create a resource group using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). An Azure resource group is a logical container into which Azure resources are deployed and managed.
+1. Create a resource group by using [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). An Azure resource group is a logical container into which you deploy and manage Azure resources.
 
     ```azurepowershell-interactive
     # Create a resource group.
     New-AzResourceGroup -Name 'myResourceGroup' -Location 'eastus' 
     ```
 
-1. Create a subnet configuration for the virtual machine subnet using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig).
+1. Create a subnet configuration for the virtual machine subnet by using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig).
 
     ```azurepowershell-interactive
     # Create subnet configuration.
     $Subnet = New-AzVirtualNetworkSubnetConfig -Name 'mySubnet' -AddressPrefix '10.0.0.0/24'
     ```
 
-1. Create a virtual network using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork).
+1. Create a virtual network by using [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork).
 
     ```azurepowershell-interactive
     # Create a virtual network.
     New-AzVirtualNetwork -Name 'myVNet' -ResourceGroupName 'myResourceGroup' -Location 'eastus' -AddressPrefix '10.0.0.0/16' -Subnet $Subnet
     ```
 
-1. Create a default network security group using [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
+1. Create a default network security group by using [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup).
 
     ```azurepowershell-interactive
     # Create a network security group. 
     New-AzNetworkSecurityGroup -Name 'myVM-nsg' -ResourceGroupName 'myResourceGroup' -Location  'eastus'
     ```
 
-1. Create a virtual machine using [New-AzVM](/powershell/module/az.compute/new-azvm).
+1. Create a virtual machine by using [New-AzVM](/powershell/module/az.compute/new-azvm).
 
     ```azurepowershell-interactive
     # Create a credential object
@@ -88,11 +88,11 @@ In this section, you create a virtual network and a subnet in the East US region
     New-AzVM @vmParams
     ```
 
-## Test network communication using IP flow verify
+## Test network communication by using IP flow verify
 
-In this section, you use the IP flow verify capability of Network Watcher to test network communication to and from the virtual machine.
+In this section, use the IP flow verify capability of Network Watcher to test network communication to and from the virtual machine.
 
-1. Use [Test-AzNetworkWatcherIPFlow](/powershell/module/az.network/test-aznetworkwatcheripflow) to test outbound communication from **myVM** to **13.107.21.200** using IP flow verify (`13.107.21.200` is one of the public IP addresses used by `www.bing.com`):
+1. Use [Test-AzNetworkWatcherIPFlow](/powershell/module/az.network/test-aznetworkwatcheripflow) to test outbound communication from **myVM** to **13.107.21.200** by using IP flow verify (`13.107.21.200` is one of the public IP addresses used by `www.bing.com`):
 
     ```azurepowershell-interactive
     # Place myVM configuration into a variable.
@@ -102,7 +102,7 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
     Test-AzNetworkWatcherIPFlow -Location 'eastus' -TargetVirtualMachineId $vm.Id -Direction 'Outbound' -Protocol 'TCP' -RemoteIPAddress '13.107.21.200' -RemotePort '80' -LocalIPAddress '10.0.0.4' -LocalPort '60000'
     ```
 
-    After a few seconds, you get similar output to the following example:
+    After a few seconds, you see output similar to the following example:
     
     ```output
     Access RuleName
@@ -119,7 +119,7 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
     Test-AzNetworkWatcherIPFlow -Location 'eastus' -TargetVirtualMachineId $vm.Id -Direction 'Outbound' -Protocol 'TCP' -RemoteIPAddress '10.0.1.10' -RemotePort '80' -LocalIPAddress '10.0.0.4' -LocalPort '60000'
     ```
     
-    After a few seconds, you get similar output to the following example:
+    After a few seconds, you see output similar to the following example:
     
     ```output
     Access RuleName
@@ -136,7 +136,7 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
     Test-AzNetworkWatcherIPFlow -Location 'eastus' -TargetVirtualMachineId $vm.Id -Direction 'Outbound' -Protocol 'TCP' -RemoteIPAddress '10.10.10.10' -RemotePort '80' -LocalIPAddress '10.0.0.4' -LocalPort '60000'
     ```
     
-    After a few seconds, you get similar output to the following example:
+    After a few seconds, you see output similar to the following example:
     
     ```output
     Access RuleName
@@ -153,7 +153,7 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
     Test-AzNetworkWatcherIPFlow -Location 'eastus' -TargetVirtualMachineId $vm.Id -Direction 'Inbound' -Protocol 'TCP' -RemoteIPAddress '10.10.10.10' -RemotePort '60000' -LocalIPAddress '10.0.0.4' -LocalPort '80'
     ```
     
-    After a few seconds, you get similar output to the following example:
+    After a few seconds, you see output similar to the following example:
     
     ```output
     Access RuleName
@@ -165,14 +165,14 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
 
 ## View details of a security rule
 
-To determine why the rules in the previous section allow or deny communication, review the effective security rules for the network interface of **myVM** virtual machine using [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup) cmdlet:
+To understand why the rules in the previous section allow or deny communication, review the effective security rules for the network interface of the **myVM** virtual machine by using the [Get-AzEffectiveNetworkSecurityGroup](/powershell/module/az.network/get-azeffectivenetworksecuritygroup) cmdlet.
 
 ```azurepowershell-interactive
 # Get the effective security rules for the network interface of myVM.
 Get-AzEffectiveNetworkSecurityGroup -NetworkInterfaceName 'myVM' -ResourceGroupName 'myResourceGroup'
 ```
 
-The returned output includes the following information for the **AllowInternetOutbound** rule that allowed outbound access to `www.bing.com`:
+The returned output includes the following information for the **AllowInternetOutbound** rule that grants outbound access to `www.bing.com`:
 
 ```output
 {
@@ -222,13 +222,13 @@ The returned output includes the following information for the **AllowInternetOu
 },
 ```
 
-You can see in the output that address prefix **13.104.0.0/13** is among the address prefixes of **AllowInternetOutBound** rule. This prefix encompasses the IP address **13.107.21.200**, which you utilized to test outbound communication to `www.bing.com`.
+You see in the output that address prefix **13.104.0.0/13** is among the address prefixes of **AllowInternetOutBound** rule. This prefix encompasses the IP address **13.107.21.200**, which you used to test outbound communication to `www.bing.com`.
 
 Similarly, you can check the other rules to see the source and destination IP address prefixes under each rule.
 
 ## Clean up resources
 
-When no longer needed, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to delete the resource group and all of the resources it contains:
+When you no longer need the resources, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to delete the resource group and all of the resources it contains:
 
 ```azurepowershell-interactive
 # Delete the resource group and all resources it contains.
