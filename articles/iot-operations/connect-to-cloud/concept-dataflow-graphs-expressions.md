@@ -347,7 +347,7 @@ The primary function of escaping in a dot-notated path is to accommodate the use
     | --- | --- |
     | `Records.TagName` | `Records."TagName"` |
 
-    The extra quotation marks don't help, and in some tools&mdash;such as the operations experience data flow editor&mdash;they become part of the field name. The mapping then looks for a field literally named `"TagName"` (quotes included), which doesn't exist, so nothing matches. You can spot this in the exported data flow definition, where the name appears with escaped quotes, like `\"TagName\"`. To fix it, remove the quotation marks so the name is just `TagName`.
+    The extra quotation marks don't help, and in some tools, such as the operations experience data flow editor, they become part of the field name. The mapping then looks for a field named `"TagName"` (quotes included), which doesn't exist, so nothing matches. You can spot this in the exported data flow definition, where the name appears with escaped quotes, like `\"TagName\"`. To fix it, remove the quotation marks so the name is just `TagName`.
     
 * **Proper use of double quotation marks:** Double quotation marks must open and close an escaped segment. Any quotation marks in the middle of the segment are considered part of the field name. For example, the path `Payload.He said: "Hello", and waved` defines two fields: `Payload` and `He said: "Hello", and waved`. When a dot appears under these circumstances, it continues to serve as a separator. For example, the path `Payload.He said: "No. It is done"` is split into the segments `Payload`, `He said: "No`, and `It is done"` (starting with a space).
     
