@@ -2,7 +2,7 @@
 title: Agentless Multi-Disk Crash-Consistent Azure VM Backup
 description: Learn when to use agentless multi-disk crash-consistent backup for Azure VMs, how it compares with application-consistent backup, pricing, and support.
 ms.topic: overview
-ms.date: 07/25/2025
+ms.date: 07/30/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As an IT administrator managing Azure VMs, I want to understand when to use agentless multi-disk crash-consistent backup so that I can choose the appropriate backup consistency type for my workload and verify its support and pricing requirements.
