@@ -72,7 +72,7 @@ Note these limitations when using Private Link service Direct Connect:
 - **Static IP requirement**: The target destination IP address must be allocated statically, there is no support for dynamically allocated target IP address.
 - **Cross-region limitation**: The source private endpoint, private link service, and client VM must be in the same region. This restriction is to be removed when the feature is generally available.
 - **Regional availability**: This feature is available in limited regions (North Central US, East US 2, Central US, South Central US, West US, West US 2, West US 3, Asia Southeast, Australia East, Spain Central).
-- **Network security group support for private endpoints**: For private endpoints associated with PLS Direct Connect, configurations with PrivateEndpointNetworkPolicies enabled, including NetworkSecurityGroupEnabled, aren't supported during preview.
+- **Network security group support for private endpoints**: For private endpoints associated with PLS Direct Connect, configurations with `PrivateEndpointNetworkPolicies` enabled, including `NetworkSecurityGroupEnabled`, aren't supported during preview.
 
 ## Considerations
 
