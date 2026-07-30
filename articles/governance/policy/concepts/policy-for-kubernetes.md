@@ -616,7 +616,7 @@ What each enforcement point represents:
 - audit.gatekeeper.sh: Gatekeeper Audit Controller (Compliance Result)
 - vap.k8s.io: Validating Admission Policy (VAP)
 
-Example 1: If you select `Enforcement Action: Deny` and `Enforcement Points: ["validation.gatekeeper.sh", "audit.gatekeeper.sh"]`, the Gatekeeper validating webhook enforces the violating resource and shows it in compliance. Note that the resource will NOT be enforced by VAP because it's not one of the enforcement points.
+Example 1: If you select `Enforcement Action: Deny` and `Enforcement Points: ["validation.gatekeeper.sh", "audit.gatekeeper.sh"]`, the Gatekeeper validating webhook enforces the violating resource and shows it in compliance. The resource isn't enforced by VAP because it's not one of the enforcement points.
 
 Example 2: If you select `Enforcement Action: Audit` and `Enforcement Points: ["vap.k8s.io"]`, VAP audits the violating resource but doesn't deny it because the enforcement action is `Audit`. Also, it doesn't show in compliance due to the absence of `audit.gatekeeper.sh` enforcement point.
 
