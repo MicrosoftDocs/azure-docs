@@ -20,7 +20,7 @@ Azure Backup supports agentless VM backups by using multidisk crash-consistent r
 
 ## Before you start
 
-Review the supported scenarios and limitations of agentless multidisk crash-consistent backup. [Learn more about supported scenarios](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md).
+Review the [supported scenarios and limitations for agentless multidisk crash-consistent backup](backup-azure-vms-agentless-multi-disk-crash-consistent-overview.md#supported-scenarios-for-agentless-multi-disk-crash-consistent-vm-backup).
 
 ## Configure backup for a new Azure VM with agentless multidisk crash-consistent backup
 
