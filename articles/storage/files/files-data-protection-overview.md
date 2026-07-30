@@ -109,7 +109,7 @@ You can recover an accidentally deleted storage account if the following criteri
 - A new storage account with the same name hasn't been created since the original account was deleted.
 - The user who is recovering the storage account must be assigned an Azure RBAC role that provides the Microsoft.Storage/storageAccounts/write permission. 
 
-Storage account recovery is a built-in capability that can't be disabled. For more information and step-by-step instructions, see [Recover a deleted storage account](../common/storage-account-recover.md).
+Storage account recovery is a built-in capability that you can't disable. For more information and step-by-step instructions, see [Recover a deleted storage account](../common/storage-account-recover.md).
 
 ### Soft delete
 
