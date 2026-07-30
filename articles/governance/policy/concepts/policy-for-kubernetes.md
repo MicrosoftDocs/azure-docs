@@ -623,7 +623,8 @@ Example 2: If you select `Enforcement Action: Audit` and `Enforcement Points: ["
 Introducing delete operation protection feature. This feature allows a protection for Gatekeeper policies to prevent existing policies from unintentionally enforcing on DELETE operations. You can include an `operations` list under each target to say what operations it should govern.
 
 Example:
-`
+
+```yaml
 apiVersion: templates.gatekeeper.sh/v1beta1
 kind: ConstraintTemplate
 metadata:
@@ -649,7 +650,7 @@ spec:`
           input.review.oldObject.metadata.labels["e2e-delete-deny"] == "true"
           msg := sprintf("Deletion of %v is denied by the delete-protection e2e policy", [input.review.oldObject.metadata.name])
         }
-`
+```
 
 Security improvements.
 - Released: Aug 2026
