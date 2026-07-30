@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 07/08/2026
+ms.date: 07/29/2026
 ms.custom:
   - template-concept
   - engagement-fy23
@@ -47,20 +47,20 @@ With a hub-and-spoke topology, you select a virtual network to act as a hub, and
 
 #### [Azure portal](#tab/portal/mesh)
 
-### Create a network group
+### Create a network group for a mesh topology (portal)
 
-This section helps you create a network group containing the virtual networks you're using for the mesh topology.
+In the Azure portal, create a network group that contains the virtual networks you're using for the mesh topology.
 
 > [!NOTE]
 > This how-to guide assumes you created an Azure Virtual Network Manager instance using the [quickstart](create-virtual-network-manager-portal.md) guide.
 
 [!INCLUDE [virtual-network-manager-create-network-group](../networking/includes/azure-virtual-network-manager/virtual-network-manager-create-network-group.md)]
 
-### Define network group members
+### Define network group members for a mesh topology (portal)
 
 Azure Virtual Network Manager provides two methods for adding membership to a network group. You can manually add virtual networks or use Azure Policy to conditionally add virtual networks to the network group. This how-to [manually adds membership](concept-network-groups.md#static-membership). For information on defining group membership with Azure Policy, see [Define network group membership with Azure Policy](concept-network-groups.md#dynamic-membership).
 
-To manually add the desired virtual networks to your network group for use in your connectivity configuration, follow these steps:
+In the Azure portal, manually add the virtual networks you want in the mesh topology to your network group:
 
 1. From the list of network groups, select your network group. Under *Manually add members*, select **Add virtual networks**.
 
@@ -68,9 +68,9 @@ To manually add the desired virtual networks to your network group for use in yo
 
 1. To review the network group membership that you manually added, select **Group Members** on the *Network Group* page under **Settings**.
 
-### Create a mesh connectivity configuration
+### Create a mesh connectivity configuration (portal)
 
-This section guides you through creating a mesh configuration with the network group you created in the previous section.
+In the Azure portal, create a mesh connectivity configuration by using the network group you created in the previous section.
 
 1. Select **Configurations** under *Settings*, and then select **+ Create**.
 
@@ -92,9 +92,9 @@ This section guides you through creating a mesh configuration with the network g
 
 1. Select **Review + create** and then **Create** to create the mesh connectivity configuration.
 
-### Deploy the mesh configuration
+### Deploy the mesh configuration (portal)
 
-To apply this configuration in your environment, deploy the configuration to the regions where your selected virtual networks reside.
+To apply this configuration in your environment, use the Azure portal to deploy the mesh configuration to the regions where your selected virtual networks reside.
 
 1. Select **Deployments** under *Settings*, and then select **Deploy configuration**.
 
@@ -110,7 +110,7 @@ To apply this configuration in your environment, deploy the configuration to the
 
 1. The deployment displays in the list for the selected region. The deployment of the configuration can take a few minutes to complete. Select the **Refresh** button to check on the status of the deployment.
 
-### Confirm deployment
+### Confirm the mesh deployment (portal)
 
 1. See [view applied configurations](how-to-view-applied-configurations.md).
 
@@ -118,9 +118,9 @@ To apply this configuration in your environment, deploy the configuration to the
 
 #### [PowerShell](#tab/powershell/mesh)
 
-### Create a network group and add members
+### Create a network group and add members for a mesh topology (PowerShell)
 
-This section helps you create a network group containing the virtual networks you're using for the mesh topology.
+Use Azure PowerShell to create a network group that contains the virtual networks you're using for the mesh topology.
 
 1. Create a network group for virtual networks by using `New-AzNetworkManagerGroup`.
 
@@ -147,9 +147,9 @@ This section helps you create a network group containing the virtual networks yo
         $staticmember = New-AzNetworkManagerStaticMember @sm
     ```
 
-### Create a mesh connectivity configuration
+### Create a mesh connectivity configuration (PowerShell)
 
-This section guides you through how to create a mesh configuration with the network group you created in the previous section.
+Use Azure PowerShell to create a mesh configuration with the network group you created in the previous section.
 
 1. Create a connectivity group item to add a network group to by using `New-AzNetworkManagerConnectivityGroupItem`.
 
@@ -180,9 +180,9 @@ This section guides you through how to create a mesh configuration with the netw
     $connectivityconfig = New-AzNetworkManagerConnectivityConfiguration @config
      ```
 
-### Deploy the mesh configuration
+### Deploy the mesh configuration (PowerShell)
 
-Commit the configuration to the target regions by using `Deploy-AzNetworkManagerCommit`.
+Commit the mesh configuration to the target regions by using `Deploy-AzNetworkManagerCommit`.
 
 ```azurepowershell-interactive
 [System.Collections.Generic.List[string]]$configIds = @()  
@@ -200,7 +200,7 @@ $deployment = @{
 Deploy-AzNetworkManagerCommit @deployment
 ```
 
-### Confirm deployment
+### Confirm the mesh deployment (PowerShell)
 
 1. Go to one of the virtual networks in the portal and select **Network Manager** under *Settings*. You should see the configuration listed on that page.
 
@@ -208,20 +208,20 @@ Deploy-AzNetworkManagerCommit @deployment
 
 #### [Azure portal](#tab/portal/hubspoke)
 
-### Create a network group
+### Create a network group for a hub-and-spoke topology (portal)
 
-This section helps you create a network group containing the virtual networks you're using as the spokes for the hub-and-spoke topology.
+In the Azure portal, create a network group that contains the virtual networks you're using as the spokes for the hub-and-spoke topology.
 
 > [!NOTE]
 > This how-to guide assumes you created an Azure Virtual Network Manager instance using the [quickstart](create-virtual-network-manager-portal.md) guide.
 
 [!INCLUDE [virtual-network-manager-create-network-group](../networking/includes/azure-virtual-network-manager/virtual-network-manager-create-network-group.md)]
 
-### Define network group members
+### Define network group members for a hub-and-spoke topology (portal)
 
 Azure Virtual Network Manager provides two methods for adding membership to a network group. You can manually add virtual networks or use Azure Policy to conditionally add virtual networks to the network group. This how-to [manually adds membership](concept-network-groups.md#static-membership). For information on defining group membership with Azure Policy, see [Define network group membership with Azure Policy](concept-network-groups.md#dynamic-membership).
 
-To manually add the desired virtual networks to your network group for use in your connectivity configuration, follow these steps:
+In the Azure portal, manually add the virtual networks you want as spokes to your network group:
 
 1. From the list of network groups, select your network group. Under *Manually add members*, select **Add virtual networks**.
 
@@ -229,9 +229,9 @@ To manually add the desired virtual networks to your network group for use in yo
 
 1. To review the network group membership that you manually added, select **Group Members** on the *Network Group* page under **Settings**.
 
-### Create a hub and spoke connectivity configuration
+### Create a hub and spoke connectivity configuration (portal)
 
-This section guides you through creating a hub and spoke configuration with the network group you created in the previous section.
+In the Azure portal, create a hub and spoke connectivity configuration by using the network group you created in the previous section.
 
 1. Select **Configurations** under *Settings*, and then select **+ Create**.
 
@@ -262,9 +262,9 @@ This section guides you through creating a hub and spoke configuration with the 
 
 1. Select **Review + Create > Create** to create the hub and spoke connectivity configuration.
 
-### Deploy the hub and spoke configuration
+### Deploy the hub and spoke configuration (portal)
 
-To apply this configuration in your environment, deploy the configuration to the regions where your selected virtual networks reside.
+To apply this configuration in your environment, use the Azure portal to deploy the hub and spoke configuration to the regions where your selected virtual networks reside.
 
 1. Select **Deployments** under *Settings*, and then select **Deploy a configuration**.
 
@@ -287,7 +287,7 @@ To apply this configuration in your environment, deploy the configuration to the
 > - **Deploy Azure Virtual Network Manager connectivity configurations on top of existing peerings.** Connectivity configurations are fully compatible with preexisting manual peerings. When you deploy a connectivity configuration, by default Azure Virtual Network Manager reuses existing peerings that achieve the connectivity described in the configuration and establishes additional connectivity as needed. This behavior means that you don't need to delete any existing peerings between the hub and spoke virtual networks.
 > - **Fully manage connectivity by using Azure Virtual Network Manager.** If you want to fully manage connectivity from a single control plane, you can opt to *Delete existing peerings* to remove all previously created peerings from the network groups' virtual networks targeted in this configuration upon deployment.
 
-### Confirm configuration deployment
+### Confirm the hub and spoke deployment (portal)
 
 1. See [view applied configurations](how-to-view-applied-configurations.md).
 
@@ -297,9 +297,9 @@ To apply this configuration in your environment, deploy the configuration to the
 
 [!INCLUDE [virtual-network-manager-virtual-wan-hub-preview-includes](../../includes/virtual-network-manager-virtual-wan-hub-preview-includes.md)]
 
-This section shows how to create an Azure Virtual Network Manager hub-and-spoke connectivity configuration where the hub is a Virtual WAN hub.
+In the Azure portal, create an Azure Virtual Network Manager hub-and-spoke connectivity configuration where the hub is a Virtual WAN hub.
 
-#### Prerequisites
+#### Virtual WAN hub prerequisites
 
 * Read about [Hub-and-spoke](concept-connectivity-configuration.md#hub-and-spoke-topology) topology behavior with hub virtual networks and Virtual WAN hubs.
 * Have an existing Azure Virtual Network Manager instance and at least one network group.
@@ -353,9 +353,9 @@ When you deploy this connectivity configuration:
 
 #### [PowerShell](#tab/powershell/hubspoke)
 
-### Create a virtual network group and add members
+### Create a network group and add members for a hub-and-spoke topology (PowerShell)
 
-This section shows you how to create a network group that contains the virtual networks you're using for the hub-and-spoke topology.
+Use Azure PowerShell to create a network group that contains the virtual networks you're using for the hub-and-spoke topology.
 
 1. Create a network group for virtual networks by using `New-AzNetworkManagerGroup`.
 
@@ -382,9 +382,9 @@ This section shows you how to create a network group that contains the virtual n
         $staticmember = New-AzNetworkManagerStaticMember @sm
     ```
 
-### Create a hub-and-spoke connectivity configuration
+### Create a hub-and-spoke connectivity configuration (PowerShell)
 
-This section shows you how to create a hub-and-spoke configuration by using the network group you created in the previous section.
+Use Azure PowerShell to create a hub-and-spoke configuration with the network group you created in the previous section.
 
 1. Create a spokes connectivity group item to add a network group by using `New-AzNetworkManagerConnectivityGroupItem`. You can enable direct connectivity by using the `-GroupConnectivity` flag, global mesh by using the `-IsGlobal` flag, or use the gateway in the hub virtual network by using the `-UseHubGateway` flag.
 
@@ -435,9 +435,9 @@ This section shows you how to create a hub-and-spoke configuration by using the 
 > - **Deploy Azure Virtual Network Manager connectivity configurations on top of existing peerings.** Connectivity configurations are fully compatible with preexisting manual peerings. When you deploy a connectivity configuration, by default Azure Virtual Network Manager reuses existing peerings that achieve the connectivity described in the configuration and establishes additional connectivity as needed. This behavior means that you don't need to delete any existing peerings between the hub and spoke virtual networks.
 > - **Fully manage connectivity by using Azure Virtual Network Manager.** If you want to fully manage connectivity from a single control plane, you can opt to *Delete existing peerings* to remove all previously created peerings from the network groups' virtual networks targeted in this configuration upon deployment.
 
-### Deploy the hub and spoke configuration
+### Deploy the hub-and-spoke configuration (PowerShell)
 
-Commit the configuration to the target regions by using `Deploy-AzNetworkManagerCommit`.
+Commit the hub-and-spoke configuration to the target regions by using `Deploy-AzNetworkManagerCommit`.
 
 ```azurepowershell-interactive
 [System.Collections.Generic.List[string]]$configIds = @()  
@@ -455,7 +455,7 @@ $deployment = @{
 Deploy-AzNetworkManagerCommit @deployment
 ```
 
-### Confirm configuration deployment
+### Confirm the hub-and-spoke deployment (PowerShell)
 
 1. Go to one of the virtual networks in the Azure portal and select **Peerings** under **Settings**. You see a new peering connection created between the hub and the spoke virtual networks with *AVNM* in the name.
 

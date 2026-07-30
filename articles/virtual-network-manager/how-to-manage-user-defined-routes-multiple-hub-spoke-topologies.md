@@ -3,7 +3,7 @@ title: "Manage User-defined Routes (UDRs) across multiple hub-and-spoke topologi
 description: Learn to manage User Defined Routes (UDRs) across multiple hub-and-spoke topologies with Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.date: 07/17/2026
+ms.date: 07/29/2026
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
 ms.custom: sfi-image-nochange
@@ -74,7 +74,7 @@ In this step, you create two connectivity configurations in your network manager
   |-------|-------|
   | **Topology** | Select **Hub and spoke**. |
   | **Hub** | Choose **Select a hub** and select the hub virtual network in region 1. |
-  | **Spoke network groups** | Select **Add*.</br> In the **Add network groups** window, select the spoke network groups from region 1: **ng-spoke-*\<region1\>***,**ng-spoke-*\<region2\>*** |
+  | **Spoke network groups** | Select **Add**.<br> In **Add network groups**, select the spoke network group from region 1: **ng-spoke-*\<region1\>***. |
 
 6. Select the **Visualization** tab or **Next: Visualization** to review the topology.
 7. Select **Review + create** then **Create and start deployment** to deploy the connectivity configuration.

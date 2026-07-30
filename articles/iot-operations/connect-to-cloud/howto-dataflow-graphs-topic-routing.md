@@ -108,8 +108,7 @@ The Azure CLI applies a data flow graph from a single JSON config file. Create a
 }
 ```
 
-> [!TIP]
-> To generate the escaped string, save the rules to a file like `rules.json`, then run `jq -c . rules.json` and paste the single-line output into the `value` field.
+[!INCLUDE [dataflow-jq-tip](../includes/dataflow-jq-tip.md)]
 
 Apply the config file. The `extendedLocation` is added automatically from the instance and resource group, so don't include it in the file.
 
@@ -591,6 +590,8 @@ The `${outputTopic}` variable in `dataDestination` resolves to the full value of
 If the topic variable can't be resolved (for example, `$metadata.topic` was never set), the message is dropped and an error is logged.
 
 ## Next steps
+
+- [Throttle data](howto-dataflow-graphs-throttle.md)
 
 <!-- - [Transform data with map](howto-dataflow-graphs-map.md)
 - [Filter and route data](howto-dataflow-graphs-filter-route.md)
