@@ -3,7 +3,7 @@ title: Overview of Azure SRE Agent
 description: Learn how Azure SRE Agent automates incident triage, scheduled operations, and site reliability workflows with integrations for PagerDuty, Grafana, ServiceNow, and GitHub.
 author: craigshoemaker
 ms.topic: overview
-ms.date: 07/10/2026
+ms.date: 07/30/2026
 ms.author: cshoe
 ms.service: azure-sre-agent
 ---
@@ -35,15 +35,15 @@ A notification surfaces the proposed mitigation. The on-call engineer reviews th
 
 SRE Agent can manage the full range of Azure services your team relies on:
 
-- **Compute services**: Virtual machines, App Service, Container Apps, Azure Kubernetes Service (AKS), Azure Functions, and more.
+- **Compute services**: Virtual machines, Azure App Service, Azure Container Apps, Azure Kubernetes Service (AKS), Azure Functions, and more.
 
 - **Storage services**: Blob storage, file shares, managed disks, and storage accounts.
 
 - **Networking services**: Virtual networks, load balancers, application gateways, and network security groups.
 
-- **Database services**: Azure SQL Database, Cosmos DB, PostgreSQL, MySQL, and Redis.
+- **Database services**: Azure SQL Database, Azure Cosmos DB, PostgreSQL, MySQL, and Redis.
 
-- **Monitoring and management**: Azure Monitor, Log Analytics, Application Insights, and Resource Manager.
+- **Monitoring and management**: Azure Monitor, Log Analytics, Application Insights, and Azure Resource Manager.
 
 You can automate any Azure CLI operation through SRE Agent using runbooks, subagents, and [agent hooks](agent-hooks.md).
 
@@ -57,17 +57,17 @@ You can automate any Azure CLI operation through SRE Agent using runbooks, subag
 
 ## How does SRE Agent work?
 
-SRE Agent combines fine-tuned Azure expertise with full customization capabilities. Out of the box, it understands and manages Azure resources with intelligent defaults for common operational tasks.
+SRE Agent combines fine-tuned Azure expertise with full customization capabilities. By default, it understands and manages Azure resources with defaults for common operational tasks.
 
 The agent operates through five extension primitives:
 
 - **Skills**: Discrete capabilities, including marketplace runbooks and Azure CLI scripts, that extend the agent's operational reach without requiring custom code.
 
-- **Subagents**: Purpose-built agents for specific operational domains. Six generic subagents ship built in—Explore, Plan, CodeReview, Bash, Verification, and GeneralPurpose—so the agent can parallelize investigation, planning, review, shell, and verification work across built-in and custom subagents.
+- **Subagents**: Purpose-built agents for specific operational domains. Six generic subagents ship built in: Explore, Plan, CodeReview, Bash, Verification, and GeneralPurpose. The agent can parallelize investigation, planning, review, shell, and verification work across built-in and custom subagents.
 
 - **Python tools**: Custom logic, data transformations, and API integrations for scenarios that require code rather than configuration.
 
-- **MCP servers**: Connect to 40+ pre-configured connectors (Datadog, New Relic, Splunk, Elasticsearch, Dynatrace, and more) or any custom tool through the Model Context Protocol standard.
+- **MCP servers**: Connect to 40+ managed connectors (Datadog, New Relic, Splunk, Elasticsearch, Dynatrace, and more) or any custom tool through the Model Context Protocol standard.
 
 - **Agent hooks**: Event-triggered automations that run at defined points in the agent lifecycle, either before investigation or after resolution. Two executor types are supported: command hooks run deterministic CLI operations, and prompt hooks produce LLM-evaluated structured JSON output. Use hooks to enforce policies, emit telemetry, or integrate with external approval workflows. See [agent hooks](agent-hooks.md).
 
@@ -223,7 +223,7 @@ When you create an agent, the following resources are also automatically created
 
 - Azure Application Insights
 - Log Analytics workspace
-- Managed Identity
+- Managed identity
 
 These resources support agent observability and identity management. You can view and manage them in your Azure subscription.
 
