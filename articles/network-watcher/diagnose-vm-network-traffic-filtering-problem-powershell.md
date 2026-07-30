@@ -141,7 +141,7 @@ In this section, use the IP flow verify capability of Network Watcher to test ne
     ```output
     Access RuleName
     ------ --------
-    Allow  defaultSecurityRules/DenyAllOutBound
+    Deny  defaultSecurityRules/DenyAllOutBound
     ```
 
     The result of the third test indicates that access is denied to **10.10.10.10** because of the default security rule **DenyAllOutBound**.
@@ -158,7 +158,7 @@ In this section, use the IP flow verify capability of Network Watcher to test ne
     ```output
     Access RuleName
     ------ --------
-    Allow  defaultSecurityRules/DenyAllInBound
+    Deny  defaultSecurityRules/DenyAllInBound
     ```
 
     The result of the fourth test indicates that access is denied from **10.10.10.10** because of the default security rule **DenyAllInBound**. By default, all access to an Azure virtual machine from outside the virtual network is denied.
