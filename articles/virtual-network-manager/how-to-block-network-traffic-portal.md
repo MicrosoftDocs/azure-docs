@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 07/17/2026
+ms.date: 07/29/2026
 ms.custom:
   - template-how-to
   - sfi-image-nochange
@@ -41,7 +41,7 @@ Before you start to configure security admin rules, confirm that you've done the
     | Priority* | Enter a value between 1 and 4096 to determine the priority of the rule. The lower the value, the higher the priority. Enter **1** for this example. |
     | Action* | Select **Deny** to block traffic. For more information, see [Action](concept-security-admins.md#action)
     | Direction* | Select **Inbound** as you want to deny inbound traffic with this rule. |
-    | Protocol* | Select the **TCP** protocol. HTTP and HTTPS are TCP ports. |
+    | Protocol* | Select the **TCP** protocol. RDP uses TCP on port 3389. |
     |**Source**| |
     | Source type | Select the source type of either **IP address** or **Service tags**. |
     | Source IP addresses | This field appears when you select the source type of *IP address*. Enter an IPv4 or IPv6 address or a range using CIDR notation. When defining more than one address or blocks of addresses separate using a comma. Leave blank for this example.|
