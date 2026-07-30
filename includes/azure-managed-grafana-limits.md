@@ -2,7 +2,7 @@
 author: maud-lv
 ms.service: azure-managed-grafana
 ms.topic: include
-ms.date: 06/24/2026
+ms.date: 07/10/2026
 ms.author: malev
 ---
 
@@ -15,6 +15,8 @@ ms.author: malev
 | Memory for Grafana instance          | Amount of memory for Grafana in your dedicated instance.                                                                                                             | Basic                  | Standard               | Expanded               | 
 | Dashboards                           | Maximum number of dashboards that you can create.                                                                                                                    | 20 per instance        | Unlimited              | Unlimited              |
 | Data sources                         | Maximum number of data sources that you can create.                                                                                                                   | 5 per instance         | Unlimited              | Unlimited              |
+| Git Sync repositories                | Maximum number of GitHub repositories that you can connect with Git Sync.                                                                                            | 10 per instance        | 10 per instance        | 10 per instance        |
+| Git Sync resources per repository    | Maximum number of resources per repository that you can synchronize with Git Sync.                                                                                  | 1,000 per repository   | 1,000 per repository   | 1,000 per repository   |
 | API keys                             | Maximum number of API keys that you can create.                                                                                                                      | 2 per instance         | 100 per instance       | 100 per instance       |
 | Data query timeout                   | Maximum wait duration for the reception of data query response headers, before Grafana times out.                                                                    | 200 seconds            | 200 seconds            | 200 seconds            |
 | Data source query size               | Maximum number of bytes that are read or accepted from responses of outgoing HTTP requests.                                                                             | 80 MB                  | 80 MB                  | 80 MB                  |

@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-akri
 ms.topic: how-to
-ms.date: 05/28/2026
+ms.date: 07/30/2026
 ai-usage: ai-assisted
 
 #CustomerIntent: As an industrial edge IT or operations user, I want to configure my Azure IoT Operations environment so that I can access snapshots and videos from a media source such as an IP video camera.
@@ -305,9 +305,6 @@ To define an asset that publishes an image snapshot from the media source to the
 
 1. Add a name for the stream, such as `mysnapshots`. Set MQTT as the destination and add a name for the MQTT topic to publish to such as `azure-iot-operations/data/snapshots`. Select `snapshot-to-mqtt` as the task type.
 
-    > [!IMPORTANT]
-    > Currently, the media connector always publishes to a topic called `azure-iot-operations/data/<asset name>/<stream name>`.
-
     :::image type="content" source="media/howto-use-media-connector/add-snapshot-stream.png" alt-text="Screenshot that shows how to add a snapshot stream that publishes to an MQTT topic." lightbox="media/howto-use-media-connector/add-snapshot-stream.png":::
 
     Select **Add** to save the stream.
@@ -391,7 +388,7 @@ resource asset 'Microsoft.DeviceRegistry/namespaces/assets@2026-04-01' = {
 
 ### Verify the published messages
 
-To verify that the connector is publishing messages, you can use an MQTT client to subscribe to the topic `azure-iot-operations/data/{asset name}/{stream name}`. If the device and asset are configured correctly, you receive messages containing JPEG image snapshots when you subscribe to this topic.
+To verify that the connector is publishing messages, use an MQTT client to subscribe to the topic you configured the asset to publish to. If the device and asset are configured correctly, you receive messages containing JPEG image snapshots when you subscribe to this topic.
 
 The following steps show you how to run the **mosquitto_sub** tool in the cluster. To learn more about this tool and alternative approaches, see [MQTT tools](../troubleshoot/tips-tools.md#mqtt-tools):
 
@@ -400,12 +397,12 @@ The following steps show you how to run the **mosquitto_sub** tool in the cluste
 To save the payload of a single message, use a command like the following example:
 
 ```bash
-mosquitto_sub --host aio-broker --port 18883 --topic "azure-iot-operations/data/my-camera/#" -C 1 -F %p --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat) > image1.jpeg
+mosquitto_sub --host aio-broker --port 18883 --topic "azure-iot-operations/data/snapshots/#" -C 1 -F %p --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/broker-sat) > image1.jpeg
 ```
 
-The following screenshot shows the topic name that uses the asset name and stream name:
+The following screenshot shows an example topic name that receives the published snapshots:
 
-:::image type="content" source="media/howto-use-media-connector/snapshot-topic.png" alt-text="A screenshot that shows the published data in a topic called `azure-iot-operations/data/{asset name}/{stream name}`.":::
+:::image type="content" source="media/howto-use-media-connector/snapshot-topic.png" alt-text="A screenshot that shows the published data in a topic called `azure-iot-operations/data/my-camera/mysnapshots`.":::
 
 ## Add a stream to save a video clip
 
