@@ -3,7 +3,7 @@ title: "Tutorial: Set Up the MCP Connector in Azure SRE Agent"
 description: Connect your SRE agent to external tools using the Model Context Protocol (MCP), then select tools for your agent to use directly in chat.
 ms.topic: tutorial
 ms.service: azure-sre-agent
-ms.date: 07/20/2026
+ms.date: 07/30/2026
 ms.custom: mcp, model context protocol, connector, tools, extension, wildcard, add all tools
 author: craigshoemaker
 ms.author: cshoe
@@ -12,7 +12,7 @@ ms.ai-usage: ai-assisted
 ---
 
 # Tutorial: Set up the MCP connector in Azure SRE Agent
-In this tutorial, you connect your SRE agent to an external tool server by using the Model Context Protocol (MCP), select tools for your agent, and test them in chat. This tutorial uses the GitHub MCP server as an example&mdash;the same steps work for Datadog, Splunk, New Relic, and any partner connector.
+In this tutorial, you connect your SRE agent to an external tool server by using the Model Context Protocol (MCP), select tools for your agent, and test them in chat. This tutorial uses the GitHub MCP server as an example. The same steps work for Datadog, Splunk, New Relic, and any partner connector.
 
 **Estimated time**: 10 minutes
 
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 - Authentication information for the MCP server (API key, OAuth sign-in for supported remote servers, OAuth token, or managed identity, depending on the server)
 
 > [!TIP]
-> For your first MCP connector, try one of the verified servers from [Azure MCP Center](https://mcp.azure.com). Many provide simple setup instructions and work out of the box.
+> For your first MCP connector, try one of the verified servers from [Azure MCP Center](https://mcp.azure.com). Many include setup instructions and require no additional configuration.
 
 ## Step 1: Add the MCP connector
 
@@ -120,7 +120,7 @@ If you encounter problems, review the following table for common issues and solu
 |-------|----------|
 | Status shows **Failed** | Check URL, credentials, and network access. |
 | MCP tools don't appear in the tool picker | Verify the connector shows **Connected** status in **Builder** > **Connectors**. |
-| Tool calls fail in chat | Verify tools are selected for the main agent&mdash;edit the connector and check the **MCP Tools** section. |
+| Tool calls fail in chat | Verify tools are selected for the main agent. Edit the connector and check the **MCP Tools** section. |
 | Hit the 80-tool limit | Remove unused tools from other connectors to free capacity. |
 
 ## Next step

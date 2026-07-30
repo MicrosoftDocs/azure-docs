@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: sample
-ms.date: 07/17/2026
+ms.date: 07/29/2026
 ai-usage: ai-generated
 ms.custom:
   - references_regions
@@ -31,6 +31,14 @@ This article provides a sample PowerShell script that demonstrates how to create
 
 The script is located in the Azure Samples repository on GitHub. You can view and download the script from the following link:
 [automate-vnet-ip-address-management.ps1](https://github.com/Azure-Samples/azure-docs-powershell-samples/blob/main/virtual-network-manager/automate-vnet-ip-address-management.ps1)
+
+After you set the location, resource group, subscription, IPAM pool resource ID, and number of IP addresses at the top of the script, it performs three operations in order:
+
+1. **Bulk create virtual networks from the pool.** For each of 10 virtual networks, the script builds a subnet configuration with [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig) and creates the virtual network with [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork), passing the IPAM pool reference to the `-IpamPoolPrefixAllocation` parameter on both. The pool allocates the address space.
+1. **Bulk disassociate existing virtual networks from the pool.** The script retrieves the virtual networks in the resource group with [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork), clears `IpamPoolPrefixAllocations` on each virtual network's address space and on each of its subnets, and saves the change with [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork).
+1. **Bulk reassociate those virtual networks with the pool.** The script restores the IPAM pool reference on the same address spaces and subnets and saves the change with `Set-AzVirtualNetwork`.
+
+Each operation runs its updates as jobs and waits for each job to finish before starting the next, so the API calls complete in order rather than needing to be retried.
 
 ### Sample script
 
