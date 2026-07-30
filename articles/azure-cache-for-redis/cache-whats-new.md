@@ -17,7 +17,7 @@ Find out what's new in Azure Redis.
 
 ## July 2026
 
-To simplify the migration journey for existing customers, we are *removing creation block timeline for Basic, Standard and Premium tiers* for all clouds. All existing instances of Azure Cache for Redis have to be migrated over to Azure Managed Redis by 30 September 2028.
+To simplify the migration journey for existing customers, Microsoft is *removing creation block timeline for Basic, Standard, and Premium tiers* for all clouds. Migrate all existing instances of Azure Cache for Redis to Azure Managed Redis by 30 September 2028.
 Following are the updated timelines:
 
 | Date            | Description                                                                                |
