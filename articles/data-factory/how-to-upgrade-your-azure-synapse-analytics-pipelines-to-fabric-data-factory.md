@@ -1,5 +1,5 @@
 ---
-title: Modernize your Azure Synapse Analytics pipelines with Fabric
+title: Upgrade your Azure Synapse Analytics pipelines to Fabric Data Factory
 description: Learn how to assess and upgrade your Azure Synapse Analytics pipelines to Fabric Data Factory.
 author: ssindhub
 ms.author: ssrinivasara
@@ -9,7 +9,7 @@ ms.custom: pipelines
 ai-usage: ai-assisted
 ---
 
-# Upgrade your Azure Synapse Analytics pipelines to Fabric (preview)
+# Upgrade your Azure Synapse Analytics pipelines to Fabric Data Factory (preview)
 
 Modernizing your workflows in Microsoft Fabric often starts with bringing your existing Azure Synapse Analytics pipelines forward. The migration experience helps you assess pipeline readiness, understand compatibility gaps, and migrate supported pipelines into a Microsoft Fabric workspace. You can move in a controlled, low-risk way.
 
