@@ -72,7 +72,7 @@ Security admin rules are evaluated in priority order, and a rule with a smaller 
 - A security admin rule that denies inbound SSH traffic for the ALL network group at priority 100.
 - A security admin rule that allows inbound SSH traffic for the App network group at priority 10.
 
-Because 10 is smaller than 100, the allow rule for the App network group is evaluated before the deny rule that applies to every virtual network in the organization.
+Because 10 is smaller than 100, the allow rule for the *App network group* is evaluated before the deny rule that applies to every virtual network in the organization.
 
 #### Step 4: Deploy the security admin configuration
  
