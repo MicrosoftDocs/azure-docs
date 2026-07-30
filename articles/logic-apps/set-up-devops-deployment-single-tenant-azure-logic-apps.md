@@ -252,7 +252,7 @@ For GitHub deployments, you can deploy your logic app by using [GitHub Actions](
 
 - The logic app name to use for deployment
 - The zip file that contains your actual build artifacts, including all workflow folders, configuration files such as **host.json**, **connections.json**, **local.settings.json**, and any other related files.
-- Your [publish profile](../azure-functions/functions-how-to-github-actions.md#generate-deployment-credentials), which is used for authentication
+- Your [publish profile](../app-service/deploy-github-actions.md?tabs=applevel#generate-deployment-credentials), which is used for authentication
 
 ```yaml
 - name: 'Run Azure Functions Action'
@@ -272,7 +272,7 @@ For Azure DevOps deployments, you can deploy your logic app by using the [Azure 
 
 - The logic app name to use for deployment
 - The zip file that contains your actual build artifacts, including all workflow folders, configuration files such as **host.json**, **connections.json**, **local.settings.json**, and any other related files.
-- Your [publish profile](../azure-functions/functions-how-to-github-actions.md#generate-deployment-credentials), which is used for authentication
+- Your [publish profile](../app-service/deploy-github-actions.md?tabs=applevel#generate-deployment-credentials), which is used for authentication
 
 ```yaml
 - task: AzureFunctionApp@2
