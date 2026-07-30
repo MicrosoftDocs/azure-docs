@@ -217,7 +217,7 @@ spec:
   brokerRef: default
   serviceType: NodePort
   ports:
-    - port: 1883
+    - port: 1884
       nodePort: 31884 # Must be in the range 30000-32767
       authenticationRef: default # Add BrokerAuthentication reference, omit setting turns off authentication for testing only
       tls:
