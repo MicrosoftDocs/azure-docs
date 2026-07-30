@@ -1,7 +1,7 @@
 ---
 title: Azure Cloud Shell release notes
 description: This article lists the new features and changes released in Azure Cloud Shell.
-ms.date: 07/02/2026
+ms.date: 07/27/2026
 ms.topic: release-notes
 ---
 
@@ -27,16 +27,21 @@ access. For installation instructions, consult the documentation for the package
 
 ## July 2026
 
+As of July 27, 2026, we removed the classic Cloud Shell user interface in most regions. The new user
+interface is now the default. The classic user interface will be removed from the remaining regions
+by the end of August 2026.
+
 Tool updates
 
-- Azure CLI upgraded to version 2.87.0.
-- Azure Developer CLI upgraded to version 1.25.6.
+- Ansible upgraded to version 2.21.1
+- Azure CLI upgraded to version 2.88.0
+- Azure Developer CLI upgraded to version 1.27.0
 - Azure Functions Core Tools CLI upgraded to version 4.12.0.
-- Azure PowerShell upgraded to version 16.0.0.
-- Bicep CLI upgraded to version 0.43.8.
-- CLI for M365 upgraded to version 11.8.0.
-- Inspektor Gadget (`ig`) upgraded to version 0.53.2.
-- `istioctl` upgraded to version 1.30.1.
+- Azure PowerShell upgraded to version 16.1.0
+- Bicep CLI upgraded to version 0.44.1
+- CLI for M365 upgraded to version 11.9.0
+- Inspektor Gadget (`ig`) upgraded to version 0.53.2
+- `istioctl` upgraded to version 1.30.1
 
 ## May 2026
 
