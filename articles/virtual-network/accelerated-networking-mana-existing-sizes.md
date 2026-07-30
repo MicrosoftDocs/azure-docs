@@ -4,7 +4,7 @@ description: Update for Microsoft Azure Network Adapter (MANA) support for exist
 author: alisheriffMSFT
 ms.service: azure-virtual-network
 ms.topic: how-to # Need to determine what is the right value
-ms.date: 04/07/2026
+ms.date: 07/30/2026
 ms.author: mattmcinnes
 # Customer intent: As a cloud administrator, I want to learn about Microsoft Azure Network Adapter, Accelerated Networking and how these work with non-V6 VM Sizes on Intel.
 ---
@@ -47,7 +47,7 @@ Use the following steps to verify that your workload is compatible with the Micr
     -  Linux: See [Linux VMs with MANA](./accelerated-networking-mana-linux.md)
     -  Windows: See [Windows VMs with MANA](./accelerated-networking-mana-windows.md)
   
-2.  **Resize Intel-based workloads if possible**<br>Intel-based workloads are recommended to resize to Intel v6 or later VM series, which support MANA regardless of the operating system.
+2.  **Resize Intel-based workloads if possible**<br>Intel-based workloads are recommended to resize to Intel v6 or later VM series, which always run on MANA-capable hardware. Resizing satisfies the hardware requirement only. The guest operating system must still support MANA, as described in step 1. If the operating system doesn't support MANA, networking falls back to the NetVSC network adapter.
 
 3. **Update operating system to support MANA if resizing is not possible**<br>
 If you are running Arm-based workloads and/or cannot resize your VM, update your operating system to support `MANA`. MANA-eligible VM series can run on both hardware with Mellanox (`ConnectX-3`, `ConnectX-4 Lx`, `ConnectX-5`) and MANA NICs, so existing `mlx4` and `mlx5` support still needs to be present. 
