@@ -3,7 +3,7 @@ title: Services that support customer-managed keys in Azure
 description: Find services that support customer-managed keys with Azure Key Vault and Azure Key Vault Managed HSM for server-side encryption.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 07/08/2026
+ms.date: 07/27/2026
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
@@ -30,15 +30,13 @@ The following services support server-side encryption with customer-managed keys
 | [Azure Health Bot](/azure/health-bot/) | Yes | | [Configure customer-managed keys (CMK) for Azure Health Bot](/azure/health-bot/cmk) |
 | [Azure Machine Learning](/azure/machine-learning/) | Yes | | [Customer-managed keys for workspace encryption in Azure Machine Learning](/azure/machine-learning/concept-customer-managed-keys) |
 | [Azure OpenAI](/azure/ai-services/openai/) | Yes | Yes | [Azure OpenAI Service encryption of data at rest](/azure/ai-services/openai/encrypt-data-at-rest) |
-| [Content Moderator](/azure/ai-services/content-moderator/) | Yes | Yes | [Content Moderator encryption of data at rest](/azure/ai-services/content-moderator/encrypt-data-at-rest) |
 | [Dataverse](/powerapps/maker/data-platform/) | Yes | Yes | [Customer-managed keys in Dataverse](/power-platform/admin/customer-managed-key) |
 | [Dynamics 365](/dynamics365/) | Yes | Yes | [Customer-managed keys for encryption](/dynamics365/fin-ops-core/dev-itpro/sysadmin/customer-managed-keys) |
 | [Azure AI Face](/azure/ai-services/face/overview-identity) | Yes | Yes | [Face service encryption of data at rest](/azure/ai-services/face/identity-encrypt-data-at-rest) |
-| [Personalizer](/azure/ai-services/personalizer/) | Yes | Yes | [Encryption of data at rest in Personalizer](/azure/ai-services/personalizer/encrypt-data-at-rest) |
 | [Power Platform](/power-platform/) | Yes | Yes | [Customer-managed keys in Power Platform](/power-platform/admin/customer-managed-key) |
 | [Custom question answering](/azure/ai-services/language-service/question-answering/overview) | Yes | | [Custom question answering encryption of data at rest](/azure/ai-services/language-service/question-answering/how-to/encrypt-data-at-rest) |
 | [Azure Speech in Foundry Tools](/azure/ai-services/speech-service/) | Yes | Yes | [Speech service encryption of data at rest](/azure/ai-services/speech-service/speech-encryption-of-data-at-rest) |
-| [Azure Translator in Foundry Tools Text](/azure/ai-services/translator/) | Yes | Yes | [Translator encryption of data at rest](/azure/ai-services/translator/custom-translator/concepts/encrypt-data-at-rest) |
+| [Azure Translator in Foundry Tools](/azure/ai-services/translator/) | Yes | Yes | [Translator encryption of data at rest](/azure/ai-services/translator/custom-translator/concepts/encrypt-data-at-rest) |
 
 ## Analytics
 
@@ -46,7 +44,6 @@ The following services support server-side encryption with customer-managed keys
 |---|---|---|---|
 | [Azure Data Explorer](/azure/data-explorer/) | Yes | | [Configure customer-managed keys (CMK) in Azure Data Explorer](/azure/data-explorer/customer-managed-keys) |
 | [Azure Data Factory](../../data-factory/index.yml) | Yes | Yes | [Encryption with customer-managed keys for Azure Data Factory](../../data-factory/enable-customer-managed-key.md) |
-| [Azure Data Lake Store](/azure/data-lake-store/) | Yes (RSA 2048-bit) | | |
 | [Azure Data Manager for Energy](../../energy-data-services/index.yml) | Yes | Yes | [Manage data security and encryption](../../energy-data-services/how-to-manage-data-security-and-encryption.md) |
 | [Azure Databricks](/azure/databricks/) | Yes | Yes | [Customer-managed keys for managed services](/azure/databricks/security/keys/cmk-managed-services-azure/customer-managed-key-managed-services-azure) |
 | [Azure HDInsight](../../hdinsight/index.yml) | Yes | | [Azure HDInsight double encryption for data at rest](../../hdinsight/disk-encryption.md) |
@@ -72,7 +69,6 @@ The following services support server-side encryption with customer-managed keys
 |---|---|---|---|
 | [App Service](../../app-service/index.yml) | Yes\* | Yes | [Configure customer-managed keys for App Service](../../app-service/configure-encrypt-at-rest-using-cmk.md) |
 | [Azure Functions](../../azure-functions/index.yml) | Yes\* | Yes | [Configure customer-managed keys for Azure Functions](../../azure-functions/configure-encrypt-at-rest-using-cmk.md) |
-| [Azure HPC Cache](/azure/hpc-cache/) | Yes | | [Use customer-managed keys with HPC Cache](/azure/hpc-cache/customer-keys) |
 | [Azure Load Testing](/azure/load-testing/) | Yes | | [Configure customer-managed keys for Azure Load Testing](/azure/load-testing/how-to-configure-customer-managed-keys) |
 | [Azure Managed Applications](../../azure-resource-manager/managed-applications/index.yml) | Yes\* | Yes | [Azure managed applications overview](../../azure-resource-manager/managed-applications/overview.md) |
 | [Azure portal](/azure/azure-portal/) | Yes\* | Yes | [Security in the Azure portal](overview.md) |
@@ -96,7 +92,6 @@ The following services support server-side encryption with customer-managed keys
 | [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/) | Yes (RSA 3072-bit) | Yes | [Bring your own key (BYOK) support for Transparent Data Encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-byok-overview) |
 | [SQL Server on Azure VM](/azure/azure-sql/virtual-machines/) | Yes | | [Configure Azure Key Vault integration for SQL Server on Azure VMs](/azure/azure-sql/virtual-machines/windows/azure-key-vault-integration-configure) |
 | [SQL Server on Virtual Machines](/azure/virtual-machines/windows/sql/) | Yes | | [Transparent data encryption for SQL Server on Azure VM](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-security#transparent-data-encryption) |
-| [SQL Server Stretch Database](/azure/sql-server-stretch-database/) | Yes (RSA 3072-bit) | | |
 | [Table Storage](../../storage/tables/index.yml) | Yes | Yes | [Customer-managed keys for Azure Storage encryption](../../storage/common/customer-managed-keys-overview.md) |
 
 ## Hybrid + multicloud
@@ -132,12 +127,6 @@ The following services support server-side encryption with customer-managed keys
 | [Azure Migrate](../../migrate/index.yml) | Yes | | [Tutorial: Migrate VMware VMs to Azure](../../migrate/tutorial-migrate-vmware.md) |
 | [Azure Monitor](/azure/azure-monitor) | Yes | Yes | [Customer-managed keys in Azure Monitor](/azure/azure-monitor/logs/customer-managed-keys) |
 
-## Media
-
-| Product, feature, or service | Key Vault | Managed HSM | Documentation |
-|---|---|---|---|
-| [Media Services](/azure/media-services/) | Yes | | [Use your own encryption keys with Azure Media Services](/azure/media-services/latest/concept-use-customer-managed-keys-byok) |
-
 ## Security
 
 | Product, feature, or service | Key Vault | Managed HSM | Documentation |
@@ -167,7 +156,6 @@ The following services support server-side encryption with customer-managed keys
 | [Managed Disk Storage](/azure/virtual-machines/disks-types/) | Yes | Yes | [Encryption at host for Windows and Linux VMs](/azure/virtual-machines/disk-encryption#customer-managed-keys) |
 | [Premium Blob Storage](../../storage/blobs/index.yml) | Yes | Yes | [Customer-managed keys for Azure Storage encryption](../../storage/common/customer-managed-keys-overview.md) |
 | [Queue Storage](../../storage/queues/index.yml) | Yes | Yes | [Customer-managed keys for Azure Storage encryption](../../storage/common/customer-managed-keys-overview.md) |
-| [StorSimple](/azure/storsimple/) | Yes | | [Azure StorSimple security features](/azure/storsimple/storsimple-security#data-encryption) |
 | [Ultra Disk Storage](/azure/virtual-machines/disks-types/) | Yes | Yes | [Encryption at host for Windows and Linux VMs](/azure/virtual-machines/disk-encryption#customer-managed-keys) |
 
 ## Other
