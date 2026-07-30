@@ -133,12 +133,6 @@ OpenID Connect (OIDC) is the recommended authentication method for GitHub Action
 
     Replace `<RESOURCE_GROUP>`, `<GITHUB_ORG>`, `<REPO_NAME>`, and `<BRANCH_NAME>` with your values. The subject must match the branch that triggers your workflow.
 
-1. In your GitHub repository, [create these repository variables](https://docs.github.com/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables#defining-configuration-variables-for-multiple-workflows) using the values from step 2:
-
-    + `AZURE_CLIENT_ID`: the `clientId` of the managed identity
-    + `AZURE_TENANT_ID`: the `tenantId` of the managed identity
-    + `AZURE_SUBSCRIPTION_ID`: the subscription ID that contains your function app
-
 1. (Optional) If you're deploying a container from Azure Container Registry, also assign the `acrpull` role to the managed identity:
 
     ```azurecli
@@ -155,49 +149,69 @@ You need to use registry-specific credentials when deploying a container from a 
 
 For Azure Container Registry (ACR), you can use the same service principal credentials you use to deploy to Azure.
 
-## Add credentials to GitHub secrets
+## Add credentials to GitHub
 
-Depending on your chosen authentication method, you might need to store credentials in GitHub that are used to access your function app during deployment.  
+Depending on your chosen authentication method, you need to store either variables or secrets in your GitHub repository.  
 
 >[!TIP]  
->OIDC is preferred over other authentication methods because you aren't required to store credentials in GitHub. 
+>OIDC is preferred over other authentication methods because you aren't required to store secrets in GitHub. 
+
+### [OIDC token](#tab/oidc-token)
+
+OIDC uses repository variables (not secrets) since these values aren't sensitive. Use the values you copied when you [created the managed identity](#create-a-managed-identity-for-github-actions-deployment).
 
 1. In [GitHub](https://github.com/), go to your repository.
 
-1. Go to **Settings**.
+1. Go to **Settings** > **Secrets and variables** > **Actions**.
 
-1. Select **Secrets and variables > Actions**.
+1. Select the **Variables** tab, then select **New repository variable**.
+
+1. Create each of the following variables:
+
+    + **Name**: `AZURE_CLIENT_ID` — **Value**: the `clientId` of the managed identity
+    + **Name**: `AZURE_TENANT_ID` — **Value**: the `tenantId` of the managed identity
+    + **Name**: `AZURE_SUBSCRIPTION_ID` — **Value**: the subscription ID that contains your function app
+
+### [Publish profile](#tab/publish-profile)
+
+1. In [GitHub](https://github.com/), go to your repository.
+
+1. Go to **Settings** > **Secrets and variables** > **Actions**.
 
 1. Select **New repository secret**.
 
-1. Define the secret, which depends on your chosen credential:
-
-    ### [OIDC token](#tab/oidc-token)
-
-    Stored secrets aren't required when using OIDC authentication.
-    
-    ### [Publish profile](#tab/publish-profile)
+1. Create the following secret:
 
     + **Name**: `AZURE_FUNCTIONAPP_PUBLISH_PROFILE`
-    + **Secret**: Paste the entire XML contents of the publish profile. 
+    + **Secret**: Paste the entire XML contents of the publish profile.
 
-    ### [Service principal secret](#tab/service-principal)
-    
+### [Service principal secret](#tab/service-principal)
+
+1. In [GitHub](https://github.com/), go to your repository.
+
+1. Go to **Settings** > **Secrets and variables** > **Actions**.
+
+1. Select **New repository secret**.
+
+1. Create the following secret:
+
     + **Name**: `AZURE_CREDENTIALS`
-    + **Secret**: Paste the entire JSON output you obtained when you created your service principal. 
-    
-    ### [Docker credentials](#tab/docker-credentials)
-    
-    + **Name**: `REGISTRY_USERNAME`
-    + **Secret**: The username of your account in the private Docker registry. 
-    + **Name**: `REGISTRY_PASSWORD`
-    + **Secret**: The password for your account in the private Docker registry. 
-    
-    ---
+    + **Secret**: Paste the entire JSON output you obtained when you created your service principal.
 
-1. Select **Add secret**.
+### [Docker credentials](#tab/docker-credentials)
 
-GitHub can now authenticate with your Azure resources during deployment.
+1. In [GitHub](https://github.com/), go to your repository.
+
+1. Go to **Settings** > **Secrets and variables** > **Actions**.
+
+1. Select **New repository secret**.
+
+1. Create the following secrets:
+
+    + **Name**: `REGISTRY_USERNAME` — **Secret**: The username of your account in the private Docker registry.
+    + **Name**: `REGISTRY_PASSWORD` — **Secret**: The password for your account in the private Docker registry.
+
+---
 ::: zone-end
 ::: zone pivot="method-manual"
 
