@@ -23,7 +23,7 @@ The following table shows the updated timelines:
 | Date            | Description                                                                                |
 |-----------------|--------------------------------------------------------------------------------------------|
 | April 1, 2026   | Creating new caches in Basic, Standard or Premium tiers is blocked for new customers in public cloud.      |
-| October 1, 2028 | Remaining caches in Basic, Standard or Premium tiers are turned off.                       |
+| October 1, 2028 | Remaining caches in Basic, Standard, or Premium tiers are turned off.                       |
 
 ## April 2026
 
