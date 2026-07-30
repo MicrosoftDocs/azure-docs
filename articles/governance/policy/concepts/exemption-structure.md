@@ -1,7 +1,7 @@
 ---
 title: Details of the policy exemption structure
 description: Describes the policy exemption definition used by Azure Policy to exempt resources from evaluation of initiatives or definitions.
-ms.date: 03/04/2025
+ms.date: 07/30/2026
 ms.topic: reference
 ---
 
@@ -191,6 +191,38 @@ Exemptions are recommended for time-bound or specific scenarios where a resource
 
 Regularly revisit your exemptions to ensure that all eligible items are appropriately exempted and promptly remove any that don't qualify for exemption. At that time, expired exemption resources can be deleted as well.
 
+## Compliance substate
+
+When an exemption applies to a resource, its [compliance state](./compliance-states.md) is
+**Exempt**. The compliance substate shows what the resource's compliance state would be if the
+exemption were removed. Compliance substate is populated only for exempt resources. Nonexempt
+resources have a blank compliance substate.
+
+Compliance substate is part of the Policy Insights compliance result. It isn't a property that you
+configure on the policy exemption resource.
+
+To view the compliance substate in the Azure portal:
+
+1. Go to **Policy** > **Compliance**, and then select a policy assignment.
+1. On the assignment's compliance report, select **Edit columns**.
+1. Add **Compliance substate**, arrange the column as needed, and then select **Save**.
+
+You can also select the **Waiver** or **Mitigated** value in the **Compliance details** column to
+view the compliance substate in the details pane.
+
+For organization-wide reporting, query the `properties.stateDetails.complianceSubState` property in
+Azure Resource Graph. The following query lists exempt resources and their compliance substates:
+
+```kusto
+policyresources
+| where type == "microsoft.policyinsights/policystates"
+| extend complianceState = tostring(properties.complianceState)
+| extend complianceSubState = tostring(properties.stateDetails.complianceSubState),
+         resourceId = tostring(properties.resourceId),
+         policyAssignmentId = tostring(properties.policyAssignmentId)
+| where complianceState == "Exempt"
+| project resourceId, policyAssignmentId, complianceState, complianceSubState
+```
 
 ## Next steps
 
