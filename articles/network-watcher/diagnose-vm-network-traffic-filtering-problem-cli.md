@@ -140,7 +140,7 @@ In this section, use the IP flow verify capability of Network Watcher to test ne
 
 ## View details of a security rule
 
-To understand why the rules in the previous section allow or deny communication, review the effective security rules for the network interface of **myVM** virtual machine by using the [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) command:
+To understand why the rules in the previous section allow or deny communication, review the effective security rules for the network interface of the **myVM** virtual machine by using the [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) command:
 
 ```azurecli-interactive
 # Get the effective security rules for the network interface of myVM.
