@@ -1,5 +1,5 @@
 ---
-title: Offline Backup Options in Azure Backup
+title: Offline Backup operations in Azure Backup
 description: Learn how Azure Backup transfers initial backups offline, and compare Azure Data Box with Azure Import/Export for low-bandwidth environments.
 ms.topic: overview
 ms.date: 07/30/2026
