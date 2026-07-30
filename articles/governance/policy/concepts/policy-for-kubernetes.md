@@ -611,7 +611,7 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 #### 1.17.0
 Introducing Scoped Enforcement Action. Before this feature, the selected enforcement action applied to all enforcement points. Now, you can select which enforcement action happens in which enforcement points (`audit.gatekeeper.sh`, `validation.gatekeeper.sh`, `vap.k8s.io`).
 
-Example 1: if users select Enforcement Action: Deny, Enforcement Points: ["validation.gatekeeper.sh", "audit.gatekeeper.sh"], then then violating resource will be enforced by gatekeeper's validating webhook and be shown in compliance.
+- Example 1: If you select `Enforcement Action: Deny` and `Enforcement Points: ["validation.gatekeeper.sh", "audit.gatekeeper.sh"]`, the Gatekeeper validating webhook enforces the violating resource and shows it in compliance.
 
 - Example 2: If you select `Enforcement Action: Audit` and `Enforcement Points: ["vap.k8s.io"]`, VAP audits the violating resource but doesn't deny it because the enforcement action is `Audit`. Also, it doesn't show in compliance due to the absence of `audit.gatekeeper.sh` enforcement point.
 
