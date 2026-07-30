@@ -2,7 +2,7 @@
 title: Use GitHub Actions to make code updates in Azure Functions
 description: Learn how to use GitHub Actions to define a workflow to build and deploy Azure Functions projects in GitHub.
 ms.topic: how-to
-ms.date: 07/28/2026
+ms.date: 07/30/2026
 ms.custom: devx-track-csharp, github-actions-azure
 zone_pivot_groups: github-actions-deployment-options
 ---
@@ -15,7 +15,7 @@ To deploy by using GitHub Actions, complete these three key steps:
 
 1. [Create a user-assigned managed identity](#create-a-managed-identity-for-github-actions-deployment) in Azure with a federated credential that trusts your GitHub repository, and assign it the Website Contributor role on your function app.
 1. Add the identity's client ID, tenant ID, and subscription ID as [repository variables](https://docs.github.com/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables) in GitHub.
-1. Add a workflow YAML file to your repository that uses `azure/login` with OpenID Connect (OIDC) to authenticate, then calls `Azure/functions-action` to deploy.
+1. Add a workflow YAML file to your repository that uses `azure/login` with OpenID Connect (OIDC) to authenticate, then calls [`Azure/functions-action`] to deploy.
 
 ::: zone pivot="method-portal" 
 When you [use the Azure portal](./functions-how-to-github-actions.md?pivots=method-portal) to enable GitHub Actions, Functions automatically performs these tasks, both in your Azure subscription and in your GitHub repository.
@@ -33,7 +33,7 @@ You can create a workflow configuration file for your deployment manually. You c
 
 If you don't want to create your YAML file by hand, select a different method at the top of the article.
 
-## <a name="generate-deployment-credentials"></a>Authentication overview
+## Authentication overview
 
 GitHub Actions must authenticate with Azure to deploy your code. The following table summarizes the supported methods:
 
@@ -41,7 +41,7 @@ GitHub Actions must authenticate with Azure to deploy your code. The following t
 | ---- | ---- | ---- | --- |
 | OpenID Connect (OIDC) token | **Recommended** | [`Azure/login`](https://github.com/Azure/login) | Federated credentials create a trust relationship between your GitHub repository and a user-assigned managed identity in Microsoft Entra. No secrets are stored in GitHub. |
 | Service principal secret | Not recommended | [`Azure/login`](https://github.com/Azure/login) | Requires you to manage and rotate a client secret in GitHub. |
-| Publish profile | Not recommended | [`Azure/functions-action`](https://github.com/marketplace/actions/azure-functions-action) | Uses basic authentication credentials to connect to the `scm` deployment endpoint. Requires [basic authentication to be enabled](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments). |
+| Publish profile | Not recommended | [`Azure/functions-action`] | Uses basic authentication credentials to connect to the `scm` deployment endpoint. Requires [basic authentication to be enabled](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments). |
 
 ### OIDC authentication example
 
@@ -371,7 +371,7 @@ You can create the GitHub Actions workflow configuration file from the Azure Fun
 
 1. In the newly created YAML file, update the `env.AZURE_FUNCTIONAPP_NAME` parameter with the name of your function app resource in Azure. You might also need to update the parameter that sets the language version used by your app, such as `DOTNET_VERSION` for C#.  
 
-1. The default templates might use publish profile authentication, which isn't recommended because it uses shared secret keys. To use the recommended OIDC authentication instead, replace the `publish-profile` parameter in `azure/functions-action` with an `azure/login` step:
+1. The default templates might use publish profile authentication, which isn't recommended because it uses shared secret keys. To use the recommended OIDC authentication instead, replace the `publish-profile` parameter in [`Azure/functions-action`] with an `azure/login` step:
 
     ```yml
     - name: 'Login via OIDC'
@@ -386,6 +386,7 @@ You can create the GitHub Actions workflow configuration file from the Azure Fun
 
 1. Verify that the new workflow file is saved in `/.github/workflows/` and select **Commit changes**.  
 ::: zone-end
+::: zone pivot="method-manual,method-portal,method-template"
 
 ## Example: workflow configuration file
 
@@ -393,7 +394,7 @@ The following template example uses the `functions-action` and OIDC for authenti
 
 ### [Windows](#tab/windows)
 
-Windows deployments use `runs-on: windows-latest` in the workflow. The `Azure/functions-action` uses [zip deploy][Zip deploy] on Windows for all plans except Flex Consumption (which uses one deploy).
+Windows deployments use `runs-on: windows-latest` in the workflow. The [`Azure/functions-action`] uses [zip deploy][Zip deploy] on Windows for all plans except Flex Consumption (which uses one deploy).
 
 ### [Linux](#tab/linux)
 
@@ -453,14 +454,15 @@ Container deployments aren't supported on Windows. Choose Linux instead.
 :::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/linux-container-functionapp-on-azure.yml" range="9-57":::   
 
 --- 
+::: zone-end
 
 ## Azure Functions action
 
-The Azure Functions action (`Azure/functions-action`) defines how your code is published to an existing function app in Azure, or to a specific slot in your app. 
+The Azure Functions action ([`Azure/functions-action`]) defines how your code is published to an existing function app in Azure, or to a specific slot in your app. 
 
 ### Parameters
 
-The following table describes the input parameters supported by `Azure/functions-action`:
+The following table describes the input parameters supported by [`Azure/functions-action`]:
 
 | Parameter | Description |
 | --------- | --------- |
@@ -513,3 +515,4 @@ For more information, see [Deployment technologies in Azure Functions](functions
 [Azure portal]: https://portal.azure.com
 [Zip deploy]: functions-deployment-technologies.md#zip-deploy
 [One deploy]: functions-deployment-technologies.md#one-deploy
+[`Azure/functions-action`]: https://github.com/Azure/functions-action
