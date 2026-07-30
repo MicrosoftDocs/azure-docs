@@ -613,7 +613,7 @@ Introducing Scoped Enforcement Action. Before this feature, the selected enforce
 
 Example 1: if users select Enforcement Action: Deny, Enforcement Points: ["validation.gatekeeper.sh", "audit.gatekeeper.sh"], then then violating resource will be enforced by gatekeeper's validating webhook and be shown in compliance.
 
-Example 2: if users select Enforcement Action: Audit, Enforcement Points: ["vap.k8s.io"], then the violation resource will be audited by VAP but not denied because Enforcement Action is Audit. Also, it will not be shown in compliance due to the absence of audit.gatekeeper.sh enforcement point.
+- Example 2: If you select `Enforcement Action: Audit` and `Enforcement Points: ["vap.k8s.io"]`, VAP audits the violating resource but doesn't deny it because the enforcement action is `Audit`. Also, it doesn't show in compliance due to the absence of `audit.gatekeeper.sh` enforcement point.
 
 Security improvements.
 - Released: Aug 2026
