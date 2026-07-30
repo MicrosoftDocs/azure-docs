@@ -16,14 +16,14 @@ ms.author: kendownie
 
 :heavy_multiplication_x: **Doesn't apply to:** NFS file shares created with the Microsoft.FileShares resource provider or classic SMB file shares created with the Microsoft.Storage resource provider
 
-This article covers the basic aspects of migrating from Linux file servers to NFS Azure file shares, which are only available as SSD (premium) file shares. It also compares the open source file copy tools fpsync and rsync to understand how they perform when copying data to Azure file shares.
+This article covers the basic aspects of migrating from Linux file servers to NFS Azure file shares, which are only available as SSD (premium) file shares. It also compares the open source file copy tools fpsync and rsync to help you understand how they perform when copying data to Azure file shares.
 
 > [!NOTE]
 > Azure Files doesn't support NFS access control lists (ACLs).
 
 ## Prerequisites
 
-You need at least one NFS Azure file share mounted to a Linux virtual machine (VM). To create one, see [Create an Azure classic file share](./create-classic-file-share.md). Mount the share with nconnect to use multiple TCP connections for better performance. For more information, see [Improve NFS Azure file share performance](nfs-performance.md#nfs-nconnect).
+You need at least one NFS Azure file share mounted to a Linux virtual machine (VM). To create one, see [Create an Azure classic file share](./create-classic-file-share.md). Mount the share by using nconnect to use multiple TCP connections for better performance. For more information, see [Improve NFS Azure file share performance](nfs-performance.md#nfs-nconnect).
 
 ## Migration tools
 
@@ -46,7 +46,7 @@ To copy the data, fpsync uses either rsync (default), [cpio](https://linux.die.n
 
 ### Install fpart
 
-To use fpsync, you'll need to install the fpart filesystem partitioner. Install fpart on the Linux distribution of your choice. After installation, fpsync appears under `/usr/bin/`.
+To use fpsync, you need to install the fpart filesystem partitioner. Install fpart on the Linux distribution of your choice. After installation, fpsync appears under `/usr/bin/`.
 
 # [Ubuntu](#tab/ubuntu)
 
@@ -94,7 +94,7 @@ Make sure your destination (target) Azure file share is mounted to a Linux VM. S
 If you're doing a full migration, you'll copy your data in three phases:
 
 1. **Baseline copy:** Copy from source to destination when no data exists on the destination. For baseline copy, we recommend using fpsync with cpio as the copy tool.
-1. **Incremental copy:** Copy only the incremental changes from source to destination. For incremental sync, use fpsync with rsync as the copy tool. Run this multiple times to capture all the changes.
+1. **Incremental copy:** Copy only the incremental changes from source to destination. For incremental sync, use `fpsync` with `rsync` as the copy tool. Run this command multiple times to capture all the changes.
 1. **Final pass:** A final pass is needed to delete any files on the destination that don't exist at the source.
 
 Copying data with fpsync always involves some version of this command:
@@ -115,13 +115,13 @@ For more information, see [Cpio and Tar support](http://www.fpart.org/fpsync/#cp
 
 ### Incremental copy
 
-For incremental sync, use fpsync with the default copy tool (rsync). Run this several times to capture all changes.
+For incremental sync, use `fpsync` with the default copy tool (`rsync`). Run this command several times to capture all changes.
 
 ```bash
 fpsync -n <parallel transfers> <absolute source path> <absolute destination path>
 ```
 
-By default, fpsync specifies the following rsync options: `-lptgoD -v --numeric-ids`. You can specify additional rsync options by adding `-o option` to the fpsync command.
+By default, `fpsync` specifies the following `rsync` options: `-lptgoD -v --numeric-ids`. Add `-o option` to the `fpsync` command to specify extra `rsync` options.
 
 ### Final pass
 
@@ -146,7 +146,7 @@ The tests were performed on Azure Standard_D8s_v3 VMs with 8 vCPUs, 32 GiB of me
 
 ### Experiments and results: rsync vs. fpsync
 
-Tests show that fpsync performs best when used with 64 threads with rsync and 16 threads with cpio for an Azure NFS file share mounted with `nconnect=8`. Actual results vary based on your configuration and datasets.
+Tests show that fpsync performs best when you use 64 threads with rsync and 16 threads with cpio for an Azure NFS file share mounted with `nconnect=8`. Actual results vary based on your configuration and datasets.
 
 > [!NOTE]
 > Throughput for Azure Files can be much higher than represented in the following charts. Some of the experiments were deliberately conducted with small datasets for simplicity.
@@ -193,7 +193,7 @@ The following table summarizes the results:
 
 ## Third-party information disclaimer
 
-The open source tools mentioned in this article are well-known third-party solutions. They aren't developed, owned, or supported by Microsoft, either directly or indirectly. It's your responsibility to examine the software license and support statement provided in the third party's documentation.
+The open source tools mentioned in this article are well-known third-party solutions. Microsoft doesn't develop, own, or support these tools, either directly or indirectly. You're responsible for examining the software license and support statement provided in the third party's documentation.
 
 ## Next steps
 
