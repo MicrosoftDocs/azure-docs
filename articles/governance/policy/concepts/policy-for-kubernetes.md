@@ -620,6 +620,37 @@ Example 1: If you select `Enforcement Action: Deny` and `Enforcement Points: ["v
 
 Example 2: If you select `Enforcement Action: Audit` and `Enforcement Points: ["vap.k8s.io"]`, VAP audits the violating resource but doesn't deny it because the enforcement action is `Audit`. Also, it doesn't show in compliance due to the absence of `audit.gatekeeper.sh` enforcement point.
 
+Introducing delete operation protection feature. This feature allows a protection for Gatekeeper policies to prevent existing policies from unintentionally enforcing on DELETE operations. You can include an `operations` list under each target to say what operations it should govern.
+
+Example:
+`
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: k8se2edeletedeny
+spec:`
+  crd:
+    spec:
+      names:
+        kind: K8sE2EDeleteDeny
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      operations:
+        - DELETE
+      rego: |
+        package k8se2edeletedeny
+
+        violation[{"msg": msg}] {
+          input.review.object.metadata.labels["e2e-delete-deny"] == "true"
+          msg := sprintf("Deletion of %v is denied by the delete-protection e2e policy", [input.review.object.metadata.name])
+        }
+
+        violation[{"msg": msg}] {
+          input.review.oldObject.metadata.labels["e2e-delete-deny"] == "true"
+          msg := sprintf("Deletion of %v is denied by the delete-protection e2e policy", [input.review.oldObject.metadata.name])
+        }
+`
+
 Security improvements.
 - Released: Aug 2026
 - Kubernetes: 1.30+
