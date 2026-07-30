@@ -18,7 +18,7 @@ To deploy by using GitHub Actions, complete these three key steps:
 1. Add a workflow YAML file to your repository that uses `azure/login` with OpenID Connect (OIDC) to authenticate, then calls `Azure/functions-action` to deploy.
 
 ::: zone pivot="method-portal" 
-When you [use the Azure portal](./functions-how-to-github-actions.md&pivots=method-portal) to enable GitHub Actions, Functions automatically performs these tasks, both in your Azure subscription and in your GitHub repository.
+When you [use the Azure portal](./functions-how-to-github-actions.md?pivots=method-portal) to enable GitHub Actions, Functions automatically performs these tasks, both in your Azure subscription and in your GitHub repository.
 ::: zone-end
 
 ## Create a workflow configuration
@@ -33,7 +33,7 @@ You can create a workflow configuration file for your deployment manually. You c
 
 If you don't want to create your YAML file by hand, select a different method at the top of the article.
 
-## Authentication overview
+## <a name="generate-deployment-credentials"></a>Authentication overview
 
 GitHub Actions must authenticate with Azure to deploy your code. The following table summarizes the supported methods:
 
