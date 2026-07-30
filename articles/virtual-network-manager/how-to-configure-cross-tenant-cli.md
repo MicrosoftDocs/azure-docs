@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to 
-ms.date: 07/08/2026
+ms.date: 07/29/2026
 ms.custom: template-how-to, devx-track-azurecli
 # Customer intent: As a cloud admin, I need to manage multiple tenants from a single network manager so that I can easily manage all network resources governed by Azure Virtual Network Manager.
 ---
@@ -22,9 +22,7 @@ First, you create the scope connection on the central network manager. Then, you
   - **Central management tenant**: The tenant where an Azure Virtual Network Manager instance is installed, and where you centrally manage network groups from cross-tenant connections.
   - **Target managed tenant**: The tenant that contains virtual networks to be managed. This tenant connects to the central management tenant.
 - Azure Virtual Network Manager deployed in the central management tenant.
-- These permissions:
-  - The administrator of the central management tenant has a guest account in the target managed tenant.
-  - The administrator guest account has *Network Contributor* permissions applied at the appropriate scope level (management group, subscription, or virtual network).
+- See the [required permissions](concept-cross-tenant.md#required-permissions) for cross-tenant connections.
 
 Need help with setting up permissions? Check out how to [add guest users in the Azure portal](../active-directory/external-identities/b2b-quickstart-add-guest-users-portal.md) and how to [assign user roles to resources in the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
@@ -32,7 +30,7 @@ Need help with setting up permissions? Check out how to [add guest users in the 
 
 Creation of the scope connection starts on the central management tenant with a network manager deployed. This network manager is where you plan to manage all of your resources across tenants. 
 
-In this task, you set up a scope connection to add a subscription from a target tenant. Use the subscription ID and tenant ID of the target network manager. If you want to use a management group, modify the `–resource-id` argument to look like `/providers/Microsoft.Management/managementGroups/{mgId}`.
+In this task, you set up a scope connection to add a subscription from a target tenant. Use the subscription ID and tenant ID of the target network manager. If you want to use a management group, modify the `--resource-id` argument to look like `/providers/Microsoft.Management/managementGroups/{mgId}`.
 
 ```azurecli
 # Create a scope connection in the network manager in the central management tenant
@@ -41,7 +39,7 @@ az network manager scope-connection create --resource-group "myRG" --network-man
 
 ## Create a network manager connection on a subscription in another tenant 
 
-After you create the scope connection, switch to your target tenant for the network manager connection. In this task, you connect the target tenant to the scope connection that you created previously. You also verify the connection state.
+Run the commands in this section in the target managed tenant, not in the central management tenant. These commands create a network manager connection on a subscription in the managed tenant that points back to the network manager in the central management tenant. This connection completes the pairing you started with the scope connection. You also verify the connection state.
 
 1. Enter the following command to connect to the target managed tenant by using your administrative account:
 
@@ -54,7 +52,7 @@ After you create the scope connection, switch to your target tenant for the netw
    
    Complete authentication with your organization, based on your organization's policies.
 
-1. Enter the following commands to set the subscription and to create the cross-tenant connection on the central management tenant. The subscription is the same as the one that the connection referenced in the previous step.
+1. Enter the following commands to set the subscription and to create the connection back to the central management tenant. The subscription is the same one that the scope connection referenced in the previous step.
 
     ```azurecli
     # Set the Azure subscription

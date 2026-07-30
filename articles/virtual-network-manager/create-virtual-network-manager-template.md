@@ -4,7 +4,7 @@ description: In this article, you deploy various network topologies with Azure V
 services: virtual-network-manager
 author: mbender-ms
 ms.author: mbender
-ms.date: 10/23/2024
+ms.date: 07/17/2026
 ms.topic: quickstart
 ms.service: azure-virtual-network-manager
 ms.custom: template-quickstart, subject-armqs, mode-arm, devx-track-arm-template
@@ -87,7 +87,7 @@ The template defines multiple Azure resources:
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the private endpoint, delete the resource group. Doing so removes the private endpoint and all the related resources.
+When you no longer need the resources that you created in this quickstart, delete the resource group. This action removes the Azure Virtual Network Manager instance, virtual networks, network groups, connectivity configurations, and all other related resources.
 
 1. To delete the resource group, open the resource group in the Azure portal and select **Delete resource group**.
 1. Enter the name of the resource group, and then select **Delete**.

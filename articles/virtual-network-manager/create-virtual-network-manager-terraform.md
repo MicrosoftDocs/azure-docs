@@ -38,7 +38,7 @@ In this article, you learn how to:
 ## Prerequisites
 
 - [Install and configure Terraform](/azure/developer/terraform/quickstart-configure)
-- To modify dynamic network groups, you must be [granted access via Azure RBAC role](concept-network-groups.md#network-groups-and-azure-policy) assignment only. Classic Admin/legacy authorization isn't supported
+- To modify dynamic network groups, see the [required permissions](concept-azure-policy-integration.md#required-permissions).
 
 :::zone pivot="sub"
 
