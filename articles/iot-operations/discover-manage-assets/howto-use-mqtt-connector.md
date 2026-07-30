@@ -76,11 +76,11 @@ To configure the connector for MQTT, first create a device that defines the conn
 
 The connector also discovers assets from MQTT topics based on a topic filter and forwards data to a unified namespace path defined by a topic mapping prefix:
 
-- The **topic filter** specifies which topics the connector subscribes to. The filter supports the single-level wildcard (`+`). The connector detects a new asset each time a message arrives on a topic that matches the filter at the wildcard position. For example, the filter `A/B/+` detects `A/B/asset1` and `A/B/asset2` as separate assets.
+- The **topic filter** specifies which topics the connector subscribes to. The filter supports the single-level wildcard (`+`). The connector detects a new asset each time a message arrives on a topic that matches the filter at the wildcard position. For example, the filter `A/B/+` detects `A/B/asset1` and `A/B/asset2` as separate assets. Topic filters don't support the multilevel wildcard (`#`) or system topics (topics that start with `$SYS/`).
 - The **topic mapping prefix** maps the incoming topic to a unified namespace path. For example, if the prefix is `X/Y` and the incoming topic is `A/B/asset1`, the connector forwards data to `X/Y/A/B/asset1`.
 
 > [!IMPORTANT]
-> Configure the topic filter carefully before creating the device. After the device is created, you can't change the asset discovery configuration unless you delete and recreate the device. If the filter is misconfigured, no assets are discovered and no error is reported. Messages that don't match the filter are silently ignored.
+> Design the topic filter carefully before creating the device. After you create the device, you can't change the asset discovery configuration unless you delete and recreate the device. The connector silently ignores messages sent to topics that don't match the topic filter and doesn't create discovered assets from them.
 
 # [Operations experience](#tab/portal)
 
@@ -254,17 +254,17 @@ To use the `Username password` authentication mode, complete the following steps
 
 When you send a message to a topic that matches the topic filter on the asset discovery configuration for a device, the connector for MQTT detects the new topic and creates a _detected asset_ custom resource. For example, if you specify the topic filter as `A/B/+`, and you send a message to the topic `A/B/asset1`, the connector for MQTT detects the new topic and creates a _discovered asset_ that you can view in the operations experience web UI:
 
-:::image type="content" source="media/howto-use-mqtt-connector/detected-asset.png" alt-text="Screenshot that shows the list of detected assets." lightbox="media/howto-use-mqtt-connector/detected-asset.png":::
+:::image type="content" source="media/howto-use-mqtt-connector/detected-asset.png" alt-text="Screenshot that shows the list of discovered assets." lightbox="media/howto-use-mqtt-connector/detected-asset.png":::
 
-To create an asset from the detected asset, follow these steps:
+To create an asset from the discovered asset, follow these steps:
 
-1. In the operations experience, select the detected asset from the list and then select **Import and create asset**.
+1. In the operations experience, select the discovered asset from the list and then select **Import and create asset**.
 
 1. On the **Asset details** page, the inbound endpoint is already selected from the device. Add a name, a description, and any custom properties you want to associate with the asset. Then select **Next** to continue.
 
-1. On the **Datasets** page, you see a dataset that the connector created automatically from the detected asset using the topic filter and asset name:
+1. On the **Datasets** page, you see a dataset that the connector created automatically from the discovered asset using the topic filter and asset name:
 
-    :::image type="content" source="media/howto-use-mqtt-connector/detected-asset-dataset.png" alt-text="Screenshot that shows the dataset created from the detected asset." lightbox="media/howto-use-mqtt-connector/detected-asset-dataset.png":::
+    :::image type="content" source="media/howto-use-mqtt-connector/detected-asset-dataset.png" alt-text="Screenshot that shows the dataset created from the discovered asset." lightbox="media/howto-use-mqtt-connector/detected-asset-dataset.png":::
 
     Select **Next** to continue.
 

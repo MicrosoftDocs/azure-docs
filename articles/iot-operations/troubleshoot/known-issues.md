@@ -235,6 +235,20 @@ Log signature: `2025-10-22T14:51:59.338Z aio-opc-opc.tcp-1-68ff6d4c59-nj2s4 - Up
 
 Schema generation fails if event names contain special characters such as `#`, `%`, or `&`. Avoid using these characters in event names to prevent schema generation issues.
 
+### OPC connector template missing
+
+---
+
+Issue ID: 1330
+
+---
+
+Log signature: N/A
+
+---
+
+Azure IoT Operations instance deployment should install an **OPC ConnectorTemplate** by default. Following the deployment, the connector template is missing from the Azure portal and the `ConnectorTemplate` resource isn't present in the cluster.
+
 ## Connector for media and connector for ONVIF issues
 
 This section lists current known issues for the connector for media and the connector for ONVIF.

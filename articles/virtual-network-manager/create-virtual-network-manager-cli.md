@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: quickstart
-ms.date: 07/17/2026
+ms.date: 07/29/2026
 ms.custom: mode-api, devx-track-azurecli 
 ms.devlang: azurecli
 ---
@@ -83,7 +83,7 @@ az network manager group create \
 
 ## Create virtual networks
 
-In this task, create three virtual networks using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). This example creates virtual networks named three virtual in the *(US) West 2* location. Each virtual network has a tag of `networkType` that's used for dynamic membership. If you already have virtual networks that you want create a mesh network with, you can skip to the next section.
+In this task, create three virtual networks using [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create). This example creates three virtual networks in the *(US) West 2* location. Each virtual network has a tag of `NetworkType` that's used for dynamic membership. If you already have virtual networks that you want to create a mesh network with, you can skip to the next section.
 
 ```azurecli
 az network vnet create \
@@ -166,7 +166,7 @@ az network manager group static-member create \
 
 # [Azure Policy](#tab/azurepolicy)
 
-By using [Azure Policy](concept-azure-policy-integration.md), you can dynamically add the three virtual networks with a `networkType` value of `Prod` to the network group. These three virtual networks become part of the mesh configuration once deployed.
+By using [Azure Policy](concept-azure-policy-integration.md), you can dynamically add the three virtual networks with a `NetworkType` value of `Prod` to the network group. These three virtual networks become part of the mesh configuration once deployed.
 
 You can apply policies to a subscription or a management group, and you must always define them *at or above* the level where you create them. Only virtual networks within a policy scope are added to a network group.
 
