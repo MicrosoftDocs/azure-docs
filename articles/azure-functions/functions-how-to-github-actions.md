@@ -17,6 +17,10 @@ To deploy by using GitHub Actions, complete these three key steps:
 1. Add the identity's client ID, tenant ID, and subscription ID as [repository variables](https://docs.github.com/actions/writing-workflows/choosing-what-your-workflow-does/store-information-in-variables) in GitHub.
 1. Add a workflow YAML file to your repository that uses `azure/login` with OpenID Connect (OIDC) to authenticate, then calls `Azure/functions-action` to deploy.
 
+::: zone pivot="method-portal" 
+When you [use the Azure portal](./functions-how-to-github-actions.md&pivots=method-portal) to enable GitHub Actions, Functions automatically performs these tasks, both in your Azure subscription and in your GitHub repository.
+::: zone-end
+
 ## Create a workflow configuration
 
 You maintain a YAML file (.yml) that defines the workflow configuration in the `/.github/workflows/` path in your repository. This definition contains the actions and parameters that make up the workflow, which is specific to the development language of your functions. 
@@ -297,13 +301,13 @@ You can get started quickly with GitHub Actions through the Deployment tab when 
 
 1. In the [Azure portal], select **Deployment** in the **Create Function App** flow.
 
-    :::image type="content" source="media/functions-how-to-github-actions/github-actions-deployment.png" alt-text="Screenshot of Deployment option in Functions menu.":::
-
 1. Enable **Continuous Deployment** if you want each code update to trigger a code push to Azure portal.
 
-1. Enter your GitHub organization, repository, and branch.
+1. Under **GitHub settings**, select **Authorize** to connect your GitHub account. Sign in with the GitHub account that has write access to your repository.
 
-    :::image type="content" source="media/functions-how-to-github-actions/github-actions-github-account-details.png" alt-text="Screenshot of GitHub user account details.":::
+1. Enter your GitHub organization, repository, and branch. 
+
+1. Optionally, select **Preview file** to view how the workflow file looks before it gets generated and added to your repository. 
 
 1. Complete configuring your function app. Your GitHub repository now includes a new workflow file in `/.github/workflows/`.
 
@@ -399,27 +403,27 @@ Linux deployments use `runs-on: ubuntu-latest` in the workflow. On the Consumpti
 
 ### [.NET](#tab/dotnet/windows)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/windows-dotnet-functionapp-on-azure-oidc.yml":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/windows-dotnet-functionapp-on-azure-oidc.yml" range="24-91":::
 
 ### [.NET](#tab/dotnet/linux)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/linux-dotnet-functionapp-on-azure-oidc.yml":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/linux-dotnet-functionapp-on-azure-oidc.yml" range="24-91":::
 
 ### [Java](#tab/java/windows)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/windows-java-functionapp-on-azure-oidc.yml":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/windows-java-functionapp-on-azure-oidc.yml" range="22-90":::
 
 ### [Java](#tab/java/linux)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/linux-java-functionapp-on-azure-oidc.yml":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/linux-java-functionapp-on-azure-oidc.yml" range="22-90":::
 
 ### [JavaScript](#tab/javascript/windows)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/windows-node-functionapp-on-azure-oidc.yml":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/windows-node-functionapp-on-azure-oidc.yml" range="22-95":::
 
 ### [JavaScript](#tab/javascript/linux)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/linux-node-functionapp-on-azure-oidc.yml":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/linux-node-functionapp-on-azure-oidc.yml" range="22-95":::
 
 ### [Python](#tab/python/windows)
 
@@ -427,15 +431,15 @@ Python functions aren't supported on Windows. Choose Linux instead.
 
 ### [Python](#tab/python/linux)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/python-functionapp-on-azure-oidc.yml":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/python-functionapp-on-azure-oidc.yml" range="22-88":::
 
 ### [PowerShell](#tab/powershell/windows)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/powershell-functionapp-on-azure-oidc.yml":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/powershell-functionapp-on-azure-oidc.yml" range="22-57":::
 
 ### [PowerShell](#tab/powershell/linux)
 
-:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/powershell-functionapp-on-azure-oidc.yml":::
+:::code language="yml" source="~/azure-actions-workflow-samples/FunctionApp/oidc-auth-samples/powershell-functionapp-on-azure-oidc.yml" range="22-57":::
 
 ### [Container](#tab/container/windows)
     
