@@ -1712,8 +1712,6 @@ groups:
     title: Manual
   - id: method-portal
     title: Azure portal
-  - id: method-cli
-    title: Azure CLI
   - id: method-template
     title: GitHub Actions template
 - id: azure-virtual-network-manager-quickstart-options

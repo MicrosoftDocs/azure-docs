@@ -31,18 +31,11 @@ Choose a method for creating your workflow file using the selector at the top of
 | ---- | ---- | ---- |
 | **Manual** | Full control: copy an OIDC-ready template and customize it | Requires configuration |
 | **Azure portal** | Easiest setup: portal can create the identity, credentials, and workflow file for you | Configured for you |
-| **Azure CLI** | Scripted provisioning | Not yet supported (uses publish profile) |
 | **GitHub Actions template** | GitHub-first: start from GitHub's built-in marketplace templates | Requires configuration and template modification |
 
 ## Authentication overview
 
-GitHub Actions must authenticate with Azure to deploy your code. The following table summarizes the supported methods:
-
-| Credential | Status | Set in... | Usage |
-| ---- | ---- | ---- | --- |
-| OpenID Connect (OIDC) token | **Recommended** | [`Azure/login`](https://github.com/Azure/login) | Federated credentials create a trust relationship between your GitHub repository and a user-assigned managed identity in Microsoft Entra. No secrets are stored in GitHub. |
-| Service principal secret | Not recommended | [`Azure/login`](https://github.com/Azure/login) | Requires you to manage and rotate a client secret in GitHub. |
-| Publish profile | Not recommended | [`Azure/functions-action`] | Uses basic authentication credentials to connect to the `scm` deployment endpoint. Requires [basic authentication to be enabled](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments). |
+GitHub Actions must authenticate with Azure to deploy your code. This article uses OpenID Connect (OIDC), which is the recommended authentication method. OIDC uses federated credentials to create a trust relationship between your GitHub repository and a user-assigned managed identity in Microsoft Entra. No secrets are stored in GitHub.
 
 ### OIDC authentication example
 
@@ -68,15 +61,12 @@ steps:
       package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
 ```
 
-### GitHub Actions authentication considerations
+### GitHub Actions OIDC authentication considerations
 
 + OIDC uses [workload identity federation](/entra/workload-id/workload-identity-federation) and only supports user-assigned managed identities.
 + When you enable a GitHub Actions-based deployment in the Azure portal, OIDC authentication is used by default.
 + With OIDC, the managed identity's client ID, tenant ID, and subscription ID are stored as GitHub repository **variables** (not secrets), since these values aren't sensitive.
-+ Publish profile authentication requires [basic authentication to be enabled](./functions-continuous-deployment.md#enable-basic-authentication-for-deployments) on your function app's `scm` endpoint, which is a security concern.
-+ Service principal authentication requires you to manage the client secret stored in GitHub, including key rotation.
 + Use Azure role-based access control (Azure RBAC) to limit access only to the Azure resources required for your deployment.
-+ Unless otherwise noted, this article shows you how to configure a workflow that uses OIDC authentication.
 
 ## Prerequisites
 
@@ -91,7 +81,7 @@ steps:
 + A working function app hosted on Azure (code-only or container-based).
 
 + (Container deployments only) An existing container registry, such as [Azure Container Registry](/azure/container-registry/container-registry-get-started-azure-cli).   
-::: zone pivot="method-cli,method-manual,method-template"
+::: zone pivot="method-manual,method-template"
 + [Azure CLI](/cli/azure/install-azure-cli), when developing locally. You can also use the Azure CLI in Azure Cloud Shell.
 ::: zone-end
 ::: zone pivot="method-manual,method-template"
@@ -146,13 +136,6 @@ OpenID Connect (OIDC) is the recommended authentication method for GitHub Action
 
 ## Add credentials to GitHub
 
-Depending on your chosen authentication method, you need to store either variables or secrets in your GitHub repository.  
-
->[!TIP]  
->OIDC is preferred over other authentication methods because you aren't required to store secrets in GitHub. 
-
-### [OIDC token](#tab/oidc-token)
-
 OIDC uses repository variables (not secrets) since these values aren't sensitive. Use the values you copied when you [created the managed identity](#create-a-managed-identity-for-github-actions-deployment).
 
 1. In [GitHub](https://github.com/), go to your repository.
@@ -167,48 +150,8 @@ OIDC uses repository variables (not secrets) since these values aren't sensitive
     + **Name**: `AZURE_TENANT_ID` — **Value**: the `tenantId` of the managed identity
     + **Name**: `AZURE_SUBSCRIPTION_ID` — **Value**: the subscription ID that contains your function app
 
-### [Publish profile](#tab/publish-profile)
+For container deployments from a private registry, you also need registry-specific secrets. For more information, see [Docker Login Action](https://github.com/marketplace/actions/docker-login#usage).
 
-1. In [GitHub](https://github.com/), go to your repository.
-
-1. Go to **Settings** > **Secrets and variables** > **Actions**.
-
-1. Select **New repository secret**.
-
-1. Create the following secret:
-
-    + **Name**: `AZURE_FUNCTIONAPP_PUBLISH_PROFILE`
-    + **Secret**: Paste the entire XML contents of the publish profile.
-
-### [Service principal secret](#tab/service-principal)
-
-1. In [GitHub](https://github.com/), go to your repository.
-
-1. Go to **Settings** > **Secrets and variables** > **Actions**.
-
-1. Select **New repository secret**.
-
-1. Create the following secret:
-
-    + **Name**: `AZURE_CREDENTIALS`
-    + **Secret**: Paste the entire JSON output you obtained when you created your service principal.
-
-### [Container registry credentials](#tab/docker-credentials)
-
-You need registry-specific credentials when deploying a container from a private container registry. For more information, see [Docker Login Action](https://github.com/marketplace/actions/docker-login#usage).
-
-1. In [GitHub](https://github.com/), go to your repository.
-
-1. Go to **Settings** > **Secrets and variables** > **Actions**.
-
-1. Select **New repository secret**.
-
-1. Create the following secrets:
-
-    + **Name**: `REGISTRY_USERNAME` — **Secret**: The username of your account in the private Docker registry.
-    + **Name**: `REGISTRY_PASSWORD` — **Secret**: The password for your account in the private Docker registry.
-
----
 ::: zone-end
 ::: zone pivot="method-manual"
 
@@ -332,43 +275,6 @@ You can get started quickly with GitHub Actions through the Deployment tab when 
 [!INCLUDE [functions-deploy-github-actions](../../includes/functions-deploy-github-actions.md)]
 
 ::: zone-end
-::: zone pivot="method-cli"
-
-## Add workflow configuration to your repository
-
-Use the [`az functionapp deployment github-actions add`](/cli/azure/functionapp/deployment/github-actions) command to generate a workflow configuration file from the correct template for your function app. The new YAML file is stored in the correct location (`/.github/workflows/`) in the GitHub repository you provide. The command also adds the publish profile file for your app to GitHub secrets in the same repository.
-
-> [!NOTE]
-> This command currently configures publish profile authentication, which isn't the recommended approach. For the recommended OIDC authentication, use the [manual workflow setup method](#create-the-workflow-from-a-template) instead.
-
-1. Run this `az functionapp` command, replacing the values `githubUser/githubRepo`, `MyResourceGroup`, and `MyFunctionapp`:
-
-    ```azurecli
-    az functionapp deployment github-actions add --repo "githubUser/githubRepo" -g MyResourceGroup -n MyFunctionapp --login-with-github
-    ```
-
-    This command uses an interactive method to retrieve a personal access token for your GitHub account.
-
-1. In your terminal window, you see a message similar to the following example:
-
-    ```output
-    Please navigate to https://github.com/login/device and enter the user code XXXX-XXXX to activate and retrieve your GitHub personal access token.
-    ```  
-
-1. Copy the unique `XXXX-XXXX` code, browse to <https://github.com/login/device>, and enter the code you copied. After entering your code, you see a message similar to the following example:
-
-    ```output
-    Verified GitHub repo and branch
-    Getting workflow template using runtime: java
-    Filling workflow template with name: func-app-123, branch: main, version: 8, slot: production, build_path: .
-    Adding publish profile to GitHub
-    Fetching publish profile with secrets for the app 'func-app-123'
-    Creating new workflow file: .github/workflows/master_func-app-123.yml
-    ```
-
-1. Go to your GitHub repository and select **Actions**. Verify that your workflow ran.
-
-::: zone-end
 ::: zone pivot="method-template"
 
 ## Create the workflow configuration file
@@ -387,7 +293,7 @@ You can create the GitHub Actions workflow configuration file from the Azure Fun
 
 1. In the newly created YAML file, update the `env.AZURE_FUNCTIONAPP_NAME` parameter with the name of your function app resource in Azure. You might also need to update the parameter that sets the language version used by your app, such as `DOTNET_VERSION` for C#.  
 
-1. The default templates might use publish profile authentication, which isn't recommended because it uses shared secret keys. To use the recommended OIDC authentication instead, replace the `publish-profile` parameter in [`Azure/functions-action`] with an `azure/login` step:
+1. The default templates might use publish profile authentication instead of the recommended OIDC. To switch to OIDC, replace the `publish-profile` parameter in [`Azure/functions-action`] with an `azure/login` step:
 
     ```yml
     - name: 'Login via OIDC'
@@ -484,12 +390,12 @@ The following table describes the input parameters supported by [`Azure/function
 | --------- | --------- |
 | **app-name** | (Required) The name of your function app in Azure. |
 | **package** | (Required) The path to your project to publish. Default: `.` (all files in the repository). |
-| **sku** | Set to `flexconsumption` when authenticating with publish-profile on a Flex Consumption plan. Not needed with OIDC/SP auth or other plans (the action auto-resolves). |
 | **remote-build** | Set to `true` to enable a build action from Kudu when deploying to a Flex Consumption app. Oryx build is always performed; don't also set **scm-do-build-during-deployment** or **enable-oryx-build**. Default: `false`. |
 | **scm-do-build-during-deployment** | Allow the Kudu site to perform pre-deployment operations such as [remote builds](functions-deployment-technologies.md#remote-build). Set to `true` to have Kudu build your project during deployment. Default: `false`. For more information, see [`SCM_DO_BUILD_DURING_DEPLOYMENT`](./functions-app-settings.md#scm_do_build_during_deployment). |
 | **enable-oryx-build** | Allow Kudu to resolve project dependencies by using [Oryx](https://github.com/Microsoft/Oryx). Set both this and **scm-do-build-during-deployment** to `true` to use Oryx instead of the workflow. Default: `false`. Linux only. |
-| **slot-name** | The [deployment slot](functions-deployment-slots.md) to deploy to. Default: production slot. When targeting a non-production slot, ensure **publish-profile** contains the slot credentials. |
-| **publish-profile** | The name of the GitHub secret that contains your publish profile. |
+| **slot-name** | The [deployment slot](functions-deployment-slots.md) to deploy to. Default: production slot. |
+| **publish-profile** | The name of the GitHub secret that contains your publish profile. Not needed when using the recommended OIDC authentication. |
+| **sku** | Set to `flexconsumption` when authenticating with **publish-profile** on a Flex Consumption plan. Not needed with OIDC authentication or other hosting plans. |
 | **respect-pom-xml** | (Java only) Set to `true` to derive the deployment artifact from pom.xml. When `true`, set **package** to `.`. Default: `false`. |
 | **respect-funcignore** | Set to `true` to honor your .funcignore file and exclude listed paths. Default: `false`. |
 
@@ -499,12 +405,12 @@ The following table shows which parameters are supported for each hosting plan:
 | --------- | :-: | :-: | :-: | :-: |
 | **app-name** | Required | Required | Required | Required |
 | **package** | Required | Required | Required | Required |
-| **sku** | Publish-profile only | — | — | — |
 | **remote-build** | Optional | — | — | — |
 | **scm-do-build-during-deployment** | — | Optional | Optional | Optional |
 | **enable-oryx-build** | — | Optional (Linux) | Optional (Linux) | Optional (Linux) |
 | **slot-name** | Not supported | Optional | Optional | Optional |
-| **publish-profile** | Optional | Optional | Optional | Optional |
+| **publish-profile** | Not recommended | Not recommended | Not recommended | Not recommended |
+| **sku** | publish-profile only | — | — | — |
 | **respect-pom-xml** | Optional (Java) | Optional (Java) | Optional (Java) | Optional (Java) |
 | **respect-funcignore** | Optional | Optional | Optional | Optional |
 
