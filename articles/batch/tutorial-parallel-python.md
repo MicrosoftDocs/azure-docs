@@ -30,6 +30,8 @@ In this tutorial, you convert MP4 media files to MP3 format, in parallel, by usi
 
 * [pip package manager](https://pip.pypa.io/en/stable/installation/)
 
+* [ffmpeg](https://ffmpeg.org/download.html) available on your PATH, used locally to generate the sample input files.
+
 * An Azure Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstart guides for [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md).
 
 ## Grant access to your Batch and Storage accounts
@@ -71,24 +73,33 @@ This tutorial shows how to authenticate to Azure Batch and Azure Storage by usin
 
 ## Download and run the sample app
 
-> [!IMPORTANT]
-> The downloadable sample in the [batch-python-ffmpeg-tutorial](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial) repo is being updated to match this tutorial. Until that update publishes, the repo might still contain the earlier key-based authentication and Ubuntu 20.04 code. **The code in this article is the source of truth.** If the downloaded sample doesn't match the snippets here, follow the code shown in this article.
-
 ### Download the sample app
 
-[Download or clone the sample app](https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial) from GitHub. To clone the sample app repo with a Git client, use the following command:
+[Download or clone the sample app](https://github.com/Azure-Samples/azure-batch-samples) from GitHub. The sample lives in the [azure-batch-samples](https://github.com/Azure-Samples/azure-batch-samples) repo under *Python/Batch/article_samples/ffmpeg*. To clone the repo with a Git client, use the following command:
 
 ```bash
-git clone https://github.com/Azure-Samples/batch-python-ffmpeg-tutorial.git
+git clone https://github.com/Azure-Samples/azure-batch-samples.git
 ```
 
-Navigate to the directory that contains the file *batch_python_tutorial_ffmpeg.py*.
+Navigate to the *Python/Batch/article_samples/ffmpeg* directory, which contains the file *batch_python_tutorial_ffmpeg.py*.
+
+```bash
+cd azure-batch-samples/Python/Batch/article_samples/ffmpeg
+```
 
 In your Python environment, install the required packages using `pip`.
 
 ```bash
 pip install -r requirements.txt
 ```
+
+Generate the sample input files. The repository doesn't ship binary media, so create the local *InputFiles/\*.mp4* clips with the included helper (requires ffmpeg on your PATH):
+
+```bash
+python generate_input_files.py
+```
+
+This command writes five short sample clips (*LowPriVMs-1.mp4* through *LowPriVMs-5.mp4*) into the *InputFiles* directory. Alternatively, place your own *.mp4* files in *InputFiles*.
 
 Use a code editor to open the file *config.py*. Update the Batch and storage account values with the names unique to your accounts. The sample uses [DefaultAzureCredential](/python/api/azure-identity/azure.identity.defaultazurecredential) to authenticate, so account keys are no longer required. For example:
 
