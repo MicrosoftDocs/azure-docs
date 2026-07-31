@@ -29,6 +29,8 @@ Enrichment works with **map**, **filter**, and **branch** transforms, and with *
 
 - A default registry endpoint named `default` that points to `mcr.microsoft.com` is automatically created during deployment.
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
 ## Set up the state store
 
 The runtime reads dataset records from the Azure IoT Operations distributed state store. Each dataset key maps to one or more records in NDJSON format (one JSON object per line). The runtime caches records and receives change notifications, so state store updates are reflected in processing.
@@ -659,8 +661,8 @@ Apply the config file. The `extendedLocation` is added automatically from the in
 ```azurecli
 az iot ops dataflowgraph apply \
   --name enrich-example \
-  --instance <INSTANCE_NAME> \
-  --resource-group <RESOURCE_GROUP> \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP \
   --config-file graph.json
 ```
 

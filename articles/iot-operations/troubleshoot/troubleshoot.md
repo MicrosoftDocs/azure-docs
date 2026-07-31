@@ -21,6 +21,12 @@ The troubleshooting guidance helps you diagnose and resolve issues you might enc
 
 For information about known issues and temporary workarounds, see [Known issues: Azure IoT Operations](known-issues.md).
 
+## Set your environment variables
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the `K8_BRIDGE_SP_OID` and `KEY_VAULT_NAME` environment variables. Set each one before you run the related commands.
+
 ## Use health status for troubleshooting
 
 Azure IoT Operations provides [built-in health status reporting](../deploy-iot-ops/health-status-reporting.md) to help you understand the health of your edge workloads from the cloud. When a component reports **Degraded** or **Unavailable** health status, use the following approach to investigate and troubleshoot the issue:
@@ -140,13 +146,13 @@ Akri discovery requires that resource sync rules are enabled on your cluster. To
 Run `enable-rsync` to enable resource sync rules on your Azure IoT Operations instance. This command also sets the required permissions on the custom location:
 
 ```bash
-az iot ops enable-rsync -n <my instance> -g <my resource group>
+az iot ops enable-rsync -n $AIO_INSTANCE_NAME -g $RESOURCE_GROUP
 ```
 
 If the signed-in CLI user doesn't have permission to look up the object ID (OID) of the K8 Bridge service principal, you can provide it explicitly using the `--k8-bridge-sp-oid` parameter:
 
 ```bash
-az iot ops enable-rsync --k8-bridge-sp-oid <k8 bridge service principal object ID>
+az iot ops enable-rsync --k8-bridge-sp-oid $K8_BRIDGE_SP_OID
 ```
 
 > [!NOTE]
@@ -223,19 +229,19 @@ To allow the operations experience to access these resources on your behalf, con
 
 ```azurecli
 # Operations experience location eastus:
-az keyvault network-rule add --resource-group <your-resource-group> --name <your key vault> --ip-address 48.211.120.64
+az keyvault network-rule add --resource-group $RESOURCE_GROUP --name $KEY_VAULT_NAME --ip-address 48.211.120.64
 
 # Operations experience location northeurope:
-az keyvault network-rule add --resource-group <your-resource-group> --name <your key vault> --ip-address 72.145.25.40
+az keyvault network-rule add --resource-group $RESOURCE_GROUP --name $KEY_VAULT_NAME --ip-address 72.145.25.40
 
 # Operations experience location westcentralus:
-az keyvault network-rule add --resource-group <your-resource-group> --name <your key vault> --ip-address 128.24.193.24
+az keyvault network-rule add --resource-group $RESOURCE_GROUP --name $KEY_VAULT_NAME --ip-address 128.24.193.24
 
 # Operations experience location westeurope:
-az keyvault network-rule add --resource-group <your-resource-group> --name <your key vault> --ip-address 72.145.132.248
+az keyvault network-rule add --resource-group $RESOURCE_GROUP --name $KEY_VAULT_NAME --ip-address 72.145.132.248
 
 # Operations experience location westus3:
-az keyvault network-rule add --resource-group <your-resource-group> --name <your key vault> --ip-address 57.154.126.80
+az keyvault network-rule add --resource-group $RESOURCE_GROUP --name $KEY_VAULT_NAME --ip-address 57.154.126.80
 ```
 
 An operations experience request typically comes from the same region as the customer, but it could come from any region. Microsoft recommends that you allow all of the IP addresses for any Azure service that the operations experience uses.

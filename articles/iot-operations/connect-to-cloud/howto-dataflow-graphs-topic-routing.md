@@ -15,6 +15,10 @@ ai-usage: ai-assisted
 
 Some scenarios require messages to arrive on different MQTT topics depending on their content. For example, sensor readings above a critical threshold might need to go to an `alerts` topic, while normal readings go to a `historian` topic. With data flow graphs, you can set the output topic dynamically, even though the dataflow has a single destination.
 
+## Set your environment variables
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
 ## How it works
 
 A map transform can write to message metadata, including the MQTT topic, by using the `$metadata.topic` output path. The destination then uses the `${outputTopic}` variable to publish to whatever topic the transform set.
@@ -115,8 +119,8 @@ Apply the config file. The `extendedLocation` is added automatically from the in
 ```azurecli
 az iot ops dataflowgraph apply \
   --name dynamic-topic-routing \
-  --instance <INSTANCE_NAME> \
-  --resource-group <RESOURCE_GROUP> \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP \
   --config-file graph.json
 ```
 
@@ -377,8 +381,8 @@ Apply the config file. The `extendedLocation` is added automatically from the in
 ```azurecli
 az iot ops dataflowgraph apply \
   --name dynamic-topic-routing-branched \
-  --instance <INSTANCE_NAME> \
-  --resource-group <RESOURCE_GROUP> \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP \
   --config-file graph.json
 ```
 

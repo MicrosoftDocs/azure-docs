@@ -35,6 +35,10 @@ This article walks through creating a data flow graph step by step. For an overv
 
 - A [data flow endpoint](howto-configure-dataflow-endpoint.md) for your source and destination. The default MQTT broker endpoint works for getting started.
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the `GRAPH_NAME` and `PROFILE` environment variables for the data flow graph and profile names. Set each one before you run the related commands.
+
 ## Create a data flow graph
 
 A data flow graph contains three types of elements: **sources** that bring data in, **transforms** that process it, and **destinations** that send it out. Connect them in the order you want data to flow.
@@ -142,8 +146,8 @@ Apply the config file. The `extendedLocation` is added automatically from the in
 ```azurecli
 az iot ops dataflowgraph apply \
   --name temperature-processing \
-  --instance <INSTANCE_NAME> \
-  --resource-group <RESOURCE_GROUP> \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP \
   --config-file graph.json
 ```
 
@@ -231,7 +235,7 @@ resource dataflowGraph 'Microsoft.IoTOperations/instances/dataflowProfiles/dataf
 Deploy the Bicep file:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -298,7 +302,7 @@ spec:
 Apply the manifest:
 
 ```bash
-kubectl apply -f <FILE>.yaml
+kubectl apply -f main.yaml
 ```
 
 ---
@@ -605,16 +609,16 @@ Use [`az iot ops dataflowgraph show`](/cli/azure/iot/ops/dataflowgraph#az-iot-op
 ```azurecli
 az iot ops dataflowgraph show \
   --name temperature-processing \
-  --instance <INSTANCE_NAME> \
-  --resource-group <RESOURCE_GROUP>
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP
 ```
 
 To list all data flow graphs associated with a profile, use [`az iot ops dataflowgraph list`](/cli/azure/iot/ops/dataflowgraph#az-iot-ops-dataflowgraph-list):
 
 ```azurecli
 az iot ops dataflowgraph list \
-  --instance <INSTANCE_NAME> \
-  --resource-group <RESOURCE_GROUP>
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP
 ```
 
 # [Bicep](#tab/bicep)
@@ -622,7 +626,7 @@ az iot ops dataflowgraph list \
 Check the status of the `DataflowGraph` resource:
 
 ```azurecli
-az resource show --resource-group <RESOURCE_GROUP> --resource-type Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs --name <GRAPH_NAME> --parent instances/<INSTANCE_NAME>/dataflowProfiles/<PROFILE_NAME>
+az resource show --resource-group $RESOURCE_GROUP --resource-type Microsoft.IoTOperations/instances/dataflowProfiles/dataflowGraphs --name $GRAPH_NAME --parent instances/$AIO_INSTANCE_NAME/dataflowProfiles/$PROFILE
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)

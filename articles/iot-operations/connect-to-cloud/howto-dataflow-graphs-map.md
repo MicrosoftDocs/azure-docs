@@ -24,6 +24,8 @@ For an overview of data flow graphs and how transforms compose in a pipeline, se
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 - A default registry endpoint named `default` that points to `mcr.microsoft.com` is automatically created during deployment. The built-in transforms use this endpoint.
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
 ## How map rules work
 
 Each map rule has four parts:
@@ -796,8 +798,8 @@ Apply the config file. The `extendedLocation` is added automatically from the in
 ```azurecli
 az iot ops dataflowgraph apply \
   --name temperature-map-example \
-  --instance <INSTANCE_NAME> \
-  --resource-group <RESOURCE_GROUP> \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP \
   --config-file graph.json
 ```
 
