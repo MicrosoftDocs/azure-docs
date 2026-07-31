@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 03/30/2026
+ms.date: 07/29/2026
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -335,7 +335,7 @@ For a step-by-step tutorial on mounting an SMB file share, see [Create an Azure 
     - For each container in the template that you want to mount Azure Files storage, define a volume mount in the `volumeMounts` array of the container definition.
         - The `volumeName` is the name defined in the `volumes` array.
         - The `mountPath` is the path in the container to mount the volume.
-        - The `subPath` is the path in the volume to mount. If you don't specify this value, the volume root is mounted. For more information, see (#sub-path).
+        - The `subPath` is the path in the volume to mount. If you don't specify this value, the volume root is mounted. For more information, see [Sub path](#sub-path).
 
     # [SMB](#tab/smb)
 
@@ -595,7 +595,7 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
     - For each container in the template that you want to mount Azure Files storage, define a volume mount in the `volumeMounts` array of the container definition.
         - The `volumeName` is the name defined in the `volumes` array.
         - The `mountPath` is the path in the container to mount the volume.
-        - The `subPath` (optional) is the path in the volume to mount. If you don't specify it, the volume root is mounted. For more information, see (#sub-path).
+        - The `subPath` (optional) is the path in the volume to mount. If you don't specify it, the volume root is mounted. For more information, see [Sub path](#sub-path).
 
 See the [ARM template API specification](azure-resource-manager-api-spec.md) for a full example.
 
@@ -655,7 +655,7 @@ To configure a volume mount for Azure Files storage in the Azure portal, add a f
 
 1. Select **Add** to exit the context pane.
 
-1. In the *Create and reploy new revision* page, select the **Container** tab.
+1. In the *Create and deploy new revision* page, select the **Container** tab.
 
 1. Select the container that you want to mount the volume in.
 
@@ -665,7 +665,7 @@ To configure a volume mount for Azure Files storage in the Azure portal, add a f
 
 1. In **Mount path**, enter the absolute path in the container to mount the volume.
 
-1. In **Sub path (optional)**, enter the path in the volume to mount. If you don't specify this value, the volume root is mounted. For more information, see (#sub-path).
+1. In **Sub path (optional)**, enter the path in the volume to mount. If you don't specify this value, the volume root is mounted. For more information, see [Sub path](#sub-path).
 
 1. Select **Save** to save changes and exit the context pane.
 
