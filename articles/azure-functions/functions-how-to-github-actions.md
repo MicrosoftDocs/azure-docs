@@ -23,15 +23,16 @@ When you [use the Azure portal](./functions-how-to-github-actions.md?pivots=meth
 
 ## Create a workflow configuration for Azure Functions
 
-You maintain a YAML file (.yml) that defines the workflow configuration in the `/.github/workflows/` path in your repository. This definition contains the actions and parameters that make up the workflow, which is specific to the development language of your functions. 
+You maintain a YAML file (.yml) that defines the workflow configuration in the `/.github/workflows/` path in your repository. This definition contains the actions and parameters that make up the workflow, which is specific to the development language of your functions.
 
-You can create a workflow configuration file for your deployment manually. You can also generate the file from a set of language-specific templates by using one of these methods:  
+Choose a method for creating your workflow file using the selector at the top of the article:
 
-+ In the Azure portal
-+ Using the Azure CLI
-+ From your GitHub repository
-
-If you don't want to create your YAML file by hand, select a different method at the top of the article.
+| Method | Best for | OIDC support |
+| ---- | ---- | ---- |
+| **Manual** | Full control: copy an OIDC-ready template and customize it | Requires configuration |
+| **Azure portal** | Easiest setup: portal can create the identity, credentials, and workflow file for you | Configured for you |
+| **Azure CLI** | Scripted provisioning | Not yet supported (uses publish profile) |
+| **GitHub Actions template** | GitHub-first: start from GitHub's built-in marketplace templates | Requires configuration and template modification |
 
 ## Authentication overview
 
@@ -298,12 +299,17 @@ The best way to manually create a workflow configuration is to start from the of
 
 ## Create the workflow configuration in the portal
 
-When you use the portal to enable GitHub Actions, Functions automatically performs these tasks, both in your Azure subscription and in your GitHub repository:
+When you use the portal to enable GitHub Actions, Functions handles all the setup automatically. You don't need to manually create a managed identity, configure credentials, or write a workflow file. Functions performs these tasks for you:
 
-+ Creates a workflow file based on your application stack under `.github/workflows` and commits it to your GitHub repository.
-+ Creates a user-assigned managed identity in your subscription and assigns it to the [Website Contributor role](/azure/role-based-access-control/built-in-roles/web-and-mobile#website-contributor) in your function app. 
-+ Adds a federated credential to the new user-assigned managed identity, which GitHub uses when connecting during deployment. 
-+ Adds the client ID, subscription ID, and tenant ID values of the new managed identity to the GitHub Actions secrets for your repository. The names of these secrets match the references in the workflow file.
+In your **Azure subscription**:
+
++ Creates a user-assigned managed identity and assigns it the [Website Contributor role](/azure/role-based-access-control/built-in-roles/web-and-mobile#website-contributor) on your function app.
++ Adds a federated credential to the managed identity for GitHub OIDC authentication.
+
+In your **GitHub repository**:
+
++ Adds the client ID, subscription ID, and tenant ID values as GitHub Actions secrets.
++ Creates a workflow file based on your application stack and commits it to `.github/workflows`.
 
 ### During function app create
 
