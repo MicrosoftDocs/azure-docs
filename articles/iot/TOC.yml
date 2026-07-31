@@ -19,6 +19,30 @@ items:
     href: iot-device-registry-namespace-guidance.md
   - name: Best practices for schema registries
     href: iot-device-registry-schema-registry-guidance.md
+  - name: Manage certificate lifecycle
+    items:
+      - name: Certificate management (preview) in Azure Device Registry
+        href: iot-hub-certificate-management-overview.md
+      - name: Key concepts for certificate management
+        href: iot-hub-certificate-management-concepts.md
+      - name: Set up certificate management
+        items:
+          - name: Configure a credential
+            href: how-to-configure-credential.md
+          - name: Create a policy with a Microsoft root CA
+            href: how-to-create-policy.md
+          - name: Create a policy with an external root CA
+            href: how-to-create-policy-external-certificate.md
+      - name: Manage certificates and policies
+        items:
+          - name: Issuance of device certificates
+            href: concept-certificate-issuance.md
+          - name: Renewal of device certificates
+            href: concept-certificate-renewal.md
+          - name: Certificate revocation and policy management
+            href: concepts-certificate-policy-management.md
+          - name: Revoke certificates and delete policies 
+            href: how-to-revoke-certificate-delete-policy.md
 - name: References
   items:
   - name: Support and help options

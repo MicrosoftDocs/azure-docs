@@ -16,7 +16,7 @@ ms.date: 03/13/2026
 
 Certificate management in Azure IoT Hub enables you to issue, manage, and revoke X.509 certificates throughout their lifecycle. This article introduces the key concepts related to revoking device certificates, revoking policies, deleting policies, and deleting credential resources. These operations are part of a coordinated lifecycle management strategy that helps you maintain your security posture when certificates expire, devices are decommissioned, or business requirements change.
 
-[!INCLUDE [public-preview-banner](includes/public-preview-banner.md)]
+[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
 
 ## Relationship between certificate lifecycle operations
 
@@ -35,13 +35,13 @@ If you don't have this role assigned, contact your Azure administrator to reques
 
 ## Revoking device certificates
 
-When you revoke a device’s certificate in Azure Device Registry (ADR), all certificates that have ever been issued to that device are revoked. As part of this process, the device certificate’s unique identifier is added to the issuing CA’s Certificate Revocation List (CRL), preventing the device from authenticating to IoT Hub using any previously issued certificate.
+When you revoke a device certificate in Azure Device Registry (ADR), you revoke all certificates that were ever issued to that device. As part of this process, the device certificate's unique identifier is added to the issuing CA's Certificate Revocation List (CRL), preventing the device from authenticating to IoT Hub by using any previously issued certificate.
 
 To restore connectivity, the device must be reprovisioned and request a new certificate. This action is recommended when a device has been compromised, decommissioned, or is no longer trusted. By default, the device remains enabled in IoT Hub and can reconnect once a new certificate is issued. However, if immediate access needs to be blocked, you can both revoke the certificate and disable the device to prevent any further connections.
 
 > [!IMPORTANT]
 > IoT Hub does not evaluate the CA's certificate revocation list (CRL) during device connection. Instead, revocation is enforced by using a per-device unique identifier embedded in the certificate at the time of issuance.
-> When a device connects using its certificate, IoT Hub extracts this identifier and compares it against the device’s current identifier stored in the service to determine whether the certificate has been revoked. When a device's certificate is revoked, its unique identifier is rotated. Any certificates issued after revocation contain the new identifier, while previously issued certificates no longer match and are treated as revoked.
+> When a device connects using its certificate, IoT Hub extracts this identifier and compares it against the device's current identifier stored in the service to determine whether the certificate has been revoked. When a device's certificate is revoked, its unique identifier is rotated. Any certificates issued after revocation contain the new identifier, while previously issued certificates no longer match and are treated as revoked.
 
 ### Impact of revoking a device certificate
 
@@ -125,7 +125,6 @@ Revoking certificates and deleting policies are high-impact operations that are 
 - [Revoke certificates and delete policies (preview)](how-to-revoke-certificate-delete-policy.md)
 - [Key concepts for certificate management](iot-hub-certificate-management-concepts.md)
 - [What is certificate management (preview)?](iot-hub-certificate-management-overview.md)
-- [Get started with ADR and certificate management in IoT Hub](iot-hub-device-registry-setup.md)
-- [Authenticate devices with X.509 CA certificates](authenticate-authorize-x509.md)
-
-- [Azure role-based access control (RBAC) for IoT Hub](authenticate-authorize-azure-ad.md)
+- [Get started with ADR and certificate management in IoT Hub](../iot-hub/iot-hub-device-registry-setup.md)
+- [Authenticate devices with X.509 CA certificates](../iot-hub/authenticate-authorize-x509.md)
+- [Azure role-based access control (RBAC) for IoT Hub](../iot-hub/authenticate-authorize-azure-ad.md)

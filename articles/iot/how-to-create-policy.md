@@ -14,7 +14,7 @@ ms.date: 04/14/2026
 
 # Create or edit a policy with a Microsoft root CA (preview)
 
-This article explains how to create or edit a policy within your [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) namespace to manage an __issuing CA__ signed by your namespace's unique __root CA__.
+This article explains how to create or edit a policy within your [Azure Device Registry (ADR)](../iot-hub/iot-hub-device-registry-overview.md) namespace to manage an __issuing CA__ signed by your namespace's unique __root CA__.
 
 Use this workflow if you want ADR to provide a fully managed public key infrastructure (PKI) for your namespace. When a device requests a certificate, the platform returns a full certificate chain consisting of:
 
@@ -26,7 +26,7 @@ Use this workflow if you want ADR to provide a fully managed public key infrastr
 
 Your device identities are cryptographically scoped to their namespace, providing high tenant isolation and a simplified management experience without the need for an external private PKI.
 
-[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
+[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
 
 In certificate management, a credential manages the namespace-level root CA, and a policy manages the issuing CA that signs device certificates. 
 
@@ -35,7 +35,7 @@ In certificate management, a credential manages the namespace-level root CA, and
 Before you begin, make sure you have:
 
 - An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An existing ADR namespace. For setup steps, see [Deploy Azure IoT Hub with ADR integration](iot-hub-device-registry-setup.md).
+- An existing ADR namespace. For setup steps, see [Deploy Azure IoT Hub with ADR integration](../iot-hub/iot-hub-device-registry-setup.md).
 - A configured credential in the ADR namespace. For setup steps, see [Configure a credential in Azure Device Registry](how-to-configure-credential.md).
 - Permissions to manage policies in the ADR namespace, such as the [Azure Device Registry Credentials Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-credentials-contributor) role.
 
@@ -176,7 +176,7 @@ az iot adr ns credential sync \
 
 ## Related content
 
-- [Deploy Azure IoT Hub with ADR integration](iot-hub-device-registry-setup.md)
+- [Deploy Azure IoT Hub with ADR integration](../iot-hub/iot-hub-device-registry-setup.md)
 - [Configure a credential in Azure Device Registry](how-to-configure-credential.md)
 - [Revoke certificates and delete policies in Azure Device Registry](how-to-revoke-certificate-delete-policy.md)
 - [Key concepts for certificate management (preview)](iot-hub-certificate-management-concepts.md)
