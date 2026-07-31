@@ -251,7 +251,7 @@ output_container_sas_url = (
 
 ### Create a pool of compute nodes
 
-Next, the sample creates a pool of compute nodes in the Batch account by calling `create_pool`. This defined function uses the Batch [BatchPoolCreateOptions](/python/api/azure-batch/azure.batch.models.batchpoolcreateoptions) class to set the number of nodes, VM size, and a pool configuration. In this configuration, a [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies a [BatchVmImageReference](/python/api/azure-batch/azure.batch.models.batchvmimagereference) to an Ubuntu Server 22.04 LTS image published in the Azure Marketplace. Batch supports a wide range of VM images in the Azure Marketplace, as well as custom VM images.
+Next, the sample creates a pool of compute nodes in the Batch account by calling `create_pool`. This defined function uses the Batch [BatchPoolCreateOptions](/python/api/azure-batch/azure.batch.models.batchpoolcreateoptions) class to set the number of nodes, VM size, and a pool configuration. In this configuration, a [VirtualMachineConfiguration](/python/api/azure-batch/azure.batch.models.virtualmachineconfiguration) object specifies a [BatchVmImageReference](/python/api/azure-batch/azure.batch.models.batchvmimagereference) to an Ubuntu Server 24.04 LTS image published in the Azure Marketplace. Batch supports a wide range of VM images in the Azure Marketplace, as well as custom VM images.
 
 The number of nodes and VM size are set using defined constants. Batch supports dedicated nodes and [Spot nodes](batch-spot-vms.md), and you can use either or both in your pools. Dedicated nodes are reserved for your pool. Spot nodes are offered at a reduced price from surplus VM capacity in Azure. Spot nodes become unavailable if Azure doesn't have enough capacity. The sample by default creates a pool containing only five Spot nodes in size *Standard_A1_v2*.
 
@@ -265,11 +265,11 @@ new_pool = models.BatchPoolCreateOptions(
     virtual_machine_configuration=models.VirtualMachineConfiguration(
         image_reference=models.BatchVmImageReference(
             publisher="canonical",
-            offer="0001-com-ubuntu-server-jammy",
-            sku="22_04-lts",
+            offer="ubuntu-24_04-lts",
+            sku="server-gen1",
             version="latest"
         ),
-        node_agent_sku_id="batch.node.ubuntu 22.04"),
+        node_agent_sku_id="batch.node.ubuntu 24.04"),
     vm_size=_POOL_VM_SIZE,
     target_dedicated_nodes=_DEDICATED_POOL_NODE_COUNT,
     target_low_priority_nodes=_LOW_PRIORITY_POOL_NODE_COUNT,
