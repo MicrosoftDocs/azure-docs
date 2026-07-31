@@ -1,5 +1,5 @@
 ---
-title: Manage a Napster Companion API resource in Azure (preview)
+title: Manage a Napster Companion API resource in Azure
 description: Learn how to manage your Napster Companion API resource in the Azure portal, including resource overview, single sign-on setup, and deletion steps.
 author: shijoy
 ms.author: shijoy
@@ -7,11 +7,11 @@ ms.topic: how-to
 ms.subservice: napster
 ms.custom:
   - ignite-2026
-ms.date: 05/20/2026
+ms.date: 07/29/2026
 #customer intent: As an Azure administrator, I want to manage the lifecycle of my Napster Companion API resource so that I can configure access, monitor it, and delete it when no longer needed.
 ---
 
-# Manage a Napster Companion API resource (preview)
+# Manage a Napster Companion API resource
 
 This article describes how to manage the settings for your Napster Companion API resource in the Azure portal. You learn how to navigate the resource overview, use single sign-on to access the Companion API Dashboard, and delete a resource.
 
@@ -30,7 +30,7 @@ The *Essentials* details include:
 - Tags
 - Plan
 - Status
-- SSO Url
+- SSO URL
 
 To manage your resource, select the links next to corresponding details.
 
@@ -44,7 +44,7 @@ Select the **Getting Started Docs** link to read [Napster's documentation](https
 
 Single sign-on (SSO) is already enabled when you created your Napster Companion API resource.
 
-To access Napster Companion API using single sign-on, select the SSO Url link in the *Essentials* details from the Resource overview.
+To access Napster Companion API using single sign-on, select the SSO URL link in the *Essentials* details from the Resource overview.
 
 > [!NOTE]
 >
