@@ -99,7 +99,7 @@ You can add other network virtual appliances to your virtual WAN hub. For more i
    > [!NOTE]
    > Do not manually create a 0.0.0.0/0 (default) route over BGP for branch advertisements. This is automatically done for secure virtual hub deployments with 3rd party security providers. Doing so may break the deployment process.
 
-4. Configure virtual WAN security by setting **Internet Traffic** via Azure Firewall and **Private Traffic** via a trusted security partner. This automatically secures individual connections in the Virtual WAN.
+4. Configure virtual WAN security by setting **Internet Traffic** via a trusted security partner and **Private Traffic** via Azure Firewall. This automatically secures individual connections in the Virtual WAN.
 
    :::image type="content" source="media/deploy-trusted-security-partner/security-configuration.png" alt-text="Security configuration":::
 5. Additionally, if your organization uses public IP ranges in virtual networks and branch offices, you need to specify those IP prefixes explicitly using **Private Traffic Prefixes**. The public IP address prefixes can be specified individually or as aggregates.
