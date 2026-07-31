@@ -19,7 +19,10 @@ ms.custom:
 
 IoT Hub uses X.509 certificates to authenticate devices. X.509 authentication allows authentication of an IoT device as part of the Transport Layer Security (TLS) standard connection establishment. 
 
-This article describes how to use third-party managed X.509 CA certificates to authenticate devices connecting to IoT Hub. 
+This article describes how to use third-party managed X.509 CA certificates to authenticate devices connecting to IoT Hub.
+
+> [!NOTE]
+> The information in this article is superseded by the information in [Certificate management in Azure Device Registry (preview)](../iot/iot-hub-certificate-management-overview.md). For the most up-to-date information, see that article.
 
 ## Authentication and authorization
 
@@ -27,7 +30,7 @@ This article describes how to use third-party managed X.509 CA certificates to a
 
 *Authorization* is the process of confirming permissions for an authenticated user or device on IoT Hub. It specifies what resources and commands you're allowed to access, and what you can do with those resources and commands. Authorization is sometimes shortened to *AuthZ*.
 
-X.509 certificates are only used for authentication in IoT Hub, not authorization. Unlike with [Microsoft Entra ID](authenticate-authorize-azure-ad.md) and [shared access signatures](authenticate-authorize-sas.md), you can't customize permissions with X.509 certificates.
+IoT Hub uses X.509 certificates only for authentication, not authorization. Unlike [Microsoft Entra ID](../iot-hub/authenticate-authorize-azure-ad.md) and [shared access signatures](../iot-hub/authenticate-authorize-sas.md), X.509 certificates don't support customizable permissions.
 
 ## Microsoft vs third-party PKI
 
@@ -40,7 +43,7 @@ IoT Hub supports two types of PKI providers for X.509 certificate authentication
 | Microsoft-managed PKI | No. Configure certificate authorities directly in Azure Device Registry (ADR).| Yes | Yes |
 | Third-party PKI (DigiCert, GlobalSign, etc.) | Yes. Manual integration required.  | No | No |
 
-This article focuses on third-party PKI providers. If you want to use Microsoft-managed PKI with X.509 certificates, see [What is certificate management?](iot-hub-certificate-management-overview.md)
+This article focuses on third-party PKI providers. If you want to use Microsoft-managed PKI with X.509 certificates, see [What is certificate management?](../iot/iot-hub-certificate-management-overview.md)
 
 ## Types of certificate authentication
 
@@ -122,7 +125,7 @@ The owner of an X.509 CA certificate can cryptographically sign an intermediate 
 
 This cascade of certificates in the chain represents the logical hand-off of authority. Many supply chains follow this logical hand-off whereby each intermediate CA gets signed into the chain while receiving all upstream CA certificates. The last intermediate CA finally signs each device and injects all the authority certificates from the chain into the device.
 
-![Diagram that shows the certificates in a chain of trust.](./media/generic-cert-chain-of-trust.png)
+![Diagram that shows the certificates in a chain of trust.](./media/authenticate-authorize-x509/generic-cert-chain-of-trust.png)
 
 The device certificate (also called a leaf certificate) must have its common name (CN) set to the **device ID** (`CN=deviceId`) that is used when registering the IoT device in Azure IoT Hub. This setting is required for authentication.
 
@@ -146,11 +149,11 @@ With your X.509 CA certificate registered and devices signed with a certificate 
 
 First, IoT Hub cryptographically validates the certificate chain for internal consistency. Then, IoT Hub issues a proof-of-possession challenge to the device. IoT Hub declares the device authentic on a successful proof-of-possession response from the device. This declaration assumes that the device's private key is protected and that only the device can successfully respond to this challenge. We recommend using secure chips like Hardware Secure Modules (HSM) in devices to protect private keys.
 
-A successful device connection to IoT Hub completes the authentication process and is also indicative of a proper setup. Every time a device connects, IoT Hub renegotiates the TLS session and verifies the device’s X.509 certificate.
+A successful device connection to IoT Hub completes the authentication process and also indicates a proper setup. Every time a device connects, IoT Hub renegotiates the TLS session and verifies the device's X.509 certificate.
 
 ### Revoke a device certificate
 
-IoT Hub doesn't check certificate revocation lists from the certificate authority when authenticating devices with certificate-based authentication. If you have a device that needs to be blocked from connecting to IoT Hub because of a potentially compromised certificate, disable the device in the identity registry. For more information, see [Disable or delete a device](./create-connect-device.md#disable-or-delete-a-device).
+IoT Hub doesn't check certificate revocation lists from the certificate authority when authenticating devices with certificate-based authentication. If you have a device that needs to be blocked from connecting to IoT Hub because of a potentially compromised certificate, disable the device in the identity registry. For more information, see [Disable or delete a device](../iot-hub/create-connect-device.md#disable-or-delete-a-device).
 
 ## Example scenario
 
@@ -233,6 +236,6 @@ The foundation of trust rests in protecting private keys, including device priva
 
 Use the Device Provisioning Service to [Provision multiple X.509 devices using enrollment groups](../iot-dps/tutorial-custom-hsm-enrollment-group-x509.md).
 
-To learn more about the fields that make up an X.509 certificate, see [X.509 certificates](reference-x509-certificates.md).
+To learn more about the fields that make up an X.509 certificate, see [X.509 certificates](../iot-hub/reference-x509-certificates.md).
 
 If you have a root CA certificate or subordinate CA certificate and you want to upload it to your IoT hub, you must verify that you own that certificate. For more information, see [Tutorial: Create and upload certificates for testing](tutorial-x509-test-certs.md).

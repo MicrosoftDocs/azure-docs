@@ -16,7 +16,7 @@ ms.date: 03/20/2026
 
 Certificate renewal is the process where an already provisioned device requests and receives a new operational certificate for its existing device identity. Renewal is used to replace certificates that are nearing expiration or have expired. The device remains provisioned with the same identity; only the operational certificate is updated. Each IoT device must track certificate expiration and initiate a renewal before expiration. This article explains when to renew, the available renewal paths, how to track expiration, and what to do if a certificate expires.
 
-[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
+[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
 
 ## When devices need to renew
 
@@ -46,7 +46,7 @@ Your device firmware or application code must:
 
 ## Reporting certificate expiration with device twins
 
-During public preview, devices should use [device twin reported properties](iot-hub-devguide-device-twins.md#device-twins) to report the `Valid from` and `Valid until` dates of the current operational certificate. These reported properties support fleet-wide visibility, such as dashboards that show devices with certificates close to expiration.
+During public preview, devices should use [device twin reported properties](../iot-hub/iot-hub-devguide-device-twins.md#device-twins) to report the `Valid from` and `Valid until` dates of the current operational certificate. These reported properties support fleet-wide visibility, such as dashboards that show devices with certificates close to expiration.
 
 The following example shows a reported properties structure:
 
@@ -61,7 +61,7 @@ The following example shows a reported properties structure:
 }
 ```
 
-After devices report these properties, you can use the [IoT Hub query language](iot-hub-devguide-query-language.md) to identify devices across your fleet that require renewal.
+After devices report these properties, you can use the [IoT Hub query language](../iot-hub/iot-hub-devguide-query-language.md) to identify devices across your fleet that require renewal.
 
 ## What happens when a certificate expires
 
@@ -81,7 +81,7 @@ If a device loses its onboarding credential and its operational certificate expi
 
 Certificate renewal addresses expiration and is separate from certificate revocation. Revocation is a security action that invalidates a device certificate before expiration. After revocation, the device must obtain a new certificate again, through DPS reprovisioning and the same CSR-based issuance flow. For more information about revocation, see [Certificate revocation and policy management concepts](concepts-certificate-policy-management.md).
 
-To remove access for a device that uses an X.509 operational certificate without revocation, you can disable the device in IoT Hub. For more information, see [Disable or delete a device](create-connect-device.md#disable-or-delete-a-device).
+To remove access for a device that uses an X.509 operational certificate without revocation, you can disable the device in IoT Hub. For more information, see [Disable or delete a device](../iot-hub/create-connect-device.md#disable-or-delete-a-device).
 
 ## Related content
 
@@ -89,6 +89,6 @@ To remove access for a device that uses an X.509 operational certificate without
 - [Certificate revocation and policy management concepts](concepts-certificate-policy-management.md)
 - [Key concepts for certificate management](iot-hub-certificate-management-concepts.md)
 - [What is certificate management (preview)?](iot-hub-certificate-management-overview.md)
-- [Device twins in Azure IoT Hub](iot-hub-devguide-device-twins.md)
-- [Deploy Azure IoT Hub with ADR integration and certificate management](iot-hub-device-registry-setup.md)
+- [Device twins in Azure IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md)
+- [Deploy Azure IoT Hub with ADR integration and certificate management](../iot-hub/iot-hub-device-registry-setup.md)
 

@@ -14,9 +14,9 @@ ms.date: 04/14/2026
 
 # Configure a credential in Azure Device Registry (preview)
 
-When you enable [Microsoft-backed X.509 certificate management](iot-hub-certificate-management-overview.md) in your [Azure Device Registry (ADR)](iot-hub-device-registry-overview.md) namespace, you create a single credential resource within that ADR namespace. A credential manages one unique root CA within your own cloud PKI.
+When you enable [Microsoft-backed X.509 certificate management](iot-hub-certificate-management-overview.md) in your [Azure Device Registry (ADR)](../iot-hub/iot-hub-device-registry-overview.md) namespace, you create a single credential resource within that ADR namespace. A credential manages one unique root CA within your own cloud PKI.
 
-[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
+[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
 
 Microsoft manages the PKI and root CA for your ADR namespace, so you don't need on-premises PKI infrastructure.
 
@@ -33,13 +33,13 @@ You can configure a root CA credential in your ADR namespace by using the Azure 
 # [Azure portal](#tab/portal)
 
 - An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An existing Azure Device Registry namespace. For setup instructions, see [Deploy Azure IoT Hub with ADR integration and certificate management](iot-hub-device-registry-setup.md).
+- An existing Azure Device Registry namespace. For setup instructions, see [Deploy Azure IoT Hub with ADR integration and certificate management](../iot-hub/iot-hub-device-registry-setup.md).
 - Ensure that you have the privilege to perform role assignments within your target ADR namespace scope. Performing role assignments in Azure requires a [privileged role](../role-based-access-control/built-in-roles.md#privileged), such as Owner or User Access Administrator at the appropriate scope.
 
 # [Azure CLI](#tab/cli)
 
 - An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An existing Azure Device Registry namespace. For setup instructions, see [Deploy Azure IoT Hub with ADR integration](iot-hub-device-registry-setup.md).
+- An existing Azure Device Registry namespace. For setup instructions, see [Deploy Azure IoT Hub with ADR integration](../iot-hub/iot-hub-device-registry-setup.md).
 - Ensure that you have the privilege to perform role assignments within your target ADR namespace scope. Performing role assignments in Azure requires a [privileged role](../role-based-access-control/built-in-roles.md#privileged), such as Owner or User Access Administrator at the appropriate scope.
 - [Azure CLI](/cli/azure/install-azure-cli) installed on your machine.
 
@@ -140,12 +140,12 @@ You can now create issuing CAs (policies) with either a [Microsoft-issued certif
 
 After you configure your root CA credential, you can:
 
-- [Create issuing CA policies](iot-hub-device-registry-overview.md) within your namespace to issue X.509 certificates for your IoT devices
-- [Link an IoT hub to your ADR namespace](iot-hub-device-registry-setup.md) to enable certificate-based authentication for your devices
+- [Create issuing CA policies](../iot-hub/iot-hub-device-registry-overview.md) within your namespace to issue X.509 certificates for your IoT devices
+- [Link an IoT hub to your ADR namespace](../iot-hub/iot-hub-device-registry-setup.md) to enable certificate-based authentication for your devices
 - [Set up Device Provisioning Service](../iot-dps/quick-setup-auto-provision.md) enrollments to provision devices with issued certificates
 
 For more information about certificate management and the complete workflow, see:
 
-- [Integration with Azure Device Registry](iot-hub-device-registry-overview.md)
+- [Integration with Azure Device Registry](../iot-hub/iot-hub-device-registry-overview.md)
 - [Key concepts for certificate management](iot-hub-certificate-management-concepts.md)
 - [What is X.509 certificate management?](iot-hub-certificate-management-overview.md)
