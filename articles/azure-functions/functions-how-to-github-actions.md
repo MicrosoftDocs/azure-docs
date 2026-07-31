@@ -240,7 +240,58 @@ The best way to manually create a workflow configuration is to start from the of
     
     --- 
 
-1. Update the `env.AZURE_FUNCTIONAPP_NAME` parameter with the name of your function app resource in Azure. You might also need to update the parameter that sets the language version used by your app, such as `DOTNET_VERSION` for C#.
+1. In the template, update the `env:` variables for your project. Every template requires `AZURE_FUNCTIONAPP_NAME`. The other variables depend on your language:
+
+    ### [.NET](#tab/dotnet)
+
+    | Variable | Required | Description |
+    | ---- | :-: | ---- |
+    | `AZURE_FUNCTIONAPP_NAME` | Yes | Your function app name in Azure |
+    | `DOTNET_VERSION` | Yes | The .NET version of your project (for example, `10.0.x`) |
+    | `AZURE_FUNCTIONAPP_PROJECT_PATH` | No | Path to your project folder. Default: `.` (repository root) |
+
+    ### [Java](#tab/java)
+
+    | Variable | Required | Description |
+    | ---- | :-: | ---- |
+    | `AZURE_FUNCTIONAPP_NAME` | Yes | Your function app name in Azure. Must match `functionAppName` in pom.xml. |
+    | `JAVA_VERSION` | Yes | The Java version of your project (for example, `21`) |
+    | `POM_XML_DIRECTORY` | No | Path to the directory containing pom.xml. Default: `.` (repository root) |
+
+    ### [JavaScript](#tab/javascript)
+
+    | Variable | Required | Description |
+    | ---- | :-: | ---- |
+    | `AZURE_FUNCTIONAPP_NAME` | Yes | Your function app name in Azure |
+    | `NODE_VERSION` | Yes | The Node.js version of your project (for example, `22`) |
+    | `AZURE_FUNCTIONAPP_PROJECT_PATH` | No | Path to your project folder. Default: `.` (repository root) |
+
+    ### [Python](#tab/python)
+
+    | Variable | Required | Description |
+    | ---- | :-: | ---- |
+    | `AZURE_FUNCTIONAPP_NAME` | Yes | Your function app name in Azure |
+    | `PYTHON_VERSION` | Yes | The Python version of your project (for example, `3.13.x`) |
+    | `AZURE_FUNCTIONAPP_PROJECT_PATH` | No | Path to your project folder. Default: `.` (repository root) |
+
+    ### [PowerShell](#tab/powershell)
+
+    | Variable | Required | Description |
+    | ---- | :-: | ---- |
+    | `AZURE_FUNCTIONAPP_NAME` | Yes | Your function app name in Azure |
+    | `AZURE_FUNCTIONAPP_PROJECT_PATH` | No | Path to your project folder. Default: `.` (repository root) |
+
+    ### [Container](#tab/container)
+
+    | Variable | Required | Description |
+    | ---- | :-: | ---- |
+    | `AZURE_FUNCTIONAPP_NAME` | Yes | Your function app name in Azure |
+    | `REGISTRY` | Yes | Your container registry login server (for example, `contoso.azurecr.io`) |
+    | `NAMESPACE` | Yes | The namespace/repository in your registry |
+    | `IMAGE` | Yes | The container image name |
+    | `TAG` | Yes | The image tag (for example, `${{ github.sha }}`) |
+
+    ---
 
 1. The OIDC templates already include the `azure/login` step with OIDC authentication. Verify that the `secrets.AZURE_CLIENT_ID`, `secrets.AZURE_TENANT_ID`, and `secrets.AZURE_SUBSCRIPTION_ID` references match the [repository secrets you created](#add-credentials-to-github).
 
