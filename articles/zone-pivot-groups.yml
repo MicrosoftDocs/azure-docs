@@ -1709,11 +1709,11 @@ groups:
   prompt: Choose how to create the workflow configuration
   pivots:
   - id: method-manual
-    title: Manual
+    title: Workflow template
   - id: method-portal
     title: Azure portal
   - id: method-template
-    title: GitHub Actions template
+    title: GitHub marketplace
 - id: azure-virtual-network-manager-quickstart-options
   title: Azure Virtual Network Manager Quickstart Scope Options
   prompt: Choose a scope option

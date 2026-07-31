@@ -29,9 +29,9 @@ Choose a method for creating your workflow file using the selector at the top of
 
 | Method | Best for | OIDC support |
 | ---- | ---- | ---- |
-| **Manual** | Full control: copy an OIDC-ready template and customize it | Requires configuration |
+| **Workflow template** | Full control: copy an OIDC-ready template and customize it | Requires configuration |
 | **Azure portal** | Easiest setup: portal can create the identity, credentials, and workflow file for you | Configured for you |
-| **GitHub Actions template** | GitHub-first: start from GitHub's built-in marketplace templates | Requires configuration and template modification |
+| **GitHub marketplace** | GitHub-first: start from GitHub's built-in marketplace templates | Requires configuration and template modification |
 
 ## Authentication overview
 
