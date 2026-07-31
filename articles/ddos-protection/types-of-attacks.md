@@ -9,9 +9,9 @@ ms.date: 03/17/2026
 ms.author: duau
 # Customer intent: As a network security administrator, I want to understand the types of attacks mitigated by DDoS protection, so that I can implement appropriate defenses to safeguard my network and ensure service availability.
 ---
-# Types of attacks Azure DDoS Protection mitigate
+# Types of attacks Azure DDoS Protection mitigates
 
-Azure DDoS Protection can mitigate the following types of attacks:
+Azure DDoS Protection mitigates network-layer (Layer 3 and Layer 4) attacks. Application-layer (Layer 7) attacks require a web application firewall (WAF) used alongside DDoS Protection. The following sections describe common attack types and, where a WAF is required, how to combine the two:
 
 - **Volumetric attacks**: These attacks flood the network layer with a substantial amount of seemingly legitimate traffic. They include UDP floods, amplification floods, and other spoofed-packet floods. DDoS Protection mitigates these potential multi-gigabyte attacks by absorbing and scrubbing them, with Azure's global network scale, automatically. Common attack types are listed in the following table.
 
