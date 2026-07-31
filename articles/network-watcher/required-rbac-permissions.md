@@ -1,7 +1,7 @@
 ---
 title: Azure RBAC Permissions
 titleSuffix: Azure Network Watcher
-description: Learn about the required Azure role-based access control (Azure RBAC) permissions to have in order to use each of the Azure Network Watcher capabilities.
+description: Learn which Azure role-based access control (Azure RBAC) permissions you need to use Network Watcher and its capabilities.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
@@ -11,7 +11,7 @@ ms.date: 07/30/2026
 # Customer intent: As an Azure administrator, I want to understand the Azure RBAC permissions required for Network Watcher capabilities, so that I can effectively manage user access and ensure they can utilize the features needed for their roles.
 ---
 
-# Azure role-based access control permissions required to use Network Watcher
+# Azure RBAC permissions for Network Watcher
 
 Azure role-based access control (Azure RBAC) enables you to assign only the specific actions to members of your organization that they require to complete their assigned responsibilities.
 
@@ -178,5 +178,4 @@ Some Network Watcher capabilities require the following actions:
 ## Related content
 
 - [What is Network Watcher?](network-watcher-overview.md)
-
 - [Network Watcher frequently asked questions (FAQ)](frequently-asked-questions.yml)
