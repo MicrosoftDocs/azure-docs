@@ -1,27 +1,27 @@
 ---
 title: Azure RBAC Permissions
 titleSuffix: Azure Network Watcher
-description: Learn about the required Azure role-based access control (Azure RBAC) permissions to have in order to use each of the Azure Network Watcher capabilities.
+description: Learn which Azure role-based access control (Azure RBAC) permissions you need to use Network Watcher and its capabilities.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 06/24/2025
+ms.date: 07/30/2026
 
-# Customer intent: As an Azure administrator, I want to understand the Azure RBAC permissions required for Network Watcher capabilities, so that I can effectively manage user access and ensure they can utilize the features needed for their roles.
+# Customer intent: As an Azure administrator, I want to identify the Azure RBAC permissions required for each Network Watcher capability so that I can grant users only the access they need.
 ---
 
-# Azure role-based access control permissions required to use Network Watcher
+# Azure RBAC permissions for Network Watcher
 
 Azure role-based access control (Azure RBAC) enables you to assign only the specific actions to members of your organization that they require to complete their assigned responsibilities.
 
-To use Azure Network Watcher capabilities, the account you log into Azure with, must be assigned to the [Owner](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#owner), [Contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#contributor), or [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) built-in roles, or assigned to a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) that includes the actions listed for the Network Watcher capability that you want to use.
+To use Azure Network Watcher capabilities, the account you log into Azure with must be assigned to the [Owner](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#owner), [Contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#contributor), or [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) built-in roles, or assigned to a [custom role](../role-based-access-control/custom-roles.md?toc=/azure/network-watcher/toc.json) that includes the actions listed for the Network Watcher capability that you want to use.
 
 > [!IMPORTANT]
 > [Network contributor](../role-based-access-control/built-in-roles.md?toc=/azure/network-watcher/toc.json#network-contributor) doesn't include the following actions:
 > - Microsoft.Storage/* actions listed in [Additional actions](#additional-actions) or [Flow logs](#flow-logs) section.
 > - Microsoft.Compute/* actions listed in [Additional actions](#additional-actions) section.
-> - Microsoft.OperationalInsights/workspaces/\*, Microsoft.Insights/dataCollectionRules/* or Microsoft.Insights/dataCollectionEndpoints/* actions listed in [Traffic analytics](#traffic-analytics) section.
+> - Microsoft.OperationalInsights/workspaces/\*, Microsoft.Insights/dataCollectionRules/\*, or Microsoft.Insights/dataCollectionEndpoints/* actions listed in [Traffic analytics](#traffic-analytics) section.
 
 To learn how to check roles assigned to a user for a subscription, see [List Azure role assignments using the Azure portal](/azure/role-based-access-control/role-assignments-list-portal?toc=/azure/network-watcher/toc.json). If you can't see the role assignments, contact the respective subscription admin.
 
@@ -54,18 +54,18 @@ The following sections list the minimum required permissions to use Network Watc
 > | Action | Description |
 > | ---- | ---- |
 > | Microsoft.Network/networkWatchers/flowLogs/read | Get flow log details |
-> | Microsoft.Network/networkWatchers/flowLogs/write | Creates a flow log |
-> | Microsoft.Network/networkWatchers/flowLogs/delete | Deletes a flow log |
-> | Microsoft.Network/networkWatchers/configureFlowLog/action | Configure a flow Log |
+> | Microsoft.Network/networkWatchers/flowLogs/write | Create a flow log |
+> | Microsoft.Network/networkWatchers/flowLogs/delete | Delete a flow log |
+> | Microsoft.Network/networkWatchers/configureFlowLog/action | Configure a flow log |
 > | Microsoft.Network/networkWatchers/queryFlowLogStatus/action | Query status for a flow log |
-> | Microsoft.Network/networkSecurityGroups/write <sup>1</sup> | Creates a network security group or updates an existing network security group |
-Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action | Fetch shared access signatures (SAS) enabling [secure access to storage account](../storage/common/storage-sas-overview.md?toc=/azure/network-watcher/toc.json) and write to the storage account |
+> | Microsoft.Network/networkSecurityGroups/write <sup>1</sup> | Create or update a network security group |
+> | Microsoft.Storage/storageAccounts/listServiceSas/Action, <br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action | Fetch shared access signatures (SAS) that enable [secure access to storage account](../storage/common/storage-sas-overview.md?toc=/azure/network-watcher/toc.json) and write to the storage account |
 
 <sup>1</sup> Only required with NSG flow logs.
 
 ## Traffic analytics
 
-Since traffic analytics is enabled as part of the flow log resource, the following permissions are required in addition to all the required permissions for [Flow logs](#flow-logs):
+Because enabling traffic analytics is part of the flow log resource, you need the following permissions in addition to all the required permissions for [Flow logs](#flow-logs):
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |
@@ -97,7 +97,7 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 [!INCLUDE [Traffic analytics resources](../../includes/network-watcher-traffic-analytics-resources.md)]
 
 > [!IMPORTANT]
-> [Management group](../governance/management-groups/overview.md?toc=/azure/network-watcher/toc.json) inherited permissions are currently not supported for enabling traffic analytics.
+> [Management group](../governance/management-groups/overview.md?toc=/azure/network-watcher/toc.json) inherited permissions aren't currently supported for enabling traffic analytics.
 
 ## Connection troubleshoot
 
@@ -132,7 +132,7 @@ Since traffic analytics is enabled as part of the flow log resource, the followi
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | ---- | ---- |
-> | Microsoft.Network/networkWatchers/nextHop/action, <br> Microsoft.Network/networkWatchers/nextHop/read | For a specified target and destination IP address, return the next hop type and next hope IP address |
+> | Microsoft.Network/networkWatchers/nextHop/action, <br> Microsoft.Network/networkWatchers/nextHop/read | For a specified target and destination IP address, return the next hop type and next hop IP address |
 > | Microsoft.Compute/virtualMachines/read | Get the properties of a virtual machine |
 > | Microsoft.Network/networkInterfaces/read | Get a network interface definition |
 
@@ -167,16 +167,15 @@ Some Network Watcher capabilities require the following actions:
 > | Microsoft.Authorization/\*/Read | Fetch Azure role assignments and policy definitions |
 > | Microsoft.Resources/subscriptions/resourceGroups/Read | Enumerate all the resource groups in a subscription |
 > | Microsoft.Storage/storageAccounts/Read | Get the properties for the specified storage account |
-> | Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action | Fetch shared access signatures (SAS) enabling [secure access to storage account](../storage/common/storage-sas-overview.md?toc=/azure/network-watcher/toc.json) and write to the storage account |
-> | Microsoft.Compute/virtualMachines/Read, </br> Microsoft.Compute/virtualMachines/Write| Log in to the VM, do a packet capture and upload it to storage account |
-> | Microsoft.Compute/virtualMachines/extensions/Read, </br> Microsoft.Compute/virtualMachines/extensions/Write | Check if Network Watcher extension is present, and install if necessary |
-> | Microsoft.Compute/virtualMachineScaleSets/Read, </br> Microsoft.Compute/virtualMachineScaleSets/Write | Access virtual machine scale sets, do packet captures and upload them to storage account |
-> | Microsoft.Compute/virtualMachineScaleSets/extensions/Read, </br> Microsoft.Compute/virtualMachineScaleSets/extensions/Write| Check if Network Watcher extension is present, and install if necessary |
+> | Microsoft.Storage/storageAccounts/listServiceSas/Action, <br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action | Fetch shared access signatures (SAS) enabling [secure access to storage account](../storage/common/storage-sas-overview.md?toc=/azure/network-watcher/toc.json) and write to the storage account |
+> | Microsoft.Compute/virtualMachines/Read, <br> Microsoft.Compute/virtualMachines/Write | Log in to the VM, do a packet capture, and upload it to storage account |
+> | Microsoft.Compute/virtualMachines/extensions/Read, <br> Microsoft.Compute/virtualMachines/extensions/Write | Check if Network Watcher extension is present, and install if necessary |
+> | Microsoft.Compute/virtualMachineScaleSets/Read, <br> Microsoft.Compute/virtualMachineScaleSets/Write | Access virtual machine scale sets, do packet captures, and upload them to storage account |
+> | Microsoft.Compute/virtualMachineScaleSets/extensions/Read, <br> Microsoft.Compute/virtualMachineScaleSets/extensions/Write | Check if Network Watcher extension is present, and install if necessary |
 > | Microsoft.Insights/alertRules/* | Set up metric alerts |
 > | Microsoft.Support/* | Create and update support tickets from Network Watcher |
 
 ## Related content
 
 - [What is Network Watcher?](network-watcher-overview.md)
-
 - [Network Watcher frequently asked questions (FAQ)](frequently-asked-questions.yml)
