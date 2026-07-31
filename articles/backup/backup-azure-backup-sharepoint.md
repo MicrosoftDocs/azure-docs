@@ -1,21 +1,21 @@
 ---
-title: Back up and restore a SharePoint farm to Azure with DPM
-description: Learn how to back up a SharePoint farm and restore SharePoint content databases from Azure recovery points by using System Center Data Protection Manager (DPM).
+title: Back up a SharePoint farm to Azure with DPM
+description: This article provides an overview of DPM/Azure Backup server protection of a SharePoint farm to Azure
 ms.topic: how-to
-ms.date: 06/24/2026
+ms.date: 07/15/2025
 ms.service: azure-backup
-ms.custom: engagement-fy23, seo-fy26
+ms.custom: engagement-fy23
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a SharePoint administrator, I want to back up my SharePoint farm to Azure using a data protection solution, so that I can ensure long-term retention and quick recovery of my critical data.
 ---
 
-# Back up and restore a SharePoint farm to Azure by using Data Protection Manager
+# Back up a SharePoint farm to Azure with Data Protection Manager
 
 
-This article describes how to back up and restore SharePoint data by using System Center Data Protection Manager (DPM). The process for backing up SharePoint to Azure by using DPM is similar to backing up SharePoint to a local DPM server.
+This article describes how to back up and restore SharePoint data using System Center Data Protection Manager (DPM). The backup operation of SharePoint to Azure with DPM is similar to SharePoint backup to DPM locally.
 
-System Center Data Protection Manager (DPM) enables you to back up a SharePoint farm to Microsoft Azure. Azure Backup lets you schedule daily, weekly, monthly, or yearly recovery points and configure separate retention settings for each backup frequency. DPM stores local disk copies for quick recovery time objectives (RTOs) and stores Azure copies for long-term retention.
+System Center Data Protection Manager (DPM) enables you back up a SharePoint farm to Microsoft Azure, which gives an experience similar to back up of other data sources. Azure Backup provides flexibility in the backup schedule to create daily, weekly, monthly, or yearly backup points, and gives you retention policy options for various backup points. DPM provides the capability to store local disk copies for quick recovery-time objectives (RTO) and to store copies to Azure for economical, long-term retention.
 
 [!INCLUDE [The functionality of Azure Backup trim process.](../../includes/backup-trim-process-notification.md)]
 
@@ -33,32 +33,13 @@ For other prerequisites and limitations, see [Back up SharePoint with DPM](/syst
 
 To back up the SharePoint farm, configure protection for SharePoint using *ConfigureSharePoint.exe*, and then create a protection group in DPM. See the DPM documentation to learn [how to configure backup](/system-center/dpm/back-up-sharepoint#configure-backup).
 
-Use this sequence to configure protection:
-
-1. Run *ConfigureSharePoint.exe* on the DPM server to prepare SharePoint for protection.
-1. Create or update a DPM protection group that includes the SharePoint farm and content databases.
-1. Configure backup schedules and retention ranges for local disk recovery points and Azure recovery points.
-1. Run the initial consistency check and first backup job.
-
-To verify that configuration succeeded, open the DPM console and confirm that the SharePoint data source state is **OK** and that recovery points are created for both disk and Azure storage.
-
 ## Monitor operations
 
 To monitor the backup job, see [Monitoring DPM backup](/system-center/dpm/back-up-sharepoint#monitoring).
 
-Monitor these items after each backup cycle:
-
-1. Job completion state in the DPM **Monitoring** workspace.
-1. Alert history for protection group failures or catalog issues.
-1. Recovery point availability for the expected schedule.
-
-If jobs fail, resolve active alerts first, rerun the job, and verify that a new recovery point appears.
-
 ## Restore SharePoint data
 
 To learn how to restore a SharePoint item from a disk with DPM, see [Restore SharePoint data](/system-center/dpm/back-up-sharepoint#restore-sharepoint-data).
-
-For fast recovery from local storage, use disk recovery points when possible. Use Azure recovery points when you need long-term retention or when local recovery points aren't available.
 
 ## Restore a SharePoint database from Azure using DPM
 
@@ -89,22 +70,9 @@ To recover a SharePoint content database, follow these steps:
     ![Screenshot showing how to recover a SharePoint database from Azure.](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. To recover a SharePoint content database from disk, see [this section](#restore-sharepoint-data).
 
-To verify that the restore succeeded, open SharePoint and confirm that the recovered content database mounts successfully and that users can access site content.
-
 ## Switch the Front-End Web Server
 
 If you've more than one front-end web server, and want to switch the server that DPM uses to protect the farm, see [Switching the Front-End Web Server](/system-center/dpm/back-up-sharepoint#switching-the-front-end-web-server).
-
-## Troubleshoot SharePoint backup and restore with DPM
-
-Use this checklist for common restore and cataloging issues:
-
-1. **Re-catalog is unavailable or fails**: Verify connectivity between DPM and Azure, and then retry cataloging from the same recovery point.
-1. **SharePoint catalog data is missing**: Run **Re-catalog** again and wait for completion before selecting database items for recovery.
-1. **Recovery job fails with access errors**: Verify that DPM and SharePoint service accounts still have required farm and SQL permissions.
-1. **Recovery points are older than expected**: Review protection group schedules and retention settings for both disk and Azure copies.
-
-If you still can't restore data, review [Troubleshoot System Center Data Protection Manager](backup-azure-scdpm-troubleshooting.md).
 
 ## Next steps
 
