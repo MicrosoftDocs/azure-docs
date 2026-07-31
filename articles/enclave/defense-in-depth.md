@@ -4,6 +4,7 @@ description: Azure Enclave Defense in depth.
 author: jadean-msft
 ms.author: jadean
 ms.topic: overview
+ms.service: azure-enclave
 ms.date: 9/30/2025
 ---
 
