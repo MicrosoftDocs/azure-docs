@@ -63,12 +63,12 @@ The following Linux and FreeBSD distributions from Azure Marketplace support Acc
 - Azure Linux 3
 - Ubuntu 24.04 LTS
 - Ubuntu 22.04 LTS
-- Red Hat Enterprise Linux 10.0
-- Red Hat Enterprise Linux 9.6
+- Red Hat Enterprise Linux 10.1
+- Red Hat Enterprise Linux 9.7
 - Red Hat Enterprise Linux 8.10 (Technical Preview Only)
-- AlmaLinux 10.0
-- AlmaLinux 9.6
-- Rocky Linux 10.0
+- AlmaLinux 10.1
+- AlmaLinux 9.7
+- Rocky Linux 10.1
 - Rocky Linux 9.7
 - SUSE Linux Enterprise Server 16
 - SUSE Linux Enterprise Server 15 SP7
@@ -76,7 +76,6 @@ The following Linux and FreeBSD distributions from Azure Marketplace support Acc
 - Debian 13 "Trixie"
 - Debian 12 "Bookworm"
 - Oracle Linux UEK R8
-- Oracle Linux UEK R7
 
 For users of non endorsed Linux distributions or utilizing custom kernels, we recommend the Linux Kernel 6.14 or later found at [kernel.org](https://www.kernel.org/)
 
