@@ -14,7 +14,7 @@ ms.author: duau
 
 The ExpressRoute partner circuit placement API allows ExpressRoute partners to provision circuit connectivity on a specific port pair. Specifically, if an ExpressRoute partner manages multiple port pairs at one peering location, they can use this API to select which port pair will facilitate the ExpressRoute circuit.
 
-This API uses the expressRouteCrossConnection resource type. For more information, see [ExpressRoute CrossConnection API development and integration](cross-connections-api-development.md).
+This API uses the expressRouteCrossConnections resource type. For more information, see [ExpressRoute CrossConnection API development and integration](cross-connections-api-development.md).
 
 ## Register provider subscription to the expressRouteProviderPort resource type
 To use the circuit placement API, you first need to enroll your subscription to access the port resource type.
