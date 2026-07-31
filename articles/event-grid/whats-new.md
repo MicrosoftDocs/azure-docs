@@ -2,14 +2,24 @@
 title: What's New? Azure Event Grid
 description: Learn what's new with Azure Event Grid, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 ms.topic: overview
-ms.date: 05/07/2026
+ms.date: 05/14/2026
 ms.custom:
   - build-2025
 ---
 
 # What's new in Azure Event Grid?
 
-Azure Event Grid receives improvements on an ongoing basis. To stay up to date with the most recent developments, this article provides you with information about the features that are added or updated in a release.
+Azure Event Grid is updated regularly with new features and improvements. To stay up to date with the most recent developments, this article provides information about the features that are added or updated in each release.
+
+## July 2026
+
+### Autoscale for Event Grid namespaces (preview)
+
+Azure Event Grid namespaces now support autoscale, which automatically adjusts Throughput Units (TUs) based on real-time workload utilization. You enable autoscale on the namespace and specify minimum and maximum TU limits. Event Grid continuously monitors the Autoscale metrics, and adjusts the namespace capacity within your configured bounds. You don't need to configure any manual scaling rules or thresholds.
+
+Autoscale is available for Event Grid namespaces in the **Standard** tier.
+
+For more information, see the [Autoscale overview](namespace-autoscale-overview.md) and the [how-to guide for enabling Autoscale](namespace-enable-autoscale.md).
 
 ## April 2026
 
@@ -53,7 +63,7 @@ The following features of Event Grid namespaces moved from public preview to GA:
 The following features are released in preview:
 
 - [Network security perimeter support for inbound and outbound communication in Event Grid topics and domains](configure-network-security-perimeter.md)
-- [Managed identity support for webhook delivery](deliver-events-using-managed-identity.md#deliver-events-to-webhooks-using-managed-identity)
+- [Managed identity support for webhook delivery](deliver-events-using-managed-identity.md#deliver-events-to-webhooks-by-using-managed-identity)
 - [Cross-tenant delivery in the Basic tier](cross-tenant-delivery-using-managed-identity.md):
     - Webhooks
     - Namespace topics
@@ -111,7 +121,7 @@ The following features of Event Grid namespaces are released as public preview f
 
 ## May 2023
 
-The following features are released as public preview features:
+The following features are available as public preview features:
 
 - Pull-style event consumption by using HTTP
 - MQTT v3.1.1 and v5.0 support

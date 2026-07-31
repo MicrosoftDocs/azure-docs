@@ -94,7 +94,7 @@ The current IPv6 for Azure Virtual Network release has the following limitations
 
 - IPv6-only Virtual Machines or Virtual Machines Scale Sets aren't supported. Each NIC must include at least one IPv4 IP configuration. 
 
-- To add IPv6 to existing IPv4 deployments, you can't add IPv6 ranges to a virtual network that has existing resource in use.
+- To add IPv6 to existing IPv4 deployments, you can't add IPv6 ranges to a virtual network that has existing resource navigation links.
 
 - While it's possible to create NSG rules for IPv4 and IPv6 within the same NSG, it isn't currently possible to combine an IPv4 subnet with an IPv6 subnet in the same rule when specifying IP prefixes.
 

@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 07/29/2026
 ms.custom: template-concept, engagement-fy23
 ---
 
@@ -14,6 +14,9 @@ ms.custom: template-concept, engagement-fy23
 In this article, you learn how to use Azure Policy conditional statements to create network groups with dynamic membership. You create these conditional statements using the basic editor by selecting parameters and operators from a drop-down menu. Also, you learn how to use the advanced editor to update conditional statements of an existing network group.
 
 [Azure Policy](../governance/policy/overview.md) is a service to enable you to enforce per-resource governance at scale. It can be used to specify conditional expressions that define group membership, as opposed to explicit lists of virtual networks. This condition continues to power your network groups dynamically, allowing virtual networks to join and leave the group automatically as their fulfillment of the condition changes, with no Network Manager operation required.
+
+> [!NOTE]
+> Conditional network group membership timing depends on the Azure Policy assignment scope. For scopes of fewer than 1,000 subscriptions, membership updates can take a few minutes. In environments with more than 1,000 subscriptions, Azure Policy can take up to 24 hours to notify the network group. After notification, active configurations apply to updated members in a few minutes. For more information, see [Deployment latency and timing](concept-deployments.md#deployment-latency-and-timing).
 
 ## Prerequisites
 
@@ -79,7 +82,7 @@ You only want to select virtual networks that whose tag has a key value pair of 
     :::image type="content" source="media/how-to-define-network-group-membership-azure-policy/add-key-value-pair-tag.png" alt-text="Screenshot of Create Azure Policy window setting tag with key value pair.":::
 
 1. Select **Close** and **Save**. 
-1. After a few minutes, select your network group and select **Group Members** under **Settings**. You should only see myVNet01-WestUS and myVNet01-WestUS.
+1. After a few minutes, select your network group and select **Group Members** under **Settings**. You should only see myVNet01-EastUS and myVNet01-WestUS.
 
 > [!IMPORTANT] 
 > The **basic editor** is only available during the creation of an Azure Policy. Once a policy is created, all edits will be done using JSON in the **Policies** section of virtual network manager or via Azure Policy.

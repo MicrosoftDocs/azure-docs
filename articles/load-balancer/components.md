@@ -55,7 +55,7 @@ You can define the unhealthy threshold for your health probes. When a probe fail
 
 Load balancer provides different health probe types for endpoints: TCP, HTTP, and HTTPS. [Learn more about Load Balancer Health probes](load-balancer-custom-probe-overview.md).
 
-Basic load balancer doesn't support HTTPS probes. Basic load balancer closes all TCP connections (including established connections).
+Basic load balancer doesn't support HTTPS probes. When all probes are down, Basic load balancer closes all TCP connections (including established connections).
 
 ## Load Balancer rules
 
@@ -114,7 +114,7 @@ Basic load balancer doesn't support outbound rules.
 ## Limitations
 
 - Learn about load balancer [limits](../azure-resource-manager/management/azure-subscription-service-limits.md) 
-- Load balancer provides load balancing and port forwarding for specific TCP or UDP protocols. Load-balancing rules and inbound NAT rules support TCP and UDP, but not other IP protocols including ICMP.
+- Load balancer provides load balancing and port forwarding for specific TCP or UDP protocols. Load-balancing rules and inbound NAT rules support TCP and UDP only, with the exception of internal load balancer HA Ports. HA ports support TCP, UDP, and ICMP protocols.
 - Load Balancer backend pool can't consist of a [Private Endpoint](../private-link/private-endpoint-overview.md).
 - Outbound flow from a backend VM to a frontend of an internal Load Balancer will fail.
 - A load balancer rule can't span two virtual networks. All load balancer frontends and their backend instances must be in a single virtual network. 

@@ -325,6 +325,9 @@
         "articles/communications-gateway/**/*.md": "rothja",
         "articles/communications-gateway/**/*.yml": "rothja",
         "articles/connectors/*.md": "ecfan",
+        "articles/connector-namespace/*.md": "ecfan",
+        "articles/connector-namespace/*.yml": "ecfan",
+        "articles/connector-namespace/**/*.md": "ecfan",
         "articles/container-registry/**/*.md": "tejaswikolli-web",
         "articles/cyclecloud/**/*.md": "adriankjohnson",
         "articles/cyclecloud/**/*.yml": "adriankjohnson",
@@ -1990,7 +1993,8 @@
           "articles/site-recovery/**/*.md",
           "articles/virtual-network/accelerated-networking-how-it-works.md",
           "articles/vmware-cloudsimple/on-premises-dns-setup.md",
-          "articles/sentinel/includes/sentinel-tables-connectors.md"
+          "articles/sentinel/includes/sentinel-tables-connectors.md",
+          "articles/redis/monitor-cache-reference.md"
         ]
       },
       "sensitive-language-bl": {

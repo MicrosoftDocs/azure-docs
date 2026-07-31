@@ -2,12 +2,12 @@
 title: Copy data from ServiceNow V1
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from ServiceNow V1 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 06/22/2026
-ms.update-cycle: 1095
+ms.update-cycle: 1095-days
 ms.custom:
   - synapse
   - sfi-image-nochange

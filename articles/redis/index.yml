@@ -54,6 +54,8 @@ landingContent:
         links:
           - text: Use Redis as a semantic cache
             url: tutorial-semantic-cache.md
+          - text: Use Redis for semantic routing
+            url: tutorial-semantic-router.md
           - text: Use Spring Boot Initializer
             url: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
   - title: Azure Managed Redis Fundamentals
@@ -119,4 +121,3 @@ landingContent:
         links:
           - text: What is Azure Cache for Redis?
             url: /azure/azure-cache-for-redis/cache-overview
-

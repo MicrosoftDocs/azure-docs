@@ -2,13 +2,13 @@
 title: Copy data from SAP Business Warehouse via Open Hub
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SAP Business Warehouse (BW) via Open Hub to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
-author: jianleishen
+author: simplywilson
 ms.author: ulrichchrist
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: synapse
 ms.date: 06/22/2026
-ms.update-cycle: 1095
+ms.update-cycle: 1095-days
 ---
 
 # Copy data from SAP Business Warehouse via Open Hub using Azure Data Factory or Synapse Analytics

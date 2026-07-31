@@ -44,10 +44,6 @@ Cloud Shell restarts the session and takes you through the first time user exper
 
 [![Screenshot of the Settings menu.][07i]][07x]
 
-When you select **Go to Classic version**, Cloud Shell restarts your session in the Classic user
-experience. For a description of the Classic user experience, see
-[Using the Azure Cloud Shell window][13].
-
 ## Manage files menu
 
 The **Manage files** menu contains items to **Upload** or **Download** files. The **Open file
@@ -216,5 +212,4 @@ The Cloud Shell terminal has the following keyboard shortcuts available when the
 [12i]: media/use-the-shell-window-new/editor.png
 [12x]: media/use-the-shell-window-new/editor.png#lightbox
 [12]: using-cloud-shell-editor.md
-[13]: using-the-shell-window.md
 [14]: https://code.visualstudio.com/docs/azure/vscodeforweb

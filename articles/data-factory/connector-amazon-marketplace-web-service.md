@@ -4,8 +4,8 @@ description: Learn how to copy data from Amazon Marketplace Web Service to suppo
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.subservice: data-movement
 ms.topic: archived
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.date: 07/12/2024
 ms.custom:
   - synapse

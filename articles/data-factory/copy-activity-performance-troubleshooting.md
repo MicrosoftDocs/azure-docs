@@ -2,8 +2,8 @@
 title: Troubleshoot copy activity performance
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to troubleshoot copy activity performance in Azure Data Factory and Azure Synapse Analytics.
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: troubleshooting-general
 ms.custom: synapse

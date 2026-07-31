@@ -1,12 +1,12 @@
 ---
 title: Data flow graphs overview
-description: Learn about data flow graphs in Azure IoT Operations, including built-in transforms for mapping, filtering, branching, windowing, and enrichment.
+description: Learn about data flow graphs in Azure IoT Operations, including built-in transforms for mapping, filtering, branching, windowing, throttling, and enrichment.
 author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: concept-article
-ms.date: 06/19/2026
+ms.date: 07/24/2026
 ai-usage: ai-assisted
 
 ---
@@ -27,7 +27,7 @@ Azure IoT Operations provides two ways to process data in a pipeline:
 | Capability | Data flows | Data flow graphs |
 |-----------|-----------|-----------------|
 | Pipeline shape | Fixed: enrich, filter, map | Flexible: any order, branching, merging |
-| Transform types | Map, filter, enrich | Map, filter, branch, concatenate, window, enrich |
+| Transform types | Map, filter, enrich | Map, filter, branch, concatenate, window, throttle, enrich |
 | Time-based aggregation | Not available | Window transforms with tumbling windows |
 | Conditional routing | Not available | Branch and concatenate transforms |
 | Endpoint support | All endpoint types | MQTT, Kafka, and OpenTelemetry only |
@@ -36,11 +36,14 @@ For new projects that use supported endpoint types, we recommend data flow graph
 
 ## Available transforms
 
-Each transform is a pre-built processing step that you configure with rules and chain with other transforms inside a `DataflowGraph` resource.
+Each transform is a prebuilt processing step that you configure with rules and chain with other transforms inside a `DataflowGraph` resource.
 
 [!INCLUDE [dataflow-graphs-built-in-transforms](../includes/dataflow-graphs-built-in-transforms.md)]
 
 All transforms share an [expression language](concept-dataflow-graphs-expressions.md) for operators, functions, and field references. You can also [enrich](howto-dataflow-graphs-enrich.md) messages with external data from a state store in map, filter, and branch transforms.
+
+> [!TIP]
+> Expressions use positional variables, so `$1` is the first input, `$2` is the second, and so on. Built-in functions like `cToF` are listed in the [Expressions reference](concept-dataflow-graphs-expressions.md), which covers every operator, function, and metadata field available to transforms.
 
 ## How transforms compose
 
@@ -52,7 +55,7 @@ You can chain any number of transforms in any order. A pipeline with a single ma
 
 ## How configuration works
 
-Each transform in a data flow graph references a pre-built artifact pulled from a container registry. You configure the transform by passing rules as JSON through the `configuration` section of the graph resource.
+Each transform in a data flow graph references a prebuilt artifact pulled from a container registry. You configure the transform by passing rules as JSON through the `configuration` section of the graph resource.
 
 A default registry endpoint named `default` pointing to `mcr.microsoft.com` is created automatically when you deploy Azure IoT Operations. The built-in transforms use this endpoint to pull artifacts from Microsoft Container Registry. No extra registry setup is needed.
 
@@ -180,7 +183,7 @@ In the how-to articles that follow, examples focus on the transform rules themse
 
 Data flow graphs support two kinds of transforms:
 
-- **Built-in transforms** are pre-built by Microsoft (map, filter, branch, concatenate, window). You configure them with rules. No coding required.
+- **Built-in transforms** are prebuilt by Microsoft (map, filter, branch, concatenate, window, throttle). You configure them with rules. No coding required.
 - **WASM transforms** are custom WebAssembly modules that developers build and deploy. Use them when you need logic that the built-in transforms don't cover.
 
 Both kinds of transforms run inside the same `DataflowGraph` resource and can be mixed in a single pipeline. For information on building and deploying custom transforms, see [Use WASM transforms in data flow graphs](howto-dataflow-graph-wasm.md).
@@ -200,7 +203,7 @@ To monitor for processing errors, check the pod logs for the data flow graph or 
 
 ## Scaling limitation for stateful graphs
 
-Data flow graphs that contain stateful transforms, such as [window](howto-dataflow-graphs-window.md), must run with a [data flow profile instance count](howto-configure-dataflow-profile.md#scaling) of **1**. When the instance count is greater than one, incoming messages are distributed across instances through [shared subscriptions](howto-configure-dataflow-source.md#shared-subscriptions). Because each instance maintains its own aggregation state and the instances don't communicate state with each other, each instance only sees a fraction of the messages. This causes aggregation results like averages, sums, and counts to be computed over incomplete data.
+Each instance of a stateful transform maintains its own state, and instances don't communicate that state with each other. When the instance count is greater than one, incoming messages are distributed across instances through [shared subscriptions](howto-configure-dataflow-source.md#shared-subscriptions). This distribution causes [window](howto-dataflow-graphs-window.md) results like averages, sums, and counts to be computed over incomplete data, so graphs with a window transform must use a [data flow profile instance count](howto-configure-dataflow-profile.md#scaling) of **1**. For a [throttle](howto-dataflow-graphs-throttle.md) transform, each instance enforces the configured rate independently. Use an instance count of **1** when the rate limit must apply across all messages in the graph.
 
 Stateless data flow graphs (those that use only map, filter, branch, and concat transforms) can safely use higher instance counts to increase throughput.
 
@@ -220,6 +223,7 @@ Each transform in the pipeline adds processing overhead. Keep these guidelines i
 - [Filter and route data](howto-dataflow-graphs-filter-route.md)
 - [Aggregate data over time](howto-dataflow-graphs-window.md)
 - [Enrich with external data](howto-dataflow-graphs-enrich.md)
+- [Throttle data](howto-dataflow-graphs-throttle.md)
 - [Expressions reference](concept-dataflow-graphs-expressions.md)
 - [Route messages to different topics](howto-dataflow-graphs-topic-routing.md)
 - [Expressions reference](concept-dataflow-graphs-expressions.md)

@@ -27,8 +27,8 @@
 - name: Tutorials
   expanded: false
   items:
-    - name: Use LiveTry to explore
-      href: quickstarts-livetry.md
+    - name: Use playground to explore
+      href: quickstarts-playground.md
     - name: Publish and subscribe messages
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app
@@ -172,6 +172,37 @@
           href: reference-rest-api-mqtt.md
         - name: Cross-protocol communication
           href: reference-mqtt-cross-protocol-communication.md
+- name: Chat (Preview)
+  expanded: false
+  items:
+    - name: Overview
+      href: chat-overview.md
+    - name: Quickstart and tutorial
+      items:
+        - name: Configure storage and enable Chat
+          href: chat-howto-enable-chat.md
+        - name: Quickstart
+          href: chat-quickstart.md
+        - name: Tutorial
+          href: chat-tutorial.md
+    - name: How-to guides
+      items:
+        - name: Authenticate and connect clients
+          href: chat-howto-authenticate.md
+        - name: Create and manage rooms
+          href: chat-howto-manage-rooms.md
+        - name: Send and read messages
+          href: chat-howto-messages.md
+        - name: Configure roles and permissions
+          href: chat-howto-roles-permissions.md
+    - name: Reference
+      items:
+        - name: Frequently asked questions
+          href: chat-faq.md
+        - name: SDKs and REST API
+          href: chat-reference-sdk-and-rest.md
+        - name: Error codes
+          href: chat-reference-errors.md
 - name: Socket.IO
   expanded: false
   items:

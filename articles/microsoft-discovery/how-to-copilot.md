@@ -19,7 +19,7 @@ The [Microsoft Discovery Studio preview experience](/azure/microsoft-discovery/c
 ## Prerequisites
 
 - An Azure subscription with access to [Microsoft Discovery](overview-what-is-microsoft-discovery.md)
-- A [Microsoft Discovery workspace](/azure/microsoft-discovery/quickstart-infrastructure-portal#4-create-a-workspace)
+- A [Microsoft Discovery workspace](quickstart-infrastructure.md#4-create-a-workspace)
 - A GitHub account (required for GitHub Copilot features)
 - **Microsoft Discovery Platform Administrator** role assignment to manage workspace tags in the Azure portal
 
@@ -27,7 +27,7 @@ The [Microsoft Discovery Studio preview experience](/azure/microsoft-discovery/c
 
 GitHub Copilot integration affects your Microsoft Discovery workspace's security posture. Review the [Microsoft Discovery network security concepts](concept-network-security.md) to understand how enabling GitHub Copilot affects data access and connectivity.
 
-Administrators can enforce feature availability by using **Azure Policy** at the subscription level to maintain organizational control. To learn more, see [build policies to enforce compliance](https://learn.microsoft.com/azure/governance/policy/tutorials/create-and-manage).
+Administrators can enforce feature availability by using **Azure Policy** at the subscription level to maintain organizational control. To learn more, see [build policies to enforce compliance](../governance/policy/tutorials/create-and-manage.md).
 
 ## Enable GitHub Copilot for a workspace
 
@@ -43,7 +43,7 @@ The following tags control feature availability:
 ### Steps to enable
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Go to your Microsoft Discovery workspace resource. You can [create a new workspace](/azure/microsoft-discovery/quickstart-infrastructure-portal#4-create-a-workspace) or search for an existing one.
+1. Go to your Microsoft Discovery workspace resource. You can [create a new workspace](quickstart-infrastructure.md#4-create-a-workspace) or search for an existing one.
 3. On the workspace **Overview** page, select **Tags** > **Edit**.
 4. Add the following tag:
    - **Name:** `discovery.workbench.enableGhcpAiFeatures`
@@ -65,7 +65,7 @@ After enabling the tags, open the preview experience from Microsoft Discovery St
 
 1. Go to [Microsoft Discovery Studio](https://studio.discovery.microsoft.com).
 2. Select the **Workspaces** tab and open the workspace where you enabled GitHub Copilot. Or select **Projects** tab to list all projects.
-3. [Create a new project](/azure/microsoft-discovery/quickstart-infrastructure-portal#9-create-a-project) or select an existing project.
+1. [Create a new project](quickstart-infrastructure.md#9-create-a-project) or select an existing project.
 4. Select the **...** (more actions) menu on the project.
 5. Select **Open in preview experience**.
 
@@ -115,5 +115,5 @@ All users within the same project and workspace can access the following resourc
 ## Related content
 
 - [Microsoft Discovery overview](overview-what-is-microsoft-discovery.md)
-- [Create Microsoft Discovery infrastructure](/azure/microsoft-discovery/quickstart-infrastructure-portal)
+- [Create Microsoft Discovery infrastructure](quickstart-infrastructure.md)
 - [Microsoft Discovery network security](/azure/microsoft-discovery/concept-network-security)

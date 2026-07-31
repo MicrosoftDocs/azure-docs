@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.reviewer: v-uhabiba
 ms.date: 05/26/2026
 ms.custom: engagement-fy26
+ms.update-cycle: 1095-days
 # Customer intent: As an IT professional, I want to use Azure Migrate Collector to discover my IT estate and generate assessment and business case reports, so that I can plan migration and modernization effectively.
 ---
 

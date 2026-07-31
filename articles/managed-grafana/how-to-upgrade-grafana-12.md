@@ -5,7 +5,7 @@ description: "Learn how to upgrade an Azure Managed Grafana workspace from Grafa
 ms.service: azure-managed-grafana
 author: maud-lv  
 ms.author: malev 
-ms.date: 03/09/2026 
+ms.date: 07/10/2026 
 ms.topic: how-to 
 # customerIntent: As a user of Azure Managed Grafana, I want to upgrade my workspace from Grafana 11 to Grafana 12.
 --- 
@@ -81,6 +81,24 @@ In the Azure CLI:
 
 1. The CLI displays a warning indicating that upgrading to Grafana version 12 is a permanent an irreversible operation.
 ---
+
+## Restore the Metrics drilldown
+
+In Grafana 11, the **Drilldown** > **Metrics** menu is available out of the box, without installing a plugin. Grafana 12 introduces a by-design breaking change: the **Metrics** drilldown is now delivered by the `grafana-metricsdrilldown-app` plugin, which isn't installed by default. After you upgrade to Grafana 12, the **Metrics** entry under **Drilldown** is empty until you install this plugin.
+
+If you use the Metrics drilldown and want to keep it after upgrading, install the plugin from your workspace:
+
+1. Open your Azure Managed Grafana workspace in the Azure portal.
+1. Select **Plugin management**.
+1. Check the box for the **Grafana Metrics Drilldown** plugin.
+1. Select **Save**, and then select **Yes** to confirm.
+
+For more information, see [How to manage Grafana plugins](how-to-manage-plugins.md#add-a-plugin).
+
+After you install the plugin, reload Grafana and confirm that **Drilldown** > **Metrics** is available.
+
+> [!NOTE]
+> When you use the Metrics drilldown with an Azure Monitor managed service for Prometheus data source, you must select a single metric before you can filter by labels. Filtering by labels before you select a metric isn't supported and can cause plugin errors.
 
 ## Next step
 

@@ -2,8 +2,8 @@
 title: Copy and transform data in Amazon Simple Storage Service (S3)
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Amazon Simple Storage Service (S3), and transform data in Amazon Simple Storage Service (S3) using Azure Data Factory or Azure Synapse Analytics pipelines.
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: how-to
 ms.date: 02/13/2025

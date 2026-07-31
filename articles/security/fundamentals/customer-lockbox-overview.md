@@ -2,18 +2,20 @@
 title: Customer Lockbox for Microsoft Azure
 description: Technical overview of Customer Lockbox for Microsoft Azure, which provides control over cloud provider access when Microsoft might need to access customer data.
 author: msmbaldwin
-ms.service: azure-information-protection
+ms.service: security
+ms.subservice: security-fundamentals
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 05/05/2026
+ms.date: 07/21/2026
+ai-usage: ai-assisted
 ---
 
 # Customer Lockbox for Microsoft Azure
 
 > [!NOTE]
-> To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of **Developer**.
+> To use this feature, your organization must have an [Azure support plan](https://azure.microsoft.com/support/plans) with a minimum level of **Developer**.
 
-Most operations and support performed by Microsoft personnel and subprocessors do not require access to customer data. In those rare circumstances where such access is required, Customer Lockbox for Microsoft Azure provides an interface for customers to review and approve or reject customer data access requests. It is used in cases where a Microsoft engineer needs to access customer data, whether in response to a customer-initiated support ticket or a problem identified by Microsoft.
+Most operations and support that Microsoft personnel and subprocessors perform don't require access to customer data. In those rare circumstances where Microsoft requires such access, Customer Lockbox for Microsoft Azure provides an interface for your organization to review and approve or reject customer data access requests. Microsoft uses Customer Lockbox when a Microsoft engineer needs to access customer data, whether in response to a customer-initiated support ticket or a problem identified by Microsoft.
 
 This article covers how to enable Customer Lockbox for Microsoft Azure and how requests are initiated, tracked, and stored for later reviews and audits.
 
@@ -54,7 +56,7 @@ The following services are currently supported for Customer Lockbox for Microsof
 - Azure Subscription Transfers
 - Azure Synapse Analytics
 - Commerce AI (Intelligent Recommendations)
-- DevCenter / DevBox
+- DevCenter or DevBox
 - ElasticSan
 - Kusto (Dashboards)
 - Microsoft Azure Attestation
@@ -66,59 +68,59 @@ The following services are currently supported for Customer Lockbox for Microsof
 
 ## Enable Customer Lockbox for Microsoft Azure
 
-You can now enable Customer Lockbox for Microsoft Azure from the [Administration module](https://aka.ms/customerlockbox/administration).  
+Enable Customer Lockbox for Microsoft Azure from the [Administration module](https://aka.ms/customerlockbox/administration).
 
 > [!NOTE]
-> To enable Customer Lockbox for Microsoft Azure, the user account needs to have the [Global Administrator role assigned](/entra/identity/role-based-access-control/manage-roles-portal).
+> To enable Customer Lockbox for Microsoft Azure, you need the [Global Administrator role assigned](/entra/identity/role-based-access-control/manage-roles-portal).
 
 ## Workflow
 
 The following steps outline a typical workflow for a Customer Lockbox for Microsoft Azure request.
 
-1. Someone at an organization has an issue with their Azure workload.
-1. After this person troubleshoots the issue, but can't fix it, they open a support ticket from the [Azure portal](https://portal.azure.com/signin/index/?feature.settingsportalinstance=mpac). The ticket is assigned to an Azure Customer Support Engineer.
-1. An Azure Support Engineer reviews the service request and determines the next steps to resolve the issue.
-1. If the support engineer can't troubleshoot the issue by using standard tools and service generated data, the next step is to request elevated permissions by using a Just-In-Time (JIT) access service. This request can be from the original support engineer or from a different engineer because the problem is escalated to the Azure DevOps team.
-1. After the Azure Engineer submits an access request, Just-In-Time service evaluates the request taking into account factors such as:
+1. Someone at an organization has a problem with their Azure workload.
+1. After this person troubleshoots the problem but can't fix it, they open a support ticket from the [Azure portal](https://portal.azure.com/signin/index/?feature.settingsportalinstance=mpac). The ticket is assigned to an Azure Customer Support Engineer.
+1. An Azure Support Engineer reviews the service request and determines the next steps to resolve the problem.
+1. If the support engineer can't troubleshoot the problem by using standard tools and service-generated data, the next step is to request elevated permissions by using a just-in-time (JIT) access service. This request can be from the original support engineer or from a different engineer because the problem is escalated to the Azure DevOps team.
+1. After the Azure engineer submits an access request, the just-in-time service evaluates the request, taking into account factors such as:
     - The scope of the resource.
-    - Whether the requester is an isolated identity or using multifactor authentication.
-    - Permissions levels.
-    Based on the JIT rule, this request might also include an approval from Internal Microsoft Approvers. For example, the approver might be the Customer support lead or the DevOps Manager.
+    - Whether the requester is an isolated identity or uses multifactor authentication.
+    - Permission levels.
+    Based on the JIT rule, this request might also include an approval from internal Microsoft approvers. For example, the approver might be the customer support lead or the DevOps manager.
 1. When the request requires direct access to customer data, a Customer Lockbox request is initiated.
 
     The request is now in a **Customer Notified** state, waiting for the customer's approval before granting access.
 1. One or more approvers at the customer organization for a given Customer Lockbox request are determined as follows:
-    - For Subscription scoped requests (requests to access specific resources contained within a subscription), users with the Owner role or the Azure Customer Lockbox Approver for Subscription role on the associated subscription.
-    - For Tenant scope requests (requests to access the Microsoft Entra tenant), users with the Global Administrator role on the Tenant.
+    - For subscription-scoped requests (requests to access specific resources contained within a subscription), users with the Owner role or the Azure Customer Lockbox Approver for Subscription role on the associated subscription.
+    - For tenant-scoped requests (requests to access the Microsoft Entra tenant), users with the Global Administrator role on the tenant.
     > [!NOTE]
-    > Role assignments must be in place before Customer Lockbox for Microsoft Azure starts to process a request. Any role assignments made after Customer Lockbox for Microsoft Azure starts to process a given request will not be recognized.  Because of this, to use PIM eligible assignments for the Subscription Owner role, users are required to activate the role before the Customer Lockbox request is initiated. Refer to [Activate Microsoft Entra roles in PIM](/entra/id-governance/privileged-identity-management/pim-how-to-activate-role) / [Activate Azure resource roles in PIM](/entra/id-governance/privileged-identity-management/pim-resource-roles-activate-your-roles#activate-a-role) for more information on activating PIM eligible roles.
+    > Role assignments must be in place before Customer Lockbox for Microsoft Azure starts to process a request. Customer Lockbox for Microsoft Azure doesn't recognize role assignments made after it starts to process a given request. Because of this requirement, to use PIM-eligible assignments for the Owner role, users must activate the role before the Customer Lockbox request is initiated. For more information about activating PIM-eligible roles, see [Activate Microsoft Entra roles in PIM](/entra/id-governance/privileged-identity-management/pim-how-to-activate-role) or [Activate Azure resource roles in PIM](/entra/id-governance/privileged-identity-management/pim-resource-roles-activate-your-roles#activate-a-role).
     >
-    > **Role assignments scoped to management groups are not supported in Customer Lockbox for Microsoft Azure at this time.**
-1. At the customer organization, designated lockbox approvers ([Azure Subscription Owner](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles)/[Microsoft Entra Global admin](../../role-based-access-control/rbac-and-directory-admin-roles.md#microsoft-entra-roles)/Azure Customer Lockbox Approver for Subscription receive an email from Microsoft to notify them about the pending access request.  You can also use the [Azure Lockbox alternate email notifications](customer-lockbox-alternative-email.md) feature to configure an alternate email address to receive lockbox notifications in scenarios where Azure account is not email enabled or if a service principal is defined as the lockbox approver.
+    > **Role assignments scoped to management groups aren't supported in Customer Lockbox for Microsoft Azure at this time.**
+1. At the customer organization, designated lockbox approvers ([Owner](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles), [Microsoft Entra Global Administrator](../../role-based-access-control/rbac-and-directory-admin-roles.md#microsoft-entra-roles), or Azure Customer Lockbox Approver for Subscription) receive an email from Microsoft to notify them about the pending access request. You can also use the [Azure Lockbox alternate email notifications](customer-lockbox-alternative-email.md) feature to configure an alternate email address to receive lockbox notifications in scenarios where the Azure account isn't email-enabled or if a service principal is defined as the lockbox approver.
 
     Example email:
-    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" alt-text="A screenshot of the email notification.":::
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-email-notification.png" alt-text="Screenshot of a Customer Lockbox email notification for a pending Microsoft support access request.":::
 
 1. The email notification provides a link to the **Customer Lockbox** blade in the Administration module. The designated approver signs in to the Azure portal to view any pending requests that their organization has for Customer Lockbox for Microsoft Azure:
-    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-landing-page.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-landing-page.png" alt-text="A screenshot of the Customer Lockbox for Microsoft Azure landing page.":::
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-landing-page.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-landing-page.png" alt-text="Screenshot of the Azure portal Customer Lockbox page showing the pending requests list.":::
    The request remains in the customer queue for four days. After this time, the access request automatically expires and no access is granted to Microsoft engineers.
 1. To get the details of the pending request, the designated approver can select the Customer Lockbox request from **Pending Requests**:
-    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-pending-requests.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-pending-requests.png" alt-text="A screenshot of the pending request.":::
-1. The designated approver can also select the **SERVICE REQUEST ID** to view the support ticket request that was created by the original user. This information provides context for why Microsoft Support is engaged, and the history of the reported problem. For example:
-    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-support-ticket.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-support-ticket.png" alt-text="A screenshot of the support ticket request.":::
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-pending-requests.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-pending-requests.png" alt-text="Screenshot of the Azure portal Customer Lockbox page showing a pending request row selected.":::
+1. The designated approver can select the **Service request ID** to view the support ticket request created by the original user. This information provides context for why Microsoft Support is engaged, and the history of the reported problem. For example:
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-support-ticket.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-support-ticket.png" alt-text="Screenshot of the Azure portal support ticket page for a pending Customer Lockbox request.":::
 1. The designated approver reviews the request and selects **Approve** or **Deny**:
-    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-approval.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-approval.png" alt-text="A screenshot of the Approve or Deny UI.":::
+    :::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-approval.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-approval.png" alt-text="Screenshot of the Azure portal Customer Lockbox request page with the Approve and Deny actions.":::
     As a result of the selection:
-    - **Approve**:  Access is granted to the Microsoft engineer for the duration specified in the request details, which is shown in the email notification and in the Azure portal.
-    - **Deny**: The elevated access request by the Microsoft engineer is rejected and no further action is taken.
+    - **Approve**: The Microsoft engineer receives access for the duration specified in the request details, which appears in the email notification and in the Azure portal.
+    - **Deny**: Customer Lockbox rejects the elevated access request by the Microsoft engineer and takes no further action.
 
     For auditing purposes, the actions taken in this workflow are logged in [Customer Lockbox request logs](#auditing-logs).
 
 ## Auditing logs
 
-The auditing logs for Customer Lockbox for Azure are written to the activity logs for subscription-scoped requests and to the [Entra Audit Log](/entra/identity/monitoring-health/concept-audit-logs) for tenant-scoped requests.
+The auditing logs for Customer Lockbox for Azure are written to the activity logs for subscription-scoped requests and to the [Microsoft Entra audit log](/entra/identity/monitoring-health/concept-audit-logs) for tenant-scoped requests.
 
-### Subscription-scoped requests - Activity Logs
+### Subscription-scoped requests - activity logs
 
 In the Azure portal, Customer Lockbox for Microsoft Azure blade, select **Activity Logs** to view auditing information related to Customer Lockbox requests. You can also view the **Activity Logs** in the subscription details blade for the subscription in question. In both cases, you can filter for specific operations, such as:
 
@@ -129,42 +131,41 @@ In the Azure portal, Customer Lockbox for Microsoft Azure blade, select **Activi
 
 As an example:
 
-:::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-activitylogs.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-activitylogs.png" alt-text="A screenshot of the activity logs.":::
+:::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-activitylogs.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-activitylogs.png" alt-text="Screenshot of the Azure portal activity log entries generated by Customer Lockbox requests.":::
 
-### Tenant-Scoped requests - Audit Log
+### Tenant-scoped requests - audit log
 
-For tenant-scoped Customer Lockbox requests, log entries are written to the [Entra Audit Log](/entra/identity/monitoring-health/concept-audit-logs). These Log entries are created by the Access Reviews service with activities such as:
+For tenant-scoped Customer Lockbox requests, the Access Reviews service writes log entries to the [Microsoft Entra audit log](/entra/identity/monitoring-health/concept-audit-logs). These log entries include activities such as:
 
 - **Create request**
 - **Request approved**
 - **Request denied**
 
-You can filter for ```Service = Access Reviews``` and ```Activity = one of the above activities```. 
+You can filter for `Service = Access Reviews` and `Activity = one of the above activities`.
 
 As an example:
 
-:::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-entra-audit-logs.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-entra-audit-logs.png" alt-text="A screenshot of the audit log.":::
+:::image type="content" source="./media/customer-lockbox-overview/customer-lockbox-entra-audit-logs.png" lightbox="./media/customer-lockbox-overview/customer-lockbox-entra-audit-logs.png" alt-text="Screenshot of the Microsoft Entra audit log entries generated by Customer Lockbox requests.":::
 
 > [!NOTE]
-> The History tab in the Azure Lockbox portal has been removed due to existing technical limitations. To see
-Customer Lockbox request history, please use the Activity Log for subscription-scoped requests and the [Entra Audit Log](/entra/identity/monitoring-health/concept-audit-logs) for tenant-scoped requests.
+> Existing technical limitations removed the **History** tab in the Azure Lockbox portal. To see Customer Lockbox request history, use the activity log for subscription-scoped requests and the [Microsoft Entra audit log](/entra/identity/monitoring-health/concept-audit-logs) for tenant-scoped requests.
 
 ## Customer Lockbox for Microsoft Azure integration with the Microsoft cloud security benchmark
 
-We introduced a new baseline control ([PA-8: Determine access process for cloud provider support](/security/benchmark/azure/mcsb-v2-privileged-access#pa-8-determine-access-process-for-cloud-provider-support)) in the Microsoft cloud security benchmark that covers Customer Lockbox applicability. Customers can now use the benchmark to review Customer Lockbox applicability for a service.
+Microsoft introduced a new baseline control ([PA-8: Determine access process for cloud provider support](/security/benchmark/azure/mcsb-v2-privileged-access#pa-8-determine-access-process-for-cloud-provider-support)) in the Microsoft cloud security benchmark that covers Customer Lockbox applicability. Use the benchmark to review Customer Lockbox applicability for a service.
 
 ## Exclusions
 
-Customer Lockbox requests are not triggered in the following scenarios:
+Customer Lockbox doesn't trigger requests in the following scenarios:
 
-- Emergency scenarios that fall outside of standard operating procedures and require urgent action from Microsoft to restore access to online services or to prevent corruption or loss of customer data, or to investigate a security or abuse incident. For instance, a major service outage or a security incident demands immediate attention to recover or restore services under unexpected or unpredictable circumstances. These "break glass" events are rare and, in most cases, do not necessitate access to customer data for resolution. The controls and processes governing Microsoft's access to customer data in core online services align with NIST 800-53 and are validated through SOC 2 audits. For further information, refer to the [Azure security baseline for Customer Lockbox for Microsoft Azure](/security/benchmark/azure/baselines/customer-lockbox-for-microsoft-azure-security-baseline).
-- A Microsoft engineer accesses the Azure platform as part of troubleshooting and is inadvertently exposed to customer data. For example, the Azure Network Team performs troubleshooting that results in a packet capture on a network device. It is rare that such scenarios would result in access to meaningful quantities of customer data. Customers can further protect their data through the use of Customer-managed keys (CMK), which is available for some Azure service. For more information see [Overview of Key Management in Azure](key-management.md).
+- Emergency scenarios that fall outside of standard operating procedures and require urgent action from Microsoft to restore access to online services or to prevent corruption or loss of customer data, or to investigate a security or abuse incident. For example, a major service outage or a security incident demands immediate attention to recover or restore services under unexpected or unpredictable circumstances. These "break glass" events are rare and, in most cases, don't require access to customer data for resolution. The controls and processes governing Microsoft's access to customer data in core online services align with NIST 800-53 and are validated through SOC 2 audits. For more information, see the [Azure security baseline for Customer Lockbox for Microsoft Azure](/security/benchmark/azure/baselines/customer-lockbox-for-microsoft-azure-security-baseline).
+- A Microsoft engineer accesses the Azure platform as part of troubleshooting and is inadvertently exposed to customer data. For example, the Azure Network Team performs troubleshooting that results in a packet capture on a network device. Such scenarios rarely result in access to meaningful quantities of customer data. Further protect your data by using customer-managed keys, which are available for some Azure services. For more information, see [Key management in Azure](key-management.md).
 
-External legal demands for data also do not trigger Customer Lockbox requests. For details, see the discussion of [government requests for data](https://www.microsoft.com/trust-center/) on the Microsoft Trust Center.
+External legal demands for data also don't trigger Customer Lockbox requests. For details, see the discussion of [government requests for data](https://www.microsoft.com/trust-center/) on the Microsoft Trust Center.
 
 ## Next steps
 
-Enable Customer Lockbox from the [Administration module](https://ms.portal.azure.com/#view/Microsoft_Azure_Lockbox/LockboxMenu/~/Overview) in the Customer Lockbox blade. Customer Lockbox for Microsoft Azure is available for all customers who have an [Azure support plan](https://azure.microsoft.com/support/plans/) with a minimal level of Developer.
+Enable Customer Lockbox from the [Administration module](https://ms.portal.azure.com/#view/Microsoft_Azure_Lockbox/LockboxMenu/~/Overview) in the Customer Lockbox blade. All customers with an [Azure support plan](https://azure.microsoft.com/support/plans) at the Developer level or higher can use Customer Lockbox for Microsoft Azure.
 
 - [Customer Lockbox for Microsoft Azure alternate email notifications](customer-lockbox-alternative-email.md)
 - [Customer Lockbox for Microsoft Azure FAQ](customer-lockbox-faq.yml)

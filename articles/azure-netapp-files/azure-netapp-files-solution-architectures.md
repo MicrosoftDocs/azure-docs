@@ -41,6 +41,7 @@ This section provides references for solutions for Linux OSS applications and da
 ### Oracle
 
 * [Oracle Database with Azure NetApp Files - Azure Example Scenarios](/azure/architecture/example-scenario/file-storage/oracle-azure-netapp-files)
+* [Optimize Oracle workloads on Azure with Azure NetApp Files](https://techcommunity.microsoft.com/blog/azurestorageblog/optimize-oracle-workloads-on-azure-with-azure-netapp-files/4532644)
 * [Oracle VM images and their deployment on Microsoft Azure: Shared storage configuration options](/azure/virtual-machines/workloads/oracle/oracle-vm-solutions#shared-storage-configuration-options)
 * [Oracle On Azure IaaS Recommended Practices For Success](https://github.com/Azure/Oracle-Workloads-for-Azure/blob/main/Oracle%20on%20Azure%20IaaS%20Recommended%20Practices%20for%20Success.pdf)
 * [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545)

@@ -9,6 +9,7 @@ ms.topic: concept-article
 ms.date: 02/07/2025
 ms.reviewer: v-uhabiba
 ms.custom: engagement-fy25
+ms.update-cycle: 1095-days
 # Customer intent: "As a cloud architect, I want to understand the migration options available with the Migration and Modernization Tool, so that I can effectively plan and execute the migration of our on-premises servers to Azure."
 ---
 

@@ -86,6 +86,8 @@ This section explains the causes of some of the common allocation failures and s
 |-|-|
 | The `Microsoft.NetApp/netAppAccounts/capacityPools/volumes/ScaleUp` operation displays a warning: <br> `Percentage Volume Consumed Size reached 90%`  | The used size of an Azure NetApp Files volume has reached 90% of the volume quota. You should [resize the volume](azure-netapp-files-resize-capacity-pools-or-volumes.md) soon. |
 
+If you copy large datasets into a volume that has cross-region replication enabled and you have spare capacity in the capacity pool, set the replication interval to 10 minutes, increase the volume size to allow for the changes to be stored, and temporarily disable replication.
+
 ## Next steps
 
 * [Create an NFS volume for Azure NetApp Files](azure-netapp-files-create-volumes.md)

@@ -13,14 +13,20 @@ zone_pivot_groups: programming-languages-set-functions-nodejs
 # Migrate to version 4 of the Node.js programming model for Azure Functions
 
 
-This article discusses the differences between version 3 and version 4 of the Node.js programming model and how to upgrade an existing v3 app. If you want to create a new v4 app instead of upgrading an existing v3 app, see the tutorial for either [Visual Studio Code (VS Code)](./how-to-create-function-azure-cli.md?pivots=programming-language-javascript) or [Azure Functions Core Tools](./how-to-create-function-vs-code.md?pivot=programming-language-javascript). This article uses "tip" alerts to highlight the most important concrete actions that you should take to upgrade your app.
+This article discusses the differences between version 3 and version 4 of the [Node.js programming model](./functions-reference-node.md) and how to upgrade an existing v3 app. If you want to create a new v4 app instead of upgrading an existing v3 app, see the tutorial for either [Visual Studio Code (VS Code)](./how-to-create-function-azure-cli.md?pivots=programming-language-javascript) or [Azure Functions Core Tools](./how-to-create-function-vs-code.md?pivot=programming-language-javascript). This article uses "tip" alerts to highlight the most important concrete actions that you should take to upgrade your app.
 Version 4 is designed to provide Node.js developers with the following benefits:
 
 - Provide a familiar and intuitive experience to Node.js developers.
 - Make the file structure flexible with support for full customization.
 - Switch to a code-centric approach for defining function configuration.
 
-[!INCLUDE [Programming Model Considerations](../../includes/functions-nodejs-model-considerations.md)]
+## Considerations
+
+- The Node.js programming model shouldn't be confused with the Azure Functions runtime:
+  - **Programming model**: Defines how you author your code and is specific to JavaScript and TypeScript.
+  - **Runtime**: Defines underlying behavior of Azure Functions and is shared across all languages.
+- The version of the programming model is strictly tied to the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package. It's versioned independently of the [runtime](./functions-versions.md). Both the runtime and the programming model use the number 4 as their latest major version, but that's a coincidence.
+- You can't mix the v3 and v4 programming models in the same function app. As soon as you register one v4 function in your app, any v3 functions registered in *function.json* files are ignored.
 
 ## Requirements
 

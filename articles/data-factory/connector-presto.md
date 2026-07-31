@@ -2,12 +2,12 @@
 title: Copy data from Presto
 description: Learn how to copy data from Presto to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: how-to
 ms.date: 06/13/2025
-ms.author: jianleishen
+ms.author: tinglee
 ---
 # Copy data from Presto using Azure Data Factory or Synapse Analytics
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]

@@ -202,10 +202,10 @@ resource version 'Microsoft.DeviceRegistry/schemaRegistries/schemas/schemaVersio
 }
 ```
 
-Deploy the Bicep file:
+Deploy the Bicep file. Set the `RESOURCE_GROUP` environment variable to your resource group name, and then run:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file schema.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file schema.bicep
 ```
 
 ## Related content

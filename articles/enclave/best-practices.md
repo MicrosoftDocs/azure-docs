@@ -54,7 +54,7 @@ When a community or enclave is created, Azure Enclave attempts the following ste
 1. Check if the `Mission Enclave` App has a permanent `Owner` assignment on `NetworkWatcherRG`. If not, attempt to assign the `Mission Enclave` App as a permanent `Owner` assignment on `NetworkWatcherRG`. Even if an inherited `Owner` permission exists, a permanent `Owner` assignment creation is attempted.
 1. If any step fails, enclave deployments might fail when attempting to create virtual network flow logs.
 
-## Networking and Organizational Design Patterns for Azure Enclave
+## Networking and organizational design patterns for Azure Enclave
 
 ### Multi-tenancy
 

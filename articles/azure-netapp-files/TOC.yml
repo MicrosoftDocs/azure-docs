@@ -595,6 +595,8 @@
       href: troubleshoot-user-access-ldap.md
     - name: Troubleshoot file locks
       href: troubleshoot-file-locks.md
+    - name: Troubleshoot SMB authentication and CIFS password reset failures
+      href: troubleshoot-authentication-password-reset-failure.md
 - name: FAQs
   items:
   - name: Networking FAQs

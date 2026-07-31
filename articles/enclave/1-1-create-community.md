@@ -292,7 +292,7 @@ The deployment process creates:
 - **Network Security Groups**: Default security rules
 
 **Monitoring deployment progress:**
-- Track deployment status in Azure portal notifications
+- Track deployment status in the Azure portal notifications
 - Review deployment logs if issues occur
 - Estimated time: 30-45 minutes
 - Status shows "Running" then "Succeeded"
@@ -303,7 +303,7 @@ After the community deployment completes, perform these validation steps to ensu
 
 ### Step 1: Check community status
 
-1. Navigate to the community in Azure portal
+1. Go to the community in the Azure portal.
 1. Verify `Status` shows `Succeeded`
 1. Review the `Overview` page for basic information
 
@@ -373,7 +373,7 @@ If you need to delete your community after completing this tutorial:
 
 1. Navigate to Azure Enclave in the Azure portal
 1. Select `Communities` from the left menu
-1. Select the community to delete (for example, `fabrikam`)
+1. Select the community to delete (for example, `cmt-fabrikam`).
 1. Select `Delete` from the top menu
 1. Type the community name to confirm deletion
 1. Select `Delete`

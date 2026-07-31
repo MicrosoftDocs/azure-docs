@@ -15,7 +15,7 @@ In this tutorial, part six of eight, you create community and enclave endpoint r
 
   - Create community endpoint resources in communities
   - Create enclave endpoint resources in enclaves
-  - View your endpoints in Azure portal
+  - View your endpoints in the Azure portal
 
 ## Before you begin
 In the previous tutorials, you created a [community](./1-1-create-community.md) and an [enclave](./1-2-create-enclaves-inside-community.md) using the Azure portal.
@@ -42,13 +42,13 @@ In the previous tutorials, you created a [community](./1-1-create-community.md) 
 
 1. Select `Save`, select `Review + Create`, and select `Create`
 
-1. Once the endpoint resource is created, you can view them in Azure portal from the Enclave-WebApp `Enclave Endpoints`.
+1. After the portal creates the endpoint resource, you can view it in the Azure portal from the Enclave-WebApp **Enclave Endpoints**.
 
     [ ![Screenshot showing the completed enclave endpoint overview page.](./media/tutorial-step-five-enclave-webapp-endpoint-deployed.png) ](./media/tutorial-step-five-enclave-webapp-endpoint-deployed.png#lightbox)
 
 ## Create a community endpoint
 
-1. Go to the `fabrikam` community and select `Community Endpoints`, and then select `Create`.
+1. Go to the `cmt-fabrikam` community, select `Community Endpoints`, and then select `Create`.
 
     [ ![Screenshot showing no existing community endpoints.](./media/tutorial-step-five-fabrikam-endpoint-list.png) ](./media/tutorial-step-five-fabrikam-endpoint-list.png#lightbox)
 
@@ -59,7 +59,7 @@ In the previous tutorials, you created a [community](./1-1-create-community.md) 
    - Select `+ Add` to add Endpoint Rules that represent how to access your app
       - Rule Name: `Website-Rule`
       - Destination Type: `FQDN`
-      - Destination: `*microsoft.com`
+      - Destination: `*.microsoft.com`
       - Protocol: `HTTPS`
       - Port: `443`
 
@@ -67,7 +67,7 @@ In the previous tutorials, you created a [community](./1-1-create-community.md) 
 
 1. Select `Save`, select `Review + Create`, and select `Create`.
 
-1. Once the endpoint resource is created, you can view them in Azure portal from the Enclave-WebApp enclave endpoint page.
+1. After the portal creates the endpoint resource, you can view it in the Azure portal from the Enclave-WebApp enclave endpoint page.
 
     [ ![Screenshot showing the completed community endpoint.](./media/tutorial-step-five-fabrikam-endpoint-deployed.png) ](./media/tutorial-step-five-fabrikam-endpoint-deployed.png#lightbox)
 
@@ -94,7 +94,7 @@ Create an enclave connection from the web app enclave to the community endpoint 
 
    [ ![Screenshot showing the deployment finished and the connection is waiting for an approval.](./media/tutorial-step-five-fabrikam-connection-approval-pending.png) ](./media/tutorial-step-five-fabrikam-connection-approval-pending.png#lightbox)
 
-1. Once the endpoint resource is created, you can view them in Azure portal from the `cmt-fabrikam` `Enclave Connections`. However, it's in a disconnected state because the community requires approvals on all new enclave connections and updates to those connections. 
+1. After the portal creates the endpoint resource, you can view it in the Azure portal from the `cmt-fabrikam` `Enclave Connections`. However, it's in a disconnected state because the community requires approvals on all new enclave connections and updates to those connections. 
 
    [ ![Screenshot showing the enclave connection created but in a disconnected state while pending approval.](./media/tutorial-step-five-fabrikam-connection-deployed-disconnected.png) ](./media/tutorial-step-five-fabrikam-connection-deployed-disconnected.png#lightbox)
 
@@ -103,6 +103,55 @@ Create an enclave connection from the web app enclave to the community endpoint 
    [ ![Screenshot showing the pending connection approval.](./media/tutorial-step-five-fabrikam-connection-approval-review.png) ](./media/tutorial-step-five-fabrikam-connection-approval-review.png#lightbox)
 
 1. Approve the pending approvals and the connection state is automatically updated to the `connected` state. For more information about reviewing approval requests, see [Manage approval requests](./manage-approvals.md). For resource-type approval settings, see [Configure approval settings](./configure-approvals.md).
+
+## Clean up resources
+
+If you no longer need the endpoint and connection resources that you created in this tutorial, delete them to avoid incurring unnecessary charges.
+
+> [!WARNING]
+> Deleting endpoint and connection resources is **permanent** and **can't be undone**. Review dependent workloads and active traffic paths before deletion.
+
+**Before deleting:**
+- Verify that no workloads depend on these endpoints or connections.
+
+**Recommended deletion order:**
+1. Delete enclave connections.
+1. Delete enclave endpoints.
+1. Delete community endpoints.
+
+**To delete enclave connections:**
+
+1. In the Azure portal, go to your community (for example, `cmt-fabrikam`).
+1. Select `Enclave Connections`.
+1. Select the enclave connection to delete (for example, `ec-fabrikam-external-connection`).
+1. Select `Delete`.
+1. Confirm deletion.
+
+**To delete enclave endpoints:**
+
+1. In the Azure portal, go to the source enclave (for example, `ve-Enclave-WebApp`).
+1. Select `Enclave Endpoints`.
+1. Select the enclave endpoint to delete (for example, `ee-MyService`).
+1. Select `Delete`.
+1. Confirm deletion.
+
+**To delete community endpoints:**
+
+1. In the Azure portal, go to your community (for example, `cmt-fabrikam`).
+1. Select `Community Endpoints`.
+1. Select the community endpoint to delete (for example, `ce-fabrikam-website`).
+1. Select `Delete`.
+1. Confirm deletion.
+
+**What gets deleted:**
+- Enclave connection resources that you created in this tutorial.
+- Enclave endpoint resources that you created in this tutorial.
+- Community endpoint resources that you created in this tutorial.
+
+**What is retained:**
+- Community and enclave resources.
+- Workloads and subnet resources.
+- Approval settings and other unrelated Azure Enclave resources.
 
 ## Next steps
 In this tutorial, you deployed community and enclave endpoints using Azure portal. You also learned how to:

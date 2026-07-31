@@ -4,8 +4,8 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data in Azure SQL Managed Instance using Azure Data Factory or Synapse Analytics pipelines.
 ms.subservice: data-movement
 ms.topic: how-to
-ms.author: jianleishen
-author: jianleishen
+ms.author: tinglee
+author: simplywilson
 ms.date: 06/17/2024
 ms.custom:
   - synapse

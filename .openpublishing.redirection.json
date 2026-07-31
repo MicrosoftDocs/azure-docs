@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/azure-compute-fleet/modify-fleet.md",
+      "redirect_url": "/azure/azure-compute-fleet/managed-mode",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/communication-services/quickstarts/tpe/teams-phone-extensiblity-rest-api.md",
+      "redirect_url": "/azure/communication-services/quickstarts/tpe/teams-phone-extensibility-rest-api",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/devtest-labs/use-devtest-labs-build-release-pipelines.md",
       "redirect_url": "/previous-versions/azure/devtest-labs/use-devtest-labs-build-release-pipelines",
       "redirect_document_id": false
@@ -7786,6 +7796,106 @@
     {
       "source_path": "articles/signups/azure-usage.md",
       "redirect_url": "/startups/microsoft-for-startups/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/concept-certificate-issuance.md",
+      "redirect_url": "../iot/concept-certificate-issuance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/concept-certificate-renewal.md",
+      "redirect_url": "../iot/concept-certificate-renewal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/concepts-certificate-policy-management.md",
+      "redirect_url": "../iot/concepts-certificate-policy-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-configure-credential.md",
+      "redirect_url": "../iot/how-to-configure-credential",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-create-policy.md",
+      "redirect_url": "../iot/how-to-create-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-create-policy-external-certificate.md",
+      "redirect_url": "../iot/how-to-create-policy-external-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-revoke-certificate-delete-policy.md",
+      "redirect_url": "../iot/how-to-revoke-certificate-delete-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-certificate-management-concepts.md",
+      "redirect_url": "../iot/iot-hub-certificate-management-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-certificate-management-overview.md",
+      "redirect_url": "../iot/iot-hub-certificate-management-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/enclave/1-8-migrate-workload-resources.md",
+      "redirect_url": "/azure/enclave/migrate-azure-resources-azure-enclave",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/automation/automation-availability-zones.md",
+      "redirect_url": "/azure/reliability/reliability-automation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-identity-based-connections-tutorial.md",
+      "redirect_url": "/azure/azure-functions/manage-connections?pivots=functions-auth-identity&tabs=host#define-connections",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-functions/functions-identity-based-connections-tutorial-2.md",
+      "redirect_url": "/azure/azure-functions/manage-connections?pivots=functions-auth-identity&tabs=bindings#define-connections",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/baremetal-infrastructure/index.yml",
+      "redirect_url": "/azure/nutanix/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/about-nc2-on-azure.md",
+      "redirect_url": "/azure/nutanix/about-nc2-on-azure",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/available-regions-skus.md",
+      "redirect_url": "/azure/nutanix/available-regions-skus",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/architecture.md",
+      "redirect_url": "/azure/nutanix/architecture",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/get-started.md",
+      "redirect_url": "/azure/nutanix/get-started",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/faq.md",
+      "redirect_url": "/azure/nutanix/faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/container-apps/deployment-errors.md",
+      "redirect_url": "/azure/container-apps/troubleshoot-deployment-errors",
       "redirect_document_id": false
     }
   ]
