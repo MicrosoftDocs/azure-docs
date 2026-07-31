@@ -5,7 +5,7 @@ services: container-apps, azure-functions
 author: lilyjma
 ms.service: azure-container-apps
 ms.topic: overview
-ms.date: 01/27/2026
+ms.date: 07/29/2026
 ms.author: jiayma
 ms.reviewer: cshoe, hannahhunter
 ms.custom:
@@ -90,10 +90,10 @@ As a feature of Azure Functions, [Durable Functions](../durable-task/durable-fun
 
 AI agents that run for hours, call external tools, and must survive infrastructure failures are a natural fit for durable execution. The Durable Task programming model handles the challenges common in production agent workloads:
 
-- **Checkpoint every LLM call** — If a failure occurs mid-workflow, the agent resumes from the last checkpoint instead of re-consuming tokens and repeating completed work.
-- **Human-in-the-loop approval** — Pause an agent workflow to wait for a person to approve or reject a step, with configurable timeouts.
-- **Retry flaky tool and model calls** — Built-in retry policies with backoff handle transient failures from LLM APIs and external services.
-- **Survive pod restarts** — On Container Apps, scale-in events and deployments can recycle replicas. Durable execution picks up exactly where the agent left off on a new replica.
+- **Checkpoint every large language model (LLM) call**: If a failure occurs mid-workflow, the agent resumes from the last checkpoint instead of re-consuming tokens and repeating completed work.
+- **Human-in-the-loop approval**: Pause an agent workflow to wait for a person to approve or reject a step, with configurable timeouts.
+- **Retry flaky tool and model calls**: Built-in retry policies with backoff handle transient failures from LLM APIs and external services.
+- **Survive pod restarts**: On Container Apps, scale-in events and deployments can recycle replicas. Durable execution picks up exactly where the agent left off on a new replica.
 
 To learn more, see [Durable Task for AI agents](../durable-task/sdks/durable-task-for-ai-agents.md) and [Agentic application patterns](../durable-task/sdks/durable-agents-patterns.md).
 
@@ -101,11 +101,11 @@ To learn more, see [Durable Task for AI agents](../durable-task/sdks/durable-tas
 
 Azure Container Apps provides several platform capabilities that complement durable execution:
 
-- **Scale to zero** — Worker container apps scale down to zero replicas when there are no pending workflow tasks, so you pay only for active compute.
-- **Event-driven scaling with KEDA** — Scale worker replicas based on orchestration and activity backlog using [KEDA scalers](../container-apps/scale-app.md), matching compute to workload demand.
-- **Managed identity** — Use [managed identity](../container-apps/managed-identity.md) to authenticate your container apps to the Durable Task Scheduler and other Azure services without managing credentials.
-- **Built-in observability** — Stream container app logs to [Azure Monitor](../container-apps/log-monitoring.md) and pair them with the [Durable Task Scheduler dashboard](../durable-task/scheduler/durable-task-scheduler-dashboard.md) for end-to-end visibility into workflow execution.
-- **Ingress and networking** — Expose your client container app with [built-in ingress](../container-apps/ingress-overview.md) while keeping worker apps internal.
+- **Scale to zero**: Worker container apps scale down to zero replicas when there are no pending workflow tasks, so you pay only for active compute.
+- **Event-driven scaling with KEDA**: Scale worker replicas based on orchestration and activity backlog using [KEDA scalers](../container-apps/scale-app.md), matching compute to workload demand.
+- **Managed identity**: Use [managed identity](../container-apps/managed-identity.md) to authenticate your container apps to the Durable Task Scheduler and other Azure services without managing credentials.
+- **Built-in observability**: Stream container app logs to [Azure Monitor](../container-apps/log-monitoring.md) and pair them with the [Durable Task Scheduler dashboard](../durable-task/scheduler/durable-task-scheduler-dashboard.md) for end-to-end visibility into workflow execution.
+- **Ingress and networking**: Expose your client container app with [built-in ingress](../container-apps/ingress-overview.md) while keeping worker apps internal.
 
 ## How to choose 
 
@@ -115,11 +115,11 @@ You can host applications built with either the Durable Task SDKs or Durable Fun
 |---|---|---|
 | **Compute coupling** | Decoupled - runs on any container platform | Coupled to the Azure Functions runtime |
 | **Languages (GA)** | .NET, Python, Java | .NET, Python, Java, JavaScript, PowerShell |
-| **Languages (Preview)** | JavaScript / TypeScript | — |
+| **Languages (Preview)** | JavaScript / TypeScript | Not available |
 | **Triggers and bindings** | You define your own entry points | Built-in Azure Functions triggers (HTTP, Queue, Timer, Event Grid, and more) |
 | **Storage backends** | Durable Task Scheduler | Durable Task Scheduler, Azure Storage, MSSQL, Netherite |
 | **Pricing model** | Pay for your container app compute | Serverless (Consumption) or container app compute |
-| **Portability** | Runs unchanged on AKS, App Service, VMs | Requires Azure Functions runtime |
+| **Portability** | Runs unchanged on Azure Kubernetes Service (AKS), Azure App Service, and virtual machines (VMs) | Requires Azure Functions runtime |
 
 For detailed guidance, see [Choose your orchestration framework](../durable-task/common/choose-orchestration-framework.md). 
 
