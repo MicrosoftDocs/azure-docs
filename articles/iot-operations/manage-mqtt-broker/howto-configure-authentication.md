@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.date: 05/26/2026
+ms.date: 07/30/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -774,10 +774,7 @@ The matching for attributes always starts from the leaf client certificate and t
 
 You can apply authorization rules to clients by using X.509 certificates with these attributes. To learn more, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md#authorize-clients-that-use-x509-authentication).
 
-#### Optional: Azure Device Registry integration for X.509 authentication (preview)
-
-> [!IMPORTANT]
-> Azure Device Registry integration for X.509 authentication is currently in preview. This feature is subject to certain limitations and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+#### Optional: Azure Device Registry integration for X.509 authentication
 
 You can enable Azure Device Registry integration with X.509 authentication to enforce device-level certificate validation and revocation. When enabled, this feature requires X.509 clients to have matching devices in the device registry and allows you to disable clients by disabling the corresponding device.
 
@@ -842,7 +839,7 @@ x509Settings: {
 [!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerAuthentication
 metadata:
   name: aio-broker-authn
@@ -854,9 +851,6 @@ spec:
       trustedClientCaCert: <TRUSTED_CA_CONFIGMAP>
       additionalValidation: AzureDeviceRegistry
 ```
-
-> [!NOTE]
-> Note the API version `v1beta1` is required when using the `additionalValidation` field.
 
 ---
 

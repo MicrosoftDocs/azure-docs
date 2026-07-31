@@ -35,7 +35,7 @@ These X.509 certificates are strictly operational certificates that the device u
 
 To use certificate management, devices must be provisioned through the [Azure IoT Hub Device Provisioning Service (DPS)](../iot-dps/index.yml). 
 
-For more information, see [What is certificate management?](iot-hub-certificate-management-overview.md) and [Key concepts for certificate management](iot-hub-certificate-management-concepts.md).
+For more information, see [What is certificate management?](../iot/iot-hub-certificate-management-overview.md) and [Key concepts for certificate management](../iot/iot-hub-certificate-management-concepts.md).
 
 ## Understand Device Provisioning Service requirement
 
@@ -70,6 +70,6 @@ The preview period offers these features at no extra cost on top of your standar
 
 - [FAQ: What's new in Azure IoT Hub?](iot-hub-faq.md)
 - [Integration with Azure Device Registry](iot-hub-device-registry-overview.md)
-- [What is Microsoft-backed X.509 certificate management?](iot-hub-certificate-management-overview.md)
-- [Key concepts for certificate management](iot-hub-certificate-management-concepts.md)
+- [What is Microsoft-backed X.509 certificate management?](../iot/iot-hub-certificate-management-overview.md)
+- [Key concepts for certificate management](../iot/iot-hub-certificate-management-concepts.md)
 - [Get started with ADR and certificate management in IoT Hub](iot-hub-device-registry-setup.md)

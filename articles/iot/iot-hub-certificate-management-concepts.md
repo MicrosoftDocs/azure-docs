@@ -15,7 +15,7 @@ ms.date: 10/20/2025
 
 Certificate management in Azure IoT Hub is designed to simplify the management of X.509 certificates for IoT devices. This article introduces the fundamental concepts related to certificate management and certificate-based authentication in IoT Hub. For more information, see [What is certificate management (preview)?](iot-hub-certificate-management-overview.md)
 
-[!INCLUDE [public-preview-banner](includes/public-preview-banner.md)]
+[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
 
 ## Public key infrastructure (PKI)
 
@@ -23,7 +23,7 @@ PKI is a system that uses digital certificates to authenticate and encrypt data 
 
 ## Microsoft vs. third-party PKI
 
-While IoT Hub supports two types of PKI providers for X.509 certificate authentication, certificate management currently only supports Microsoft-managed (first-party) PKI. For information about using third-party PKI providers, see [Authenticate devices with X.509 CA certificates](authenticate-authorize-x509.md).
+While IoT Hub supports two types of PKI providers for X.509 certificate authentication, certificate management currently only supports Microsoft-managed (first-party) PKI. For information about using third-party PKI providers, see [Authenticate devices with X.509 CA certificates](../iot-hub/authenticate-authorize-x509.md).
 
 | PKI provider | Integration required | Azure Device Registry required | Device Provisioning Service required |
 |--------------|----------------------|-------------------| --------------|
@@ -68,10 +68,10 @@ In certificate management, devices submit CSRs during provisioning or reprovisio
 
 - *Authorization* means confirming what an authenticated user or device can access or do in IoT Hub. It defines permissions for resources and commands. Authorization is sometimes called *AuthZ*.
 
-X.509 certificates are only used for authentication in IoT Hub, not authorization. Unlike with [Microsoft Entra ID](authenticate-authorize-azure-ad.md) and [shared access signatures](authenticate-authorize-sas.md), you can't customize permissions with X.509 certificates.
+IoT Hub uses X.509 certificates only for authentication, not authorization. Unlike [Microsoft Entra ID](../iot-hub/authenticate-authorize-azure-ad.md) and [shared access signatures](../iot-hub/authenticate-authorize-sas.md), X.509 certificates don't support customizable permissions.
 
 ## Related content
 
-- [Deploy Azure IoT Hub with ADR integration and certificate management](iot-hub-device-registry-setup.md)
+- [Deploy Azure IoT Hub with ADR integration and certificate management](../iot-hub/iot-hub-device-registry-setup.md)
 - [What is Microsoft-backed X.509 certificate management?](iot-hub-certificate-management-overview.md)
-- [Integration with Azure Device Registry](iot-hub-device-registry-overview.md)
+- [Integration with Azure Device Registry](../iot-hub/iot-hub-device-registry-overview.md)

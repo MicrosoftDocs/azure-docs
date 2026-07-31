@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: concept-article
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
-ms.date: 04/21/2026
+ms.date: 07/29/2026
 ai-usage: ai-assisted
 #customer intent: As an IT administrator, I want to understand advanced MQTT client options so I can decide whether to customize them before deploying Azure IoT Operations.
 ---
@@ -35,7 +35,8 @@ To get started, prepare a `Broker` configuration file in JSON format. For exampl
         "strategy": "DropOldest"
       },
       "maxReceiveMaximum": 15000,
-      "maxKeepAliveSeconds": 300
+      "maxKeepAliveSeconds": 300,
+      "maxPacketSizeBytes": 1048576
     }
   }
 }
@@ -46,6 +47,12 @@ Then, deploy IoT Operations by using the `az iot ops create` command with the `-
 ```azurecli
 az iot ops create ... --broker-config-file <FILE>.json
 ```
+
+## Maximum packet size
+
+The `maxPacketSizeBytes` setting controls the largest MQTT packet that the broker accepts from a client. The broker advertises this value to MQTT v5 clients as the `Maximum Packet Size` property in the CONNACK packet. The broker disconnects clients that send larger packets.
+
+The [memory profile](deployment-planning.md#choose-your-memory-profile) sets an upper bound for this value. If you set `maxPacketSizeBytes` higher than the memory profile allows, the broker uses the memory profile value instead. Use this setting to restrict packet sizes further than the memory profile does, for example to protect memory in a deployment that only handles small telemetry messages.
 
 ## Subscriber queue limit
 
