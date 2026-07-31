@@ -30,11 +30,13 @@ Use-case scenarios for clone include:
 
 [!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]
 
-If you're not using the latest version of Azure IoT Operations, use the following command to update or install a [version of the extension that's compatible with your instance](../overview-support.md#supported-versions).
+If you're not using the latest version of Azure IoT Operations, use the following command to update or install a [version of the extension that's compatible with your instance](../overview-support.md#supported-versions). Set the `VERSION_NUMBER` environment variable to a compatible version.
 
 ```azurecli
-az extension add --upgrade --name azure-iot-ops --version <VERSION_NUMBER>
+az extension add --upgrade --name azure-iot-ops --version $VERSION_NUMBER
 ```
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
 
 ## Clone command overview
 
@@ -91,25 +93,25 @@ To clone an instance, use the `az iot ops clone` command with the appropriate pa
 1. To get your cluster resource ID, run:
 
     ```azurecli
-    az resource show --name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --resource-type "Microsoft.Kubernetes/connectedClusters" --query id --output tsv
+    az resource show --name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --resource-type "Microsoft.Kubernetes/connectedClusters" --query id --output tsv
     ```
 
-1. To clone an instance and replicate to a target arc-connected cluster using default options, run:
+1. To clone an instance and replicate to a target arc-connected cluster using default options, run the following command. Set the `CLUSTER_ID` environment variable to the resource ID of the target cluster (and, in later examples, `DIRECTORY` to the local output directory).
 
     ```azurecli
-    az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> 
+    az iot ops clone --name $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --to-cluster-id $CLUSTER_ID
     ```
 
 1. To customize the replication to another cluster, use `--param` and specify the parameters you want to change in the format `key=value`. For example, to change the location of the cloned instance, run:
 
     ```azurecli
-    az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> --param location=eastus
+    az iot ops clone --name $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --to-cluster-id $CLUSTER_ID --param location=eastus
     ```
 
 1. To clone an instance to a local disk, use the `--to-dir` parameter to specify the directory where you want to save the clone definition. This option produces a standard ARM template to be manipulated or deployed at your discretion.
 
     ```azurecli
-    az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-dir <DIRECTORY>
+    az iot ops clone --name $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --to-dir $DIRECTORY
     ```
 
     > [!TIP]
@@ -118,19 +120,19 @@ To clone an instance, use the `az iot ops clone` command with the appropriate pa
 1. To clone and replicate an instance to a target cluster and save to file in the same operation, run: 
 
     ```azurecli
-    az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> --to-dir <DIRECTORY>
+    az iot ops clone --name $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --to-cluster-id $CLUSTER_ID --to-dir $DIRECTORY
     ```   
 
 1. To clone an instance to a cluster, but splitting and serially applying asset related sub-deployments, use `--mode linked.` The parameter offers the highest degree of scale when the model instance contains a significant number of asset related resources.
 
     ```azurecli
-    az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-cluster-id <CLUSTER_ID> --mode linked
+    az iot ops clone --name $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --to-cluster-id $CLUSTER_ID --mode linked
     ```
 
 1. To clone an instance to disk in linked mode, where each linked asset and/or asset endpoint profile template can be deployed separately from the root template.
 
     ```azurecli
-    az iot ops clone --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --to-dir . --mode linked
+    az iot ops clone --name $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP --to-dir . --mode linked
     ```
 
 ## Considerations and limitations

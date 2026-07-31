@@ -23,6 +23,8 @@ This article shows you how to deploy Azure IoT Operations observability resource
 * Helm installed on your cluster machine. For instructions, see [Install Helm](https://helm.sh/docs/intro/install/).
 * Kubectl installed on your cluster machine. For instructions, see [Install Kubernetes tools](https://kubernetes.io/docs/tasks/tools/).
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
 ## Deploy with the automated script
 
 To set up all observability resources in a single step, use the automated [deploy-observability-resources.sh](https://github.com/Azure/azure-iot-operations/blob/main/scripts/observability/deploy-observability-resources.sh) script. The script automates the steps in this article, from [creating Azure resources](#create-resources-in-azure) through [setting up the observability configuration](#set-up-observability-configuration). You can run the script multiple times safely. It skips resources that already exist and updates resources that need changes.
@@ -74,7 +76,7 @@ After the script completes, continue to [Deploy dashboards to Grafana](#deploy-d
    > Run this step only once per subscription. To register resource providers, you need permission to perform the `/register/action` operation, which is included in the subscription **Contributor** and **Owner** roles. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
    ```azurecli
-   az account set -s <SUBSCRIPTION_ID>
+   az account set -s $SUBSCRIPTION_ID
    az provider register --namespace Microsoft.AlertsManagement
    az provider register --namespace Microsoft.Monitor
    az provider register --namespace Microsoft.Dashboard
@@ -92,39 +94,39 @@ After the script completes, continue to [Deploy dashboards to Grafana](#deploy-d
 1. Create an Azure Monitor workspace to enable metric collection for your Azure Arc-enabled Kubernetes cluster:
 
    ```azurecli
-   az monitor account create --name <WORKSPACE_NAME> --resource-group <RESOURCE_GROUP> --location <LOCATION> --query id -o tsv
+   AZURE_MONITOR_WORKSPACE_ID=$(az monitor account create --name $WORKSPACE_NAME --resource-group $RESOURCE_GROUP --location $LOCATION --query id -o tsv)
    ```
 
-   Save the Azure Monitor workspace ID from the output of this command. You use the ID when you enable metrics collection in the next section.
+   The command saves the Azure Monitor workspace ID in `AZURE_MONITOR_WORKSPACE_ID`. You use the ID when you enable metrics collection in the next section.
 
 1. Create an Azure Managed Grafana instance to visualize your Prometheus metrics:
 
    ```azurecli
-   az grafana create --name <GRAFANA_NAME> --resource-group <RESOURCE_GROUP> --query id -o tsv
+   GRAFANA_ID=$(az grafana create --name $GRAFANA_NAME --resource-group $RESOURCE_GROUP --query id -o tsv)
    ```
 
-   Save the Grafana ID from the output of this command. You use the ID when you enable metrics collection in the next section.
+   The command saves the Grafana ID in `GRAFANA_ID`. You use the ID when you enable metrics collection in the next section.
 
 1. Create a Log Analytics workspace for Container Insights:
 
    ```azurecli
-   az monitor log-analytics workspace create -g <RESOURCE_GROUP> -n <LOGS_WORKSPACE_NAME> --query id -o tsv
+   LOG_ANALYTICS_WORKSPACE_ID=$(az monitor log-analytics workspace create -g $RESOURCE_GROUP -n $LOGS_WORKSPACE_NAME --query id -o tsv)
    ```
 
-   Save the Log Analytics workspace ID from the output of this command. You use the ID when you enable metrics collection in the next section.
+   The command saves the Log Analytics workspace ID in `LOG_ANALYTICS_WORKSPACE_ID`. You use the ID when you enable logs collection in the next section.
 
 ## Enable metrics collection for the cluster
 
 Update the Azure Arc cluster to collect metrics and send them to the Azure Monitor workspace that you created. You also link this workspace to the Grafana instance:
 
 ```azurecli
-az k8s-extension create --name azuremonitor-metrics --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers.Metrics --configuration-settings azure-monitor-workspace-resource-id=<AZURE_MONITOR_WORKSPACE_ID> grafana-resource-id=<GRAFANA_ID>
+az k8s-extension create --name azuremonitor-metrics --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers.Metrics --configuration-settings azure-monitor-workspace-resource-id=$AZURE_MONITOR_WORKSPACE_ID grafana-resource-id=$GRAFANA_ID
 ```
 
 Enable Container Insights logs for logs collection:
 
 ```azurecli
-az k8s-extension create --name azuremonitor-containers --cluster-name <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings logAnalyticsWorkspaceResourceID=<LOG_ANALYTICS_WORKSPACE_ID>
+az k8s-extension create --name azuremonitor-containers --cluster-name $CLUSTER_NAME --resource-group $RESOURCE_GROUP --cluster-type connectedClusters --extension-type Microsoft.AzureMonitor.Containers --configuration-settings logAnalyticsWorkspaceResourceID=$LOG_ANALYTICS_WORKSPACE_ID
 ```
 
 After you complete these steps, you have both Azure Monitor and Grafana set up and linked to your cluster for observability and metric collection.
@@ -273,7 +275,7 @@ Configure Prometheus metrics collection on your cluster.
 You can set up the observability configuration of your Azure IoT Operations deployment at any time. Once observability resources are configured, you can upgrade the observability configuration by running the `az iot ops upgrade` command with the `--ops-config` parameter to specify the new configuration values:
 
 ```azurecli
-az iot ops upgrade --resource-group <rg name> -n <instance name> --ops-config observability.metrics.openTelemetryCollectorAddress=<>
+az iot ops upgrade --resource-group $RESOURCE_GROUP --name $AIO_INSTANCE_NAME --ops-config observability.metrics.openTelemetryCollectorAddress=aio-otel-collector.azure-iot-operations.svc.cluster.local:4317 observability.metrics.exportInternalSeconds=60
 ```
 
 | Parameter | Value | Description |    
@@ -294,7 +296,7 @@ Complete the following steps to install the Azure IoT Operations curated Grafana
 1. Sign in to the Grafana console. You can access the console through the Azure portal or use the `az grafana show` command to retrieve the URL.
 
    ```azurecli
-   az grafana show --name <GRAFANA_NAME> --resource-group <RESOURCE_GROUP> --query url -o tsv
+   az grafana show --name $GRAFANA_NAME --resource-group $RESOURCE_GROUP --query url -o tsv
    ```
 
 1. On the Grafana landing page, select the **Create your first dashboard** tile.

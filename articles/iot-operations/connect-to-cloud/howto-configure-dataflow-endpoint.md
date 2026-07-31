@@ -35,6 +35,12 @@ Use the following table to choose the endpoint type to configure:
 > 
 > To generate the schema from a sample data file, use the [Schema Gen Helper](https://github.com/Azure-Samples/explore-iot-operations/tree/main/tools/schema-gen-helper).
 
+## Set your environment variables
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for resource names that you choose: `DATAFLOW` (the name of the data flow), `PROFILE` (the name of the data flow profile). Set each one to a value that you want before you run the related commands.
+
 ## Data flows must use local MQTT broker endpoint
 
 When you create a data flow, you specify the source and destination endpoints. The data flow moves data from the source to the destination. You can use the same endpoint for multiple data flows, and you can use the same endpoint as both the source and destination.
@@ -73,7 +79,7 @@ For example, you can use the default MQTT broker data flow endpoint. You can use
 Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
 
 ```azurecli
-az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>
+az iot ops dataflow apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --profile $PROFILE --name $DATAFLOW --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -174,7 +180,7 @@ Similarly, you can create multiple data flows that use the same MQTT endpoint fo
 Use the [az iot ops dataflow apply](/cli/azure/iot/ops/dataflow#az-iot-ops-dataflow-apply) command to create or change a data flow.
 
 ```azurecli
-az iot ops dataflow apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --profile <DataflowProfileName> --name <DataflowName> --config-file <ConfigFilePathAndName>
+az iot ops dataflow apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --profile $PROFILE --name $DATAFLOW --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.

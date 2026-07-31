@@ -28,6 +28,8 @@ This article provides instructions for enabling secure settings if you didn't do
   az extension add --upgrade --name connectedk8s
   ```
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
 ## Enable the cluster for secure settings
 
 To enable secrets synchronization for your Azure IoT Operations instance, the _OIDC issuer_ and _workload identity federation_ features must be enabled on your cluster. This configuration is required for the [Azure Key Vault Secret Store extension](/azure/azure-arc/kubernetes/secret-store-extension) to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets.
@@ -39,19 +41,19 @@ For k3s clusters on Kubernetes, you can update an existing cluster. To enable an
 1. Update the cluster to enable OIDC issuer and workload identity.
 
     ```azurecli
-    az connectedk8s update -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --enable-oidc-issuer --enable-workload-identity
+    az connectedk8s update -n $CLUSTER_NAME -g $RESOURCE_GROUP --enable-oidc-issuer --enable-workload-identity
     ```
 
     If you enabled the OIDC issuer and workload identity features when you created the cluster, you don't need to run the previous command again. Use the following command to check the status of the OIDC issuer and workload identity features for your cluster:
 
     ```azurecli
-    az connectedk8s show -g <RESOURCE_GROUP> -n <CLUSTER_NAME> --query "{ClusterName:name, OIDCIssuerEnabled:oidcIssuerProfile.enabled, WorkloadIdentityEnabled:securityProfile.workloadIdentity.enabled}"
+    az connectedk8s show -g $RESOURCE_GROUP -n $CLUSTER_NAME --query "{ClusterName:name, OIDCIssuerEnabled:oidcIssuerProfile.enabled, WorkloadIdentityEnabled:securityProfile.workloadIdentity.enabled}"
     ```
 
 1. Get the cluster's issuer URL.
 
     ```azurecli
-    az connectedk8s show -g <RESOURCE_GROUP> -n <CLUSTER_NAME> --query oidcIssuerProfile.issuerUrl --output tsv
+    az connectedk8s show -g $RESOURCE_GROUP -n $CLUSTER_NAME --query oidcIssuerProfile.issuerUrl --output tsv
     ```
 
     Make a note of the output from this command to use in the next steps.

@@ -25,6 +25,10 @@ Before you begin, prepare the following prerequisites:
 
 * Azure access permissions. For more information, see [Deployment overview > Required permissions](../deploy-iot-ops/overview-deploy.md#required-permissions).
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for resource names that you choose: `SCHEMA_REGISTRY` (the name of the schema registry), `SCHEMA_REGISTRY_NAMESPACE` (the name of the schema registry namespace), `STORAGE_ACCOUNT` (the name of the storage account). Set each one to a value that you want before you run the related commands.
+
 ## Setting up
 
 Developing with the Azure IoT Operations SDKs requires a Kubernetes cluster with Azure IoT Operations deployed. Further configuration allows you to access the MQTT broker directly from the developer environment.
@@ -133,7 +137,7 @@ Open a new Bash terminal and complete the following steps:
     | `DEVICE_REGISTRY_NAMESPACE` | A name for your device registry namespace. Must be unique within your tenant, and between 3 and 24 characters. Can only contain numbers, letters, hyphens, and underscores. |
 
     ```bash
-    ./tools/deployment/install-aio-arc.sh -l <LOCATION> -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -s <STORAGE_ACCOUNT_NAME> -r <SCHEMA_REGISTRY_NAME> -n <SCHEMA_REGISTRY_NAMESPACE> -d <DEVICE_REGISTRY_NAMESPACE>    
+    ./tools/deployment/install-aio-arc.sh -l <LOCATION> -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -s <STORAGE_ACCOUNT_NAME> -r <SCHEMA_REGISTRY_NAME> -n <SCHEMA_REGISTRY_NAMESPACE> -d <DEVICE_REGISTRY_NAMESPACE>
     ```
     
     This script runs the following commands:

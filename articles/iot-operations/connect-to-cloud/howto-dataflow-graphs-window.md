@@ -39,6 +39,8 @@ Window transforms add aggregation functions such as `average`, `min`, and `max`,
 [!INCLUDE [prereq-deployed-instance](../includes/prereq-deployed-instance.md)]
 - A default registry endpoint named `default` that points to `mcr.microsoft.com` is automatically created during deployment.
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
 ## Scaling limitation for stateful graphs
 
 > [!IMPORTANT]
@@ -828,8 +830,8 @@ Apply the config file. The `extendedLocation` is added automatically from the in
 ```azurecli
 az iot ops dataflowgraph apply \
   --name temperature-window \
-  --instance <INSTANCE_NAME> \
-  --resource-group <RESOURCE_GROUP> \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP \
   --config-file graph.json
 ```
 
