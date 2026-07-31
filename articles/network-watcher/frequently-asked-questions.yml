@@ -53,7 +53,7 @@ sections:
       - question: |
           What permissions are required to use Network Watcher?
         answer: |
-          See [Azure RBAC permissions required to use Network Watcher](required-rbac-permissions.md) for a detailed list of required permissions for each of capability of Network Watcher.
+          See [Azure RBAC permissions required to use Network Watcher](rbac-permissions.md) for a detailed list of required permissions for each of capability of Network Watcher.
           
       - question: |
           How do I enable Network Watcher?

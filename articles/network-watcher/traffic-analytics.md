@@ -87,7 +87,7 @@ To use traffic analytics, you need the following components:
       For more information, see [Virtual network flow logs overview](vnet-flow-logs-overview.md) and [Create a virtual network flow log](vnet-flow-logs-portal.md#create-a-flow-log). To learn about the differences between network security group flow logs and virtual network flow logs, see [Virtual network flow logs compared to network security group flow logs](vnet-flow-logs-overview.md#virtual-network-flow-logs-compared-to-network-security-group-flow-logs). 
 
 > [!NOTE]
-> To use Traffic analytics, you must have the required permissions. For more information, see [Traffic analytics permissions](required-rbac-permissions.md#traffic-analytics).
+> To use Traffic analytics, you must have the required permissions. For more information, see [Traffic analytics permissions](rbac-permissions.md#traffic-analytics).
 
 ## How traffic analytics works
 
