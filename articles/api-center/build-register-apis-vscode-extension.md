@@ -1,10 +1,10 @@
 ---
-title: Build and Register APIs - VS Code Extension
+title: Build and Register APIs - Visual Studio Code Extension
 description: Learn how API developers can use the Azure API Center extension for Visual Studio Code to build and register APIs in their organization's API center.
 
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 08/28/2025
+ms.date: 04/27/2026
 ms.update-cycle: 180-days
  
 ms.collection: ce-skilling-ai-copilot
@@ -12,12 +12,12 @@ ms.custom:
 # Customer intent: As an API developer, I want to use my Visual Studio Code environment to register APIs in my organization's API center as part of my development workflow.
 ---
 
-# Build and register APIs with the Azure API Center extension for VS Code
+# Build and register APIs with the Azure API Center extension for Visual Studio Code
 
 API producer developers in your organization can build and register APIs in your [API center](overview.md) inventory by using the Azure API Center extension for Visual Studio Code. API developers can:
 
-* Add an existing API to an API center as a one-time operation, or integrate a development pipeline to register APIs as part of a CI/CD workflow.
-* Use GitHub Copilot to generate new OpenAPI specs from API code.
+- Add an existing API to an API center as a one-time operation, or integrate a development pipeline for registering APIs as part of a CI/CD workflow.
+- Use GitHub Copilot to generate new OpenAPI specs from API code.
 
 API consumer developers can also take advantage of features in the extension to [discover and consume APIs](discover-apis-vscode-extension.md) in the API center and ensure [API governance](govern-apis-vscode-extension.md).
 
@@ -25,9 +25,9 @@ API consumer developers can also take advantage of features in the extension to 
 
 The following Visual Studio Code extensions are needed for the specified scenarios:
 
-* [GitHub Actions](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions) to register APIs using a CI/CD pipeline with GitHub Actions
-* [Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-azure-devops.azure-pipelines) to register APIs using a CI/CD pipeline with Azure Pipelines
-* [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) to generate OpenAPI specification files from API code
+- [GitHub Actions](https://marketplace.visualstudio.com/items?itemName=GitHub.vscode-github-actions) to register APIs using a CI/CD pipeline with GitHub Actions
+- [Azure Pipelines](https://marketplace.visualstudio.com/items?itemName=ms-azure-devops.azure-pipelines) to register APIs using a CI/CD pipeline with Azure Pipelines
+- [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) to generate OpenAPI specification files from API code
 
 [!INCLUDE [vscode-extension-setup](includes/vscode-extension-setup.md)]  
 
@@ -37,14 +37,14 @@ The following steps register an API in your API center as a one-time operation.
 
 1. Use the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. Type **Azure API Center: Register API** and hit **Enter**.
 1. Select **Manual**.
-1. Select the API center to register APIs with.
+1. Select the API center that you want to register APIs with.
 1. Answer prompts with information including API title, type, version title, version lifecycle, definition title, specification name, and definition file to complete API registration. 
 
 The API is added to your API center inventory.
 
 ## Register APIs using CI/CD pipeline
 
-The following steps register an API in your API center with a CI/CD pipeline. With this option, add a preconfigured GitHub or Azure DevOps pipeline to your active Visual Studio Code workspace that is run as part of a CI/CD workflow on each commit to source control. It's recommended to inventory APIs with your API center using CI/CD to ensure API metadata including specification and version stay current in your API center as the API continues to evolve over time.
+The following steps register an API in your API center with a CI/CD pipeline. With this option, you add a preconfigured GitHub or Azure DevOps pipeline to your active Visual Studio Code workspace that is run as part of a CI/CD workflow on each commit to source control. We recommended that you inventory APIs with your API center using CI/CD. This method ensures that API metadata including specification and version stay current in your API center as the API continues to evolve over time.
 
 1. Use the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. Type **Azure API Center: Register API** and hit **Enter**.
 1. Select **CI/CD**.
@@ -67,8 +67,8 @@ After generating the OpenAPI specification file and checking for accuracy, you c
 
 ## Related content
 
-* [Azure API Center - key concepts](key-concepts.md)
-* [Discover and consume APIs with the Azure API Center extension for Visual Studio Code](discover-apis-vscode-extension.md)
-* [Govern APIs with the Azure API Center extension for Visual Studio Code](govern-apis-vscode-extension.md)
-* [Enable API Center portal view in Visual Studio Code](enable-api-center-portal-vs-code-extension.md)
-* [What is GitHub Copilot for Azure?](/azure/developer/github-copilot-azure/introduction)
+- [Azure API Center - key concepts](key-concepts.md)
+- [Discover and consume APIs with the Azure API Center extension for Visual Studio Code](discover-apis-vscode-extension.md)
+- [Govern APIs with the Azure API Center extension for Visual Studio Code](govern-apis-vscode-extension.md)
+- [Enable API Center portal view in Visual Studio Code](enable-api-center-portal-vs-code-extension.md)
+- [What is GitHub Copilot for Azure?](/azure/developer/github-copilot-azure/introduction)

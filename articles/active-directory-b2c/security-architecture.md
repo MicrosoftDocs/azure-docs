@@ -6,7 +6,7 @@ description: End to end guidance on how to secure your Azure AD B2C solution.
 author: rbinrais
 manager: RideMo
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: how-to
 ms.date: 05/09/2023
@@ -19,6 +19,8 @@ ms.subservice: b2c
 ---
 
 # How to secure your Azure Active Directory B2C identity solution
+
+[!INCLUDE [active-directory-b2c-identity-protection-retirement](../../includes/active-directory-b2c-identity-protection-retirement.md)]
 
 This article provides the best practices in securing your Azure Active Directory B2C (Azure AD B2C) solution. To build your identity solution using Azure AD B2C involves many components that you should consider protecting and monitoring.  
 

@@ -7,7 +7,7 @@ ms.author: makromer
 ms.reviewer: whhender
 ms.subservice: orchestration
 ms.custom: synapse, devx-track-azurecli, devx-track-azurepowershell
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/13/2025
 ---
 

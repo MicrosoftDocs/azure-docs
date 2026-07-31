@@ -505,17 +505,17 @@ az rest --url "https://management.azure.com/providers/Microsoft.Insights/eventty
 
 ## Detect elevate access events using Microsoft Sentinel
 
-To detect elevate access events and gain visibility into potentially fraudulent activities, you can use Microsoft Sentinel. [Microsoft Sentinel](../sentinel/overview.md) is a security information and event management (SIEM) platform that provides security analytics and threat response capabilities. This section describes how to connect Microsoft Entra audit logs to Microsoft Sentinel so that you can detect elevate access in your organization. 
+To detect elevate access events and gain visibility into potentially fraudulent activities, you can use Microsoft Sentinel. [Microsoft Sentinel](/azure/sentinel/overview) is a security information and event management (SIEM) platform that provides security analytics and threat response capabilities. This section describes how to connect Microsoft Entra audit logs to Microsoft Sentinel so that you can detect elevate access in your organization. 
 
 ### Step 1: Onboard Microsoft Sentinel
 
 Follow these steps to onboard Microsoft Sentinel:
 
-1. Find an existing Log Analytics workspace or [create a new one](../sentinel/quickstart-onboard.md#create-a-log-analytics-workspace).
+1. Find an existing Log Analytics workspace or [create a new one](/azure/sentinel/quickstart-onboard#create-a-log-analytics-workspace).
 
     :::image type="content" source="./media/elevate-access-global-admin/sentinel-enable.png" alt-text="Screenshot of Microsoft Sentinel with a workspace." lightbox="./media/elevate-access-global-admin/sentinel-enable.png":::
 
-1. [Add Microsoft Sentinel to your workspace](../sentinel/quickstart-onboard.md#add-microsoft-sentinel-to-your-log-analytics-workspace).
+1. [Add Microsoft Sentinel to your workspace](/azure/sentinel/quickstart-onboard#add-microsoft-sentinel-to-your-log-analytics-workspace).
 
 ### Step 2: Connect Microsoft Entra data to Microsoft Sentinel
 
@@ -523,11 +523,11 @@ In this step, you install the **Microsoft Entra ID** solution and use the  **Mic
 
 Your organization might have already configured a diagnostic setting to integrate the Microsoft Entra audit logs. To check, view your diagnostic settings as described in [How to access diagnostic settings](/entra/identity/monitoring-health/howto-configure-diagnostic-settings#how-to-access-diagnostic-settings).
 
-1. Install the **Microsoft Entra ID** solution by following the steps at [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel/sentinel-solutions-deploy.md#discover-content).
+1. Install the **Microsoft Entra ID** solution by following the steps at [Discover and manage Microsoft Sentinel out-of-the-box content](/azure/sentinel/sentinel-solutions-deploy#discover-content).
 
     :::image type="content" source="./media/elevate-access-global-admin/sentinel-entra-id-solution.png" alt-text="Screenshot of Content hub page with Microsoft Entra ID content selected." lightbox="./media/elevate-access-global-admin/sentinel-entra-id-solution.png":::
 
-1. Use the [Microsoft Entra ID connector](../sentinel/data-connectors-reference.md#microsoft-entra-id) to collect data from Microsoft Entra ID by following the steps at [Connect Microsoft Entra data to Microsoft Sentinel](../sentinel/connect-azure-active-directory.md).
+1. Use the [Microsoft Entra ID connector](/azure/sentinel/data-connectors-reference#microsoft-entra-id) to collect data from Microsoft Entra ID by following the steps at [Connect Microsoft Entra data to Microsoft Sentinel](/azure/sentinel/connect-azure-active-directory).
 
 1. On the **Data connectors** page, add a check mark for **Audit Logs**.
 
@@ -537,7 +537,7 @@ Your organization might have already configured a diagnostic setting to integrat
 
 In this step, you create a scheduled analytics rule based on a template to examine the Microsoft Entra audit logs for elevate access events.
 
-1. Create an elevate access analytics rule by following the steps at [Create a rule from a template](../sentinel/create-analytics-rule-from-template.md#create-a-rule-from-a-template).
+1. Create an elevate access analytics rule by following the steps at [Create a rule from a template](/azure/sentinel/create-analytics-rule-from-template#create-a-rule-from-a-template).
 
 1. Select the **Azure RBAC (Elevate Access)** template then select the **Create rule** button on the details pane.
 
@@ -553,7 +553,7 @@ In this step, you create a scheduled analytics rule based on a template to exami
 
 In this step, you view and investigate elevate access incidents.
 
-- Use the **Incidents** page to view incidents of elevate access by following the steps at [Navigate and investigate incidents in Microsoft Sentinel](../sentinel/investigate-incidents.md).
+- Use the **Incidents** page to view incidents of elevate access by following the steps at [Navigate and investigate incidents in Microsoft Sentinel](/azure/sentinel/investigate-incidents).
 
     :::image type="content" source="./media/elevate-access-global-admin/sentinel-incidents.png" alt-text="Screenshot of Incidents page with examples of elevate access incidents." lightbox="./media/elevate-access-global-admin/sentinel-incidents.png":::
 

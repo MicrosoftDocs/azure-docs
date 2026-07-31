@@ -4,7 +4,7 @@ description: Learn about using R and Apache Spark to do data preparation and mac
 author: midesa
 ms.author: midesa
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: spark
 ms.date: 09/27/2022 
 ---

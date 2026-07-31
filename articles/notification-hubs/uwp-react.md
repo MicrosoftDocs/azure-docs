@@ -4,7 +4,7 @@ description: Learn about the cross-platform capabilities of Azure Notification H
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-notification-hubs
-ms.topic: conceptual
+ms.topic: sample
 ms.date: 06/14/2021
 ms.custom: template-concept
 ---

@@ -7,7 +7,7 @@ ms.author: malev
 ms.service: azure-managed-grafana
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 11/21/2025
+ms.date: 07/10/2026
 ---
 
 # Create a dashboard in Azure Managed Grafana
@@ -212,6 +212,19 @@ az grafana dashboard update --name <AMG-name> --resource-group <AMG-resource-gro
 ```
 
 ---
+
+## Manage dashboards as code with Git Sync
+
+By using Git Sync, you can store your dashboards as JSON files in a Git repository and manage them as code. You can version control your dashboards, collaborate through pull requests, and automate deployments. Git Sync is bidirectional: changes you make in the Grafana UI can be committed to your repository, and changes made in your repository are synchronized back to Grafana.
+
+You configure and use Git Sync from the Grafana UI. To authenticate to your repository, use a GitHub app or a personal access token (PAT).
+
+Azure Managed Grafana supports up to 10 repositories, with up to 1,000 resources per repository.
+
+> [!NOTE]
+> Git Sync in Azure Managed Grafana supports GitHub repositories only, and requires Grafana version 13 or later.
+
+To set up Git Sync and synchronize your dashboards, follow the [Set up Git Sync](https://grafana.com/docs/grafana/latest/as-code/observability-as-code/git-sync/git-sync-setup/) documentation on the Grafana Labs website.
 
 ## Next step
 

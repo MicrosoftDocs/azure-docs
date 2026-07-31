@@ -44,7 +44,7 @@ In this quickstart guide, you set up:
 
 ## Enable Microsoft Sentinel for Log Analytics workspace
 
-1. [Enable Microsoft Sentinel workspace](../../sentinel/overview.md).
+1. [Enable Microsoft Sentinel workspace](/azure/sentinel/overview).
 1. Send logs to **Log Analytics workspace**:
    1. In **Search resources, services, and docs**, type **Application Gateways for Containers**.
    1. Go to your selected **Application Gateway for Containers** resource.

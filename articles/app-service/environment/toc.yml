@@ -35,7 +35,7 @@
     href: ../overview-diagnostics.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
 - name: How-To guides
   items:
-  - name: Use an App Service Environment
+  - name: Host an App in an App Service Environment
     href: using.md
   - name: Create an App Service Environment from template
     href: how-to-create-from-template.md
@@ -47,6 +47,8 @@
     href: how-to-custom-domain-suffix.md
   - name: Upgrade preference for planned maintenance
     href: how-to-upgrade-preference.md
+  - name: Configure Isolated v4 tier
+    href: app-service-configure-isolated-v4-tier.md
 - name: Resources
   items:
   - name: Azure Roadmap
@@ -69,14 +71,6 @@
     items:
     - name: Deployment Scripts
       href: ../../automation/automation-runbook-gallery.md
-  - name: Troubleshooting
-    items:
-    - name: Troubleshoot Node.js app
-      href: ../app-service-web-nodejs-best-practices-and-troubleshoot-guide.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-    - name: Troubleshoot HTTP 502 & 503
-      href: ../troubleshoot-http-502-http-503.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
-    - name: Troubleshoot performance issues
-      href: ../troubleshoot-performance-degradation.md?toc=%2fazure%2fapp-service%2fenvironment%2ftoc.json
     - name: FAQ
       items:
       - name: Availability, performance, and application FAQ

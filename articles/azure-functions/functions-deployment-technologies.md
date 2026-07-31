@@ -3,7 +3,7 @@ title: Deployment technologies in Azure Functions
 description: Learn the different ways you can deploy code to Azure Functions.
 ms.custom: vs-azure, vscode-azure-extension-update-not-needed, build-2023, build-2024
 ms.topic: concept-article
-ms.date: 01/15/2026
+ms.date: 04/12/2026
 ---
 
 # Deployment technologies in Azure Functions
@@ -31,10 +31,10 @@ The deployment method also depends on the hosting plan and operating system on w
 Currently, Functions offers five options for hosting your function apps:
 
 + [Flex Consumption plan](flex-consumption-plan.md)
-+ [Consumption](consumption-plan.md)
 + [Elastic Premium plan](functions-premium-plan.md)
 + [Dedicated (App Service) plan](dedicated-plan.md)
 + [Azure Container Apps](../container-apps/functions-overview.md)
++ [Consumption plan](consumption-plan.md) (legacy)
 
 Each plan has different behaviors. Not all deployment technologies are available for each hosting plan and operating system. This chart provides information on the supported deployment technologies:
 
@@ -111,7 +111,7 @@ By default, both [Azure Functions Core Tools](functions-run-local.md) and the [A
 
 When you build apps remotely on Linux, they [run from the deployment package](run-functions-from-deployment-package.md).
 
-When deploying to the Flex Consumption plan, you don't need to set any application settings to request a remote build. You instead pass a remote build parameter when you start deployment. How you pass this parameter depends on the deployment tool you're using. For Core Tools and Visual Studio Code, a remote build is always requested when deploying a Python app.
+When deploying to the Flex Consumption plan, you don't need to set any application settings to request a remote build. You instead pass a remote build parameter when you start deployment. How you pass this parameter depends on the deployment tool you're using. For Core Tools and Visual Studio Code, a remote build is always requested when deploying a Python app. For more information, see [Deployment](flex-consumption-plan.md#deployment).
 
 ---
 
@@ -127,6 +127,18 @@ The following considerations apply when using remote builds during deployment:
 Package-based deployment methods store the package in the storage account associated with the function app, which the [AzureWebJobsStorage](functions-app-settings.md#azurewebjobsstorage) setting defines. When available, Consumption and Elastic Premium plan apps try to use the Azure Files content share from this account, but you can also maintain the package in another location. Flex Consumption plan apps use a storage container in default storage account, unless you [configure a different storage account to use for deployment](flex-consumption-how-to.md#configure-deployment-settings). For more information, review the details in **Where app content is stored** in each deployment technology covered in the next section.
 
 [!INCLUDE [functions-storage-access-note](../../includes/functions-storage-access-note.md)]
+
+### Secured virtual networks
+
+When your function app has [private endpoints](functions-networking-options.md#private-endpoints) enabled and public network access is disabled, the `scm` (Kudu) deployment site isn't publicly reachable. When the storage account used by the function app is also secured behind private endpoints, technologies that must access storage are similarly blocked. Because of these restrictions, the deployment technologies described in this article can't reach a fully network-secured function app from outside the virtual network.
+
+To deploy code to a network-secured function app, your deployment tooling must have connectivity to the virtual network. You can achieve this connectivity in these ways:
+
++ If deploying from an Azure Pipeline, use a [self-hosted agent](/azure/devops/pipelines/agents/docker) with access to your virtual network or configure a [managed DevOps agent pool with networking](/azure/devops/managed-devops-pools/configure-networking).
++ If deploying from a GitHub workflow, use a [self-hosted runner](https://docs.github.com/actions/concepts/runners/self-hosted-runners) with access to your virtual network or configure a [GitHub-hosted runner in your Azure virtual network](https://docs.github.com/organizations/managing-organization-settings/about-azure-private-networking-for-github-hosted-runners-in-your-organization).
++ Connect your development machine to the virtual network by using a [point-to-site VPN](../vpn-gateway/point-to-site-about.md) or [ExpressRoute](../expressroute/expressroute-introduction.md).
+
+For more information about configuring your function app in a virtual network, see [How to configure Azure Functions with a virtual network](configure-networking-how-to.md).
 
 ## Deployment technology details
 

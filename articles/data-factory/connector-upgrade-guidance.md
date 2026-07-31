@@ -1,8 +1,8 @@
 ---
 title: Connector upgrade guidance
 description: This article describes the guidance for upgrading connectors of Azure Data Factory.
-author: jianleishen
-ms.author: jianleishen
+author: simplywilson
+ms.author: tinglee
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
@@ -29,7 +29,7 @@ Here's the steps to help you find the notification:
 
     :::image type="content" source="media/connector-lifecycle/service-health-health-advisories.png" alt-text="Screenshot of service health.":::
 
-To learn more about the Service Health portal, see this [article](/azure/service-health/service-health-overview).
+To learn more about the Service Health portal, see this [the Azure Service Health overview](/azure/service-health/overview).
 
 
 ## How to find your impacted objects from data factory portal

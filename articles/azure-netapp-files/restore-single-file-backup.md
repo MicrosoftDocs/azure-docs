@@ -6,7 +6,7 @@ author: b-ahibbard
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 11/17/2025
+ms.date: 04/15/2026
 ms.author: anfdocs
 ---
 # Restore individual files with single-file restore from backups in Azure NetApp Files
@@ -23,27 +23,6 @@ You can rely on your Azure NetApp Files backup to restore individual files that 
 * The file list field has a character limit of 1,024 characters. 
 * The target volume for the restore operation must have enough logical free space available to accommodate all the files being restored.
 * The restore operation doesn't work if a directory or a soft link path is entered in the file list field.
-
-## Register the feature
-
-You must register for the feature before you can use it. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSingleFileBackupRestore
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** can remain in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSingleFileBackupRestore
-    ```
-
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Steps
 

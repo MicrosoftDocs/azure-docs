@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: jorgegarc
 ms.date: 01/02/2024
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: identity
 ---

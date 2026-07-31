@@ -2,12 +2,10 @@
 title: Export APIs from Azure API Management to Microsoft Power Platform | Microsoft Docs
 description: Learn how to export an API from API Management to the Microsoft Power Platform Copilot Studio, Power Apps, and Power Automate as a custom connector.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/07/2025
-ms.author: danlep
 ms.custom: engagement-fy23
 ---
 

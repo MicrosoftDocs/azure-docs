@@ -17,6 +17,9 @@ ms.custom:
 
 [Azure Private Link](../private-link/private-link-overview.md) is a technology that allows you to connect Azure Platform-as-a-Service offerings using private IP address connectivity by exposing [Private Endpoints](../private-link/private-endpoint-overview.md). With Azure Virtual WAN, you can deploy a Private Endpoint in one of the virtual networks connected to any virtual hub. This private link provides connectivity to any other virtual network or branch connected to the same Virtual WAN.
 
+> [!NOTE]
+> There is a maximum of 4,000 private endpoints across all virtual networks connected to a single Virtual WAN hub. Exceeding this limit can cause connection degradation. High-scale private endpoints aren't currently supported for Virtual WAN hubs, so this limit isn't currently adjustable. For more information about private endpoint virtual network limits, see [Increase private endpoint limits in VNets connected to Azure resources](../private-link/increase-private-endpoint-vnet-limits.md).
+
 ## Before you begin
 
 The steps in this article assume that you  deployed a virtual WAN with one or more hubs and at least two virtual networks connected to Virtual WAN.
@@ -29,17 +32,18 @@ To create a new virtual WAN and a new hub, use the steps in the following articl
 
 ## Routing Considerations with Private Link in Virtual WAN
 
-Private Endpoint connectivity in Azure is stateful. When a connection to a private endpoint gets established through Virtual WAN, traffic is routed through one or more traffic hops through different Virtual WAN components (for example Virtual Hub router, ExpressRoute Gateway, VPN Gateway, Azure Firewall, or NVA). The exact hops traffic takes is based on your Virtual WAN routing configurations. Behind the scenes, Azure's software-defined networking layer sends all packets related to a single 5-tuple flow to one of the backend instances servicing different Virtual WAN components. Asymmetrically routed traffic (for example, traffic corresponding to a single 5-tuple flow routed to different backend instances) is not supported and is dropped by the Azure platform.
+Private Endpoint connectivity in Azure is stateful. When a connection to a private endpoint gets established through Virtual WAN, traffic is routed through one or more traffic hops through different Virtual WAN components (for example Virtual Hub router, ExpressRoute Gateway, VPN Gateway, Azure Firewall, or NVA). The exact network hops are based on your Virtual WAN routing configurations. Behind the scenes, Azure's software-defined networking layer sends all packets related to a single 5-tuple flow to one of the backend instances servicing different Virtual WAN components. Asymmetrically routed traffic (for example, traffic corresponding to a single 5-tuple flow routed to different backend instances) is not supported and is dropped by the Azure platform.
 
 During maintenance events on Virtual WAN infrastructure, backend instances are rebooted one at a time. This can lead to intermittent connectivity issues to Private Endpoint as the instance servicing the flow is temporarily unavailable. The similar problem can occur when Azure Firewall or Virtual hub router scales out. The same traffic flow can be load-balanced to a new backend instance that's different than the instance currently servicing the flow.
 
 To mitigate the impact of maintenance and scale-out events on Private Link or Private Endpoint traffic consider the following best practices:
 
-* Configure the TCP timeout value of any application (whether hosted on premises or in another Azure Virtual Network) that is accessing the Private Link/Private Endpoint to fall between 15-30 seconds. A smaller TCP timeout value allows application traffic to recover more quickly from maintenance and scale-out events. Alternatively, test different application timeout values to determine a suitable timeout based on your requirements.
-* When an active TCP flow accessing Private Link resource is impacted by a Virtual WAN maintenance event, Azure's underlying infrastructure sends a TCP Reset (RST) to the client application that initiatd the flow. Ensure the client application properly handles TCP RST and establishes a new TCP session to ensure faster recovery.
-* Pre-scale Virtual WAN components to handle traffic bursts to prevent autoscale events from occurring. For the Virtual Hub router, you can set the minimum routing infrastructure units on your hub router to prevent scaling during traffic bursts.
-
-Lastly, if you're using on-premises connectivity between Azure and on-premises using VPN or ExpressRoute, ensure your on-premises device is configured to use the same VPN tunnel or same Microsoft Enterprise Edge router as the next-hop for each 5-tuple corresponding to private endpoint traffic.
+|Traffic Type| Best Practice|
+|--|--|
+| All (VPN, ExpressRoute, inter-hub or Virtual Network) | Configure the TCP timeout value of any application (whether hosted on premises or in another Azure Virtual Network) that is accessing the Private Link/Private Endpoint to fall between 15-30 seconds. A smaller TCP timeout value allows application traffic to recover more quickly from maintenance and scale-out events. Alternatively, test different application timeout values to determine a suitable timeout based on your requirements.|
+|All (VPN, ExpressRoute, inter-hub or Virtual Network) | Pre-scale Virtual WAN components to handle traffic bursts to prevent autoscale events from occurring. For the Virtual Hub router, you can set the minimum routing infrastructure units on your hub router to prevent scaling during traffic bursts.|
+| ExpressRoute | When an active TCP flow from ExpressRoute on-premises accesses  Private Link and the ExpressRoute Gateway is impacted by a Virtual WAN maintenance event, Azure's underlying infrastructure sends a TCP Reset (RST) to the client application that initiated the flow. Ensure the client application properly handles TCP RST and establishes a new TCP session to ensure faster recovery. |
+| ExpressRoute and VPN| Ensure your on-premises device is configured to use the same VPN tunnel or same Microsoft Enterprise Edge router as the next-hop for each 5-tuple corresponding to private endpoint traffic.|
  
 ## <a name="endpoint"></a>Create a private link endpoint
 

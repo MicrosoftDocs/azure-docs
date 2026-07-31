@@ -1,6 +1,6 @@
 ---
-title: Security best practices for IaaS workloads in Azure | Microsoft Docs
-description: " The migration of workloads to Azure IaaS brings opportunities to reevaluate our designs "
+title: Security best practices for IaaS workloads in Azure
+description: Learn security best practices for Azure IaaS workloads, including VM access control, malware protection, updates, monitoring, encryption, and network exposure.
 services: security
 author: msmbaldwin
 
@@ -8,8 +8,9 @@ ms.assetid: 02c5b7d2-a77f-4e7f-9a1e-40247c57e7e2
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/12/2026
+ms.date: 05/05/2026
 ms.author: mbaldwin
+ai-usage: ai-assisted
 ---
 
 # Security best practices for IaaS workloads in Azure
@@ -18,7 +19,7 @@ This article describes security best practices for VMs and operating systems.
 
 The best practices come from a consensus of opinion, and they work with current Azure platform capabilities and feature sets. Because opinions and technologies can change over time, this article is updated to reflect those changes.
 
-In most infrastructure as a service (IaaS) scenarios, [Azure virtual machines (VMs)](/azure/virtual-machines/) are the main workload for organizations that use cloud computing. This fact is evident in [hybrid scenarios](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) where organizations want to slowly migrate workloads to the cloud. In such scenarios, follow the [general security considerations for IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx), and apply security best practices to all your VMs.
+In most infrastructure as a service (IaaS) scenarios, [Azure virtual machines (VMs)](/azure/virtual-machines/) are the main workload for organizations that use cloud computing. This fact is evident in [hybrid scenarios](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) where organizations want to slowly migrate workloads to the cloud. In such scenarios, follow the [general security considerations for IaaS](https://social.technet.microsoft.com/wiki/contents/articles/3808.security-considerations-for-infrastructure-as-a-service-iaas.aspx). Apply security best practices to all your VMs.
 
 ## Protect VMs by using authentication and access control
 To protect your VMs, ensure that only authorized users can set up new VMs and access existing VMs.
@@ -27,14 +28,17 @@ To protect your VMs, ensure that only authorized users can set up new VMs and ac
 > To improve the security of Linux VMs on Azure, you can integrate with Microsoft Entra authentication. When you use [Microsoft Entra authentication for Linux VMs](/entra/identity/devices/howto-vm-sign-in-azure-ad-linux), you centrally control and enforce policies that allow or deny access to the VMs.
 
 **Best practice**: Control VM access.
+
 **Detail**: Use [Azure policies](../../governance/policy/overview.md) to establish conventions for resources in your organization and create customized policies. Apply these policies to resources, such as [resource groups](../../azure-resource-manager/management/overview.md). VMs that belong to a resource group inherit its policies.
 
 If your organization has many subscriptions, you might need a way to efficiently manage access, policies, and compliance for those subscriptions. [Azure management groups](../../governance/management-groups/overview.md) provide a level of scope above subscriptions. You organize subscriptions into management groups (containers) and apply your governance conditions to those groups. All subscriptions within a management group automatically inherit the conditions applied to the group. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.
 
 **Best practice**: Reduce variability in your setup and deployment of VMs.
+
 **Detail**: Use [Azure Resource Manager](../../azure-resource-manager/templates/syntax.md) templates to strengthen your deployment choices and make it easier to understand and inventory the VMs in your environment.
 
 **Best practice**: Secure privileged access.
+
 **Detail**: Use a [least privilege approach](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) and built-in Azure roles to enable users to access and set up VMs:
 
 - [Virtual Machine Contributor](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor): Can manage VMs, but not the virtual network or storage account to which they are connected.
@@ -52,28 +56,31 @@ Organizations that control VM access and setup improve their overall VM security
 ## Use Virtual Machine Scale Sets for high availability
 If your VM runs critical applications that need high availability, use [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview).
 
-Virtual Machine Scale Sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and you can centrally manage, configure, and update many VMs. There's no cost for the scale set itself, you only pay for each VM instance that you create.
+Virtual Machine Scale Sets let you create and manage a group of load balanced VMs. The number of VM instances can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and you can centrally manage, configure, and update many VMs. There's no cost for the scale set itself. You pay only for each VM instance that you create.
 
 You can deploy virtual machines in a scale set into multiple availability zones, a single availability zone, or regionally.
 
 ## Protect against malware
-Install antimalware protection to help identify and remove viruses, spyware, and other malicious software. You can install [Microsoft Antimalware](antimalware.md) or a Microsoft partner's endpoint protection solution ([Trend Micro](https://cloudone.trendmicro.com/docs/workload-security/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security), and [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
+Install antimalware protection to help identify and remove viruses, spyware, and other malicious software. You can install [Microsoft Antimalware](antimalware.md) or a Microsoft partner's endpoint protection solution ([Trend Micro](https://cloudone.trendmicro.com/docs/workload-security/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/en-us/antivirus.html), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security), and [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection)).
 
 Microsoft Antimalware includes features like real-time protection, scheduled scanning, malware remediation, signature updates, engine updates, samples reporting, and exclusion event collection. For environments that are hosted separately from your production environment, use an antimalware extension to help protect your VMs and cloud services.
 
-You can integrate Microsoft Antimalware and partner solutions with [Microsoft Defender for Cloud](../../security-center/index.yml) for ease of deployment and built-in detections (alerts and incidents).
+You can integrate Microsoft Antimalware and partner solutions with [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) for ease of deployment and built-in detections (alerts and incidents).
 
-**Best practice**: Install an antimalware solution to protect against malware.   
-**Detail**: [Install a Microsoft partner solution or Microsoft Antimalware](../../security-center/security-center-services.md#supported-endpoint-protection-solutions-)
+**Best practice**: Install an antimalware solution to protect against malware.
 
-**Best practice**: Integrate your antimalware solution with Defender for Cloud to monitor the status of your protection.   
-**Detail**: [Manage endpoint protection issues with Defender for Cloud](../../security-center/security-center-partner-integration.md)
+**Detail**: [Install Microsoft Antimalware](/azure/virtual-machines/extensions/iaas-antimalware-windows)
+
+**Best practice**: Integrate your antimalware solution with Defender for Cloud to monitor the status of your protection.
+
+**Detail**: [Manage endpoint protection problems with Defender for Cloud](/azure/defender-for-cloud/partner-integration)
 
 ## Manage your VM updates
 Azure VMs, like all on-premises VMs, are meant to be user managed. Azure doesn't push Windows updates to them. You need to manage your VM updates.
 
-**Best practice**: Keep your VMs current.   
-**Detail**: Use the [Update Management](../../automation/update-management/overview.md) solution in Azure Automation to manage operating system updates for your Windows and Linux computers that are deployed in Azure, in on-premises environments, or in other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
+**Best practice**: Keep your VMs current.
+
+**Detail**: Use [Azure Update Manager](/azure/update-manager/workflow-update-manager) to manage operating system updates for your Windows and Linux computers that are deployed in Azure, in on-premises environments, or in other cloud providers. You can quickly assess the status of available updates on all agent computers and manage the process of installing required updates for servers.
 
 Computers that are managed by Update Management use the following configurations to perform assessment and update deployments:
 
@@ -84,19 +91,24 @@ Computers that are managed by Update Management use the following configurations
 
 If you use Windows Update, leave the automatic Windows Update setting enabled.
 
-**Best practice**: Ensure at deployment that images you built include the most recent round of Windows updates.   
+**Best practice**: Ensure at deployment that images you built include the most recent round of Windows updates.
+
 **Detail**: Check for and install all Windows updates as a first step of every deployment. This measure is especially important to apply when you deploy images that come from either you or your own library. Although images from the Azure Marketplace are updated automatically by default, there can be a lag time (up to a few weeks) after a public release.
 
-**Best practice**: Periodically redeploy your VMs to force a fresh version of the OS.   
-**Detail**: Define your VM with an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) so you can easily redeploy it. Using a template gives you a patched and secure VM when you need it.
+**Best practice**: Periodically redeploy your VMs to force a fresh version of the OS.
 
-**Best practice**: Rapidly apply security updates to VMs.   
-**Detail**: Enable Microsoft Defender for Cloud (Free tier or Standard tier) to [identify missing security updates and apply them](../../security-center/asset-inventory.md).
+**Detail**: Define your VM with an [Azure Resource Manager template](../../azure-resource-manager/templates/syntax.md) so you can redeploy it. A template gives you a patched and secure VM when you need it.
 
-**Best practice**: Install the latest security updates.   
-**Detail**: Some of the first workloads that customers move to Azure are labs and external-facing systems. If your Azure VMs host applications or services that need to be accessible to the internet, be vigilant about patching. Patch beyond the operating system. Unpatched vulnerabilities on partner applications can also lead to problems that can be avoided if good patch management is in place.
+**Best practice**: Rapidly apply security updates to VMs.
 
-**Best practice**: Deploy and test a backup solution.   
+**Detail**: Enable Microsoft Defender for Cloud (Free tier or Standard tier) to [identify missing security updates and apply them](/azure/defender-for-cloud/asset-inventory).
+
+**Best practice**: Install the latest security updates.
+
+**Detail**: Some of the first workloads that organizations move to Azure are labs and external-facing systems. If your Azure VMs host applications or services that need to be accessible to the internet, be vigilant about patching. Patch beyond the operating system. Unpatched vulnerabilities on partner applications can also lead to problems that good patch management can avoid.
+
+**Best practice**: Deploy and test a backup solution.
+
 **Detail**: A backup needs to be handled the same way that you handle any other operation. This handling is true of systems that are part of your production environment extending to the cloud.
 
 Test and dev systems must follow backup strategies that provide restore capabilities that are similar to what users have grown accustomed to, based on their experience with on-premises environments. Production workloads moved to Azure should integrate with existing backup solutions when possible. Or, you can use [Azure Backup](../../backup/backup-azure-vms-first-look-arm.md) to help address your backup requirements.
@@ -108,7 +120,7 @@ Software-update best practices for a traditional datacenter and Azure IaaS have 
 ## Manage your VM security posture
 Cyberthreats are always evolving. Safeguarding your VMs requires a monitoring capability that can quickly detect threats, prevent unauthorized access to your resources, trigger alerts, and reduce false positives.
 
-To monitor the security posture of your [Windows](../../security-center/security-center-introduction.md) and [Linux VMs](../../security-center/security-center-introduction.md), use [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md). In Defender for Cloud, safeguard your VMs by taking advantage of the following capabilities:
+To monitor the security posture of your [Windows](/azure/defender-for-cloud/defender-for-cloud-introduction) and [Linux VMs](/azure/defender-for-cloud/defender-for-cloud-introduction), use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction). In Defender for Cloud, safeguard your VMs by taking advantage of the following capabilities:
 
 - Apply OS security settings with recommended configuration rules.
 - Identify and download system security and critical updates that might be missing.
@@ -119,12 +131,12 @@ To monitor the security posture of your [Windows](../../security-center/security
 
 Defender for Cloud can actively monitor for threats, and security alerts expose potential threats. Correlated threats are aggregated in a single view called a security incident.
 
-Defender for Cloud stores data in [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview). Azure Monitor logs provides a query language and analytics engine that gives you insights into the operation of your applications and resources. Data is also collected from [Azure Monitor](../../batch/monitoring-overview.md), management solutions, and agents installed on virtual machines in the cloud or on-premises. This shared functionality helps you form a complete picture of your environment.
+Defender for Cloud stores data in [Azure Monitor Logs](/azure/azure-monitor/logs/log-query-overview). Azure Monitor Logs provides a query language and analytics engine that gives you insights into the operation of your applications and resources. Data is also collected from [Azure Monitor](/azure/azure-monitor/fundamentals/overview), management solutions, and agents installed on virtual machines in the cloud or on-premises. This functionality helps you form a complete picture of your environment.
 
 If you don't enforce strong security for your VMs, you remain unaware of potential attempts by unauthorized users to circumvent security controls.
 
 ## Monitor VM performance
-Resource abuse can be a problem when VM processes consume more resources than they should. Performance issues with a VM can lead to service disruption, which violates the security principle of availability. This problem is particularly important for VMs that are hosting IIS or other web servers, because high CPU or memory usage might indicate a denial of service (DoS) attack. It's imperative to monitor VM access not only reactively while an issue is occurring, but also proactively against baseline performance as measured during normal operation.
+Resource abuse can be a problem when VM processes consume more resources than they should. Performance problems with a VM can lead to service disruption, which violates the security principle of availability. This problem is particularly important for VMs that are hosting IIS or other web servers, because high CPU or memory usage might indicate a denial of service (DoS) attack. It's important to monitor VM access not only reactively while a problem is occurring, but also proactively against baseline performance as measured during normal operation.
 
 Use [Azure Monitor](/azure/azure-monitor/data-platform) to gain visibility into your resource’s health. Azure Monitor features:
 
@@ -138,21 +150,25 @@ Encrypt your virtual hard disks (VHDs) to help protect your boot volume and data
 
 [!INCLUDE [Azure Disk Encryption retirement notice](~/reusable-content/ce-skilling/azure/includes/security/azure-disk-encryption-retirement.md)]
 
-[Encryption at host](/azure/virtual-machines/disk-encryption) provides end-to-end encryption for your VM data by default, encrypting temporary disks, OS and data disk caches, and data flows to Azure Storage. By default, encryption at host uses platform-managed keys with no extra configuration required. Optionally, you can configure the solution to use customer-managed keys stored in [Azure Key Vault or Azure Key Vault Managed HSM](/azure/security/fundamentals/key-management) when you need to control and manage your own disk-encryption keys. The solution ensures that all data on the virtual machine disks are encrypted at rest in Azure Storage.
+[Encryption at host](/azure/virtual-machines/disk-encryption) provides end-to-end encryption for your VM data by default, encrypting temporary disks, OS and data disk caches, and data flows to Azure Storage. By default, encryption at host uses platform-managed keys with no extra configuration required. Optionally, you can configure the solution to use customer-managed keys stored in [Azure Key Vault or Azure Key Vault Managed HSM](key-management.md) when you need to control and manage your own disk-encryption keys. The solution ensures that all data on the virtual machine disks are encrypted at rest in Azure Storage.
 
 The following best practices help you use encryption at host:
 
-**Best practice**: Enable encryption at host on VMs by default.   
-**Detail**: Encryption at host is enabled by default for new VMs and provides transparent encryption by using platform-managed keys without requiring extra configuration. If you choose to use customer-managed keys, store them in Azure Key Vault or Azure Key Vault Managed HSM. Microsoft Entra authentication is required for access. For authentication purposes, you can use either client secret-based authentication or [client certificate-based Microsoft Entra authentication](/entra/identity/authentication/active-directory-certificate-based-authentication-get-started.md).
+**Best practice**: Enable encryption at host on VMs by default.
 
-**Best practice**: When using customer-managed keys, use a key encryption key (KEK) for an extra layer of security for encryption keys.   
+**Detail**: Encryption at host is enabled by default for new VMs and provides transparent encryption by using platform-managed keys without requiring extra configuration. If you choose to use customer-managed keys, store them in Azure Key Vault or Azure Key Vault Managed HSM. Encryption at host requires Microsoft Entra authentication for access. For authentication purposes, use either client secret-based authentication or [client certificate-based Microsoft Entra authentication](/entra/identity/authentication/how-to-certificate-based-authentication).
+
+**Best practice**: When using customer-managed keys, use a key encryption key (KEK) for an extra layer of security for encryption keys.
+
 **Detail**: When using customer-managed keys, use the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet to create a key encryption key in Azure Key Vault or Managed HSM. You can also import a KEK from your on-premises hardware security module (HSM). For more information, see the [Key Vault documentation](/azure/key-vault/keys/hsm-protected-keys). When you specify a key encryption key, encryption at host uses that key to wrap the encryption secrets. Keeping an escrow copy of this key in an on-premises key management HSM offers extra protection against accidental deletion of keys.
 
-**Best practice**: Take a [snapshot](/azure/virtual-machines/windows/snapshot-copy-managed-disk) and/or backup before making encryption configuration changes. Backups provide a recovery option if an unexpected failure happens.   
+**Best practice**: Take a [snapshot](/azure/virtual-machines/windows/snapshot-copy-managed-disk) or backup before making encryption configuration changes. Backups provide a recovery option if an unexpected failure happens.
+
 **Detail**: Back up VMs with managed disks regularly. For more information about how to back up and restore encrypted VMs, see the [Azure Backup](../../backup/backup-azure-vms-encryption.md) article.
 
-**Best practice**: When using customer-managed keys, ensure the encryption secrets don't cross regional boundaries by locating your key management service and VMs in the same region.   
-**Detail**: When using customer-managed keys, create and use a key vault or managed HSM that is in the same region as the VM to be encrypted.
+**Best practice**: When using customer-managed keys, ensure the encryption secrets don't cross regional boundaries by locating your key management service and VMs in the same region.
+
+**Detail**: When using customer-managed keys, create and use a key vault or managed HSM that's in the same region as the VM to be encrypted.
 
 When you apply encryption at host, you can satisfy the following business needs:
 
@@ -162,18 +178,21 @@ When you apply encryption at host, you can satisfy the following business needs:
 ## Restrict direct internet connectivity
 Monitor and restrict VM direct internet connectivity. Attackers constantly scan public cloud IP ranges for open management ports and attempt "easy" attacks like common passwords and known unpatched vulnerabilities. The following table lists best practices to help protect against these attacks:
 
-**Best practice**: Prevent inadvertent exposure to network routing and security.   
+**Best practice**: Prevent inadvertent exposure to network routing and security.
+
 **Detail**: Use Azure RBAC to ensure that only the central networking group has permission to networking resources.
 
-**Best practice**: Identify and remediate exposed VMs that allow access from "any" source IP address.   
-**Detail**: Use Microsoft Defender for Cloud. Defender for Cloud recommends that you restrict access through internet-facing endpoints if any of your network security groups has one or more inbound rules that allow access from "any" source IP address. Defender for Cloud recommends that you edit these inbound rules to [restrict access](../../security-center/security-center-network-recommendations.md) to source IP addresses that actually need access.
+**Best practice**: Identify and remediate exposed VMs that allow access from "any" source IP address.
 
-**Best practice**: Restrict management ports (RDP, SSH).   
-**Detail**: Use [just-in-time (JIT) VM access](../../security-center/security-center-just-in-time.md) to lock down inbound traffic to your Azure VMs. It reduces exposure to attacks while providing easy access to connect to VMs when needed. When you enable JIT, Defender for Cloud locks down inbound traffic to your Azure VMs by creating a network security group rule. You select the ports on the VM to which inbound traffic is locked down. The JIT solution controls these ports.
+**Detail**: Use Microsoft Defender for Cloud. Defender for Cloud recommends that you restrict access through internet-facing endpoints if any of your network security groups has one or more inbound rules that allow access from "any" source IP address. Defender for Cloud recommends that you edit these inbound rules to [restrict access](/azure/defender-for-cloud/protect-network-resources) to source IP addresses that actually need access.
+
+**Best practice**: Restrict management ports (RDP, SSH).
+
+**Detail**: Use [just-in-time (JIT) VM access](/azure/defender-for-cloud/just-in-time-access-overview) to lock down inbound traffic to your Azure VMs. This approach reduces exposure to cyberattacks while providing easy access to connect to VMs when needed. When you enable JIT, Defender for Cloud locks down inbound traffic to your Azure VMs by creating a network security group rule. You select the ports on the VM to which inbound traffic is locked down. The JIT solution controls these ports.
 
 ## Next steps
 For more security best practices to use when you're designing, deploying, and managing your cloud solutions by using Azure, see [Azure security best practices and patterns](best-practices-and-patterns.md).
 
 The following resources provide more general information about Azure security and related Microsoft services:
-* [Azure Security Team Blog](/archive/blogs/azuresecurity/) - for up-to-date information on the latest in Azure Security
-* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - where you can report Microsoft security vulnerabilities, including issues with Azure, or send an email to secure@microsoft.com
+- [Azure Security Team Blog](/archive/blogs/azuresecurity/) - for up-to-date information on the latest in Azure Security.
+- [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - where you can report Microsoft security vulnerabilities, including problems with Azure, or send an email to secure@microsoft.com.

@@ -73,6 +73,11 @@ sections:
           You try to manually create a new DNS record into a private zone that has the same hostname as an existing, automatically registered virtual machine in a linked virtual network. When you do, the new DNS record overwrites the automatically registered virtual machine record. If you try to delete this manually created DNS record from the zone again, the delete succeeds. The automatic registration happens again as long as the virtual machine still exists and has a private IP attached to it. The DNS record is re-created automatically in the zone.
 
       - question: |
+          What happens to auto-registered DNS records if I disable auto-registration on a virtual network link?
+        answer: |
+          Disabling auto-registration on an existing virtual network link immediately deletes all DNS records that were automatically registered through that link. Virtual machines will lose private DNS resolution until records are re-created manually or auto-registration is re-enabled
+
+      - question: |
           What happens when we unlink a linked virtual network from a private zone? Will the automatically registered virtual machine records from the virtual network be removed from the zone too?
         answer: |
           Yes. To unlink a linked virtual network from a private zone, you update the DNS zone to remove the associated virtual network link. In this process, virtual machine records that were automatically registered are removed from the zone.

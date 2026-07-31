@@ -4,7 +4,7 @@ description: Learn how to send a WebSocket request to a backend target with Appl
 services: application gateway
 author: mbender-ms
 ms.service: azure-appgw-for-containers
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 01/14/2025
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to deploy and configure WebSocket support with Application Gateway for Containers, so that I can ensure reliable communication between my applications and backend services.

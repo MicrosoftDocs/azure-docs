@@ -21,7 +21,7 @@ The error notification and options vary depending on whether you can fix the err
 - **Retryable errors** - You can fix many types of copy error and resume the upload. The data is then successfully uploaded in your current order. 
     
     
-    An example of a retryable error is when Large File Shares aren't enabled for a storage account that requires shares with data more than 5 TiB. To resolve this, you will need to enable this setting and then confirm to resume data copy. This type of error is referred to as a *retryable error* in the discussion that follows.
+    An example of a retryable error is when Large File Shares aren't enabled for a storage account that requires shares with data more than 5 TiB. To resolve this error, you will need to enable this setting, and then confirm to resume data copy. This type of error is referred to as a *retryable error* in the discussion that follows.
 
 - **Non-retryable errors** - These are errors that can't be fixed. For those errors, the upload pauses to give you a chance to review the errors. But the order completes without the data that failed to upload, and the data is secure erased from the device. You'll need to create a new order after you resolve the issues in your data. 
 
@@ -33,9 +33,9 @@ The error notification and options vary depending on whether you can fix the err
 
 ## Upload errors notification
 
-When a file upload fails because of an error, you'll receive a notification in the Azure portal. You can tell whether the error can be fixed by the status and options in the order overview.
+When a file upload fails because of an error, you receive a notification in the Azure portal. You can tell whether the error can be fixed by the status and options in the order overview.
 
-**Retryable errors**: If you can fix the error in the current order, the notification looks similar to the following one. The current order status is **Data copy halted**. You can either choose to resolve the error or proceed with data erasure without making any change. If you select **Resolve error**, a **Resolve error** screen will tell you how to resolve each error. For step-by-step instructions, see [Review errors and proceed](#review-errors-and-proceed).
+**Retryable errors**: If you can fix the error in the current order, the notification looks similar to the following one. The current order status is **Data copy halted**. You can either choose to resolve the error or proceed with data erasure without making any change. If you select **Resolve error**, a **Resolve error** screen tells you how to resolve each error. For step-by-step instructions, see [Review errors and proceed](#review-errors-and-proceed).
 
 ![Screenshot of a Data Box order with retryable upload errors. The Data Copy Halted status and notification are highlighted.](media/data-box-troubleshoot-data-upload/data-box-retryable-errors-01.png)
  
@@ -60,7 +60,7 @@ To resolve retryable copy errors during an upload, do these steps:
 
 1. Open your order in the Azure portal.
 
-   If any retryable copy errors prevented files from uploading, you'll see the following notification. The current order status will be **Data copy halted**.
+   If any retryable copy errors prevented files from uploading, you see the following notification. The current order status will be **Data copy halted**.
 
    ![Screenshot of a Data Box order with data upload halted by retryable copy errors. The Data Copy Halted status and notification are highlighted.](media/data-box-troubleshoot-data-upload/data-box-retryable-errors-01.png)
 
@@ -104,18 +104,20 @@ When the following errors occur, you can resolve the errors and include the file
 |Error message  |Error description |Error resolution |
 |---------------|------------------|-----------------|
 |Large file share not enabled on account |Large file shares aren’t enabled on one or more storage accounts. Resolve the error and resume data copy, or skip to data erasure and complete the order. | Large file shares aren't enabled on the indicated storage accounts. Select the option highlighted to enable quota up to 100 TiB per share.|
+|Large file share not enabled on account |The share limit for one of the shares within this storage account is reached.|Make space within this share to proceed with Databox upload. Resolve the error and resume data copy, or skip to data erasure and complete the order.|
+|Large file share not enabled on account |The total provisioned capacity/iops/throughput has exceeded the maximum value allowed for this account.|Adjust the required provisioning parameter to proceed with Databox upload. Resolve the error and resume data copy, or skip to data erasure and complete the order.|
 |Storage account deleted or moved |One or more storage accounts were moved or deleted. Resolve the error and resume data copy, or skip to data erasure and complete the order. |**Storage accounts deleted or moved**<br>Storage accounts: &lt;*storage accounts list*&gt; were either deleted, or moved to a different subscription or resource group. Recover or re-create the storage accounts with the original set of properties, and then confirm to resume data copy.<br>[Learn more on how to recover a storage account](../storage/common/storage-account-recover.md). |
 |Storage account location changed |One or more storage accounts were moved to a different region. Resolve the error and resume data copy, or skip to data erasure and complete the order. |**Storage accounts location changed**<br>Storage accounts: &lt;*storage accounts list*&gt; were moved to a different region. Restore the account to the original destination region and then confirm to resume data copy.<br>[Learn more on how to move storage accounts](../storage/common/storage-account-move.md). |
 |Virtual network restriction on storage account |One or more storage accounts are behind a virtual network and have restricted access. Resolve the error and resume data copy, or skip to data erasure and complete the order. |**Storage accounts behind virtual network**<br>Storage accounts: &lt;*storage accounts list*&gt; were moved behind a virtual network. Add Data Box to the list of trusted services to allow access and then confirm to resume data copy.<br>[Learn more about trusted first party access](../storage/common/storage-network-security.md#exceptions). |
 |Storage account owned by a different tenant |One or more storage accounts were moved under a different tenant. Resolve the error and resume data copy, or skip to data erasure and complete the order.|**Storage accounts moved to a different tenant**<br>Storage accounts: &lt;*storage accounts list*&gt; were moved to a different tenant. Restore the account to the original tenant and then confirm to resume data copy.<br>[Learn more on how to move storage accounts](../storage/common/storage-account-move.md). |
-|Kek user identity not found |The user identity that has access to the customer-managed key wasn’t found in the active directory. Resolve the error and resume data copy, or skip to data erasure and complete the order. |**User identity not found**<br>Applied a customer-managed key but the user assigned identity that has access to the key was not found in the active directory.<br>This error may occur if a user identity is deleted from Azure.<br>Try adding another user-assigned identity to your key vault to enable access to the customer-managed key. For more information, see how to [Enable the key](data-box-customer-managed-encryption-key-portal.md#enable-key).<br>Confirm to resume data copy after the error is resolved. |
+|Kek user identity not found |The user identity that has access to the customer-managed key wasn’t found in the active directory. Resolve the error and resume data copy, or skip to data erasure and complete the order. |**User identity not found**<br>Applied a customer-managed key but the user assigned identity that has access to the key wasn't found in the active directory.<br>This error may occur if a user identity is deleted from Azure.<br>Try adding another user-assigned identity to your key vault to enable access to the customer-managed key. For more information, see how to [Enable the key](data-box-customer-managed-encryption-key-portal.md#enable-key).<br>Confirm to resume data copy after the error is resolved. |
 |Cross tenant identity access not allowed |Managed identity couldn’t access the customer-managed key. Resolve the error and resume data copy, or skip to data erasure and complete the order. |**Cross tenant identity access not allowed**<br>Managed identity couldn’t access the customer-managed key.<br>This error may occur if a subscription is moved to a different tenant. To resolve this error, manually move the identity to the new tenant.<br>Try adding another user-assigned identity to your key vault to enable access to the customer-managed key. For more information, see how to [Enable the key](data-box-customer-managed-encryption-key-portal.md#enable-key).<br>Confirm to resume data copy after the error is resolved. |
 |Key details not found |Couldn’t fetch the passkey as the customer-managed key wasn’t found. Resolve the error and resume data copy, or skip to data erasure and complete the order. |**Key details not found**<br>If you deleted the key vault, you can't recover the customer-managed key. If you migrated the key vault to a different tenant, see [Change a key vault tenant ID after a subscription move](/azure/key-vault/general/move-subscription). If you deleted the key vault and it is still in the purge-protection duration, use the steps at [Recover a key vault](/azure/key-vault/general/key-vault-recovery?tabs=azure-powershell#key-vault-powershell).<br>If the key vault was migrated to a different tenant, use one of the following steps to recover the vault:<ol><li>Revert the key vault back to the old tenant.</li><li>Set `Identity` = `None` and then set the value back to `Identity` = `SystemAssigned`. This deletes and recreates the identity after the new identity is created. Enable `Get`, `WrapKey`, and `UnwrapKey` permissions for the new identity in the key vault's access policy.</li></ol> |
 |Key vault details not found |Couldn’t fetch the passkey as the associated key vault for the customer-managed key wasn’t found. Resolve the error and resume data copy, or skip to data erasure and complete the order. |**Key vault details not found**<br>If you migrated the key vault to a different tenant, see [Change a key vault tenant ID after a subscription move](/azure/key-vault/general/move-subscription). If you deleted the key vault and it is in the purge-protection duration, use the steps in [Recover a key vault](/azure/key-vault/general/key-vault-recovery?tabs=azure-powershell#key-vault-powershell).<br>If the key vault was migrated to a different tenant, use one of the following steps to recover the vault: <ol><li>Revert the key vault back to the old tenant.</li><li>Set `Identity` = `None` and then set the value back to `Identity` = `SystemAssigned`. This deletes and recreates the identity once the new identity has been created. Enable `Get`, `WrapKey`, and `UnwrapKey` permissions for the new identity in the key vault's access policy.</li></ol>Confirm to resume data copy after the error is resolved. |
 |Key vault bad request exception |Applied a customer-managed key, but either the key access wasn’t granted or was revoked, or the key vault was behind a firewall. Resolve the error and resume data copy, or skip to data erasure and complete the order. |**Key vault bad request exception**<br>Add the identity selected for your key vault to enable access to the customer-managed key. If the key vault is behind a firewall, switch to a system-assigned identity and then add a customer-managed key. For more information, see how to [Enable the key](data-box-customer-managed-encryption-key-portal.md#enable-key).<br>Confirm to resume data copy after the error is resolved.<br>[Configure Azure Key Vault firewalls and virtual networks](/azure/key-vault/general/network-security) |
 |Encryption key expired |Couldn’t fetch the passkey as the customer-managed key has expired. Resolve the error and resume data copy, or skip to data erasure and complete the order. |**Encryption key expired**<br>Enable the key version and then confirm to resume data copy. |
 |Encryption key disabled |Couldn’t fetch the passkey as the customer-managed key is disabled. Resolve the error and resume data copy, or skip to data erasure and complete the order. |**Encryption key disabled**<br>Enable the key version and then confirm to resume data copy. |
-|User assigned identity not valid |Couldn’t fetch the passkey as the user assigned identity used was not valid. Resolve the error and resume data copy, or skip to data erasure and complete the order.|**User assigned identity not valid**<br>Applied a customer-managed key but the user assigned identity that has access to the key is not valid.<br>Try adding a different user-assigned identity to your key vault to enable access to the customer-managed key. For more information, see how to [Enable the key](data-box-customer-managed-encryption-key-portal.md#enable-key).<br>Confirm to resume data copy after the error is resolved. |
+|User assigned identity not valid |Couldn’t fetch the passkey as the user assigned identity used wasn't valid. Resolve the error and resume data copy, or skip to data erasure and complete the order.|**User assigned identity not valid**<br>Applied a customer-managed key but the user assigned identity that has access to the key isn't valid.<br>Try adding a different user-assigned identity to your key vault to enable access to the customer-managed key. For more information, see how to [Enable the key](data-box-customer-managed-encryption-key-portal.md#enable-key).<br>Confirm to resume data copy after the error is resolved. |
 |User assigned identity not found |Couldn’t fetch the `passkey`, `WrapKey`, and `UnwrapKey` permissions for the identity in the key vault’s access policy. These permissions must remain for the lifetime of the customer-managed key. XXX Resolve the error and resume data copy, or skip to data erasure and complete the order. |**User assigned identity not found**<br>Applied a customer-managed key but the user assigned identity that has access to the key wasn’t found. To resolve the error, check if:<ol><li>Key vault still has the MSI in the access policy.</li><li>Identity is of type `System assigned`.</li><li>Enable `G the order.</li></ol>Confirm to resume data copy after the error is resolved. |
 |Unknown user error |An error has halted the data copy. Contact Support for details on how to resolve the error. Alternatively, you may skip to data erasure and review copy and error logs for the order for the list of files that weren’t copied. |**Error during data copy**<br>Data copy is halted due to an error. [Contact Support](data-box-disk-contact-microsoft-support.md) for details on how to resolve the error. After the error is resolved, confirm to resume data copy. |
 
@@ -131,12 +133,17 @@ The following non-retryable errors result in a notification:
 |Error category                    |Error code |Error message                                                                             |
 |----------------------------------|-----------|------------------------------------------------------------------------------------------|
 |UploadErrorCloudHttp              |400        |Bad Request (file name not valid) [Learn more](#bad-request-file-name-not-valid).|
-|UploadErrorCloudHttp              |400        |The value for one of the HTTP headers is not in the correct format. [Learn more](#the-value-for-one-of-the-http-headers-is-not-in-the-correct-format).|
-|UploadErrorCloudHttp              |409        |This operation is not permitted as the blob is immutable due to a policy. [Learn more](#this-operation-is-not-permitted-as-the-blob-is-immutable-due-to-policy).|
-|UploadErrorCloudHttp              |409        |The total provisioned capacity of the shares cannot exceed the account maximum size limit. [Learn more](#the-total-provisioned-capacity-of-the-shares-cannot-exceed-the-account-maximum-size-limit).|
+|UploadErrorCloudHttp              |400        |The value for one of the HTTP headers isn't in the correct format. [Learn more](#the-value-for-one-of-the-http-headers-isnt-in-the-correct-format).|
+|UploadErrorCloudHttp              |409        |This operation isn't permitted as the blob is immutable due to a policy. [Learn more](#this-operation-isnt-permitted-as-the-blob-is-immutable-due-to-policy).|
+|UploadErrorCloudHttp              |409        |The total provisioned capacity of the shares can't exceed the account maximum size limit. [Learn more](#the-total-provisioned-capacity-of-the-shares-cant-exceed-the-account-maximum-size-limit).|
 |UploadErrorCloudHttp              |409        |The blob type is invalid for this operation. [Learn more](#the-blob-type-is-invalid-for-this-operation).|
 |UploadErrorCloudHttp              |409        |There is currently a lease on the blob and no lease ID was specified in the request. [Learn more](#there-is-currently-a-lease-on-the-blob-and-no-lease-id-was-specified-in-the-request).|
 |UploadErrorManagedConversionError |409        |The size of the blob being imported is invalid. The blob size is `<blob-size>` bytes. Supported sizes are between 20,971,520 Bytes and 8,192 GiB. [Learn more](#the-size-of-the-blob-being-imported-is-invalid-the-blob-size-is-blob-size-bytes-supported-sizes-are-between-20971520-bytes-and-8192-gib)|
+|UploadErrorWin32             |ERROR_FILE_NOT_FOUND (2) or ERROR_PATH_NOT_FOUND (3)       |Disk directory structure has been deleted manually Or Files on the disk have been removed after running the disk validation tool. [Learn more](#file-or-path-not-found)|
+|UploadErrorCloudHttp            |400       |Data has been copied to the incorrect SMB share. [Learn more](#bad-request-incorrect-smb-share)|
+|UploadFileCrcNotMatch             |Internal error code 2       |Files on the disk have been updated after running the disk validation tool resulting in a CRC mismatch error. [Learn more](#crc-mismatch)|
+|UploadErrorWin32             |ERROR_INVALID_NAME (123)      |Invalid file names have been detected. [Learn more](#invalid-file-name)|
+|UploadErrorWin32             |Internal error code 65561       |Errors are detected due to cancelation of data ingestion jobs. [Learn more](#data-ingestion-canceled)|
 
 For more information about the data copy log's contents, see [Tracking and event logging for your Azure Data Box and Azure Data Box Heavy import order](data-box-logs.md).
 
@@ -152,7 +159,7 @@ Other REST API errors might occur during data uploads. For more information, see
 
 **Error code:** 400
 
-**Error description:** Most file naming issues are caught during the **Prepare to ship** phase or fixed automatically during the upload (resulting in a **Copy with warnings** status). When an invalid file name is not caught, the file fails to upload to Azure.
+**Error description:** Most file naming issues are caught during the **Prepare to ship** phase or fixed automatically during the upload (resulting in a **Copy with warnings** status). When an invalid file name isn't caught, the file fails to upload to Azure.
 
 **Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new order, rename the listed files to meet naming requirements for Azure Files. For naming requirements, see [Directory and File Names](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#directory-and-file-names).
 
@@ -163,12 +170,12 @@ Other REST API errors might occur during data uploads. For more information, see
 
 **Error code:** 400
 
-**Error description:** Data import will fail if the upload of file properties fails for Azure Files.  
+**Error description:** Data import fails if the upload of file properties fails for Azure Files.  
 
 **Follow-up:** You can't fix this error in the current upload. The upload will complete with errors. Before you do a network transfer or start a new import order, *GET TROUBLESHOOTING*.-->
 
 
-### The value for one of the HTTP headers is not in the correct format
+### The value for one of the HTTP headers isn't in the correct format
 
 **Error category:** UploadErrorCloudHttp 
 
@@ -183,24 +190,24 @@ Other REST API errors might occur during data uploads. For more information, see
 - The listed block blobs do not exceed the 4.75-TiB maximum size.
 
 
-### This operation is not permitted as the blob is immutable due to policy
+### This operation isn't permitted as the blob is immutable due to policy
 
 **Error category:** UploadErrorCloudHttp 
 
 **Error code:** 409
 
-**Error description:** If a blob storage container is configured as Write Once, Read Many (WORM), upload of any blobs that are already stored in the container will fail.
+**Error description:** If a blob storage container is configured as Write Once, Read Many (WORM), upload of any blobs that are already stored in the container fails.
 
 **Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new import order, make sure the listed blobs aren't part of an immutable storage container. For more information, see [Store business-critical blob data with immutable storage](../storage/blobs/immutable-storage-overview.md).
 
 
-### The total provisioned capacity of the shares cannot exceed the account maximum size limit
+### The total provisioned capacity of the shares can't exceed the account maximum size limit
 
 **Error category:** UploadErrorCloudHttp 
 
 **Error code:** 409
 
-**Error description:** The upload failed because the total size of the data exceeds the storage account size limit. For example, the maximum capacity of a FileStorage account is 100 TiB. If total data size exceeds 100 TiB, the upload will fail.  
+**Error description:** The upload failed because the total size of the data exceeds the storage account size limit. For example, the maximum capacity of a FileStorage account is 100 TiB. If total data size exceeds 100 TiB, the upload fails.  
 
 **Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new import order, make sure the total capacity of all shares in the storage account will not exceed the size limit of the storage account. For more information, see [Azure storage account size limits](data-box-limits.md#azure-storage-account-size-limits).
 
@@ -211,7 +218,7 @@ Other REST API errors might occur during data uploads. For more information, see
 
 **Error code:** 409
 
-**Error description:** Data import to a blob in the cloud will fail if the destination blob's data or properties are being modified.
+**Error description:** Data import to a blob in the cloud fails if the destination blob's data or properties are being modified.
 
 **Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new import order, make sure there is no concurrent modification of the listed blobs or their properties during the upload.
 
@@ -221,7 +228,7 @@ Other REST API errors might occur during data uploads. For more information, see
 
 **Error code:** 409
 
-**Error description:** Data import to a blob in the cloud will fail if the destination blob has an active lease.
+**Error description:** Data import to a blob in the cloud fails if the destination blob has an active lease.
 
 **Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new import order, ensure that the listed blobs do not have an active lease. For more information, see [Pessimistic concurrency for blobs](../storage/blobs/concurrency-manage.md?tabs=dotnet#pessimistic-concurrency-for-blobs).
 
@@ -236,7 +243,55 @@ Other REST API errors might occur during data uploads. For more information, see
 
 **Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new import order, make sure each listed blob is from 20 MB to 8192 GiB in size.
 
----
+### File or Path Not Found
+
+**Error category:** UploadErrorWin32
+
+**Error code:** ERROR_FILE_NOT_FOUND (2) or ERROR_PATH_NOT_FOUND (3)
+
+**Error description:** The disk directory structure has been deleted manually, or files on the disk have been removed after running the disk validation tool. When the upload tool can't locate the expected files or directories, the affected items fail to upload to Azure.
+
+**Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new order, make sure the disk directory structure is unchanged and files on disk are not changed or removed after running the disk validation tool.
+
+### Bad Request (incorrect SMB share)
+
+**Error category:** UploadErrorCloudHttp
+
+**Error code:** 400
+
+**Error description:** Data has been copied to the incorrect SMB share. When data is placed in a share that does not match the expected data type, the file fails to upload to Azure.
+
+**Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new order, make sure data is copied to the correct SMB share for that data type.
+
+### CRC Mismatch
+
+**Error category:** UploadFileCrcNotMatch
+
+**Error code:** Internal error code 2
+
+**Error description:** Files on the disk have been updated after running the disk validation tool, resulting in a CRC mismatch. When the checksum recorded during validation no longer matches the file on disk, the file fails to upload to Azure.
+
+**Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new order, make sure the disk directory structure is unchanged and files on disk are not changed or removed after running the disk validation tool.
+
+### Invalid File Name
+
+**Error category:** UploadErrorWin32
+
+**Error code:** ERROR_INVALID_NAME (123)
+
+**Error description:** Invalid file names have been detected. When a file name does not follow Windows naming conventions, the file fails to upload to Azure.
+
+**Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new order, rename the listed files to follow Windows naming conventions.
+
+### Data Ingestion Canceled
+
+**Error category:** UploadErrorWin32
+
+**Error code:** Internal error code 65561
+
+**Error description:** Errors are detected due to cancelation of data ingestion jobs. When an ingestion job is interrupted or canceled while in progress, the affected files fail to upload to Azure.
+
+**Follow-up:** You can't fix this error in the current upload. The upload has completed with errors. Before you do a network transfer or start a new order, make sure that the ingestion jobs are not interrupted or canceled while in progress.
 
 ## Next steps
 

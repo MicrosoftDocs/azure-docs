@@ -3,9 +3,9 @@ title: Use Multiple Certificates in Azure Load Testing
 titleSuffix: Azure Load Testing
 description: Learn how to configure and use multiple certificates securely in Azure Load Testing with a JKS file and Key Vault integration.
 services: load-testing
-ms.service: azure-load-testing
-ms.author: ninallam
-author: ninallam
+ms.service: azure-app-testing
+ms.author: nandinim
+author: nandinimurali
 ms.date: 01/24/2025
 ms.topic: how-to
 ---

@@ -6,7 +6,7 @@ description: Learn how to use Azure AD B2C TOTP display controls in the user jou
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/11/2024

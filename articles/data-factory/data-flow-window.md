@@ -7,7 +7,7 @@ ms.author: makromer
 ms.subservice: data-flows
 ms.topic: concept-article
 ms.custom: synapse
-ms.date: 09/23/2024
+ms.date: 04/27/2026
 ---
 
 # Window transformation in mapping data flow
@@ -15,6 +15,9 @@ ms.date: 09/23/2024
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+> [!TIP]
+> If you're new to data integration, start with [Fabric Data Factory](/fabric/data-factory/data-factory-overview), the next generation of Azure Data Factory. The Window transformation isn't currently supported in Dataflow Gen2. For a list of supported transformations and their equivalents, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
 
 The Window transformation is where you define window-based aggregations of columns in your data streams. In the Expression Builder, you can define different types of aggregations that are based on data or time windows (SQL OVER clause) such as LEAD, LAG, NTILE, CUMEDIST, and RANK. A new field is generated in your output that includes these aggregations. You can also include optional group-by fields.
 

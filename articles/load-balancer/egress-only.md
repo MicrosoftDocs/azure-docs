@@ -76,7 +76,7 @@ In this section, you create the internal load balancer.
 1. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you can select no-zone (default option), a specific zone, or zone-redundant. The choice depends on your specific domain failure requirements. In regions without Availability Zones, this field doesn't appear. For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
+    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you can select zone-redundant (default option) or a specific zone. The choice depends on your specific domain failure requirements. In regions without Availability Zones, this field doesn't appear. For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
 
 1. Select **Add**.
 
@@ -139,7 +139,7 @@ In this section, you create the public load balancer.
 1. Select **Zone-redundant** in **Availability zone**.
 
     > [!NOTE]
-    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you can select no-zone (default option), a specific zone, or zone-redundant. The choice depends on your specific domain failure requirements. In regions without Availability Zones, this field doesn't appear. For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
+    > In regions with [Availability Zones](/azure/reliability/availability-zones-overview?toc=%2fazure%2fvirtual-network%2ftoc.json), you can select zone-redundant (default option) or a specific zone. The choice depends on your specific domain failure requirements. In regions without Availability Zones, this field doesn't appear. For more information on availability zones, see [Availability zones overview](/azure/reliability/availability-zones-overview).
 
 1. Leave the default of **Microsoft Network** for **Routing preference**.
 

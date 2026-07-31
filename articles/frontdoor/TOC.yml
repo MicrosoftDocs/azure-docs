@@ -68,7 +68,7 @@
       - name: Apex domains
         href: apex-domain.md
       - name: Add a root or apex domain
-        href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-standard-premium
+        href: apex-domain-onboard.md
       - name: Wildcard domains
         href: front-door-wildcard-domain.md?pivots=front-door-standard-premium
   - name: Rules engine
@@ -133,14 +133,8 @@
       href: front-door-caching.md?pivots=front-door-standard-premium
     - name: Configure caching
       href: how-to-configure-caching.md
-    - name: Purge Front Door cache
-      items:
-      - name: Azure portal
-        href: standard-premium/how-to-cache-purge.md
-      - name: Azure PowerShell
-        href: standard-premium/how-to-cache-purge-powershell.md
-      - name: Azure CLI
-        href: standard-premium/how-to-cache-purge-cli.md
+    - name: Purge cache 
+      href: cache-purge.md
   - name: Integrations
     items:
     - name: Azure Storage Account
@@ -171,11 +165,9 @@
         href: ../cdn/tier-migration.md?toc=/azure/frontdoor/toc.json
       - name: Migrate from Azure CDN (classic) to Azure Front Door
         href: ../cdn/migrate-tier.md?toc=/azure/frontdoor/toc.json
-    - name: Other CDN to Front Door Standard/Premium
-      items:
-      - name: Migrate CDN provider
-        href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/toc.json
-    - name: AFD/CDN Classic migration FAQ
+    - name: Migration best practices
+      href: ../cdn/cdn-change-provider.md?toc=/azure/frontdoor/toc.json
+    - name: Migration FAQ
       href: migration-faq.md
     - name: Post migration Dev-Ops experience
       href: post-migration-dev-ops-experience.md
@@ -245,6 +237,8 @@
   items:
   - name: High availability implementation guide
     href: high-availability.md
+  - name: Video on-demand and live streaming
+    href: video-on-demand-live-streaming.md
   - name: WebSocket
     href: standard-premium/websocket.md
   - name: HTTP/2
@@ -253,6 +247,8 @@
     href: standard-premium/how-to-compression.md
   - name: Blue/Green deployment with Front Door
     href: blue-green-deployment.md
+  - name: Edge actions
+    href: edge-actions.md
   - name: Monitor and reports
     items:
     - name: Monitor Front Door
@@ -271,22 +267,10 @@
     href: understanding-pricing.md
   - name: CDN and Front Door price comparison
     href: compare-cdn-front-door-price.md
-- name: Troubleshoot
-  items:
-  - name: Troubleshoot with RefString
-    href: refstring.md
-  - name: Troubleshoot Front Door issues
-    href: troubleshoot-issues.md
-  - name: Troubleshoot Front Door performance issues
-    href: troubleshoot-performance-issues.md
-  - name: Troubleshoot file compression
-    href: standard-premium/troubleshoot-compression.md
-  - name: Allowed certificate authorities
-    href: https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT
   - name: Subscription offers and bandwidth throttling
     href: standard-premium/subscription-offers.md
-  - name: Questions & answers
-    href: /answers/tags/96/azure-front-door
+- name: Support and troubleshooting
+  href: support-help.md
 - name: CDN and Front Door (classic)
   items:
   - name: Get started
@@ -325,8 +309,6 @@
           href: scripts/custom-domain.md
       - name: Configure HTTPS on a custom domain
         href: front-door-custom-domain-https.md
-      - name: Add a root or apex domain
-        href: front-door-how-to-onboard-apex-domain.md?pivots=front-door-classic
       - name: Set up a Rules Engine (classic)
         href: front-door-tutorial-rules-engine.md
     - name: CDN (classic) from Microsoft
@@ -465,8 +447,6 @@
         href: /cli/azure/afd/
       - name: Azure PowerShell
         href: /powershell/module/az.frontdoor
-      - name: Bicep and Resource Manager Templates
-        href: front-door-quickstart-template-samples.md?pivots=front-door-classic
       - name: Terraform
         href: terraform-samples.md?pivots=front-door-classic
       - name: REST API
@@ -514,6 +494,8 @@
       href: https://azure.microsoft.com/pricing/calculator/
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=frontdoor
+    - name: Allowed certificate authorities
+      href: https://ccadb.my.salesforce-sites.com/microsoft/IncludedCACertificateReportForMSFT
   - name: CDN
     items:
     - name: Azure Content Delivery Network billing
@@ -532,3 +514,4 @@
       href: /shows/Inside-Azure-for-IT/?products=azure-cdn
   - name: Networking blog
     href: https://techcommunity.microsoft.com/category/azure/blog/azurenetworkingblog
+

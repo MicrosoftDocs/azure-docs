@@ -4,8 +4,8 @@ description: Understand the unique qualities of Elastic zone-redundant storage, 
 services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
-ms.topic: article
-ms.date: 02/04/2026
+ms.topic: concept-article
+ms.date: 03/26/2026
 ms.author: anfdocs
 ms.custom: references-regions 
 ---
@@ -49,7 +49,7 @@ Elastic zone-redundant storage offers several key benefits for resiliency, opera
 | Operational simplicity | Azure manages replication and failover automatically, eliminating the need for duplicate volumes or cross‑zone replication. High availability becomes a one‑click setup, simplifying operations and reducing configuration risk.|
 | Extensive feature support | Elastic zone-redundant storage volumes support a growing set of Azure NetApp Files features, including NFSv3, NFSv4.1, and SMB, along with capabilities including snapshots, backups, customer‑managed keys, and Active Directory integration, delivering enhanced resiliency as feature coverage continues to expand. |
 | Cost-effective high availability | Azure NetApp Files Elastic zone-redundant storage delivers multi‑availability zone redundancy more cost‑effectively than duplicate standby volumes by using all provisioned capacity with no idle replicas. You pay for a single resilient volume, improving utilization, lowering TCO, and avoiding the added egress and administrative costs of external replication solutions. |
-| Metadata performance | Beyond consistent throughput, Azure NetApp Files Elastic zone-redundant storage redefines performance for metadata-heavy workloads. This is critical for SAP shared files and similar environments where metadata operations drive application responsiveness. The shared QoS architecture dynamically allocates IOPS across volumes to maintain low-latency, metadata-intensive operations consistently, even across multiple availability zones. |
+| Metadata performance | Beyond consistent throughput, Azure NetApp Files Elastic zone-redundant storage redefines performance for metadata-heavy workloads. This is critical for environments where high rates of metadata operations directly influence application responsiveness. The shared QoS architecture dynamically allocates IOPS across volumes to sustain low-latency, metadata intensive operations consistently, even across multiple availability zones. |
 
 ## Supported regions
 

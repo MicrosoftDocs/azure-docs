@@ -1,20 +1,19 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 12/04/2023
-ms.author: wchi
+ms.date: 06/17/2026
+ms.reviewer: wchi
 ---
 
 ### [.NET](#tab/dotnet)
 
-1. Install dependencies
+1. Install dependencies.
     ```bash
     dotnet add package MongoDb.Driver
     dotnet add package Azure.Identity
     ```
 
-2. Get an access token for the managed identity or service principal using client library [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Use the access token and `AZURE_COSMOS_LISTCONNECTIONSTRINGURL` to get the connection string. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for MongoDB. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Get an access token for the managed identity or service principal using client library [Azure.Identity](https://www.nuget.org/packages/Azure.Identity/). Use the access token and `AZURE_COSMOS_LISTCONNECTIONSTRINGURL` to get the connection string. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for MongoDB. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```csharp
     using System;
@@ -140,8 +139,8 @@ ms.author: wchi
     MongoClient mongoClient = new MongoClient(uri);
     ```
 
-### [SpringBoot](#tab/springBoot)
-The authentication type is not supported for Spring Boot.
+### [Spring Boot](#tab/springBoot)
+Authentication type is not supported for Spring Boot.
 
 ### [Python](#tab/python)
 1. Install dependencies.
@@ -150,7 +149,7 @@ The authentication type is not supported for Spring Boot.
     pip install azure-identity
     ```
 
-2. In code, get access token via `azure-identity`, then use it to acquire the connection string. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for MongoDB. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. In code, get an access token via `azure-identity`, then use it to get the connection string. Get connection information from environment variables added by Service Connector and connect to Azure Cosmos DB for MongoDB. In the code below, uncomment the section for your authentication type:
     ```python
     import os
     import pymongo
@@ -195,7 +194,7 @@ The authentication type is not supported for Spring Boot.
    go get "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
    go get "github.com/Azure/azure-sdk-for-go/sdk/azcore"
    ```
-2. In code, get access token via `azidentity`, then use it to acquire the connection string. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for MongoDB. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. In code, get an access token via `azidentity`, then use it to get the connection string. Get connection information from environment variables added by Service Connector and connect to Azure Cosmos DB for MongoDB. In the code below, uncomment the section for your authentication type:
 
     ```go
     import (
@@ -256,12 +255,12 @@ The authentication type is not supported for Spring Boot.
     ```
 
 ### [NodeJS](#tab/nodejs)
-1. Install dependencies
+1. Install dependencies.
    ```bash
    npm install mongodb
    npm install --save @azure/identity
    ```
-2. In code, get the access token via `@azure/identity`, then use it to acquire the connection string. Get the connection information from the environment variables added by Service Connector and connect to Azure Cosmos DB for MongoDB. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. In code, get the access token via `@azure/identity`, then use it to get the connection string. Get connection information from environment variables added by Service Connector and connect to Azure Cosmos DB for MongoDB. In the code below, uncomment the section for your authentication type:
 
     ```javascript
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";

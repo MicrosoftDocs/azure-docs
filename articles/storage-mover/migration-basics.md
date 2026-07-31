@@ -4,7 +4,7 @@ description: Understand the basic decisions and strategies for the cloud migrati
 author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 08/07/2023
 ms.custom:
   - build-2025

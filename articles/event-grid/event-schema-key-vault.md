@@ -1,8 +1,12 @@
 ---
-title: Azure Key Vault as Event Grid source
-description: This article describes the properties and schema provided for Azure Key Vault events with Azure Event Grid
+title: Azure Key Vault as Event Grid Source Overview
+description: "Azure Key Vault events: Discover how to use Azure Key Vault as an Event Grid source, including event types, schema details, and integration tips."
+#customer intent: As an architect, I want to understand which Azure Key Vault events are available in Event Grid so that I can design event-driven solutions.
 ms.topic: concept-article
-ms.date: 02/14/2025
+ms.date: 03/26/2026
+author: spelluru
+ms.author: spelluru
+ms.reviewer: spelluru
 # Customer intent: As an architect or a developer, I want to know whether I can use Azure Key Vault as an Event Grid source. 
 ---
 
@@ -33,7 +37,7 @@ An Azure Key Vault account generates the following event types:
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
-The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreated**:
+The following example shows the schema for **Microsoft.KeyVault.SecretNewVersionCreated**:
 
 ```JSON
 [
@@ -59,7 +63,7 @@ The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreat
 
 # [Event Grid event schema](#tab/event-grid-event-schema)
 
-The following example show schema for **Microsoft.KeyVault.SecretNewVersionCreated**:
+The following example shows the schema for **Microsoft.KeyVault.SecretNewVersionCreated**:
 
 ```JSON
 [
@@ -95,7 +99,7 @@ An event has the following top-level data:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `source` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `source` | string | Full resource path to the event source. This field isn't writable. Event Grid provides this value. |
 | `subject` | string | Publisher-defined path to the event subject. |
 | `type` | string | One of the registered event types for this event source. |
 | `time` | string | The time the event is generated based on the provider's UTC time. |
@@ -108,7 +112,7 @@ An event has the following top-level data:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `topic` | string | Full resource path to the event source. This field isn't writable. Event Grid provides this value. |
 | `subject` | string | Publisher-defined path to the event subject. |
 | `eventType` | string | One of the registered event types for this event source. |
 | `eventTime` | string | The time the event is generated based on the provider's UTC time. |

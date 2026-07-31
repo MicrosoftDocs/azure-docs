@@ -1,6 +1,6 @@
 ---
 ms.topic: include
-ms.date: 02/19/2026
+ms.date: 07/16/2026
 author: sethmanheim
 ms.author: sethm
 ms.service: azure-iot-edge
@@ -15,7 +15,7 @@ In this section, you prepare your Linux virtual machine or physical device for I
 Run the following commands to add the package repository and then add the Microsoft package signing key to your list of trusted keys.
 
 > [!IMPORTANT]
-> On June 30, 2022, Raspberry Pi OS Stretch was retired from the Tier 1 OS support list. To avoid potential security vulnerabilities, update your host OS to Bullseye.
+> On June 30, 2022, Raspberry Pi OS Stretch was retired from the Tier 1 OS support list. To avoid potential security vulnerabilities, update your host OS to Bookworm.
 >
 > For [tier 2 supported platform operating systems](../support.md#tier-2), installation packages are available at [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases). See the installation steps in [Offline or specific version installation (optional)](../how-to-provision-single-device-linux-symmetric.md#offline-or-specific-version-installation-optional).
 
@@ -40,14 +40,6 @@ You can install IoT Edge by using a few commands. Open a terminal and run the fo
    rm packages-microsoft-prod.deb
    ```
 
-* **20.04**:
-
-   ```bash
-   wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
-   sudo dpkg -i packages-microsoft-prod.deb
-   rm packages-microsoft-prod.deb
-   ```
-
 # [Debian](#tab/debian)
 
 You can install it by using APT and running a few commands. Open a terminal and run the following commands:
@@ -56,13 +48,6 @@ You can install it by using APT and running a few commands. Open a terminal and 
 
     ```bash
     curl https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
-    sudo apt install ./packages-microsoft-prod.deb
-    ```
-
-* **11 - Bullseye (arm32v7)**:
-
-    ```bash
-    curl https://packages.microsoft.com/config/debian/11/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
     sudo apt install ./packages-microsoft-prod.deb
     ```
 
@@ -203,12 +188,6 @@ The steps in this section represent the typical process to install the latest Io
 Install the latest version of IoT Edge and the IoT identity service package (if you're not already [up-to-date](../version-history.md)):
 
 * **22.04**:
-   ```bash
-   sudo apt-get update; \
-     sudo apt-get install aziot-edge
-   ```
-
-* **20.04**:
    ```bash
    sudo apt-get update; \
      sudo apt-get install aziot-edge

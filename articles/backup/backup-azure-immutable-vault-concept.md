@@ -4,7 +4,8 @@ description: This article explains the concept of an immutable vault for Azure B
 ms.topic: overview
 ms.service: azure-backup
 ms.custom: references_regions, engagement-fy24, ignite-2024
-ms.date: 06/19/2025
+ms.date: 06/24/2026
+ms.update-cycle: 1095-days
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a data protection administrator, I want to implement and lock an immutable vault for backup data so that I can ensure the integrity and recoverability of backups against malicious deletion or modification."
@@ -17,7 +18,7 @@ An immutable vault for Azure Backup can help you protect your backup data by blo
 ## Supported scenarios for WORM storage
 
 - The immutability feature in an enabled and locked state is generally available in all Azure regions for Recovery Services vaults.
-- Use of WORM storage for immutable vaults in a locked state is currently in general availability for Recovery Services vaults in the following regions: Australia Central 2, Switzerland West, South Africa West, Korea Central, Germany North, Korea South, Spain Central, Israel Central, India South, India West, Mexico Central, Norway West, Poland Central, Japan East.
+- Use of WORM storage for immutable vaults in a locked state is generally available for Recovery Services vaults in the following regions: Australia Central 2, Switzerland West, South Africa West, Korea Central, Germany North, Korea South, Spain Central, Israel Central, India South, India West, Mexico Central, Norway West, Poland Central, Japan East, Japan West, Brazil South East, Canada North, Qatar Central, Switzerland North, West US 3.
 - Use of WORM storage for immutable vaults in a locked state is currently in preview for Backup vaults in the following regions: South Africa West, Korea Central, India South, India West, Poland Central.
 - In regions where WORM storage isn't yet generally available, backups with immutability enabled and locked will automatically transition to WORM-enabled storage after the feature becomes available. This transition requires no user action and involves no data movement.
 - Use of WORM storage for immutable vaults in a locked state is applicable for the following workloads: Azure Virtual Machines, SQL Server on Azure Virtual Machines, SAP HANA on Azure Virtual Machines, Azure Files, Azure Backup (server and agent), System Center Data Protection Manager, Azure Kubernetes Service, Azure Database for PostgreSQL.

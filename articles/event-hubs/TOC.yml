@@ -162,6 +162,8 @@
           href: geo-replication.md
         - name: Metadata only geo-disaster recovery
           href: event-hubs-geo-dr.md
+        - name: Configure geo-disaster recovery
+          href: configure-geo-disaster-recovery.md
     - name: Security
       items:
         - name: Authentication and authorization
@@ -184,6 +186,8 @@
               href: authorize-access-azure-active-directory.md
         - name: Network security
           href: network-security.md
+        - name: Confidential computing
+          href: confidential-computing.md
         - name: Network security perimeter
           href: network-security-perimeter.md        
         - name: Security controls by Azure Policy
@@ -316,8 +320,10 @@
           href: resource-governance-with-app-groups.md
         - name: Configure properties for an event hub
           href: configure-event-hub-properties.md
-        - name: Automatically scale throughput units
+        - name: Auto inflate overview
           href: event-hubs-auto-inflate.md
+        - name: Enable Auto inflate
+          href: enable-auto-inflate.md
         - name: Event Hubs management libraries
           href: event-hubs-management-libraries.md
         - name: Use geo-replication

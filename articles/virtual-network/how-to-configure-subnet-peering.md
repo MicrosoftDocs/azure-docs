@@ -6,7 +6,7 @@ author: amit916new
 ms.author: amitmishra
 ms.service: azure-virtual-network
 ms.topic: how-to
-ms.date: 12/09/2025
+ms.date: 07/09/2026
 
 #customer intent: As a network administrator, I want to configure subnet peering between two virtual networks in azure
 
@@ -190,9 +190,10 @@ The following diagram displays the checks performed while configuring subnet pee
 
 :::image type="content" source=".\media\how-to-configure-subnet-peering\subnet-peering.png" alt-text="Diagram that shows subnet peering.":::
 
-1. The participating subnets **must be unique** and **must belong to unique address spaces**.
+1. The participating subnets **must be unique** and **must belong to unique address spaces** across all peering links.
     - For example, in the virtual network A and virtual network C peering (illustrated in the figure by black arrow headed line) virtual network A can't subnet peer over Subnet 1, Subnet 2, and Subnet 3 with any of the subnets in virtual network C, as these subnets of virtual network A belong to the 10.1.0.0/16 address space, which is also present in virtual network C.
     - However, virtual network A’s Subnet 4 (10.0.1.0/24) can subnet peer with Subnet 5 in virtual network C (10.6.1.0/24) as these subnets are unique across the virtual networks and they belong to unique address spaces across virtual networks. Subnet 4 belongs to 10.0.0.0/16 address space in virtual network A and Subnet 5 belongs to 10.6.0.0/16 address space in virtual network C.
+    - With the subnet peering configuration in the diagram above, virtual network B's subnet 3 (10.2.3.0./24) can't subnet peer over Subnet 1 in virtual network C, because the latter overlaps with subnet 1 in virtual network A that is already subnet peered with virtual network B, regardless virtual network B's subnet 3 is not parcipating in the subnet peering with virtual network A.    
 
 1. There can be **only one peering link between any two virtual networks**. If you want to add or remove subnets from the peering link, then you need to update the same peering link. **Multiple exclusive peering between set of subnets aren't possible**.<br>
 **You can't change a given peering link type**. If there's a virtual network peering between virtual network A and virtual network B, and you want to change that peering to subnet peering, you must delete the existing virtual network peering link and create a new peering with the required parameters for subnet peering and vice versa.
@@ -205,6 +206,28 @@ The following diagram displays the checks performed while configuring subnet pee
     - In the subnet peering for virtual network A and virtual network B, you would expect only Subnet 1 and Subnet 3 from virtual network A to have route for Subnet 1 and Subnet 2 in remote virtual network B. However, Subnet 2 and Subnet 4 (from local side virtual network A isn't peered) also have route for Subnet 1 and Subnet 2 in remote side (virtual network B), meaning the nonpeered subnets can send packet to destination node in the peered subnet, although the packet is dropped and doesn't reach the virtual machine.
 
     - We recommend that you apply NSGs on the participating subnets to allow traffic from only the peered subnets and address spaces. This limitation is removed in the post GA release.
+
+    - **Delegated subnets: over-advertisement of routes for certain delegated subnets**
+
+      In addition to peered subnets, routes associated with the following delegated subnet types might be over-advertised. As a result, the route prefixes for these delegated subnets can appear in the effective route tables of VMs located in peered subnets, even when the delegated subnet itself isn't directly participating in the peering relationship.
+
+      This behavior might lead to unexpected route visibility and routing outcomes in subnet peering scenarios.
+
+      The following delegated subnet types are affected:
+
+      - `Microsoft.NetApp/volumes`
+      - `Microsoft.HardwareSecurityModules/dedicatedHSMs`
+      - `Microsoft.BareMetal/CrayServers`
+      - `Microsoft.BareMetal/MonitoringServers`
+      - `Microsoft.BareMetal/AzureHostedService`
+      - `Microsoft.BareMetal/AzureVMware`
+      - `Microsoft.BareMetal/AzureHPC`
+      - `Microsoft.BareMetal/AzurePaymentHSM`
+      - `Microsoft.Apollo/npu`
+      - `Microsoft.Singularity/accounts/npu`
+      - `Oracle.Database/networkAttachments`
+
+      **Example**: If a virtual network contains one of the preceding delegated subnet types, the delegated subnet's address prefixes might be propagated to the route tables of VMs in a remotely peered subnet, even though that delegated subnet isn't explicitly peered. This results in the delegated subnet being effectively over-advertised across the peering boundary.
 
 1. Subnet Peering and AVNM
     - Connected Group<br>

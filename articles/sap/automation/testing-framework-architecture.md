@@ -7,7 +7,7 @@ ms.reviewer: depadia
 ms.date: 10/27/2025
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-ms.topic: conceptual
+ms.topic: concept-article
 ---
 
 # SAP Testing Automation Framework architecture

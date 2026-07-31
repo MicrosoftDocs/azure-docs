@@ -1,10 +1,10 @@
 ---
 title: Overview of device management with Microsoft Azure IoT Hub
 description: Overview of device management in Azure IoT Hub--enterprise device lifecycle and device management patterns such as, reboot, factory reset, firmware update, configuration, device twins, queries, jobs, threat detection.
-author: cwatson-cat
+author: sethmanheim
 ms.service: azure-iot-hub
 services: iot-hub
-ms.author: cwatson
+ms.author: sethm
 ms.topic: concept-article
 ms.date: 05/25/2025
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device', 'Role: System Architecture']
@@ -61,7 +61,7 @@ Within each of these five stages, there are several device operator requirements
     * [Tutorial: Configure your devices from a back-end service](tutorial-device-twins.md)
     * [IoT Hub query language for device and module twins, jobs, and message routing](iot-hub-devguide-query-language.md)
     * [Automatic IoT device and module management using the Azure portal](./iot-hub-automatic-device-management.md)
-    * [What is Microsoft Defender for IoT?](../defender-for-iot/organizations/overview.md)
+    * [What is Microsoft Defender for IoT?](/azure/defender-for-iot/organizations/overview)
     * [Best practices for device configuration within an IoT solution](iot-hub-configuration-best-practices.md)
 
 * **Retire**: Replace or decommission devices after a failure, upgrade cycle, or at the end of the service lifetime. Use the device twin to maintain device info if the physical device is being replaced, or archived if being retired. Use the IoT Hub identity registry for securely revoking device identities and credentials.

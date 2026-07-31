@@ -3,12 +3,10 @@ title: Policy Execution with Fragments
 titleSuffix: Azure API Management
 description: Fragment execution via product-scoped and API-scoped policies in Azure API Management.
 services: api-management
-author: nicolela
 
 ms.service: azure-api-management
 ms.topic: concept-article
 ms.date: 02/10/2026
-ms.author: nicolela 
 ---
 
 # Policy execution with fragments

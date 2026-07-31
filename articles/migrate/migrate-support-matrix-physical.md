@@ -7,6 +7,7 @@ ms.manager: ronai
 ms.topic: concept-article
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
+ms.update-cycle: 1095-days
 ms.date: 04/04/2025
 ms.custom: engagement-fy23, linux-related-content
 # Customer intent: As an IT administrator, I want to assess physical servers for migration to Azure using a discovery and assessment tool, so that I can plan and execute a successful migration of our on-premises infrastructure.
@@ -38,12 +39,7 @@ Assessment | You can add up to 35,000 servers in a single group.<br/><br/> You c
 
 - **Operating system:** All Windows and Linux operating systems can be assessed for migration.
 
-> [!CAUTION]
-> This article references Windows Server versions that have reached End of Support (EOS).Microsoft has officially ended support for the following operating systems:
-> - Windows Server 2003
-> - Windows Server 2008 (including SP2 and R2 SP1)
-> - Windows Server 2012
-> - Windows Server 2012 R2
+    [!INCLUDE [end-of-life-notes-windows-server-2008.md](./includes/end-of-life-notes-windows-server-2008.md)]
 
 As a result, Azure Migrate doesn’t guarantee consistent or reliable outcomes for these OS versions. Customers may face problems and are strongly advised to upgrade to a supported Windows Server version before starting migration.
 
@@ -298,7 +294,8 @@ Stack | VMware, Hyper-V, and physical servers | VMware, Hyper-V, and physical se
 Windows servers | Windows Server 2008 R2 and later are supported | Not supported
 Linux servers | Not supported | Servers that meet the [requirements](migrate-support-matrix-physical.md#physical-server-requirements)
 Web server versions | IIS 7.5 and later | Tomcat 8 and later
-Required privileges | The least privileged user should be a part of the two user groups 1. Remote Management Users 2. IIS_IUSRS. The users must have read permissions to the following locations: C:\Windows\system32\inetsrv\config, C:\Windows\system32\inetsrv\config\applicationHost.config and C:\Windows\system32\inetsrv\config\redirection.config. | **Read (r)** and **Execute (x)** permissions recursively on all CATALINA_HOME directories.
+Protocol | WinRM port 5986 (HTTPS) by default, if HTTPS prerequisites aren't configured on the target servers, communication falls back to WinRM port 5985 (HTTP) | SSH port 22 (TCP)
+Required privileges | The least privileged user should be a part of the two user groups 1. Remote Management Users 2. IIS_IUSRS. The users must have read permissions to the following locations: C:\Windows\system32\inetsrv\config, C:\Windows\system32\inetsrv\config\applicationHost.config and C:\Windows\system32\inetsrv\config\redirection.config. </br></br> Add the user to 'log on as batch job' using secpol.msc and ensure user is not part of 'deny log on as batch job'. | **Read (r)** and **Execute (x)** permissions recursively on all CATALINA_HOME directories.
 
 > [!NOTE]
 > Data is always encrypted at rest and during transit.
@@ -319,19 +316,12 @@ Discovery method |  Agentless dependency analysis is performed by directly conne
 
 ## Agent-based dependency analysis requirements
 
-[Dependency analysis](concepts-dependency-visualization.md) helps you to identify dependencies between on-premises servers that you want to assess and migrate to Azure. The following table summarizes the requirements for setting up agent-based dependency analysis. Currently, only agent-based dependency analysis is supported for physical servers.
+**Agent-based dependency analysis** is supported only in the classic view and isn't available in the new experience. The classic view is scheduled for deprecation by the end of 2026. Until then, you can continue to access Log Analytics workspaces for servers where agent-based dependency analysis is already enabled. However, you can't onboard new servers for agent-based dependency analysis. For information, see [Set up dependency visualization](how-to-create-group-machine-dependencies.md).
 
-Requirement | Details
---- | ---
-Before deployment | You should have a project in place with the Azure Migrate: Discovery and assessment tool added to the project.<br/><br/>  You deploy dependency visualization after setting up an Azure Migrate appliance to discover your on-premises servers.<br/><br/> [Learn how](create-manage-projects.md) to create a project for the first time.<br/> [Learn how](how-to-assess.md) to add an assessment tool to an existing project.<br/> Learn how to set up the Azure Migrate appliance for assessment of [Hyper-V](how-to-set-up-appliance-hyper-v.md), [VMware](how-to-set-up-appliance-vmware.md), or physical servers.
-Azure Government | Dependency visualization isn't available in Azure Government.
-Log Analytics | Azure Migrate and Modernize uses the [Service Map](/previous-versions/azure/azure-monitor/vm/service-map) solution in [Azure Monitor logs](/azure/azure-monitor/logs/log-query-overview) for dependency visualization.<br/><br/> You associate a new or existing Log Analytics workspace with a project. You can't modify the workspace for a project after you add the workspace. <br/><br/> The workspace must be in the same subscription as the project.<br/><br/> The workspace must reside in the East US, Southeast Asia, or West Europe regions. Workspaces in other regions can't be associated with a project.<br /> The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br/><br/> In Log Analytics, the workspace associated with Azure Migrate and Modernize is tagged with the Migration Project key and the project name.
-Required agents | On each server that you want to analyze, install the following agents:<br/>- [Microsoft Monitoring agent (MMA)](/azure/azure-monitor/agents/agent-windows)<br/> - [Dependency agent](/azure/azure-monitor/vm/vminsights-dependency-agent-maintenance)<br/><br/> If on-premises servers aren't connected to the internet, you need to download and install the Log Analytics gateway on them.<br/><br/> Learn more about installing the [Dependency agent](how-to-create-group-machine-dependencies.md#install-the-dependency-agent) and [MMA](how-to-create-group-machine-dependencies.md#install-the-mma).
-Log Analytics workspace | The workspace must be in the same subscription as a project.<br/><br/> Azure Migrate and Modernize supports workspaces residing in the East US, Southeast Asia, and West Europe regions.<br/><br/>  The workspace must be in a region in which [Service Map is supported](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all). You can monitor Azure VMs in any region. The VMs themselves aren't limited to the regions supported by the Log Analytics workspace.<br/><br/> You can't modify the workspace for a project after you add the workspace.
-Costs | The Service Map solution doesn't incur any charges for the first 180 days. The count starts from the day that you associate the Log Analytics workspace with the project.<br/><br/> After 180 days, standard Log Analytics charges apply.<br/><br/> Using any solution other than Service Map in the associated Log Analytics workspace incurs [standard charges](https://azure.microsoft.com/pricing/details/log-analytics/) for Log Analytics.<br/><br/> When the project is deleted, the workspace isn't automatically deleted. After you delete the project, Service Map usage isn't free. Each node is charged according to the paid tier of the Log Analytics workspace.<br/><br/>If you have projects that you created before Azure Migrate general availability (GA on February 28, 2018), you might incur other Service Map charges. To ensure that you're charged only after 180 days, we recommend that you create a new project. Workspaces that were created before GA are still chargeable.
-Management | When you register agents to the workspace, use the ID and key provided by the project.<br/><br/> You can use the Log Analytics workspace outside Azure Migrate and Modernize.<br/><br/> If you delete the associated project, the workspace isn't deleted automatically. [Delete it manually](/azure/azure-monitor/logs/manage-access).<br/><br/> Don't delete the workspace created by Azure Migrate and Modernize unless you delete the project. If you do, the dependency visualization functionality doesn't work as expected.
-Internet connectivity | If servers aren't connected to the internet, install the Log Analytics gateway on the servers.
-Azure Government | Agent-based dependency analysis isn't supported.
+If you are using Service Map for agent-based dependency analysis, migrate to VM Insights. [ServiceMap](/azure/azure-monitor/vm/vminsights-migrate-from-service-map) is retired.
+
+>[!NOTE]
+> Agent-based dependency analysis isn't free. Log Analytics workspace usage charges apply. For pricing details, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
 ## Next steps
 

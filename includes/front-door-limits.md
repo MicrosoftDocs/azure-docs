@@ -3,11 +3,11 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: include
-ms.date: 05/08/2025
+ms.date: 07/14/2026
 ms.custom: include file
 ---
 
-- In addition to the following limits, there are [composite limit on the number of routing rules, front-end domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
+In addition to the following limits, there's a [composite limit on the number of routing rules, front-end domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
 
 | Resource | Classic tier limit |
 | --- | --- |
@@ -21,7 +21,7 @@ ms.custom: include file
 | URLs in a single cache purge call | 100 |
 | Maximum bandwidth <sup>1</sup> | 75 Gbps |
 | Maximum requests per second per profile <sup>1</sup> | 100,000 |
-| HTTP header size limit (per header) | 32 KB |
+| HTTP header size limit (per header) | 64 KB |
 | Custom web application firewall rules per policy | 100 |
 | Web application firewall policy per subscription | 100 |
 | Web application firewall match conditions per custom rule | 10 |
@@ -37,7 +37,7 @@ ms.custom: include file
 
 <sup>1</sup> If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limited is need, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-<sup>2</sup> To request a limit increase, create an [Azure Support request][azure-support]. Free subscriptions including [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota increases. If you have a free subscription, you can [upgrade](../articles/cost-management-billing/manage/upgrade-azure-subscription.md) to a Pay-As-You-Go subscription.<br />
+<sup>2</sup> To request a limit increase, create an [Azure Support request][azure-support]. Free subscriptions including [Azure Free Account](https://azure.microsoft.com/pricing/offers/ms-azr-0044p?cid=msft_learn) and [Azure for Students](https://azure.microsoft.com/offers/ms-azr-0170p/) aren't eligible for limit or quota increases. If you have a free subscription, you can [upgrade](../articles/cost-management-billing/manage/upgrade-azure-subscription.md) to a Pay-As-You-Go subscription.<br />
 
 <!-- LINKS - External -->
 [azure-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
@@ -45,7 +45,7 @@ ms.custom: include file
 ### Azure Front Door Standard and Premium service limits
 
 - Maximum of **500** total Standard and Premium profiles per subscription.
-- In addition to the following limits, there are [composite limit on the number of routes, domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
+- In addition to the following limits, there's a [composite limit on the number of routes, domains, protocols, and paths](../articles/frontdoor/front-door-routing-limits.md).
 
 | Resource | Standard tier limit | Premium tier limit |
 | --- | --- | --- |
@@ -63,13 +63,13 @@ ms.custom: include file
 | Maximum bandwidth <sup>1</sup> | 75 Gbps | 75 Gbps |
 | Maximum requests per second per profile <sup>1,</sup> <sup>2</sup> | 100,000 | 100,000 |
 | Maximum concurrent WebSocket connections per profile <sup>3</sup> | 3,000 | 3,000 |
-| Path patterns to match for a routing rule | 25 | 50 |
+| Path patterns to match for a routing rule | 100 | 100 |
 | URLs in a single cache purge call | 100 | 100 |
 | Maximum security policy per profile | 100 | 200 |
 | Maximum associations per security policy | 110 | 225 |
 | Maximum secrets per profile | 100 | 500 |
 | Maximum key groups per profile | 100 | 200 |
-| HTTP header size limit (per header) | 32 KB | 32 KB|
+| HTTP header size limit (per header) | 64 KB | 64 KB|
 | Web Application Firewall (WAF) policy per subscription | 100 | 100 |
 | WAF custom rules per policy | 100 | 100 |
 | WAF match conditions per custom rule | 10 | 10 |
@@ -83,16 +83,22 @@ ms.custom: include file
 | WAF exclusion per policy | 100 | 100 |
 | WAF HTTP request body and file upload inspection limit | 128 KB | 128 KB |
 | WAF custom response body length | 32 KB | 32 KB |
+| Edge action code size <sup>4</sup> | 16 KB | 16 KB |
+| Edge action version counts <sup>4</sup> | 3 | 3 |
+| Edge action execution time <sup>4</sup> | 10 ms | 10 ms |
+| Maximum number of Edge Actions resources per subscription <sup>4</sup> | 100 | 100 |
 
 <sup>1</sup> If the traffic isn't globally distributed and concentrated in one or more regions, or if a higher quota limit is needed, create an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
-<sup>2</sup> There's currently a 5,000 requests per second per POP limit for each Front Door profile. Beyond this limit, the POP location will drop connections. If requests are concentrated in one of more regions and exceed this limit, you can request a higher POP limit by submitting an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
+<sup>2</sup> There's currently a 5,000 requests per second per PoP limit for each Front Door profile. Beyond this limit, the PoP location drops connections. If requests are concentrated in one or more regions and exceed this limit, you can request a higher PoP limit by submitting an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). 
 
 <sup>3</sup> If you need more than 3,000 concurrent WebSocket connections, submit an [Azure support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 
+<sup>4</sup> Currently, **JavaScript** is the only supported language.
+
 #### Timeout values
 
-##### From Client to Front Door
+##### From client to Front Door
 
 - Header timeout - After establishing TCP/TLS connection, Front Door has a 5-second timeout for receiving all headers from the client. The connection is terminated if the client doesn't send headers within 5 seconds. You can't configure this timeout value.
 - HTTP keep-alive timeout - Front Door has a 90-second HTTP keep-alive timeout. The connection is terminated if the client doesn't send data for 90 seconds. You can't configure this timeout value.
@@ -103,7 +109,7 @@ ms.custom: include file
 
 - After the back end receives the first packet, if the origin pauses for any reason in the middle of the response body beyond the originResponseTimeoutSeconds or sendRecvTimeoutSeconds, the response is canceled.
 
-- Front Door takes advantage of HTTP keep-alive to keep connections open for reuse from previous requests. These connections have an idle timeout of 90 seconds. Azure Front Door would disconnect idle connections after reaching the 90-second idle timeout. This timeout value can't be configured.
+- Front Door uses HTTP keep-alive to keep connections open for reuse from previous requests. These connections have an idle timeout of 90 seconds. Azure Front Door disconnects idle connections after reaching the 90-second idle timeout. You can't configure this timeout value.
 
 #### Upload and download data limit
 
@@ -115,7 +121,7 @@ ms.custom: include file
 #### Other limits
 - Maximum URL size - 8,192 bytes - Specifies maximum length of the raw URL (scheme + hostname + port + path + query string of the URL)
 - Maximum Query String size - 4,096 bytes - Specifies the maximum length of the query string, in bytes.
-- Maximum HTTP response header size from health probe URL - 4,096 bytes - Specified the maximum length of all the response headers of health probes. 
+- Maximum HTTP response header size from health probe URL - 4,096 bytes - Specifies the maximum length of all the response headers of health probes. 
 - Maximum rules engine action header value character: 640 characters.
 - Maximum rules engine condition header value character: 256 characters.
 - Maximum ETag header size: 128 bytes

@@ -2,11 +2,11 @@
 title: 'Azure Firewall scenarios to inspect traffic destined to a private endpoint'
 titleSuffix: Azure Private Link
 description: Learn about different scenarios to inspect traffic destined to a private endpoint using Azure Firewall.
-author: abell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 03/25/2025
-ms.author: abell
+ms.date: 03/30/2026
+ms.author: allensu
 ms.custom:
   - template-how-to
   - sfi-image-nochange
@@ -38,7 +38,7 @@ Azure Firewall filters traffic using either:
 
 * [FQDN in network rules](../firewall/fqdn-filtering-network-rules.md) for TCP and UDP protocols
 
-* [FQDN in application rules](../firewall/features.md#application-fqdn-filtering-rules) for HTTP, HTTPS, and MSSQL.
+* [FQDN in application rules](../firewall/features-by-sku.md) for HTTP, HTTPS, and MSSQL.
 
 > [!IMPORTANT]
 > The use of application rules over network rules is recommended when inspecting traffic destined to private endpoints in order to maintain flow symmetry. Application rules are preferred over network rules to inspect traffic destined to private endpoints because Azure Firewall always SNATs traffic with application rules. If network rules are used, or an NVA is used instead of Azure Firewall, SNAT must be configured for traffic destined to private endpoints in order to maintain flow symmetry.
@@ -88,7 +88,7 @@ Use this pattern when a migration to a hub and spoke architecture isn't possible
 
 This architecture can be implemented if you have configured connectivity with your on-premises network using either:
 
-* [ExpressRoute](..\expressroute\expressroute-introduction.md)
+* [ExpressRoute](../expressroute/expressroute-introduction.md)
 
 * [Site to Site VPN](../vpn-gateway/tutorial-site-to-site-portal.md)
 

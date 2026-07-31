@@ -7,7 +7,7 @@ ms.author: karler
 ms.reviewer: zhiyongli
 ms.service: azure-spring-apps
 ms.custom: devx-track-java
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/19/2025
 ms.update-cycle: 1095-days
 ---

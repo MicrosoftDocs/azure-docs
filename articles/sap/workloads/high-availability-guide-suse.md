@@ -6,7 +6,7 @@ author: rdeltcheva
 manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: article
+ms.topic: how-to
 ms.date: 11/19/2024
 ms.author: radeltch
 ms.custom:
@@ -52,24 +52,24 @@ Read the following SAP Notes and papers first
   * Supported SAP software, and operating system (OS) and database combinations
   * Required SAP kernel version for Windows and Linux on Microsoft Azure
 * SAP Note [2015553][2015553] lists prerequisites for SAP-supported SAP software deployments in Azure.
-* SAP Note [2205917][2205917] has recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [2205917][2205917] recommends OS settings for SUSE Linux Enterprise Server for SAP Applications
 * SAP Note [1944799][1944799] has SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
 * SAP Note [2178632][2178632] has detailed information about all monitoring metrics reported for SAP in Azure.
 * SAP Note [2191498][2191498] has the required SAP Host Agent version for Linux in Azure.
 * SAP Note [2243692][2243692] has information about SAP licensing on Linux in Azure.
 * SAP Note [1984787][1984787] has general information about SUSE Linux Enterprise Server 12.
-* SAP Note [1999351][1999351] has additional troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
+* SAP Note [1999351][1999351] has other troubleshooting information for the Azure Enhanced Monitoring Extension for SAP.
 * [SAP Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) has all required SAP Notes for Linux.
 * [Azure Virtual Machines planning and implementation for SAP on Linux][planning-guide]
 * [Azure Virtual Machines deployment for SAP on Linux][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP on Linux][dbms-guide]
 * [SUSE SAP HA Best Practice Guides][suse-ha-guide]
-  The guides contain all required information to set up Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
+  The guides contain all required information to setup Netweaver HA and SAP HANA System Replication on-premises. Use these guides as a general baseline. They provide much more detailed information.
 * [SUSE High Availability Extension 12 SP3 Release Notes][suse-ha-12sp3-relnotes]
 
 ## Overview
 
-To achieve high availability, SAP NetWeaver requires an NFS server. The NFS server is configured in a separate cluster and can be used by multiple SAP systems.
+To achieve high availability, SAP NetWeaver requires an NFS server. The NFS server is configured in a separate cluster and multiple SAP systems can use it.
 
 ![SAP NetWeaver High Availability overview](./media/high-availability-guide-suse/ha-suse.png)
 
@@ -83,7 +83,7 @@ The NFS server, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS, and th
 ## Setting up a highly available NFS server
 
 > [!NOTE]
-> We recommend deploying one of the Azure first-party NFS services: [NFS on Azure Files](../../storage/files/storage-files-quick-create-use-linux.md) or [NFS ANF volumes](../../azure-netapp-files/azure-netapp-files-create-volumes.md) for storing shared data in a highly available SAP system. Be aware that we are de-emphasizing SAP reference architectures, utilizing NFS clusters.  
+> We recommend deploying one of the Azure first-party NFS services: [NFS on Azure Files](../../storage/files/storage-files-quick-create-use-linux.md) or [NFS ANF volumes](../../azure-netapp-files/azure-netapp-files-create-volumes.md) for storing shared data in a highly available SAP system. Be aware that we're de-emphasizing SAP reference architectures, utilizing NFS clusters.  
 > The SAP configuration guides for SAP NW highly available SAP system with native NFS services are:
 >
 > * [High availability SAP NW on Azure VMs with simple mount and NFS on SLES for SAP Applications](./high-availability-guide-suse-nfs-simple-mount.md)
@@ -98,13 +98,13 @@ The resource agent for SAP Instance is included in SUSE Linux Enterprise Server 
 
 ### Deploy Linux VMs manually via Azure portal
 
-This document assumes that you've already deployed a resource group, [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md), and subnet.
+This document assumes that a resource group is already deployed, [Azure Virtual Network](../../virtual-network/virtual-networks-overview.md), and subnet.
 
 Deploy virtual machines with SLES for SAP Applications image. Choose a suitable version of SLES image that is supported for SAP system. You can deploy VM in any one of the availability options - virtual machine scale set, availability zone, or availability set.
 
 ### Configure Azure load balancer
 
-During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow the steps below to configure a standard load balancer for the high-availability setup of SAP ASCS and SAP ERS.
+During VM configuration, you can create or select exiting load balancer in networking section. Follow the steps outlined to configure a standard load balancer for the high-availability setup of SAP ASCS and SAP ERS.
 
 #### [Azure portal](#tab/lb-portal)
 
@@ -121,20 +121,20 @@ During VM configuration, you have an option to create or select exiting load bal
 --- 
 
 > [!NOTE]
-> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+> When VMs without public IP addresses are placed in the backend pool of an internal (no public IP address) Standard Azure load balancer, they lack outbound internet connectivity. Further configuration is needed to enable routing to public end points. For details on how to achieve outbound connectivity, see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 > [!IMPORTANT]
 >
-> * Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
-> * To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update saptune version to 3.1.1 or higher. For more details, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/)
+> * Don't enable TCP time stamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps causes the health probes to fail. Set the `net.ipv4.tcp_timestamps` parameter to `0`. For details, see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
+> * To prevent `saptune` from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, you should update saptune version to 3.1.1 or later. For more information, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/)
 
 ## Setting up (A)SCS
 
-Next, you'll prepare and install the SAP ASCS and ERS instances.
+The next step is to prepare, and install the SAP ASCS and ERS instances.
 
 ### Create Pacemaker cluster
 
-Follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md) to create a basic Pacemaker cluster for this (A)SCS server.
+To create a basic Pacemaker cluster for SAP ASCS, follow the steps in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure](high-availability-guide-suse-pacemaker.md).
 
 ### Installation
 
@@ -147,7 +147,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    ```
 
    > [!NOTE]
-   > The known issue with using a dash in host names is fixed with version **3.1.1** of package **sap-suse-cluster-connector**. Make sure that you are using at least version 3.1.1 of package sap-suse-cluster-connector, if using cluster nodes with dash in the host name. Otherwise your cluster will not work.
+   > The known issue with using a dash in host names is fixed with version **3.1.1** of package **sap-suse-cluster-connector**. Make sure that you're using at least version 3.1.1 of package sap-suse-cluster-connector, if using cluster nodes with dash in the host name. Otherwise your cluster startup may fail.
 
    Make sure that you installed the new version of the SAP SUSE cluster connector. The old one was called sap_suse_cluster_connector and the new one is called **sap-suse-cluster-connector**.
 
@@ -306,14 +306,14 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 1. **[1]** Create a virtual IP resource and health-probe for the ASCS instance
 
    > [!IMPORTANT]
-   > Recent testing revealed situations, where netcat stops responding to requests due to backlog and its limitation of handling only one connection. The netcat resource stops listening to the Azure Load balancer requests and the floating IP becomes unavailable.  
+   > Recent testing revealed situations where netcat stops responding to requests due to backlog and its limitation of handling only one connection. The netcat resource stops listening to the Azure Load balancer requests and the floating IP becomes unavailable.  
    > For existing Pacemaker clusters, we recommended in the past replacing netcat with socat. Currently we recommend using azure-lb resource agent, which is part of package resource-agents, with the following package version requirements:
    >
    > * For SLES 12 SP4/SP5, the version must be at least resource-agents-4.3.018.a7fb5035-3.30.1.  
    > * For SLES 15/15 SP1, the version must be at least resource-agents-4.3.0184.6ee15eb2-4.13.1.  
    >
-   > Note that the change will require brief downtime.  
-   > For existing Pacemaker clusters, if the configuration was already changed to use socat as described in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), there is no requirement to switch immediately to azure-lb resource agent.
+   > This change requires brief downtime.  
+   > For existing Pacemaker clusters, if the configuration was already changed to use socat as described in [Azure Load-Balancer Detection Hardening](https://www.suse.com/support/kb/doc/?id=7024128), there's no requirement to switch immediately to azure-lb resource agent.
 
    ```bash
    sudo crm node standby nw1-cl-1
@@ -421,7 +421,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    ```
 
    > [!NOTE]
-   > Use SWPM SP 20 PL 05 or higher. Lower versions do not set the permissions correctly and the installation will fail.
+   > Use SWPM SP 20 PL 05 or higher. Lower versions set the permissions incorrectly, and the installation fails.
 
    If the installation fails to create a subfolder in /usr/sap/**NW1**/ERS**02**, try setting the owner and group of the ERS**02** folder and retry.
 
@@ -470,7 +470,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[A]** Configure Keep Alive
 
-   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this you need to set a parameter in the SAP NetWeaver ASCS/SCS profile, if using ENSA1, and change the Linux system `keepalive` settings on all SAP servers for both ENSA1/ENSA2. Read [SAP Note 1410736][1410736] for more information.
+   The communication between the SAP NetWeaver application server and the ASCS/SCS is routed through a software load balancer. The load balancer disconnects inactive connections after a configurable timeout. To prevent this disconnection, you need to set a parameter in the SAP NetWeaver ASCS/SCS profile, if using ENSA1, and change the Linux system `keepalive` settings on all SAP servers for both ENSA1/ENSA2. Read [SAP Note 1410736][1410736] for more information.
 
    ```bash
    # Change the Linux system configuration
@@ -493,10 +493,10 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    sudo ssh nw1-cl-1 "cat /usr/sap/sapservices" | grep ERS02 | sudo tee -a /usr/sap/sapservices
    ```
 
-1. **[A]** Disabling `systemd` services of the ASCS and ERS SAP instance. This step is only applicable, if SAP startup framework is managed by systemd as per SAP Note [3115048](https://me.sap.com/notes/3115048)
+1. **[A]** Disabling `systemd` services of the ASCS and ERS SAP instance. This step is only applicable if systemd manages the SAP startup framework as per SAP Note [3115048](https://me.sap.com/notes/3115048)
 
    > [!NOTE]
-   > When managing SAP instances like SAP ASCS and SAP ERS using SLES cluster configuration, you would need to make additional modifications to integrate the cluster with the native systemd-based SAP start framework. This ensures that maintenance procedures do no compromise cluster stability. After installation or switching SAP startup framework to systemd-enabled setup as per SAP Note [3115048](https://me.sap.com/notes/3115048), you should disable the `systemd` services for the ASCS and ERS SAP instances.
+   > When managing SAP instances like SAP ASCS and SAP ERS using SLES cluster configuration, you would need to make other modifications to integrate the cluster with the native systemd-based SAP start framework to ensure  maintenance procedures don't compromise cluster stability. After installation or switching SAP startup framework to systemd-enabled setup as per SAP Note [3115048](https://me.sap.com/notes/3115048), you should disable the `systemd` services for the ASCS and ERS SAP instances.
 
    ```bash
    # Stop ASCS and ERS instances using <sid>adm
@@ -514,7 +514,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
 
 1. **[1]** Create the SAP cluster resources
 
-   Depending on whether you are running an ENSA1 or ENSA2 system, select respective tab to define the resources. SAP introduced support for [ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
+   Depending on whether you're running an ENSA1 or ENSA2 system, select respective tab to define the resources. SAP introduced support for [ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
 
    #### [ENSA1](#tab/ensa1)
 
@@ -550,7 +550,7 @@ The following items are prefixed with either **[A]** - applicable to all nodes, 
    #### [ENSA2](#tab/ensa2)
 
    > [!NOTE]
-   > If you have a two-node cluster running ENSA2, you have the option to configure priority-fencing-delay cluster property. This property introduces additional delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enteprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
+   > If you have a two-node cluster running ENSA2, you can configure priority-fencing-delay cluster property. This property introduces extra delay in fencing a node that has higher total resource priority when a split-brain scenario occurs. For more information, see [SUSE Linux Enterprise Server high availability extension administration guide](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing).
    >
    > The property priority-fencing-delay is only applicable for ENSA2 running on two-node cluster.
 
@@ -607,11 +607,17 @@ sudo crm_mon -r
 #      rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
 ```
 
+> [!Note]
+> SAP ASCS/ERS cluster can be extended from 2-node to 3-node cluster with 3rd node as a spare node for failover of ASCS or ERS services.
+> - 3-node setup can only be used for SAP systems using SAP Enqueue Replication Server 2 (ENSA2).
+> - The cluster property `priority-fencing-delay` should not be used in a 3-node cluster.
+
+
 ## SAP NetWeaver application server preparation
 
-Some databases require that the database instance installation is executed on an application server. Prepare the application server virtual machines to be able to use them in these cases.
+Some databases require that the database instance installation is executed on an application server. Prepare the application server virtual machines to be able to execute the database installation.
 
-The steps below assume that you install the application server on a server different from the ASCS/SCS and HANA servers. Otherwise some of the steps below (like configuring host name resolution) aren't needed.
+The following common steps assume that you install the application server on a server that's different from the ASCS and HANA servers.
 
 1. Configure operating system
 
@@ -702,7 +708,7 @@ The steps below assume that you install the application server on a server diffe
    ResourceDisk.SwapSizeMB=2000
    ```
 
-   Restart the Agent to activate the change
+   To activate the change, restart the agent.
 
    ```bash
    sudo service waagent restart
@@ -728,7 +734,7 @@ Follow these steps to install an SAP application server.
 
 1. Prepare application server
 
-   Follow the steps in the chapter [SAP NetWeaver application server preparation](#sap-netweaver-application-server-installation) above to prepare the application server.
+   Follow the steps in [SAP NetWeaver application server preparation](#sap-netweaver-application-server-installation).
 
 1. Install SAP NetWeaver application server
 
@@ -744,13 +750,13 @@ Follow these steps to install an SAP application server.
 
    Update the SAP HANA secure store to point to the virtual name of the SAP HANA System Replication setup.
 
-   Run the following command to list the entries
+   To list the entries, run the following command:
 
    ```bash
    hdbuserstore List
    ```
 
-   This should list all entries and should look similar to
+   The command should list all entries and should look similar to this example.
 
    ```text
    DATA FILE       : /home/nw1adm/.hdb/nw1-di-0/SSFS_HDB.DAT
@@ -762,7 +768,7 @@ Follow these steps to install an SAP application server.
      DATABASE: HN1
    ```
 
-   The output shows that the IP address of the default entry is pointing to the virtual machine and not to the load balancer's IP address. This entry needs to be changed to point to the virtual hostname of the load balancer. Make sure to use the same port (**30313** in the output above) and database name (**HN1** in the output above)!
+   In this example, the IP address of the default entry points to the VM, not the load balancer. Change the entry to point to the virtual hostname of the load balancer. Make sure to use the same port and database name. For example, `30313` and `HN1` in the sample output.
 
    ```bash
    su - nw1adm
@@ -771,11 +777,11 @@ Follow these steps to install an SAP application server.
 
 ## Test the cluster setup
 
-The following tests are a copy of the test cases in the best practices guides of SUSE. They're copied for your convenience. Always also read the best practices guides and perform all additional tests that might have been added.
+The following tests are a copy of the test cases in the best practices guides of SUSE. They're copied for your convenience. Always also read the best practices guides and perform all extra tests that might have been added.
 
 1. Test HAGetFailoverConfig, HACheckConfig and HACheckFailoverConfig
 
-   Run the following commands as \<sapsid>adm on the node where the ASCS instance is currently running. If the commands fail with FAIL: Insufficient memory, it might be caused by dashes in your hostname. This is a known issue and will be fixed by SUSE in the sap-suse-cluster-connector package.
+   Run the following commands as \<sapsid>adm on the node where the ASCS instance is currently running. If the commands fail with FAIL: Insufficient memory, it might be caused by dashes in your hostname. This error is a known issue and it's to be fixed by SUSE in the sap-suse-cluster-connector package.
 
    ```bash
    nw1-cl-0:nw1adm 54> sapcontrol -nr 00 -function HAGetFailoverConfig
@@ -892,7 +898,7 @@ The following tests are a copy of the test cases in the best practices guides of
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    ```
 
-   Run the following commands as \<sapsid>adm to migrate the ASCS instance.
+   To migrate the ASCS instance, run the following commands as \<sapsid>adm.
 
    ```bash
    nw1-cl-0:nw1adm 55> sapcontrol -nr 00 -host nw1-ascs -user nw1adm <password> -function HAFailoverToNode ""
@@ -1026,13 +1032,16 @@ The following tests are a copy of the test cases in the best practices guides of
    iptables -A INPUT -s 10.0.0.6 -j DROP; iptables -A OUTPUT -d 10.0.0.6 -j DROP
    ```
 
-   When cluster nodes can't communicate to each other, there's a risk of a split-brain scenario. In such situations, cluster nodes will try to simultaneously fence each other, resulting in fence race.
+   When cluster nodes can't communicate to each other, there's a risk of a split-brain scenario. In such situations, cluster nodes try to simultaneously fence each other, resulting in fence race.
 
-   When configuring a fencing device, it's recommended to configure [`pcmk_delay_max`](https://www.suse.com/support/kb/doc/?id=000019110) property. So, in the event of split-brain scenario, the cluster introduces a random delay up to the `pcmk_delay_max` value, to the fencing action on each node. The node with the shortest delay will be selected for fencing.
+   When configuring a fencing device, recommendation is to configure [`pcmk_delay_max`](https://www.suse.com/support/kb/doc/?id=000019110) property. So, in the event of split-brain scenario, the cluster introduces a random delay up to the `pcmk_delay_max` value, to the fencing action on each node. The node with the shortest delay gets selected for fencing.
 
-   Additionally, in ENSA 2 configuration, to prioritize the node hosting the ASCS resource over the other node during a split brain scenario, it's recommended to configure [`priority-fencing-delay`](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing) property in the cluster. Enabling priority-fencing-delay property allows the cluster to introduce an additional delay in the fencing action specifically on the node hosting the ASCS resource, allowing the ASCS node to win the fence race.
+   Additionally, in ENSA 2 configuration, to prioritize the node hosting the ASCS resource over the other node during a split brain scenario, recommendation is to configure [`priority-fencing-delay`](https://documentation.suse.com/sle-ha/15-SP3/single-html/SLE-HA-administration/#pro-ha-storage-protect-fencing) property in the cluster. Enabling priority-fencing-delay property allows the cluster to introduce an extra delay in the fencing action specifically on the node hosting the ASCS resource, allowing the ASCS node to win the fence race.
 
-   Execute below command to delete the firewall rule.
+   > [!NOTE]
+   > The `priority-fencing-delay` property applies only to two-node cluster configuration running with ENSA2.
+
+   Execute following command to delete the firewall rule.
 
    ```bash
    # If the iptables rule set on the server gets reset after a reboot, the rules will be cleared out. In case they have not been reset, please proceed to remove the iptables rule using the following command.
@@ -1057,7 +1066,7 @@ The following tests are a copy of the test cases in the best practices guides of
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    ```
 
-   Create an enqueue lock by, for example edit a user in transaction su01. Run the following commands as \<sapsid>adm on the node where the ASCS instance is running. The commands will stop the ASCS instance and start it again. If using enqueue server 1 architecture, the enqueue lock is expected to be lost in this test. If using enqueue server 2 architecture, the enqueue will be retained.
+   Create an enqueue lock by, for example edit a user in transaction su01. Run the following commands as \<sapsid>adm on the node where the ASCS instance is running. The commands stops the ASCS instance and start it again. If using enqueue server 1 architecture, the enqueue lock is expected to be lost in this test. If using enqueue server 2 architecture, the enqueue will be retained.
 
    ```bash
    nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
@@ -1115,7 +1124,7 @@ The following tests are a copy of the test cases in the best practices guides of
    nw1-cl-1:~ # pgrep -f ms.sapNW1 | xargs kill -9
    ```
 
-   If you only kill the message server once, it will be restarted by sapstart. If you kill it often enough, Pacemaker will eventually move the ASCS instance to the other node, in case of ENSA1. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
+   If you only kill the message server once, it will be restarted by sapstart. If you kill it often enough, Pacemaker eventually moves the ASCS instance to the other node(applicable for ENSA1). Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
 
    ```bash
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ASCS00
@@ -1166,7 +1175,7 @@ The following tests are a copy of the test cases in the best practices guides of
    pgrep -f enq.sapNW1 | xargs kill -9
    ```
 
-   The ASCS instance should immediately fail over to the other node, in the case of ENSA1. The ERS instance should also fail over after the ASCS instance is started. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
+   The ASCS instance should immediately fail over to the other node(applicable for ENSA1). The ERS instance should also fail over after the ASCS instance is started. Run the following commands as root to clean up the resource state of the ASCS and ERS instance after the test.
 
    ```bash
    nw1-cl-0:~ # crm resource cleanup rsc_sap_NW1_ASCS00

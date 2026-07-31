@@ -2,17 +2,17 @@
 title: Automatic device management at scale (Azure portal)
 titleSuffix: Azure IoT Hub
 description: Use Azure IoT Hub automatic configurations to manage multiple IoT devices and modules in the Azure portal
-author: SoniaLopezBravo
+author: sethmanheim
 ms.service: azure-iot-hub
 ms.topic: include
 ms.date: 12/01/2025
-ms.author: sonialopez
+ms.author: sethm
 ms.custom: ['Role: Cloud Development', 'Role: IoT Device']
 ---
 
 ## Prerequisites
 
-* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* An active Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
 
 * An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in the **Create an IoT hub** section of [Create and manage Azure IoT hubs](../articles/iot-hub/create-hub.md).
 

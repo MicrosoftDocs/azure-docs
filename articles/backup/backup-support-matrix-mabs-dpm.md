@@ -2,7 +2,7 @@
 title: MABS & System Center DPM support matrix
 description: This article summarizes Azure Backup support when you use Microsoft Azure Backup Server (MABS) or System Center DPM to back up on-premises and Azure VM resources.
 ms.service: azure-backup
-ms.date: 09/11/2025
+ms.date: 04/24/2026
 ms.topic: reference
 author: AbhishekMallick-MS
 ms.author: v-mallicka
@@ -15,6 +15,8 @@ ms.custom: engagement-fy24
 This article summarizes support settings and limitations for backing up machines by using Microsoft Azure Backup Server (MABS) or System Center Data Protection Manager (DPM), and Azure Backup.
 
 [Azure Backup](backup-overview.md) allows you to back up on-premises machines and workloads, and Azure virtual machines (VMs).
+
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
 
 ## About DPM or MABS
 
@@ -49,6 +51,8 @@ For more information:
 
 - [Learn more](backup-architecture.md#architecture-back-up-to-dpmmabs) about MABS architecture.
 - [Review what's supported](backup-support-matrix-mars-agent.md) for the MARS agent.
+- [Back up Exchange Server databases to Azure Backup with System Center DPM](backup-azure-backup-exchange-server.md).
+- [Back up Exchange server with Azure Backup Server](backup-azure-exchange-mabs.md).
 
 ## Supported scenarios
 

@@ -3,6 +3,7 @@ title: Azure Resource Manager and Bicep files
 description: Azure Resource Manager and Bicep files for use with Recovery Services vaults and Azure Backup features
 ms.topic: sample
 ms.date: 06/03/2025
+ms.update-cycle: 1095-days
 ms.custom:
   - mvc
   - devx-track-bicep

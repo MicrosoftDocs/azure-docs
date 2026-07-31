@@ -73,7 +73,7 @@ The resource group stores metadata about the resources. When you specify a locat
 
 ## Create resource groups
 
-To create a resource group, use [ResourceManagementClient.resource_groups.create_or_update](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-resourcegroupsoperations-create-or-update).
+To create a resource group, use [ResourceManagementClient.resource_groups.create_or_update](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.resourcegroupsoperations#azure-mgmt-resource-resources-operations-resourcegroupsoperations-create-or-update).
 
 ```python
 import os
@@ -97,7 +97,7 @@ print(f"Provisioned resource group with ID: {rg_result.id}")
 
 ## List resource groups
 
-To list the resource groups in your subscription, use [ResourceManagementClient.resource_groups.list](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-resourcegroupsoperations-list).
+To list the resource groups in your subscription, use [ResourceManagementClient.resource_groups.list](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.resourcegroupsoperations#azure-mgmt-resource-resources-operations-resourcegroupsoperations-list).
 
 ```python
 import os
@@ -115,7 +115,7 @@ for rg in rg_list:
     print(rg.name)
 ```
 
-To get one resource group, use [ResourceManagementClient.resource_groups.get](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-resourcegroupsoperations-get) and provide the name of the resource group.
+To get one resource group, use [ResourceManagementClient.resource_groups.get](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.resourcegroupsoperations#azure-mgmt-resource-resources-operations-resourcegroupsoperations-get) and provide the name of the resource group.
 
 ```python
 import os
@@ -134,7 +134,7 @@ print(f"Retrieved resource group {rg_result.name} in the {rg_result.location} re
 
 ## Delete resource groups
 
-To delete a resource group, use [ResourceManagementClient.resource_groups.begin_delete](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.resourcegroupsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-resourcegroupsoperations-begin-delete).
+To delete a resource group, use [ResourceManagementClient.resource_groups.begin_delete](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.operations.resourcegroupsoperations#azure-mgmt-resource-resources-operations-resourcegroupsoperations-begin-delete).
 
 ```python
 import os
@@ -187,7 +187,7 @@ storage_account_result = storage_client.storage_accounts.begin_create(
 
 ### Deploy resources by using an ARM template
 
-To deploy an ARM template, use [ResourceManagementClient.deployments.begin_create_or_update](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.deploymentsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-deploymentsoperations-begin-create-or-update). The following example requires a local template named `storage.json`.
+To deploy an ARM template, use [ResourceManagementClient.deployments.begin_create_or_update](/python/api/azure-mgmt-resource-deployments/azure.mgmt.resource.deployments.operations.deploymentsoperations#azure-mgmt-resource-deployments-operations-deploymentsoperations-begin-create-or-update). The following example requires a local template named `storage.json`.
 
 ```python
 import os
@@ -261,7 +261,7 @@ For more information about deploying an ARM template, see [Deploy resources with
 
 Locking prevents other users in your organization from accidentally deleting or modifying critical resources.
 
-To prevent a resource group and its resources from being deleted, use [ManagementLockClient.management_locks.create_or_update_at_resource_group_level](/python/api/azure-mgmt-resource/azure.mgmt.resource.locks.v2016_09_01.operations.managementlocksoperations#azure-mgmt-resource-locks-v2016-09-01-operations-managementlocksoperations-create-or-update-at-resource-group-level).
+To prevent a resource group and its resources from being deleted, use [ManagementLockClient.management_locks.create_or_update_at_resource_group_level](/python/api/azure-mgmt-resource-locks/azure.mgmt.resource.locks.operations.managementlocksoperations#azure-mgmt-resource-locks-operations-managementlocksoperations-create-or-update-at-resource-group-level).
 
 ```python
 import os
@@ -282,7 +282,7 @@ lock_result = lock_client.management_locks.create_or_update_at_resource_group_le
 )
 ```
 
-To get the locks for a resource group, use [ManagementLockClient.management_locks.list_at_resource_group_level](/python/api/azure-mgmt-resource/azure.mgmt.resource.locks.v2016_09_01.operations.managementlocksoperations#azure-mgmt-resource-locks-v2016-09-01-operations-managementlocksoperations-list-at-resource-group-level).
+To get the locks for a resource group, use [ManagementLockClient.management_locks.list_at_resource_group_level](/python/api/azure-mgmt-resource-locks/azure.mgmt.resource.locks.operations.managementlocksoperations#azure-mgmt-resource-locks-operations-managementlocksoperations-list-at-resource-group-level).
 
 ```python
 import os
@@ -299,7 +299,7 @@ lock_result = lock_client.management_locks.get_at_resource_group_level("exampleG
 print(f"Lock {lock_result.name} applies {lock_result.level} lock")
 ```
 
-To delete a lock on a resource group, use [ManagementLockClient.management_locks.delete_at_resource_group_level](/python/api/azure-mgmt-resource/azure.mgmt.resource.locks.v2016_09_01.operations.managementlocksoperations#azure-mgmt-resource-locks-v2016-09-01-operations-managementlocksoperations-delete-at-resource-group-level).
+To delete a lock on a resource group, use [ManagementLockClient.management_locks.delete_at_resource_group_level](/python/api/azure-mgmt-resource-locks/azure.mgmt.resource.locks.operations.managementlocksoperations#azure-mgmt-resource-locks-operations-managementlocksoperations-delete-at-resource-group-level).
 
 ```python
 import os

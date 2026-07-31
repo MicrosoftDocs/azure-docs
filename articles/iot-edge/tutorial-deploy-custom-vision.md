@@ -4,7 +4,7 @@ description: Build and deploy an image classifier with Azure IoT Edge and Custom
 services: iot-edge
 author: sethmanheim
 ms.author: sethm
-ms.date: 05/06/2025
+ms.date: 07/16/2026
 ms.topic: tutorial
 
 ms.service: azure-iot-edge
@@ -339,11 +339,11 @@ The IoT Edge extension for Visual Studio Code provides a template in each IoT Ed
     "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
     ```
 
-1. For each system module **edgeAgent** and **edgeHub**, change the image version to the latest version 1.5. For example:
+1. For each system module **edgeAgent** and **edgeHub**, change the image version to the latest version 1.6. For example:
 
     ```json
-    "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
-    "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
+    "image": "mcr.microsoft.com/azureiotedge-agent:1.6",
+    "image": "mcr.microsoft.com/azureiotedge-hub:1.6",
     ```
 
 1. Update the **createOptions** parameter for the **classifier** module to a stringified version. For example:
@@ -513,7 +513,7 @@ The final deployment manifest looks similar to the following:
           "edgeAgent": {
             "type": "docker",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
+              "image": "mcr.microsoft.com/azureiotedge-agent:1.6",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
             }
           },
@@ -522,7 +522,7 @@ The final deployment manifest looks similar to the following:
             "status": "running",
             "restartPolicy": "always",
             "settings": {
-              "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
+              "image": "mcr.microsoft.com/azureiotedge-hub:1.6",
               "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}]}}}"
             }
           }
@@ -635,4 +635,4 @@ In this tutorial, you trained a Custom Vision model and deployed it as a module 
 Continue to the next tutorials to learn about other ways that Azure IoT Edge can help you turn data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Store data at the edge with SQL Server databases](tutorial-store-data-sql-server.md)
+> [Develop Azure IoT Edge modules using Visual Studio Code](tutorial-develop-for-linux.md)

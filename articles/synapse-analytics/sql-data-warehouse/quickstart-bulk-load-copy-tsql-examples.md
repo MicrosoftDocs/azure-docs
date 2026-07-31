@@ -12,6 +12,8 @@ ms.custom: subject-rbac-steps, mode-other
 
 # Securely load data using Synapse SQL
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This article highlights and provides examples on the secure authentication mechanisms for the [COPY statement](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true). The COPY statement is the most flexible and secure way of bulk loading data in Synapse SQL.
 
 ## Supported authentication mechanisms

@@ -111,7 +111,6 @@ Premium v4 is available in the following regions:
 - Indonesia Central<sup>*</sup>
 - Italy North<sup>*</sup>
 - Japan East
-- Japan West<sup>*</sup>
 - Korea Central<sup>*</sup>
 - Mexico Central
 - North Central US

@@ -29,7 +29,7 @@ You can now visualize dependencies across all servers where dependency analysis 
 ## Unable to view all the connections in the new dependency analysis visualization and export
 In the new dependency analysis capabilities, the unresolved connections between discovered or undiscovered servers are omitted from the single-server, multi-server visualization and the exported CSV file. This is done to reduce the unwanted noise from the dependency data for ease of analysis and interpretation. 
 - Resolved connections : Network connections between servers discovered by Azure Migrate where Application & Process information was successfully gathered from both source and destination servers.
-- Unresolved connections: Network connections either between a discovered and undiscovered server (not discovered by Azure Migrate) or the connection where Application & Process information could not be gathered from any of the source or destination servers, that were discovered by Azure Migrate (Dependency anlaysis either not enabled or failing due to errors).
+- Unresolved connections: Network connections either between a discovered and undiscovered server (not discovered by Azure Migrate) or the connection where Application & Process information could not be gathered from any of the source or destination servers, that were discovered by Azure Migrate (Dependency analysis either not enabled or failing due to errors).
 
 If you want to visualize or export all network connections (including unresolved connections), you can switch to the **Classic experience** on through a footer note on the **Overview** page of the project on the portal. 
 
@@ -346,13 +346,6 @@ Agent-based dependency analysis isn't supported in Azure Government. You can use
 ## Agent-based dependencies don't show after agent installation
 
 After you've installed the dependency visualization agents on on-premises VMs, Azure Migrate typically takes 15 to 30 minutes to display the dependencies in the portal. If you've waited for more than 30 minutes, make sure that the Azure Monitoring Agent (AMA) can connect to the Log Analytics workspace.
-
-For Windows VMs:
-1. In the Control Panel, start MMA.
-1. In **Microsoft Monitoring Agent properties** > **Azure Log Analytics (OMS)**, make sure that the **Status** for the workspace is green.
-1. If the status isn't green, try removing the workspace and adding it again to MMA.
-
-    ![Screenshot that shows MMA status.](./media/troubleshoot-assessment/mma-properties.png)
 
 For Linux VMs, make sure that the installation commands for MMA and the dependency agent succeeded. Refer to more troubleshooting guidance on [this website](/previous-versions/azure/azure-monitor/vm/service-map#post-installation-issues).
 

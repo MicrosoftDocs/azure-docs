@@ -11,6 +11,8 @@ ms.topic: overview
 
 # Cheat sheet for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This cheat sheet provides helpful tips and best practices for building dedicated SQL pool (formerly SQL DW) solutions.
 
 The following graphic shows the process of designing a data warehouse with dedicated SQL pool (formerly SQL DW):

@@ -3,9 +3,9 @@ title: Create load tests in Azure Functions
 titleSuffix: Azure Load Testing
 description: Learn how to create a load test for an Azure Function App with Azure Load Testing.
 services: load-testing
-ms.service: azure-load-testing
-ms.author: ninallam
-author: ninallam
+ms.service: azure-app-testing
+ms.author: nandinim
+author: nandinimurali
 ms.date: 04/22/2024
 ms.topic: how-to
 ---

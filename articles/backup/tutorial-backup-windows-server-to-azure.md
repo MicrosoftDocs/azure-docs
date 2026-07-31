@@ -3,6 +3,7 @@ title: Tutorial - Back up Windows Server to Azure
 description: This tutorial details backing up on-premises Windows Servers to a Recovery Services vault.
 ms.topic: tutorial
 ms.date: 05/22/2025
+ms.update-cycle: 1095-days
 ms.custom: mvc, engagement-fy23
 ms.service: azure-backup
 author: AbhishekMallick-MS

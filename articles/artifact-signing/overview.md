@@ -22,10 +22,10 @@ Artifact Signing is a Microsoft fully managed, end-to-end signing solution that 
 The Artifact Signing service:
 
 - Simplifies the signing process through an intuitive experience in Azure.
-- Provides zero-touch certificate lifecycle management inside FIPS 140-2 Level 3 certified HSMs.
+- Provides zero-touch certificate lifecycle management inside FIPS 140-3 level 3 certified HSMs.
 - Integrates with leading developer toolsets.
 - Supports Public Trust, Private Trust, virtualization-based security (VBS) enclave, code integrity (CI) policy, and test signing scenarios.
-- Includes a timestamping service.
+- Supports integration with external timestamping services.
 - Offers content-confidential signing. Your file never leaves your endpoint, and you get digest signing that is fast and reliable.
 
 ## Resource structure

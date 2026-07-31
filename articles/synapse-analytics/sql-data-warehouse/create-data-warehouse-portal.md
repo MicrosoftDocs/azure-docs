@@ -14,7 +14,9 @@ ms.custom:
   - sfi-image-nochange
 ---
 
-# Quickstart: Create and query a dedicated SQL pool (formerly SQL DW) in Azure synapse Analytics using the Azure portal
+# Quickstart: Create and query a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics  using the Azure portal
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Quickly create and query a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics using the Azure portal.
 
@@ -36,7 +38,7 @@ Sign in to the [Azure portal](https://portal.azure.com/).
 
 ## Create a SQL pool
 
-Data warehouses are created using dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics. A dedicated SQL pool (formerly SQL DW) is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and in a [logical SQL server](/azure/azure-sql/database/logical-servers?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json).
+Data warehouses are created using dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics. A dedicated SQL pool (formerly SQL DW) is created with a defined set of [compute resources](memory-concurrency-limits.md). The database is created within an [Azure resource group](../../azure-resource-manager/management/overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) and in a [logical SQL server](../sql/logical-servers.md).
 
 Follow these steps to create a dedicated SQL pool (formerly SQL DW) that contains the `AdventureWorksDW` sample data.
 

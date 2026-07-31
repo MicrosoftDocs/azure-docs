@@ -3,7 +3,7 @@ title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: reference
 ms.custom: devx-track-arm-template
-ms.date: 07/10/2025
+ms.date: 04/17/2026
 ---
 
 # ARM template functions
@@ -51,6 +51,7 @@ Resource Manager provides several functions for working with arrays.
 * [concat](template-functions-array.md#concat)
 * [contains](template-functions-array.md#contains)
 * [createArray](template-functions-array.md#createarray)
+* [distinct](template-functions-array.md#distinct)
 * [empty](template-functions-array.md#empty)
 * [first](template-functions-array.md#first)
 * [indexFromEnd](template-functions-array.md#indexfromend)
@@ -262,6 +263,7 @@ Resource Manager provides the following functions for getting resource values:
 * [reference](template-functions-resource.md#reference)
 * [references](template-functions-resource.md#references)
 * [resourceId](template-functions-resource.md#resourceid) - can be used at any scope, but the valid parameters change depending on the scope.
+* [roleDefinitions](template-functions-resource.md#roledefinitions)
 * [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
 
@@ -340,6 +342,7 @@ Resource Manager provides the following functions for working with strings:
 * [last](template-functions-string.md#last)
 * [lastIndexOf](template-functions-string.md#lastindexof)
 * [length](template-functions-string.md#length)
+* [like](template-functions-string.md#like)
 * [newGuid](template-functions-string.md#newguid)
 * [padLeft](template-functions-string.md#padleft)
 * [replace](template-functions-string.md#replace)

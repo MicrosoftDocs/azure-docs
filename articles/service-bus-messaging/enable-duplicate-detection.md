@@ -8,7 +8,7 @@ ms.devlang: azurecli
 ---
 
 # Enable duplicate message detection for an Azure Service Bus queue or a topic
-When you enable duplicate detection for a queue or topic, Azure Service Bus keeps a history of all messages sent to the queue or topic for a configure amount of time. During that interval, your queue or topic won't store any duplicate messages. Enabling this property guarantees exactly once delivery over a user-defined span of time. For more information, See [Duplicate detection](duplicate-detection.md). This article shows you different ways to enable duplicate message detection for a Service Bus queue or a topic. 
+When you enable duplicate detection for a queue or topic, Azure Service Bus keeps a history of all messages sent to the queue or topic for a configured amount of time. During that interval, your queue or topic won't store any duplicate messages. Enabling this property guarantees exactly once delivery over a user-defined span of time. For more information, See [Duplicate detection](duplicate-detection.md). This article shows you different ways to enable duplicate message detection for a Service Bus queue or a topic. 
 
 
 > [!NOTE]
@@ -98,7 +98,7 @@ To **create a topic with duplicate detection enabled**, use the [`New-AzServiceB
 New-AzServiceBusTopic -ResourceGroup myresourcegroup `
     -NamespaceName mynamespace `
     -Name mytopic `
-    -RequiresDuplicateDetection $True
+    -RequiresDuplicateDetection $True `
     -DuplicateDetectionHistoryTimeWindow P1D
 ```
 

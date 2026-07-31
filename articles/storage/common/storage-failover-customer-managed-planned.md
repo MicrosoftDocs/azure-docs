@@ -25,7 +25,7 @@ Customer managed planned failover can be useful in scenarios such as disaster an
 
 During the planned failover process, your storage account's primary and secondary regions are swapped. The original primary region is demoted and becomes the new secondary while the original secondary region is promoted and becomes the new primary. The storage account must be available in both the primary and secondary regions before a planned failover can be initiated.
 
-This article describes what happens during a customer-managed planned failover and failback at every stage of the process. To understand how a failover due to an unexpected storage endpoint outage works, see [How customer-managed (unplanned) failover](storage-failover-customer-managed-unplanned.md).
+This article describes what happens during a customer-managed planned failover and failback at every stage of the process. To understand how a failover due to an unexpected storage endpoint outage works, see [How customer-managed (unplanned) failover works](storage-failover-customer-managed-unplanned.md).
 
 <br>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/5lHyDgJffhs" title="Azure Storage Planned Failover - Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -42,7 +42,7 @@ During the planned failover process, the primary region's storage service endpoi
 The planned failback process is essentially the same as the planned failover process, but with one exception. During planned failback, Azure stores the original redundancy configuration of your storage account and restores it to its original state upon failback. For example, if your storage account was originally configured as GZRS, the storage account will be GZRS after failback.
 
 > [!NOTE]
-> Unlike [customer-managed (unplanned) failover](storage-failover-customer-managed-unplanned.md), during planned failover, replication from the primary to secondary region must be complete before the DNS entries for the endpoints are changed to the new secondary. Because of this, data loss is not expected during planned failover or failback as long as both the primary and secondary regions are available throughout the process.
+> Unlike [customer-managed (unplanned) failover](storage-failover-customer-managed-unplanned.md), during planned failover, replication from the primary to secondary region must be complete before the DNS entries for the endpoints are changed to the new secondary. Because of this, data loss isn't expected during planned failover or failback as long as both the primary and secondary regions are available throughout the process.
 
 ## How to initiate a failover
 
@@ -76,6 +76,8 @@ After the failover is complete, the original primary region becomes the new seco
 :::image type="content" source="media/storage-failover-customer-managed-common/post-failover-geo-redundant.png" alt-text="Diagram that shows the storage account status post-failover to secondary region." lightbox="media/storage-failover-customer-managed-common/post-failover-geo-redundant.png":::
 
 While in the failover state, perform your disaster recovery testing.
+> [!NOTE]
+> Azure Files maintains stateful connections, which means applications may need to remount file shares or restart after a failover to continue accessing data.
 
 ### The planned failback process (GRS/RA-GRS)
 

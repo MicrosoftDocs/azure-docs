@@ -86,7 +86,7 @@ File names and paths must use only the following supported characters:
 
 ### Upload a file
 
-To upload a file to a session, send a `POST` request to the `uploadFile` endpoint in a multipart form data request. Include the file data in the request body. The file must include a file name.
+To upload a file to a session, send a `POST` request to the `files` endpoint in a multipart form data request. Include the file data in the request body. The file must include a file name.
 
 Uploaded files are stored in the session's file system in the `/mnt/data` directory.
 
@@ -95,7 +95,7 @@ The following example shows how to upload a file to a session.
 Before you send the request, replace the placeholders between the `<>` brackets with values that are specific to your request.
 
 ```http
-POST https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files/upload?api-version=2024-02-02-preview&identifier=<SESSION_ID>
+POST https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files?api-version=2025-10-02-preview&identifier=<SESSION_ID>
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 Authorization: Bearer <TOKEN>
 
@@ -109,14 +109,27 @@ Content-Type: application/octet-stream
 
 ### Download a file
 
-To download a file from a session's `/mnt/data` directory, send a `GET` request to the `file/content/{filename}` endpoint. The response includes the file data.
+To download a file from a session's `/mnt/data` directory, send a `GET` request to the `files/{filename}/content` endpoint. The response includes the file data.
 
 The following example demonstrates how to format a `GET` request to download a file.
 
 Before you send the request, replace the placeholders between the `<>` brackets with values that are specific to your request.
 
 ```http
-GET https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files/content/<FILE_NAME_AND_EXTENSION>?api-version=2024-02-02-preview&identifier=<SESSION_ID>
+GET https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files/<FILE_NAME_AND_EXTENSION>/content?api-version=2025-10-02-preview&identifier=<SESSION_ID>
+Authorization: Bearer <TOKEN>
+```
+
+### Get file metadata
+
+To get metadata for a file in a session's `/mnt/data` directory, send a `GET` request to the `files/{filename}` endpoint. The response includes file properties such as size and last modified time.
+
+The following example demonstrates how to format a `GET` request to retrieve file metadata.
+
+Before you send the request, replace the placeholders between the `<>` brackets with values that are specific to your request.
+
+```http
+GET https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files/<FILE_NAME_AND_EXTENSION>?api-version=2025-10-02-preview&identifier=<SESSION_ID>
 Authorization: Bearer <TOKEN>
 ```
 
@@ -129,7 +142,7 @@ The following example shows how to list the files in a session's directory.
 Before you send the request, replace the placeholders between the `<>` brackets with values that are specific to your request.
 
 ```http
-GET https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files?api-version=2024-02-02-preview&identifier=<SESSION_ID>
+GET https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files?api-version=2025-10-02-preview&identifier=<SESSION_ID>
 Authorization: Bearer <TOKEN>
 ```
 
@@ -183,14 +196,14 @@ If you're not using an LLM framework integration, you can interact with the sess
 
 ## Run code in a session
 
-To run code in a session, send a `POST` request to the `code/execute` endpoint with the code to run in the request body. Each code execution is limited to a maximum runtime of 220 seconds.
+To run code in a session, send a `POST` request to the `executions` endpoint with the code to run in the request body. Each code execution is limited to a maximum runtime of 220 seconds.
 
 The following example prints `Hello, world!` in Python.
 
 Before you send the request, replace the placeholders between the `<>` brackets with the appropriate values for your session pool and session identifier.
 
 ```http
-POST https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/code/execute?api-version=2024-02-02-preview&identifier=<SESSION_ID>
+POST https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/executions?api-version=2025-10-02-preview&identifier=<SESSION_ID>
 Content-Type: application/json
 Authorization: Bearer <TOKEN>
 
@@ -207,14 +220,14 @@ To reuse a session, specify the same session identifier in subsequent requests.
 
 #### Upload a file to a session
 
-To upload a file to a session, send a `POST` request to the `uploadFile` endpoint in a multipart form data request. Include the file data in the request body. The file must include a file name.
+To upload a file to a session, send a `POST` request to the `files` endpoint in a multipart form data request. Include the file data in the request body. The file must include a file name.
 
 Uploaded files are stored in the session's file system in the `/mnt/data` directory.
 
 Before you send the request, replace the placeholders between the `<>` brackets with values that are specific to your request.
 
 ```http
-POST https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files/upload?api-version=2024-02-02-preview&identifier=<SESSION_ID>
+POST https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files?api-version=2025-10-02-preview&identifier=<SESSION_ID>
 Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
 Authorization: Bearer <TOKEN>
 
@@ -231,12 +244,23 @@ Content-Type: application/octet-stream
 
 #### Download a file from a session
 
-To download a file from a session's `/mnt/data` directory, send a `GET` request to the `file/content/{filename}` endpoint. The response includes the file data.
+To download a file from a session's `/mnt/data` directory, send a `GET` request to the `files/{filename}/content` endpoint. The response includes the file data.
 
 Before you send the request, replace the placeholders between the `<>` brackets with values that are specific to your request.
 
 ```http
-GET https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files/content/<FILE_NAME_AND_EXTENSION>?api-version=2024-02-02-preview&identifier=<SESSION_ID>
+GET https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files/<FILE_NAME_AND_EXTENSION>/content?api-version=2025-10-02-preview&identifier=<SESSION_ID>
+Authorization: Bearer <TOKEN>
+```
+
+#### Get file metadata
+
+To get metadata for a file in a session's `/mnt/data` directory, send a `GET` request to the `files/{filename}` endpoint. The response includes file properties such as size and last modified time.
+
+Before you send the request, replace the placeholders between the `<>` brackets with values that are specific to your request.
+
+```http
+GET https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files/<FILE_NAME_AND_EXTENSION>?api-version=2025-10-02-preview&identifier=<SESSION_ID>
 Authorization: Bearer <TOKEN>
 ```
 
@@ -247,7 +271,7 @@ To list the files in a session's `/mnt/data` directory, send a `GET` request to 
 Before you send the request, replace the placeholders between the `<>` brackets with values that are specific to your request.
 
 ```http
-GET https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files?api-version=2024-02-02-preview&identifier=<SESSION_ID>
+GET https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/files?api-version=2025-10-02-preview&identifier=<SESSION_ID>
 Authorization: Bearer <TOKEN>
 ```
 
@@ -281,16 +305,165 @@ Following is an example of the type of response you can expect when you request 
 }
 ```
 
+## Delete a session
+
+Use the Delete Session API to terminate a session in a code-interpreter session pool.
+
+
+
+After allocating a session, you can call this API to manually terminate it at any time. This is useful when:
+
+- You need to clean up resources before a session reaches its time-to-live.
+- Your session pool has reached its maximum concurrent sessions limit and you need to free up capacity for new sessions.
+- A session has completed its work and you want to release resources immediately.
+
+### API reference
+
+#### Request
+
+```http
+DELETE <POOL_MANAGEMENT_ENDPOINT>/session?api-version=2025-02-02-preview&identifier=<SessionIdentifier>
+```
+
+#### Parameters
+
+| Parameter | Type | Required | Description |
+| --- | --- | --- | --- |
+| `api-version` | string | Yes | The API version to use (for example, `2025-02-02-preview`). |
+| `identifier` | string | Yes | The unique identifier of the session to stop. |
+
+### Examples
+
+#### Request
+
+```http
+DELETE <POOL_MANAGEMENT_ENDPOINT>/session?api-version=2025-02-02-preview&identifier=testSessionIdentifier
+```
+
+#### Response
+
+```text
+HTTP/1.1 204 No Content
+```
+
+## Retrieve session information
+
+You can query your session pool to check session status, get expiration details, and list all active sessions. This capability is useful for monitoring session health, tracking resource usage, and implementing custom cleanup workflows.
+
+### Get a single session
+
+To retrieve details about a specific session, use the get session API:
+
+```http
+GET <POOL_MANAGEMENT_ENDPOINT>/session?identifier=<SessionIdentifier>&api-version=2025-02-02-preview
+```
+
+The `getSession` endpoint returns session metadata including the session identifier, current expiration time, and creation timestamp.
+
+#### SessionView response schema
+
+| Field | Type | Required | Description |
+|-------|------|----------|-------------|
+| `identifier` | string | Yes | The session identifier you provided |
+| `etag` | string | Yes | Opaque version identifier for the session. You can use this identifier for change detection. |
+| `expiresAt` | DateTime | Yes | UTC timestamp when the session will be terminated |
+| `createdAt` | DateTime | No | Session creation timestamp |
+| `lastAccessedAt` | DateTime | No | Timestamp of the last request to this session |
+
+#### Example request and response
+
+```bash
+curl -X GET "https://eastasia.dynamicsessions.io/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/sessionPools/mysessionpool/session?identifier=user-123&api-version=2025-02-02-preview" \
+  -H "Authorization: Bearer $TOKEN"
+```
+
+Success response (HTTP 200):
+
+```json
+{
+  "identifier": "user-123",
+  "etag": "a1b2c3d4",
+  "expiresAt": "2026-04-30T14:30:00Z",
+  "createdAt": "2026-04-30T13:30:00Z",
+  "lastAccessedAt": "2026-04-30T14:29:00Z"
+}
+```
+
+### List all sessions in a pool
+
+To retrieve a list of all sessions in your session pool, use the `listSessions` endpoint:
+
+```text
+GET <POOL_MANAGEMENT_ENDPOINT>/listSessions?skip=0&api-version=2025-02-02-preview
+Authorization: Bearer <TOKEN>
+```
+
+#### Pagination
+
+The list endpoint supports skip-based pagination. By default, each page returns up to 300 sessions. Use the `skip` query parameter to navigate through results.
+
+| Parameter | Description |
+|-----------|-------------|
+| `skip` | Number of sessions to skip from the beginning (default: 0) |
+| `nextLink` | Full URL for the next page of results (included in response when more results exist) |
+
+#### ApiCollectionEnvelope response schema
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `value` | SessionView[] | Array of session objects |
+| `nextLink` | string | URL for the next page (null if no more results) |
+
+#### Example pagination loop
+
+```bash
+POOL_URL="https://eastasia.dynamicsessions.io/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/sessionPools/mysessionpool"
+next_url="$POOL_URL/.management/listSessions?skip=0&api-version=2025-02-02-preview"
+
+while [ -n "$next_url" ]; do
+  response=$(curl -s "$next_url" \
+    -H "Authorization: Bearer $TOKEN")
+
+  echo "$response" | jq '.value[] | {identifier, expiresAt}'
+
+  next_url=$(echo "$response" | jq -r '.nextLink // empty')
+done
+```
+
+Example response (HTTP 200):
+
+```json
+{
+  "value": [
+    {
+      "identifier": "user-123",
+      "etag": "a1b2c3d4",
+      "expiresAt": "2026-04-30T14:30:00Z",
+      "createdAt": "2026-04-30T13:30:00Z",
+      "lastAccessedAt": "2026-04-30T14:29:00Z"
+    },
+    {
+      "identifier": "user-456",
+      "etag": "e5f6a7b8",
+      "expiresAt": "2026-04-30T14:30:00Z",
+      "createdAt": "2026-04-30T13:30:00Z",
+      "lastAccessedAt": "2026-04-30T14:29:00Z"
+    }
+  ],
+  "nextLink": "https://eastasia.dynamicsessions.io/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myrg/sessionPools/mysessionpool/listSessions?skip=300"
+}
+```
+
 ## Preinstalled packages
 
 Python code interpreter sessions include popular Python packages such as NumPy, pandas, and scikit-learn.
 
-To output the list of preinstalled packages, call the `code/execute` endpoint with the following code.
+To output the list of preinstalled packages, call the `executions` endpoint with the following code.
 
 Before you send the request, replace the placeholders between the `<>` brackets with values that are specific to your request.
 
 ```http
-POST https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/identifier/<SESSION_ID>/code/execute?api-version=2024-02-02-preview&identifier=<SESSION_ID>
+POST https://<REGION>.dynamicsessions.io/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP>/sessionPools/<SESSION_POOL_NAME>/executions?api-version=2025-10-02-preview&identifier=<SESSION_ID>
 Content-Type: application/json
 Authorization: Bearer <TOKEN>
 
@@ -305,13 +478,30 @@ Authorization: Bearer <TOKEN>
 
 ## Logging
 
-Code interpreter sessions don't support logging directly. The application that's interacting with the sessions can log requests to the session pool management API and its responses.
+The available outputs are the results you return from code execution, including `stdout` and `stderr`.
+
+If you need request or response tracing, capture it in the application that calls the session pool management API (for example, log request IDs, inputs, and responses at your app boundary).
+
+> [!NOTE]
+> Code interpreter sessions don't emit AppEnvSession logs to Log Analytics.
+
+## Metrics
+
+Code interpreter usage and execution metrics are returned as HTTP response headers for the code execution API. These metrics aren't written to Log Analytics.
+
+### View metrics
+
+1. Call the code execution API (`/executions`).
+2. Inspect the HTTP response headers for usage and execution metrics.
+
+For details about the code execution API and endpoints, see [Run code in a session](#run-code-in-a-session) and [Management API endpoints](#management-api-endpoints).
 
 ## Billing
 
 Code interpreter sessions are billed based on the duration of each session. For more information, see [Billing](billing.md#dynamic-sessions).
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Use code interpreter sessions with LangChain](./sessions-tutorial-langchain.md)
+

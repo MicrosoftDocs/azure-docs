@@ -2,12 +2,12 @@
 title: Run a GPU module on Microsoft Azure Stack Edge Pro GPU device| Microsoft Docs
 description: Describes how to configure and run a module on GPU on an Azure Stack Edge Pro device via the Azure portal.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 10/19/2022
-ms.author: alkohli
+ms.author: sipastak
 ms.custom: sfi-image-nochange
 ---
 # Configure and run a module on GPU on Azure Stack Edge Pro device

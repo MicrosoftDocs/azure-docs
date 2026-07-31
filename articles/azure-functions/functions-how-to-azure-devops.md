@@ -2,7 +2,7 @@
 title: Continuously update function app code using Azure Pipelines
 description: Learn how to use Azure Pipelines to set up a pipeline that builds and deploys apps to Azure Functions.
 author: juliakm
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/27/2025
 ms.author: jukullam
 ms.custom: devx-track-csharp, devx-track-azurecli, devops-pipelines-deploy
@@ -681,5 +681,6 @@ To create a build pipeline in Azure, use the `az functionapp devops-pipeline cre
 
 ## Next steps
 
+- [Recover from a bad Flex Consumption plan deployment](functions-rollback-deployments.md).
 - Review the [Azure Functions overview](functions-overview.md).
 - Review the [Azure DevOps overview](/azure/devops/pipelines/).

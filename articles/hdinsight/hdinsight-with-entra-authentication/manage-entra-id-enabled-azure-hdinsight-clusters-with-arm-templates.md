@@ -3,8 +3,8 @@ title: Manage Entra ID enabled Azure HDInsight clusters with ARM template
 description: Learn how to manage Entra ID enabled Azure HDInsight clusters with ARM template
 ms.service: azure-hdinsight
 ms.topic: how-to
-author: apurbasroy
-ms.author: apsinhar
+author: yeturis
+ms.author: sairamyeturi
 ms.reviewer: nijelsf
 ms.date: 08/20/2025
 ---

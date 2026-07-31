@@ -7,6 +7,7 @@ ms.service: azure-migrate
 ms.topic: concept-article 
 ms.date: 09/17/2025
 ms.custom: engagement-fy24 
+ms.update-cycle: 1825-days
 monikerRange:
 # Customer intent: As a cloud architect, I want to generate an Azure Migrate assessment report, so that I can evaluate workload readiness, receive sizing recommendations, and estimate migration costs effectively for a successful cloud transition.
 --- 
@@ -47,9 +48,6 @@ The 95th percentile value makes sure you ignore any outliers, which might be inc
 If you want to pick the peak usage for the period and don't want to miss any outliers, select the 99th percentile for percentile utilization. 
 
 This value is multiplied by the comfort factor(taken as an input in assessment setting) to get the effective performance utilization data for these metrics that the appliance collects and right size the target requirements. 
-
->[!Note] 
->Azure SQL assessments are only performance-based and Webapp assessments are only As-is on premises. You can create Azure VM assessments and AVS assessments with both performance-based and As-is on premises sizing. 
 
 ### Monthly costs 
 

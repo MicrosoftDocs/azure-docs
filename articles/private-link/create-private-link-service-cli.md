@@ -1,12 +1,11 @@
 ---
 title: 'Quickstart - Create an Azure Private Link service - Azure CLI'
 description: In this quickstart, learn how to create an Azure Private Link service using Azure CLI.
-services: private-link
-author: abell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: quickstart
-ms.date: 03/25/2025
-ms.author: abell
+ms.date: 03/30/2026
+ms.author: allensu
 ms.devlang: azurecli
 ms.custom: mode-api, devx-track-azurecli, template-quickstart
 #Customer intent: As someone with a basic network background, but is new to Azure, I want to create an Azure private link service using Azure CLI
@@ -23,7 +22,7 @@ Get started creating a Private Link service that refers to your service.  Give P
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)] 
 
-- This quickstart requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+- This quickstart requires version 2.62.0 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
 ## Create a resource group
 
@@ -190,7 +189,7 @@ az network vnet subnet update \
     --name subnet-1 \
     --vnet-name vnet-1 \
     --resource-group test-rg \
-    --disable-private-link-service-network-policies yes
+    --private-link-service-network-policies Disabled
 ```
 
 ## Create a private link service

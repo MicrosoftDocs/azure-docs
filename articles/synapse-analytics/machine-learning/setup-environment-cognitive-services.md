@@ -43,7 +43,7 @@ If your application or workload uses large datasets, requires private networking
 
 * **High Scalability**: Containerized services don't have "rate limits" and run on user-managed computers. So, you can scale Foundry Tools without end to handle much larger workloads.
 
-Follow [this guide](/azure/ai-services/cognitive-services-container-support) to create a containerized Foundry Tool.
+Follow [this guide](/azure/ai-services/cognitive-services-container-support) to create a containerized Microsoft Foundry tool.
 
 ## Create an Apache Spark cluster
 

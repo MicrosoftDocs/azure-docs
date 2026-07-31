@@ -1,7 +1,7 @@
 ---
 title: Distributed collaborative development of Azure DevTest Labs resources
 description: Provides best practices for setting up a distributed and collaborative development environment to develop DevTest Labs resources. 
-ms.topic: conceptual
+ms.topic: best-practice
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 06/26/2020

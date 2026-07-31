@@ -2,7 +2,7 @@
 title: Create a pool with disk encryption enabled
 description: Learn how to use disk encryption configuration to encrypt nodes with a platform-managed key.
 ms.topic: how-to
-ms.date: 07/01/2025
+ms.date: 07/29/2026
 ms.devlang: csharp
 ms.custom: devx-track-azurecli
 # Customer intent: "As a cloud administrator, I want to create a Batch pool with disk encryption enabled, so that I can safeguard data on the compute nodes while reducing management overhead."
@@ -34,6 +34,9 @@ You won't be able to specify which encryption method will be applied to the node
 
 Some disk encryption configurations require that the VM family of the pool supports encryption at host. See [End-to-end encryption using encryption at host](/azure/virtual-machines/disks-enable-host-based-encryption-portal) to determine which VM families support encryption at host.
 
+> [!NOTE]
+> Temporary-disk encryption on VM sizes that don't support encryption at host requires [Azure Disk Encryption (ADE)](/azure/virtual-machines/disk-encryption-overview). ADE isn't supported on Basic, A-series, v6-series, v7-series (and later) VM sizes, or on VMs with less than 2 GB of memory. If you enable temporary-disk encryption on one of these unsupported sizes, Batch rejects pool creation with an `AzureDiskEncryptionNotSupportedOnVMSize` error. To use temporary-disk encryption when ADE isn't supported, choose a VM size and subscription that support encryption at host, and don't explicitly disable encryption at host in the pool's security profile.
+
 ## Azure portal
 
 When creating a Batch pool in the Azure portal, select either **OsDisk**, **TemporaryDisk** or **OsAndTemporaryDisk** under **Disk Encryption Configuration**.
@@ -46,14 +49,54 @@ After the pool is created, you can see the disk encryption configuration targets
 
 ## Examples
 
-The following examples show how to encrypt the OS and temporary disks on a Batch pool using the Batch .NET SDK, the Batch REST API, and the Azure CLI.
+The following examples show how to encrypt the OS and temporary disks on a Batch pool using the Azure.ResourceManager.Batch SDK, the Batch REST API, and the Azure CLI.
 
-### Batch .NET SDK
+### Azure.ResourceManager.Batch SDK
 
 ```csharp
-pool.VirtualMachineConfiguration.DiskEncryptionConfiguration = new DiskEncryptionConfiguration(
-    targets: new List<DiskEncryptionTarget> { DiskEncryptionTarget.OsDisk, DiskEncryptionTarget.TemporaryDisk }
-    );
+using Azure;
+using Azure.Identity;
+using Azure.ResourceManager;
+using Azure.ResourceManager.Batch;
+using Azure.ResourceManager.Batch.Models;
+
+//...
+
+public async Task SetDiskEncryption()
+{
+    ArmClient client = new ArmClient(new DefaultAzureCredential());
+
+    ResourceIdentifier batchAccountResourceId =
+        BatchAccountResource.CreateResourceIdentifier("subscriptionId", "resourceGroupName", "accountName");
+    BatchAccountResource batchAccount = client.GetBatchAccountResource(batchAccountResourceId);
+
+    BatchAccountPoolCollection poolCollection = batchAccount.GetBatchAccountPools();
+
+    BatchAccountPoolData poolData = new BatchAccountPoolData()
+    {
+        VmSize = "standard_ds1_v2",
+        DeploymentConfiguration = new BatchDeploymentConfiguration()
+        {
+            VmConfiguration = new BatchVmConfiguration(
+                imageReference: new BatchImageReference()
+                {
+                    Publisher = "Canonical",
+                    Offer = "UbuntuServer",
+                    Sku = "22.04-LTS"
+                },
+                nodeAgentSkuId: "batch.node.ubuntu 22.04")
+            {
+                 DiskEncryptionConfiguration = new BatchDiskEncryptionConfiguration()
+                 {
+                     Targets = { BatchDiskEncryptionTarget.OSDisk, BatchDiskEncryptionTarget.TemporaryDisk }
+                 }
+            }
+        }
+    };
+
+    ArmOperation<BatchAccountPoolResource> pool = await poolCollection.CreateOrUpdateAsync(
+        WaitUntil.Completed, "diskencryptionPool", poolData);
+}
 ```
 
 ### Batch REST API

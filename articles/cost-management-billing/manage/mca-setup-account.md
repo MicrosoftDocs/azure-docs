@@ -6,7 +6,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/08/2025
+ms.date: 03/31/2026
 ms.author: jkinma
 ms.custom:
 - sfi-image-nochange
@@ -252,7 +252,7 @@ You see the following image when your Enterprise Agreement enrollment savings pl
 :::image type="content" source="./media/microsoft-customer-agreement-setup-account/savings-plan-repurchase.png" alt-text="Screenshot showing the Savings Plan page." lightbox="./media/microsoft-customer-agreement-setup-account/savings-plan-repurchase.png" :::
 
 >[!NOTE]
-> - If your enrollment transfer (e.g. EA to MCA, EA to EA, etc.) involves a change in pricing currency (e.g. EUR to USD), Savings Plans from the source enrollment will not be transferred to the destination enrollment. The Savings Plans will be cancelled in the source enrollment and automatically repurchased in the destination enrollment. Note the following:
+> - If your enrollment is non USD currency, any Azure Savings Plans purchased will not be transferred to the destination billing account. The Savings Plans will be cancelled in the source enrollment and automatically repurchased in the destination billing account. Note the following:
 >    - Each newly purchase Savings Plan will be billed Monthly, regardless of the billing frequency of the Savings Plan it is replacing.
 >    - Each newly purchased Savings Plan will be priced as the USD equivalent of the original Savings Plan. For example, assuming a €1: $1.17 rate, a €5/hour Savings Plan would be replaced with a $5.85/hour Savings Plan. 
 >    - Each newly purchased Savings Plans will have a 1-year term, regardless of the term of the Savings Plan it is replacing. As a result, each new Savings Plan will have a different term end date when compared to the Savings Plan being replaced.
@@ -280,7 +280,9 @@ When you transfer a subscription from an Enterprise Agreement to a Microsoft Cus
 
 - All other assets in the source subscription must also be able to successfully be transferred. Otherwise, the transfer fails. 
 
-- Please note Marketplace purchased through AppSource is not associated with any subscription, and cannot be transferred with this method. 
+- Marketplace purchased through Microsoft AppSource isn't associated with any subscription, and can't be transferred with this method.
+
+Software as a service (SaaS) products are an exception. A SaaS subscription is billed through the Azure subscription but doesn't move with it, so you transfer SaaS billing ownership separately. For more information, see [Software as a Service (SaaS) transfer](mpa-request-ownership.md#software-as-a-service-saas-transfer).
 
 ### Support plan
 
@@ -414,7 +416,7 @@ Enterprise administrators and department administrators are listed as invoice se
 - Changes to **subscription vending using Terraform** - For more information, see:
     - [Azure/lz-vending/azurerm | Terraform Registry](https://registry.terraform.io/modules/Azure/lz-vending/azurerm/latest?tab=inputs)
     - [Subscription vending](/azure/cloud-adoption-framework/ready/landing-zone/design-area/subscription-vending)
-    - [Azure Landing Zones Subscription Vending with Terraform, Terraform Cloud, and GitHub](/samples/azure-samples/alz-terraform-sub-vending-demo-with-terraform-cloud-and-github/alz-terraform-sub-vending/)
+    - [Azure Landing Zones Subscription Vending with Terraform, Terraform Cloud, and GitHub](/azure/architecture/)
 - **Cost Management** using third-party providers like Cloud health and Cloud easier - Organizations transitioning to MCA need to update their provider that they're transitioning to MCA. Most of them have a documented process to pull the MCA cost data.
 - Historical data – It isn’t available to account owners or users with the Subscription owner Azure role-based access control (RBAC) role after migration. Access for existing users, groups, or service principals that was assigned using [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) isn't affected during the transition.
     - Cost data transition - Cost data before the transition remains in the EA scope. It doesn't move to the MCA scope. You can access the data by switching scopes.

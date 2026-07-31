@@ -1,17 +1,17 @@
 ---
-title: Charge back Azure saving plan costs
+title: Charge back savings plan costs
 titleSuffix: Microsoft Cost Management
-description: Learn how to view Azure saving plan costs for chargeback.
+description: Learn how to view savings plan costs for chargeback.
 author: nwokolo
 ms.reviewer: onwokolo
 ms.service: cost-management-billing
 ms.subservice: savings-plan
 ms.topic: how-to
-ms.date: 01/08/2026
+ms.date: 03/14/2026
 ms.author: onwokolo
 ---
 
-# Charge back Azure saving plan costs
+# Charge back savings plan costs
 
 Enterprise Agreement and Microsoft Customer Agreement billing readers can view amortized cost data for savings plans. They can use the cost data to charge back the monetary value for a subscription, resource group, resource, or a tag to their partners. In amortized data, the effective price is the prorated hourly savings plan cost. The cost is the total cost of savings plan usage by the resource on that day.
 
@@ -82,10 +82,10 @@ The CSV files that you download contain actual costs and amortized costs.
 
 ## Need help? Contact us.
 
-If you have Azure savings plan for compute questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide Azure savings plan for compute expert support requests in English.
+If you have savings plan questions, contact your account team, or [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Temporarily, Microsoft will only provide savings plan expert support requests in English.
 
 ## Next steps
 
-To learn more about Azure savings plan usage data, see the following articles:
+To learn more about savings plan usage data, see the following articles:
 
-- [View Azure savings plan cost and usage details](utilization-cost-reports.md)
+- [View savings plan cost and usage details](utilization-cost-reports.md)

@@ -22,11 +22,11 @@ For more insights on Azure Backup’s support for backups in Azure Data Lake Sto
 
 ## Supported regions
 
-Vaulted backups of Azure Data Lake Storage are available in the following regions: 
+Vaulted backups of Azure Data Lake Storage regional availability is shared below: 
 
 | Availability type | Region |
 | --- | --- |
-| **General availability** |  Vaulted backup for Azure Data Lake Storage is available in all public cloud regions. |
+| **General availability** | Vaulted backup for Azure Data Lake Storage is available in all public cloud regions. |
 
 ## Supported storage accounts
 
@@ -45,7 +45,7 @@ The following table lists the protection limits:
 
 | **Setting** | **Limit**                                                      |
 | ------------------------------------------------------------ | ----- |
-| Maximum number of containers in a storage account that can be protected | 100 |
+| Maximum number of containers in a storage account that can be protected | 1000 |
 | Vault redundancy              | LRS/ZRS/GRS |
 
 ### Supported scenarios for Azure Data Lake Storage protection
@@ -61,6 +61,8 @@ Azure Data Lake Storage protection has the following supported scenarios:
 ### Unsupported scenarios and considerations for Azure Data Lake Storage protection
 
 Azure Data Lake Storage protection has the following unsupported scenarios:
+
+- Azure Backup is not supported for Storage Accounts enabled with Network Security Perimeter (NSP). We recommend not associating an account with NSP if you have backup enabled or you plan to use Azure backup.
 
 - Any new containers that get created after backup configuration for the storage account aren't backed up automatically. To enable the backup operation for the new containers, modify the protection of the storage account. 
 - The storage accounts to be backed up must contain a *minimum of one container*. If the storage account doesn't contain any containers or if no containers are selected, an error might appear when you configure backup.

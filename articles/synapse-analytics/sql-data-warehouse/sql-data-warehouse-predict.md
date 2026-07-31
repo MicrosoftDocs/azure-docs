@@ -6,11 +6,13 @@ ms.author: midesa
 ms.date: 07/21/2020
 ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: azure-synapse
 ---
 
 # Score machine learning models with PREDICT
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Dedicated SQL pool provides you the capability to score machine learning models using the familiar T-SQL language. With T-SQL [PREDICT](/sql/t-sql/queries/predict-transact-sql?preserve-view=true&view=azure-sqldw-latest), you can bring your existing machine learning models trained with historical data and score them within the secure boundaries of your data warehouse. PREDICT function takes an [ONNX (Open Neural Network Exchange)](https://onnx.ai/) model and data as inputs. This feature eliminates the step of moving valuable data outside the data warehouse for scoring. It aims to empower data professionals to easily deploy machine learning models with the familiar T-SQL interface as well as collaborate seamlessly with data scientists working with the right framework for their task.
 

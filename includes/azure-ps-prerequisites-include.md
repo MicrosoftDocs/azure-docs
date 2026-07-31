@@ -1,10 +1,10 @@
 ---
-author: vhorne
+author: mbender-ms
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 11/09/2018	
-ms.author: victorh
+ms.author: mbender
 ---
 ## Prerequisite: Install the Azure PowerShell module
 

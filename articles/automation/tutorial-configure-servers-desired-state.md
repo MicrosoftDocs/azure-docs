@@ -4,7 +4,7 @@ description: This article tells how to configure machines to a desired state usi
 services: automation
 ms.subservice: desired-state-config
 ms.topic: tutorial
-ms.date: 11/17/2025
+ms.date: 04/24/2026
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
 ms.author: v-rochak2
@@ -31,6 +31,8 @@ For this tutorial, we use a simple [DSC configuration][04] that ensures that IIS
 VM.
 
 ## Prerequisites
+
+[!INCLUDE [end-of-support-notes-windows-server-2008](./includes/end-of-support-notes-windows-server-2008.md)]
 
 - An Azure Automation account. To learn more about an Automation account and its requirements, see
   [Automation Account authentication overview][01].
@@ -231,6 +233,7 @@ $reports[0]
   pipeline, see [Setup continuous deployment with Chocolatey][17].
 - For pricing information, see [Azure Automation State Configuration pricing][21].
 - For a PowerShell cmdlet reference, see [Az.Automation][11].
+- For troubleshooting issues related to configuring machines to a desired state using Azure Automation State Configuration, see [Troubleshoot Azure Automation State Configuration issues](troubleshoot/desired-state-configuration.md).
 
 <!-- link references -->
 [01]: ./automation-security-overview.md

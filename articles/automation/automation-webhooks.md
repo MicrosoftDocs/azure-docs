@@ -3,7 +3,7 @@ title: Start an Azure Automation Runbook from a Webhook
 description: This article tells how to use a webhook to start a runbook in Azure Automation from an HTTP call.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/15/2025
+ms.date: 04/15/2026
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.service: azure-automation
@@ -91,7 +91,7 @@ Consider the following strategies:
 
 > [!NOTE]
 > * When you use the webhook with PowerShell 7 runbook, it auto-converts the webhook input parameter to an invalid JSON. For more information, see [Known issues - PowerShell 7.1 (preview)](./automation-runbook-types.md#limitations-and-known-issues). We recommend that you use the webhook with PowerShell 5 runbook.
-> * Using a webhook to start a Python runbook is not supported.
+> * Using a webhook to start a Python runbook isn't supported.
 
 To create a webhook, follow these steps:
 
@@ -423,6 +423,8 @@ Here are examples of removing a webhook from an Automation runbook.
 ## Create runbook and webhook with ARM template
 
 Automation webhooks can also be created using [Azure Resource Manager](../azure-resource-manager/templates/overview.md) templates. This sample template creates an Automation account, four runbooks, and a webhook for the named runbook.
+> [!NOTE]
+> Azure Resource Manager (ARM) template outputs are persisted in deployment history and are accessible to any principal with Reader access to the resource group. Avoid including sensitive information, such as secrets or webhook URLs in output to prevent unintended exposure.
 
 To create a webhook using an ARM template, follow these steps:
 
@@ -550,3 +552,4 @@ To create a webhook using an ARM template, follow these steps:
 ## Next steps
 
 * To trigger a runbook from an alert, see [Use an alert to trigger an Azure Automation runbook](automation-create-alert-triggered-runbook.md).
+* For troubleshooting issues related to starting Azure Automation runbooks using webhooks, see [Troubleshoot runbook issues](troubleshoot/runbooks.md).

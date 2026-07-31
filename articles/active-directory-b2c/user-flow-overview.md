@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Learn more about built-in user flows and the custom policy extensible policy framework of Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: concept-article
 ms.date: 05/01/2025
 ms.author: godonnell

@@ -1,9 +1,9 @@
 ---
-title: Node.js developer reference for Azure Functions
-description: Learn how to develop serverless applications using Node.js in Azure Functions, including triggers, bindings, and best practices.
+title: Azure Functions Node.js developer reference
+description: Develop Azure Functions using JavaScript and TypeScript with the @azure/functions npm package, including programming models, triggers, bindings, and best practices.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: how-to
-ms.date: 05/05/2025
+ms.date: 07/15/2026
 ms.devlang: javascript
 # ms.devlang: javascript, typescript
 ms.custom:
@@ -13,39 +13,455 @@ ms.custom:
 zone_pivot_groups: functions-nodejs-model
 ---
 
-# Azure Functions Node.js developer guide
+# Azure Functions Node.js developer reference
 
-This guide is an introduction to developing Azure Functions using JavaScript or TypeScript. The article assumes that you have already read the [Azure Functions developer guide](functions-reference.md).
+This reference covers how to develop Azure Functions using JavaScript and TypeScript with the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package. For a general overview of Azure Functions concepts shared across all languages, see the [Azure Functions developer reference](functions-reference.md).
 
-> [!IMPORTANT]
-> The content of this article changes based on your choice of the Node.js programming model in the selector at the top of this page. The version you choose should match the version of the [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package you're using in your app. If you don't have that package listed in your `package.json`, the default is v3. Learn more about the differences between v3 and v4 in the [migration guide](./functions-node-upgrade-v4.md).
+| Resource | Link |
+| --- | --- |
+| Create your first JavaScript function | [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-javascript)/[CLI](./create-first-function-azure-developer-cli.md?pivots=programming-language-javascript) |
+| Create your first TypeScript function | [Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-typescript)/[CLI](./create-first-function-azure-developer-cli.md?pivots=programming-language-typescript) |
+| Scenarios and samples | [JavaScript](functions-scenarios.md?pivot=programming-language-javascript)/[TypeScript](functions-scenarios.md?pivot=programming-language-typescript) |
+| API reference | [`@azure/functions` API](/javascript/api/%40azure/functions/) |
 
-As a Node.js developer, you might also be interested in one of the following articles:
+> [!NOTE]
+> This article shows content for a specific programming model version based on the selector at the top of the page. The version you choose should match your [`@azure/functions`](https://www.npmjs.com/package/@azure/functions) npm package version. You can't mix v3 and v4 functions in the same app. If you don't have the package in your `package.json`, the default is v3.
 
-| Getting started | Concepts | Guided learning |
+## Programming model
+
+Azure Functions for Node.js supports two programming model versions. **New projects should use v4.**
+
+| Feature | v4 (recommended) | v3 |
 | --- | --- | --- |
-| <ul><li>[Node.js function using Visual Studio Code](./how-to-create-function-vs-code.md?pivot=programming-language-javascript)</li><li>[Node.js function with terminal/command prompt](./how-to-create-function-azure-cli.md?pivots=programming-language-javascript)</li><li>[Node.js function using the Azure portal](functions-create-function-app-portal.md)</li></ul> | <ul><li>[Developer guide](functions-reference.md)</li><li>[Hosting options](functions-scale.md)</li><li>[Performance&nbsp; considerations](functions-best-practices.md)</li></ul> | <ul><li>[Create serverless applications](/training/paths/create-serverless-applications/)</li><li>[Refactor Node.js and Express APIs to Serverless APIs](/training/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| Status | GA | GA (maintenance) |
+| `@azure/functions` package | 4.x | 3.x |
+| Function registration | Code-centric (`app.http()`, `app.timer()`) | File-based (`function.json`) |
+| File structure | Flexible | Fixed (one folder per function) |
+| Functions runtime version | 4.25+ | 4.x |
+| Node.js versions | 24.x, 22.x | 24.x, 22.x |
 
-[!INCLUDE [Programming Model Considerations](../../includes/functions-nodejs-model-considerations.md)]
+::: zone pivot="nodejs-model-v4"  
+In the Node.js v4 programming model, you register functions by importing the `app` object from `@azure/functions` and calling trigger-specific methods. The functions are defined directly in your code with a flexible file structure. Every function has a single *trigger* that starts its execution and can also have *bindings*, which are declarative connections to other services for reading input data or writing output data. For more information, see [Triggers and bindings](#triggers-and-bindings).
 
-## Supported versions
+In the v4 model, you:
+- Register functions by using trigger-specific methods like `app.http()`, `app.timer()`, and `app.storageQueue()`.
+- Access the trigger input as the first argument to your handler (for example, `HttpRequest`).
+- Return the primary output directly from the handler function.
+- Use `context.extraInputs.get()` to read from extra input bindings like Blob Storage.
+- Use `context.extraOutputs.set()` to write to extra output bindings like queues.
+- Each function has exactly one trigger, but can have multiple extra inputs and outputs.
+- You can cache data in global variables for reuse across invocations, but don't rely on this state to persist. The runtime can recycle your worker at any time.
 
-The following table shows each version of the Node.js programming model along with its supported versions of the Azure Functions runtime and Node.js.
+::: zone-end
 
-| [Programming Model Version](https://www.npmjs.com/package/@azure/functions?activeTab=versions) | Support Level | [Functions Runtime Version](./functions-versions.md) | [Node.js Version](https://github.com/nodejs/release#release-schedule) | Description                                                                                                   |
-|------------------------------------------------------------------------------------------------|---------------|------------------------------------------------------|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------|
-| 4.x                                                                                            | GA            | 4.25+                                                | 22.x 20.x, 18.x                                                            | Supports a flexible file structure and code-centric approach to triggers and bindings.                        |
-| 3.x                                                                                            | GA            | 4.x                                                  | 20.x, 18.x, 16.x, 14.x                                                | Requires a specific file structure with your triggers and bindings declared in a "function.json" file         |
-| 2.x                                                                                            | n/a           | 3.x                                                  | 14.x, 12.x, 10.x                                                      | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
-| 1.x                                                                                            | n/a           | 2.x                                                  | 10.x, 8.x                                                             | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
+::: zone pivot="nodejs-model-v3"
+In the Node.js v3 programming model, you define each function by using a `function.json` configuration file and corresponding JavaScript or TypeScript code. You organize functions in separate folders with specific file structures. Every function has a single *trigger* that starts its execution and can also have *bindings*, which are declarative connections to other services for reading input data or writing output data. For more information, see [Triggers and bindings](#triggers-and-bindings).
 
-## Folder structure
+In the v3 model, you:
+- Define triggers and bindings in a `function.json` file. Use `direction: "in"` for inputs and `direction: "out"` for outputs.
+- Access the trigger input as the second argument to your handler, or read it from `context.bindings`.
+- Set outputs by assigning values to `context.bindings` (for example, `context.bindings.outputQueue`). For HTTP, use `context.res`.
+- TypeScript projects require a `scriptFile` property in `function.json` that points to the compiled JavaScript file.
+- Each function has exactly one trigger, but can have multiple input and output bindings.
+- You can cache data in global variables for reuse across invocations, but don't rely on this state to persist. The runtime can recycle your worker at any time.
+
+::: zone-end
+
+### Examples
+
+::: zone pivot="nodejs-model-v4"
+
+Here's a simple function that responds to an HTTP request:
+
+#### [JavaScript](#tab/javascript)
+
+```javascript
+const { app } = require('@azure/functions');
+
+app.http('httpTrigger', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous',
+    handler: async (request, context) => {
+        const name = request.query.get('name') || 'World';
+        context.log('HTTP trigger function processed a request.');
+        
+        return { body: `Hello, ${name}!` };
+    }
+});
+```
+
+#### [TypeScript](#tab/typescript)
+
+```typescript
+import { app, HttpRequest, HttpResponseInit, InvocationContext } from '@azure/functions';
+
+export async function httpTrigger(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
+    const name = request.query.get('name') || 'World';
+    context.log('HTTP trigger function processed a request.');
+    
+    return { body: `Hello, ${name}!` };
+}
+
+app.http('httpTrigger', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous',
+    handler: httpTrigger
+});
+```
+
+---
+
+The following non-HTTP example uses a timer trigger:
+
+#### [JavaScript](#tab/javascript)
+
+```javascript
+const { app } = require('@azure/functions');
+
+app.timer('cleanupTimer', {
+  schedule: '0 */5 * * * *',
+  handler: async (myTimer, context) => {
+    context.log('Timer trigger function ran at', new Date().toISOString());
+  }
+});
+```
+
+#### [TypeScript](#tab/typescript)
+
+```typescript
+import { app, InvocationContext, Timer } from '@azure/functions';
+
+export async function cleanupTimer(myTimer: Timer, context: InvocationContext): Promise<void> {
+  context.log('Timer trigger function ran at', new Date().toISOString());
+}
+
+app.timer('cleanupTimer', {
+  schedule: '0 */5 * * * *',
+  handler: cleanupTimer
+});
+```
+
+---
+
+The following example shows an HTTP trigger with a queue output binding:
+
+#### [JavaScript](#tab/javascript)
+
+```javascript
+const { app, output } = require('@azure/functions');
+
+const queueOutput = output.storageQueue({
+  queueName: 'work-items',
+  connection: 'AzureWebJobsStorage'
+});
+
+app.http('submitWorkItem', {
+  methods: ['POST'],
+  extraOutputs: [queueOutput],
+  handler: async (request, context) => {
+    const body = await request.json();
+    context.extraOutputs.set(queueOutput, JSON.stringify(body));
+    return { status: 202, jsonBody: { accepted: true } };
+  }
+});
+```
+
+#### [TypeScript](#tab/typescript)
+
+```typescript
+import { app, HttpRequest, HttpResponseInit, InvocationContext, output } from '@azure/functions';
+
+const queueOutput = output.storageQueue({
+  queueName: 'work-items',
+  connection: 'AzureWebJobsStorage'
+});
+
+export async function submitWorkItem(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
+  const body = await request.json();
+  context.extraOutputs.set(queueOutput, JSON.stringify(body));
+  return { status: 202, jsonBody: { accepted: true } };
+}
+
+app.http('submitWorkItem', {
+  methods: ['POST'],
+  extraOutputs: [queueOutput],
+  handler: submitWorkItem
+});
+```
+
+---
+
+::: zone-end
 
 ::: zone pivot="nodejs-model-v3"
 
-# [JavaScript](#tab/javascript)
+Here's a simple function that responds to an HTTP request:
 
-The required folder structure for a JavaScript project looks like the following example:
+#### [JavaScript](#tab/javascript)
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get", "post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+```
+
+```javascript
+module.exports = async function (context, req) {
+    const name = (req.query.name || (req.body && req.body.name)) || 'World';
+    context.log('HTTP trigger function processed a request.');
+    
+    context.res = {
+        body: `Hello, ${name}!`
+    };
+};
+```
+
+#### [TypeScript](#tab/typescript)
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get", "post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "scriptFile": "../dist/HttpTrigger1/index.js"
+}
+```
+
+```typescript
+import { AzureFunction, Context, HttpRequest } from "@azure/functions";
+
+const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+    const name = (req.query.name || (req.body && req.body.name)) || 'World';
+    context.log('HTTP trigger function processed a request.');
+    
+    context.res = {
+        body: `Hello, ${name}!`
+    };
+};
+
+export default httpTrigger;
+```
+
+---
+
+The following non-HTTP example uses a timer trigger:
+
+#### [JavaScript](#tab/javascript)
+
+```json
+{
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */5 * * * *"
+    }
+  ]
+}
+```
+
+```javascript
+module.exports = async function (context, myTimer) {
+    context.log('Timer trigger function ran at', new Date().toISOString());
+};
+```
+
+#### [TypeScript](#tab/typescript)
+
+```json
+{
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */5 * * * *"
+    }
+  ],
+  "scriptFile": "../dist/TimerTrigger/index.js"
+}
+```
+
+```typescript
+import { AzureFunction, Context } from '@azure/functions';
+
+const timerTrigger: AzureFunction = async function (context: Context, myTimer: unknown): Promise<void> {
+    context.log('Timer trigger function ran at', new Date().toISOString());
+};
+
+export default timerTrigger;
+```
+
+---
+
+The following example shows an HTTP trigger with a queue output binding:
+
+#### [JavaScript](#tab/javascript)
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["post"]
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "workItems",
+      "queueName": "work-items",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ]
+}
+```
+
+```javascript
+module.exports = async function (context, req) {
+    const payload = req.body || {};
+    context.bindings.workItems = JSON.stringify(payload);
+    context.res = {
+        status: 202,
+        body: { accepted: true }
+    };
+};
+```
+
+#### [TypeScript](#tab/typescript)
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["post"]
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "workItems",
+      "queueName": "work-items",
+      "connection": "AzureWebJobsStorage"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    }
+  ],
+  "scriptFile": "../dist/HttpTrigger/index.js"
+}
+```
+
+```typescript
+import { AzureFunction, Context, HttpRequest } from '@azure/functions';
+
+const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+    const payload = req.body || {};
+    context.bindings.workItems = JSON.stringify(payload);
+    context.res = {
+        status: 202,
+        body: { accepted: true }
+    };
+};
+
+export default httpTrigger;
+```
+
+---
+
+::: zone-end
+
+## Building your function app
+
+This section covers the essential components for creating and structuring your Node function app, including the [`@azure/functions` library](#the-azurefunctions-library), [project structure](#folder-structure), and [package management](#package-management).
+
+### The `@azure/functions` library
+
+The `@azure/functions` TypeScript/JavaScript library provides the core types and functions you use to interact with the Azure Functions runtime. To see all types and methods available, visit the [`@azure/functions` API](/javascript/api/%40azure/functions/).
+
+Your function code can use `@azure/functions` to:
+- Register functions and define triggers (v4 model).
+- Access strongly-typed trigger input data (for example, `HttpRequest`, `Timer`).
+- Create typed output values (such as `HttpResponseInit`).
+- Interact with runtime-provided context and binding data.
+
+If you're using `@azure/functions` in your app, include it in your project dependencies:
+
+```json
+{
+  "dependencies": {
+    "@azure/functions": "^4.0.0"
+  }
+}
+```
+
+> [!NOTE]
+> The `@azure/functions` library defines the programming surface for Node.js Azure Functions, but it isn't a general-purpose SDK. Use it specifically for authoring and running functions within the Azure Functions runtime.
+
+### TypeScript configuration
+
+For the best TypeScript development experience, ensure your `tsconfig.json` includes the proper configuration:
+
+```json
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es6",
+    "outDir": "dist",
+    "rootDir": ".",
+    "sourceMap": true,
+    "strict": false,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true
+  }
+}
+```
+
+### Folder structure
+
+::: zone pivot="nodejs-model-v3"
+
+#### [JavaScript](#tab/javascript)
+
+A JavaScript project requires the folder structure shown in the following example:
 
 ```text
 <project_root>/
@@ -68,14 +484,14 @@ The main project folder, _<project_root>_, can contain the following files:
 - **.vscode/**: (Optional) Contains the stored Visual Studio Code configuration. To learn more, see [Visual Studio Code settings](https://code.visualstudio.com/docs/getstarted/settings).
 - **myFirstFunction/function.json**: Contains configuration for the function's trigger, inputs, and outputs. The name of the directory determines the name of your function.
 - **myFirstFunction/index.js**: Stores your function code. To change this default file path, see [using scriptFile](#using-scriptfile).
-- **.funcignore**: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains _.vscode/_ to ignore your editor setting, _test/_ to ignore test cases, and _local.settings.json_ to prevent local app settings being published.
-- **host.json**: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
-- **local.settings.json**: Used to store app settings and connection strings when it's running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
-- **package.json**: Contains configuration options like a list of package dependencies, the main entrypoint, and scripts.
+- **.funcignore**: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains _.vscode/_ to ignore your editor setting, _test/_ to ignore test cases, and _local.settings.json_ to prevent local app settings from being published.
+- **host.json**: Contains configuration options that affect all functions in a function app instance. This file gets published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
+- **local.settings.json**: Used to store app settings and connection strings when running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
+- **package.json**: Contains configuration options like a list of package dependencies, the main entry point, and scripts.
 
-# [TypeScript](#tab/typescript)
+#### [TypeScript](#tab/typescript)
 
-The required folder structure for a TypeScript project looks like the following example:
+A TypeScript project requires the following folder structure:
 
 ```text
 <project_root>/
@@ -98,13 +514,13 @@ The required folder structure for a TypeScript project looks like the following 
 The main project folder, _<project_root>_, can contain the following files:
 
 - **.vscode/**: (Optional) Contains the stored Visual Studio Code configuration. To learn more, see [Visual Studio Code settings](https://code.visualstudio.com/docs/getstarted/settings).
-- **dist/**: Contains the compiled JavaScript code after you run a build. The name of this folder can be configured in your "tsconfig.json" file, and should match the `scriptFile` property in your "function.json" files.
+- **dist/**: Contains the compiled JavaScript code after you run a build. You can configure the name of this folder in your "tsconfig.json" file. It should match the `scriptFile` property in your "function.json" files.
 - **myFirstFunction/function.json**: Contains configuration for the function's trigger, inputs, and outputs. The name of the directory determines the name of your function. For TypeScript projects, this file must contain a `scriptFile` property pointing to your compiled JavaScript.
 - **myFirstFunction/index.ts**: Stores your function code. To change this default file path, see [using scriptFile](#using-scriptfile).
-- **.funcignore**: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains _.vscode/_ to ignore your editor setting, _test/_ to ignore test cases, and _local.settings.json_ to prevent local app settings being published.
-- **host.json**: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
-- **local.settings.json**: Used to store app settings and connection strings when it's running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
-- **package.json**: Contains configuration options like a list of package dependencies, the main entrypoint, and scripts.
+- **.funcignore**: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains _.vscode/_ to ignore your editor setting, _test/_ to ignore test cases, and _local.settings.json_ to prevent local app settings from being published.
+- **host.json**: Contains configuration options that affect all functions in a function app instance. This file gets published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
+- **local.settings.json**: Used to store app settings and connection strings when running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
+- **package.json**: Contains configuration options like a list of package dependencies, the main entry point, and scripts.
 - **tsconfig.json**: Contains TypeScript compiler options like the output directory.
 
 ---
@@ -113,9 +529,9 @@ The main project folder, _<project_root>_, can contain the following files:
 
 ::: zone pivot="nodejs-model-v4"
 
-# [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
-The recommended folder structure for a JavaScript project looks like the following example:
+A JavaScript project follows the recommended folder structure in the following example:
 
 ```text
 <project_root>/
@@ -140,14 +556,14 @@ The main project folder, _<project_root>_, can contain the following files:
 - **.vscode/**: (Optional) Contains the stored Visual Studio Code configuration. To learn more, see [Visual Studio Code settings](https://code.visualstudio.com/docs/getstarted/settings).
 - **src/functions/**: The default location for all functions and their related triggers and bindings.
 - **test/**: (Optional) Contains the test cases of your function app.
-- **.funcignore**: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains _.vscode/_ to ignore your editor setting, _test/_ to ignore test cases, and _local.settings.json_ to prevent local app settings being published.
-- **host.json**: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
-- **local.settings.json**: Used to store app settings and connection strings when it's running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
-- **package.json**: Contains configuration options like a list of package dependencies, the main entrypoint, and scripts.
+- **.funcignore**: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains _.vscode/_ to ignore your editor setting, _test/_ to ignore test cases, and _local.settings.json_ to prevent local app settings from being published.
+- **host.json**: Contains configuration options that affect all functions in a function app instance. This file gets published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
+- **local.settings.json**: Used to store app settings and connection strings when running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
+- **package.json**: Contains configuration options like a list of package dependencies, the main entry point, and scripts.
 
-# [TypeScript](#tab/typescript)
+#### [TypeScript](#tab/typescript)
 
-The recommended folder structure for a TypeScript project looks like the following example:
+A TypeScript project follows the recommended folder structure in the following example:
 
 ```text
 <project_root>/
@@ -172,600 +588,617 @@ The recommended folder structure for a TypeScript project looks like the followi
 The main project folder, _<project_root>_, can contain the following files:
 
 - **.vscode/**: (Optional) Contains the stored Visual Studio Code configuration. To learn more, see [Visual Studio Code settings](https://code.visualstudio.com/docs/getstarted/settings).
-- **dist/**: Contains the compiled JavaScript code after you run a build. The name of this folder can be configured in your "tsconfig.json" file.
+- **dist/**: Contains the compiled JavaScript code after you run a build. You can configure the name of this folder in your "tsconfig.json" file.
 - **src/functions/**: The default location for all functions and their related triggers and bindings.
 - **test/**: (Optional) Contains the test cases of your function app.
-- **.funcignore**: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains _.vscode/_ to ignore your editor setting, _test/_ to ignore test cases, and _local.settings.json_ to prevent local app settings being published.
-- **host.json**: Contains configuration options that affect all functions in a function app instance. This file does get published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
-- **local.settings.json**: Used to store app settings and connection strings when it's running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
-- **package.json**: Contains configuration options like a list of package dependencies, the main entrypoint, and scripts.
+- **.funcignore**: (Optional) Declares files that shouldn't get published to Azure. Usually, this file contains _.vscode/_ to ignore your editor setting, _test/_ to ignore test cases, and _local.settings.json_ to prevent local app settings from being published.
+- **host.json**: Contains configuration options that affect all functions in a function app instance. This file gets published to Azure. Not all options are supported when running locally. To learn more, see [host.json](functions-host-json.md).
+- **local.settings.json**: Used to store app settings and connection strings when running locally. This file doesn't get published to Azure. To learn more, see [local.settings.file](functions-develop-local.md#local-settings-file).
+- **package.json**: Contains configuration options like a list of package dependencies, the main entry point, and scripts.
 - **tsconfig.json**: Contains TypeScript compiler options like the output directory.
 
 ---
 
 ::: zone-end
 
-<a name="exporting-an-async-function"></a>
-<a name="exporting-a-function"></a>
+### Package management
 
-## Registering a function
+Effective package management is crucial for Node.js Azure Functions projects. This section covers dependency management, package configuration, and best practices for maintaining your function app dependencies.
 
-::: zone pivot="nodejs-model-v3"
+#### Managing dependencies
 
-The v3 model registers a function based on the existence of two files. First, you need a `function.json` file located in a folder one level down from the root of your app. Second, you need a JavaScript file that [exports](https://nodejs.org/api/modules.html#modules_module_exports) your function. By default, the model looks for an `index.js` file in the same folder as your `function.json`. If you're using TypeScript, you must use the [`scriptFile`](#using-scriptfile) property in `function.json` to point to the compiled JavaScript file. To customize the file location or export name of your function, see [configuring your function's entry point](functions-reference-node.md#configure-function-entry-point).
+All Node.js Azure Functions projects use npm for package management. Your `package.json` file defines the project configuration, dependencies, and scripts needed to build and run your functions.
 
-The function you export should always be declared as an [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) in the v3 model. You can export a synchronous function, but then you must call [`context.done()`](#contextdone) to signal that your function is completed, which is deprecated and not recommended.
-
-Your function is passed an [invocation `context`](#invocation-context) as the first argument and your [inputs](#inputs) as the remaining arguments.
-
-The following example is a simple function that logs that it was triggered and responds with `Hello, world!`:
-
-# [JavaScript](#tab/javascript)
+**Essential package.json structure:**
 
 ```json
 {
+  "name": "my-functions-app",
+  "version": "1.0.0",
+  "description": "Azure Functions Node.js app",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "prestart": "npm run build",
+    "start": "func start",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@azure/functions": "^4.0.0"
+  },
+  "devDependencies": {
+    "@azure/functions-core-tools": "^4.0.4670",
+    "@types/node": "^18.0.0",
+    "typescript": "^4.0.0",
+    "jest": "^29.0.0"
+  }
+}
+```
+
+#### Runtime vs. development dependencies
+
+Separate your dependencies appropriately:
+
+**Runtime dependencies (`dependencies`):**
+- `@azure/functions`: The core Azure Functions library
+- Business logic libraries (lodash, axios, and similar packages)
+- Database drivers (mongodb, mssql, and similar packages)
+- Azure SDK packages (@azure/storage-blob, @azure/cosmos, and similar packages)
+
+**Development dependencies (`devDependencies`):**
+- TypeScript compiler and type definitions
+- Testing frameworks (Jest, Mocha)
+- Build tools and linters
+- Azure Functions Core Tools (for local development)
+
+#### TypeScript-specific packages
+
+For TypeScript projects, include these essential development dependencies:
+
+```json
+{
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "typescript": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0"
+  }
+}
+```
+
+#### Security and updates
+
+Regularly update your dependencies to address security vulnerabilities:
+
+```bash
+# Check for outdated packages
+npm outdated
+
+# Update packages
+npm update
+
+# Audit for security issues
+npm audit
+npm audit fix
+```
+
+## Running and debugging
+
+This section covers local development, debugging techniques, and testing strategies for Node.js Azure Functions.
+
+#### Local development setup
+
+**Prerequisites:**
+- [Node.js](https://nodejs.org/) version 18.x or 20.x
+- [Azure Functions Core Tools](functions-run-local.md) v4.x
+- [Azure CLI](/cli/azure/install-azure-cli) (optional)
+
+**Setup steps:**
+
+1. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+1. **Build TypeScript projects:**
+   ```bash
+   npm run build
+   ```
+
+1. **Start the local runtime:**
+   ```bash
+   npm start
+   # or directly:
+   func start
+   ```
+
+#### Environment configuration
+
+Configure your local development environment by using `local.settings.json`:
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "node",
+    "NODE_ENV": "development",
+    "CUSTOM_ENV_VARIABLE": "local-value"
+  },
+  "Host": {
+    "LocalHttpPort": 7071,
+    "CORS": "*",
+    "CORSCredentials": false
+  }
+}
+```
+
+#### Debugging
+
+**Visual Studio Code debugging:**
+
+Create `.vscode/launch.json`:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Attach to Node Functions",
+      "type": "node",
+      "request": "attach",
+      "port": 9229,
+      "preLaunchTask": "func: host start"
+    }
+  ]
+}
+```
+
+Create `.vscode/tasks.json`:
+
+```json
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "type": "func",
+      "label": "func: host start",
+      "command": "host start",
+      "problemMatcher": "$func-node-watch",
+      "isBackground": true,
+      "options": {
+        "cwd": "${workspaceFolder}"
+      }
+    }
+  ]
+}
+```
+
+**Command line debugging:**
+
+```bash
+# Start with debugging enabled
+func start --p <port>
+
+# For TypeScript, ensure you build first
+npm run build
+func start --p 9229
+```
+
+## Deployment
+
+This section covers deployment strategies, CI/CD integration, and production best practices for Node.js Azure Functions.
+
+#### Deployment methods
+
+**1. Visual Studio Code deployment:**
+- Install the [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions).
+- Right-click your function app in the Azure panel.
+- Select **Deploy to Function App**.
+
+**2. Azure Functions Core Tools:**
+```bash
+# Deploy to Azure
+func azure functionapp publish <FunctionAppName>
+
+# Deploy with custom settings
+func azure functionapp publish <FunctionAppName> --build local --publish-local-settings
+```
+
+**3. Azure CLI deployment:**
+```bash
+# Deploy from local folder
+az functionapp deployment source config-zip \
+  --resource-group <ResourceGroupName> \
+  --name <FunctionAppName> \
+  --src <PathToZipFile>
+```
+
+#### Production configuration
+
+**Application settings in Azure:**
+
+Configure environment variables for production:
+- `WEBSITE_NODE_DEFAULT_VERSION`: Set to `~18` or `~20`.
+- `FUNCTIONS_WORKER_RUNTIME`: Set to `node`.
+- Connection strings and API keys as secure app settings.
+- `NODE_ENV`: Set to `production`.
+
+## Triggers and bindings
+
+Azure Functions uses **triggers** to start function execution and **bindings** to connect your code to other services like storage, queues, and databases. In the Node.js programming model, you declare bindings differently depending on your model version.
+
+Two main types of bindings exist:
+- **Triggers** (input that starts the function)
+- **Inputs and outputs** (extra data sources or destinations)
+
+For more information about the available triggers and bindings, see [Triggers and Bindings in Azure Functions](./functions-triggers-bindings.md).
+
+### Example: Timer Trigger with Blob Input
+<a name="extra-inputs-and-outputs"></a>
+
+::: zone pivot="nodejs-model-v4"
+
+This function triggers every 10 minutes, reads from a Blob using extra inputs, and logs the blob content.
+
+#### [JavaScript](#tab/javascript)
+
+```javascript
+const { app, input } = require('@azure/functions');
+
+let CACHED_BLOB_DATA = null;
+
+const blobInput = input.storageBlob({
+    connection: 'BLOB_CONNECTION_SETTING',
+    path: 'mycontainer/myblob.txt'
+});
+
+app.timer('TimerTriggerWithBlob', {
+    schedule: '0 */10 * * * *',
+    extraInputs: [blobInput],
+    handler: async (myTimer, context) => {
+        if (CACHED_BLOB_DATA === null) {
+            // Read blob content and cache it
+            CACHED_BLOB_DATA = context.extraInputs.get(blobInput);
+            context.log(`Blob content cached: ${CACHED_BLOB_DATA?.substring(0, 100)}...`);
+        }
+        
+        context.log(`Timer function executed at: ${new Date().toISOString()}`);
+        context.log(`Using cached data of length: ${CACHED_BLOB_DATA?.length || 0}`);
+    }
+});
+```
+
+#### [TypeScript](#tab/typescript)
+
+```typescript
+import { app, InvocationContext, Timer, input } from '@azure/functions';
+
+let CACHED_BLOB_DATA: string | null = null;
+
+const blobInput = input.storageBlob({
+    connection: 'BLOB_CONNECTION_SETTING',
+    path: 'mycontainer/myblob.txt'
+});
+
+async function timerTriggerWithBlob(myTimer: Timer, context: InvocationContext): Promise<void> {
+    if (CACHED_BLOB_DATA === null) {
+        // Read blob content and cache it
+        CACHED_BLOB_DATA = context.extraInputs.get(blobInput) as string;
+        context.log(`Blob content cached: ${CACHED_BLOB_DATA?.substring(0, 100)}...`);
+    }
+    
+    context.log(`Timer function executed at: ${new Date().toISOString()}`);
+    context.log(`Using cached data of length: ${CACHED_BLOB_DATA?.length || 0}`);
+}
+
+app.timer('TimerTriggerWithBlob', {
+    schedule: '0 */10 * * * *',
+    extraInputs: [blobInput],
+    handler: timerTriggerWithBlob
+});
+```
+
+---
+
+::: zone-end
+
+::: zone pivot="nodejs-model-v3"
+
+This function triggers every 10 minutes, reads from a Blob by using bindings configuration, and logs the blob content.
+
+#### [JavaScript](#tab/javascript)
+
+```json
+{
+  "scriptFile": "index.js",
   "bindings": [
     {
-      "type": "httpTrigger",
+      "name": "myTimer",
+      "type": "timerTrigger",
       "direction": "in",
-      "name": "req",
-      "authLevel": "anonymous",
-      "methods": ["get", "post"]
+      "schedule": "0 */10 * * * *"
     },
     {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
+      "name": "blobInput",
+      "type": "blob",
+      "direction": "in",
+      "path": "mycontainer/myblob.txt",
+      "connection": "AzureWebJobsStorage"
     }
   ]
 }
 ```
 
 ```javascript
-module.exports = async function (context, request) {
-  context.log("Http function was triggered.");
-  context.res = { body: "Hello, world!" };
+let CACHED_BLOB_DATA = null;
+
+module.exports = async function (context, myTimer) {
+    if (CACHED_BLOB_DATA === null) {
+        // Read blob content and cache it
+        CACHED_BLOB_DATA = context.bindings.blobInput;
+        context.log(`Blob content cached: ${CACHED_BLOB_DATA?.substring(0, 100)}...`);
+    }
+    
+    context.log(`Timer function executed at: ${new Date().toISOString()}`);
+    context.log(`Using cached data of length: ${CACHED_BLOB_DATA?.length || 0}`);
 };
 ```
 
-# [TypeScript](#tab/typescript)
+#### [TypeScript](#tab/typescript)
 
 ```json
 {
+  "scriptFile": "../dist/TimerTriggerWithBlob/index.js",
+  "bindings": [
+    {
+      "name": "myTimer",
+      "type": "timerTrigger",
+      "direction": "in",
+      "schedule": "0 */10 * * * *"
+    },
+    {
+      "name": "blobInput",
+      "type": "blob",
+      "direction": "in",
+      "path": "mycontainer/myblob.txt",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
+```
+
+```typescript
+import { AzureFunction, Context } from "@azure/functions";
+
+let CACHED_BLOB_DATA: string | null = null;
+
+const timerTriggerWithBlob: AzureFunction = async function (context: Context, myTimer: any): Promise<void> {
+    if (CACHED_BLOB_DATA === null) {
+        // Read blob content and cache it
+        CACHED_BLOB_DATA = context.bindings.blobInput;
+        context.log(`Blob content cached: ${CACHED_BLOB_DATA?.substring(0, 100)}...`);
+    }
+    
+    context.log(`Timer function executed at: ${new Date().toISOString()}`);
+    context.log(`Using cached data of length: ${CACHED_BLOB_DATA?.length || 0}`);
+};
+
+export default timerTriggerWithBlob;
+```
+
+---
+
+::: zone-end
+
+### Example: HTTP Trigger with Queue Output
+
+::: zone pivot="nodejs-model-v4"
+
+This function triggers on an HTTP request, writes a message to a storage queue, and returns an HTTP response.
+
+#### [JavaScript](#tab/javascript)
+
+```javascript
+const { app, output } = require('@azure/functions');
+
+const queueOutput = output.storageQueue({
+    connection: 'AzureWebJobsStorage',
+    queueName: 'myqueue'
+});
+
+app.http('httpTriggerWithQueue', {
+    methods: ['GET', 'POST'],
+    extraOutputs: [queueOutput],
+    handler: async (request, context) => {
+        const name = request.query.get('name') || 'World';
+        const message = {
+            id: context.invocationId,
+            name: name,
+            timestamp: new Date().toISOString()
+        };
+
+        // Write to queue output
+        context.extraOutputs.set(queueOutput, JSON.stringify(message));
+        context.log(`Message sent to queue: ${JSON.stringify(message)}`);
+
+        return {
+            body: `Hello, ${name}! Message queued successfully.`
+        };
+    }
+});
+```
+
+#### [TypeScript](#tab/typescript)
+
+```typescript
+import { app, HttpRequest, HttpResponseInit, InvocationContext, output } from '@azure/functions';
+
+const queueOutput = output.storageQueue({
+    connection: 'AzureWebJobsStorage',
+    queueName: 'myqueue'
+});
+
+interface QueueMessage {
+    id: string;
+    name: string;
+    timestamp: string;
+}
+
+async function httpTriggerWithQueue(
+    request: HttpRequest,
+    context: InvocationContext
+): Promise<HttpResponseInit> {
+    const name = request.query.get('name') || 'World';
+    const message: QueueMessage = {
+        id: context.invocationId,
+        name: name,
+        timestamp: new Date().toISOString()
+    };
+
+    // Write to queue output
+    context.extraOutputs.set(queueOutput, JSON.stringify(message));
+    context.log(`Message sent to queue: ${JSON.stringify(message)}`);
+
+    return {
+        body: `Hello, ${name}! Message queued successfully.`
+    };
+}
+
+app.http('httpTriggerWithQueue', {
+    methods: ['GET', 'POST'],
+    extraOutputs: [queueOutput],
+    handler: httpTriggerWithQueue
+});
+```
+
+---
+
+::: zone-end
+
+::: zone pivot="nodejs-model-v3"
+
+This function triggers on an HTTP request, writes a message to a storage queue, and returns an HTTP response.
+
+#### [JavaScript](#tab/javascript)
+
+```json
+{
+  "scriptFile": "index.js",
   "bindings": [
     {
       "type": "httpTrigger",
       "direction": "in",
       "name": "req",
-      "authLevel": "anonymous",
       "methods": ["get", "post"]
     },
     {
       "type": "http",
       "direction": "out",
-      "name": "res"
+      "name": "$return"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "outputQueue",
+      "queueName": "myqueue",
+      "connection": "AzureWebJobsStorage"
     }
-  ],
-  "scriptFile": "../dist/HttpTrigger1/index.js"
+  ]
+}
+```
+
+```javascript
+module.exports = async function (context, req) {
+    const name = (req.query.name || (req.body && req.body.name)) || 'World';
+    const message = {
+        id: context.invocationId,
+        name: name,
+        timestamp: new Date().toISOString()
+    };
+
+    // Write to queue output
+    context.bindings.outputQueue = JSON.stringify(message);
+    context.log(`Message sent to queue: ${JSON.stringify(message)}`);
+
+    return {
+        status: 200,
+        body: `Hello, ${name}! Message queued successfully.`
+    };
+};
+```
+
+#### [TypeScript](#tab/typescript)
+
+```json
+{
+  "scriptFile": "../dist/HttpTriggerWithQueue/index.js",
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": ["get", "post"]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "outputQueue",
+      "queueName": "myqueue",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
 }
 ```
 
 ```typescript
 import { AzureFunction, Context, HttpRequest } from "@azure/functions";
 
-const httpTrigger: AzureFunction = async function (
-  context: Context,
-  request: HttpRequest
-): Promise<void> {
-  context.log("Http function was triggered.");
-  context.res = { body: "Hello, world!" };
+interface QueueMessage {
+    id: string;
+    name: string;
+    timestamp: string;
+}
+
+const httpTriggerWithQueue: AzureFunction = async function (
+    context: Context,
+    req: HttpRequest
+): Promise<any> {
+    const name = (req.query.name || (req.body && req.body.name)) || 'World';
+    const message: QueueMessage = {
+        id: context.invocationId,
+        name: name,
+        timestamp: new Date().toISOString()
+    };
+
+    // Write to queue output
+    context.bindings.outputQueue = JSON.stringify(message);
+    context.log(`Message sent to queue: ${JSON.stringify(message)}`);
+
+    return {
+        status: 200,
+        body: `Hello, ${name}! Message queued successfully.`
+    };
 };
 
-export default httpTrigger;
+export default httpTriggerWithQueue;
 ```
 
 ---
 
 ::: zone-end
-
-::: zone pivot="nodejs-model-v4"
-
-The programming model loads your functions based on the `main` field in your `package.json`. You can set the `main` field to a single file or multiple files by using a [glob pattern](<https://wikipedia.org/wiki/Glob_(programming)>). The following table shows example values for the `main` field:
-
-# [JavaScript](#tab/javascript)
-
-| Example | Description |
-| --- | --- |
-| **`src/index.js`** | Register functions from a single root file. |
-| **`src/functions/*.js`** | Register each function from its own file. |
-| **`src/{index.js,functions/*.js}`** | A combination where you register each function from its own file, but you still have a root file for general app-level code. |
-
-# [TypeScript](#tab/typescript)
-
-| Example | Description |
-| --- | --- |
-| **`dist/src/index.js`** | Register functions from a single root file. |
-| **`dist/src/functions/*.js`** | Register each function from its own file. |
-| **`dist/src/{index.js,functions/*.js}`** | A combination where you register each function from its own file, but you still have a root file for general app-level code. |
-
----
-
-In order to register a function, you must import the `app` object from the `@azure/functions` npm module and call the method specific to your trigger type. The first argument when registering a function is the function name. The second argument is an `options` object specifying configuration for your trigger, your handler, and any other inputs or outputs. In some cases where trigger configuration isn't necessary, you can pass the handler directly as the second argument instead of an `options` object.
-
-Registering a function can be done from any file in your project, as long as that file is loaded (directly or indirectly) based on the `main` field in your `package.json` file. The function should be registered at a global scope because you can't register functions once executions start.
-
-The following example is a simple function that logs that it was triggered and responds with `Hello, world!`:
-
-# [JavaScript](#tab/javascript)
-
-```javascript
-const { app } = require("@azure/functions");
-
-app.http("helloWorld1", {
-  methods: ["POST", "GET"],
-  handler: async (request, context) => {
-    context.log("Http function was triggered.");
-    return { body: "Hello, world!" };
-  },
-});
-```
-
-# [TypeScript](#tab/typescript)
-
-```typescript
-import {
-  app,
-  HttpRequest,
-  HttpResponseInit,
-  InvocationContext,
-} from "@azure/functions";
-
-async function helloWorld1(
-  request: HttpRequest,
-  context: InvocationContext
-): Promise<HttpResponseInit> {
-  context.log("Http function was triggered.");
-  return { body: "Hello, world!" };
-}
-
-app.http("helloWorld1", {
-  methods: ["GET", "POST"],
-  handler: helloWorld1,
-});
-```
-
----
-
-::: zone-end
-
-<a name="bindings"></a>
-
-## Inputs and outputs
-
-::: zone pivot="nodejs-model-v3"
-
-Your function is required to have exactly one primary input called the trigger. It might also have secondary inputs and/or outputs. Inputs and outputs are configured in your `function.json` files and are also referred to as [bindings](./functions-triggers-bindings.md).
-
-### Inputs
-
-Inputs are bindings with `direction` set to `in`. The main difference between a trigger and a secondary input is that the `type` for a trigger ends in `Trigger`, for example type [`blobTrigger`](./functions-bindings-storage-blob-trigger.md) vs type [`blob`](./functions-bindings-storage-blob-input.md). Most functions only use a trigger, and not many secondary input types are supported.
-
-Inputs can be accessed in several ways:
-
-- **_[Recommended]_ As arguments passed to your function:** Use the arguments in the same order that they're defined in `function.json`. The `name` property defined in `function.json` doesn't need to match the name of your argument, although we recommend it for the sake of organization.
-
-  # [JavaScript](#tab/javascript)
-
-  ```javascript
-  module.exports = async function (context, myTrigger, myInput, myOtherInput) { ... };
-  ```
-
-  # [TypeScript](#tab/typescript)
-
-  ```typescript
-  const httpTrigger: AzureFunction = async function (context: Context, myTrigger: HttpRequest, myInput: any, myOtherInput: any): Promise<void> {
-  ```
-
-  ***
-
-- **As properties of [`context.bindings`](#contextbindings):** Use the key matching the `name` property defined in `function.json`.
-
-  # [JavaScript](#tab/javascript)
-
-  ```javascript
-  module.exports = async function (context) {
-    context.log("This is myTrigger: " + context.bindings.myTrigger);
-    context.log("This is myInput: " + context.bindings.myInput);
-    context.log("This is myOtherInput: " + context.bindings.myOtherInput);
-  };
-  ```
-
-  # [TypeScript](#tab/typescript)
-
-  ```typescript
-  import { AzureFunction, Context } from "@azure/functions";
-
-  const httpTrigger: AzureFunction = async function (
-    context: Context
-  ): Promise<void> {
-    context.log("This is myTrigger: " + context.bindings.myTrigger);
-    context.log("This is myInput: " + context.bindings.myInput);
-    context.log("This is myOtherInput: " + context.bindings.myOtherInput);
-  };
-
-  export default httpTrigger;
-  ```
-
-  ***
-
-<a name="returning-from-the-function"></a>
-
-### Outputs
-
-Outputs are bindings with `direction` set to `out` and can be set in several ways:
-
-- **_[Recommended for single output]_ Return the value directly:** If you're using an async function, you can return the value directly. You must change the `name` property of the output binding to `$return` in `function.json` like in the following example:
-
-  ```json
-  {
-    "name": "$return",
-    "type": "http",
-    "direction": "out"
-  }
-  ```
-
-  # [JavaScript](#tab/javascript)
-
-  ```javascript
-  module.exports = async function (context, request) {
-    return {
-      body: "Hello, world!",
-    };
-  };
-  ```
-
-  # [TypeScript](#tab/typescript)
-
-  ```typescript
-  import {
-    AzureFunction,
-    Context,
-    HttpRequest,
-    HttpResponseSimple,
-  } from "@azure/functions";
-
-  const httpTrigger: AzureFunction = async function (
-    context: Context,
-    request: HttpRequest
-  ): Promise<HttpResponseSimple> {
-    return {
-      body: "Hello, world!",
-    };
-  };
-
-  export default httpTrigger;
-  ```
-
-  ***
-
-- **_[Recommended for multiple outputs]_ Return an object containing all outputs:** If you're using an async function, you can return an object with a property matching the name of each binding in your `function.json`. The following example uses output bindings named "httpResponse" and "queueOutput":
-
-  ```json
-  {
-      "name": "httpResponse",
-      "type": "http",
-      "direction": "out"
-  },
-  {
-      "name": "queueOutput",
-      "type": "queue",
-      "direction": "out",
-      "queueName": "helloworldqueue",
-      "connection": "storage_APPSETTING"
-  }
-  ```
-
-  # [JavaScript](#tab/javascript)
-
-  ```javascript
-  module.exports = async function (context, request) {
-    let message = "Hello, world!";
-    return {
-      httpResponse: {
-        body: message,
-      },
-      queueOutput: message,
-    };
-  };
-  ```
-
-  # [TypeScript](#tab/typescript)
-
-  ```typescript
-  import { AzureFunction, Context, HttpRequest } from "@azure/functions";
-
-  const httpTrigger: AzureFunction = async function (
-    context: Context,
-    request: HttpRequest
-  ): Promise<any> {
-    let message = "Hello, world!";
-    return {
-      httpResponse: {
-        body: message,
-      },
-      queueOutput: message,
-    };
-  };
-
-  export default httpTrigger;
-  ```
-
-  ***
-
-- **Set values on `context.bindings`:** If you're not using an async function or you don't want to use the previous options, you can set values directly on `context.bindings`, where the key matches the name of the binding. The following example uses output bindings named "httpResponse" and "queueOutput":
-
-  ```json
-  {
-      "name": "httpResponse",
-      "type": "http",
-      "direction": "out"
-  },
-  {
-      "name": "queueOutput",
-      "type": "queue",
-      "direction": "out",
-      "queueName": "helloworldqueue",
-      "connection": "storage_APPSETTING"
-  }
-  ```
-
-  # [JavaScript](#tab/javascript)
-
-  ```javascript
-  module.exports = async function (context, request) {
-    let message = "Hello, world!";
-    context.bindings.httpResponse = {
-      body: message,
-    };
-    context.bindings.queueOutput = message;
-  };
-  ```
-
-  # [TypeScript](#tab/typescript)
-
-  ```typescript
-  import { AzureFunction, Context, HttpRequest } from "@azure/functions";
-
-  const httpTrigger: AzureFunction = async function (
-    context: Context,
-    request: HttpRequest
-  ): Promise<void> {
-    let message = "Hello, world!";
-    context.bindings.httpResponse = {
-      body: message,
-    };
-    context.bindings.queueOutput = message;
-  };
-
-  export default httpTrigger;
-  ```
-
-  ***
-
-### Bindings data type
-
-You can use the `dataType` property on an input binding to change the type of your input. However, the approach has some limitations:
-
-- In Node.js, only `string` and `binary` are supported (`stream` isn't)
-- For HTTP inputs, the `dataType` property is ignored. Instead, use properties on the `request` object to get the body in your desired format. For more information, see [HTTP request](#http-request).
-
-In the following example of a [storage queue trigger](./functions-bindings-storage-queue-trigger.md), the default type of `myQueueItem` is a `string`, but if you set `dataType` to `binary`, the type changes to a Node.js `Buffer`.
-
-```json
-{
-  "name": "myQueueItem",
-  "type": "queueTrigger",
-  "direction": "in",
-  "queueName": "helloworldqueue",
-  "connection": "storage_APPSETTING",
-  "dataType": "binary"
-}
-```
-
-# [JavaScript](#tab/javascript)
-
-```javascript
-const { Buffer } = require("node:buffer");
-
-module.exports = async function (context, myQueueItem) {
-  if (typeof myQueueItem === "string") {
-    context.log("myQueueItem is a string");
-  } else if (Buffer.isBuffer(myQueueItem)) {
-    context.log("myQueueItem is a buffer");
-  }
-};
-```
-
-# [TypeScript](#tab/typescript)
-
-```typescript
-import { AzureFunction, Context } from "@azure/functions";
-import { Buffer } from "node:buffer";
-
-const queueTrigger1: AzureFunction = async function (
-  context: Context,
-  myQueueItem: string | Buffer
-): Promise<void> {
-  if (typeof myQueueItem === "string") {
-    context.log("myQueueItem is a string");
-  } else if (Buffer.isBuffer(myQueueItem)) {
-    context.log("myQueueItem is a buffer");
-  }
-};
-
-export default queueTrigger1;
-```
-
----
-
-::: zone-end
-
-::: zone pivot="nodejs-model-v4"
-
-Your function is required to have exactly one primary input called the trigger. It might also have secondary inputs, a primary output called the return output, and/or secondary outputs. Inputs and outputs are also referred to as [bindings](./functions-triggers-bindings.md) outside the context of the Node.js programming model. Before v4 of the model, these bindings were configured in `function.json` files.
-
-### Trigger input
-
-The trigger is the only required input or output. For most trigger types, you register a function by using a method on the `app` object named after the trigger type. You can specify configuration specific to the trigger directly on the `options` argument. For example, an HTTP trigger allows you to specify a route. During execution, the value corresponding to this trigger is passed in as the first argument to your handler.
-
-# [JavaScript](#tab/javascript)
-
-```javascript
-const { app } = require('@azure/functions');
-
-app.http('helloWorld1', {
-    route: 'hello/world',
-    handler: async (request, context) => {
-        ...
-    }
-});
-```
-
-# [TypeScript](#tab/typescript)
-
-```typescript
-import { app, HttpRequest, HttpResponseInit, InvocationContext } from "@azure/functions";
-
-async function helloWorld1(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
-    ...
-};
-
-app.http('helloWorld1', {
-    route: 'hello/world',
-    handler: helloWorld1
-});
-```
-
----
-
-### Return output
-
-The return output is optional, and in some cases configured by default. For example, an HTTP trigger registered with `app.http` is configured to return an HTTP response output automatically. For most output types, you specify the return configuration on the `options` argument with the help of the `output` object exported from the `@azure/functions` module. During execution, you set this output by returning it from your handler.
-
-The following example uses a [timer trigger](./functions-bindings-timer.md) and a [storage queue output](./functions-bindings-storage-queue-output.md):
-
-# [JavaScript](#tab/javascript)
-
-```javascript
-const { app, output } = require('@azure/functions');
-
-app.timer('timerTrigger1', {
-    schedule: '0 */5 * * * *',
-    return: output.storageQueue({
-        connection: 'storage_APPSETTING',
-        ...
-    }),
-    handler: (myTimer, context) => {
-        return { hello: 'world' }
-    }
-});
-```
-
-# [TypeScript](#tab/typescript)
-
-```typescript
-import { app, InvocationContext, Timer, output } from "@azure/functions";
-
-async function timerTrigger1(myTimer: Timer, context: InvocationContext): Promise<any> {
-    return { hello: 'world' }
-}
-
-app.timer('timerTrigger1', {
-    schedule: '0 */5 * * * *',
-    return: output.storageQueue({
-        connection: 'storage_APPSETTING',
-        ...
-    }),
-    handler: timerTrigger1
-});
-```
-
----
-
-### Extra inputs and outputs
-
-In addition to the trigger and return, you might specify extra inputs or outputs on the `options` argument when registering a function. The `input` and `output` objects exported from the `@azure/functions` module provide type-specific methods to help construct the configuration. During execution, you get or set the values with `context.extraInputs.get` or `context.extraOutputs.set`, passing in the original configuration object as the first argument.
-
-The following example is a function triggered by a [storage queue](./functions-bindings-storage-queue-trigger.md), with an extra [storage blob input](./functions-bindings-storage-blob-input.md) that is copied to an extra [storage blob output](./functions-bindings-storage-blob-output.md). The queue message should be the name of a file and replaces `{queueTrigger}` as the blob name to be copied, with the help of a [binding expression](./functions-bindings-expressions-patterns.md).
-
-# [JavaScript](#tab/javascript)
-
-```javascript
-const { app, input, output } = require("@azure/functions");
-
-const blobInput = input.storageBlob({
-  connection: "storage_APPSETTING",
-  path: "helloworld/{queueTrigger}",
-});
-
-const blobOutput = output.storageBlob({
-  connection: "storage_APPSETTING",
-  path: "helloworld/{queueTrigger}-copy",
-});
-
-app.storageQueue("copyBlob1", {
-  queueName: "copyblobqueue",
-  connection: "storage_APPSETTING",
-  extraInputs: [blobInput],
-  extraOutputs: [blobOutput],
-  handler: (queueItem, context) => {
-    const blobInputValue = context.extraInputs.get(blobInput);
-    context.extraOutputs.set(blobOutput, blobInputValue);
-  },
-});
-```
-
-# [TypeScript](#tab/typescript)
-
-```typescript
-import { app, InvocationContext, input, output } from "@azure/functions";
-
-const blobInput = input.storageBlob({
-  connection: "storage_APPSETTING",
-  path: "helloworld/{queueTrigger}",
-});
-
-const blobOutput = output.storageBlob({
-  connection: "storage_APPSETTING",
-  path: "helloworld/{queueTrigger}-copy",
-});
-
-async function copyBlob1(
-  queueItem: unknown,
-  context: InvocationContext
-): Promise<void> {
-  const blobInputValue = context.extraInputs.get(blobInput);
-  context.extraOutputs.set(blobOutput, blobInputValue);
-}
-
-app.storageQueue("copyBlob1", {
-  queueName: "copyblobqueue",
-  connection: "storage_APPSETTING",
-  extraInputs: [blobInput],
-  extraOutputs: [blobOutput],
-  handler: copyBlob1,
-});
-```
-
----
-
-### Generic inputs and outputs
 
 The `app`, `trigger`, `input`, and `output` objects exported by the `@azure/functions` module provide type-specific methods for most types. For all the types that aren't supported, a `generic` method is provided to allow you to manually specify the configuration. The `generic` method can also be used if you want to change the default settings provided by a type-specific method.
 
 The following example is a simple HTTP triggered function using generic methods instead of type-specific methods.
 
-# [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
 ```javascript
 const { app, output, trigger } = require("@azure/functions");
@@ -786,7 +1219,7 @@ app.generic("helloWorld1", {
 });
 ```
 
-# [TypeScript](#tab/typescript)
+#### [TypeScript](#tab/typescript)
 
 ```typescript
 import {
@@ -821,46 +1254,6 @@ app.generic("helloWorld1", {
 
 ---
 
-## SDK types
-
-Several binding extensions now enable you to work directly with the Azure SDK types.
-
-### Azure Blob storage
-
-SDK bindings capability in Azure Functions enables you to work directly with the Azure Blob storage SDK types like `BlobClient` and `ContainerClient` instead of raw data. This provides full access to all SDK methods when working with blobs.
-
-To configure your project to work with SDK types:
-
-1. Add the `@azure/functions-extensions-blob` extension preview packages to the `package.json` file in the project, which should include at least these packages:
-
-  :::code language="json" source="~/functions-node-sdk-bindings-blob/blobClientSdkBinding/package.json" range="13-16" ::: 
-
-2. Add `enableHttpStream: true` in your `app.setup` to support streaming types:
-
-  :::code language="typescript" source="~/functions-node-sdk-bindings-blob/blobClientSdkBinding/src/index.ts" :::
-
-[!INCLUDE [functions-blob-storage-sdk-types-node](../../includes/functions-blob-storage-sdk-types-node.md)]
-
-Keep these considerations in mind when working with SDK types:
-
-+ Always have `import "@azure/functions-extensions-blob"` first in your files to ensure side effects run.
-+ Set `sdkBinding: true` in your binding configuration.
-+ Use the appropriate client type for your operation:
-    - `blobClient` for operations on a single blob
-    - `containerClient` for operations on a container
-+ Handle errors appropriately with `try`/`catch` blocks
-+ For large blob operations, consider using streaming methods to avoid memory issues.
-
-For more information, see these [Blob Storage SDK Bindings for Node.js Samples](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-nodejs): 
-for more examples on how to incorporate SDK Bindings for Blob into your function app.
-- [BlobClient](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-nodejs/tree/main/blobClientSdkBinding)
-- [ContainerClient](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-nodejs/tree/main/containerClientInputBinding)
-- [Readable Stream](https://github.com/Azure-Samples/azure-functions-blob-sdk-bindings-nodejs/tree/main/blobClientWithReadableStream)
-
-### Azure Service Bus
-
-[!INCLUDE [functions-service-bus-sdk-types-node-ts](../../includes/functions-service-bus-sdk-types-node-ts.md)]
-
 ::: zone-end
 
 <a name="context-object"></a>
@@ -869,16 +1262,16 @@ for more examples on how to incorporate SDK Bindings for Blob into your function
 
 ::: zone pivot="nodejs-model-v3"
 
-Each invocation of your function is passed an invocation `context` object, used to read inputs, set outputs, write to logs, and read various metadata. In the v3 model, the context object is always the first argument passed to your handler.
+Each invocation of your function receives an invocation `context` object. Use this object to read inputs, set outputs, write to logs, and access various metadata. In the v3 model, you always pass the context object as the first argument to your handler.
 
-The `context` object has the following properties:
+The `context` object includes the following properties:
 
 | Property | Description |
 | --- | --- |
 | **`invocationId`** | The ID of the current function invocation. |
 | **`executionContext`** | See [execution context](#contextexecutioncontext). |
 | **`bindings`** | See [bindings](#contextbindings). |
-| **`bindingData`** | Metadata about the trigger input for this invocation, not including the value itself. For example, an [event hub trigger](./functions-bindings-event-hubs-trigger.md) has an `enqueuedTimeUtc` property. |
+| **`bindingData`** | Metadata about the trigger input for this invocation, excluding the value itself. For example, an [event hub trigger](./functions-bindings-event-hubs-trigger.md) has an `enqueuedTimeUtc` property. |
 | **`traceContext`** | The context for distributed tracing. For more information, see [`Trace Context`](https://www.w3.org/TR/trace-context/). |
 | **`bindingDefinitions`** | The configuration of your inputs and outputs, as defined in `function.json`. |
 | **`req`** | See [HTTP request](#http-request). |
@@ -891,7 +1284,7 @@ The `context.executionContext` object has the following properties:
 | Property | Description |
 | --- | --- |
 | **`invocationId`** | The ID of the current function invocation. |
-| **`functionName`** | The name of the function that is being invoked. The name of the folder containing the `function.json` file determines the name of the function. |
+| **`functionName`** | The name of the function that you're invoking. The name of the folder containing the `function.json` file determines the name of the function. |
 | **`functionDirectory`** | The folder containing the `function.json` file. |
 | **`retryContext`** | See [retry context](#contextexecutioncontextretrycontext). |
 
@@ -909,7 +1302,7 @@ The `context.executionContext.retryContext` object has the following properties:
 
 ### context.bindings
 
-The `context.bindings` object is used to read inputs or set outputs. The following example is a [storage queue trigger](./functions-bindings-storage-queue-trigger.md), which uses `context.bindings` to copy a [storage blob input](./functions-bindings-storage-blob-input.md) to a [storage blob output](./functions-bindings-storage-blob-output.md). The queue message's content replaces `{queueTrigger}` as the file name to be copied, with the help of a [binding expression](./functions-bindings-expressions-patterns.md).
+Use the `context.bindings` object to read inputs or set outputs. The following example is a [storage queue trigger](./functions-bindings-storage-queue-trigger.md) that uses `context.bindings` to copy a [storage blob input](./functions-bindings-storage-blob-input.md) to a [storage blob output](./functions-bindings-storage-blob-output.md). The queue message's content replaces `{queueTrigger}` as the file name to be copied, with the help of a [binding expression](./functions-bindings-expressions-patterns.md).
 
 ```json
 {
@@ -935,7 +1328,7 @@ The `context.bindings` object is used to read inputs or set outputs. The followi
 }
 ```
 
-# [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
 ```javascript
 module.exports = async function (context, myQueueItem) {
@@ -944,7 +1337,7 @@ module.exports = async function (context, myQueueItem) {
 };
 ```
 
-# [TypeScript](#tab/typescript)
+#### [TypeScript](#tab/typescript)
 
 ```typescript
 import { AzureFunction, Context } from "@azure/functions";
@@ -966,9 +1359,9 @@ export default queueTrigger1;
 
 ### context.done
 
-The `context.done` method is deprecated. Before async functions were supported, you would signal your function is done by calling `context.done()`:
+The `context.done` method is deprecated. Before Azure Functions supported async functions, you signaled your function was done by calling `context.done()`:
 
-# [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
 ```javascript
 module.exports = function (context, request) {
@@ -977,7 +1370,7 @@ module.exports = function (context, request) {
 };
 ```
 
-# [TypeScript](#tab/typescript)
+#### [TypeScript](#tab/typescript)
 
 ```typescript
 import { AzureFunction, Context, HttpRequest } from "@azure/functions";
@@ -995,9 +1388,9 @@ export default httpTrigger;
 
 ---
 
-We recommend that you remove the call to `context.done()` and mark your function as async so that it returns a promise (even if you don't `await` anything). As soon as your function finishes (in other words, the returned promise resolves), the v3 model knows your function is done.
+Remove the call to `context.done()`. Mark your function as async so that it returns a promise (even if you don't `await` anything). As soon as your function finishes (in other words, the returned promise resolves), the v3 model knows your function is done.
 
-# [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
 ```javascript
 module.exports = async function (context, request) {
@@ -1005,7 +1398,7 @@ module.exports = async function (context, request) {
 };
 ```
 
-# [TypeScript](#tab/typescript)
+#### [TypeScript](#tab/typescript)
 
 ```typescript
 import { AzureFunction, Context, HttpRequest } from "@azure/functions";
@@ -1026,9 +1419,9 @@ export default httpTrigger;
 
 ::: zone pivot="nodejs-model-v4"
 
-Each invocation of your function is passed an invocation `context` object, with information about your invocation and methods used for logging. In the v4 model, the `context` object is typically the second argument passed to your handler.
+Each invocation of your function receives an invocation `context` object. This object contains information about your invocation and methods for logging. In the v4 model, you typically pass the `context` object as the second argument to your handler.
 
-The `InvocationContext` class has the following properties:
+The `InvocationContext` class includes the following properties:
 
 | Property | Description |
 | --- | --- |
@@ -1039,7 +1432,7 @@ The `InvocationContext` class has the following properties:
 | **`retryContext`** | See [retry context](#retry-context). |
 | **`traceContext`** | The context for distributed tracing. For more information, see [`Trace Context`](https://www.w3.org/TR/trace-context/). |
 | **`triggerMetadata`** | Metadata about the trigger input for this invocation, not including the value itself. For example, an [event hub trigger](./functions-bindings-event-hubs-trigger.md) has an `enqueuedTimeUtc` property. |
-| **`options`** | The options used when registering the function, after they've been validated and with defaults explicitly specified. |
+| **`options`** | The options used when registering the function, after they're validated and defaults are explicitly specified. |
 
 ### Retry context
 
@@ -1060,20 +1453,20 @@ For more information, see [`retry-policies`](./functions-bindings-error-pages.md
 
 ## Logging
 
-In Azure Functions, it's recommended to use `context.log()` to write logs. Azure Functions integrates with Azure Application Insights to better capture your function app logs. Application Insights, part of Azure Monitor, provides facilities for collection, visual rendering, and analysis of both application logs and your trace outputs. To learn more, see [monitoring Azure Functions](functions-monitoring.md).
+In Azure Functions, use `context.log()` to write logs. Azure Functions integrates with Azure Application Insights to better capture your function app logs. Application Insights, part of Azure Monitor, provides facilities for collection, visual rendering, and analysis of both application logs and your trace outputs. To learn more, see [monitoring Azure Functions](functions-monitoring.md).
 
 > [!NOTE]
-> If you use the alternative Node.js `console.log` method, those logs are tracked at the app-level and will _not_ be associated with any specific function. We _highly recommend_ that your use `context` for logging instead of `console` so that all logs are associated with a specific function.
+> If you use the alternative Node.js `console.log` method, the app-level logs are tracked but aren't associated with any specific function. Use `context` for logging instead of `console` so that all logs are associated with a specific function.
 
 The following example writes a log at the default "information" level, including the invocation ID:
 
-# [JavaScript](#tab/javascript)
+### [JavaScript](#tab/javascript)
 
 ```javascript
 context.log(`Something has happened. Invocation ID: "${context.invocationId}"`);
 ```
 
-# [TypeScript](#tab/typescript)
+### [TypeScript](#tab/typescript)
 
 ```typescript
 context.log(`Something has happened. Invocation ID: "${context.invocationId}"`);
@@ -1085,7 +1478,7 @@ context.log(`Something has happened. Invocation ID: "${context.invocationId}"`);
 
 ### Log levels
 
-In addition to the default `context.log` method, the following methods are available that let you write logs at specific levels:
+In addition to the default `context.log` method, use the following methods to write logs at specific levels:
 
 ::: zone pivot="nodejs-model-v3"
 
@@ -1114,20 +1507,20 @@ In addition to the default `context.log` method, the following methods are avail
 
 ### Configure log level
 
-Azure Functions lets you define the threshold level to be used when tracking and viewing logs. To set the threshold, use the `logging.logLevel` property in the `host.json` file. This property lets you define a default level applied to all functions, or a threshold for each individual function. To learn more, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
+Functions enables you to define the threshold level for tracking and viewing logs. To set the threshold, use the `logging.logLevel` property in the `host.json` file. This property lets you define a default level for all functions or a threshold for each individual function. For more information, see [How to configure monitoring for Azure Functions](configure-monitoring.md).
 
 ## Track custom data
 
-By default, Azure Functions writes output as traces to Application Insights. For more control, you can instead use the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) to send custom logs, metrics, and dependencies to your Application Insights instance.
+By default, Azure Functions writes output as traces to Application Insights. For more control, use the [Application Insights Node.js SDK](https://github.com/microsoft/applicationinsights-node.js) to send custom logs, metrics, and dependencies to your Application Insights instance.
 
 > [!NOTE]
 > Methods in the Application Insights Node.js SDK might change over time. There might be minor syntax differences from the examples shown here. For the latest API usage examples, see the [Application Insights Node.js SDK documentation](https://github.com/microsoft/applicationinsights-node.js).
 
 ::: zone pivot="nodejs-model-v4"  
-For distributed tracing in the Node.js v4 programming model, you can use the [`@azure/functions-opentelemetry-instrumentation`](https://www.npmjs.com/package/@azure/functions-opentelemetry-instrumentation) package instead of the Application Insights SDK. This package provides OpenTelemetry-based automatic instrumentation for Azure Functions. For more information, see the [OpenTelemetry Azure Functions Instrumentation for Node.js](https://github.com/Azure/azure-functions-nodejs-opentelemetry) GitHub repository.  
+For distributed tracing in the Node.js v4 programming model, use the [`@azure/functions-opentelemetry-instrumentation`](https://www.npmjs.com/package/@azure/functions-opentelemetry-instrumentation) package instead of the Application Insights SDK. This package provides OpenTelemetry-based automatic instrumentation for Azure Functions. For more information, see the [OpenTelemetry Azure Functions Instrumentation for Node.js](https://github.com/Azure/azure-functions-nodejs-opentelemetry) GitHub repository.  
 ::: zone-end
 
-# [JavaScript](#tab/javascript)
+### [JavaScript](#tab/javascript)
 
 ```javascript
 const appInsights = require("applicationinsights");
@@ -1179,7 +1572,7 @@ module.exports = async function (context, request) {
 };
 ```
 
-# [TypeScript](#tab/typescript)
+### [TypeScript](#tab/typescript)
 
 ```typescript
 import { AzureFunction, Context, HttpRequest } from "@azure/functions";
@@ -1240,7 +1633,7 @@ export default httpTrigger;
 
 ---
 
-The `tagOverrides` parameter sets the `operation_Id` to the function's invocation ID. This setting enables you to correlate all of the automatically generated and custom logs for a given function invocation.
+The `tagOverrides` parameter sets the `operation_Id` to the function's invocation ID. This setting enables you to correlate all the automatically generated and custom logs for a given function invocation.
 
 <a name="http-triggers-and-bindings"></a>
 
@@ -1261,22 +1654,22 @@ HTTP and webhook triggers use `HttpRequest` and `HttpResponse` objects to repres
 <a name="request-object"></a>
 <a name="accessing-the-request-and-response"></a>
 
-### HTTP Request
+### HTTP request
 
 ::: zone pivot="nodejs-model-v3"
 
-The request can be accessed in several ways:
+Access the request in several ways:
 
 - **As the second argument to your function:**
 
-  # [JavaScript](#tab/javascript)
+  #### [JavaScript](#tab/javascript)
 
   ```javascript
   module.exports = async function (context, request) {
       context.log(`Http function processed request for url "${request.url}"`);
   ```
 
-  # [TypeScript](#tab/typescript)
+  #### [TypeScript](#tab/typescript)
 
   ```typescript
   const httpTrigger: AzureFunction = async function (context: Context, request: HttpRequest): Promise<void> {
@@ -1287,14 +1680,14 @@ The request can be accessed in several ways:
 
 - **From the `context.req` property:**
 
-  # [JavaScript](#tab/javascript)
+  #### [JavaScript](#tab/javascript)
 
   ```javascript
   module.exports = async function (context, request) {
       context.log(`Http function processed request for url "${context.req.url}"`);
   ```
 
-  # [TypeScript](#tab/typescript)
+  #### [TypeScript](#tab/typescript)
 
   ```typescript
   const httpTrigger: AzureFunction = async function (context: Context, request: HttpRequest): Promise<void> {
@@ -1303,7 +1696,7 @@ The request can be accessed in several ways:
 
   ***
 
-- **From the named input bindings:** This option works the same as any non HTTP binding. The binding name in `function.json` must match the key on `context.bindings`, or "request1" in the following example:
+- **From the named input bindings:** This option works the same as any non-HTTP binding. The binding name in `function.json` must match the key on `context.bindings`, or "request1" in the following example:
 
   ```json
   {
@@ -1315,14 +1708,14 @@ The request can be accessed in several ways:
   }
   ```
 
-  # [JavaScript](#tab/javascript)
+  #### [JavaScript](#tab/javascript)
 
   ```javascript
   module.exports = async function (context, request) {
       context.log(`Http function processed request for url "${context.bindings.request1.url}"`);
   ```
 
-  # [TypeScript](#tab/typescript)
+  #### [TypeScript](#tab/typescript)
 
   ```typescript
   const httpTrigger: AzureFunction = async function (context: Context, request: HttpRequest): Promise<void> {
@@ -1337,7 +1730,7 @@ The `HttpRequest` object has the following properties:
 | --- | --- | --- |
 | **`method`** | `string` | HTTP request method used to invoke this function. |
 | **`url`** | `string` | Request URL. |
-| **`headers`** | `Record<string, string>` | HTTP request headers. This object is case sensitive. It's recommended to use `request.getHeader('header-name')` instead, which is case insensitive. |
+| **`headers`** | `Record<string, string>` | HTTP request headers. This object is case sensitive. Use `request.getHeader('header-name')` instead, which is case insensitive. |
 | **`query`** | `Record<string, string>` | Query string parameter keys and values from the URL. |
 | **`params`** | `Record<string, string>` | Route parameter keys and values. |
 | **`user`** | `HttpRequestUser \| null` | Object representing logged-in user, either through Functions authentication, SWA Authentication, or null when no such user is logged in. |
@@ -1349,16 +1742,16 @@ The `HttpRequest` object has the following properties:
 
 ::: zone pivot="nodejs-model-v4"
 
-The request can be accessed as the first argument to your handler for an HTTP triggered function.
+You can access the request as the first argument to your handler for an HTTP triggered function.
 
-# [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
 ```javascript
 async (request, context) => {
     context.log(`Http function processed request for url "${request.url}"`);
 ```
 
-# [TypeScript](#tab/typescript)
+#### [TypeScript](#tab/typescript)
 
 ```typescript
 async function helloWorld1(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
@@ -1380,7 +1773,7 @@ The `HttpRequest` object has the following properties:
 | **`body`** | [`ReadableStream \| null`](https://developer.mozilla.org/docs/Web/API/ReadableStream) | Body as a readable stream. |
 | **`bodyUsed`** | `boolean` | A boolean indicating if the body is already read. |
 
-In order to access a request or response's body, the following methods can be used:
+To access a request or response's body, use the following methods:
 
 | Method | Return Type |
 | --- | --- |
@@ -1391,28 +1784,28 @@ In order to access a request or response's body, the following methods can be us
 | **`text()`** | `Promise<string>` |
 
 > [!NOTE]
-> The body functions can be run only once. Subsequent calls resolve with empty strings/ArrayBuffers.
+> You can run the body functions only once. Subsequent calls resolve with empty strings or ArrayBuffers.
 
 ::: zone-end
 
 <a name="response-object"></a>
 
-### HTTP Response
+### HTTP response
 
 ::: zone pivot="nodejs-model-v3"
 
-The response can be set in several ways:
+You can set the response in several ways. For example, you can use:
 
 - **Set the `context.res` property:**
 
-  # [JavaScript](#tab/javascript)
+  #### [JavaScript](#tab/javascript)
 
   ```javascript
   module.exports = async function (context, request) {
       context.res = { body: `Hello, world!` };
   ```
 
-  # [TypeScript](#tab/typescript)
+  #### [TypeScript](#tab/typescript)
 
   ```typescript
   const httpTrigger: AzureFunction = async function (context: Context, request: HttpRequest): Promise<void> {
@@ -1431,14 +1824,14 @@ The response can be set in several ways:
   }
   ```
 
-  # [JavaScript](#tab/javascript)
+  #### [JavaScript](#tab/javascript)
 
   ```javascript
   module.exports = async function (context, request) {
       return { body: `Hello, world!` };
   ```
 
-  # [TypeScript](#tab/typescript)
+  #### [TypeScript](#tab/typescript)
 
   ```typescript
   const httpTrigger: AzureFunction = async function (context: Context, request: HttpRequest): Promise<HttpResponseSimple> {
@@ -1447,7 +1840,7 @@ The response can be set in several ways:
 
   ***
 
-- **Set the named output binding:** This option works the same as any non HTTP binding. The binding name in `function.json` must match the key on `context.bindings`, or "response1" in the following example:
+- **Set the named output binding:** This option works the same as any non-HTTP binding. The binding name in `function.json` must match the key on `context.bindings`, or "response1" in the following example:
 
   ```json
   {
@@ -1457,14 +1850,14 @@ The response can be set in several ways:
   }
   ```
 
-  # [JavaScript](#tab/javascript)
+  #### [JavaScript](#tab/javascript)
 
   ```javascript
   module.exports = async function (context, request) {
       context.bindings.response1 = { body: `Hello, world!` };
   ```
 
-  # [TypeScript](#tab/typescript)
+  #### [TypeScript](#tab/typescript)
 
   ```typescript
   const httpTrigger: AzureFunction = async function (context: Context, request: HttpRequest): Promise<void> {
@@ -1473,16 +1866,16 @@ The response can be set in several ways:
 
   ***
 
-- **Call `context.res.send()`:** This option is deprecated. It implicitly calls `context.done()` and can't be used in an async function.
+- **Call `context.res.send()`:** This option is deprecated. It implicitly calls `context.done()` and you can't use it in an async function.
 
-  # [JavaScript](#tab/javascript)
+  #### [JavaScript](#tab/javascript)
 
   ```javascript
   module.exports = function (context, request) {
       context.res.send(`Hello, world!`);
   ```
 
-  # [TypeScript](#tab/typescript)
+  #### [TypeScript](#tab/typescript)
 
   ```typescript
   const httpTrigger: AzureFunction = function (context: Context, request: HttpRequest): void {
@@ -1506,11 +1899,11 @@ You can also modify the `context.res` object without overwriting it. The default
 | Method | Description |
 | --- | --- |
 | **`status()`** | Sets the status. |
-| **`setHeader()`** | Sets a header field. NOTE: `res.set()` and `res.header()` are also supported and do the same thing. |
-| **`getHeader()`** | Get a header field. NOTE: `res.get()` is also supported and does the same thing. |
+| **`setHeader()`** | Sets a header field. **NOTE:** `res.set()` and `res.header()` are also supported and do the same thing. |
+| **`getHeader()`** | Gets a header field. **NOTE:** `res.get()` is also supported and does the same thing. |
 | **`removeHeader()`** | Removes a header. |
 | **`type()`** | Sets the "content-type" header. |
-| **`send()`** | This method is deprecated. It sets the body and calls `context.done()` to indicate a sync function is finished. NOTE: `res.end()` is also supported and does the same thing. |
+| **`send()`** | This method is deprecated. It sets the body and calls `context.done()` to indicate a sync function is finished. **NOTE:** `res.end()` is also supported and does the same thing. |
 | **`sendStatus()`** | This method is deprecated. It sets the status code and calls `context.done()` to indicate a sync function is finished. |
 | **`json()`** | This method is deprecated. It sets the "content-type" to "application/json", sets the body, and calls `context.done()` to indicate a sync function is finished. |
 
@@ -1518,17 +1911,17 @@ You can also modify the `context.res` object without overwriting it. The default
 
 ::: zone pivot="nodejs-model-v4"
 
-The response can be set in several ways:
+You can set the response in several ways. For example, you can use:
 
-- **As a simple interface with type `HttpResponseInit`:** This option is the most concise way of returning responses.
+- **A simple interface with type `HttpResponseInit`:** This option is the most concise way of returning responses.
 
-  # [JavaScript](#tab/javascript)
+  #### [JavaScript](#tab/javascript)
 
   ```javascript
   return { body: `Hello, world!` };
   ```
 
-  # [TypeScript](#tab/typescript)
+  #### [TypeScript](#tab/typescript)
 
   ```typescript
   return { body: `Hello, world!` };
@@ -1548,7 +1941,7 @@ The response can be set in several ways:
 
 - **As a class with type `HttpResponse`:** This option provides helper methods for reading and modifying various parts of the response like the headers.
 
-  # [JavaScript](#tab/javascript)
+  #### [JavaScript](#tab/javascript)
 
   ```javascript
   const response = new HttpResponse({ body: `Hello, world!` });
@@ -1556,7 +1949,7 @@ The response can be set in several ways:
   return response;
   ```
 
-  # [TypeScript](#tab/typescript)
+  #### [TypeScript](#tab/typescript)
 
   ```typescript
   const response = new HttpResponse({ body: `Hello, world!` });
@@ -1574,11 +1967,11 @@ The response can be set in several ways:
   | **`headers`**  | [`Headers`](https://developer.mozilla.org/docs/Web/API/Headers) | HTTP response headers.                                            |
   | **`cookies`**  | `Cookie[]`                                                      | HTTP response cookies.                                            |
   | **`body`**     | [`ReadableStream                                                | null`](https://developer.mozilla.org/docs/Web/API/ReadableStream) | Body as a readable stream. |
-  | **`bodyUsed`** | `boolean`                                                       | A boolean indicating if the body has been read from already.      |
+  | **`bodyUsed`** | `boolean`                                                       | A boolean indicating if the body is already read.      |
 
 ::: zone-end
 
-## HTTP streams
+### HTTP streams
 
 HTTP streams is a feature that makes it easier to process large data, stream OpenAI responses, deliver dynamic content, and support other core HTTP scenarios. It lets you stream requests to and responses from HTTP endpoints in your Node.js function app. Use HTTP streams in scenarios where your app requires real-time exchange and interaction between client and server over HTTP. You can also use HTTP streams to get the best performance and reliability for your apps when using HTTP.
 
@@ -1594,17 +1987,17 @@ HTTP streams is a feature that makes it easier to process large data, stream Ope
 
 - The [`@azure/functions` npm package](https://www.npmjs.com/package/@azure/functions) version 4.3.0 or later.
 - [Azure Functions runtime](./functions-versions.md) version 4.28 or later.
-- [Azure Functions Core Tools](./functions-run-local.md) version 4.0.5530 or a later version, which contains the correct runtime version.
+- [Azure Functions Core Tools](./functions-run-local.md) version 4.0.5530 or later, which contains the correct runtime version.
 
 ### Enable streams
 
 Use these steps to enable HTTP streams in your function app in Azure and in your local projects:
 
-1. If you plan to stream large amounts of data, modify the [`FUNCTIONS_REQUEST_BODY_SIZE_LIMIT`](./functions-app-settings.md#functions_request_body_size_limit) setting in Azure. The default maximum body size allowed is `104857600`, which limits your requests to a size of ~100 MB.
+1. If you plan to stream large amounts of data, modify the [`FUNCTIONS_REQUEST_BODY_SIZE_LIMIT`](./functions-app-settings.md#functions_request_body_size_limit) setting in Azure. The default maximum body size allowed is `104857600`, which limits your requests to a size of about 100 MB.
 
 1. For local development, also add `FUNCTIONS_REQUEST_BODY_SIZE_LIMIT` to the [local.settings.json file](./functions-develop-local.md#local-settings-file).
 
-1. Add the following code to your app in any file included by your [main field](./functions-reference-node.md#registering-a-function).
+1. Add the following code to your app in any file included by your [main field](#programming-model).
 
    #### [JavaScript](#tab/javascript)
 
@@ -1626,7 +2019,7 @@ Use these steps to enable HTTP streams in your function app in Azure and in your
 
 ### Stream examples
 
-This example shows an HTTP triggered function that receives data via an HTTP POST request, and the function streams this data to a specified output file:
+The following example shows an HTTP triggered function that receives data through an HTTP POST request. The function streams this data to a specified output file:
 
 #### [JavaScript](#tab/javascript)
 
@@ -1638,7 +2031,7 @@ This example shows an HTTP triggered function that receives data via an HTTP POS
 
 ---
 
-This example shows an HTTP triggered function that streams a file's content as the response to incoming HTTP GET requests:
+The following example shows an HTTP triggered function that streams a file's content as the response to incoming HTTP GET requests:
 
 #### [JavaScript](#tab/javascript)
 
@@ -1650,35 +2043,95 @@ This example shows an HTTP triggered function that streams a file's content as t
 
 ---
 
-For a ready-to-run sample app using streams, check out this example on [GitHub](https://github.com/Azure-Samples/azure-functions-nodejs-stream).
+For a ready-to-run sample app that uses streams, check out this [example on GitHub](https://github.com/Azure-Samples/azure-functions-nodejs-stream).
 
 ### Stream considerations
 
-- Use `request.body` to obtain the maximum benefit from using streams. You can still continue to use methods like `request.text()`, which always return the body as a string.
+- Use `request.body` to get the most benefit from using streams. You can still use methods like `request.text()`, which always return the body as a string.
   ::: zone-end
 
 ## Hooks
 
 ::: zone pivot="nodejs-model-v3"
 
-Hooks aren't supported in the v3 model. [Upgrade to the v4 model](./functions-node-upgrade-v4.md) to use hooks.
+The v3 model doesn't support hooks. [Upgrade to the v4 model](./functions-node-upgrade-v4.md) to use hooks.
 
 ::: zone-end
 ::: zone pivot="nodejs-model-v4"
 
-Use a hook to execute code at different points in the Azure Functions lifecycle. Hooks are executed in the order they're registered and can be registered from any file in your app. There are currently two scopes of hooks, "app" level and "invocation" level.
+Use a hook to execute code at different points in the Azure Functions lifecycle. The order in which you register hooks determines the order in which they're executed. You can register hooks from any file in your app. Two scopes of hooks exist: "app" level and "invocation" level.
 
 ### Invocation hooks
 
-Invocation hooks are executed once per invocation of your function, either before in a `preInvocation` hook or after in a `postInvocation` hook. By default your hook executes for all trigger types, but you can also filter by type. The following example shows how to register an invocation hook and filter by trigger type:
+Invocation hooks run once per invocation of your function. A `preInvocation` hook runs before the function runs, and a `postInvocation` hook runs after the function runs. By default, your hook executes for all trigger types, but you can also filter by type. The following example shows how to register an invocation hook and filter by trigger type:
 
-# [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/invocationHooks1.js" :::
+```javascript
+const { app } = require('@azure/functions');
 
-# [TypeScript](#tab/typescript)
+// Pre-invocation hook with trigger filtering
+app.hook.preInvocation('httpPreInvocation', async (context) => {
+  context.hookData.startTime = Date.now();
+  context.invocationContext.log(`Pre-invocation hook executed for ${context.invocationContext.functionName}`);
+    
+  // Add custom headers or modify function handler if needed
+  if (context.functionHandler.name === 'httpTrigger') {
+    context.invocationContext.log('HTTP function detected, preparing request processing');
+  }
+}, {
+  filter: ['httpTrigger']
+});
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/invocationHooks1.ts" :::
+// Post-invocation hook
+app.hook.postInvocation('httpPostInvocation', async (context) => {
+  const duration = Date.now() - context.hookData.startTime;
+  context.invocationContext.log(`Function ${context.invocationContext.functionName} completed in ${duration}ms`);
+    
+  // Log results or errors
+  if (context.error) {
+    context.invocationContext.log.error(`Function failed: ${context.error.message}`);
+  } else {
+    context.invocationContext.log(`Function succeeded with result: ${JSON.stringify(context.result)}`);
+  }
+}, {
+  filter: ['httpTrigger']
+});
+```
+
+#### [TypeScript](#tab/typescript)
+
+```typescript
+import { app, PreInvocationContext, PostInvocationContext, HttpRequest, HttpResponseInit } from '@azure/functions';
+
+// Pre-invocation hook with trigger filtering
+app.hook.preInvocation('httpPreInvocation', async (context: PreInvocationContext) => {
+  context.hookData.startTime = Date.now();
+  context.invocationContext.log(`Pre-invocation hook executed for ${context.invocationContext.functionName}`);
+    
+  // Add custom headers or modify function handler if needed
+  if (context.functionHandler.name === 'httpTrigger') {
+    context.invocationContext.log('HTTP function detected, preparing request processing');
+  }
+}, {
+  filter: ['httpTrigger']
+});
+
+// Post-invocation hook
+app.hook.postInvocation('httpPostInvocation', async (context: PostInvocationContext) => {
+  const duration = Date.now() - context.hookData.startTime;
+  context.invocationContext.log(`Function ${context.invocationContext.functionName} completed in ${duration}ms`);
+    
+  // Log results or errors
+  if (context.error) {
+    context.invocationContext.log.error(`Function failed: ${context.error.message}`);
+  } else {
+    context.invocationContext.log(`Function succeeded with result: ${JSON.stringify(context.result)}`);
+  }
+}, {
+  filter: ['httpTrigger']
+});
+```
 
 ---
 
@@ -1688,87 +2141,205 @@ The `PreInvocationContext` object has the following properties:
 
 | Property                | Description                                                                                                                                                              |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **`inputs`**            | The arguments passed to the invocation.                                                                                                                                  |
+| **`inputs`**            | The arguments you pass to the invocation.                                                                                                                                  |
 | **`functionHandler`**   | The function handler for the invocation. Changes to this value affect the function itself.                                                                               |
 | **`invocationContext`** | The [invocation context](#invocation-context) object passed to the function.                                                                                             |
-| **`hookData`**          | The recommended place to store and share data between hooks in the same scope. You should use a unique property name so that it doesn't conflict with other hooks' data. |
+| **`hookData`**          | The recommended place to store and share data between hooks in the same scope. Use a unique property name so that it doesn't conflict with other hooks' data. |
 
 The `PostInvocationContext` object has the following properties:
 
 | Property                | Description                                                                                                                                                              |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **`inputs`**            | The arguments passed to the invocation.                                                                                                                                  |
+| **`inputs`**            | The arguments you pass to the invocation.                                                                                                                                  |
 | **`result`**            | The result of the function. Changes to this value affect the overall result of the function.                                                                             |
 | **`error`**             | The error thrown by the function, or null/undefined if there's no error. Changes to this value affect the overall result of the function.                                |
 | **`invocationContext`** | The [invocation context](#invocation-context) object passed to the function.                                                                                             |
-| **`hookData`**          | The recommended place to store and share data between hooks in the same scope. You should use a unique property name so that it doesn't conflict with other hooks' data. |
+| **`hookData`**          | The recommended place to store and share data between hooks in the same scope. Use a unique property name so that it doesn't conflict with other hooks' data. |
 
 ### App hooks
 
-App hooks are executed once per instance of your app, either during startup in an `appStart` hook or during termination in an `appTerminate` hook. App terminate hooks have a limited time to execute and don't execute in all scenarios.
+The runtime executes app hooks once per instance of your app. It runs `appStart` hooks during startup and `appTerminate` hooks during termination. App terminate hooks have a limited time to execute and don't execute in all scenarios.
 
 The Azure Functions runtime currently [doesn't support](https://github.com/Azure/azure-functions-host/issues/8222) context logging outside of an invocation. Use the Application Insights [npm package](https://www.npmjs.com/package/applicationinsights) to log data during app level hooks.
 
 The following example registers app hooks:
 
-# [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/appHooks1.js" :::
+```javascript
+const { app } = require('@azure/functions');
+const appInsights = require('applicationinsights');
 
-# [TypeScript](#tab/typescript)
+// Initialize Application Insights for app-level logging
+appInsights.setup().start();
+const client = appInsights.defaultClient;
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/appHooks1.ts" :::
+// App start hook
+app.hook.appStart('appStartup', async (context) => {
+  context.hookData.appStartTime = Date.now();
+  context.hookData.initializationData = {};
+    
+  // Initialize shared resources, database connections, etc.
+  client.trackEvent({
+    name: 'FunctionAppStarted',
+    properties: {
+      timestamp: new Date().toISOString(),
+      nodeVersion: process.version
+    }
+  });
+    
+  // Set up global configurations
+  process.env.APP_INITIALIZED = 'true';
+});
+
+// App terminate hook
+app.hook.appTerminate('appShutdown', async (context) => {
+  const uptime = Date.now() - context.hookData.appStartTime;
+    
+  // Cleanup resources, close connections, etc.
+  client.trackEvent({
+    name: 'FunctionAppTerminated',
+    properties: {
+      uptime: uptime,
+      timestamp: new Date().toISOString()
+    }
+  });
+    
+  // Flush Application Insights data
+  await new Promise((resolve) => client.flush({ callback: resolve }));
+});
+```
+
+#### [TypeScript](#tab/typescript)
+
+```typescript
+import { app, AppStartContext, AppTerminateContext } from '@azure/functions';
+import * as appInsights from 'applicationinsights';
+
+// Initialize Application Insights for app-level logging
+appInsights.setup().start();
+const client = appInsights.defaultClient;
+
+interface AppHookData {
+  appStartTime: number;
+  initializationData: Record<string, any>;
+}
+
+// App start hook
+app.hook.appStart('appStartup', async (context: AppStartContext) => {
+  const hookData = context.hookData as AppHookData;
+  hookData.appStartTime = Date.now();
+  hookData.initializationData = {};
+    
+  // Initialize shared resources, database connections, etc.
+  client.trackEvent({
+    name: 'FunctionAppStarted',
+    properties: {
+      timestamp: new Date().toISOString(),
+      nodeVersion: process.version
+    }
+  });
+    
+  // Set up global configurations
+  process.env.APP_INITIALIZED = 'true';
+});
+
+// App terminate hook
+app.hook.appTerminate('appShutdown', async (context: AppTerminateContext) => {
+  const hookData = context.hookData as AppHookData;
+  const uptime = Date.now() - hookData.appStartTime;
+    
+  // Cleanup resources, close connections, etc.
+  client.trackEvent({
+    name: 'FunctionAppTerminated',
+    properties: {
+      uptime: uptime,
+      timestamp: new Date().toISOString()
+    }
+  });
+    
+  // Flush Application Insights data
+  await new Promise<void>((resolve) => client.flush({ callback: resolve }));
+});
+```
 
 ---
 
 The first argument to the hook handler is a context object specific to that hook type.
 
-The `AppStartContext` object has the following properties:
+The `AppStartContext` object has the following property:
 
 | Property       | Description                                                                                                                                                              |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **`hookData`** | The recommended place to store and share data between hooks in the same scope. You should use a unique property name so that it doesn't conflict with other hooks' data. |
+| **`hookData`** | The recommended place to store and share data between hooks in the same scope. Use a unique property name so that it doesn't conflict with other hooks' data. |
 
-The `AppTerminateContext` object has the following properties:
+The `AppTerminateContext` object has the following property:
 
 | Property       | Description                                                                                                                                                              |
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **`hookData`** | The recommended place to store and share data between hooks in the same scope. You should use a unique property name so that it doesn't conflict with other hooks' data. |
+| **`hookData`** | The recommended place to store and share data between hooks in the same scope. Use a unique property name so that it doesn't conflict with other hooks' data. |
 
 ::: zone-end
 
+## Hook best practices
+
+When using hooks in your Azure Functions, consider these best practices:
+
+### Performance considerations
+
+- Keep hook execution time minimal to avoid impacting function performance.
+- Use asynchronous operations where possible to prevent blocking.
+- Consider the overhead of hooks when processing high-volume requests.
+
+### Error handling
+
+- Always include proper error handling in your hooks.
+- Don't let hook failures cause function failures unless absolutely necessary.
+- Log hook errors appropriately for debugging.
+
+### Data sharing
+
+- Use `hookData` to share information between pre and post invocation hooks.
+- Use unique property names to avoid conflicts with other hooks.
+- Clean up hook data when no longer needed to prevent memory leaks.
+
+### Filtering
+
+- Use trigger type filtering to ensure hooks only run for relevant functions.
+- Be specific with your filters to optimize performance.
+
 ## Scaling and concurrency
 
-By default, Azure Functions automatically monitors the load on your application and creates more host instances for Node.js as needed. Azure Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. For more information, see [How the Consumption and Premium plans work](event-driven-scaling.md).
+By default, Azure Functions automatically monitors the load on your application and creates more host instances for Node.js as needed. Azure Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for `QueueTrigger`. For more information, see [How the Consumption and Premium plans work](event-driven-scaling.md).
 
 This scaling behavior is sufficient for many Node.js applications. For CPU-bound applications, you can improve performance further by using multiple language worker processes. You can increase the number of worker processes per host from the default of 1 up to a max of 10 by using the [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) application setting. Azure Functions then tries to evenly distribute simultaneous function invocations across these workers. This behavior makes it less likely that a CPU-intensive function blocks other functions from running. The setting applies to each host that Azure Functions creates when scaling out your application to meet demand.
 
 > [!WARNING]
-> Use the `FUNCTIONS_WORKER_PROCESS_COUNT` setting with caution. Multiple processes running in the same instance can lead to unpredictable behavior and increase function load times. If you use this setting, we _highly recommend_ that you offset these downsides by [running from a package file](./run-functions-from-deployment-package.md).
+> Use the `FUNCTIONS_WORKER_PROCESS_COUNT` setting with caution. Multiple processes running in the same instance can lead to unpredictable behavior and increase function load times. If you use this setting, [running from a package file](./run-functions-from-deployment-package.md) can offset these downsides.
 
 ## Node version
 
-You can see the current version that the runtime is using by logging `process.version` from any function. See [`supported versions`](#supported-versions) for a list of Node.js versions supported by each programming model.
+You can see the current version that the runtime is using by logging `process.version` from any function. See [`supported versions`](#programming-model) for a list of Node.js versions supported by each programming model.
 
 ### Setting the Node version
 
 The way that you upgrade your Node.js version depends on the OS on which your function app runs.
 
-# [Windows](#tab/windows)
+#### [Windows](#tab/windows)
 
-When it runs on Windows, the Node.js version is set by the [`WEBSITE_NODE_DEFAULT_VERSION`](./functions-app-settings.md#website_node_default_version) application setting. This setting can be updated either by using the Azure CLI or in the Azure portal.
+When it runs on Windows, set the Node.js version by using the [`WEBSITE_NODE_DEFAULT_VERSION`](./functions-app-settings.md#website_node_default_version) application setting. Update this setting either by using the Azure CLI or in the Azure portal.
 
-# [Linux](#tab/linux)
+#### [Linux](#tab/linux)
 
-When it runs on Linux, the Node.js version is set by the [linuxFxVersion](./functions-app-settings.md#linuxfxversion) site setting. This setting can be updated using the Azure CLI.
+When the function app runs on Linux, the [linuxFxVersion](./functions-app-settings.md#linuxfxversion) site setting determines the Node.js version. You can update this setting by using Azure CLI.
 
 ---
 
-For more information about Node.js versions, see [Supported versions](#supported-versions).
+For more information about Node.js versions, see [Supported versions](#programming-model).
 
 Before upgrading your Node.js version, make sure your function app is running on the latest version of the Azure Functions runtime. If you need to upgrade your runtime version, see [Migrate apps from Azure Functions version 3.x to version 4.x](migrate-version-3-version-4.md?pivots=programming-language-javascript).
 
-# [Azure CLI](#tab/azure-cli/windows)
+#### [Azure CLI](#tab/azure-cli/windows)
 
 Run the Azure CLI [`az functionapp config appsettings set`](/cli/azure/functionapp/config#az-functionapp-config-appsettings-set) command to update the Node.js version for your function app running on Windows:
 
@@ -1777,15 +2348,15 @@ az functionapp config appsettings set  --settings WEBSITE_NODE_DEFAULT_VERSION=~
  --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME>
 ```
 
-This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) the supported LTS version of `~22`.
+This command sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) to the supported LTS version `~22`.
 
-# [Azure portal](#tab/azure-portal/windows)
+#### [Azure portal](#tab/azure-portal/windows)
 
 Use the following steps to change the Node.js version:
 
 [!INCLUDE [functions-set-nodejs-version-portal](../../includes/functions-set-nodejs-version-portal.md)]
 
-# [Azure CLI](#tab/azure-cli/linux)
+#### [Azure CLI](#tab/azure-cli/linux)
 
 Run the Azure CLI [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the Node.js version for your function app running on Linux:
 
@@ -1794,12 +2365,12 @@ az functionapp config set --linux-fx-version "node|22" --name "<FUNCTION_APP_NAM
  --resource-group "<RESOURCE_GROUP_NAME>"
 ```
 
-This sets the base image of the Linux function app to Node.js version 22.
+This command sets the base image of the Linux function app to Node.js version 22.
 
-# [Azure portal](#tab/azure-portal/linux)
+#### [Azure portal](#tab/azure-portal/linux)
 
 > [!NOTE]  
-> You can't change the Node.js version in the Azure portal when your function app is running on Linux in a Consumption plan. Instead use the Azure CLI.
+> You can't change the Node.js version in the Azure portal when your function app runs on Linux in a Consumption plan. Instead, use the Azure CLI.
 
 For Premium and Dedicated plans, use the following steps to change the Node.js version:
 
@@ -1807,19 +2378,19 @@ For Premium and Dedicated plans, use the following steps to change the Node.js v
 
 ---
 
-After changes are made, your function app restarts. To learn more about Functions support for Node.js, see [Language runtime support policy](./language-support-policy.md).
+After you make changes, your function app restarts. To learn more about Functions support for Node.js, see [Language runtime support policy](./language-support-policy.md).
 
 <a name="access-environment-variables-in-code"></a>
 
 ## Environment variables
 
-Environment variables can be useful for operational secrets (connection strings, keys, endpoints, etc.) or environmental settings such as profiling variables. You can add environment variables in both your local and cloud environments and access them through `process.env` in your function code.
+Use environment variables to manage operational secrets, such as connection strings, keys, and endpoints. Also use them for environmental settings, like profiling variables. Add environment variables in both your local and cloud environments, and access them through `process.env` in your function code.
 
 The following example logs the `WEBSITE_SITE_NAME` environment variable:
 
 ::: zone pivot="nodejs-model-v3"
 
-# [JavaScript](#tab/javascript)
+### [JavaScript](#tab/javascript)
 
 ```javascript
 module.exports = async function (context) {
@@ -1827,7 +2398,7 @@ module.exports = async function (context) {
 };
 ```
 
-# [TypeScript](#tab/typescript)
+### [TypeScript](#tab/typescript)
 
 ```typescript
 const httpTrigger: AzureFunction = async function (
@@ -1844,7 +2415,7 @@ const httpTrigger: AzureFunction = async function (
 
 ::: zone pivot="nodejs-model-v4"
 
-# [JavaScript](#tab/javascript)
+### [JavaScript](#tab/javascript)
 
 ```javascript
 async function timerTrigger1(myTimer, context) {
@@ -1852,7 +2423,7 @@ async function timerTrigger1(myTimer, context) {
 }
 ```
 
-# [TypeScript](#tab/typescript)
+### [TypeScript](#tab/typescript)
 
 ```typescript
 async function timerTrigger1(
@@ -1891,31 +2462,31 @@ When you run in Azure, the function app lets you set and use [Application settin
 
 ### Worker environment variables
 
-There are several Functions environment variables specific to Node.js:
+Node.js has several Functions environment variables that are specific to it:
 
-#### languageWorkers**node**arguments
+#### languageWorkers__node__arguments
 
-This setting allows you to specify custom arguments when starting your Node.js process. It's most often used locally to start the worker in debug mode, but can also be used in Azure if you need custom arguments.
+Use this setting to specify custom arguments when starting your Node.js process. Most often, you use it locally to start the worker in debug mode, but you can also use it in Azure if you need custom arguments.
 
 > [!WARNING]
-> If possible, avoid using `languageWorkers__node__arguments` in Azure because it can have a negative effect on cold start times. Rather than using prewarmed workers, the runtime has to start a new worker from scratch with your custom arguments.
+> If possible, avoid using `languageWorkers__node__arguments` in Azure because it can negatively affect cold start times. Rather than using prewarmed workers, the runtime has to start a new worker from scratch by using your custom arguments.
 
 #### logging**logLevel**Worker
 
-This setting adjusts the default log level for Node.js-specific worker logs. By default, only warning or error logs are shown, but you can set it to `information` or `debug` to help diagnose issues with the Node.js worker. For more information, see [configuring log levels](./configure-monitoring.md#configure-log-levels).
+Use this setting to adjust the default log level for Node.js-specific worker logs. By default, only warning or error logs are shown, but you can set it to `information` or `debug` to help diagnose issues with the Node.js worker. For more information, see [configuring log levels](./configure-monitoring.md#configure-log-levels).
 
 ## <a name="ecmascript-modules"></a>ECMAScript modules (preview)
 
 > [!NOTE]
-> As ECMAScript modules are currently a preview feature in Node.js 14 or higher in Azure Functions.
+> ECMAScript modules are currently a preview feature in Node.js 14 or higher in Azure Functions.
 
-[ECMAScript modules](https://nodejs.org/docs/latest-v14.x/api/esm.html#esm_modules_ecmascript_modules) (ES modules) are the new official standard module system for Node.js. So far, the code samples in this article use the CommonJS syntax. When running Azure Functions in Node.js 14 or higher, you can choose to write your functions using ES modules syntax.
+[ECMAScript modules](https://nodejs.org/docs/latest-v14.x/api/esm.html#esm_modules_ecmascript_modules) (ES modules) are the new official standard module system for Node.js. So far, the code samples in this article use the CommonJS syntax. When running Azure Functions in Node.js 14 or higher, you can choose to write your functions by using ES modules syntax.
 
 To use ES modules in a function, change its filename to use a `.mjs` extension. The following _index.mjs_ file example is an HTTP triggered function that uses ES modules syntax to import the `uuid` library and return a value.
 
 ::: zone pivot="nodejs-model-v3"
 
-# [JavaScript](#tab/javascript)
+### [JavaScript](#tab/javascript)
 
 ```javascript
 import { v4 as uuidv4 } from "uuid";
@@ -1927,7 +2498,7 @@ async function httpTrigger1(context, request) {
 export default httpTrigger;
 ```
 
-# [TypeScript](#tab/typescript)
+### [TypeScript](#tab/typescript)
 
 ```typescript
 import { AzureFunction, Context } from "@azure/functions";
@@ -1949,7 +2520,7 @@ export default httpTrigger;
 
 ::: zone pivot="nodejs-model-v4"
 
-# [JavaScript](#tab/javascript)
+### [JavaScript](#tab/javascript)
 
 ```javascript
 import { v4 as uuidv4 } from "uuid";
@@ -1964,7 +2535,7 @@ app.http("httpTrigger1", {
 });
 ```
 
-# [TypeScript](#tab/typescript)
+### [TypeScript](#tab/typescript)
 
 ```typescript
 import {
@@ -1996,13 +2567,13 @@ app.http("httpTrigger1", {
 
 ## Configure function entry point
 
-The `function.json` properties `scriptFile` and `entryPoint` can be used to configure the location and name of your exported function. The `scriptFile` property is required when you're using TypeScript and should point to the compiled JavaScript.
+Use the `function.json` properties `scriptFile` and `entryPoint` to set the location and name of your exported function. When you use TypeScript, you need the `scriptFile` property and it should point to the compiled JavaScript.
 
 ### Using `scriptFile`
 
-By default, a JavaScript function is executed from `index.js`, a file that shares the same parent directory as its corresponding `function.json`.
+By default, a JavaScript function runs from `index.js`. This file shares the same parent directory as the corresponding `function.json` file.
 
-`scriptFile` can be used to get a folder structure that looks like the following example:
+Use `scriptFile` to organize your folder structure. The following example shows one way to set up your folders:
 
 ```text
 <project_root>/
@@ -2015,7 +2586,7 @@ By default, a JavaScript function is executed from `index.js`, a file that share
  | - package.json
 ```
 
-The `function.json` for `myFirstFunction` should include a `scriptFile` property pointing to the file with the exported function to run.
+The `function.json` file for `myFirstFunction` should include a `scriptFile` property that points to the file with the exported function to run.
 
 ```json
 {
@@ -2028,7 +2599,7 @@ The `function.json` for `myFirstFunction` should include a `scriptFile` property
 
 ### Using `entryPoint`
 
-In the v3 model, a function must be exported using `module.exports` in order to be found and run. By default, the function that executes when triggered is the only export from that file, the export named `run`, or the export named `index`. The following example sets `entryPoint` in `function.json` to a custom value, "logHello":
+In the v3 model, you must export a function by using `module.exports` so the function can be found and run. By default, the function that runs when triggered is the only export from that file. It can also be the export named `run` or the export named `index`. The following example sets `entryPoint` in `function.json` to a custom value, "logHello":
 
 ```json
 {
@@ -2039,7 +2610,7 @@ In the v3 model, a function must be exported using `module.exports` in order to 
 }
 ```
 
-# [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
 ```javascript
 async function logHello(context) {
@@ -2049,7 +2620,7 @@ async function logHello(context) {
 module.exports = { logHello };
 ```
 
-# [TypeScript](#tab/typescript)
+#### [TypeScript](#tab/typescript)
 
 ```typescript
 import { AzureFunction, Context } from "@azure/functions";
@@ -2067,61 +2638,95 @@ export default { logHello };
 
 ::: zone-end
 
-## Local debugging
-
-We recommend that you use VS Code for local debugging, which starts your Node.js process in debug mode automatically and attaches to the process for you. For more information, see [run the function locally](./how-to-create-function-vs-code.md?pivot=programming-language-javascript#run-the-function-locally).
-
-If you're using a different tool for debugging or want to start your Node.js process in debug mode manually, add `"languageWorkers__node__arguments": "--inspect"` under `Values` in your [local.settings.json](./functions-develop-local.md#local-settings-file). The `--inspect` argument tells Node.js to listen for a debug client, on port 9229 by default. For more information, see the [Node.js debugging guide](https://nodejs.org/en/learn/getting-started/debugging).
-
 <a name="considerations-for-javascript-functions"></a>
 
 ## Recommendations
 
-This section describes several impactful patterns for Node.js apps that we recommend you follow.
+This section describes several impactful patterns for Node.js apps that you should follow.
 
 ### Choose single-vCPU App Service plans
 
-When you create a function app that uses the App Service plan, we recommend that you select a single-vCPU plan rather than a plan with multiple vCPUs. Today, Functions runs Node.js functions more efficiently on single-vCPU VMs, and using larger VMs doesn't produce the expected performance improvements. When necessary, you can manually scale out by adding more single-vCPU VM instances, or you can enable autoscale. For more information, see [Scale instance count manually or automatically](/azure/azure-monitor/autoscale/autoscale-get-started?toc=/azure/app-service/toc.json).
+When you create a function app that uses the App Service plan, select a single-vCPU plan rather than a plan with multiple vCPUs. Today, Functions runs Node.js functions more efficiently on single-vCPU VMs, and using larger VMs doesn't bring the expected performance improvements. When necessary, you can scale out by adding more single-vCPU VM instances, or you can enable autoscale. For more information, see [Scale instance count manually or automatically](/azure/azure-monitor/autoscale/autoscale-get-started?toc=/azure/app-service/toc.json).
 
 <a name="cold-start"></a>
 
 ### Run from a package file
 
-When you develop Azure Functions in the serverless hosting model, cold starts are a reality. _Cold start_ refers to the first time your function app starts after a period of inactivity, taking longer to start up. For Node.js apps with large dependency trees in particular, cold start can be significant. To speed up the cold start process, [run your functions as a package file](run-functions-from-deployment-package.md) when possible. Many deployment methods use this model by default, but if you're experiencing large cold starts you should check to make sure you're running this way.
+When you develop Azure Functions in the serverless hosting model, cold starts are a reality. _Cold start_ refers to the first time your function app starts after a period of inactivity, taking longer to start up. For Node.js apps with large dependency trees in particular, cold start can be significant. To speed up the cold start process, [run your functions as a package file](run-functions-from-deployment-package.md) when possible. Many deployment methods use this model by default, but if you're experiencing large cold starts, check to make sure you're running this way.
 
 <a name="connection-limits"></a>
 
-### Use a single static client
-
-When you use a service-specific client in an Azure Functions application, don't create a new client with every function invocation because you can hit connection limits. Instead, create a single, static client in the global scope. For more information, see [managing connections in Azure Functions](manage-connections.md).
-
 ### Use `async` and `await`
 
-When writing Azure Functions in Node.js, you should write code using the `async` and `await` keywords. Writing code using `async` and `await` instead of callbacks or `.then` and `.catch` with Promises helps avoid two common problems:
+When writing Azure Functions in Node.js, write code by using the `async` and `await` keywords. Writing code by using `async` and `await` instead of callbacks or `.then` and `.catch` with Promises helps you avoid two common problems:
 
 - Throwing uncaught exceptions that [crash the Node.js process](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), potentially affecting the execution of other functions.
 - Unexpected behavior, such as missing logs from `context.log`, caused by asynchronous calls that aren't properly awaited.
 
 ::: zone pivot="nodejs-model-v4"
 
-In the following example, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues previously mentioned. An exception that isn't explicitly caught in the correct scope can crash the entire process (issue #1). Returning without ensuring the callback finishes means the http response sometimes has an empty body (issue #2).
+In the following example, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues previously mentioned. An exception that isn't explicitly caught in the correct scope can crash the entire process (issue #1). Returning without ensuring the callback finishes means the HTTP response sometimes has an empty body (issue #2).
 
-# [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
+```javascript
+// DO NOT USE THIS CODE
+const { app } = require('@azure/functions');
+const fs = require('fs');
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerBadAsync.js" :::
+app.http('httpTriggerBadAsync', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous',
+    handler: async (request, context) => {
+        let fileData;
+        fs.readFile('./helloWorld.txt', (err, data) => {
+            if (err) {
+                context.error(err);
+                // BUG #1: This will result in an uncaught exception that crashes the entire process
+                throw err;
+            }
+            fileData = data;
+        });
+        // BUG #2: fileData is not guaranteed to be set before the invocation ends
+        return { body: fileData };
+    },
+});
+```
 
-# [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerBadAsync.ts" :::
+#### [TypeScript](#tab/typescript)
+```typescript
+// DO NOT USE THIS CODE
+import { app, HttpRequest, HttpResponseInit, InvocationContext } from '@azure/functions';
+import * as fs from 'fs';
+
+export async function httpTriggerBadAsync(request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> {
+    let fileData: Buffer;
+    fs.readFile('./helloWorld.txt', (err, data) => {
+        if (err) {
+            context.error(err);
+            // BUG #1: This will result in an uncaught exception that crashes the entire process
+            throw err;
+        }
+        fileData = data;
+    });
+    // BUG #2: fileData is not guaranteed to be set before the invocation ends
+    return { body: fileData };
+}
+
+app.http('httpTriggerBadAsync', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous',
+    handler: httpTriggerBadAsync,
+});
+```
 
 ---
-
 ::: zone-end
 ::: zone pivot="nodejs-model-v3"
 
-In the following example, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the issues previously mentioned. An exception that isn't explicitly caught in the correct scope can crash the entire process (issue #1). Calling the deprecated `context.done()` method outside of the scope of the callback can signal the function is finished before the file is read (issue #2). In this example, calling `context.done()` too early results in missing log entries starting with `Data from file:`.
+In the following example, the asynchronous method `fs.readFile` is invoked with an error-first callback function as its second parameter. This code causes both of the previously mentioned problems. An exception that isn't explicitly caught in the correct scope can crash the entire process (problem #1). Calling the deprecated `context.done()` method outside of the scope of the callback can signal the function is finished before the file is read (problem #2). In this example, calling `context.done()` too early results in missing log entries starting with `Data from file:`.
 
-# [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
 ```javascript
 // NOT RECOMMENDED PATTERN
@@ -2142,7 +2747,7 @@ module.exports = function (context) {
 };
 ```
 
-# [TypeScript](#tab/typescript)
+#### [TypeScript](#tab/typescript)
 
 ```typescript
 // NOT RECOMMENDED PATTERN
@@ -2170,28 +2775,70 @@ export default trigger1;
 
 ::: zone-end
 
-Use the `async` and `await` keywords to help avoid both of these issues. Most APIs in the Node.js ecosystem have been converted to support promises in some form. For example, starting in v14, Node.js provides an `fs/promises` API to replace the `fs` callback API.
+Use the `async` and `await` keywords to help avoid both of these problems. Most APIs in the Node.js ecosystem now support promises in some form. For example, starting in version 14, Node.js provides an `fs/promises` API to replace the `fs` callback API.
 
 In the following example, any unhandled exceptions thrown during the function execution only fail the individual invocation that raised the exception. The `await` keyword means that steps following `readFile` only execute after it's complete.
 
 ::: zone pivot="nodejs-model-v4"
 
-# [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
+```javascript
+// Recommended pattern
+const { app } = require('@azure/functions');
+const fs = require('fs/promises');
 
-:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerGoodAsync.js" :::
+app.http('httpTriggerGoodAsync', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous',
+    handler: async (request, context) => {
+        try {
+            const fileData = await fs.readFile('./helloWorld.txt');
+            return { body: fileData };
+        } catch (err) {
+            context.error(err);
+            // This rethrown exception will only fail the individual invocation, instead of crashing the whole process
+            throw err;
+        }
+    },
+});
+```
 
-# [TypeScript](#tab/typescript)
 
-:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerGoodAsync.ts" :::
+#### [TypeScript](#tab/typescript)
+```typescript
+// Recommended pattern
+import { app, HttpRequest, HttpResponseInit, InvocationContext } from '@azure/functions';
+import * as fs from 'fs/promises';
+
+export async function httpTriggerGoodAsync(
+    request: HttpRequest,
+    context: InvocationContext
+): Promise<HttpResponseInit> {
+    try {
+        const fileData = await fs.readFile('./helloWorld.txt');
+        return { body: fileData };
+    } catch (err) {
+        context.error(err);
+        // This rethrown exception will only fail the individual invocation, instead of crashing the whole process
+        throw err;
+    }
+}
+
+app.http('httpTriggerGoodAsync', {
+    methods: ['GET', 'POST'],
+    authLevel: 'anonymous',
+    handler: httpTriggerGoodAsync,
+});
+```
+
 
 ---
 
 ::: zone-end
 ::: zone pivot="nodejs-model-v3"
+When you use `async` and `await`, you don't need to call the `context.done()` callback.
 
-With `async` and `await`, you also don't need to call the `context.done()` callback.
-
-# [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
 ```javascript
 // Recommended pattern
@@ -2210,7 +2857,7 @@ module.exports = async function (context) {
 };
 ```
 
-# [TypeScript](#tab/typescript)
+#### [TypeScript](#tab/typescript)
 
 ```typescript
 // Recommended pattern
@@ -2249,3 +2896,6 @@ For more information, see the following resources:
 - [Best practices for Azure Functions](functions-best-practices.md)
 - [Azure Functions developer reference](functions-reference.md)
 - [Azure Functions triggers and bindings](functions-triggers-bindings.md)
+
+
+

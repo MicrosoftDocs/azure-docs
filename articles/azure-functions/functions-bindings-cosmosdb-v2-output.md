@@ -37,18 +37,22 @@ For information on setup and configuration details, see the [overview](./functio
 
 Unless otherwise noted, examples in this article target version 3.x of the [Azure Cosmos DB extension](functions-bindings-cosmosdb-v2.md). For use with extension version 4.x, you need to replace the string `collection` in property and attribute names with `container` and `connection_string_setting` with `connection`.
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 # [Isolated worker model](#tab/isolated-process)
 
 The following code defines a `MyDocument` type:
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="49-58":::
-
+-->
 In the following example, the return type is an [`IReadOnlyList<T>`](/dotnet/api/system.collections.generic.ireadonlylist-1), which is a modified list of documents from trigger binding parameter:
-
+<!--
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/CosmosDB/CosmosDBFunction.cs" range="4-47":::
-
+-->
 # [In-process model](#tab/in-process)
 
 This section contains the following examples:
@@ -373,13 +377,13 @@ The function creates Azure Cosmos DB documents in the following format for each 
 ```
 
 Here's the TypeScript code:
-
+<!--
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/cosmosOutput1.ts" :::
-
+-->
 To output multiple documents, return an array instead of a single object. For example:
-
+<!--
 :::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/cosmosOutput2.ts" id="displayInDocs" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 TypeScript samples are not documented for model v3.
@@ -413,13 +417,13 @@ The function creates Azure Cosmos DB documents in the following format for each 
 ```
 
 Here's the JavaScript code:
-
+<!--
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/cosmosOutput1.js" :::
-
+-->
 To output multiple documents, return an array instead of a single object. For example:
-
+<!--
 :::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/cosmosOutput2.js" id="displayInDocs" :::
-
+-->
 # [Model v3](#tab/nodejs-v3)
 
 The following example shows an Azure Cosmos DB output binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function uses a queue input binding for a queue that receives JSON in the following format:

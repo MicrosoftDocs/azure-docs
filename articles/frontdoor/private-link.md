@@ -33,6 +33,9 @@ After you enable an origin for Private Link and approve the private endpoint con
 
 Once your request is approved, a dedicated private endpoint gets assigned for routing your traffic from the Azure Front Door managed virtual network. Traffic from your clients reaches Azure Front Door Global POPs and is then routed over the Microsoft backbone network to the Front Door regional cluster, which hosts the managed virtual network containing the dedicated private endpoint. The traffic is then routed to your origin via the private link platform over Microsoft backbone network. Hence the incoming traffic to your origin secured upon the moment it arrives to Azure Front Door. 
 
+> [!NOTE]
+> Azure Front Door doesn't support client/mutual authentication (mTLS) for public origins or private link enabled origins.
+
 ## Supported origins
 
 Origin support for direct private endpoint connectivity is currently limited to the following origin types.
@@ -54,23 +57,23 @@ Origin support for direct private endpoint connectivity is currently limited to 
 
 Azure Front Door private link is available in the following regions:
 
-| Americas | Europe | Africa | Asia Pacific | Middle East |
-|--|--|--|--|--|
-| Brazil South | France Central | South Africa North | Australia East | UAE North (Preview) |
-| Canada Central | Germany West Central | | Central India | |
-| Central US | North Europe | | Japan East | |
-| East US | Norway East | | Korea Central | |
-| East US 2 | UK South | | East Asia | |
-| South Central US | West Europe | | South East Asia | |
-| West US 2 | Sweden Central | | China East 3 | |
-| West US 3 | | | China North 3 | |
-| US Gov Arizona | | | | |
-| US Gov Texas | | | | |
-| US Gov Virginia | | | | |
-| US Nat East | | | | |
-| US Nat West | | | | |
-| US Sec East | | | | |
-| US Sec West | | | | |
+| Americas | Europe | Middle East and Africa | Asia Pacific |
+|--|--|--|--|
+| Brazil South | France Central | South Africa North | Australia East | 
+| Canada Central | Germany West Central | UAE North | Central India |
+| Central US | North Europe | | Japan East |
+| East US | Norway East | | Korea Central |
+| East US 2 | UK South | | East Asia |
+| South Central US | West Europe | | South East Asia |
+| West US 2 | Sweden Central | | China East 3 |
+| West US 3 | | | China North 3 |
+| US Gov Arizona | | | |
+| US Gov Texas | | | |
+| US Gov Virginia | | | |
+| US Nat East | | | |
+| US Nat West | | | |
+| US Sec East | | | |
+| US Sec West | | | |
 
 > [!NOTE]
 > Azure Front Door Private Link is only available in regions with Availability Zone support. This is to ensure zonal resiliency for region based feature like Private link.

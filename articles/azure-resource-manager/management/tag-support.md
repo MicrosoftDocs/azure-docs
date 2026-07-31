@@ -2,7 +2,7 @@
 title: Tag support for resources
 description: Shows which Azure resource types support tags. Provides details for all Azure services.
 ms.topic: article
-ms.date: 02/09/2026
+ms.date: 04/03/2026
 ---
 
 # Tag support for Azure resources
@@ -920,6 +920,24 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | hostSettings | No | No |
 > | languages | No | No |
 > | templates | No | No |
+
+## Microsoft.Cache
+
+> [!div class="mx-tableFixed"]
+> | Resource type | Supports tags | Tag in cost report |
+> | ------------- | ----------- | ----------- |
+> | redis | Yes | Yes |
+> | redis/accessPolicies | No | No |
+> | redis/accessPolicyAssignments | No | No |
+> | redis/firewallRules | No | No |
+> | redis/linkedServers | No | No |
+> | redis/patchSchedules | No | No |
+> | redis/privateEndpointConnections | No | No |
+> | redis/privateLinkResources | No | No |
+> | redisEnterprise | Yes | Yes |
+> | redisEnterprise/databases | No | No |
+> | redisEnterprise/migrations | No | No |
+> | redisEnterprise/privateEndpointConnections | No | No |
 
 ## Microsoft.Capacity
 
@@ -2239,7 +2257,6 @@ To get the same data as a file of comma-separated values, download [tag-support.
 > | services / privateEndpointConnectionProxies | No | No |
 > | services / privateEndpointConnections | No | No |
 > | services / privateLinkResources | No | No |
-> | validateMedtechMappings | No | No |
 > | workspaces | Yes | Yes |
 > | workspaces / analyticsconnectors | Yes | Yes |
 > | workspaces / dicomservices | Yes | Yes |

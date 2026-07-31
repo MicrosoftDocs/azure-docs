@@ -3,11 +3,11 @@ author: msangapu-msft
 ms.service: azure-app-service
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 02/14/2025
+ms.date: 04/20/2026
 ms.author: msangapu
 ---
 
-In this quickstart, you learn how to deploy an ASP.NET app in a Windows image from [Microsoft Artifact Registry](https://mcr.microsoft.com/) to Azure App Service.
+In this quickstart, you learn how to deploy an ASP.NET app in a Windows image from [Microsoft Artifact Registry](https://mcr.microsoft.com) to Azure App Service.
 
 [Azure App Service](../../overview.md) provides predefined application stacks on Windows that run on Internet Information Services (IIS). These preconfigured application stacks [lock down the operating system and prevent low-level access](../../operating-system-functionality.md).
 
@@ -46,16 +46,12 @@ The following example creates an App Service plan named `myAppServicePlan` in th
 az appservice plan create --resource-group myResourceGroup --location eastus --name myAppServicePlan --hyper-v --sku p1v3
 ```
 
-> [!NOTE]
-> If you run into the error "The behavior of this command has been altered by the following extension: appservice-kube", remove the `appservice-kube` extension.
->
-
 ## Create your web app
 
-Create a custom container [web app](../../overview.md) in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp#az-webapp-create) command. Don't forget to replace `myContainerApp` with a unique app name (valid characters are `a-z`, `0-9`, and `-`).
+Create a custom container [web app](../../overview.md) in the `myAppServicePlan` App Service plan with the [`az webapp create`](/cli/azure/webapp#az-webapp-create) command. Replace `<your-container-app>` with a unique app name (valid characters are `a-z`, `0-9`, and `-`).
 
 ```azurecli-interactive
-az webapp create --name myContainerApp --plan myAppServicePlan --resource-group myResourceGroup --deployment-container-image-name mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
+az webapp create --name <your-container-app> --plan myAppServicePlan --resource-group myResourceGroup --deployment-container-image-name mcr.microsoft.com/azure-app-service/windows/parkingpage:latest
 ```
 
 - The `Name` parameter specifies the web app name.
@@ -77,18 +73,18 @@ The App Service app pulls from the container registry each time it starts. If yo
 Remove the resource group by using the [`az group delete`](/cli/azure/group#az-group-delete) command:
 
 ```azurecli-interactive
-az group delete --no-wait --name <resource_group>
+az group delete --no-wait --name myResourceGroup
 ```
 
 ## Related content
 
 - [Configure a custom container](../../configure-custom-container.md)
 - [How to use managed identities for App Service and Azure Functions](../../overview-managed-identity.md)
-- [Application monitoring for Azure App Service overview](/azure/azure-monitor/app/azure-web-apps)
-- [Azure Monitor overview](/azure/azure-monitor/overview)
+- [Monitor Azure App Service](../../monitor-app-service.md)
+- [Azure Monitor overview](/azure/azure-monitor/fundamentals/overview)
 - [Secure with a custom domain and certificate](../../tutorial-secure-domain-certificate.md)
 - [Integrate your app with an Azure virtual network](../../overview-vnet-integration.md)
-- [Use private endpoints for App Service apps](../../networking/private-endpoint.md)
+- [Use private endpoints for App Service apps](../../overview-private-endpoint.md)
 - [Use Azure Container Registry with Azure Private Link](/azure/container-registry/container-registry-private-link)
 - [Migrate to a Windows container in Azure](../../tutorial-custom-container.md)
 - [Deploy a container with Azure Pipelines](../../deploy-container-azure-pipelines.md)

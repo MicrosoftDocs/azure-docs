@@ -30,6 +30,10 @@ For information on setup and configuration details, see the [overview](./functio
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
@@ -505,7 +509,7 @@ The following table explains the binding configuration properties that you set i
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 ::: zone-end  
 
-[!INCLUDE [functions-table-connections](../../includes/functions-table-connections.md)]
+[!INCLUDE [functions-storage-connections](../../includes/functions-storage-connections.md)]
 
 ## Usage
 

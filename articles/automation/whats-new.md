@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 08/12/2025
+ms.date: 07/27/2026
 ms.custom: references_regions
 ms.author: v-rochak2
 author: RochakSingh-blr
@@ -22,6 +22,26 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
+
+## July 2026
+
+### General availability: Azure Automation supports PowerShell 7.6 
+Azure Automation announces General Availability of PowerShell 7.6 in all Public regions. PowerShell 7.1 and 7.2 versions and Python 2.7 and 3.8 versions are announced retired by parent products PowerShell and Python respectively, and hence not recommended. [Learn more](automation-runbook-types.md).
+
+###  Retirement Notice - Support for Python-2.7 & 3.8 and PowerShell- 7.1 & 7.2 will be retired on 30 September 2026. 
+Runtime versions Python 2.7, Python 3.8, and PowerShell 7.1 & 7.2 will no longer be supported by Automation post Sept 30 2026.
+Runbooks using these versions may continue to run but will not receive security updates, bug fixes, or official support. 
+Upgrading is required to maintain support eligibility and ensure continued access to security updates and platform features. [Learn more](automation-runtime-retirement-policy.md)
+
+## March 2026
+
+### Security Update: Azure Automation Windows Hybrid Worker Extension (1.3.74)
+
+Windows Hybrid Worker Extension Version 1.3.74 includes a security improvement that strengthens access controls for communication with Hybrid Instance Metadata Service (HIMDS).
+
+Under specific startup timing conditions, the Windows Hybrid Worker Extension tries to connect to HIMDS before the service is fully initialized. In this narrow window, a local nonprivileged process can impersonate the metadata service endpoint and gain unauthorized read access to protected metadata or configuration information.
+
+This release addresses the issue by adding an extra validation to ensure that it connects only to trusted, system owned metadata endpoints. These changes enhance protection of system metadata and configuration information by ensuring access is limited to trusted system components.
 
 ## August 2025
 
@@ -61,7 +81,7 @@ Starting **April 01, 2025** all jobs running on Agent-based User Hybrid Runbook 
 
 ### General Availability: Azure Automation supports PowerShell 7.2 runbooks in Government clouds
 
-Azure Automation now supports PowerShell 7.2 runbooks in Government clouds.
+Azure Automation now supports PowerShell 7.2 runbooks in Government clouds. [Learn more](./automation-runbook-types.md).
 
 
 ## April 2024
@@ -177,15 +197,6 @@ Set up disaster recovery for your Automation accounts to handle a region-wide or
 Azure Automation now supports [Azure availability zones](/azure/reliability/availability-zones-overview#zonal-and-zone-redundant-services) to provide improved resiliency and reliability by providing high availability to the service, runbooks, and other Automation assets. [Learn more](automation-availability-zones.md).
 
 
-## July 2022
-
-### Support for Run As accounts
-
-**Type:** Plan for change
-
-
-Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities.Before that date, you'll need to start migrating your runbooks to use [managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md?tabs=run-as-account#sample-scripts) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
-
 ## August 2022
 
 ### Azure Automation Hybrid Worker Extension (preview) now supports Arc-enabled VMware VMs
@@ -193,6 +204,16 @@ Azure Automation Run As Account will retire on September 30, 2023 and will be re
 **Type:** Enhancement to an existing feature
 
 In addition to the support for Azure VMs and Arc-enabled Servers, Azure Automation Hybrid Worker Extension (preview) now supports Arc-enabled VMware VMs as a target. You can now orchestrate management tasks using PowerShell and Python runbooks on Azure VMs, Arc-enabled Servers, and Arc-enabled VMware VMs with an identical experience. Read [here](extension-based-hybrid-runbook-worker-install.md) for more information.
+
+
+## July 2022
+
+### Support for Run As accounts
+
+**Type:** Plan for change
+
+
+Azure Automation Run As Account will retire on September 30, 2023 and will be replaced with Managed Identities. Before that date, you'll need to start migrating your runbooks to use [managed identities](./automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](./migrate-run-as-accounts-managed-identity.md?tabs=run-as-account#migrate-from-an-automation-run-as-account-to-a-managed-identity) to start migrating the runbooks from Run As account to managed identities before 30 September 2023.
 
 
 ## March 2022
@@ -239,13 +260,13 @@ New scripts are added to the Azure Automation [GitHub organization](https://gith
 
 **Type:** New feature
 
-Azure Automation now supports Managed Identities in Azure public, Azure Gov, and Microsoft Azure operated by 21Vianet. [System Assigned Managed Identities](./enable-managed-identity-for-automation.md) is supported for cloud as well as hybrid jobs, while  [User Assigned Managed Identities](./automation-security-overview.md) is supported only for cloud jobs. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-managed-identities-ga/) for more information.
+Azure Automation now supports Managed Identities in Azure public, Azure Gov, and Microsoft Azure operated by 21Vianet. [System Assigned Managed Identities](./enable-managed-identity-for-automation.md) is supported for cloud as well as hybrid jobs, while  [User Assigned Managed Identities](./add-user-assigned-identity.md) is supported only for cloud jobs. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-managed-identities-ga/) for more information.
 
 ### Preview support for PowerShell 7.1
 
 **Type:** New feature
 
-Azure Automation support for PowerShell 7.1 runbooks is available as public preview in Azure public, Azure Gov, and  Azure operated by 21Vianet clouds. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-powershell-7/) for more information.
+Azure Automation support for PowerShell 7.1 runbooks is available as public preview in Azure public, Azure Gov, and  Azure operated by 21Vianet clouds. For more information, see [Azure Automation runbook types](./automation-runbook-types.md) and [announcement](https://azure.microsoft.com/updates/azure-automation-powershell-7/).
 
 
 
@@ -255,13 +276,13 @@ Azure Automation support for PowerShell 7.1 runbooks is available as public prev
 
 **Type:** New feature
 
-Azure Automation released native integration of User Hybrid Runbook Worker for Azure VMs, and for non-Azure machines through Arc-enabled servers. Read the [announcement](https://azure.microsoft.com/updates/automation-user-hybrid-extension-support) for more information.
+Azure Automation released native integration of User Hybrid Runbook Worker for Azure VMs, and for non-Azure machines through Arc-enabled servers. For more information, see [Automation Hybrid Runbook Worker overview](./automation-hybrid-runbook-worker.md) and [announcement](https://azure.microsoft.com/updates/automation-user-hybrid-extension-support).
 
 ### Preview support for Azure Active Directory authentication
 
 **Type:** New feature
 
-Azure Automation added a critical security feature with Azure AD authentication support for all Automation service public endpoints. The feature has been implemented through Hybrid Runbook Worker extension support for Azure VMs and Arc-enabled servers.
+Azure Automation added a critical security feature with Azure AD authentication support for all Automation service public endpoints. The feature has been implemented through Hybrid Runbook Worker extension support for Azure VMs and Arc-enabled servers. [Learn more](./automation-security-overview.md)
 
 This removes the dependency on certificates and enables you to meet your stringent audit and compliance requirements by not using local authentication methods. Read the [announcement](https://azure.microsoft.com/updates/automation-user-hybrid-extension-support) for more information.
 
@@ -269,15 +290,15 @@ This removes the dependency on certificates and enables you to meet your stringe
 
 **Type:** New feature
 
-Source control integration in Azure Automation can now use [managed identities](automation-security-overview.md#managed-identities) instead of a Run As account. For more information, see [source control integration prerequisites](source-control-integration.md#prerequisites).
+Source control integration in Azure Automation can now use [managed identities](./automation-security-overview.md#managed-identities) instead of a Run As account. For more information, see [source control integration prerequisites](source-control-integration.md#prerequisites).
 
-## September
+## September 2021
 
 ### Support for Az modules by default
 
 **Type:** New Feature
 
-Azure Automation now supports Az modules by default. New Automation accounts created include the latest version of Az modules - 6.4.0 by default. Automation also includes an option in the Azure portal - **Update Az Modules** enabling you to update Az modules in your existing Automation accounts. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-az-module-support) for more information.
+Azure Automation now supports Az modules by default. New Automation accounts created include the latest version of Az modules - 6.4.0 by default. Automation also includes an option in the Azure portal - [Update Az Modules](./automation-update-azure-modules.md#update-az-modules) enabling you to update Az modules in your existing Automation accounts. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-az-module-support) for more information.
 
 ## August 2021
 
@@ -293,7 +314,7 @@ Customers should evaluate and plan for migration from Azure Automation State Con
 
 **Type:** New feature
 
-Azure Automation now supports [user-assigned Managed Identities](automation-secure-asset-encryption.md) for cloud jobs in Azure global, Azure Government, and  Azure operated by 21Vianet regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-user-assigned-identities/) for more information.
+Azure Automation now supports [user-assigned Managed Identities](./automation-security-overview.md#managed-identities) for cloud jobs in Azure global, Azure Government, and  Azure operated by 21Vianet regions. Read the [announcement](https://azure.microsoft.com/updates/azure-automation-user-assigned-identities/) for more information.
 
 ### General Availability of customer-managed keys for Azure Automation
 
@@ -317,7 +338,7 @@ As a result of this security risk, we recommend you don't use the Log Analytics 
 
 **Type:** New feature
 
-For more information, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/) and select your geography from the drop-down list.
+For regional availability details, see [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/) and select your geography from the drop-down list. [Learn more](./automation-dsc-overview.md). 
 
 ## May 2021
 

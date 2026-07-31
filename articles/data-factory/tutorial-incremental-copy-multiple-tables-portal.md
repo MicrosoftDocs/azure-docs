@@ -1,8 +1,8 @@
 ---
 title: Incrementally copy multiple tables using Azure portal
 description: In this tutorial, you create an Azure data factory with a pipeline that loads delta data from multiple tables in a SQL Server database to a database in Azure SQL Database.
-ms.author: yexu
-author: dearandyxu
+ms.author: makromer
+author: kromerm
 ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-movement
@@ -10,7 +10,9 @@ ms.subservice: data-movement
 
 # Incrementally load data from multiple tables in SQL Server to a database in Azure SQL Database using the Azure portal
 
-[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+**APPLIES TO:** :::image type="icon" source="media/applies-to/yes.png" border="false":::Azure Data Factory :::image type="icon" source="media/applies-to/yes.png" border="false":::Azure Synapse Analytics
+
+[!INCLUDE [copy-job-recommendation](includes/copy-job-recommendation.md)]
 
 In this tutorial, you create an Azure Data Factory with a pipeline that loads delta data from multiple tables in a SQL Server database to a database in Azure SQL Database.    
 

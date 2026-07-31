@@ -11,15 +11,15 @@ ms.date: 08/01/2024
 
 # Terraform/OpenTofu examples for Exadata services
 
-In this article, you learn about how to use HashiCorp Terraform, to provision and manage resources for Oracle Database@Azure using the Terraform tool that enables you to provision and manage infrastructure in Oracle Cloud Infrastructure (OCI).
+In this article, you learn about how to use HashiCorp Terraform, to provision and manage resources for Oracle AI Database@Azure using the Terraform tool that enables you to provision and manage infrastructure in Oracle Cloud Infrastructure (OCI).
 
 For more information on reference implementations for Terraform or OpenTofu modules, sees the following links:
-* [QuickStart Oracle Database@Azure with Terraform or OpenTofu Modules](https://docs.oracle.com/en/learn/dbazure-terraform/index.html)
+* [QuickStart Oracle AI Database@Azure with Terraform or OpenTofu Modules](https://docs.oracle.com/en/learn/dbazure-terraform/index.html)
 * [OCI Landing Zones](https://github.com/oci-landing-zones/)
 * [Azure Verified Modules](https://aka.ms/avm)
 
  >[!NOTE]
- > This document describes examples of provisioning and management of Oracle Database@Azure resources through Terraform provider `AzAPI`. For detailed AzAPI provider resources and data sources documentation, see [https://registry.terraform.io/providers/Azure/azapi/latest/docs](https://registry.terraform.io/providers/Azure/azapi/latest/docs)
+ > This document describes examples of provisioning and management of Oracle AI Database@Azure resources through Terraform provider `AzAPI`. For detailed AzAPI provider resources and data sources documentation, see [https://registry.terraform.io/providers/Azure/azapi/latest/docs](https://registry.terraform.io/providers/Azure/azapi/latest/docs)
 
 The samples use example values for illustration purposes. You must replace them with your own settings.
 The samples use [AzAPI Dynamic Properties](https://techcommunity.microsoft.com/t5/azure-tools-blog/announcing-azapi-dynamic-properties/ba-p/4121855) instead of `JSONEncode` for more native Terraform behavior.
@@ -317,7 +317,7 @@ data "azapi_resource_list" "listDbSystemShapesByLocation" {
 ## Combined Exadata Services
 In this section, you will find examples of how to use the `AzAPI` provider to manage Oracle Exadata services in Azure.
 
-### Create an Oracle Database Home on an Exadata VM Cluster on an Exadata Infrastructure with a Delegated Subnet in Microsoft Azure
+### Create an Oracle AI Database Home on an Exadata VM Cluster on an Exadata Infrastructure with a Delegated Subnet in Microsoft Azure
  >[!NOTE] 
  >The following script creates an Oracle Exadata Infrastructure and an Oracle Exadata VM Cluster using the `AzAPI` Terraform provider followed by creating an Exadata Database deployment using the [OCI Terraform provider](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/database_db_home).
 

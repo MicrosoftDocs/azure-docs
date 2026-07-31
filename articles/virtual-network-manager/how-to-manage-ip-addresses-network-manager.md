@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: how-to
-ms.date: 01/09/2026
+ms.date: 07/29/2026
 ms.custom:
   - references_regions
   - sfi-image-nochange
@@ -30,6 +30,8 @@ Azure Virtual Network Manager allows you to manage IP addresses by creating and 
 ## Create an IP address pool
 
 In this step, you create an IP address pool for your virtual network.
+
+IP address management (IPAM) in Azure Virtual Network Manager is generally available in all regions where Azure Virtual Network Manager is available, except Chile Central, Jio India West, Malaysia West, Qatar Central, South Africa West, and West India. Some IP address management menu items in the Azure portal still carry a **Preview** label.
 
 1. In the Azure portal, search for and select **Network managers**.
 1. Select your network manager instance.
@@ -145,7 +147,7 @@ In this step, you create a virtual network with a nonoverlapping CIDR range by a
     | **Subscription** | Select the subscription managed by a Network Manager management scope. |
     | **Resource group** | Select the resource group for the virtual network. |
     | **Name** | Enter a name for the virtual network. |
-    | **Region** | Select the region for the virtual network. IP address pools must be in the same region as your virtual network in order to be associated.|
+    | **Region** | Select the region for the virtual network.|
  
 1. Select the **IP addresses** tab or **Next** > **Next**.
 1. On the **IP addresses** tab, select **Allocate using IP address pools** checkbox.
@@ -234,7 +236,7 @@ In this step, you create a virtual network with a nonoverlapping CIDR range by u
     | Subscription | Select your subscription. |
     | Resource group | Select the resource group for the virtual network. In this case, the example uses **resource-group**. |
     | **Instance details** |   |
-    | Region | Select the region for the virtual network. IP address pools must be in the same region as your virtual network in order to be associated. |
+    | Region | Select the region for the virtual network. |
     | Virtual network name | Enter a name for the virtual network. The template defaults to **virtual-network**. |
     | Location | Select the location for the virtual network. This value is the same as the region except all lowercase and no spaces.</br>For example, if the region is **(US)westus2**, the location is **westus2**. |
     

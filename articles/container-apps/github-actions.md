@@ -112,7 +112,7 @@ Before you run this command, replace `<YOUR-GITHUB-USERNAME>` with your actual G
     containerAppName: my-container-app
     resourceGroup: my-container-app-rg
     imageToDeploy: ghcr.io/<YOUR-GITHUB-USERNAME>/myimage:latest
-    registryServer: ghcr.io
+    registryUrl: ghcr.io
 ```
 Before deploying, configure your container app to pull from GHCR:
 
@@ -134,7 +134,7 @@ If the image is private, you must provide authentication credentials in your Git
     containerAppName: my-container-app
     resourceGroup: my-container-app-rg
     imageToDeploy: ghcr.io/<YOUR-GITHUB-USERNAME>/myimage:${{ github.sha }}
-    registryServer: ghcr.io
+    registryUrl: ghcr.io
     registryUsername: ${{ secrets.GHCR_USERNAME }}
     registryPassword: ${{ secrets.GHCR_TOKEN }}
 ```

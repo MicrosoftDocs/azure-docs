@@ -3,7 +3,7 @@ title: Integrate Microsoft Defender for Cloud with Azure VMware Solution
 description: Learn how to protect your Azure VMware Solution VMs with Azure's native security tools from the workload protection dashboard.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 2/28/2024
+ms.date: 3/12/2026
 ms.custom: engagement-fy23
 # Customer intent: "As an IT security administrator, I want to integrate security monitoring for Azure VMware Solution with advanced threat detection tools, so that I can proactively assess vulnerabilities and respond to security incidents effectively."
 ---
@@ -24,7 +24,7 @@ The diagram shows the integrated monitoring architecture of integrated security 
 
 :::image type="content" source="media/azure-security-integration/azure-integrated-security-architecture.png" alt-text="Diagram showing the architecture of Azure Integrated Security." border="false":::
 
-**Log Analytics agent** collects log data from Azure, Azure VMware Solution, and on-premises VMs. The log data is sent to Azure Monitor Logs and stored in a **Log Analytics Workspace**. Each workspace has its own data repository and configuration to store data.  Once the logs are collected, **Microsoft Defender for Cloud** assesses the vulnerability status of Azure VMware Solution VMs and raises an alert for any critical vulnerability. Once assessed, Microsoft Defender for Cloud forwards the vulnerability status to Microsoft Sentinel to create an incident and map with other threats.  Microsoft Defender for Cloud is connected to Microsoft Sentinel using Microsoft Defender for Cloud Connector.
+**Log Analytics agent** collects log data from Azure, Azure VMware Solution, and on-premises VMs. The log data is sent to Azure Monitor Logs and stored in a **Log Analytics Workspace**. Each workspace has its own data repository and configuration to store data. Once the logs are collected, **Microsoft Defender for Cloud** assesses the vulnerability status of Azure VMware Solution VMs and raises an alert for any critical vulnerability. Once assessed, Microsoft Defender for Cloud forwards the vulnerability status to Microsoft Sentinel to create an incident and map with other threats. Microsoft Defender for Cloud is connected to Microsoft Sentinel using Microsoft Defender for Cloud Connector.
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ The diagram shows the integrated monitoring architecture of integrated security 
 - [Enable Microsoft Defender for Cloud in your subscription](../security-center/security-center-get-started.md).
 
    >[!NOTE]
-   >Microsoft Defender for Cloud is a pre-configured tool that doesn't require deployment, but you'll need to enable it.
+   >Microsoft Defender for Cloud is a preconfigured tool that doesn't require deployment, but you need to enable it.
 
 - [Enable Microsoft Defender for Cloud](../security-center/enable-azure-defender.md).
 
@@ -131,7 +131,7 @@ After connecting data sources to Microsoft Sentinel, you can create rules to gen
 
 2. Under Configurations, select **Analytics**.
 
-3. Select **+Create** and on the drop-down, select **Scheduled query rule**.
+3. Select **+Create** then, from the drop-down menu, select **Scheduled query rule**.
 
 4. On the **General** tab, enter the required information and then select **Next: Set rule logic**.
 
@@ -160,7 +160,7 @@ After connecting data sources to Microsoft Sentinel, you can create rules to gen
 
 6. On the **Incident settings** tab, enable **Create incidents from alerts triggered by this analytics rule** and select **Next: Automated response**.
  
-    :::image type="content" source="../sentinel/media/create-analytics-rules/general-tab.png" alt-text="Screenshot showing the Analytic rule wizard for creating a new rule in Microsoft Sentinel.":::
+    :::image type="content" source="/azure/sentinel/media/create-analytics-rules/general-tab.png" alt-text="Screenshot showing the Analytic rule wizard for creating a new rule in Microsoft Sentinel.":::
 
 7. Select **Next: Review**.
 
@@ -193,7 +193,7 @@ You can create queries or use the available predefined query in Microsoft Sentin
    >[!TIP]
    >You can also create a new query by selecting **New Query**.
    >
-   >:::image type="content" source="../sentinel/media/hunting/save-query.png" alt-text="Screenshot of Microsoft Sentinel Hunting page with + New Query highlighted.":::
+   >:::image type="content" source="/azure/sentinel/media/hunting/save-query.png" alt-text="Screenshot of Microsoft Sentinel Hunting page with + New Query highlighted.":::
 
 3. Select a query and then select **Run Query**.
 

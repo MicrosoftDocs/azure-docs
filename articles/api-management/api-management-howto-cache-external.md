@@ -2,12 +2,10 @@
 title: Use an external cache in Azure API Management | Microsoft Docs
 description: Learn how to configure and use an external Redis-compatible cache in Azure API Management. Using an external cache gives you more control and flexibility than the built-in cache.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/27/2025
-ms.author: danlep
 ms.custom: sfi-image-nochange
 
 ---
@@ -117,7 +115,7 @@ For a detailed example, see [Add caching to improve performance in Azure API Man
 
 * For more information about caching policies, see [Caching policies][Caching policies] in the [API Management policy reference][API Management policy reference].
 * To cache items by key using policy expressions, see [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
-* Learn how to [enable semantic caching for Azure OpenAI APIs](azure-openai-enable-semantic-caching.md).
+* Learn how to [enable semantic caching for LLM APIs](azure-openai-enable-semantic-caching.md).
 
 [API Management policy reference]: ./api-management-policies.md
 [Caching policies]: ./api-management-policies.md#caching

@@ -1,8 +1,8 @@
 ---
 title: 'Apex domains in Azure Front Door'
 description: Learn about apex domains when using Azure Front Door.
-author: johndowns
-ms.author: jodowns
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 03/31/2024
@@ -16,7 +16,7 @@ Apex domains, also called *root domains*, or *naked domains*, are at the root of
 
 Azure Front Door supports apex domains, but requires special considerations. This article describes how apex domains work in Azure Front Door.
 
-To add a root or apex domain to your Azure Front Door profile, see [Onboard a root or apex domain on your Azure Front Door profile](front-door-how-to-onboard-apex-domain.md).
+To add a root or apex domain to your Azure Front Door profile, see [Onboard a root or apex domain on your Azure Front Door profile](apex-domain-onboard.md).
 
 ## DNS CNAME flattening
 
@@ -57,4 +57,4 @@ Select the **Pending revalidation** link and then select the **Regenerate** butt
 
 ## Next steps
 
-To add a root or apex domain to your Azure Front Door profile, see [Onboard a root or apex domain on your Azure Front Door profile](front-door-how-to-onboard-apex-domain.md).
+To add a root or apex domain to your Azure Front Door profile, see [Onboard a root or apex domain on your Azure Front Door profile](apex-domain-onboard.md).

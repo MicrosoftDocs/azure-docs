@@ -14,6 +14,8 @@ ms.custom:
 
 # Dynamic SQL for dedicated SQL pools in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Included in this article are tips for development solutions using dynamic SQL in dedicated SQL pools.
 
 ## Dynamic SQL example

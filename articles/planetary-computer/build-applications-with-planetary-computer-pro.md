@@ -1,8 +1,8 @@
 ---
 title: Connect and build applications with your data
 description: "Learn how to connect to Microsoft Planetary Computer Pro from the built-in Explorer, desktop GIS applications, or custom applications using REST APIs."
-author: prasadko
-ms.author: prasadkomma
+author: aloverro
+ms.author: adamloverro
 ms.service: planetary-computer-pro
 ms.topic: concept-article #Don't change.
 ms.date: 01/09/2026

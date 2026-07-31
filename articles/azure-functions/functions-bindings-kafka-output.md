@@ -14,6 +14,10 @@ The output binding enables an Azure Functions app to send messages to a Kafka to
 [!INCLUDE [functions-binding-kafka-plan-support-note](../../includes/functions-binding-kafka-plan-support-note.md)]
 
 ## Example
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 How you use the binding depends on the C# modality in your function app. You can use one of the following modalities:

@@ -1,8 +1,8 @@
 ---
 title: Getting Started Guide for Microsoft Planetary Computer Pro
 description: "Get started with Microsoft Planetary Computer Pro: Deploy GeoCatalog, manage geospatial data with STAC collections, ingest assets, and explore datasets via APIs."
-author: prasadko
-ms.author: prasadkomma
+author: norazhan
+ms.author: jiozhan
 ms.service: planetary-computer-pro
 ms.topic: get-started
 ms.date: 01/09/2026

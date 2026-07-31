@@ -4,7 +4,7 @@ description: Learn about the upcoming changes to App Service Managed Certificate
 author: yutanglin16
 ms.author: yutlin
 ms.service: azure-app-service
-ms.topic: conceptual
+ms.topic: whats-new
 ms.date: 07/28/2025
 #customer intent: As an Azure App Service administrator, I want to understand upcoming changes to managed certificates so that I can ensure my applications remain secure and compliant.
 ---

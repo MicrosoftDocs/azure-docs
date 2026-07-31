@@ -5,7 +5,7 @@ services: expressroute
 author: duongau
 ms.service: azure-expressroute
 ms.topic: concept-article
-ms.date: 06/14/2024
+ms.date: 03/12/2026
 ms.author: duau
 ---
 
@@ -17,9 +17,9 @@ Review the [ExpressRoute circuits and routing domains](expressroute-circuit-peer
 
 ## NAT requirements for Microsoft peering
 
-The Microsoft peering path lets you connect to Microsoft cloud services. The list of services includes Microsoft 365 services, such as Exchange Online, SharePoint Online, and Skype for Business. Microsoft expects to support bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must be SNATed to valid public IPv4 addresses before they enter the Microsoft network. Traffic destined to your network from Microsoft cloud services must be SNATed at your Internet edge to prevent [asymmetric routing](expressroute-asymmetric-routing.md). The following figure provides a high-level picture of how the NAT should be set up for Microsoft peering.
+The Microsoft peering path lets you connect to Microsoft cloud services. The list of services includes Microsoft 365 services, such as Exchange Online, SharePoint Online, and Microsoft Teams. Microsoft expects to support bi-directional connectivity on the Microsoft peering. Traffic destined to Microsoft cloud services must be SNATed to valid public IPv4 addresses before they enter the Microsoft network. Traffic destined to your network from Microsoft cloud services must be SNATed at your Internet edge to prevent [asymmetric routing](expressroute-asymmetric-routing.md). The following figure provides a high-level picture of how the NAT should be set up for Microsoft peering.
 
-![High-level diagram of how the NAT should be set up for Microsoft peering.](./media/expressroute-nat/expressroute-nat-microsoft.png) 
+:::image type="content" source="./media/expressroute-nat/expressroute-nat-microsoft.png" alt-text="High-level diagram of how the NAT should be set up for Microsoft peering.":::
 
 ### Traffic originating from your network destined to Microsoft
 
@@ -35,7 +35,7 @@ The Microsoft peering path lets you connect to Microsoft cloud services. The lis
 * Certain scenarios require Microsoft to initiate connectivity to service endpoints hosted within your network. A typical example of the scenario would be connectivity to ADFS servers hosted in your network from Microsoft 365. In such cases, you must leak appropriate prefixes from your network into the Microsoft peering. 
 * You must SNAT Microsoft traffic at the Internet edge for service endpoints within your network to prevent [asymmetric routing](expressroute-asymmetric-routing.md). Requests **and replies** with a destination IP that match a route received from ExpressRoute always go through ExpressRoute. Asymmetric routing exists if the request is received via the Internet with the reply sent via ExpressRoute. SNATing the incoming Microsoft traffic at the Internet edge forces reply traffic back to the Internet edge, resolving the problem.
 
-![Asymmetric routing with ExpressRoute](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
+:::image type="content" source="./media/expressroute-asymmetric-routing/AsymmetricRouting2.png" alt-text="Diagram showing asymmetric routing with ExpressRoute.":::
 
 ### NAT IP pool and route advertisements
 

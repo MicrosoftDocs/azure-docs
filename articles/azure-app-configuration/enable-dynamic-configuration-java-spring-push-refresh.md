@@ -163,7 +163,7 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export APP_CONFIGURATION_ENDPOINT='<endpoint-of-your-app-configuration-store>'
+    export APP_CONFIGURATION_ENDPOINT='<AppConfigurationEndpoint>'
     ```
 
     ### [Connection string](#tab/connection-string)
@@ -184,7 +184,7 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
     If you use macOS or Linux, run the following command:
 
     ```bash
-    export APP_CONFIGURATION_CONNECTION_STRING='<connection-string-of-your-app-configuration-store>'
+    export APP_CONFIGURATION_CONNECTION_STRING='<AppConfigurationConnectionString>'
     ```
     ---
 
@@ -248,7 +248,7 @@ Event Grid Web Hooks require validation on creation. You can validate by followi
    curl -X GET https://my-azure-webapp.azurewebsites.net
    ```
 
-1. Open the **Azure Portal** and navigate to your App Configuration resource associated with your application. Select **Configuration Explorer** under **Operations** and update the values of the following keys:
+1. Open the **Azure portal** and navigate to your App Configuration resource associated with your application. Select **Configuration Explorer** under **Operations** and update the values of the following keys:
 
     | Key | Value |
     |---|---|

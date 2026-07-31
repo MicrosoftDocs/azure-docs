@@ -2,7 +2,7 @@
 title: Restore Azure Data Lake Storage using Azure Portal
 description: Learn how to restore Azure Data Lake Storage backups using Azure portal.
 ms.topic: how-to
-ms.date: 04/16/2025
+ms.date: 11/19/2025
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As a cloud administrator, I want to restore backups for Azure Data Lake Storage using the Azure portal, so that I can effectively recover lost or corrupted data while ensuring compliance with storage management practices."

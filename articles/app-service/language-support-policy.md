@@ -87,6 +87,7 @@ Microsoft and [`Adoptium`](https://adoptium.net/) Open JDK builds are provided a
 | Java 11                 | Alpine 3.16\* | Microsoft OpenJDK 11 (`MUSL`)    |
 | Java 17                 | Ubuntu        | Microsoft OpenJDK 17           |
 | Java 21                 | Ubuntu        | Microsoft OpenJDK 21           |
+| Java 25                 | Ubuntu        | Microsoft OpenJDK 25           |
 | Tomcat 8.5 Java 8       | Alpine 3.16\* | [`Adoptium`](https://adoptium.net/) Temurin 8 (`MUSL`) |
 | Tomcat 8.5 Java 11      | Alpine 3.16\* | Microsoft OpenJDK 11 (`MUSL`)    |
 | Tomcat 9.0 Java 8       | Alpine 3.16\* | [`Adoptium`](https://adoptium.net/) Temurin 8 (`MUSL`) |
@@ -119,15 +120,13 @@ Microsoft and [`Adoptium`](https://adoptium.net/) Open JDK builds are provided a
 
 # [Windows](#tab/windows)
 
->[!NOTE]
->Java 25 isn't yet natively available as a selectable runtime on Azure App Service for Windows. If you require Java 25 right away, you can deploy your app using a custom Windows container with the Microsoft OpenJDK 25.
-
 | Java stack name  | Windows version | Java distribution |
 | -------------------- | ------------------- | --------------------- |
 | Java SE, Java 8      | Windows Server 2022 | [`Adoptium`](https://adoptium.net/) Temurin 8    |
 | Java SE, Java 11     | Windows Server 2022 | Microsoft OpenJDK 11       |
 | Java SE, Java 17     | Windows Server 2022 | Microsoft OpenJDK 17       |
 | Java SE, Java 21     | Windows Server 2022 | Microsoft OpenJDK 21       |
+| Java SE, Java 25     | Windows Server 2022 | Microsoft OpenJDK 25       |
 | Tomcat 8.5, Java 8   | Windows Server 2022 | [`Adoptium`](https://adoptium.net/) Temurin 8    |
 | Tomcat 8.5, Java 11  | Windows Server 2022 | Microsoft OpenJDK 11       |
 | Tomcat 9.0, Java 8   | Windows Server 2022 | [`Adoptium`](https://adoptium.net/) Temurin 8    |

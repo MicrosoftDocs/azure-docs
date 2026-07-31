@@ -4,7 +4,7 @@ titleSuffix: Azure AD B2C
 description: Provide sign-up and sign-in to customers with PingOne accounts in your applications using Azure Active Directory B2C.
 author: garrodonnell
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 12/2/2021
 ms.author: godonnell

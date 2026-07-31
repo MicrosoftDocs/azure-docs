@@ -5,7 +5,7 @@ description: This article has information to help you migrate from the Consumpti
 author: vikramdesai01
 ms.author: vikdesai
 ms.date: 06/26/2025
-ms.topic: conceptual
+ms.topic: upgrade-and-migration-article
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: vikdesai

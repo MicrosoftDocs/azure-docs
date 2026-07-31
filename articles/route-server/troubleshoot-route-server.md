@@ -86,6 +86,10 @@ In this example, 10.0.1.1 is the default gateway IP in the subnet where your NVA
 
 When you deploy a Route Server to a virtual network, we need to update the control plane between the gateways and the virtual network. During this update, there's a period of time when the VMs in the virtual network lose connectivity to the on-premises network. We strongly recommend that you schedule maintenance to deploy a Route Server in your production environment.  
 
+### Why do I face connectivity issues when assigning a Standard v2 Public IP for my Route Server deployment?
+
+Azure Route Server requires Standard SKU Public IP addresses. Standard v2 SKU Public IPs are not supported.
+
 ## Control plane issues
 
 ### Why does my on-premises network connected to Azure VPN gateway not receive the default route advertised by the Route Server?

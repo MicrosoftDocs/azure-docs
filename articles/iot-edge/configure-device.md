@@ -3,7 +3,7 @@ title: Configure Azure IoT Edge device settings
 description: This article shows you how to configure Azure IoT Edge device settings and options using the config.toml file.
 author: sethmanheim
 ms.author: sethm
-ms.date: 05/14/2025
+ms.date: 07/16/2026
 ms.topic: how-to
 ms.service: azure-iot-edge
 services: iot-edge
@@ -26,7 +26,7 @@ The **hostname**, **parent_hostname**, **trust_bundle_cert**, **allow_elevated_d
 
 ### Hostname
 
-To enable gateway discovery, every IoT Edge gateway (parent) device needs to specify a hostname parameter that its child devices use to find it on the local network. The *edgeHub* module also uses the hostname parameter to match with its server certificate. For more information, see [Why does EdgeGateway need to be told about its own hostname?](iot-edge-certs.md#why-does-edgegateway-need-to-be-told-about-its-own-hostname)
+To enable gateway discovery, every IoT Edge gateway (parent) device needs to specify a hostname parameter that its child devices use to find it on the local network. The *edgeHub* module also uses the hostname parameter to match with its server certificate. For more information, see [Why does EdgeGateway need to be told about its own hostname?](iot-edge-certs.md#why-does-edgegateway-need-to-know-its-own-hostname)
 
 > [!NOTE]
 > When the hostname value isn't set, IoT Edge attempts to find it automatically. However, clients in the network might not be able to discover the device if it isn't set.
@@ -341,7 +341,7 @@ type = "docker"
 imagePullPolicy = "..."   # "on-create" or "never". Defaults to "on-create"
 
 [agent.config]
-image = "mcr.microsoft.com/azureiotedge-agent:1.5"
+image = "mcr.microsoft.com/azureiotedge-agent:1.6"
 createOptions = { HostConfig = { Binds = ["/iotedge/storage:/iotedge/storage"] } }
 
 [agent.config.auth]

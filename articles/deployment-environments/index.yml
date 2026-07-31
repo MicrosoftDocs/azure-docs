@@ -14,7 +14,7 @@ metadata:
 
   ms.author: rosemalcolm
   author: RoseHJM
-  ms.date: 03/31/2025
+  ms.date: 05/19/2026
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -25,6 +25,8 @@ landingContent:
         links:
           - text: What is Azure Deployment Environments?
             url: overview-what-is-azure-deployment-environments.md
+          - text: Maintenance mode for Azure Deployment Environments
+            url: maintenance-mode.md
           - text: Key concepts
             url: concept-environments-key-concepts.md
             

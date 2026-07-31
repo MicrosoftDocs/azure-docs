@@ -2,11 +2,10 @@
 title: Connect Azure AI Multi-Service Resource with Azure Services
 titleSuffix: Service Connector
 description: Learn how to integrate an Azure AI multi-service resource into your application with Service Connector by using supported authentication methods and clients.
-author: wchigit
-ms.author: wchi
+ms.reviewer: wchi
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 02/04/2026
+ms.date: 06/17/2026
 ms.update-cycle: 180-days
 ms.collection: ce-skilling-ai-copilot
 #customer intent: As a cloud developer, I want to connect my compute services to an Azure AI multi-service resource using Service Connector.
@@ -21,7 +20,6 @@ In this article, we cover the supported authentication methods and clients that 
 Service Connector can be used to connect the following compute services to an Azure AI multi-service resource:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps
@@ -101,6 +99,6 @@ To connect to an Azure AI multi-service resource using a service principal, refe
 
 ## Related content
 
-- [Connect to Azure AI services](./how-to-integrate-ai-services.md)
+- [Connect to Foundry Tools](./how-to-integrate-ai-services.md)
 - [Connect to Azure OpenAI](./how-to-integrate-openai.md)
 - [Connect to Azure OpenAI in AKS](./tutorial-python-aks-openai-workload-identity.md)

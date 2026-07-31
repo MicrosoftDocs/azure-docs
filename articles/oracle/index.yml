@@ -33,13 +33,13 @@ landingContent:
             url: /azure/virtual-machines/workloads/oracle/  
    
   #card 3
-  - title: Oracle Database@Azure
+  - title: Oracle AI Database@Azure
     linkLists:
       - linkListType: reference
         links:
-          - text: Oracle Database@Azure
+          - text: Oracle AI Database@Azure
             url: oracle-db/database-overview.md
-          - text: Onboard with Oracle Database@Azure
+          - text: Onboard with Oracle AI Database@Azure
             url: oracle-db/onboard-oracle-database.md
           - text: Region availability
             url: oracle-db/oracle-database-regions.md
@@ -47,7 +47,7 @@ landingContent:
             url: oracle-db/oracle-database-network-plan.md
           - text: Known issues
             url: oracle-db/oracle-database-known-issues.md
-          - text: Manage access to Oracle Database@Azure 
+          - text: Manage access to Oracle AI Database@Azure 
             url: https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaagroupsroles.htm
           - text: Plan IP address space 
             url: https://docs.oracle.com/en-us/iaas/Content/database-at-azure/oaa_ip.htm

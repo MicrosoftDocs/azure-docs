@@ -203,7 +203,7 @@ const appConfig = await load(endpoint, credential, {
 
 ## Configuration refresh
 
-Dynamic refresh for the configurations lets you pull their latest values from the App Configuration store without having to restart the application. You can set `AzureAppConfigurationOptions.refreshOptions` to enable the refresh and configure refresh options. The loaded configuration will be updated when any change of selected key-values is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refreshIntervalInMs` property.
+The provider can be configured to pull the latest settings from the App Configuration store without having to restart the application. You can set `AzureAppConfigurationOptions.refreshOptions` to enable the refresh and configure refresh options. The loaded configuration will be updated when any change of selected key-values is detected on the server. By default, a refresh interval of 30 seconds is used, but you can override it with the `refreshIntervalInMs` property.
 
 ```typescript
 const appConfig = await load(endpoint, credential, {
@@ -421,6 +421,9 @@ const appConfig = await load(endpoint, credential, {
 ### Key Vault secret refresh
 
 Azure App Configuration enables you to configure secret refresh intervals independently of your configuration refresh cycle. This is crucial for security because while the Key Vault reference URI in App Configuration remains unchanged, the underlying secret in Key Vault might be rotated as part of your security practices.
+
+> [!NOTE] 
+> Secret refresh uses a minimum interval of **one minute**. This prevents excessive secret reloads which may induce Key Vault throttling.
 
 To ensure your application always uses the most current secret values, configure the `secretRefreshIntervalInMs` property in `KeyVaultOptions`. This forces the provider to retrieve fresh secret values from Key Vault when:
 

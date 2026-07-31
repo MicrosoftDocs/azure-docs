@@ -2,12 +2,12 @@
 title: Connector overview 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn the supported connectors in Azure Data Factory and Azure Synapse Analytics pipelines.
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: concept-article
 ms.date: 09/30/2025
-ms.author: jianleishen
+ms.author: tinglee
 ---
 
 # Azure Data Factory and Azure Synapse Analytics connector overview

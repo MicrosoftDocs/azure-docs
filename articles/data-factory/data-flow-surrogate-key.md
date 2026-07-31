@@ -8,7 +8,7 @@ ms.reviewer: daperlov
 ms.subservice: data-flows
 ms.topic: concept-article
 ms.custom: synapse
-ms.date: 05/15/2024
+ms.date: 04/27/2026
 ---
 
 # Surrogate key transformation in mapping data flow 
@@ -16,6 +16,9 @@ ms.date: 05/15/2024
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
+
+> [!TIP]
+>  For the equivalent transformation (**Index column**) in Dataflow Gen2, see [A guide to Dataflow Gen2 for mapping data flow users](/fabric/data-factory/guide-to-dataflows-for-mapping-data-flow-users).
 
 Use the surrogate key transformation to add an incrementing key value to each row of data. This is useful when designing dimension tables in a star schema analytical data model. In a star schema, each member in your dimension tables requires a unique key that is a non-business key.
 
@@ -25,11 +28,11 @@ Use the surrogate key transformation to add an incrementing key value to each ro
 
 **Key column:** The name of the generated surrogate key column.
 
-**Start value:** The lowest key value that will be generated.
+**Start value:** The lowest key value that is generated.
 
 ## Increment keys from existing sources
 
-To start your sequence from a value that exists in a source, we recommend to use a cache sink to save that value and use a derived column transformation to add the two values together. Use a cached lookup to get the output and append it to the generated key. For more information, learn about [cache sinks](data-flow-sink.md#cache-sink) and [cached lookups](concepts-data-flow-expression-builder.md#cached-lookup).
+To start your sequence from a value that exists in a source, we recommend using a cache sink to save that value and use a derived column transformation to add the two values together. Use a cached lookup to get the output and append it to the generated key. For more information, learn about [cache sinks](data-flow-sink.md#cache-sink) and [cached lookups](concepts-data-flow-expression-builder.md#cached-lookup).
 
 :::image type="content" source="media/data-flow/cached-lookup-example.png" alt-text="Surrogate Key lookup":::
 
@@ -49,7 +52,7 @@ If your previous max value is in a file, use the `max()` function in the aggrega
 
 :::image type="content" source="media/data-flow/surrogate-key-max-file.png" alt-text="Surrogate Key File":::
 
-In both cases, you will need to write to a cache sink and lookup the value. 
+In both cases, you'll need to write to a cache sink and lookup the value. 
 
 
 ## Data flow script

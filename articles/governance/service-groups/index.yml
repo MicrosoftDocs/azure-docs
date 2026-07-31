@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Service Groups documentation
-summary: Azure Service Groups.
+summary: Organize and manage resources across subscriptions with flexible, custom groupings using Azure Service Groups.
 
 metadata:
   title: Azure Service Groups documentation
-  description: Azure Service Groups documentation.
+  description: Learn how to create flexible resource groupings across subscriptions using Azure Service Groups. Build custom views for teams, projects, and workloads with minimal permissions.
   ms.service: azure-policy
   ms.topic: landing-page
   author: kenieva
@@ -20,13 +20,19 @@ landingContent:
         links:
           - text: What are Azure Service Groups?
             url: ./overview.md
-      - linkListType: how-to-guide 
+      - linkListType: quickstart
         links:
+          - text: Create a service group in the Azure portal
+            url: ./create-service-group-portal.md
           - text: Create a service group with REST API
             url: ./create-service-group-rest-api.md
-          - text: Create a service group in Azure portal
-            url: ./create-service-group-portal.md
-          - text: Connect Service Group members using the REST API
+          - text: Add members in the Azure portal
+            url: ./create-service-group-member-portal.md
+          - text: Add members with REST API
             url: ./create-service-group-member-rest-api.md
-          - text: How to use Service Groups to manage resources
+      - linkListType: how-to-guide
+        links:
+          - text: Manage Service Groups and members
             url: ./manage-service-groups.md
+          - text: Manage membership at scale
+            url: ./manage-membership.md

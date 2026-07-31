@@ -2,12 +2,12 @@
 title: Prepare generalized image from ISO to deploy VMs on Azure Stack Edge Pro GPU
 description: Describes how to create a generalized Windows VM image starting from an ISO. Use this generalized image to deploy virtual machines on your Azure Stack Edge Pro GPU device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: how-to
 ms.date: 06/12/2025
-ms.author: alkohli
+ms.author: sipastak
 #Customer intent: As an IT admin, I need to be able to quickly deploy new Windows virtual machines on my Azure Stack Edge Pro GPU device, and I want to use an ISO image for OS installation.
 ---
 

@@ -3,9 +3,9 @@ title: Use the Execute SSIS Package activity from the portal
 description: This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Execute SSIS Package activity and the Azure Data Factory Studio portal.
 ms.subservice: integration-services
 ms.devlang: powershell
-ms.topic: conceptual
-ms.author: chugu
-author: chugugrace
+ms.topic: how-to
+ms.author: makromer
+author: kromerm
 ms.date: 05/15/2024
 ms.custom:
   - sfi-image-nochange

@@ -1,12 +1,11 @@
 ---
 title: Azure Firewall policy rule sets
 description: Azure Firewall policy has a hierarchy of rule collection groups, rule collections, and rules.
-services: firewall
 author: duongau
+ms.author: duau
 ms.service: azure-firewall
 ms.topic: concept-article
-ms.date: 03/17/2025
-ms.author: duau
+ms.date: 03/28/2026
 # Customer intent: As a network security administrator, I want to organize and manage firewall policies with rule sets, so that I can efficiently filter and control network traffic based on specific security requirements.
 ---
 
@@ -14,11 +13,11 @@ ms.author: duau
 
 Firewall Policy is a top-level resource that contains security and operational settings for Azure Firewall. It allows you to manage rule sets that Azure Firewall uses to filter traffic. Firewall Policy organizes, prioritizes, and processes rule sets based on a hierarchy with the following components: rule collection groups, rule collections, and rules.
 
-:::image type="content" source="media/policy-rule-sets/policy-rule-sets.png" alt-text="Azure Policy rule set hierarchy":::
+:::image type="content" source="media/policy-rule-sets/policy-rule-sets.png" lightbox="media/policy-rule-sets/policy-rule-sets.png" alt-text="Diagram showing the Azure Firewall policy rule set hierarchy.":::
 
 ## Rule collection groups
 
-A rule collection group is used to group rule collections. It is the first unit processed by the firewall and follows a priority order based on values. There are three default rule collection groups with preset priority values, processed in the following order:
+Use a rule collection group to group rule collections. It's the first unit processed by the firewall and follows a priority order based on values. Three default rule collection groups exist with preset priority values. The firewall processes them in the following order:
 
 | Rule collection group name | Priority |
 |----------------------------|----------|
@@ -26,7 +25,7 @@ A rule collection group is used to group rule collections. It is the first unit 
 | Default Network rule collection group | 200 |
 | Default Application rule collection group | 300 |
 
-Although you cannot delete the default rule collection groups or modify their priority values, you can change the processing order by creating custom rule collection groups with your desired priority values. In this case, you would not use the default rule collection groups and instead use only the custom ones to define the processing logic.
+Although you can't delete the default rule collection groups or modify their priority values, you can change the processing order by creating custom rule collection groups with your desired priority values. In this case, don't use the default rule collection groups. Instead, use only the custom ones to define the processing logic.
 
 Rule collection groups contain one or multiple rule collections, which can be of type DNAT, network, or application. For example, you can group rules belonging to the same workloads or a virtual network in a rule collection group.
 
@@ -35,7 +34,7 @@ For rule collection group size limits, see [Azure subscription and service limit
 
 ## Rule collections
 
-A rule collection belongs to a rule collection group and contains one or more rules. It is the second unit processed by the firewall and follows a priority order based on values. Each rule collection must have a defined action (allow or deny) and a priority value. The action applies to all rules within the collection, and the priority value determines the order in which the rule collections are processed.
+A rule collection belongs to a rule collection group and contains one or more rules. It's the second unit processed by the firewall and follows a priority order based on values. Each rule collection must have a defined action (allow or deny) and a priority value. The action applies to all rules within the collection, and the priority value determines the order in which the rule collections are processed.
 
 There are three types of rule collections:
 
@@ -47,15 +46,15 @@ The rule types must match their parent rule collection category. For example, a 
 
 ## Rules
 
-A rule belongs to a rule collection and specifies which traffic is allowed or denied in your network. It is the third unit processed by the firewall and does not follow a priority order based on values. The firewall processes rules in a top-down approach, evaluating all traffic against the defined rules to determine if it matches an allow or deny condition. If no rule allows the traffic, it is denied by default.
+A rule belongs to a rule collection and specifies which traffic is allowed or denied in your network. It's the third unit processed by the firewall and does not follow a priority order based on values. The firewall processes rules in a top-down approach, evaluating all traffic against the defined rules to determine if it matches an allow or deny condition. If no rule allows the traffic, it's denied by default.
 
-Our built-in [infrastructure rule collection](infrastructure-fqdns.md) processes traffic for application rules before denying it by default.
+The built-in [infrastructure rule collection](rule-processing.md#infrastructure-rule-collection) processes traffic for application rules before denying it by default.
 
-### Inbound vs. outbound
+### Inbound versus outbound
 
-An **inbound** firewall rule protects your network from threats originating outside your network (traffic sourced from the Internet) attempting to infiltrate inwardly.
+An **inbound** firewall rule protects your network from threats originating outside your network (traffic sourced from the Internet) attempting to infiltrate inward.
 
-An **outbound** firewall rule protects against malicious traffic originating internally (traffic sourced from a private IP address within Azure) and traveling outwardly. This typically involves traffic from within Azure resources being redirected via the Firewall before reaching a destination.
+An **outbound** firewall rule protects against malicious traffic originating internally (traffic sourced from a private IP address within Azure) and traveling outward. This protection typically involves traffic from within Azure resources being redirected through the firewall before reaching a destination.
 
 ### Rule types
 

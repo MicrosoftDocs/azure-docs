@@ -6,7 +6,7 @@ services: virtual-network
 author: asudbring
 ms.service: azure-virtual-network
 ms.topic: concept-article
-ms.date: 10/30/2024
+ms.date: 03/31/2026
 ms.author: allensu
 ms.custom: sfi-image-nochange
 # Customer intent: "As a network engineer, I want to configure and customize traffic routing in an Azure virtual network, so that I can optimize connectivity between my virtual and on-premises resources."
@@ -34,6 +34,10 @@ Each route includes an address prefix and next hop type. Azure uses the route wi
 |Default|172.16.0.0/12                                           |None           |
 |Default|192.168.0.0/16                                          |None           |
 |Default|100.64.0.0/10                                           |None           |
+|Default|157.59.0.0/16                                           |None           |
+|Default|127.0.0.0/8                                             |None           |
+|Default|104.147.0.0/16                                          |None           |
+|Default|104.146.0.0/17                                          |None           |
 
 The next hop types listed in the previous table represent how Azure routes traffic destined for the address prefix listed. Here are explanations for the next hop types:
 
@@ -44,7 +48,7 @@ The next hop types listed in the previous table represent how Azure routes traff
     * **10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16**: Reserved for private use in RFC 1918.
     * **100.64.0.0/10**: Reserved in RFC 6598.
 
-    If you assign any of the previous address ranges within the address space of a virtual network, Azure automatically changes the next hop type for the route from **None** to **Virtual network**. If you assign an address range to the address space of a virtual network that includes, but isn't the same as, one of the four reserved address prefixes, Azure removes the route for the prefix and adds a route for the address prefix you added, with **Virtual network** as the next hop type.
+    If you assign any of the previous address ranges within the address space of a virtual network, Azure automatically changes the next hop type for the route from **None** to **Virtual network**. If you assign an address range to the address space of a virtual network that includes, but isn't the same as, one of the four reserved address prefixes, Azure removes the route for the prefix and adds a route for the address prefix you added, with **Virtual network** as the next hop type. Default Route (0.0.0.0/0) with Next Hop Type = Virtual Network Gateway will cause these Default System Routes with Next Hop Type = None to be removed. 
 
 ### Optional default routes
 
@@ -58,6 +62,9 @@ Azure creates more default system routes for different Azure capabilities, but o
 
 * **Virtual network peering**: When you create a virtual network peering between two virtual networks, the system adds a route for each address range within the address space of each virtual network involved in the peering. Learn more about [virtual network peering](virtual-network-peering-overview.md).
 * **Virtual network gateway**: One or more routes with **Virtual network gateway** listed as the next hop type are added when a virtual network gateway is added to a virtual network. The source is also **Virtual network gateway** because the gateway adds the routes to the subnet. If your on-premises network gateway exchanges BGP routes with a virtual network gateway, the system adds a route for each route. These routes are propagated from the on-premises network gateway. We recommend that you summarize on-premises routes to the largest address range possible so that you propagate the fewest number of routes to an Azure virtual network gateway. There are limits to the number of routes you can propagate to an Azure virtual network gateway. For more information, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-networking-limits).
+
+    > [!TIP]
+    > For routes advertised from Azure to on-premises, you can reduce the number of prefixes advertised by configuring advertised gateway prefixes on the gateway virtual network using the `summarizedGatewayPrefixes` property. When populated, Azure VPN Gateway and ExpressRoute Gateway advertise the summarized prefixes you provide instead of advertising the hub's address space and covered spoke address spaces. For more information, see [Advertised gateway prefixes overview](advertised-gateway-prefixes-overview.md).
 * `VirtualNetworkServiceEndpoint`: Azure includes public IP addresses of certain services to the route table when you enable a service endpoint. Azure includes these routes only to subnets with service endpoints enabled. Azure automatically updates these addresses in the route table when service IP addresses change. Learn more about [virtual network service endpoints](virtual-network-service-endpoints-overview.md) and supported services.
     > [!NOTE]
     > The **Virtual network peering** and `VirtualNetworkServiceEndpoint` next hop types are added only to route tables of subnets within virtual networks created through the Azure Resource Manager deployment model. The next hop types aren't added to route tables that are associated to virtual network subnets created through the classic deployment model. Learn more about Azure [deployment models](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

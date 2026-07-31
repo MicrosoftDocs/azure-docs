@@ -6,13 +6,15 @@ ms.author: ajagadish
 ms.date: 08/07/2024
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - devx-track-azurepowershell
   - sfi-image-nochange
 ---
 
 # Optimize performance by upgrading dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Upgrade your dedicated SQL pool (formerly SQL DW) to the latest generation of Azure hardware and storage architecture.
 

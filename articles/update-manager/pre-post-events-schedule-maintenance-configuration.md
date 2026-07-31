@@ -8,6 +8,7 @@ author: habibaum
 ms.author: v-uhabiba
 zone_pivot_groups: create-pre-post-events-maintenance-configuration
 ms.custom: sfi-image-nochange
+ms.update-cycle: 1095-days
 # Customer intent: As an IT administrator, I want to create pre and post maintenance events in the update management system, so that I can execute specific actions before and after scheduled maintenance windows efficiently.
 ---
 

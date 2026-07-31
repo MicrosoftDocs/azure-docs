@@ -2,7 +2,7 @@
 title: Create a simplified node communication pool without public IP addresses
 description: Learn how to create an Azure Batch simplified node communication pool without public IP addresses.
 ms.topic: how-to
-ms.date: 01/12/2026
+ms.date: 04/21/2026
 ms.custom: references_regions, devx-track-arm-template, linux-related-content
 # Customer intent: "As a cloud architect, I want to create a Batch pool without public IP addresses so that I can enhance security and reduce the discoverability of compute nodes while managing compute resources efficiently."
 ---
@@ -44,10 +44,15 @@ To restrict access to these nodes and reduce the discoverability of these nodes 
 
   - Use [**nodeManagement private endpoint**](private-connectivity.md) with Batch accounts, which provides private access to Batch node management service from the virtual network. This solution is the preferred method.
 
-  - Alternatively, provide your own internet outbound access support (see [Outbound access to the internet](#outbound-access-to-the-internet)).
+  - Alternatively, provide your own internet outbound access support (see [Outbound access to the internet](#outbound-access-to-the-internet)). This option is only viable when the Batch account has `publicNetworkAccess` set to **Enabled**. If the account has public network access disabled, you **must** use a **nodeManagement** private endpoint.
 
 > [!IMPORTANT]
-> There are two sub-resources for private endpoints with Batch accounts. Please use the **nodeManagement** private endpoint for the Batch pool without public IP addresses. For more details please check [Use private endpoints with Azure Batch accounts](private-connectivity.md).
+> The **nodeManagement** private endpoint is required in these scenarios:
+>
+> - The pool has **no public IP addresses** (regardless of account public network access setting).
+> - The Batch account has `publicNetworkAccess` set to **Disabled** (regardless of whether the pool has public IPs).
+>
+> There are two sub-resources for private endpoints with Batch accounts. Use the **nodeManagement** private endpoint for Batch node management connectivity. For more details, see [Use private endpoints with Azure Batch accounts](private-connectivity.md).
 
 ## Current limitations
 

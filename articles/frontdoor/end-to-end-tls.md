@@ -97,7 +97,7 @@ If you choose to use your own certificate, you can onboard a certificate from a 
 
 ### Certificate autorotation
 
-For the Azure Front Door Standard/Premium managed certificate option, the certificates are managed and auto-rotates within 45 days of expiry time by Azure Front Door. For the Azure Front Door Classic and Azure CDN Classic managed certificate option, the certificates are managed and auto-rotates within 90 days of expiry time by Azure Front Door.  If you're using classic SKUs managed certificate and see that the certificate expiry date is less than 60 days away or 30 days for the Standard/Premium SKU, file a support ticket. 
+For the Azure Front Door Standard/Premium managed certificate option, Azure Front Door manages the certificates and automatically rotates them within 45 days of expiry. For the Azure Front Door Classic and Azure CDN Classic managed certificate option, Azure Front Door manages the certificates and automatically rotates them within 90 days of expiry. If you're using classic tiers managed certificate and see that the certificate expiry date is less than 60 days away or 30 days for the Standard/Premium tier, file a support ticket. 
 
 > [!IMPORTANT]
 > - For Azure Front Door Classic and Azure CDN Classic, managed certificates will no longer be supported starting August 15, 2025. To avoid service disruption, either switch to **Bring Your Own Certificate (BYOC)** or migrate to Azure Front Door Standard/Premium before this date. Existing managed certificates will continue to autorenew until August 15, 2025, and remain valid until April 14, 2026. However, it's highly recommended to switch to **BYOC** or migrate to Front Door Standard/Premium before August 15, 2025, to avoid unexpected certificate revocation.
@@ -124,12 +124,10 @@ For TLS 1.2/1.3, the following cipher suites are supported:
 - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384 
-- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
 
 > [!NOTE]
 > Older TLS versions and weak ciphers are no longer supported.
-> Support for DHE cipher suites will end on April 1, 2026. See [documentation](diffie-hellman-ciphers.md) for more details.
+> Support for DHE cipher suites retired on April 1, 2026. See [documentation](diffie-hellman-ciphers.md) for more details.
 
 Use *TLS policy* to configure specific cipher suites. Azure Front Door Standard and Premium offer two mechanisms for controlling TLS policy: you can use either a predefined policy or a custom policy per your own needs. For more information, see [Configure TLS policy on a Front Door custom domain](standard-premium/tls-policy-configure.md).
 

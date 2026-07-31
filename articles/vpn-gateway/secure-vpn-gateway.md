@@ -1,10 +1,10 @@
 ---
 title: Secure your VPN Gateway deployment
 description: Learn how to secure VPN Gateway, with best practices for network security, identity management, data protection, and threat detection.
-author: cherylmc
-ms.author: cherylmc
+author: duongau
+ms.author: duau
 ms.service: azure-vpn-gateway
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ai-usage: ai-assisted
 ms.date: 09/08/2025

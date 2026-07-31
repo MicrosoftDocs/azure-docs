@@ -25,7 +25,15 @@ This table applies to both the Azure Resource Manager and classic deployment mod
 | **ErGwScale (per scale unit 1-10)** | 1,000 per scale unit | 100,000 per scale unit | 2,000 per scale unit | 100,000 per scale unit | 9,500 total per gateway
 | **ErGwScale (per scale unit 11-40)** | 1,000 per scale unit | 200,000 per scale unit | 1,000 per scale unit | 100,000 per scale unit | 9,500 total per gateway
 
-<sup>1</sup> The values in the table are estimates and vary depending on the CPU utilization of the gateway. If the CPU utilization is high and the number of supported VMs is exceeded, the gateway will start to drop packets.
+<sup>1</sup> "Supported number of VMs in the virtual network" refers to the count of resources that communicate through the gateway. This includes:
+
+- Virtual Machines in the hub virtual network
+- Virtual Machines in peered spoke virtual networks (Hub-Spoke topology)
+- Private Endpoints
+- Network Virtual Appliances (such as Application Gateway, Azure Firewall)
+- Backend instances of PaaS services deployed in virtual networks (such as SQL Managed Instance, App Service Environment, Azure API Management in VNet mode)
+
+The values in the table are estimates and vary depending on the CPU utilization of the gateway. If the CPU utilization is high and the number of supported VMs is exceeded, the gateway will start to drop packets.
 > [!NOTE]
 > ExpressRoute can facilitate up to 11,000 routes that span virtual network address spaces, on-premises networks, and any relevant virtual network peering connections. To ensure stability of your ExpressRoute connection, refrain from advertising more than 11,000 routes to ExpressRoute. The maximum number of routes advertised by gateway is 1,000 routes.
 

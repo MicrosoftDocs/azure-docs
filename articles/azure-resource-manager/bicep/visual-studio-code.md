@@ -2,7 +2,7 @@
 title: Create Bicep files with Visual Studio Code
 description: Learn how to use Visual Studio Code to create Bicep files.
 ms.topic: how-to
-ms.date: 02/04/2026
+ms.date: 05/27/2026
 ms.custom: devx-track-bicep
 ---
 
@@ -57,7 +57,7 @@ The `build` command converts a Bicep file to a JSON ARM template. The new templa
 
 ### Build Parameters File command
 
-The `build-params` command also converts a [Bicep parameters file](./parameter-files.md#parameters-file) to a [JSON parameters file](../templates/parameter-files.md#parameter-file). The new parameters file is stored in the same folder with the same file name. If a file with the same file name exists, it overwrites the old file. See [build-params](./bicep-cli.md#build-params) for an example.
+The `build-params` command also converts a [Bicep parameters file](./parameter-files.md) to a [JSON parameters file](../templates/parameter-files.md#parameter-file). The new parameters file is stored in the same folder with the same file name. If a file with the same file name exists, it overwrites the old file. See [build-params](./bicep-cli.md#build-params) for an example.
 
 ### Create Bicep Configuration File command
 
@@ -208,7 +208,7 @@ See [Deployment Pane](./deploy-visual-studio-code.md#deployment-pane) for more i
 The Bicep MCP (Model Context Protocol) server provides AI agents with tools to help generate high-quality Bicep code. The Bicep MCP server is automatically included with the Bicep Visual Studio Code extension version 0.40.2. To set up your environment for Bicep development using the Bicep MCP server in Visual Studio Code, see [Install Bicep tools](./install.md).
 
 > [!NOTE]
-> The Bicep MCP server doesn't appear under `MCP SERVERS` in the extension view, because it is automatically included with the Bicep VSCode extension.
+> The Bicep MCP server doesn't appear under `MCP SERVERS` in the extension view, because it is automatically included with the Bicep Visual Studio Code extension.
 
 For general information about using MCP servers in Visual Studio Code, see [Use MCP servers in VS Code](https://code.visualstudio.com/docs/copilot/customization/mcp-servers).
 

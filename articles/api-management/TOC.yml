@@ -68,42 +68,68 @@
   expanded: true
 - name: Manage AI models, tools, and agents
   items:
-  - name: AI Gateway overview
+  - name: V1 and V2 tiers
     items:
-    - name: AI Gateway capabilities
-      href: genai-gateway-capabilities.md
-  - name: Manage LLM APIs
+    - name: AI Gateway overview
+      items:
+      - name: AI Gateway capabilities
+        href: genai-gateway-capabilities.md
+    - name: Manage LLM APIs
+      items:
+      - name: Create a unified model API
+        href: unified-model-api.md
+      - name: Import Microsoft Foundry API
+        href: azure-ai-foundry-api.md
+      - name: Import Azure OpenAI API
+        href: azure-openai-api-from-specification.md
+      - name: Import language model API
+        href: openai-compatible-llm-api.md
+      - name: Import Google Gemini API
+        href: openai-compatible-google-gemini-api.md
+      - name: Import Amazon Bedrock API
+        href: amazon-bedrock-passthrough-llm-api.md
+      - name: Authenticate and authorize to LLM APIs
+        href: api-management-authenticate-authorize-ai-apis.md
+      - name: Log LLM tokens, requests, and responses
+        href: api-management-howto-llm-logs.md
+      - name: Semantic caching for LLM API requests
+        href: azure-openai-enable-semantic-caching.md
+    - name: Manage MCP servers and tools
+      items:
+      - name: Model Context Protocol (MCP) server capabilities
+        href: mcp-server-overview.md
+      - name: Expose REST API as MCP server
+        href: export-rest-mcp-server.md
+      - name: Expose existing MCP server
+        href: expose-existing-mcp-server.md
+      - name: Create and manage MCP servers programmatically
+        href: manage-mcp-servers-rest-api.md
+      - name: Govern MCP servers with products
+        href: govern-mcp-server-products.md
+      - name: Secure access to MCP servers
+        href: secure-mcp-servers.md
+      - name: Roll out MCP servers using versions
+        href: mcp-server-versions.md
+      - name: Monitor MCP server traffic
+        href: monitor-mcp-servers.md
+    - name: Manage agent APIs
+      items:
+      - name: Import agent-to-agent (A2A) API
+        href: agent-to-agent-api.md
+  - name: AI Gateway tier
     items:
-    - name: Import Microsoft Foundry API
-      href: azure-ai-foundry-api.md
-    - name: Import Azure OpenAI API
-      href: azure-openai-api-from-specification.md
-    - name: Import language model API
-      href: openai-compatible-llm-api.md
-    - name: Import Google Gemini API
-      href: openai-compatible-google-gemini-api.md
-    - name: Import Amazon Bedrock API
-      href: amazon-bedrock-passthrough-llm-api.md
-    - name: Authenticate and authorize to LLM APIs
-      href: api-management-authenticate-authorize-ai-apis.md
-  - name: AI tools and agent integrations
-    items:
-    - name: Model Context Protocol (MCP) server capabilities
-      href: mcp-server-overview.md
-    - name: Expose REST API as MCP server
-      href: export-rest-mcp-server.md
-    - name: Expose existing MCP server
-      href: expose-existing-mcp-server.md
-    - name: Secure access to MCP servers
-      href: secure-mcp-servers.md
-    - name: Import agent-to-agent (A2A) API
-      href: agent-to-agent-api.md
-  - name: Logging, metrics, and semantic caching
-    items:
-    - name: Log LLM tokens, requests, and responses
-      href: api-management-howto-llm-logs.md
-    - name: Semantic caching for LLM API requests
-      href: azure-openai-enable-semantic-caching.md
+    - name: Overview
+      href: ai-gateway-overview.md
+    - name: Create an instance
+      href: quickstart-ai-gateway-create.md
+    - name: Set up your gateway
+      href: ai-gateway-setup.md
+    - name: Manage models and tools
+      href: ai-gateway-manage-models-tools.md
+    - name: Govern, secure, and operate
+      href: ai-gateway-govern-secure-assets.md
+    - name: Configure private networking
+      href: ai-gateway-configure-private-networking.md
 - name: Create and import APIs
   items:
   - name: Add an API manually
@@ -118,7 +144,7 @@
       href: import-container-app-with-oas.md
     - name: Import a Function App web API
       href: import-function-app-as-api.md
-    - name: Import a Logic App
+    - name: Import a Logic App web API
       href: import-logic-app-as-api.md
     - name: Import a WebSocket API
       href: websocket-api.md
@@ -338,7 +364,7 @@
       href: credentials-configure-common-providers.md
     - name: Configure credential manager - Microsoft Graph API
       href: credentials-how-to-azure-ad.md
-    - name: Configure credential manager - GitHub
+    - name: Configure credential manager - GitHub API
       href: credentials-how-to-github.md
     - name: Configure credential manager - user-delegated permissions
       href: credentials-how-to-user-delegated.md
@@ -465,8 +491,6 @@
       href: developer-portal-basic-authentication.md
     - name: Authenticate with Microsoft Entra ID
       href: api-management-howto-aad.md
-    - name: Authenticate with Microsoft Entra External ID
-      href: api-management-howto-entra-external-id.md
     - name: Authenticate with Azure AD B2C
       href: api-management-howto-aad-b2c.md
     - name: Delegate authentication
@@ -670,14 +694,6 @@
         href: trace-policy.md
     - name: AI-related policies
       items:
-      - name: azure-openai-emit-token-metric
-        href: azure-openai-emit-token-metric-policy.md
-      - name: azure-openai-semantic-cache-lookup
-        href: azure-openai-semantic-cache-lookup-policy.md
-      - name: azure-openai-semantic-cache-store
-        href: azure-openai-semantic-cache-store-policy.md
-      - name: azure-openai-token-limit
-        href: azure-openai-token-limit-policy.md
       - name: llm-content-safety
         href: llm-content-safety-policy.md
       - name: llm-emit-token-metric
@@ -747,7 +763,7 @@
       href: breaking-changes/git-configuration-retirement-march-2025.md
     - name: Direct management API retirement (March 2025)
       href: breaking-changes/direct-management-api-retirement-march-2025.md
-    - name: Managed certificates suspension (August 2025 - March 2026)
+    - name: Managed certificates suspension (August 2025 - June 2026)
       href: breaking-changes/managed-certificates-suspension-august-2025.md
     - name: ADAL-based identity provider retirement (September 2025)
       href: breaking-changes/identity-provider-adal-retirement-sep-2025.md

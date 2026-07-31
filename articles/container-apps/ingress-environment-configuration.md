@@ -4,7 +4,7 @@ description: Learn how to configure ingress in an Azure Container Apps environme
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 05/12/2025
 ms.author: cshoe
 ms.custom:

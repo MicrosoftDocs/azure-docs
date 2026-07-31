@@ -1,10 +1,8 @@
 ---
-author: xfz11
 description: Code example
 ms.service: service-connector
 ms.topic: include
-ms.date: 07/23/2025
-ms.author: xiaofanzhou
+ms.date: 06/18/2026
 ---
 
 #### [.NET](#tab/dotnet)
@@ -62,4 +60,4 @@ Follow the instructions at [Connect to Azure Managed Redis](https://redis.io/doc
 
 ### [Other](#tab/other)
 
-For other languages, you can use the Azure Identity client library (and connection information that Service Connector sets to the environment variables) to connect to Azure Cache for Redis.
+For other languages, you can use the Azure Identity client library (and connection information that Service Connector sets to the environment variables) to connect to Azure Managed Redis.

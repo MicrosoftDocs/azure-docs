@@ -1,9 +1,8 @@
 ---
-author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 07/28/2025
-ms.author: wchi
+ms.date: 06/17/2026
+ms.reviewer: wchi
 ---
 
 You can use the Azure client library to access various cognitive APIs that an Azure AI multi-service resource supports. This sample uses Azure AI Text Analytics as an example. To call the cognitive APIs directly, see [Authenticate with Microsoft Entra ID](/azure/ai-services/authentication#authenticate-with-azure-active-directory).
@@ -17,7 +16,7 @@ You can use the Azure client library to access various cognitive APIs that an Az
     dotnet add package Azure.Identity
     ```
 
-1. Authenticate using Azure Identity library and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. When you use the following code, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using the Azure Identity library and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. In the code below, uncomment the section for your authentication type.
     
     ```csharp
     using Azure.AI.TextAnalytics;
@@ -64,7 +63,7 @@ You can use the Azure client library to access various cognitive APIs that an Az
     </dependency>
     ```
 
-1. Authenticate using `azure-identity` and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. When you use the following code, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `azure-identity` and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. In the code below, uncomment the section for your authentication type.
 
     ```java
     // Uncomment the following lines corresponding to the authentication type you want to use.
@@ -100,7 +99,7 @@ You can use the Azure client library to access various cognitive APIs that an Az
     pip install azure-identity
     ```
 
-1. Authenticate using `azure-identity` and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. When you use the following code, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `azure-identity` and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. In the code below, uncomment the section for your authentication type.
 
     ```python
     import os
@@ -127,7 +126,7 @@ You can use the Azure client library to access various cognitive APIs that an Az
       credential=cred)
     ```
 
-### [NodeJS](#tab/nodejs)
+### [Node.js](#tab/nodejs)
 
 1. Install the following dependencies. This example uses`ai-text-analytics`.
 
@@ -136,7 +135,7 @@ You can use the Azure client library to access various cognitive APIs that an Az
     npm install @azure/identity
     ```
 
-1. Authenticate using `@azure/identity` and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. When you use the following code, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `@azure/identity` and get the Azure AI multi-service resource endpoint from the environment variables added by Service Connector. In the code below, uncomment the section for your authentication type.
     
     ```javascript
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";

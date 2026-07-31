@@ -11,6 +11,8 @@ ms.topic: best-practice
 
 # Data Warehouse Units (DWUs) for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 This document contains recommendations on choosing the ideal number of data warehouse units (DWUs) for dedicated SQL pool (formerly SQL DW) to optimize price and performance, and how to change the number of units.
 
 ## What are Data Warehouse Units

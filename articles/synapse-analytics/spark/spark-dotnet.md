@@ -4,7 +4,7 @@ description: Learn about using .NET and Apache Spark to do batch processing, rea
 author: juluczni
 ms.author: juluczni
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: spark
 ms.custom: devx-track-dotnet
 ms.date: 05/01/2020

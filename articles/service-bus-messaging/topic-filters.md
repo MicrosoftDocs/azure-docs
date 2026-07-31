@@ -2,8 +2,8 @@
 title: Azure Service Bus Topic Filters Overview
 description: This article explains how subscribers can define which messages they want to receive from a topic by specifying filters.
 #customer intent: As a developer, I want to understand how to use SQL filters in Azure Service Bus so that I can filter messages based on specific conditions.
-ms.topic: conceptual
-ms.date: 02/10/2026
+ms.topic: how-to
+ms.date: 03/10/2026
 ms.custom: sfi-ropc-nochange
 ---
 
@@ -36,6 +36,28 @@ A **SqlFilter** holds a SQL-like conditional expression that the broker evaluate
 
 Here's a .NET example for defining a SQL filter:
 
+#### [Passwordless](#tab/passwordless)
+
+```csharp
+adminClient = new ServiceBusAdministrationClient(fullyQualifiedNamespace, new DefaultAzureCredential());    
+
+// Create a SQL filter with color set to blue and quantity to 10
+await adminClient.CreateSubscriptionAsync(
+		new CreateSubscriptionOptions(topicName, "ColorBlueSize10Orders"), 
+		new CreateRuleOptions("BlueSize10Orders", new SqlRuleFilter("color='blue' AND quantity=10")));
+
+// Create a SQL filter with color set to red
+// Action is defined to set the quantity to half if the color is red
+await adminClient.CreateRuleAsync(topicName, "ColorRed", new CreateRuleOptions 
+{ 
+	Name = "RedOrdersWithAction",
+	Filter = new SqlRuleFilter("user.color='red'"),
+	Action = new SqlRuleAction("SET quantity = quantity / 2;")
+}
+```
+
+#### [Connection String](#tab/connection-string)
+
 ```csharp
 adminClient = new ServiceBusAdministrationClient(connectionString);    
 
@@ -53,6 +75,8 @@ await adminClient.CreateRuleAsync(topicName, "ColorRed", new CreateRuleOptions
 	Action = new SqlRuleAction("SET quantity = quantity / 2;")
 }
 ```
+
+---
 ### Boolean filters
 The **TrueFilter** and **FalseFilter** work as boolean filters. The **TrueFilter** selects all arriving messages for the subscription, and the **FalseFilter** selects none of the arriving messages. These two filters derive from the SQL filter.  
 
@@ -110,6 +134,23 @@ By using SQL filter conditions, you can define an action that annotates the mess
 
 Here's a .NET example that creates a SQL rule with an action to update the quantity when the color is Red. 
 
+#### [Passwordless](#tab/passwordless)
+
+```csharp
+adminClient = new ServiceBusAdministrationClient(fullyQualifiedNamespace, new DefaultAzureCredential());    
+
+// Create a SQL filter with color set to red
+// Action is defined to set the quantity to half if the color is red
+await adminClient.CreateRuleAsync(topicName, "ColorRed", new CreateRuleOptions 
+{ 
+	Name = "RedOrdersWithAction",
+	Filter = new SqlRuleFilter("user.color='red'"),
+	Action = new SqlRuleAction("SET quantity = quantity / 2;")
+}
+```
+
+#### [Connection String](#tab/connection-string)
+
 ```csharp
 adminClient = new ServiceBusAdministrationClient(connectionString);    
 
@@ -122,6 +163,8 @@ await adminClient.CreateRuleAsync(topicName, "ColorRed", new CreateRuleOptions
 	Action = new SqlRuleAction("SET quantity = quantity / 2;")
 }
 ```
+
+---
 
 > [!IMPORTANT]
 > When you update system properties through rule actions, you might change the expected behavior. Some properties are only evaluated when a message is received in a queue or a topic. Therefore, when you update these properties in a rule action and then deliver them in a subscription, they're ignored. Although when autoforwarding to another queue or topic, they're reevaluated. 

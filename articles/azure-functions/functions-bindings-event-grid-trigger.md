@@ -333,6 +333,38 @@ def main(event: func.EventGridEvent):
 
 ---
 ::: zone-end  
+::: zone pivot="programming-language-go"
+
+The following example shows an Event Grid trigger function that logs incoming events:
+
+```go
+package main
+
+import (
+	"context"
+	"log"
+
+	"github.com/azure/azure-functions-golang-worker/sdk"
+	"github.com/azure/azure-functions-golang-worker/sdk/bindings"
+	"github.com/azure/azure-functions-golang-worker/worker"
+)
+
+func main() {
+	app := sdk.FunctionApp()
+	app.EventGrid("eventGridTrigger", processEvent)
+	worker.Start(app)
+}
+
+func processEvent(ctx context.Context, event bindings.EventGridEvent) error {
+	log.Printf("Event Grid trigger processed an event:")
+	log.Printf("  Subject: %s", event.Subject)
+	log.Printf("  Event Type: %s", event.EventType)
+	log.Printf("  Data: %v", event.Data)
+	return nil
+}
+```
+
+::: zone-end  
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 

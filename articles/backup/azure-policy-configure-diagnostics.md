@@ -2,7 +2,7 @@
 title: Configure Vault Diagnostics settings at scale
 description: Configure Log Analytics Diagnostics settings for all vaults in a given scope using Azure Policy
 ms.topic: how-to
-ms.date: 07/14/2025
+ms.date: 03/18/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: As a cloud administrator, I want to apply diagnostics settings to all Recovery Services vaults at once using policy enforcement, so that I can streamline monitoring and reporting without manually configuring each vault.
@@ -29,15 +29,15 @@ Before you begin, ensure that you understand the following supported and unsuppo
 
 To assign the policy for vaults in the required scope, follow the steps below:
 
-1. Sign in to the Azure portal and navigate to the **Backup center** dashboard.
-2. Select **Azure policies for backup** in the left menu to get a list of all built-in policies across Azure Resources.
-3. Locate the policy named **Deploy Diagnostic Settings for Recovery Services Vault to Log Analytics workspace for resource-specific categories**.
+1. Sign in to the [Azure portal](https://portal.azure.com/), and go to the **Resiliency** dashboard.
+2. On the left menu, select **Azure Policies for protection** to get a list of all built-in policies across Azure Resources.
+3. On the **Azure Policies for protection** pane, locate the policy named **Deploy Diagnostic Settings for Recovery Services Vault to Log Analytics workspace for resource-specific categories**.
 
-    ![Policy Definition pane](./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png)
+    :::image type="content" source="./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png" alt-text="Screenshot that shows the Policy Definition pane." lightbox="./media/backup-azure-policy-configure-diagnostics/policy-definition-blade.png":::
 
 4. Select the name of the policy. You'll be redirected to the detailed definition for this policy.
 
-    ![Detailed Policy Definition](./media/backup-azure-policy-configure-diagnostics/detailed-policy-definition.png)
+    :::image type="content" source="./media/backup-azure-policy-configure-diagnostics/detailed-policy-definition.png" alt-text="Screenshot that shows the detailed Policy Definition." lightbox="./media/backup-azure-policy-configure-diagnostics/detailed-policy-definition.png":::
 
 5. Select the **Assign** button at the top of the pane. This redirects you to the **Assign Policy** pane.
 

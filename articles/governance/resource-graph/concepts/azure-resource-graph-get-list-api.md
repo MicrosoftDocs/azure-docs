@@ -225,7 +225,7 @@ internal class ArgGetListHttpPipelinePolicy : HttpPipelineSynchronousPolicy
     There are a few ways that you can identify when a request the ARG GET/LIST:  
     - In the response body, the `apiVersion` field of resources will be populated, if served by ARG GET/LIST.  
     - ARG GET/LIST/ARG returns some more response headers, some of which are:   
-        - x-ms-arg-snapshot  
+        - x-ms-arg-snapshot-timestamp  
         - x-ms-user-quota-remaining  
         - x-ms-user-quota-resets-after  
         - x-ms-resource-graph-request-duration  

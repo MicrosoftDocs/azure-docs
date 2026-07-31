@@ -6,6 +6,7 @@ ms.date: 02/18/2025
 ms.topic: how-to
 author: habibaum
 ms.author: v-uhabiba
+ms.update-cycle: 1095-days
 ms.custom:
   - build-2025
   - sfi-image-nochange

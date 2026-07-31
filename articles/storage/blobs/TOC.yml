@@ -78,13 +78,8 @@ items:
                 href: ../common/storage-account-get-info.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
               - name: Relocate a storage account to another region
                 href: ../../azure-resource-manager/management/relocation/relocation-storage-account.md?toc=/azure/storage/blobs/toc.json
-          - name: Classic storage account retirement
-            href: ../common/classic-account-migration-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-            items:
-              - name: Understand the migration process for classic accounts
-                href: ../common/classic-account-migration-process.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
-              - name: Migrate a classic storage account to Resource Manager
-                href: ../common/classic-account-migrate.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: AzureDnsZone endpoints requirement FAQ
+            href: ../common/azurednszone-endpoints-retirement-faq.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Data Lake Storage
             items:
               - name: Plan to upgrade an account
@@ -129,6 +124,8 @@ items:
                 href: ../common/storage-migration-execution.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Tape migration overview
             href: ../common/tape-migration-guide.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Azure Storage Mover
+            href: ../../storage-mover/index.yml
           - name: AzCopy
             items:
               - name: Get started
@@ -232,6 +229,8 @@ items:
                 href: secure-file-transfer-protocol-support-how-to.md
               - name: Authorize access
                 href: secure-file-transfer-protocol-support-authorize-access.md
+              - name: Authorize access with Microsoft Entra ID
+                href: secure-file-transfer-protocol-support-entra-id-based-access.md
               - name: Connect from an SFTP client
                 href: secure-file-transfer-protocol-support-connect.md
               - name: Performance considerations
@@ -292,6 +291,8 @@ items:
                 href: lifecycle-management-policy-monitor.md
               - name: Performance characteristics
                 href: lifecycle-management-performance-characteristics.md
+          - name: Azure Storage Actions
+            href: ../../storage-actions/storage-tasks/index.yml
           - name: Full text search
             href: /azure/search/search-blob-storage-integration?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Static websites
@@ -347,6 +348,8 @@ items:
                             href: ../common/customer-managed-keys-configure-cross-tenant-new-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
                           - name: Configure customer-managed keys for an existing account
                             href: ../common/customer-managed-keys-configure-cross-tenant-existing-account.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+                      - name: Encryption account changes involving CMK
+                        href: ../common/encryption-account-changes-with-cmk.md
                   - name: Configure customer-managed keys in a managed HSM
                     href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
               - name: Customer-provided keys
@@ -569,6 +572,8 @@ items:
             href: storage-performance-checklist.md
           - name: Optimize data partitions
             href: storage-performance-blob-partitions.md
+          - name: Mitigate hot partitions
+            href: storage-performance-mitigate-hot-partitions.md
           - name: Latency in Blob storage
             href: storage-blobs-latency.md
           - name: Performance and scale targets
@@ -630,6 +635,8 @@ items:
                 items:
                   - name: Best practices
                     href: access-tiers-best-practices.md
+                  - name: Cost optimization comparison
+                    href: blob-cost-optimization-services.md
                   - name: Smart tiering
                     href: access-tiers-smart.md
                   - name: Change a blob's access tier
@@ -652,6 +659,8 @@ items:
             href: monitor-blob-storage.md
           - name: Best practices for monitoring
             href: blob-storage-monitoring-scenarios.md
+          - name: Advanced platform metrics
+            href: blob-storage-advanced-platform-metrics.md
           - name: Use Storage insights
             href: ../common/storage-insights-overview.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Transition from classic metrics
@@ -1410,6 +1419,8 @@ items:
                 href: ../common/storage-solution-small-dataset-low-moderate-network.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
               - name: Periodic data transfer
                 href: ../common/storage-solution-periodic-data-transfer.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Azure Storage Mover
+            href: ../../storage-mover/index.yml
           - name: AzCopy
             items:
               - name: Get started

@@ -1,15 +1,19 @@
 ---
-title: Add authentication for calls to custom APIs
-description: Set up Microsoft Entra authentication for calls to custom APIs from Azure Logic Apps.
+title: Add Authentication for Calls to Custom APIs
+description: Set up Microsoft Entra authentication for calling custom APIs from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 04/01/2025
+ms.update-cycle: 365-days
+ms.date: 03/10/2026
 ms.custom: sfi-image-nochange
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to use Microsoft Entra authentication for calling custom APIs from workflows in Azure Logic Apps.
 ---
 
 # Add Microsoft Entra authentication for calling custom APIs from Azure Logic Apps
+
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 To improve security for calls to your APIs, you can set up Microsoft Entra authentication through the Azure portal so you don't have to update your code. Or, you can require and enforce authentication through your API's code.
 

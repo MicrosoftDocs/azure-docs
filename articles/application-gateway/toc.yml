@@ -329,32 +329,8 @@
     href: application-gateway-diagnostics.md
   - name: Metrics
     href: application-gateway-metrics.md
-- name: Troubleshoot
-  items:
-  - name: ILB with an App Service Environment
-    href: /troubleshoot/azure/application-gateway/create-gateway-internal-load-balancer-app-service-environment?toc=/azure/application-gateway/toc.json
-  - name: App service issues
-    href: /troubleshoot/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url?toc=/azure/application-gateway/toc.json
-  - name: Session affinity issues
-    href: /troubleshoot/azure/application-gateway/how-to-troubleshoot-application-gateway-session-affinity-issues?toc=/azure/application-gateway/toc.json
-  - name: Bad Gateway (502) errors
-    href: /troubleshoot/azure/application-gateway/application-gateway-troubleshooting-502?toc=/azure/application-gateway/toc.json
-  - name: HTTP response codes
-    href: /troubleshoot/azure/application-gateway/http-response-codes?toc=/azure/application-gateway/toc.json
-  - name: Mutual authentication
-    href: /troubleshoot/azure/application-gateway/mutual-authentication-troubleshooting?toc=/azure/application-gateway/toc.json
-  - name: Ingress for AKS 
-    href: /troubleshoot/azure/application-gateway/ingress-controller-troubleshoot?toc=/azure/application-gateway/toc.json
-  - name: Resource Health
-    href: /troubleshoot/azure/application-gateway/resource-health-overview?toc=/azure/application-gateway/toc.json
-  - name: Use Log Analytics
-    href: /troubleshoot/azure/application-gateway/log-analytics?toc=/azure/application-gateway/toc.json
-  - name: Backend health issues
-    href: /troubleshoot/azure/application-gateway/application-gateway-backend-health-troubleshooting?toc=/azure/application-gateway/toc.json
-  - name: Key Vault errors
-    href: /troubleshoot/azure/application-gateway/application-gateway-key-vault-common-errors?toc=/azure/application-gateway/toc.json
-  - name: Disabled listeners
-    href: /troubleshoot/azure/application-gateway/disabled-listeners?toc=/azure/application-gateway/toc.json
+- name: Support and troubleshooting for Application Gateway
+  href: application-gateway-support-help.md
 - name: Reference
   items:
   - name: Monitoring data reference
@@ -373,7 +349,7 @@
     href: https://azure.microsoft.com/develop/nodejs/#azure-sdk
   - name: Python
     href: https://azure.microsoft.com/develop/python/
-  - name: REST
+  - name: REST API
     href: /rest/api/application-gateway/application-gateways
   - name: Azure Resource Manager
     displayName: ARM

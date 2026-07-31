@@ -6,7 +6,7 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: how-to
 ms.author: msangapu
 author: msangapu-msft
-ms.date: 11/17/2025
+ms.date: 03/19/2026
 ms.update-cycle: 1095-days
 ms.custom: "UpdateFrequency3"
 
@@ -102,6 +102,19 @@ When creating or manually scaling out an App Service Plan you may experience sit
 
 The preview of App Service Plan Asynchronous enables you to request your target number of instances and the platform scales out to the target number, without you having to modify your original request and retrying. The platform scales to the number of available instances and then triggers the underlying platform to make more instances available. You can make use of this functionality during scale-out operations or at plan creation time.  This functionality is supported for all Basic, Standard, and Premium pricing plans.
 
+> [!NOTE]
+> This behavior is NOT configurable for App Service Plans created in App Service Environments.  App Service Environments create and scale App Service Plans asynchronously by default.
+
+### Scaling up or down App Service Plan SKUs
+
+When using asynchronous scaling, it's possible to scale up or down to a larger or smaller SKU.  During this type of operation, no other properties of the App Service Plan can be changed. Scaling up or down to a new SKU may fail if there aren't enough App Service Plan instances available to fully satisfy the request, this is to prevent your App Service Plan having fewer workers than requested.
+
+If a scale up or down operation fails, you can either scale in or out within the current SKU or perform the operation with the minim number of acceptable workers and then scale out asynchronously to the desired target.
+
+### Cancelling an asynchronous scaling operation
+
+An in-progress asynchronous scale operation is canceled only when you explicitly change the TargetWorkerCount property. Changes to other App Service Plan properties don't cancel the operation, including changes to the SKU, or App Service Plan instance count. App Service Plan instance count changes that can't be completed synchronously are ignored unless the TargetWorkerCount is also changed. To explicitly cancel the scale operation, set the TargetWorkerCount to 0.
+
 ### [Scale-out (CLI)](#tab/asyncscaleout)
 ```azurecli-interactive
 az appservice plan update -g <resourceGroupName> -n <App Service Plan Name> --async-scaling-enabled true --number-of-workers <number of workers to scale out to>
@@ -111,7 +124,6 @@ az appservice plan update -g <resourceGroupName> -n <App Service Plan Name> --as
 ```azurecli-interactive
 az appservice plan create -g asyncasp -n asyncasplinuxexample --number-of-workers 25 --sku p1v3 --async-scaling-enabled true --location northeurope
 ```
-
 ---
 
 <a name="delete"></a>

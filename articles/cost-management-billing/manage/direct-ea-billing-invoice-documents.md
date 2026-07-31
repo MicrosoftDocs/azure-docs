@@ -4,9 +4,9 @@ description: Learn how to understand the invoice files associated with your dire
 author: SandeepReddyAcc
 ms.reviewer: v-salin
 ms.service: cost-management-billing
-ms.subservice: enterprise
-ms.topic: conceptual
-ms.date: 09/23/2025
+ms.subservice: enterprise-agreement
+ms.topic: reference
+ms.date: 04/20/2026
 ms.author: v-salin
 ---
 

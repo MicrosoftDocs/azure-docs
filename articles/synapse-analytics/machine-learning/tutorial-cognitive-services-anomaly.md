@@ -80,7 +80,7 @@ A Spark table named **anomaly_detector_testing_data** should now appear in the d
 
 Provide the following details to configure Anomaly Detector:
 
-- **Azure Cognitive Services linked service**: As part of the prerequisite steps, you created a linked service to your [Foundry Tool](tutorial-configure-cognitive-services-synapse.md). Select it here.
+- **Azure Cognitive Services linked service**: As part of the prerequisite steps, you created a linked service to your [Microsoft Foundry tool](tutorial-configure-cognitive-services-synapse.md). Select it here.
 
 - **Granularity**: The rate at which your data is sampled. Choose **monthly**. 
 
@@ -96,7 +96,7 @@ When you're done, select **Open notebook**. This will generate a notebook for yo
 
 ## Run the notebook
 
-The notebook that you just opened uses the [SynapseML library](https://github.com/microsoft/SynapseML) to connect to Foundry Tools. The Foundry Tools linked service that you provided allow you to securely reference your Foundry Tool from this experience without revealing any secrets.
+The notebook that you just opened uses the [SynapseML library](https://github.com/microsoft/SynapseML) to connect to Foundry Tools. The Foundry Tools linked service that you provided allow you to securely reference your Foundry tool from this experience without revealing any secrets.
 
 You can now run all cells to perform anomaly detection. Select **Run All**. [Learn more about Anomaly Detector in Foundry Tools](/azure/ai-services/anomaly-detector/).
 

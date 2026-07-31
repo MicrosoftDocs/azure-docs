@@ -2,7 +2,7 @@
 title: Understand The Baseline Settings Parameter Format
 description: Learn how to read and author baseline JSON parameters for Azure Machine Configuration security baselines including CIS Linux Benchmarks and Azure Security Baselines for Windows and Linux.
 ms.date: 11/07/2025
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: references_regions
 ---
 

@@ -4,7 +4,7 @@ description: Learn how to select a workload profile for your container app
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 11/04/2025
 ms.author: cshoe
 ms.custom:
@@ -32,9 +32,6 @@ Each profile type determines how your apps scale, the level of resource isolatio
 - **Flexible profile** (preview) blends the billing and setup simplicity of the *Consumption* profile with many of the performance characteristics of the Dedicated profiles. Flexible profiles are billed like a Consumption profile plus the dedicated management fee, run in a single‑tenant compute pool, offer planned maintenance windows, and dedicated networking and access to larger replica sizes. Flexible profiles require a subnet of at least `/25`. Apps running on the Flexible profile are not able to scale to zero.
 
 Each Container Apps environment includes a default Consumption profile. You can add Dedicated or Consumption GPU profiles and, when available, Flexible profiles to meet your application's needs.
-
-> [!NOTE]
-> The Flexible profile is currently only available in the following regions: Australia East, Brazil South, Canada Central, Canada East, Central India, East Asia, Germany West Central, Korea Central, North Europe, Southeast Asia, Sweden Central, UK West, West Central US, and West US 3.
 
 ## Workload profile form factors
 
@@ -70,7 +67,7 @@ All Consumption profiles support serverless scaling and are billed based on per�
 |--|--|--|--|--|--|
 | General Purpose | **D4, D8, D16, D32** | 4–32 | 16–128 GiB | None | All supported regions | per node |
 | Memory Optimized | **E4, E8, E16, E32** | 4–32 | 32–256 GiB | None | All supported regions | per node |
-| [Confidential Compute](./security.md#confidential-compute-preview) |**DC4, DC8, DC16, DC32, DC48, DC64, DC96** | 4-96 | 16-384 GiB | None | UAENorth | per node |
+| [Confidential Compute](./security.md#confidential-compute) |**DC4, DC8, DC16, DC32, DC48, DC64, DC96** | 4-96 | 16-384 GiB | None | UAENorth | per node |
 | GPU | **NC24-A100, NC48-A100, NC96-A100** | 24–96 | 220–880 GiB | A100 | West US 3, North Europe | per node |
 
 > [!NOTE]

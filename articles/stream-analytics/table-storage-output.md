@@ -4,7 +4,7 @@ description: This article describes Azure Table storage as output for Azure Stre
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/25/2020
 ---
 

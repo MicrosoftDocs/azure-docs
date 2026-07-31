@@ -6,7 +6,8 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: susabat
 ms.topic: concept-article
-ms.date: 01/29/2025
+ms.date: 07/29/2026
+ai-usage: ai-assisted
 ms.custom:
   - build-2025
 ---
@@ -20,13 +21,13 @@ ms.custom:
 
 ## Overview
 
-Continuous integration is the practice of testing each change made to your codebase automatically. As early as possible, continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
+Continuous integration is the practice of testing each change made to your codebase automatically. As early as possible, continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
 
 In Azure Data Factory, CI/CD means moving Data Factory pipelines from one environment, such as development, test, and production, to another. Data Factory uses [Azure Resource Manager templates (ARM templates)](../azure-resource-manager/templates/overview.md) to store the configuration of your various Data Factory entities, such as pipelines, datasets, and data flows.
 
 There are two suggested methods to promote a data factory to another environment:
 
-- Automated deployment using the integration of Data Factory with [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines).
+- Automated deployment by using the integration of Data Factory with [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines).
 - Manually uploading an ARM template by using Data Factory user experience integration with Azure Resource Manager.
 
 For more information, see [Continuous integration and delivery in Azure Data Factory](continuous-integration-delivery.md).
@@ -35,15 +36,15 @@ This article focuses on the continuous deployment improvements and the automated
 
 ## Continuous deployment improvements
 
-The automated publish feature takes the **Validate all** and **Export ARM template** features from the Data Factory user experience and makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). For this reason, you can programmatically trigger these actions instead of having to go to the Data Factory UI and select a button manually. This capability will give your CI/CD pipelines a truer continuous integration experience.
+The automated publish feature takes the **Validate all** and **Export ARM template** features from the Data Factory user experience and makes the logic consumable via a publicly available npm package [@microsoft/azure-data-factory-utilities](https://www.npmjs.com/package/@microsoft/azure-data-factory-utilities). For this reason, you can programmatically trigger these actions instead of having to go to the Data Factory UI and select a button manually. This capability gives your CI/CD pipelines a truer continuous integration experience.
 
 > [!NOTE]
-> Be sure to use the node version 20.x and and its compatible version to avoid errors that can occur due to package incompatibility with older versions.
+> Be sure to use Node.js version 20.x and its compatible version to avoid errors that can occur due to package incompatibility with older versions.
 
 ### Current CI/CD flow
 
 1. Each user makes changes in their private branches.
-1. Push to master isn't allowed. Users must create a pull request to make changes.
+1. Push to main isn't allowed. Users must create a pull request to make changes.
 1. Users must load the Data Factory UI and select **Publish** to deploy changes to Data Factory and generate the ARM templates in the publish branch.
 1. The DevOps Release pipeline is configured to create a new release and deploy the ARM template each time a new change is pushed to the publish branch.
 
@@ -56,18 +57,18 @@ In the current CI/CD flow, the user experience is the intermediary to create the
 ### The new CI/CD flow
 
 1. Each user makes changes in their private branches.
-1. Push to master isn't allowed. Users must create a pull request to make changes.
-1. The Azure DevOps pipeline build is triggered every time a new commit is made to master. It validates the resources and generates an ARM template as an artifact if validation succeeds.
+1. Push to main isn't allowed. Users must create a pull request to make changes.
+1. The Azure DevOps pipeline build is triggered every time a new commit is made to main. It validates the resources and generates an ARM template as an artifact if validation succeeds.
 1. The DevOps Release pipeline is configured to create a new release and deploy the ARM template each time a new build is available.
 
 :::image type="content" source="media/continuous-integration-delivery-improvements/new-ci-cd-flow.png" alt-text="Diagram that shows the new CI/CD flow.":::
 
 ### What changed?
 
-- We now have a build process that uses a DevOps build pipeline.
-- The build pipeline uses the ADFUtilities NPM package, which will validate all the resources and generate the ARM templates. These templates can be single and linked.
-- The build pipeline is responsible for validating Data Factory resources and generating the ARM template instead of the Data Factory UI (**Publish** button).
-- The DevOps release definition will now consume this new build pipeline instead of the Git artifact.
+- You now have a build process that uses a DevOps build pipeline.
+- The build pipeline uses the ADFUtilities (`@microsoft/azure-data-factory-utilities`) npm package, which validates all the resources and generates the ARM templates. These templates can be single and linked.
+- The build pipeline validates Data Factory resources and generates the ARM template instead of the Data Factory UI (**Publish** button).
+- The DevOps release definition now consumes this new build pipeline instead of the Git artifact.
 
 > [!NOTE]
 > You can continue to use the existing mechanism, which is the `adf_publish` branch, or you can use the new flow. Both are supported.
@@ -81,7 +82,7 @@ Two commands are currently available in the package:
 
 ### Export ARM template
 
-Run `npm run build export <rootFolder> <factoryId> [outputFolder]` to export the ARM template by using the resources of a given folder. This command also runs a validation check prior to generating the ARM template. Here's an example using a resource group named **testResourceGroup**:
+Run `npm run build export <rootFolder> <factoryId> [outputFolder]` to export the ARM template by using the resources of a given folder. This command also runs a validation check before generating the ARM template. Here's an example that uses a resource group named **testResourceGroup**:
 
 ```dos
 npm run build export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/testResourceGroup/providers/Microsoft.DataFactory/factories/DevDataFactory ArmTemplateOutput
@@ -91,7 +92,7 @@ npm run build export C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-xxx
 - `FactoryId` is a mandatory field that represents the Data Factory resource ID in the format `/subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.DataFactory/factories/<dfName>`.
 - `OutputFolder` is an optional parameter that specifies the relative path to save the generated ARM template.
 
-The ability to stop/start only the updated triggers is now generally available and is merged into the command shown above. 
+The ability to stop/start only the updated triggers is now generally available and is merged into the preceding command. 
 
 > [!NOTE]
 > The ARM template generated isn't published to the live version of the factory. Deployment should be done by using a CI/CD pipeline.
@@ -110,7 +111,7 @@ npm run build validate C:\DataFactories\DevDataFactory /subscriptions/xxxxxxxx-x
 
 ## Create an Azure pipeline
 
-While npm packages can be consumed in various ways, one of the primary benefits is being consumed via [Azure Pipeline](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops&preserve-view=true). On each merge into your collaboration branch, a pipeline can be triggered that first validates all of the code and then exports the ARM template into a [build artifact](/azure/devops/pipelines/artifacts/build-artifacts) that can be consumed by a release pipeline. How it differs from the current CI/CD process is that you will *point your release pipeline at this artifact instead of the existing `adf_publish` branch*.
+While npm packages can be consumed in various ways, one of the primary benefits is being consumed through [Azure Pipelines](/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops&preserve-view=true). On each merge into your collaboration branch, a pipeline can be triggered that first validates all the code and then exports the ARM template into a [build artifact](/azure/devops/pipelines/artifacts/build-artifacts) that can be consumed by a release pipeline. How it differs from the current CI/CD process is that you'll *point your release pipeline at this artifact instead of the existing `adf_publish` branch*.
 
 Follow these steps to get started:
 
@@ -118,7 +119,7 @@ Follow these steps to get started:
 
    :::image type="content" source="media/continuous-integration-delivery-improvements/new-pipeline.png" alt-text="Screenshot that shows the New pipeline button.":::
 
-2. Select the repository where you want to save your pipeline YAML script. We recommend saving it in a build folder in the same repository of your Data Factory resources. Ensure there's a *package.json* file in the repository that contains the package name, as shown in the following example:
+2. Select the repository where you want to save your pipeline YAML script. Save it in a build folder in the same repository as your Data Factory resources. Ensure there's a *package.json* file in the repository that contains the package name, as shown in the following example:
 
    ```json
    {
@@ -151,7 +152,7 @@ Follow these steps to get started:
    
    - task: UseNode@1
      inputs:
-       version: '18.x'
+       version: '20.x'
      displayName: 'Install Node.js'
    
    - task: Npm@1
@@ -192,14 +193,14 @@ Follow these steps to get started:
        publishLocation: 'pipeline'
    ```
 
-4. Enter your YAML code. We recommend that you use the YAML file as a starting point.
+4. Enter your YAML code. Use the YAML file as a starting point.
 
-5. Save and run. If you used the YAML, it gets triggered every time the main branch is updated.
+5. Save and run. If you used the YAML, it gets triggered every time the main branch is updated. Confirm the run succeeds and produces the `ArmTemplates` artifact in the pipeline's published artifacts.
 
 > [!NOTE]
-> The generated artifacts already contain pre and post deployment scripts for the triggers so it isn't necessary to add these manually. However, when deploying one would still need to reference the [documentation on stopping and starting triggers](continuous-integration-delivery-sample-script.md#script-execution-and-parameters) to execute the provided script.
+> The generated artifacts already contain pre- and post-deployment scripts for the triggers, so you don't need to add them manually. However, when you deploy, you still need to reference the [documentation on stopping and starting triggers](continuous-integration-delivery-sample-script.md#script-execution-and-parameters) to run the provided script.
 
 ## Related content
 
-Learn more information about continuous integration and delivery in Data Factory:
+Learn more about continuous integration and delivery in Data Factory:
 [Continuous integration and delivery in Azure Data Factory](continuous-integration-delivery.md).

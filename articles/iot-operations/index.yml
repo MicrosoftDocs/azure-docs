@@ -11,7 +11,7 @@ metadata:
     - ignite-2023
   author: dominicbetts
   ms.author: dobett
-  ms.date: 10/22/2024
+  ms.date: 06/09/2026
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -24,9 +24,10 @@ landingContent:
         links:
           - text: What is Azure IoT Operations?
             url: overview-iot-operations.md
-          - text: Get started with an end-to-end sample
+          - text: Quickstart (Codespaces)
             url: get-started-end-to-end-sample/quickstart-deploy.md
-  # Card
+          - text: Quickstart (Local deployment)
+            url: https://github.com/Azure-Samples/explore-iot-operations/blob/main/quickstart/readme.md
   - title: Common scenarios
     linkLists:
       - linkListType: how-to-guide
@@ -40,7 +41,7 @@ landingContent:
           - text: Route and transform data
             url: connect-to-cloud/overview-dataflow.md
           - text: Configure observability and monitoring
-            url: configure-observability-monitoring/howto-configure-observability.md
+            url: deploy-iot-ops/howto-configure-observability.md
 
   # Card
   - title: Connect to cloud services

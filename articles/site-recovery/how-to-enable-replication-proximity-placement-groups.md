@@ -6,7 +6,7 @@ author: Jeronika-MS
 ms.topic: how-to
 ms.service: azure-site-recovery
 ms.custom: devx-track-azurepowershell
-ms.date: 04/26/2025
+ms.date: 04/06/2026
 # Customer intent: "As an IT administrator, I want to replicate Azure virtual machines in a proximity placement group to another region using Site Recovery, so that I can ensure continuity and reduce downtime for latency-sensitive applications in case of a regional failure."
 ---
 
@@ -20,6 +20,8 @@ This article describes how to replicate, fail over, and fail back Azure virtual 
 [Proximity placement groups](/azure/virtual-machines/windows/proximity-placement-groups-portal) are a logical grouping capability in Azure Virtual Machines. You can use them to decrease the inter-VM network latency associated with your applications. 
 
 When virtual machines are deployed within the same proximity placement group, they're physically located as close as possible to each other. Proximity placement groups are useful to address the requirements of latency-sensitive workloads.
+
+[!INCLUDE [vmware-to-azure-classic-experience-retirement-note.md](./includes/vmware-to-azure-classic-experience-retirement-note.md)]
 
 ## Disaster recovery with proximity placement groups
 

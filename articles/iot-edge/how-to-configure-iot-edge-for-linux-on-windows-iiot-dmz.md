@@ -6,7 +6,7 @@ ms.author: sethm
 ms.service: azure-iot-edge
 services: iot-edge
 ms.topic: concept-article
-ms.date: 02/25/2026
+ms.date: 03/09/2026
 ms.custom:
   - linux-related-content
   - sfi-image-nochange
@@ -72,7 +72,7 @@ To create an external virtual switch, follow these steps:
 6. Under **Connection Type**, select **External Network** then choose the *network adapter* connected to your DMZ network.
 7. Select **Apply**.
 
-Once the external virtual switch is created, you need to attach it to the EFLOW VM using the following steps. If you need to attach multiple NICs, see [EFLOW Multiple NICs](https://github.com/Azure/iotedge-eflow/wiki/Multiple-NICs).
+Once the external virtual switch is created, you need to attach it to the EFLOW VM using the following steps. If you need to attach multiple NICs, see [Azure IoT Edge for Linux on Windows virtual multiple NIC configurations](./how-to-configure-multiple-nics.md).
 
 For the custom new *external virtual switch* you created, use the following PowerShell commands to: 
 

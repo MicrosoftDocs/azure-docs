@@ -292,7 +292,7 @@ Specifies the connection string for an Azure Storage account that the Functions 
 |---|------------|
 |AzureWebJobsStorage|`DefaultEndpointsProtocol=https;AccountName=...`|
 
-Instead of a connection string, you can use an identity-based connection for this storage account. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
+Instead of a connection string, you can use an identity-based connection for this storage account. For more information, see [Connecting to host storage with an identity](manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections).
 
 ## AzureWebJobsStorage__accountName
 
@@ -312,7 +312,7 @@ When using an identity-based storage connection, sets the data plane URI of the 
 |---|------------|
 |AzureWebJobsStorage__blobServiceUri|`https://<STORAGE_ACCOUNT_NAME>.blob.core.windows.net`|
 
-Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
+Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections).
 
 ## AzureWebJobsStorage__clientId
 
@@ -334,7 +334,7 @@ When using an identity-based storage connection, sets the data plane URI of the 
 |---|------------|
 |AzureWebJobsStorage__queueServiceUri|`https://<STORAGE_ACCOUNT_NAME>.queue.core.windows.net`|
 
-Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
+Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections).
 
 ## AzureWebJobsStorage__tableServiceUri
 
@@ -344,7 +344,7 @@ When using an identity-based storage connection, sets data plane URI of a table 
 |---|------------|
 |AzureWebJobsStorage__tableServiceUri|`https://<STORAGE_ACCOUNT_NAME>.table.core.windows.net`|
 
-Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](functions-reference.md#connecting-to-host-storage-with-an-identity).
+Use this setting instead of `AzureWebJobsStorage__accountName` in sovereign clouds or when using a custom DNS. For more information, see [Connecting to host storage with an identity](manage-connections.md?pivots=functions-auth-identity&tabs=host#define-connections).
 
 ## AzureWebJobs_TypeScriptPath
 
@@ -443,11 +443,15 @@ For Node.js v18 or lower, the app setting is used, and the default behavior depe
 
 ## FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT
 
-Overrides the default limit on the body size of requests sent to HTTP endpoints. The value is given in bytes, with a default maximum request size of 104,857,600 bytes. 
+Sets the supported body size, in bytes, of requests sent to HTTP endpoints. This setting lets you restrict the amount of data sent to HTTP endpoints. By default, this setting is the maximum request size of 220,200,960 bytes across all plans. While you can reduce the body size, you can't increase it beyond the default maximum limit. For more information, see **Max request size** in the [service limits table](functions-scale.md#service-limits). 
+
+If your application requires larger payloads, you should instead store the payload in Azure Blob storage and reference its URL in the blob container in the http request. You can also use the [Event Grid Blob trigger pattern](functions-event-grid-blob-trigger.md).
 
 |Key|Sample value|
 |---|------------|
-|FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT |`250000000`|
+| FUNCTIONS\_REQUEST\_BODY\_SIZE\_LIMIT |`100000000`|
+
+This sample `FUNCTIONS_REQUEST_BODY_SIZE_LIMIT` value limits the message body in requests to 100 MB.
 
 ## FUNCTIONS\_V2\_COMPATIBILITY\_MODE
 
@@ -739,6 +743,17 @@ Disables caching when deploying function apps using Azure Resource Manager (ARM)
 |---|------------|
 | WEBSITE_FUNCTIONS_ARMCACHE_ENABLED| 0 |
 
+## WEBSITE\_LOAD\_CERTIFICATES
+
+Comma-separated thumbprint values of certificates to load in your code, or `*` to allow all certificates to be loaded. Only [certificates added to your app](../app-service/configure-ssl-certificate.md) can be loaded. For more information, see [Use a TLS/SSL certificate in your code](../app-service/configure-ssl-certificate-in-code.md).
+
+> [!NOTE]
+> This setting isn't used in the [Flex Consumption plan](flex-consumption-plan.md), which uses a [per-certificate toggle](flex-consumption-how-to.md#make-a-certificate-accessible-to-your-code) instead.
+
+|Key|Sample value|
+|---|------------|
+|WEBSITE\_LOAD\_CERTIFICATES|`*`|
+
 
 ## WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT
 
@@ -754,11 +769,11 @@ The maximum number of instances that the app can scale out to. Default is no lim
 ## WEBSITE\_NODE\_DEFAULT_VERSION
 
 _Windows only._
-Sets the version of Node.js to use when running your function app on Windows. You should use a tilde (`~`) to have the runtime use the latest available version of the targeted major version. For example, when set to `~18`, the latest version of Node.js 18 is used. When a major version is targeted with a tilde, you don't have to manually update the minor version.
+Sets the version of Node.js to use when running your function app on Windows. You should use a tilde (`~`) to have the runtime use the latest available version of the targeted major version. For example, when set to `~22`, the latest version of Node.js 22 is used. When a major version is targeted with a tilde, you don't have to manually update the minor version.
 
 |Key|Sample value|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|`~18`|
+|WEBSITE\_NODE\_DEFAULT_VERSION|`~22`|
 
 ## WEBSITE\_OVERRIDE\_STICKY\_DIAGNOSTICS\_SETTINGS
 
@@ -973,6 +988,7 @@ In the [Flex Consumption plan](./flex-consumption-plan.md), these site propertie
 | `WEBSITE_VNET_ROUTE_ALL` |Not used for networking in Flex Consumption|
 | `properties.alwaysOn` |Not valid|
 | `properties.containerSize` |Renamed as `instanceMemoryMB`|
+| 'properties.dnsConfiguration.dnsServers'| DNS is inherited from the integrated virtual network in a Flex Consumption plan. |
 | `properties.ftpsState` | FTPS not supported | 
 | `properties.isReserved` |Not valid|
 | `properties.IsXenon` |Not valid|

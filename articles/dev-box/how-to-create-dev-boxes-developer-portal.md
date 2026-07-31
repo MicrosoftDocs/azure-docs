@@ -15,6 +15,8 @@ ms.topic: how-to
 
 # Use the Microsoft Dev Box developer portal
 
+[!INCLUDE [note-windows-365-announcement](includes/note-windows-365-announcement.md)]
+
 This article shows you how to use the Microsoft Dev Box developer portal as a central location to manage your dev boxes. As a developer, you can access your dev boxes in the developer portal instead of having to use the Azure portal.
 
 You can view information and perform many actions by using the **More actions** menu on a dev box tile in the developer portal. For example, you can shut down or restart a running dev box, or start a stopped dev box. Available options depend on the state of the dev box and the configuration of the dev box pool it belongs to.
@@ -39,11 +41,11 @@ You can also create dev boxes through the Azure CLI dev center extension. For mo
 
 ## Connect through an app
 
-After you create your dev box, you can connect to it through the Windows App remote desktop application or through a browser.
+After you create your dev box, you can connect to it through Windows App or through a browser.
 
-### Connect through the Windows App
+### Connect through Windows App
 
-Windows App is the default app for connecting to Microsoft Dev Box from any device, including your phone or laptop. The Windows App is available for Windows, macOS, iOS/iPadOS, Android/Chrome OS (preview), and on web browsers.
+Windows App is the default app for connecting to Microsoft Dev Box from any device, including your phone or laptop. Windows App is available for Windows, macOS, iOS/iPadOS, Android/Chrome OS (preview), and web browsers.
 
 [!INCLUDE [connect-with-windows-app](includes/connect-with-windows-app.md)]  
 

@@ -5,7 +5,7 @@ services: static-web-apps
 author: cjk7989
 ms.service: azure-static-web-apps
 ms.custom: engagement-fy23
-ms.topic:  conceptual
+ms.topic:  how-to
 ms.date: 10/27/2022
 ms.author: jikunchen
 ---

@@ -1,8 +1,8 @@
 ---
 title: Accelerate and Secure Your Web Application with Azure Front Door
 description: This article explains how Front Door can help you to build a well architected solution on Azure.
-author: johndowns
-ms.author: jodowns
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
 ms.date: 03/02/2026
@@ -97,7 +97,7 @@ After Front Door finishes processing the inbound request, it either responds dir
 
 Front Door can send traffic to your origin in two different ways: by using Private Link, and by using public IP addresses.
 
-The premium SKU of Front Door supports sending traffic to some origin types by using Private Link. When you configure Private Link for your origin, traffic uses private IP addresses. This approach can be used to ensure that your origin only accepts traffic from your specific Front Door instance, and you can block traffic that came from the internet.
+The premium tier of Front Door supports sending traffic to some origin types by using Private Link. When you configure Private Link for your origin, traffic uses private IP addresses. You can use this approach to ensure that your origin only accepts traffic from your specific Front Door instance, and you can block traffic that came from the internet.
 
 When the Front Door PoP sends requests to your origin by using a public IP address, it initiates a new TCP connection. Because of this behavior, your origin server sees the request originating from Front Door's IP address instead of the client.
 

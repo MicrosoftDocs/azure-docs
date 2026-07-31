@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to process or transform data by running a Synapse Spark job definition in Azure Data Factory and Synapse Analytics pipelines.
 author: nabhishek
 ms.author: jejiang
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 10/03/2024
 ms.subservice: orchestration
 ms.custom:

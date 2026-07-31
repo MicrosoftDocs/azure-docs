@@ -5,7 +5,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
-ms.topic: conceptual
+ms.topic: upgrade-and-migration-article
 ms.date: 11/04/2025
 ---
 

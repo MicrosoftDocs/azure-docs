@@ -6,7 +6,7 @@ ms.author: rosemalcolm
 ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 03/26/2025
+ms.date: 05/08/2026
 
 #customer intent: As a platform engineer, I want to integrate Deployment Environments into a CI/CD pipeline so that I can use them for automated building, testing, and deployment. 
 ---
@@ -55,13 +55,13 @@ In this section, you create an Azure Deployment Environments dev center and proj
 
 ### 1.1 Set up Azure CLI
 
-To begin, sign in to Azure. Run the following command, and follow the prompts to complete the authentication process:
+To begin, sign in to Azure. Run the following command, and complete the authentication process by following the prompts:
 
 ```azurecli
 az login
 ```
 
-Next, install the Azure devcenter extension for Azure CLI:
+Next, install the Azure `devcenter` extension for Azure CLI:
 
 ```azurecli
 az extension add --name devcenter --upgrade
@@ -74,7 +74,7 @@ az provider register --namespace Microsoft.DevCenter
 ```
 
 > [!TIP]
-> Throughout this tutorial, you'll save several values as environment variables to use later. You might also want to record these values elsewhere to ensure they're available when you need them.
+> Throughout this tutorial, you save several values as environment variables to use later. You might also want to record these values elsewhere to ensure they're available when you need them.
 
 Get your user ID and set it to an environment variable for later:
 
@@ -193,7 +193,7 @@ az devcenter admin project create \
   --dev-center-id $AZURE_DEVCENTER_ID
 ```
 
-The previous command outputs JSON. Save the `id` value as an environment variable to use later:
+The previous command outputs JSON. Save the value for `id` as an environment variable to use later:
 
 ```azurecli
 AZURE_PROJECT_ID=<id>
@@ -291,7 +291,7 @@ az role assignment create \
 
 ## 3. Create and configure a GitHub repository
 
-In this section, you create a new GitHub repository to store a catalog. Azure Deployment Environments supports both GitHub and Azure DevOps repositories. In this tutorial, you use GitHub.
+In this section, you create a new GitHub repository to store a catalog. Azure Deployment Environments supports both GitHub and Azure Repos repositories. In this tutorial, you use GitHub.
 
 ### 3.1 Create a GitHub repository
 
@@ -310,17 +310,17 @@ In this step, you create a new repository in your GitHub account that has a pred
 You can protect important branches by setting branch protection rules. Protection rules define whether collaborators can delete a branch or force push to the branch. They also set requirements for pushes to the branch, such as passing status checks or enforcing a linear commit history.
 
 > [!NOTE]
-> Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations, and in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub plans](https://docs.github.com/get-started/learning-about-github/githubs-products).
+> Protected branches are available in public repositories with GitHub Free and GitHub Free for organizations. They're also available in public and private repositories with GitHub Pro, GitHub Team, GitHub Enterprise Cloud, and GitHub Enterprise Server. For more information, see [GitHub plans](https://docs.github.com/get-started/learning-about-github/githubs-products).
 
 1. If it's not already open, go to the main page of your repository.
 
 1. Select **Settings** in the menu at the top of the window:
 
-   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-repo-settings.png" alt-text="Screenshot showing the GitHub repository page. Settings is highlighted." lightbox="media/tutorial-deploy-environments-in-cicd-github/github-repo-settings.png":::
+   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-repo-settings.png" alt-text="Screenshot showing the GitHub repository page with the Settings menu option highlighted." lightbox="media/tutorial-deploy-environments-in-cicd-github/github-repo-settings.png":::
 
 1. In the **Code and automation** section of the left sidebar, select **Branches**:
 
-   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-branches-protect.png" alt-text="Screenshot showing the settings page. Branches is highlighted." lightbox="media/tutorial-deploy-environments-in-cicd-github/github-branches-protect.png":::
+   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-branches-protect.png" alt-text="Screenshot showing the General settings with the Branches menu option highlighted." lightbox="media/tutorial-deploy-environments-in-cicd-github/github-branches-protect.png":::
 
 1. Under **Branch protection rules**, select **Add branch ruleset**: 
  
@@ -346,7 +346,7 @@ You can protect important branches by setting branch protection rules. Protectio
 
 1. In the **Security** section of the sidebar, select **Secrets and variables**, and then select **Actions**:
  
-   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-security-menu.png" alt-text="Screenshot showing the Security section of the sidebar. Actions is highlighted." lightbox="media/tutorial-deploy-environments-in-cicd-github/github-security-menu.png":::
+   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-security-menu.png" alt-text="Screenshot showing the Security section of the sidebar with Actions highlighted." lightbox="media/tutorial-deploy-environments-in-cicd-github/github-security-menu.png":::
 
 1. Select the **Variables** tab.
 
@@ -395,11 +395,11 @@ Next, create a [fine-grained personal access token](https://docs.github.com/en/a
 
 1. Under **Permissions**, select **Repository permissions**, and then change **Contents** to **Read-only**:
 
-    :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-repo-permissions.png" alt-text="Screenshot showing GitHub repository permissions. The Contents section is highlighted." lightbox="media/tutorial-deploy-environments-in-cicd-github/github-repo-permissions.png":::
+   :::image type="content" source="media/tutorial-deploy-environments-in-cicd-github/github-repo-permissions.png" alt-text="Screenshot showing GitHub repository permissions. The Contents section is highlighted." lightbox="media/tutorial-deploy-environments-in-cicd-github/github-repo-permissions.png":::
 
 1. Select **Generate token**.
  
-1. Copy and save your personal access token. You won't be able to view it again.
+1. Copy and save your personal access token immediately. You aren't able to view it again.
 
 ### 3.5 Save your personal access token to the key vault
 
@@ -438,7 +438,7 @@ You can also authenticate a service principal directly by using a secret, but th
 
 ### 5.1 Generate deployment identities
 
-1. Register [Microsoft Entra applications and service principals](../active-directory/develop/howto-create-service-principal-portal.md) for each of the three environment types.
+1. Register [Microsoft Entra applications and service principals](/entra/identity-platform/howto-create-service-principal-portal) for each of the three environment types.
 
     Create the Microsoft Entra application for *Dev*:
 
@@ -650,7 +650,7 @@ Once more, return to the main environments page by selecting **Environments** in
 
 1. Select **Add secret**.
 
-Next, set yourself as a [required reviewer](https://docs.github.com/actions/managing-workflow-runs/reviewing-deployments) for this environment. When an attempt is made to deploy to *Prod*, GitHub Actions waits for an approval before starting. While a job is awaiting approval, it has a status of *Waiting*. If a job isn't approved within 30 days, it automatically fails.
+Next, set yourself as a [required reviewer](https://docs.github.com/actions/managing-workflow-runs/reviewing-deployments) for this environment. When an attempt is made to deploy to *Prod*, GitHub Actions must have an approval before starting. While a job is awaiting approval, it has a status of *Waiting*. If a job isn't approved within 30 days, it automatically fails.
 
 For more information about environments and required approvals, see [Using environments for deployment](https://docs.github.com/actions/deployment/targeting-different-environments/using-environments-for-deployment).
 
@@ -664,7 +664,7 @@ Finally, configure `main` as the deployment branch:
 
 1. In the **Deployment branches and tags** list, select **Selected branches and tags**.
 
-1. Select **Add deployment branch or tag rule**, ensure **Ref type: Branch** is selected, and then enter **main** in the **Name pattern** box.
+1. Select **Add deployment branch or tag rule**. Ensure that **Ref type: Branch** is selected, and then enter **main** in the **Name pattern** box.
 
 1. Select **Add rule**.
 

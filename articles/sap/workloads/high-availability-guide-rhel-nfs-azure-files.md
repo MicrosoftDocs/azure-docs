@@ -6,7 +6,7 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: tutorial
-ms.date: 02/20/2026
+ms.date: 04/16/2026
 ms.author: radeltch
 ms.custom:
   - devx-track-azurecli
@@ -130,14 +130,14 @@ During VM configuration, you have an option to create or select exiting load bal
 
 ### Deploy Azure Files storage account and NFS shares
 
-NFS on Azure Files runs on top of [Azure Files premium storage][afs-azure-doc]. Before you set up NFS on Azure Files, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).
+NFS on Azure Files runs on top of [Azure Files SSD][afs-azure-doc]. Before you set up NFS on Azure Files, see [How to create an NFS share](../../storage/files/storage-files-how-to-create-nfs-shares.md?tabs=azure-portal).
 
 There are two options for redundancy within an Azure region:
 
 * [Locally redundant storage (LRS)](../../storage/common/storage-redundancy.md#locally-redundant-storage), which offers local, in-zone synchronous data replication.
 * [Zone-redundant storage (ZRS)](../../storage/common/storage-redundancy.md#zone-redundant-storage), which replicates your data synchronously across the three [availability zones](/azure/reliability/availability-zones-overview) in the region.
 
-Check if your selected Azure region offers NFS 4.1 on Azure Files with the appropriate redundancy. Review the [availability of Azure Files by Azure region][afs-avail-matrix] under **Premium Files Storage**. If your scenario benefits from ZRS, [verify that premium file shares with ZRS are supported in your Azure region](../../storage/common/storage-redundancy.md#zone-redundant-storage).
+Check if your selected Azure region offers NFS 4.1 on Azure Files with the appropriate redundancy. Review the [availability of Azure Files by Azure region][afs-avail-matrix]. If your scenario benefits from ZRS, [verify that SSD file shares with ZRS are supported in your Azure region](../../storage/files/redundancy-premium-file-shares.md).
 
 We recommend that you access your Azure Storage account through an [Azure private endpoint](../../storage/files/storage-files-networking-endpoints.md?tabs=azure-portal). Make sure to deploy the Azure Files storage account endpoint and the VMs, where you need to mount the NFS shares, in the same Azure virtual network or peered Azure virtual networks.
 
@@ -174,7 +174,7 @@ Next, deploy the NFS shares in the storage account you created. In this example,
 1. On the resource menu for **sapafsnfs**, under **Data storage**, select **File shares**.
 1. On the **File shares** page, select **File share**.
    1. For **Name**, enter `sapnw1`, `saptrans`.
-   1. Select an appropriate share size. For example, **128 GB**.  Consider the size of the data stored on the share and IOPS and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).
+   1. Select an appropriate share size. For example, **128 GiB**.  Consider the size of the data stored on the share and IOPS and throughput requirements. For more information, see [Azure file share targets](../../storage/files/storage-files-scale-targets.md).
    1. Select **NFS** as the protocol.
    1. Select **No root Squash**. Otherwise, when you mount the shares on your VMs, you can't see the file owner or group.
 
@@ -521,7 +521,7 @@ The following items are prefixed with:
     ```
 
    > [!IMPORTANT]
-   > With the systemd based SAP Startup Framework, SAP instances can now be managed by systemd. The minimum required Red Hat Enterprise Linux (RHEL) version is RHEL 8 for SAP. As described in SAP Note [3115048](https://me.sap.com/notes/3115048), a fresh installation of a SAP kernel with integrated systemd based SAP Startup Framework support will always result in a systemd controlled SAP instance. After an SAP kernel upgrade of an existing SAP installation to a kernel which has systemd based SAP Startup Framework support, however, some manual steps have to be performed as documented in SAP Note [3115048](https://me.sap.com/notes/3115048) to convert the existing SAP startup environment to one which is systemd controlled.
+   > With the systemd based SAP Startup Framework, SAP instances can now be managed by systemd. The minimum required Red Hat Enterprise Linux (RHEL) version is RHEL 8 for SAP. As described in SAP Note [3115048](https://me.sap.com/notes/3115048), a fresh installation of an SAP kernel with integrated systemd based SAP Startup Framework support will always result in a systemd controlled SAP instance. After an SAP kernel upgrade of an existing SAP installation to a kernel which has systemd based SAP Startup Framework support, however, some manual steps have to be performed as documented in SAP Note [3115048](https://me.sap.com/notes/3115048) to convert the existing SAP startup environment to one which is systemd controlled.
    >
    > When utilizing Red Hat HA services for SAP (cluster configuration) to manage SAP application server instances such as SAP ASCS and SAP ERS, additional modifications will be necessary to ensure compatibility between the SAPInstance resource agent and the new systemd-based SAP startup framework. So once the SAP application server instances have been installed or switched to a systemd enabled SAP Kernel as per SAP Note [3115048](https://me.sap.com/notes/3115048), the steps mentioned in [Red Hat KBA 6884531](https://access.redhat.com/articles/6884531) must be completed successfully on all cluster nodes.
 
@@ -584,8 +584,7 @@ The following items are prefixed with:
     AUTOMATIC_RECOVER=false IS_ERS=true \
     op monitor interval=20 on-fail=restart timeout=60 op start interval=0 timeout=600 op stop interval=0 timeout=600
     
-    sudo pcs resource group add g-NW1_AERS rsc_sap_NW1_ERS01 
-    sudo pcs resource meta rsc_sap_NW1_ERS01 resource-stickiness=3000
+    sudo pcs resource group add g-NW1_AERS rsc_sap_NW1_ERS01
 
     sudo pcs constraint order start g-NW1_ASCS then stop g-NW1_AERS kind=Optional symmetrical=false
     sudo pcs constraint colocation add g-NW1_AERS with g-NW1_ASCS score=-5000
@@ -647,6 +646,12 @@ The following items are prefixed with:
     sudo firewall-cmd --zone=public --add-port={62101,3201,3301,50113,50114,50116}/tcp --permanent
     sudo firewall-cmd --zone=public --add-port={62101,3201,3301,50113,50114,50116}/tcp
     ```
+
+> [!Note]
+> SAP ASCS/ERS cluster can be extended from 2-node to 3-node cluster with 3rd node as a spare node for failover of ASCS or ERS services.
+> - 3-node setup can only be used for SAP systems using SAP Enqueue Replication Server 2 (ENSA2).
+> - The cluster property `priority-fencing-delay` should not be used in a 3-node cluster.
+
 
 ## SAP NetWeaver application server preparation
 

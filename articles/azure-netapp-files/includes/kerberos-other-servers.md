@@ -10,4 +10,4 @@ ms.custom: include file
 # configure-directory-server.md
 ---
 
-Kerberos isn't currently supported with FreeIPA, OpenLDAP, or Red Hat Directory Server. 
+Kerberos isn't currently supported with FreeIPA, Red Hat IdM, OpenLDAP, Red Hat Directory Server, and Oracle Unified Directory. 

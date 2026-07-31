@@ -1,13 +1,12 @@
 ---
 title: 'Tutorial: Connect to an Azure SQL server using an Azure Private Endpoint - Azure CLI'
 description: Use this tutorial to learn how to create an Azure SQL server with a private endpoint using Azure CLI
-services: private-link
-author: abell
+author: asudbring
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to create a private endpoint on a SQL server so that I can securely connect to it.
 ms.service: azure-private-link
 ms.topic: tutorial
-ms.date: 01/06/2025
-ms.author: abell
+ms.date: 03/30/2026
+ms.author: allensu
 ms.custom: template-tutorial, fasttrack-edit, devx-track-azurecli
 ---
 
@@ -79,7 +78,7 @@ az network vnet subnet update \
     --name myBackendSubnet \
     --resource-group CreateSQLEndpointTutorial-rg \
     --vnet-name myVNet \
-    --disable-private-endpoint-network-policies true
+    --private-endpoint-network-policies Disabled
 ```
 
 Use [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create) to create a public ip address for the bastion host:
@@ -139,13 +138,13 @@ Create a VM with [az vm create](/cli/azure/vm#az-vm-create). When prompted, pr
 * In **CreateSQLEndpointTutorial-rg**.
 * In network **myVNet**.
 * In subnet **myBackendSubnet**.
-* Server image **Win2019Datacenter**.
+* Server image **Win2022AzureEditionCore**.
 
 ```azurecli-interactive
 az vm create \
     --resource-group CreateSQLEndpointTutorial-rg \
     --name myVM \
-    --image Win2019Datacenter \
+    --image Win2022AzureEditionCore \
     --public-ip-address "" \
     --vnet-name myVNet \
     --subnet myBackendSubnet \

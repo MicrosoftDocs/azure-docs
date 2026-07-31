@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -1024,6 +1024,7 @@ Grants read/write access to Azure resources provided by Azure Kubernetes Fleet M
 > | --- | --- |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleets/* |  |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/fleetMemberships/* |  |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -1043,7 +1044,8 @@ Grants read/write access to Azure resources provided by Azure Kubernetes Fleet M
     {
       "actions": [
         "Microsoft.ContainerService/fleets/*",
-        "Microsoft.Resources/deployments/*"
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.ContainerService/fleetMemberships/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -3511,7 +3513,7 @@ Read access to Container Apps ConnectedEnvironments.
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
 > | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/read | Get a Connected Environment |
 > | [Microsoft.App](../permissions/compute.md#microsoftapp)/connectedEnvironments/*/read |  |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
@@ -3535,7 +3537,7 @@ Read access to Container Apps ConnectedEnvironments.
       "actions": [
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
-        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/read",
         "Microsoft.App/connectedEnvironments/read",
         "Microsoft.App/connectedEnvironments/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read"
@@ -4190,6 +4192,12 @@ Provides permissions to list container registries and registry configuration pro
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Resolved/Action | Classic metric alert resolved |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Throttled/Action | Classic metric alert rule throttled |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/AlertRules/Incidents/Read | Read a classic metric alert incident |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/*/read |  |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/privateLinkServiceProxies/read | Gets a private link service proxy resource. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/read | Gets a virtual network subnet definition |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -4234,7 +4242,13 @@ Provides permissions to list container registries and registry configuration pro
         "Microsoft.Insights/AlertRules/Activated/Action",
         "Microsoft.Insights/AlertRules/Resolved/Action",
         "Microsoft.Insights/AlertRules/Throttled/Action",
-        "Microsoft.Insights/AlertRules/Incidents/Read"
+        "Microsoft.Insights/AlertRules/Incidents/Read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Resources/deployments/*/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Network/privateEndpoints/privateLinkServiceProxies/read",
+        "Microsoft.Network/virtualNetworks/read",
+        "Microsoft.Network/virtualNetworks/subnets/read"
       ],
       "notActions": [],
       "dataActions": [],
@@ -4311,6 +4325,9 @@ Provides permissions to create, list, and update container registries and regist
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/subnets/write | Creates a virtual network subnet or updates an existing virtual network subnet |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/virtualNetworks/read | Get the virtual network definition |
 > | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/privateLinkServiceProxies/write | Creates a new private link service proxy, or updates an existing private link service proxy. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/privateLinkServiceProxies/read | Gets a private link service proxy resource. |
+> | [Microsoft.Network](../permissions/networking.md#microsoftnetwork)/privateEndpoints/privateLinkServiceProxies/delete | Deletes an private link service proxy resource. |
+> | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -4383,7 +4400,10 @@ Provides permissions to create, list, and update container registries and regist
         "Microsoft.Network/virtualNetworks/subnets/read",
         "Microsoft.Network/virtualNetworks/subnets/write",
         "Microsoft.Network/virtualNetworks/read",
-        "Microsoft.Network/privateEndpoints/privateLinkServiceProxies/write"
+        "Microsoft.Network/privateEndpoints/privateLinkServiceProxies/write",
+        "Microsoft.Network/privateEndpoints/privateLinkServiceProxies/read",
+        "Microsoft.Network/privateEndpoints/privateLinkServiceProxies/delete",
+        "Microsoft.Support/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -4869,6 +4889,8 @@ Grants Microsoft Defender for Cloud access to Azure Kubernetes Services
 > | [Microsoft.Features](../permissions/management-and-governance.md#microsoftfeatures)/providers/features/register/action | Registers the feature for a subscription in a given resource provider. |
 > | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/pricings/securityoperators/read | Gets the security operators for the scope |
 > | [Microsoft.Security](../permissions/security.md#microsoftsecurity)/securityOperators/read | Gets the securityoperators for the scope |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/policyAssignments/read | Get information about a policy assignment. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/policySetDefinitions/read | Get information about a policy set definition. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -4895,7 +4917,9 @@ Grants Microsoft Defender for Cloud access to Azure Kubernetes Services
         "Microsoft.Features/providers/features/read",
         "Microsoft.Features/providers/features/register/action",
         "Microsoft.Security/pricings/securityoperators/read",
-        "Microsoft.Security/securityOperators/read"
+        "Microsoft.Security/securityOperators/read",
+        "Microsoft.Authorization/policyAssignments/read",
+        "Microsoft.Authorization/policySetDefinitions/read"
       ],
       "notActions": [],
       "dataActions": [],

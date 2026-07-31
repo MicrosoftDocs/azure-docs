@@ -3,11 +3,9 @@ title: Use API Management in a virtual network with Azure Application Gateway
 titleSuffix: Azure API Management
 description: Set up and configure Azure API Management in an internal virtual network with Azure Application Gateway (Web Application Firewall) as a front end.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.author: danlep
 ms.date: 04/17/2025
 ms.custom: engagement-fy23, devx-track-azurepowershell
 ---
@@ -243,7 +241,7 @@ The following example shows how to create an API Management instance in a virtua
         -AdminEmail $apimAdminEmail -VirtualNetwork $apimVirtualNetwork -VpnType "Internal" -Sku "Developer" -PublicIpAddressId $apimPublicIpAddressId.Id
     ```
 
-It can take between 30 and 40 minutes to create and activate an API Management instance in this tier. After the previous command succeeds, see [DNS configuration required to access internal virtual network API Management service](api-management-using-with-internal-vnet.md#dns-configuration) to confirm access to it.
+It can take between 30 and 40 minutes to create and activate an API Management instance in this tier. After the previous command succeeds, see [DNS configuration required to access internal virtual network API Management service](api-management-using-with-internal-vnet.md#dns-configuration-for-internal-virtual-network-scenarios) to confirm access to it.
 
 ## Set up custom domain names in API Management
 

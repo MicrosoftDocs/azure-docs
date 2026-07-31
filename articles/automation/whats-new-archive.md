@@ -3,7 +3,7 @@ title: Archive for What's new in Azure Automation
 description: The What's new release notes in the Overview section of this content set contain six months of activity. Thereafter, the items are removed from the main article and put into this article.
 services: automation
 ms.topic: overview
-ms.date: 08/01/2023
+ms.date: 04/24/2026
 ms.custom: references_regions
 ms.author: v-rochak2
 author: RochakSingh-blr
@@ -227,7 +227,7 @@ Start/Stop VM runbooks have been updated to use Az modules in place of Azure Res
 
 Use Azure Automation State Configuration to centrally store configurations and maintain the desired state of hybrid connected machines enabled through the Azure Arc enabled servers DSC VM extension. For more information, read [Arc enabled servers VM extensions overview](/azure/azure-arc/servers/manage-vm-extensions).
 
-### July 2020
+## July 2020
 
 ### Introduced Public Preview of Private Link support in Automation
 
@@ -236,6 +236,8 @@ Use Azure Automation State Configuration to centrally store configurations a
 Use Azure Private Link to securely connect virtual networks to Azure Automation using private endpoints. For more information, read the [announcement](https://azure.microsoft.com/updates/public-preview-private-link-azure-automation-is-now-available/).
 
 ### Hybrid Runbook Worker support for Windows Server 2008 R2
+
+[!INCLUDE [end-of-support-notes-windows-server-2008](./includes/end-of-support-notes-windows-server-2008.md)]
 
 **Type:** New feature
 

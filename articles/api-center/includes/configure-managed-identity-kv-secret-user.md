@@ -6,17 +6,18 @@ services: api-center
 
 ms.service: azure-api-center
 ms.topic: include
-ms.date: 12/20/2024
+ms.date: 03/09/2026
 
 ms.custom: Include file
+
 ---
 
-To allow import of APIs, assign your API center's managed identity the **Key Vault Secrets User** role in your Azure key vault. You can use the [portal](/azure/role-based-access-control/role-assignments-portal-managed-identity) or the Azure CLI.
+To allow import of the assets, assign your API center's managed identity the **Key Vault Secrets User** role in your Azure key vault. You can use the [portal](/azure/role-based-access-control/role-assignments-portal-managed-identity) or the Azure CLI.
 
 #### [Portal](#tab/portal)
 
-1. In the [portal](https://azure.microsoft.com), navigate to your key vault.
-1. In the left menu, select **Access control (IAM)**.
+1. In the [portal](https://azure.microsoft.com), go to your key vault.
+1. In the sidebar menu, select **Access control (IAM)**.
 1. Select **+ Add role assignment**.
 1. On the **Add role assignment** page, set the values as follows: 
     1. On the **Role** tab, select **Key Vault Secrets User**.
@@ -76,4 +77,5 @@ To allow import of APIs, assign your API center's managed identity the **Key Vau
         --assignee-object-id $apicObjID `
         --assignee-principal-type ServicePrincipal `
         --scope $scope 
+    ```
 ---

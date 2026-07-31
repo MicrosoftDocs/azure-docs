@@ -3,7 +3,7 @@ title: Support matrix for VMware/physical disaster recovery in Azure Site Recove
 description: Summarizes support for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 ms.topic: concept-article
 ms.service: azure-site-recovery
-ms.date: 02/27/2026
+ms.date: 04/06/2026
 ms.author: v-gajeronika
 author: Jeronika-MS
 ms.custom: engagement-fy23, linux-related-content
@@ -25,6 +25,8 @@ This article summarizes supported components and settings for disaster recovery 
 
 > [!NOTE]
 > Site Recovery doesn't move or store customer data out of the target region, in which disaster recovery has been set up for the source machines. Customers may select a Recovery Services Vault from a different region if they so choose. The Recovery Services Vault contains metadata but no actual customer data.
+
+[!INCLUDE [vmware-to-azure-classic-experience-retirement-note.md](./includes/vmware-to-azure-classic-experience-retirement-note.md)]
 
 ## Deployment scenarios
 
@@ -97,7 +99,7 @@ Windows Server 2016 64-bit | Supported for Server Core, Server with Desktop Expe
 Windows Server 2012 R2 / Windows Server 2012 | Supported.
 Windows Server 2008 R2 with SP1 onwards. | Supported.
 Windows Server 2008 with SP2 or later (64-bit/32-bit) |  Supported for migration only. [Learn more](migrate-tutorial-windows-server-2008.md).
-Windows 10, Windows 8.1, Windows 8 | Only 64-bit system is supported. 32-bit system isn't supported.
+Windows 11, Windows 10, Windows 8.1, Windows 8 | Only 64-bit system is supported. 32-bit system isn't supported.
 Windows 7 with SP1 64-bit | Supported.
 
 

@@ -146,7 +146,7 @@ This section provides you with an understanding about the backup process of an H
 
 ### Backup architecture for database instance snapshot
 
-Azure Backup integrates Azure Managed Disk full or incremental snapshots with HANA snapshot commands to deliver instant backup and recovery capabilities for HANA.
+Azure Backup integrates Azure managed disk full or incremental snapshots with HANA snapshot commands to deliver instant backup and recovery capabilities for HANA.
 
 **SAP HANA database instance snapshot backup**
 

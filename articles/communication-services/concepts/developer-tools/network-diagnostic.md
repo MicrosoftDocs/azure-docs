@@ -6,7 +6,7 @@ manager: chpalm
 services: azure-communication-services
 ms.author: sundraman
 ms.date: 11/16/2022
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-communication-services
 ---
 

@@ -6,7 +6,7 @@ author: vac0224
 ms.service: azure-communication-services
 ms.subservice: teams-interop
 ms.date: 09/01/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.author: henikaraa
 ms.custom: general_availability
 services: azure-communication-services
@@ -33,7 +33,7 @@ The CCaaS and Microsoft 365 administrators must authorize the use of Teams Phone
 SDK).
 
 We use a custom Teams endpoint client built using Azure Communication Services Client SDK. The process to authorize the custom client is defined here and there is no difference for this
-release. For more information, see [Manage Teams Identity](../../../quickstarts/manage-teams-identity.md).
+release. For more information, see [Manage Teams Identity](../../../quickstarts/manage-teams-identity.md). To implement this authorization for the Teams persona, see [Access a user's Teams Phone separate from their Teams client](../../../quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md).
 
 ### Server Authorization
 
@@ -41,7 +41,7 @@ After the Teams admin creates one or more Teams Resource Accounts, the CCaaS adm
 the CCaaS server app (Call Automation SDK). The CCaaS administrator initiates the consent process in their CCaaS Administration Portal.
 
 The administrator needs to set up / enable Teams calls (Contoso implementation specific) to their CCaaS service. This setup initiates a backend process by the CCaaS service and uses a new Microsoft Graph API to fetch the Teams Resource Accounts and presents them to the CCaaS
-admin user. The CCaaS admin selects a Teams Resource Account. Then the CCaaS Admin function triggers a new Azure Communication Services Consent API to link the Teams Resource Account with the Azure Communication Services Resource ID.
+admin user. The CCaaS admin selects a Teams Resource Account. Then the CCaaS Admin function triggers a new Azure Communication Services Consent API to link the Teams Resource Account with the Azure Communication Services Resource ID. To implement this consent flow, see [Access a user's Teams Phone separate from their Teams client](../../../quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md) and the [Teams Phone extensibility quickstart](../../../quickstarts/tpe/teams-phone-extensibility-quickstart.md).
 
 ### Custom Teams Client Authorization for CCaaS Persona
 
@@ -50,7 +50,7 @@ When a CCaaS decides to use CCaaS Persona, the CCaaS and Microsoft 365 administr
 The process starts with a Microsoft 365 Admin installing a Microsoft Entra ID app. Once the app is installed, the CCaaS developer creates their own Microsoft Entra App and then grant permissions to the app created by the Microsoft 365 Admin to the CCaaS app.
 
 The CCaaS developer then consumes a new consent API to provide consent to either the Teams Tenant, Teams authorized user, or a Microsoft Entra group. The implementor needs to choose which is best for their customer and organization based on policy. Once the admin provides consent, the CCaaS developer can then develop the runtime flows to exchange a Microsoft Entra token for an Access token and use the Access token in the Azure Communication Services client SDK to
-instantiate a calling agent to make and receive call.
+instantiate a calling agent to make and receive call. To implement this authorization for the CCaaS persona, see [Access a user's Teams Phone separate from their Teams client](../../../quickstarts/tpe/teams-phone-extensibility-access-teams-phone.md).
 
 ## Next steps
 

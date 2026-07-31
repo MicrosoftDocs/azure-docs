@@ -5,7 +5,7 @@ description: Introduction to key scenarios and capabilities of Azure API Center.
  
 ms.service: azure-api-center
 ms.topic: overview
-ms.date: 01/06/2025
+ms.date: 06/02/2026
  
 ms.custom: references_regions
 ---
@@ -13,9 +13,6 @@ ms.custom: references_regions
 # What is Azure API Center?
 
 Azure API Center enables you to track all your APIs in a centralized location for discovery, reuse, and governance. Use an API center to develop and maintain a structured and organized inventory of your organization's APIs - regardless of their type, lifecycle stage, or deployment location - along with related information such as version details, API definition files, and common metadata. 
-
-> [!TIP]
-> You can get started quickly with Azure API Center by taking advantage of the Free plan, which has no time constraints. Compare the [Free plan and Standard plan limits](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits).
 
 By using an API center, stakeholders throughout your organization, including API program managers, IT administrators, application developers, and API developers can design, discover, reuse, and govern APIs.  
 
@@ -26,11 +23,11 @@ By using an API center, stakeholders throughout your organization, including API
 
 Azure API Center offers the following benefits:
 
-- **Create and maintain an organizational inventory**: Build a **complete inventory of APIs** available in your organization. Register APIs managed in all your API management solutions, including Azure API Management and platforms from other providers. Also include your unmanaged APIs and APIs under development. Foster communication and let API program managers and developers collaborate for increased API reuse, quality, security, compliance, and developer productivity.​
+- **Create and maintain an organizational inventory**: Build a **complete inventory of APIs** available in your organization. Register APIs managed in all your API management solutions, including Azure API Management and platforms from other providers. Also include your unmanaged APIs and APIs under development. Foster communication and let API program managers and developers collaborate for increased API reuse, quality, security, compliance, and developer productivity.
 
-- **Govern your organization's APIs**: Access more complete visibility into the APIs being developed and used within your organization. API program managers and IT administrators can govern this inventory to ensure it meets organizational standards by **defining custom metadata** and **analyzing API definitions** to enforce conformance to API style guidelines.​
+- **Govern your organization's APIs**: Access more complete visibility into the APIs being developed and used within your organization. API program managers and IT administrators can govern this inventory to ensure it meets organizational standards by **defining custom metadata** and **analyzing API definitions** to enforce conformance to API style guidelines.
 
-- **Easy API discovery**: Promote API reuse to maximize developer productivity and ensure developers are using the right APIs. Azure API Center helps program managers and developers discover the API inventory and filter by using built-in and custom metadata. ​
+- **Easy API discovery**: Promote API reuse to maximize developer productivity and ensure developers are using the right APIs. Azure API Center helps program managers and developers discover the API inventory and filter by using built-in and custom metadata. 
 
 - **Accelerate API consumption**: Maximize developer productivity when consuming APIs and ensure they're consumed in a secure manner consistent with organizational standards.
 
@@ -54,33 +51,53 @@ Create and use an API center for the following capabilities:
 
 For more information about the entities you can manage and the capabilities in Azure API Center, see [Key concepts](key-concepts.md).
 
-## Tiers and SKUs
+## API Center plans and features
 
-Azure API Center is offered in a [Free plan and Standard plan](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits).
+Azure API Center is offered in a Free plan and Standard plan, which are designed to meet different needs as summarized in the following table. For feature availability and limits, see [Azure API Center limits](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits).
 
-> [!NOTE]
-> Azure API Center is also included free with Azure API Management Premium and Standard tiers.
+| Capability | Free plan | Standard plan |
+|---------|-----------|---------------|
+| **Use cases** | Evaluation and small-scale use | Enterprise and production workloads |
+| **Inventory and governance features** | Limited<sup>1</sup> | Expanded for enterprise use cases |
+| **Upgrade path** | Upgradable to Standard | N/A |
+| **Time constraints** | None | None |
+
+> [!IMPORTANT]
+> Microsoft support isn't available for the Azure API Center Free plan. Support cases submitted by Free plan customers can't be investigated and are closed. To receive Microsoft support, [upgrade to the Standard plan](/azure/api-center/frequently-asked-questions#how-do-i-upgrade-my-api-center-from-the-free-plan-to-the-standard-plan).
+
+<sup>1</sup> For details, see [Azure API Center limits](/azure/azure-resource-manager/management/azure-subscription-service-limits?toc=/azure/api-center/toc.json&bc=/azure/api-center/breadcrumb/toc.json#azure-api-center-limits).
+
+### Standard plan benefit when API Center linked to API Management
+
+If you [link](synchronize-api-management-apis.md) your API Management instance to your Azure API Center, you can use or upgrade to the API Center Standard plan at no extra cost. This benefit applies to customers with the following API Management tiers and continues as long as at least one eligible API Management instance remains linked.
+
+- Standard
+- Standard v2
+- Premium
+- Premium v2
+
+For more information, see [Azure API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).
 
 ## Available regions
 
 Azure API Center is currently available in the following Azure regions:
 
-* Australia East
-* Canada Central
-* Central India
-* East US
-* France Central
-* Sweden Central
-* UK South
-* West Europe
+- Australia East
+- Canada Central
+- Central India
+- East US
+- France Central
+- Sweden Central
+- UK South
+- West Europe
              
 ## Azure API Center and the API ecosystem
 
 Azure API Center can serve a key role in an organization's API ecosystem. Consider the hypothetical Contoso organization, which adopts an API-first strategy, emphasizing the importance of APIs in their software development and integration. 
 
-Contoso's API developers, app developers, API program managers, and API managers collaborate through Azure API Center to develop and use the organization's API inventory. The following diagram and explanation demonstrates this scenario:
+Contoso's API developers, app developers, API program managers, and API managers collaborate through Azure API Center to develop and use the organization's API inventory. The following diagram and explanation demonstrate this scenario:
 
-:::image type="content" source="media/overview/api-ecosystem-example.png" border="false" alt-text="Diagram showing Azure API Center in an example API ecosystem.":::
+:::image type="content" source="media/overview/api-ecosystem-example.png" border="false" alt-text="Diagram showing Azure API Center in an example API ecosystem." lightbox="media/overview/api-ecosystem-example.png":::
 
 Contoso's API ecosystem includes the following features:
 

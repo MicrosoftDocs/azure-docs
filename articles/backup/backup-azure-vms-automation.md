@@ -496,7 +496,7 @@ $restorejob
 Provide an additional parameter **TargetResourceGroupName** to specify the RG to which managed disks will be restored.
 
 > [!IMPORTANT]
-> It's strongly recommended to use the **TargetResourceGroupName** parameter for restoring managed disks since it results in significant performance improvements. If this parameter isn't given, then you can't benefit from the instant restore functionality and the restore operation will be slower in comparison. If the purpose is to restore managed disks as unmanaged disks, then don't provide this parameter and make the intention clear by providing the `-RestoreAsUnmanagedDisks` parameter. The `-RestoreAsUnmanagedDisks` parameter is available from Azure PowerShell 3.7.0 onwards. In future versions, it will be mandatory to provide either of these parameters for the right restore experience.
+> We recommend that you use the **TargetResourceGroupName** parameter for restoring managed disks since it results in significant performance improvements. The storage account is then used for the VM configuration file and temporary restore artifacts. Azure Backup doesn't support restoring disks as unmanaged disks. For legacy recovery points from VMs that used unmanaged disks, [restore them as managed disks](backup-azure-arm-restore-vms.md#restore-legacy-recovery-points-from-vms-that-used-unmanaged-disks).
 >
 >
 
@@ -630,7 +630,7 @@ After you restore the disks, use the following steps to create and configure the
 >
 > 1. AzureAz module 3.0.0 or higher is required. <br>
 > 2. To create encrypted VMs from restored disks, your Azure role must have permission to perform the action, **Microsoft.KeyVault/vaults/deploy/action**. If your role doesn't have this permission, create a custom role with this action. For more information, see [Azure custom roles](../role-based-access-control/custom-roles.md). <br>
-> 3. After restoring disks, you can now get a deployment template which you can directly use to create a new VM. YOu don't need different PowerShell cmdlets to create managed/unmanaged VMs which are encrypted/unencrypted.<br>
+> 3. After restoring disks, you can now get a deployment template which you can directly use to create a new VM. You don't need different PowerShell cmdlets to create managed VMs that are encrypted or unencrypted.<br>
 > <br>
 
 ### Create a VM using the deployment template

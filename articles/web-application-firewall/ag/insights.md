@@ -110,6 +110,8 @@ In **Triage by URL**, investigation begins with a URL path. Analysts select the 
 
 - **Scale:** Large volumes of diagnostic logs can increase query latency and storage costs.
 
+- **Resource-specific mode:** Resource-specific tables are currently not supported. The solution relies on Diagnostic settings streaming to Log Analytics in Azure Diagnostics mode only.
+
 ## Best practices
 
 - Always enable **both metrics and logs** to balance visibility and detail.

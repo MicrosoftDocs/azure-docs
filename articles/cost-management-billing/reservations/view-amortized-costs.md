@@ -7,7 +7,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: common
 ms.topic: how-to
-ms.date: 01/15/2026
+ms.date: 07/17/2026
 ms.author: primittal
 ---
 

@@ -1,14 +1,14 @@
 ---
-title: Initiate a change of channel partner request
-description: This article shows enterprise customers how to initiate a request to change channel partners via the Azure portal.
-author: SandeepReddyAcc
-ms.author: v-salin
-ms.service: volume-licensing
-ms.topic: article
-ms.date:     11/26/2025
+title: Initiate a change of channel partner request
+description: This article shows enterprise customers how to initiate a request to change channel partners via the Azure portal.
+author: SandeepReddyAcc
+ms.author: v-salin
+ms.service: volume-licensing
+ms.topic: article
+ms.date: 04/20/2026
 ---
-
-# Initiate a change of channel partner (COCP) request in the Azure portal
+
+# Initiate a change of channel partner (COCP) request in the Azure portal
 
 Azure customers with an Enterprise Agreement can now initiate a change of channel partner (COCP) request through the Azure portal.
 

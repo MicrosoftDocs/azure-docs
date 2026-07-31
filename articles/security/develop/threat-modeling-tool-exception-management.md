@@ -4,7 +4,7 @@ description: Learn about exception management in the Threat Modeling Tool. See m
 services: security
 author: jegeib
 ms.service: azure-information-protection
-ms.topic: article
+ms.topic: concept-article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp

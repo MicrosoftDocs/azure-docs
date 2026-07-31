@@ -7,6 +7,7 @@ ms.topic: troubleshooting-known-issue
 author: habibaum
 ms.author: v-uhabiba
 ms.custom: sfi-image-nochange
+ms.update-cycle: 1095-days
 # Customer intent: As a system administrator who manages virtual machines, I want to troubleshoot issues with Azure Update Manager so that I can ensure successful patching and compliance for my deployed resources.
 ---
 
@@ -341,10 +342,14 @@ To allow extensions to work properly, set the property to `true`.
 
 You might see the following exception:
 
+1.
 ```
 EXCEPTION: Exception('Unable to invoke sudo successfully. Output: root is not in the sudoers file. This incident will be reported. False ',)
 ```
-
+2.
+```
+Error Message: Extension returned non-zero exit code for Install: 88
+```
 #### Cause
 
 Sudo privileges aren't granted to the extensions for assessment or patching operations on Linux machines.

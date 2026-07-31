@@ -1,20 +1,21 @@
 ---
-title: "(Deprecated) Create automated workflows in multitenant Azure Logic Apps with Visual Studio"
-description: Create automated integration workflows that run in multitenant Azure Logic Apps with Visual Studio.
+title: "(Deprecated) Create integration workflows in multitenant Azure with Visual Studio"
+description: Create automated integration workflows that run in multitenant Azure Logic Apps by using Visual Studio.
 services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: quickstart
-ms.date: 12/10/2024
+ms.update-cycle: 365-days
+ms.date: 03/10/2026
 ms.custom:
   - mvc
   - mode-ui
   - sfi-image-nochange
-#Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio.
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to create my first automated integration workflow by using Visual Studio.
 ---
 
-# Quickstart: Create automated workflows in multitenant Azure Logic Apps with Visual Studio (Deprecated)
+# Quickstart: Create automated integration workflows in multitenant Azure Logic Apps with Visual Studio (Deprecated)
 
 [!INCLUDE [logic-apps-sku-consumption](includes/logic-apps-sku-consumption.md)]
 

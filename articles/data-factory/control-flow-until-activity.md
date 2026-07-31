@@ -6,7 +6,7 @@ author: kromerm
 ms.author: makromer
 ms.reviewer: whhender
 ms.subservice: orchestration
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 03/20/2025
 ms.custom:
   - devx-track-azurepowershell

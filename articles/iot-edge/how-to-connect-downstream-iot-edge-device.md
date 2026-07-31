@@ -3,7 +3,7 @@ title: How to create nested Azure IoT Edge device hierarchies
 description: How to create a trusted connection between an IoT Edge gateway and a downstream IoT Edge device.
 author: sethmanheim
 ms.author: sethm
-ms.date: 02/27/2026
+ms.date: 07/16/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 services: iot-edge
@@ -89,7 +89,7 @@ Additional device-identity commands, including `add-children`,`list-children`, a
 >[!NOTE]
 >To establish parent and child relationships programmatically, use the C#, Java, or Node.js [IoT Hub Service SDK](../iot-hub/iot-hub-devguide-sdks.md).
 >
->Here's an [example of assigning child devices](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/e2e/test/iothub/service/RegistryManagerE2ETests.cs) using the C# SDK. The task `RegistryManager_AddAndRemoveDeviceWithScope()` shows how to programmatically create a three-layer hierarchy. An IoT Edge device is in layer one, as the parent. Another IoT Edge device is in layer two, serving as both a child and a parent. Finally, an IoT device is in layer three, as the lowest layer child device.
+>Here's an example of assigning child devices using the C# SDK. The task `RegistryManager_AddAndRemoveDeviceWithScope()` shows how to programmatically create a three-layer hierarchy. An IoT Edge device is in layer one, as the parent. Another IoT Edge device is in layer two, serving as both a child and a parent. Finally, an IoT device is in layer three, as the lowest layer child device.
 
 ## Generate certificates
 
@@ -302,7 +302,7 @@ You should already have IoT Edge installed on your device. If not, follow the st
     pk = "file:///var/aziot/secrets/iot-edge-device-ca-gateway.key.pem"
     ```
 
-01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.5. For example:
+1. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.6. For example:
 
     ```toml
     [agent]
@@ -310,7 +310,7 @@ You should already have IoT Edge installed on your device. If not, follow the st
     type = "docker"
     
     [agent.config]
-    image = "mcr.microsoft.com/azureiotedge-agent:1.5"
+    image = "mcr.microsoft.com/azureiotedge-agent:1.6"
     ```
 
 01. The beginning of your parent configuration file should look similar to the following example.
@@ -369,8 +369,8 @@ To verify the *hostname*, you need to inspect the environment variables of the *
     ```output
     NAME                        STATUS           DESCRIPTION      CONFIG
     SimulatedTemperatureSensor  running          Up 5 seconds     mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
-    edgeAgent                   running          Up 17 seconds    mcr.microsoft.com/azureiotedge-agent:1.5
-    edgeHub                     running          Up 6 seconds     mcr.microsoft.com/azureiotedge-hub:1.5
+    edgeAgent                   running          Up 17 seconds    mcr.microsoft.com/azureiotedge-agent:1.6
+    edgeHub                     running          Up 6 seconds     mcr.microsoft.com/azureiotedge-hub:1.6
     ```
 01. Inspect the *edgeHub* container.
 
@@ -516,7 +516,7 @@ You should already have IoT Edge installed on your device. If not, follow the st
     pk = "file:///var/aziot/secrets/iot-device-downstream.key.pem"
     ```
 
-01. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.5. For example:
+1. Verify your IoT Edge device uses the correct version of the IoT Edge agent when it starts. Find the **Default Edge Agent** section and set the image value for IoT Edge to version 1.6. For example:
 
     ```toml
     [agent]
@@ -524,7 +524,7 @@ You should already have IoT Edge installed on your device. If not, follow the st
     type = "docker"
 
     [agent.config]
-    image = "mcr.microsoft.com/azureiotedge-agent:1.5"
+    image = "mcr.microsoft.com/azureiotedge-agent:1.6"
     ```
 
 01. The beginning of your downstream configuration file should look similar to the following example.
@@ -766,14 +766,14 @@ The API proxy module was designed to be customized to handle most common gateway
                    "systemModules": {
                        "edgeAgent": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
+                               "image": "mcr.microsoft.com/azureiotedge-agent:1.6",
                                "createOptions": "{}"
                            },
                            "type": "docker"
                        },
                        "edgeHub": {
                            "settings": {
-                               "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
+                               "image": "mcr.microsoft.com/azureiotedge-hub:1.6",
                                "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
                            },
                            "type": "docker",
@@ -841,7 +841,7 @@ name = "edgeAgent"
 type = "docker"
 
 [agent.config]
-image = "{Parent FQDN or IP}:443/azureiotedge-agent:1.5"
+image = "{Parent FQDN or IP}:443/azureiotedge-agent:1.6"
 ```
 
 If you're using a local container registry, or providing the container images manually on the device, update the config file accordingly.
@@ -972,7 +972,7 @@ The API proxy module was designed to be customized to handle most common gateway
 
 Downstream devices can be used to integrate the Microsoft Defender for IoT's micro agent with the IoT Edge gateway using downstream device proxying.
 
-Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-builders/overview.md#defender-for-iot-micro-agent).
+Learn more about the [Defender for IoT micro agent](/azure/defender-for-iot/device-builders/overview#defender-for-iot-micro-agent).
 
 **To integrate Microsoft Defender for IoT with IoT Edge using downstream device proxying**:
 
@@ -984,7 +984,7 @@ Learn more about the [Defender for IoT micro agent](../defender-for-iot/device-b
 
     :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/select-device.png" alt-text="Screenshot showing where your device is located for selection.":::
 
-1. Select the `DefenderIotMicroAgent` module twin that you created from [these instructions](../defender-for-iot/device-builders/quickstart-create-micro-agent-module-twin.md#create-a-defenderiotmicroagent-module-twin).  
+1. Select the `DefenderIotMicroAgent` module twin that you created from [these instructions](/azure/defender-for-iot/device-builders/quickstart-create-micro-agent-module-twin#create-a-defenderiotmicroagent-module-twin).  
 
     :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/defender-micro-agent.png" alt-text="Screenshot showing the location of the DefenderIotMicroAgent.":::
 

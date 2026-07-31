@@ -6,8 +6,8 @@ author: jkinma39
 ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 11/17/2025
+ms.topic: how-to
+ms.date: 04/01/2026
 ms.author: jkinma
 ms.custom: sfi-image-nochange
 service.tree.id: 95459a4b-434c-4f83-879b-aa5f509fc7fa
@@ -41,9 +41,9 @@ When an invoice wasn't paid, its status is shown as *Past due*. A past due subsc
 
 ## Invoices for MOSP billing accounts
 
-An MOSP billing account is created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/), [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or as a [Visual Studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
+An MOSP billing account is created when you sign up for Azure through the Azure website. For example, when you sign up for an [Azure Free Account](https://azure.microsoft.com/pricing/offers/ms-azr-0044p?cid=msft_learn), [account with pay-as-you-go rates](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn) or as a [Visual Studio subscriber](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/).
 
-Customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) can have a billing account for an MCA.
+Customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn) or an [Azure Free Account](https://azure.microsoft.com/pricing/offers/ms-azr-0044p?cid=msft_learn) can have a billing account for an MCA.
 
 If you're unsure of your billing account type, see [Check your billing account type](../manage/view-all-accounts.md#check-the-type-of-your-account) before following the instructions in this article. 
 
@@ -127,7 +127,7 @@ You must have an account admin role on a subscription or a support plan to opt i
 
 ## Invoices for MCA and MPA billing accounts
 
-An MCA billing account is created when your organization works with a Microsoft representative to sign an MCA. Some customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/offers/ms-azr-0003p/) or an [Azure Free Account](https://azure.microsoft.com/offers/ms-azr-0044p/) might have a billing account for an MCA as well. For more information, see [Get started with your MCA billing account](../understand/mca-overview.md).
+An MCA billing account is created when your organization works with a Microsoft representative to sign an MCA. Some customers in select regions, who sign up through the Azure website for an [account with pay-as-you-go rates](https://azure.microsoft.com/pricing/offers/ms-azr-0003p?cid=msft_learn) or an [Azure Free Account](https://azure.microsoft.com/pricing/offers/ms-azr-0044p?cid=msft_learn) might have a billing account for an MCA as well. For more information, see [Get started with your MCA billing account](../understand/mca-overview.md).
 
 An MPA billing account is created for Cloud Solution Provider (CSP) partners to manage their customers in the new commerce experience. Partners need to have at least one customer with an [Azure plan](/partner-center/purchase-azure-plan) to manage their billing account in the Azure portal. For more information, see [Get started with your MPA billing account](../understand/mpa-overview.md).
 
@@ -212,13 +212,20 @@ You give others access to view, download, and pay invoices by assigning them the
 
 You might need to send your monthly invoice to your accounting team or to another one of your email addresses. You can do so without granting your accounting team or the secondary email access to your billing profile.
 
-1.  Sign in to the [Azure portal](https://portal.azure.com).
-1.  Search for **Cost Management + Billing**.  
-1.  Select **Invoices** from the left-hand side and then select **Invoice email preference** from the top of the page.  
-    :::image type="content" border="true" source="./media/download-azure-invoice/mca-billing-profile-select-email-invoice.png" lightbox="./media/download-azure-invoice/mca-billing-profile-select-email-invoice-zoomed.png" alt-text="Screenshot that shows the Email invoice option for invoices.":::
-1.  If you have multiple billing profiles, select a billing profile.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+1. Search for **Cost Management + Billing**.  
+1. Select **Invoices** from the left-hand side and then select **Invoice email preference** from the top of the page.  
+1. If you have multiple billing profiles, select a billing profile.
 1. In the :::no-loc text="additional"::: recipients section, add the email addresses to receive invoices.
-1.  Select **Save**.
+1. Select **Save**.
+
+## Update the bill-to address or PO number on an invoice
+
+1. From the **Invoice list**, select the invoice you want to update.
+
+1. On the **Invoice details** page, select **Change bill-to + PO number** from the menu at the top of the page.
+
+1. Update the **bill-to address** and/or **PO number**, then regenerate the invoice to apply your changes.
 
 ## Azure Government support for invoices
 

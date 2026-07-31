@@ -2,12 +2,12 @@
 title: Tutorial - Configure message routing
 titleSuffix: Azure IoT Hub
 description: Tutorial - Route device messages to an Azure Storage account with message routing for Azure IoT Hub using the Azure CLI and the Azure portal
-author: cwatson-cat
+author: sethmanheim
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 03/31/2025
-ms.author: cwatson
+ms.author: sethm
 ms.custom:
   - mvc
   - 'Role: Cloud Development'
@@ -41,7 +41,7 @@ In this tutorial, you perform the following tasks:
   * Download or clone the SDK repo to your development machine.
   * Have .NET Core 3.0.0 or greater on your development machine. Check your version by running `dotnet --version` and [Download .NET](https://dotnet.microsoft.com/download) if necessary.
 
-* Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connect to IoT Hub](../iot/iot-mqtt-connect-to-iot-hub.md#connect-to-iot-hub).
+* Make sure that port 8883 is open in your firewall. The sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port might be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connect to IoT Hub](iot-mqtt-connect-to-iot-hub.md#connect-to-iot-hub).
 
 * Optionally, install [Azure IoT Explorer (preview)](https://github.com/Azure/azure-iot-explorer). This tool helps you observe the messages as they arrive at your IoT hub. This article uses Azure IoT Explorer.
 

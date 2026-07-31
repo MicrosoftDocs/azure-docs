@@ -2,12 +2,12 @@
 title: Understand Kubernetes Storage management on Azure Stack Edge Pro device| Microsoft Docs
 description: Describes how Kubernetes Storage management occurs on an Azure Stack Edge Pro device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/25/2021
-ms.author: alkohli
+ms.author: sipastak
 ms.custom: sfi-image-nochange
 ---
 # Kubernetes storage management on your Azure Stack Edge Pro GPU device

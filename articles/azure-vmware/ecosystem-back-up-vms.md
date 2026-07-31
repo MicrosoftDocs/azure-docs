@@ -30,4 +30,4 @@ You can find more information on these backup solutions here:
 - [Dell PPDM](https://www.dell.com/support/manuals/en-us/enterprise-copy-data-management/pp-dm_19.19_virtual_machines_ug/azure-vmware-solution-avs-on-microsoft-azure?guid=guid-600e65ba-95f3-4d7c-b8bb-4950abf2f9ad&lang=en-us)
 - [Rubrik](https://www.rubrik.com/en/products/cloud-data-management)
 - [Veeam](https://www.veeam.com/kb4012)
-- [Veritas](https://vrt.as/nb4avs)
+- [Veritas](https://www.veritas.com/support/en_US/doc/21902280-139625479-0/v19545363-139625479)

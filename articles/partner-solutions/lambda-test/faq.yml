@@ -2,6 +2,8 @@
 metadata:
   title: LambdaTest - HyperExecute FAQ
   description: Answers to common questions about using LambdaTest - HyperExecute on Azure, such as resource creation and management.
+  author: shijojoy
+  ms.author: shijoy
   ms.service: partner-services
   ms.topic: faq
   ai-usage: ai-generated

@@ -1,6 +1,6 @@
 ---
-title: Use HashiCorp Terraform to provision Oracle Database@Azure
-description: Use HashiCorp Terraform to provision Oracle Database@Azure.
+title: Use HashiCorp Terraform to provision Oracle AI Database@Azure
+description: Use HashiCorp Terraform to provision Oracle AI Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
@@ -8,17 +8,17 @@ ms.topic: how-to
 ms.date: 6/07/2024
 ms.custom: engagement-fy23, devx-track-terraform
 ms.author: jacobjaygbay
-# Customer intent: As a cloud engineer, I want to use HashiCorp Terraform to provision and manage Oracle Database resources on Azure, so that I can automate infrastructure deployment and streamline configuration management efficiently.
+# Customer intent: As a cloud engineer, I want to use HashiCorp Terraform to provision and manage Oracle AI Database resources on Azure, so that I can automate infrastructure deployment and streamline configuration management efficiently.
 ---
 
-# Use HashiCorp Terraform to provision Oracle Database@Azure
+# Use HashiCorp Terraform to provision Oracle AI Database@Azure
 
-You can provision and manage resources for Oracle Database@Azure using the Terraform tool that enables you to provision and manage infrastructure in Oracle Cloud Infrastructure (OCI).
+You can provision and manage resources for Oracle AI Database@Azure using the Terraform tool that enables you to provision and manage infrastructure in Oracle Cloud Infrastructure (OCI).
 
 The OCI mechanism for Terraform provisioning and management is done via JSON scripts. Here are sample scripts.
 
 >[!NOTE]
->This document describes examples of provisioning and management of Oracle Database@Azure resources through Terraform provider AzAPI. See the [The AzAPI TF provider resources and data sources](https://registry.terraform.io/providers/Azure/azapi/latest/docs).
+>This document describes examples of provisioning and management of Oracle AI Database@Azure resources through Terraform provider AzAPI. See the [The AzAPI TF provider resources and data sources](https://registry.terraform.io/providers/Azure/azapi/latest/docs).
 
 The API spec version used in the examples is "2023-09-01-preview" as denoted in the "type" field in the examples. This is changed to the public version when it's made available.
 
@@ -345,7 +345,7 @@ data "azapi_resource_list" "listDbSystemShapesByLocation" {
 ## Terraform script to test the examples
 
 >[!NOTE]
->The following script creates an Oracle Exadata Infrastructure and an Oracle Exadata VM Cluster using the AzAPI Terraform provider followed by creating an Oracle Database deployment using the OCI Terraform provider [https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/database_db_home](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/database_db_home).
+>The following script creates an Oracle Exadata Infrastructure and an Oracle Exadata VM Cluster using the AzAPI Terraform provider followed by creating an Oracle AI Database deployment using the OCI Terraform provider [https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/database_db_home](https://registry.terraform.io/providers/oracle/oci/latest/docs/resources/database_db_home).
 
 ```
 

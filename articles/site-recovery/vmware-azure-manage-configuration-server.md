@@ -5,7 +5,7 @@ author: Jeronika-MS
 ms.service: azure-site-recovery
 ms.topic: how-to
 ms.author: v-gajeronika
-ms.date: 12/01/2025
+ms.date: 04/15/2026
 ms.custom:
   - sfi-image-nochange
   - sfi-ropc-nochange
@@ -17,6 +17,9 @@ ms.custom:
 You set up an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware virtual machines (VMs) and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure and manages data replication. This article summarizes common tasks for managing the configuration server after it deploys.
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
+
+>[!Note]
+>This article describes the classic ASR experience for VMware. For the modernized experience and updated workflows, see [VMware to Azure disaster recovery architecture – Modernized](/azure/site-recovery/vmware-azure-architecture-modernized) and [Set up disaster recovery for VMware VMs – Modernized](/azure/site-recovery/vmware-azure-set-up-replication-tutorial-modernized).
 
 ## Update Windows license
 

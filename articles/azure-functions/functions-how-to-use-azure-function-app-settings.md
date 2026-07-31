@@ -193,7 +193,7 @@ In the previous example, replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` wi
 You can migrate a function app between a Consumption plan and a Premium plan on Windows. 
 
 >[!TIP]  
->We recommend you migrate your Consumption plan app to run in a Flex Consumption plan instead of a Premium plan. Migration to the Flex Consumption plan is the only migration option for a Linux Consumption plan app. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md).   
+>We recommend you run your Consumption plan app in a Flex Consumption plan instead of a Premium plan. For a Linux Consumption plan app, moving to the Flex Consumption plan is the only option. Because in-place plan migration to and from Flex Consumption isn't supported, you must create a new function app in the Flex Consumption plan. For more information, see [Migrate Consumption plan apps to the Flex Consumption plan](migration/migrate-plan-consumption-to-flex.md), which walks you through creating a new Flex Consumption app with the same settings as your existing app.   
 
 When migrating between plans, keep in mind the following considerations:
 
@@ -203,6 +203,7 @@ When migrating between plans, keep in mind the following considerations:
 + The specific CLI commands depend on the direction of the migration.
 + Downtime in your function executions occurs as the function app is migrated between plans.
 + State and other app-specific content is maintained, because the same Azure Files share is used by the app both before and after migration.
++ In-place plan migration to or from the Flex Consumption plan isn't supported. You must create a new function app in the Flex Consumption plan.
 
 You can migrate your plan using these tools:
 
@@ -390,37 +391,6 @@ Consider these limitations when you develop your functions in the [Azure portal]
 + For compiled C# functions and Java functions, you can create the function app and related resources in the portal. However, you must create the functions code project locally and then publish it to Azure.
 
 When possible, develop your functions locally and publish your code project to a function app in Azure. For more information, see [Code and test Azure Functions locally](functions-develop-local.md).
-
-## Manually install extensions
-
-C# class library functions can include the NuGet packages for [binding extensions](functions-bindings-register.md) directly in the class library project. For other non-.NET languages and C# script, you should [use extension bundles](extension-bundles.md). If you must manually install extensions, you can do so by [using Azure Functions Core Tools](./functions-core-tools-reference.md#func-extensions-install) locally. If you can't use extension bundles and are only able to work in the portal, you need to use [Advanced Tools (Kudu)](#kudu) to manually create the extensions.csproj file directly in the site. Make sure to first remove the `extensionBundle` element from the *host.json* file.
-
-This same process works for any other file you need to add to your app.
-
-> [!IMPORTANT]
-> When possible, don't edit files directly in your function app in Azure. We recommend [downloading your app files locally](deployment-zip-push.md#download-your-function-app-files), using [Core Tools to install extensions](./functions-core-tools-reference.md#func-extensions-install) and other packages, validating your changes, and then [republishing your app using Core Tools](functions-run-local.md#publish) or one of the other [supported deployment methods](functions-deployment-technologies.md#deployment-methods).
-
-The Functions editor built into the Azure portal lets you update your function code and configuration files directly in the portal:
-
-1. Select your function app, then under **Functions**, select **Functions**.
-
-1. Choose your function and select **Code + test** under **Developer**.
-
-1. Choose your file to edit and select **Save** when you finish.
-
-Files in the root of the app, such as function.proj or extensions.csproj need to be created and edited by using the [Advanced Tools (Kudu)](#kudu):
-
-1. Select your function app, expand **Development tools**, and then select **Advanced tools** > **Go**.
-1. If prompted, sign in to the Source Control Manager (SCM) site with your Azure credentials.
-1. From the **Debug console** menu, choose **CMD**.
-1. Navigate to `.\site\wwwroot`, select the plus (**+**) button at the top, and select **New file**.
-1. Give the file a name, such as `extensions.csproj`, and then press Enter.
-1. Select the edit button next to the new file, add or update code in the file, and then select **Save**.
-1. For a project file like *extensions.csproj*, run the following command to rebuild the extensions project:
-
-    ```bash
-    dotnet build extensions.csproj
-    ```
 
 ## Platform features
 

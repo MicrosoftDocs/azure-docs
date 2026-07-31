@@ -48,11 +48,11 @@ A Log Analytics workspace:
 
 * Is the workspace from which you can take desired actions, such as querying for logs.
 
-In this section, you’ll:
+In this section, you learn to:
 
-* Configure a Log Analytics workspace
+* Configure a Log Analytics workspace.
 
-* Create a diagnostic setting in your private cloud to send your logs to this workspace
+* Create a diagnostic setting in your private cloud to send your logs to this workspace.
 
 #### Create a resource
 

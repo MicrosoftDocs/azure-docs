@@ -2,6 +2,8 @@
 metadata:
   title: Azure Native New Relic Service frequently asked questions
   description: Answers to common questions about using Azure Native New Relic Service including getting started, management, and billing.
+  author: shijojoy
+  ms.author: shijoy
   ms.topic: faq 
   ai-usage: ai-generated
   ms.date: 12/17/2025
@@ -27,7 +29,7 @@ sections:
           - Monitoring across multiple Azure subscriptions through a single New Relic resource
       - question: Where can I find Azure Native New Relic Service?
         answer: |
-          You can find Azure Native New Relic Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors) or [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/newrelicinc1635200720692.newrelic_liftr_payg?tab=Overview).
+          You can find Azure Native New Relic Service in the [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/NewRelic.Observability%2Fmonitors) or [Azure Marketplace](https://marketplace.microsoft.com/en-us/product/newrelicinc1635200720692.newrelic_liftr_payg_2025?tab=Overview).
 
   - name: Getting started
     questions:

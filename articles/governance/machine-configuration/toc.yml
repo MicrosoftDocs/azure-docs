@@ -19,8 +19,14 @@ items:
 
 - name: What's new in Machine Configuration
   items:
-    - name: What's new in the agent
-      href: ./whats-new/agent.md
+    - name: What's new in the Azure machine configuration agent
+      items:
+      - name: Overview
+        href: ./whats-new/agent/index.md
+      - name: Windows agent release notes
+        href: ./whats-new/agent/windows.md
+      - name: Linux agent release notes
+        href: ./whats-new/agent/linux.md
     # Planned, not yet written
     # - name: What's new in the service
     #   href: ./whats-new/service.md

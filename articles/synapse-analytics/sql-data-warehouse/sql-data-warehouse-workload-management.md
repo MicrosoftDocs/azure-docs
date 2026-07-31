@@ -6,11 +6,13 @@ ms.author: ajagadish
 ms.date: 02/04/2020
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: overview
 ms.custom: azure-synapse
 ---
 
 # What is workload management?
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 Running mixed workloads can pose resource challenges on busy systems.  Solution Architects seek ways to separate classic data warehousing activities (such as loading, transforming, and querying data) to ensure that enough resources exist to hit SLAs.  
 

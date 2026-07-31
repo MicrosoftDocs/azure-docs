@@ -65,10 +65,11 @@ The following Linux and FreeBSD distributions from Azure Marketplace support Acc
 - Ubuntu 22.04 LTS
 - Red Hat Enterprise Linux 10.0
 - Red Hat Enterprise Linux 9.6
+- Red Hat Enterprise Linux 8.10 (Technical Preview Only)
 - AlmaLinux 10.0
 - AlmaLinux 9.6
 - Rocky Linux 10.0
-- Rocky Linux 9.6
+- Rocky Linux 9.7
 - SUSE Linux Enterprise Server 16
 - SUSE Linux Enterprise Server 15 SP7
 - SUSE Linux Enterprise Server 15 SP6
@@ -77,7 +78,7 @@ The following Linux and FreeBSD distributions from Azure Marketplace support Acc
 - Oracle Linux UEK R8
 - Oracle Linux UEK R7
 
-For users of non endorsed Linux distributions or utilizing custom kernels, we recommend the Linux Kernel 6.12 or later found at [kernel.org](https://www.kernel.org/)
+For users of non endorsed Linux distributions or utilizing custom kernels, we recommend the Linux Kernel 6.14 or later found at [kernel.org](https://www.kernel.org/)
 
 > [!NOTE]
 > Newer MANA features are under active development and Linux distribution vendors partner with Microsoft to update their kernels with upstream changes. The Cadence of updates varies by distribution vendor. The newer your distribution and kernel is, the more likely it is to have the latest updates.

@@ -2,11 +2,11 @@
 title: Copy data from SharePoint Online List
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SharePoint Online List to supported sink data stores by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
-author: jianleishen
+author: simplywilson
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.date: 07/25/2025
-ms.author: jianleishen
+ms.author: tinglee
 ms.custom:
   - synapse
   - sfi-image-nochange
@@ -15,6 +15,10 @@ ms.custom:
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to use Copy Activity in Azure Data Factory and Azure Synapse pipelines to copy data from SharePoint Online List. The article builds on [Copy Activity](copy-activity-overview.md), which presents a general overview of Copy Activity.
+
+> [!NOTE]
+> This connector is also available in [Data Factory in Microsoft Fabric](/fabric/data-factory/data-factory-overview). For Fabric-specific configuration and features, see the [Fabric SharePoint Online List connector documentation](/fabric/data-factory/connector-sharepoint-online-list-overview).
+
 
 ## Supported capabilities
 
@@ -78,41 +82,14 @@ The following properties are supported for a SharePoint Online List linked servi
 | ***For ServicePrincipalCert*** | | |
 | servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Microsoft Entra ID, and ensure the certificate content type is **PKCS #12**. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). You need to configure the permission settings referring this [article](/sharepoint/dev/solution-guidance/security-apponly-azuread).| No |
 | servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
-| ***For ServicePrincipalKey*** | | |
-| servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). Refer to this [section](#grant-permission-for-using-service-principal-key) for more details including the permission settings.| No          |
 |  |  |  |
 | tenantId            | The tenant ID under which your application resides.          | Yes          |
 | connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. If not specified, the default Azure Integration Runtime is used. | No           |
 
 >[!Note]
->If you are using service principal key authentication, which is based on Azure ACS (Access Control Services), we recommend switching to the **service principal certificate authentication** due to the [ACS retirement plan](/sharepoint/dev/sp-add-ins/retirement-announcement-for-azure-acs).
+>If you use service principal key authentication, which is based on Azure ACS (Access Control Services), switch to **service principal certificate authentication** due to the [ACS retirement plan](/sharepoint/dev/sp-add-ins/retirement-announcement-for-azure-acs).
 
-**Example 1: Using service principal key authentication**
-
-```json
-{
-    "name": "SharePointOnlineList",
-    "properties": {
-        "type": "SharePointOnlineList",
-        "typeProperties": {
-            "siteUrl": "<site URL>",
-            "servicePrincipalId": "<service principal id>",
-            "servicePrincipalCredentialType":  "ServicePrincipalKey",
-            "servicePrincipalKey": {
-                "type": "SecureString",
-                "value": "<service principal key>"
-            },
-            "tenantId": "<tenant ID>"
-        },
-        "connectVia": {
-            "referenceName": "<name of Integration Runtime>",
-            "type": "IntegrationRuntimeReference"
-        }
-    }
-}
-```
-
-**Example 2: Using service principal certificate authentication**
+**Example : Using service principal certificate authentication**
 
 ```json
 {
@@ -141,37 +118,33 @@ The following properties are supported for a SharePoint Online List linked servi
 }
 ```
 
-### Grant permission for using service principal key
+### Grant permission for using service principal certificate
 
 The SharePoint List Online connector uses service principal authentication to connect to SharePoint. Follow these steps to set it up:
 
-1. Register an application with the Microsoft identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
+1. Generate a self-signed certificate and export both the public certificate and the certificate including its private key. To learn how, see [Create a self-signed public certificate to authenticate your application](/entra/identity-platform/howto-create-self-signed-certificate).
+
+1. Register an application with the Microsoft identity platform. To learn how, see [Register an application with the Microsoft identity platform](/graph/auth-register-app-v2). Make note of these values, which you use to define the linked service:
 
     - Application ID
-    - Application key
     - Tenant ID
 
-2. Grant SharePoint Online site permission to your registered application by following the steps below. To do this, you need a site admin role.
+1. Upload the public certificate in the **Certificates & secrets**.
 
-    1. Open your SharePoint Online site link. For example, the URL in the format `https://<your-site-url>/_layouts/15/appinv.aspx` where the placeholder `<your-site-url>` is your site.
-    2. Search the application ID you registered, fill the empty fields, and select "Create".
+1. Select **Add Permission** for **API permissions**.
 
-        - App Domain: `contoso.com`
-        - Redirect URL: `https://www.contoso.com`
-        - Permission Request XML:  
+1. Select **SharePoint** for **Select an API**.
 
-            ```xml
-            <AppPermissionRequests AllowAppOnlyPolicy="true">
-                <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
-            </AppPermissionRequests>
-            ```
+1. Select **Application permissions**.
 
-            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site admin role.":::
+1. Select **Sites.Read.All** for **Select permissions**. To learn details about the permissions, check [Microsoft Graph permissions reference](/graph/permissions-reference#sitesreadall).
 
-        > [!NOTE]
-        > In the context of configuring the SharePoint connector, the "App Domain" and "Redirect URL" refer to the SharePoint app that you have registered in Microsoft Entra ID to allow access to your SharePoint data. The "App Domain" is the domain where your SharePoint site is hosted. For example, if your SharePoint site is located at "https://contoso.sharepoint.com", then the "App Domain" would be "contoso.sharepoint.com". The "Redirect URL" is the URL that the SharePoint app will redirect to after the user has authenticated and granted permissions to the app. This URL should be a page on your SharePoint site that the app has permission to access. For example, you could use the URL of a page that displays a list of files in a library, or a page that displays the contents of a document.
+1. Select **Add permissions**.
 
-    3. Select "Trust It" for this app.
+1. Select **Grant admin consent for**.
+
+1. Select **Yes** for **Grant admin consent confirmation**.
+
 
 ## Dataset properties
 
@@ -275,19 +248,19 @@ When you copy data from SharePoint Online List, the following mappings are used 
 
 ## Copy file from SharePoint Online
 
-You can copy file from SharePoint Online by using **Web activity** to authenticate and grab access token from SPO, then passing to subsequent **Copy activity** to copy data with **HTTP connector as source**.
+You can copy a file from SharePoint Online by using **Web activity** to authenticate and get an access token from Microsoft Entra ID. Then, pass the token to the next **Copy activity** to copy data by using **HTTP connector as source**. 
 
 :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png" alt-text="sharepoint copy file flow":::
 
-1. Follow the [Grant permission for using service principal key](#grant-permission-for-using-service-principal-key) section to create Microsoft Entra application and grant permission to SharePoint Online. 
+1. Follow the [Grant permission for using service principal certificate](#grant-permission-for-using-service-principal-certificate) section to create a Microsoft Entra application and grant permission to **Microsoft Graph**, not **SharePoint**.
 
 2. Create a **Web Activity** to get the access token from SharePoint Online:
 
-    - **URL**: `https://accounts.accesscontrol.windows.net/[Tenant-ID]/tokens/OAuth/2`. Replace the tenant ID.
+    - **URL**: `https://login.microsoftonline.com/[tenant-ID]/oauth2/v2.0/token`. Replace the tenant ID.
     - **Method**: POST
     - **Headers**:
         - Content-Type: application/x-www-form-urlencoded
-    - **Body**:  `grant_type=client_credentials&client_id=[Client-ID]@[Tenant-ID]&client_secret=[Client-Secret]&resource=00000003-0000-0ff1-ce00-000000000000/[Tenant-Name].sharepoint.com@[Tenant-ID]`. Replace the client ID (application ID), client secret (application key), tenant ID, and tenant name (of the SharePoint tenant).
+    - **Body**:  `client_id=[Client-ID]&scope=https%3A%2F%2Fgraph.microsoft.com%2F.default&client_secret=[Client-Secret]&grant_type=client_credentials`. Replace the client ID (application ID) and client secret (application key).
 
     > [!CAUTION]
     > Set the Secure Output option to true in Web activity to prevent the token value from being logged in plain text. Any further activities that consume this value should have their Secure Input option set to true.
@@ -295,7 +268,7 @@ You can copy file from SharePoint Online by using **Web activity** to authentica
 3. Chain with a **Copy activity** with HTTP connector as source to copy SharePoint Online file content:
 
     - HTTP linked service:
-        - **Base URL**: `https://[site-url]/_api/web/GetFileByServerRelativeUrl('[relative-path-to-file]')/$value`. Replace the site URL and relative path to file. Make sure to include the SharePoint site URL along with the Domain name, such as `https://[sharepoint-domain-name].sharepoint.com/sites/[sharepoint-site]/_api/web/GetFileByServerRelativeUrl('/sites/[sharepoint-site]/[relative-path-to-file]')/$value`.
+        - **Base URL**: `https://graph.microsoft.com/v1.0/sites/{Your-Site-ID}/drives/{Drive-ID}/root:/{path to file}:/content`. Replace the site ID, drive ID, and relative path to file. To learn how to get Drive ID, see [List available drives](/graph/api/drive-list?view=graph-rest-1.0&tabs=http&preserve-view=true). Alternatively, you can retrieve a direct download URL from the `@microsoft.graph.downloadUrl` property of the DriveItem object and use that URL instead.
         - **Authentication type:** Anonymous *(to use the Bearer token configured in copy activity source later)*
     - Dataset: choose the format you want. To copy file as-is, select "Binary" type.
     - Copy activity source:

@@ -1,21 +1,18 @@
 ---
-title: About workload zone deployment in automation framework
-description: Overview of the SAP workload zone deployment process within SAP Deployment Automation Framework.
+title: Deploy SAP workload zones with the automation framework
+description: Learn how to deploy SAP workload zones using SAP Deployment Automation Framework on Azure.
 author: kimforss
 ms.author: kimforss
-ms.reviewer: kimforss
-ms.date: 11/17/2021
-ms.topic: concept-article
+ms.date: 04/13/2026
+ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
 # Customer intent: As an SAP system administrator, I want to deploy workload zones using the automation framework, so that I can efficiently manage the different development tiers of my SAP applications in Azure.
 ---
 
-# Workload zone deployment in the SAP automation framework
+# Deploy SAP workload zones with the automation framework
 
-An [SAP application](deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. [SAP Deployment Automation Framework](deployment-framework.md) calls these tiers [workload zones](deployment-framework.md#deployment-components).
-
-You can use workload zones in multiple Azure regions. Each workload zone then has its own instance of Azure Virtual Network.
+An [SAP application](deployment-framework.md#sap-concepts) typically has multiple development tiers. For example, you might have development, quality assurance, and production tiers. [SAP Deployment Automation Framework](deployment-framework.md) calls these tiers [workload zones](deployment-framework.md#deployment-components). You can use workload zones in multiple Azure regions. Each workload zone then has its own instance of Azure Virtual Network.
 
 The following services are provided by the SAP workload zone:
 
@@ -24,14 +21,19 @@ The following services are provided by the SAP workload zone:
 - An Azure Storage account for boot diagnostics
 - A Storage account for cloud witnesses
 - An Azure NetApp Files account and capacity pools (optional)
-- Azure Files NFS shares (optional)
+- Azure Files Network File Share (NFS) shares (optional)
 - [Azure Monitor for SAP](integration-azure-monitor-sap.md) (optional)
 
 :::image type="content" source="./media/deployment-framework/workload-zone.png" alt-text="Diagram that shows an SAP workload zone.":::
 
-The workload zones are typically deployed in spokes in a hub-and-spoke architecture. They can be in their own subscriptions.
+The workload zones are typically deployed in spokes in a hub-and-spoke architecture. They can be in their own subscriptions. The private DNS is supported from the control plane or from a configurable source.
 
-The private DNS is supported from the control plane or from a configurable source.
+## Prerequisites
+
+- A deployed [SAP Deployment Automation Framework control plane](deploy-control-plane.md).
+- An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- An Azure account with permissions to create service principals.
+- The [Azure CLI](/cli/azure/install-azure-cli) is installed on your device or you have access to Cloud Shell.
 
 ## Core configuration
 
@@ -61,7 +63,6 @@ app_subnet_address_prefix="10.110.32.0/19"
 
 # The automation_username defines the user account used by the automation
 automation_username="azureadm"
-
 ```
 
 ## Prepare the workload zone deployment credentials
@@ -70,16 +71,14 @@ SAP Deployment Automation Framework uses service principals when doing the deplo
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscriptionID>" --name="<environment>-Deployment-Account"
-
 ```
 
 > [!IMPORTANT]
-> The name of the service principal must be unique.
+> The name of the service principal must be unique. Record the output values from the command:
 >
-> Record the output values from the command:
-   > - appId
-   > - password
-   > - tenant
+> - appId
+> - password
+> - tenant
 
 Assign the correct permissions to the service principal.
 
@@ -105,12 +104,9 @@ You can copy the sample configuration files to start testing the deployment auto
 cd ~/Azure_SAP_Automated_Deployment
 
 cp -R sap-automation/samples/WORKSPACES config
-
 ```
 
-
 ```bash
-
 export  ARM_SUBSCRIPTION_ID="<subscriptionId>"
 export        ARM_CLIENT_ID="<appId>"
 export    ARM_CLIENT_SECRET="<password>"
@@ -120,25 +116,22 @@ export          region_code="<region_code>"
 export            vnet_code="SAP02"
 export deployer_environment="MGMT"
 
-
 export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 export CONFIG_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/config/WORKSPACES"
 export SAP_AUTOMATION_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
 
 az login --service-principal -u "${ARM_CLIENT_ID}" -p="${ARM_CLIENT_SECRET}" --tenant "${ARM_TENANT_ID}"
 
-
 cd "${CONFIG_REPO_PATH}/LANDSCAPE/${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE"
 parameterFile="${env_code}-${region_code}-${vnet_code}-INFRASTRUCTURE.tfvars"
 
 $SAP_AUTOMATION_REPO_PATH/deploy/scripts/install_workloadzone.sh   \
     --parameterfile "${parameterFile}"                             \
-    --deployer_environment "${deployer_environment}"               \ 
+    --deployer_environment "${deployer_environment}"               \
     --subscription "${ARM_SUBSCRIPTION_ID}"                        \
     --spn_id "${ARM_CLIENT_ID}"                                    \
     --spn_secret "${ARM_CLIENT_SECRET}"                            \
     --tenant_id "${ARM_TENANT_ID}"
-    
 ```
 
 # [Windows](#tab/windows)
@@ -161,7 +154,8 @@ Ensure that the `Deployment_Configuration_Path` variable in the `SDAF-General` v
 
 The deployment uses the configuration defined in the Terraform variable file located in the `samples/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE` folder.
 
-Run the pipeline by selecting the `Deploy workload zone` pipeline from the **Pipelines** section. Enter the workload zone configuration name and the deployer environment name. Use `DEV-WEEU-SAP01-INFRASTRUCTURE` as the workload zone configuration name and `MGMT` as the deployer environment name.
+Run the pipeline by selecting the `Deploy workload zone` pipeline from the **Pipelines** section. Enter the workload zone configuration name and the deployer environment name. Use
+`DEV-WEEU-SAP01-INFRASTRUCTURE` as the workload zone configuration name and `MGMT` as the deployer environment name.
 
 You can track the progress in the Azure DevOps Services portal. After the deployment is finished, you can see the workload zone details on the **Extensions** tab.
 
@@ -170,7 +164,9 @@ You can track the progress in the Azure DevOps Services portal. After the deploy
 > [!TIP]
 > If the scripts fail to run, it can sometimes help to clear the local cache files by removing the `~/.sap_deployment_automation/` and `~/.terraform.d/` directories before you run the scripts again.
 
-## Next step
+## Related content
 
-> [!div class="nextstepaction"]
-> [SAP system deployment with the automation framework](configure-system.md)
+- [Configure SAP workload zone](configure-workload-zone.md)
+- [Deploy SAP system infrastructure](deploy-system.md)
+- [Configure SAP system infrastructure](configure-system.md)
+- [SAP Deployment Automation Framework](deployment-framework.md)

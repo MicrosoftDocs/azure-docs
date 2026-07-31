@@ -5,7 +5,7 @@ ms.custom: devx-track-azurepowershell
 author: ssabat
 ms.author: susabat
 ms.reviewer: whhender
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/15/2024
 ---
 

@@ -4,7 +4,7 @@ description: Learn how to migrate your existing function apps running on version
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 09/30/2025
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ms.custom:
   - devx-track-dotnet
   - devx-track-extended-java
@@ -19,10 +19,12 @@ ms.custom:
 
 # Migrate apps from Azure Functions version 3.x to version 4.x 
 
-Azure Functions version 4.x is highly backwards compatible to version 3.x. Most apps should safely migrate to 4.x without requiring significant code changes. For more information about Functions runtime versions, see [Azure Functions runtime versions overview](./functions-versions.md).
-
 > [!IMPORTANT]
 > As of December 13, 2022, function apps running on versions 2.x and 3.x of the Azure Functions runtime have reached the end of extended support. For more information, see [Retired versions](functions-versions.md#retired-versions).
+
+Azure Functions version 4.x is highly backwards compatible to version 3.x. Most apps should safely migrate to 4.x without requiring significant code changes. For more information about Functions runtime versions, see [Azure Functions runtime versions overview](./functions-versions.md).
+
+[!INCLUDE [functions-linux-consumption-retirement](../../includes/functions-linux-consumption-retirement.md)]
 
 This article walks you through the process of safely migrating your function app to run on version 4.x of the Functions runtime. Because project migration instructions are language dependent, make sure to choose your development language from the selector at the top of the article.
 
@@ -522,6 +524,7 @@ If you don't see your programming language, go select it from the [top of the pa
 
 - Default thread count has been updated. Functions that aren't thread-safe or have high memory usage could be impacted. ([#1962](https://github.com/Azure/Azure-Functions/issues/1962))
 ::: zone-end
+
 
 ## Next steps
 

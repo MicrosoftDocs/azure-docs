@@ -4,7 +4,7 @@ description: Use the extended Spark history server to debug and diagnose Spark a
 author: juluczni
 ms.author: juluczni
 ms.service: azure-synapse-analytics
-ms.topic: conceptual
+ms.topic: how-to
 ms.subservice: spark
 ms.date: 02/15/2022
 ms.reviewer: euang

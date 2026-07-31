@@ -9,10 +9,10 @@
   - name: AI-enabled functions
     displayName: OpenAI, AI, MCP server, agent, agentic, Foundry
     href: functions-create-ai-enabled-apps.md
-  - name: Getting started
+  - name: Get started
     href: functions-get-started.md
   - name: Durable Functions
-    href: durable/durable-functions-overview.md
+    href: ../durable-task/durable-functions/durable-functions-overview.md
   - name: Serverless comparison
     href: functions-compare-logic-apps-ms-flow-webjobs.md
   - name: Hosting plan options
@@ -42,6 +42,9 @@
       - name: Host MCP server using SDKs
         displayName: AI, agent, agentic, tools, MCP SDKs
         href: scenario-host-mcp-server-sdks.md
+    - name: Serverless agents
+      displayName: AI, agent, agentic, serverless agents runtime, timer, email, connector, MCP, Foundry
+      href: scenario-serverless-agents-runtime.md
     - name: Respond to database changes
       items:
       - name: Azure Cosmos DB (NoSQL)
@@ -50,22 +53,27 @@
       - name: Azure SQL
         displayName: data validation, database
         href: scenario-database-changes-azure-sqldb.md
-    - name: Build a serverless workflow
-      displayName: workflow, Durable Functions
-      href: ./durable/scenario-build-serverless-workflow.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
     - name: Run scheduled tasks
       displayName: timer trigger, schedule
       href: scenario-scheduled-tasks.md
+    - name: Process real-time events
+      displayName: Event Hubs, streaming, events
+      href: scenario-real-time-events-processing.md
+    - name: Build a serverless workflow
+      displayName: Durable Functions, orchestration, fan-out, fan-in
+      href: scenario-build-serverless-workflow.md
+    - name: Migrate Linux apps to Flex Consumption using Copilot
+      href: migration/scenario-migrate-linux-consumption-to-flex.md
   - name: Developer tools
     items:
     - name: Azure Developer CLI
       displayName: azd
       href: create-first-function-azure-developer-cli.md
-    - name: Command line (Core Tools)
-      displayName: quickstart, get started, go, rust
+    - name: Command line tools
+      displayName: quickstart, get started, go, rust, golang
       href: how-to-create-function-azure-cli.md
     - name: Visual Studio Code
-      displayName: quickstart, get started, go, rust
+      displayName: quickstart, get started, rust
       href: how-to-create-function-vs-code.md
     - name: Visual Studio
       href: functions-create-your-first-function-visual-studio.md
@@ -134,14 +142,8 @@
       href: functions-create-private-site-access.md
     - name: Use an outbound NAT gateway
       href: functions-how-to-use-nat-gateway.md
-  - name: Identity-based connections
-    items:
-    - name: Use identity for host connections
-      href: functions-identity-based-connections-tutorial.md
-    - name: Use identity for triggers and bindings
-      href: functions-identity-based-connections-tutorial-2.md
-    - name: Access Azure SQL with managed identity
-      href: functions-identity-access-azure-sql-with-managed-identity.md
+  - name: Access Azure SQL with managed identity
+    href: functions-identity-access-azure-sql-with-managed-identity.md
   - name: Low-latency Blob trigger using Event Grid
     displayName: storage, ngrok, local
     href: functions-event-grid-blob-trigger.md
@@ -159,6 +161,14 @@
       href: machine-learning-pytorch.md
   - name: Functions on IoT Edge device
     href: ../iot-edge/tutorial-deploy-function.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
+  - name: Azure Files storage mounts
+    items:
+    - name: Process images with FFmpeg on a mounted share
+      displayName: Azure Files, storage mount, ffmpeg, Flex Consumption
+      href: tutorial-ffmpeg-processing-azure-files.md
+    - name: Durable text analysis on a mounted share
+      displayName: Azure Files, storage mount, Durable Functions, Flex Consumption
+      href: ../durable-task/durable-functions/tutorial-durable-text-analysis-azure-files.md?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: Java with Azure Cosmos DB and Event Hubs
     href: functions-event-hub-cosmos-db.md
 - name: Samples
@@ -180,31 +190,7 @@
     - name: TypeScript
       href: /samples/browse/?products=azure-functions&languages=typescript
   - name: Azure CLI
-    items:
-    - name: CLI sample index
-      href: functions-cli-samples.md
-    - name: Create function app
-      items:
-      - name: Serverless function app
-        href: ./scripts/functions-cli-create-serverless.md
-      - name: Serverless Python app
-        href: ./scripts/functions-cli-create-serverless-python.md
-      - name: Scalable Premium plan app
-        href: ./scripts/functions-cli-create-premium-plan.md
-      - name: Dedicated (App Service) plan app
-        href: ./scripts/functions-cli-create-app-service-plan.md
-    - name: Integrate services
-      items:
-      - name: Connect Azure Storage
-        href: ./scripts/functions-cli-create-function-app-connect-to-storage-account.md
-      - name: Connect Azure Cosmos DB
-        href: ./scripts/functions-cli-create-function-app-connect-to-cosmos-db.md
-      - name: Python mount Files share
-        href: ./scripts/functions-cli-mount-files-storage-linux.md
-    - name: Continuous deployment
-      items:
-      - name: GitHub deployment
-        href: ./scripts/functions-cli-create-function-app-github-continuous.md
+    href: functions-cli-samples.md
   - name: Azure PowerShell
     href: create-resources-azure-powershell.md
 - name: Concepts
@@ -245,7 +231,7 @@
         href: container-concepts.md
       - name: Azure Container Apps hosting
         href: functions-container-apps-hosting.md
-    - name: Consumption plan
+    - name: Consumption plan (legacy)
       href: consumption-plan.md
     - name: Host MCP servers
       href: self-hosted-mcp-servers.md
@@ -281,6 +267,11 @@
       href: functions-bindings-expressions-patterns.md
     - name: Handle binding errors
       href: functions-bindings-errors.md
+  - name: Managed connectors
+    items:
+    - name: Use connectors in Azure Functions
+      displayName: managed connectors, connector trigger, connector SDK, connector namespace, Office 365, Teams, SharePoint, SaaS integration
+      href: functions-connectors-overview.md
   - name: Frameworks
     items:
     - name: Express.js
@@ -297,6 +288,8 @@
     - name: Availability zones and disaster recovery
       displayName: availability zones, high-availability, zone redundancy, disaster recovery
       href: /azure/reliability/reliability-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
+    - name: Zone redundancy
+      href: functions-zone-redundancy.md
     - name: Migrate to a zone-redundant plan
       href: /azure/reliability/migrate-functions?toc=%2fazure%2fazure-functions%2ftoc.json
   - name: Diagnostics
@@ -329,10 +322,28 @@
         href: functions-dotnet-class-library.md
       - name: Script (.csx)
         href: functions-reference-csharp.md
-  - name: JavaScript
-    href: functions-reference-node.md?tabs=javascript
-  - name: TypeScript
-    href: functions-reference-node.md?tabs=typescript
+  - name: TypeScript/JavaScript
+    items:
+      - name: Developer reference guide
+        displayName: typescript, javascript
+        href: functions-reference-node.md
+      - name: Triggers and bindings
+        displayName: typescript, javascript
+        href: functions-triggers-bindings.md
+      - name: Build options
+        displayName: typescript, javascript
+        href: typescript-build-options.md
+      - name: Scale and performance recommendations
+        displayName: typescript, javascript
+        href: node-scale-performance.md
+      - name: Troubleshooting
+        displayName: typescript, javascript
+        href: functions-node-troubleshoot.md 
+      - name: Samples
+        displayName: typescript, javascript
+        href: /samples/browse/?products=azure-functions&languages=typescript,nodejs,javascript
+      - name: TypeScript/JavaScript SDK API reference
+        href: /javascript/api/%40azure/functions/
   - name: Java
     href: functions-reference-java.md
   - name: PowerShell
@@ -363,6 +374,9 @@
             href: python-memory-profiler-reference.md
       - name: Python SDK API reference
         href: /python/api/azure-functions/azure.functions
+  - name: Go (Preview)
+    displayName: golang
+    href: functions-reference-go.md
 - name: How-to guides
   items:
   - name: Develop
@@ -380,9 +394,12 @@
       - name: Visual Studio development
         displayName: VS
         href: functions-develop-vs.md
-      - name: Core Tools development
+      - name: Azure Functions Core Tools (v4)
         displayName: local, runtime
         href: functions-run-local.md
+      - name: Azure Functions CLI (v5)
+        displayName: local, runtime, Flex Consumption
+        href: functions-cli-develop-local.md
     - name: Create a function app
       items:
       - name: Infrastructure as code
@@ -393,19 +410,18 @@
         href: functions-create-function-app-portal.md
       - name: Azure CLI
         displayName: create function app
-        href: ./scripts/functions-cli-create-serverless.md
+        href: how-to-create-function-azure-cli.md
     - name: Create functions
       items:
       - name: HTTP trigger
         items:
         - name: Azure portal
           href: functions-create-http-endpoint.md
+        - name: HTTP streams (TypeScript/JavaScript)
+          displayName: http streams, typescript, javascript
+          href: node-http-stream.md
         - name: Kotlin using IntelliJ
           href: functions-create-maven-kotlin-intellij.md
-        - name: Consumption plan
-          href: ./scripts/functions-cli-create-app-service-plan.md
-        - name: Premium plan
-          href: ./scripts/functions-cli-create-premium-plan.md
         - name: Linux container (Premium)
           displayName: container, Docker, custom
           href: functions-deploy-container.md
@@ -459,6 +475,8 @@
       href: functions-continuous-deployment.md
     - name: Deployment slots
       href: functions-deployment-slots.md
+    - name: Recover a Flex Consumption deployment
+      href: functions-rollback-deployments.md
     - name: Containers
       items:
       - name: Work with containers
@@ -478,6 +496,12 @@
       href: deployment-zip-push.md
     - name: Run from package
       href: run-functions-from-deployment-package.md
+    - name: Package management
+      displayName: node, typescript, javascript, npm
+      href: functions-reference-node.md#package-management
+    - name: Managing dependencies
+      displayName: node, typescript, javascript, npm
+      href: functions-reference-node.md#managing-dependencies
     - name: Deploy using the Jenkins plugin
       href: /azure/developer/jenkins/deploy-to-azure-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: Configure
@@ -647,6 +671,20 @@
       href: functions-mcp-foundry-tools.md
     - name: Register an MCP server in API Center
       href: register-mcp-server-api-center.md
+  - name: Serverless agents runtime
+    items:
+    - name: Overview
+      displayName: AI, agent, agentic, serverless agents runtime, Foundry, MCP, connectors
+      href: functions-serverless-agents-runtime.md
+    - name: Get started
+      displayName: AI, agent, agentic, serverless agents runtime, timer, email, connector, MCP, Foundry
+      href: scenario-serverless-agents-runtime.md
+    - name: Reference
+      displayName: AI, agent, agentic, serverless agents runtime, configuration, mcp.json, agents.config.yaml, tools, skills
+      href: functions-serverless-agents-runtime-reference.md
+    - name: Compare agent options
+      displayName: Foundry, Copilot Studio, Scout, prompt agents, hosted agents, compare
+      href: compare-serverless-agents-runtime.md
   - name: Azure MCP server for Azure Functions
     href: /azure/developer/azure-mcp-server/services/azure-mcp-server-for-functions?toc=/azure/azure-functions/toc.json&bc=/azure/azure-functions/breadcrumb/toc.json
   - name: GitHub Copilot for Azure
@@ -656,6 +694,8 @@
   - name: Migrate from AWS Lambda
     displayName: AWS Lambda, migration
     href: migration/migrate-aws-lambda-to-azure-functions.md
+  - name: Migrate Consumption plan apps to Flex Consumption
+    href: migration/migrate-plan-consumption-to-flex.md
   - name: Upgrade runtime versions
     items:
     - name: Migrate v3.x to v4.x
@@ -669,8 +709,6 @@
       href: update-language-versions.md
     - name: Migrate Node.js to model v4.x
       href: functions-node-upgrade-v4.md
-  - name: Migrate Consumption plan apps to Flex Consumption
-    href: migration/migrate-plan-consumption-to-flex.md
   - name: Migrate .NET apps to the isolated model
     href: migrate-dotnet-to-isolated-model.md
   - name: Move resources
@@ -687,7 +725,8 @@
       href: /azure/templates/microsoft.web/2022-03-01/sites/functions
     - name: Azure CLI
       href: /cli/azure/functionapp
-    - name: Azure Functions Core Tools
+    - name: Local runtime/tools (func.exe)
+      displayName: Azure Functions Core Tools, Azure Functions CLI
       href: functions-core-tools-reference.md
     - name: Azure PowerShell
       href: /powershell/module/az.functions/
@@ -695,31 +734,34 @@
       href: /java/api/overview/azure/functions/runtime
     - name: Python
       href: /python/api/azure-functions/azure.functions
+  - name: Serverless agents runtime
+    displayName: AI, agent, agentic, serverless agents runtime, configuration, mcp.json, agents.config.yaml, tools, skills
+    href: functions-serverless-agents-runtime-reference.md
   - name: App settings reference
     href: functions-app-settings.md
   - name: Triggers and bindings
     items:
-    - name: Azure Cache for Redis
+    - name: Azure Managed Redis
       items:
       - name: Overview
-        displayName: Azure Cache for Redis
+        displayName: Azure Managed Redis
         href: functions-bindings-cache.md
       - name: Trigger
         items:
         - name: Pub Sub
-          displayName: Azure Cache for Redis
+          displayName: Azure Managed Redis
           href: functions-bindings-cache-trigger-redispubsub.md
         - name: List
-          displayName: Azure Cache for Redis
+          displayName: Azure Managed Redis
           href: functions-bindings-cache-trigger-redislist.md
         - name: Stream
-          displayName: Azure Cache for Redis
+          displayName: Azure Managed Redis
           href: functions-bindings-cache-trigger-redisstream.md
       - name: Input
-        displayName: Azure Cache for Redis
+        displayName: Azure Managed Redis
         href: functions-bindings-cache-input.md
       - name: Output
-        displayName: Azure Cache for Redis
+        displayName: Azure Managed Redis
         href: functions-bindings-cache-output.md
     - name: Azure Cosmos DB
       items:
@@ -942,6 +984,9 @@
       - name: Resource trigger
         displayName: MCP resource
         href: functions-bindings-mcp-resource-trigger.md
+      - name: Prompt trigger
+        displayName: MCP prompt
+        href: functions-bindings-mcp-prompt-trigger.md
     - name: Mobile Apps
       href: functions-bindings-mobile-apps.md
     - name: Notification Hubs

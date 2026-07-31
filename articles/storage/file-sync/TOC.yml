@@ -78,7 +78,7 @@
     - name: Encryption at rest
       href: ../common/storage-service-encryption.md?toc=/azure/storage/file-sync/toc.json
     - name: Encryption at rest with customer-managed keys
-      href: ../common/customer-managed-keys-overview.md?toc=/azure/storage/file-sync/toc.json
+      href: ../files/customer-managed-keys.md?toc=/azure/storage/file-sync/toc.json
     - name: Manage encryption keys for the storage account
       items:
       - name: Check the encryption key model for the account
@@ -195,6 +195,8 @@
     href: /troubleshoot/azure/azure-storage/file-sync-troubleshoot-cloud-tiering?toc=/azure/storage/file-sync/toc.json
   - name: Troubleshoot managed identities
     href: /troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-managed-identities?toc=/azure/storage/file-sync/toc.json
+  - name: Troubleshoot server cloning and duplicate identity issues
+    href: /troubleshoot/azure/azure-storage/files/file-sync/file-sync-troubleshoot-server-cloning?toc=/azure/storage/file-sync/toc.json    
 - name: Training
   items:
   - name: Configure Azure Files and Azure File Sync

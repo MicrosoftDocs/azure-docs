@@ -5,8 +5,8 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
-ms.topic: conceptual
-ms.date: 01/15/2026
+ms.topic: how-to
+ms.date: 07/29/2026
 ms.author: cshoe
 zone_pivot_groups: arm-azure-cli-portal
 ---
@@ -66,7 +66,7 @@ To configure replica-scoped storage, first define an `EmptyDir` volume in the re
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | Azure Container Apps environment | [Create a container apps environment](environment.md). |
-| Managed identity configuration | Make sure the managed identity associated with your Container Apps environment is assigned the [appropriate roles](/azure/storage/files/storage-files-identity-assign-share-level-permissions) for access to access Azure Files. |
+| Managed identity configuration | Make sure the managed identity associated with your Container Apps environment is assigned the [appropriate roles](/azure/storage/files/storage-files-identity-assign-share-level-permissions) to access Azure Files. |
 
 #### Configuration
 
@@ -226,6 +226,9 @@ To create a replica-scoped volume and mount it in a container, deploy a new revi
 
 You can mount a file share from [Azure Files](../storage/files/index.yml) as a volume in a container.
 
+> [!IMPORTANT]
+> Azure Container Apps supports only *classic* Azure file shares, which are created within a storage account (the `Microsoft.Storage/storageAccounts/fileServices/shares` resource type). Container Apps doesn't support the newer `Microsoft.FileShares` top-level resource type. If you try to mount a `Microsoft.FileShares` resource, the operation fails. To create a supported file share, see [Create a classic Azure file share](../storage/files/create-classic-file-share.md).
+
 Azure Files storage has the following characteristics:
 
 * Files written under the mount location are persisted to the file share.
@@ -237,6 +240,15 @@ Azure Files storage has the following characteristics:
 Azure Files supports both SMB (Server Message Block) and NFS (Network File System) protocols. You can mount an Azure Files share using either protocol. The file share you define in the environment must be configured with the same protocol used by the file share in the storage account.
 
 To enable Azure Files storage in your container, you need to set up your environment and container app as follows:
+
+In the Azure portal, open your **Container App**.  
+In the left navigation pane, under **Settings**, select **Storage mounts**.  
+
+From here you can add a new mount:  
+1. Choose **Azure File share** as the storage type.  
+2. Provide the required configuration (storage account, share name, access mode).  
+3. Save the mount.  
+4. Create and **deploy** a new revision of your container app to apply the changes.
 
 * Create a storage definition in the Container Apps environment.
 * If you're using NFS, your environment must be configured with a custom VNet and the storage account must be configured to allow access from the VNet. For more information, see [NFS file shares in Azure Files
@@ -251,7 +263,7 @@ To enable Azure Files storage in your container, you need to set up your environ
 | Requirement | Instructions |
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
-| Azure Storage account | [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-cli#create-a-storage-account). |
+| Azure Storage account | [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-cli#create-a-storage-account) with a [classic Azure file share](../storage/files/create-classic-file-share.md). |
 | Azure Container Apps environment | [Create a container apps environment](environment.md). |
 
 ### Configuration
@@ -323,7 +335,7 @@ For a step-by-step tutorial on mounting an SMB file share, see [Create an Azure 
     - For each container in the template that you want to mount Azure Files storage, define a volume mount in the `volumeMounts` array of the container definition.
         - The `volumeName` is the name defined in the `volumes` array.
         - The `mountPath` is the path in the container to mount the volume.
-        - The `subPath` is the path in the volume to mount. If you don't specify this value, the volume root is mounted. For more information, see (#sub-path).
+        - The `subPath` is the path in the volume to mount. If you don't specify this value, the volume root is mounted. For more information, see [Sub path](#sub-path).
 
     # [SMB](#tab/smb)
 
@@ -583,7 +595,7 @@ The following ARM template snippets demonstrate how to add an Azure Files share 
     - For each container in the template that you want to mount Azure Files storage, define a volume mount in the `volumeMounts` array of the container definition.
         - The `volumeName` is the name defined in the `volumes` array.
         - The `mountPath` is the path in the container to mount the volume.
-        - The `subPath` (optional) is the path in the volume to mount. If you don't specify it, the volume root is mounted. For more information, see (#sub-path).
+        - The `subPath` (optional) is the path in the volume to mount. If you don't specify it, the volume root is mounted. For more information, see [Sub path](#sub-path).
 
 See the [ARM template API specification](azure-resource-manager-api-spec.md) for a full example.
 
@@ -595,7 +607,7 @@ To configure a volume mount for Azure Files storage in the Azure portal, add a f
 
 1. In the Azure portal, navigate to your Container Apps environment.
 
-1. In the navigation pane, under *Settings*, select **Azure Files**.
+1. In the navigation pane, under *Settings*, select **Volume mounts**.
 
 1. Select **Add**.
 
@@ -643,7 +655,7 @@ To configure a volume mount for Azure Files storage in the Azure portal, add a f
 
 1. Select **Add** to exit the context pane.
 
-1. In the *Create and reploy new revision* page, select the **Container** tab.
+1. In the *Create and deploy new revision* page, select the **Container** tab.
 
 1. Select the container that you want to mount the volume in.
 
@@ -653,7 +665,7 @@ To configure a volume mount for Azure Files storage in the Azure portal, add a f
 
 1. In **Mount path**, enter the absolute path in the container to mount the volume.
 
-1. In **Sub path (optional)**, enter the path in the volume to mount. If you don't specify this value, the volume root is mounted. For more information, see (#sub-path).
+1. In **Sub path (optional)**, enter the path in the volume to mount. If you don't specify this value, the volume root is mounted. For more information, see [Sub path](#sub-path).
 
 1. Select **Save** to save changes and exit the context pane.
 
@@ -678,7 +690,7 @@ The sub path can refer to either a folder or a file in the volume.
 
 - If the sub path refers to a file, the mount path should refer to a file that doesn't already exist in the container.
 
-    For example, suppose the sub path is `my-volume-folder/my-volume-file.txt`, and the mount path is `/my-container-folder/my-container-file`. The folder `/my-container-folder` should already exist in the container but shouldn't yet contain the file `my-container-file.txt`.
+    For example, suppose the sub path is `my-volume-folder/my-volume-file.txt`, and the mount path is `/my-container-folder/my-container-file.txt`. The folder `/my-container-folder` should already exist in the container but shouldn't yet contain the file `my-container-file.txt`.
 
 The system ignores any sub path trailing slashes.
 

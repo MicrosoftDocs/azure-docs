@@ -3,6 +3,7 @@ title: Troubleshooting SAP ASE (Sybase) database backup using Azure Backup
 description: Learn to troubleshoot SAP ASE (Sybase) database backup using Azure Backup.
 ms.topic: troubleshooting
 ms.date: 05/13/2025
+ms.update-cycle: 1095-days
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-mallicka

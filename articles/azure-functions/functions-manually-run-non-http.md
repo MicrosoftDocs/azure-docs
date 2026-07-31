@@ -1,7 +1,7 @@
 ---
 title: Manually run a non HTTP-triggered Azure Functions
 description: Use an HTTP request to run a non-HTTP triggered Azure Functions
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/08/2025
 ms.custom:
   - build-2025

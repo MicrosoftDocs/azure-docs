@@ -2,12 +2,10 @@
 title: Azure API Management policy reference - cors | Microsoft Docs
 description: Reference for the cors policy available for use in Azure API Management. Provides policy usage, settings, and examples.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: reference
 ms.date: 07/23/2024
-ms.author: danlep
 ---
 
 # CORS
@@ -82,11 +80,15 @@ The `cors` policy adds cross-origin resource sharing (CORS) support to an operat
 |----------|-----------------|--------------|-------------|
 |header|Specifies a header name.|At least one `header` element is required in `allowed-headers` if that section is present.|N/A|
 
+The value `*` indicates all headers.
+
 ### expose-headers elements
 
 |Name|Description|Required|Default|
 |----------|-----------------|--------------|-------------|
 |header|Specifies a header name.|At least one `header` element is required in `expose-headers` if that section is present.|N/A|
+
+The value `*` indicates all headers.
 
 ## Usage
 

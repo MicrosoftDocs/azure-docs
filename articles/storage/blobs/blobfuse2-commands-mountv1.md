@@ -1,13 +1,13 @@
 ---
 title: How to generate a configuration file for BlobFuse2 from a BlobFuse v1 configuration file
 titleSuffix: Azure Storage
-description: How to generate a configuration file for BlobFuse2 from a BlobFuse v1 configuration file.
-author: akashdubey-ms
+description: Learn how to generate a BlobFuse2 configuration file from a BlobFuse v1 configuration file.
+author: normesta
 ms.service: azure-blob-storage
 ms.custom:
 ms.topic: how-to
 ms.date: 12/02/2022
-ms.author: akashdubey
+ms.author: normesta
 # Customer intent: As a cloud storage administrator, I want to convert BlobFuse v1 configuration files to BlobFuse2 format, so that I can ensure compatibility and take advantage of the latest features in my storage setups.
 ---
 
@@ -35,7 +35,7 @@ Some flags are inherited from the parent command, [`blobfuse2`](blobfuse2-comman
 
 ### Flags inherited from the BlobFuse2 command
 
-The following flags are inherited from parent command [`blobfuse2`](blobfuse2-commands.md)):
+The following flags are inherited from parent command [`blobfuse2`](blobfuse2-commands.md):
 
 | Flag | Short version | Value type | Default value | Description |
 |--|--|--|--|--|
@@ -58,7 +58,7 @@ The following flags apply only to command `blobfuse2 mountv1` command:
 | cancel-list-on-mount-seconds  |    | uint16  |                                | A list call to the container is by default issued on mount<br /><sub>(in seconds)</sub> |
 | config-file                   |    | string  | ./config.cfg                   | Input BlobFuse configuration file                          |
 | container-name                |    | string  |                                | Required if no configuration file is specified             |
-| convert-config-only           |    | boolean |                                | Don't mount - only convert v1 configuration to v2          |
+| convert-config-only           |    | boolean |                                | Don't mount—only convert v1 configuration to v2          |
 | d                             | -d | boolean |false                           | Mount with foreground and FUSE logs on                     |
 | empty-dir-check               |    | boolean |false                           | Disallows remounting using a non-empty tmp-path            |
 | enable-gen1                   |    | boolean |false                           | To enable Gen1 mount                                       |
@@ -85,7 +85,7 @@ The following flags apply only to command `blobfuse2 mountv1` command:
 | streaming                     |    | boolean | false                          | Enable Streaming                                           |
 | tmp-path                      |    | string  | n/a                            | Configures the tmp location for the cache.<br />(Configure the fastest disk (SSD or ramdisk) for best performance). |
 | upload-modified-only          |    | boolean | false                          | Turn off unnecessary uploads to storage                    |
-| use-adls                      |    | boolean | false                          | Enables blobfuse to access Azure DataLake storage account  |
+| use-adls                      |    | boolean | false                          | Enables blobfuse to access Azure Data Lake storage account  |
 | use-attr-cache                |    | boolean | false                          | Enable attribute cache                                     |
 | use-https                     |    | boolean | false                          | Enables HTTPS communication with Blob storage              |
 

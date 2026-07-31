@@ -2,7 +2,7 @@
 title: Azure Government Identity
 description: Microsoft Azure Government provides the same ways to build applications and manage identities as Azure Public. This article provides planning guidance for identity management in Azure Government.
 ms.service: azure-government
-ms.topic: article
+ms.topic: concept-article
 recommendations: false
 ms.date: 06/15/2022
 ---

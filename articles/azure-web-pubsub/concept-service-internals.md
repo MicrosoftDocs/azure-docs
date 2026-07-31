@@ -4,8 +4,8 @@ description: Learn about Azure Web PubSub Service internals, the architecture, t
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: conceptual
-ms.date: 08/21/2024
+ms.topic: concept-article
+ms.date: 05/21/2026
 ---
 
 # Azure Web PubSub service internals
@@ -127,7 +127,7 @@ A PubSub WebSocket client can:
 
 [PubSub WebSocket Subprotocol](./reference-json-webpubsub-subprotocol.md) contains the details of the `json.webpubsub.azure.v1` subprotocol.
 
-In the dafult mode `sendEvent` of [simple WebSocket client](#the-simple-websocket-client), the _server_ is a **must have** role to receive the `message` events from clients. A simple WebSocket connection in `sendEvent` mode always triggers a `message` event when it sends messages, and always relies on the server-side to process messages and do other operations. The `sendToGroup` mode only empowers clients to publish messages to groups directly without triggering requests to the server, which is still limited. `json.webpubsub.azure.v1` subprotocol empowers clients to do much more without triggering requests to the server. With the help of it, an authorized client can join a group and publish messages to a group directly. It can also route messages to different event handlers / event listeners by customizing the _event_ the message belongs.
+In the default mode `sendEvent` of [simple WebSocket client](#the-simple-websocket-client), the _server_ is a **must have** role to receive the `message` events from clients. A simple WebSocket connection in `sendEvent` mode always triggers a `message` event when it sends messages, and always relies on the server-side to process messages and do other operations. The `sendToGroup` mode only empowers clients to publish messages to groups directly without triggering requests to the server, which is still limited. The `json.webpubsub.azure.v1` subprotocol empowers clients to do much more without triggering requests to the server. By using this subprotocol, an authorized client can join a group and publish messages to a group directly. It can also route messages to different event handlers or event listeners by customizing the _event_ the message belongs to.
 
 #### Scenarios
 
@@ -212,6 +212,8 @@ A client can publish to other clients only when it's _authorized_ to. The `role`
 | `webpubsub.sendToGroup`            | The client can publish messages to any group.       |
 | `webpubsub.joinLeaveGroup.<group>` | The client can join/leave group `<group>`.          |
 | `webpubsub.sendToGroup.<group>`    | The client can publish messages to group `<group>`. |
+| `webpubsub.joinLeaveGroups.<pattern>` | The client can join/leave any group whose name matches `<pattern>` (see [Wildcard group role patterns](./concept-wildcard-group-roles.md)). |
+| `webpubsub.sendToGroups.<pattern>` | The client can publish messages to any group whose name matches `<pattern>` (see [Wildcard group role patterns](./concept-wildcard-group-roles.md)). |
 
 The server-side can also grant or revoke permissions of the client dynamically through [server protocol](#connection-manager) as to be illustrated in a later section.
 
@@ -286,9 +288,6 @@ The service provides REST APIs for the server to do connection management.
 The detailed REST API protocol is defined [here][rest].
 
 ### Event listener
-
-> [!NOTE]
-> Event listener feature is in preview.
 
 The event listener listens to the incoming client events. Each event listener contains a filter to specify which kinds of events it concerns, an endpoint about where to send the events to.
 

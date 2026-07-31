@@ -4,7 +4,7 @@ description: Learn how Azure Health Data Services empowers healthcare organizati
 author: EXPEkesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 02/25/2026
 ms.author: kesheth
 ---
@@ -44,7 +44,7 @@ Authenticated users and client applications of the Azure Health Data Services mu
 
 To access Azure Health Data Services, you [register a client application](register-application.md) in the Microsoft Entra ID. By doing these steps, you can find the [application (client) ID](./../healthcare-apis/register-application.md#application-id-client-id), and configure the [authentication setting](./../healthcare-apis/register-application.md#authentication-setting-confidential-vs-public) to allow public client flows or to a confidential client application.
 
-As a requirement for the DICOM service, you configure the user access [API permissions](./../healthcare-apis/register-application.md#api-permissions) or role assignments for Azure Health Data Services managed through [Azure role-based access control (Azure RBAC)](configure-azure-rbac.md).  
+As a requirement for the DICOM service, you configure the user access [API permissions](./../healthcare-apis/register-application.md#api-permissions-for-dicom-and-fhir-services) or role assignments for Azure Health Data Services managed through [Azure role-based access control (Azure RBAC)](configure-azure-rbac.md).  
 
 ## FHIR service
 

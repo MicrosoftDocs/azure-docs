@@ -2,7 +2,7 @@
 title: Create and deploy an Azure Elastic SAN
 description: Learn how to deploy and configure an Azure Elastic SAN with the Azure portal, Azure PowerShell module, or Azure CLI.
 author: roygara
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 01/09/2026
 ms.author: rogarana
@@ -44,7 +44,7 @@ This article explains how to deploy and configure an Elastic SAN.
 
 # [PowerShell](#tab/azure-powershell)
 
-Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. One set creates an elastic SAN with [autoscaling](elastic-san-planning.md#autoscaling-preview) (preview) enabled, and the other creates an elastic SAN with [autoscaling](elastic-san-planning.md#autoscaling-preview) disabled. Replace all placeholder text with your own values and use the same variables in all of the examples in this article:
+Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. One set creates an elastic SAN with [autoscaling](elastic-san-planning.md#autoscaling)  enabled, and the other creates an elastic SAN with [autoscaling](elastic-san-planning.md#autoscaling) disabled. Replace all placeholder text with your own values and use the same variables in all of the examples in this article:
 
 | Placeholder                      | Description |
 |----------------------------------|-------------|
@@ -118,7 +118,7 @@ New-AzElasticSAN -ResourceGroupName $RgName -Name $EsanName -Location $Location 
 
 # [Azure CLI](#tab/azure-cli)
 
-Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. One set creates an elastic SAN with [autoscaling](elastic-san-planning.md#autoscaling-preview) (preview) enabled, and the other creates an elastic SAN with [autoscaling](elastic-san-planning.md#autoscaling-preview) disabled. Replace all placeholder text with your own values and use the same variables in all of the examples in this article:
+Use one of these sets of sample code to create an Elastic SAN that uses locally redundant storage or zone-redundant storage. One set creates an elastic SAN with [autoscaling](elastic-san-planning.md#autoscaling) enabled, and the other creates an elastic SAN with [autoscaling](elastic-san-planning.md#autoscaling) disabled. Replace all placeholder text with your own values and use the same variables in all of the examples in this article:
 
 | Placeholder                      | Description |
 |----------------------------------|-------------|

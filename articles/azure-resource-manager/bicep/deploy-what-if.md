@@ -2,7 +2,7 @@
 title: 'Bicep What-If: Preview Changes Before Deployment'
 description: Determine what changes will happen to your resources before deploying a Bicep file.
 ms.topic: article
-ms.date: 01/07/2026
+ms.date: 03/03/2026
 ms.custom:
   - devx-track-bicep, devx-track-azurecli, devx-track-azurepowershell
   - ai-gen-docs-bap
@@ -14,6 +14,8 @@ ms.custom:
 # Bicep What-If: Preview Changes Before Deployment
 
 Before deploying a Bicep file, you can preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the Bicep file. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified Bicep file is deployed.
+
+Similar to what-if, the [`bicep snapshot`](./bicep-cli.md#snapshot) command performs local-only testing by generating and comparing a normalized JSON representation of your infrastructure to catch unintended logic changes without requiring an Azure connection. For a comparison, see [Comparison snapshot vs what-if](./bicep-cli.md#validate-changes).
 
 You can use the what-if operation with [Visual Studio Code](./deploy-visual-studio-code.md#deployment-pane), Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
 
@@ -76,7 +78,7 @@ Azure CLI version **2.76.0 or later** introduces the `--validation-level` switch
 
 - **Provider** (default): Performs full validation, including template syntax, resource definitions, dependencies, and permission checks to ensure you have sufficient permissions to deploy all resources in the template. 
 - **ProviderNoRbac**: Performs full validation of the template and resources, similar to Provider, but only checks for read permissions on each resource instead of full deployment permissions. This is useful when you want to validate resource configurations without requiring full access.
-- **Template**: Performs static validation only, checking template syntax and structure while skipping preflight checks (for example, resource availability) and permission checks. This is less thorough, potentially missing issues that could cause deployment failures.
+- **Template**: Performs static validation only, checking template syntax and structure while skipping [preflight checks](./deploy-preflight.md) (for example, resource availability) and permission checks. This is less thorough, potentially missing issues that could cause deployment failures.
 
 You can use the `--confirm-with-what-if` switch (or its short form `-c`) to preview the changes and get prompted to continue with the deployment. Add this switch to:
 
@@ -102,7 +104,7 @@ Azure PowerShell version **13.4.0 or later** introduces the `-ValidationLevel` s
 
 - **Provider** (default): Performs full validation, including template syntax, resource definitions, dependencies, and permission checks to ensure you have sufficient permissions to deploy all resources in the template.
 - **ProviderNoRbac**: Performs full validation of the template and resources, similar to Provider, but only checks for read permissions on each resource instead of full deployment permissions. This is useful when you want to validate resource configurations without requiring full access.
-- **Template**: Performs static validation only, checking template syntax and structure while skipping preflight checks (for example, resource availability) and permission checks. This is less thorough, potentially missing issues that could cause deployment failures.
+- **Template**: Performs static validation only, checking template syntax and structure while skipping [preflight checks](./deploy-preflight.md) (for example, resource availability) and permission checks. This is less thorough, potentially missing issues that could cause deployment failures.
 
 You can use the `-Confirm` switch parameter to preview the changes and get prompted to continue with the deployment.
 
@@ -125,7 +127,7 @@ For REST API, use:
 
 You can use the what-if operation through the Azure SDKs.
 
-- For Python, use [what-if](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-).
+- For Python, use [what-if](/python/api/azure-mgmt-resource-deployments/azure.mgmt.resource.deployments.models.whatifchange).
 - For Java, use [DeploymentWhatIf Class](/java/api/com.azure.resourcemanager.resources.models.deploymentwhatif).
 - For .NET, use [DeploymentWhatIf Class](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif).
 

@@ -4,7 +4,7 @@ description: This article shows you how to migrate your existing function apps r
 ms.service: azure-functions
 ms.topic: how-to
 ms.date: 07/31/2023
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-no-go
 ms.custom:
   - template-how-to-pattern
   - devx-track-extended-java
@@ -546,6 +546,7 @@ To update your project to Azure Functions 4.x:
 
 ::: zone-end
 
+
 ## Behavior changes after version 1.x
 
 This section details changes made after version 1.x in both trigger and binding behaviors as well as in core Functions features and behaviors.
@@ -554,7 +555,7 @@ This section details changes made after version 1.x in both trigger and binding 
 
 Starting with version 2.x, you must install the extensions for specific triggers and bindings used by the functions in your app. The only exception for this HTTP and timer triggers, which don't require an extension.  For more information, see [Register and install binding extensions](functions-bindings-register.md).
 
-There are also a few changes in the *function.json* or attributes of the function between versions. For example, the Event Hubs `path` property is now `eventHubName`. See the [existing binding table](functions-versions.md#bindings) for links to documentation for each binding.
+There are also a few changes in the *function.json* or attributes of the function between versions. For example, the Event Hubs `path` property is now `eventHubName`. See the [existing binding table](functions-triggers-bindings.md#supported-bindings) for links to documentation for each binding.
 
 ### Changes in features and functionality
 

@@ -7,7 +7,7 @@ ms.service: azure-expressroute
 services: expressroute
 ms.topic: concept-article
 ms.date: 11/04/2025
-ms.author: divyapr
+ms.author: duau
 ms.custom: ai-usage
 # Customer intent: As a network administrator, I want to evaluate the resiliency index of my ExpressRoute connection so that I can improve connectivity reliability between my on-premises network and Azure resources.
 ---

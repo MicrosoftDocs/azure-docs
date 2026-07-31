@@ -1,21 +1,21 @@
 ---
-title: Parse document or chunk text
-description: Parse a document or chunk text for workflows in Azure Logic Apps.
+title: Parse Documents and Chunk Text in Workflows
+description: Parse documents and chunk text to transform content into tokenized strings for workflows in Azure Logic Apps.
 services: azure-logic-apps
 ms.suite: integration
 ms.collection: ce-skilling-ai-copilot
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 08/14/2025
 ms.update-cycle: 180-days
-# Customer intent: As an integration developer using Azure Logic Apps, I want to parse a document or chunk text that I want to use with Azure AI operations for my workflow in Azure Logic Apps.
+ms.date: 04/13/2026
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to parse a document or chunk text as tokenized strings for Azure AI Search or Azure OpenAI actions in my workflows.
 ---
 
-# Parse or chunk content for workflows in Azure Logic Apps
+# Parse documents and chunk text as tokenized strings for workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
-Sometimes you have to convert content into tokens, which are words or chunks of characters, or divide a large document into smaller pieces before you can use this content with some actions. For example, the **Azure AI Search** or **Azure OpenAI** actions expect tokenized input and can handle only a limited number of tokens.
+Sometimes you have to convert content into tokens, which are words or chunks of characters, or divide a large document into smaller pieces before you can use this content with specific actions. For example, the **Azure AI Search** or **Azure OpenAI** actions expect tokenized input and can handle only a limited number of tokens.
 
 For these scenarios, use the **Data Operations** actions named **Parse a document** and **Chunk text** in your logic app workflow. These actions respectively transform content, such as a PDF document, CSV file, Excel file, and so on, into tokenized string output and then split the string into pieces, based on the number of tokens. You can then reference and use these outputs with subsequent actions in your workflow.
 
@@ -31,11 +31,28 @@ For these scenarios, use the **Data Operations** actions named **Parse a documen
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
-This how-to guide shows how to add and set up these operations in your workflow.
+This guide shows how to add and set up actions for parsing documents and chunking text in your workflow.
 
 ## Known issues and limitations
 
-The **Parse a document** and **Chunk text** actions currently don't support host files, for example, mainframe and midrange binary files such as Virtual Storage Access Method (VSAM) files. However, if you're working with Standard workflows, you can use the [**IBM Host File** built-in action named **Parse Host File Contents**](/azure/connectors/integrate-host-files-ibm-mainframe) instead.
+- In Consumption workflows, the **Parse a document** action is available only in the following Azure regions:
+
+  - Australia East
+  - Brazil South
+  - East Asia
+  - East US
+  - East US 2
+  - North Europe
+  - South Central US
+  - Southeast Asia
+  - Sweden Central
+  - West US 2
+  - West US 3
+  - UK South
+
+  These regions provide data source connections, document tracking, document chunking, support for Azure OpenAI embedding models, and built-in indexing support for pulling data. For more information, see [Automate indexing in AI Search with workflows in Azure Logic Apps](/azure/search/search-how-to-index-logic-apps#supported-regions).
+
+- The **Parse a document** and **Chunk text** actions currently don't support host files, for example, mainframe and midrange binary files such as Virtual Storage Access Method (VSAM) files. However, if you're working with Standard workflows, you can use the [**IBM Host File** built-in action named **Parse Host File Contents**](/azure/connectors/integrate-host-files-ibm-mainframe) instead.
 
 ## Prerequisites
 
@@ -45,7 +62,7 @@ The **Parse a document** and **Chunk text** actions currently don't support host
 
 ## Parse a document
 
-The **Parse a document** action converts content, such as a PDF document, CSV file, Excel file, and so on, into a tokenized string. For this example, suppose your workflow starts with the **Request** trigger named **When a HTTP request is received**. This trigger waits to receive an HTTP request sent from another component, such as an Azure function, another logic app workflow, and so on. The HTTP request includes the URL for a new uploaded document that is available for the workflow to retrieve and parse. An **HTTP** action immediately follows the trigger, and sends an HTTP request to the document's URL, and returns with the document content from its storage location.
+The **Parse a document** action converts content, such as a PDF document, CSV file, Excel file, and so on, into a tokenized string. For this example, suppose your workflow starts with the **Request** trigger named **When an HTTP request is received**. This trigger waits to receive an HTTP request sent from another component, such as an Azure function, another logic app workflow, and so on. The HTTP request includes the URL for a new uploaded document that is available for the workflow to retrieve and parse. An **HTTP** action immediately follows the trigger, and sends an HTTP request to the document's URL, and returns with the document content from its storage location.
 
 If you use other content sources, such as Azure Blob Storage, SharePoint, OneDrive, File System, FTP, and so on, you can check whether triggers are available for these sources. You can also check whether actions are available to retrieve the content for these sources. For more information, see [Built-in operations](/azure/logic-apps/connectors/built-in/reference/) and [Managed connectors](/connectors/connector-reference/connector-reference-logicapps-connectors).
 

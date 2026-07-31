@@ -6,7 +6,7 @@ author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.custom: devx-track-python
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 10/15/2024
 ms.author: kesheth
 ---

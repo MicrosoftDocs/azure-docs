@@ -6,6 +6,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 08/21/2025
 ms.topic: concept-article
+ms.update-cycle: 1095-days
 # Customer intent: "As an IT administrator who manages Azure VMs or Azure Arc-enabled servers, I want to understand the required roles and permissions for Azure Update Manager so that I can effectively configure update operations and ensure compliance with organizational policies."
 ---
  

@@ -1,15 +1,17 @@
 ---
-title: Create built-in connectors for Standard logic apps
-description: Create your own custom built-in connectors for Standard workflows in single-tenant Azure Logic Apps.
+title: Create Built-in Connectors for Standard Workflows
+description: Create your own built-in connectors for Standard workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, daviburg, apseth, psrivas, azla
 ms.topic: how-to
-ms.date: 07/16/2025
+ms.update-cycle: 1095-days
+ms.date: 07/10/2026
 ms.custom: sfi-image-nochange
+#Customer intent: As an automation and integration developer who works in Azure Logic Apps, I want to create my built-in connector for use in Standard workflows.
 ---
 
-# Create custom built-in connectors for Standard logic apps in single-tenant Azure Logic Apps
+# Create custom built-in connectors for Standard workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
@@ -453,4 +455,4 @@ To add the NuGet reference from the previous section, in the extension bundle na
 
 * [Source for sample custom built-in Azure Cosmos DB connector - Azure Logic Apps Connector Extensions](https://github.com/Azure/logicapps-connector-extensions/tree/CosmosDB/src/CosmosDB)
 
-* [Built-in Service Bus trigger: batching and session handling](https://techcommunity.microsoft.com/t5/integrations-on-azure-blog/azure-logic-apps-running-anywhere-built-in-service-bus-trigger/ba-p/2079995)
+* [Built-in Service Bus trigger: batching and session handling](https://techcommunity.microsoft.com/blog/integrationsonazureblog/azure-logic-apps-running-anywhere---built-in-service-bus-trigger-batching-and-se/2079995)

@@ -8,6 +8,10 @@ ms.topic: tutorial
 ms.date: 02/07/2025
 ms.service: azure-migrate
 ms.reviewer: v-uhabiba
+ms.collection:
+  - migration
+  - aws-to-azure
+  - gcp-to-azure
 ms.custom:
   - mvc
   - subject-rbac-steps

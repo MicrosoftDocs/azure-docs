@@ -4,7 +4,7 @@ titleSuffix: Azure Data Factory
 description: Learn how to set up a linked service and source dataset to use with the SAP CDC (change data capture) connector in Azure Data Factory.
 author: ukchrist
 ms.subservice: data-movement
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/15/2024
 ms.author: ulrichchrist
 ms.custom: sfi-image-nochange

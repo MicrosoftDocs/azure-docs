@@ -49,7 +49,7 @@ storage_account_result = storage_client.storage_accounts.begin_create(
 
 ### Deploy a template
 
-To deploy an ARM template, use [ResourceManagementClient.deployments.begin_create_or_update](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2022_09_01.operations.deploymentsoperations#azure-mgmt-resource-resources-v2022-09-01-operations-deploymentsoperations-begin-create-or-update). The following example deploys a [remote template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-account-create). That template creates a storage account.
+To deploy an ARM template, use [ResourceManagementClient.deployments.begin_create_or_update](/python/api/azure-mgmt-resource-deployments/azure.mgmt.resource.deployments.operations.deploymentsoperations#azure-mgmt-resource-deployments-operations-deploymentsoperations-begin-create-or-update). The following example deploys a [remote template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.storage/storage-account-create). That template creates a storage account.
 
 ```python
 import os

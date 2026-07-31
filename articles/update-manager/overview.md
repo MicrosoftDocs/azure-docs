@@ -7,6 +7,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 02/03/2025
 ms.topic: overview
+ms.update-cycle: 1095-days
 # Customer intent: As an IT administrator who manages diverse server environments, I want to use Azure Update Manager to monitor and automate software updates so that I can ensure compliance and enhance the security of my Windows and Linux machines across Azure and on-premises environments.
 ---
 

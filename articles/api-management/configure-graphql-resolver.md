@@ -2,12 +2,10 @@
 title: Configure GraphQL Resolver in Azure API Management
 description: Configure a GraphQL resolver in Azure API Management for a field in an object type specified in a GraphQL schema
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/01/2025
-ms.author: danlep
 ms.custom: sfi-image-nochange
 ---
 

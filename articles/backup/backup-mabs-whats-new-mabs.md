@@ -3,7 +3,7 @@ title: What's new in Microsoft Azure Backup Server
 description: Microsoft Azure Backup Server gives you enhanced backup capabilities for protecting VMs, files and folders, workloads, and more.
 ms.service: azure-backup
 ms.topic: release-notes
-ms.date: 07/25/2025
+ms.date: 06/02/2026
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 # Customer intent: "As an IT administrator, I want to understand the latest features and fixes in Microsoft Azure Backup Server, so that I can ensure robust backup solutions and improve data protection for VMs, files, and critical workloads."
@@ -18,7 +18,7 @@ Microsoft Azure Backup Server gives you enhanced backup capabilities to protect 
 Microsoft Azure Backup Server version 4 (MABS V4) Update *Rollup 1 Refresh* includes critical bug fixes and feature enhancements. For information about the bugs fixed and the installation instructions of MABS V4 UR1 Refresh, see [KB article 5033756](https://support.microsoft.com/home/contact?SourceApp=smcivr2).
  
 > [!IMPORTANT]
-> MABS V4 UR1 Refresh supersedes MABS V4 UR1 that has the same feature enhancements, but fixes the known issues in MABS V4 UR1. [Learn more](backup-mabs-release-notes-v3.md).
+> MABS V4 UR1 Refresh supersedes MABS V4 UR1 that has the same feature enhancements, but fixes the known issues in MABS V4 UR1. [Learn more](backup-mabs-release-notes-v3.md#mabs-v4-ur1-refresh-known-issues-and-workarounds).
 
 The following table lists the new features added in MABS V4 UR1:
 
@@ -71,9 +71,9 @@ The following table lists the included features in MABS V4:
 | Private Endpoint Support | With MABS V4, you can use private endpoints to send your online backups to Azure Backup Recovery Services vault. [Learn more](backup-azure-private-endpoints-concept.md). |
 | Azure Stack HCI 22H2 support | MABS V4 now supports protection of workloads running in Azure Stack HCI from V1 to 22H2. [Learn more](back-up-azure-stack-hyperconverged-infrastructure-virtual-machines.md). |
 | VMware 8.0 support | MABS V4 can now back up VMware VMs running on VMware 8.0. MABS V4 supports VMware, version 6.5 to 8.0. [Learn more](backup-azure-backup-server-vmware.md). <br><br> Note that MABS V4 doesn't support the DataSets feature added in vSphere 8.0. |
-| Item-level recovery from online recovery points for Hyper-V and Stack HCI VMs running Windows Server | With MABS V4, you can perform item-level recovery of files and folders from your online recovery point for VMs running Windows Server on Hyper-V or Stack HCI without downloading the entire recovery point. <br><br> Go to the *Recovery* pane, select a *VM online recovery point* and double-click the *recoverable item* to browse and recover its contents at a file/folder level. <br><br> [Learn more](back-up-hyper-v-virtual-machines-mabs.md). |
-| Parallel Restore of VMware and Hyper-V VMs | MABS V4 supports parallel restore of [VMware](restore-azure-backup-server-vmware.md) and [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) virtual machines. With earlier versions of MABS, restore of VMware VM and Hyper-V virtual machine was restricted to only one restore job at a time. With MABS V4, by default you can restore *eight* VMs in parallel and this number can be increased using a registry key. |
-| Parallel online backup jobs - limit enhancement | MABS V4 supports increasing the maximum parallel online backup jobs from eight to a configurable limit of twenty through a registry key for faster online backups. [Learn more](backup-azure-microsoft-azure-backup.md). |
+| Item-level recovery from online recovery points for Hyper-V and Stack HCI VMs running Windows Server | With MABS V4, you can perform item-level recovery of files and folders from your online recovery point for VMs running Windows Server on Hyper-V or Stack HCI without downloading the entire recovery point. <br><br> Go to the *Recovery* pane, select a *VM online recovery point* and double-click the *recoverable item* to browse and recover its contents at a file/folder level. <br><br> [Learn more](back-up-hyper-v-virtual-machines-mabs.md#restore-an-individual-file-from-a-hyper-v-vm). |
+| Parallel Restore of VMware and Hyper-V VMs | MABS V4 supports parallel restore of [VMware](restore-azure-backup-server-vmware.md#vmware-parallel-restore-in-mabs-v4-and-later) and [Hyper-V](back-up-hyper-v-virtual-machines-mabs.md) virtual machines. With earlier versions of MABS, restore of VMware VM and Hyper-V virtual machine was restricted to only one restore job at a time. With MABS V4, by default you can restore *eight* VMs in parallel and this number can be increased using a registry key. |
+| Parallel online backup jobs - limit enhancement | MABS V4 supports increasing the maximum parallel online backup jobs from eight to a configurable limit of twenty through a registry key for faster online backups. [Learn more](backup-azure-microsoft-azure-backup.md#increase-maximum-parallel-online-backups). |
 | Faster Item Level Recoveries | MABS V4 moves away from File Catalog for online backup of file/folder workloads. File Catalog was necessary to restore individual files and folders from online recovery points, but increased backup time by uploading file metadata. <br><br> MABS V4 uses an *iSCSI mount* to provide faster individual file restores and reduces backup time, because file metadata doesn't need to be uploaded. |
 
 ## What's new in MABS V3 UR2 Hotfix?
@@ -95,7 +95,7 @@ This update contains the following enhancement to improve the backup time. For m
 
 Microsoft Azure Backup Server (MABS) version 3 UR2 supports the following new features/feature updates.
 
-For information about the UR2 issues fixes and the installation instructions, see the [Release notes for Microsoft Azure Backup Server v3](backup-mabs-release-notes-v3.md).
+For information about the UR2 issues fixes and the installation instructions, see the [Release notes for Microsoft Azure Backup Server v3](backup-mabs-release-notes-v3.md#mabs-v3-known-issues-and-workarounds).
 
 ### Support for Azure Stack HCI
 
@@ -132,15 +132,14 @@ To achieve the scale and performance by MBS we recommend using a small percentag
 
 ### Support for ReFS volumes
 
-With MABS V3 UR1, you can back up the ReFS volumes and workloads deployed on the ReFS volume. You can back up the following workloads deployed on the ReFS volumes:
+With MABS V3 UR1, you can back up the ReFS volumes and workloads deployed on the ReFS volume. Backup of Hyper-V VMs stored on an ReFS volume is supported with MABS V3. You can back up the following workloads deployed on the ReFS volumes:
 
 * Operating System (64 bit): Windows Server 2019, 2016, 2012 R2, 2012.
 * SQL Server: SQL Server 2019, SQL Server 2017, 2016.
 * Exchange: Exchange 2019, 2016.
 * SharePoint: SharePoint 2019, 2016 with latest SP.
 
-> [!NOTE]
-> Backup of Hyper-V VMs stored on an ReFS volume is supported with MABS V3
+[!INCLUDE [end-of-support-notes-windows-server-2008.md](../../includes/end-of-support-notes-windows-server-2008.md)]
 
 > [!IMPORTANT]
 > We've identified a few issues with backup of deduplicated ReFS volumes. We're working on fixing these, and will update this section as soon as we have a fix available. Until then, we're removing the support for backup of deduplicated ReFS volumes from MABSv3 UR1.

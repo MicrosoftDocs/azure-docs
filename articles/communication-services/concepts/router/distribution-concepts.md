@@ -7,7 +7,7 @@ manager: radubulboaca
 ms.author: radubulboaca
 author: tophpalmer
 ms.date: 05/06/2022
-ms.topic: article
+ms.topic: concept-article
 ms.service: azure-communication-services
 ---
 

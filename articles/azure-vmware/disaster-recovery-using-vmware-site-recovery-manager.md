@@ -3,7 +3,7 @@ title: Deploy disaster recovery with VMware Site Recovery Manager
 description: Deploy disaster recovery with VMware Site Recovery Manager (SRM) in your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 01/13/2025
+ms.date: 05/18/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
@@ -12,23 +12,22 @@ ms.custom:
 
 # Deploy disaster recovery with VMware Live Site Recovery
 
-This article explains how to implement disaster recovery for Azure VMware Solution-based VMs. The solution uses VMware SRM and replication servers are deployed at both the protected and the recovery sites.       
-
-VMware Live Site Recovery is a disaster recovery solution designed to minimize downtime of the virtual machines in an Azure VMware Solution environment if there was a disaster. VMware SRM automates and orchestrates failover and failback, ensuring minimal downtime in a disaster. Also, built-in nondisruptive testing ensures your recovery time objectives are met. Overall, VMware SRM simplifies management through automation and ensures fast and highly predictable recovery times.
+VMware Live Site Recovery is a disaster recovery solution designed to minimize downtime of the virtual machines in an Azure VMware Solution environment if there was a disaster. VMware Live Site Recovery automates and orchestrates failover and failback, ensuring minimal downtime in a disaster. Also, built-in nondisruptive testing ensures your recovery time objectives are met. Overall, VMware Live Site Recovery simplifies management through automation and ensures fast and highly predictable recovery times.
 
 VMware vSphere Replication is VMware's hypervisor-based replication technology for VMware vSphere VMs. It protects VMs from partial or complete site failures. In addition, it simplifies DR protection through storage-independent, VM-centric replication. VMware vSphere Replication is configured on a per-VM basis, allowing more control over which VMs are replicated.
 
 
 > [!NOTE]
 > The current version of VMware Live Site Recovery in Azure VMware Solution is 9.0.2.1.
-> VMware Live Site Recovery – External Datastore support status, see [What's new](/azure/azure-vmware/azure-vmware-solution-platform-updates#november-2025)
+> VMware Live Site Recovery supports Stretched Cluster, see [What's new](/azure/azure-vmware/azure-vmware-solution-platform-updates#may-2026)
 
 ## Supported scenarios
 
-VMware SRM helps you plan, test, and run the recovery of VMs between a protected VMware vCenter Server site and a recovery VMware vCenter Server site. You can use VMware SRM with Azure VMware Solution with the following two DR scenarios: 
+VMware Live Site Recovery helps you plan, test, and run the recovery of VMs between a protected VMware vCenter Server site and a recovery VMware vCenter Server site. You can use VMware SRM with Azure VMware Solution with the following two DR scenarios: 
 
 - On-premises VMware vSphere to Azure VMware Solution private cloud disaster recovery 
-- Primary Azure VMware Solution to Secondary Azure VMware Solution private cloud disaster recovery 
+- Primary Azure VMware Solution to Secondary Azure VMware Solution private cloud disaster recovery
+- Azure VMware Solution vSAN stretched clusters to Azure VMware Solution private cloud disaster recovery 
 
 The diagram shows the deployment of the on-premises VMware vSphere to Azure VMware Solution private cloud disaster recovery scenario.
 
@@ -40,24 +39,23 @@ The diagram shows the deployment of the primary Azure VMware Solution to seconda
 
 You can use VMware SRM to implement different types of recovery, such as:
 
-- **Planned migration** commences when both primary and secondary Azure VMware Solution sites are running and fully functional. It's an orderly migration of virtual machines from the protected site to the recovery site where no data loss is expected when migrating workloads in an orderly fashion. 
+- **Planned migration** occurs when both primary and secondary Azure VMware Solution sites are running and fully functional. It's a regulated migration of VMs from the protected site to the recovery site where no data loss is expected when migrating workloads. 
 
-- **Disaster recovery** using SRM can be invoked when the protected Azure VMware Solution site goes offline unexpectedly. VMware Site Recovery Manager orchestrates the recovery process with the replication mechanisms to minimize data loss and system downtime.
+- **Disaster recovery** using SRM can be required when the protected Azure VMware Solution site goes offline unexpectedly. VMware Site Recovery Manager orchestrates the recovery process with the replication mechanisms to minimize data loss and system downtime.
 
    In Azure VMware Solution, only individual VMs can be protected on a host by using VMware SRM in combination with VMware vSphere Replication.
 
 - **Bidirectional Protection** uses a single set of paired VMware SRM sites to protect VMs in both directions. Each site can simultaneously be a protected site and a recovery site, but for a different set of VMs.
 
-> [!IMPORTANT]
-> Azure VMware Solution doesn't support:
+> [!IMPORTANT] 
+> Azure VMware Solution doesn't support the following:
 > - Array-based replication and storage policy protection groups
-- VMware vVOLs Protection Groups
-- VMware SRM IP customization using SRM command-line tools
-- One-to-Many and Many-to-One topologies
-- Custom VMware SRM plug-in identifier or extension ID
-- VMware Cloud Disaster Recovery (VCDR)
-- VMware Live Site Recovery – External Datastore support status, see [What's new](/azure/azure-vmware/azure-vmware-solution-platform-updates)
-- Enhanced replication is unsupported in Azure VMware Solution Gen 1
+> - VMware vVOLs Protection Groups
+> - VMware SRM IP customization using SRM command-line tools
+> - One-to-Many and Many-to-One topologies
+> - Custom VMware SRM plug-in identifier or extension ID
+> - VMware Cloud Disaster Recovery (VCDR)
+> - VMware Live Site Recovery – External Datastore support status, see [What's new](/azure/azure-vmware/azure-vmware-solution-platform-updates)
 
 
 
@@ -87,7 +85,7 @@ Ensure you provide the remote user the VMware VRM administrator and VMware SRM a
 ## Install SRM in Azure VMware Solution
 
 > [!NOTE]
-> An evaluation license will be included during the initial installation phase. Customers must obtain a Live Site Recovery license directly from Broadcom
+> An evaluation license is included during the initial installation phase. Customers must obtain a Live Site Recovery license directly from Broadcom
 > Use the [Two-site Topology with one vCenter Server instance per PSC](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-installation-and-configuration-8-8/site-recovery-manager-appliance-overview/site-recovery-manager-and-vcenter-server-deployment-models/srm-in-a-two-site-topology-with-one-vcenter-server-per-platform-services-controller.html) deployment model. Also, make sure that the [required vSphere Replication Network ports](https://knowledge.broadcom.com/external/article?legacyId=2087769) are opened.
 
 1. In your on-premises data center, install VMware SRM and vSphere Replication.
@@ -118,7 +116,7 @@ After installing VMware SRM and vSphere Replication, you need to complete the co
 
 > [!NOTE]
 > An Azure VMware Solution private cloud operates with an embedded Platform Services Controller (PSC), so only one local vCenter Server can be selected. If the remote vCenter Server is using an embedded Platform Service Controller (PSC), use the vCenter Server's FQDN (or its IP address) and port to specify the PSC. 
-> The remote user must have sufficient permissions to perform the pairings. An easy way to ensure this is to give that user the VRM administrator and SRM administrator roles in the remote vCenter Server. For a remote Azure VMware Solution private cloud, cloudadmin is configured with those roles.
+> The remote user must have sufficient permissions to perform the pairings. An easy way to ensure sufficient permissions is to give that user the VRM administrator and SRM administrator roles in the remote vCenter Server. For a remote Azure VMware Solution private cloud, CloudAdmin is configured with those roles.
 
 5. Select **CONNECT** to accept the certificate for the remote vCenter Server. At this point, the client should discover the VMware VRM and VMware SRM appliances on both sides as services to pair.
 
@@ -131,7 +129,7 @@ After installing VMware SRM and vSphere Replication, you need to complete the co
 9. Review the settings and then select **FINISH**.
 
 > [!NOTE] 
-> The user with sufficient permissions should have **VRM administrator** and **SRM administrator** roles given to them in the remote vCenter Server. The user should also have access to the remote vCenter Server inventory, like folders and datastores. For a remote Azure VMware Solution private cloud, the cloudadmin user has the appropriate permissions and access. 
+> The user with sufficient permissions should have **VRM administrator** and **SRM administrator** roles given to them in the remote vCenter Server. The user should also have access to the remote vCenter Server inventory, like folders and datastores. For a remote Azure VMware Solution private cloud, the CloudAdmin user has the appropriate permissions and access. 
    
    :::image type="content" source="media/vmware-srm-vsphere-replication/sign-into-remote-vcenter.png" alt-text="Screenshot showing the vCenter Server credentials." border="true":::
 
@@ -159,21 +157,34 @@ After you created the site pairing, use the following VMware documentation for e
 
 - [Perform a Failback](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-administration-8-8/restoring-the-pre-recovery-site-configuration-by-performing-failback/perform-a-failback.html)
 
-## Ongoing management of your VMware SRM solution
+## VMware Live Site Recovery Licensing in Azure VMware Solution
+VMware Live Site Recovery supports **two licensing models** in Azure VMware Solution. The setup process depends on the type of license you have.
 
-Microsoft aims to simplify VMware SRM and vSphere Replication installation on an Azure VMware Solution private cloud. You're responsible for managing your license and the day-to-day operation of the disaster recovery solution. 
+### 25-Character live site recovery license key
 
-## VMware Live Site Recovery licenses
+If you have a standard 25-character Live Site Recovery license key, use the following steps:
 
-[Set up offline mode](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/how-do-i-set-up-vmware-live-site-recovery-to-work-in-offline-mode/set-up-offline-mode-for-vmware-live-site-recovery.html) for VMware Live Recovery. [Remove the offline mode license](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/how-do-i-set-up-vmware-live-site-recovery-to-work-in-offline-mode/remove-offline-mode-license-for-vmware-live-site-recovery.html) for VMware Live Site Recovery.
+1. Sign in to the Azure VMware Solution portal
+1. Navigate to **Add-ons**
+1. Select the **Disaster Recovery** tab
+1. Enter the 25-character license key
+1. **Save** the configuration
 
-Customers are responsible to purchase and apply Live Site Recovery by following Broadcom's instructions. Customers are requested to create Broadcom ticket for license issues.
+### Offline mode base license
+
+For offline mode base license use the following steps and instructions:
+
+1. [Set up offline mode](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/how-do-i-set-up-vmware-live-site-recovery-to-work-in-offline-mode/set-up-offline-mode-for-vmware-live-site-recovery.html) for VMware Live Site Recovery. 
+1. [Remove the offline mode license](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/live-site-recovery/9-0/overview/how-do-i-set-up-vmware-live-site-recovery-to-work-in-offline-mode/remove-offline-mode-license-for-vmware-live-site-recovery.html) for VMware Live Site Recovery.
+
+> [!NOTE] 
+> Customers are responsible to purchase and apply Live Site Recovery by following Broadcom's instructions. Customers are requested to create Broadcom ticket for license issues.
 
 ## Uninstall VMware SRM 
 
 > [!NOTE]
-> You cannot delete recovery plans that are running.
-> You cannot delete a protection group that is included in a recovery plan. You cannot delete vSphere Replication protection groups that contain virtual machines on which protection is still configured.
+> You can't delete recovery plans that are running.
+> You can't delete a protection group that is included in a recovery plan. You can't delete vSphere Replication protection groups that contain VMs on which protection is still configured.
 > Breaking the site pairing removes all information related to registering Site Recovery Manager with Site Recovery Manager, vCenter Server, and the Platform Services Controller on the remote site.
 
 If you no longer require VMware SRM, you must uninstall it in a clean manner. Before you uninstall VMware SRM, you must remove all VMware SRM configurations from both sites in the correct order. If you don't remove all configurations before uninstalling VMware SRM, some VMware SRM components, such as placeholder VMs, might remain in the Azure VMware Solution infrastructure.
@@ -182,7 +193,7 @@ If you no longer require VMware SRM, you must uninstall it in a clean manner. Be
 2. On the **Site Recovery** home tab, select a site pair and select **View Details**.
 3. Select the **Recovery Plans** tab, right-click on a recovery plan and select **Delete**.
 4. Select the **Protection Groups** tab, select a protection group, and select the **Virtual Machines** tab.
-5. Highlight all virtual machines, right-click, and select **Remove Protection**. Removing protection from a VM deletes the placeholder VM from the recovery site. Repeat this operation for all protection groups.
+5. Highlight all VMs, right-click, and select **Remove Protection**. Removing protection from a VM deletes the placeholder VM from the recovery site. Repeat this operation for all protection groups.
 6. In the **Protection Groups** tab, right-click a protection group and select **Delete**.
 7. Select **Site Pair** > **Configure** and remove all inventory mappings. Select each of the **Network Mappings**, **Folder Mappings**, and **Resource Mappings** tabs. In each tab, select a site, right-click a mapping, and select **Delete**.
 8. For both sites, select **Placeholder Datastores**, right-click the placeholder datastore, and select **Remove**.
@@ -198,22 +209,4 @@ VMware Live Site Recovery is a Disaster Recovery solution from VMware by Broadco
 For any other issues, customers are requested to contact Broadcom for support regarding site configurations, licensing issues, replication, pairing failures, and DNS-related problems.
 
 VMware and Microsoft support teams engage each other as needed to troubleshoot VMware SRM issues on Azure VMware Solution.
-
-## References
-
-- [VMware Site Recovery Manager Documentation](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8.html)
-- [Compatibility Matrices for VMware Site Recovery Manager 8.8](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/release-notes/compatibility-matrices-for-vmware-site-recovery-manager-88.html)
-- [VMware SRM 8.8 release notes](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/release-notes/vmware-site-recovery-manager-88-release-notes.html)
-- [VMware vSphere Replication Documentation](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/vsphere-replication/8-8.html)
-- [Compatibility Matrices for vSphere Replication 8.8](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/vsphere-replication/8-8/release-notes/compatibility-matrices-for-vsphere-replication-88.html)
-- [Operational Limits of Site Recovery Manager 8.8](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-installation-and-configuration-8-8/site-recovery-manager-system-requirements/operational-limits-of-site-recovery-manager.html)
-- [Operational Limits of vSphere Replication 8.8](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/vsphere-replication/8-8/vr-help-plug-in-8-8/vsphere-replication-system-requirements/operational-limits-of-vsphere-replication.html)
-- [Calculate bandwidth for vSphere Replication](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/vsphere-replication/8-8/vr-help-plug-in-8-8/vsphere-replication-system-requirements/bandwidth-requirements-for-vsphere-replication/calculate-bandwidth-for-vsphere-replication.html)
-- [SRM installation and configuration](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-installation-and-configuration-8-8.html)
-- [vSphere Replication administration](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/vsphere-replication/8-8/vr-help-plug-in-8-8.html)
-- [Prerequisites and Best Practices for SRM installation](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-installation-and-configuration-8-8/site-recovery-manager-appliance-overview/prerequisites-for-srm-server-installation.html)
-- [Network ports for SRM](https://techdocs.broadcom.com/us/en/vmware-cis/live-recovery/site-recovery-manager/8-8/site-recovery-manager-installation-and-configuration-8-8/site-recovery-manager-system-requirements/network-ports-for-vmware-site-recovery.html)
-- [Network ports for vSphere Replication](https://knowledge.broadcom.com/external/article?legacyId=2087769)
-
-
 

@@ -3,6 +3,7 @@ title: Back up Exchange server with Azure Backup Server
 description: Learn how to back up an Exchange server to Azure Backup using Azure Backup Server
 ms.topic: how-to
 ms.date: 03/25/2025
+ms.update-cycle: 1095-days
 author: AbhishekMallick-MS
 ms.author: v-mallicka
 ms.custom: engagement-fy24
@@ -11,6 +12,11 @@ ms.custom: engagement-fy24
 # Back up an Exchange server to Azure with Azure Backup Server
 
 This article describes how to configure Microsoft Azure Backup Server (MABS) to back up a Microsoft Exchange server to Azure.  
+
+> [!NOTE]
+> Use this article if you're using **Microsoft Azure Backup Server (MABS)**.
+>
+> If you're using **System Center DPM** instead, see [Back up Exchange Server databases to Azure Backup with System Center DPM](backup-azure-backup-exchange-server.md).
 
 ## Prerequisites
 

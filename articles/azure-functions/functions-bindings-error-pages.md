@@ -1,7 +1,7 @@
 ---
 title: Azure Functions Error Handling and Retry Guidance
 description: Learn how to handle errors and retry events in Azure Functions, with links to specific binding errors, including information on retry policies.
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 05/06/2025
 zone_pivot_groups: programming-languages-set-functions
@@ -350,6 +350,25 @@ public void run(
 
 ---
 
+::: zone-end
+
+::: zone pivot="programming-language-go"
+In Go, configure retries when you register the function by using `sdk.WithRetry` and `sdk.RetryOptions`:
+
+```go
+minimumInterval := 10 * time.Second
+maximumInterval := 15 * time.Minute
+
+app.Timer("TimerTriggerGo", timerHandler,
+    sdk.WithSchedule("0 */5 * * * *"),
+    sdk.WithRetry(&sdk.RetryOptions{
+        MaxRetryCount:   5,
+        MinimumInterval: &minimumInterval,
+        MaximumInterval: &maximumInterval,
+        Strategy:        sdk.ExponentialBackoff,
+    }),
+)
+```
 ::: zone-end
 
 ## Binding error codes

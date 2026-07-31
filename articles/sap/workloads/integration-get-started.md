@@ -223,7 +223,7 @@ Protect your data, apps, and infrastructure against rapidly evolving cyber threa
 
 Use [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) to secure your cloud-infrastructure surrounding the SAP system including automated responses.
 
-Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/sap-certified-solutions/#/solutions?search=sentinel&id=s:33db1376-91ae-4f36-a435-aafa892a88d8) solution [Microsoft Sentinel for SAP](../../sentinel/sap/sap-solution-security-content.md) to protect your SAP system and [SAP Business Technology Platform (BTP)](../../sentinel/sap/sap-btp-solution-overview.md) instance from within using signals from the SAP Audit Log among others.
+Complimenting that, use the [SAP certified](https://www.sap.com/dmc/exp/sap-certified-solutions/#/solutions?search=sentinel&id=s:33db1376-91ae-4f36-a435-aafa892a88d8) solution [Microsoft Sentinel for SAP](/azure/sentinel/sap/sap-solution-security-content) to protect your SAP system and [SAP Business Technology Platform (BTP)](/azure/sentinel/sap/sap-btp-solution-overview) instance from within using signals from the SAP Audit Log among others.
 
 Unify all your security solutions for Microsoft 365, cloud-infrastructure, and SAP in a [single experience](/unified-secops-platform/overview-unified-security) in the Defender portal. Profit from the correlation of signals across the Microsoft ecosystem and connected third parties to detect and respond to threats in real-time.
 

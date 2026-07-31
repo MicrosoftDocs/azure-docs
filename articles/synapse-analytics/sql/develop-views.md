@@ -11,6 +11,8 @@ ms.author: stefanazaric
 
 # T-SQL views with dedicated SQL pool and serverless SQL pool in Azure Synapse Analytics
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 In this article, you'll find tips for using T-SQL views and developing solutions with dedicated SQL pool and serverless SQL pool in Azure Synapse Analytics.
 
 ## Why use views

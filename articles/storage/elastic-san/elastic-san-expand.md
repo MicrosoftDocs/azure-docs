@@ -2,7 +2,7 @@
 title: Resize an Azure Elastic SAN and its volumes
 description: Learn how to increase or decrease the size of an Azure Elastic SAN and its volumes with the Azure portal, Azure PowerShell module, or Azure CLI.
 author: roygara
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.topic: how-to
 ms.date: 01/13/2026
 ms.author: rogarana
@@ -39,9 +39,9 @@ az elastic-san update -e $sanName -g $resourceGroupName --base-size-tib $newBase
 ```
 ---
 
-## Autoscale (preview)
+## Autoscale
 
-As a preview feature, you can automatically scale up your SAN by specific increments until a specified maximum size. The capacity increments have a minimum of 1 TiB, and you can only set up an autoscale policy for additional capacity units. So when autoscaling, your performance doesn't automatically scale up as your storage does. Here's an example of setting an autoscale policy by using Azure CLI:  
+You can automatically scale up your SAN by specific increments until a specified maximum size. The capacity increments have a minimum of 1 TiB, and you can only set up an autoscale policy for additional capacity units. So when autoscaling, your performance doesn't automatically scale up as your storage does. Here's an example of setting an autoscale policy by using Azure CLI:  
   
 `az elastic-san update -n mySanName -g myVolGroupName --auto-scale-policy-enforcement "Enabled" --unused-size-tib 20 --increase-capacity-unit-by-tib 5 --capacity-unit-scale-up-limit-tib 150`
   

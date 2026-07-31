@@ -7,7 +7,32 @@
         }, 
         {
             "source_path_from_root": "/articles/azure-web-pubsub/quickstarts-pubsub-among-mqtt-clients.md",
-            "redirect_url": "/articles/azure-web-pubsub/howto-mqtt-pubsub-among-mqtt-clients.md",
+            "redirect_url": "/azure/azure-web-pubsub/howto-mqtt-pubsub-among-mqtt-clients",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-web-pubsub/concept-availability-zones.md",
+            "redirect_url": "/azure/reliability/reliability-web-pubsub?toc=/azure/azure-web-pubsub/toc.json",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-web-pubsub/chat-hub-faq.md",
+            "redirect_url": "/azure/azure-web-pubsub/chat-faq",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-web-pubsub/chat-hub-overview.md",
+            "redirect_url": "/azure/azure-web-pubsub/chat-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-web-pubsub/chat-hub-quickstart.md",
+            "redirect_url": "/azure/azure-web-pubsub/chat-quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-web-pubsub/quickstarts-livetry.md",
+            "redirect_url": "/azure/azure-web-pubsub/quickstarts-playground",
             "redirect_document_id": false
         }
     ]

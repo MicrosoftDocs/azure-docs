@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage billing across multiple tenants
 titleSuffix: Microsoft Cost Management
 description: Describes how to use associated billing tenants to manage billing across tenants and move subscriptions in different tenants.
@@ -7,7 +7,7 @@ ms.reviewer: jkinma
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/19/2026
+ms.date: 06/25/2026
 ms.author: jkinma
 ms.custom:
 - sfi-image-nochange
@@ -71,7 +71,8 @@ If the Provisioning access setting is turned on, a unique link is created for yo
 Before assigning roles, make sure you [add a tenant as an associated billing tenant and enable billing management access setting](#add-an-associated-billing-tenant).
 
 > [!IMPORTANT]
-> Any user with a role in the billing account can see all users from all tenants who have access to that billing account. For example, Contoso.com is the primary billing tenant. A billing account owner adds Fabrikam.com as an associated billing tenant. Then, the billing account owner adds User1 as a billing account owner. As a result, User1 can see all users who have access to the billing account on both Contoso.com and Fabrikam.com.
+> User visibility across associated tenants - When Billing Management is enabled for an associated tenant, user visibility on the MCA-E billing account becomes cross-tenant. Specifically: Any user with a billing role on the billing account can view all other users who hold a billing role at the billing account scope. Visible attributes include user name, email address, assigned role, and home tenant. This applies regardless of which associated tenant the viewer or the viewed user belongs to.
+> Example: Contoso.com is the primary billing tenant. The billing account owner associates Fabrikam.com and grants User1 (a Fabrikam.com user) the Billing Account Owner role. User1 can now see every user with a billing role on the billing account across both Contoso.com and Fabrikam.com, including their names, email addresses, roles, and tenants.
 
 ### To assign roles and send an email invitation
 
@@ -81,7 +82,8 @@ Before assigning roles, make sure you [add a tenant as an associated billing ten
 1. Select **Access control (IAM)** on the left side of the page.
 1. On the Access control (IAM) page, select **Add** at the top of the page.  
     :::image type="content" source="./media/manage-billing-across-tenants/access-management-add-role-assignment-button.png" alt-text="Screenshot showing access control page while assigning roles." lightbox="./media/manage-billing-across-tenants/access-management-add-role-assignment-button.png" :::
-1. In the Add role assignment pane, select a role, select the associated billing tenant from the tenant dropdown, then enter the email address of the users, groups, or apps to whom you want to assign roles.
+1. In the Add role assignment pane, select a role, select the associated billing tenant from the tenant dropdown, then enter the email address of the users to whom you want to assign roles.  Apps and groups are not supported when assigned roles across tenants.
+
 1. Select **Add**.  
     :::image type="content" source="./media/manage-billing-across-tenants/associated-tenants-add-role-assignment.png" alt-text="Screenshot showing saving a role assignment." lightbox="./media/manage-billing-across-tenants/associated-tenants-add-role-assignment.png" :::
 1. The users receive an email with a link to review the role assignment request. After they accept the role, they have access to your billing account.
@@ -142,8 +144,12 @@ Before moving subscriptions, make sure you [add a tenant as an associated billin
 1. Go to the [Microsoft admin center](https://admin.microsoft.com).
 1. In the admin center, go to the **Billing > Your products page**.
 1. Select the name of the product that you want to move to the associated billing tenant.
-1. On the product details page, in the **Licenses assigned from all subscriptions** section, select **Move to another tenant**.
-1. In the **Move subscription to a different tenant** pane, search for a tenant name or select a tenant from the list, then select **Move subscription**.
+1. On the product details page, in the **Licenses assigned from all subscriptions** section, select **Move to another tenant**.  
+    :::image type="content" source="./media/manage-billing-across-tenants/inventory-detail-page.png" alt-text="Screenshot showing the inventory detail page." lightbox="./media/manage-billing-across-tenants/inventory-detail-page.png" :::
+1. In the **Move subscription to a different tenant** pane, search for a tenant name or select a tenant from the list, then select **Move subscription**.  
+    :::image type="content" source="./media/manage-billing-across-tenants/move-subscription-to-associated-tenant.png" alt-text="Screenshot showing the move subscription to an associated tenant experience." lightbox="./media/manage-billing-across-tenants/move-subscription-to-associated-tenant.png" :::
+1. The subscription is now moved to the destination tenant.  
+    :::image type="content" source="./media/manage-billing-across-tenants/move-subscription-to-associated-tenant-success.png" alt-text="Screenshot showing the successful move of a subscription to an associated tenant." lightbox="./media/manage-billing-across-tenants/move-subscription-to-associated-tenant-success.png" :::
 
 ## Move Azure subscriptions to an associated billing tenant
 

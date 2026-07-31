@@ -4,8 +4,8 @@ description: Learn how to use a managed Admin for Spring in Azure Container Apps
 services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
-ms.topic: conceptual
-ms.date: 11/07/2025
+ms.topic: how-to
+ms.date: 07/29/2026
 ms.author: cshoe
 ms.custom:
   - devx-track-extended-java
@@ -14,9 +14,9 @@ ms.custom:
 
 # Connect to a managed Admin for Spring in Azure Container Apps
 
-The Admin for Spring managed component offers an administrative interface for Spring Boot web applications that expose actuator endpoints. As a managed component in Azure Container Apps, you can easily bind your container app to Admin for Spring for seamless integration and management.
+The Admin for Spring managed component provides an administrative interface for Spring Boot web applications that expose actuator endpoints. In Azure Container Apps, you can bind your container app to Admin for Spring to monitor and manage your application.
 
-This tutorial shows you how to create an Admin for Spring Java component and bind it to your container app so that you can monitor and manage your Spring applications with ease.
+This tutorial shows you how to create an Admin for Spring Java component and bind it to your container app to monitor and manage your Spring applications.
 
 :::image type="content" source="media/java-components/spring-boot-admin-overview.png" alt-text="Screenshot that shows an overview of the Admin for Spring insights dashboard."  lightbox="media/java-components/spring-boot-admin-overview.png":::
 
@@ -33,7 +33,7 @@ If you want to integrate Admin for Spring with Eureka Server for Spring, see [In
 
 ## Prerequisites
 
-* An Azure account with an active subscription. If you don't already have one, you can [can create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+* An Azure account with an active subscription. If you don't already have one, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 * [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Considerations
@@ -220,7 +220,7 @@ Now that you have an existing environment and admin client container app, you ca
 
 ### [Azure portal](#tab/azure-portal)
 
-1. Go to your Container App environment in the portal.
+1. Go to your container app environment in the portal.
 
 1. On the service menu, under **Services**, select **Services**.
 
@@ -277,10 +277,10 @@ az containerapp update \
 
 ---
 
-## View the dashboard
+## Monitor and operate applications through a dashboard
 
 > [!IMPORTANT]
-> To view the dashboard, your account needs at least the `Microsoft.App/managedEnvironments/write` role on the managed environment resource. You can explicitly assign the `Owner` or `Contributor` role on the resource. You can also follow the steps to create a custom role definition and assign it to your account.
+> To access the dashboard, you need to have at least the `Microsoft.App/managedEnvironments/write` role assigned to your account on the managed environment resource. You can explicitly assign the `Owner` or `Contributor` role on the resource. You can also follow the steps to create a custom role definition and assign it to your account. This permission isn't read-only. Anyone with dashboard access can both monitor and operate the apps registered to this component.
 
 > [!NOTE]
 > The dashboard isn't available in Azure operated by 21Vianet.
@@ -291,7 +291,7 @@ az containerapp update \
    az role definition create --role-definition '{
        "Name": "<ROLE_NAME>",
        "IsCustom": true,
-       "Description": "Can access managed Java Component dashboards in managed environments",
+       "Description": "Can monitor and operate applications through managed Java component dashboards in managed environments",
        "Actions": [
            "Microsoft.App/managedEnvironments/write"
        ],
@@ -307,7 +307,7 @@ az containerapp update \
 
    ```azurecli
    export ENVIRONMENT_ID=$(az containerapp env show \
-       --name $ENVIRONMENT --resource-group $RESOURCE_GROUP \ 
+       --name $ENVIRONMENT --resource-group $RESOURCE_GROUP \
        --query id \
        --output tsv)
    ```
@@ -351,7 +351,7 @@ az group delete --resource-group $RESOURCE_GROUP
 
 ## Dependency
 
-When you use the admin component in your own container app, add the following dependency in your **pom.xml** file. Replace the version number with the latest version available on the [Maven Repository](https://search.maven.org/artifact/de.codecentric/spring-boot-admin-starter-client).
+When you use the admin component in your own container app, add the following dependency in your **pom.xml** file. Replace the version number with the latest version available on the [Maven Repository](https://central.sonatype.com/artifact/de.codecentric/spring-boot-admin-starter-client).
 
 ```xml
 <dependency>

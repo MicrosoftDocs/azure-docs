@@ -1,11 +1,11 @@
 ---
 title: About Azure Migrate application and code assessment
 description: Learn about Azure Migrate application and code assessment tools.
-author: yenchiho
+author: akashdubey-ms
 ms.service: azure-migrate
 ms.topic: concept-article
 ms.date: 11/15/2023
-ms.author: yenchiho
+ms.author: akashdubey
 ms.custom: overview
 # Customer intent: As a cloud architect, I want to assess our Java and .NET applications for migration readiness, so that I can create detailed replatforming recommendations and ensure a smooth transition to Azure.
 ---

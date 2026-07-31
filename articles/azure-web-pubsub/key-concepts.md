@@ -4,7 +4,7 @@ description: Understand the basic concepts and terms used in Azure Web PubSub.
 author: vicancy
 ms.author: lianwei
 ms.service: azure-web-pubsub
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 04/28/2023
 ms.custom: mode-other
 ---

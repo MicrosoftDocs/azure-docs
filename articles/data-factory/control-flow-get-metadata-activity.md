@@ -2,12 +2,12 @@
 title: Get Metadata activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use the Get Metadata activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
-author: jianleishen
+author: simplywilson
 ms.subservice: orchestration
 ms.custom: synapse
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 02/13/2025
-ms.author: jianleishen
+ms.author: tinglee
 ---
 
 # Get Metadata activity in Azure Data Factory or Azure Synapse Analytics

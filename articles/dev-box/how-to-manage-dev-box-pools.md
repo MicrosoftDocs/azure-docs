@@ -19,13 +19,15 @@ ms.custom:
 
 # Manage a dev box pool in Microsoft Dev Box
 
+[!INCLUDE [note-windows-365-announcement](includes/note-windows-365-announcement.md)]
+
 In this article, you learn how to manage a dev box pool in Microsoft Dev Box by using the Azure portal.
 
 A dev box pool is a collection of dev boxes that have the same settings, such as the image and network connection. A dev box pool is associated with a Microsoft Dev Box project.
 
 Dev box pools define the location of the dev boxes through the network connection. You can choose to deploy dev boxes to a Microsoft-hosted network or to a network that you manage. If you choose to deploy dev boxes to a network that you manage, you must first [configure a network connection](./how-to-configure-network-connections.md). Organizations that support developers in multiple geographical locations can create dev box pools for each location by specifying a nearby region.
 
-Select a region close to your developers' physical location to ensure the lowest latency experience with dev box.
+To ensure the lowest latency experience with dev box, select a region close to your developers' physical location.
 
 Developers that have access to the project in the dev center can create a dev box from a dev box pool.
 
@@ -35,7 +37,7 @@ To manage a dev box pool, you need the following permissions:
 
 | Action | Permissions required |
 |---|---|
-| _Create, delete, or update a dev box pool_ | - Owner or Contributor permissions on an Azure subscription or a specific resource group. </br> - DevCenter Owner permissions on the dev center. </br> - DevCenter Project Admin permissions for the project. |
+| _Create, delete, or update a dev box pool_ | - Owner or Contributor permissions on an Azure subscription or a specific resource group. </br>- DevCenter Owner permissions on the dev center. </br>- DevCenter Project Admin permissions for the project. |
 
 ## Create a dev box pool
 
@@ -47,8 +49,8 @@ In Microsoft Dev Box, a dev box pool is a collection of dev boxes that you manag
 |------|-------------|-------------|
 | **Image definition** | YAML-based customization files that define a base image and apply team-specific customizations. Can be built into reusable images. | Team-specific environments with automated installations. For more information, see [Configure team customizations](how-to-configure-team-customizations.md). |
 | **Custom image** | Your organization's custom images from Azure Compute Gallery. | Organization-specific configurations with independent compute and storage selection. |
-| **Marketplace image** | Pre-configured images from Azure Marketplace, such as Windows 11 Enterprise or Visual Studio images. | Standard configurations with common tools. Offers independent compute size and storage selection. |
-| **Dev box definition** | Legacy option bundling a base image with fixed VM size and storage. | Backward compatibility. Consider migrating to marketplace or custom images. |
+| **Marketplace image** | Preconfigured images from Azure Marketplace, such as Windows 11 Enterprise or Visual Studio images. | Standard configurations with common tools. Offers independent compute size and storage selection. |
+| **Dev box definition** | Legacy option bundling a base image with fixed virtual machine (VM) size and storage. | Backward compatibility. Consider migrating to marketplace or custom images. |
 
 > [!TIP]
 > We recommend using image definitions, custom images, or marketplace images for more flexibility in selecting compute size and storage.
@@ -59,22 +61,22 @@ A dev box pool has the following properties:
 | Property | Description |
 |----------|-------------|
 | **Display name** | The name of the dev box pool. The pool name is visible to developers when they create dev boxes. The name must be unique within a project. |
-| **Definition** | Select an image for the dev boxes in this pool: </br>- **Image definition**: YAML-based customization files that define a base image and apply team-specific customizations. </br>- **Custom image**: Your organization's custom images from compute galleries attached to the dev center </br>- **Marketplace image**: Pre-configured images from Azure Marketplace </br>-  **Dev box definition**: Existing dev box definitions that define the base image and size. |
+| **Definition** | Select an image for the dev boxes in this pool: </br>- **Image definition**: YAML-based customization files that define a base image and apply team-specific customizations. </br>- **Custom image**: Your organization's custom images from compute galleries attached to the dev center </br>- **Marketplace image**: Preconfigured images from Azure Marketplace </br>-  **Dev box definition**: Existing dev box definitions that define the base image and size. |
 | **Compute** | Select the VM size (SKU) for the dev boxes in this pool. Available when using marketplace or custom images. |
 | **Storage** | Select the storage size for the dev boxes in this pool. Available when using marketplace or custom images. |
 | **Hibernation** |Hibernation is supported when the source image and compute size are both compatible. |
 | **Region** | The region where the dev boxes in the pool are deployed. Choose a region close to your expected dev box users for the optimal user experience. |
-| **Network connection** | Determines the network that the dev boxes in the pool connect to. </br> - **Microsoft Hosted Network**: You can choose to deploy dev boxes to a Microsoft-hosted network. </br> - **Azure joined network**: You can choose to deploy dev boxes to an Azure joined network that you manage. If you choose to deploy dev boxes to a network that you manage, you must first [configure a network connection](./how-to-configure-network-connections.md). |
+| **Network connection** | Determines the network that the dev boxes in the pool connect to. </br>- **Microsoft Hosted Network**: You can choose to deploy dev boxes to a Microsoft-hosted network. </br>- **Azure joined network**: You can choose to deploy dev boxes to an Azure joined network that you manage. If you choose to deploy dev boxes to a network that you manage, you must first [configure a network connection](./how-to-configure-network-connections.md). |
 | **Licensing** | You can apply Azure Hybrid Benefit licenses to the dev boxes in the pool. Select the checkbox to confirm that your organization has Azure Hybrid Benefit licenses that you want to apply to the dev boxes in this pool. |
 | **Roles** | You can assign users to be either Local Administrators or Standard Users on the dev boxes they create. |
-| **Access** | Determines how users can access their dev boxes.</br> - **Single Sign-On (SSO)**: Enable single sign-on (SSO) to allow users to sign in to their dev boxes by using their organizational credentials. </br> - **Headless connections**: Enable headless connections to allow developers to open a dev box in Visual Studio Code without a full desktop experience. |
-| **Cost controls** | You can configure cost controls to help manage the costs of running dev boxes in the pool. </br> - **Auto-stop schedule**: Set an auto-stop schedule to automatically stop or hibernate dev boxes at a specified time. </br> - **Hibernate**: Configure dev boxes to hibernate after a specified grace period when no one is connected or when they have never been connected. |
+| **Access** | Determines how users can access their dev boxes.</br>- **Single Sign-On (SSO)**: Enable single sign-on (SSO) to allow users to sign in to their dev boxes by using their organizational credentials. </br>- **Headless connections**: Enable headless connections to allow developers to open a dev box in Visual Studio Code without a full desktop experience. |
+| **Cost controls** | You can configure cost controls to help manage the costs of running dev boxes in the pool. </br>- **Auto-stop schedule**: Set an autostop schedule to automatically stop or hibernate dev boxes at a specified time. </br>- **Hibernate**: Configure dev boxes to hibernate after a specified grace period when no one is connected or when they have never been connected. |
 
 [!INCLUDE [create-dev-box-pool](includes/create-dev-box-pool.md)]
 
 ## Manage dev boxes in a pool
 
-You can manage existing dev boxes in a dev box pool through the Azure portal. You can start, stop, or delete dev boxes. 
+You can manage dev boxes in a dev box pool through the Azure portal. You can start, stop, or delete dev boxes. 
 
 > [!Important] 
 > You must be a member of the Project Admin role for the project to manage dev boxes in the associated pools.

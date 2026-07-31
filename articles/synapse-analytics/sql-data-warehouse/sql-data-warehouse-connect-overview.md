@@ -16,6 +16,8 @@ ms.custom:
 
 # Connect to a SQL pool in Azure Synapse
 
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
+
 Get connected to a SQL pool in Azure Synapse.
 
 > [!IMPORTANT]

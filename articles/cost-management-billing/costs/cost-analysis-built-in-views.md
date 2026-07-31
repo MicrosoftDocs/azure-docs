@@ -5,7 +5,7 @@ description:  This article helps you understand when to use which view, how each
 author: vikramdesai01
 ms.author: vikdesai
 ms.date: 06/27/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: vikdesai

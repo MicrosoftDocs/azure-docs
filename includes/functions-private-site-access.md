@@ -15,4 +15,4 @@ If you want to make calls to Private Endpoints, then you must make sure that you
 * Manage the private endpoint in the DNS server used by your app. To manage a private endpoint, you must know the endpoint address and use an A record to reference the endpoint you're trying to reach.
 * Configure your own DNS server to forward to [Azure DNS private zones](../articles/dns/private-dns-privatednszone.md).
 
-To learn more, see [using Private Endpoints for Web Apps](../articles/app-service/networking/private-endpoint.md).
+To learn more, see [using Private Endpoints for Web Apps](../articles/app-service/overview-private-endpoint.md).

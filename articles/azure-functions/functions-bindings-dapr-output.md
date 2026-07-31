@@ -46,9 +46,9 @@ public static async Task Run(
 # [Isolated process](#tab/isolated-process)
 
 More samples for the Dapr output invoke binding are available in the [GitHub repository](https://github.com/Azure/azure-functions-dapr-extension/blob/master/samples/dotnet-isolated-azurefunction/OutputBinding).
-
+<!--
 :::code language="csharp" source="~/azure-functions-dapr-extension/samples/dotnet-isolated-azurefunction/OutputBinding/SendMessageToKafka.cs" range="16-25"::: 
-
+-->
 ---
 
 ::: zone-end 

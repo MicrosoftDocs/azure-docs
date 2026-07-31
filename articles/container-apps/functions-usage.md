@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic:  how-to
-ms.date: 01/12/2026
+ms.date: 05/19/2026
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -20,7 +20,7 @@ This article shows you how to create an [Azure Functions app in Azure Container 
 
 | Resource | Description |
 |---|---|
-| Azure account | An Azure account with an active subscription.<br><br>If you don't have one, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
+| Azure account | An Azure account with an active subscription.<br><br>If you don't have one, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn). |
 | Azure Storage account | A [blob storage account](/azure/storage/common/storage-account-create?tabs=azure-portal) to store state for your Azure Functions. |
 | Azure Application Insights | An instance of [Azure Application Insights](/azure/azure-monitor/app/create-workspace-resource?tabs=portal) to collect data about your container app. |
 
@@ -90,7 +90,7 @@ The following steps show you how to use a sample container image to create your 
 
     The `AzureWebJobsStorage` variable is a required Azure Storage account connection string for Azure Functions. This storage account stores function execution logs, manages triggers and bindings, and maintains state for durable functions.
 
-    Application Insights is a monitoring and diagnostic service that provides insights into the performance and usage of your Azure Functions. This monitoring helps you track request rates, response times, failure rates, and other metrics.
+    Application Insights is a monitoring and diagnostic service that provides insights into the performance and usage of your Azure Functions. This monitoring service helps you track request rates, response times, failure rates, and other metrics.
 
 1. Select **Next > Ingress** to switch to the Ingress section and enter the following values.
 
@@ -120,7 +120,7 @@ The following steps show you how to use a sample container image to create your 
 ## Prerequisites
 
 - An Azure account with an active subscription.
-  - If you don't have an Azure account, you can [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+  - If you don't have an Azure account, [create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - The [Azure CLI](/cli/azure/install-azure-cli) installed.
 
 ## Create a Functions app
@@ -285,3 +285,4 @@ To sign in to Azure from the CLI, run the following command and follow the promp
 ## Related content
 
 - [Azure Functions on Azure Container Apps overview](../../articles/container-apps/functions-overview.md)
+- [Override auto-generated KEDA scale rules for Azure Functions on Container Apps](functions-scale-rule-override.md)

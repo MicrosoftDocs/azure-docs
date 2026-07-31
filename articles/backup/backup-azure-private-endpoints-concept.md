@@ -28,7 +28,7 @@ This article describes how the version 2 capabilities of private endpoints for A
 
 - Although both Azure Backup and Azure Site Recovery use a Recovery Services vault, this article discusses use of private endpoints for Azure Backup only.
 
-- Customer-managed keys (CMKs) with a network-restricted key vault aren't supported with a vault that's enabled for private endpoints.
+- Customer-managed keys (CMKs) with a network-restricted key vault are now supported with a vault that's enabled for private endpoints.
 
 - You can create private endpoints for new Recovery Services vaults only, if no items are registered to the vault. However, private endpoints are currently not supported for Backup vaults.
 
@@ -64,16 +64,12 @@ The following table lists the scenarios and recommendations:
 | Scenario | Recommendation |
 | --- | --- |
 | Backup of workloads in an Azure VM (SQL Server, SAP HANA), backup via MARS agent, DPM server | We recommend the use of private endpoints to allow backup and restore without needing to add to an allow list any IPs or FQDNs for Azure Backup or Azure Storage from your virtual networks. In that scenario, ensure that VMs that host SQL databases can reach Microsoft Entra IPs or FQDNs. |
-| Azure VM backup | A VM backup doesn't require you to allow access to any IPs or FQDNs. So, it doesn't require private endpoints for backup and restore of disks.  <br><br>   However, file recovery from a vault that contains private endpoints would be restricted to virtual networks that contain a private endpoint for the vault. <br><br> When you're using unmanaged disks in an access control list (ACL), ensure that the storage account that contains the disks allows access to trusted Microsoft services if it's in an ACL. |
+| Azure VM backup | A VM backup doesn't require you to allow access to any IPs or FQDNs. So, it doesn't require private endpoints for backup and restore of disks.  <br><br>   However, file recovery from a vault that contains private endpoints would be restricted to virtual networks that contain a private endpoint for the vault. <br><br> For legacy recovery points from VMs that used unmanaged disks, ensure that the storage account used for restore metadata and temporary VHD files allows access to trusted Microsoft services if it's protected by an access control list (ACL). |
 | Azure Files backup | An Azure Files backup is stored in the local storage account. So it doesn't require private endpoints for backup and restore. |
 | Changed virtual network for a private endpoint in the vault and virtual machine | Stop backup protection and configure backup protection in a new vault with private endpoints enabled. |
 
 > [!NOTE]
 > Private endpoints are supported only with DPM 2022, Microsoft Azure Backup Server (MABS) v4, and later.
-
-## Unsupported scenario
-
-For backup and restore operations, a private endpoint-enabled Recovery Services vault is not compatible with a private endpoint-enabled Azure key vault to store CMKs in a Recovery Services vault.
 
 ## Difference in network connections for private endpoints
 

@@ -5,7 +5,7 @@ description: Learn how Dev Box uses manual and automatic snapshots to enable you
 author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/11/2025
 ms.custom:
   - ai-gen-docs-bap

@@ -1,11 +1,11 @@
 ---
 title: Migrate Bing Maps Geocode Dataflow API to Azure Maps Geocoding Batch and Reverse Geocoding Batch API
 titleSuffix: Microsoft Azure Maps
-description: Learn how to Migrate the Bing Maps Geocode Dataflow API to the Azure Maps Geocoding Batch and Reverse Geocoding Batch API.
+description: Learn how to migrate the Bing Maps Geocode Dataflow API to the Azure Maps Geocoding Batch and Reverse Geocoding Batch API.
 author: farazgis
 ms.author: fsiddiqui
 ms.date: 05/15/2024
-ms.topic: how-to
+ms.topic: upgrade-and-migration-article
 ms.service: azure-maps
 ms.subservice: search
 ---
@@ -23,9 +23,9 @@ This article explains how to migrate the Bing Maps [Geocode Dataflow] API to Azu
 ## Notable differences
 
 - Bing Maps Geocode Dataflow API supports forward and reverse batch geocoding within the same API. Azure Maps has separate API for forward and reverse geocoding.
-- Bing Maps Geocode Dataflow API requires uploading your location data as an XML or text (csv, pipe, or tab delimited) data file. Azure Maps Geocoding Batch and Reverse Geocoding Batch API don’t use a data file upload approach, but rather an HTTP POST request with location data in GeoJSON format in the body of the request.
+- Bing Maps Geocode Dataflow API requires uploading your location data as an XML or text (csv, pipe, or tab delimited) data file. Azure Maps Geocoding Batch and Reverse Geocoding Batch API don't use a data file upload approach, but rather an HTTP POST request with location data in GeoJSON format in the body of the request.
 - Bing Maps Geocode Dataflow API supports up to 200,000 entities per upload. The Azure Maps Geocoding Batch and Reverse Geocoding Batch API supports up to 100 batched queries in a synchronous request, and up to 200,000 in an asynchronous request.
-- Bing Maps Geocode Dataflow API requires a series of API calls following the initial data upload to get the status and download results. The Azure Maps Geocoding Batch and Reverse Geocoding Batch API synchronous request don’t require additional API calls. The asynchronous request does require additional calls to get the batch process status and download results.
+- Bing Maps Geocode Dataflow API requires a series of API calls following the initial data upload to get the status and download results. The Azure Maps Geocoding Batch and Reverse Geocoding Batch API synchronous request don't require additional API calls. The asynchronous request does require additional calls to get the batch process status and download results.
 - Bing Maps Geocode Dataflow coordinates are in latitude/longitude format. Azure Maps Geocoding Batch and Reverse Geocoding Batch API coordinates are in longitude/latitude format (due to being in GeoJSON format).
 - Unlike Bing Maps for Enterprise, Azure Maps is a global service that supports specifying a geographic scope, which allows you to limit data residency to the European (EU) or United States (US) geographic areas (geos). All requests (including input data) are processed exclusively in the specified geographic area. For more information, see [Azure Maps service geographic scope].
 

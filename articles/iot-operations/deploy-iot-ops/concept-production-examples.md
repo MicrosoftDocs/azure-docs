@@ -4,7 +4,7 @@ description: Describes some example deployments to help you understand how to sc
 author: dominicbetts
 ms.author: dobett
 ms.topic: concept-article
-ms.date: 12/16/2024
+ms.date: 06/22/2026
 ms.service: azure-iot-operations
 
 #CustomerIntent: I want to see some scaling recommendations before I before deploying to production.
@@ -35,7 +35,7 @@ The following table shows the MQTT broker configuration for the single node exam
 | Parameter                | Value |
 |--------------------------|-------|
 | frontendReplicas         | 1     |
-| frontendWorkers          | 1     |
+| frontendWorkers          | 2     |
 | backendRedundancyFactor  | 2     |
 | backendWorkers           | 1     |
 | backendPartitions        | 1     |
@@ -82,7 +82,7 @@ The following table shows the MQTT broker configuration for the multi-node examp
 | Parameter                | Value |
 |--------------------------|-------|
 | frontendReplicas         | 5     |
-| frontendWorkers          | 8     |
+| frontendWorkers          | 4     |
 | backendRedundancyFactor  | 2     |
 | backendWorkers           | 4     |
 | backendPartitions        | 5     |

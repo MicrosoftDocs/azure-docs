@@ -1,27 +1,35 @@
 ---
-title: Subscribe to Microsoft Graph Events Using Azure Event Grid
+title: Subscribe to Microsoft Graph via Event Grid
 description: Learn how to subscribe to Microsoft Graph API change events through Azure Event Grid for Microsoft Entra ID, Teams, Outlook, and OneDrive resources.
 #customer intent: As a developer building an event-driven application, I want to subscribe to Microsoft Graph API change events through Azure Event Grid so that I can react to resource changes in Microsoft Entra ID, Teams, Outlook, and OneDrive.
 author: robece
 ms.author: robece
 ms.topic: how-to
 ms.custom:
-  - devx-track-azurecli, devx-track-azurepowershell, devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python, build-2024
+  - devx-track-azurecli
+  - devx-track-azurepowershell
+  - devx-track-extended-java
+  - devx-track-go
+  - devx-track-js
+  - devx-track-python
+  - build-2024
   - ai-gen-docs-bap
   - ai-gen-title
   - ai-seo-date:07/29/2025
   - ai-gen-description
-ms.date: 07/29/2025
+ms.date: 07/23/2026
+ai-usage: ai-assisted
 ---
 
-# Receive Microsoft Graph API change events through Azure Event Grid 
-Microsoft Graph API provides change notifications for resources across Microsoft 365 services, including Microsoft Entra ID, Teams, Outlook, and OneDrive. By subscribing to these events through Azure Event Grid, you build event-driven applications that respond to resource changes in real time.
+# Receive Microsoft Graph API change events through Azure Event Grid
+
+Microsoft Graph API provides change notifications for resources across Microsoft 365 services, including Microsoft Entra ID, Teams, Outlook, and OneDrive. By subscribing to these events through Azure Event Grid, you can build event-driven applications that respond to resource changes in real time.
 
 This article explains how to:
 
 - Create Microsoft Graph API subscriptions that deliver events to Azure Event Grid partner topics.
 - Manage subscription lifecycles with automatic renewal.
-- Route events to multiple destinations using Event Grid's filtering and routing capabilities.
+- Route events to multiple destinations by using Event Grid's filtering and routing capabilities.
 
 Azure Event Grid offers several advantages over traditional webhook-based Microsoft Graph API subscriptions:
 
@@ -31,67 +39,67 @@ Azure Event Grid offers several advantages over traditional webhook-based Micros
 - **Reliability**: Built-in retry logic and dead letter queues ensure reliable event delivery.
 
 ## Supported event sources
-The following table lists the event sources for which events are available through Graph API. For most resources, events announcing their creation, update, and deletion are supported. For detailed information about the resources for which events are raised for event sources, see [supported resources by Microsoft Graph API change notifications](/graph/api/resources/change-notifications-api-overview).
 
-|Microsoft event source |Resources | Available event types | 
-|:--- | :--- | :----|
+The following table lists the event sources for which you can get events through Graph API. For most resources, Graph API supports events that announce their creation, update, and deletion. For detailed information about the resources that raise events for event sources, see [supported resources by Microsoft Graph API change notifications](/graph/api/resources/change-notifications-api-overview).
+
+| Microsoft event source | Resources | Available event types |
+| :--- | :--- | :--- |
 | Microsoft Entra ID | [User](/graph/api/resources/user), [Group](/graph/api/resources/group) | [Microsoft Entra ID event types](microsoft-entra-events.md) |
-| Microsoft Outlook|[Event](/graph/api/resources/event) (calendar meeting), [Message](/graph/api/resources/message) (email), [Contact](/graph/api/resources/contact) | [Microsoft Outlook event types](outlook-events.md) |
-| Microsoft Teams |[ChatMessage](/graph/api/resources/callrecords-callrecord), [CallRecord](/graph/api/resources/callrecords-callrecord) (meeting) | [Microsoft Teams event types](teams-events.md) |
-| OneDrive | [DriveItem](/graph/api/resources/driveitem)| [Microsoft OneDrive events](one-drive-events.md) |
+| Microsoft Outlook | [Event](/graph/api/resources/event) (calendar meeting), [Message](/graph/api/resources/message) (email), [Contact](/graph/api/resources/contact) | [Microsoft Outlook event types](outlook-events.md) |
+| Microsoft Teams | [ChatMessage](/graph/api/resources/chatmessage), [CallRecord](/graph/api/resources/callrecords-callrecord) (meeting) | [Microsoft Teams event types](teams-events.md) |
+| OneDrive | [DriveItem](/graph/api/resources/driveitem) | [Microsoft OneDrive events](one-drive-events.md) |
 | Microsoft SharePoint | [List](/graph/api/resources/list) | [Microsoft SharePoint events](share-point-events.md) |
 | To Do | [To Do Task](/graph/api/resources/todotask) | [Microsoft ToDo events](to-do-events.md) |
-| Security alerts | [Alert](/graph/api/resources/alert)| [Microsoft Security Alert events](security-alert-events.md) |
+| Security alerts | [Alert](/graph/api/resources/alert) | [Microsoft Security Alert events](security-alert-events.md) |
 | Cloud printing | [Printer](/graph/api/resources/printer), [Print Task Definition](/graph/api/resources/printtaskdefinition) | [Microsoft Cloud Printing events](cloud-printing-events.md) |
 | Microsoft Conversations | [Conversation](/graph/api/resources/conversation) | [Microsoft 365 Group Conversation events](conversation-events.md) |
 
-Create a Microsoft Graph API subscription to enable Graph API events to flow into a partner topic. The partner topic is automatically created as part of the Graph API subscription creation. Use that partner topic to [create event subscriptions](event-filtering.md) to send your events to any of the supported [event handlers](event-handlers.md) that best meet your requirements to process the events.
+Create a Microsoft Graph API subscription to enable Graph API events to flow into a partner topic. Graph API automatically creates the partner topic when you create the subscription. Use that partner topic to [create event subscriptions](event-filtering.md) to send your events to any of the supported [event handlers](event-handlers.md) that best meet your requirements to process the events.
 
 > [!IMPORTANT]
->If you're not familiar with the **Partner Events** feature, see [Partner Events overview](partner-events-overview.md).
+> If you're not familiar with the **Partner Events** feature, see [Partner Events overview](partner-events-overview.md).
 
+## Why subscribe to events from Microsoft Graph API sources through Event Grid?
 
-## Why should I subscribe to events from Microsoft Graph API sources via Event Grid?
-
-Besides subscribing to Microsoft Graph API events via Event Grid, you have [other options](/graph/change-notifications-overview) to receive similar notifications (not events). Use Microsoft Graph API to deliver events to Event Grid if you meet at least one of these requirements:
+Besides subscribing to Microsoft Graph API events through Event Grid, you have [other options](/graph/change-notifications-overview) to receive similar notifications (not events). Use Microsoft Graph API to deliver events to Event Grid if you meet at least one of these requirements:
 
 - You're developing an event-driven solution that uses events from Microsoft Entra ID, Outlook, or Teams to react to resource changes. You need the robust event-driven model and publish-subscribe capabilities that Event Grid provides. For an overview of Event Grid, see [Event Grid concepts](concepts.md).
-- You want to use Event Grid to route events to multiple destinations using a single Graph API subscription and you want to avoid managing multiple Graph API subscriptions.
-- You need to route events to different downstream applications, webhooks, or Azure services based on some properties in the event. For example, you might want to route event types such as `Microsoft.Graph.UserCreated` and `Microsoft.Graph.UserDeleted` to a specialized application that processes users' onboarding and off-boarding. You might also want to send `Microsoft.Graph.UserUpdated` events to another application that syncs contacts information, for example. You can achieve that using a single Graph API subscription when using Event Grid as a notification destination. For more information, see [event filtering](event-filtering.md) and [event handlers](event-handlers.md).
-- Interoperability is important to you. You want to forward and handle events in a standard way using Cloud Native Computing Foundation (CNCF) [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md) specification standard.
+- You want to use Event Grid to route events to multiple destinations by using a single Graph API subscription, and you want to avoid managing multiple Graph API subscriptions.
+- You need to route events to different downstream applications, webhooks, or Azure services based on some properties in the event. For example, you might want to route event types such as `Microsoft.Graph.UserUpdated` and `Microsoft.Graph.UserDeleted` to a specialized application that processes users' onboarding and off-boarding. You might also want to send `Microsoft.Graph.UserUpdated` events to another application that syncs contacts information, for example. You can achieve this by using a single Graph API subscription when you use Event Grid as a notification destination. For more information, see [event filtering](event-filtering.md) and [event handlers](event-handlers.md).
+- Interoperability is important to you. You want to forward and handle events in a standard way by using the Cloud Native Computing Foundation (CNCF) [CloudEvents](https://github.com/cloudevents/spec/blob/v1.0.2/cloudevents/spec.md) specification standard.
 - You value the extensibility support that CloudEvents provides. For example, to trace events across compliant systems, use the CloudEvents extension [Distributed Tracing](https://github.com/cloudevents/spec/blob/v1.0.1/extensions/distributed-tracing.md). Learn more about [CloudEvents extensions](https://github.com/cloudevents/spec/blob/v1.0.1/documented-extensions.md).
-- You use proven event-driven approaches adopted by the industry.
+- You use proven, event-driven approaches that the industry adopts.
 
 ## Enable Graph API events to flow to your partner topic
 
-Request Microsoft Graph API to forward events to an Event Grid partner topic by creating a Graph API subscription using the Microsoft Graph API Software Development Kits (SDKs) and **following the steps in the links to samples provided** in this section. See [Supported languages for Microsoft Graph API SDK](/graph/sdks/sdks-overview#supported-languages.md) for available SDK support.
+Request Microsoft Graph API to forward events to an Event Grid partner topic by creating a Graph API subscription using the Microsoft Graph API Software Development Kits (SDKs) and **following the steps in the links to samples provided** in this section. See [Supported languages for Microsoft Graph API SDK](/graph/sdks/sdks-overview#supported-languages) for available SDK support.
 
 ### General prerequisites
 
-Meet these general prerequisites before implementing your application to create and renew Microsoft Graph API subscriptions:
+Before implementing your application to create and renew Microsoft Graph API subscriptions, make sure you meet these general prerequisites:
 
-- Become familiar with the [high-level steps to subscribe to partner events](subscribe-to-partner-events.md#high-level-steps). As described in that article, before creating a Graph API subscription, you should follow the instructions in:
+- Familiarize yourself with the [high-level steps to subscribe to partner events](subscribe-to-partner-events.md#high-level-steps). As described in that article, before creating a Graph API subscription, follow the instructions in:
 
   - [Register the Event Grid resource provider](subscribe-to-partner-events.md#register-the-event-grid-resource-provider) with your Azure subscription.
 
   - [Authorize Microsoft Graph API (partner)](subscribe-to-partner-events.md#authorize-partner-to-create-a-partner-topic) to create a partner topic in your resource group.
 
-- Have a working knowledge of [Microsoft Graph API notifications](/graph/api/resources/change-notifications-api-overview). As part of your learning, you could use the [Graph API Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) to create Graph API subscriptions.
+- Have a working knowledge of [Microsoft Graph API notifications](/graph/api/resources/change-notifications-api-overview). As part of your learning, you can use the [Graph API Explorer](https://developer.microsoft.com/graph/graph-explorer) to create Graph API subscriptions.
 - Understand [Partner Events concepts](partner-events-overview.md).
-- Identify the Microsoft Graph API resource from which you want to receive system state change events. For more information, see [Microsoft Graph API change notifications](/graph/api/resources/change-notifications-api-overview). For example, for tracking changes to users in Microsoft Entra ID you should use the [user](/graph/api/resources/user) resource. Use [group](/graph/api/resources/group) for tracking changes to user groups.
+- Identify the Microsoft Graph API resource from which you want to receive system state change events. For more information, see [Microsoft Graph API change notifications](/graph/api/resources/change-notifications-api-overview). For example, to track changes to users in Microsoft Entra ID, use the [user](/graph/api/resources/user) resource. Use [group](/graph/api/resources/group) for tracking changes to user groups.
 - Have a tenant administrator account on a Microsoft 365 tenant. Get a development tenant for free by joining the [Microsoft 365 Developer Program](https://developer.microsoft.com/microsoft-365/dev-program).
 
 You find other prerequisites specific to the programming language of choice and the development environment you use in the Microsoft Graph API samples links found in a coming section.
 
 > [!IMPORTANT]
-> While detailed instructions to implement your application are found in the [samples with detailed instructions](#samples-with-detailed-instructions) section, you should read all sections in this article as they contain more, important information related to forwarding Microsoft Graph API events using Event Grid.
+> While detailed instructions to implement your application are found in the [samples with detailed instructions](#samples-with-detailed-instructions) section, read all sections in this article as they contain more important information related to forwarding Microsoft Graph API events using Event Grid.
 
 ### How to create a Microsoft Graph API subscription
 
-When you create a Graph API subscription, a partner topic is created for you. You pass the following information in parameter *notificationUrl* to specify what partner topic to create and be associated to the new Graph API subscription:
+When you create a Graph API subscription, the system creates a partner topic for you. You pass the following information in the *notificationUrl* parameter to specify the partner topic to create and associate with the new Graph API subscription:
 
 - partner topic name
-- resource group name in which the partner topic is created
+- resource group name for the partner topic
 - region (location)
 - Azure subscription
 
@@ -108,11 +116,11 @@ POST https://graph.microsoft.com/v1.0/subscriptions
 Content-type: application/json
 
 {
-    "changeType": "Updated,Deleted,Created",
+    "changeType": "Updated,Deleted",
     "notificationUrl": "EventGrid:?azuresubscriptionid=8A8A8A8A-4B4B-4C4C-4D4D-12E12E12E12E&resourcegroup=yourResourceGroup&partnertopic=yourPartnerTopic&location=theNameOfAzureRegionFortheTopic",
     "lifecycleNotificationUrl": "EventGrid:?azuresubscriptionid=8A8A8A8A-4B4B-4C4C-4D4D-12E12E12E12E&resourcegroup=yourResourceGroup&partnertopic=yourPartnerTopic&location=theNameOfAzureRegionFortheTopic",
     "resource": "users",
-    "expirationDateTime": "2024-03-31T00:00:00Z",
+    "expirationDateTime": "2026-08-31T00:00:00Z",
     "clientState": "secretClientValue"
 }
 ```
@@ -143,42 +151,43 @@ Content-type: application/json
 
 ---
 
-- `changeType`: the kind of resource changes for which you want to receive events. Valid values: `Updated`, `Deleted`, and `Created`. You can specify one or more of these values separated by commas.
-- `notificationUrl`: a URI used to define the partner topic to which events are sent. It must conform to the following pattern: `EventGrid:?azuresubscriptionid=<you-azure-subscription-id>&resourcegroup=<your-resource-group-name>&partnertopic=<the-name-for-your-partner-topic>&location=<the-Azure-region-name-where-you-want-the-topic-created>`. The location (also known as Azure region) `name` can be obtained by executing the **az account list-locations** command. Don't use a location display name. For example, don't use West Central US. Use `westcentralus` instead.
-   ```azurecli-interactive
-    az account list-locations
-   ```
-- `lifecycleNotificationUrl`: a URI used to define the partner topic to which `microsoft.graph.subscriptionReauthorizationRequired`events are sent. This event signals your application that the Graph API subscription is expiring soon. The URI follows the same pattern as *notificationUrl* described earlier if using Event Grid as destination to lifecycle events. In that case, the partner topic should be the same as the one specified in *notificationUrl*.
-- resource: the resource that generates events that announce state changes.
-- expirationDateTime: the expiration time at which the subscription expires and the flow of events stop. It must conform to the format specified in [Request for Change (RFC) 3339](https://tools.ietf.org/html/rfc3339). You must specify an expiration time that is within the [maximum subscription length allowable per resource type](/graph/api/resources/subscription#subscription-lifetime).
-- client state. This property is optional. It's used for verification of calls to your event handler application during event delivery. For more information, see [Graph API subscription properties](/graph/api/resources/subscription#properties).
+- `changeType`: the kind of resource changes for which you want to receive events. Valid values: `Updated` and `Deleted` (`Created` isn't supported by Graph API; check the Graph API documentation for more details). You can specify one or more of these values separated by commas.
+- `notificationUrl`: a URI used to define the partner topic to which events are sent. It must conform to the following pattern: `EventGrid:?azuresubscriptionid=<you-azure-subscription-id>&resourcegroup=<your-resource-group-name>&partnertopic=<the-name-for-your-partner-topic>&location=<the-Azure-region-name-where-you-want-the-topic-created>`. To get the location (also known as Azure region) `name`, run the `az account list-locations` command. Don't use a location display name. For example, don't use West Central US. Use `westcentralus` instead.
+
+  ```azurecli-interactive
+  az account list-locations
+  ```
+- `lifecycleNotificationUrl`: a URI used to define the partner topic to which `microsoft.graph.subscriptionReauthorizationRequired` events are sent. This event signals your application that the Graph API subscription is expiring soon. The URI follows the same pattern as *notificationUrl* described earlier if you use Event Grid as the destination for lifecycle events. In that case, the partner topic should be the same as the one specified in *notificationUrl*.
+- `resource`: the resource that generates events that announce state changes.
+- `expirationDateTime`: the expiration time at which the subscription expires and the flow of events stops. It must conform to the format specified in [Request for Comments (RFC) 3339](https://tools.ietf.org/html/rfc3339). You must specify an expiration time that's within the [maximum subscription length allowable per resource type](/graph/api/resources/subscription#subscription-lifetime).
+- `clientState`: use this optional property to verify calls to your event handler application during event delivery. For more information, see [Graph API subscription properties](/graph/api/resources/subscription#properties).
 
 > [!IMPORTANT]
 >
-> - The partner topic name must be unique within the same Azure region. Each tenant-application ID combination can  create up to 10 unique partner topics.
+> - The partner topic name must be unique within the same Azure region. Each tenant-application ID combination can create up to 10 unique partner topics.
 >
 > - Be mindful of certain [Graph API resources' service limits](/graph/api/resources/change-notifications-api-overview) when developing your solution.
 >
-> - Existing Graph API subscriptions without a `lifecycleNotificationUrl` property don't receive lifecycle events. To add the lifecycleNotificationUrl property, you should delete the existing subscription and create a new subscription specifying the property during subscription creation.
+> - Existing Graph API subscriptions without a `lifecycleNotificationUrl` property don't receive lifecycle events. To add the `lifecycleNotificationUrl` property, delete the existing subscription and create a new subscription that specifies the property during subscription creation.
 
 After creating a Graph API subscription, you have a partner topic created on Azure.
 
 ### Renew a Microsoft Graph API subscription
 
-Renew the Graph API subscription before it expires to avoid stopping the flow of events. To help automate the renewal process, Microsoft Graph API supports **lifecycle notifications events** to which applications can subscribe. Currently, all type of Microsoft Graph API resources support the `microsoft.graph.subscriptionReauthorizationRequired`, which is sent when any of the following conditions occur:
+Renew the Graph API subscription before it expires to avoid stopping the flow of events. To help automate the renewal process, Microsoft Graph API supports **lifecycle notification events** to which applications can subscribe. Currently, all types of Microsoft Graph API resources support the `microsoft.graph.subscriptionReauthorizationRequired` event, which is sent when any of the following conditions occur:
 
-- Access token is about to expire.
-- Graph API subscription is about to expire.
+- The access token is about to expire.
+- The Graph API subscription is about to expire.
 - A tenant administrator revoked your app's permissions to read a resource.
 
-If the Graph API subscription isn't renewed after it expires, create a new Graph API subscription. Refer to the same partner topic used in the expired subscription as long as it's expired for less than 30 days. If the Graph API subscription expired for more than 30 days, you can't reuse your existing partner topic. In this case, you need to either specify another partner topic name. Alternatively, you can delete the existing partner topic to create a new partner topic with the same name during the Graph API subscription creation.
+If the Graph API subscription isn't renewed after it expires, create a new Graph API subscription. You can refer to the same partner topic used in the expired subscription as long as it's expired for less than 30 days. If the Graph API subscription expired for more than 30 days, you can't reuse your existing partner topic. In this case, you need to specify another partner topic name. Alternatively, you can delete the existing partner topic to create a new partner topic with the same name during the Graph API subscription creation.
 
 #### How to renew a Microsoft Graph API subscription
 
-Upon receiving a `microsoft.graph.subscriptionReauthorizationRequired` event your application should renew the Graph API subscription by doing these actions:
+When your application receives a `microsoft.graph.subscriptionReauthorizationRequired` event, it should renew the Graph API subscription:
 
-1. If you provided a client secret in the *clientState* property when you created the Graph API subscription, that client secret is included with the event. Validate that the event's clientState matches the value used when you created the Graph API subscription.
-1. Ensure that the app has a valid access token to take the next step. More information is provided in the coming [samples with detailed instructions](#samples-with-detailed-instructions) section.
+1. If you provided a client secret in the *clientState* property when you created the Graph API subscription, the event includes that client secret. Validate that the event's clientState matches the value used when you created the Graph API subscription.
+1. Ensure that the app has a valid access token to take the next step. The coming [samples with detailed instructions](#samples-with-detailed-instructions) section provides more information.
 1. Call either of the following two APIs. If the API call succeeds, the change notification flow resumes.
 
     - Call the `/reauthorize` action to reauthorize the subscription without extending its expiration date.
@@ -202,32 +211,32 @@ Upon receiving a `microsoft.graph.subscriptionReauthorizationRequired` event you
         Content-Type: application/json
 
         {
-           "expirationDateTime": "2024-04-30T11:00:00.0000000Z"
+           "expirationDateTime": "2026-09-30T11:00:00.0000000Z"
         }
         ```
 
-      Renewing might fail if the app is no longer authorized to access to the resource. It might then be necessary for the app to obtain a new access token to successfully reauthorize a subscription.
+      Renewing might fail if the app is no longer authorized to access the resource. The app might then need to obtain a new access token to reauthorize a subscription.
 
-Authorization challenges don't replace the need to renew a subscription before it expires. The lifecycles of access tokens and subscription expiration aren't the same. Your access token might expire before your subscription. It's important to be prepared to regularly reauthorize your endpoint to refresh your access token. Reauthorizing your endpoint doesn't renew your subscription. However, renewing your subscription also reauthorizes your endpoint.
+Authorization challenges don't replace the need to renew a subscription before it expires. The lifecycles of access tokens and subscription expiration aren't the same. Your access token might expire before your subscription. Be prepared to reauthorize your endpoint regularly to refresh your access token. Reauthorizing your endpoint doesn't renew your subscription. However, renewing your subscription also reauthorizes your endpoint.
 
-When renewing and/or reauthorizing your Graph API subscription the same partner topic specified when the subscription was created is used. 
+When you renew or reauthorize your Graph API subscription, it uses the same partner topic that you specified when you created the subscription.
 
-When specifying a new *expirationDateTime*, ensure it is at least three hours from the current time. Otherwise, your application might receive `microsoft.graph.subscriptionReauthorizationRequired` events soon after renewal.
+When you specify a new *expirationDateTime*, ensure it's at least three hours from the current time. Otherwise, your application might receive `microsoft.graph.subscriptionReauthorizationRequired` events soon after renewal.
 
-For examples about how to reauthorize your Graph API subscription using any of the supported languages, see [subscription reauthorize request](/graph/api/subscription-reauthorize#request).
+For examples of how to reauthorize your Graph API subscription by using any of the supported languages, see [subscription reauthorize request](/graph/api/subscription-reauthorize#request).
 
-For examples about how to renew and reauthorize your Graph API subscription using any of the supported languages, see [update subscription request.](/graph/api/subscription-update#request).
+For examples of how to renew and reauthorize your Graph API subscription by using any of the supported languages, see [update subscription request](/graph/api/subscription-update#request).
 
 ### Samples with detailed instructions
 
 Microsoft Graph API documentation provides code samples with instructions to:
 
 - Set up your development environment with specific instructions according to the language you use. Instructions also include how to get a Microsoft 365 tenant for development purposes.
-- Create a Graph API subscriptions. To renew a subscription, you can call the Graph API using the code snippets in [How to renew a Graph API subscription](#how-to-renew-a-microsoft-graph-api-subscription).
+- Create a Graph API subscription. To renew a subscription, call the Graph API by using the code snippets in [How to renew a Graph API subscription](#how-to-renew-a-microsoft-graph-api-subscription).
 - Get authentication tokens to use them when calling Microsoft Graph API.
 
->[!NOTE]
-> It's possible to create your Graph API subscription using the [Microsoft Graph API Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer). You should still use the samples for other important aspects of your solution such as authentication and receiving events.
+> [!NOTE]
+> You can create your Graph API subscription by using the [Microsoft Graph API Explorer](https://developer.microsoft.com/graph/graph-explorer). You should still use the samples for other important aspects of your solution such as authentication and receiving events.
 
 Web application samples are available for the following languages:
 
@@ -243,7 +252,7 @@ Web application samples are available for the following languages:
 
 ## Related content
 
-Follow these two steps to set up receiving Microsoft Graph API events using Event Grid:
+To receive Microsoft Graph API events through Event Grid, complete these two steps:
 
 - [Activate the partner topic](subscribe-to-partner-events.md#activate-a-partner-topic) created during Microsoft Graph API setup.
 - [Subscribe to events](subscribe-to-partner-events.md#subscribe-to-events) by creating an event subscription for your partner topic.

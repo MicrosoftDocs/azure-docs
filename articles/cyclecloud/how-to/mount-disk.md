@@ -1,8 +1,9 @@
 ---
 title: Volume Mount
-description: Manage volume mounting options within Azure CycleCloud.
+description: Learn how to manage volume mounting and formatting options for nodes in Azure CycleCloud using the Mount attribute.
 author: mvrequa
-ms.date: 07/01/2025
+ms.date: 06/19/2026
+ms.topic: how-to
 ms.author: adjohnso
 ---
 

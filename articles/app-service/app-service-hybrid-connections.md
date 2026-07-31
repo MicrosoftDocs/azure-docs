@@ -296,7 +296,7 @@ After you edit the configuration file, restart the Hybrid Connection Manager ser
 - **Windows**: Restart the service through **Services** from the **Start Menu**.
 - **Linux**: Run `systemctl restart hybridconnectionmanager.service`.
 
-Configuring a proxy server routes requests from the Hybrid Connection Manager through the selected proxy server before reaching the destination. Ensure your proxy server supports HTTP/HTTPS traffic so that the Hybrid Connection Manager can communicate with the Azure Relay Service.
+Configuring a proxy server routes requests from the Hybrid Connection Manager through the selected proxy server before reaching the destination. Ensure your proxy server supports HTTP/HTTPS and WebSocket traffic over port 443 so that the Hybrid Connection Manager can communicate with Azure Relay. If your proxy supports DNS allowlisting, allow `*.servicebus.windows.net`. If you can't use a wildcard, allow the specific Relay namespace hostname and the gateway hostnames for that namespace.
 
 > [!NOTE]
 > All addresses set in `appsettings.json` (`ProxyAddress`, `BypassList`) should be in RegEx format if not an exact match.
@@ -387,7 +387,7 @@ The status of **Connected** means that at least one Hybrid Connection Manager is
 - Does your host have outbound access to Azure on port 443? You can test from your Hybrid Connection Manager host using the PowerShell command `Test-NetConnection Destination -P Port`.
 - Is your Hybrid Connection Manager potentially in a bad state? Try restarting the **Azure Hybrid Connection Manager Service** local service.
 - Do you have conflicting software installed? Hybrid Connection Manager can't coexist with Biztalk Hybrid Connection Manager or Service Bus for Windows Server. When you install the Hybrid Connection Manager, you should remove any versions of these packages first.
-- Do you have a firewall between your Hybrid Connection Manager host and Azure? If so, you need to allow outbound access to both the Service Bus endpoint URL *AND* the Service Bus gateways that service your Hybrid Connection.
+- Do you have a firewall between your Hybrid Connection Manager host and Azure? If so, allow outbound HTTPS and WebSocket traffic over port 443. If your firewall supports DNS allowlisting, allow `*.servicebus.windows.net`, which is the preferred configuration. If you can't use a wildcard, allow the Relay namespace hostname and the gateway hostnames for that namespace. IP allowlists aren't recommended because the Relay gateway IP addresses can change.
 
   - You can find the Service Bus endpoint URL in the Hybrid Connection Manager GUI.
 
@@ -397,31 +397,33 @@ The status of **Connected** means that at least one Hybrid Connection Manager is
   
     :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-service-bus-endpoint-cli.png" alt-text="Screenshot of Hybrid Connection Service Bus endpoint in the CLI.":::
 
-  - The Service Bus gateways are the resources that accept the request into the Hybrid Connection and pass it through the Azure Relay. You need to allow list all of the gateways. The gateways are in the format: `G#-prod-[stamp]-sb.servicebus.windows.net` and `GV#-prod-[stamp]-sb.servicebus.windows.net`. The number sign, `#`, is a number between 0 and 127 and `stamp` is the name of the instance within your Azure data center where your Service Bus endpoint exists.
+  - The Service Bus gateways are the resources that accept the request into the Hybrid Connection and pass it through Azure Relay. The gateway hostnames are in the format `G#-prod-[stamp]-sb.servicebus.windows.net` and `GV#-prod-[stamp]-sb.servicebus.windows.net`. The number sign, `#`, is a number between 0 and 127 and `stamp` is the name of the instance within your Azure datacenter where your Service Bus endpoint exists.
 
-  - If you can use a wildcard, you can allow list *\*.servicebus.windows.net*.
-  - If you can't use a wildcard, you must allow list all 256 of the gateways.
+  - If your firewall or proxy supports DNS allowlisting, allow `*.servicebus.windows.net`. This approach is simpler to maintain and avoids relying on changing IP addresses.
+  - If your firewall or proxy doesn't support wildcard DNS rules, allow the namespace hostname shown in the Hybrid Connection Manager and all gateway hostnames for that namespace. Use hostnames, not IP addresses.
 
     You can find out the stamp using *nslookup* on the Service Bus endpoint URL.
 
     :::image type="content" source="media/app-service-hybrid-connections/hybrid-connections-stamp-name.png" alt-text="Screenshot of terminal showing where to find the stamp name for the Service Bus.":::
 
-    In this example, the stamp is `sn3-010`. To allow list the Service Bus gateways, you need the following entries:
+    In this example, the stamp is `sn3-010`. If you need namespace-specific DNS rules instead of `*.servicebus.windows.net`, allow the namespace hostname and the following gateway hostnames:
 
-    G0-prod-sn3-010-sb.servicebus.windows.net  
-    G1-prod-sn3-010-sb.servicebus.windows.net  
-    G2-prod-sn3-010-sb.servicebus.windows.net  
-    G3-prod-sn3-010-sb.servicebus.windows.net  
-    ...  
-    G126-prod-sn3-010-sb.servicebus.windows.net  
-    G127-prod-sn3-010-sb.servicebus.windows.net  
-    GV0-prod-sn3-010-sb.servicebus.windows.net  
-    GV1-prod-sn3-010-sb.servicebus.windows.net  
-    GV2-prod-sn3-010-sb.servicebus.windows.net  
-    GV3-prod-sn3-010-sb.servicebus.windows.net  
-    ...  
-    GV126-prod-sn3-010-sb.servicebus.windows.net  
+    ```text
+    G0-prod-sn3-010-sb.servicebus.windows.net
+    G1-prod-sn3-010-sb.servicebus.windows.net
+    G2-prod-sn3-010-sb.servicebus.windows.net
+    G3-prod-sn3-010-sb.servicebus.windows.net
+    ...
+    G126-prod-sn3-010-sb.servicebus.windows.net
+    G127-prod-sn3-010-sb.servicebus.windows.net
+    GV0-prod-sn3-010-sb.servicebus.windows.net
+    GV1-prod-sn3-010-sb.servicebus.windows.net
+    GV2-prod-sn3-010-sb.servicebus.windows.net
+    GV3-prod-sn3-010-sb.servicebus.windows.net
+    ...
+    GV126-prod-sn3-010-sb.servicebus.windows.net
     GV127-prod-sn3-010-sb.servicebus.windows.net
+    ```
 
 If your status says **Connected** but your app can't reach your endpoint then:
 

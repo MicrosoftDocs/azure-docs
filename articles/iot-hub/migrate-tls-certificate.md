@@ -2,9 +2,9 @@
 title: How to migrate hub root certificate
 titleSuffix: Azure IoT Hub
 description: Migrate all Azure IoT hub instances to use the new DigiCert Global G2 root certificate to maintain device connectivity.
-author: cwatson-cat
+author: sethmanheim
 
-ms.author: cwatson
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.topic: how-to
 ms.date: 11/27/2024
@@ -70,7 +70,7 @@ You can remove the Baltimore root certificate now that all stages of the migrati
 
 If you're experiencing general connectivity issues with IoT Hub, check out these troubleshooting resources:
 
-* [Connection and retry patterns with device SDKs](../iot/concepts-manage-device-reconnections.md#connection-and-retry).
+* [Connection and retry patterns with device SDKs](concepts-manage-device-reconnections.md#connection-and-retry).
 * [Understand and resolve Azure IoT Hub error codes](troubleshoot-error-codes.md).
 
 If you're watching Azure Monitor after migrating certificates, you should look for a DeviceDisconnect event followed by a DeviceConnect event, as demonstrated in the following screenshot:

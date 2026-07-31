@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: azure-container-apps
 ms.subservice: dapr
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 11/07/2025
 ms.author: hannahhunter
 ms.custom:
@@ -447,6 +447,9 @@ properties: {
 | Metadata | Required | Description | Example |
 | -------- | --------- | ----------- | ------- |
 | `maxConnections` | Yes | Maximum number of concurrent connections to a container app. | `100` |
+
+> [!NOTE]
+> When you don't set `maxConnections`, a default maximum of 10,240 concurrent connections applies. Set `maxConnections` to raise or lower this limit for your container app.
 
 ## Resiliency observability
 

@@ -226,7 +226,7 @@ Note that a `ConditionNotMet` code typically indicates the blob file has been mo
 ## Next steps
 [Receive resource health alerts](/azure/service-health/resource-health-alert-monitor-guide)
 
-[Assign roles for the DICOM service](../configure-azure-rbac.md#assign-roles-for-the-dicom-service)
+[Assign roles for the DICOM service](../configure-azure-rbac.md#assign-roles-for-the-fhir-and-dicom-services)
 
 [Review DICOM service conformance statement](/azure/healthcare-apis/dicom/dicom-services-conformance-statement-v2)
 

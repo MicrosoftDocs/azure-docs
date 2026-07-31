@@ -1,28 +1,53 @@
 ---
 title: What's new in Azure Managed Redis
 description: Recent updates for Azure Managed Redis
-ms.date: 11/17/2025
-ms.topic: conceptual
+ms.date: 05/29/2026
+ms.topic: whats-new
 ms.custom:
   - references_regions
   - build-2025
 appliesto:
   - ✅ Azure Managed Redis
+ai-usage: ai-assisted
 ---
 
 # What's New in Azure Managed Redis
 
 Find out what's new in Azure Managed Redis.
 
+## May 2026
+
+### Custom data access permissions (preview)
+
+You can now assign per-user Redis ACL permissions by using custom access strings on access policy assignments. Control which commands and keys each user can access, enabling fine-grained data access control for your cache. For more information, see [Configure custom data access permissions (preview)](configure-access-permissions.md).
+
+### General Availability for some Flash Optimized SKUs
+
+Azure Managed Redis Flash Optimized A250, A500, A700, A1000, and A1500 are now generally available (GA). For a complete list of the status of SKUs, see [Tiers and SKUs at a glance](overview.md#tiers-and-skus-at-a-glance).
+
+## April 2026
+
+### Dashboards with Grafana
+
+_Dashboards with Grafana_ in Azure Managed Redis bring Azure Monitor's built-in Grafana experience directly into the Azure portal. You can create and customize Grafana dashboards by using your Azure Managed Redis metrics and logs without deploying a separate Azure Managed Grafana instance. For more information, see [Dashboards with Grafana in Azure Managed Redis](grafana-dashboards.md).
+
+### Keyspace notifications (preview)
+
+In preview in Azure Managed Redis, Redis keyspace notifications allow clients to subscribe to Pub/Sub channels to receive events that affect the data set in the cache. For more information, see [Enable Redis keyspace notifications (preview)](enable-redis-keyspace-notifications.md).
+
+### General Availability for M/B/X 350 SKUs (350 GB)
+
+Azure Managed Redis Memory Optimized M350, Balanced B350, and Compute Optimized X350 SKUs are now generally available (GA). For a complete list of the status of SKUs, see [Tiers and SKUs at a glance](overview.md#tiers-and-skus-at-a-glance).
+
 ## November 2025
 
-### General Availability for more tiers
+### General availability for more tiers
 
-The in-memory SKUs at 175 GB and 235 GB, Compute Optimized, Balanced, and Memory Optimized, are now GA. For a complete list of the status of SKUs, see [Tiers and SKUs at a glance](overview.md#tiers-and-skus-at-a-glance).
+The in-memory SKUs at 175 GB and 235 GB, Compute Optimized, Balanced, and Memory Optimized, are now generally available. For a complete list of the status of SKUs, see [Tiers and SKUs at a glance](overview.md#tiers-and-skus-at-a-glance).
 
 ### Scheduled maintenance windows (preview)
 
-Using the **Maintenance (Preview)** item on the Resource menu, you can now define specific time windows when maintenance activities can occur on your Redis instances. For more information, see [Azure Managed Redis scheduled maintenance (preview)](scheduled-maintenance.md).
+By using the **Maintenance (Preview)** item on the Resource menu, you can now define specific time windows when maintenance activities can occur on your Redis instances. For more information, see [Azure Managed Redis scheduled maintenance (preview)](scheduled-maintenance.md).
 
 ### Reservations for caches
 
@@ -54,7 +79,7 @@ All in-memory tiers that use over 120 GB of storage are in Public Preview, inclu
 - Balanced B150 and higher
 - Compute Optimized X150 and higher
 
-All Flash Optimized tiers are in Public Preview.
+All Flash Optimized tiers are in preview.
 
 ## November 2024
 

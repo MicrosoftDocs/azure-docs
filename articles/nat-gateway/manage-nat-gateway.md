@@ -24,6 +24,10 @@ This article explains how to manage the following aspects of NAT gateway:
 
 - Add or remove a public IP address or public IP prefix.
 
+> [!NOTE]
+> Associating a NAT Gateway with a subnet makes it the preferred outbound connectivity method for all new connections. NAT Gateway takes precedence over other explicit outbound configurations, including load balancer outbound rules, firewalls, and instance‑level public IP addresses.
+> Existing connections are not interrupted and continue to use their original outbound path until they are re‑established.
+
 ## Prerequisites
 
 # [**Azure portal**](#tab/manage-nat-portal)

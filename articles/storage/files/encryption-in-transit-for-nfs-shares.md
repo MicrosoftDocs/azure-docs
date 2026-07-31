@@ -1,10 +1,10 @@
 ---
 title: How to Encrypt Data in Transit for NFS shares
-description: This article explains how you can encrypt data in transit (EiT) for NFS Azure file shares by using a TLS channel.
-author: guptasonia
+description: Learn how to encrypt NFS Azure file share data in transit by using the AZNFS mount helper and TLS encryption.
+author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/20/2025
+ms.date: 07/20/2026
 ms.author: kendownie
 ms.custom:
   - devx-track-azurepowershell
@@ -14,10 +14,12 @@ ms.custom:
 ---
 
 # Encryption in transit for NFS Azure file shares
- 
-This article explains how you can encrypt data in transit for NFS Azure file shares. Azure Files NFS v4.1 volumes enhance network security by enabling secure TLS connections, protecting data in transit from interception, including MITM attacks.
 
-## Overview
+**Applies to:** :heavy_check_mark: NFS file shares
+
+This article explains how to encrypt data in transit for NFS Azure file shares. Azure Files NFSv4.1 volumes enhance network security by enabling secure TLS connections. This encryption prevents data in transit from interception, including man-in-the-middle attacks.
+
+## How encryption in transit works
 
 Using [Stunnel](https://www.stunnel.org/), an open-source TLS wrapper, Azure Files encrypts the TCP stream between the NFS client and Azure Files with strong encryption using AES-GCM, without needing Kerberos. This ensures data confidentiality while eliminating the need for complex setups or external authentication systems like Active Directory.
 
@@ -29,44 +31,90 @@ The [AZNFS](https://github.com/Azure/AZNFS-mount) utility package simplifies enc
 
 - **AZNFS watchdog**: The AZNFS package runs a background job that ensures stunnel processes are running, automatically restarts terminated tunnels, and cleans up unused processes after all associated NFS mounts are unmounted.
 
-> [!IMPORTANT]
->
-> AZNFS supported Linux distributions are:
->
-> - Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS)
-> - Centos7, Centos8
-> - RedHat7, RedHat8, RedHat9
-> - Rocky8, Rocky9
-> - SUSE (SLES 15)
-> - Oracle Linux
-> - Alma Linux
-> - Azure Linux
+## Supported Linux distributions
+
+AZNFS supports the following Linux distributions:
+
+- Ubuntu (18.04 LTS, 20.04 LTS, 22.04 LTS, 24.04 LTS)
+- CentOS 7, CentOS 8
+- Red Hat 7, Red Hat 8, Red Hat 9, Red Hat 10
+- Rocky 8, Rocky 9
+- SUSE (SLES 15, SLES 16)
+- Oracle Linux
+- Alma Linux
+- Azure Linux
 
 ## Supported regions
 
-EiT for NFS is now Generally Available (GA) in all regions that [support SSD Azure file shares](redundancy-premium-file-shares.md).
+Encryption in transit for NFS is generally available (GA) in all regions that [support SSD Azure file shares](redundancy-premium-file-shares.md).
 
 ## Enforce encryption in transit
 
-By enabling the **Secure transfer required** setting on the storage account, you can ensure that all the mounts to the NFS volumes in the storage account are encrypted. EiT can be enabled on both new and existing storage accounts and NFS Azure file shares. There is no additional cost for enabling EiT.
+Azure Files provides a dedicated **Require Encryption in Transit for NFS** setting that lets you independently control whether encryption is required for NFS access to Azure file shares. This per-protocol setting gives more granular control than the storage account-level **Secure transfer required** setting, which now applies only to REST/HTTPS traffic. You can enable encryption in transit on both new and existing storage accounts and file shares. There's no additional cost for enabling encryption in transit.
 
-:::image type="content" source="./media/encryption-in-transit-nfs-shares/storage-account-settings.png" alt-text="Screenshot showing how to enable Secure transfer on a storage account." lightbox="./media/encryption-in-transit-nfs-shares/storage-account-settings.png":::
+### New storage accounts
 
-However, for users who prefer to maintain flexibility between TLS and non-TLS connections on the same storage account, the **Secure transfer** setting must remain OFF.
+For new storage accounts created by using the Azure portal, **Require Encryption in Transit for NFS** is enabled by default. Storage accounts created by using Azure PowerShell, Azure CLI, or the FileREST API set this value as **Not selected** to ensure backward compatibility.
+
+### Existing storage accounts
+
+For existing storage accounts, **Require Encryption in Transit for NFS** initially appears as **Not selected**. When not selected, the **Secure transfer required** setting continues to govern encryption behavior for NFS file shares. Once you explicitly configure **Require Encryption in Transit for NFS**, that setting takes precedence for NFS access, regardless of the **Secure transfer required** value. This ensures no immediate behavior change for existing storage accounts unless you choose to configure the setting.
+
+### Where to configure the setting
+
+You can configure **Require Encryption in Transit for NFS** for a storage account by using the Azure portal, Azure PowerShell, or Azure CLI. If you prefer to maintain flexibility in having TLS and non-TLS connections on the same storage account, disable the **Require Encryption in Transit for NFS** setting.
+
+# [Portal](#tab/azure-portal)
+
+You can configure **Require Encryption in Transit for NFS** for a storage account in the following locations in the Azure portal:
+
+- On the **Advanced** tab when creating a new storage account.
+- Under the **File service** section on the storage account overview blade.
+- Under **File share settings > Security** for an existing storage account.
+
+:::image type="content" source="media/encryption-in-transit-nfs-shares/require-encryption-in-transit.png" alt-text="A screenshot showing how to enable or disable the require encryption in transit for NFS setting.":::
+
+# [PowerShell](#tab/azure-powershell)
+
+To enable **Require Encryption in Transit for NFS** for a storage account by using Azure PowerShell, run the following cmdlet:
+
+```azurepowershell
+Update-AzStorageFileServiceProperty -ResourceGroupName <resource-group> -StorageAccountName <storage-account-name> -NfsEncryptionInTransitRequired $true
+```
+
+To disable **Require Encryption in Transit for NFS** for a storage account by using Azure PowerShell, run the following cmdlet:
+
+```azurepowershell
+Update-AzStorageFileServiceProperty -ResourceGroupName <resource-group> -StorageAccountName <storage-account-name> -NfsEncryptionInTransitRequired $false
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+To enable **Require Encryption in Transit for NFS** for a storage account by using Azure CLI, run the following command:
+
+```azurecli
+az storage account file-service-properties update --nfs-eit --require-nfs-encryption-in-transit true -n <storage-account-name> -g <resource-group>
+```
+
+To disable **Require Encryption in Transit for NFS** for a storage account by using Azure CLI, run the following command:
+
+```azurecli
+az storage account file-service-properties update --nfs-eit --require-nfs-encryption-in-transit false -n <storage-account-name> -g <resource-group>
+```
+
+---
 
 ## Encrypt data in transit for NFS shares
 
 You can encrypt data in transit for NFS Azure file shares by using the Azure portal or Azure CLI.
 
-### Encrypt data in transit for NFS shares using the Azure portal
+### Encrypt data in transit for NFS shares by using the Azure portal
 
-Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package. Once installed, you can use the provided AZNFS mount script to securely mount the NFS share, establishing an encrypted transmission channel between the client and the server.
+The Azure portal offers a step-by-step, ready-to-use installation script tailored to your selected Linux distribution for installing the AZNFS mount helper package. Once installed, you can use the provided AZNFS mount script to securely mount the NFS share, establishing an encrypted transmission channel between the client and the server.
 
 :::image type="content" source="./media/encryption-in-transit-nfs-shares/mount-using-encryption-in-transit.png" alt-text="Screenshot showing AZNFS mount instructions in the Azure portal." lightbox="./media/encryption-in-transit-nfs-shares/mount-using-encryption-in-transit.png":::
 
-Users who prefer to maintain flexibility in having TLS and non-TLS connections on the same storage account should ensure that the *Secure transfer required* setting remains disabled.
-
-### Encrypt data in transit for NFS shares using Azure CLI
+### Encrypt data in transit for NFS shares by using Azure CLI
 
 Follow these steps to encrypt data in transit:
 
@@ -82,7 +130,7 @@ To check if the AZNFS mount helper package is installed on your client, run the 
 systemctl is-active --quiet aznfswatchdog && echo -e "\nAZNFS mounthelper is installed! \n"
 ```
 
-If the package is installed, you'll see the message `AZNFS mounthelper is installed!`. If it isn't installed, you'll need to use the appropriate command to install the AZNFS mount helper package on your client.
+If the package is installed, you see the message `AZNFS mounthelper is installed!`. If it isn't installed, install the AZNFS mount helper package by using the appropriate command for your Linux distribution.
  
 ### [Ubuntu/Debian](#tab/Ubuntu)
 ```bash
@@ -143,10 +191,13 @@ sudo dnf install aznfs
 If your setup requires a **noninteractive install**, set the following environment variables before installing AZNFS:
 
 For all distros, you can use:
+
 ```bash
 export AZNFS_NONINTERACTIVE_INSTALL=1
 ```
+
 For DEBIAN based distros, you can additionally use:
+
 ```bash
 export DEBIAN_FRONTEND=noninteractive
 ```
@@ -158,17 +209,19 @@ export DEBIAN_FRONTEND=noninteractive
 
 To mount the NFS file share **with TLS encryption**:
 
-1. Create a directory on your client.
+Create a directory on your client.
 
 ```bash
 sudo mkdir -p /mount/<storage-account-name>/<share-name>
 ```
 
-2. Mount the NFS share by using the following cmdlet. Replace `<storage-account-name>` with the name of your storage account and replace `<share-name>` with the name of your file share.
+Mount the NFS share by using the following cmdlet. Replace `<storage-account-name>` with your storage account name and `<share-name>` with your file share name.
 
 ```bash
 sudo mount -t aznfs <storage-account-name>.file.core.windows.net:/<storage-account-name>/<share-name> /mount/<storage-account-name>/<share-name> -o vers=4,minorversion=1,sec=sys,nconnect=4
 ```
+> [!NOTE]
+> To mount an NFS share with a custom CA certificate, add `cafile=<absolute-path>` as an extra parameter to the mount command. The absolute path for the CA file should start from the root directory.
 
 To mount the NFS share **without TLS encryption**:
 
@@ -179,14 +232,14 @@ sudo mount -t aznfs <storage-account-name>.file.core.windows.net:/<storage-accou
 To have the share **mounted automatically on reboot**, create an entry in the `/etc/fstab` file by adding the following line:
 
 ```
-<storage-account-name>.file.core.windows.net:/<storage-account-name>/<container-name> /nfsdata aznfs defaults,sec=sys,vers=4.1,nolock,proto=tcp,nofail,_netdev   0 2 
+<storage-account-name>.file.core.windows.net:/<storage-account-name>/<share-name> /nfsdata aznfs defaults,sec=sys,vers=4.1,nolock,proto=tcp,nofail,_netdev   0 2 
 ```
 
 > [!NOTE]
 > Before running the mount command, ensure that the environment variable AZURE_ENDPOINT_OVERRIDE is set. This is required when mounting file shares in non-public Azure cloud regions or when using custom DNS configurations.
 > For example, for Azure China Cloud: `export AZURE_ENDPOINT_OVERRIDE="chinacloudapi.cn"`
  
-### Step 3:  Verify that the in-transit data encryption succeeded
+### Step 3: Verify that the in-transit data encryption succeeded
  
 Run the command `df -Th`.
 
@@ -225,10 +278,5 @@ If mounting issues continue, check the log files for more troubleshooting detail
 - **Stunnel Logs**: `/etc/stunnel/microsoft/aznfs/nfsv4_fileShare/logs`
 
 ## See also
- 
+
 - [Azure Storage encryption for data at rest](/azure/storage/common/storage-service-encryption)
-
-
-
-
-

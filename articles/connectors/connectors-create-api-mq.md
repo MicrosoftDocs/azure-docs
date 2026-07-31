@@ -1,19 +1,28 @@
 ---
-title: Connect to IBM MQ
-description: Connect to an MQ server on premises or in Azure from a workflow in Azure Logic Apps.
+title: Connect to IBM MQ from Workflows
+description: Connect to MQ servers on-premises or in Azure from workflows in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 01/08/2025
+ms.update-cycle: 365-days
+ms.date: 03/10/2026
 ms.custom:
   - engagement-fy23
   - sfi-image-nochange
+# Customer intent: As an integration developer who works with Azure Logic Apps, I want to connect my integration workflows to MQ servers either on-premises or in Azure.
 ---
 
-# Connect to an IBM MQ server from a workflow in Azure Logic Apps
+# Connect to IBM MQ servers from workflows in Azure Logic Apps
 
 [!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
+
+> [!IMPORTANT]
+>
+> Starting August 2026, the MQ *managed* connector is deprecated and unavailable for use in workflows.
+>
+> The [MQ built-in connector](/azure/logic-apps/connectors/built-in/reference/mq/) in Azure Logic Apps Standard is available with better capabilities. Please migrate your workflow to use this version as soon as possible.
+
 
 This guide shows how to access an Azure-hosted or on-premises MQ server from a workflow in Azure Logic Apps using the MQ connector. You can then create automated workflows that receive and send messages stored in your MQ server. For example, your workflow can browse for a single message in a queue and then run other actions.
 

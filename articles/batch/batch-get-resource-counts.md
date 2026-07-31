@@ -1,7 +1,7 @@
 ---
 title: Count states for tasks and nodes
 description: Count the state of Azure Batch tasks and compute nodes to help manage and monitor Batch solutions.
-ms.date: 01/05/2026
+ms.date: 05/19/2026
 ms.topic: how-to
 ms.devlang: csharp
 # Customer intent: As a cloud engineer managing large-scale Batch solutions, I want to count the states of tasks and compute nodes, so that I can effectively monitor job progress and ensure adequate compute resources are available for optimal performance.
@@ -28,14 +28,14 @@ The `Get` Task Counts operation counts tasks by the following states:
 
 The following .NET code sample shows how to retrieve task counts by state.
 
-```csharp
-var taskCounts = await batchClient.JobOperations.GetJobTaskCountsAsync("job-1");
+```C# Snippet:resource_counts_job_tasks
+BatchTaskCountsResult taskCounts = await batchClient.GetJobTaskCountsAsync("job-1");
 
-Console.WriteLine("Task count in active state: {0}", taskCounts.Active);
-Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Running);
-Console.WriteLine("Task count in completed state: {0}", taskCounts.Completed);
-Console.WriteLine("Succeeded task count: {0}", taskCounts.Succeeded);
-Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
+Console.WriteLine("Task count in active state: {0}", taskCounts.TaskCounts.Active);
+Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.TaskCounts.Running);
+Console.WriteLine("Task count in completed state: {0}", taskCounts.TaskCounts.Completed);
+Console.WriteLine("Succeeded task count: {0}", taskCounts.TaskCounts.Succeeded);
+Console.WriteLine("Failed task count: {0}", taskCounts.TaskCounts.Failed);
 ```
 
 You can use a similar pattern for REST and other supported languages to get task counts for a job.
@@ -60,8 +60,8 @@ The List Pool Node Counts operation counts compute nodes by the following states
 
 The following C# snippet shows how to list node counts for all pools in the current account:
 
-```csharp
-foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts())
+```C# Snippet:resource_counts_pool_nodes
+await foreach (BatchPoolNodeCounts nodeCounts in batchClient.GetPoolNodeCountsAsync())
 {
     Console.WriteLine("Pool Id: {0}", nodeCounts.PoolId);
 
@@ -81,8 +81,9 @@ foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts())
 
 The following C# snippet shows how to list node counts for a given pool in the current account.
 
-```csharp
-foreach (var nodeCounts in batchClient.PoolOperations.ListPoolNodeCounts(new ODATADetailLevel(filterClause: "poolId eq 'testpool'")))
+```C# Snippet:resource_counts_pool_nodes_filter
+await foreach (BatchPoolNodeCounts nodeCounts in batchClient.GetPoolNodeCountsAsync(
+    filter: "poolId eq 'testpool'"))
 {
     Console.WriteLine("Pool Id: {0}", nodeCounts.PoolId);
 

@@ -1,9 +1,9 @@
-﻿---
+---
 title: Variables in templates
 description: Describes how to define variables in an Azure Resource Manager template (ARM template).
 ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 08/08/2025
+ms.date: 06/26/2026
 ---
 
 # Variables in ARM templates

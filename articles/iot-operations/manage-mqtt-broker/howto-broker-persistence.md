@@ -1,12 +1,12 @@
 ---
 title: Data persistence for the Azure IoT Operations MQTT broker
 description: Learn how to configure the data persistence feature for the Azure IoT Operations MQTT broker for data durability.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.topic: how-to
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
-ms.date: 10/27/2025
+ms.date: 07/20/2026
 
 ---
 
@@ -14,11 +14,17 @@ ms.date: 10/27/2025
 
 The data persistence feature is designed as a complementary mechanism to the replication system. While the broker replicates data across multiple nodes, a cluster-wide shutdown can still result in data loss.
 
-To mitigate this risk, the MQTT broker supports persistent storage, which lets critical data be written to disk and preserved across restarts. This data persistence feature is different from the [Disk-backed message buffer](./howto-disk-backed-message-buffer.md), which uses disk as an extension of memory but is ephemeral and doesn't provide durability guarantees.
+To mitigate this risk, the MQTT broker supports persistent storage, which lets critical data be written to disk and preserved across restarts. This data persistence feature is different from the [Disk-backed message buffer](../deployment-plan/deployment-planning-disk-buffer.md), which uses disk as an extension of memory but is ephemeral and doesn't provide durability guarantees.
 
 Storing data on disk introduces a performance cost. The impact varies depending on the type and speed of the underlying storage medium.
 
 You can configure data persistence during initial deployment by using the Azure portal or Azure CLI. You can also change some persistence options after deployment.
+
+## Set your environment variables
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for values that you choose: `BROKER` (the name of the MQTT broker, typically `default`), `PERSIST_MODE` (the persistence mode), `TOPIC_PATTERN_1`, `TOPIC_PATTERN_2`, `STRING_KEY_1`, `STRING_KEY_2`, `PATTERN_KEY_1`, `PATTERN_KEY_2`, `BINARY_KEY_1`, and `BINARY_KEY_2`. Set each one before you run the related commands.
 
 ## Configuration methods
 
@@ -38,93 +44,13 @@ You must set these options during deployment and can't change them later.
 
 ### Volume and volume size
 
-The MQTT broker uses a persistent volume (PV) to store data on disk. Two settings control how this volume is provisioned:
+[!INCLUDE [Azure IoT Operations MQTT broker persistent volume settings](../includes/mqtt-broker-persistent-volume-settings.md)]
 
-- **`maxSize`** *(required)*: Sets the maximum size of the persistent volume for storing broker data. This field is always required, even if you provide a custom volume claim. The value must be greater than 100 MB.
-  
-  **Example:** `10GiB`
-
-- **`persistentVolumeClaimSpec`** *(optional)*: Lets you define a custom PersistentVolumeClaim (PVC) template to control how the persistent volume is provisioned. If you don't set this option, the broker creates a default PVC using the specified `maxSize` and the default storage class, which can result in suboptimal performance if the default class isn't backed by a local path provisioner.
-
-> [!IMPORTANT]
-> When you specify `persistentVolumeClaimSpec`, the access mode must be set to `ReadWriteOncePod`.
-
-# [Azure portal](#tab/portal)
-
-
-To configure volume settings in the Azure portal:
-
-1. During IoT Operations deployment, navigate to the **MQTT Broker** configuration section.
-2. In the **Data Persistence** settings:
-    - Set the **Maximum Size** for the persistent volume (required).
-    - Optionally configure **Persistent Volume Claim Spec** settings for custom storage class requirements.
-
-    :::image type="content" source="media/howto-broker-persistence/data-persistence-deploy.png" alt-text="[Screenshot showing data persistence options during deployment in the Azure portal]":::
-
-# [Azure CLI](#tab/azurecli)
-
-1. To deploy the MQTT broker with the minimum required settings to enable disk persistence, use the `az iot ops create` command.
-
-    ```azurecli
-    az iot ops create --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP_NAME> --name <INSTANCE_NAME> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID> --ns-resource-id <NAMESPACE_RESOURCE_ID> --persist-max-size 10Gi
-    ```
-
-1. To deploy the MQTT broker with disk persistence, custom persistent volume claim, and custom persist mode settings, add the `--persist-pvc-sc` and `--persist-mode` flags to the `az iot ops create` command.
-
-    ```azurecli
-    az iot ops create --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP_NAME> --name <INSTANCE_NAME> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID> --ns-resource-id <NAMESPACE_RESOURCE_ID> --persist-max-size 10Gi --persist-pvc-sc <MYSTORAGECLASS> --persist-mode retain=All stateStore=None
-    ```
-
-
-1. If you want to use a custom broker configuration file, add the `--broker-config-file` flag and include the persistence settings in the JSON file.
-
-    ```azurecli
-    az iot ops create --broker-config-file <BROKER_CONFIG_FILE>.json --cluster <CLUSTER_NAME> --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP_NAME> --sr-resource-id <SCHEMA_REGISTRY_RESOURCE_ID>
-    ```
-
-    The following is an example JSON snippet to include in your custom broker configuration file to set up persistence with a maximum size of 10 GiB and a custom storage class.
-    
-    ```json
-    {
-      "persistence": {
-        "maxSize": "10GiB",
-        "persistentVolumeClaimSpec": {
-          "storageClassName": "example-storage-class",
-          "accessModes": [
-            "ReadWriteOncePod"
-          ]
-        }
-      }
-    }
-    ```
-
----
+[!INCLUDE [Azure IoT Operations MQTT broker configure persistence](../includes/mqtt-broker-configure-persistence.md)]
 
 ### Encryption
 
-To protect data, the MQTT broker encrypts all persistence data on disk by default using strong AES-256-GCM encryption. This ensures that even if an attacker gains access to the underlying volume, sensitive broker state or session data remains protected.
-
-Encryption is optional and is on by default. You can turn off encryption if you need to. Encryption protects data at rest only; data in memory isn't encrypted. Using encryption has minimal performance cost, but key rotation isn't supported yet.
-
-# [Azure portal](#tab/portal)
-
-Encryption is enabled by default when deploying using the Azure portal. you can disable encryption in the broker configuration file if you deploy using Azure CLI.
-
-# [Azure CLI](#tab/azurecli)
-
-To disable encryption using Azure CLI, add the following to your Broker configuration file when using the `--broker-config-file` flag with the [az iot ops create](/cli/azure/iot/ops#az-iot-ops-create) command:
-
-```json
-{
-  "persistence": {
-    "encryption": {
-      "mode": "Disabled"
-    }
-  }
-}
-```
-
----
+[!INCLUDE [Azure IoT Operations MQTT broker persistence encryption](../includes/mqtt-broker-persistence-encryption.md)]
 
 ## Runtime configuration options
 
@@ -166,7 +92,7 @@ To configure retained messages persistence in the Azure portal:
 Use the `az iot ops broker persist update` command to update the retained messages persistence.
 
 ```azurecli
-az iot ops broker persist update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <BrokerName> --persist-mode retain=<PersistMode> --retain-topics "<TopicPattern1>" "<TopicPattern2>"
+az iot ops broker persist update --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $BROKER --persist-mode retain=$PERSIST_MODE --retain-topics "$TOPIC_PATTERN_1" "$TOPIC_PATTERN_2"
 ```
 
 Here's an example command to update custom persistence policy for retain messages:
@@ -179,11 +105,11 @@ az iot ops broker persist update --resource-group myResourceGroup --instance myA
 
 ### Subscriber queue persistence
 
-Subscriber queues hold messages that are waiting to be delivered to MQTT clients with Quality of Service (QoS) 1 subscriptions. When a client subscribes with QoS 1, the broker guarantees message delivery by queuing messages until the client acknowledges receipt. These queues are especially important for clients that might be temporarily disconnected or processing messages slowly.
+Subscriber queues hold messages that are waiting to be delivered to MQTT clients with a Quality of Service (QoS) level 1 subscription. When a client subscribes with QoS 1, the broker guarantees message delivery by queuing messages until the client acknowledges receipt. These queues are especially important for clients that might be temporarily disconnected or processing messages slowly.
 
 Persisting subscriber queues to disk ensures that messages waiting for delivery aren't lost during broker restarts. This feature is critical for IoT scenarios where devices can have intermittent connectivity, slow processing, or persistent sessions that need to keep message delivery guarantees across broker restarts. Without persistence, queued messages are lost, which can cause data loss for important device communications.
 
-For more information about subscriber queues and message delivery, see [Configure broker MQTT client options](./howto-broker-mqtt-client-options.md#subscriber-queue-limit).
+For more information about subscriber queues and message delivery, see [Advanced MQTT options](../deployment-plan/deployment-planning-mqtt-options.md#subscriber-queue-limit).
 
 This setting controls which subscriber message queues are persisted to disk. Session state metadata is always persisted regardless of these settings.
 
@@ -212,7 +138,7 @@ To configure subscriber queue persistence in the Azure portal:
 Use the `az iot ops broker persist update` command to update the subscriber queue persistence.
 
 ```azurecli
-az iot ops broker persist update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <BrokerName> --persist-mode subscriberQueue=<PersistMode>
+az iot ops broker persist update --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $BROKER --persist-mode subscriberQueue=$PERSIST_MODE
 ```
 
 Here's an example command to configure persistence for all subscriber queues:
@@ -263,7 +189,7 @@ Persisting state store data to disk ensures that the broker can maintain operati
 
 State store persistence is especially valuable in production environments where minimizing recovery time and maintaining service consistency are critical. Without persistence, the broker must rebuild all internal state when it restarts, which can cause temporary service disruptions and performance impacts.
 
-For more information about the state store, see [Learn about the MQTT broker state store protocol](../create-edge-apps/concept-about-state-store-protocol.md).
+For more information about the state store, see [Learn about the MQTT broker state store protocol](../develop-edge-apps/reference-state-store-protocol.md).
 
 This setting controls which keys in the internal state store are persisted.
 
@@ -295,7 +221,7 @@ To configure state store persistence in the Azure portal:
 Use the `az iot ops broker persist update` command to update the state store persistence.
 
 ```azurecli
-az iot ops broker persist update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <BrokerName> --persist-mode stateStore=<PersistMode> --state-store-str-keys "<StringKey1>" "<StringKey2>" --state-store-glob-keys "<PatternKey1>" "<PatternKey2>" --state-store-bin-keys "<BinaryKey1>" "<BinaryKey2>"
+az iot ops broker persist update --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $BROKER --persist-mode stateStore=$PERSIST_MODE --state-store-str-keys "$STRING_KEY_1" "$STRING_KEY_2" --state-store-glob-keys "$PATTERN_KEY_1" "$PATTERN_KEY_2" --state-store-bin-keys "$BINARY_KEY_1" "$BINARY_KEY_2"
 ```
 
 Here's an example command to configure state store persistence with multiple key groups including string, pattern, and binary (base64 encoded) keys:
@@ -334,7 +260,7 @@ To configure dynamic persistence settings in the Azure portal:
 To configure dynamic persistence using Azure CLI, add the MQTT user property settings at the broker level and enable dynamic mode for specific data types. Use the `az iot ops broker persist update` command to update MQTT broker data persistence settings.
 
 ```azurecli
-az iot ops broker persist update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <BrokerName> --persist-mode <PersistMode>
+az iot ops broker persist update --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $BROKER --persist-mode $PERSIST_MODE
 ```
 
 Here's an example command to configure subscriber queue persistence for specific client IDs:

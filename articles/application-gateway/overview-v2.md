@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: overview
-ms.date: 12/09/2025
+ms.date: 4/10/2026
 ms.author: mbender
 ms.custom: references_regions, devx-track-azurepowershell
 # Customer intent: As a cloud architect, I want to understand the features and enhancements of Azure Application Gateway v2, so that I can effectively plan migration from v1 and utilize its capabilities for improved application performance and reliability.
@@ -16,13 +16,13 @@ ms.custom: references_regions, devx-track-azurepowershell
 Application Gateway v2 is the latest version of Application Gateway. It provides advantages over Application Gateway v1 such as performance enhancements, autoscaling, zone redundancy, and static VIPs.
 
 > [!IMPORTANT]
-> Deprecation of Application Gateway V1 was [announced on April 28, 2023](v1-retirement.md). If you use Application Gateway V1 SKU, start planning your migration to V2 now and complete your migration to Application Gateway v2 by April 28, 2026. The v1 service isn't supported after this date.
+> Deprecation of Application Gateway V1 was [announced on April 28, 2023](v1-retirement.md). Application Gateway V1 retired on April 28, 2026, and is no longer supported. If you still use the Application Gateway V1 SKU, migrate to Application Gateway v2 now.
 
 ## Key capabilities
 
 The v2 SKU includes the following enhancements:
 
-- **TCP/TLS proxy**: Azure Application Gateway now also supports Layer 4 (TCP protocol) and TLS (Transport Layer Security) proxying. This feature is currently in public preview. For more information, see [Application Gateway TCP/TLS proxy overview](tcp-tls-proxy-overview.md).
+- **TCP/TLS proxy**: Azure Application Gateway now also supports Layer 4 (TCP protocol) and TLS (Transport Layer Security) proxying. For more information, see [Application Gateway TCP/TLS proxy overview](tcp-tls-proxy-overview.md).
 - **Autoscaling**: Application Gateway or WAF deployments under the autoscaling SKU can scale out or in based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. This SKU offers true elasticity. In the Standard_v2 and WAF_v2 SKU, Application Gateway can operate both in fixed capacity (autoscaling disabled) and in autoscaling enabled mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Autoscaling mode is beneficial in applications that see variance in application traffic.
 - **Zone redundancy**: Application Gateway or WAF deployments span multiple Availability Zones by default, removing the need to provision separate Application Gateway instances in each zone with a Traffic Manager. Application Gateway instances are deployed (by default) in a minimum of two availability zones, which makes it more resilient to zone failure. The backend pool for applications can be similarly distributed across availability zones.
 
@@ -53,7 +53,7 @@ The following table displays a comparison between Basic and Standard_v2.
 |     :---:                | :---                                     |     :---:      |     :---:         |
 | Reliability              | SLA                                      | 99.9           | 99.95             |
 | Functionality - basic    | HTTP/HTTP2/HTTPS<br>WebSocket<br>Public/Private IP<br>Cookie Affinity<br>Path-based affinity<br>Wildcard<br>Multisite<br>KeyVault<br>Zone<br>Header rewrite | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713; | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;|
-| Functionality - advanced | AKS (via AGIC)<br>URL rewrite<br>mTLS<br>Private Link<br>Private-only (preview)<br>TCP/TLS Proxy (preview) |  | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713; |
+| Functionality - advanced | AKS (via AGIC)<br>URL rewrite<br>mTLS<br>Private Link<br>Private-only<br>TCP/TLS Proxy |  | &#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713;<br>&#x2713; |
 | Scale                    | Max. connections per second<br>Number of listeners<br>Number of backend pools<br>Number of backend servers per pool<br>Number of rules | 200<sup>1</sup><br>5<br>5<br>5<br>5  | 62500<sup>1</sup><br>100<br>100<br>1200<br>400 |
 | Capacity Unit            | Connections per second per compute unit<br>Throughput<br>Persistent new connections  | 10<br>2.22 Mbps<br>2500 | 50<br>2.22 Mbps<br>2500 |
 
@@ -128,9 +128,9 @@ This section describes features and limitations of the v2 SKU that differ from t
 
 ## Register for the preview
 
-Run the following Azure CLI commands to register for the preview of Application Gateway Basic SKU. 
+Run the following Azure PowerShell commands to register for the preview of Application Gateway Basic SKU. 
 
-```azurecli-interactive
+```azurepowershell
 Set-AzContext -Subscription "<your subscription ID>"
 Get-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace "Microsoft.Network"
 Register-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace Microsoft.Network 
@@ -141,9 +141,9 @@ Register-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -Provide
 To unregister from the public preview of Basic SKU:
 
 1. Delete all instances of Application Gateway Basic SKU from your subscription.
-1. Run the following Azure CLI commands: 
+1. Run the following Azure PowerShell commands: 
 
-```azurecli-interactive
+```azurepowershell
 Set-AzContext -Subscription "<your subscription ID>"
 Get-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace "Microsoft.Network"
 Unregister-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -ProviderNamespace Microsoft.Network 

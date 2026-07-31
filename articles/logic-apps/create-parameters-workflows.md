@@ -110,7 +110,7 @@ To reference the parameter from a trigger or action in any workflow for the same
 
 To view or edit parameters in the same logic app:
 
-1. Open a workflow in the workflow designer. Fon Consumption logic apps, select **Development Tools** > **Logic app designer**. For Standard logic apps, select **Workflows** > **Workflows**, then select a workflow to open the designer.
+1. Open a workflow in the workflow designer. For Consumption logic apps, select **Development Tools** > **Logic app designer**. For Standard logic apps, select **Workflows** > **Workflows**, then select a workflow to open the designer.
 
 1. On the designer toolbar, select **Parameters**.
 
@@ -276,7 +276,7 @@ To review your current app settings using the Azure CLI, run the command, `az lo
 az logicapp config appsettings list --name MyLogicApp --resource-group MyResourceGroup
 ```
 
-To add or update an app setting using the Azure CLI, run the command `az logicapp config appsettings set`. Make sure that your command includes the `--name n` and `--resource-group -g` parameters. For example, the following command creates a setting with a key named `CUSTOM_LOGIC_APP_SETTING` with a value of `12345`:
+To add or update an app setting using the Azure CLI, run the command `az logicapp config appsettings set`. Make sure that your command includes the `--name -n` and `--resource-group -g` parameters. For example, the following command creates a setting with a key named `CUSTOM_LOGIC_APP_SETTING` with a value of `12345`:
 
 ```azurecli
 az logicapp config appsettings set --name MyLogicApp --resource-group MyResourceGroup --settings CUSTOM_LOGIC_APP_SETTING=12345 

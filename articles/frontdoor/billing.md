@@ -1,18 +1,18 @@
 ---
-title: Understand Azure Front Door billing
-description: Learn how you're billed when you use Azure Front Door.
-author: johndowns
-ms.author: jodowns
+title: Azure Front Door billing
+description: Understand Azure Front Door's billing model, including base fees, request processing charges, data transfer costs, and how pricing varies by region and tier.
+author: halkazwini
+ms.author: halkazwini
 ms.service: azure-frontdoor
 ms.topic: concept-article
-ms.date: 12/28/2023
+ms.date: 07/14/2026
 ---
 
-# Understand Azure Front Door billing
+# Understanding Azure Front Door billing
 
 **Applies to:** :heavy_check_mark: Front Door Standard :heavy_check_mark: Front Door Premium
 
-Azure Front Door provides a rich set of features for your internet-facing workloads. Front Door helps you to accelerate your application's performance, improves your security, and provides you with tools to inspect and modify your HTTP traffic.
+Azure Front Door provides a rich set of features for your internet-facing workloads. Front Door helps you accelerate your application's performance, improves your security, and provides you with tools to inspect and modify your HTTP traffic.
 
 Front Door's billing model includes several components. Front Door charges a base fee for each profile that you deploy. You're also charged for requests and data transfer based on your usage. *Billing meters* collect information about your Front Door usage. Your monthly Azure bill aggregates the billing information across the month and applies the pricing to determine the amount you need to pay.
 
@@ -21,14 +21,14 @@ This article explains how Front Door pricing works so that you can understand an
 For Azure Front Door pricing information, see [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/).
 
 > [!TIP]
-> The Azure pricing calculator helps you to calculate a pricing estimate for your requirements. Use the [pre-created pricing calculator estimate](https://azure.com/e/bdc0d6531fbb4760bf5cdd520af1e4cc?azure-portal=true) as a starting point, and customize it for your own solution.
+> The Azure pricing calculator helps you calculate a pricing estimate for your requirements. Use the [pre-created pricing calculator estimate](https://azure.com/e/bdc0d6531fbb4760bf5cdd520af1e4cc?azure-portal=true) as a starting point, and customize it for your own solution.
 
 > [!NOTE]
-> This article explains how billing works for Azure Front Door Standard and Premium SKUs. For information about Azure Front Door (classic), see [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/).
+> This article explains how billing works for Azure Front Door Standard and Premium tiers. For information about Azure Front Door (classic), see [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/).
 
 ## Base fees
 
-Each Front Door profile incurs an hourly fee. You're billed for each hour, or partial hour, that your profile is deployed. The rate you're charged depends on the Front Door tier that you deploy.
+Each Front Door profile incurs an hourly fee. You're billed for each hour, or partial hour, that your profile is deployed. The rate you pay depends on the Front Door tier that you deploy.
 
 A single Front Door profile can contain multiple [endpoints](endpoint.md). You're not billed extra for each endpoint.
 
@@ -36,7 +36,7 @@ You don't pay extra fees to use features like [traffic acceleration](front-door-
 
 ## Request processing and traffic fees
 
-Each request that goes through Front Door incur request processing and traffic fees:
+Each request that goes through Front Door incurs request processing and traffic fees:
 
 :::image type="content" source="./media/billing/request-components.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to the origin." border="false":::
 
@@ -51,13 +51,13 @@ The following sections describe each of these request components in more detail.
 
 ### Number of requests from client to Front Door
 
-Front Door charges a fee for the number of requests that are received at a Front Door edge location for your profile. Front Door identifies requests by using the `Host` header on the HTTP request. If the `Host` header matches one from your Front Door profile, it counts as a request to your profile.
+Front Door charges a fee for the number of requests that a Front Door edge location receives for your profile. Front Door identifies requests by using the `Host` header on the HTTP request. If the `Host` header matches one from your Front Door profile, it counts as a request to your profile.
 
-The price is different depending on the geographical region of the Front Door edge location that serves the request. The price is also different for the Standard and Premium SKUs.
+The price depends on the geographical region of the Front Door edge location that serves the request. The price also differs for the Standard and Premium tiers.
 
 ### Data transfer from Front Door edge to origin
 
-Front Door charges for the bytes that are sent from the Front Door edge location to your origin server. The price is different depending on the geographical region of the Front Door edge location that serves the request. The location of the origin doesn't affect the price.
+Front Door charges for the bytes that are sent from the Front Door edge location to your origin server. The price depends on the geographical region of the Front Door edge location that serves the request. The location of the origin doesn't affect the price.
 
 The price per gigabyte is lower when you have higher volumes of traffic.
 
@@ -65,15 +65,15 @@ If the request can be served from the Front Door edge location's cache, Front Do
 
 ### Data transfer from origin to Front Door
 
-When your origin server processes a request, it sends data back to Front Door so that it can be returned to the client. This traffic doesn't get billed by Front Door, even if the origin is in a different region to the Front Door edge location for the request.
+When your origin server processes a request, it sends data back to Front Door so that it can return the data to the client. Front Door doesn't bill you for this traffic, even if the origin is in a different region from the Front Door edge location for the request.
 
-If your origin is within Azure, the data egress from the Azure origin to Front Door isn't charged. However, you should determine whether those Azure services might bill you to process your requests.
+If your origin is within Azure, you aren't charged for data egress from the Azure origin to Front Door. However, check whether those Azure services might bill you to process your requests.
 
 If your origin is outside of Azure, you might incur charges from other network providers.
 
 ### Data transfer from Front Door to client
 
-Front Door charges for the bytes that are sent from the Front Door edge location back to the client. The price is different depending on the geographical region of the Front Door edge location that serves the request.
+Front Door charges for the bytes that it sends from the Front Door edge location back to the client. The price varies depending on the geographical region of the Front Door edge location that serves the request.
 
 If a response is compressed, Front Door only charges for the compressed data.
 
@@ -83,7 +83,7 @@ When you use the Premium tier, Front Door can [connect to your origin by using P
 
 Front Door Premium has a higher base fee and request processing fee. You don't pay extra for Private Link traffic compared to traffic that uses an origin's public endpoint.
 
-When you configure a Private Link origin, you select a region for the private endpoint to use. A [subset of Azure regions support Private Link traffic for Front Door](private-link.md#region-availability). If the region you select is different to the region the origin is deployed to, there isn't an extra charge for cross-region traffic. However, the request latency likely is greater.
+When you configure a Private Link origin, you select a region for the private endpoint to use. A [subset of Azure regions support Private Link traffic for Front Door](private-link.md#region-availability). If the region you select is different from the region where the origin is deployed, you aren't charged extra for cross-region traffic. However, the request latency likely is greater.
 
 ## Cross-region traffic
 
@@ -101,7 +101,7 @@ Suppose a request from a client in California is sent to the Contoso website, se
 
 :::image type="content" source="./media/billing/scenario-1.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to the origin, without caching or compression." border="false":::
 
-The following billing meters are incremented:
+The following billing meters increment:
 
 | Meter | Incremented by | Billing region |
 |-|-|-|
@@ -117,7 +117,7 @@ Suppose Contoso updates their Front Door configuration to enable [content compre
 
 :::image type="content" source="./media/billing/scenario-2.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to the origin, with compression enabled." border="false":::
 
-The following billing meters are incremented:
+The following billing meters increment:
 
 | Meter | Incremented by | Billing region |
 |-|-|-|
@@ -133,7 +133,7 @@ Suppose a second request arrives at the same Front Door edge location and a vali
 
 :::image type="content" source="./media/billing/scenario-3.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and being returned from cache." border="false":::
 
-The following billing meters are incremented:
+The following billing meters increment:
 
 | Meter | Incremented by | Billing region |
 |--|--|--|
@@ -147,7 +147,7 @@ Suppose a request to Contoso's website comes from a client in Australia, and can
 
 :::image type="content" source="./media/billing/scenario-4.png" alt-text="Diagram of traffic flowing from the client in Australia to Azure Front Door and to the origin." border="false":::
 
-The following billing meters are incremented:
+The following billing meters increment:
 
 | Meter | Incremented by | Billing region |
 |-|-|-|
@@ -163,7 +163,7 @@ Suppose a request from a client is sent to the Fabrikam website from a client in
 
 :::image type="content" source="./media/billing/scenario-5.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door and to an origin outside of Azure." border="false":::
 
-The following billing meters are incremented:
+The following billing meters increment:
 
 | Meter | Incremented by | Billing region |
 |-|-|-|
@@ -175,13 +175,13 @@ The external cloud provider might charge other fees.
 
 ### Example 6: Request blocked by web application firewall
 
-When a request gets blocked by the web application firewall (WAF), it isn't sent to the origin. However, Front Door charges the request, and also charges to send a response.
+When the web application firewall (WAF) blocks a request, it doesn't send the request to the origin. However, Front Door charges for the request and for sending a response.
 
 Suppose a Front Door profile includes a custom WAF rule to block requests from a specific IP address in South America. The WAF is configured with a custom error response page, which is 1 KB in size. If a client from the blocked IP address sends a 1-KB request:
 
 :::image type="content" source="./media/billing/scenario-6.png" alt-text="Diagram of traffic flowing from the client to Azure Front Door, where the request gets blocked by the WAF." border="false":::
 
-The following billing meters are incremented:
+The following billing meters increment:
 
 | Meter | Incremented by | Billing region |
 |-|-|-|
@@ -189,6 +189,37 @@ The following billing meters are incremented:
 | Data transfer from Front Door edge to origin | *none* | South America |
 | Data transfer from Front Door to client | 1 KB | South America |
 
-## Next steps
+### Example 7: Edge actions
 
-Learn how to [create an Front Door profile](create-front-door-portal.md).
+Contoso creates a single Edge action that Azure Front Door Rulesets invokes in the US East, Europe, and Asia regions. 
+
+**Scenario 1:** At the end of the month, 1 million invocations are generated, each with 1 ms execution time. 
+
+The following billing meters increment:
+
+| Meter | Incremented by | Billing region |
+|-|-|-|
+| Invocations | 1 M | Global |
+| Overage execution time | 0 | Global |
+
+**Scenario 2:** At the end of the month, there are total 50 million invocations with the following distribution:
+
+| Number of invocations | Execution time per invocation |
+|-|-|
+| 10 M | 1 ms |
+| 20 M | 3 ms |
+| 20 M | 8 ms |
+
+The following billing meters increment:
+
+| Meter | Incremented by | Billing region |
+|-|-|-|
+| Invocations | 50 M | Global |
+| Overage execution time | 20 M x (3-1) + 20 M x (8-1) = 180 M milliseconds or 180 K seconds | Global |
+
+## Related content
+
+- [Comparison between Azure Front Door and Azure CDN](front-door-cdn-comparison.md)
+- [Price comparison between Azure Front Door tiers](understanding-pricing.md)
+- [Price comparison between Azure CDN and Azure Front Door](compare-cdn-front-door-price.md)
+

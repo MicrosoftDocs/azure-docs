@@ -78,14 +78,15 @@ Locate your cache instance and your application in the same region. Connecting t
 
 While you can connect from outside of Azure, it isn't recommended, especially when using Redis as a cache. If you're using Redis server as just a key/value store, latency might not be the primary concern.
 
-## Rely on hostname not public IP address
+## Rely on hostname, not a public or private IP address
 
-The public IP address assigned to your cache can change as a result of a scale operation or backend improvement. We recommend relying on the hostname instead of an explicit public IP address. Here are the recommended forms for the various tiers:
+The IP address assigned to your cache can change as a result of a scale operation or backend improvement. We recommend relying on the hostname instead of an explicit public or private IP address. The configured static IP address for a cache in a virtual network isn't an immutable guarantee and might change during certain operations, although changes are rare. Here are the recommended forms for the various SKUs:
 
-|Tier | Form |
+|SKUs| Form |
 |----|----|
-| Basic, Standard, Premium | `<cachename>.redis.cache.windows.net` |
-| Enterprise, Enterprise Flash | `<DNS name>.<Azure region>.redisenterprise.cache.azure.net.`  |
+| Basic, Standard, Premium | `<DNS name>.redis.cache.windows.net` |
+| Enterprise, Enterprise Flash | `<DNS name>.<Azure region>.redisenterprise.cache.azure.net`  |
+| Azure Managed Redis | `<DNS name>.<Azure region>.redis.azure.net` |
 
 ## Choose an appropriate Redis version
 

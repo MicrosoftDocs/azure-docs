@@ -2,7 +2,7 @@
 title: Azure Backup support matrix
 description: Provides a summary of support settings and limitations for the Azure Backup service.
 ms.topic: reference
-ms.date: 01/29/2026
+ms.date: 03/25/2026
 ms.custom: references_regions, linux-related-content
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -33,11 +33,11 @@ The following table describes the features of Recovery Services vaults:
 **Feature** | **Details**
 --- | ---
 **Vaults in subscription** | Up to 500 Recovery Services vaults or Backup vaults in a single subscription.<br><br>Up to 5000 Backup Policies for each Data Source under Recovery Services Vault or Backup Vault.
-**Machines in a vault** | Up to 2000 datasources across all workloads (like Azure VMs, SQL Server VM, MABS Servers, and so on) can be protected in a single vault.<br><br>Up to 1,000 Azure VMs in a single vault, but due to security constraints only 250 VM registrations are allowed per day.<br/><br/> Up to 50 MABS servers can be registered in a single vault.<br><br>Up to 100 VM’s can be protected in a single policy.
+**Machines in a vault** | Up to 2000 datasources across all workloads (like Azure VMs, SQL Server VM, MABS Servers, and so on) can be protected in a single vault.<br><br>Up to 1,000 Azure VMs in a single vault, but due to security constraints only 250 VM registrations are allowed per day.<br/><br/> Up to 50 MABS servers can be registered in a single vault.<br><br>Up to 100 VMs can be protected in a single policy.
 **Data sources** | Maximum size of an individual [data source](./backup-azure-backup-faq.yml#how-is-the-data-source-size-determined-) is 54,400 GB. This limit doesn't apply to Azure VM backups. No limits apply to the total amount of data you can back up to the vault.
 **Backups to vault** | **Azure VMs:** Once a day.<br/><br/>**Machines protected by DPM/MABS:** Twice a day.<br/><br/> **Machines backed up directly by using the MARS agent:** Three times a day.
-**Backups between vaults** | Backup is within a region and subscription.<br/><br/> You need a vault in every Azure region and subscription that contains VMs you want to back up. You can't back up to a different region. Cross subscription backup (RS vault and protected VMs are in different subscriptions) isn't a supported scenario.
-**Move vaults** | You can [move vaults](./backup-azure-move-recovery-services-vault.md) across subscriptions or between resource groups in the same subscription. However, moving vaults across regions isn't supported.
+**Backups between vaults** | Backup is within a region.<br/><br/> You need a vault in every Azure region that contains VMs you want to back up. You can't back up to a different region. For Azure VM backup in a Recovery Services vault, the vault and protected VM can be in different subscriptions. See the [support matrix for Azure VM backup](backup-support-matrix-iaas.md) for the supported cross-subscription scenarios and limitations.
+**Move vaults** | You can [move vaults](./backup-azure-move-recovery-services-vault.md) across subscriptions or between resource groups in the same subscription. However, moving vaults across regions isn't supported. A Recovery Services vault that contains cross-subscription protected Azure VM backup items can't be moved across subscriptions or between resource groups.
 **Move data between vaults** | Moving backed-up data between vaults isn't supported.
 **Modify vault storage type** | You can modify the storage replication type (either geo-redundant storage or locally redundant storage) for a vault before backups are stored. After backups begin in the vault, the replication type can't be modified.
 **Private Endpoints** | See [this section](./private-endpoints.md#before-you-start) for requirements to create private endpoints for a recovery service vault.  
@@ -154,7 +154,7 @@ Azure Backup has added the Cross Region Restore feature to strengthen data avail
 
 | Backup Management type | Supported                                                    | Supported Regions |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
-| Azure VM               | Supported for Azure VMs (including encrypted Azure VMs) with both managed and unmanaged disks. Not supported for classic VMs. | Available in all Azure public regions and sovereign regions, except for UG IOWA. |
+| Azure VM               | Supported for Azure VMs (including encrypted Azure VMs) that use managed disks. Not supported for legacy recovery points from VMs that used unmanaged disks or for classic VMs. | Available in all Azure public regions and sovereign regions, except for UG IOWA. |
 | SQL /SAP HANA | Available      | Available in all Azure public regions and sovereign regions, except for France Central and UG IOWA. |
 | MARS Agent (Preview)  | Available in preview. <br><br> Not supported for vaults with Private Endpoint enabled.       | Available in all Azure public regions.   |
 | DPM/MABS | No                        |                      N/A                   |
@@ -178,7 +178,7 @@ Azure Backup now supports zone-redundant storage (ZRS).
 
 - Azure Backup currently supports ZRS for all workloads, except Azure Disk, in the following regions: UK South, South East Asia, Australia East, North Europe, Central US, East US 2, Brazil South, South Central US, Korea Central, Norway East, France Central, West Europe, East Asia, Sweden Central, Canada Central, India Central, South Africa North, West US 2, Japan East, East US, US Gov Virginia, Switzerland North, Qatar, UAE North, and West US 3.
 
-- ZRS support for Azure Disk is generally available in the following regions: South Africa North, East Asia, Southeast Asia, Australia East, US Gov Virginia, Brazil South, Canada Central, China North 3, North Europe, West Europe, France Central, Germany West Central, Central India, Israel Central, Italy North, Japan East, Korea Central,Norway East, Poland Central, Qatar Central, Sweden Central, Switzerland North, UAE North, UK South, East US, East US 2, South Central US, West US 2, West US 3.
+- ZRS support for Azure Disk is generally available in the following regions: South Africa North, East Asia, Southeast Asia, Australia East, US Gov Virginia, Brazil South, Canada Central, China North 3, North Europe, West Europe, France Central, Germany West Central, Central India, Israel Central, Italy North, Japan East, Korea Central, Norway East, Poland Central, Qatar Central, Sweden Central, Switzerland North, UAE North, UK South, East US, East US 2, South Central US, West US 2, West US 3.
 
 ### Supported scenarios
 

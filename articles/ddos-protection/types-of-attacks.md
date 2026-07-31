@@ -2,11 +2,11 @@
 title: 'Types of attacks Azure DDoS Protection mitigates'
 description: Learn what types of attacks Azure DDoS Protection protects against.
 services: ddos-protection
-author: AbdullahBell
+author: duongau
 ms.service: azure-ddos-protection
 ms.topic: concept-article
-ms.date: 03/17/2025
-ms.author: abell
+ms.date: 03/17/2026
+ms.author: duau
 # Customer intent: As a network security administrator, I want to understand the types of attacks mitigated by DDoS protection, so that I can implement appropriate defenses to safeguard my network and ensure service availability.
 ---
 # Types of attacks Azure DDoS Protection mitigate

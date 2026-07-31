@@ -42,7 +42,7 @@ The following example demonstrates how to implement key-value composition in a .
 
 ```csharp
 configBuilder.AddAzureAppConfiguration(options => {
-    options.Connect(new Uri("<your-app-config-endpoint>"), new DefaultAzureCredential())
+    options.Connect(new Uri("<AppConfigurationEndpoint>"), new DefaultAzureCredential())
            // Load all keys that start with `TestApp:` and compose with two different labels
            .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
            .Select(keyFilter: "TestApp:*", labelFilter: "Development");
@@ -64,7 +64,7 @@ In this approach, the provider monitors all selected keys. If a change is detect
 ```csharp
 configBuilder.AddAzureAppConfiguration(options =>
 {
-    options.Connect(new Uri("<your-app-config-endpoint>"), new DefaultAzureCredential())
+    options.Connect(new Uri("<AppConfigurationEndpoint>"), new DefaultAzureCredential())
            // Load all keys that start with `TestApp:` and have no label
            .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
            .ConfigureRefresh(refreshOptions =>
@@ -73,6 +73,21 @@ configBuilder.AddAzureAppConfiguration(options =>
                refreshOptions.RegisterAll();
            });
 });
+```
+
+#### [Spring](#tab/spring)
+
+```yaml
+spring:
+  config:
+    import: azureAppConfiguration
+  cloud:
+    azure:
+      appconfiguration:
+        stores:
+          - endpoint: <AppConfigurationEndpoint>
+            monitoring:
+              enabled: true
 ```
 
 #### [JavaScript](#tab/javascript)
@@ -87,6 +102,10 @@ const appConfig = await load(endpoint, credential, {
     }
 });
 ```
+
+#### [Python](#tab/python)
+
+The Azure App Configuration provider for Python doesn't support monitoring all selected keys for changes. You can only monitor individual keys. For more information, see [Monitoring a sentinel key](#monitoring-a-sentinel-key).
 
 #### [Go](#tab/go)
 
@@ -115,7 +134,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
   configuration:
@@ -138,7 +157,7 @@ Alternatively, you can monitor an individual key, often referred to as the *sent
 ```csharp
 configBuilder.AddAzureAppConfiguration(options =>
 {
-    options.Connect(new Uri("<your-app-config-endpoint>"), new DefaultAzureCredential())
+    options.Connect(new Uri("<AppConfigurationEndpoint>"), new DefaultAzureCredential())
            // Load all keys that start with `TestApp:` and have no label
            .Select(keyFilter: "TestApp:*", labelFilter: LabelFilter.Null)
            .ConfigureRefresh(refreshOptions =>
@@ -147,6 +166,23 @@ configBuilder.AddAzureAppConfiguration(options =>
                refreshOptions.Register("SentinelKey", refreshAll: true);
            });
 });
+```
+
+#### [Spring](#tab/spring)
+
+```yaml
+spring:
+  config:
+    import: azureAppConfiguration
+  cloud:
+    azure:
+      appconfiguration:
+        stores:
+          - endpoint: <AppConfigurationEndpoint>
+            monitoring:
+              enabled: true
+              triggers:
+                - key: SentinelKey
 ```
 
 #### [JavaScript](#tab/javascript)
@@ -161,6 +197,17 @@ const appConfig = await load(endpoint, credential, {
         watchedSettings: [{ key: "SentinelKey" }]
     }
 });
+```
+
+#### [Python](#tab/python)
+
+```python
+config = load(
+    endpoint,
+    credential,
+    # Trigger a refresh only if the `SentinelKey` changes
+    refresh_on=[WatchedKey(key="SentinelKey")]
+)
 ```
 
 #### [Go](#tab/go)
@@ -195,7 +242,7 @@ kind: AzureAppConfigurationProvider
 metadata:
   name: appconfigurationprovider-sample
 spec:
-  endpoint: <your-app-configuration-store-endpoint>
+  endpoint: <AppConfigurationEndpoint>
   target:
     configMapName: configmap-created-by-appconfig-provider
   configuration:

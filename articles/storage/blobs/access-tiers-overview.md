@@ -5,7 +5,7 @@ description: Azure storage offers different access tiers so that you can store y
 author: normesta
 
 ms.author: normesta
-ms.date: 12/02/2025
+ms.date: 04/02/2026
 ms.service: azure-blob-storage
 ms.topic: concept-article
 # Customer intent: As a cloud storage manager, I want to select the appropriate access tier for my blob data, so that I can optimize storage costs based on the frequency of access and retention requirements.
@@ -124,7 +124,7 @@ Changing a blob's tier from a warmer tier to a cooler one is instantaneous, as i
 
 Keep in mind the following points when changing a blob's tier:
 
-- You can't use **Set Blob Tier** to archive a a blob that uses an encryption scope. You can only use **Set Blob Tier** to move between online access tiers. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
+- You can't use **Set Blob Tier** to archive a blob that uses an encryption scope. You can only use **Set Blob Tier** to move between online access tiers. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
  
 - If a blob is explicitly moved to the cool or cold tier and then moved to the archive tier, the early deletion charge applies.
 
@@ -166,7 +166,6 @@ For more information about pricing for block blobs, see [Block blob pricing](htt
 ### Storage capacity costs
 
 In addition to the amount of data stored, the cost of storing data varies depending on the access tier. The per-gigabyte capacity cost decreases as the tier gets cooler.
-
 ### Data access costs
 
 Data access charges increase as the tier gets cooler. For data in the cool, cold and archive access tier, you're charged a per-gigabyte data access charge for reads.
@@ -211,12 +210,12 @@ The cold tier requires the following minimum versions of REST, SDKs, and tools
 | Environment | Minimum version |
 |---|---|
 | [REST API](/rest/api/storageservices/blob-service-rest-api)| 2021-12-02 |
-| [.NET](/dotnet/api/azure.storage.blobs) | 12.15.0 |
-| [Java](/java/api/overview/azure/storage-blob-readme) | 12.21.0 |
-| [Python](/python/api/azure-storage-blob/) | 12.15.0 |
-| [JavaScript](/javascript/api/preview-docs/@azure/storage-blob/) | 12.13.0 |
-| [PowerShell (Az.Storage)](/powershell/azure/install-azure-powershell) | 5.8.0 |
-| [Azure CLI](/cli/azure/install-azure-cli) | 2.50.0 |
+| [.NET](/dotnet/api/overview/azure/storage) | 12.15.0 |
+| [Java](/java/api/overview/azure/storage) | 12.21.0 |
+| [Python](/python/api/overview/azure/storage) | 12.15.0 |
+| [JavaScript](/javascript/api/overview/azure/storage) | 12.13.0 |
+| [PowerShell (Az.Storage)](/powershell/module/az.storage) | 5.8.0 |
+| [Azure CLI](/cli/azure/storage) | 2.50.0 |
 | [AzCopy](../common/storage-use-azcopy-v10.md) | 10.18.1 |
 | [Azure Storage Explorer](quickstart-storage-explorer.md) | 1.29.0 |
 

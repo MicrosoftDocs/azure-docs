@@ -4,7 +4,7 @@ description: Learn how to secure Azure Container Apps, with best practices for p
 author: craigshoemaker
 ms.author: cshoe
 ms.service: azure-container-apps
-ms.topic: conceptual
+ms.topic: best-practice
 ms.custom: horz-security
 ms.date: 12/18/2025
 ai-usage: ai-assisted

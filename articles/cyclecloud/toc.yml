@@ -23,6 +23,8 @@ items:
     href: ./concepts/core.md
   - name: Clusters & Nodes
     href: ./concepts/clusters.md
+  - name: Plan and size HPC clusters
+    href: ./concepts/plan-and-size-hpc-clusters.md
   - name: Scheduling
     href: ./concepts/scheduling.md
   - name: Multi-region Cluster Deployment
@@ -267,18 +269,20 @@ items:
         href: /previous-versions/azure/cyclecloud/release-notes-previous
       - name: Older Releases
         href: /previous-versions/azure/cyclecloud/release-notes-archive
+      - name: 8.9.1 Release Notes
+        href: ./release-notes/8-9-1.md
+      - name: 8.9.0 Release Notes
+        href: ./release-notes/8-9-0.md
+      - name: 8.8.3 Release Notes
+        href: ./release-notes/8-8-3.md
       - name: 8.8.2 Release Notes
         href: ./release-notes/8-8-2.md
-      - name: 8.8.1 Release Notes
-        href: ./release-notes/8-8-1.md
-      - name: 8.8.0 Release Notes
-        href: ./release-notes/8-8-0.md
   - name: Release Notes - CycleCloud Workspace for Slurm
     items:
-      - name: Current Release - 2026.02.01
-        href: ./release-notes/ccws/2026-02-01.md
-      - name: Previous Release - 2025.12.01
-        href: ./release-notes/ccws/2025-12-01.md
+      - name: Current Release - 2026.07.02
+        href: ./release-notes/ccws/2026-07-02.md
+      - name: Previous Release - 2026.06.18
+        href: ./release-notes/ccws/2026-06-18.md
       - name: All Releases
         href: ./release-notes/ccws/release-notes.md
   - name: Service Policy

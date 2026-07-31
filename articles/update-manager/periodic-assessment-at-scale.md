@@ -7,6 +7,7 @@ author: habibaum
 ms.author: v-uhabiba
 ms.date: 08/21/2025
 ms.topic: how-to
+ms.update-cycle: 1095-days
 # Customer intent: As a systems administrator, I want to enable periodic assessment for my Azure and Azure Arc-enabled machines using policy, so that I can automate update checks and ensure my systems are regularly monitored for compliance without manual intervention.
 ---
 

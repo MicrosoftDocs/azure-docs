@@ -6,7 +6,7 @@ description: Define a self-asserted technical profile in a custom policy in Azur
 author: kengaderdus
 manager: CelesteDG
 
-ms.service: azure-active-directory
+ms.service: entra-id
 
 ms.topic: reference
 ms.date: 01/17/2024

@@ -61,7 +61,7 @@ kernel/drivers/net/ethernet/microsoft/mana/mana.ko
 
 ## Update the kernel
 
-Ethernet drivers for MANA are included in kernel version 5.15 and later. Kernel version 6.2 includes Linux support for features such as InfiniBand/RDMA and DPDK. Earlier or forked kernel versions (5.15 and 6.1) require backported support. Operating system support details are listed at [Azure Accelerated Networking Overview](accelerated-networking-overview.md).
+Ethernet drivers for MANA were first introduced upstream in kernel version 5.15 and later. Kernel version 6.2 includes Linux support for features such as InfiniBand/RDMA and DPDK. Earlier or forked kernel versions (5.15 and 6.1) require backported support. Operating system support details are listed at [Azure Accelerated Networking Overview](accelerated-networking-overview.md).
 
 To update your VM's Linux kernel, check the documentation for your specific distribution.
 

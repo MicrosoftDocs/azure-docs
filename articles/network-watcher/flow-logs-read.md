@@ -28,7 +28,7 @@ The concepts discussed in this article aren't limited to the PowerShell and are 
 
 - Flow logs in a region or more. For more information, see [Create network security group flow logs](nsg-flow-logs-manage.md#create-a-flow-log) or [Create virtual network flow logs](vnet-flow-logs-manage.md#create-a-flow-log).
 
-- Necessary Azure role-based access control (Azure RBAC) permissions for the subscriptions of flow logs and storage account. For more information, see [Network Watcher RBAC permissions](required-rbac-permissions.md).
+- Necessary Azure role-based access control (Azure RBAC) permissions for the subscriptions of flow logs and storage account. For more information, see [Network Watcher RBAC permissions](rbac-permissions.md).
 
 ## Retrieve the blocklist
 

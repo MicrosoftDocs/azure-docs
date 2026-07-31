@@ -2,12 +2,12 @@
 title: Azure Stack Edge 2309 release notes
 description: Describes critical open issues and resolutions for the Azure Stack Edge running 2309 release.
 services: databox
-author: alkohli
+author: sipastak
  
 ms.service: azure-stack-edge
-ms.topic: article
+ms.topic: release-notes
 ms.date: 10/26/2023
-ms.author: alkohli
+ms.author: sipastak
 ---
 
 # Azure Stack Edge 2309 release notes
@@ -49,7 +49,7 @@ You can update to the latest version using the following update paths:
 
 The 2309 release has the following new features and enhancements:
 
-- Beginning this release, you have the option of selecting Kubernetes profiles based on your workloads. You can select the Kubernetes workload profiles via the [local UI](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=two-node#configure-compute-ips-1) of your device.
+- Starting with this release, you can select Kubernetes profiles based on your workloads. You can select the Kubernetes workload profiles through the [local UI](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-compute-ips) of your device.
 - In this release, you can configure Maximum Transmission Unit (MTU) for the network interfaces on your device. For more information, see [Configure MTU via the local UI](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md?pivots=single-node#configure-virtual-switches).
 - In this release, new VM sizes have been added. For more information, see the [Supported VM sizes for Azure Stack Edge](azure-stack-edge-gpu-virtual-machine-sizes.md).
 - Starting this release, you can create  a VM image with custom sizes and use that to create your VMs. For more information, see [Create a VM image with custom size](azure-stack-edge-create-vm-with-custom-size.md).
@@ -92,7 +92,7 @@ The following table provides a summary of known issues carried over from the pre
 |**5.**|Tiered storage accounts|The following apply when using tiered storage accounts:<br> - Only block blobs are supported. Page blobs aren't supported.<br> - There's no snapshot or copy API support.<br> -  Hadoop workload ingestion through `distcp` isn't supported as it uses the copy operation heavily.||
 |**6.**|NFS share connection|If multiple processes are copying to the same share, and the `nolock` attribute isn't used, you might see errors during the copy.​|The `nolock` attribute must be passed to the mount command to copy files to the NFS share. For example: `C:\Users\aseuser mount -o anon \\10.1.1.211\mnt\vms Z:`.|
 |**7.**|Kubernetes cluster|When applying an update on your device that is running a Kubernetes cluster, the Kubernetes virtual machines will restart and reboot. In this instance, only pods that are deployed with replicas specified are automatically restored after an update.  |If you have created individual pods outside a replication controller without specifying a replica set, these pods won't be restored automatically after the device update. You'll need to restore these pods.<br>A replica set replaces pods that are deleted or terminated for any reason, such as node failure or disruptive node upgrade. For this reason, we recommend that you use a replica set even if your application requires only a single pod.|
-|**8.**|Kubernetes cluster|Kubernetes on Azure Stack Edge Pro is supported only with Helm v3 or later. For more information, go to [Frequently asked questions: Removal of Tiller](https://v3.helm.sh/docs/faq/).|
+|**8.**|Kubernetes cluster|Kubernetes on Azure Stack Edge Pro is supported only with Helm v3 or later. For more information, go to [Frequently asked questions: Removal of Tiller](https://helm.sh/docs/v3/faq/).|
 |**9.**|Kubernetes |Port 31000 is reserved for Kubernetes Dashboard. Port 31001 is reserved for Edge container registry. Similarly, in the default configuration, the IP addresses 172.28.0.1 and 172.28.0.10, are reserved for Kubernetes service and Core DNS service respectively.|Don't use reserved IPs.|
 |**10.**|Kubernetes |Kubernetes doesn't currently allow multi-protocol LoadBalancer services. For example, a DNS service that would have to listen on both TCP and UDP. |To work around this limitation of Kubernetes with MetalLB, two services (one for TCP, one for UDP) can be created on the same pod selector. These services use the same sharing key and spec.loadBalancerIP to share the same IP address. IPs can also be shared if you have more services than available IP addresses. <br> For more information, see [IP address sharing](https://metallb.universe.tf/usage/#ip-address-sharing).|
 |**11.**|Kubernetes cluster|Existing Azure IoT Edge marketplace modules might require modifications to run on IoT Edge on Azure Stack Edge device.|For more information, see [Run existing IoT Edge modules from Azure Stack Edge Pro FPGA devices on Azure Stack Edge Pro GPU device](azure-stack-edge-gpu-modify-fpga-modules-gpu.md).|

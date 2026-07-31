@@ -4,7 +4,7 @@ description: "Learn how Azure DNS Private Resolver enables secure DNS resolution
 author: asudbring
 ms.service: azure-dns
 ms.topic: overview
-ms.date: 12/16/2025
+ms.date: 06/22/2026
 ms.author: allensu
 ms.custom:
   - references_regions

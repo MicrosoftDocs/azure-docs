@@ -63,7 +63,7 @@ A condition can be up to 8 KB long.
 
 **What are the limits for a description?**
 
-A description has a recommended maximum of 512 characters.
+A description has a recommended maximum of 512 characters. The maximum is 2,048 characters.
 
 **Is it possible to create a role assignment with and without a condition, but using the same tuple of security principal, role definition, and scope?**
 

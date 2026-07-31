@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: concept-article
-ms.date: 01/16/2026
+ms.date: 03/16/2026
 ms.author: anfdocs
 # Customer intent: As a cloud storage administrator, I want to analyze performance and usage metrics for Azure NetApp Files, so that I can optimize storage provisioning and ensure efficient operation of my storage resources.
 ---
@@ -23,7 +23,34 @@ Understanding the terminology related to performance and capacity in Azure NetAp
 - **Capacity pool**: A capacity pool is how capacity is billed in Azure NetApp Files. Capacity pools contain one or more volumes. 
 - **Volume quota**: The amount of capacity provisioned to an Azure NetApp Files volume. For Auto QoS volumes, throughput is proportional to volume size. For Manual QoS, you set the throughput independently from the volume capacity. For more information, see [QoS types for capacity pools](azure-netapp-files-understand-storage-hierarchy.md#qos_types).
 - **Throughput**: The amount of data transmitted across the wire (read/write/other) between Azure NetApp Files and the client. Throughput in Azure NetApp Files is measured in bytes per second. 
-- **Latency**: Latency is the amount of time for a storage operation to complete within storage from the time it arrives to the time it's processed and is ready to be sent back to the client. Latency in Azure NetApp Files is measured in milliseconds (ms). 
+- **Latency**: Latency is the amount of time for a storage operation to complete within storage from the time it arrives to the time it's processed and is ready to be sent back to the client. Azure NetApp Files measures latency in milliseconds (ms).
+
+## Metric collection interval
+
+Unless otherwise specified, Azure NetApp Files metrics represent values over a five-minute average. As a result, reported metric values reflect the average activity during that interval rather than instantaneous values. Short-duration spikes or transient workload behavior might not be fully visible in the reported metrics.
+
+Metrics with collection interval explicitly describe their collection or reporting methodology in the metric definition.
+
+For example, suppose throughput is sampled repeatedly during a 5-minute interval. During those 5 minutes:
+
+   Minute 1: 100 MiB/s 
+   
+   Minute 2: 120 MiB/s
+   
+   Minute 3: 500 MiB/s (brief spike)
+   
+   Minute 4: 110 MiB/s
+   
+   Minute 5: 120 MiB/s
+
+The metric shown for that interval might be approximately: 
+(100 + 120 + 500 + 110 + 120) / 5 = 190 MiB/s
+
+Instead of showing the instantaneous peak of 500 MiB/s, Azure Monitor displays the aggregated value of about 190 MiB/s for that 5-minute collection interval.
+
+### Why does this matter?
+
+If you're troubleshooting Azure NetApp Files performance, a very short spike (for example, a 30-second burst to maximum throughput) might be diluted by the other 4½ minutes of lower activity. The graph might look relatively smooth even though the workload experienced brief periods of saturation. Interpret the metric as "average behavior during the 5-minute interval", and not "what happened at a specific second".
 
 ## About storage performance operation metrics 
 
@@ -314,7 +341,7 @@ Azure NetApp Files provides metrics on allocated storage, actual storage usage, 
     The delay between when data is written to the source volume and when it’s available on the destination volume.
 
 > [!NOTE]
-> When assessing the health status of the volume replication, consider the volume replication lag time. If the lag time is greater than the replication schedule, the replication volume won't catch up to the source. To resolve this issue, adjust the replication speed or the replication schedule. 
+> When assessing the health status of the volume replication, consider the volume replication lag time. If the lag time is greater than the replication schedule, the replication volume won't catch up to the source. To resolve this issue, adjust the replication schedule. 
 
 - *Volume replication last transfer duration*   
     The time taken for the most recent replication session to transfer all changed data (example: blocks, snapshots) from the source volume to the destination volume. 

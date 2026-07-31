@@ -33,6 +33,9 @@ You may also choose to block inbound public (Internet) access to Application Gat
 
 All features supported by Application Gateway are supported when accessed through a private endpoint, including support for AGIC.
 
+> [!NOTE]
+> If your client application connects to App Gateway via a private IP, requires an idle timeout greater > than 4 minutes, and the client application does not send TCP keep-alive packets, contact > agprivateip-keepalive@microsoft.com to request initiation of keep‑alive from Application Gateway.
+
 ## Private Link components
 
 Four components are required to implement Private Link with Application Gateway:

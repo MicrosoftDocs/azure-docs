@@ -29,6 +29,10 @@ For information on setup and configuration details, see [How to work with Event 
 
 ## Example
 
+::: zone pivot="programming-language-go"
+Go support isn't currently available for this binding.
+::: zone-end
+
 ::: zone pivot="programming-language-csharp"
 
 The type of the output parameter used with an Event Grid output binding depends on the Functions runtime version, the binding extension version, and the modality of the C# function. The C# function can be created using one of the following C# modes:
@@ -719,7 +723,7 @@ Use the following steps to configure a topic key:
 
 ### Identity-based authentication
 
-When using version 3.3.x or higher of the extension, you can connect to an Event Grid topic using an [Microsoft Entra identity](../active-directory/fundamentals/active-directory-whatis.md) to avoid having to obtain and work with topic keys. 
+When using version 3.3.x or higher of the extension, you can connect to an Event Grid topic using a [Microsoft Entra identity](../active-directory/fundamentals/active-directory-whatis.md) to avoid having to obtain and work with topic keys. 
 
 You need to create an application setting that returns the topic endpoint URI. The name of the setting should combine a _unique common prefix_ (for example, `myawesometopic`) with the value `__topicEndpointUri`. Then, you must use that common prefix (in this case, `myawesometopic`) when you define the `Connection` property in the binding.
 

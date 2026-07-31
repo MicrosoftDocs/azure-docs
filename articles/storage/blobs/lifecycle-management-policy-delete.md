@@ -7,7 +7,7 @@ author: normesta
 ms.author: normesta
 ms.date: 06/13/2025
 ms.service: azure-blob-storage
-ms.topic: conceptual 
+ms.topic: how-to
 
 # Customer intent: "As a data administrator, I want to configure lifecycle management policies for blob storage, so that I can automate the deletion of expired or tagged data to optimize storage use and manage data retention effectively."
 ---
@@ -17,6 +17,12 @@ ms.topic: conceptual
 You can use lifecycle management policies to transition blobs to delete blob at the end of their lifecycle. This article contains examples of policy definitions that delete blobs.
 
 For general information about Azure Storage lifecycle management policies, see [Azure Blob Storage lifecycle management overview](lifecycle-management-overview.md).
+
+> [!IMPORTANT]
+>  Lifecycle management policies that delete blobs in a storage account with soft-delete enabled will put the blob in a soft-deleted state. Such blobs are retained for the duration of the soft-delete retention period. See [Soft delete for blobs](./soft-delete-blob-overview.md). Lifecycle management policies do not impact blobs that are already in a soft-deleted state.
+
+> [!TIP]
+> Use [Azure Storage Actions](../../storage-actions/overview.md) to restore/undelete blobs from a soft-deleted state.
 
 ## Expire data based on age
 

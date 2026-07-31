@@ -7,7 +7,7 @@ author: mbender-ms
 ms.service: azure-appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 2/9/2026
+ms.date: 4/29/2026
 ms.author: mbender
 # Customer intent: As a Kubernetes administrator, I want to install the Application Gateway for Containers ALB Controller on my AKS cluster using the AKS add-on, so that I can efficiently manage load balancing rules with simplified configuration and automated identity management.
 ---
@@ -83,9 +83,6 @@ The following AKS cluster requirements are needed for successful provisioning of
 
 >[!Note]
 >While enablement of the add-on will register and deploy the ALB controller in all regions, provisioning of the Application Gateway for Containers resources will fail if not deployed in a [region where Application Gateway for Containers is available](overview.md#supported-regions).
-
->[!Warning]
->Enablement of the Application Gateway for Containers AKS add-on on an AKS Automatic cluster isn't currently supported.
 
 ### New Cluster
 
@@ -216,9 +213,32 @@ Verify GatewayClass `azure-alb-external` is installed on your cluster:
 kubectl get gatewayclass azure-alb-external -o yaml
 ```
 
+You should see that the GatewayClass has a condition that reads **Valid GatewayClass**. This condition indicates that a default GatewayClass is set up and that any gateway resources that reference this GatewayClass is managed by ALB Controller.
+
+```output
+apiVersion: gateway.networking.k8s.io/v1beta1
+kind: GatewayClass
+metadata:
+  creationTimestamp: "2023-07-31T13:07:00Z"
+  generation: 1
+  name: azure-alb-external
+  resourceVersion: "64270"
+  uid: 6c1443af-63e6-4b79-952f-6c3af1f1c41e
+spec:
+  controllerName: alb.networking.azure.io/alb-controller
+status:
+  conditions:
+    - lastTransitionTime: "2023-07-31T13:07:23Z"
+    message: Valid GatewayClass
+    observedGeneration: 1
+    reason: Accepted
+    status: "True"
+    type: Accepted
+```
+
 ##### Validate Add-on Resources in Azure portal
 
-Navigate to the `MC_` (node) resource group for your AKS cluster. You should see the following resources automatically created by the add-on:
+Navigate to the `MC_` (node) resource group for your AKS cluster. You should see the following resources created by the add-on:
 
 ###### Managed Identity
 
@@ -241,30 +261,7 @@ The `applicationloadbalancer-<cluster-name>` identity has a federated identity c
 
 ###### Subnet
 
-A subnet named `aks-appgateway` with subnet delegation enabled for `Microsoft.ServiceNetworking/TrafficController`
-
-You should see that the GatewayClass has a condition that reads **Valid GatewayClass**. This condition indicates that a default GatewayClass is set up and that any gateway resources that reference this GatewayClass is managed by ALB Controller automatically.
-
-```output
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: GatewayClass
-metadata:
-  creationTimestamp: "2023-07-31T13:07:00Z"
-  generation: 1
-  name: azure-alb-external
-  resourceVersion: "64270"
-  uid: 6c1443af-63e6-4b79-952f-6c3af1f1c41e
-spec:
-  controllerName: alb.networking.azure.io/alb-controller
-status:
-  conditions:
-    - lastTransitionTime: "2023-07-31T13:07:23Z"
-    message: Valid GatewayClass
-    observedGeneration: 1
-    reason: Accepted
-    status: "True"
-    type: Accepted
-```
+When the add-on is enabled on an AKS cluster using the AKS-managed virtual network option, a subnet named `aks-appgateway` is automatically created with delegation enabled for `Microsoft.ServiceNetworking/TrafficController`.
 
 ## Next Steps
 
@@ -304,7 +301,7 @@ az aks update --name ${AKS_NAME} --resource-group ${RESOURCE_GROUP} --disable-ga
 
 # [Azure Rest](#tab/azure-rest2)
 
-Here's how to update an existing AKS cluster via REST API, through the use of the Azure CLI REST command.
+Here's how to update an existing AKS cluster via REST API, by using the Azure CLI REST command.
 
 ```azurecli-interactive
 AKS_NAME='<your cluster name>'

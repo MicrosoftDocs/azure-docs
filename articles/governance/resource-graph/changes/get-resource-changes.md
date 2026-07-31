@@ -193,7 +193,7 @@ With Resource Graph, you can query either the `resourcechanges`, `resourcecontai
 
 ### Examples
 
-Before querying and analyzing changes in your resources, review the following best practices.
+Before querying and analyzing changes in your resources, review the following best practices and definitions.
 
 - Query for change events during a specific window of time and evaluate the change details.
    - This query works best during incident management to understand _potentially_ related changes.
@@ -205,9 +205,14 @@ Before querying and analyzing changes in your resources, review the following be
    - The `order by` command orders the query results by the change time.
    - The `limit` command then limits the ordered results to ensure that you get the five most recent results.
 - What does **Unknown** mean? 
-   -  Unknown is displayed when the change happened on a client that's unrecognized. Clients are recognized based on the user agent and client application ID associated with the original change request.
+   -  "Unknown" is displayed when the change happened on a client that's unrecognized. Clients are recognized based on the user agent and client application ID associated with the original change request. In this case, the identity/client information was present but did not match any known client.
+   -  "Unknown" can be shown for the `clientType` value.
+- What does **Unspecified** mean? 
+   -  "Unspecified" is displayed when no identity or client information was available for the change. The notification event carried no changedBy, client application ID, or user agent information, and the resource's system metadata also did not contain a `lastModifiedBy` or `createdBy` value.
+   -  "Unspecified" can be shown for the `changedBy`, `changedByType`, `clientType`, and `operation` values.
 - What does **System** mean?
-  - System is displayed as a `changedBy` value when a background change occurred that wasn't correlated with any direct user action.
+  - "System" is displayed when a background platform change occurred that wasn't correlated with any direct user action.
+  - "System" can be shown for the `changedBy` and `changedByType` values. 
 
 #### All changes in the past 24-hour period
 

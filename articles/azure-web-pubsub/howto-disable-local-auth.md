@@ -6,7 +6,7 @@ ms.author: lianwei
 ms.date: 08/16/2024
 ms.service: azure-web-pubsub
 ms.custom: devx-track-arm-template
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Turn off local (access key) authentication

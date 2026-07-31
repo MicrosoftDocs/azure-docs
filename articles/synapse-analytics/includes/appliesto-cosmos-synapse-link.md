@@ -2,6 +2,8 @@
 ms.date: 12/08/2025
 ms.service: azure-cosmos-db
 ms.topic: include
+author: seesharprun
+ms.author: sidandrews
 ---
 
 > [!IMPORTANT]

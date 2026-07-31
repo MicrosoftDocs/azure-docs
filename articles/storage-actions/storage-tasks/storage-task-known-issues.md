@@ -5,7 +5,7 @@ description: Learn about limitations and known issues of storage tasks.
 author: normesta
 ms.service: azure-storage-actions
 ms.custom: build-2023-metadata-update
-ms.topic: conceptual
+ms.topic: limits-and-quotas
 ms.date: 05/05/2025
 ms.author: normesta
 ---
@@ -46,9 +46,9 @@ You can stop an in-progress run by [removing the role assignment](/azure/role-ba
 
 The workaround is to delete the storage task assignment and then move the storage account resource.
 
-## Restrictions on moving a storage task
+## Restrictions on moving a storage task across Microsoft Entra directories
 
-You can't move a storage task to another region or to another subscription. You can't move a subscription that contains a storage task to another tenant.
+You can move storage tasks across resource groups and subscriptions. However, because storage tasks rely on managed identities, moving a subscription that contains a storage task to a different Microsoft Entra directory breaks the managed identity and causes the storage task to stop working. For more information, see [Known issues with managed identities for Azure resources: Transferring a subscription between Microsoft Entra directories](/entra/identity/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-microsoft-entra-directories).
 
 ## Concurrency limit for execution
 
@@ -93,14 +93,13 @@ If multiple filters are used in storage task assignments, not all directory pref
 
 Storage accounts that have a hierarchical namespace display location information as `container1 / subcontainer1` with a whitespace character between the string and the `/` character. An error appears if you copy and paste this information into the path prefix field during assignment.
 
-## Moving storage tasks and task assignments
-Moving storage tasks and task assignments across different resource groups and subscriptions isn't supported. This limitation means that any storage tasks and their associated task assignments can't be transferred between resource groups or subscriptions.
-
 ## Cleaning up task assignments before deleting storage accounts or storage tasks
+
 - Before deleting a storage account, delete all task assignments associated with that storage account.
 - Before deleting a storage task, delete all task assignments referencing that storage task.
 
 ## Operating on storage accounts in a private network
+
 Storage task assignments can be successfully applied to storage accounts in private networks when the networking configuration includes an option that permits trusted Microsoft services to access the account. This setting ensures that tasks have the necessary access during execution, even when firewall or virtual network rules are in place. If this option is **not enabled**, task execution will fail because access is blocked by network restrictions. For detailed steps on enabling this setting, refer to the documentation. [Manage network security exceptions for Azure Storage](/azure/storage/common/storage-network-security-manage-exceptions)
 
 ## Storage task runs are stuck in the in progress state
@@ -123,6 +122,27 @@ When rehydrating archived blobs, there's no option to choose a priority. The blo
 
 Task assignment runs can take around 20 minutes to change status to `In Progress` after being queued. Until then, no updates appear. This delay is expected and there is no workaround to shorten it.
 
+## Mock run limitations
+
+### Only one run (mock or real) can execute per storage account at a time
+
+If a real task run or another mock run is already in progress on the target storage account, a newly enabled mock run is queued until the current run completes. This concurrency behavior is the same as real task runs.
+
+### Completed mock runs can't be restarted
+
+Once a mock run finishes, you can't restart it. To run another mock simulation with the same configuration, create a new assignment or duplicate the existing one.
+
+### Can't create mock run assignments on enabled task assignments
+
+You can't create a mock run on a task assignment that is already enabled. Disable the assignment first, or create a new assignment with the mock run trigger type.
+
+### Mock run reports don't include operation results
+
+Because no operations are performed during a mock run, the report doesn't include operation success or failure details. The report shows what operations _would have been_ performed and which condition block each blob matched.
+
+### Delay in mock run start
+
+Like real task assignment runs, mock runs can take about 20 minutes to transition from queued to in-progress status. This delay is expected behavior.
 
 ## See Also
 

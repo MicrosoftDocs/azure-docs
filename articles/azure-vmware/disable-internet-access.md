@@ -3,7 +3,7 @@ title: Set a default internet route or turn off internet access
 description: Learn how to set a default internet route or turn off internet access in your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 3/22/2024
+ms.date: 3/26/2026
 ms.custom: engagement-fy23
 # Customer intent: "As a cloud administrator, I want to configure the default internet route for my private cloud, so that I can effectively manage internet access for my Azure VMware Solution environment."
 ---
@@ -19,13 +19,13 @@ With a default route set, you can achieve the following tasks:
 - Turn off internet access to your Azure VMware Solution private cloud.
 
   > [!NOTE]
-  > Ensure that a default route is not advertised from on-premises or from Azure. An advertised default route overrides this setup.
+  > Ensure that a default route isn't advertised from on-premises or from Azure. An advertised default route overrides this setup.
 
-- Turn on internet access by generating a default route from Azure Firewall or from a third-party NVA.
+- Turn on internet access by generating a default route from Azure Firewall or from a non-Microsoft NVA.
 
 ## Prerequisites
 
-- An Azure VMware Solution private cloud.
+- Have an Azure VMware Solution private cloud.
 - If internet access is required, a default route must be advertised from an instance of Azure Firewall, an NVA, or a virtual WAN hub.
 
 ## Set a default internet access route

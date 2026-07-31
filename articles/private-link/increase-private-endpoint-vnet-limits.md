@@ -2,10 +2,9 @@
 title: Increase Private Endpoint virtual network limits
 titleSuffix: Azure Private Link
 description: Learn how to increase private endpoints virtual network limits by upgrading to High Scale Private Endpoints.
-services: private-link
 author: ivapplyr
 ms.author: ivapplyr
-ms.date: 04/01/2025
+ms.date: 03/30/2026
 ms.service: azure-private-link
 ms.topic: how-to
 #customer intent: As a network administrator, I want to increase private endpoint limits so that I can scale my virtual network infrastructure effectively.
@@ -112,7 +111,7 @@ $vnet | Set-AzVirtualNetwork
 #### [**CLI**](#tab/ARG-HSP-CLI)
 
 ```azurecli-interactive
-vnetName = "myVirtualNetwork"
+vnetName="myVirtualNetwork"
 resourceGroupName="myResourceGroup"
 
 az network vnet update --name $vnetName --resource-group $resourceGroupName --pe-vnet-policies="Basic"
@@ -147,13 +146,13 @@ To validate the configuration, verify all necessary properties are set correctly
 
 #### [**PowerShell**](#tab/validate-PowerShell)
 
-```Powershell
+```azurepowershell-interactive
 
 $vnetName = "myVirtualNetwork"
 $resourceGroupName = "myResourceGroup"
-$vnet = Get-AzVirtualNetwork /
--ResourceGroupName $resourceGroupName /
--Name $vnetName /
+$vnet = Get-AzVirtualNetwork `
+    -ResourceGroupName $resourceGroupName `
+    -Name $vnetName
 $vnet.PrivateEndpointVNetPolicies
 
 ```

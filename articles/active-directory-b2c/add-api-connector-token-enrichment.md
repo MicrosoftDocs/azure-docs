@@ -3,7 +3,7 @@ title: Token enrichment  - Azure Active Directory B2C
 description: Enrich tokens with claims from external identity data sources using APIs or outbound webhooks.
 author: garrodonnell
 manager: CelesteDG
-ms.service: azure-active-directory
+ms.service: entra-id
 ms.topic: how-to
 ms.date: 01/17/2023
 ms.author: godonnell

@@ -25,7 +25,7 @@ In this tutorial, you:
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/free/).
+- An Azure account with an active subscription. [Create one for free](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
 - [Azure CLI](/cli/azure/install-azure-cli) version 2.62.0 or later.
 - [Java 17](/java/openjdk/download) or later.
 - [Maven 3.8](https://maven.apache.org/download.cgi) or later.

@@ -5,7 +5,7 @@ ms.topic: how-to
 author: soderholmd
 ms.author: dsoderholm
 ms.service: azure-vmware
-ms.date: 12/09/2024
+ms.date: 3/11/2026
 ms.custom: engagement-fy23
 # Customer intent: As a cloud architect, I want to evaluate external storage solutions for Azure VMware Solution, so that I can determine the best option to meet my workloads' performance, capacity, and data protection requirements.
 ---
@@ -16,7 +16,7 @@ Azure VMware Solution is a Hyperconverged Infrastructure (HCI) service that offe
 
 Some virtual machine workloads require more storage than is available in vSAN. When you reach the capacity limit of vSAN, you can either add more Azure VMware Solution nodes to increase the capacity of vSAN, or you can use an external storage solution. Adding external storage is a good option when you need to scale storage capacity without adding more CPU and memory to the cluster.
 
-Azure VMware Solution external storage is deployed into an Azure virtual network, and connected to the Azure VMware Solution private cloud via ExpressRoute. The storage is mounted on the Azure VMware Solution ESXi hosts using NFS or iSCSI, and used as a datastore for virtual machines.
+Azure VMware Solution external storage is deployed into an Azure virtual network, and connected to the Azure VMware Solution private cloud via ExpressRoute. The storage is mounted on the Azure VMware Solution ESXi hosts using Network File System (NFS) or iSCSI, and used as a datastore for virtual machines.
 
 It's also possible to map storage directly to Azure VMware Solutions virtual machines, which can reduce the amount of datastore capacity required in the cluster. A wide range of storage options is available, including Azure Files, Azure blob storage, and Azure NetApp Files.
 
@@ -59,9 +59,9 @@ Providing the same consistent external block storage architecture in the cloud i
 
 #### Pure Storage Cloud Azure Native 
 
-[Pure Storage Cloud Azure Native](../azure-vmware/configure-azure-native-pure-storage-cloud.md) service is a joint development of Pure Storage and Microsoft bringing enterprise-grade cloud block storage into Azure. It provides Block storage as a service with features and benefits Pure Storage products are known for, while also offering built-in cloud capabilities like elastic capacity, flexible performance, and high availability, powered by a common Purity operating system as in FlashArray or FlashBlade products. PSC Azure Native service decouples storage and compute resources, allowing to benefit from enterprise-grade storage features. Customers with large data footprints can optimize their AVS resources.
+[Pure Storage Cloud Azure Native](../azure-vmware/configure-azure-native-pure-storage-cloud.md) service is a joint development of Pure Storage and Microsoft bringing enterprise-grade cloud block storage into Azure. It provides Block storage as a service with features and benefits Pure Storage products are known for. Pure Storage Cloud Azure Native also offers built-in cloud capabilities like elastic capacity, flexible performance, and high availability that are powered by a common Purity operating system like, FlashArray or FlashBlade products. PSC Azure Native service decouples storage and compute resources, allowing to benefit from enterprise-grade storage features. Customers with large data footprints can optimize their AVS resources.
 
-For Azure VMware Solution, the PSC Azure Native service uses VMware vSphere Storage APIs for Array Integration (VAAI). These hardware acceleration APIs allow ESXi hosts to offload certain storage tasks to the storage system, freeing up host resources and improving performance for operations such as cloning and zeroing. Pure Storage Cloud Azure Native removes the traditional complexity of configuring storage connections while still providing the benefits of VAAI — all directly from the vSphere Client through a built-in plugin.
+For Azure VMware Solution, the PSC Azure Native service uses VMware vSphere Storage APIs for Array Integration (VAAI). These hardware acceleration APIs allow ESXi hosts to offload certain storage tasks to the storage system, freeing up host resources and improving performance for operations such as cloning and zeroing. Pure Storage Cloud Azure Native removes the traditional complexity of configuring storage connections while still providing the benefits of VAAI, all directly from the vSphere Client through a built-in plugin.
 
 #### Pure Storage Cloud Dedicated (*formerly Pure Cloud Block Store*)
 

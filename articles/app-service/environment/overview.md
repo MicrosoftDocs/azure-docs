@@ -3,7 +3,7 @@ title: App Service Environment Overview
 description: Learn about App Service Environments, which are fully isolated and single-tenant App Service deployments that provide high-scale, network-secured hosting.
 author: seligj95
 ms.topic: overview
-ms.date: 11/11/2025
+ms.date: 04/20/2026
 ms.update-cycle: 1095-days
 ms.author: jordanselig
 ms.custom:
@@ -218,9 +218,6 @@ An App Service Environment stores customer data, including app content, settings
 ## Pricing tiers
 
 The following sections list the regional pricing tiers, or SKUs, availability for App Service Environment v3.
-
-> [!NOTE]
-> Windows container plans don't support memory-intensive SKUs.
  
 ### Azure public regions
 

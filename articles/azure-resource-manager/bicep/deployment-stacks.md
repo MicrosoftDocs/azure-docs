@@ -3,7 +3,7 @@ title: Create and deploy Azure deployment stacks in Bicep
 description: Understand how to create deployment stacks in Bicep.
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, devx-track-bicep
-ms.date: 12/22/2025
+ms.date: 06/18/2026
 ---
 
 # Create and deploy Azure deployment stacks in Bicep
@@ -29,23 +29,9 @@ Deployment stacks provide the following benefits:
 - Efficient environment cleanup using delete flags during deployment stack updates.
 - Use of standard templates such as Bicep, ARM templates, or template specs for your deployment stacks.
 
-### Known limitations
+### Known issues and limitations
 
-- There is a limit of 800 deployment stacks that can be created within a single scope.
-- A maximum of 2,000 Deny Assignments can exist at any given scope.
-- The deployment stack doesn't manage implicitly created resources. Therefore, you can't use [deny-assignments](../../role-based-access-control/deny-assignments.md) or cleanup for these resources.
-- Deny-assignments don't support tags.
-- Deny-assignments aren't supported at the management group scope. However, they're supported in a management group stack if the deployment is pointed at the subscription scope.
-- Deployment stacks can't delete Key vault secrets. If you're removing key vault secrets from a template, make sure to also execute the deployment stack update/delete command with detach mode.
-
-### Known issues
-
-- Deleting resource groups currently bypasses deny-assignments. When you create a deployment stack in the resource group scope, the Bicep file doesn't contain the definition for the resource group. Despite the deny-assignment setting, you can delete the resource group and its contained stack. However, if a [lock](../management/lock-resources.md) is active on any resource within the group, the delete operation fails.
-- The [What-if](./deploy-what-if.md) support isn't yet available.
-- A management group-scoped stack can't deploy to another management group. It can only deploy to the management group of the stack itself or to a child subscription.
-- The Azure PowerShell command help lists a `DeleteResourcesAndResourcesGroups` value for the `ActionOnUnmanage` switch. When you use this value, the command detaches the managed resources and the resource groups. This value is removed in the next update. Don't use this value.
-- In some cases, the New and Set Azure PowerShell cmdlets might return a generic template validation error that isn't clearly actionable. This bug will be fixed in the next release. If the error isn't clear, run the cmdlet in debug mode to see a more detailed error in the raw response.
-- [Microsoft Graph provider](https://aka.ms/graphbicep) doesn't support deploy stacks.
+For known limitations, known issues, and recommended workarounds, see [Known issues for deployment stacks](./deployment-stacks-known-issues.md).
 
 ## Built-in roles
 
@@ -707,6 +693,22 @@ The Azure CLI includes these parameters to customize the deny-assignment:
 This feature isn't implemented at this time.
 
 ---
+
+### Exclude principals from deny settings
+
+Use the excluded principals setting (`DenySettingsExcludedPrincipal` in Azure PowerShell, `deny-settings-excluded-principals` in Azure CLI) to exempt specific identities from the deny setting. The setting accepts the [Microsoft Entra object ID](/azure/role-based-access-control/deny-assignments#deny-assignment-properties) of any principal type, including:
+
+- Users
+- **Microsoft Entra groups** (for example, security groups)
+- Service principals
+- Managed identities
+
+When you exclude a group, the deny setting doesn't apply to the principals in that group. Managing exclusions through group membership is the recommended approach, because you can change who's excluded by updating the group rather than updating the deployment stack. Identities that are commonly excluded include CI/CD service connections and workload identities, platform team or break-glass administrator groups, and policy remediation identities.
+
+> [!IMPORTANT]
+> You can exclude a maximum of **five** principals. Specifying more than five principals doesn't return an error, so confirm that the list contains no more than five entries. To exclude more identities than the limit allows, consolidate them into one or more Microsoft Entra **groups** and exclude the groups instead of the individual principals.
+
+When you exclude a group, the deny setting is evaluated against that group's membership. If you use nested groups, test the configuration to confirm that the principals you intend to exclude are exempted before you rely on the deny setting.
 
 To apply deny settings at the resource group scope:
 

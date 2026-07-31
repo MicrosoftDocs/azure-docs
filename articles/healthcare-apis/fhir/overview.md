@@ -1,18 +1,18 @@
 ---
 title: What is the FHIR service in Azure Health Data Services?
-description: Discover the FHIR service in Azure Health Data Services for secure, compliant, and scalable health data exchange and management in the cloud
+description: Learn how the FHIR service in Azure Health Data Services enables secure, compliant, and scalable health data exchange in the cloud.
 services: healthcare-apis
 author: expekesheth
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: overview
-ms.date: 02/25/2026
+ms.date: 05/04/2026
 ms.author: kesheth
 ---
 
-# What is the FHIR service?
+# What is the FHIR service in Azure Health Data Services?
 
-The FHIR&reg; service in Azure Health Data Services enables rapid exchange of health data using the Fast Healthcare Interoperability Resources (FHIR) data standard. As part of a managed Platform-as-a-Service (PaaS), the FHIR service makes it easy for anyone working with health data to securely store and exchange Protected Health Information ([PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html)) in the cloud. 
+The FHIR&reg; service in Azure Health Data Services enables rapid exchange of health data using the Fast Healthcare Interoperability Resources (FHIR) data standard. As part of a managed platform as a service (PaaS), the FHIR service makes it easy for anyone working with health data to securely store and exchange Protected Health Information ([PHI](https://www.hhs.gov/answers/hipaa/what-is-phi/index.html)) in the cloud. 
 
 The FHIR service offers:
 
@@ -28,7 +28,7 @@ The FHIR service allows you to quickly create and deploy a FHIR server to the cl
 
 The FHIR API in the FHIR service enables any FHIR-compliant system to securely connect and interact with FHIR data. As a PaaS offering, Microsoft takes on the operations, maintenance, update, and compliance requirements for the FHIR service so you can free up your own operational and development resources.
 
-## Leverage the power of health data
+## Benefits of the FHIR service for health data exchange
 
 The healthcare industry is rapidly adopting [FHIR®](https://hl7.org/fhir) as the industry-wide standard for health data storage, querying, and exchange. FHIR provides a robust, extensible data model with standardized semantics that all FHIR-compliant systems can use interchangeably. With FHIR, organizations can unify disparate electronic health record systems (EHRs) and other health data repositories – allowing all data to be persisted and exchanged in a single, universal format. With the addition of SMART on FHIR, user-facing mobile and web-based applications can securely interact with FHIR data – opening a new range of possibilities for patient and provider access to PHI. Most of all, FHIR simplifies the process of assembling large health datasets for research – enabling researchers and clinicians to apply machine learning and analytics at scale for gaining new health insights. 
 
@@ -76,6 +76,7 @@ For use cases that require customizing a FHIR server with admin access to the un
 
 ## Next steps
 
-[Deploy the FHIR service](deploy-azure-portal.md)
+> [!div class="nextstepaction"]
+> [Deploy the FHIR service](deploy-azure-portal.md)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

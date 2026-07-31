@@ -2,10 +2,10 @@
 title: 'Quickstart: Create and run a load test with Azure Load Testing'
 description: 'Learn how to create and run load tests in Azure App Testing using the portal. Quickly simulate traffic, validate app performance, and optimize reliability.'
 services: load-testing
-ms.service: azure-load-testing
+ms.service: azure-app-testing
 ms.topic: quickstart
-author: ninallam
-ms.author: ninallam
+author: nandinimurali
+ms.author: nandinim
 ms.date: 10/23/2023
 ms.custom: template-quickstart, mode-other
 adobe-target: true

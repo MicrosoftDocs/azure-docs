@@ -1,6 +1,6 @@
 ---
 title: Configure your own key for encrypting Azure Service Bus data at rest
-description: This article provides information on how to configure your own key for encrypting Azure Service Bus data rest. 
+description: This article provides information on how to configure your own key for encrypting Azure Service Bus data at rest. 
 ms.topic: concept-article
 ms.date: 02/03/2025
 ms.custom: sfi-image-nochange
@@ -239,7 +239,7 @@ This section shows you how to create an Azure Service Bus namespace with managed
  
 ### Grant Service Bus namespace identity access to key vault
 
-Set the key vault access policy so that the managed identity of the Service Bus namespace can access key value in the key vault. Use the ID of the Service Bus namespace from the previous section. 
+Set the key vault access policy so that the managed identity of the Service Bus namespace can access key values in the key vault. Use the ID of the Service Bus namespace from the previous section. 
 
 ```powershell
 $identity = (Get-AzureRmResource -ResourceId $ServiceBusNamespaceId -ExpandProperties).Identity
@@ -742,6 +742,15 @@ You're using the `resource_id` or `version`, which links to a specific version o
 ### Resolution
 
 Use the [`resource__versionless_id` or `versionless_id`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault_key#attributes-reference) instead of using `resource_id` or `version`. 
+
+## Customer Lockbox for Microsoft Azure
+
+[Customer Lockbox for Microsoft Azure](/azure/security/fundamentals/customer-lockbox-overview) doesn't apply to Azure Service Bus. Microsoft personnel don't access customer message data during support operations. Microsoft personnel only have access to the following metadata:
+
+- Names of Service Bus entities (queues, topics, and subscriptions)
+- Configuration settings for the namespace and its entities
+
+Message headers and message body content aren't accessible to Microsoft personnel. Additionally, message data is serialized to binary format on the client side before it's sent to the Service Bus service, so it isn't stored or viewable in a human-readable form on the server. As a result, Customer Lockbox approval isn't required for Azure Service Bus support scenarios.
 
 ## Next steps
 

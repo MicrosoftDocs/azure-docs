@@ -24,11 +24,13 @@ This sample script imports key-value settings to an Azure App Configuration stor
 
 ## Sample script
 
+In the following example, replace the placeholder text _`<AppConfigurationStoreName>`_ with the name of your App Configuration store.
+
 ```azurecli-interactive
 #!/bin/bash
 
 # Import key-values from a file
-az appconfig kv import --name myTestAppConfigStore --source file --format json --path ~/Import.json
+az appconfig kv import --name <AppConfigurationStoreName> --source file --format json --path ~/Import.json
 ```
 
 [!INCLUDE [cli-script-cleanup](../../../includes/cli-script-clean-up.md)]

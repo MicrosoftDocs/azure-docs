@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: pmwongera
 ms.author: rolyon
-ms.date: 02/23/2026
+ms.date: 07/01/2026
 ms.custom: generated
 ---
 
@@ -209,7 +209,7 @@ Read-only access to service and APIs
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | **NotActions** |  |
@@ -235,7 +235,7 @@ Read-only access to service and APIs
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
-        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
         "Microsoft.Support/*"
       ],
@@ -669,7 +669,7 @@ Allows full access to App Configuration data.
 > | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/*/delete |  |
 > | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/*/action |  |
 > | **NotDataActions** |  |
-> | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/configurationStores/useSasAuth/action |  |
+> | *none* |  |
 
 ```json
 {
@@ -689,9 +689,7 @@ Allows full access to App Configuration data.
         "Microsoft.AppConfiguration/configurationStores/*/delete",
         "Microsoft.AppConfiguration/configurationStores/*/action"
       ],
-      "notDataActions": [
-        "Microsoft.AppConfiguration/configurationStores/useSasAuth/action"
-      ]
+      "notDataActions": []
     }
   ],
   "roleName": "App Configuration Data Owner",
@@ -943,7 +941,7 @@ Allows read-only access to Azure API Center service.
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.ResourceHealth](../permissions/management-and-governance.md#microsoftresourcehealth)/availabilityStatuses/read | Gets the availability statuses for all resources in the specified scope |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/*/read |  |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -968,7 +966,7 @@ Allows read-only access to Azure API Center service.
         "Microsoft.Authorization/*/read",
         "Microsoft.Insights/alertRules/*",
         "Microsoft.ResourceHealth/availabilityStatuses/read",
-        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read"
       ],
       "notActions": [],
@@ -1614,7 +1612,7 @@ Read and search DICOM data.
 
 Durable Task role for all data access operations.
 
-[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+[Learn more](/azure/durable-task/scheduler/develop-with-durable-task-scheduler)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1655,7 +1653,7 @@ Durable Task role for all data access operations.
 
 Read all Durable Task Scheduler data.
 
-[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+[Learn more](/azure/durable-task/scheduler/develop-with-durable-task-scheduler)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1698,7 +1696,7 @@ Read all Durable Task Scheduler data.
 
 Used by worker applications to interact with the Durable Task service
 
-[Learn more](/azure/azure-functions/durable/durable-task-scheduler/develop-with-durable-task-scheduler)
+[Learn more](/azure/durable-task/scheduler/develop-with-durable-task-scheduler)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1955,7 +1953,7 @@ Lets you publish messages on topicspaces.
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/*/read |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -1978,7 +1976,7 @@ Lets you publish messages on topicspaces.
         "Microsoft.Authorization/*/read",
         "Microsoft.EventGrid/*/read",
         "Microsoft.Insights/alertRules/*",
-        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read"
       ],
       "notActions": [],
@@ -2006,7 +2004,7 @@ Lets you subscribe messages on topicspaces.
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/*/read |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
-> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
 > | **NotActions** |  |
 > | *none* |  |
@@ -2029,7 +2027,7 @@ Lets you subscribe messages on topicspaces.
         "Microsoft.Authorization/*/read",
         "Microsoft.EventGrid/*/read",
         "Microsoft.Insights/alertRules/*",
-        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/deployments/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read"
       ],
       "notActions": [],
@@ -2622,8 +2620,8 @@ Lets you manage logic apps, but not change access to them.
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.ClassicStorage](../permissions/storage.md#microsoftclassicstorage)/storageAccounts/listKeys/action | Lists the access keys for the storage accounts. |
-> | [Microsoft.ClassicStorage](../permissions/storage.md#microsoftclassicstorage)/storageAccounts/read | Return the storage account with the given account. |
+> | Microsoft.ClassicStorage/storageAccounts/listKeys/action |  |
+> | Microsoft.ClassicStorage/storageAccounts/read |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/metricAlerts/* |  |
 > | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/diagnosticSettings/* | Creates, updates, or reads the diagnostic setting for Analysis Server |
@@ -2949,7 +2947,8 @@ You can enable and disable the logic app, resubmit workflow runs, as well as cre
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/stop/Action | Stop a Web App |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/write | Create a new Web App or update an existing one |
 > | **NotActions** |  |
-> | *none* |  |
+> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/hostruntime/host/_master/read | Get Function App's master key for admin operations |
+> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/hostruntime/host/action | Perform Function App runtime action like sync triggers, add functions, invoke functions, delete functions etc. |
 > | **DataActions** |  |
 > | *none* |  |
 > | **NotDataActions** |  |
@@ -2986,7 +2985,10 @@ You can enable and disable the logic app, resubmit workflow runs, as well as cre
         "Microsoft.Web/sites/stop/Action",
         "Microsoft.Web/sites/write"
       ],
-      "notActions": [],
+      "notActions": [
+        "Microsoft.Web/sites/hostruntime/host/_master/read",
+        "Microsoft.Web/sites/hostruntime/host/action"
+      ],
       "dataActions": [],
       "notDataActions": []
     }
@@ -3112,11 +3114,14 @@ Services Hub Operator allows you to perform all read, write, and deletion operat
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/read | Gets the list of subscriptions. |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/connectors/write | Create or update a Services Hub Connector |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/connectors/read | View or List Services Hub Connectors |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/connectors/delete | Delete Services Hub Connectors |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/connectors/checkAssessmentEntitlement/action | Lists the Assessment Entitlements for a given Services Hub Workspace |
+> | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/connectors/* |  |
+> | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/* |  |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/supportOfferingEntitlement/read | View the Support Offering Entitlements for a given Services Hub Workspace |
 > | [Microsoft.ServicesHub](../permissions/integration.md#microsoftserviceshub)/workspaces/read | List the Services Hub Workspaces for a given User |
 > | **NotActions** |  |
@@ -3139,11 +3144,14 @@ Services Hub Operator allows you to perform all read, write, and deletion operat
       "actions": [
         "Microsoft.Authorization/*/read",
         "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.Resources/subscriptions/read",
         "Microsoft.Resources/deployments/*",
         "Microsoft.ServicesHub/connectors/write",
         "Microsoft.ServicesHub/connectors/read",
         "Microsoft.ServicesHub/connectors/delete",
         "Microsoft.ServicesHub/connectors/checkAssessmentEntitlement/action",
+        "Microsoft.ServicesHub/connectors/*",
+        "Microsoft.ServicesHub/*",
         "Microsoft.ServicesHub/supportOfferingEntitlement/read",
         "Microsoft.ServicesHub/workspaces/read"
       ],

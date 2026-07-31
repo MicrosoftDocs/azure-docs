@@ -7,7 +7,7 @@ author: greenie-msft
 ms.service: azure-container-apps
 ms.subservice: dapr
 ms.topic: how-to 
-ms.date: 02/03/2026
+ms.date: 03/27/2026
 ---
 
 # Enable token authentication for Dapr requests
@@ -30,17 +30,17 @@ You can use this token to authenticate that calls coming into your application a
 
 ## Authenticate requests from Dapr
 
-# [With Dapr SDKs](#tab/sdk)
+# [With a Dapr SDK](#tab/sdk)
 
-If you're using a [Dapr SDK](https://docs.dapr.io/developing-applications/sdks/), you can use the Dapr authentication methods provided in the open-source SDK repositories. 
+If you're using a [Dapr Software Development Kit (SDK)](https://docs.dapr.io/developing-applications/sdks/), you can use the Dapr authentication methods provided in the open-source SDK repositories. 
 
-Once added to your project, the Dapr SDKs validates the token in all incoming requests from Dapr, rejecting calls that don't include the correct token. You don't need to perform any other action.
+Once added to your project, the Dapr SDK validates the token in all incoming requests from Dapr, rejecting calls that don't include the correct token. You don't need to perform any other action.
 
 Incoming requests that don't include the token, or include an incorrect token, are rejected automatically.
 
 # [Without an SDK](#tab/nosdk)
 
-If you're not using a Dapr SDK, you need to check the HTTP header or gRPC metadata property in all incoming requests in order to validate that they're created by the Dapr sidecar.
+If you're not using a Dapr SDK, you need to check the HTTP header or gRPC metadata property in all incoming requests and validate that the Dapr sidecar created the request.
 
 ### HTTP
 

@@ -1,7 +1,7 @@
 ---
 title: Redis version 4 retirement
 description: Lear
-ms.topic: conceptual
+ms.topic: overview
 ms.custom:
   - ignite-2024
 ms.date: 05/22/2025

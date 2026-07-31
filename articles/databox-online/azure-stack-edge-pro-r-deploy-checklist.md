@@ -2,12 +2,12 @@
 title: Predeployment checklist to deploy Azure Stack Edge Pro R device | Microsoft Docs
 description: This article describes the information that can be gathered before you deploy your Azure Stack Edge Pro R device.
 services: databox
-author: alkohli
+author: sipastak
 
 ms.service: azure-stack-edge
 ms.topic: article
 ms.date: 03/22/2022
-ms.author: alkohli 
+ms.author: sipastak
 ---
 # Deployment checklist for your Azure Stack Edge Pro R device  
 

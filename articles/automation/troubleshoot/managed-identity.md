@@ -3,7 +3,7 @@ title: Troubleshoot Azure Automation managed identity issues
 description: This article tells how to troubleshoot and resolve issues when using a managed identity with an Automation account.
 services: automation
 ms.subservice:
-ms.date: 04/22/2024
+ms.date: 04/15/2026
 ms.topic: troubleshooting
 ms.author: v-rochak2
 author: RochakSingh-blr
@@ -38,7 +38,7 @@ When using a Managed Identity in your runbook, you receive an error as:
 
 This can happen either when:
 
-- **Cause 1**:  You use the Automation account System Managed Identity, which has not yet been created and the `Code Connect-AzAccount -Identity` tries to authenticate to Azure and run a runbook in Azure or on a Hybrid Runbook Worker.
+- **Cause 1**:  You use the Automation account System Managed Identity, which hasn't yet been created and the `Code Connect-AzAccount -Identity` tries to authenticate to Azure and run a runbook in Azure or on a Hybrid Runbook Worker.
 
 - **Cause 2**: The Automation account has a User managed identity assigned and not a System Managed Identity and the - `Code Connect-AzAccount -Identity` tries to authenticate to Azure and run a runbook on an Azure virtual machine Hybrid Runbook Worker using the Azure VM System Managed Identity.
 
@@ -85,7 +85,7 @@ get-azvm : 'this.Client.SubscriptionId' cannot be null. At line:5 char:1 + get-a
 
 ### Cause
 
-This can happen when the Managed Identity (or other account used in the runbook) has not been granted any permissions to access the subscription.
+This can happen when the Managed Identity (or other account used in the runbook) hasn't been granted any permissions to access the subscription.
 
 ### Resolution
 Grant the Managed Identity (or other account used in the runbook) an appropriate role membership in the subscription. [Learn more](../enable-managed-identity-for-automation.md#assign-role-to-a-system-assigned-managed-identity)
@@ -160,4 +160,5 @@ If this article doesn't resolve your issue, try one of the following channels fo
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
 * Connect with [@AzureSupport](https://x.com/azuresupport). This is the official Microsoft Azure account for connecting the Azure community to the right resources: answers, support, and experts.
+* If you plan to open a support case for an unresolved issue, collect the required diagnostic data before opening it. See [Data to collect when opening a case for Microsoft Azure Automation](collect-data-microsoft-azure-automation-case.md).
 * File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

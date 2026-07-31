@@ -449,7 +449,7 @@ This section outlines variations and considerations when using Security services
 
 For feature variations and limitations, see [Microsoft Defender for Endpoint for US Government customers](/microsoft-365/security/defender-endpoint/gov).
 
-### [Microsoft Defender for IoT](../defender-for-iot/index.yml)
+### [Microsoft Defender for IoT](/azure/defender-for-iot/)
 
 For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-defender-for-iot).
 
@@ -461,7 +461,7 @@ Azure Information Protection Premium is part of the [Enterprise Mobility + Secur
 
 For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-defender-for-cloud).
 
-### [Microsoft Sentinel](../sentinel/index.yml)
+### [Microsoft Sentinel](/azure/sentinel/)
 
 For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-sentinel).
 

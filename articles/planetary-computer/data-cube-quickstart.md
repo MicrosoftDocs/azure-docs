@@ -46,13 +46,16 @@ Remembering that a standard Render Configuration argument in JSON format looks l
     "id": "prK1950-06-30",
     "name": "prK1950-06-30",
     "type": "raster-tile",
-    "options": "assets=pr-kerchunk&subdataset_name=pr&rescale=0,0.01&colormap_name=viridis&datetime=1950-06-30",
-    "minZoom": 1
+    "options": "assets=pr-kerchunk&subdataset_name=pr&rescale=0,0.01&colormap_name=viridis",
+    "minZoom": 1,
+    "info_options": "assets=pr-kerchunk&subdataset_name=pr"
   }
 ]
 ```
 
 The `options` field is where you'll want to utilize the cloud optimized, Kerchunk asset, as opposed to the original asset listed in the STAC Item. You'll also need to include the `subdataset_name` argument, which is the name of the variable you want to render.
+
+The `info_options` field enables the Explorer's time slider for this collection. It uses the same URL query-string format as `options`, but it should include only the parameters needed for `/info` discovery, typically `assets` and `subdataset_name`. Omit styling and slicing parameters such as `rescale`, `colormap_name`, and `datetime`. When you want the slider to remain active, don't pin `datetime=...` in `options`, because a hard-coded value overrides the slider. If you omit `info_options`, the Explorer falls back to reading time bounds from STAC item metadata (`cube:dimensions`, `start_datetime`, `end_datetime`).
 
 #### Render configuration for GRIB2 assets
 
@@ -66,24 +69,34 @@ The `options` field for the Render Configuration of GRIB2 assets look similar to
     "description": "A sample render configuration. Update `options` below.",
     "type": "raster-tile",
     "options": "assets=data&subdataset_bands=1&colormap_name=winter&rescale=0,10",
-    "minZoom": 1
+    "minZoom": 1,
+    "info_options": "assets=data"
  }
 ]
 ```
 
+For GRIB2, set `info_options` to the asset key used in `options`. Adding `info_options` enables the Explorer's time slider, which discovers the available GRIB band/message indices directly from the Tiler's `/info` endpoint. If your GRIB collection exposes multiple render configurations for different assets, add `info_options` to each render option that should drive a slider.
+
 #### Render configuration for Zarr assets
 
-The `options` field for the Render Configuration of Zarr assets is also similar to that of NetCDF and HDF5, however within the `assets` argument you will have to include the parameter 'sel' which enables you to select a time, step, or other variable that enables 2D rendering of one variable at one time slice from a multi-variable Zarr store. You may also need to include a 'sel_method' parameter, to ensure the right variable is selected even if the value entered is slightly off. You can read more about this 'sel' parameter in the public documentation for the Python multidimensional data read library used in the Planetary Computer Pro backend, [Xarray](https://docs.xarray.dev/en/latest/generated/xarray.DataArray.sel.html) Below is an example of a Zarr Render Configuration:
+The `options` field for Zarr assets is similar to NetCDF and HDF5, but there are two important requirements:
+
+1. Select a single time slice for rendering by using `sel=time=...`.
+2. Reduce data to a 2D output before rendering.
+
+If additional dimensions are not collapsed, rendering can fail with errors such as `Source data must be 1 band`.
+
+You can read more about the `sel` parameter in [Xarray DataArray.sel](https://docs.xarray.dev/en/latest/generated/xarray.DataArray.sel.html). The following is a minimal working Zarr render configuration for a single timestep and 2D output:
 
 ```json
 [
-  {
-    "id": "era5-zarr",
-    "name": "era5-zarr",
-    "type": "raster-tile",
-    "options": "assets=data&subdataset_name=precipitation_amount_1hour_Accumulation&colormap_name=viridis&sel=time=2024-01-01&sel_method=nearest&rescale=0,0.01",
-    "minZoom": 12
-  }
+    {
+        "id": "era5-zarr-single-time",
+        "name": "ERA5 single timestep",
+        "type": "raster-tile",
+        "options": "assets=data&subdataset_name=precipitation_amount_1hour_Accumulation&sel=time=2024-01-01&sel_method=nearest&colormap_name=viridis&rescale=0,0.01",
+        "minZoom": 12
+    }
 ]
 ```
 
@@ -156,12 +169,42 @@ Zarr assets ingested into Microsoft Planetary Computer Pro can be visualized in 
 
 The size of the Zarr store and spatial chunks will also impact performance. You should aim to keep the total size of a Zarr store under 2 GB, and each chunk less than 100 MB for optimal performance of the tiler. 
 
+#### Zarr visualization limitations and known issues
+
+##### Time slider behavior (known limitation)
+
+> [!NOTE]
+> Time slider behavior for Zarr is currently limited. The Explorer time slider only appears when a temporal dimension is correctly detected during ingestion.
+>
+> Even when Zarr assets contain time values, ingestion may fail to detect temporal metadata for some datasets. In those cases, the time slider will not render, and you must visualize one timestep at a time in render configuration (for example, `sel=time=2024-01-01`).
+
+##### Required and recommended temporal metadata
+
+To enable time-aware behavior, your STAC metadata should include a temporal dimension in `cube:dimensions` with:
+
+* `type: temporal`
+* `extent`
+* `step`
+
+For Zarr source data, follow CF time conventions where possible, for example:
+
+* `standard_name="time"`
+* `axis="T"`
+
+These conventions are necessary for consistent metadata interpretation, but due to current limitations they are not always sufficient to guarantee time slider support for every Zarr dataset.
+
+##### Kerchunk notes
+
+Kerchunk can improve performance for multidimensional access patterns, but it does not resolve time slider issues when temporal dimensions were not detected during ingestion.
+
+Some Zarr datasets may also fail during index processing with errors such as `Index must be monotonic increasing or decreasing`.
+
 #### Time slider for data cube visualization
 
 If your data cube assets have a temporal component, you can use the time slider in the Explorer to visualize changes over time. The time slider will appear automatically if your STAC Items contains assets with a `time` dimension with an `extent` and `step` field.
 
-> [!NOTE]
-> We do not currently offer time slider support for Zarr assets. Because of this, it is critical that you specify which time slices you want to visualize in the render configuration. Failure to do so will result in the Explorer attempting to render all time slices of the Zarr store at once, which will cause the Explorer to crash.
+> [!NOTE]
+> For Zarr assets, see **Zarr visualization limitations and known issues** for current time slider constraints and required render configuration patterns.
 
 ## Related content
 

@@ -23,7 +23,7 @@ Take advantage of your domain expertise on top of Azure Digital Twins to build c
 * Connect assets such as IoT devices and existing business systems, using a robust event system to build dynamic business logic and data processing
 * Query the live execution environment to extract real-time insights from your twin graph
 * Build connected 3D visualizations of your environment that display business logic and twin data in context
-* Query historized environment data and integrate with other Azure data, analytics, and Foundry Tools to better track the past and predict the future
+* Query historized environment data and integrate with other Azure data, analytics, and AI services to better track the past and predict the future
 
 ## Define your business environment
 
@@ -32,7 +32,7 @@ In Azure Digital Twins, you define the digital entities that represent the peopl
 You can think of these model definitions as a specialized vocabulary to describe your business. For a building management solution, for example, you might define a model that defines a *Building* type, a *Floor* type, and an *Elevator* type. Models are defined in a JSON-like language called [Digital Twins Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md). In Azure Digital Twins, DTDL models describe types of entities according to their state properties, components, and relationships. You can design your own model sets from scratch, or get started with a pre-existing set of [DTDL industry ontologies](concepts-ontologies.md) based on common vocabulary for your industry.
 
 >[!TIP]
->Version 2 of DTDL is also used for data models throughout other Azure IoT services, including [IoT Plug and Play](../iot/overview-iot-plug-and-play.md). This compatibility helps you connect your Azure Digital Twins solution with other parts of the Azure ecosystem.
+>Version 2 of DTDL is also used for data models throughout other Azure IoT services, including [IoT Plug and Play](/previous-versions/azure/iot/overview-iot-plug-and-play). This compatibility helps you connect your Azure Digital Twins solution with other parts of the Azure ecosystem.
 
 Once you've defined your data models, use them to create [digital twins](concepts-twins-graph.md) that represent each specific entity in your environment. For example, you might use the *Building* model definition to create several *Building*-type twins (*Building 1*, *Building 2*, and so on). You can also use the relationships in the model definitions to connect twins to each other, forming a conceptual graph.
 

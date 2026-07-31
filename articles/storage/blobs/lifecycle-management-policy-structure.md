@@ -7,7 +7,7 @@ author: normesta
 ms.author: normesta
 ms.date: 06/13/2025
 ms.service: azure-blob-storage
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: references_regions, engagement-fy23
 # Customer intent: "As a cloud storage administrator, I want to create and manage lifecycle management policies for blobs, so that I can optimize storage costs by transitioning and deleting blobs based on their usage patterns."
 ---
@@ -78,6 +78,8 @@ This filter will match all blobs in `sample-container` where the names begin wit
 #### Blob index match filter
 
 If you apply the **blobIndexMatch** filter, then each rule can define up to 10 blob index tag conditions. For example, if you want to match all blobs with `Project = Contoso` under `https://myaccount.blob.core.windows.net/`, then the **blobIndexMatch** filter is `{"name": "Project","op": "==","value": "Contoso"}`. If you don't define a value for the **blobIndexMatch** filter, then the rule applies to all blobs within the storage account.
+> [!NOTE]
+> **blobIndexMatch** as filters are currently supported only for flat namespace accounts.
 
 ### Actions
 
@@ -115,7 +117,7 @@ The following table describes each action run condition.
 |----------------------------------------------------|---------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **daysAfterModificationGreaterThan**               | Integer | The age in days after the last modified time blob. Applies to actions on a current version of a blob.                                                                                                                                                 |
 | **daysAfterCreationGreaterThan**                   | Integer | The age in days after the creation time. Applies to actions on the current version of a blob, the previous version of a blob or a blob snapshot.                                                                                                             |
-| **daysAfterLastAccessTimeGreaterThan** | Integer | The age in days after the last access time or in some cases, when the date when the policy was enabled. To learn more, see the [Access time tracking](#access-time-tracking) section below. Applies to actions on the current version of a blob when access tracking is enabled.                                                                                                                     |
+| **daysAfterLastAccessTimeGreaterThan** | Integer | The age in days after the last access time or in some cases, when the date when the last access tracking was enabled. To learn more, see the [Access time tracking](#access-time-tracking) section below. Applies to actions on the current version of a blob when access tracking is enabled.                                                                                                                     |
 | **daysAfterLastTierChangeGreaterThan**             | Integer | The age in days after last blob tier change time. The minimum duration in days that a rehydrated blob is kept in hot, cool or cold tiers before being returned to the archive tier. Applies only to **tierToArchive** actions. |
 
 ### Access time tracking

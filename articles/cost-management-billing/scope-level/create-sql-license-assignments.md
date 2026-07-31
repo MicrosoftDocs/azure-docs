@@ -3,10 +3,10 @@ title: Create SQL Server license assignments for Azure Hybrid Benefit
 description: This article explains how to create SQL Server license assignments for Azure Hybrid Benefit.
 author: pri-mittal
 ms.author: primittal
-ms.date: 01/15/2026
+ms.date: 07/17/2026
 ms.topic: how-to
 ms.service: cost-management-billing
-ms.subservice: ahb
+ms.subservice: azure-hybrid-benefit
 ms.reviewer: laurtay
 ms.custom: cpx
 service.tree.id: cf90d1aa-e8ca-47a9-a6d0-bc69c7db1d52

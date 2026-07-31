@@ -494,7 +494,7 @@ When feature flag telemetry is enabled, the Azure App Configuration provider inj
 
 - **AllocationID**: A unique identifier representing the state of the feature flag's allocation.
 - **ETag**: The current ETag for the feature flag.
-- **FeatureFlagReference**: A reference to the feature flag in the format of `<your_store_endpoint>kv/<feature_flag_key>`. When a label is present, the reference includes it as a query parameter: `<your_store_endpoint>kv/<feature_flag_key>?label=<feature_flag_label>`.
+- **FeatureFlagReference**: A reference to the feature flag in the format of `<AppConfigurationEndpoint>kv/<FeatureFlagKey>`. When a label is present, the reference includes it as a query parameter: `<AppConfigurationEndpoint>kv/<FeatureFlagKey>?label=<FeatureFlagLabel>`.
 
 The full schema can be found in the [App Configuration Feature Evaluation Event schema definition](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureEvaluationEvent/AppConfigurationFeatureEvaluationEvent.v1.0.0.schema.json). For more information about how to use the feature flag telemetry, go to the [enable telemetry for feature flags](./howto-telemetry.md) walkthrough.
 
@@ -602,6 +602,9 @@ builder.Configuration.AddAzureAppConfiguration(options =>
 ### Key Vault secret refresh
 
 Azure App Configuration enables you to configure secret refresh intervals independently of your configuration refresh cycle. This is crucial for security because while the Key Vault reference URI in App Configuration remains unchanged, the underlying secret in Key Vault might be rotated as part of your security practices.
+
+> [!NOTE] 
+> Secret refresh uses a minimum interval of **one minute**. This prevents excessive secret reloads which may induce Key Vault throttling.
 
 To ensure your application always uses the most current secret values, configure the `SetSecretRefreshInterval` method. This forces the provider to retrieve fresh secret values from Key Vault when:
 

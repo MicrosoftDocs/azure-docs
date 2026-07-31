@@ -4,7 +4,7 @@ description: This article describes Service Bus topics as output for Azure Strea
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.service: azure-stream-analytics
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/23/2020
 ---
 

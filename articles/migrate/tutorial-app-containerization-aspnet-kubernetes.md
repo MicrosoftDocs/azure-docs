@@ -6,6 +6,7 @@ ms.author: v-uhabiba
 ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 02/06/2025
+ms.update-cycle: 180-days
 ms.custom:
   - subject-rbac-steps
   - engagement-fy24

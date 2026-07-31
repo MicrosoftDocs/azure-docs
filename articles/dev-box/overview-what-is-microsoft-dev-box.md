@@ -9,7 +9,7 @@ author: RoseHJM
 ms.date: 10/31/2025
 adobe-target: true
 
-#Customer intent: #Customer intent: As a platform engineer, I want to understand what Microsoft Dev Box is and how it can help developer teams, so that I can efficiently set up and use cloud development environments for my teams.
+#Customer intent: As a platform engineer, I want to understand what Microsoft Dev Box is and how it helps developer teams, so that I can efficiently set up and use cloud development environments for my teams.
 ---
 
 # What is Microsoft Dev Box?

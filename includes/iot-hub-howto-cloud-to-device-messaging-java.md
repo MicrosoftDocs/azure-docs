@@ -1,6 +1,6 @@
 ---
-author: SoniaLopezBravo
-ms.author: sonialopez
+author: sethmanheim
+ms.author: sethm
 ms.service: azure-iot-hub
 ms.devlang: java
 ms.topic: include

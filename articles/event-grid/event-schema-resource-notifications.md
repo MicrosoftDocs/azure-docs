@@ -1,7 +1,7 @@
 ---
 title: Azure Resource Notifications - Overview 
 description: This article provides information on Azure Event Grid events supported by Azure Resource Notifications. 
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 09/26/2023
 ---
 

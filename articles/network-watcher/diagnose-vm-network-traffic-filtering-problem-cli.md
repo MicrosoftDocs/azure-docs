@@ -6,15 +6,15 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: quickstart
-ms.date: 02/25/2026
+ms.date: 07/30/2026
 ms.custom: devx-track-azurecli, mode-api
 
 # Customer intent: As a system administrator, I want to diagnose network traffic filter issues on a virtual machine using an IP flow verification tool, so that I can identify and resolve security rules that are blocking communication.
 ---
 
-# Quickstart: Diagnose a virtual machine network traffic filter problem using the Azure CLI
+# Quickstart: Diagnose a virtual machine network traffic filter problem by using Azure CLI
 
-In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. Using the IP flow verify results, you determine the security rule that's blocking the traffic and causing the communication failure and learn how you can resolve it. You also learn how to use the [effective security rules](effective-security-rules-overview.md) for a network interface to determine why a security rule is allowing or denying traffic.
+In this quickstart, you deploy a virtual machine and use Network Watcher [IP flow verify](network-watcher-ip-flow-verify-overview.md) to test the connectivity to and from different IP addresses. By using the IP flow verify results, you can determine the security rule that's blocking the traffic and causing the communication failure. You also learn how you can resolve the problem. You also learn how to use the [effective security rules](effective-security-rules-overview.md) for a network interface to determine why a security rule is allowing or denying traffic.
 
 :::image type="content" source="./media/diagnose-vm-network-traffic-filtering-problem/ip-flow-verify-quickstart-diagram.png" alt-text="Diagram shows the resources created in Network Watcher quickstart.":::
 
@@ -28,13 +28,13 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
     The steps in this article run the Azure CLI commands interactively in [Azure Cloud Shell](/azure/cloud-shell/overview). To run the commands in the Cloud Shell, select **Open Cloud Shell** at the upper-right corner of a code block. Select **Copy** to copy the code, and paste it into Cloud Shell to run it. You can also run the Cloud Shell from within the Azure portal.
 
-    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. This quickstart requires version 2.0 or later of the Azure CLI. If you run Azure CLI locally, sign in to Azure using the [az login](/cli/azure/reference-index#az-login) command.
+    You can also [install Azure CLI locally](/cli/azure/install-azure-cli) to run the commands. This quickstart requires version 2.0 or later of the Azure CLI. If you run Azure CLI locally, sign in to Azure by using the [az login](/cli/azure/reference-index#az-login) command.
  
 ## Create a virtual machine
 
 In this section, you create a virtual network and a subnet in the East US region. Then, you create a virtual machine in the subnet with a default network security group.
 
-1. Create a resource group using [az group create](/cli/azure/group). An Azure resource group is a logical container into which Azure resources are deployed and managed.
+1. Create a resource group by using [az group create](/cli/azure/group). An Azure resource group is a logical container into which you deploy and manage Azure resources.
 
     ```azurecli-interactive
     # Create a resource group.
@@ -48,7 +48,7 @@ In this section, you create a virtual network and a subnet in the East US region
     az network vnet create --resource-group 'myResourceGroup' --name 'myVNet' --subnet-name 'mySubnet' --subnet-prefixes 10.0.0.0/24 
     ```
 
-1. Create a default network security group using [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
+1. Create a default network security group by using [az network nsg create](/cli/azure/network/nsg#az-network-nsg-create).
 
     ```azurecli-interactive
     # Create a default network security group.
@@ -58,18 +58,18 @@ In this section, you create a virtual network and a subnet in the East US region
     > [!NOTE]
     > The default rules of the network security group block all inbound access from the internet, including SSH. To connect to the virtual machine, use Azure Bastion. For more information, see [Quickstart: Deploy Azure Bastion with default settings](../bastion/quickstart-host-portal.md).
 
-1. Create a virtual machine using [az vm create](/cli/azure/vm#az-vm-create).
+1. Create a virtual machine by using [az vm create](/cli/azure/vm#az-vm-create).
 
     ```azurecli-interactive
     # Create a Linux virtual machine using the latest Ubuntu 20.04 LTS image.
     az vm create --resource-group 'myResourceGroup' --name 'myVM' --location 'eastus' --vnet-name 'myVNet' --subnet 'mySubnet' --public-ip-address '' --nsg 'myVM-nsg' --image 'Canonical:0001-com-ubuntu-server-focal:20_04-lts-gen2:latest' --generate-ssh-keys
     ```
 
-## Test network communication using IP flow verify
+## Test network communication by using IP flow verify
 
-In this section, you use the IP flow verify capability of Network Watcher to test network communication to and from the virtual machine.
+In this section, use the IP flow verify capability of Network Watcher to test network communication to and from the virtual machine.
 
-1. Use [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow) command to test outbound communication from **myVM** to **13.107.21.200** using IP flow verify (`13.107.21.200` is one of the public IP addresses used by `www.bing.com`):
+1. Use the [az network watcher test-ip-flow](/cli/azure/network/watcher#az-network-watcher-test-ip-flow) command to test outbound communication from **myVM** to **13.107.21.200** by using IP flow verify (`13.107.21.200` is one of the public IP addresses used by `www.bing.com`):
 
 
     ```azurecli-interactive
@@ -116,7 +116,7 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
     ```output
     Access RuleName
     ------ --------
-    Allow  defaultSecurityRules/DenyAllOutBound
+    Deny   defaultSecurityRules/DenyAllOutBound
     ```
 
     The result of the third test indicates that access is denied to **10.10.10.10** because of the default security rule **DenyAllOutBound**.
@@ -128,26 +128,26 @@ In this section, you use the IP flow verify capability of Network Watcher to tes
     az network watcher test-ip-flow --direction 'inbound' --protocol 'TCP' --local '10.0.0.4:80' --remote '10.10.10.10:6000' --vm 'myVM' --nic 'myVmVMNic' --resource-group 'myResourceGroup' --out 'table'
     ```
 
-    After a few seconds, you get similar output to the following example:
+    After a few seconds, you see output similar to the following example:
     
     ```output
     Access RuleName
     ------ --------
-    Allow  defaultSecurityRules/DenyAllInBound
+    Deny   defaultSecurityRules/DenyAllInBound
     ```
 
     The result of the fourth test indicates that access is denied from **10.10.10.10** because of the default security rule **DenyAllInBound**. By default, all access to an Azure virtual machine from outside the virtual network is denied.
 
 ## View details of a security rule
 
-To determine why the rules in the previous section allow or deny communication, review the effective security rules for the network interface of **myVM** virtual machine using the [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) command:
+To understand why the rules in the previous section allow or deny communication, review the effective security rules for the network interface of the **myVM** virtual machine by using the [az network nic list-effective-nsg](/cli/azure/network/nic#az-network-nic-list-effective-nsg) command:
 
 ```azurecli-interactive
 # Get the effective security rules for the network interface of myVM.
 az network nic list-effective-nsg --resource-group 'myResourceGroup' --name 'myVmVMNic'
 ```
 
-The returned output includes the following information for the **AllowInternetOutbound** rule that allowed outbound access to `www.bing.com`:
+The returned output includes the following information for the **AllowInternetOutbound** rule that grants outbound access to `www.bing.com`:
 
 
 ```output
@@ -201,13 +201,13 @@ The returned output includes the following information for the **AllowInternetOu
 },
 ```
 
-You can see in the output that address prefix **13.104.0.0/13** is among the address prefixes of **AllowInternetOutBound** rule. This prefix encompasses the IP address **13.107.21.200**, which you utilized to test outbound communication to `www.bing.com`.
+You see in the output that address prefix **13.104.0.0/13** is among the address prefixes of the **AllowInternetOutBound** rule. This prefix encompasses the IP address **13.107.21.200**, which you used to test outbound communication to `www.bing.com`.
 
 Similarly, you can check the other rules to see the source and destination IP address prefixes under each rule.
 
 ## Clean up resources
 
-When no longer needed, use [az group delete](/cli/azure/group) to delete **myResourceGroup** resource group and all of the resources it contains:
+When you no longer need the resources, use [az group delete](/cli/azure/group) to delete the **myResourceGroup** resource group and all of the resources it contains:
 
 ```azurecli-interactive
 # Delete the resource group and all resources it contains.

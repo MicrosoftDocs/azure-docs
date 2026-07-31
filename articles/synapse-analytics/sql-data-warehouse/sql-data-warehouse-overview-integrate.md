@@ -6,10 +6,12 @@ ms.author: ajagadish
 ms.date: 04/17/2018
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: integration
 ---
 
 # Integrate other services with a dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics.
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 The dedicated SQL pool (formerly SQL DW) capability within Azure Synapse Analytics enables users to integrate with many of the other services in Azure. A dedicated SQL pool can  utilize several additional services, some of which include:
 

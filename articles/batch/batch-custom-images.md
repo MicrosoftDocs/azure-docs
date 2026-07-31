@@ -2,7 +2,7 @@
 title: Use a managed image to create a custom image pool
 description: Create a Batch custom image pool from a managed image to provision compute nodes with the software and data for your application.
 ms.topic: concept-article
-ms.date: 01/05/2026
+ms.date: 05/19/2026
 ms.devlang: csharp
 # Customer intent: As a cloud architect, I want to create a custom image pool using a managed image so that I can provision virtual machines with tailored software and configurations for my batch processing applications.
 ---
@@ -72,32 +72,30 @@ Once you have found the resource ID of your managed image, create a custom image
 
 ### Batch Service .NET SDK
 
-```csharp
-private static VirtualMachineConfiguration CreateVirtualMachineConfiguration(ImageReference imageReference)
+```C# Snippet:custom_images_pool_create
+BatchImageReference imageReference = new BatchImageReference()
 {
-    return new VirtualMachineConfiguration(
-        imageReference: imageReference,
-        nodeAgentSkuId: "batch.node.windows amd64");
-}
+    Id = new ResourceIdentifier(
+        "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/images/{image definition name}")
+};
 
-private static ImageReference CreateImageReference()
+BatchAccountPoolData poolData = new BatchAccountPoolData()
 {
-    return new ImageReference(
-        virtualMachineImageId: "/subscriptions/{sub id}/resourceGroups/{resource group name}/providers/Microsoft.Compute/images/{image definition name}");
-}
-
-private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfiguration vmConfiguration)
-{
-    try
+    VmSize = PoolVMSize,
+    DeploymentConfiguration = new BatchDeploymentConfiguration()
     {
-        CloudPool pool = batchClient.PoolOperations.CreatePool(
-            poolId: PoolId,
-            targetDedicatedComputeNodes: PoolNodeCount,
-            virtualMachineSize: PoolVMSize,
-            virtualMachineConfiguration: vmConfiguration);
-
-        pool.Commit();
+        VmConfiguration = new BatchVmConfiguration(
+            imageReference: imageReference,
+            nodeAgentSkuId: "batch.node.windows amd64")
+    },
+    ScaleSettings = new BatchAccountPoolScaleSettings()
+    {
+        FixedScale = new BatchAccountFixedScaleSettings() { TargetDedicatedNodes = PoolNodeCount }
     }
+};
+
+ArmOperation<BatchAccountPoolResource> pool = await batchAccount.GetBatchAccountPools()
+    .CreateOrUpdateAsync(WaitUntil.Completed, PoolId, poolData);
 ```
 
 ### Batch Management REST API

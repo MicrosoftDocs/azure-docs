@@ -2,7 +2,7 @@
 title: What are the configuration settings for TLS?
 description: Learn about the TLS protocol configuration and how to use TLS to securely communicate with Azure Managed Redis instances.
 ms.date: 05/18/2025
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom:
   - ignite-2024
   - build-2025

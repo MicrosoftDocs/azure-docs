@@ -7,7 +7,7 @@ services: azure-communication-services
 
 ms.author: krkutser
 ms.date: 03/10/2023
-ms.topic: conceptual
+ms.topic: concept-article
 ms.service: azure-communication-services
 ms.subservice: pstn
 ---

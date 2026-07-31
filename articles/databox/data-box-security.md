@@ -144,16 +144,44 @@ The following security guidelines are implemented in Data Box:
 
 ## Secure erase media sanitization details
 
-The secure erasure process performed on our devices is compliant with [NIST SP 800-88r1](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r1.pdf) and following are the details of the implementation:
+The secure erasure process performed on our devices is compliant with [NIST SP 800-88 Revision 2](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-88r2.pdf). Customers also receive a Secure Erasure Certificate which is auto-generated as part of the cleanup process and is available directly from the Azure portal once the order is completed. The certificate is downloadable and confirms all data on the device has been securely erased along with the implementation details required by NIST standards, thus enhancing security assurance and simplifying compliance for  highly regulated and sensitive scenarios.
+The table below covers the details of the implementation:
 
 |Device   |Data Erasure type   |Tool used   |
 |----------------|------------|-------------|
-|Azure Data Box | In Public cloud: Crypto Erase <br> In Gov cloud: Crypto Erase + Disk overwrite |ARCCONF tool | 
-|Azure Data Box 120  | In Public and Gov cloud: Block Erase |ARCCONF tool | 
-|Azure Data Box 525  | In Public and Gov cloud: Block Erase |ARCCONF tool | 
-|Azure Data Box Disk   | In Public and Gov cloud: Block Erase |MSECLI tool | 
+|Azure Data Box 120  | Block Erase |ARCCONF 4.17.00 tool | 
+|Azure Data Box 525  | Block Erase |ARCCONF 4.17.00 tool | 
+|Azure Data Box Disk   |Block Erase |MSECLI tool | 
 
-
+Below is a sample certificate for a Data Box 120 device:
+```Sample Secure Erasure Certificate
+Microsoft Azure Data Box Certificate of Erasure  
+SubscriptionName: <> 
+ResourceGroupName: <> 
+JobName: <> 
+{ 
+  "MediaInformation": { 
+  "Model": "Azure Data Box 120", 
+  “Manufacturer”:XXXXX 
+  "SerialNumber": "XXXXXXX", 
+  "Disks": ["ABC1", "ABC2"], 
+  "MediaType": "Flash Memory SSDs", 
+  "DataBackedUp": "No backup created before erasure" 
+  } 
+  "SanitizationDetails": { 
+  "ErasureMethodType": "NIST 800-88 Purge", 
+  "MethodUsed": "Block Erase", 
+  "ToolsUsed": "ARCCONF tool", 
+  "Verification Methods": "Random 10% sampling + Secondary 2% Sampling" 
+  } 
+  "MediaDestination": "Azure Inventory" 
+  "Signature": { 
+  "Details": "We hereby state that the data erasure and validation process has been carried out in accordance with the NIST 800-88r2 standards. ", 
+  "SanitizedBy": "Azure Data Box team", 
+  "Date": "YYYY-MM-DD HH:MM:SS" 
+  }
+}
+```
 ## Next steps
 
 - Review the [Data Box requirements](data-box-system-requirements.md).

@@ -73,7 +73,8 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 - AKS backup uses Container Storage Interface (CSI) drivers snapshot capabilities to perform backups of persistent volumes. CSI Driver support is available for AKS clusters with Kubernetes version *1.21.1* or later. 
 
   >[!Note]
-  >- Currently, AKS backup only supports backup of Azure Disk-based persistent volumes (enabled by CSI driver). If you're using Azure File Share and Azure Blob type persistent volumes in your AKS clusters, you can configure backups for them via the Azure Backup solutions available for [Azure File Share](azure-file-share-backup-overview.md) and [Azure Blob](blob-backup-overview.md).
+  >- Currently, AKS backup supports backup of Azure Disk and Azure SMB Files based persistent volumes (enabled by CSI driver). 
+  >- For Azure Files-based volumes, CSI Driver version 1.32 or higher is required. [Learn how to configure backup for Azure Files volumes](tutorial-backup-aks-azure-files.md).
   >- In Tree, volumes aren't supported by AKS backup; only CSI driver based volumes can be backed up. You can [migrate from tree volumes to CSI driver based Persistent Volumes](/azure/aks/csi-migrate-in-tree-volumes).
 
 - Before installing Backup Extension in the AKS cluster, ensure that the CSI drivers and snapshots are enabled for your cluster. If disabled, see [these steps to enable them](/azure/aks/csi-storage-drivers#enable-csi-storage-drivers-on-an-existing-cluster).
@@ -96,7 +97,9 @@ To enable backup for an AKS cluster, see the following prerequisites: .
 
 - If you are using [Azure policies in your AKS cluster](/azure/aks/policy-reference), ensure that the extension namespace *dataprotection-microsoft* is excluded from these policies to allow backup and restore operations to run successfully.
 
-- If you are using Azure network security group to filter network traffic between Azure resources in an Azure virtual network then set an inbound rule to allow service tags *azurebackup* and *azurecloud*. 
+- If you are using an Azure Network Security Group (NSG) to filter network traffic between Azure resources in a virtual network, configure an inbound NSG rule to allow the service tags *azurebackup*, *azurecloud*, and *storage*. Allowing these service tags enables the AKS cluster to communicate with Azure Backup services and the associated storage account required for backup operations. Allowing inbound TCP traffic on port 443 is sufficient for all three service tags.
+
+- Ensure outbound connectivity from the AKS cluster to Azure Backup and Storage endpoints is not blocked.
      
 
 ## Required roles and permissions
@@ -122,7 +125,8 @@ Also, as part of the backup and restore operations, the following roles are assi
 | Contributor                    | AKS cluster        | Snapshot resource group | Allows AKS cluster to store persistent volume snapshots in the resource group.              |
 | Storage Blob Data Contributor    | Extension Identity | Storage account         | Allows Backup Extension to store cluster resource backups in the blob container.            |
 | Data Operator for Managed Disks | Backup vault       | Snapshot Resource Group | Allows Backup Vault service to move incremental snapshot data to the Vault.                  |
-| Disk Snapshot Contributor      | Backup vault       | Snapshot Resource Group | Allows Backup Vault to access Disks snapshots and perform Vaulting operation.                |
+| Disk Snapshot Contributor      | Backup vault       | Snapshot Resource Group | Allows Backup Vault to access Disks snapshots and perform Vaulting operation.   
+| Storage File Data Privileged Contributor | Source and Target AKS Cluster | Azure Files PV Storage Account | Allows AKS Cluster to access Files based volumes to create snapshots and access snapshots to create Files based volumes. | 
 | Storage Blob Data Reader       | Backup vault       | Storage Account         | Allow Backup Vault to access Blob Container with backup data stored to move to Vault.        |
 | Contributor                    | Backup vault       | Staging Resource Group  | Allows Backup Vault to hydrate backups as Disks stored in Vault Tier.                        |
 | Storage Account Contributor    | Backup vault       | Staging Storage Account | Allows Backup Vault to hydrate backups stored in Vault Tier.                                 |

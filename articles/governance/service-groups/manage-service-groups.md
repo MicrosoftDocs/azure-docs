@@ -29,8 +29,8 @@ This section shows you how to manage service group's actions create, read, updat
 
 - HTTP method: **PUT** 
 - Resource Provider: **Microsoft.Management**
-- API Version: **2024-04-01-preview**
-- URL: https://management.azure.com/providers/Microsoft.Management/serviceGroups/[groupID]?api-version=2024-04-01-preview
+- API Version: **2024-02-01-preview**
+- URL: https://management.azure.com/providers/Microsoft.Management/serviceGroups/[groupID]?api-version=2024-02-01-preview
 
 Request Body:
 ```json
@@ -61,7 +61,7 @@ API Response:
 }
 ```
 
-* **GroupID**:  Required field in the URL that uniquely identifies the Service Group. This ID is immutable once created
+* **GroupID**:Required field in the URL that uniquely identifies the Service Group. This ID is immutable once created
   * Service groups must have a Global Unique Name. This means it isn't specific to Tenant it's being created in, but all tenants in that cloud. Ex. Public Cloud across all tenants.  
 * **Kind**: Optional string property that is used by Resource Providers for scenarios. Kind value is immutable after creation.  
 * **Display Name**: Optional String Property to display a different name rather than the Group ID
@@ -75,8 +75,8 @@ To update a service group, a PUT or PATCH API method can be used which have the 
 
 - HTTP method: **PUT** or **PATCH**
 - Resource Provider: **Microsoft.Management**
-- API Version: **2024-04-01-preview**
-- URL: https://management.azure.com/providers/Microsoft.Management/serviceGroups/[groupID]?api-version=2024-04-01-preview
+- API Version: **2024-02-01-preview**
+- URL: https://management.azure.com/providers/Microsoft.Management/serviceGroups/[groupID]?api-version=2024-02-01-preview
 
 
 Request Body: 
@@ -113,8 +113,8 @@ For descriptions of the properties see [Create Service Group](#create-service-gr
 
 - HTTP method: **DELETE** 
 - Resource Provider: **Microsoft.Management**
-- API Version: **2024-04-01-preview**
-- URL: https://management.azure.com/providers/Microsoft.Management/serviceGroups/[groupID]?api-version=2024-04-01-preview
+- API Version: **2024-02-01-preview**
+- URL: https://management.azure.com/providers/Microsoft.Management/serviceGroups/[groupID]?api-version=2024-02-01-preview
 - No Request Body
 
 API Response: 
@@ -124,8 +124,8 @@ The DELETE response returns an HTTP Status Code. The HTTP DELETE Action is an As
 
 - HTTP method: **GET** 
 - Resource Provider: **Microsoft.Management**
-- API Version: **2024-04-01-preview**
-- URL: https://management.azure.com/providers/Microsoft.Management/serviceGroups/[groupID]?api-version=2024-04-01-preview
+- API Version: **2024-02-01-preview**
+- URL: https://management.azure.com/providers/Microsoft.Management/serviceGroups/[groupID]?api-version=2024-02-01-preview
 - No Request Body
 
 API Response: 
@@ -151,8 +151,8 @@ Service Groups has an API that allows you to get all the Service Group Parents a
 
 - HTTP method: **POST** 
 - Resource Provider: **Microsoft.Management**
-- API Version: **2024-04-01-preview**
-- URL: https://management.azure.com/providers/Microsoft.Management/serviceGroups/[groupID]/listAncestors?api-version=2024-04-01-preview
+- API Version: **2024-02-01-preview**
+- URL: https://management.azure.com/providers/Microsoft.Management/serviceGroups/[groupID]/listAncestors?api-version=2024-02-01-preview
 
 - No Request Body
 
@@ -205,6 +205,14 @@ Service group members are resources, resource groups, or subscriptions that are 
 
 ### Create a Service Group Member
 Resources, resource groups, and subscriptions can all be made members of a service group. The Service Group Member relationship is created as an extension off the member that is being connected to the group.  
+
+The `[scope]` in the URLs below refers to the full Azure Resource Manager path of the resource being added as a member:
+
+| Resource type | Scope format |
+|---|---|
+| Subscription | `subscriptions/{subscriptionId}` |
+| Resource group | `subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
+| Resource | `subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProvider}/{resourceType}/{resourceName}` |
 
 - HTTP method: **PUT** 
 - Resource Provider: **Microsoft.Relationships**

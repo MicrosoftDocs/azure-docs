@@ -2,11 +2,11 @@
  title: include file
  description: include file
  services: virtual-wan
- author: cherylmc
+ author: duongau
  ms.service: azure-virtual-wan
  ms.topic: include
  ms.date: 01/23/2024
- ms.author: cherylmc
+ ms.author: duau
  ms.custom: include file
 ---
 
@@ -19,8 +19,8 @@ You can check the links in this section for more information about services offe
 |[Cisco Meraki](https://documentation.meraki.com/MX/Deployment_Guides/Cisco_Meraki_MX_Branch_to_Azure_Virtual_WAN_Deployment_Guide)|[Azure Virtual WAN Cisco Meraki Deployment Guide](https://documentation.meraki.com/MX/Deployment_Guides/Cisco_Meraki_MX_Branch_to_Azure_Virtual_WAN_Deployment_Guide) and [vMX and Azure vWAN](https://documentation.meraki.com/MX/Deployment_Guides/vMX_and_Azure_vWAN)|
 | [Citrix](https://www.citrix.com/)| [Using Citrix SD-WAN to connect to Microsoft Azure Virtual WAN](https://docs.citrix.com/en-us/citrix-sd-wan-center/11/azure-virtual-wan/configure-azure-virtual-wan.html#how-does-microsoft-azure-virtual-wan-work)|
 | [CloudGenix](https://login.elcapitan.cloudgenix.com/sign-in.html)|[CloudGenix Azure Virtual WAN CloudBlade Deployment Guide](https://login.elcapitan.cloudgenix.com/sign-in.html)|
-| [Fortinet](https://www.fortinet.com/azure-vwan) |[FortiGate and Microsoft Azure Virtual WAN Integration deployment guide](https://www.fortinet.com/content/dam/fortinet/assets/deployment-guides/DG-FortiGate-IBM-Qradar.pdf),[Routing Scenario Blog](https://www.fortinet.com/blog/business-and-technology/fortinet-secure-sd-wan-enhances-azure-virtual-wan-integrations)|
-|[HPE Aruba](https://arubanetworking.hpe.com/)|[Aruba SD-WAN and Microsoft Azure Virtual WAN Deployment Guide](https://arubanetworking.hpe.com/techdocs/sdwan-PDFs/deployments/dg_ECV-Azure-VWAN_latest.pdf)|
+| [Fortinet](https://www.fortinet.com/) |[FortiGate and Microsoft Azure Virtual WAN Integration deployment guide](https://www.fortinet.com/content/dam/fortinet/assets/deployment-guides/DG-FortiGate-IBM-Qradar.pdf),[Routing Scenario Blog](https://www.fortinet.com/blog/business-and-technology/fortinet-secure-sd-wan-enhances-azure-virtual-wan-integrations)|
+|[HPE Aruba](https://arubanetworking.hpe.com/)|[Aruba SD-WAN and Microsoft Azure Virtual WAN Deployment Guide](https://arubanetworking.hpe.com/techdocs/sdwan-PDFs/deployments/dg_ECV-Azure_latest.pdf)|
 | [NetFoundry](https://netfoundry.io)|[Netfoundry Support Hub: Azure Virtual WAN](https://support.netfoundry.io/hc/articles/360054527871-Configure-NetFoundry-Network-for-Azure-Windows-Virtual-Desktop-Short-Path)|
 |[Nuage/Nokia](https://www.nokia.com/)|[Nuage and Azure Virtual WAN Deployment Guide](https://onestore.nokia.com/asset/210073)|
 |[Open Systems](https://open-systems.com/solutions/microsoft-azure-virtual-wan)|[Open Systems and Azure Virtual WAN Deployment Guide](https://open-systems.com/wp-content/uploads/2020/07/Azure-Virtual-WAN-UserGuide.pdf)|

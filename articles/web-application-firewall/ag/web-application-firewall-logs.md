@@ -9,7 +9,10 @@ ms.date: 08/24/2023
 ms.custom: sfi-image-nochange
 # Customer intent: As a security administrator, I want to enable and manage logging for the Web Application Firewall in Azure, so that I can monitor and analyze access, performance, and security events to enhance the protection of my applications.
 ---
+
 # Resource logs for Azure Web Application Firewall
+
+**Applies to:** :heavy_check_mark: Application Gateway
 
 You can monitor Web Application Firewall resources using logs. You can save performance, access, and other data or consume it from a resource for monitoring purposes.
 
@@ -365,5 +368,5 @@ We have published a Resource Manager template that installs and runs the popular
 
 * Visualize counter and event logs by using [Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/azure-networking-analytics).
 * [Visualize your Azure activity log with Power BI](https://powerbi.microsoft.com/blog/monitor-azure-audit-logs-with-power-bi/) blog post.
-* [View and analyze Azure activity logs in Power BI and more](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blog post.
+* [View and analyze Azure activity logs in Power BI and more](https://learn.microsoft.com/azure/azure-monitor/logs/log-powerbi) blog post.
 

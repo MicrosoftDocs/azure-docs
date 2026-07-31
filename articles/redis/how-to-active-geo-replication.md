@@ -2,7 +2,7 @@
 title: Configure active geo-replication for Azure Managed Redis instances
 description: Learn how to replicate your Azure Managed Redis instances across Azure regions.
 ms.date: 05/18/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
   - devx-track-azurecli
   - ignite-2024
@@ -240,6 +240,8 @@ To monitor the _Geo Replication Healthy_ metric in the Azure portal:
 - Use of custom hashtags – Using custom hashtags in Redis can lead to uneven distribution of data across shards, which might cause performance issues and synchronization problems in geo-replicas therefore avoid using custom hashtags unless the database needs to perform multiple key operations.
 
 - Large key size - Large keys can create synchronization issues among geo-replicas. To maintain smooth performance and reliable replication, we recommend keeping key sizes under 500MB when using geo-replication. If individual key size gets close to 2GB the cache faces geo-replication health issues.  
+ 
+- Out of memory (OOM) - Some free memory is needed for geo-replication sync to work. When the cache is under memory pressure or has reached its memory limit, syncing is paused. Reduce memory pressure by setting TTLs or changing the eviction policy. 
 
 ### Flush caches using Azure CLI or PowerShell
 

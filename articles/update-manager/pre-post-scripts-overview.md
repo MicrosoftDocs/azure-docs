@@ -6,6 +6,7 @@ ms.date: 08/21/2025
 ms.topic: overview
 author: habibaum
 ms.author: v-uhabiba
+ms.update-cycle: 1095-days
 # Customer intent: As an IT administrator managing scheduled updates, I want to configure pre and post events in Azure Update Manager so that I can automate tasks before and after maintenance windows, ensuring seamless updates and minimizing downtime.
 ---
 

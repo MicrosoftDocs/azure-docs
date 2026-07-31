@@ -2,7 +2,7 @@
 title: What's new in Azure machine configuration docs
 description: Details about changes to the documentation for Azure machine configuration.
 ms.date: 02/01/2024
-ms.topic: conceptual
+ms.topic: whats-new
 ---
 
 # What's new in the Azure machine configuration docs

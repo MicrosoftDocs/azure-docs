@@ -1,28 +1,28 @@
 ---
-title: Create rules engine project with Visual Studio Code
+title: Create Rules Engine Project with Visual Studio Code
 description: Create and implement a rules engine project with Visual Studio Code, Microsoft Rules Composer, and the Azure Logic Apps Rules Engine.
+services: logic-apps
 ms.service: azure-logic-apps
 ms.suite: integration
 author: haroldcampos
 ms.author: hcampos
-ms.reviewer: estfan, azla
+ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 01/27/2025
+ms.date: 03/10/2026
+ms.date-cycle: 1095-days
 ms.custom:
   - build-2025
   - sfi-image-nochange
-
-#CustomerIntent: As a developer, I want to learn how to create an Azure Logic Apps Rules Engine project using Visual Studio Code so that I can integrate business rules with my Standard logic app workflows.
+#Customer intent: As an integration developer who works with Azure Logic Apps, I want to create an Azure Logic Apps Rules Engine project using Visual Studio Code so I can integrate business rules with my Standard logic app workflows.
 ---
 
 # Create an Azure Logic Apps Rules Engine project using Visual Studio Code
 
 [!INCLUDE [logic-apps-sku-standard](../../../includes/logic-apps-sku-standard.md)]
 
-
 When you want to integrate business logic with your Standard workflows in Azure Logic Apps, you can create and build an Azure Logic Apps Rules Engine project using Visual Studio Code. Rules govern the business logic for how business processes work.
 
-This how-to guide describes how to create an Azure Logic Apps Rules Engine project:
+This guide shows how to create an Azure Logic Apps Rules Engine project:
 
 * Prerequisites and setup for creating your Azure Logic Apps Rules Engine project, including creating the business rules for your project with the Microsoft Rules Composer.
 
@@ -397,7 +397,7 @@ After you confirm that your code compiles and that your logic app rules engine p
 
    On the workflow designer that opens, the default workflow, included with your logic app project, appears with the following trigger and actions:
 
-   - The built-in [Request trigger named **When a HTTP request is received**](../../connectors/connectors-native-reqres.md).
+   - The built-in [Request trigger named **When an HTTP request is received**](../../connectors/connectors-native-reqres.md).
    - The built-in action named **Call a local rules function in this logic app**.
    - The built-in [Response action named **Response**](../../connectors/connectors-native-reqres.md), which you use to reply to the caller only when you use the Request trigger.
 

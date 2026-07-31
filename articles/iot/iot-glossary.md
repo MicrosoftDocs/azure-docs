@@ -5,8 +5,8 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot
 services: iot
-ms.topic: conceptual
-ms.date: 02/03/2026
+ms.topic: glossary
+ms.date: 03/09/2026
 ai-usage: ai-assisted
 
 # Generated from YAML source.
@@ -191,7 +191,7 @@ Applies to: IoT Hub, IoT Edge, IoT Central, Device developer
 
 The device SDKS, available for multiple languages, enable you to create [device apps](#device-app) that interact with an [IoT hub](#iot-hub) or an IoT Central application.
 
-[Learn more](./iot-sdks.md)
+[Learn more](../iot-hub/iot-sdks.md)
 
 Casing rules: Always refer to as *Azure IoT device SDKs*.
 
@@ -366,6 +366,18 @@ Casing rules: Always lowercase.
 
 Applies to: Azure IoT Operations
 
+### Dataset
+
+In [Azure IoT Operations](#azure-iot-operations---enabled-by-azure-arc), a dataset is a logical grouping of [data points](#data-point) collected from an [asset](#asset). A dataset defines which telemetry values belong together and how they're routed to a destination MQTT topic. A single asset can have multiple datasets to group telemetry by purpose, such as process monitoring or energy monitoring. Data points can't exist independently outside a dataset.
+
+Connectors that use datasets include OPC UA, REST/HTTP, MQTT, and SSE.
+
+See also [event group](#event-group), [management group](#management-group).
+
+Casing rules: Always lowercase.
+
+Applies to: Azure IoT Operations
+
 ### Default component
 
 All [IoT Plug and Play device](#iot-plug-and-play-device) [models](#model) have a default [component](#component). A simple [device model](#device-model) only has a default component - such a model is also known as a no-component [device](#device). A more complex model has multiple components nested below the default component.
@@ -526,8 +538,6 @@ Applies to: IoT Hub, IoT Central
 
 A description, that uses the [Digital Twins Definition Language](#digital-twins-definition-language), of the capabilities of a [device](#device). Capabilities include [telemetry](#telemetry), [properties](#properties), and [commands](#command).
 
-[Learn more](../iot/concepts-modeling-guide.md)
-
 Casing rules: Always lowercase.
 
 Applies to: IoT Hub, IoT Central, Device developer, Azure Digital Twins
@@ -579,7 +589,7 @@ Applies to: IoT Hub, IoT Central, Azure Digital Twins
 
 ### Digital twin
 
-A digital twin is a collection of digital data that represents a physical object. Changes in the physical object are reflected in the digital twin. In some scenarios, you can use the digital twin to manipulate the physical object. The [Azure Digital Twins service](../digital-twins/index.yml) uses [models](#model) expressed in the [Digital Twins Definition Language](#digital-twins-definition-language) to represent digital twins of [physical devices](#physical-device) or higher-level abstract business concepts, enabling a wide range of cloud-based digital twin [solutions](#solution). An [IoT Plug and Play](./overview-iot-plug-and-play.md) [device](#device) has a digital twin, described by a Digital Twins Definition Language [device model](#device-model).
+A digital twin is a collection of digital data that represents a physical object. Changes in the physical object are reflected in the digital twin. In some scenarios, you can use the digital twin to manipulate the physical object. The [Azure Digital Twins service](../digital-twins/index.yml) uses [models](#model) expressed in the [Digital Twins Definition Language](#digital-twins-definition-language) to represent digital twins of [physical devices](#physical-device) or higher-level abstract business concepts, enabling a wide range of cloud-based digital twin [solutions](#solution). An [IoT Plug and Play](/previous-versions/azure/iot/overview-iot-plug-and-play) [device](#device) has a digital twin, described by a Digital Twins Definition Language [device model](#device-model).
 
 See also [Device twin](#device-twin)
 
@@ -697,6 +707,18 @@ In [Azure IoT Operations](#azure-iot-operations---enabled-by-azure-arc), an even
 Events are grouped into event groups. An *event group* is a collection of events that are logically related. The event group specifies the MQTT topic where the asset publishes event data.
 
 See also [data point](#data-point), [stream](#stream-azure-iot-operations).
+
+Casing rules: Always lowercase.
+
+Applies to: Azure IoT Operations
+
+### Event group
+
+In [Azure IoT Operations](#azure-iot-operations---enabled-by-azure-arc), an event group is a logical container for related [events](#event-azure-iot-operations) from an [asset](#asset). An event group defines which events belong together and the destination MQTT topic where event data is published. Event groups are the event equivalent of [datasets](#dataset) — events within a group can carry metadata such as trigger time, severity, and sensor ID. Events can't exist independently outside an event group.
+
+Connectors that use event groups include OPC UA, ONVIF, and SSE.
+
+See also [dataset](#dataset), [management group](#management-group).
 
 Casing rules: Always lowercase.
 
@@ -1018,6 +1040,18 @@ Casing rules: Always capitalize as *linked IoT hub*.
 Applies to: IoT Hub, Device Provisioning Service
 
 ## M
+
+### Management group
+
+In [Azure IoT Operations](#azure-iot-operations---enabled-by-azure-arc), a management group is a logical grouping of management actions that can be invoked against an [asset](#asset). Each action has a target URI and an action type: read, write, or call. Management actions can't exist independently outside a management group. Management groups let you organize and secure related control and configuration operations together.
+
+Connectors that use management groups include OPC UA, ONVIF, and MQTT.
+
+See also [dataset](#dataset), [event group](#event-group).
+
+Casing rules: Always lowercase.
+
+Applies to: Azure IoT Operations
 
 ### Model
 

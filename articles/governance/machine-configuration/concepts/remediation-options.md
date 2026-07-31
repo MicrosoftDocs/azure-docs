@@ -8,6 +8,18 @@ ms.topic: how-to
 
 Before you begin, it's a good idea to read the overview page for [machine configuration][01].
 
+> [!NOTE]
+> Machine Configuration participates in Azure Policy's [Safe Deployment framework][15]. This means that newly assigned policies automatically apply to machines deployed or updated after the assignment. To extend coverage to existing machines, simply enable "Create a remediation task" on the Remediation tab when assigning through the Azure portal. This ensures all in-scope machines receive the configuration automatically, with no manual intervention needed. In ApplyAndAutoCorrect mode, the remediation task only needs to run once per existing noncompliant machine. After the initial deployment, the Machine Configuration agent continuously enforces and auto-corrects drift on its own.
+
+> [!IMPORTANT]
+> If an Azure Policy assignment is created from the Azure portal, on the "Remediation" tab a checkbox
+> labeled "Create a remediation task" is available. When the box is checked, after the policy
+> assignment is created remediation tasks automatically correct any resources that evaluate to
+`NonCompliant`. The effect of this setting for machine configuration is that you can deploy a configuration across
+many machines by assigning a policy. You don't also have to run the remediation task manually for
+machines that aren't compliant.
+
+
 > [!IMPORTANT]
 > The machine configuration extension is required for Azure virtual machines. To deploy the
 > extension at scale across all machines, assign the following policy initiative:
@@ -163,3 +175,4 @@ report on compliance status and allow drift or to automatically correct.
 [12]: ../how-to/create-policy-definition.md
 [13]: ../../policy/assign-policy-portal.md
 [14]: ../../policy/how-to/determine-non-compliance.md
+[15]: ../../policy/how-to/policy-safe-deployment-practices.md

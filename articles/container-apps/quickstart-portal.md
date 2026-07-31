@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Deploy Your First Container App Using the Azure Portal'
+title: 'Quickstart: Deploy Your First Container App Using the Azure portal'
 description: Find out how to use the Azure portal to deploy your first application to Azure Container Apps and verify the deployment.
 services: container-apps
 author: craigshoemaker

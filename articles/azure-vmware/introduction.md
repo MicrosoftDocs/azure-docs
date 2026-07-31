@@ -23,7 +23,7 @@ Azure VMware Solution provides two different private cloud generations:
 
 1. Azure VMware Solution Generation 1 provides VMware vSphere clusters built from dedicated bare-metal hosts deployed in Azure data center facilities. Microsoft-managed **ExpressRoute circuits** provide connectivity between VMware vSphere hosts and native Azure resources deployed in Virtual Networks.
 
-1. [Azure VMware Solution Generation 2](native-introduction.md) (Public Preview) provides VMware vSphere clusters built from dedicated Azure bare-metal hosts. Azure VMware Solution Generation 2 features an updated network architecture whereby VMware vSphere hosts are directly attached to Azure Virtual Networks. This offering is only supported on the AV64 SKU.
+1. [Azure VMware Solution Generation 2](native-introduction.md) provides VMware vSphere clusters built from dedicated Azure bare-metal hosts. Azure VMware Solution Generation 2 features an updated network architecture whereby VMware vSphere hosts are directly attached to Azure Virtual Networks. This offering is only supported on the AV64 SKU.
 
 ## Hosts, clusters, and private clouds
 

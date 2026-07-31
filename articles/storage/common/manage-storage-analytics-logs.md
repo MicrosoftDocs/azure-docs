@@ -4,7 +4,7 @@ description: Learn how to monitor a storage account in Azure by using Azure Stor
 author: normesta
 ms.service: azure-storage
 ms.topic: concept-article
-ms.date: 09/30/2022
+ms.date: 07/16/2026
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: storage-common-concepts
@@ -58,9 +58,6 @@ You can instruct Azure Storage to save diagnostics logs for read, write, and del
 
    For information about accessing the $logs container, see [Storage analytics logging](storage-analytics-logging.md).
    
-   > [!NOTE]
-   > For classic storage accounts, the $logs container appears only in Azure Storage Explorer. The $logs container isn't visible from storage browser or the container view that is available in the Azure portal.
-
 ### [PowerShell](#tab/azure-powershell)
 
 1. Open a Windows PowerShell command window.
@@ -211,7 +208,7 @@ The following example changes the retention period to 4 days.
 You can verify that logs are being deleted by viewing the contents of the `$logs` container of your storage account. The following image shows the contents of a folder in the `$logs` container. The folder corresponds to January 2021 and each folder contains logs for one day. If the day today was January 29th 2021, and your retention policy is set to only one day, then this folder should contain logs for only one day.
 
 > [!div class="mx-imgBorder"]
-> ![List of log folders in the Azure Portal](./media/manage-storage-analytics-logs/verify-and-delete-logs.png)
+> ![List of log folders in the Azure portal](./media/manage-storage-analytics-logs/verify-and-delete-logs.png)
 
 <a id="download-storage-logging-log-data"></a>
 

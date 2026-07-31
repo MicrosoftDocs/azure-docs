@@ -3,7 +3,7 @@ title: Connectivity to an Azure Virtual Network
 description: Learn about key concepts and use cases on connectivity to Azure Virtual Networks.
 ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 4/21/2025
+ms.date: 4/20/2026
 ms.custom: engagement-fy25
 # customer intent: As a cloud administrator, I want to learn about connectivity to Azure Virtual Networks so that I can understand the features and benefits of this offering.
 # Customer intent: As a cloud administrator, I want to understand the connectivity processes for Azure Virtual Networks so that I can effectively integrate and manage my private cloud deployments with existing network resources.
@@ -20,7 +20,7 @@ After you deploy Azure VMware Solution Generation 2 (Gen 2) private cloud, you n
 
 ## Azure VMware Solution Hosted (Local) Virtual Network
 
-This Azure VMware Solution private cloud deployment is hosted in an Azure Virtual Network. This means the connectivity to the local Virtual Network from an Azure VMware Solution private cloud is established during deployment, with no other configuration required. This private cloud follows the same network connectivity constructs as other Azure services. This means VMware NSX workload segments created in this private cloud will be systematically programmed as Virtual Network address spaces in the Virtual Network domain for routing purposes.
+Azure VMware Solution private cloud deployment is hosted in an Azure Virtual Network. The connectivity to the local Virtual Network from an Azure VMware Solution private cloud is established during deployment, with no other configuration required. The private cloud follows the same network connectivity constructs as other Azure services. VMware NSX workload segments created in this private cloud are systematically programmed as Virtual Network address spaces in the Virtual Network domain for routing purposes.
 
 :::image type="content" source="./media/native-connectivity/native-connectivity-private-cloud.png" alt-text="Diagram of an Azure VMware Solution Gen 2 connection to a private cloud." lightbox="media/native-connectivity/native-connectivity-private-cloud.png":::
 
@@ -39,7 +39,7 @@ Both regional Virtual Network peering and global Virtual Network peering is supp
 
 :::image type="content" source="./media/native-connectivity/native-connectivity-private-vnet-peering.png" alt-text="Diagram showing an Azure VMware Solution Gen 2 connection to other Virtual Networks." lightbox="media/native-connectivity/native-connectivity-private-vnet-peering.png":::
 
-## Related topics
+## Related articles
 - [Connect to on-premises environment](native-connect-on-premises.md)
 - [Internet connectivity options](native-internet-connectivity-design-considerations.md)
 - [Connect multiple Azure VMware Solution in an Azure Virtual Network private clouds](native-connect-multiple-private-clouds.md)

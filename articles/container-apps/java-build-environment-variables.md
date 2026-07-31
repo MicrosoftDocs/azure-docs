@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/07/2025
 ms.author: cshoe
 ---

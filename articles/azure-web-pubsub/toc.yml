@@ -27,8 +27,8 @@
 - name: Tutorials
   expanded: false
   items:
-    - name: Use LiveTry to explore
-      href: quickstarts-livetry.md
+    - name: Use playground to explore
+      href: quickstarts-playground.md
     - name: Publish and subscribe messages
       href: tutorial-pub-sub-messages.md
     - name: Build a chat app
@@ -172,6 +172,37 @@
           href: reference-rest-api-mqtt.md
         - name: Cross-protocol communication
           href: reference-mqtt-cross-protocol-communication.md
+- name: Chat (Preview)
+  expanded: false
+  items:
+    - name: Overview
+      href: chat-overview.md
+    - name: Quickstart and tutorial
+      items:
+        - name: Configure storage and enable Chat
+          href: chat-howto-enable-chat.md
+        - name: Quickstart
+          href: chat-quickstart.md
+        - name: Tutorial
+          href: chat-tutorial.md
+    - name: How-to guides
+      items:
+        - name: Authenticate and connect clients
+          href: chat-howto-authenticate.md
+        - name: Create and manage rooms
+          href: chat-howto-manage-rooms.md
+        - name: Send and read messages
+          href: chat-howto-messages.md
+        - name: Configure roles and permissions
+          href: chat-howto-roles-permissions.md
+    - name: Reference
+      items:
+        - name: Frequently asked questions
+          href: chat-faq.md
+        - name: SDKs and REST API
+          href: chat-reference-sdk-and-rest.md
+        - name: Error codes
+          href: chat-reference-errors.md
 - name: Socket.IO
   expanded: false
   items:
@@ -241,18 +272,20 @@
       href: concept-service-internals.md
     - name: Client protocol overview
       href: concept-client-protocols.md
-    - name: High availability
+    - name: Reliability
       items:
-        - name: Resiliency and disaster recovery
+        - name: Reliability in Azure Web PubSub
+          href: /azure/reliability/reliability-web-pubsub?toc=/azure/azure-web-pubsub/toc.json
+        - name: Disaster recovery
           href: concept-disaster-recovery.md
-        - name: Availability zones
-          href: concept-availability-zones.md
     - name: Performance considerations
       href: concept-performance.md
     - name: Billing model
       href: concept-billing-model.md
     - name: Microsoft Entra Authorization
       href: concept-azure-ad-authorization.md
+    - name: Wildcard group role patterns
+      href: concept-wildcard-group-roles.md
     - name: Metrics
       href: concept-metrics.md
     - name: Security

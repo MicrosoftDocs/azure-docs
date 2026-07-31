@@ -68,7 +68,7 @@ You can now find updates and release announcements for [Azure Container Apps](ht
 | Feature | Description |
 | ------- | ------------ |
 | [Generally Available: Azure Container Apps in China Cloud](https://azure.microsoft.com/updates/ga-azure-container-apps-in-azure-china-cloud/) | Azure Container Apps is now available in China North 3. |
-| [ACA eligible for savings plans](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-container-apps-eligible-for-azure-savings-plan-for-compute/ba-p/3941243) | Azure Container Apps is eligible for Azure savings plan for compute. |
+| [ACA eligible for savings plans](https://techcommunity.microsoft.com/blog/appsonazureblog/azure-container-apps-eligible-for-azure-savings-plan-for-compute/3941243) | Azure Container Apps is eligible for Azure savings plan for compute. |
 
 ## August 2023   
 
@@ -93,7 +93,7 @@ You can now find updates and release announcements for [Azure Container Apps](ht
 | ------- | ----------- |
 | [Generally Available: Running status](./revisions.md#running-status) | The running status helps monitor a container app's health and functionality. |
 | [Public Preview: Azure Functions for cloud-native microservices](https://github.com/Azure/azure-functions-on-container-apps) | Azure Function’s host, runtime, extensions and Azure Function apps can be deployed as containers into the same compute environment. You can use centralized networking, observability, and configuration boundary for multi-type application development like microservices. |
-| [Public Preview: Azure Spring Apps on Azure Container Apps](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/azure-container-apps-service-management-just-got-easier-preview/ba-p/3827305) | Azure Spring apps can be deployed as containers to your Azure Container Apps within the same compute environment, so you can use centralized networking, observability, and configuration boundary for multitype application development like microservices. | 
+| [Public Preview: Azure Spring Apps on Azure Container Apps](https://techcommunity.microsoft.com/blog/appsonazureblog/azure-container-apps-service-management-just-got-easier-preview/3827305) | Azure Spring apps can be deployed as containers to your Azure Container Apps within the same compute environment, so you can use centralized networking, observability, and configuration boundary for multitype application development like microservices. | 
 | [Public Preview: Free and managed TLS certificates](./custom-domains-managed-certificates.md) | Managed certificates are free and enable you to automatically provision and renew TLS certificates for any custom domain you add to your container app. |
 | [Dapr: Multi-app Run improved](https://docs.dapr.io/developing-applications/local-development/multi-app-dapr-run) | Use `dapr run -f .` to run multiple Dapr apps and see the app logs written to the console _and_ a local log file. Learn how to use [multi-app Run logs](https://docs.dapr.io/developing-applications/local-development/multi-app-dapr-run/multi-app-overview/#logs). |
 
@@ -105,4 +105,4 @@ You can now find updates and release announcements for [Azure Container Apps](ht
 | [Generally Available: TCP support](./ingress-overview.md#tcp) | Azure Container Apps now supports using TCP-based protocols other than HTTP or HTTPS for ingress. | 
 | [Generally Available: GitHub Actions for Azure Container Apps](./github-actions.md) | Azure Container Apps allows you to use GitHub Actions to publish revisions to your container app. |
 | [Generally Available: Azure Pipelines for Azure Container Apps](./azure-pipelines.md) | Azure Container Apps allows you to use Azure Pipelines to publish revisions to your container app. |
-| [Dapr: Easy component creation](./dapr-component-connection.md) | You can now configure and secure dependent Azure services to use Dapr APIs in the portal using the Service Connector feature. Learn how to [connect to Azure services via Dapr components in the Azure portal](./dapr-component-connection.md). |
+| [Dapr: Easy component creation](./dapr-component-connection.md) | You can now configure and secure dependent Azure services to use Dapr APIs in the portal. Learn how to [connect to Azure services via Dapr components in the Azure portal](./dapr-component-connection.md). |

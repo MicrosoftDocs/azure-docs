@@ -1,40 +1,40 @@
 ---
-title: Manage resources in Oracle Database@Azure
-description: Learn how to manage resources in an instance of Oracle Database@Azure.
+title: Manage resources in Oracle AI Database@Azure
+description: Learn how to manage resources in an instance of Oracle AI Database@Azure.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: concept-article
 ms.service: oracle-on-azure
 ms.date: 08/01/2024
-# Customer intent: "As a database administrator, I want to manage resources in my Oracle Database@Azure instance, so that I can ensure optimal performance, scalability, and compliance with my organization's resource management policies."
+# Customer intent: "As a database administrator, I want to manage resources in my Oracle AI Database@Azure instance, so that I can ensure optimal performance, scalability, and compliance with my organization's resource management policies."
 ---
 
-# Manage resources in Oracle Database@Azure
+# Manage resources in Oracle AI Database@Azure
 
-After you provision an instance of Oracle Database@Azure, you can use the Azure portal to complete a limited set of resource management functions.
+After you provision an instance of Oracle AI Database@Azure, you can use the Azure portal to complete a limited set of resource management functions.
 
 ## Prerequisites
 
-You must have the following prerequisites before you can provision Oracle Database@Azure:
+You must have the following prerequisites before you can provision Oracle AI Database@Azure:
 
 - An existing Azure subscription.
-- An Azure virtual network with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`).
+- An Azure virtual network with a subnet delegated to the Oracle AI Database@Azure service (`Oracle.Database/networkAttachments`).
 - Permissions in Azure to create resources in the region, with the following conditions:
   - No policies that prohibit the creation of resources without tags. The OracleSubscription resource is created automatically without tags during onboarding.
   - No policies that enforce naming conventions. The OracleSubscription resource is created automatically with a default resource name.
-- Oracle Database@Azure purchased in the Azure portal.
+- Oracle AI Database@Azure purchased in the Azure portal.
 - An Oracle Cloud Infrastructure (OCI) account.
 
-For more information, including optional steps, see [Onboard Oracle Database@Azure](https://docs.oracle.com/iaas/Content/database-at-azure/oaaonboard.htm).
+For more information, including optional steps, see [Onboard Oracle AI Database@Azure](https://docs.oracle.com/iaas/Content/database-at-azure/oaaonboard.htm).
 
 ## Common management functions in the Azure portal
 
-This section describes management functions that are available for all Oracle Database@Azure resources. To access management functions, go to the Azure pane for that resource.
+This section describes management functions that are available for all Oracle AI Database@Azure resources. To access management functions, go to the Azure pane for that resource.
 
 ### Access the resource pane
 
-1. In the Azure portal, go to the home pane for your Oracle Database@Azure application.
-1. On the service menu, select **Oracle Database@Azure**.
+1. In the Azure portal, go to the home pane for your Oracle AI Database@Azure application.
+1. On the service menu, select **Oracle AI Database@Azure**.
 1. If the pane lists and manages multiple resources, select the resource type at the top of the pane.
 
    For example, use the **Oracle Exadata Database@Azure** pane to access both the Oracle Exadata infrastructure and the Oracle Exadata virtual machine (VM) cluster resources.
@@ -51,7 +51,7 @@ This section describes management functions that are available for all Oracle Da
 
 1. Go to the resource pane. For more information, see [Access the resource pane](#access-the-resource-pane).
 1. In the command bar, select **Create**.
-1. Complete the steps to [provision an instance of Oracle Autonomous Database](oracle-database-provision-autonomous-database.md).
+1. Complete the steps to [provision an instance of Oracle Autonomous AI Database](oracle-database-provision-autonomous-database.md).
 
 ### Refresh the pane
 
@@ -77,13 +77,13 @@ This section describes management functions that are available for all Oracle Da
 ### Manage resource allocation
 
 > [!NOTE]
-> You can change only the *resource allocation* settings for an instance of Oracle Database@Azure by using these steps. The steps don't apply to any other resource type.
+> You can change only the *resource allocation* settings for an instance of Oracle AI Database@Azure by using these steps. The steps don't apply to any other resource type.
 
 1. Go to the resource pane.
 1. Under **Name**, select the link for the resource.
 1. On the service menu, select **Settings**, and then select **Resource allocation**.
 1. On the **Resource allocation** pane, select **Manage**.
-1. On the **Manage resource allocation** pane, you can set the Elastic Compute Processing Unit (ECPU) count from **2** to **512**. To set your Oracle Database@Azure instance to scale its computing allocation automatically up to 512, select the **Compute auto scaling** checkbox. For **Storage**, set storage allocation from 1 TB to 383 TB. To set your Oracle Database@Azure instance to scale storage allocation automatically up to 383 TB, select the **Storage auto scaling** checkbox.
+1. On the **Manage resource allocation** pane, you can set the Elastic Compute Processing Unit (ECPU) count from **2** to **512**. To set your Oracle AI Database@Azure instance to scale its computing allocation automatically up to 512, select the **Compute auto scaling** checkbox. For **Storage**, set storage allocation from 1 TB to 383 TB. To set your Oracle AI Database@Azure instance to scale storage allocation automatically up to 383 TB, select the **Storage auto scaling** checkbox.
 1. After you set or review settings, select **Apply** to apply changes, or select **Cancel** to leave the current settings.
 
 ### Test connectivity
@@ -102,7 +102,7 @@ This section describes management functions that are available for all Oracle Da
    1. **Save Password**: Select this checkbox if your security rules allow. Otherwise, you're required to enter the PDB password every time you use this connection in SQL Developer.
    1. **Connection Type**: Select **Cloud Wallet**.
    1. **Configuration File**: Select **Browse**, and then select the wallet you downloaded.
-   1. Select the **Test** button. Check **Status** in the list of connections for a **Success** value. If the connection isn't a success, the wallet is out of date, or the instance of Oracle Autonomous Database isn't currently running.
+   1. Select the **Test** button. Check **Status** in the list of connections for a **Success** value. If the connection isn't a success, the wallet is out of date, or the instance of Oracle Autonomous AI Database isn't currently running.
    1. Select **Save**.
    1. Select **Connect**.
 
@@ -114,7 +114,7 @@ This section describes management functions that are available for all Oracle Da
 1. Sign in to OCI.
 1. Manage the resource from within the OCI console.
 
-### Get support for Oracle Database@Azure
+### Get support for Oracle AI Database@Azure
 
 1. Follow the steps to [access the OCI console](#access-the-oci-console).
 
@@ -128,7 +128,7 @@ This section describes management functions that are available for all Oracle Da
 
    If you need to create a support request, select that option.
 
-1. The support request page autopopulates with information that's needed by Oracle Support Services, including the resource name, the resource Oracle Cloud Identifier (OCID), the service group, the service, and several other items depending on the Oracle Database@Azure resource.
+1. The support request page autopopulates with information that's needed by Oracle Support Services, including the resource name, the resource Oracle Cloud Identifier (OCID), the service group, the service, and several other items depending on the Oracle AI Database@Azure resource.
 
 1. Select the relevant support option from the following options:
 

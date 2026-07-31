@@ -49,7 +49,7 @@ In this configuration, you keep the **/hana/data** and **/hana/log** volumes sep
 The recommendations are often exceeding the SAP minimum requirements as stated earlier in this article. The listed recommendations are a compromise between the size recommendations by SAP and the maximum storage throughput the different VM types provide.
 
 > [!NOTE]
-> Azure Ultra Disk is enforcing a minimum of two IOPS per Gigabyte capacity of a disk
+> Azure Ultra Disk enforces a minimum of two IOPS per GB capacity of a disk.
 
 | Virtual machine memory or SKU            | Data throughput         | Data IOPS  | Log throughput | Log IOPS |
 | ---                                      | ---                     | ---        | ---            | ---      |
@@ -76,7 +76,7 @@ The recommendations are often exceeding the SAP minimum requirements as stated e
 **The values listed are intended to be a starting point and need to be evaluated against the real demands.** The advantage with Azure Ultra Disk is that the values for IOPS and throughput can be adapted without the need to shut down the VM or halting the workload applied to the system.   
 
 > [!NOTE]
-> Snapshot functionality with Ultra Disk works distinctively different compared to Premium SSD (v1). For more information, see [Instant access snapshots for Azure Managed Disks](/azure/virtual-machines/disks-instant-access-snapshots?tabs=azure-cli%2Cazure-cli-snapshot-state#snapshots-of-ultra-disks-and-premium-ssd-v2)
+> Snapshot functionality with Ultra Disk works distinctively different compared to Premium SSD (v1). For more information, see [Instant access snapshots for Azure managed disks](/azure/virtual-machines/disks-instant-access-snapshots?tabs=azure-cli%2Cazure-cli-snapshot-state#snapshots-of-ultra-disks-and-premium-ssd-v2)
 
 
 ## Next steps

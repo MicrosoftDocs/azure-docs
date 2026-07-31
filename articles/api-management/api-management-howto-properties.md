@@ -2,12 +2,10 @@
 title: How to Use Named Values in Azure API Management policies
 description: Learn how to use named values in Azure API Management policies. Named values can contain literal strings, policy expressions, and secrets stored in Azure Key Vault.
 services: api-management
-author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 09/30/2025
-ms.author: danlep
+ms.date: 05/11/2026
 ms.custom:
   - engagement-fy23
   - devx-track-azurecli
@@ -213,6 +211,9 @@ The value for `CustomHeader` will be `The URL encoded value is This+is+a+header+
 
 > [!CAUTION]
 > If a policy references a secret in Azure Key Vault, the value from the key vault is visible to users who have access to subscriptions enabled for [API request tracing](api-management-howto-api-inspector.md).
+
+> [!IMPORTANT]
+> Named values referenced in policies are resolved at the service level at runtime. A user with permission to edit policies (for example, write access to Microsoft.ApiManagement/service/apis/policies) can read the contents of any named value by referencing it in a policy and using the `{{named-value-id}}` syntax, even if that user doesn't have explicit read access to the named value resource (Microsoft.ApiManagement/service/namedValues). When you grant policy editing permissions, consider that this effectively grants read access to all named values in the service instance.
 
 While named values can contain policy expressions, they can't contain other named values. If text containing a named value reference is used for a value, such as `Text: {{MyProperty}}`, that reference won't be resolved and replaced.
 

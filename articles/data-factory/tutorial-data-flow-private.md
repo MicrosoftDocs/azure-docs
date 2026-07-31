@@ -4,7 +4,7 @@ description:  This tutorial provides step-by-step instructions for using Azure D
 author: ssabat
 ms.author: susabat
 ms.reviewer: makromer
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 10/03/2024
 ms.subservice: data-flows
 ms.custom: sfi-image-nochange

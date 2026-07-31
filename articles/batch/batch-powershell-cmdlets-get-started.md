@@ -2,7 +2,7 @@
 title: Get started with PowerShell
 description: A quick introduction to the Azure PowerShell cmdlets you can use to manage Batch resources.
 ms.topic: how-to
-ms.date: 04/02/2025
+ms.date: 06/16/2026
 ms.custom: devx-track-azurepowershell
 # Customer intent: As a cloud administrator, I want to use PowerShell cmdlets to manage Azure Batch resources, so that I can automate the creation, modification, and querying of Batch accounts, pools, jobs, tasks, and application packages efficiently.
 ---
@@ -232,7 +232,7 @@ Remove-AzBatchApplication -AccountName <account_name> -ResourceGroupName <res_gr
 ```
 
 > [!NOTE]
-> You must delete all of an application's application package versions before you delete the application. You will receive a 'Conflict' error if you try to delete an application that currently has application packages.
+> You must delete all of an application's application package versions before you delete the application. You receive a 'Conflict' error if you try to delete an application that currently has application packages.
 
 ### Deploy an application package
 

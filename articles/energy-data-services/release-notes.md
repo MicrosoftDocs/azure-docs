@@ -5,7 +5,7 @@ author: bharathim
 ms.author: bselvaraj
 ms.service: azure-data-manager-energy
 ms.topic: article
-ms.date: 09/20/2022
+ms.date: 07/13/2026
 ms.custom: template-concept
 ---
 
@@ -20,8 +20,37 @@ Azure Data Manager for Energy is updated on an ongoing basis. To stay up to date
 - Plans for changes
 
 This page is updated with the details about the upcoming release approximately a week before the actual deployment.
-
 <hr width = 100%>
+
+## July 2026
+### Manifest Ingestion by Reference DAG - Generally Available
+Manifest Ingestion by Reference DAG is now generally available on Azure Data Manager for Energy. This capability supports ingestion of a large number of records by referencing a large manifest uploaded to the Dataset service for processing.
+
+### Platform metrics support (Preview)
+Azure Data Manager for Energy now supports platform metrics in Azure Monitor. Two new metrics are available in preview - **Total HTTP Requests (Preview)** which tracks the total number of HTTP requests to your Azure Data Manager for Energy instance and **Data Volume (Preview)** which represents the total data volume on the instance. 
+
+The metrics are available by default on all Azure Data Manager for Energy instances. For more information, see [Monitor Azure Data Manager for Energy](how-to-monitor-data-manager-energy.md) and [Monitoring data reference](concepts-monitor-data-reference.md).
+
+## June 2026
+### Compliant with M26 OSDU® release
+Azure Data Manager for Energy has now been upgraded with the supported set of services with the M26 OSDU® milestone release. With this release, you can take advantage of the key improvements made in the OSDU® latest community features and capabilities available in the [OSDU® M26](https://community.opengroup.org/osdu/governance/project-management-committee/-/wikis/M26-Release-Notes). The upgrade with the OSDU® M26 release is limited to the services available and supported and you can refer [here](osdu-services-on-adme.md) for a detailed list of services available and unavailable on Azure Data Manager for Energy. See the [updated API Swaggers here](https://microsoft.github.io/adme-samples/).
+
+### Analytics Consumption Zone (ACZ) - Preview
+Analytics Consumption Zone (ACZ) exports selected entity data from your Azure Data Manager for Energy instance to your Azure Data Lake Storage (ADLS) Gen2 account. ACZ writes data in open Delta Parquet format that analytics engines like Microsoft Fabric and Azure Databricks can read directly. This feature is available as a preview on Developer Tier. For more information, see [How to enable the Analytics Consumption Zone (ACZ)](how-to-enable-analytics-consumption-zone.md).
+
+## May 2026
+### External Data Services (EDS) - Generally Available
+External Data Services (EDS) is now generally available on Azure Data Manager for Energy. EDS ingests metadata from registered external OSDU compliant sources into Azure Data Manager for Energy for discovery via the Search API, while leaving associated files at the external source for on-demand retrieval. To enable EDS, see [Enable External Data Services (EDS) in Azure Data Manager for Energy](how-to-enable-external-data-services.md).
+
+### Manifest Ingestion by Reference DAG - Preview
+Manifest Ingestion by Reference DAG supports ingestion of a large number of records by referencing a large manifest uploaded to the Dataset service for processing. This DAG is available as a preview feature in the Azure Data Manager for Energy Developer SKU.
+
+## March 2026
+### Manage OSDU milestone upgrade settings
+Milestone upgrades are major version upgrades to Azure Data Manager for Energy, such as moving from a release compatible with OSDU milestone M25 to M26. ADME now allows customers to choose whether to upgrade the instance immediately as the upgrade becomes available or defer the upgrade for up to 30 days. To learn more, see [Manage upgrade settings in Azure Data Manager for Energy](how-to-manage-upgrade-settings.md).
+
+### Seismic DDMS Change Tier - Preview
+Azure Data Manager for Energy now supports changing the storage tier of seismic datasets as a preview feature. You can move datasets between **Hot**, **Cool**, and **Cold** storage tiers based on access frequency, helping you reduce storage costs for historical or infrequently accessed data while keeping active datasets performant. This feature is available on request. To enable it, raise a support request in the Azure portal. For more information, see [Tutorial: Change the storage tier of seismic datasets](tutorial-seismic-change-tier.md).
 
 ## February 2026
 ### OSDU&reg; Reservoir DMS - Generally Available
@@ -213,7 +242,7 @@ Airflow logs from your Azure Data Manager for Energy Preview resource now includ
 
 ### Support for Private Links during instance provisioning
 
-Azure Private link enables access to Azure Data Manager for Energy Preview instance over a private endpoint in your virtual network, which ensures restricted access to the service. With this feature, you can now configure private endpoints to your Azure Data Manager for Energy instance during the instance creation. Your service instance can now have private connectivity from the very beginning. Learn more about [how to set up private links](how-to-set-up-private-links.md).
+Azure Private Link enables access to Azure Data Manager for Energy Preview instance over a private endpoint in your virtual network, which ensures restricted access to the service. With this feature, you can now configure private endpoints to your Azure Data Manager for Energy instance during the instance creation. Your service instance can now have private connectivity from the very beginning. Learn more about [how to set up private links](how-to-set-up-private-links.md).
 
 ### Enabled Monitoring of OSDU Service Logs
 

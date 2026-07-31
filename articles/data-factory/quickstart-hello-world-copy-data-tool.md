@@ -14,7 +14,9 @@ ms.custom:
 
 # Quickstart: Use the Copy Data tool in Azure Data Factory Studio to copy data
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+**APPLIES TO:** :::image type="icon" source="media/applies-to/yes.png" border="false":::Azure Data Factory :::image type="icon" source="media/applies-to/no.png" border="false":::Azure Synapse Analytics
+
+[!INCLUDE [copy-job-recommendation](includes/copy-job-recommendation.md)]
 
 In this quickstart, you use the Copy Data tool in Azure Data Factory Studio to create a pipeline that copies data from a source folder in Azure Blob Storage to a target folder.
 

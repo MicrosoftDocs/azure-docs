@@ -4,8 +4,8 @@ description: This article contains important reference material you need when yo
 ms.date: 03/25/2025
 ms.custom: horz-monitor
 ms.topic: reference
-author: AbdullahBell
-ms.author: abell
+author: asudbring
+ms.author: allensu
 ms.service: azure-private-link
 # Customer intent: As a cloud engineer, I want to access monitoring metrics for Azure Private Link, so that I can effectively track its performance and ensure optimal connectivity.
 ---

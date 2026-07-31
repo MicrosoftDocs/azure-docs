@@ -5,8 +5,8 @@ author: pri-mittal
 ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.topic: conceptual
-ms.date: 01/15/2026
+ms.topic: how-to
+ms.date: 07/17/2026
 ms.author: primittal
 ---
 
@@ -31,6 +31,9 @@ To get started, estimate your expected Copilot Credit usage. This helps you dete
 
 For example, suppose you expect to consume 1,500,000 Copilot Credit with custom agents created in Microsoft Copilot Studio. Assuming the pay-as-you-go rate for Copilot Credit to be $0.01, then at the pay-as-you-go rate, this will cost $15,000. By purchasing Tier 2 (15,000 CU) pre-purchase plan, let's say the cost of that tier is $14,100, it will give a 6% saving compared to the pay-as-you-go rate for the same usage.
 
+> [!NOTE]
+> Pre-purchase plan discounts don't combine with other discounts you might have. If you have additional discounts, the pre-purchase plan discount is applied independently, which may result in a lower effective discount rate than the listed tier percentage. Factor in your existing discounts when estimating savings.
+
 ## Purchase Copilot Credit commit units
 
 Purchase Copilot Credit pre-purchase plans in the [Azure portal reservations](https://portal.azure.com/#view/Microsoft_Azure_Reservations/ReservationsBrowseBlade/productType/Reservations). 
@@ -39,7 +42,7 @@ Purchase Copilot Credit pre-purchase plans in the [Azure portal reservations](ht
 2. Navigate to the **Reservations** service.
 3. On the **Purchase reservations page**, select **Copilot Credit Pre-Purchase Plan**.  
    :::image type="content" source="./media/copilot-credit/copilot-credit.png" alt-text="Screenshot showing Copilot Credit pre-purchase plan." lightbox="./media/copilot-credit/copilot-credit.png":::
-4. On the **Select the product you want to purchase** page, select a subscription. Use the **Subscription** list to select the subscription used to pay for the reserved capacity. The payment method of the subscription is charged the upfront costs for the reserved capacity. Charges **not** are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
+4. On the **Select the product you want to purchase** page, select a subscription. Use the **Subscription** list to select the subscription used to pay for the reserved capacity. The payment method of the subscription is charged the upfront costs for the reserved capacity. Charges **not** are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage. The Copilot Credit prepurchase plan is billed as a separate charge and appears as its own line item on your invoice.
 5. Select a scope.
    - **Single resource group scope** - Applies the reservation discount to the matching resources in the selected resource group only.
    - **Single subscription scope** - Applies the reservation discount to the matching resources in the selected subscription.

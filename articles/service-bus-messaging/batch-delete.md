@@ -1,7 +1,7 @@
 ---
 title: Delete messages from Azure Service Bus
 description: This article explains how to delete messages in Azure Service Bus programmatically. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/20/2024
 ---
 
@@ -21,7 +21,7 @@ There are several scenarios where you might want to use the batch delete message
 By using the batch delete messages feature, you can delete multiple messages from a queue or subscription in one operation, instead of deleting them one by one. Since deletion is done at service side, you don't need to receive the messages before deleting them. This method minimizes both the number of service requests and network latency.
 
 >[!IMPORTANT]
-> Currently, Batch delete is not supported with partitioned entities. You can delete a maximum of 4000 messages in a batch delete call. Batch deletion is done on a best-effort basis and doesn’t guarantee the exact messageCount  will be deleted in single API call.  
+> Currently, Batch delete is not supported with partitioned entities. You can delete a maximum of 4000 messages in a batch delete call. Batch deletion is done on a best-effort basis and doesn’t guarantee the exact messageCount will be deleted in single API call.  
 
 ## How to batch delete messages in Service Bus
 
@@ -34,7 +34,7 @@ Additionally, you can call [PurgeMessagesAsync](/dotnet/api/azure.messaging.serv
 
 ### Using Azure portal 
 
-You can also purge messages from entity using Service Bus explorer available on Azure portal. You can follow following steps to purge messages:
+You can also purge messages from an entity using Service Bus explorer available on Azure portal. You can follow following steps to purge messages:
 
 1. Navigate to 'Service Bus explorer' blade on the entity you want to delete messages from.
 2. Choose 'Receive mode' in Service Bus explorer dropdown.
@@ -68,7 +68,7 @@ These limits apply to all batch delete operations initiated via SDKs, REST APIs,
 
 ## Next steps
 
-To explore Azure Service Bus features, try the samples in language of your choice: 
+To explore Azure Service Bus features, try the samples in the language of your choice: 
 
 - [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/) 
 - [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)

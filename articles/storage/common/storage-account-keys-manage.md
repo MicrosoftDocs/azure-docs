@@ -77,10 +77,9 @@ To view or read an account's access keys, the user must either be a Service Admi
 
 ## Use Azure Key Vault to manage your access keys
 
-Microsoft recommends using Azure Key Vault to manage and rotate your access keys. Your application can securely access your keys in Key Vault, so that you can avoid storing them with your application code. For more information about using Key Vault for key management, see the following articles:
+Microsoft recommends using Microsoft Entra ID and managed identities to authorize access to Azure Storage. If you must use access keys, store them in Azure Key Vault and rotate them regularly. For more information, see the following article:
 
-- [Manage storage account keys with Azure Key Vault and PowerShell](/azure/key-vault/secrets/overview-storage-keys-powershell)
-- [Manage storage account keys with Azure Key Vault and the Azure CLI](/azure/key-vault/secrets/overview-storage-keys)
+- [Authorize access to data in Azure Storage](/azure/storage/common/authorize-data-access)
 
 ## Manually rotate access keys
 

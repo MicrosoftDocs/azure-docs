@@ -266,7 +266,7 @@ Yes. This article explains how to create both IPv4 and IPv6 reverse DNS lookup z
 
 ### Can I create reverse DNS zones for both Azure Public and Private DNS? 
 
-No. Reverse lookup zones are only supported for Azure Public DNS. 
+Yes. Reverse DNS zones can be created in both Azure Public DNS and Azure Private DNS zone.
 
 ### Can I import an existing reverse DNS lookup zone?
 

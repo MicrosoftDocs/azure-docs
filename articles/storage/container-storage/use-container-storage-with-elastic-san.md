@@ -22,7 +22,7 @@ ms.custom:
 
 ## What is Azure Elastic SAN?
 
-Azure Elastic SAN is a managed, shared block storage service. It provides a central pool of storage capacity and performance, including IOPS and throughput. From this pool, you create multiple volumes and attach them to many compute resources. Instead of provisioning and tuning individual disks for each workload, Elastic SAN allocates storage from a single capacity pool and distributes performance across attached volumes. This approach suits environments with many dynamic workloads where demand changes over time and unused performance from one volume serves other volumes. Elastic SAN is typically used for shared, scalable block storage across many volumes or nodes. It also supports faster volume attach and detach for orchestrated workloads, higher volume density per node, and centralized provisioning and management of storage capacity and performance.
+[Azure Elastic SAN](../elastic-san/elastic-san-introduction.md) is a managed, shared block storage service. It provides a central pool of storage capacity and performance, including IOPS and throughput. From this pool, you create multiple volumes and attach them to many compute resources. Instead of provisioning and tuning individual disks for each workload, Elastic SAN allocates storage from a single capacity pool and distributes performance across attached volumes. This approach suits environments with many dynamic workloads where demand changes over time and unused performance from one volume serves other volumes. Elastic SAN is typically used for shared, scalable block storage across many volumes or nodes. It also supports faster volume attach and detach for orchestrated workloads, higher volume density per node, and centralized provisioning and management of storage capacity and performance.
 
 Expanding the capacity of an Elastic SAN through Azure Container Storage is currently unsupported. You can [resize Elastic SAN](../elastic-san/elastic-san-expand.md) directly from the Azure portal or by using Azure CLI.
 
@@ -35,13 +35,6 @@ Expanding the capacity of an Elastic SAN through Azure Container Storage is curr
 - If you use Elastic SAN for the first time in the subscription, run this one-time registration command:
   ```azurecli-interactive
   az provider register --namespace Microsoft.ElasticSan
-  ```
-
-- When [ZRS is newly enabled](enable-multi-zone-redundancy.md) in a region, you might need to register a subscription-level feature flag so Azure Container Storage can deploy SAN targets:
-  ```azurecli
-  az feature register \
-  --namespace Microsoft.ElasticSan \
-  --name EnableElasticSANTargetDeployment
   ```
 
 ## Setting up permissions
@@ -92,7 +85,7 @@ Create a YAML manifest file such as `storageclass.yaml`, then use the following 
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azuresan
+  name: azuresan-csi
 provisioner: san.csi.azure.com
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
@@ -120,9 +113,9 @@ Alternatively, you can create the storage class using Terraform.
       config_path = "~/.kube/config"
     }
 
-    resource "kubernetes_storage_class_v1" "azuresan" {
+    resource "kubernetes_storage_class_v1" "azuresan_csi" {
       metadata {
-        name = "azuresan"
+        name = "azuresan-csi"
       }
 
       storage_provisioner    = "san.csi.azure.com"
@@ -147,13 +140,67 @@ If you need a different initial capacity than the default 1 TiB, set the `initia
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azuresan
+  name: azuresan-csi
 provisioner: san.csi.azure.com
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
 allowVolumeExpansion: true
 parameters:
   initialStorageTiB: "10"
+```
+
+### Create a storage class with private endpoint
+
+A private endpoint enables you to connect to your Elastic SAN volume group over a private IP address within your virtual network. For using private endpoint, the kubelet managed identity must have **Network Contributor** role assigned to the AKS managed resource group to allow the SAN CSI driver to create and manage private endpoints during volume provisioning.
+
+Run the following commands to assign **Network Contributor** role to your AKS Managed Identity. Remember to replace `<resource-group>`, `<cluster-name>`, `<azure-subscription-id>` and  `<your-node-resource-group>` with your own values. 
+
+```azurecli
+export AKS_MI_OBJECT_ID=$(az aks show --name <cluster-name> --resource-group <resource-group> --query "identityProfile.kubeletidentity.objectId" -o tsv)
+az role assignment create --assignee $AKS_MI_OBJECT_ID --role "Network Contributorr" --scope "/subscriptions/<azure-subscription-id><your-node-resource-group>"
+```
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: azuresan-csi
+provisioner: san.csi.azure.com
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+allowVolumeExpansion: true
+parameters:
+  volumegroup: "esan-vg"
+  networkEndpointType: "privateEndpoint"  
+```
+
+> [!NOTE]
+> The network endpoint type is determined at volume group creation time and can't be changed later. If a volume group is created using the default service endpoint configuration, it can't be used with a StorageClass that requests private endpoint. Similarly, a volume group created with private endpoint can't be used with service endpoint-based StorageClasses.
+
+### Create a storage class to provision Elastic SAN in a different subscription
+
+Azure Container Storage supports provisioning and attaching volumes from an Elastic SAN located in a different subscription than the AKS cluster. This enables scenarios where compute and storage are isolated across subscriptions for compliance, governance, or shared infrastructure models.
+
+Before using cross-subscription provisioning, ensure the following:
+
+- The target subscription contains an existing resource group for Elastic SAN resources.
+- The AKS cluster kubelet managed identity has one of the following roles on the target resource group:
+  - Contributor
+  - Azure Container Storage Operator
+- Network connectivity between the AKS cluster and the Elastic SAN is properly configured especially for private endpoint scenarios.
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: azuresan-csi
+provisioner: san.csi.azure.com
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+allowVolumeExpansion: true
+parameters:
+  subscriptionId: <external-subcriptionId> # Target subscription Id for which you have admin access
+  resourceGroup: <external-rg>  # Existing resource group in target subscription
 ```
 
 ## Pre-provisioned Elastic SAN and volume groups
@@ -184,7 +231,7 @@ If you don't already have Azure Container Storage installed, [install it](instal
    apiVersion: storage.k8s.io/v1
    kind: StorageClass
    metadata:
-     name: azuresan
+     name: azuresan-csi
    provisioner: san.csi.azure.com
    reclaimPolicy: Delete
    volumeBindingMode: Immediate
@@ -232,7 +279,7 @@ If you don't already have Azure Container Storage installed, [install it](instal
    apiVersion: storage.k8s.io/v1
    kind: StorageClass
    metadata:
-     name: azuresan
+     name: azuresan-csi
    provisioner: san.csi.azure.com
    reclaimPolicy: Delete
    volumeBindingMode: Immediate
@@ -253,14 +300,14 @@ kubectl apply -f storageclass.yaml
 Verify that the storage class is created:
 
 ```azurecli
-kubectl get storageclass azuresan
+kubectl get storageclass azuresan-csi
 ```
 
 You should see output similar to:
 
 ```output
-NAME       PROVISIONER          RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
-azuresan   san.csi.azure.com    Delete          Immediate           true                   10s
+NAME           PROVISIONER          RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
+azuresan-csi   san.csi.azure.com    Delete          Immediate           true                   10s
 ```
 
 ## Create a persistent volume claim
@@ -280,7 +327,7 @@ A persistent volume claim (PVC) automatically provisions storage based on a stor
      resources:
        requests:
          storage: 1Gi
-     storageClassName: azuresan
+     storageClassName: azuresan-csi
    ```
 
 1. Apply the manifest to create the PVC.
@@ -367,7 +414,7 @@ Use the following YAML manifest to create a default Elastic SAN storage class:
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: azuresan
+  name: azuresan-csi
 provisioner: san.csi.azure.com
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
@@ -383,7 +430,7 @@ kubectl apply -f storageclass.yaml
 Verify the storage class:
 
 ```azurecli
-kubectl get storageclass azuresan
+kubectl get storageclass azuresan-csi
 ```
 
 ### Create an Elastic SAN volume
@@ -417,7 +464,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
-  storageClassName: azuresan
+  storageClassName: azuresan-csi
   csi:
     driver: san.csi.azure.com
     volumeHandle: #{rg}#{san}#{vg}#{vol}
@@ -450,7 +497,7 @@ spec:
     requests:
       storage: 5Gi
   volumeName: pv-san
-  storageClassName: azuresan
+  storageClassName: azuresan-csi
 ```
 
 Apply the manifest to create the PVC.

@@ -2,7 +2,7 @@
 title: Bicep functions overview
 description: Learn about the functions that can be used in a Bicep file to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: reference
-ms.date: 09/11/2025
+ms.date: 06/26/2026
 ms.custom:
   - devx-track-bicep
   - build-2025
@@ -29,6 +29,8 @@ output result array = sys.range(1, range)
 
 The `az` namespace contains functions that are specific to an Azure deployment. The `sys` namespace contains functions that are used to construct values. The `sys` namespace also includes decorators for parameters and resource loops. The namespaces are noted in this article.
 
+The `this` namespace provides functions for runtime resource state discovery within a resource definition block. These functions allow your template to adapt its configuration based on whether a resource already exists in the environment. For more information, see [Resource functions for Bicep](./bicep-functions-resource.md#the-this-namespace).
+
 ## Any function
 
 The [any function](./bicep-functions-any.md) is available in Bicep to help resolve issues around data type warnings. This function is in the `sys` namespace.
@@ -40,6 +42,7 @@ The following functions are available for working with arrays. All of these func
 * [array](./bicep-functions-array.md#array)
 * [concat](./bicep-functions-array.md#concat)
 * [contains](./bicep-functions-array.md#contains)
+* [distinct](./bicep-functions-array.md#distinct)
 * [empty](./bicep-functions-array.md#empty)
 * [indexOf](./bicep-functions-array.md#indexof)
 * [first](./bicep-functions-array.md#first)
@@ -102,7 +105,7 @@ The following functions are available for working with lambda expressions. All o
 * [filter](bicep-functions-lambda.md#filter)
 * [groupBy](bicep-functions-lambda.md#groupby)
 * [map](bicep-functions-lambda.md#map)
-* [mapValue](bicep-functions-lambda.md#mapvalues)
+* [mapValues](bicep-functions-lambda.md#mapvalues)
 * [reduce](bicep-functions-lambda.md#reduce)
 * [sort](bicep-functions-lambda.md#sort)
 * [toObject](bicep-functions-lambda.md#toobject)
@@ -145,8 +148,10 @@ The following functions are available to be used in Bicep parameters files. All 
 
 ## Resource functions
 
-The following functions are available for getting resource values. Most of these functions are in the `az` namespace. The `list` and `getSecret` functions don't have namespace qualifiers since they're named directly in the resource type:
+The following functions are available for getting resource values. Most of these functions are in the `az` namespace. `exist` and `existingResource` are in the [`this`](./bicep-functions-resource.md#the-this-namespace) namespace. The `list` and `getSecret` functions don't have namespace qualifiers since they're named directly in the resource type:
 
+* [exists](./bicep-functions-resource.md#exists)
+* [existingResource](./bicep-functions-resource.md#existingresource)
 * [extensionResourceId](./bicep-functions-resource.md#extensionresourceid)
 * [getSecret](./bicep-functions-resource.md#getsecret)
 * [listAccountSas](./bicep-functions-resource.md#list)
@@ -158,6 +163,7 @@ The following functions are available for getting resource values. Most of these
 * [providers (deprecated)](./bicep-functions-resource.md#providers)
 * [reference](./bicep-functions-resource.md#reference)
 * [resourceId](./bicep-functions-resource.md#resourceid) - This can be used at any scope, but the valid parameters change depending on the scope.
+* [roleDefinitions](./bicep-functions-resource.md#roledefinitions)
 * [subscriptionResourceId](./bicep-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](./bicep-functions-resource.md#tenantresourceid)
 * [toLogicalZone](./bicep-functions-resource.md#tologicalzone)
@@ -196,6 +202,7 @@ Bicep provides the following functions for working with strings. All of these fu
 * [last](./bicep-functions-string.md#last)
 * [lastIndexOf](./bicep-functions-string.md#lastindexof)
 * [length](./bicep-functions-string.md#length)
+* [like](./bicep-functions-string.md#like)
 * [newGuid](./bicep-functions-string.md#newguid)
 * [padLeft](./bicep-functions-string.md#padleft)
 * [parseUri](./bicep-functions-string.md#parseuri)

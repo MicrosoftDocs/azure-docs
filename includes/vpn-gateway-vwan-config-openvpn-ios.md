@@ -1,9 +1,9 @@
 ---
- author: cherylmc
+ author: duongau
  ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 04/28/2023
- ms.author: cherylmc
+ ms.author: duau
  ms.custom: include file
 
 #Customer intent: this file is used for both virtual wan and vpn gateway articles.

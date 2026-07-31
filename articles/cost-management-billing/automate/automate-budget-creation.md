@@ -5,7 +5,7 @@ description: This article helps you create budgets with the Budget API and a bud
 author: vikramdesai01
 ms.author: vikdesai
 ms.date: 06/26/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: vikdesai

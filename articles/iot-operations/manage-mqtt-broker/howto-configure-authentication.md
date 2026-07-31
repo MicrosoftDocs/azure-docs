@@ -1,12 +1,12 @@
 ---
 title: Configure MQTT broker authentication
 description: Configure MQTT broker authentication.
-author: sethmanheim
-ms.author: sethm
+author: dominicbetts
+ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.date: 04/10/2025
+ms.date: 05/26/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -16,9 +16,13 @@ ms.custom:
 
 # Configure MQTT broker authentication
 
-[!INCLUDE [kubernetes-management-preview-note](../includes/kubernetes-management-preview-note.md)]
-
 An MQTT broker supports multiple authentication methods for clients. You can configure each listener port to have its own authentication settings with a BrokerAuthentication resource. For a list of the available settings, see the [Broker Authentication](/rest/api/iotoperations/broker-authentication) API reference.
+
+## Set your environment variables
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for values that you choose: `BROKER` (the name of the MQTT broker, typically `default`), `LISTENER` (the name of the broker listener), `AUTHN` (the name of the broker authentication resource), `LISTENER_PORT` (the listener port), `BROKER_HOST`, `SERVICE_ACCOUNT_NAME`, `ATTRIBUTE`, `ATTRIBUTE_VALUE`, `TOKEN`, and `AUDIENCE`. Set each one before you run the related commands.
 
 ## Link BrokerListener and BrokerAuthentication
 
@@ -44,7 +48,7 @@ Azure IoT Operations deploys a default BrokerAuthentication resource named `defa
 1. Select the **Authentication** tab.
 1. From the authentication policy list, select the **default** policy name.
 
-    :::image type="content" source="media/howto-configure-authentication/authentication-policy-default.png" alt-text="Screenshot that shows using the Azure portal to view the default MQTT broker authentication policy.":::
+    :::image type="content" source="media/howto-configure-authentication/authentication-policy-default.png" alt-text="Screenshot that shows using the Azure portal to view the default MQTT broker authentication policy." lightbox="media/howto-configure-authentication/authentication-policy-default.png":::
 
 To add new authentication methods, select **Add method**.
 
@@ -53,7 +57,7 @@ To add new authentication methods, select **Add method**.
 Use the [az iot ops broker authn show](/cli/azure/iot/ops/broker/authn#az-iot-ops-broker-authn-show) command to view the local MQTT broker default authentication policy.
 
 ```azurecli
-az iot ops broker authn show --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --name default 
+az iot ops broker authn show --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --broker default --name default 
 ```
 
 # [Bicep](#tab/bicep)
@@ -64,7 +68,7 @@ To edit the default endpoint, create a Bicep `.bicep` file with the following co
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -72,12 +76,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource defaultBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2024-11-01' = {
+resource defaultBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2026-03-01' = {
   parent: defaultBroker
   name: 'default'
   extendedLocation: {
@@ -103,10 +107,12 @@ resource defaultBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/
 Deploy the Bicep file by using the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 To inspect the default broker authentication resource, run:
 
@@ -138,7 +144,7 @@ If you need to make changes, modify the `authenticationMethods` field in this re
 
 The order of the specified authentication methods determines how the MQTT broker authenticates clients. The MQTT broker tries to authenticate the client's credentials by using the first specified method and iterates through the specified methods until it finds a match or reaches the end.
 
-For each method, the MQTT broker first checks if the client's credentials are *relevant* for that method. For example, SAT authentication requires a username starting with `K8S-SAT`, and X.509 authentication requires a client certificate. If the client's credentials are relevant, the MQTT broker then verifies if they're valid. For more information, see the [Configure authentication method](#configure-authentication-method) section.
+For each method, the MQTT broker first checks if the client's credentials are relevant for that method. For example, SAT authentication requires the username `K8S-SAT`, and X.509 authentication requires a client certificate. If the client's credentials are relevant, the MQTT broker then verifies if they're valid. For more information, see the [Configure authentication method](#configure-authentication-method) section.
 
 For custom authentication, the MQTT broker treats failure to communicate with the custom authentication server as *credentials not relevant*. This behavior lets the MQTT broker fall back to other methods if the custom authentication server is unreachable.
 
@@ -191,14 +197,14 @@ To add an authentication method to a policy:
 1. Add a new method by selecting **Add method**.
 1. Choose the method type from the dropdown list, and then select **Add details** to configure the method.
 
-    :::image type="content" source="media/howto-configure-authentication/create-authentication-policy.png" alt-text="Screenshot that shows using the Azure portal to add an MQTT broker authentication policy method.":::
+    :::image type="content" source="media/howto-configure-authentication/create-authentication-policy.png" alt-text="Screenshot that shows using the Azure portal to add an MQTT broker authentication policy method." lightbox="media/howto-configure-authentication/create-authentication-policy.png":::
 
 # [Azure CLI](#tab/cli)
 
 Use the [az iot ops broker authn apply](/cli/azure/iot/ops/broker/authn#az-iot-ops-broker-authn-apply) command to create or change an MQTT broker authentication policy.
 
 ```azurecli
-az iot ops broker authn apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker <BrokerName> --name <AuthenticationResourceName> --config-file <ConfigFilePathAndName>
+az iot ops broker authn apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --broker $BROKER --name $AUTHN --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -262,7 +268,7 @@ In this example, assume a configuration file named `my-authn-policy.json` with t
 }
 ```
 
-An example command to create a new authentication policy named `my-policy` is as follows:
+The following example creates a new authentication policy named `my-policy`:
 
 ```azurecli
 az iot ops broker authn apply --resource-group myResourceGroupName --instance myAioInstanceName --broker default --name my-policy --config-file ~/my-authn-policy.json
@@ -275,7 +281,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -283,12 +289,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2024-11-01' = {
+resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2026-03-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -357,10 +363,12 @@ resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authe
 Deploy the Bicep file by using the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 Modify the BrokerAuthentication resource for an authentication policy by adding new methods to the `authenticationMethods` section. The following example shows multiple authentication methods for a BrokerAuthentication resource:
 
@@ -411,7 +419,7 @@ To change the configuration, modify the `authenticationMethods` setting in this 
 
 To learn more about each of the authentication options, see the next sections for each method.
 
-For more information about how to enable secure settings by configuring an Azure Key Vault instance and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../deploy-iot-ops/howto-enable-secure-settings.md).
+For more information about how to enable secure settings by configuring an Azure Key Vault instance and enabling workload identities, see [Enable secure settings in Azure IoT Operations deployment](../secure-iot-ops/howto-enable-secure-settings.md).
 
 ## X.509
 
@@ -457,6 +465,9 @@ To get started with X.509 authentication, import the trusted CA certificate into
 ```bash
 kubectl create configmap client-ca --from-file=ca.pem -n azure-iot-operations
 ```
+
+> [!IMPORTANT]
+> The ConfigMap name is used as a Kubernetes volume name internally by the broker operator. Volume names must conform to [RFC 1123 label rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-label-names), which means they can only contain lowercase alphanumeric characters and hyphens. For example, `client-ca` and `my-root-ca` are valid names, but `my-root-ca.crt` is not. If the ConfigMap name contains dots or other invalid characters, the broker's reconciliation fails silently and listeners don't provision correctly.
 
 In this example, the CA certificate is imported under the key `ca.pem`. The MQTT broker trusts all CA certificates in the ConfigMap, so you can use anything for the name of the key.
 
@@ -516,7 +527,7 @@ After the trusted CA certificate is imported, enable X.509 client authentication
 Use the [az iot ops broker authn apply](/cli/azure/iot/ops/broker/authn#az-iot-ops-broker-authn-apply) command to create or change an MQTT broker authentication policy.
 
 ```azurecli
-az iot ops broker authn apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker <BrokerName> --name <AuthenticationResourceName> --config-file <ConfigFilePathAndName>
+az iot ops broker authn apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --broker $BROKER --name $AUTHN --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -550,7 +561,7 @@ param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 param trustedCaConfigMap string = '<TRUSTED_CA_CONFIGMAP>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -558,12 +569,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2024-11-01' = {
+resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2026-03-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -592,10 +603,12 @@ Replace `<TRUSTED_CA_CONFIGMAP>` with the name of the ConfigMap that contains th
 Deploy the Bicep file by using the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 spec:
@@ -654,7 +667,7 @@ In the Azure portal, when you configure the X.509 authentication method, add the
 Use the [az iot ops broker authn apply](/cli/azure/iot/ops/broker/authn#az-iot-ops-broker-authn-apply) command to create or change an MQTT broker authentication policy.
 
 ```azurecli
-az iot ops broker authn apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker <BrokerName> --name <AuthenticationResourceName> --config-file <ConfigFilePathAndName>
+az iot ops broker authn apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --broker $BROKER --name $AUTHN --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -730,7 +743,9 @@ x509Settings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 x509Settings:
@@ -822,7 +837,9 @@ x509Settings: {
 }
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
@@ -874,7 +891,7 @@ For example:
 
 ```bash
 mosquitto_pub -q 1 -t hello -d -V mqttv5 -m world -i thermostat \
--h "<BROKER_HOST>" \
+-h "$BROKER_HOST" \
 --cert thermostat_cert.pem \
 --key thermostat_key.pem \
 --cafile ca.pem
@@ -927,7 +944,7 @@ Clients authenticating via SAT can optionally have their service accounts annota
 You can annotate a service account by using `kubectl annotate`:
 
 ```bash
-kubectl annotate serviceaccount <SERVICE_ACCOUNT_NAME> aio-broker-auth/<ATTRIBUTE>=<VALUE> -n azure-iot-operations
+kubectl annotate serviceaccount $SERVICE_ACCOUNT_NAME aio-broker-auth/$ATTRIBUTE=$ATTRIBUTE_VALUE -n azure-iot-operations
 ```
 
 Or you can add the annotations to the service account manifest file:
@@ -958,14 +975,14 @@ Modify the `authenticationMethods` setting in a BrokerAuthentication resource to
 1. Add a new method by selecting **Add method**.
 1. Choose the method type **Kubernetes SAT** from the dropdown list. Then select **Add details** to configure the method.
 
-:::image type="content" source="media/howto-configure-authentication/sat-method.png" alt-text="Screenshot that shows using the Azure portal to set the MQTT broker SAT authentication method.":::
+:::image type="content" source="media/howto-configure-authentication/sat-method.png" alt-text="Screenshot that shows using the Azure portal to set the MQTT broker SAT authentication method." lightbox="media/howto-configure-authentication/sat-method.png":::
 
 # [Azure CLI](#tab/cli)
 
 Use the [az iot ops broker authn apply](/cli/azure/iot/ops/broker/authn#az-iot-ops-broker-authn-apply) command to create or change an MQTT broker authentication policy.
 
 ```azurecli
-az iot ops broker authn apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker <BrokerName> --name <AuthenticationResourceName> --config-file <ConfigFilePathAndName>
+az iot ops broker authn apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --broker $BROKER --name $AUTHN --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -1000,7 +1017,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -1008,12 +1025,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2024-11-01' = {
+resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2026-03-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -1039,10 +1056,12 @@ resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authe
 Deploy the Bicep file by using the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
 spec:
@@ -1065,13 +1084,13 @@ SAT authentication uses the MQTT v5 enhanced authentication fields. A client mus
 For example, use Mosquitto (some fields omitted for brevity):
 
 ```bash
-mosquitto_pub ... -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data <TOKEN>
+mosquitto_pub ... -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $TOKEN
 ```
 
 Here, `<TOKEN>` is the service account token. To get a test token, run:
 
 ```bash
-kubectl create token <SERVICE_ACCOUNT> -n azure-iot-operations --audience <AUDIENCE>
+kubectl create token $SERVICE_ACCOUNT_NAME -n azure-iot-operations --audience $AUDIENCE
 ```
 
 Here, `<SERVICE_ACCOUNT>` is the name of the service account you created, and `<AUDIENCE>` is one of the audiences configured in the BrokerAuthentication resource.
@@ -1128,7 +1147,7 @@ Modify the **Authentication methods** setting in a BrokerAuthentication resource
 Use the [az iot ops broker authn apply](/cli/azure/iot/ops/broker/authn#az-iot-ops-broker-authn-apply) command to create or change an MQTT broker authentication policy.
 
 ```azurecli
-az iot ops broker authn apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker <BrokerName> --name <AuthenticationResourceName> --config-file <ConfigFilePathAndName>
+az iot ops broker authn apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --broker $BROKER --name $AUTHN --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -1178,7 +1197,7 @@ param aioInstanceName string = '<AIO_INSTANCE_NAME>'
 param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 param policyName string = '<POLICY_NAME>'
 
-resource aioInstance 'Microsoft.IoTOperations/instances@2024-11-01' existing = {
+resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
 }
 
@@ -1186,12 +1205,12 @@ resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-p
   name: customLocationName
 }
 
-resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2024-11-01' existing = {
+resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
   parent: aioInstance
   name: 'default'
 }
 
-resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2024-11-01' = {
+resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2026-03-01' = {
   parent: defaultBroker
   name: policyName
   extendedLocation: {
@@ -1202,11 +1221,17 @@ resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authe
     authenticationMethods: [
       {
         method: 'Custom'
-        serviceAccountTokenSettings: {
-          audiences: [
-            'aio-internal'
-            'my-audience'
-          ]
+        customSettings: {
+          endpoint: 'https://auth-server-template'
+          caCertConfigMap: 'custom-auth-ca'
+          auth: {
+            x509: {
+              secretRef: 'custom-auth-client-cert'
+            }
+          }
+          headers: {
+            header_key: 'header_value'
+          }
         }
       }
     ]
@@ -1217,10 +1242,12 @@ resource myBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authe
 Deploy the Bicep file by using the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 This example shows all possible parameters. The exact parameters that are required depend on each custom server's requirements.
 
@@ -1268,7 +1295,7 @@ For testing, you can disable authentication for a broker listener port. We don't
 Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-port-add) command to disable authentication for a port. To disable authentication, don't include the `--authn-ref` parameter.
 
 ```azurecli
-az iot ops broker listener port add --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --listener <ListenerName> --port <ListenerServicePort>
+az iot ops broker listener port add --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --broker default --listener $LISTENER --port $LISTENER_PORT
 ```
 
 The following example disables authentication for port 8884 to the listener named `aio-broker-loadbalancer`:
@@ -1281,7 +1308,9 @@ az iot ops broker listener port add --resource-group myResourceGroupName --insta
 
 To disable authentication, omit `authenticationRef` in the `ports` setting of your BrokerListener resource.
 
-# [Kubernetes (preview)](#tab/kubernetes)
+# [Kubernetes (debug only)](#tab/kubernetes)
+
+[!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 To disable authentication, omit `authenticationRef` in the `ports` setting of your BrokerListener resource.
 
@@ -1301,7 +1330,7 @@ MQTT v5 clients authenticated with SATs and custom authentication can reauthenti
 
 Clients can reauthenticate by sending an MQTT v5 AUTH packet with reason `ReAuth`.
 
-SAT clients send an AUTH client with the fields `method: K8S-SAT` and `data: <token>`. Custom authentication clients set the method and data field as required by the custom authentication server.
+SAT clients send an AUTH packet with the fields `method: K8S-SAT` and `data: <token>`. Custom authentication clients set the method and data field as required by the custom authentication server.
 
 Successful reauthentication updates the client's credential expiry with the expiry time of its new credential. The broker responds with a `Success` AUTH packet. Failed authentication because of transient issues, such as the custom authentication server being unavailable, causes the broker to respond with a `ContinueAuthentication` AUTH packet. The client can try again later. Other authentication failures cause the broker to send a DISCONNECT packet and close the client's network connection.
 

@@ -1,101 +1,125 @@
 ---
-title: SAP Monitoring with Azure Monitor for SAP
-description: Configure Azure Monitor for SAP with SAP Deployment Automation Framework.
+title: Configure Azure Monitor for SAP with SAP Deployment Automation Framework
+description: Learn how to configure Azure Monitor for SAP with SAP Deployment Automation Framework to automate monitoring of your SAP landscape.
 author: devanshjain
 ms.author: devanshjain
 ms.reviewer: kimforss
-ms.date: 02/25/2024
+ms.date: 04/01/2026
 ms.topic: how-to
 ms.service: sap-on-azure
 ms.subservice: sap-automation
-ms.custom:
 # Customer intent: As an SAP administrator, I want to automate the deployment and monitoring of SAP systems using Azure Monitor and the SAP Deployment Automation Framework, so that I can ensure optimal performance and availability while reducing complexity and costs.
 ---
-# Configure Azure monitor for SAP with SAP Deployment Automation Framework
 
-Monitoring the performance and availability of SAP systems on Azure is simplified through [Azure Monitor for SAP](../monitor/about-azure-monitor-sap-solutions.md). It collects and analyzes metrics and logs from your applications, databases, operating systems, and Azure resources. Customers use Azure Monitor for SAP to visualize and troubleshoot issues, set alerts and notifications, and optimize SAP workloads on Azure.
+# Configure Azure Monitor for SAP with SAP Deployment Automation Framework
 
-By integrating Azure Monitor for SAP and SAP Deployment Automation Framework, you can achieve a faster, easier, and more reliable deployment and operation of your SAP systems on Azure. You can use the automation framework to provision and configure the SAP systems, and Azure Monitor for SAP to monitor and optimize the performance and availability of those SAP systems.
+Azure Monitor for SAP is an Azure-native monitoring product for SAP landscapes running on Azure. SAP Deployment Automation Framework is an open-source orchestration tool that deploys, installs, and maintains SAP environments on Azure. Setting up monitoring manually across the databases, operating systems, and clusters in an SAP landscape is complex and error-prone.
 
-This integration with [SAP on Azure Deployment Automation Framework](deployment-framework.md) enables you to reduce the complexity and deployment cost of running your SAP environments on Azure, by helping to automate the monitoring of different components of an SAP landscape.
-
-## Overview
-
-As described in the [overview document](deployment-framework.md), the automation framework has two main components:
-
-- Deployment infrastructure (control plane, typically deployed in the hub)
-- SAP infrastructure (SAP workload zone, typically deployed in a spoke)
-
-Deployment of Azure Monitor for SAP (AMS) and the [providers](../monitor/about-azure-monitor-sap-solutions.md#what-can-you-monitor) can be automated from the SAP Deployment Automation Framework (SDAF) to simplify the monitoring process. In this architecture, one Azure Monitor for SAP resource is deployed in each [workload zone](deployment-framework.md#about-the-sap-workload-zone), which represents the environment. This resource is responsible for monitoring the performance and availability of different components of the SAP systems in that environment.
-
-:::image type="content" source="./media/deployment-framework/control-plane-sap-infrastructure-monitor.png" alt-text="Diagram that shows the dependency between the control plane, the application plane for SAP Deployment Automation Framework with Azure monitor for SAP." lightbox="./media/deployment-framework/control-plane-sap-infrastructure-monitor.png":::
-
-To monitor different components of each SAP system, there are corresponding providers and all these providers are deployed in the Azure Monitor for SAP resource of that environment. This setup allows for efficient monitoring and management of the SAP systems, as all the providers for a particular system are located in the same Azure Monitor for SAP resource. The automation framework automates the following steps:
-- Creates Azure Monitor for SAP resource in workload zone.
-- Performs prerequisites steps required to enable monitoring.
-- Creates providers for each component of SAP landscape in Azure Monitor for SAP resource created.
+In this article, you configure Azure Monitor for SAP as part of your SAP Deployment Automation Framework deployment so that the framework automatically provisions monitoring alongside your SAP infrastructure. For more information, see [Azure Monitor for SAP](../monitor/about-azure-monitor-sap-solutions.md) and [SAP Deployment Automation Framework](deployment-framework.md).
 
 > [!NOTE]
-> This automation framework currently supports deployment automation of Azure monitor for SAP resource, [OS (Linux) provider](../monitor/about-azure-monitor-sap-solutions.md#os-linux-data) to monitor the Azure VMs, and [HA Pacemaker cluster provider](../monitor/about-azure-monitor-sap-solutions.md#ha-pacemaker-cluster-data) to monitor the high availability clusters in the SAP system.
+> The automation framework currently supports deploying Azure Monitor for SAP resources, the [OS (Linux) provider](../monitor/about-azure-monitor-sap-solutions.md#os-linux-data) for monitoring Azure virtual machines (VMs), and the [HA Pacemaker cluster provider](../monitor/about-azure-monitor-sap-solutions.md#ha-pacemaker-cluster-data) for monitoring high-availability clusters.
 
-The [key components](../monitor/about-azure-monitor-sap-solutions.md#what-is-the-architecture) of the Azure monitor for SAP resource created in the workload zone resource group would include:
-- Azure monitor for SAP resource
-- Managed Resource group with in the Azure monitor for SAP that includes:
-    - Azure functions resource
-    - Azure Key Vault
-    - Log analytics workspace (optional)
-    - Storage account
+## Understand the architecture
 
-## Workload zone configuration for Azure Monitor for SAP resource
+The automation framework deploys one Azure Monitor for SAP resource per [workload zone](deployment-framework.md#about-the-sap-workload-zone). The resource monitors performance and availability for all SAP systems in that environment.
 
-The example shows the parameters that are required for the deployment of Azure Monitor for SAP resource in the workload zone. Optionally, you can choose to use an existing log analytics workspace that exists in the same subscription as your workload zone.
+:::image type="content" source="./media/deployment-framework/control-plane-sap-infrastructure-monitor.png" alt-text="Diagram that shows the dependency between the control plane, and application plane for SAP Deployment Automation Framework with Azure Monitor for SAP." lightbox="./media/deployment-framework/control-plane-sap-infrastructure-monitor.png":::
 
-```terraform
-#########################################################################################
-#  AMS Subnet variables                                                                 #
-#########################################################################################
+The automation framework performs the following steps:
 
-# If defined these parameters control the subnet name and the subnet prefix
-# ams_subnet_name is an optional parameter and should only be used if the default naming is not acceptable
-# ams_subnet_name = ""
+- Creates the Azure Monitor for SAP resource in the workload zone.
+- Performs prerequisite steps required to enable monitoring.
+- Creates [providers](../monitor/about-azure-monitor-sap-solutions.md#what-can-you-monitor) for each monitored component of the SAP landscape.
 
-# ams_subnet_address_prefix is a mandatory parameter if the subnets are not defined in the workload or if existing subnets are not used
-ams_subnet_address_prefix = "10.242.25.0/24"
+The Azure Monitor for SAP resource deployed in the workload zone resource group includes the following [key components](../monitor/about-azure-monitor-sap-solutions.md#what-is-the-architecture):
 
-# ams_subnet_arm_id is an optional parameter that if provided specifies Azure resource identifier for the existing subnet to use
-#ams_subnet_arm_id = ""
+- Azure Monitor for SAP resource
+- Managed resource group that includes:
+  - Azure Functions resource
+  - Azure Key Vault
+  - Log Analytics workspace (optional)
+  - Storage account
 
-# ams_subnet_nsg_name is an optional parameter and should only be used if the default naming is not acceptable for the network security group name
-# ams_subnet_nsg_name = ""
+## Prerequisites
 
-# ams_subnet_nsg_arm_id is an optional parameter that if provided specifies Azure resource identifier for the existing network security group to use
-# ams_subnet_nsg_arm_id = ""
+- An Azure subscription. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
+- A deployed SAP Deployment Automation Framework [control plane](deployment-framework.md).
+- A deployed [SAP workload zone](deployment-framework.md#about-the-sap-workload-zone).
+- Terraform installed on your deployment system.
 
-#########################################################################################
-#  AMS instance variables                                                               #
-#########################################################################################
+## Configure the workload zone for Azure Monitor for SAP
 
-# If defined these parameters control the ams instance (Azure monitor for SAP)
-# create_ams_instance is an optional parameter, and should be set true is the AMS instance is to be created.
-create_ams_instance = true
+Add the Azure Monitor for SAP parameters to your workload zone Terraform variables file (`.tfvars`). Optionally, you can use an existing Log Analytics workspace in the same subscription as your workload zone.
 
-# ams_instance_name is an optional parameter and should only be used if the default naming is not acceptable
-ams_instance_name = "AMS-RESOURCE"
+1. Open your workload zone `.tfvars` file in an editor.
 
-# ams_laws_arm_id is a optional parameter to use an existing log analytics for the AMS instance
-ams_laws_arm_id = "/subscriptions/0000000-000000-0000000-0000000000/resourcegroups/rg-name/providers/microsoft.operationalinsights/workspaces/workspacename"
+1. Add the subnet configuration for Azure Monitor for SAP. Set `ams_subnet_address_prefix` to a valid subnet address range in your virtual network.
 
-```
+   ```terraform
+   #########################################################################################
+   #  AMS subnet variables                                                                 #
+   #########################################################################################
 
-## System configuration for AMS providers
+   # ams_subnet_name is an optional parameter and should only be used if the default naming is not acceptable
+   # ams_subnet_name = ""
 
-The following example shows the parameter that is required for the automation of provider prerequisites and provider creation in the Azure monitor for SAP.
+   # ams_subnet_address_prefix is a mandatory parameter if the subnets are not defined in the workload or if existing subnets are not used
+   ams_subnet_address_prefix = "10.242.25.0/24"
 
-```terraform
-# enable_os_monitoring is an optional parameter and should be set to true if you want to monitor the Azure VMs of your SAP system.
-enable_os_monitoring = true
+   # ams_subnet_arm_id is an optional parameter that if provided specifies Azure resource identifier for the existing subnet to use
+   # ams_subnet_arm_id = ""
 
-# enable_ha_monitoring is an optional parameter and should be set to true if you want to monitor the HA clusters of your SAP system.
-enable_ha_monitoring = true
+   # ams_subnet_nsg_name is an optional parameter and should only be used if the default naming is not acceptable for the network security group name
+   # ams_subnet_nsg_name = ""
 
-```
+   # ams_subnet_nsg_arm_id is an optional parameter that if provided specifies Azure resource identifier for the existing network security group to use
+   # ams_subnet_nsg_arm_id = ""
+   ```
+
+1. Add the Azure Monitor for SAP instance configuration. Set `create_ams_instance` to `true` and configure the instance name.
+
+   ```terraform
+   #########################################################################################
+   #  AMS instance variables                                                               #
+   #########################################################################################
+
+   # create_ams_instance is an optional parameter, and should be set true if the AMS instance is to be created.
+   create_ams_instance = true
+
+   # ams_instance_name is an optional parameter and should only be used if the default naming is not acceptable
+   ams_instance_name = "AMS-RESOURCE"
+
+   # ams_laws_arm_id is an optional parameter to use an existing Log Analytics workspace for the AMS instance
+   ams_laws_arm_id = "/subscriptions/<subscription-id>/resourcegroups/<rg-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>"
+   ```
+
+1. Save and close the file.
+
+1. Deploy the workload zone with the updated configuration by running the deployment script for your workload zone.
+
+## Configure system providers for Azure Monitor for SAP
+
+To enable OS and high-availability cluster monitoring, add the monitoring provider parameters to your SAP system Terraform variables file (`.tfvars`).
+
+1. Open your SAP system `.tfvars` file in an editor.
+
+1. Add the following parameters. Set each parameter to `true` for the provider types you want to enable.
+
+   ```terraform
+   # enable_os_monitoring is an optional parameter and should be set to true if you want to monitor the Azure VMs of your SAP system.
+   enable_os_monitoring = true
+
+   # enable_ha_monitoring is an optional parameter and should be set to true if you want to monitor the HA clusters of your SAP system.
+   enable_ha_monitoring = true
+   ```
+
+1. Save and close the file.
+
+1. Deploy the SAP system with the updated configuration by running the system deployment script.
+
+## Related content
+
+- [What is Azure Monitor for SAP?](../monitor/about-azure-monitor-sap-solutions.md)
+- [SAP Deployment Automation Framework](deployment-framework.md)
+- [Providers for Azure Monitor for SAP](../monitor/about-azure-monitor-sap-solutions.md#what-can-you-monitor)

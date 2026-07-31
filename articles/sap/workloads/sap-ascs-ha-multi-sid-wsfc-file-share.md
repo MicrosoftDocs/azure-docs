@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
-ms.date: 12/16/2022
+ms.date: 03/07/2026
 ms.author: juergent
 ms.custom:
   - H1Hack27Feb2017
@@ -22,7 +22,7 @@ ms.custom:
 > ![Windows OS][Logo_Windows] Windows
 >
 
-You can manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview]. 
+You can manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview].
 
 If you have an SAP deployment, you can use an internal load balancer to create a Windows cluster configuration for SAP Central Services (ASCS/SCS) instances.
 
@@ -37,7 +37,7 @@ This article focuses on how to move from a single ASCS/SCS installation to an SA
 >The maximum number of SAP ASCS/SCS instances in one WSFC cluster is equal to the maximum number of private front-end IPs for each Azure internal load balancer.
 >
 > The configuration introduced in this documentation is not yet supported to be used for [Azure Availability Zones](/azure/reliability/availability-zones-overview)
-> 
+>
 
 For more information about load-balancer limits, see the "Private front-end IP per load balancer" section in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager]. Also consider using the [Azure Standard Load Balancer SKU](../../load-balancer/load-balancer-standard-availability-zones.md) instead of the basic SKU of the Azure load balancer.
 
@@ -53,14 +53,14 @@ _**Figure 1:** An SAP ASCS/SCS instance and SOFS deployed in two clusters_
 > The setup must meet the following conditions:
 > * The SAP ASCS/SCS instances must share the same WSFC cluster.
 > * Different SAP Global Hosts file shares belonging to different SAP SIDs must share the same SOFS cluster.
-> * The SAP ASCS/SCS instances and the SOFS shares must not be combined in the same cluster. 
+> * The SAP ASCS/SCS instances and the SOFS shares must not be combined in the same cluster.
 > * Each database management system (DBMS) SID must have its own dedicated WSFC cluster.
 > * SAP application servers that belong to one SAP system SID must have their own dedicated VMs.
-> * A mix of Enqueue Replication Server 1 and Enqueue Replication Server 2 in the same cluster is not supported.  
+> * A mix of Enqueue Replication Server 1 and Enqueue Replication Server 2 in the same cluster is not supported.
 
 ## SAP ASCS/SCS multi-SID architecture with file share
 
-The goal is to install multiple SAP Advanced Business Application Programming (ASCS) or SAP Java (SCS) clustered instances in the same WSFC cluster, as illustrated here: 
+The goal is to install multiple SAP Advanced Business Application Programming (ASCS) or SAP Java (SCS) clustered instances in the same WSFC cluster, as illustrated here:
 
 ![Figure 2: SAP multi-SID configuration in two clusters][sap-ha-guide-figure-8008]
 
@@ -347,7 +347,7 @@ Install DBMS and SAP application Servers as described earlier.
 [sap-ha-guide-9.1.1]:#a97ad604-9094-44fe-a364-f89cb39bf097
 
 [sap-ascs-ha-multi-sid-wsfc-shared-disk]:sap-ascs-ha-multi-sid-wsfc-shared-disk.md
-[sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare]:sap-ascs-ha-multi-sid-wsfc-shared-disk.md#25e358f8-92e5-4e8d-a1e5-df7580a39cb0
+[sap-ascs-ha-multi-sid-wsfc-shared-disk-infrast-prepare]:sap-ascs-ha-multi-sid-wsfc-shared-disk.md#prepare-the-infrastructure-for-an-sap-multi-sid-scenario
 [Logo_Linux]:media/virtual-machines-shared-sap-shared/Linux.png
 [Logo_Windows]:media/virtual-machines-shared-sap-shared/Windows.png
 

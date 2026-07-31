@@ -1,7 +1,7 @@
 ---
 title: Move regions for resources in Microsoft.Resources
 description: Show how to move resources that are in the Microsoft.Resources namespace to new regions.
-ms.topic: article
+ms.topic: how-to
 ms.date: 02/27/2026
 ---
 

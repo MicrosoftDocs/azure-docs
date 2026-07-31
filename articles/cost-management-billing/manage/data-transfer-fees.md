@@ -5,14 +5,14 @@ author: nicholak-ms
 ms.reviewer: jlucey
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 08/25/2025
 ms.author: jlucey
 ---
 
 # What data transfer fees are applied when data is transferred between Azure and an external endpoint?
 
-Azure now offers at-cost transfer of data for customers and CSP partners in Europe transferring data via the internet between Azure to another data processing service provider. This applies to scenarios where multiple services of different providers are used in parallel, in an interoperable manner. Use the following steps to submit a request if you're transferring data in this manner.
+Azure now offers at-cost transfer of data for customers and CSP partners in Europe transferring data via the internet between Azure to another data processing service provider. For customers with billing address in the United Kingdom (UK) that transfer data from UK datacenters, at-cost transfer of data is offered via the internet and the Microsoft Premium Global Network (MGN). This applies to scenarios where multiple services of different providers are used in parallel, in an interoperable manner. Use the following steps to submit a request if you're transferring data in this manner.
 
 ## Create a support request
 
@@ -25,7 +25,7 @@ Azure now offers at-cost transfer of data for customers and CSP partners in Euro
 
 ## Qualifications
 * This only applies to organizations with a billing address in the European Economic Area (EEA), European Free Trade Association (EFTA), or the United Kingdom and excludes instances where customers have chosen to store Customer Data outside of these areas.
-* The at-cost data transfer only applies to Internet egress (routed via [Routing preference transit ISP network](/azure/virtual-network/ip-services/routing-preference-overview)) if the service is supported on the ISP path. The at-cost data transfer doesn't apply to services with a routing preference using the Microsoft Premium Global Network (MGN), unless that service isn't supported on the ISP network.
+* The at-cost data transfer only applies to Internet egress (routed via [Routing preference transit ISP network](/azure/virtual-network/ip-services/routing-preference-overview)) if the service is supported on the ISP path. The at-cost data transfer doesn’t apply to services with a routing preference using the MGN, unless that service isn’t supported on the ISP network. For customers with billing address in the UK, at-cost data transfer is available via the MGN when transferring data from UK datacenters.
 * Data processing should be at the destination, and must be the same organization. Scenarios such as CDN delivery aren't within scope. For example, the data transfer must not occur between endpoints belonging to different customers. 
 * Azure reviews your request for adherence to the requirements. If we determine the customer request doesn't follow the documented process, we might not issue the credit request.
 * Azure might make changes regarding the egress credit policy in the future.

@@ -3,7 +3,7 @@ title: Move from classic to modernized VMware disaster recovery
 description: Learn about the architecture, necessary infrastructure, and FAQs about moving your VMware or Physical machine replications from classic to modernized protection architecture.
 ms.service: azure-site-recovery
 ms.topic: concept-article
-ms.date: 03/26/2025
+ms.date: 04/06/2026
 author: Jeronika-MS
 ms.author: v-gajeronika
 ms.custom: engagement-fy23
@@ -13,6 +13,8 @@ ms.custom: engagement-fy23
 # Move from classic to modernized VMware disaster recovery   
 
 This article provides information about the architecture, necessary infrastructure, and FAQs about moving your VMware or Physical machine replications from [classic](./vmware-azure-architecture.md) to [modernized](./vmware-azure-architecture-modernized.md) protection architecture. With this capability to migrate, you can successfully transfer your replicated items from a configuration server to an Azure Site Recovery replication appliance. This migration is guided by a smart replication mechanism, which ensures that complete initial replication isn't performed again for noncritical replicated items, and only the differential data is transferred. 
+
+[!INCLUDE [vmware-to-azure-classic-experience-retirement-note.md](./includes/vmware-to-azure-classic-experience-retirement-note.md)]
 
 > [!NOTE]
 > Recovery plans won't be migrated and will need to be created again in the modernized Recovery Services vault.  

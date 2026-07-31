@@ -6,7 +6,7 @@ ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 03/14/2025
+ms.date: 06/17/2026
 ---
 
 # Integrate Azure Database for MySQL with Service Connector
@@ -20,7 +20,6 @@ This article covers supported authentication methods, clients, and sample code y
 Service Connector can be used to connect the following compute services to Azure Database for MySQL:
 
 - Azure App Service
-- Azure Container Apps
 - Azure Functions
 - Azure Kubernetes Service (AKS)
 - Azure Spring Apps
@@ -47,7 +46,7 @@ The table below shows which combinations of authentication methods and clients a
 
 ## Default environment variable names or application properties and sample code
 
-Reference the connection details and sample code in following tables, according to your connection's authentication type and client type, to connect compute services to Azure Database for MySQL. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
+Reference the connection details and sample code in the following tables, based on your connection's authentication type and client type, to connect your compute services to Azure Database for MySQL. For more information about naming conventions, see [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention).
 
 ### System-assigned managed identity
 

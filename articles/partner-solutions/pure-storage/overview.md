@@ -1,8 +1,8 @@
 ---
 title: What is Azure Native Pure Storage Cloud?
 description: Discover Azure Native Pure Storage Cloud, which offers scalable and flexible enterprise-class cloud block storage with built-in capabilities via the Azure portal.
-author: ProfessorKendrick
-ms.author: kkendrick
+author: Reshmi-Sriram
+ms.author: reshmisriram
 ms.topic: overview
 ms.date: 12/10/2025
 ai-usage: ai-assisted

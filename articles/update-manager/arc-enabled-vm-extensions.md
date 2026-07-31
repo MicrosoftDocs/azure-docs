@@ -6,6 +6,7 @@ ms.date: 07/09/2025
 ms.topic: overview
 author: habibaum
 ms.author: v-uhabiba
+ms.update-cycle: 1095-days
 ---
 
 # Release notes for Azure Arc-enabled VM extensions - July 25

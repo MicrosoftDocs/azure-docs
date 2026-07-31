@@ -4,7 +4,7 @@ description: Baseline migration performance test results for Azure Storage Mover
 author: stevenmatthew
 ms.author: shaas
 ms.service: azure-storage-mover
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 05/29/2025
 ---
 

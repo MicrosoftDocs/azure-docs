@@ -4,7 +4,7 @@ description: Use Visual Studio to develop a custom IoT Edge module and deploy to
 services: iot-edge
 author: sethmanheim
 ms.author: sethm
-ms.date: 02/27/2026
+ms.date: 07/16/2026
 ms.topic: concept-article
 ms.service: azure-iot-edge
 zone_pivot_groups: iotedge-dev
@@ -131,7 +131,7 @@ When you open this deployment template, you see that the two runtime modules, **
 
 ### Set IoT Edge runtime version
 
-The latest stable runtime version is 1.5. Update the IoT Edge runtime version to the latest stable release or the version you want to target for your devices.
+The latest stable runtime version is 1.6. Update the IoT Edge runtime version to the latest stable release or the version you want to target for your devices.
 
 ::: zone pivot="iotedge-dev-ext"
 
@@ -141,17 +141,17 @@ The latest stable runtime version is 1.5. Update the IoT Edge runtime version to
 
 1. Use the drop-down menu to choose the runtime version that your IoT Edge devices are running, then select **OK** to save your changes. If no change was made, select **Cancel** to exit.
 
-    The extension doesn't include a selection for the latest runtime versions. To set the runtime version higher than 1.2, open the *deployment.debug.template.json* deployment manifest file. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, to use IoT Edge runtime version 1.5, change the following lines in the deployment manifest file:
+    The extension doesn't include a selection for the latest runtime versions. To set the runtime version higher than 1.2, open the *deployment.debug.template.json* deployment manifest file. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, to use IoT Edge runtime version 1.6, change the following lines in the deployment manifest file:
 
     ```json
     "systemModules": {
        "edgeAgent": {
         //...
-          "image": "mcr.microsoft.com/azureiotedge-agent:1.5"
+          "image": "mcr.microsoft.com/azureiotedge-agent:1.6"
         //...
        "edgeHub": {
        //...
-          "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
+          "image": "mcr.microsoft.com/azureiotedge-hub:1.6",
        //...
     ```
     
@@ -162,17 +162,17 @@ The latest stable runtime version is 1.5. Update the IoT Edge runtime version to
 ::: zone pivot="iotedge-dev-cli"
 
 1. Open the *deployment.debug.template.json* deployment manifest file. The [deployment manifest](module-deployment-monitoring.md#deployment-manifest) is a JSON document that describes the modules to configure on the targeted IoT Edge device.
-1. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, to use IoT Edge runtime version 1.5, change the following lines in the deployment manifest file:
+1. Change the runtime version for the system runtime module images *edgeAgent* and *edgeHub*. For example, to use IoT Edge runtime version 1.6, change the following lines in the deployment manifest file:
 
     ```json
     "systemModules": {
         "edgeAgent": {
         //...
-            "image": "mcr.microsoft.com/azureiotedge-agent:1.5",
+            "image": "mcr.microsoft.com/azureiotedge-agent:1.6",
         //...
         "edgeHub": {
         //...
-            "image": "mcr.microsoft.com/azureiotedge-hub:1.5",
+            "image": "mcr.microsoft.com/azureiotedge-hub:1.6",
         //...
     ```
 
@@ -236,7 +236,7 @@ Typically, you want to test and debug each module before running it within an en
    If you get the error *unmatched close brace/bracket in URL*, try the following command instead:
    
    ```bash
-   curl --header "Content-Type: application/json" --request POST --data "{\"inputName\": \"input1\", \"data\", \"hello world\"}"  http://localhost:53000/api/v1/messages
+   curl --header "Content-Type: application/json" --request POST --data "{\"inputName\": \"input1\", \"data\": \"hello world\"}"  http://localhost:53000/api/v1/messages
    ```
   
    :::image type="content" source="./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png" alt-text="Screenshot of the output console, Visual Studio project, and Bash window." lightbox="./media/how-to-visual-studio-develop-csharp-module/debug-single-module.png":::
@@ -312,7 +312,7 @@ After you develop and debug your module, build and push the module image to your
    :::image type="content" source="./media/how-to-visual-studio-develop-module/show-env-file.png" alt-text="Screenshot of button that shows all files in the Solution Explorer.":::
 
    ```env
-       DEFAULT_RT_IMAGE=1.5
+       DEFAULT_RT_IMAGE=1.6
        CONTAINER_REGISTRY_USERNAME_myregistry=<my-registry-name>
        CONTAINER_REGISTRY_PASSWORD_myregistry=<my-registry-password>
    ```
@@ -513,8 +513,8 @@ You should see a list of your modules running on your device or virtual machine.
 ```azurecli
    NAME                        STATUS           DESCRIPTION      CONFIG
    SimulatedTemperatureSensor  running          Up a minute      mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
-   edgeAgent                   running          Up a minute      mcr.microsoft.com/azureiotedge-agent:1.5
-   edgeHub                     running          Up a minute      mcr.microsoft.com/azureiotedge-hub:1.5
+   edgeAgent                   running          Up a minute      mcr.microsoft.com/azureiotedge-agent:1.6
+   edgeHub                     running          Up a minute      mcr.microsoft.com/azureiotedge-hub:1.6
    IotEdgeModule1              running          Up a minute      myacr.azurecr.io/iotedgemodule1:0.0.1-amd64.debug
    myIotEdgeModule2            running          Up a minute      myacr.azurecr.io/myiotedgemodule2:0.0.1-amd64.debug
 ```

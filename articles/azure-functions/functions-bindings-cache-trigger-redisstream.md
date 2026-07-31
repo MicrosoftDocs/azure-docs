@@ -1,6 +1,6 @@
 ---
 title: RedisStreamTrigger for Azure Functions
-description: Learn how to use RedisStreamTrigger Azure Function for Azure Cache for Redis.
+description: Learn how to use RedisStreamTrigger Azure Function for Azure Managed Redis.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 
@@ -338,7 +338,6 @@ Each functions instance uses the [`WEBSITE_INSTANCE_ID`](/azure/app-service/refe
 ## Related content
 
 - [Introduction to Azure Functions](functions-overview.md)
-- [Tutorial: Get started with Azure Functions triggers in Azure Cache for Redis](/azure/redis/tutorial-functions-getting-started)
-- [Using Azure Functions and Azure Cache for Redis to create a write-behind cache](/azure/redis/tutorial-write-behind)
+- [Overview of Azure functions for Azure Redis](/azure/azure-functions/functions-bindings-cache)
 - [Redis connection string](functions-bindings-cache.md#redis-connection-string)
 - [Redis streams](https://redis.io/docs/latest/operate/rs/databases/active-active/develop/data-types/streams/)

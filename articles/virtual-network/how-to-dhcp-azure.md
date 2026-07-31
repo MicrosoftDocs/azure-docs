@@ -284,10 +284,22 @@ Use the following steps to enable routing between the loopback interface and the
     netsh int ipv4 set int 6 weakhostreceive=enabled weakhostsend=enabled
     ```
 
+1. Run the following command to enable Forwarding on the primary network adapter:
+
+    ```powershell
+    Set-NetIPInterface -InterfaceIndex 6 -Forwarding enable
+    ```
+
 1. Run the following command to enable **weakhostreceive** and **weakhostsend** on the loopback adapter:
 
     ```cmd    
     netsh int ipv4 set int 11 weakhostreceive=enabled weakhostsend=enabled
+    ```
+
+1. Run the following command to enable Forwarding on the loopback adapter:
+
+    ```powershell
+    Set-NetIPInterface -InterfaceIndex 11 -Forwarding enable
     ```
 
 1. Close the bastion connection to **vm-1**.

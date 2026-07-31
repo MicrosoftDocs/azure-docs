@@ -4,7 +4,7 @@ description: Learn about new features and enhancements in Azure Files and Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: concept-article
-ms.date: 11/18/2025
+ms.date: 06/03/2026
 ms.author: kendownie
 ms.custom:
   - build-2025
@@ -14,6 +14,36 @@ ms.custom:
 # What's new in Azure Files and Azure File Sync
 
 Azure Files and Azure File Sync are updated regularly to offer new features and enhancements. This article provides detailed information about what's new in Azure Files and Azure File Sync.
+
+## What's new in 2026
+
+### 2026 quarter 2 (April, May, June)
+
+#### Microsoft Entra ID-based authentication for Azure Files on macOS is now in public preview
+
+Mac users can now access Azure file shares securely using their Entra ID credentials, with no storage account keys, no credential prompts, and no complex configuration. This brings MacOS to full parity with the traditional Windows SMB share experience, backed by the same identity governance that organizations apply across their environments. Organizations can extend a consistent, cloud-native file access model to every device in their fleet, with no on-premises AD infrastructure dependency.
+
+To learn more, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/secure-modern-access-to-azure-files-on-macos-with-ms-entra-id/4524077).
+
+#### Azure file share using Microsoft.FileShares is now generally available
+
+Azure Files introduces a new file share service management experience, now generally available, in which shares are deployed as independent, top-level Azure resources through the Microsoft.FileShares resource provider, removing the dependency on storage accounts. Each file share has dedicated performance, security, networking, and billing, enabling better isolation, predictable performance, and granular cost tracking. The experience also significantly improves scale and efficiency, supporting up to 10,000 shares per subscription per region, faster provisioning, and cloud-native automation through ARM templates, Bicep, and CI/CD workflows. It is currently available for NFS 4.1 shares.
+
+To learn more, read the [blog post](https://aka.ms/MFS/GA).
+
+#### Entra-only identity support for SMB Azure file shares is now generally available
+
+With native Microsoft Entra ID authentication, organizations can grant secure, identity-based access to SMB file shares using cloud-native-only identities.
+
+This means no Active Directory, hybrid sync, or managed domain controllers required, significantly simplifying architecture while reducing ongoing management and maintenance costs.
+
+To learn more, read the [blog post](https://azure.microsoft.com/blog/azure-files-entra-only-identities-advancing-cloud-native-identity-and-security/).
+
+#### Managed identity support for SMB Azure file shares is now generally available
+
+Azure Files customers can now use managed identities to allow Windows and Linux virtual machines (VMs) to access SMB Azure file shares using identity-based authentication with Microsoft Entra ID. This capability enables applications and virtual machines to securely access Azure Files without secrets, passwords, or key distribution. The GA release includes AKS workload identity support, co-existence of application identities and end-user identity access on the same storage account, and simplified enablement via the Azure portal.
+
+To learn more, read the [blog post](https://techcommunity.microsoft.com/blog/azurestorageblog/secure-keyless-application-access-with-managed-identities---now-ga-in-azure-file/4513053).
 
 ## What's new in 2025
 

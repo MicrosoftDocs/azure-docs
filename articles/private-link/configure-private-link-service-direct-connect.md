@@ -64,6 +64,7 @@ Private Link service (PLS) Direct Connect allows you to:
 
 Note these limitations when using Private Link service Direct Connect:
 
+- **On-premises connectivity via ExpressRoute**: Routing to on-premises destinations through a peered virtual network or globally peered virtual network's ExpressRoute gateway is not supported as the PLS Direct Connect and ExpressRoute gateway must be in the same virtual network.
 - **Private Endpoint as a destination is not supported**: The destination IP address cannot be a Private Endpoint.
 - **Minimum 2 IP configurations required**: At least 2 IP configurations, or multiples of 2 ([limit](/azure/azure-resource-manager/management/azure-subscription-service-limits) of 8 max) are required to deploy a PLS Direct Connect.
 - **Maximum of 10 PLS per subscription**: There is a hardware limitation of 10 PLS per region per subscription.
@@ -71,12 +72,13 @@ Note these limitations when using Private Link service Direct Connect:
 - **Static IP requirement**: The target destination IP address must be allocated statically, there is no support for dynamically allocated target IP address.
 - **Cross-region limitation**: The source private endpoint, private link service, and client VM must be in the same region. This restriction is to be removed when the feature is generally available.
 - **Regional availability**: This feature is available in limited regions (North Central US, East US 2, Central US, South Central US, West US, West US 2, West US 3, Asia Southeast, Australia East, Spain Central).
+- **Network security group support for private endpoints**: For private endpoints associated with PLS Direct Connect, configurations with `PrivateEndpointNetworkPolicies` enabled, including `NetworkSecurityGroupEnabled`, aren't supported during preview.
 
 ## Considerations
 
 - **No migration support**: Deploying this feature requires a new Private Link service. Migration of existing private link services isn't supported.
 - **Available client support**: Use PowerShell, CLI, or Terraform to deploy this new Private Link service. Portal support is available via a preview link that activates the feature in portal: ([aka.ms/PortalPLSDirectConnect](https://aka.ms/PortalPLSDirectConnect)). Full portal support without use of a preview link to configure the feature is pending.
-- **IP forwarding is enabled**: If there is a policy on the subscription that disables IP forwarding, the policy must be disabled to allow proper configuration.
+- **IP forwarding is enabled**: If there is a policy on the subscription that disables IP forwarding, the policy must be disabled to allow proper configuration. Although the Private Link service Direct Connect network interface (NIC) may show IP forwarding set to disabled (false), the service functionally operates as if IP forwarding is enabled.
 
 ## Create a Private Link service Direct Connect
 
@@ -511,6 +513,10 @@ The feature flag isn't visible on portal. How do I register for the feature?
 Does the property privateLinkServiceNetworkPolicies ever need to be set to True, such as by GA?
 
 - The property privateLinkServiceNetworkPolicies is not needed for this feature, so set it to false.
+
+Why does the Private Link service Direct Connect NIC show IP forwarding disabled?
+
+- The NIC is displayed with IP forwarding disabled to due to platform requirements. This is expected, the Private Link service Direct Connect still performs the required forwarding behavior internally, and traffic is routed correctly.
 
 ## Next steps
 

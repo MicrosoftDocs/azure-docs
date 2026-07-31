@@ -3,15 +3,15 @@
 title: Include file
 description: Include file
 services: api-management
-author: dlepow
+author: PatAltimore
 
 ms.service: azure-api-management
 ms.topic: include
-ms.date: 06/10/2024
-ms.author: danlep
+ms.date: 05/20/2026
+ms.author: patricka
 ms.custom: Include file
 ---
 
 > [!NOTE]
-> * The latest workspace features are supported in API Management REST API version 2023-09-01-preview or later. 
+> * New! The workspaces feature is now available in the Basic v2 and Standard v2 tiers, in addition to the Premium and Premium v2 tiers. Workspaces in the v2 tiers can be associated with either the default API Management managed gateway or a separate workspace gateway resource, providing flexibility in how you configure and scale your workspaces. For information about the roadmap for workspaces tier support, see the [blog post](https://aka.ms/apim/workspaces/built-in-gateway-changes).
 > * For pricing considerations, see [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/).

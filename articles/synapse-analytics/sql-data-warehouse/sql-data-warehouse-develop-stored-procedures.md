@@ -7,11 +7,13 @@ ms.author: emtehran
 ms.date: 04/02/2019
 ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
-ms.topic: conceptual
+ms.topic: concept-article
 ms.custom: azure-synapse
 ---
 
 # Using stored procedures for dedicated SQL pools in Azure Synapse Analytics
+
+[!INCLUDE [synapse-fabric-migration](../includes/synapse-fabric-migration.md)]
 
 This article provides tips for developing dedicated SQL pool solutions by implementing stored procedures.
 

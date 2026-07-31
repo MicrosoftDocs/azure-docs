@@ -147,9 +147,9 @@ additionalContent:
         - title: Microsoft Sentinel
           summary: See and stop threats before they cause harm
           links: 
-            - url: ../sentinel/overview.md
+            - url: /azure/sentinel/overview
               text: Overview
-            - url: ../sentinel/quickstart-onboard.md
+            - url: /azure/sentinel/quickstart-onboard
               text: Onboard Microsoft Sentinel
             - url: /training/paths/security-ops-sentinel/
               text: "Learn: Cloud-native security operations with Microsoft Sentinel"
@@ -204,9 +204,9 @@ additionalContent:
         - title: Microsoft Defender for IoT
           summary: Threat detection for IoT/OT environments
           links: 
-            - url: ../defender-for-iot/overview.md
+            - url: /azure/defender-for-iot/overview
               text: Overview
-            - url: ../defender-for-iot/getting-started.md
+            - url: /azure/defender-for-iot/getting-started
               text: Get started with Defender for IoT
             - url: /training/paths/enhance-iot-solution-security-by-using-azure-defender/
               text: "Learn: Enhance IoT solution security"

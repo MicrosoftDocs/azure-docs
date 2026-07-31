@@ -365,11 +365,14 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
    | Region | Select **West US**. |
    | Name | Enter **public-ip-nat**. |
    | IP version | Select **IPv4**. |
-   | SKU | Select **Standard**. |
+   | SKU | Select **StandardV2**. |
    | Availability zone | Select **Zone-redundant**. |
    | Tier | Select **Regional**. |
 
 1. Select **Review + create** and then select **Create**.
+
+    > [!NOTE]
+    > A Standard V2 Public IP address can only be associated with a Standard V2 NAT Gateway and not any other services.
 
 1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
@@ -385,7 +388,7 @@ All outbound internet traffic traverses the NAT gateway to the internet. Use the
     | **Instance details** |  |
     | NAT gateway name | Enter **nat-gateway**. |
     | Region | Select **West US**. |
-    | SKU | Select **Standard**. |
+    | SKU | Select **StandardV2**. |
     | TCP idle timeout (minutes) | Leave the default of **4**. |
 
 1. Select **Next**.
@@ -414,13 +417,16 @@ $ip = @{
     Name = 'public-ip-nat'
     ResourceGroupName = 'test-rg'
     Location = 'westus'
-    Sku = 'Standard'
+    Sku = 'StandardV2'
     AllocationMethod = 'Static'
     IpAddressVersion = 'IPv4'
     Zone = 1,2,3
 }
 $publicIPIPv4 = New-AzPublicIpAddress @ip
 ```
+
+> [!NOTE]
+> A Standard V2 Public IP address can only be associated with a Standard V2 NAT Gateway and not any other services.
 
 Use [New-AzNatGateway](/powershell/module/az.network/new-aznatgateway) to create the NAT gateway resource.
 
@@ -430,7 +436,7 @@ $nat = @{
     ResourceGroupName = 'test-rg'
     Name = 'nat-gateway'
     IdleTimeoutInMinutes = '4'
-    Sku = 'Standard'
+    Sku = 'StandardV2'
     Location = 'westus'
     PublicIpAddress = $publicIPIPv4
     Zone = 1

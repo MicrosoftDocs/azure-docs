@@ -1,6 +1,6 @@
 ---
-title: "Onboard Oracle Database@Azure"
-description: Learn about purchase and configuration steps to onboard Oracle Database@Azure.
+title: "Onboard Oracle AI Database@Azure"
+description: Learn about purchase and configuration steps to onboard Oracle AI Database@Azure.
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
@@ -8,24 +8,24 @@ ms.topic: concept-article
 ms.date: 12/12/2023
 ms.custom: engagement-fy23
 ms.author: jacobjaygbay
-# Customer intent: "As a database administrator, I want to complete the onboarding steps for Oracle Database@Azure, so that I can efficiently provision and manage my database resources in the Azure environment."
+# Customer intent: "As a database administrator, I want to complete the onboarding steps for Oracle AI Database@Azure, so that I can efficiently provision and manage my database resources in the Azure environment."
 ---
 
-# Onboard Oracle Database@Azure
+# Onboard Oracle AI Database@Azure
 
-In this article, learn about purchase and configuration (*onboarding*) steps for Oracle Database@Azure.
+In this article, learn about purchase and configuration (*onboarding*) steps for Oracle AI Database@Azure.
 
-You complete most onboarding tasks only once, when you create your Oracle Database@Azure deployment. After you complete the onboarding tasks, you can begin provisioning and using Oracle database resources in your Azure environment.
+You complete most onboarding tasks only once, when you create your Oracle AI Database@Azure deployment. After you complete the onboarding tasks, you can begin provisioning and using Oracle AI Database resources in your Azure environment.
 
-## Purchase options for Oracle Database@Azure
+## Purchase options for Oracle AI Database@Azure
 
-The set of onboarding tasks you complete depends on the type of offer you purchase (pay-as-you-go or a private offer) and the database products you plan to use (Oracle Autonomous Database or Oracle Exadata). For more information about the differences between a pay-as-you-go offer and a private offer, see [Purchase Oracle Database@Azure](https://docs.oracle.com/iaas/Content/database-at-azure/getting-started.htm#oaa_purchasing).
+The set of onboarding tasks you complete depends on the type of offer you purchase (pay-as-you-go or a private offer) and the database products you plan to use (Oracle Autonomous AI Database or Oracle Exadata). For more information about the differences between a pay-as-you-go offer and a private offer, see [Purchase Oracle AI Database@Azure](https://docs.oracle.com/iaas/Content/database-at-azure/getting-started.htm#oaa_purchasing).
 
-Most Oracle Database@Azure onboarding tasks apply to all deployments. If a task is based on an offer type or on the Oracle database product you choose, specific requirements for that scenario are identified in the Azure documentation.
+Most Oracle AI Database@Azure onboarding tasks apply to all deployments. If a task is based on an offer type or on the Oracle AI Database product you choose, specific requirements for that scenario are identified in the Azure documentation.
 
-When you set up an instance of Oracle Database@Azure, you use both the Azure portal and the Oracle Cloud Infrastructure (OCI) console.
+When you set up an instance of Oracle AI Database@Azure, you use both the Azure portal and the Oracle Cloud Infrastructure (OCI) console.
 
-## Steps to onboard Oracle Database@Azure
+## Steps to onboard Oracle AI Database@Azure
 
 1. [Prerequisites](https://docs.oracle.com/iaas/Content/database-at-azure/getting-started.htm#oaa_prerequisites)
 1. [Accept a private offer](https://docs.oracle.com/iaas/Content/database-at-azure/oaaonboard-task-2.htm#oaaonboard_task_2) (private offer purchases only)

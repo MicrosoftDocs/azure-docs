@@ -306,6 +306,17 @@ Regardless of which setup method you chose, the result is the same: the Service 
 
 You can verify the containers are running by checking Docker Desktop or using the command `docker ps` in a terminal.
 
+### Programmatic health check
+
+For automated scenarios (for example, when using Docker Compose), you can verify that the emulator is ready by calling the health endpoint exposed by the emulator:
+```http
+http://localhost:<EMULATOR_HTTP_PORT>/health
+```
+
+By default, the `EMULATOR_HTTP_PORT` is `5300`.
+
+This endpoint can be used in scripts or Docker health checks to ensure the emulator is fully initialized before dependent services start.
+
 ## Interact with the emulator
 
 You can create and manage Service Bus entities—such as queues and topics—using the Service Bus [Administration Client](service-bus-management-libraries.md). By default, emulator uses [config.json](https://github.com/Azure/azure-service-bus-emulator-installer/blob/main/ServiceBus-Emulator/Config/Config.json) configuration file. You can also configure entities by making declarative changes to configuration file. To know more, visit [create and manage entities within Service Bus emulator](overview-emulator.md#create-and-manage-entities-within-service-bus-emulator) 

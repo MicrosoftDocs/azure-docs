@@ -54,8 +54,7 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | Germany/Europe | Germany West Central | West Europe | 
 | Germany/France | Germany West Central | France Central |
 | Italy/Sweden | Italy North | Sweden Central | 
-| Sweden/Germany | Sweden Central | Germany West Central |
-| Spain/Sweden | Spain Central | Sweden Central |
+| Malaysia/Southeast Asia | Malaysia West | Southeast Asia |
 | North America | Central US | East US |
 | North America | East US | East US 2 |
 | North America | East US | North Central US |
@@ -67,10 +66,19 @@ Azure NetApp Files volume replication is supported between various [Azure region
 | North America | South Central US | Central US |
 | North America | West US 2 | East US |
 | North America | West US 2 | West US 3 |
+| Sweden/Germany | Sweden Central | Germany West Central |
+| Spain/Sweden | Spain Central | Sweden Central |
 | Sweden/Europe | Sweden Central | North Europe |
 | Sweden/Europe | Sweden Central | West Europe |
+| UAE/Sweden*   | UAE North  | Sweden Central |
 | UK/Europe | UK South | North Europe |
 | US Government | US Gov Arizona | US Gov Virginia |
 
+*Billing
 > [!NOTE]
-> There can be a discrepancy in the size and number of snapshots between the source and the destination. This discrepancy is expected. Snapshot policies and replication schedules influence the number of snapshots. Snapshot policies and replication schedules, combined with the amount of data that changes between snapshots, influence the size of snapshots. For more information, see [How Azure NetApp Files snapshots work](../snapshots-introduction.md).
+> During the initial rollout, your Azure bill may temporarily show cross-region replication charges for an alternative region pair while the final billing SKUs are being implemented. **There is no overbilling** - the cost shown is the same rate that will apply for **UAE North to Sweden Central** replication.
+
+<br/><br/>
+
+> [!NOTE]
+> There can be a discrepancy in the size and number of snapshots between the source and the destination. This discrepancy is expected. Snapshot policies and replication schedules influence the number of snapshots. Snapshot policies and replication schedules, combined with the amount of data that changes between snapshots, influence the size of snapshots. For more information, see [Understand Azure NetApp Files snapshot-based data protection](../snapshots-introduction.md).

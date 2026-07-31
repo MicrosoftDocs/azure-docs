@@ -2,7 +2,7 @@
 title: Deploy A Baseline Policy Assignment
 description: Learn how to deploy a security baseline policy assignment for continuous security compliance tracking across Azure and Arc-enabled machines using Azure Policy and Machine Configuration.
 ms.date: 11/07/2025
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: references_regions
 ---
 

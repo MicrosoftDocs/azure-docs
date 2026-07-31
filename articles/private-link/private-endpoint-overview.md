@@ -3,11 +3,11 @@ title: What is a private endpoint?
 titleSuffix: Azure Private Link
 description: In this article, you learn how to use the Private Endpoint feature of Azure Private Link.
 services: private-link
-author: abell
+author: asudbring
 ms.service: azure-private-link
 ms.topic: concept-article
-ms.date: 03/25/2025
-ms.author: abell
+ms.date: 03/30/2026
+ms.author: allensu
 ms.custom:
   - references_regions
   - ignite-2024
@@ -86,6 +86,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Container Apps | Microsoft.App/ManagedEnvironments | managedEnvironments |
 | Azure Container Registry | Microsoft.ContainerRegistry/registries | registry |
 | Azure Cosmos DB | Microsoft.AzureCosmosDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table |
+| Azure Cosmos DB | Microsoft.DocumentDB/databaseAccounts | SQL, MongoDB, Cassandra, Gremlin, Table, Analytical |
 | Azure Cosmos DB for MongoDB vCore | Microsoft.DocumentDb/mongoClusters | mongoCluster |
 | Azure Cosmos DB for PostgreSQL | Microsoft.DBforPostgreSQL/serverGroupsv2 | coordinator |
 | Azure Data Explorer | Microsoft.Kusto/clusters | cluster |
@@ -98,6 +99,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Databricks | Microsoft.Databricks/workspaces | databricks_ui_api, browser_authentication |
 | Azure Device Provisioning Service | Microsoft.Devices/provisioningServices | iotDps |
 | Azure Digital Twins | Microsoft.DigitalTwins/digitalTwinsInstances | API |
+| Azure Durable Task Scheduler | Microsoft.DurableTask/schedulers | scheduler |
 | Azure Event Grid | Microsoft.EventGrid/domains | domain |
 | Azure Event Grid | Microsoft.EventGrid/topics  | topic |
 | Azure Event Hub | Microsoft.EventHub/namespaces | namespace |
@@ -111,6 +113,7 @@ A private-link resource is the destination target of a specified private endpoin
 | Azure Machine Learning | Microsoft.MachineLearningServices/registries | amlregistry |
 | Azure Machine Learning | Microsoft.MachineLearningServices/workspaces | amlworkspace |
 | Azure Managed Disks | Microsoft.Compute/diskAccesses | managed disk |
+| Azure Managed Redis | Microsoft.Cache/redisEnterprise | redisEnterprise |
 | Azure Media Services | Microsoft.Media/mediaservices | keydelivery, liveevent, streamingendpoint |
 | Azure Migrate | Microsoft.Migrate/assessmentProjects | project |
 | Azure Monitor Private Link Scope | Microsoft.Insights/privatelinkscopes | azuremonitor |

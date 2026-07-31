@@ -2,11 +2,11 @@
 title: Azure DDoS Protection reference architectures
 description: Learn Azure DDoS protection reference architectures.
 services: ddos-protection
-author: AbdullahBell
+author: duongau
 ms.service: azure-ddos-protection
 ms.topic: concept-article
-ms.date: 03/17/2025
-ms.author: abell
+ms.date: 03/17/2026
+ms.author: duau
 ms.custom: fasttrack-edit, linux-related-content
 # Customer intent: "As a network architect, I want to understand Azure DDoS Protection reference architectures, so that I can effectively design resilient and secure cloud applications against DDoS attacks."
 ---

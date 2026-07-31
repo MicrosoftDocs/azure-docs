@@ -6,7 +6,7 @@ services: storage
 author: gtrossell-eng
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 12/15/2025
+ms.date: 5/13/2026
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: references_regions
@@ -59,7 +59,7 @@ The table below summarizes the key differences most customers care about:
 | Date               | Milestone |
 |--------------------|---|
 | **September 2025** | Public announcement and documentation updates. |
-| **March 3 2026** | Creation of new GPv1/Blob‑Only/**general purpose v1 (GPv1) with ZRS redundancy** configurations blocked. |
+| **September 2026** | Creation of new GPv1/Blob‑Only/**general purpose v1 (GPv1) with ZRS redundancy** configurations blocked. |
 | **October 2026** | **Full retirement.** Any remaining general purpose v1 (GPv1) with ZRS redundancy accounts are automatically upgraded to GPv2. |
 
 ## Preparing for migration
@@ -75,6 +75,11 @@ To minimize risk and ensure a smooth migration:
 1. **Migrate to GPv2**: Use the Azure portal, CLI, or automation tools to upgrade from GPv1 to GPv2. [Learn more about the upgrade process](storage-account-upgrade.md).
 1. **Validate workloads**: Post-migration to ensure functionality and billing accuracy.
 1. **Monitor usage**: After migration, keep an eye on your storage account metrics to identify any unexpected changes in usage patterns or costs.
+
+> [!TIP]
+> Migrate general-purpose v1 accounts to general-purpose v2 by using the `deployIfNotExists` Azure Policy. This policy detects and identifies any general-purpose v1 accounts and allows you to do a non-disruptive in-place upgrade of those accounts.  
+>
+> A sample policy is available here: [general-purpose v1 Azure policy](https://aka.ms/gpv1_azure_policy) 
 
 ## Identify GPv1 with ZRS accounts using Azure Resource Graph
 

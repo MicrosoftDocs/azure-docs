@@ -1,11 +1,11 @@
 ---
 title: 'QuickStart: Create and configure Azure DDoS IP Protection - Azure portal'
 description: Learn how to use Azure DDoS IP Protection to mitigate an attack.
-author: AbdullahBell
-ms.author: abell
+author: duongau
+ms.author: duau
 ms.service: azure-ddos-protection
 ms.topic: quickstart
-ms.date: 03/17/2025
+ms.date: 01/26/2026
 ms.custom: template-quickstart
 # Customer intent: "As a network administrator, I want to configure DDoS IP protection for my public IP address, so that I can safeguard my application from distributed denial-of-service attacks."
 ---
@@ -20,14 +20,16 @@ In this quickstart, you enable DDoS IP protection and link it to a public IP add
 ## Prerequisites
 
 - Create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn) before you begin.
-- Sign in to the [Azure portal](https://portal.azure.com). 
+- Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Enable DDoS IP Protection on a public IP address
+
+You can enable DDoS IP Protection when creating a new public IP address or for an existing public IP address. Select the tab for your scenario.
 
 > [!IMPORTANT]
 > Ensure that your account is assigned to the [network contributor](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) role or to a [custom role](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) that is assigned the appropriate actions listed in the how-to guide on [Permissions](manage-permissions.md).
 
-### Create a public IP address
+# [New public IP address](#tab/new-ip)
 
 1. Select **Create a resource** in the upper left corner of the Azure portal.
 1. Select **Networking**, and then select **Public IP address**.
@@ -49,10 +51,11 @@ In this quickstart, you enable DDoS IP protection and link it to a public IP add
     | Idle Timeout (minutes)  | Keep a TCP or HTTP connection open without relying on clients to send keep-alive messages. In this example, we leave the default of **4**.        |
     | DNS name label          | Enter a DNS name label. In this example, we left the value blank.    |
 
-
+1. Select **Next: DDoS Protection** to open the DDoS Protection page.
+1. Select **IP** on the **Azure DDoS IP Protection** radio button.
 1. Select **Review + create** to review your settings and create the public IP address.
 
-### Enable for an existing Public IP address
+# [Existing public IP address](#tab/existing-ip)
 
 1. In the search box at the top of the portal, enter **public IP Address**. Select **public IP Address**.
 1. Select your Public IP address. In this example, select **myStandardPublicIP**.
@@ -62,7 +65,9 @@ In this quickstart, you enable DDoS IP protection and link it to a public IP add
 
 1. In the **Configure DDoS protection** pane, under **Protection type**, select  **IP**, then select **Save**.
 
-### Disable for a Public IP address:
+---
+
+## Disable DDoS IP Protection for a public IP address
 
 1. Enter the name of the public IP address you want to disable DDoS IP Protection for in the **Search resources, services, and docs box** at the top of the portal. When the name of public IP address appears in the search results, select it.
 1. Under **Properties** in the overview pane, select **DDoS Protection**.
@@ -70,6 +75,7 @@ In this quickstart, you enable DDoS IP protection and link it to a public IP add
 
 > [!NOTE]
 > When changing DDoS IP protection from **Enabled** to **Disabled**, telemetry for the public IP resource will no longer be active.
+
 ## Validate and test
 
 First, check the details of your public IP address:
