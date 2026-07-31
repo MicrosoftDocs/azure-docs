@@ -95,7 +95,7 @@ Set-AzPublicIpAddress -PublicIpAddress $publicIp
 
 ## Clean up resources
 
-You can keep your resources for the next tutorial. If no longer needed, delete the _MyResourceGroup_ resource group. When you delete the resource group, you also delete the public IP address and all other resources in the group.
+You can keep your resources for the next tutorial. If you no longer need them, delete the _MyResourceGroup_ resource group. When you delete the resource group, you also delete the public IP address and all other resources in the group.
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name MyResourceGroup
