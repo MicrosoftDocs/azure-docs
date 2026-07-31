@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: troubleshooting-known-issue
 ms.custom: sfi-ropc-nochange
-ms.date: 07/01/2026
+ms.date: 07/30/2026
 ---
 
 # Known issues for Azure IoT Operations
@@ -340,9 +340,11 @@ Log signature: N/A
 
 ---
 
-Starting in release 2605, the MQTT connector can't connect to external MQTT brokers that have private IP addresses.  
+Fixed in release 2607 and later
 
-This issue is scheduled to be fully resolved in release 2607.
+---
+
+Starting in release 2605, the MQTT connector can't connect to external MQTT brokers that have private IP addresses. This issue is resolved in release 2607.
 
 
 ## Data flows issues
