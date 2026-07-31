@@ -156,7 +156,7 @@ For technical resources and specific syntax requirements when using REST APIs an
 
 ## Virtual network-to-virtual network connectivity
 
-Virtual network-to-virtual network connectivity over an ExpressRoute circuit is disabled by default and must be enabled on the ExpressRoute virtual network gateway, even when multiple virtual networks are linked to the same circuit. We don't recommend using your ExpressRoute circuit for communication between virtual networks. Instead, we recommend that you use [virtual network peering](../virtual-network/virtual-network-peering-overview.md). For more information about why virtual network-to-virtual network connectivity isn't recommended over ExpressRoute, see [Connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
+Virtual network-to-virtual network connectivity over an ExpressRoute circuit is disabled by default. You must enable it on the ExpressRoute virtual network gateway, even when multiple virtual networks are linked to the same circuit. We don't recommend using your ExpressRoute circuit for communication between virtual networks. Instead, we recommend that you use [virtual network peering](../virtual-network/virtual-network-peering-overview.md). For more information about why virtual network-to-virtual network connectivity isn't recommended over ExpressRoute, see [Connectivity between virtual networks over ExpressRoute](virtual-network-connectivity-guidance.md).
 
 ### Virtual network peering limits
 
