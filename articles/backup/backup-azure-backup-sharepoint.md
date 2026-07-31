@@ -14,7 +14,7 @@ ms.author: v-mallicka
 
 This article describes how to back up and restore a SharePoint farm in Azure by using Azure Backup and Microsoft System Center Data Protection Manager (DPM). You configure SharePoint protection and a DPM protection group, monitor backup jobs, and recover SharePoint content databases from Azure recovery points.
 
-With DPM, you can keep local disk copies for fast recovery and Azure copies for economical, long-term retention. Azure Backup supports daily, weekly, monthly, and yearly recovery points with configurable retention.
+By using DPM, you can keep local disk copies for fast recovery and Azure copies for economical, long-term retention. Azure Backup supports daily, weekly, monthly, and yearly recovery points with configurable retention.
 
 [!INCLUDE [The functionality of Azure Backup trim process.](../../includes/backup-trim-process-notification.md)]
 
