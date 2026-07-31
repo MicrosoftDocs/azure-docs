@@ -24,6 +24,8 @@ For an explanation of the discovery modes and how they behave, see [OPC UA asset
 
 ## Prerequisites
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
 [!INCLUDE [enable-resource-sync-rules](../includes/enable-resource-sync-rules.md)]
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]

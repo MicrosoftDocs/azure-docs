@@ -219,7 +219,7 @@ Use [az network watcher flow-log create](/cli/azure/network/watcher/flow-log#az-
 ---
 
 > [!NOTE]
-> If the storage account is in a different subscription, the network security group and storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](required-rbac-permissions.md).
+> If the storage account is in a different subscription, the network security group and storage account must be associated with the same Microsoft Entra tenant. The account you use for each subscription must have the [necessary permissions](rbac-permissions.md).
 
 > [!IMPORTANT]
 > The storage account must not have network rules that restrict network access to only Microsoft services or specific virtual networks.

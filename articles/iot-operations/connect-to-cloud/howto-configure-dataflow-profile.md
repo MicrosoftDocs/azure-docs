@@ -20,6 +20,12 @@ The most important setting is the instance count. For a given data flow, the ins
 
 You should avoid associating too many data flows with a single data flow profile. If you have a large number of data flows, create multiple data flow profiles to reduce the risk of exceeding the data flow profile configuration size limit of 70.
 
+## Set your environment variables
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for values that you choose: `PROFILE` (the name of the data flow profile), `INSTANCE_COUNT`, and `LOG_LEVEL`. Set each one before you run the related commands.
+
 ## Default data flow profile
 
 A data flow profile named *default* is created when Azure IoT Operations is deployed. You can use this data flow profile to get started with Azure IoT Operations.
@@ -37,7 +43,7 @@ A data flow profile named *default* is created when Azure IoT Operations is depl
 Use the [az iot ops dataflow profile show](/cli/azure/iot/ops/dataflow/profile#az-iot-ops-dataflow-profile-show) command to view the default data flow profile:
 
 ```azurecli
-az iot ops dataflow profile show --resource-group <ResourceGroupName> --instance <AioInstanceName> --name default
+az iot ops dataflow profile show --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name default
 ```
 
 Here's an example command to view the default data flow profile:
@@ -116,7 +122,7 @@ To create a new data flow profile, specify the name of the profile and the insta
 Use the [az iot ops dataflow profile create](/cli/azure/iot/ops/dataflow/profile#az-iot-ops-dataflow-profile-create) command to create a new data flow profile:
 
 ```azurecli
-az iot ops dataflow profile create --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <ProfileName>
+az iot ops dataflow profile create --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $PROFILE
 ```
 Here's an example command to create a new data flow profile named `my-dataflow-profile`:
 
@@ -177,7 +183,7 @@ To manually scale the data flow profile, specify the number of instances you wan
 Use the [az iot ops dataflow profile update](/cli/azure/iot/ops/dataflow/profile#az-iot-ops-dataflow-profile-update) command to update the instance count of a data flow profile:
 
 ```azurecli
-az iot ops dataflow profile update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <ProfileName> --profile-instances <InstanceCount>
+az iot ops dataflow profile update --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $PROFILE --profile-instances $INSTANCE_COUNT
 ```
 
 Here's an example command to set the instance count to three for data flow profile `my-dataflow-profile`:
@@ -227,7 +233,7 @@ To learn how to configure these diagnostic settings, see [ProfileDiagnostics](/r
 Use the [az iot ops dataflow profile update](/cli/azure/iot/ops/dataflow/profile#az-iot-ops-dataflow-profile-update) command to update the diagnostic settings of a data flow profile:
 
 ```azurecli
-az iot ops dataflow profile update --resource-group <ResourceGroupName> --instance <AioInstanceName> --name <ProfileName> --log-level <level>
+az iot ops dataflow profile update --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --name $PROFILE --log-level $LOG_LEVEL
 ```
 
 Here's an example command that sets the log level to `debug` for data flow profile `my-dataflow-profile`:

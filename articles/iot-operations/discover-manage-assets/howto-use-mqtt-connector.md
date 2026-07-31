@@ -51,6 +51,8 @@ This article explains how to use the connector for MQTT to perform tasks such as
 
 ## Prerequisites
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
 [!INCLUDE [enable-resource-sync-rules](../includes/enable-resource-sync-rules.md)]
 
 [!INCLUDE [iot-operations-entra-id-setup](../includes/iot-operations-entra-id-setup.md)]

@@ -231,8 +231,10 @@ To view the settings for the default broker:
 
 # [Azure CLI](#tab/azure-cli)
 
+Set the `AIO_INSTANCE_NAME` and `RESOURCE_GROUP` environment variables to your instance name and resource group, and then run:
+
 ```azurecli
-az iot ops broker show --name default --instance <INSTANCE_NAME> --resource-group <RESOURCE_GROUP>
+az iot ops broker show --name default --instance $AIO_INSTANCE_NAME --resource-group $RESOURCE_GROUP
 ```
 
 # [Bicep](#tab/bicep)

@@ -77,6 +77,8 @@ To prepare a vSphere Kubernetes Service (VKS) workload cluster, you need:
     
 ---
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
 ## Create and Arc-enable a cluster
 
 This section provides steps to create clusters in validated environments on Ubuntu, Windows, Azure Local, and vSphere Kubernetes Service (VKS).
@@ -156,7 +158,7 @@ Connect your cluster to Azure Arc so that you can manage it remotely.
 1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group.
 
    ```azurecli
-   az connectedk8s connect --name <CLUSTER_NAME> -l <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID> --enable-oidc-issuer --enable-workload-identity --disable-auto-upgrade
+   az connectedk8s connect --name $CLUSTER_NAME -l $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --enable-oidc-issuer --enable-workload-identity --disable-auto-upgrade
    ```
 
    To prevent unplanned updates to Azure Arc and the system Arc extensions that Azure IoT Operations uses as dependencies, this command disables autoupgrade. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade#manually-upgrade-agents) as needed.
@@ -172,7 +174,7 @@ Connect your cluster to Azure Arc so that you can manage it remotely.
 1. Get the cluster's issuer URL.
 
    ```azurecli
-   az connectedk8s show --resource-group <RESOURCE_GROUP> --name <CLUSTER_NAME> --query oidcIssuerProfile.issuerUrl --output tsv
+   az connectedk8s show --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME --query oidcIssuerProfile.issuerUrl --output tsv
    ```
 
    Save the output of this command to use in the next steps.
@@ -205,7 +207,7 @@ Connect your cluster to Azure Arc so that you can manage it remotely.
 1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s#az-connectedk8s-enable-features) command to enable the custom location feature on your Arc cluster. This command uses the OBJECT_ID environment variable that you saved in the previous step to set the value for the custom-locations-oid parameter. Run this command on the machine where you deployed the Kubernetes cluster: 
 
    ```azurecli
-   az connectedk8s enable-features -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
+   az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
    ```
 
 1. Restart K3s.
@@ -272,7 +274,7 @@ Connect your cluster to Azure Arc so that you can manage it remotely.
 1. Use the [az connectedk8s connect](/cli/azure/connectedk8s) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group.
 
    ```azurecli
-   az connectedk8s connect --name <CLUSTER_NAME> -l <REGION> --resource-group <RESOURCE_GROUP> --subscription <SUBSCRIPTION_ID> --enable-oidc-issuer --enable-workload-identity --disable-auto-upgrade
+   az connectedk8s connect --name $CLUSTER_NAME -l $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --enable-oidc-issuer --enable-workload-identity --disable-auto-upgrade
    ```
    
    To prevent unplanned updates to Azure Arc and the system Arc extensions that Azure IoT Operations uses as dependencies, this command disables autoupgrade. Instead, [manually upgrade agents](/azure/azure-arc/kubernetes/agent-upgrade) as needed. 
@@ -299,7 +301,7 @@ Connect your cluster to Azure Arc so that you can manage it remotely.
 1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s) command to enable the custom location feature on your Arc cluster. This command uses the OBJECT_ID environment variable saved from the previous step to set the value for the custom-locations-oid parameter. Run this command on the machine where you deployed the Kubernetes cluster:
 
    ```azurecli
-   az connectedk8s enable-features -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
+   az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
    ```
 ---
 
