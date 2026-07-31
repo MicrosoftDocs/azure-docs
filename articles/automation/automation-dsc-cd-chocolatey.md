@@ -354,8 +354,8 @@ some of them are encapsulated in build tasks that you can chain together in a bu
 [08]: automation-dsc-onboarding.md
 [09]: automation-dsc-overview.md
 [10]: https://aka.ms/wmf5latest
-[11]: /azure/automation/shared-resources/modules.md
-[12]: /azure/automation/tutorial-configure-servers-desired-state.md
+[11]: 
+[12]: 
 [13]: https://azure.microsoft.com/pricing/details/automation/
 [14]: https://chocolatey.org/
 [15]: /nuget/create-packages/creating-a-package
