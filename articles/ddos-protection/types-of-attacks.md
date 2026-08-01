@@ -11,7 +11,7 @@ ms.author: duau
 ---
 # Types of attacks Azure DDoS Protection mitigates
 
-Azure DDoS Protection mitigates network-layer (Layer 3 and Layer 4) attacks. Application-layer (Layer 7) attacks require a web application firewall (WAF) used alongside DDoS Protection. The following sections describe common attack types and, where a WAF is required, how to combine the two:
+Azure DDoS Protection mitigates the network-layer (Layer 3 and Layer 4) attacks in the following list. Application-layer (Layer 7) attacks require a web application firewall (WAF) used alongside DDoS Protection:
 
 - **Volumetric attacks**: These attacks flood the network layer with a substantial amount of seemingly legitimate traffic. They include UDP floods, amplification floods, and other spoofed-packet floods. DDoS Protection mitigates these potential multi-gigabyte attacks by absorbing and scrubbing them, with Azure's global network scale, automatically. Common attack types are listed in the following table.
 
