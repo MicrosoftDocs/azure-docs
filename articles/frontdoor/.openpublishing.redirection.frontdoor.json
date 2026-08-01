@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/frontdoor/standard-premium/troubleshoot-cross-origin-resources.md",
+            "redirect_url": "/azure/frontdoor/cross-origin-resource-sharing",
+            "redirect_document_id": true
+        },
+        {
             "source_path_from_root": "/articles/frontdoor/front-door-how-to-onboard-apex-domain.md",
             "redirect_url": "/azure/frontdoor/apex-domain-onboard",
             "redirect_document_id": true

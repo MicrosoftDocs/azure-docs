@@ -92,7 +92,7 @@
     - name: URL redirect
       href: front-door-url-redirect.md?pivots=front-door-standard-premium
     - name: Cross-Origin Resource Sharing (CORS)
-      href: standard-premium/troubleshoot-cross-origin-resources.md
+      href: cross-origin-resource-sharing.md
   - name: Origins
     items:
     - name: Origins and origin groups
