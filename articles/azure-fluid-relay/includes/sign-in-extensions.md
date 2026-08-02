@@ -1,6 +1,6 @@
 ---
 author: tylerbutler
-ms.service: azure-fluid
+ms.service: fluid-framework
 ms.topic: include
 ms.date: 10/25/2021
 ms.author: tylerbu
