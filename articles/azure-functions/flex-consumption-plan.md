@@ -145,7 +145,6 @@ At any moment, the platform grants the smallest allowance across all of these li
 
 ### Design for smooth scaling at high rates
 
-* Where you control the load (for example, in load tests), ramp up in stages rather than as a single instantaneous spike, so the scale curve can keep pace with demand.
 * Use [always ready instances](#always-ready-instances) to pre-provision capacity for known bursts and to reduce cold starts, since they bypass the on-demand scale-out rate.
 * Right-size [concurrency](functions-concurrency.md#concurrency-in-azure-functions) so each instance does more work, which reduces the number of instances you need for a given load.
 * Set a [maximum instance count](event-driven-scaling.md#limit-scale-out) high enough for your peak, and confirm your [subscription memory quota](#regional-subscription-memory-quotas) can support that target.
