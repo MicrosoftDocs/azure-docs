@@ -149,7 +149,7 @@ Application Gateway supports the following server variables for mutual authentic
 | client_certificate_serial | The serial number of the client certificate for an established SSL connection.  |
 | client_certificate_start_date| The start date of the client certificate. |
 | client_certificate_subject| The "subject DN" string of the client certificate for an established SSL connection. |
-| client_certificate_verification| The result of the client certificate verification. For mTLS passthrough mode: *PASSTHROUGH* if a certificate is presented, otherwise *NONE*. For mTLS strict mode: *SUCCESS* if a valid certificate is presented, otherwise an empty string. | 
+| client_certificate_verification| The result of the client certificate verification. In mTLS passthrough mode: *PASSTHROUGH* when the client presents a certificate, or *NONE* when it doesn't. In mTLS strict mode: *SUCCESS* when the client presents a valid certificate. In strict mode, Application Gateway returns HTTP 400 for a missing or invalid client certificate before it forwards the request, so the backend never receives a value. To review those outcomes, use the `sslClientVerify` property in the [access log](monitor-application-gateway-reference.md#access-log-category). |
 
 
 ## Common scenarios for header rewrite
