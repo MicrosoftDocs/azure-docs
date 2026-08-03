@@ -5,7 +5,7 @@ services: azure-logic-apps
 ms.suite: integration
 ms.reviewers: estfan, azla
 ms.topic: how-to
-ms.date: 03/18/2026
+ms.date: 08/04/2026
 ms.date-cycle: 365 days
 ms.custom:
   - subject-rbac-steps
@@ -66,7 +66,13 @@ For more information, see:
 
 ## Considerations for using managed identities
 
-Before you set up and use a managed identity with a logic app, review the following considerations:
+Before you set up and use a managed identity on a logic app, review the following best practices and considerations:
+
+- Review and follow the [security best practices around assigning contributor roles and workflow editing permissions and understand their relationship to managed identies](logic-apps-securing-a-logic-app.md#secure-operations).
+
+  > [!CAUTION]
+  >
+  > Anyone with logic app contributor level or workflow editing permissions can set up HTTP built-in operations that use managed identities to request identity bearer tokens for any audience. They can send requests with these tokens to any endpoint or destination. The platform doesn't restrict the destination. Bearer tokens are valid for one hour and can access any Azure API where their identities can reach.
 
 - Your logic app resource has only one unique system-assigned identity.
 
