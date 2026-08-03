@@ -81,6 +81,12 @@ For an API that supports OAuth 2.0 authorization, complete the following steps. 
 * **Authorization code flow with PKCE (Proof Key for Code Exchange)** - Authenticate users in the browser, such as in the API Center portal.
 * **Client credentials flow** - For applications that don't require a specific user's permissions.
 
+OAuth 2.0 authorization can't be used if anonymous access is enabled for the customer portal.
+
+> [!CAUTION]
+> Extra care is required when using a client credentials flow with the developer portal test console. See [security considerations](../api-management/api-management-howto-oauth2.md#security-considerations).
+> When using API keys, any user with access to the developer portal can use APIs.
+
 ### 1. Create an OAuth 2.0 app
 
 Create an app registration in an identity provider, such as the Microsoft Entra tenant associated with your subscription. The steps depend on your identity provider.
