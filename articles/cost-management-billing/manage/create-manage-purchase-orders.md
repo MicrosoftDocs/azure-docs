@@ -1,4 +1,16 @@
+---
+title: Create and manage purchase orders in the Azure portal
+description: Learn how to create purchase orders in the Azure portal and map allocations to Microsoft Cloud spend.
+author: kylecallahan
+ms.author: v-callahanky
+ms.service: cost-management-billing
+ms.topic: how-to
+ms.date: 08/03/2026
+---
+
 # Create a purchase order in the Azure portal
+
+Create a purchase order to track and allocate Microsoft Cloud charges against an approved budget. When you create the purchase order, you define its active dates, allocated budget, and status. You can also add an initial mapping to specify which purchases across Azure and Microsoft Marketplace are allocated to the purchase order.
 
 1. Navigate to **Cost Management + Billing** in the Azure portal.
 2. Select a billing profile, locate the **Invoice management** section, and select **Purchase orders**.
