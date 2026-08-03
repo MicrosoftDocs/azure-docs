@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 07/16/2026
+ms.date: 08/03/2026
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to configure TLS policies on an Application Gateway using PowerShell, so that I can enhance security and control encryption standards for my web applications."
@@ -84,7 +84,7 @@ AvailableProtocols:
 
 ## List predefined TLS Policies
 
-Application Gateway comes with multiple predefined policies that you can use. The `Get-AzApplicationGatewaySslPredefinedPolicy` cmdlet retrieves these policies. Each policy has different protocol versions and cipher suites enabled. Use these predefined policies to quickly configure a TLS policy on your application gateway. The default policy applied when you don't define a specific TLS policy depends on the SKU and API version: Application Gateway v2 deployments created with API version 2023-02-01 or later default to **AppGwSslPolicy20220101**, while earlier API versions default to **AppGwSslPolicy20150501**. Because [support for TLS 1.0 and 1.1 ended on August 31, 2025](application-gateway-tls-version-retirement.md), use a 2022 predefined policy or a CustomV2 policy so that clients and backend servers negotiate TLS 1.2 or higher.
+Application Gateway comes with multiple predefined policies that you can use. The `Get-AzApplicationGatewaySslPredefinedPolicy` cmdlet retrieves these policies. Each policy has different protocol versions and cipher suites enabled. Use these predefined policies to quickly configure a TLS policy on your application gateway. The default policy applied when you don't define a specific TLS policy depends on the API version used to create the gateway: gateways created with API version 2023-02-01 or later default to **AppGwSslPolicy20220101**, while gateways created with earlier API versions default to **AppGwSslPolicy20150501**. Because [support for TLS 1.0 and 1.1 ended on August 31, 2025](application-gateway-tls-version-retirement.md), use a 2022 predefined policy (**AppGwSslPolicy20220101** or **AppGwSslPolicy20220101S**) or a CustomV2 policy so that clients and backend servers negotiate TLS 1.2 or higher. If you need a specific set of cipher suites, you can use **AppGwSslPolicy20170401S** instead. The 2022 predefined policies and the CustomV2 policy are available only on the v2 SKU (Standard_v2 or WAF_v2).
 
 The following output is an example of running `Get-AzApplicationGatewaySslPredefinedPolicy`.
 
