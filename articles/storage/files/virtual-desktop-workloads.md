@@ -65,7 +65,7 @@ Azure Files supports both **FSLogix** and **non-FSLogix** profile storage scenar
 ### FSLogix profile containers
 
 > [!TIP]
-> When using [FSLogix Cloud Cache](/fslogix/concepts-fslogix-cloud-cache) with Azure Files, use Azure Files Premium (SSD) shares. Premium shares provide lower latency and higher IOPS than Standard shares, which helps deliver more consistent Cloud Cache performance and reduces the likelihood of storage becoming a performance bottleneck.
+> When using [FSLogix Cloud Cache](/fslogix/concepts-fslogix-cloud-cache) with Azure Files, use SSD file shares. SSD shares provide lower latency and higher IOPS than HDD shares, which helps deliver more consistent Cloud Cache performance and reduces the likelihood of storage becoming a performance bottleneck.
 
 If you're using [FSLogix with Azure Virtual Desktop](/azure/virtual-desktop/fslogix-containers-azure-files), your user profile containers are either Virtual Hard Disk (VHD) or Hyper-V Virtual Hard Disk (VHDX) files, and they're mounted in a user context, not a system context. Each user opens a single root directory handle, which should be to the file share. Azure Files can support a maximum of 10,000 users assuming you have the file share (`\\storageaccount.file.core.windows.net\sharename`) + the profile directory (`%sid%_%username%`) + profile container (`profile_%username.vhd(x)`).
 
