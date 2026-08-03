@@ -22,9 +22,9 @@ items:
   - name: Manage certificate lifecycle
     items:
       - name: Certificate management (preview) in Azure Device Registry
-        href: iot-hub-certificate-management-overview.md
+        href: iot-certificate-management-overview.md
       - name: Key concepts for certificate management
-        href: iot-hub-certificate-management-concepts.md
+        href: iot-certificate-management-concepts.md
       - name: Set up certificate management
         items:
           - name: Configure a credential

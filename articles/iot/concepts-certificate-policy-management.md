@@ -123,8 +123,8 @@ Revoking certificates and deleting policies are high-impact operations that are 
 ## Related content
 
 - [Revoke certificates and delete policies (preview)](how-to-revoke-certificate-delete-policy.md)
-- [Key concepts for certificate management](iot-hub-certificate-management-concepts.md)
-- [What is certificate management (preview)?](iot-hub-certificate-management-overview.md)
+- [Key concepts for certificate management](iot-certificate-management-concepts.md)
+- [What is certificate management (preview)?](iot-certificate-management-overview.md)
 - [Get started with ADR and certificate management in IoT Hub](../iot-hub/iot-hub-device-registry-setup.md)
 - [Authenticate devices with X.509 CA certificates](../iot-hub/authenticate-authorize-x509.md)
 - [Azure role-based access control (RBAC) for IoT Hub](../iot-hub/authenticate-authorize-azure-ad.md)
