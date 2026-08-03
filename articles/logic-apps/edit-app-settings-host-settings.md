@@ -189,7 +189,6 @@ The following settings let you manually stop and immediately delete specific wor
 > Use these settings with caution and only in nonproduction environments, such as load 
 > or performance test environments, as you can't undo or recover from these operations.
 >
-> Provide all values in uppercase.
 
 
 | Setting | Default value | Description |
