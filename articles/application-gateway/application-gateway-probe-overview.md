@@ -5,7 +5,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: concept-article
-ms.date: 07/16/2026
+ms.date: 08/03/2026
 ms.author: mbender 
 ms.custom:
   - devx-track-azurepowershell
@@ -112,9 +112,9 @@ Match criteria can be attached to probe configuration using a `-Match` operator 
 
 ## NSG considerations
 
-The NSG requirements in this section apply to Application Gateway deployments that don't use enhanced network control. Gateways that use enhanced network control, including private-only deployments, no longer require the GatewayManager inbound rule or outbound Internet access. For those deployments, the only required rule is to allow inbound traffic from the **AzureLoadBalancer** tag. For details, see [Private Application Gateway deployment](application-gateway-private-deployment.md#network-security-group-control).
+The NSG requirements in this section apply to Application Gateway deployments that don't have Network Isolation enabled. Gateways with Network Isolation enabled, including private-only deployments, no longer require the GatewayManager inbound rule or outbound Internet access. For those deployments, the only required rule is to allow inbound traffic from the **AzureLoadBalancer** tag. For details, see [Private Application Gateway deployment](application-gateway-private-deployment.md#network-security-group-control).
 
-For deployments that don't use enhanced network control, the following restrictions apply:
+For deployments that don't have Network Isolation enabled, the following restrictions apply:
 
 You must allow incoming Internet traffic on TCP ports 65503-65534 for the Application Gateway v1 SKU, and TCP ports 65200-65535 for the v2 SKU with the destination subnet as **Any** and source as **GatewayManager** service tag. This port range is required for Azure infrastructure communication.
 
