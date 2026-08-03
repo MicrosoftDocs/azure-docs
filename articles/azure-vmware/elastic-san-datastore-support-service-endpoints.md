@@ -163,7 +163,7 @@ ESXi iSCSI Configuration:
 
 **Change**: Update datastore provisioning workflow to use service endpoint connectivity exclusively
 
-**Previous Flow**:
+**Previous flow**:
 
 1. Customer creates Elastic SAN volume
 1. Customer creates Private Endpoint in Customer VNet
