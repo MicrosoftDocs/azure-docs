@@ -213,7 +213,7 @@ $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName $rg.Resourc
 To set a custom TLS policy, pass the following parameters: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, and **ApplicationGateway**. To set a Predefined TLS policy, pass the following parameters: **PolicyType**, **PolicyName**, and **ApplicationGateway**. If you attempt to pass other parameters, you get an error when creating or updating the Application Gateway.
 
 > [!NOTE]
-> Both legacy and new (2022 Predefined or CustomV2) SSL policies can't coexist on the same gateway. If any clients require older TLS versions or ciphers (for example, TLS 1.0), use a legacy predefined or custom policy across the gateway. For details, see [SSL policy overview](./application-gateway-ssl-policy-overview.md).
+> Both legacy and new (2022 Predefined or CustomV2) SSL policies can't coexist on the same gateway. If any clients require ciphers that only the legacy policies offer, use a legacy predefined or custom policy across the gateway. Because [support for TLS 1.0 and 1.1 ended on August 31, 2025](application-gateway-tls-version-retirement.md), the legacy policies no longer negotiate those versions: the 20150501 and 20170401 predefined policies were discontinued, and the legacy Custom policy supports TLS 1.2 only. For details, see [TLS policy overview](./application-gateway-ssl-policy-overview.md).
 
 In the following example, there are code samples for both Custom Policy and Predefined Policy. Uncomment the policy you want to use.
 
