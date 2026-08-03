@@ -68,7 +68,7 @@ Azure Logic Apps has the following specific roles, based on whether you have a C
 | [**Logic App Operator**](../role-based-access-control/built-in-roles.md#logic-app-operator) | You can read, enable, and disable logic app workflows, but you can't edit or update them. |
 | [**Contributor**](../role-based-access-control/built-in-roles.md#contributor) | You have full access to manage all resources, but you can't assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries. |
 
-For example, suppose you have to work with a logic app workflow that you didn't create and authenticate connections used by that logic app workflow. Your Azure subscription requires **Contributor** permissions for the resource group that contains that logic app resource. If you create a logic app resource, you automatically have **Contributor** access.
+For example, suppose you need to work with a logic app workflow that you didn't create and authenticate connections used by that logic app workflow. Your Azure subscription requires **Contributor** permissions for the resource group that contains that logic app resource. If you create a logic app resource, you automatically have **Contributor** access.
 
 To prevent others from changing or deleting your logic app workflow, you can use [Azure Resource Lock](../azure-resource-manager/management/lock-resources.md). This capability prevents others from changing or deleting production resources. For more information about connection security, review [Connection configuration in Azure Logic Apps](../connectors/introduction.md#connection-configuration) and [Connection security and encryption](../connectors/introduction.md#connection-security-encryption).
 
