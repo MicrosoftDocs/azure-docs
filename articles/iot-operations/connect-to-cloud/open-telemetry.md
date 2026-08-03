@@ -279,7 +279,7 @@ az deployment group create --resource-group $RESOURCE_GROUP --template-file main
 Create a Kubernetes manifest **.yaml** file with the following content. Replace `<OTEL_AUDIENCE>` with the audience value for your OpenTelemetry collector configuration. This value must match the expected audience on the collector:
 
 ```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
+apiVersion: connectivity.iotoperations.azure.com/v1
 kind: DataflowEndpoint
 metadata:
   name: <ENDPOINT_NAME>
