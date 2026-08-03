@@ -7,7 +7,7 @@ ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
-ms.date: 07/30/2026
+ms.date: 08/03/2026
 ai-usage: ai-assisted
 #Customer intent: As a developer new to IoT, I want to understand what certificate management is and how it can help me manage my IoT device certificates.
 ---
@@ -96,5 +96,5 @@ For the latest information about limits and quotas for certificate management wi
 - [Certificate revocation and policy management concepts (preview)](concepts-certificate-policy-management.md)
 - [Revoke certificates and delete policies (preview)](how-to-revoke-certificate-delete-policy.md)
 - [Disable or enable a device (preview)](../iot-hub/how-to-disable-enable-device.md)
-- [Key concepts for certificate management](iot-hub-certificate-management-concepts.md)
+- [Key concepts for certificate management](iot-certificate-management-concepts.md)
 - [Integration with Azure Device Registry](../iot-hub/iot-hub-device-registry-overview.md)

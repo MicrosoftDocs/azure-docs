@@ -18,7 +18,7 @@ Data flow graphs give you a flexible way to process data as it moves through Azu
 A data flow graph is defined by the `DataflowGraph` Kubernetes custom resource. Inside it, you wire together sources, transforms, and destinations to build processing pipelines that match your scenario.
 
 > [!IMPORTANT]
-> Data flow graphs currently support only MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
+> Data flow graphs currently support only MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported.
 
 ## Data flows vs. data flow graphs
 

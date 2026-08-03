@@ -146,4 +146,4 @@ Verify that the returned device status matches the change that you made.
 - [Integration with Azure Device Registry (preview)](../iot-hub/iot-hub-device-registry-overview.md)
 - [Deploy Azure IoT Hub with ADR integration and certificate management](../iot-hub/iot-hub-device-registry-setup.md)
 - [Revoke certificates and delete policies in Azure Device Registry](../iot/how-to-revoke-certificate-delete-policy.md)
-- [Key concepts for certificate management (preview)](../iot/iot-hub-certificate-management-concepts.md)
+- [Key concepts for certificate management (preview)](../iot/iot-certificate-management-concepts.md)

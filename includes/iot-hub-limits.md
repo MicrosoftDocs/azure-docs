@@ -74,7 +74,7 @@ The following table lists the limits that apply to IoT Hub (preview) instances.
 
 All other throttles, limits to IoT Hub preview resources are equivalent to a S1 standard IoT Hub
 
-The following table lists the limits that apply to [ADR integration](../articles/iot-hub/iot-hub-device-registry-overview.md) and [certificate management](../articles/iot/iot-hub-certificate-management-overview.md) preview features.
+The following table lists the limits that apply to [ADR integration](../articles/iot-hub/iot-hub-device-registry-overview.md) and [certificate management](../articles/iot/iot-certificate-management-overview.md) preview features.
 
 | Feature    | Limit|
 |----------------------------------|-------------------------------|

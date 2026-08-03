@@ -177,5 +177,5 @@ Verify that the credential resource is no longer available.
 ## Related content
 
 - [Certificate revocation and policy management concepts](concepts-certificate-policy-management.md)
-- [Key concepts for certificate management](iot-hub-certificate-management-concepts.md)
+- [Key concepts for certificate management](iot-certificate-management-concepts.md)
 - [Deploy Azure IoT Hub with ADR integration and certificate management](../iot-hub/iot-hub-device-registry-setup.md)

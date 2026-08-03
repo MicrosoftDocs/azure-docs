@@ -220,4 +220,4 @@ az iot adr ns credential sync \
 - [Deploy Azure IoT Hub with ADR integration](../iot-hub/iot-hub-device-registry-setup.md)
 - [Configure a credential in Azure Device Registry](how-to-configure-credential.md)
 - [Revoke certificates and delete policies in Azure Device Registry](how-to-revoke-certificate-delete-policy.md)
-- [Key concepts for certificate management (preview)](iot-hub-certificate-management-concepts.md)
+- [Key concepts for certificate management (preview)](iot-certificate-management-concepts.md)
