@@ -38,7 +38,7 @@ If a Virtual Machine (VM) is deployed without an explicit outbound connectivity 
 
 ## Retirement of default outbound access: scope and impact
 
-Default outbound access is being retired. Because default outbound access is an implicit platform behavior rather than a resource you configure, it isn't always obvious whether a workload depends on it. This section explains what the retirement affects and what it doesn't.
+Default outbound access is retiring. Because default outbound access is an implicit platform behavior rather than a resource you configure, it isn't always obvious whether a workload depends on it. This section explains what the retirement affects and what it doesn't.
 
 For the retirement timeline and the latest announcement details, see the [official announcement](https://azure.microsoft.com/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/).
 
@@ -48,7 +48,7 @@ The retirement affects virtual machines that reach the internet through **defaul
 
 ### What isn't affected
 
-Virtual machines that already use an explicit outbound connectivity method aren't affected by the retirement. Explicit outbound methods include:
+The retirement doesn't affect virtual machines that already use an explicit outbound connectivity method. Explicit outbound methods include:
 
 - **[Azure NAT Gateway](../../nat-gateway/nat-overview.md)** associated with the subnet.
 - **A public IP address assigned to the virtual machine's network interface.**
