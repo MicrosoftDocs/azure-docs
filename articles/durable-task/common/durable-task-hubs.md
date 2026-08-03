@@ -17,6 +17,8 @@ This article explains what a task hub stores, how to configure and name task hub
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 :::image type="content" source="./media/durable-task-hubs/taskhub.png" alt-text="Screenshot of diagram showing function app and task hub architecture in Durable Task.":::
 
 ::: zone-end

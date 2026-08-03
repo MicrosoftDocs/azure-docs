@@ -31,6 +31,8 @@ In this article:
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 > [!NOTE]
 > In PowerShell, sub-orchestrations are supported only in the standalone SDK: [`AzureFunctions.PowerShell.Durable.SDK`](https://www.powershellgallery.com/packages/AzureFunctions.PowerShell.Durable.SDK). For the differences between the standalone SDK and the legacy built-in SDK, see the [migration guide](../durable-functions/durable-functions-powershell-v2-sdk-migration-guide.md).
 

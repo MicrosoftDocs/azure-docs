@@ -16,6 +16,8 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Function chaining is a pattern where you run a sequence of functions in order. It's common to pass the output of one function to the input of the next. This article describes the chaining sequence you build when you complete the Durable Functions quickstart ([C#](../durable-functions/durable-functions-isolated-create-first-csharp.md), [JavaScript](../durable-functions/quickstart-js-vscode.md), [TypeScript](../durable-functions/quickstart-ts-vscode.md), [Python](../durable-functions/quickstart-python-vscode.md), [PowerShell](../durable-functions/quickstart-powershell-vscode.md), or [Java](../durable-functions/quickstart-java.md)). Learn more in [Durable Functions overview](what-is-durable-task.md).
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]

@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 07/24/2026
+ms.date: 08/03/2026
 ai-usage: ai-assisted
 
 ---
@@ -330,7 +330,7 @@ The CLI applies the whole graph from one config file, so add this to the corresp
       "configuration": [
         {
           "key": "rules",
-          "value": "{\"version\":\"1.0.0\",\"validateSchema\":true,\"filter\":[]}"
+          "value": "{\"validateSchema\":true,\"filter\":[]}"
         }
       ]
     }
@@ -369,7 +369,7 @@ nodes: [
       configuration: [
         {
           key: 'rules'
-          value: '{"version":"1.0.0","validateSchema":true,"filter":[]}'
+          value: '{"validateSchema":true,"filter":[]}'
         }
       ]
     }
@@ -404,7 +404,6 @@ nodes:
         - key: rules
           value: |
             {
-              "version": "1.0.0",
               "validateSchema": true,
               "filter": []
             }

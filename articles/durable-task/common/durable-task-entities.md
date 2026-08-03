@@ -17,6 +17,8 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Entity functions define operations that read and update small pieces of state, called *durable entities*. Like orchestrator functions, entity functions use a special trigger type called the *entity trigger*. Unlike orchestrator functions, entity functions manage entity state explicitly instead of representing state through control flow.
 Entities help you scale out apps by distributing work across many entities, each with modest state.
 
