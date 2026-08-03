@@ -1,7 +1,7 @@
 ---
 title: Update IQN Naming Authority on Azure Elastic SAN Volumes
 description: Learn how to transition the iSCSI Qualified Name (IQN) naming authority for Azure Elastic SAN volumes that are already connected to clients.
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 author: shaynasrag
 ms.author: ssragovicz
 ms.reviewer: rogarana
