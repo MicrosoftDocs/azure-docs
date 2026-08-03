@@ -275,7 +275,7 @@ If you integrate with Azure Monitor Logs, you can see the logs by selecting **Lo
 
 ### Create alert rule
 
-To create an alert against your App Service Environment logs, follow the detailed instructions in [Create or edit a log search alert rule - Azure Monitor](/azure/azure-monitor/alerts/alerts-create-log-alert-rule).
+To create an alert for your App Service Environment logs, see [Create or edit a log search alert rule - Azure Monitor](/azure/azure-monitor/alerts/alerts-create-log-alert-rule).
 
 Here are basic steps to create an alert rule for your App Service Environment:
 
