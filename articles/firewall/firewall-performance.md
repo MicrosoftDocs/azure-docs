@@ -44,7 +44,7 @@ The following performance results demonstrate the maximum Azure Firewall through
 | Premium SKU with both TLS disabled and IDPS disabled | 100 | 100 |
 | Premium SKU with TLS inspection enabled and IDPS disabled | - | 100 |
 | Premium SKU with TLS enabled and IDPS enabled in Alert only mode | 100 | 100 |
-| Premium SKU with TLS enabled and IDPS enabled in Deny mode | 10 | 10 |
+| Premium SKU with TLS enabled and IDPS enabled in Deny mode | 22 | 22 |
 
 ### Throughput for single connections
 
@@ -53,7 +53,7 @@ The following performance results demonstrate the maximum Azure Firewall through
 | Basic | up to 250 Mbps |
 | Standard<br>Max bandwidth for single TCP connection | up to 1.5 |
 | Premium<br>Max bandwidth for single TCP connection | up to 9 |
-| Premium single TCP connection with IDPS on *Alert and Deny* mode | up to 300 Mbps |
+| Premium single TCP connection with IDPS on *Alert and Deny* mode | up to 600 Mbps |
 
 ### Total throughput for initial firewall deployment
 
