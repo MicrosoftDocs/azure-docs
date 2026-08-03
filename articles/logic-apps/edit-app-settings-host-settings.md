@@ -189,7 +189,7 @@ The following settings are used to manually stop and immediately delete the spec
 > Use these settings with caution and only in nonproduction environments, such as load 
 > or performance test environments, as you can't undo or recover from these operations.
 >
-> All values must be provided in uppercase.
+> Provide all values in uppercase.
 
 
 | Setting | Default value | Description |
