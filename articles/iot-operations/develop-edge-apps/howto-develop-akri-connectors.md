@@ -34,6 +34,10 @@ To deploy the connector to your Azure IoT Operations instance:
 - [ORAS CLI](https://oras.land/docs/installation/)
 - A container registry endpoint configured on your Azure IoT Operations instance. For more information, see [Configure container registry endpoints](howto-configure-registry-endpoint.md). For simplicity, this article assumes you're using an [Azure Container Registry](/azure/container-registry/container-registry-get-started-portal) configured for [anonymous pull access](/azure/container-registry/anonymous-pull-access).
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the `ACR_NAME` environment variable for the name of your Azure Container Registry. Set it before you run the related commands.
+
 ## Scenario overview
 
 Create a custom connector that connects to a RESTful service exposing thermostat data. The connector retrieves the current and desired temperature data points and publishes them as messages to the MQTT broker. You then use a data flow to read the messages from the MQTT broker and publish them to an Azure Event Hubs namespace.
@@ -81,11 +85,11 @@ After you finish the code, build and publish the connector to a container regist
 ```bash
 # Sign in to your Azure subscription and ACR instance
 az login
-az acr login --name <YOUR CONTAINER REGISTRY NAME>
+az acr login --name $ACR_NAME
 
 # Build and publish the connector image
 dotnet publish /t:PublishContainer \
-    -p:ContainerRegistry=<YOUR CONTAINER REGISTRY NAME>.azurecr.io \
+    -p:ContainerRegistry=$ACR_NAME.azurecr.io \
     -p:ContainerRepository=my-connector \
     -p:ContainerImageTag=latest
 ```
@@ -96,12 +100,12 @@ The connector metadata configuration file describes the connector and its capabi
 
 ```json
 {
-  "$schema": "https://raw.githubusercontent.com/SchemaStore/schemastore/refs/heads/master/src/schemas/json/aio-connector-metadata-9.0-preview.json",
+  "$schema": "https://json.schemastore.org/aio-connector-metadata-11.0-preview.json",
   "name": "MyRestConnector",
   "description": "Connector for polling a REST server for information - with property",
   "version": "1.0.0",
   "imageConfigurationSettings": {
-    "imageName": "my-connector",
+    "imageName": "<YOUR ACR NAME>.azurecr.io/<YOUR CONNECTOR NAME>",
     "tag": "latest"
   },
   "supportedArchitectures": [
@@ -132,6 +136,16 @@ The connector metadata configuration file describes the connector and its capabi
           },
           "typeRef": {
             "input": "unsupported"
+          }
+        },
+        "destinations": {
+          "supportedDestinations": ["Mqtt"],
+          "defaultDestination": {
+            "destination": "Mqtt",
+            "topic": "mqtt/{deviceName}/{inboundEndpointName}/{assetName}/{datasetName}",
+            "qos": 1,
+            "ttl": 3600,
+            "retain": "never"
           }
         },
         "datasetConfigurationSchema": {
@@ -189,18 +203,24 @@ In the previous file, some of the key settings are:
 - `name` and `description`: The name and description of the connector displayed in the Azure portal.
 - `imageConfigurationSettings`: The name and tag of the connector code container image you published to the container registry.
 - `endpointType`: The type of inbound endpoint supported by the connector. In this example, the connector supports the `Contoso.Http` endpoint type.
-- `datasetConfigurationSchema` and `dataPointConfigurationSchema`: The JSON schema definitions for the dataset and data point configuration options exposed in the operations experience UI. The connector code reads these configuration options - `SamplingInterval` and `HttpRequestMethod` - to control its behavior.
+- `datasetConfigurationSchema` and `dataPointConfigurationSchema`: The JSON schema definitions for the dataset and data point configuration options exposed in the operations experience UI. Currently, the example connector code doesn't read these configuration options - `SamplingInterval` and `HttpRequestMethod` - to control its behavior. Instead, the connector code uses hard-coded values for these settings. However, you can modify the connector code to read these configuration options and use them to control its behavior. If a user sets these values in the UI, currently they're ignored.
 
 > [!TIP]
-> Review the schema for connector metadata files at [Connector metadata schema](https://raw.githubusercontent.com/SchemaStore/schemastore/refs/heads/master/src/schemas/json/aio-connector-metadata-9.0-preview.json) to learn more about the available settings.
+> Review the schema for connector metadata files at [Connector metadata schema](https://json.schemastore.org/aio-connector-metadata-11.0-preview.json) to learn more about the available settings.
 
 To publish this file to your container registry, run the following command from the folder where the file is located:
 
 ```bash
-oras push --config /dev/null:application/vnd.microsoft.akri-connector.v1+json <YOUR CONTAINER REGISTRY NAME>.azurecr.io/connector-metadata:latest connector-metadata.json:application/json
+oras push --config /dev/null:application/vnd.microsoft.akri-connector.v1+json $ACR_NAME.azurecr.io/connector-metadata:latest connector-metadata.json:application/json
 ```
 
 In the previous command, the `--config` parameter specifies the `application/vnd.microsoft.akri-connector.v1+json` media type. The media type indicates that this file is an Akri connector metadata file. Without this parameter, the Azure IoT Operations instance can't recognize the file as connector metadata.
+
+## Author additional configuration
+
+If your connector supports extra configuration options, define a JSON schema for these options. The schema specifies the fields and their types that appear on the **Advanced** tab of the **Inbound endpoint** definition in the operations experience. The connector code reads these extra configuration options to control its behavior.
+
+[!INCLUDE [Example additional configuration for Akri connectors](../includes/akri-additional-configuration-example.md)]
 
 ## Create a connector template instance
 
@@ -210,7 +230,7 @@ A connector template instance defines a reusable configuration of a connector ty
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and go to your Azure IoT Operations instance.
 
-1. In your Azure IoT Operations instance, go to **Components** > **Connector templates** and select **+ Create a connector template**. Your new connector type appears in the list of available connectors.
+1. In your Azure IoT Operations instance, go to **Components** > **Connector templates** and select **+ Create a connector template**. Your new connector type appears in the list of available connectors. Check that the status of your connector shows as **Valid** before you continue.
 
     :::image type="content" source="media/howto-develop-akri-connectors/available-connectors.png" alt-text="Screenshot of available connectors in Azure IoT Operations in the Azure portal." lightbox="media/howto-develop-akri-connectors/available-connectors.png":::
 
@@ -236,9 +256,9 @@ Use the [az iot ops connector template create](/cli/azure/iot/ops/connector/temp
 ```azurecli
 az iot ops connector template create \
     --name my-rest-connector \
-    --resource-group <ResourceGroupName> \
-    --instance <AioInstanceName> \
-    --connector-metadata-ref <YOUR CONTAINER REGISTRY NAME>.azurecr.io/connector-metadata:latest
+    --resource-group $RESOURCE_GROUP \
+    --instance $AIO_INSTANCE_NAME \
+    --connector-metadata-ref $ACR_NAME.azurecr.io/connector-metadata:latest
 ```
 
 > [!TIP]
@@ -249,9 +269,9 @@ To customize deployment parameters such as the number of replicas, log level, or
 ```azurecli
 az iot ops connector template create \
     --name my-rest-connector \
-    --resource-group <ResourceGroupName> \
-    --instance <AioInstanceName> \
-    --connector-metadata-ref <YOUR CONTAINER REGISTRY NAME>.azurecr.io/connector-metadata:latest \
+    --resource-group $RESOURCE_GROUP \
+    --instance $AIO_INSTANCE_NAME \
+    --connector-metadata-ref $ACR_NAME.azurecr.io/connector-metadata:latest \
     --replicas 1 \
     --log-level info
 ```
@@ -259,7 +279,7 @@ az iot ops connector template create \
 To verify the connector template instance was created, run the [az iot ops connector template list](/cli/azure/iot/ops/connector/template#az-iot-ops-connector-template-list) command:
 
 ```azurecli
-az iot ops connector template list --resource-group <ResourceGroupName> --instance <AioInstanceName> --output table
+az iot ops connector template list --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --output table
 ```
 
 ---
@@ -322,7 +342,7 @@ To create a device and asset in the operations experience web UI that use your c
     - For **Retain**, select `Never`.
     - For **Quality of Service**, select `Qos1`.
     - Leave **TTL** blank.
-    - For **SamplingInterval**, enter `4000`. You defined this setting the connector metadata file for the connector code to read.
+    - For **SamplingInterval**, enter `4000`. You defined this setting the connector metadata file. Currently, the sample connector code doesn't read this setting and uses a hard-coded value instead.
 
     Select **Create and next** to create the dataset and move to the next page:
 
@@ -333,12 +353,12 @@ To create a device and asset in the operations experience web UI that use your c
     For the first data point:
       - For **Data source**,  enter `/api/thermostat/current`.
       - For **Data point name**, enter `currentTemperature`.
-      - For **HttpRequestMethod**, select `GET`. You defined this setting the connector metadata file for the connector code to read.
+      - For **HttpRequestMethod**, select `GET`. Currently, the sample connector code doesn't read this setting and defaults to a `GET` request.
 
     For the second data point:
       - For **Data source**,  enter `/api/thermostat/desired`.
       - For **Data point name**, enter `desiredTemperature`.
-      - For **HttpRequestMethod**, select `GET`. You defined this setting the connector metadata file for the connector code to read.
+      - For **HttpRequestMethod**, select `GET`. You defined this setting the connector metadata file. Currently, the sample connector code doesn't read this setting and defaults to a `GET` request.
 
     :::image type="content" source="media/howto-develop-akri-connectors/create-data-point.png" alt-text="Screenshot that shows how to create a data point in the operations experience. The page includes the custom property defined in the connector metadata file." lightbox="media/howto-develop-akri-connectors/create-data-point.png":::
 

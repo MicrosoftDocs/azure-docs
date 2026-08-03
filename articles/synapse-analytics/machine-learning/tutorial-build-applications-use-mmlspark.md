@@ -5,8 +5,8 @@ ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.date: 03/08/2021
-author: ruixinxu
-ms.author: ruxu
+author: juluczni
+ms.author: juluczni
 ---
 
 

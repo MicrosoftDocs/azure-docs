@@ -2,8 +2,8 @@
 title: Delete Activity in Azure Data Factory 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to delete files in various file stores with the Delete Activity in Azure Data Factory and Azure Synapse Analytics.
-author: dearandyxu
-ms.author: yexu
+author: kromerm
+ms.author: makromer
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: concept-article

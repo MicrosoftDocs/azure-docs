@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 06/23/2026
+ms.date: 07/24/2026
 ai-usage: ai-assisted
 
 ---
@@ -14,6 +14,10 @@ ai-usage: ai-assisted
 # Route messages to different topics in data flow graphs
 
 Some scenarios require messages to arrive on different MQTT topics depending on their content. For example, sensor readings above a critical threshold might need to go to an `alerts` topic, while normal readings go to a `historian` topic. With data flow graphs, you can set the output topic dynamically, even though the dataflow has a single destination.
+
+## Set your environment variables
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
 
 ## How it works
 
@@ -23,6 +27,10 @@ Two pieces work together:
 
 1. **Inside the transform**: A map rule writes a string value to `$metadata.topic`.
 2. **In the destination**: The `dataDestination` field references `${outputTopic}`, which resolves to the value the transform wrote.
+
+[!INCLUDE [dataflow-graphs-expressions-intro](../includes/dataflow-graphs-expressions-intro.md)]
+
+This article writes to message metadata. For the metadata paths you can read and write, see [Metadata fields](concept-dataflow-graphs-expressions.md#metadata-fields).
 
 <!-- For more on metadata fields, see [Metadata fields](concept-dataflow-graphs-expressions.md#metadata-fields). -->
 
@@ -104,16 +112,15 @@ The Azure CLI applies a data flow graph from a single JSON config file. Create a
 }
 ```
 
-> [!TIP]
-> To generate the escaped string, save the rules to a file like `rules.json`, then run `jq -c . rules.json` and paste the single-line output into the `value` field.
+[!INCLUDE [dataflow-jq-tip](../includes/dataflow-jq-tip.md)]
 
 Apply the config file. The `extendedLocation` is added automatically from the instance and resource group, so don't include it in the file.
 
 ```azurecli
 az iot ops dataflowgraph apply \
   --name dynamic-topic-routing \
-  --instance <INSTANCE_NAME> \
-  --resource-group <RESOURCE_GROUP> \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP \
   --config-file graph.json
 ```
 
@@ -374,8 +381,8 @@ Apply the config file. The `extendedLocation` is added automatically from the in
 ```azurecli
 az iot ops dataflowgraph apply \
   --name dynamic-topic-routing-branched \
-  --instance <INSTANCE_NAME> \
-  --resource-group <RESOURCE_GROUP> \
+  --instance $AIO_INSTANCE_NAME \
+  --resource-group $RESOURCE_GROUP \
   --config-file graph.json
 ```
 
@@ -587,6 +594,8 @@ The `${outputTopic}` variable in `dataDestination` resolves to the full value of
 If the topic variable can't be resolved (for example, `$metadata.topic` was never set), the message is dropped and an error is logged.
 
 ## Next steps
+
+- [Throttle data](howto-dataflow-graphs-throttle.md)
 
 <!-- - [Transform data with map](howto-dataflow-graphs-map.md)
 - [Filter and route data](howto-dataflow-graphs-filter-route.md)

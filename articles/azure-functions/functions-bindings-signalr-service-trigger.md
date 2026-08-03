@@ -199,9 +199,7 @@ See the [Example section](#example) for complete examples.
 
 ## Usage
 
-### Managed identity-based connections
-
-[!INCLUDE [functions-azure-signalr-authorization-note](../../includes/functions-azure-signalr-authorization-note.md)] 
+[!INCLUDE [functions-signalr-connections](../../includes/functions-signalr-connections.md)] 
 
 ### Payloads
 

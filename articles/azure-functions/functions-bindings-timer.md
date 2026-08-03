@@ -513,7 +513,7 @@ For information about what to do when the timer trigger doesn't work as expected
 
 ## Connections
 
-Timer triggers have an implicit dependency on blob storage, except when run locally through the Azure Functions Core Tools. The system uses blob storage to coordinate across multiple instances [when the app scales out](#scale-out). It accesses blob storage using the host storage (`AzureWebJobsStorage`) connection. If you configure the host storage to use an [identity-based connection](./functions-reference.md#connecting-to-host-storage-with-an-identity), the identity should have the [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, which is the default requirement for host storage.
+Timer triggers have an implicit dependency on blob storage, except when run locally through the Azure Functions Core Tools. The system uses blob storage to coordinate across multiple instances [when the app scales out](#scale-out). It accesses blob storage using the host storage (`AzureWebJobsStorage`) connection. If you configure the host storage to use an [identity-based connection](./manage-connections.md?tabs=host%2Cidentity#define-connections), the identity should have the [Storage Blob Data Owner](../role-based-access-control/built-in-roles.md#storage-blob-data-owner) role, which is the default requirement for host storage.
 
 ## Next steps
 

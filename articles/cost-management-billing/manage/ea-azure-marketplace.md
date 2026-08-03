@@ -4,7 +4,7 @@ description: Describes how EA customers can use Azure Marketplace.
 author: SandeepReddyAcc
 ms.reviewer: v-salin
 ms.service: cost-management-billing
-ms.subservice: enterprise
+ms.subservice: enterprise-agreement
 ms.topic: how-to
 ms.date: 04/20/2026
 ms.author: v-salin

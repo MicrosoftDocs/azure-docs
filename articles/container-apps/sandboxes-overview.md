@@ -29,19 +29,19 @@ Azure Container Apps Sandboxes provide fast, secure, ephemeral compute environme
 
 - **Strong isolation**: Each sandbox runs in its own secure boundary, safe for untrusted code execution.
 
-- **Scale to zero**: Pay nothing when sandboxes are idle.
+- **Scale to zero**: You pay no CPU or memory fees when sandboxes are stopped.
 
-- **Scale-out**: The service bursts to hundreds of concurrent sandboxes on demand.
+- **Scale-out**: The service bursts to thousands of concurrent sandboxes on demand.
 
-- **OCI container image support**: Bring your own container images as sandbox root filesystems.
+- **OCI container image support**: Use the included public image or bring your own container images as sandbox root filesystems.
 
 - **Suspend and resume**: Snapshot full state including memory and disk, and resume later with sub-second restore times.
 
-- **Lifecycle control**: You manage the full sandbox lifecycle, including state snapshots, persistent storage, and networking policies.
+- **Lifecycle control**: You can manage the full sandbox lifecycle, including state snapshots, persistent storage, and networking policies (both egress and ingress).
 
 ## When to use sandboxes
 
-Use sandboxes when you need isolated compute environments with explicit lifecycle control, persistent state, or programmable access through SDKs (coming soon).
+Use sandboxes when you need isolated compute environments with explicit lifecycle control, persistent state, or programmable access through SDKs.
 
 | Scenario | Use sandboxes? | Why |
 |---|---|---|
@@ -50,7 +50,7 @@ Use sandboxes when you need isolated compute environments with explicit lifecycl
 | Agent workflows | Yes | Give AI agents persistent, isolated workspaces across task boundaries |
 | Interactive user sessions | Yes | Each user gets their own isolated compute environment |
 | Secure multitenant compute | Yes | Strong isolation for running untrusted workloads from multiple tenants |
-| Burst workloads | Yes | Scale from zero to hundreds of sandboxes on demand |
+| Burst workloads | Yes | Scale from zero to thousands of sandboxes on demand |
 | CI/CD pipelines | Yes | Ephemeral build and test environments that scale to zero when idle |
 
 ### Choose the right Container Apps compute option
@@ -115,7 +115,7 @@ Microsoft manages volumes and provides persistent storage that you can mount int
 
 | Volume type | Description |
 |---|---|
-| **Azure Blob** | Share data across sandboxes (uploads and downloads, persistent artifacts). Mountable to multiple sandboxes at once. |
+| **Azure Blob** | Share data across multiple sandboxes (uploads and downloads, persistent artifacts). Mountable to multiple sandboxes at once. |
 | **Data Disk** | High-performance volume for databases, build caches, and large working sets. Mountable to only one sandbox at a time. |
 
 ### Lifecycle states
@@ -124,20 +124,16 @@ Sandboxes go through the following states:
 
 | State | Description |
 |---|---|
-| Running | Actively executing |
-| Suspended | Auto-suspended with full state preserved (memory and disk) |
-| Idle | System-suspended, can auto-resume on demand |
-| Stopped | User-initiated stop |
-| Resuming | Waking from suspended or idle state |
-| Creating | Provisioning in progress |
-| Stopping | Shutdown in progress |
-| Deleting | Teardown in progress |
+| Running | Actively executing, using CPU and memory |
+| Stopped | Stopped by user, API, or Lifecycle policy |
 
-You can configure automatic lifecycle policies for each sandbox:
+When the sandbox is stopped, the operation takes and preserves a snapshot based on the Suspend Mode (see the following section).
 
-- **Auto-suspend**: Suspend idle sandboxes after a configurable timeout. Choose between memory mode (full snapshot) or disk mode (preserve disk only).
+You can configure lifecycle policies for each sandbox:
 
-- **Auto-delete**: Automatically delete sandboxes after a specified number of days.
+- **Auto-suspend**: Suspend an idle sandbox after a configurable timeout. A sandbox becomes idle when it has no ingress (incoming) traffic, no code execution (via execute API), no interactive shell sessions, and no file operations.
+- **Suspend Mode**: Choose between memory mode (full snapshot - disk + memory) or disk mode (preserve disk only).
+- **Auto-delete**: Automatically delete sandboxes after a specified number of days after the sandbox is stopped.
 
 ## Architecture
 
@@ -160,16 +156,14 @@ Each sandbox is assigned a resource tier that checks its CPU, memory, and disk a
 | S | 0.5 cores | 1 GB | 20 GB |
 | M (default) | 1 core | 2 GB | 20 GB |
 | L | 2 cores | 4 GB | 40 GB |
+| XL | 4 cores | 8 GB | 80 GB |
 
 ## Considerations
 
 Consider these points when working with sandboxes:
 
 - **Entra ID required**: Only Microsoft Entra ID accounts can access sandboxes. Personal Microsoft accounts aren't supported.
-
-- **Preview feature availability**: Some capabilities, such as custom VNet integration and managed identity for image pull, require feature flags during the preview period.
-
-- **Networking controls**: You can configure egress policies to control outbound traffic from sandboxes, including domain-based allow or deny rules and CIDR-based network rules.
+- **Networking controls**: You can configure egress policies to control outbound traffic from sandboxes, including domain-based allow or deny rules, CIDR-based network rules, and VNet integration.
 
 ## Sandboxes vs. dynamic sessions
 

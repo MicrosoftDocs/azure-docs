@@ -608,6 +608,59 @@ Finally, to identify the AKS cluster version that you're using, follow the linke
 
 ### Add-on versions available per each AKS cluster version
 
+#### 1.17.0
+Introducing Scoped Enforcement Action. Before this feature, the selected enforcement action applied to all enforcement points. Now, you can select which enforcement action happens in which enforcement points (`audit.gatekeeper.sh`, `validation.gatekeeper.sh`, `vap.k8s.io`).
+
+What each enforcement point represents:
+- `validation.gatekeeper.sh`: Gatekeeper Admission Webhook
+- `audit.gatekeeper.sh`: Gatekeeper Audit Controller (Compliance Result)
+- `vap.k8s.io`: Validating Admission Policy (VAP)
+
+Example 1: If you select `Enforcement Action: Deny` and `Enforcement Points: ["validation.gatekeeper.sh", "audit.gatekeeper.sh"]`, the Gatekeeper validating webhook enforces the violating resource and shows it in compliance. The resource isn't enforced by VAP because it's not one of the enforcement points.
+
+Example 2: If you select `Enforcement Action: Audit` and `Enforcement Points: ["vap.k8s.io"]`, VAP audits the violating resource but doesn't deny it because the enforcement action is `Audit`. Also, it doesn't show in compliance due to the absence of `audit.gatekeeper.sh` enforcement point.
+
+Introducing delete operation protection feature. This feature allows Gatekeeper to receive DELETE admission requests while preventing existing policies from automatically enforcing on deletions unless explicitly configured. Policies must opt in to DELETE enforcement by specifying `operations` in their constraint templates. The `operations` list can contain any combination of CREATE, UPDATE, DELETE, CONNECT, or *.
+
+Example:
+
+```yaml
+apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: k8se2edeletedeny
+spec:`
+  crd:
+    spec:
+      names:
+        kind: K8sE2EDeleteDeny
+  targets:
+    - target: admission.k8s.gatekeeper.sh
+      operations:
+        - DELETE
+      rego: |
+        package k8se2edeletedeny
+
+        violation[{"msg": msg}] {
+          input.review.object.metadata.labels["e2e-delete-deny"] == "true"
+          msg := sprintf("Deletion of %v is denied by the delete-protection e2e policy", [input.review.object.metadata.name])
+        }
+
+        violation[{"msg": msg}] {
+          input.review.oldObject.metadata.labels["e2e-delete-deny"] == "true"
+          msg := sprintf("Deletion of %v is denied by the delete-protection e2e policy", [input.review.oldObject.metadata.name])
+        }
+```
+
+Security improvements.
+- Released: Aug 2026
+- Kubernetes: 1.30+
+- Gatekeeper: 3.23.0
+
+##### Gatekeeper 3.23.0
+Gatekeeper Release: https://github.com/open-policy-agent/gatekeeper/releases/tag/v3.23.0
+Changes: https://github.com/open-policy-agent/gatekeeper/compare/v3.22.1...v3.23.0
+
 #### 1.15.5-1
 Introducing Validating Admission Policy (VAP) generation. [Validating Admission Policies](https://kubernetes.io/docs/reference/access-authn-authz/validating-admission-policy/) are Kubernetes-native validating policy resources that are evaluated in-process, allowing for reduced latency and fail-close evaluation. Azure Policies that contain Common Expression Language (CEL) will automatically generate VAPs. For more information, view the [Gatekeeper Documentation](https://open-policy-agent.github.io/gatekeeper/website/docs/validating-admission-policy/).
 

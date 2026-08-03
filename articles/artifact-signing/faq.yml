@@ -5,7 +5,7 @@ metadata:
   description: Get answers to frequently asked questions about Artifact Signing.
   author: TacoTechSharma
   ms.author: mesharm
-  ms.service: trusted-signing
+  ms.service: azure-artifact-signing
   ms.topic: faq
   ms.date: 05/14/2026
 title: Artifact Signing FAQ
@@ -49,7 +49,7 @@ sections:
         answer: For cases where identity validation exists with a primary email address and another identity validation request is required, contact support to continue onboarding.
       - question: What if my country/region isn't listed in country/region drop-down list on the Identity validation page?
         answer: | 
-          For Public Trust certificates, Artifact Signing is currently available to organizations in the USA, Canada, the European Union, and the United Kingdom, as well as individual developers in the USA and Canada. This limitation isn't applicable to Private Trust certificates.
+          Check [Pre-requisites](https://learn.microsoft.com/azure/artifact-signing/quickstart?tabs=registerrp-portal%2Caccount-portal%2Corgvalidation%2Ccertificateprofile-portal%2Cdeleteresources-portal#prerequisites) to get the list of supported countries/regions for onboarding. 
       - question: What if my Artifact Signing subject name is different from the name in my certificate and my MSIX package name is different now? 
         answer: |
           For Windows app MSIX packages, follow the guidance in [MSIX persistent identity](/windows/msix/package/persistent-identity).
@@ -122,7 +122,7 @@ sections:
           You can sign [all file types that SignTool supports](https://learn.microsoft.com/windows/win32/seccrypto/cryptography-tools).
       - question: What is the Artifact Signing compliance level?
         answer: |
-          FIPS 140-2 Level 3.
+          FIPS 140-3 Level 3.
       - question: How do I include the appropriate EKU for our certificates in the ELAM driver resources? 
         answer: |
           For information about the Early Launch Antimalware (ELAM) driver configuration for protecting antimalware user-mode services, see the following guidance:  
@@ -172,9 +172,12 @@ sections:
       - question: What if my Artifact Signing account is suspended?
         answer: |
           If a certificate is misused or abused per the service Terms of Use, Artifact Signing suspends the account or revokes a signing certificate or both. In this scenario, we engage with you directly and follow the guidelines in the CA/Browser Forum CSBRs. 
+      - question: What information may help with troubleshooting a signed file?
+        answer: |
+          Consider retaining the corresponding file and its hash. You can also [subscribe to signing transaction events](https://learn.microsoft.com/azure/artifact-signing/how-to-sign-history). This information may assist with troubleshooting signing-related issues.
       - question: What if I change my subscription ID or tenant ID?
         answer: |
-         Currently, Artifact Signing resources can't be migrated across subscriptions or tenants or resource groups or resources. If you want to make any change to your tenant ID or subscription ID, you must create all your Artifact Signing resources again.
+          Currently, Artifact Signing resources can't be migrated across subscriptions or tenants or resource groups or resources. If you want to make any change to your tenant ID or subscription ID, you must create all your Artifact Signing resources again.
       - question: Does Artifact Signing issue EV certificates?
         answer: |
           No, Artifact Signing doesn't issue Extended Validation (EV) certificates. There's no plan to issue EV certificates in the future.

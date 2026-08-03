@@ -2,7 +2,7 @@
 title: Plan for an Azure Elastic SAN deployment
 description: Plan for an Azure Elastic SAN deployment. Learn about storage capacity, performance, redundancy, and encryption.
 author: roygara
-ms.service: azure-elastic-san-storage
+ms.service: azure-elastic-san
 ms.topic: concept-article
 ms.date: 01/08/2026
 ms.author: rogarana

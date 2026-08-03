@@ -68,6 +68,8 @@ This article describes how to use the operations experience web UI and Azure CLI
 
 ## Prerequisites
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
 [!INCLUDE [enable-resource-sync-rules](../includes/enable-resource-sync-rules.md)]
 
 [!INCLUDE [prereq-azure-cli](../includes/prereq-azure-cli.md)]

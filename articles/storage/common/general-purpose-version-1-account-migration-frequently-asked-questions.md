@@ -142,6 +142,14 @@ If you don't upgrade your GPv1 storage account to GPv2 by the deadline, **all ex
 
 GPv2 introduces new features and pricing models that may result in **higher costs for certain workloads**. However, it offers improved **performance**, **scalability**, and **management** capabilities that can lead to **overall cost savings**. Evaluate your **specific use case** and **access patterns** to understand the impact. 
 
+### I manage GPv1 storage accounts with infrastructure as code. Is there anything else I should check?
+
+As part of your migration planning, review any infrastructure-as-code artifacts, deployment pipelines, templates, modules, scripts, or policies that define or validate your storage account configuration.
+
+Make sure those artifacts reflect the post-migration GPv2 configuration and continue to preserve your existing account settings, including networking, security, redundancy, access tier, encryption, identity, data protection, and tags.
+
+Before applying updates in production, use your normal validation process, such as reviewing deployment plans, testing in a non-production environment, or following your organization’s change-management process. Review deployment plans or change output carefully, and investigate any unexpected replacement, downgrade, or account-setting change before applying updates.
+
 ### See also 
 - [General purpose v1 (GPv1) storage account retirement](general-purpose-version-1-account-migration-overview.md)  
 - [Storage account upgrade process](storage-account-upgrade.md)
