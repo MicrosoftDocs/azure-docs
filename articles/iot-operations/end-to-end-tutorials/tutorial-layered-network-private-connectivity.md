@@ -4,7 +4,7 @@ description: "Tutorial: Deploy Azure IoT Operations in a Purdue/ISA-95 layered n
 author: dominicbetts
 ms.author: dobett
 ms.topic: tutorial
-ms.date: 03/24/2026
+ms.date: 08/03/2026
 
 #CustomerIntent: As an operator in an industrial environment with Purdue-style network segmentation, I want to deploy Azure IoT Operations with private Azure connectivity so that no endpoints are exposed to the public internet.
 ms.service: azure-iot-operations
@@ -260,6 +260,20 @@ az network private-dns link vnet create \
   --name link-keyvault-l4 \
   --virtual-network "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$VNET_RESOURCE_GROUP/providers/Microsoft.Network/virtualNetworks/$VNET_NAME" \
   --registration-enabled false
+
+az network private-endpoint dns-zone-group create \
+  --resource-group $RESOURCE_GROUP \
+  --endpoint-name pe-eventgrid \
+  --name eventgrid-zone-group \
+  --private-dns-zone "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Network/privateDnsZones/privatelink.ts.eventgrid.azure.net" \
+  --zone-name eventgrid
+
+az network private-endpoint dns-zone-group create \
+  --resource-group $RESOURCE_GROUP \
+  --endpoint-name pe-storage-blob \
+  --name storage-zone-group \
+  --private-dns-zone "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net" \
+  --zone-name blob
 ```
 
 For the full list of private DNS zone names, see [Azure Private DNS Zone values](/azure/private-link/private-endpoint-dns).
@@ -342,14 +356,14 @@ kubectl rollout restart deployment coredns -n kube-system
 From L4, confirm DNS resolution:
 
 ```bash
-nslookup $EVENT_GRID_NAMESPACE.privatelink.eventgrid.azure.net
-nslookup $STORAGE_ACCOUNT_NAME.privatelink.blob.core.windows.net
+nslookup $EVENT_GRID_NAMESPACE.$LOCATION-1.ts.eventgrid.azure.net
+nslookup $STORAGE_ACCOUNT_NAME.blob.core.windows.net
 ```
 
 Confirm traffic flows through Envoy and Private Link, not the public internet:
 
 ```bash
-curl -v https://$EVENT_GRID_NAMESPACE.ts.eventgrid.azure.net
+curl -v https://$EVENT_GRID_NAMESPACE.$LOCATION-1.ts.eventgrid.azure.net
 ```
 
 Verify that:
@@ -500,7 +514,7 @@ Before validating the end-to-end flow, confirm that each component is running at
 
 ```bash
 kubectl get pods -n kube-system -l k8s-app=kube-dns
-dig $EVENT_GRID_NAMESPACE.ts.eventgrid.azure.net
+dig $EVENT_GRID_NAMESPACE.$LOCATION-1.ts.eventgrid.azure.net
 ```
 
 **Envoy Proxy (L3, L4):** Check pods are running:
@@ -589,9 +603,9 @@ Verify that all Azure-bound traffic routes through private endpoints and not the
 1. From L4, resolve Azure service FQDNs and confirm they return private IPs:
 
    ```bash
-   nslookup $EVENT_GRID_NAMESPACE.ts.eventgrid.azure.net
-   nslookup $STORAGE_ACCOUNT_NAME.blob.core.windows.net
-   nslookup $KEY_VAULT_NAME.vault.azure.net
+    nslookup $EVENT_GRID_NAMESPACE.$LOCATION-1.ts.eventgrid.azure.net
+    nslookup $STORAGE_ACCOUNT_NAME.blob.core.windows.net
+    nslookup $KEY_VAULT_NAME.vault.azure.net
    ```
 
    Each result should return an IP in your private address range (for example, `10.254.x.x`), not a public IP.
@@ -632,11 +646,11 @@ From each layer with CoreDNS deployed, confirm that Azure service names resolve 
 
 ```bash
 # From L2
-dig $EVENT_GRID_NAMESPACE.ts.eventgrid.azure.net
+dig $EVENT_GRID_NAMESPACE.$LOCATION-1.ts.eventgrid.azure.net
 dig $STORAGE_ACCOUNT_NAME.blob.core.windows.net
 
 # From L3
-dig $EVENT_GRID_NAMESPACE.ts.eventgrid.azure.net
+dig $EVENT_GRID_NAMESPACE.$LOCATION-1.ts.eventgrid.azure.net
 dig $STORAGE_ACCOUNT_NAME.blob.core.windows.net
 ```
 
