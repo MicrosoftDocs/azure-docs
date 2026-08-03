@@ -3,14 +3,15 @@ title: Secure access and data in workflows
 description: Secure access to inputs, outputs, request-based triggers, run history, management tasks, and access to other resources in Azure Logic Apps.
 services: logic-apps
 ms.suite: integration
-ms.reviewer: estfan, rarayudu, azla
+ms.reviewer: estfan, rohithah, azla
 ms.topic: how-to
-ms.date: 07/07/2026
+ms.date: 08/03/2026
 ms.update-cycle: 1095-days
+ai-usage: ai-assisted
 ms.custom:
   - sfi-image-nochange
   - sfi-ropc-nochange
-ai-usage: ai-assisted
+#Customer intent: As an automation and integration developer who works with Azure Logic Apps, I want to understand how to secure logic app workflows and the data they handle.
 ---
 
 # Secure access and data for workflows in Azure Logic Apps
@@ -39,7 +40,25 @@ For more information about security in Azure, review these topics:
 
 ## Access to logic app operations
 
-For Consumption logic apps only, before you can create or manage logic apps and their connections, you need specific permissions, which are provided through roles using [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal). You can also set up permissions so that only specific users or groups can run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, you can assign built-in or customized roles to members who have access to your Azure subscription. Azure Logic Apps has the following specific roles, based on whether you have a Consumption or Standard logic app workflow:
+Before you can create or manage logic apps, their workflows, and connections, you need specific permissions, which are provided through roles using [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/role-assignments-portal). You can set up permissions so that only specific users or groups can run specific tasks, such as managing, editing, and viewing logic apps. To control their permissions, you can assign built-in or customized roles to members who have access to your Azure subscription.
+
+> [!CAUTION]
+>
+> Always assign roles, grant access, or give permissions based on the [*principle of least privilege*](/entra/identity-platform/secure-least-privileged-access). Allow users, apps, and [managed identities](/entra/identity/managed-identities-azure-resources/overview) to access *only* the data and operations they need to perform their jobs.
+>
+> This best practice reduces the attack surface and the impact from a security breach, if this event happens in a Microsoft identity platform-integrated app.
+>
+> Before you assign a role, review the following best practices, considerations, and impacts:
+>
+> - Always assign contributor-level roles or roles that allow creating or editing, based on least privilege, to *trusted principals* only.
+>
+> - Always assign only the minimum permissions needed for managed identities associated with logic app workflows to do their work.
+>
+> - Editing permissions on a logic app workflow is equivalent to holding the permissions for every [managed identity](/entra/identity/managed-identities-azure-resources/overview) assigned to that workflow.
+>
+> - Anyone with workflow editing permissions can set up HTTP built-in operations that use managed identities to request identity bearer tokens for any audience. They can send requests with these tokens to any endpoint or destination. The platform doesn't restrict the destination. Bearer tokens are valid for one hour and can access any Azure API where their identities can reach.
+
+Azure Logic Apps has the following specific roles, based on whether you have a Consumption or Standard logic app workflow:
 
 ##### Consumption workflows
 
@@ -49,7 +68,7 @@ For Consumption logic apps only, before you can create or manage logic apps and 
 | [**Logic App Operator**](../role-based-access-control/built-in-roles.md#logic-app-operator) | You can read, enable, and disable logic app workflows, but you can't edit or update them. |
 | [**Contributor**](../role-based-access-control/built-in-roles.md#contributor) | You have full access to manage all resources, but you can't assign roles in Azure RBAC, manage assignments in Azure Blueprints, or share image galleries. |
 
-For example, suppose you have to work with a logic app workflow that you didn't create and authenticate connections used by that logic app workflow. Your Azure subscription requires **Contributor** permissions for the resource group that contains that logic app resource. If you create a logic app resource, you automatically have Contributor access.
+For example, suppose you have to work with a logic app workflow that you didn't create and authenticate connections used by that logic app workflow. Your Azure subscription requires **Contributor** permissions for the resource group that contains that logic app resource. If you create a logic app resource, you automatically have **Contributor** access.
 
 To prevent others from changing or deleting your logic app workflow, you can use [Azure Resource Lock](../azure-resource-manager/management/lock-resources.md). This capability prevents others from changing or deleting production resources. For more information about connection security, review [Connection configuration in Azure Logic Apps](../connectors/introduction.md#connection-configuration) and [Connection security and encryption](../connectors/introduction.md#connection-security-encryption).
 
