@@ -84,7 +84,7 @@ There is no announced retirement date for Gen1 SKUs.
 Customers **do not** need to run any separate migration to move to Generation 2. The only required action is upgrading from a Basic to a Standard public IP address (if applicable). There is no retirement date announced for Generation 1 SKUs.
 
 * *For gateways that use a Basic public IP address*: You'll need to migrate your Basic IP address to a Standard public IP address using the [migration tool for VPN Gateway](basic-public-ip-migrate-howto.md?tabs=portal). As part of this IP address upgrade, your gateway is automatically upgraded to the next generation (Generation 2). **No separate Gen2 migration or additional steps are required.**
-* *For gateways that already use a Standard public IP address*: **No customer action is required.** These gateways will be automatically upgraded to the next generation (Generation 2) as part of regular service updates, ~end of Mar'27. This process is seamless and does not involve downtime.
+* *For gateways that already use a Standard public IP address*: **No customer action is required.** These gateways are automatically upgraded to the next generation (Generation 2) as part of regular service updates, ~end of Mar'27. This process is seamless and doesn't involve downtime.
 
 ### Will there be downtime during migration?
 
