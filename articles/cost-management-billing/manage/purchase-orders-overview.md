@@ -1,3 +1,13 @@
+---
+title: Overview of purchase orders in Azure portal
+description: Learn how purchase orders in the Azure portal help you allocate Microsoft Cloud spend.
+author: kylecallahan
+ms.author: v-callahanky
+ms.service: cost-management-billing
+ms.topic: overview
+ms.date: 08/03/2026
+---
+
 # Purchase orders overview
 
 ## Introduction
