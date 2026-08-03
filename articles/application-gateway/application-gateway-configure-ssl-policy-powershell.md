@@ -139,7 +139,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 > [!IMPORTANT]
-> Cipher suites "TLS_AES_128_GCM_SHA256" and "TLS_AES_256_GCM_SHA384" with TLSv1.3 are not customizable and included by default when setting a CustomV2 policy with a minimum TLS version of 1.2 or 1.3. These two cipher suites won't appear in the Get Details output, with an exception of Portal.
+> Cipher suites `TLS_AES_128_GCM_SHA256` and `TLS_AES_256_GCM_SHA384` with TLSv1.3 aren't customizable and are included by default when setting a CustomV2 policy with a minimum TLS version of 1.2 or 1.3. These two cipher suites don't appear in the Get Details output, with an exception of Portal.
 
 To set minimum protocol version to 1.3, you must use the following command:
 
