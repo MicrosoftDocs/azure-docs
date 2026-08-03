@@ -11,6 +11,8 @@ ms.author: azfuncdf
 
 # Versioning challenges and mitigation strategies in Durable Functions 
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Versioning in Durable Functions is essential because functions are inevitably added, removed, and changed over the lifetime of an application. [Durable Functions](../common/what-is-durable-task.md) lets you chain functions together in ways that weren't previously possible, and this chaining affects how you handle versioning.
 
 This article helps you:
