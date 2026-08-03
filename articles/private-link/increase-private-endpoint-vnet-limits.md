@@ -31,6 +31,11 @@ If you need more than 1,000 private endpoints in a single virtual network or enc
 
 For customers using a Hub and Spoke or Mesh topology, determine how many private endpoints are connected to your central virtual network containing client virtual machines. Use the provided ARG query to facilitate this process.
 
+
+> [!NOTE]
+> The ARG mv-expand operator has a default 128-element per-row cap that silently truncates results in large-scale environments. Note that adding limit up to the VNet Peering limit of 1000 will help produce more accurate result [mv-expand operator](https://learn.microsoft.com/en-us/kusto/query/mv-expand-operator?view=microsoft-fabric)
+
+
 ```Azure Resource Graph
 Resources
 
@@ -40,7 +45,7 @@ Resources
 
    | project id, remoteVNetIds = properties.virtualNetworkPeerings
 
-   | mv-expand remoteVNetIds
+   | mv-expand remoteVNetIds limit 1000
 
    | project id, remoteVNetId = tostring(remoteVNetIds.properties.remoteVirtualNetwork.id)
 
