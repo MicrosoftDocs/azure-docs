@@ -222,7 +222,7 @@ Content-Type: application/json
 }
 ```
 
-See [Add Connections to Groups](/rest/api/webpubsub/dataplane/web-pub-sub/add-connections-to-groups) for REST details. See [OData filter syntax in the Azure Web PubSub service](./reference-odata-filter.md) for filter details.
+See [Add Connections to Groups](/rest/api/webpubsub/dataplane/webpubsub/add-connections-to-groups/add-connections-to-groups) for REST details. See [OData filter syntax in the Azure Web PubSub service](./reference-odata-filter.md) for filter details.
 
 #### Example
 
