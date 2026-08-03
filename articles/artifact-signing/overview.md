@@ -4,7 +4,7 @@ description: Learn about Artifact Signing in Azure.
 author: TacoTechSharma
 ms.author: mesharm
 ms.topic: overview
-ms.service: trusted-signing
+ms.service: azure-artifact-signing
 ms.date: 01/02/2026
 ms.custom:
   - template-overview
