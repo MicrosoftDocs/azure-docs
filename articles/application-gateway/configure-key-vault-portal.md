@@ -15,11 +15,7 @@ ms.custom:
 
 # Configure TLS termination with Key Vault certificates using Azure portal
 
-[Azure Key Vault](/azure/key-vault/general/overview) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Application Gateway supports integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the Application Gateway v2 SKU.
-
-For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
-
-This article shows you how to use Azure portal to integrate your key vault with your application gateway for TLS/SSL termination certificates.
+This article shows you how to use the Azure portal to integrate [Azure Key Vault](/azure/key-vault/general/overview) with your application gateway (v2 SKU) for TLS/SSL termination certificates. For background on how Application Gateway integrates with Key Vault, see [TLS termination with Key Vault certificates](key-vault-certs.md).
 
 
 <!-- 3. Prerequisites 

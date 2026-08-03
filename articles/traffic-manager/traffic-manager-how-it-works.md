@@ -6,7 +6,7 @@ author: asudbring
 manager: kumud
 ms.service: azure-traffic-manager
 ms.topic: concept-article
-ms.date: 12/29/2025
+ms.date: 06/01/2026
 ms.author: allensu
 # Customer intent: As a web application developer, I want to implement Traffic Manager for my multi-region application, so that I can improve performance and ensure high availability by distributing client traffic efficiently across multiple endpoints.
 ---
@@ -42,7 +42,7 @@ To achieve this configuration, they complete the following steps:
 :::image type="content" source="./media/traffic-manager-how-traffic-manager-works/dns-configuration.png" alt-text="Screenshot of Traffic Manager DNS configuration showing CNAME record mapping from partners.contoso.com to contoso.trafficmanager.net.":::
 
 > [!NOTE]
-> When using a vanity domain with Azure Traffic Manager, you must use a CNAME to point your vanity domain name to your Traffic Manager domain name. DNS standards don't allow you to create a CNAME at the 'apex' (or root) of a domain. Thus you can't create a CNAME for 'contoso.com' (sometimes called a 'naked' domain). You can only create a CNAME for a domain under 'contoso.com', such as 'www.contoso.com'. To work around this limitation, we recommend hosting your DNS domain on [Azure DNS](/azure/dns/dns-overview) and using [Alias records](/azure/dns/tutorial-alias-tm) to point to your traffic manager profile. Alternatively you can use a simple HTTP redirect to direct requests for 'contoso.com' to an alternative name such as 'www.contoso.com'.
+> When using a vanity domain with Azure Traffic Manager, you must use a CNAME to point your vanity domain name to your Traffic Manager domain name. DNS standards don't allow you to create a CNAME at the 'apex' (or root) of a domain. Thus you can't create a CNAME for 'contoso.com' (sometimes called a 'naked' domain). You can only create a CNAME for a domain under 'contoso.com', such as 'www.contoso.com'. To work around this limitation, we recommend hosting your DNS domain on [Azure DNS](/azure/dns/dns-overview) and using [Traffic Manager Linked Records](../dns/dns-traffic-manager-linked-records.md) for a direct, integrated connection that returns IP addresses without a CNAME hop. You can also use [Alias records](/azure/dns/tutorial-alias-tm) to point your apex domain to your Traffic Manager profile. Alternatively you can use a simple HTTP redirect to direct requests for 'contoso.com' to an alternative name such as 'www.contoso.com'.
 
 ### How clients connect using Traffic Manager
 

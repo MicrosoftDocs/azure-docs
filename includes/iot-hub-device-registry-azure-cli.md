@@ -112,7 +112,7 @@ To create a resource group, role, and permissions for your IoT solution, follow 
 
 ## Create a new Device Registry namespace
 
-In this section, you create a new Device Registry namespace with a system-assigned managed identity. This process automatically generates a root CA credential and an issuing CA policy for the namespace. For more information on how credentials and policies are used to sign device leaf certificates during provisioning, see [Certificate management](../articles/iot-hub/iot-hub-certificate-management-overview.md).
+In this section, you create a new Device Registry namespace with a system-assigned managed identity. This process automatically generates a root CA credential and an issuing CA policy for the namespace. For more information on how credentials and policies are used to sign device leaf certificates during provisioning, see [Certificate management](../articles/iot/iot-certificate-management-overview.md).
 
 Credentials are optional. You can also create a namespace without a managed identity by omitting the `--enable-certificate-management` and `--policy-name` flags.
 

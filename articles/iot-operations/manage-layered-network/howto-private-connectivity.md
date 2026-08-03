@@ -32,6 +32,10 @@ These scenarios apply to environments with a single Arc-enabled Kubernetes clust
 - (Optional) An [Azure Event Grid namespace](/azure/event-grid/create-view-manage-namespaces) with MQTT enabled. Needed only if you route data flow traffic to Event Grid in [Configure data flow destinations with private endpoints](#configure-data-flow-destinations-with-private-endpoints).
 - (Optional) An [Azure Firewall](/azure/firewall/overview) with [explicit proxy](/azure/azure-arc/azure-firewall-explicit-proxy) enabled in your VNet, reachable from your cluster. Required only if you follow the **Arc Gateway + Explicit Proxy** tab for fully private connectivity with no public internet exposure.
 
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses environment variables for the network and Azure resources that you choose, including `VNET_RESOURCE_GROUP`, `VNET_NAME`, `SUBNET_NAME`, `STORAGE_ACCOUNT_NAME`, `KEY_VAULT_NAME`, `EVENT_GRID_NAMESPACE`, `ARC_GATEWAY_RESOURCE_ID`, `CUSTOM_LOCATIONS_OID`, `FIREWALL_POLICY_NAME`, `CLUSTER_SUBNET_CIDRS`, `FIREWALL_PRIVATE_IP`, `PROXY_PORT`, `TOPIC_SPACE_NAME`, `AIO_IDENTITY_PRINCIPAL_ID`, `DATAFLOW_NAME`, `CONFIG_FILE`, and `CLUSTER_HOST_IP`. Set each one before you run the related commands.
+
 ## Set up Arc Gateway
 
 [Azure Arc Gateway](/azure/azure-arc/kubernetes/arc-gateway-simplify-networking) consolidates the ~200+ Azure endpoints that Arc agents and extensions require into a single gateway URL. This significantly simplifies your firewall allow list, instead of allowing 200+ individual FQDNs, you allow approximately 9.
@@ -84,10 +88,10 @@ Create private endpoints for the storage account, Key Vault, and Event Grid so a
 ```azurecli
 az network private-endpoint create \
   --name pe-storage-blob \
-  --resource-group <resource-group> \
-  --location <region-of-vnet> \
-  --subnet "/subscriptions/<subscription-id>/resourceGroups/<rg-vnet>/providers/Microsoft.Network/virtualNetworks/<vnet>/subnets/<subnet>" \
-  --private-connection-resource-id "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<account>" \
+  --resource-group $RESOURCE_GROUP \
+  --location $LOCATION \
+  --subnet "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$VNET_RESOURCE_GROUP/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME" \
+  --private-connection-resource-id "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Storage/storageAccounts/$STORAGE_ACCOUNT_NAME" \
   --group-id blob \
   --connection-name pe-conn-storage-blob
 ```
@@ -97,10 +101,10 @@ az network private-endpoint create \
 ```azurecli
 az network private-endpoint create \
   --name pe-keyvault \
-  --resource-group <resource-group> \
-  --location <region-of-vnet> \
-  --subnet "/subscriptions/<subscription-id>/resourceGroups/<rg-vnet>/providers/Microsoft.Network/virtualNetworks/<vnet>/subnets/<subnet>" \
-  --private-connection-resource-id "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.KeyVault/vaults/<keyvault-name>" \
+  --resource-group $RESOURCE_GROUP \
+  --location $LOCATION \
+  --subnet "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$VNET_RESOURCE_GROUP/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME" \
+  --private-connection-resource-id "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEY_VAULT_NAME" \
   --group-id vault \
   --connection-name pe-conn-keyvault
 ```
@@ -113,10 +117,10 @@ az network private-endpoint create \
 ```azurecli
 az network private-endpoint create \
   --name pe-eventgrid \
-  --resource-group <resource-group> \
-  --location <region-of-vnet> \
-  --subnet "/subscriptions/<subscription-id>/resourceGroups/<rg-vnet>/providers/Microsoft.Network/virtualNetworks/<vnet>/subnets/<subnet>" \
-  --private-connection-resource-id "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.EventGrid/namespaces/<namespace>" \
+  --resource-group $RESOURCE_GROUP \
+  --location $LOCATION \
+  --subnet "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$VNET_RESOURCE_GROUP/providers/Microsoft.Network/virtualNetworks/$VNET_NAME/subnets/$SUBNET_NAME" \
+  --private-connection-resource-id "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.EventGrid/namespaces/$EVENT_GRID_NAMESPACE" \
   --group-id topicspace \
   --connection-name pe-conn-eventgrid
 ```
@@ -129,21 +133,21 @@ Create Private DNS Zones so Azure service FQDNs resolve to Private Endpoint IPs.
 
 ```azurecli
 az network private-dns zone create \
-  --resource-group <resource-group> \
+  --resource-group $RESOURCE_GROUP \
   --name privatelink.blob.core.windows.net
 
 az network private-dns link vnet create \
-  --resource-group <resource-group> \
+  --resource-group $RESOURCE_GROUP \
   --zone-name privatelink.blob.core.windows.net \
   --name storage-dns-link \
-  --virtual-network "/subscriptions/<subscription-id>/resourceGroups/<rg-vnet>/providers/Microsoft.Network/virtualNetworks/<vnet>" \
+  --virtual-network "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$VNET_RESOURCE_GROUP/providers/Microsoft.Network/virtualNetworks/$VNET_NAME" \
   --registration-enabled false
 
 az network private-endpoint dns-zone-group create \
-  --resource-group <resource-group> \
+  --resource-group $RESOURCE_GROUP \
   --endpoint-name pe-storage-blob \
   --name storage-zone-group \
-  --private-dns-zone "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net" \
+  --private-dns-zone "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Network/privateDnsZones/privatelink.blob.core.windows.net" \
   --zone-name blob
 ```
 
@@ -151,21 +155,21 @@ az network private-endpoint dns-zone-group create \
 
 ```azurecli
 az network private-dns zone create \
-  --resource-group <resource-group> \
+  --resource-group $RESOURCE_GROUP \
   --name privatelink.vaultcore.azure.net
 
 az network private-dns link vnet create \
-  --resource-group <resource-group> \
+  --resource-group $RESOURCE_GROUP \
   --zone-name privatelink.vaultcore.azure.net \
   --name keyvault-dns-link \
-  --virtual-network "/subscriptions/<subscription-id>/resourceGroups/<rg-vnet>/providers/Microsoft.Network/virtualNetworks/<vnet>" \
+  --virtual-network "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$VNET_RESOURCE_GROUP/providers/Microsoft.Network/virtualNetworks/$VNET_NAME" \
   --registration-enabled false
 
 az network private-endpoint dns-zone-group create \
-  --resource-group <resource-group> \
+  --resource-group $RESOURCE_GROUP \
   --endpoint-name pe-keyvault \
   --name keyvault-zone-group \
-  --private-dns-zone "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Network/privateDnsZones/privatelink.vaultcore.azure.net" \
+  --private-dns-zone "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Network/privateDnsZones/privatelink.vaultcore.azure.net" \
   --zone-name vault
 ```
 
@@ -173,21 +177,21 @@ az network private-endpoint dns-zone-group create \
 
 ```azurecli
 az network private-dns zone create \
-  --resource-group <resource-group> \
+  --resource-group $RESOURCE_GROUP \
   --name privatelink.ts.eventgrid.azure.net
 
 az network private-dns link vnet create \
-  --resource-group <resource-group> \
+  --resource-group $RESOURCE_GROUP \
   --zone-name privatelink.ts.eventgrid.azure.net \
   --name eventgrid-dns-link \
-  --virtual-network "/subscriptions/<subscription-id>/resourceGroups/<rg-vnet>/providers/Microsoft.Network/virtualNetworks/<vnet>" \
+  --virtual-network "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$VNET_RESOURCE_GROUP/providers/Microsoft.Network/virtualNetworks/$VNET_NAME" \
   --registration-enabled false
 
 az network private-endpoint dns-zone-group create \
-  --resource-group <resource-group> \
+  --resource-group $RESOURCE_GROUP \
   --endpoint-name pe-eventgrid \
   --name eventgrid-zone-group \
-  --private-dns-zone "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Network/privateDnsZones/privatelink.ts.eventgrid.azure.net" \
+  --private-dns-zone "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Network/privateDnsZones/privatelink.ts.eventgrid.azure.net" \
   --zone-name eventgrid
 ```
 
@@ -210,9 +214,9 @@ Update your existing Arc connection to associate it with the Arc gateway:
 
 ```azurecli
 az connectedk8s update \
-  --name <cluster-name> \
-  --resource-group <resource-group> \
-  --gateway-resource-id <gateway-resource-id>
+  --name $CLUSTER_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --gateway-resource-id $ARC_GATEWAY_RESOURCE_ID
 ```
 
 > [!TIP]
@@ -220,14 +224,14 @@ az connectedk8s update \
 >
 > ```azurecli
 > az connectedk8s connect \
->   --name <cluster-name> \
->   --resource-group <resource-group> \
->   --location <region> \
->   --custom-locations-oid <OID> \
+>   --name $CLUSTER_NAME \
+>   --resource-group $RESOURCE_GROUP \
+>   --location $LOCATION \
+>   --custom-locations-oid $CUSTOM_LOCATIONS_OID \
 >   --enable-oidc-issuer \
 >   --enable-workload-identity \
 >   --disable-auto-upgrade \
->   --gateway-resource-id <gateway-resource-id>
+>   --gateway-resource-id $ARC_GATEWAY_RESOURCE_ID
 > ```
 
 ### Step 2: Verify connectivity
@@ -241,9 +245,9 @@ az connectedk8s update \
 1. Verify DNS resolves to private IPs:
 
    ```bash
-   nslookup <storage-account>.blob.core.windows.net
-   nslookup <keyvault-name>.vault.azure.net
-   nslookup <eventgrid-namespace>.ts.eventgrid.azure.net
+   nslookup $STORAGE_ACCOUNT_NAME.blob.core.windows.net
+   nslookup $KEY_VAULT_NAME.vault.azure.net
+   nslookup $EVENT_GRID_NAMESPACE.ts.eventgrid.azure.net
    ```
 
    Each result should return an IP in your private address range (for example, `10.x.x.x`), not a public IP.
@@ -265,34 +269,34 @@ Create a rule collection group and add application rules for the Arc Gateway FQD
 ```azurecli
 az network firewall policy rule-collection-group create \
   --name ArcRules \
-  --policy-name <firewall-policy-name> \
-  --resource-group <resource-group> \
+  --policy-name $FIREWALL_POLICY_NAME \
+  --resource-group $RESOURCE_GROUP \
   --priority 100
 
 az network firewall policy rule-collection-group collection add-filter-collection \
   --rule-collection-group-name ArcRules \
-  --policy-name <firewall-policy-name> \
-  --resource-group <resource-group> \
+  --policy-name $FIREWALL_POLICY_NAME \
+  --resource-group $RESOURCE_GROUP \
   --name AllowArc \
   --collection-priority 100 \
   --action Allow \
   --rule-type ApplicationRule \
   --rule-name AllowArcEndpoints \
-  --source-addresses "<cluster-subnet-cidrs>" \
+  --source-addresses "$CLUSTER_SUBNET_CIDRS" \
   --protocols Https=443 \
   --target-fqdns "*.gw.arc.azure.com" "management.azure.com" "*.his.arc.azure.com" "*.dp.kubernetesconfiguration.azure.com" "login.microsoftonline.com" "mcr.microsoft.com" "*.data.mcr.microsoft.com" "gbl.his.arc.azure.com" "*.login.microsoft.com"
 ```
 
-Replace `<cluster-subnet-cidrs>` with the CIDR range of your cluster subnet (for example, `10.0.0.0/24`). For the full list of required FQDNs, see [Allowed endpoints with Arc Gateway](/azure/azure-arc/kubernetes/arc-gateway-simplify-networking#allowed-endpoints-with-arc-gateway).
+Set `CLUSTER_SUBNET_CIDRS` to the CIDR range of your cluster subnet (for example, `10.0.0.0/24`). For the full list of required FQDNs, see [Allowed endpoints with Arc Gateway](/azure/azure-arc/kubernetes/arc-gateway-simplify-networking#allowed-endpoints-with-arc-gateway).
 
 ### Step 2: Set proxy environment variables
 
 On the machine where you run the `az connectedk8s connect` command, set the proxy environment variables to point to the Azure Firewall Explicit Proxy:
 
 ```bash
-export HTTPS_PROXY=http://<firewall-private-ip>:<port>
-export HTTP_PROXY=http://<firewall-private-ip>:<port>
-export NO_PROXY=localhost,127.0.0.1,169.254.169.254,.svc,.local,<cluster-subnet-cidr>
+export HTTPS_PROXY=http://$FIREWALL_PRIVATE_IP:$PROXY_PORT
+export HTTP_PROXY=http://$FIREWALL_PRIVATE_IP:$PROXY_PORT
+export NO_PROXY=localhost,127.0.0.1,169.254.169.254,.svc,.local,$CLUSTER_SUBNET_CIDRS
 ```
 
 > [!NOTE]
@@ -304,12 +308,12 @@ Update the existing Arc connection with both the Arc Gateway and the explicit pr
 
 ```azurecli
 az connectedk8s update \
-  --name <cluster-name> \
-  --resource-group <resource-group> \
+  --name $CLUSTER_NAME \
+  --resource-group $RESOURCE_GROUP \
   --proxy-https $HTTPS_PROXY \
   --proxy-http $HTTP_PROXY \
   --proxy-skip-range $NO_PROXY \
-  --gateway-resource-id <gateway-resource-id>
+  --gateway-resource-id $ARC_GATEWAY_RESOURCE_ID
 ```
 
 This command configures all Arc traffic to route through the Azure Firewall Explicit Proxy and the Arc Gateway, consolidating more than 200 endpoints to about nine allowed FQDNs with no public internet exposure.
@@ -322,17 +326,17 @@ This command configures all Arc traffic to route through the Azure Firewall Expl
 >
 > ```azurecli
 > az connectedk8s connect \
->   --name <cluster-name> \
->   --resource-group <resource-group> \
->   --location <region> \
->   --custom-locations-oid <OID> \
+>   --name $CLUSTER_NAME \
+>   --resource-group $RESOURCE_GROUP \
+>   --location $LOCATION \
+>   --custom-locations-oid $CUSTOM_LOCATIONS_OID \
 >   --enable-oidc-issuer \
 >   --enable-workload-identity \
 >   --disable-auto-upgrade \
 >   --proxy-https $HTTPS_PROXY \
 >   --proxy-http $HTTP_PROXY \
 >   --proxy-skip-range $NO_PROXY \
->   --gateway-resource-id <gateway-resource-id>
+>   --gateway-resource-id $ARC_GATEWAY_RESOURCE_ID
 > ```
 
 ### Step 4: Verify connectivity
@@ -346,9 +350,9 @@ This command configures all Arc traffic to route through the Azure Firewall Expl
 1. Verify DNS resolves to private IPs:
 
    ```bash
-   nslookup <storage-account>.blob.core.windows.net
-   nslookup <keyvault-name>.vault.azure.net
-   nslookup <eventgrid-namespace>.ts.eventgrid.azure.net
+   nslookup $STORAGE_ACCOUNT_NAME.blob.core.windows.net
+   nslookup $KEY_VAULT_NAME.vault.azure.net
+   nslookup $EVENT_GRID_NAMESPACE.ts.eventgrid.azure.net
    ```
 
    Each result should return an IP in your private address range, not a public IP.
@@ -388,9 +392,9 @@ If you don't already have one, create an Event Grid namespace with MQTT (topic s
 
 ```azurecli
 az eventgrid namespace create \
-  --name <namespace> \
-  --resource-group <resource-group> \
-  --location <region> \
+  --name $EVENT_GRID_NAMESPACE \
+  --resource-group $RESOURCE_GROUP \
+  --location $LOCATION \
   --topic-spaces-configuration state=Enabled \
   --sku name=Standard capacity=1
 ```
@@ -399,9 +403,9 @@ Then create a topic space. For testing, you can use the wildcard `#` as the topi
 
 ```azurecli
 az eventgrid namespace topic-space create \
-  --name <topic-space-name> \
-  --resource-group <resource-group> \
-  --namespace-name <namespace> \
+  --name $TOPIC_SPACE_NAME \
+  --resource-group $RESOURCE_GROUP \
+  --namespace-name $EVENT_GRID_NAMESPACE \
   --topic-templates "#"
 ```
 
@@ -420,9 +424,9 @@ For a typical data flow that publishes telemetry to Event Grid:
 
 ```azurecli
 az role assignment create \
-  --assignee <aio-managed-identity-principal-id> \
+  --assignee $AIO_IDENTITY_PRINCIPAL_ID \
   --role "EventGrid TopicSpaces Publisher" \
-  --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.EventGrid/namespaces/<namespace>"
+  --scope "/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.EventGrid/namespaces/$EVENT_GRID_NAMESPACE"
 ```
 
 > [!NOTE]
@@ -435,7 +439,7 @@ az role assignment create \
 >
 >   ```azurecli
 >   az rest --method get \
->     --url "https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Kubernetes/connectedClusters/<cluster-name>/extensions/azure-iot-operations?api-version=2024-11-01-preview" \
+>     --url "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/resourceGroups/$RESOURCE_GROUP/providers/Microsoft.Kubernetes/connectedClusters/$CLUSTER_NAME/extensions/azure-iot-operations?api-version=2024-11-01-preview" \
 >     --query "identity.principalId" -o tsv
 >   ```
 >
@@ -449,15 +453,15 @@ You already created the Event Grid private endpoint and DNS zone in [Create priv
 
 ```azurecli
 az eventgrid namespace update \
-  --name <namespace> \
-  --resource-group <resource-group> \
+  --name $EVENT_GRID_NAMESPACE \
+  --resource-group $RESOURCE_GROUP \
   --public-network-access Disabled
 ```
 
 Verify that public access is disabled:
 
 ```azurecli
-az eventgrid namespace show --name <namespace> --resource-group <resource-group> --query "publicNetworkAccess"
+az eventgrid namespace show --name $EVENT_GRID_NAMESPACE --resource-group $RESOURCE_GROUP --query "publicNetworkAccess"
 ```
 
 ### Step 4: Verify DNS resolves to a private IP
@@ -465,7 +469,7 @@ az eventgrid namespace show --name <namespace> --resource-group <resource-group>
 From your cluster node (or a VM in the same VNet), confirm the FQDN resolves to the private endpoint IP:
 
 ```bash
-nslookup <namespace>.<region>-1.ts.eventgrid.azure.net
+nslookup $EVENT_GRID_NAMESPACE.$LOCATION-1.ts.eventgrid.azure.net
 ```
 
 The result should return an IP in your private address range (for example, `10.x.x.x`), not a public IP. If it returns a public IP, check your private DNS zone linkage.
@@ -483,10 +487,10 @@ Create an Event Grid MQTT data flow endpoint. This action creates an endpoint th
 
 ```azurecli
 az iot ops dataflow endpoint create eventgrid \
-  --resource-group <resource-group> \
-  --instance <aio-instance-name> \
+  --resource-group $RESOURCE_GROUP \
+  --instance $AIO_INSTANCE_NAME \
   --name eventgrid-private-endpoint \
-  --host <namespace>.<region>-1.ts.eventgrid.azure.net
+  --host $EVENT_GRID_NAMESPACE.$LOCATION-1.ts.eventgrid.azure.net
 ```
 
 ---
@@ -538,11 +542,11 @@ Then apply the data flow:
 
 ```azurecli
 az iot ops dataflow apply \
-  --resource-group <resource-group> \
-  --instance <aio-instance-name> \
+  --resource-group $RESOURCE_GROUP \
+  --instance $AIO_INSTANCE_NAME \
   --profile default \
-  --name <dataflow-name> \
-  --config-file <config-file-path>
+  --name $DATAFLOW_NAME \
+  --config-file $CONFIG_FILE
 ```
 
 ---
@@ -552,7 +556,7 @@ az iot ops dataflow apply \
 Publish a test message to the MQTT broker by using any MQTT client. For example, use [mosquitto_pub](https://mosquitto.org/man/mosquitto_pub-1.html):
 
 ```bash
-mosquitto_pub -h <cluster-host-ip> -p 1883 -t "test/eventgrid" -m '{"temperature": 25.5}'
+mosquitto_pub -h $CLUSTER_HOST_IP -p 1883 -t "test/eventgrid" -m '{"temperature": 25.5}'
 ```
 
 > [!NOTE]

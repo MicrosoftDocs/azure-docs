@@ -63,7 +63,7 @@ The following features of Event Grid namespaces moved from public preview to GA:
 The following features are released in preview:
 
 - [Network security perimeter support for inbound and outbound communication in Event Grid topics and domains](configure-network-security-perimeter.md)
-- [Managed identity support for webhook delivery](deliver-events-using-managed-identity.md#deliver-events-to-webhooks-using-managed-identity)
+- [Managed identity support for webhook delivery](deliver-events-using-managed-identity.md#deliver-events-to-webhooks-by-using-managed-identity)
 - [Cross-tenant delivery in the Basic tier](cross-tenant-delivery-using-managed-identity.md):
     - Webhooks
     - Namespace topics

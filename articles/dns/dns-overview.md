@@ -38,6 +38,7 @@ Azure DNS enables multiple scenarios, including:
 * Protect your [public](/azure/dns/dns-protect-zones-recordsets) and [private](/azure/dns/dns-protect-private-zones-recordsets) DNS zones and records
 * Enable automatic [fault tolerance](/azure/dns/private-resolver-reliability) and [failover](/azure/dns/tutorial-dns-private-resolver-failover) for DNS resolution
 * [Load-balance your applications](/azure/traffic-manager/traffic-manager-how-it-works)
+* [Link DNS records directly to Traffic Manager profiles](/azure/dns/dns-traffic-manager-linked-records)
 * Increase application [availability](/azure/traffic-manager/traffic-manager-monitoring) and [performance](/azure/traffic-manager/traffic-manager-configure-performance-routing-method)
 * [Monitor your application traffic patterns](/azure/traffic-manager/traffic-manager-traffic-view-overview)
 * [Secure and view DNS traffic](/azure/dns/dns-traffic-log-how-to)

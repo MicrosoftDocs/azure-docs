@@ -73,19 +73,19 @@ C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip 
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | VMware- OVA file (11.9 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | B9A4F42F570A9DADFBA4A9CF9BCF1C87CB677BEFE29A1DCABDB1CD2684B9BCB1   |
+    | VMware- OVA file (13 GB)  | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191954)  | B9A4F42F570A9DADFBA4A9CF9BCF1C87CB677BEFE29A1DCABDB1CD2684B9BCB1   |
 
     - Use the VHD file to set up the Hyper-V appliance in Azure public cloud.
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | Hyper-V -  VHD file (9.46Gb)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | AD3C72FB21037B10969548228B4F651BF5A79CD0A34D608CD470B75329A24A24      |
+    | Hyper-V -  VHD (Zip file) (11.4 GB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191848)  | AD3C72FB21037B10969548228B4F651BF5A79CD0A34D608CD470B75329A24A24      |
 
     - Use the Zip file to set up the VMware, Hyper-V, or Physical appliance stack in Azure public cloud and Azure Government.
 
     | Algorithm  | Download  | SHA256  | 
     | --- | --- | --- |
-    | ZIP file (839 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | 69AD956833E6C254DA7ECB44F29B26CAA07ADD4797BBA35405EDFA630CE1CA37   |
+    | ZIP file (844 MB)   | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847)  | F9716CABB970C0C86FA08E9A8263280A8F00009D6E37E68CFCC2E3BCC107052B  |
 
 
 ## Appliance services

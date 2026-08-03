@@ -3,7 +3,7 @@ title: Migrate with Commvault and Azure Data Box
 description: Lists common migration scenarios using both Azure Data Box and Commvault Air Gap Protect.
 ms.date: 08/17/2025
 ms.topic: reference
-ms.service: azure-databox
+ms.service: azure-data-box
 author: bapic
 ms.author: bchakra
 # Customer intent: "As an Azure resource manager, I want to access built-in policy definitions for Azure Data Box, so that I can implement governance and compliance measures effectively across my resources."

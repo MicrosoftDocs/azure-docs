@@ -76,6 +76,12 @@
           href: tutorial-alias-pip.md
         - name: Create alias records for Traffic Manager
           href: tutorial-alias-tm.md
+        - name: Create Traffic Manager linked records - Portal
+          href: tutorial-traffic-manager-linked-records-portal.md
+        - name: Create Traffic Manager linked records - CLI
+          href: tutorial-traffic-manager-linked-records-cli.md
+        - name: Create Traffic Manager linked records - PowerShell
+          href: tutorial-traffic-manager-linked-records-powershell.md
         - name: Alias records for load balanced web apps
           href: dns-alias-appservice.md
         - name: Integrate with other Azure services
@@ -116,6 +122,8 @@
           href: dns-zones-records.md
         - name: Alias records
           href: dns-alias.md
+        - name: Traffic Manager linked records
+          href: dns-traffic-manager-linked-records.md
         - name: Delegation with Azure DNS
           href: dns-domain-delegation.md
         - name: Reverse DNS
@@ -214,10 +222,8 @@
           href: private-dns-arg.md
 - name: Troubleshoot
   items:
-    - name: Troubleshoot Azure DNS
-      href: /troubleshoot/azure/dns/welcome-azure-dns?toc=/azure/dns/TOC.json
-- name: Support and troubleshooting
-  href: dns-support-help.md
+    - name: Troubleshoot public DNS
+      href: dns-troubleshoot.md
 - name: Reference
   items:
     - name: Public DNS

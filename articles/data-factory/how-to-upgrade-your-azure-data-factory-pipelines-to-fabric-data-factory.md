@@ -1,5 +1,5 @@
 ---
-title: Upgrade your Azure Data Factory pipelines to Fabric
+title: Upgrade your Azure Data Factory pipelines to Fabric Data Factory
 description: Learn how to assess and upgrade your Azure Data Factory pipelines to Fabric Data Factory.
 author: ssindhub
 ms.author: ssrinivasara
@@ -9,7 +9,7 @@ ms.custom: pipelines
 ai-usage: ai-assisted
 ---
 
-# Upgrade your Azure Data Factory pipelines to Fabric
+# Upgrade your Azure Data Factory pipelines to Fabric Data Factory
 
 Your Azure Data Factory pipelines already power critical workflows. This article walks you through migrating Azure Data Factory (ADF) pipelines to Fabric Data Factory using the built-in migration experience. You can start from either Azure Data Factory or a Fabric workspace.
 

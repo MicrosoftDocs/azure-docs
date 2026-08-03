@@ -83,11 +83,11 @@ The code simply returns the text from the completion API as the response:
 ::: zone pivot="programming-language-python"  
 This example demonstrates the _templating_ pattern, where the HTTP trigger function takes a `name` parameter and embeds it into a text prompt, which is then sent to the Azure OpenAI completions API by the extension. The response to the prompt is returned in the HTTP response.  
 
-:::code language="python" source="~/functions-openai-extension/samples/textcompletion/python/function_app.py" range="7-16" :::
+:::code language="python" source="~/functions-openai-extension/samples/textcompletion/python/function_app.py" range="7-17" :::
 
 This example takes a prompt as input, sends it directly to the completions API, and returns the response as the output.
 
-:::code language="python" source="~/functions-openai-extension/samples/textcompletion/python/function_app.py" range="19-30" :::
+:::code language="python" source="~/functions-openai-extension/samples/textcompletion/python/function_app.py" range="19-32" :::
 
 ::: zone-end  
 <!--- End code examples section -->  
@@ -194,6 +194,8 @@ The binding supports these properties, which are defined in your code:
 ## Usage
 
 See the [Example section](#example) for complete examples.
+
+[!INCLUDE [functions-openai-connections](../../includes/functions-openai-connections.md)]
 
 ## Related content
 

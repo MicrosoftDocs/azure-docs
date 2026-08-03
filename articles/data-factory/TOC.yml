@@ -955,6 +955,8 @@ items:
       href: data-factory-private-link.md
     - name: Azure security baseline
       href: /security/benchmark/azure/baselines/data-factory-security-baseline?toc=/azure/data-factory/TOC.json
+    - name: Modern Trusted Service Data Factory
+      href: modern-trusted-service.md
   - name: Settings
     items:
     - name: Manage Azure Data Factory settings and preferences

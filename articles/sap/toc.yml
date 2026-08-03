@@ -3,6 +3,8 @@ items:
     href: index.yml
   - name: Overview
     href: sap-on-azure-overview.md
+  - name: Service scenarios and selection guidance
+    href: choose-sap-services-by-scenario.md
   - name: SAP on Azure VM workloads
     href: workloads/toc.yml
   - name: Azure Center for SAP solutions

@@ -151,7 +151,7 @@ This table shows the language stack versions that are currently supported for Fl
 | Java | Java 8, Java 11, Java 17, Java 21, Java 25 |
 | Node.js | Node.js 22, Node.js 24   |
 | PowerShell | PowerShell 7.4   |
-| Python | Python 3.10, Python 3.11, Python 3.12, Python 3.13  | 
+| Python | Python 3.10, Python 3.11, Python 3.12, Python 3.13, Python 3.14  | 
 | Custom handlers | 1.0 |
 
 1. The [C# in-process model](./functions-dotnet-class-library.md) isn't supported. You need to [migrate your .NET project to the isolated worker model](migrate-dotnet-to-isolated-model.md).  

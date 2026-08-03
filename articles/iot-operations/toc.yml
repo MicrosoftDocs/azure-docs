@@ -161,10 +161,13 @@ items:
               - name: Understand the connector for OPC UA
                 href: discover-manage-assets/overview-opc-ua-connector.md
                 displayName: OPC UA server, OPC UA client, payload, southbound
+              - name: OPC UA asset discovery modes
+                href: discover-manage-assets/concept-opc-ua-asset-discovery.md
+                displayName: OPC UA, discovery, DI-based, type-based, segmented, start-node, periodic, Akri, southbound
               - name: Configure OPC UA assets and devices
                 href: discover-manage-assets/howto-configure-opc-ua.md
                 displayName: operations, experience, device, data points, events, southbound
-              - name: Detect OPC UA assets
+              - name: Discover OPC UA assets
                 href: discover-manage-assets/howto-detect-opc-ua-assets.md
                 displayName: connector, akri, southbound
               - name: Control OPC UA assets
@@ -280,6 +283,9 @@ items:
               - name: Enrich with external data
                 href: connect-to-cloud/howto-dataflow-graphs-enrich.md
                 displayName: data flow, graph, dataset, state store, context, lookup
+              - name: Throttle the flow of data
+                href: connect-to-cloud/howto-dataflow-graphs-throttle.md
+                displayName: data flow, graph, rate, limit, throttle, burst, maximum
               - name: Route messages to different topics
                 href: connect-to-cloud/howto-dataflow-graphs-topic-routing.md
                 displayName: data flow, graph, topic, routing, metadata, dynamic
@@ -295,12 +301,12 @@ items:
           - name: Buffering and disk persistence
             href: connect-to-cloud/howto-configure-disk-persistence.md
             displayName: data flow, destination outage, restart, state, MQTT broker
-          - name: Expressions reference
-            href: connect-to-cloud/concept-dataflow-graphs-expressions.md
-            displayName: data flow, expression, function, operator, metadata, variable, conversion
           - name: Profiles
             href: connect-to-cloud/howto-configure-dataflow-profile.md
             displayName: data flow, scale, scaling
+          - name: Expressions reference
+            href: connect-to-cloud/concept-dataflow-graphs-expressions.md
+            displayName: data flow, expression, function, operator, metadata, variable, conversion, date, time, datetime, time stamp, timestamp, epoch
       - name: Develop edge applications
         items:
           - name: Developer guide

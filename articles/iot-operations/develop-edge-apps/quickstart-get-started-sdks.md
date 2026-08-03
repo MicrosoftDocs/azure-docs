@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: quickstart-sdk
-ms.date: 05/08/2025
+ms.date: 07/23/2026
 ai-usage: ai-assisted
 ---
 
@@ -24,6 +24,10 @@ Before you begin, prepare the following prerequisites:
 * A [GitHub](https://github.com) account.
 
 * Azure access permissions. For more information, see [Deployment overview > Required permissions](../deploy-iot-ops/overview-deploy.md#required-permissions).
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for resource names that you choose: `SCHEMA_REGISTRY` (the name of the schema registry), `SCHEMA_REGISTRY_NAMESPACE` (the name of the schema registry namespace), `STORAGE_ACCOUNT` (the name of the storage account). Set each one to a value that you want before you run the related commands.
 
 ## Setting up
 
@@ -130,9 +134,10 @@ Open a new Bash terminal and complete the following steps:
     | `STORAGE_ACCOUNT_NAME` | A name for your storage account. Storage account names must be between 3 and 24 characters in length and only contain numbers and lowercase letters. |
     | `SCHEMA_REGISTRY_NAME` | A name for your schema registry. Schema registry names can only contain numbers, lowercase letters, and hyphens. |
     | `SCHEMA_REGISTRY_NAMESPACE` | A name for your schema registry namespace. The namespace uniquely identifies a schema registry within a tenant. Schema registry namespace names can only contain numbers, lowercase letters, and hyphens. |
+    | `DEVICE_REGISTRY_NAMESPACE` | A name for your device registry namespace. Must be unique within your tenant, and between 3 and 24 characters. Can only contain numbers, letters, hyphens, and underscores. |
 
     ```bash
-    ./tools/deployment/install-aio-arc.sh -l <LOCATION> -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -s <STORAGE_ACCOUNT_NAME> -r <SCHEMA_REGISTRY_NAME> -n <SCHEMA_REGISTRY_NAMESPACE>
+    ./tools/deployment/install-aio-arc.sh -l <LOCATION> -g <RESOURCE_GROUP> -c <CLUSTER_NAME> -s <STORAGE_ACCOUNT_NAME> -r <SCHEMA_REGISTRY_NAME> -n <SCHEMA_REGISTRY_NAMESPACE> -d <DEVICE_REGISTRY_NAMESPACE>
     ```
     
     This script runs the following commands:
@@ -144,6 +149,7 @@ Open a new Bash terminal and complete the following steps:
     1. Enable Azure Arc features
     1. Create Azure Storage account
     1. Create Azure IoT Operations schema registry
+    1. Create Azure device registry namespace
     1. Initialize Azure IoT Operations
     1. Create Azure IoT Operations instance
 

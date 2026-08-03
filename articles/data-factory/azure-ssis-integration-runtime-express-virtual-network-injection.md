@@ -4,8 +4,8 @@ description: Learn how to configure a virtual network for express injection of A
 ms.subservice: integration-services
 ms.topic: concept-article
 ms.date: 06/03/2026
-author: chugugrace
-ms.author: chugu 
+author: kromerm
+ms.author: makromer
 ---
 
 # Express virtual network injection method
