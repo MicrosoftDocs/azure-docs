@@ -5,7 +5,7 @@ metadata:
   description: Get answers to frequently asked questions about Artifact Signing.
   author: TacoTechSharma
   ms.author: mesharm
-  ms.service: trusted-signing
+  ms.service: azure-artifact-signing
   ms.topic: faq
   ms.date: 05/14/2026
 title: Artifact Signing FAQ
