@@ -163,7 +163,7 @@ ESXi iSCSI Configuration:
 
 **Change**: Update datastore provisioning workflow to use service endpoint connectivity exclusively
 
-**Previous Flow** (Private Endpoint - Not Used in AVS Gen 2):
+**Previous Flow**:
 
 1. Customer creates Elastic SAN volume
 1. Customer creates Private Endpoint in Customer VNet
