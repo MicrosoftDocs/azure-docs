@@ -172,7 +172,7 @@ You can route device-to-cloud messages to a [Microsoft Fabric eventstream](/fabr
 > [!NOTE]
 > Routing to Microsoft Fabric Eventstreams is in public preview. This capability applies to both IoT Hub and IoT Hub Gen 2 instances.
 
-To route messages to a Fabric eventstream, you create a route in IoT Hub, add a Fabric Eventstream endpoint, and connect it to a Fabric eventstream that uses a custom endpoint (custom app) source. During public preview, you manually copy the Event Hubs namespace and Event Hub name from the Fabric custom endpoint tile into the IoT Hub endpoint configuration. Automatic configuration is planned before general availability.
+To route messages to a Fabric eventstream, create a route in IoT Hub, add a Fabric Eventstream endpoint, and connect it to a Fabric eventstream that uses a custom endpoint (custom app) source. During public preview, you manually copy the Event Hubs namespace and Event Hub name from the Fabric custom endpoint tile into the IoT Hub endpoint configuration. Automatic configuration is planned before general availability.
 
 #### Authentication
 
