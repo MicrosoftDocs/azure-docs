@@ -196,7 +196,7 @@ The following settings are used to manually stop and immediately delete the spec
 |---------|---------------|-------------|
 | `Jobs.CleanupJobPartitionPrefix` | None | Immediately deletes all the run jobs for the specified workflows. |
 | `Jobs.SuspendedJobPartitionPrefix` | None | Stops the run jobs for the specified workflows. |
-| `SequencerJobs.SuspendedSequencerPartitionPreix` | None | Stops the sequencer run jobs for the specified workflows. |
+| `SequencerJobs.SuspendedSequencerPartitionPrefix` | None | Stops the sequencer run jobs for the specified workflows. |
 
 To specify individual workflows, use the following syntax where each workflow ID is followed by a colon (`:`) and is separated by a semicolon (`;`):
 
