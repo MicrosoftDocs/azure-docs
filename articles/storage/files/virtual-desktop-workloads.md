@@ -51,7 +51,7 @@ Use a storage account that's in the same Azure region and resource group as your
 
 Another important consideration in region selection is latency. It's generally best to centralize all necessary virtual desktop resources, including user profiles, in the same Azure region and subscription as your Azure Virtual Desktop host pool. If you deploy file shares in a region that's far from your users, it can increase latency and degrade performance. It can also increase the cost of data transfer between regions.
 
-Azure Files offers both HDD (standard) and SSD (premium) file shares. SSD Azure file shares don't offer geo-redundancy. See [Azure Files redundancy](files-redundancy.md) for more information about the different redundancy options available for Azure Files.
+Azure Files offers both HDD (standard) and SSD (premium) file shares. SSD Azure file shares don't offer geo-redundancy. For more information about the different redundancy options available for Azure Files, see [Azure Files redundancy](files-redundancy.md).
 
 ## Azure Files sizing guidance for Azure Virtual Desktop
 
@@ -60,7 +60,7 @@ In large-scale VDI environments, tens of thousands of users might need to access
 Azure Files supports both **FSLogix** and **non-FSLogix** profile storage scenarios. This guidance provides recommended file share configurations based on the number of concurrent virtual desktop users, expected IOPS per user, and storage type (HDD or SSD). In general, FSLogix enables more efficient handle usage compared to non-FSLogix.
 
 > [!TIP]
-> Azure Files has a 2,000 concurrent handle limit per file and directory, and a 10,000 concurrent handle limit for the root directory of a share. This article is written with those limits in mind. However, for SSD file shares, these are soft limits. If you need to scale beyond these limits, you can [enable metadata caching](smb-performance.md#register-for-the-metadata-caching-feature) and register for [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview).
+> Azure Files has a 2,000 concurrent handle limit per file and directory, and a 10,000 concurrent handle limit for the root directory of a share. This article is written with those limits in mind. However, for SSD file shares, these limits are soft. To scale beyond these limits, you can [enable metadata caching](smb-performance.md#register-for-the-metadata-caching-feature) and register for [increased file handle limits (preview)](smb-performance.md#register-for-increased-file-handle-limits-preview).
 
 ### FSLogix profile containers
 
