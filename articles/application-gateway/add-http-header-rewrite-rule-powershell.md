@@ -23,7 +23,7 @@ Before you begin, ensure you have the following requirements:
 - **Azure PowerShell**: You need Azure PowerShell installed locally or access to Azure Cloud Shell. The Azure PowerShell Az module version 1.0.0 or later is required. To check your version, run `Get-Module -ListAvailable Az`. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). 
 - **Azure connection**: After verifying the PowerShell version, run `Connect-AzAccount` to authenticate with Azure.
 - **Application Gateway v2**: You need an existing Application Gateway v2 SKU instance. Header rewriting is only supported in the v2 SKU (Standard_v2 or WAF_v2). If you don't have one, create an [Application Gateway v2 SKU](./tutorial-autoscale-ps.md) instance before you begin.
-- **Proper permissions**: Ensure you have Contributor or Owner permissions on the Application Gateway resource.
+- **Proper permissions**: Ensure you have Network Contributor or Contributor permissions on the resource group containing the Application Gateway. Owner permissions are required only if you also need to assign roles.
 
 > [!IMPORTANT]
 > Header rewrite functionality is only available with Application Gateway v2 SKU. The v1 SKU doesn't support this feature.
