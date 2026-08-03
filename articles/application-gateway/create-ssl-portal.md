@@ -87,7 +87,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     
         ![Screenshot of creating a new application gateway basics.](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
-2.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers. For more information about subnet requirements, see [Application Gateway infrastructure configuration](configuration-infrastructure.md#virtual-network-and-dedicated-subnet).
+1.  For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you create a new virtual network at the same time that you create the application gateway. You create Application Gateway instances in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers. For more information about subnet requirements, see [Application Gateway infrastructure configuration](configuration-infrastructure.md#virtual-network-and-dedicated-subnet).
 
     Under **Configure virtual network**, create a new virtual network by selecting **Create new**. In the **Create virtual network** window that opens, enter the following values to create the virtual network and two subnets:
 
