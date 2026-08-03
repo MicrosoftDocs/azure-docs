@@ -102,7 +102,7 @@ Premium v4 is available in the following regions:
 - Australia East<sup>*</sup>
 - Canada Central<sup>*</sup>
 - Central India
-- Central US
+- Central US<sup>*</sup>
 - East Asia<sup>*</sup>
 - East US<sup>*</sup>
 - East US 2
