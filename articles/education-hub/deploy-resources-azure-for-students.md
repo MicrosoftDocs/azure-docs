@@ -3,7 +3,7 @@ title: Deploy resources with Azure for Students
 description: Get links to documentation that can help you deploy resources by using your Azure for Students subscription.
 author: vinnieangel
 ms.author: vangellotti
-ms.service: azure-education
+ms.service: azure-education-hub
 ms.topic: how-to
 ms.date: 11/1/2023
 ms.custom: template-how-to

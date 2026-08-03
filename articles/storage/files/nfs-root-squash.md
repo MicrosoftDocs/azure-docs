@@ -26,9 +26,9 @@ In this article, you learn how to configure and change root squash settings for 
 
 ## How root squash works with Azure Files
 
-Root squash works by remapping the user ID (UID) and the group ID (GID) of the root user to a UID and GID belonging to the anonymous user on server. Root users accessing the file system are automatically converted to the anonymous, less-privileged user and group with limited permissions.
+Root squash works by remapping the user ID (UID) and the group ID (GID) of the root user to a UID and GID belonging to the anonymous user on the server. Root users accessing the file system are automatically converted to the anonymous, less-privileged user and group with limited permissions.
 
-Although root squash is the default behavior in NFS, it's not the default option when creating an NFS Azure file share. You must explicitly enable root squash on the file share. You can do this when you create an NFS Azure file share, or later on.
+Although root squash is the default behavior in NFS, it's not the default option when you create an NFS Azure file share. You must explicitly enable root squash on the file share. You can do this when you create an NFS Azure file share, or later.
 
 ## Root squash settings
 
@@ -36,7 +36,7 @@ Choose from three root squash settings:
 
 - **No root squash:** Turn off root squashing. This option is mainly useful for diskless clients or workloads as specified by workload documentation. This setting is the default when creating a new NFS Azure file share.
 - **All squash:** Map all UIDs and GIDs to the anonymous user. Use this setting for shares that require read-only access by all clients.
-- **Root squash:** Map requests from UID/GID 0 (root) to the anonymous UID/GID. This setting doesn't apply to any other UIDs or GIDs that might be equally sensitive, such as user bin or group staff.
+- **Root squash:** Map requests from UID/GID 0 (root) to the anonymous UID/GID. This setting doesn't apply to any other UIDs or GIDs that might be equally sensitive, such as user `bin` or group `staff`.
 
 The following table highlights the UID behavior observed from the server when you configure specific root squash options.
 
@@ -177,7 +177,7 @@ For Azure file shares that use the Microsoft.FileShares resource provider, you c
 
 1. Toggle the root squash setting as desired.
 
-   ![image for microsoft.fileshares root squash](./media/nfs-root-squash/file-share-root-squash-configuration.png)
+   :::image type="content" source="./media/nfs-root-squash/file-share-root-squash-configuration.png" alt-text="Screenshot showing how to configure root squash settings for a Microsoft.FileShares NFS file share in the Azure portal." lightbox="./media/nfs-root-squash/file-share-root-squash-configuration.png":::
    
 1. Select **Save** to update the root squash value.
 

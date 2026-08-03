@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.update-cycle: 1095-days
-ms.date: 07/10/2026
+ms.date: 08/01/2026
 ms.custom: sfi-image-nochange
 ---
 
@@ -40,7 +40,7 @@ The Azure Blob Storage connector has different versions, based on [logic app typ
 - Azure Blob Storage trigger limits
 
   - The *managed* connector trigger is limited to 30,000 blobs in the polling virtual folder.
-  - The *built-in* connector trigger is limited to 10,000 blobs in the entire polling container.
+  - The *built-in* connector trigger is based on the Azure Blob Storage for Azure Functions polling trigger, which works based on "best effort" and doesn't support high scale. For more information, see [polling and latency for Azure Blob storage trigger for Azure Functions](../azure-functions/functions-bindings-storage-blob-trigger.md?tabs=python-v2%2Cisolated-process%2Cnodejs-v4%2Cextensionv5&pivots=programming-language-csharp#polling-and-latency). If you need faster or more reliable blob processing, try the Azure Event Grid trigger.
   
   If the limit is exceeded, a new blob might not be able to trigger the workflow, so the trigger is skipped.
 

@@ -35,7 +35,7 @@ You can apply the `LegacyVMNVA` tag to temporarily avoid placement on MANA‑ena
 > 
 > To ensure expected behavior, it is recommended to apply and enable the tag before the following dates, which align with the earliest potential placement on MANA-capable hardware:
 > - [MANA-eligible Cobalt 100 and Intel v5 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in Public cloud: May 26, 2026
-> - [MANA-eligible Intel v1-v4 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in Public cloud: August 1, 2026
+> - [MANA-eligible Intel v1-v4 VMs](./accelerated-networking-mana-existing-sizes.md#applicable-vm-series) in Public cloud: August 6, 2026
 > 
 > After May 31, 2027, the tag will no longer be honored, and all MANA-eligible VM series may be placed on MANA-capable hardware.
 
@@ -52,7 +52,6 @@ You can apply the `LegacyVMNVA` tag to temporarily avoid placement on MANA‑ena
     | Management Group | Multiple subscriptions |
     | Subscription | All resource groups and resources in the subscription |
     | Resource Group | Resources in that resource group |
-    | Resource | Single resource |
 
    Microsoft recommends applying policy enforcement gradually, following your organization's safe rollout strategies. Azure Policy supports safe rollout primitives that let you incrementally roll out enforcement by region and resource type. For a detailed breakdown of available mechanisms, see [Azure Policy Safe Deployment Practices](../governance/policy/how-to/policy-safe-deployment-practices.md).
 

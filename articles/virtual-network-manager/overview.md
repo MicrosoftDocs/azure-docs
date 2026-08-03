@@ -6,7 +6,7 @@ services: virtual-network-manager
 author: mbender-ms
 ms.service: azure-virtual-network-manager
 ms.topic: overview
-ms.date: 01/09/2026
+ms.date: 07/29/2026
 ms.author: mbender
 ms.reviewer: mbender
 ms.custom: references_regions
@@ -23,15 +23,23 @@ By using Virtual Network Manager, you can define network groups to identify and 
 
 :::image type="content" source="./media/overview/management-group.png" alt-text="Diagram of management group, subscription, and virtual network hierarchy in Virtual Network Manager.":::
 
+You can deploy and manage Azure Virtual Network Manager through the [Azure portal](./create-virtual-network-manager-portal.md), [Azure CLI](./create-virtual-network-manager-cli.md), [Azure PowerShell](./create-virtual-network-manager-powershell.md), [Bicep](./create-virtual-network-manager-bicep.md), or [Terraform](./create-virtual-network-manager-terraform.md). Whichever tool you use, the workflow has four stages.
+
+### Define the network manager scope
+
 During the creation process, you define the scope for what your Azure Virtual Network Manager instance, or *network manager*, manages. Your network manager only has the delegated access for resource visibility, configuration deployment, and IP address management within this scope boundary. You can define a scope directly over a list of subscriptions. You can also use [management groups](../governance/management-groups/overview.md) to define your scope. Management groups provide hierarchical organization to your subscriptions. After defining your network manager's scope, you can deploy configuration types including *Connectivity*, *Security admin*, and *Routing* across grouped network resources within this scope. You can also use the network manager to manage your organization's IP address space and troubleshoot reachability issues across the Azure network resources within your network manager's scope.
+
+### Create network groups
 
 After you deploy the network manager, you create a *network group*, which serves as a logical container of networking resources to apply configurations at scale. You can manually select individual virtual networks to add to your network group, or you can use Azure Policy to define conditions that govern your group membership dynamically. For more information about Azure Policy initiatives, see [Network groups and Azure Policy](concept-network-groups.md#network-groups-and-azure-policy).
 
+### Create connectivity, security admin, and routing configurations
+
 Next, you create configurations to apply to those network groups based on your topology and security needs. A [connectivity configuration](concept-connectivity-configuration.md) enables you to create a mesh or a hub-and-spoke network topology using your network groups. A [security admin configuration](concept-security-admins.md) allows you to define a collection of security admin rules that you can apply onto one or more network groups, programming those rules across your virtual networks globally. A [routing configuration](concept-user-defined-route.md) lets you describe and orchestrate [user-defined routes](../virtual-network/virtual-networks-udr-overview.md) at scale to control traffic flow according to your desired routing behavior. 
 
-Once you create your desired network groups and configurations, you can deploy the configurations to any region of your choosing. **Configurations don't take effect until you deploy them to regions containing your target network resources.**
+### Deploy configurations to regions
 
-You can deploy and manage Azure Virtual Network Manager through the [Azure portal](./create-virtual-network-manager-portal.md), [Azure CLI](./create-virtual-network-manager-cli.md), [Azure PowerShell](./create-virtual-network-manager-powershell.md), [Bicep](./create-virtual-network-manager-bicep.md), or [Terraform](./create-virtual-network-manager-terraform.md).
+Once you create your desired network groups and configurations, you can deploy the configurations to any region of your choosing. **Configurations don't take effect until you deploy them to regions containing your target network resources.**
 
 ## Key benefits
 

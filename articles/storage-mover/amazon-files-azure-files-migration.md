@@ -142,15 +142,19 @@ az storage-mover endpoint show \
 
 ## Create and run a migration job
 
-After the endpoints are ready, create a project and job definition, and then run the first copy pass.
+After you create the endpoints, create a project and job definition. Then, after you create the project and job definition resources, run the first copy pass.
 
 ### Create a project
 
 #### [Azure portal](#tab/portal)
 
-1. In your Storage Mover resource, go to **Project explorer** and select **Create project**.
-1. Enter a name such as `FSxMigrationProject`.
-1. Optionally add a description, and then select **Create**.
+1. Navigate to the **Projects** page in the [Azure portal](https://portal.azure.com) to access your projects. The default **All projects** view displays the names of any provisioned projects and a summary of the jobs they contain.
+
+    :::image type="content" source="media/amazon-files-azure-files-migration/project-explorer-sml.png" alt-text="Screenshot of the 'Overview' tab within the Azure portal." lightbox="media/amazon-files-azure-files-migration/project-explorer-lrg.png":::
+
+1. Select **Create project** to open the **Create a Project** pane. Enter a project name in the **Project name** field and an optional description in the **Project description** field. Finally, select **Create** to provision the project.
+
+    :::image type="content" source="media/amazon-files-azure-files-migration/project-explorer-create-sml.png" alt-text="Screenshot of the Storage Mover's 'Create a project' page." lightbox="media/amazon-files-azure-files-migration/project-explorer-create-lrg.png":::
 
 #### [Azure CLI](#tab/cli)
 
@@ -167,17 +171,23 @@ az storage-mover project create \
 
 #### [Azure portal](#tab/portal)
 
-1. In **Project explorer**, select your project, and then select **Create job definition**.
-1. On **Basics**, configure the following settings:
+1. In **Project explorer**, select the project you created in the previous section. Next, select **Create job definition** within the **All projects** view.
 
-   - **Migration type**: **Cloud to cloud**
-   - **Source type**: **AWS FSx - SMB (Preview)**
-   - **Job name**: For example, `FSxToAzureFilesJob`
+    :::image type="content" source="media/amazon-files-azure-files-migration/project-selected-sml.png" alt-text="Screen capture of the Project Explorer's Overview tab within the Azure portal highlighting the use of filters." lightbox="media/amazon-files-azure-files-migration/project-selected-lrg.png":::
 
-1. On **Source**, select your FSx source endpoint and private connection.
-1. On **Target**, select your Azure Files target endpoint.
-1. On **Settings**, set **Copy mode** to **Additive** for initial migrations.
-1. On **Review + create**, verify values and select **Create**.
+1. In the **Basics** tab, configure the following settings:
+
+    - **Migration type**: **Multicloud migration**
+    - **Source type**: **AWS FSx - SMB (Preview)**
+    - **Job name**: For example, `FSxToAzureFilesJob`
+    - **Description**: Add an optional description.
+
+    In the **Endpoints** sections, configure the corresponding **Source endpoint**, **Target endpoint**, and **Sub-path** fields as necessary, and as indicated.
+
+    In the **Private connections (Preview)** section, select the **Add private connections** button and choose the relevant private connection resource.
+
+1. In the **Settings** tab, set **Copy mode** to **Mirror** for initial migrations.
+1. In the **Review** tab, verify values and select **Create**.
 
 > [!TIP]
 > Use **Additive** for initial migrations. Use **Mirror** only when you want the destination to match the source exactly.

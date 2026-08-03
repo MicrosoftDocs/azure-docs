@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: azure-virtual-network-manager
 ms.topic: concept-article
-ms.date: 05/06/2024
+ms.date: 07/29/2026
 ---
 # Virtual network enforcement with security admin rules in Azure Virtual Network Manager
 
@@ -67,13 +67,16 @@ The administrator creates two network groups – *ALL network group* consisting 
 
 #### Step 3: Create a security admin configuration
 
-In this step, two security admin rules are defined with the following security admin configuration:
-- a security admin rule to block inbound SSH traffic for ALL network group with a lower priority of 100. 
-- a security admin rule to allow inbound SSH traffic for App network group with a higher priority of 10.
+Security admin rules are evaluated in priority order, and a rule with a smaller priority number is evaluated first. In this step, the security admin configuration contains two security admin rules:
+
+- A security admin rule that denies inbound SSH traffic for the *ALL network group* at priority 100.
+- A security admin rule that allows inbound SSH traffic for the *App network group* at priority 10.
+
+Because 10 is smaller than 100, the allow rule for the *App network group* is evaluated before the deny rule that applies to every virtual network in the organization.
 
 #### Step 4: Deploy the security admin configuration
  
-After the deployment of the security admin configuration, all virtual networks in the company have the deny inbound SSH traffic rule enforced by the security admin rule. No individual team can modify the deny rule. They can only be defined by company administrator. The App virtual networks have both an allow inbound SSH traffic rule and a deny inbound SSH traffic rule (inherited from All network group rule). With a smaller priority number on the allow inbound SSH traffic rule for App network group, the rule is evaluated first. When inbound SSH traffic comes to an App VNet, the higher priority security admin rule allows the traffic. Assuming there are NSGs on the subnets of the App virtual networks, this inbound SSH traffic is next evaluated based on NSGs set by the application team. The security admin rule methodology described here allows the company administrator to effectively enforce company policies and create flexible security guard rails across an organization that work with NSGs.
+After you deploy the security admin configuration, all virtual networks in the company have the deny inbound SSH traffic rule enforced by the security admin rule. No individual team can modify the deny rule. Only the company administrator can define it. The *App* virtual networks have both an allow inbound SSH traffic rule and a deny inbound SSH traffic rule (inherited from *All network group* rule). The allow inbound SSH traffic rule for the *App network group* is at priority 10, so it's evaluated first. When inbound SSH traffic comes to an *App* virtual network, the rule at priority 10 allows the traffic. Assuming there are NSGs on the subnets of the *App* virtual networks, this inbound SSH traffic is next evaluated based on NSGs set by the application team. The security admin rule methodology described here allows the company administrator to effectively enforce company policies and create flexible security guard rails across an organization that work with NSGs.
 
 ## Next steps
 

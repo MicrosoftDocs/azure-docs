@@ -5,6 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.custom: linux-related-content
 ms.date: 04/07/2025
+ms.update-cycle: 1825-days
 ms.topic: how-to
 ms.service: azure-automation
 ms.author: v-rochak2

@@ -71,6 +71,8 @@ items:
             href: best-practices-performance.md
           - name: Vector Search
             href: overview-vector-similarity.md
+          - name: Semantic routing
+            href: tutorial-semantic-router.md
           - name: Connection resilience best practices
             href: best-practices-connection.md
       - name: Logs and monitoring

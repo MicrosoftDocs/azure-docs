@@ -54,7 +54,7 @@ WhatsApp message templates are specific message formats that businesses use to s
 For more information about WhatsApp requirements for templates, see the WhatsApp Business Platform API references:
 - [Create and Manage Templates](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/).
 - [View Template Components](https://developers.facebook.com/docs/whatsapp/business-management-api/message-templates/components).
-- [Send Template Messages](https://developers.facebook.com/docs/whatsapp/cloud-api/guides/send-message-templates).
+- [Send Template Messages](https://developers.facebook.com/documentation/business-messaging/whatsapp/templates/overview).
 - [Adhere to opt-in requirements](https://developers.facebook.com/docs/whatsapp/overview/getting-opt-in) before sending messages to WhatsApp users.
 
 [!INCLUDE [Common setting for using Advanced Messages SDK](../common-setting-java.md)]

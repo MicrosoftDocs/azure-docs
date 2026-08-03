@@ -34,6 +34,8 @@ Several features of Azure NetApp Files require that you have an Active Directory
 
 * The AD connection admin account supports Kerberos AES-128 and Kerberos AES-256 encryption types for authentication with AD DS for Azure NetApp Files computer account creation (for example, AD domain join operations).
 
+* The AD connection admin account must not have **Use Kerberos DES encryption types for this account** selected in its account options.
+
 > [!NOTE]
 > If you encounter the error LDAP "Error: (50): 'Insufficient access' (for example, getLdapConnToSetEtypeAttr)", the Active Directory connection account likely lacks sufficient permissions. Verify that the account has the required privileges to update Kerberos encryption settings, including **write access to the msDS-SupportedEncryptionTypes attribute**, or is a member of an appropriate administrative group. This behavior is expected when required permissions are not assigned.
 

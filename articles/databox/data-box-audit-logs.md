@@ -4,7 +4,7 @@ description: Describes the full audit logs for Data Box that are collected at th
 services: databox
 author: stevenmatthew
 
-ms.service: azure-databox
+ms.service: azure-data-box
 ms.topic: concept-article
 ms.date: 03/06/2025
 ms.author: shaas

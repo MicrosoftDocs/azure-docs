@@ -6,7 +6,7 @@ services: application-gateway
 author: mbender-ms
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 07/16/2026
+ms.date: 08/03/2026
 ms.author: mbender 
 ms.custom: devx-track-azurepowershell
 # Customer intent: "As a cloud administrator, I want to configure TLS policies on an Application Gateway using PowerShell, so that I can enhance security and control encryption standards for my web applications."
@@ -214,7 +214,7 @@ $appgw = New-AzApplicationGateway -Name appgwtest -ResourceGroupName $rg.Resourc
 To set a custom TLS policy, pass the following parameters: **PolicyType**, **MinProtocolVersion**, **CipherSuite**, and **ApplicationGateway**. To set a Predefined TLS policy, pass the following parameters: **PolicyType**, **PolicyName**, and **ApplicationGateway**. If you attempt to pass other parameters, you get an error when creating or updating the Application Gateway.
 
 > [!NOTE]
-> Using a new Predefined or Customv2 policy enhances SSL security and performance posture of the entire gateway (SSL Policy and SSL Profile). Hence, both old and new policies cannot coexist. You are required to use any of the older predefined or custom policies across the gateway, in case there are clients requiring older TLS version or ciphers (for example, TLS v1.0).
+> Both legacy and new (2022 Predefined or CustomV2) SSL policies can't coexist on the same gateway. If any clients require older TLS versions or ciphers (for example, TLS 1.0), use a legacy predefined or custom policy across the gateway. For details, see [SSL policy overview](./application-gateway-ssl-policy-overview.md).
 
 In the following example, there are code samples for both Custom Policy and Predefined Policy. Uncomment the policy you want to use.
 
