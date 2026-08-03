@@ -14,6 +14,8 @@ ms.custom: devx-track-dotnet
 
 # Overview of Durable Functions in the .NET isolated worker
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 The .NET isolated worker lets you run Durable Functions on any supported .NET version independently of the Azure Functions host process. This model gives you full control over dependency injection, middleware, and .NET versioning.
 
 In this article, you learn about:

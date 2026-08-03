@@ -3,7 +3,7 @@ title: Services that support customer-managed keys in Azure
 description: Find services that support customer-managed keys with Azure Key Vault and Azure Key Vault Managed HSM for server-side encryption.
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 07/27/2026
+ms.date: 08/03/2026
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
@@ -59,7 +59,7 @@ The following services support server-side encryption with customer-managed keys
 | Product, feature, or service | Key Vault | Managed HSM | Documentation |
 |---|---|---|---|
 | [Azure Kubernetes Service](/azure/aks/) | Yes | Yes | [Enable host encryption on your AKS cluster nodes](/azure/aks/enable-host-encryption) |
-| [Azure Red Hat OpenShift](/azure/openshift/) | Yes | | [Bring your own keys (BYOK) with Azure Red Hat OpenShift](/azure/openshift/howto-byok) |
+| [Azure Red Hat OpenShift](/azure/openshift/) | Yes | Yes | [Bring your own keys (BYOK) with Azure Red Hat OpenShift](/azure/openshift/howto-byok) |
 | [Container Instances](/azure/container-instances/) | Yes | | [Encrypt data with a customer-managed key](/azure/container-instances/container-instances-encrypt-data#encrypt-data-with-a-customer-managed-key) |
 | [Container Registry](/azure/container-registry/) | Yes | | [Encrypt container images with a customer-managed key](/azure/container-registry/container-registry-customer-managed-keys) |
 

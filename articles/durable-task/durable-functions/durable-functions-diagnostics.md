@@ -14,6 +14,8 @@ ms.devlang: csharp
 
 # Diagnose and troubleshoot issues in Durable Functions
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Durable Functions provides several diagnostic tools for troubleshooting orchestrations. This article covers how to configure tracking and logging, write replay-safe code, inspect distributed traces, and debug locally.
 
 In this article, you learn how to:

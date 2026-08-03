@@ -24,6 +24,9 @@ Custom orchestration status lets you attach arbitrary JSON metadata to a running
 > The custom status payload is limited to 16 KB of UTF-16 JSON text. If you need a larger payload, use external storage and store a reference (such as a blob URL) in the custom status instead.
 
 ::: zone pivot="durable-functions"
+
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 In Azure Functions, this status is available via the [HTTP GetStatus API](../durable-functions/durable-functions-http-api.md#get-instance-status) or the equivalent [SDK API](durable-task-instance-management.md#query-instances) on the orchestration client object.
 ::: zone-end
 
