@@ -17,7 +17,7 @@ The Azure Automation Process Automation feature supports several types of runboo
 
 | Type | Description |
 |:--- |:--- |
-| [PowerShell](#powershell-runbooks) <br>(recommended) |Textual runbook based on Windows PowerShell scripting.  The currently supported versions are Powershell 7.6 ,PowerShell 7.4 and PowerShell 5.1. Since [PowerShell 7.1](/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) and PowerShell 7.2 are no longer supported by parent product PowerShell, we recommend that you create runbooks in long term supported version PowerShell 7.6 or Powershell 7.4 |
+| [PowerShell](#powershell-runbooks) <br>(recommended) |Textual runbook based on Windows PowerShell scripting.  The currently supported versions are PowerShell 7.6, PowerShell 7.4, and PowerShell 5.1. Since [PowerShell 7.1](/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) and PowerShell 7.2 are no longer supported by parent product PowerShell, create runbooks in long-term supported version PowerShell 7.6 or PowerShell 7.4. |
 | [PowerShell Workflow](#powershell-workflow-runbooks)|Textual runbook based on Windows PowerShell Workflow scripting. |
 | [Python](#python-runbooks) <br>(recommended) |Textual runbook based on Python scripting. The currently supported version is Python 3.10. Since [Python 2.7](https://devguide.python.org/versions/) and Python 3.8 are no longer supported by parent product Python, we recommend that you create runbooks in Python 3.10.|
 | [Graphical](#graphical-runbooks)|Graphical runbook based on Windows PowerShell and created and edited completely in the graphical editor in Azure portal. |
