@@ -287,7 +287,7 @@ Here are the basic steps to create an alert rule for your App Service Environmen
 
    1. Set the **Signal name** to use a **Custom log search**. The **Logs** pane opens.
 
-   1. In the **Logs** pane, build a query for the alert. For example, `AppServiceEnvironmentPlatformLogs | where ResultDescription contains 'has begun scaling'`. You can also start with a predefined query and modify as needed. Save your query.
+   1. In the **Logs** pane, build a query for the alert. For example, `AppServiceEnvironmentPlatformLogs | where ResultDescription contains 'has begun scaling'`. You can also start with a predefined query and modify it as needed. Save your query.
 
    1. Configure other conditions for the rule, such as the **Threshold value** in the **Alert logic** group. 
 
