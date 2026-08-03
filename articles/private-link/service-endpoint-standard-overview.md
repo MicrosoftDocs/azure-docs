@@ -15,13 +15,15 @@ ms.custom: references_regions
 A standard service endpoint enables you to securely connect IaaS workloads to PaaS resources using [network security perimeter](network-security-perimeter-concepts.md) and network identifiers ([public IPs](../virtual-network/ip-services/public-ip-addresses.md)). This capability addresses the scale limitations in basic [service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md) and simplifies configuration for more secure and efficient cloud environments.
 
 > [!IMPORTANT]
-> Standard service endpoint is currently in public preview. This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Standard service endpoint is currently in preview. This preview is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## How a standard service endpoint works
 
 A standard service endpoint introduces the concept of a **network identifier** - a public IP address that you associate with service endpoints on your subnets. The public IP address is only used as method of identification of the traffic connecting directly to the virtual network to the service.
 
 To configure a standard service endpoint, you create a public IP address, associate it as a network identifier with service endpoints on your subnets, secure your PaaS resources within a network security perimeter, and add IP-based inbound access rules that match the network identifier. The network identifier identifies traffic from your subnets and the network security perimeter authorizes it. You can assign the same public IP address to all subnets in a region and subscription, which dramatically reduces the number of ACL entries required compared to basic service endpoints. A single network identifier can represent many VNets and subnets.
+
+:::image type="content" source="./media/service-endpoint-standard-overview/service-endpoint-standard-diagram.png" alt-text="Diagram of virtual networks across two subscriptions that share a single public IP network identifier on their service endpoints, which a network security perimeter allows inbound to Azure PaaS resources in a customer tenant." lightbox="./media/service-endpoint-standard-overview/service-endpoint-standard-diagram.png":::
 
 For step-by-step implementation instructions, see:
 
@@ -37,8 +39,8 @@ Service endpoints with network identifiers are available for the following Azure
 |---------|------------------|-------------|
 | [Azure Storage](../storage/common/storage-network-security.md) | *Microsoft.Storage* | Generally available in all Azure regions |
 | [Azure Key Vault](/azure/key-vault/general/overview-vnet-service-endpoints) | *Microsoft.KeyVault* | Generally available in all Azure regions |
-| [Azure SQL Database](/azure/azure-sql/database/vnet-service-endpoint-rule-overview) | *Microsoft.Sql* | In public preview |
-| [Azure Cosmos DB](/azure/cosmos-db/how-to-configure-vnet-service-endpoint) | *Microsoft.AzureCosmosDB* | In public preview |
+| [Azure SQL Database](/azure/azure-sql/database/vnet-service-endpoint-rule-overview) | *Microsoft.Sql* | In preview |
+| [Azure Cosmos DB](/azure/cosmos-db/how-to-configure-vnet-service-endpoint) | *Microsoft.AzureCosmosDB* | In preview |
 
 ## Key benefits
 
@@ -52,7 +54,7 @@ A standard service endpoint provides the following benefits:
 
 - **Network identifier support**: Associate public IPs with subnets for flexible, multi-subscription connectivity. The same public IP can be reused across multiple VNets and subscriptions within the same tenant.
 
-- **Cross-subscription support**: Reuse public IPs as network identifiers across subscriptions within the same tenant and region during public preview.
+- **Cross-subscription support**: Reuse public IPs as network identifiers across subscriptions within the same tenant and region during preview.
 
 ## Compare connectivity options
 
@@ -74,17 +76,17 @@ The following table compares basic service endpoints, standard service endpoints
 
 - All service endpoints in a subnet must reference the same network identifier, otherwise the operation fails.
 
-- **Resource reusability**: The public preview supports reusing public IPs as network identifiers across subscriptions within the same tenant and region. Cross-tenant and cross-region sharing aren't supported. Public IP prefixes can be used in other deployment scenarios, such as NAT Gateway or Load Balancer.
+- **Resource reusability**: The preview supports reusing public IPs as network identifiers across subscriptions within the same tenant and region. Cross-tenant and cross-region sharing aren't supported. Public IP prefixes can be used in other deployment scenarios, such as NAT Gateway or Load Balancer.
 
 - **PaaS resource access controls**: Network security perimeter allows restricted public access to PaaS resources through IP-based rules using public IP prefixes or instances. Up to 200 prefixes and 1,000 PaaS resources per network security perimeter are supported.
 
 ## Feature availability
 
-The feature is currently available in Public cloud and the following national clouds: Mooncake, Fairfax, UsSec, and UsNAT. Bleu, Delos, and GovSG aren't yet enabled for Public Preview.
+The feature is currently available in Public cloud and the following national clouds: Mooncake, Fairfax, UsSec, and UsNAT. Bleu, Delos, and GovSG aren't enabled for Preview.
 
 ## Pricing
 
-Standard Service Endpoint is available at no charge in July 2026. Billing is expected to begin after the public preview announcement, currently targeted for August 2026.
+Standard Service Endpoint is available at no charge in July 2026. Billing is expected to begin after the preview announcement, currently targeted for August 2026.
 
 ## Network security perimeter best practices
 
@@ -112,7 +114,7 @@ Yes. The same public IP can be referenced by multiple VNets for service endpoint
 
 ### Can I use the same public IP across subscriptions?
 
-Yes. Cross-subscription support is available during public preview within the same tenant.
+Yes. Cross-subscription support is available during preview within the same tenant.
 
 ### What permissions are required to configure this feature?
 

@@ -22,7 +22,7 @@ IoT Hub uses X.509 certificates to authenticate devices. X.509 authentication al
 This article describes how to use third-party managed X.509 CA certificates to authenticate devices connecting to IoT Hub.
 
 > [!NOTE]
-> The information in this article is superseded by the information in [Certificate management in Azure Device Registry (preview)](../iot/iot-hub-certificate-management-overview.md). For the most up-to-date information, see that article.
+> The information in this article is superseded by the information in [Certificate management in Azure Device Registry (preview)](../iot/iot-certificate-management-overview.md). For the most up-to-date information, see that article.
 
 ## Authentication and authorization
 
@@ -43,7 +43,7 @@ IoT Hub supports two types of PKI providers for X.509 certificate authentication
 | Microsoft-managed PKI | No. Configure certificate authorities directly in Azure Device Registry (ADR).| Yes | Yes |
 | Third-party PKI (DigiCert, GlobalSign, etc.) | Yes. Manual integration required.  | No | No |
 
-This article focuses on third-party PKI providers. If you want to use Microsoft-managed PKI with X.509 certificates, see [What is certificate management?](../iot/iot-hub-certificate-management-overview.md)
+This article focuses on third-party PKI providers. If you want to use Microsoft-managed PKI with X.509 certificates, see [What is certificate management?](../iot/iot-certificate-management-overview.md)
 
 ## Types of certificate authentication
 

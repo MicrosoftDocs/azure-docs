@@ -14,7 +14,7 @@ zone_pivot_groups: iot-hub-deployment-methods
 
 # Deploy Azure IoT Hub with Device Registry integration and certificate management (preview)
 
-This article explains how to deploy Azure IoT Hub with [Azure Device Registry](iot-hub-device-registry-overview.md) integration and [Microsoft-backed X.509 certificate management](../iot/iot-hub-certificate-management-overview.md).
+This article explains how to deploy Azure IoT Hub with [Azure Device Registry](iot-hub-device-registry-overview.md) integration and [Microsoft-backed X.509 certificate management](../iot/iot-certificate-management-overview.md).
 
 [!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
 

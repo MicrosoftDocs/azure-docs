@@ -7835,12 +7835,12 @@
     },
     {
       "source_path": "articles/iot-hub/iot-hub-certificate-management-concepts.md",
-      "redirect_url": "../iot/iot-hub-certificate-management-concepts",
+      "redirect_url": "../iot/iot-certificate-management-concepts",
       "redirect_document_id": false
     },
     {
       "source_path": "articles/iot-hub/iot-hub-certificate-management-overview.md",
-      "redirect_url": "../iot/iot-hub-certificate-management-overview",
+      "redirect_url": "../iot/iot-certificate-management-overview",
       "redirect_document_id": false
     },
     {

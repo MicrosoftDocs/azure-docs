@@ -39,7 +39,7 @@ In this section, you set up your Device Registry namespace, enable certificate m
 
 ### Create a Device Registry namespace with certificate management enabled
 
-When you create a namespace with certificate management enabled, the process creates a credential known as root certificate authority (CA) and a default policy known as intermediate CA. [Certificate management](../articles/iot/iot-hub-certificate-management-overview.md) uses these credentials and policies to onboard devices to the namespace.
+When you create a namespace with certificate management enabled, the process creates a credential known as root certificate authority (CA) and a default policy known as intermediate CA. [Certificate management](../articles/iot/iot-certificate-management-overview.md) uses these credentials and policies to onboard devices to the namespace.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and select **Azure Device Registry**.
