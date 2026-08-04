@@ -173,13 +173,11 @@ When you enable replication, you might see a "Subscription not found" error, or 
 The **Microsoft.Storage** resource provider isn't registered in the subscription being used for Site Recovery. As a result, Azure Site Recovery can't discover or access the cache storage account required for replication configuration.
 
 ### Resolution
-1. Navigate to **Subscriptions** in the Azure portal.
-1. Select the affected subscription.
-1. Open **Resource providers**.
-1. Search for **Microsoft.Storage**.
+1. Go to **Subscriptions** in the Azure portal and select the affected subscription.
+1. Open **Resource providers** and search for **Microsoft.Storage**.
 1. If the provider isn't registered, select **Register**.
-1. Wait for the registration to complete.
-1. Refresh the Azure portal and retry enabling replication.
+
+Wait for the registration to complete, refresh the Azure portal and retry enabling replication.
 
 ## Next steps
 
