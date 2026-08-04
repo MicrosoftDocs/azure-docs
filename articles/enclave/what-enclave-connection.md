@@ -19,27 +19,27 @@ Enclave connections can also enable secured public access to resources within an
 
 ![Diagram showing connections between two enclaves and connections to external resources.](./media/connections-two-enclaves-enclave-external.png)
 
-## Enclave Connection Types
+## Enclave connection types
 
 Enclave connections support multiple source and destination configurations:
 
-### Enclave-to-Enclave Connections
+### Enclave-to-enclave connections
 
 Connect resources in one enclave to resources in another enclave within the same community. Enclave to enclave connections enable secure communication between isolated workloads while maintaining network boundaries.
 
-### Enclave-to-Community Endpoint Connections
+### Enclave-to-community endpoint connections
 
 Connect resources in an enclave to external destinations defined in a community endpoint. Community endpoints enable controlled outbound access to:
 - Public internet destinations (via IP, FQDN, FQDN Tag, or Service Tag rules)
 - External private networks (via transit hub connections)
 
-### Transit Hub-to-Enclave Connections
+### Transit hub-to-enclave connections
 
 Enable inbound connectivity from external networks to resources within an enclave. The transit hub serves as the connection source, allowing traffic from on-premises networks or other Azure virtual networks to reach enclave workloads.
 
-## Connection Security
+## Connection security
 
-All enclave connections are governed by multiple layers of network security to maintain isolation and control:
+Multiple layers of network security govern all enclave connections to maintain isolation and control:
 
 - **Azure Firewall rules** - Traffic is evaluated against community-level firewall policies
 - **Network security groups** - Enclave-level network security groups (NSGs) provide extra traffic filtering
@@ -48,7 +48,7 @@ All enclave connections are governed by multiple layers of network security to m
 
 See [template documentation](./azure-enclave-templates.md#resource-modules)
 
-## Next Steps
+## Next steps
 
 - [What is a community endpoint?](./what-community-endpoint.md)
 - [What is a transit hub?](./what-transit-hub.md)
