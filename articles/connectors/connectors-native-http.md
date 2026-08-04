@@ -224,8 +224,6 @@ For example, if you're working in Visual Studio Code, follow these steps:
    }
    ```
 
-
-
 > [!NOTE]
 >
 > To find the thumbprint, follow these steps:
