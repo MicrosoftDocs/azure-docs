@@ -88,7 +88,7 @@ The HA ports load-balancing rules help you with critical scenarios, such as high
 
 HA Ports are commonly used for Network Virtual Appliances (NVAs) such as firewalls, VPNs, or SD-WAN devices, where defining individual load-balancing rules per port is not practical. Traffic is distributed per connection flow (5-tuple), and health probes are used to ensure traffic is sent only to healthy instances.
 
-HA Ports are not supported on Basic Load Balancer (retired) or public load balancers, and are not intended for typical web or application workloads that require port-specific rules.
+Basic Load Balancer (retired) and public load balancers don't support HA ports. HA ports aren't intended for typical web or application workloads that require port-specific rules.
 
 :::image type="content" source="media/load-balancer-components/harules.png" alt-text="Screenshot of Azure Load Balancer HA ports configuration diagram showing frontend ports directing to backend instances.":::
 
