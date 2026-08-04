@@ -4,7 +4,7 @@ description: Learn how to develop Java applications and services that use Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 04/08/2025
+ms.date: 08/04/2026
 ms.author: kendownie
 ms.custom:
   - devx-track-java
@@ -28,7 +28,7 @@ Azure Files offers several ways for Java developers to access data and manage re
 | Approach | How it works | When to use |
 | --- | --- | --- |
 | Standard file I/O libraries | Uses OS-level API calls through Azure file shares mounted using SMB or NFS. When you mount a file share using SMB/NFS, you can use file I/O libraries for a programming language or framework, such as `java.io` and `java.nio` for Java. | You have line-of-business apps with existing code that uses standard file I/O, and you don't want to rewrite code for the app to work with an Azure file share. |
-| FileREST API | Directly calls HTTPS endpoints to interact with data stored in Azure Files. Provides programmatic control over file share resources. The Azure SDK provides the File Shares client library (`com.azure.storage.file.share`) that builds on the FileREST API, allowing you interact with FileREST API operations through familiar Java programming language paradigms. | You're building value-added cloud services and apps for customers and you want to use advanced features not available through standard file I/O libraries. |
+| FileREST API | Directly calls HTTPS endpoints to interact with data stored in Azure Files. Provides programmatic control over file share resources. The Azure SDK provides the File Shares client library (`com.azure.storage.file.share`) that builds on the FileREST API, allowing you to interact with FileREST API operations through familiar Java programming language paradigms. | You're building value-added cloud services and apps for customers and you want to use advanced features not available through standard file I/O libraries. |
 | Storage resource provider REST API | Uses Azure Resource Manager (ARM) to manage storage accounts and file shares. Calls REST API endpoints for various resource management operations. | Your app or service needs to perform resource management tasks, such as creating, deleting, or updating storage accounts or file shares. |
 
 For general information about these approaches, see [Overview of application development with Azure Files](storage-files-developer-overview.md).
@@ -75,7 +75,7 @@ Add **azure-sdk-bom** to take a dependency on the latest version of the library.
 </dependencyManagement>
 ```
 
-Add the following dependency elements to the group of dependencies. The **azure-identity** dependency is needed for passwordless connections to Azure services. Note that the resource manager artifacts are not included in the BOM file, so you need to add them as direct dependencies.
+Add the following dependency elements to the group of dependencies. The **azure-identity** dependency is needed for passwordless connections to Azure services. The resource manager artifacts aren't included in the BOM file, so add them as direct dependencies.
 
 ```xml
 <dependency>
@@ -136,7 +136,7 @@ To take a dependency on a particular version of the library, add the direct depe
 
 ### Include import directives
 
-Then open your code file and add the necessary `import` directives. In this example, we add the following directives in the *App.java* file:
+Then open your code file and add the necessary `import` directives. This example adds the following directives in the *App.java* file:
 
 ```java
 import com.azure.identity.*;
@@ -177,7 +177,7 @@ To use Java file I/O libraries, you must first mount a file share. See the follo
 - [Mount an SMB file share on Linux](storage-how-to-use-files-linux.md)
 - [Mount an NFS file share on Linux](storage-files-how-to-mount-nfs-shares.md)
 
-In this article, we use the following path to refer to a mounted SMB file share on Windows:
+This article uses the following path to refer to a mounted SMB file share on Windows:
 
 ```java
 String fileSharePath = "Z:\\file-share";
@@ -281,7 +281,7 @@ try (
 }
 ```
 
-When using both SMB and the FileREST API, keep in mind that the FileREST API uses [leases](#example-lease-a-file-using-the-file-shares-client-library) to manage file locks, while SMB uses file system locks managed by the operating system. To learn more about managing file locking interactions between SMB and the FileREST API, see [Manage file locks](/rest/api/storageservices/managing-file-locks).
+When using both SMB and the FileREST API, note that the FileREST API uses [leases](#example-lease-a-file-using-the-file-shares-client-library) to manage file locks, while SMB uses file system locks managed by the operating system. To learn more about managing file locking interactions between SMB and the FileREST API, see [Manage file locks](/rest/api/storageservices/managing-file-locks).
 
 ### Example: Enumerate file ACLs using Java file I/O libraries
 
@@ -327,13 +327,13 @@ try {
 
 The FileREST API provides programmatic access to Azure Files. It allows you to call HTTPS endpoints to perform operations on file shares, directories, and files. The FileREST API is designed for high scalability and advanced features that might not be available through native protocols. The Azure SDK provides client libraries, such as the File Shares client library for Java, that build on the FileREST API.
 
-Consider using the FileREST API and the File Share client library if your application requires:
+Consider using the FileREST API and the File Shares client library if your application requires:
 
 - **Advanced features:** Access operations and features that aren't available through native protocols.
 - **Custom cloud integrations:** Build custom value-added services, such as backup, antivirus, or data management, that interact directly with Azure Files.
 - **Performance optimization:** Benefit from performance advantages in high-scale scenarios using data plane operations.
 
-The FileREST API models Azure Files as a hierarchy of resources, and is recommended for operations that are performed at the *directory* or *file* level. You should prefer the [Storage resource provider REST API](#manage-azure-files-resources-using-the-azure-storage-management-libraries) for operations that are performed at the *file service* or *file share* level.
+The FileREST API models Azure Files as a hierarchy of resources, and is recommended for operations that are performed at the *directory* or *file* level. Use the [Storage resource provider REST API](#manage-azure-files-resources-using-the-azure-storage-management-libraries) for operations that are performed at the *file service* or *file share* level.
 
 In this section, you learn how to use the File Shares client library for Java to work with Azure Files resources.
 
@@ -347,7 +347,7 @@ To connect an app to Azure Files, create a `ShareClient` object. This object is 
 
 ## [Microsoft Entra ID (recommended)](#tab/entra-id)
 
-To authorize with Microsoft Entra ID, you'll need to use a security principal. Which type of security principal you need depends on where your app runs. To learn more about authentication scenarios, see [Azure authentication with Java and Azure Identity](/azure/developer/java/sdk/authentication/overview).
+To authorize with Microsoft Entra ID, use a security principal. The type of security principal you need depends on where your app runs. To learn more about authentication scenarios, see [Azure authentication with Java and Azure Identity](/azure/developer/java/sdk/authentication/overview).
 
 To work with the code examples in this article, assign the Azure RBAC built-in role **Storage File Data Privileged Contributor** to the security principal. This role provides full read, write, modify ACLs, and delete access on all the data in the shares for all the configured storage accounts regardless of the file/directory level NTFS permissions that are set. For more information, see [Access Azure file shares using Microsoft Entra ID with Azure Files OAuth over REST](authorize-oauth-rest.md).
 
@@ -552,7 +552,7 @@ try {
 }
 ```
 
-When using both SMB and the FileREST API, keep in mind that the FileREST API uses [leases](#example-lease-a-file-using-the-file-shares-client-library) to manage file locks, while SMB uses file system locks managed by the operating system. To learn more about managing file locking interactions between SMB and the FileREST API, see [Manage file locks](/rest/api/storageservices/managing-file-locks).
+When using both SMB and the FileREST API, note that the FileREST API uses [leases](#example-lease-a-file-using-the-file-shares-client-library) to manage file locks, while SMB uses file system locks managed by the operating system. To learn more about managing file locking interactions between SMB and the FileREST API, see [Manage file locks](/rest/api/storageservices/managing-file-locks).
 
 ### Example: Create and list share snapshots using the File Shares client library
 
@@ -622,13 +622,9 @@ private static void listDirectoryTree(ShareDirectoryClient directory) {
 >[!NOTE]
 > OAuth tokens, such as those obtained when using `DefaultAzureCredential`, aren't allowed for data plane operations at the file share level. To work with share snapshots, the client object must be authorized using the account key. The `ShareClient` object created in this code example uses a connection string, which includes the account key.
 >
-> Storing account keys or connection strings presents a security risk. You should only use them when Microsoft Entra authentication isn't available. To learn more about securely authorizing access to storage, see [Authorize access to data in Azure Storage](/azure/storage/common/authorize-data-access).
+> Storing account keys or connection strings presents a security risk. Only use them when Microsoft Entra authentication isn't available. To learn more about securely authorizing access to storage, see [Authorize access to data in Azure Storage](/azure/storage/common/authorize-data-access).
 
 ## Manage Azure Files resources using the Azure Storage management libraries
-
-The Azure Storage management libraries are built on the Azure Storage resource provider REST API. The Azure Storage resource provider is a service based on [Azure Resource Manager](/azure/azure-resource-manager/management/overview), and supports both declarative (templates) and imperative (direct API call) methods. The Azure Storage resource provider REST API provides programmatic access to Azure Storage resources, including file shares. The Azure SDK provides management libraries that build on the Azure Storage resource provider REST API.
-
-The management libraries are recommended for operations that are performed at the *file service* or *file share* level. In this section, you learn how to use the Azure Storage management libraries to manage Azure Files resources.
 
 The Azure Storage management libraries are built on the Azure Storage resource provider REST API. The Azure Storage resource provider is a service based on [Azure Resource Manager](/azure/azure-resource-manager/management/overview), and supports both declarative (templates) and imperative (direct API call) methods. The Azure Storage resource provider REST API provides programmatic access to Azure Storage resources, including file shares. The Azure SDK provides management libraries that build on the Azure Storage resource provider REST API.
 
