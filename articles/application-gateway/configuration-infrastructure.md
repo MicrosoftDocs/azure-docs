@@ -8,6 +8,7 @@ ms.topic: concept-article
 ms.date: 09/05/2025
 ms.author: mbender
 # Customer intent: As a cloud architect, I want to configure the Azure Application Gateway infrastructure, so that I can ensure optimal deployment within my virtual network and manage network security, addressing, and permissions efficiently.
+ai-usage: ai-assisted
 ---
 
 # Application Gateway infrastructure configuration
