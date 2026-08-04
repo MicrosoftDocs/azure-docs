@@ -33,7 +33,7 @@ For customers using a Hub and Spoke or Mesh topology, determine how many private
 
 
 > [!NOTE]
-> The ARG mv-expand operator has a default 128-element per-row cap that silently truncates results in large-scale environments. Note that adding limit up to the VNet Peering limit of 1000 will help produce more accurate result [mv-expand operator](https://learn.microsoft.com/en-us/kusto/query/mv-expand-operator?view=microsoft-fabric)
+> The ARG `mv-expand` operator has a default 128-element per-row cap that silently truncates results in large-scale environments. Adding `limit` up to the VNet Peering limit of 1,000 helps produce a more accurate result. For more information, see [mv-expand operator](https://learn.microsoft.com/en-us/kusto/query/mv-expand-operator?view=microsoft-fabric).
 
 
 ```Azure Resource Graph
