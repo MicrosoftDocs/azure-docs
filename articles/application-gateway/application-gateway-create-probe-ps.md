@@ -163,7 +163,7 @@ Set-AzApplicationGateway -ApplicationGateway $getgw
 
 ## Get the application gateway public IP address
 
-After the gateway is created, retrieve its static public IP address. To use a custom domain, create an A record that maps the domain to this address. For more information, see [Map a custom domain to an Azure resource](../dns/dns-custom-domain.md?toc=%2fazure%2fdns%2ftoc.json#public-ip-address).
+After you create the gateway, retrieve its static public IP address. To use a custom domain, create an A record that maps the domain to this address. For more information, see [Map a custom domain to an Azure resource](../dns/dns-custom-domain.md?toc=%2fazure%2fdns%2ftoc.json#public-ip-address).
 
 ```powershell
 $publicip = Get-AzPublicIpAddress -ResourceGroupName appgw-rg -Name publicIP01
