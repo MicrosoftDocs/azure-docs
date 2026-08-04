@@ -105,7 +105,7 @@ PowerShell 7.6 is available in [runtime environment experience](runtime-environm
 
 **Limitations**
 > [!NOTE]
-> PowerShell 7.4 runtime version supports both Cloud and Hybrid jobs in all regions.
+> PowerShell 7.4 runtime version supports both cloud and hybrid jobs in all regions.
 
 - Powershell 7.4 is only available in [runtime environment experience](runtime-environment-overview.md).
 - For the PowerShell 7.4 runtime version, the module activities aren't extracted for the imported modules. Use [Azure Automation extension for VS Code](automation-runbook-authoring.md) to simplify runbook authoring experience.
