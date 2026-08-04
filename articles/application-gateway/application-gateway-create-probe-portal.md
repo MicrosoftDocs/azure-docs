@@ -10,6 +10,7 @@ ms.date: 08/04/2026
 ms.author: mbender
 ms.custom: sfi-image-nochange
 # Customer intent: As an IT administrator, I want to create a custom health probe for the application gateway using the portal, so that I can monitor the health of backend resources effectively.
+ai-usage: ai-assisted
 ---
 
 # Create a custom probe for Application Gateway by using the portal
