@@ -20,12 +20,9 @@ items:
         displayName: Microsoft Discovery, Studio, web interface, investigations
   - name: Quickstarts
     items:
-      - name: Quickstart - Deploy infrastructure using Azure portal
-        href: quickstart-infrastructure-portal.md
-        displayName: Microsoft Discovery, quickstart, infrastructure, portal, getting started
-      - name: Quickstart - Deploy infrastructure using Bicep
-        href: quickstart-infrastructure-bicep.md
-        displayName: Microsoft Discovery, quickstart, Bicep, infrastructure, deployment, getting started
+      - name: Quickstart - Deploy infrastructure (portal or Bicep)
+        href: quickstart-infrastructure.md
+        displayName: Microsoft Discovery, quickstart, infrastructure, portal, Bicep, getting started
       - name: Quickstart - First set of Agent and investigation
         href: quickstart-agents-studio.md
         displayName: Microsoft Discovery, quickstart, project, studio, getting started
@@ -156,6 +153,9 @@ items:
           - name: Run and manage jobs on Supercomputer using REST APIs
             href: how-to-run-jobs-supercomputer-rest-api.md
             displayName: Microsoft Discovery, services, how to, jobs, supercomputers
+          - name: Configure secure networking for Supercomputer
+            href: how-to-configure-supercomputer-network-security.md
+            displayName: Microsoft Discovery, supercomputer, secure networking, virtual network, subnets, egress
           - name: Manage Workspaces
             href: how-to-manage-workspaces.md
             displayName: Microsoft Discovery, workspace, create, update, delete, networking, supercomputers
@@ -272,3 +272,5 @@ items:
     items:
     - name: REST API
       href: /rest/api/discovery/
+    - name: Python SDKs
+      href: reference-python-sdks.md

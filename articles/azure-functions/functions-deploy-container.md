@@ -27,7 +27,7 @@ Before you can deploy your container to Azure, you need to create three resource
 * A function app, which provides the environment for executing your function code. A function app maps to your local function project and lets you group functions as a logical unit for easier management, deployment, and sharing of resources. 
 
 >[!IMPORTANT]
->This article currently shows how to connect to both the Azure Storage account and your container registry by using connection strings and other shared secret credentials. For the best security, you should instead use only a managed identity-based connection to both your storage account and to Azure Container Registry using Microsoft Entra authentication. For more information, see the [Functions developer guide](./functions-reference.md#connections).
+>This article currently shows how to connect to both the Azure Storage account and your container registry by using connection strings and other shared secret credentials. For the best security, you should instead use only a managed identity-based connection to both your storage account and to Azure Container Registry using Microsoft Entra authentication. For more information, see the [Functions developer guide](./manage-connections.md).
 
 Use the following commands to create these items. Both Azure CLI and PowerShell are supported. To create your Azure resources using Azure PowerShell, you also need the [Az PowerShell module](/powershell/azure/install-az-ps), version 5.9.0 or later.
 
@@ -161,7 +161,7 @@ A function app on Azure manages the execution of your functions in your Azure Fu
     ---    
 
     >[!IMPORTANT]
-    >This article currently shows how to connect to the default storage account by using a connection string. For the best security, you should instead create a managed identity-based connection to Azure Storage using Microsoft Entra authentication. For more information, see the [Functions developer guide](./functions-reference.md#connections).
+    >This article currently shows how to connect to the default storage account by using a connection string. For the best security, you should instead create a managed identity-based connection to Azure Storage using Microsoft Entra authentication. For more information, see the [Functions developer guide](./manage-connections.md).
 
     Replace `<STORAGE_NAME>` with the name of the storage account you created earlier.
 

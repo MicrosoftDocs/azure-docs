@@ -41,7 +41,7 @@ For detailed information on how updates are applied, see [Demystifying the magic
 
 ## How does Azure deal with significant vulnerabilities?
 
-When high-priority issues such as [zero-day vulnerabilities](https://wikipedia.org/wiki/Zero-day_(computing)) require immediate patching, the updates are handled on a case-by-case basis. To stay current with critical Azure security announcements, see the [Azure Security Blog](https://azure.microsoft.com/blog/topics/security/). 
+When high-priority issues such as [zero-day vulnerabilities](https://wikipedia.org/wiki/Zero-day_(computing)) require immediate patching, Azure handles the updates on a case-by-case basis. To stay current with critical Azure security announcements, see the [Azure Security Blog](https://azure.microsoft.com/blog/product/azure-security/).
 
 ## When are supported language runtimes updated, added, or deprecated?
 

@@ -308,7 +308,7 @@ Required privileges | The user should be a part of the two user groups 1. Remote
 
 Support | Details
 --- | ---
-Supported servers | You can enable agentless dependency analysis on up to 1,000 servers (across multiple vCenter Servers) discovered per appliance.
+Supported servers | You can enable agentless dependency analysis on up to 3,000 servers (across multiple vCenter Servers) discovered per appliance.
 Windows servers | Windows Server 2022 <br/> Windows Server 2019<br /> Windows Server 2016<br /> Windows Server 2012 R2<br /> Windows Server 2012<br /> Windows Server 2008 R2 (64-bit)<br /> Windows Server 2008 (32-bit)
 Linux servers | Red Hat Enterprise Linux 6.x, 7.x, 8.x, 9.x, 9.5 <br /> Ubuntu 24.04, 22.04, 12.04, 14.04, 16.04, 18.04, 20.04, 22.04 <br /> OracleLinux 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5 <br /> SUSE Linux 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3 <br /> Debian 7, 8, 9, 10, 11 <br /> Alma Linux 8.x, 9.x <br /> Rocky Linux 8.x, 9.x
 Server requirements | VMware Tools (10.2.1 and later) must be installed and running on servers you want to analyze.<br /><br /> Windows Servers have PowerShell version 2.0 or later.<br /><br /> Linux Servers have Bash version 4.0 or later installed. <br /><br/> WMI should be enabled and available on Windows servers.

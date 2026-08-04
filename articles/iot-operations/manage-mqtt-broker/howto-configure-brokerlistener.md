@@ -33,6 +33,12 @@ Broker listeners have the following characteristics:
 
 For a list of all available settings, see the [Broker Listener API reference](/rest/api/iotoperations/broker-listener).
 
+## Set your environment variables
+
+[!INCLUDE [set-environment-variables](../includes/set-environment-variables.md)]
+
+This article also uses the following environment variables for values that you choose: `LISTENER` (the name of the broker listener), `LISTENER_PORT` (the listener port), `ISSUER_NAME`, `ISSUER_KIND`, and `ISSUER_GROUP` (the cert-manager issuer reference), and `SECRET_REFERENCE_NAME` (the TLS secret name). Set each one before you run the related commands.
+
 ## Default BrokerListener
 
 When you deploy Azure IoT Operations, the deployment creates a BrokerListener resource named *default*. This listener is used for encrypted internal communication between IoT Operations components. The default listener is part of the [default broker](./overview-broker.md#default-broker-resource).
@@ -65,7 +71,7 @@ To view or edit the default listener, follow these steps.
 Use the [az iot ops broker listener show](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-show) command to view the local MQTT broker default listener.
 
 ```azurecli
-az iot ops broker listener show --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --name default 
+az iot ops broker listener show --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --broker default --name default 
 ```
 
 # [Bicep](#tab/bicep)
@@ -134,7 +140,7 @@ resource defaultListener 'Microsoft.IoTOperations/instances/brokers/listeners@20
 Deploy the Bicep file by using the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -261,7 +267,7 @@ This example shows how to create a new listener with the `LoadBalancer` service 
 Use the [az iot ops broker listener apply](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-apply) command to create a new MQTT broker listener.
 
 ```azurecli
-az iot ops broker listener apply --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --name <ListenerName> --config-file <ConfigFilePathAndFileName>
+az iot ops broker listener apply --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --broker default --name $LISTENER --config-file config.json
 ```
 
 The `--config-file` parameter is the path and file name of a JSON configuration file containing the resource properties.
@@ -359,7 +365,7 @@ resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listene
 Deploy the Bicep file by using the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -625,7 +631,7 @@ The following example is a BrokerListener resource that enables TLS on port 8884
 Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-port-add) command to add or change a TCP port configuration to an MQTT broker listener service. If the listener exists, the command updates the existing listener. If the listener doesn't exist, the command creates a new listener.
 
 ```azurecli
-az iot ops broker listener port add --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --listener <ListenerName> --port <ListenerServicePort> --authn-ref default --tls-issuer-ref name=<IssuerName> kind=<IssuerKind> group=<IssuerGroup>
+az iot ops broker listener port add --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --broker default --listener $LISTENER --port $LISTENER_PORT --authn-ref default --tls-issuer-ref name=$ISSUER_NAME kind=$ISSUER_KIND group=$ISSUER_GROUP
 ```
 
 The following example adds a new TLS port 8884 to the listener named `aio-broker-loadbalancer`:
@@ -687,7 +693,7 @@ resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listene
 Deploy the Bicep file by using the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -850,7 +856,7 @@ The following example shows a BrokerListener resource that enables TLS on port 8
 Use the [az iot ops broker listener port add](/cli/azure/iot/ops/broker/listener#az-iot-ops-broker-listener-port-add) command to add or change a TCP port configuration to an MQTT broker listener service. If the listener exists, the command updates the existing listener. If the listener doesn't exist, the command creates a new listener.
 
 ```azurecli
-az iot ops broker listener port add --resource-group <ResourceGroupName> --instance <AioInstanceName> --broker default --listener <ListenerName> --port <ListenerServicePort> --authn-ref default --tls-man-secret-ref <SecretReferenceName>
+az iot ops broker listener port add --resource-group $RESOURCE_GROUP --instance $AIO_INSTANCE_NAME --broker default --listener $LISTENER --port $LISTENER_PORT --authn-ref default --tls-man-secret-ref $SECRET_REFERENCE_NAME
 ```
 
 The following example changes port 8885 to manual TLS for the listener named `aio-broker-loadbalancer`. It uses the secret name `server-cert-secret` that contains an X.509 client certificate.
@@ -913,7 +919,7 @@ resource loadBalancerListener 'Microsoft.IoTOperations/instances/brokers/listene
 Deploy the Bicep file by using the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group <RESOURCE_GROUP> --template-file <FILE>.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)

@@ -18,6 +18,8 @@ External events allow running orchestrations to receive signals from external so
 > **Looking to send events to an orchestration?** Jump to [Send events](#send-events).
 
 ::: zone pivot="durable-functions"
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Orchestrator functions can wait and listen for external events. This feature of [Durable Functions](what-is-durable-task.md) is often useful for handling human interaction or other external triggers.
 
 > [!NOTE]

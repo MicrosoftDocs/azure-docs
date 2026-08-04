@@ -238,7 +238,7 @@ Do the following steps to download the update from the Microsoft Update Catalog.
     The update listing appears as **Azure Stack Edge Update 2501**.
 
     > [!NOTE]
-    > Make sure to verify which workload you are running on your device [via the local UI](./azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-compute-ips-1) or [via the PowerShell](./azure-stack-edge-connect-powershell-interface.md) interface of the device. Depending on the workload that you are running, the update package will differ.
+    > Make sure to verify which workload you're running on your device [via the local UI](./azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#configure-compute-ips) or [via the PowerShell](./azure-stack-edge-connect-powershell-interface.md) interface of the device. Depending on the workload that you're running, the update package differs.
 
 	Specify the update package for your environment. Use the following table as a reference:
 

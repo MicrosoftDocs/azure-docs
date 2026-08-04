@@ -71,10 +71,6 @@ The following table lists the scenarios and recommendations:
 > [!NOTE]
 > Private endpoints are supported only with DPM 2022, Microsoft Azure Backup Server (MABS) v4, and later.
 
-## Unsupported scenario
-
-For backup and restore operations, a private endpoint-enabled Recovery Services vault is not compatible with a private endpoint-enabled Azure key vault to store CMKs in a Recovery Services vault.
-
 ## Difference in network connections for private endpoints
 
 As mentioned earlier, private endpoints are especially useful for backups of workloads (SQL Server and SAP HANA) in Azure VMs and backups of MARS agents.

@@ -3,8 +3,8 @@ title: Self-hosted integration runtime autoupdate and expire notification
 description: Learn about self-hosted integration runtime autoupdate and expire notification.
 ms.subservice: integration-runtime
 ms.topic: how-to
-author: lrtoyou1223
-ms.author: lle
+author: kromerm
+ms.author: makromer
 ms.date: 09/26/2024
 ---
 

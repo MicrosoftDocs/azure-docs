@@ -16,7 +16,7 @@ ms.custom:
 
 # Configure TCP reset and idle timeout for Azure Load Balancer
 
-Azure Load Balancer Standard rules have a timeout range of 4 minutes to 100 minutes for Load Balancer rules, Outbound Rules, and Inbound NAT rules. The default setting is 4 minutes. Azure Load Balancer Basic supports up to a 60-minute timeout range. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained between the client and your service. 
+Azure Load Balancer rules have a configurable idle timeout range of 4 minutes to 100 minutes for Load Balancer rules and Inbound NAT rules. [Outbound rules](./outbound-rules.md#idletimeout) have a configurable range of 4 minutes to 120 minutes. The default setting is 4 minutes for all rule types. If a period of inactivity is longer than the timeout value, there's no guarantee that the TCP or HTTP session is maintained between the client and your service.
 
 The following sections describe how to change idle timeout and tcp reset settings for load balancer resources.
 

@@ -5,15 +5,17 @@ author: cgillum
 ms.topic: concept-article
 ms.service: durable-task
 ms.subservice: durable-functions
-ms.date: 05/20/2026
+ms.date: 07/27/2026
 ms.author: azfuncdf
 ms.devlang: csharp
-# ms.devlang: csharp, java, javascript, python
+# ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: devx-track-dotnet
 #Customer intent: As a developer, I want to understand what data is persisted to durable storage, how that data is serialized, and how I can customize it when it doesn't work the way my app needs it to.
 ---
 
 # Data persistence and serialization in Durable Functions for Azure Functions
+
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
 
 The Durable Functions runtime automatically persists function parameters, return values, and other state to the [task hub](../common/durable-task-hubs.md) to provide reliable execution. However, the amount and frequency of data persisted to durable storage can impact application performance and storage transaction costs. Depending on the type of data your application stores, data retention and privacy policies may also need to be considered.
 
@@ -68,6 +70,374 @@ If you use Durable Task Scheduler, you can also use [large payload support](../s
 
 > [!TIP]
 > The best practice for dealing with large data is to keep it in external storage and materialize that data only inside activities, when needed.
+
+#### Pass references to large payloads
+
+The following examples apply the [Claim Check pattern](/azure/architecture/patterns/claim-check). The orchestrator receives a small reference containing a blob container and blob name, passes that reference to an activity, and returns the activity's output reference. Only the activity downloads and uploads the payload.
+
+Before you run these examples, upload a blob to any container in your storage account. Start the orchestration with a reference such as `{"container":"large-payloads","blobName":"input/job-123.json"}`. The activity creates the `processed-payloads` output container if necessary. The sample processing step copies the input bytes unchanged; replace it with your application logic.
+
+> [!IMPORTANT]
+> Never include storage credentials or a shared access signature (SAS) in the reference. The system persists the reference in orchestration history. These examples use an app setting named `PAYLOAD_STORAGE_CONNECTION_STRING` to keep the storage code concise. For production workloads, use Microsoft Entra ID to [authorize access to blob data](/azure/storage/blobs/authorize-access-azure-active-directory).
+
+# [C# (InProc)](#tab/csharp-inproc-large-payload)
+
+This example requires the [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs) NuGet package.
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using Azure.Storage.Blobs;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.DurableTask;
+
+public class BlobReference
+{
+    public string Container { get; set; } = string.Empty;
+    public string BlobName { get; set; } = string.Empty;
+}
+
+public static class LargePayloadFunctions
+{
+    [FunctionName("ProcessLargePayload")]
+    public static async Task<BlobReference> RunOrchestrator(
+        [OrchestrationTrigger] IDurableOrchestrationContext context)
+    {
+        BlobReference inputReference = context.GetInput<BlobReference>()
+            ?? throw new InvalidOperationException("A blob reference is required.");
+
+        return await context.CallActivityAsync<BlobReference>(
+            "ProcessLargePayloadActivity", inputReference);
+    }
+
+    [FunctionName("ProcessLargePayloadActivity")]
+    public static async Task<BlobReference> RunActivity(
+        [ActivityTrigger] BlobReference inputReference)
+    {
+        string connectionString =
+            Environment.GetEnvironmentVariable("PAYLOAD_STORAGE_CONNECTION_STRING")
+            ?? throw new InvalidOperationException("Payload storage is not configured.");
+        BlobServiceClient service = new BlobServiceClient(connectionString);
+
+        BlobClient inputBlob = service
+            .GetBlobContainerClient(inputReference.Container)
+            .GetBlobClient(inputReference.BlobName);
+        BinaryData inputData = (await inputBlob.DownloadContentAsync()).Value.Content;
+
+        BlobContainerClient outputContainer =
+            service.GetBlobContainerClient("processed-payloads");
+        await outputContainer.CreateIfNotExistsAsync();
+
+        string outputName = $"processed/{Guid.NewGuid():N}.json";
+        await outputContainer.GetBlobClient(outputName)
+            .UploadAsync(inputData, overwrite: true);
+
+        return new BlobReference
+        {
+            Container = outputContainer.Name,
+            BlobName = outputName,
+        };
+    }
+}
+```
+
+# [C# (Isolated)](#tab/csharp-isolated-large-payload)
+
+This example requires the [Azure.Storage.Blobs](https://www.nuget.org/packages/Azure.Storage.Blobs) NuGet package.
+
+```csharp
+using System;
+using System.Threading.Tasks;
+using Azure.Storage.Blobs;
+using Microsoft.Azure.Functions.Worker;
+using Microsoft.DurableTask;
+
+public record BlobReference(string Container, string BlobName);
+
+public static class LargePayloadFunctions
+{
+    [Function("ProcessLargePayload")]
+    public static async Task<BlobReference> RunOrchestrator(
+        [OrchestrationTrigger] TaskOrchestrationContext context)
+    {
+        BlobReference inputReference = context.GetInput<BlobReference>()
+            ?? throw new InvalidOperationException("A blob reference is required.");
+
+        return await context.CallActivityAsync<BlobReference>(
+            nameof(ProcessLargePayloadActivity), inputReference);
+    }
+
+    [Function(nameof(ProcessLargePayloadActivity))]
+    public static async Task<BlobReference> ProcessLargePayloadActivity(
+        [ActivityTrigger] BlobReference inputReference)
+    {
+        string connectionString =
+            Environment.GetEnvironmentVariable("PAYLOAD_STORAGE_CONNECTION_STRING")
+            ?? throw new InvalidOperationException("Payload storage is not configured.");
+        BlobServiceClient service = new BlobServiceClient(connectionString);
+
+        BlobClient inputBlob = service
+            .GetBlobContainerClient(inputReference.Container)
+            .GetBlobClient(inputReference.BlobName);
+        BinaryData inputData = (await inputBlob.DownloadContentAsync()).Value.Content;
+
+        BlobContainerClient outputContainer =
+            service.GetBlobContainerClient("processed-payloads");
+        await outputContainer.CreateIfNotExistsAsync();
+
+        string outputName = $"processed/{Guid.NewGuid():N}.json";
+        await outputContainer.GetBlobClient(outputName)
+            .UploadAsync(inputData, overwrite: true);
+
+        return new BlobReference(outputContainer.Name, outputName);
+    }
+}
+```
+
+# [JavaScript](#tab/javascript-large-payload)
+
+This example requires the [@azure/storage-blob](https://www.npmjs.com/package/@azure/storage-blob) npm package.
+
+```javascript
+const { randomUUID } = require("crypto");
+const { BlobServiceClient } = require("@azure/storage-blob");
+const df = require("durable-functions");
+
+df.app.orchestration("processLargePayload", function* (context) {
+    const inputReference = context.df.getInput();
+    return yield context.df.callActivity(
+        "processLargePayloadActivity", inputReference);
+});
+
+df.app.activity("processLargePayloadActivity", {
+    handler: async (inputReference) => {
+        const connectionString =
+            process.env.PAYLOAD_STORAGE_CONNECTION_STRING;
+        if (!connectionString) {
+            throw new Error(
+                "PAYLOAD_STORAGE_CONNECTION_STRING is not set.");
+        }
+
+        const service = BlobServiceClient.fromConnectionString(
+            connectionString);
+
+        const inputBlob = service
+            .getContainerClient(inputReference.container)
+            .getBlockBlobClient(inputReference.blobName);
+        const inputData = await inputBlob.downloadToBuffer();
+
+        const outputContainer =
+            service.getContainerClient("processed-payloads");
+        await outputContainer.createIfNotExists();
+
+        const outputName = `processed/${randomUUID()}.json`;
+        await outputContainer.getBlockBlobClient(outputName)
+            .uploadData(inputData);
+
+        return {
+            container: outputContainer.containerName,
+            blobName: outputName,
+        };
+    },
+});
+```
+
+# [Python](#tab/python-large-payload)
+
+This example requires the [azure-storage-blob](https://pypi.org/project/azure-storage-blob/) package. Add it to *requirements.txt*.
+
+```python
+import os
+import uuid
+
+import azure.functions as func
+import azure.durable_functions as df
+from azure.core.exceptions import ResourceExistsError
+from azure.storage.blob import BlobServiceClient
+
+app = df.DFApp(http_auth_level=func.AuthLevel.ANONYMOUS)
+
+
+@app.orchestration_trigger(context_name="context")
+def process_large_payload(context: df.DurableOrchestrationContext):
+    input_reference: dict = context.get_input()
+    return (yield context.call_activity(
+        "process_large_payload_activity", input_reference))
+
+
+@app.activity_trigger(input_name="input_reference")
+def process_large_payload_activity(input_reference: dict) -> dict:
+    connection_string = os.getenv("PAYLOAD_STORAGE_CONNECTION_STRING")
+    if not connection_string:
+        raise ValueError(
+            "PAYLOAD_STORAGE_CONNECTION_STRING is not set.")
+
+    service = BlobServiceClient.from_connection_string(connection_string)
+
+    input_blob = service.get_blob_client(
+        container=input_reference["container"],
+        blob=input_reference["blobName"])
+    input_data = input_blob.download_blob().readall()
+
+    output_container = service.get_container_client("processed-payloads")
+    try:
+        output_container.create_container()
+    except ResourceExistsError:
+        pass
+
+    output_name = f"processed/{uuid.uuid4()}.json"
+    output_container.upload_blob(
+        name=output_name, data=input_data, overwrite=True)
+
+    return {
+        "container": output_container.container_name,
+        "blobName": output_name,
+    }
+```
+
+# [PowerShell](#tab/powershell-large-payload)
+
+This example requires the [Az.Storage](https://www.powershellgallery.com/packages/Az.Storage) module. Add it to *requirements.psd1* and make sure managed dependencies are enabled in *host.json*.
+
+**Orchestrator `run.ps1`:**
+
+```powershell
+param($Context)
+
+$OutputReference = Invoke-DurableActivity `
+    -FunctionName 'ProcessLargePayloadActivity' `
+    -Input $Context.Input
+
+return $OutputReference
+```
+
+**Activity `run.ps1`:**
+
+```powershell
+param($InputReference)
+
+if ([string]::IsNullOrEmpty(
+        $env:PAYLOAD_STORAGE_CONNECTION_STRING)) {
+    throw 'The PAYLOAD_STORAGE_CONNECTION_STRING app setting is not configured.'
+}
+
+$StorageContext = New-AzStorageContext `
+    -ConnectionString $env:PAYLOAD_STORAGE_CONNECTION_STRING
+$InputFile = New-TemporaryFile
+
+try {
+    Get-AzStorageBlobContent `
+        -Container $InputReference.container `
+        -Blob $InputReference.blobName `
+        -Destination $InputFile.FullName `
+        -Context $StorageContext `
+        -Force | Out-Null
+
+    # Process $InputFile here. This example uploads it unchanged.
+    $OutputContainer = 'processed-payloads'
+    New-AzStorageContainer `
+        -Name $OutputContainer `
+        -Context $StorageContext `
+        -ErrorAction SilentlyContinue | Out-Null
+
+    $OutputName = "processed/$([guid]::NewGuid()).json"
+    Set-AzStorageBlobContent `
+        -File $InputFile.FullName `
+        -Container $OutputContainer `
+        -Blob $OutputName `
+        -Context $StorageContext `
+        -Force | Out-Null
+
+    return @{
+        container = $OutputContainer
+        blobName = $OutputName
+    }
+}
+finally {
+    Remove-Item $InputFile.FullName -Force
+}
+```
+
+Use the standard `orchestrationTrigger` and `activityTrigger` bindings described in [Durable Functions bindings](durable-functions-bindings.md).
+
+# [Java](#tab/java-large-payload)
+
+This example requires the `com.azure:azure-storage-blob` and `com.microsoft:durabletask-azure-functions` Maven packages.
+
+```java
+import com.azure.core.util.BinaryData;
+import com.azure.storage.blob.BlobContainerClient;
+import com.azure.storage.blob.BlobServiceClient;
+import com.azure.storage.blob.BlobServiceClientBuilder;
+import com.microsoft.azure.functions.annotation.FunctionName;
+import com.microsoft.durabletask.TaskOrchestrationContext;
+import com.microsoft.durabletask.azurefunctions.DurableActivityTrigger;
+import com.microsoft.durabletask.azurefunctions.DurableOrchestrationTrigger;
+
+import java.util.Objects;
+import java.util.UUID;
+
+public class LargePayloadFunctions {
+    public static class BlobReference {
+        public String container;
+        public String blobName;
+
+        public BlobReference() {
+        }
+
+        public BlobReference(String container, String blobName) {
+            this.container = container;
+            this.blobName = blobName;
+        }
+    }
+
+    @FunctionName("ProcessLargePayload")
+    public BlobReference runOrchestrator(
+            @DurableOrchestrationTrigger(name = "ctx")
+            TaskOrchestrationContext ctx) {
+        BlobReference inputReference = Objects.requireNonNull(
+            ctx.getInput(BlobReference.class),
+            "A blob reference is required.");
+        return ctx.callActivity(
+            "ProcessLargePayloadActivity",
+            inputReference,
+            BlobReference.class).await();
+    }
+
+    @FunctionName("ProcessLargePayloadActivity")
+    public BlobReference runActivity(
+            @DurableActivityTrigger(name = "inputReference")
+            BlobReference inputReference) {
+        String connectionString = Objects.requireNonNull(
+            System.getenv("PAYLOAD_STORAGE_CONNECTION_STRING"),
+            "PAYLOAD_STORAGE_CONNECTION_STRING is not configured.");
+        BlobServiceClient service = new BlobServiceClientBuilder()
+            .connectionString(connectionString)
+            .buildClient();
+
+        BinaryData inputData = service
+            .getBlobContainerClient(inputReference.container)
+            .getBlobClient(inputReference.blobName)
+            .downloadContent();
+
+        BlobContainerClient outputContainer =
+            service.getBlobContainerClient("processed-payloads");
+        outputContainer.createIfNotExists();
+
+        String outputName =
+            "processed/" + UUID.randomUUID() + ".json";
+        outputContainer.getBlobClient(outputName)
+            .upload(inputData, true);
+
+        return new BlobReference(
+            outputContainer.getBlobContainerName(), outputName);
+    }
+}
+```
+
+---
+
+If parallel activities produce multiple large results, return a list of references and pass that list to a final aggregation activity. The aggregation activity should load and combine the payloads and then write one final output blob. Don't load or concatenate the large results in the orchestrator.
 
 ### Work with sensitive data
 

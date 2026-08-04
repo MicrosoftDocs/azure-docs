@@ -35,6 +35,8 @@ This article shows how to implement singleton orchestrators with code examples f
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 The following example shows an HTTP-trigger function that creates a singleton background job orchestration. The code attempts to ensure that only one active instance exists for a specified instance ID.
 
 # [C#](#tab/csharp)

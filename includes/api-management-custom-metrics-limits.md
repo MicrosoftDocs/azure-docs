@@ -1,8 +1,8 @@
 ---
 ms.service: azure-api-management
 ms.topic: include
-author: dlepow
-ms.author: danlep
+author: PatAltimore
+ms.author: patricka
 ms.date: 09/25/2024
 ms.custom: 
 ---
