@@ -5,7 +5,7 @@ author: dominicbetts
 ms.author: dobett
 ms.service: azure-iot-operations
 ms.topic: quickstart-sdk
-ms.date: 07/23/2026
+ms.date: 07/31/2026
 ai-usage: ai-assisted
 ---
 
@@ -256,32 +256,117 @@ The sample uses the v2 protocol compiler with WoT Thing model files, see the [Te
     source `git rev-parse --show-toplevel`/.env; export AIO_MQTT_CLIENT_ID=counter-client; export COUNTER_SERVER_ID=counter-server; dotnet run
     ```
 
-1. You see the client and server communicating, with the client sending requests to read and increment the counter value. This example shows the output messages that you can see:
-    
-    **CounterClient output:**
-    ```output
-    CounterClient Information: 0 : Invoked command 'readCounter' with correlation ID 12345 to topic 'rpc/command-samples/counter-server/readCounter'
-    CounterClient Information: 0 : Invoked command 'increment' with correlation ID 123456 to topic 'rpc/command-samples/counter-server/increment'
-    info: CounterClient.RpcCommandRunner[0] called counter.incr 1 with id 12346
-    info: CounterClient.CounterClient[0] Telemetry received from counter-server: CounterValue=1
-    info: CounterClient.RpcCommandRunner[0] counter 32 with id 12345
-    info: CounterClient.RpcCommandRunner[0] Current telemetry count: 32
-    ```
-    
-    **CounterServer output:**
-    ```output
-    CounterServer Information: 0 : Command executor for 'reset' started.
-    CounterServer Information: 0 : Command executor for 'increment' started.
-    CounterServer Information: 0 : Command executor for 'readCounter' started.
-    CounterServer.CounterService[0] --> Executing Counter.ReadCounter with id 12345 for counter-client
-    CounterServer.CounterService[0] --> Executed Counter.ReadCounter with id 12345 for counter-client
-    CounterServer.CounterService[0] --> Executing Counter.Increment with id 12346 for counter-client
-    CounterServer.CounterService[0] --> Executed Counter.Increment with id 12346 for counter-client
-    CounterServer Information: 0 : Telemetry sent successfully to the topic 'telemetry/telemetry-samples/counterValue'
-    ```
+1. You see the client and server communicating, with the client sending requests to read and increment the counter value, and the server sending telemetry. For details, see [Examine client and server output](#examine-client-and-server-output).
 
 1. The `CounterClient` sample automatically exits when it completes. You can also stop the `CounterServer` sample by pressing `Ctrl+C` in its terminal.
 
+### Examine client and server output
+
+This section shows examples of the output for the client and the server. The client makes calls to read and increment the counter value, and the server responds. The server also outputs telemetry, so the client can track the counter value. In these examples, messages are grouped logically, but in your output the order of messages will vary depending on the timing of the client and server. These examples show output for MQTT messages, but you can suppress this output by setting the `mqttDiag` environment variable to `false` in the `appsettings.json` files for the client and the server.
+
+#### Read counter
+
+The following example shows the output messages for read counter. Requests and responses across the client and server are matched by correlation ID, which, in this example, is `5b282690-8c59-4bf2-9926-9236582ce4b3`.
+
+Client output:
+
+```output
+# Subscribe once on startup.
+CounterClient Information: 0 : >> [2026-07-29T17:35:53.4663363Z] [11]: TX (51 bytes) >>> Subscribe: [PacketIdentifier=2] [TopicFilters=clients/+/rpc/command-samples/+/readCounter@AtLeastOnce]
+CounterClient Information: 0 : >> [2026-07-29T17:35:53.4689212Z] [6]: RX (6 bytes) <<< SubAck: [PacketIdentifier=2] [ReasonCode=GrantedQoS1]
+CounterClient Information: 0 : Subscribed to topic filter 'clients/+/rpc/command-samples/+/readCounter' for command invoker 'readCounter'
+
+# Invoke readCounter once on startup and once at end -- only one shown.
+info: CounterClient.RpcCommandRunner[0] Calling ReadCounter with 5b282690-8c59-4bf2-9926-9236582ce4b3
+CounterClient Information: 0 : >> [2026-07-29T17:35:53.4777793Z] [11]: TX (335 bytes) >>> Publish: [Topic=rpc/command-samples/counter-server/readCounter] [PayloadLength=0] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=3]
+CounterClient Information: 0 : >> [2026-07-29T17:35:53.4818287Z] [10]: RX (4 bytes) <<< PubAck: [PacketIdentifier=3] [ReasonCode=Success]
+CounterClient Information: 0 : Invoked command 'readCounter' with correlation ID 5b282690-8c59-4bf2-9926-9236582ce4b3 to topic 'rpc/command-samples/counter-server/readCounter'
+CounterClient Information: 0 : >> [2026-07-29T17:35:53.5861515Z] [10]: RX (260 bytes) <<< Publish: [Topic=clients/counter-client/rpc/command-samples/counter-server/readCounter] [PayloadLength=21] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=1]
+info: CounterClient.RpcCommandRunner[0] called read 0 with id 5b282690-8c59-4bf2-9926-9236582ce4b3
+CounterClient Information: 0 : >> [2026-07-29T17:35:53.6572000Z] [10]: TX (4 bytes) >>> PubAck: [PacketIdentifier=1] [ReasonCode=Success]
+```
+
+Server output:
+
+```output
+# Subscribe to readCounter topic on startup.
+CounterServer Information: 0 : >> [2026-07-29T17:35:12.3456281Z] [7]: TX (54 bytes) >>> Subscribe: [PacketIdentifier=1] [TopicFilters=rpc/command-samples/counter-server/readCounter@AtLeastOnce]
+CounterServer Information: 0 : >> [2026-07-29T17:35:12.3553742Z] [11]: RX (6 bytes) <<< SubAck: [PacketIdentifier=1] [ReasonCode=GrantedQoS1]
+CounterServer Information: 0 : Command executor for 'readCounter' started.
+
+# Multiple (2) invocations occur - only one shown.
+CounterServer Information: 0 : >> [2026-07-29T17:35:53.4842146Z] [11]: RX (334 bytes) <<< Publish: [Topic=rpc/command-samples/counter-server/readCounter] [PayloadLength=0] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=1]
+<6>17:35:53CounterServer.CounterService[0] --> Executing Counter.ReadCounter with id 5b282690-8c59-4bf2-9926-9236582ce4b3 for counter-client
+<6>17:35:53CounterServer.CounterService[0] --> Executed Counter.ReadCounter with id 5b282690-8c59-4bf2-9926-9236582ce4b3 for counter-client
+CounterServer Information: 0 : >> [2026-07-29T17:35:53.5815820Z] [7]: TX (261 bytes) >>> Publish: [Topic=clients/counter-client/rpc/command-samples/counter-server/readCounter] [PayloadLength=21] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=4]
+CounterServer Information: 0 : >> [2026-07-29T17:35:53.5854665Z] [11]: RX (4 bytes) <<< PubAck: [PacketIdentifier=4] [ReasonCode=Success]
+CounterServer Information: 0 : >> [2026-07-29T17:35:53.5881430Z] [12]: TX (4 bytes) >>> PubAck: [PacketIdentifier=1] [ReasonCode=Success]
+```
+
+#### Increment counter
+
+The following example shows the output messages for increment counter. Requests and responses are matched across the client and server by correlation ID, which, in this example, is `5a4da7c4-3922-4049-8065-77f344c3478f`.
+
+Client output:
+
+```output
+# Invoke increment multiple times -- only one shown.
+info: CounterClient.RpcCommandRunner[0] calling counter.incr  with id 5a4da7c4-3922-4049-8065-77f344c3478f
+CounterClient Information: 0 : >> [2026-07-29T17:35:53.6375578Z] [11]: TX (49 bytes) >>> Subscribe: [PacketIdentifier=4] [TopicFilters=clients/+/rpc/command-samples/+/increment@AtLeastOnce]
+CounterClient Information: 0 : >> [2026-07-29T17:35:53.6399406Z] [10]: RX (6 bytes) <<< SubAck: [PacketIdentifier=4] [ReasonCode=GrantedQoS1]
+CounterClient Information: 0 : Subscribed to topic filter 'clients/+/rpc/command-samples/+/increment' for command invoker 'increment'
+CounterClient Information: 0 : >> [2026-07-29T17:35:53.6461370Z] [11]: TX (372 bytes) >>> Publish: [Topic=rpc/command-samples/counter-server/increment] [PayloadLength=20] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=21]
+CounterClient Information: 0 : >> [2026-07-29T17:35:53.6552803Z] [10]: RX (4 bytes) <<< PubAck: [PacketIdentifier=21] [ReasonCode=Success]
+CounterClient Information: 0 : Invoked command 'increment' with correlation ID 5a4da7c4-3922-4049-8065-77f344c3478f to topic 'rpc/command-samples/counter-server/increment'
+CounterClient Information: 0 : >> [2026-07-29T17:35:53.6960747Z] [13]: RX (259 bytes) <<< Publish: [Topic=clients/counter-client/rpc/command-samples/counter-server/increment] [PayloadLength=22] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=12]
+info: CounterClient.RpcCommandRunner[0] called counter.incr 10 with id 5a4da7c4-3922-4049-8065-77f344c3478f
+CounterClient Information: 0 : >> [2026-07-29T17:35:53.7138884Z] [10]: TX (4 bytes) >>> PubAck: [PacketIdentifier=12] [ReasonCode=Success]
+```
+
+Server output:
+
+```output
+# Subscribe to increment once on startup.
+CounterServer Information: 0 : >> [2026-07-29T17:35:12.3548320Z] [7]: TX (52 bytes) >>> Subscribe: [PacketIdentifier=2] [TopicFilters=rpc/command-samples/counter-server/increment@AtLeastOnce]
+CounterServer Information: 0 : >> [2026-07-29T17:35:12.3613847Z] [11]: RX (6 bytes) <<< SubAck: [PacketIdentifier=2] [ReasonCode=GrantedQoS1]
+CounterServer Information: 0 : Command executor for 'increment' started.
+
+# Multiple invocations are received -- only one shown.
+CounterServer Information: 0 : >> [2026-07-29T17:35:53.6502886Z] [13]: RX (371 bytes) <<< Publish: [Topic=rpc/command-samples/counter-server/increment] [PayloadLength=20] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=2]
+<6>17:35:53CounterServer.CounterService[0] --> Executing Counter.Increment with id 5a4da7c4-3922-4049-8065-77f344c3478f for counter-client
+<6>17:35:53CounterServer.CounterService[0] --> Executed Counter.Increment with id 5a4da7c4-3922-4049-8065-77f344c3478f for counter-client
+CounterServer Information: 0 : >> [2026-07-29T17:35:53.6924040Z] [7]: TX (260 bytes) >>> Publish: [Topic=clients/counter-client/rpc/command-samples/counter-server/increment] [PayloadLength=22] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=15]
+CounterServer Information: 0 : >> [2026-07-29T17:35:53.6983722Z] [18]: RX (4 bytes) <<< PubAck: [PacketIdentifier=15] [ReasonCode=Success]
+CounterServer Information: 0 : >> [2026-07-29T17:35:53.6992783Z] [12]: TX (4 bytes) >>> PubAck: [PacketIdentifier=2] [ReasonCode=Success]
+```
+
+#### CounterValue telemetry
+
+The following example shows the output messages for CounterValue telemetry. Server output is shown first because it sends the telemetry.
+
+Server output:
+
+```output
+# Telemetry data is published multiple times. 
+CounterServer Information: 0 : >> [2026-07-29T17:35:53.6805980Z] [7]: TX (203 bytes) >>> Publish: [Topic=telemetry/telemetry-samples/counterValue] [PayloadLength=18] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=5]
+CounterServer Information: 0 : >> [2026-07-29T17:35:53.6843445Z] [11]: RX (4 bytes) <<< PubAck: [PacketIdentifier=5] [ReasonCode=Success]
+CounterServer Information: 0 : Telemetry sent successfully to the topic 'telemetry/telemetry-samples/counterValue'
+```
+
+Client output:
+
+```output
+# Subscribe performed once on startup.
+CounterClient Information: 0 : >> [2026-07-29T17:35:53.4283758Z] [11]: TX (48 bytes) >>> Subscribe: [PacketIdentifier=1] [TopicFilters=telemetry/telemetry-samples/counterValue@AtLeastOnce]
+CounterClient Information: 0 : >> [2026-07-29T17:35:53.4355484Z] [10]: RX (6 bytes) <<< SubAck: [PacketIdentifier=1] [ReasonCode=GrantedQoS1]
+CounterClient Information: 0 : Telemetry receiver subscribed for topic telemetry/telemetry-samples/counterValue.
+
+# Multiple telemetry values received - only one shown.
+CounterClient Information: 0 : >> [2026-07-29T17:35:53.6820692Z] [6]: RX (202 bytes) <<< Publish: [Topic=telemetry/telemetry-samples/counterValue] [PayloadLength=18] [QoSLevel=AtLeastOnce] [Dup=False] [Retain=False] [PacketIdentifier=2]
+CounterClient Information: 0 : Telemetry received from telemetry/telemetry-samples/counterValue
+info: CounterClient.CounterClient[0] Telemetry received from counter-server: CounterValue=4
+CounterClient Information: 0 : >> [2026-07-29T17:35:53.7131604Z] [10]: TX (4 bytes) >>> PubAck: [PacketIdentifier=2] [ReasonCode=Success]
+```
 
 ## Configuration summary
 

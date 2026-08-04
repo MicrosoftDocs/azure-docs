@@ -51,7 +51,7 @@ What gets deployed:
 - 15  [enclave connections](./what-enclave-connection.md)
 - One  [transit hub](./what-transit-hub.md)
 
-[ ![Diagram showing a Research Environment using Azure Enclave resources.](./media/reference-architecture-trusted-research-environment.png) ](./media/reference-architecture-trusted-research-environment.png#lightbox)
+[ ![Diagram showing a Research Environment using Azure Enclave resources.](./media/reference-architecture-research-environment.png) ](./media/reference-architecture-research-environment.png#lightbox)
 
 [ARM Template](https://github.com/Azure/enclave/blob/main/quickstart-templates/azure-enclave-edu.json) (easiest to deploy via Portal, PowerShell, or command line)
 
@@ -63,7 +63,7 @@ Deploy the template:
 1. Replace the default template with the provided template (for example, copy the text inside the json file). See [this quickstart](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
 1. Select `Save`.
 1. Under `Resource Group`, select `Create New` and enter the resource group name you would like to use (for example, community-template-rg) for the Azure Enclave resources.
-1. Optionally, Under `Unique Number`, increment the number if previous deployments occurred in the same resources group.
+1. Optionally, under `Unique Number`, increment the number if previous deployments occurred in the same resources group.
 1. The remaining parameters that aren't required can be left as the default unless you would like to test a modification. Keep the defaults for the first test deployment to reduce errors from template changes.
 1. Select `Review + Create` and then `Create`.
 
@@ -88,7 +88,7 @@ What gets deployed:
 Deploy the template:
 1. Open the Azure portal and type `deploy` into the top search bar and select `Deploy a Custom Template`.
 1. Select `Build your own template in the editor`.
-1. Replace the default template with the ARM template contents (for example copy the text inside the json file). See [this article](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
+1. Replace the default template with the ARM template contents (for example, copy the text inside the JSON file). See [this article](/azure/azure-resource-manager/templates/quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) if you have any issues with the above steps.
 1. Select `Save`.
 1. Select `Create New` under `Resource Group` and enter the resource group name you would like to use (for example community-template-rg) for the Azure Enclave resources.
 1. Increment `Unique Number` if previous deployments are located in the same resources group.

@@ -16,7 +16,7 @@ ms.date: 03/16/2026
 
 Device certificate issuance is the process by which devices request and receive a certificate as part of provisioning. Azure Device Registry (ADR) generates and issues a new X.509 certificate to your IoT devices during provisioning. This article explains the responsibility of a device to send a Certificate Signing Request (CSR), how ADR and Device Provisioning Service (DPS) work together to issue certificates at scale, and how IoT Hub trusts the issued certificates.
 
-[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
+[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
 
 ## How device certificate issuance works
 
@@ -70,7 +70,7 @@ IoT Hub stores the issuing CA certificate and uses it to validate the certificat
 ## Related content
 
 - [Certificate renewal in Azure IoT Hub certificate management](concept-certificate-renewal.md)
-- [Key concepts for certificate management](iot-hub-certificate-management-concepts.md)
-- [What is certificate management (preview)?](iot-hub-certificate-management-overview.md)
-- [Deploy Azure IoT Hub with ADR integration and certificate management](iot-hub-device-registry-setup.md)
+- [Key concepts for certificate management](iot-certificate-management-concepts.md)
+- [What is certificate management (preview)?](iot-certificate-management-overview.md)
+- [Deploy Azure IoT Hub with ADR integration and certificate management](../iot-hub/iot-hub-device-registry-setup.md)
 - [DPS device SDK samples](../iot-dps/libraries-sdks.md#device-sdks)

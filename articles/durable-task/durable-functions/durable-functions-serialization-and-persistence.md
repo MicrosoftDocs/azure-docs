@@ -15,6 +15,8 @@ ms.custom: devx-track-dotnet
 
 # Data persistence and serialization in Durable Functions for Azure Functions
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 The Durable Functions runtime automatically persists function parameters, return values, and other state to the [task hub](../common/durable-task-hubs.md) to provide reliable execution. However, the amount and frequency of data persisted to durable storage can impact application performance and storage transaction costs. Depending on the type of data your application stores, data retention and privacy policies may also need to be considered.
 
 This article explains what data gets persisted, how to handle large payloads and sensitive data, and how to customize serialization for each supported language.

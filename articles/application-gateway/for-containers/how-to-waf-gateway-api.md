@@ -3,7 +3,7 @@ title: Azure Web Application Firewall on Application Gateway for Containers - Ga
 description: This article provides an example scenario for testing Azure Web Application Firewall on Application Gateway for Containers.
 services: application-gateway
 author: jackstromberg
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: how-to
 ms.date: 07/21/2025
 ms.author: jstrom

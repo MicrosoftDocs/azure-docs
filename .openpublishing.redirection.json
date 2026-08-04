@@ -7799,6 +7799,51 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/iot-hub/concept-certificate-issuance.md",
+      "redirect_url": "../iot/concept-certificate-issuance",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/concept-certificate-renewal.md",
+      "redirect_url": "../iot/concept-certificate-renewal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/concepts-certificate-policy-management.md",
+      "redirect_url": "../iot/concepts-certificate-policy-management",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-configure-credential.md",
+      "redirect_url": "../iot/how-to-configure-credential",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-create-policy.md",
+      "redirect_url": "../iot/how-to-create-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-create-policy-external-certificate.md",
+      "redirect_url": "../iot/how-to-create-policy-external-certificate",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/how-to-revoke-certificate-delete-policy.md",
+      "redirect_url": "../iot/how-to-revoke-certificate-delete-policy",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-certificate-management-concepts.md",
+      "redirect_url": "../iot/iot-certificate-management-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/iot-hub/iot-hub-certificate-management-overview.md",
+      "redirect_url": "../iot/iot-certificate-management-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/enclave/1-8-migrate-workload-resources.md",
       "redirect_url": "/azure/enclave/migrate-azure-resources-azure-enclave",
       "redirect_document_id": false

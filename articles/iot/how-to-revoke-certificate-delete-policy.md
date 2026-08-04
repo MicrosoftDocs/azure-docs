@@ -23,14 +23,14 @@ This article shows you how to run certificate lifecycle operations for Azure Dev
 
 Use these procedures when you need to respond to a security event, retire certificate resources, or clean up certificate paths in production.
 
-[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
+[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
 
 ## Prerequisites
 
 Before you begin, make sure you have:
 
 - An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An existing production deployment with IoT Hub Gen2 linked to a Device Registry namespace. For setup steps, see [Deploy Azure IoT Hub with ADR integration and certificate management](iot-hub-device-registry-setup.md).
+- An existing production deployment with IoT Hub Gen2 linked to a Device Registry namespace. For setup steps, see [Deploy Azure IoT Hub with ADR integration and certificate management](../iot-hub/iot-hub-device-registry-setup.md).
 - A configured credential and policy in the Device Registry namespace. For setup steps, see [Configure a Root CA credential in Azure Device Registry](how-to-configure-credential.md).
 - Device Provisioning Service (DPS) configured for devices that use operational certificate issuance and rotation.
 - The [Azure Device Registry Credentials Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-credentials-contributor) role on the Device Registry namespace.
@@ -177,5 +177,5 @@ Verify that the credential resource is no longer available.
 ## Related content
 
 - [Certificate revocation and policy management concepts](concepts-certificate-policy-management.md)
-- [Key concepts for certificate management](iot-hub-certificate-management-concepts.md)
-- [Deploy Azure IoT Hub with ADR integration and certificate management](iot-hub-device-registry-setup.md)
+- [Key concepts for certificate management](iot-certificate-management-concepts.md)
+- [Deploy Azure IoT Hub with ADR integration and certificate management](../iot-hub/iot-hub-device-registry-setup.md)

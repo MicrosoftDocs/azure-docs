@@ -260,6 +260,8 @@ items:
       - name: Billing overview
         href: concept-discovery-billing.md
         displayName: Microsoft Discovery, billing, pricing, User Messages, cost management
+      - name: Business Continuity and Disaster Recovery 
+        href: concept-discovery-business-continuity-disaster-recovery.md
   - name: Tutorials
     items:
       - name: Tutorials & how-to videos
@@ -272,3 +274,5 @@ items:
     items:
     - name: REST API
       href: /rest/api/discovery/
+    - name: Python SDKs
+      href: reference-python-sdks.md

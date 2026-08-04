@@ -22,7 +22,7 @@ Azure IoT Operations [data flow graphs](concept-dataflow-graphs.md) include buil
 > Want to run AI in-band? See [Run ONNX inference in WebAssembly data flow graphs](../develop-edge-apps/howto-wasm-onnx-inference.md) to package and execute small ONNX models inside your WASM operators.
 
 > [!IMPORTANT]
-> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
+> Data flow graphs currently only support MQTT, Kafka, and OpenTelemetry endpoints. Other endpoint types like Data Lake, Microsoft Fabric OneLake, Azure Data Explorer, and Local Storage aren't supported.
 
 ## Prerequisites
 

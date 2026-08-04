@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use Azure PowerShell to create
 services: application-gateway
 author: mbender-ms
 ms.author: mbender
-ms.date: 05/30/2024
+ms.date: 08/04/2026
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurepowershell, mvc, mode-api
@@ -55,7 +55,7 @@ For Azure to communicate between the resources that you create, it needs a virtu
 2. Create the virtual network with the subnet configurations using `New-AzVirtualNetwork`. 
 3. Create the public IP address using `New-AzPublicIpAddress`. 
 > [!NOTE]
-> [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
+> [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) aren't currently supported in an Application Gateway subnet.
 
 ```azurepowershell-interactive
 $agSubnetConfig = New-AzVirtualNetworkSubnetConfig `

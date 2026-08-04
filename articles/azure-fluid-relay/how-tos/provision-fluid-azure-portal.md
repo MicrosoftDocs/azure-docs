@@ -3,7 +3,7 @@ title: 'How to: Provision an Azure Fluid Relay service'
 description: How to provision an Azure Fluid Relay service using the Azure portal
 ms.date: 01/18/2023
 ms.topic: article
-ms.service: azure-fluid
+ms.service: fluid-framework
 ms.custom:
   - references_regions
   - sfi-image-nochange

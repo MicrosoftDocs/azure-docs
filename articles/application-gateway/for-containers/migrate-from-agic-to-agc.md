@@ -3,7 +3,7 @@ title: Migration Overview - Move Application Gateway Ingress Controller (AGIC) s
 description: Learn how to migrate services from AGIC to Application Gateway for Containers.
 services: application gateway
 author: mbender-ms
-ms.service: azure-appgw-for-containers
+ms.service: azure-application-gateway-containers
 ms.topic: concept-article
 ms.date: 4/22/2026
 ms.author: mbender

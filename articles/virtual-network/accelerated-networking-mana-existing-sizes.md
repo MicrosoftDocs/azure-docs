@@ -12,9 +12,6 @@ ms.author: mattmcinnes
 # MANA support for existing VM series
 The following content is for customers running existing Virtual Machine (VM) Sizes using Accelerated Networking.
 
-> [!IMPORTANT]
-> For timelines pertaining to VM series running on MANA-capable hardware, see the [announcement](https://techcommunity.microsoft.com/blog/AzureInfrastructureBlog/announcing-microsoft-azure-network-adapter-mana-support-for-existing-vm-skus/4493279).
-
 Existing VM series are supported on [Microsoft Azure Network Adapter (MANA)](./accelerated-networking-mana-overview.md) capable hardware. However, since these VM series were introduced before MANA was released, they may not fully benefit from all performance, reliability, and resiliency improvements.
 
 Newer VM series are built and optimized with MANA in mind and are designed to take full advantage of its performance, reliability, and resiliency improvements. For this reason, it is recommended to use newer VM sizes for the most optimal networking experience.

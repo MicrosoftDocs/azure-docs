@@ -6,7 +6,7 @@ ms.author: dobett
 ms.service: azure-iot-operations
 ms.subservice: azure-mqtt-broker
 ms.topic: how-to
-ms.date: 05/26/2026
+ms.date: 07/30/2026
 ms.custom:
   - ignite-2023
   - sfi-image-nochange
@@ -43,14 +43,12 @@ Azure IoT Operations deploys a default BrokerAuthentication resource named `defa
 
 # [Portal](#tab/portal)
 
-1. In the Azure portal, go to your IoT Operations instance.
+1. To view the default BrokerAuthentication resource in the Azure portal, go to your IoT Operations instance.
 1. Under **Components**, select **MQTT Broker**.
 1. Select the **Authentication** tab.
 1. From the authentication policy list, select the **default** policy name.
 
     :::image type="content" source="media/howto-configure-authentication/authentication-policy-default.png" alt-text="Screenshot that shows using the Azure portal to view the default MQTT broker authentication policy." lightbox="media/howto-configure-authentication/authentication-policy-default.png":::
-
-To add new authentication methods, select **Add method**.
 
 # [Azure CLI](#tab/cli)
 
@@ -62,18 +60,13 @@ az iot ops broker authn show --resource-group $RESOURCE_GROUP --instance $AIO_IN
 
 # [Bicep](#tab/bicep)
 
-To edit the default endpoint, create a Bicep `.bicep` file with the following content. Update the settings as needed. Replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
+To view the default BrokerAuthentication resource, create a Bicep `.bicep` file with the following content. Update the settings as needed. Replace the placeholder values like `<AIO_INSTANCE_NAME>` with your own.
 
 ```bicep
 param aioInstanceName string = '<AIO_INSTANCE_NAME>'
-param customLocationName string = '<CUSTOM_LOCATION_NAME>'
 
 resource aioInstance 'Microsoft.IoTOperations/instances@2026-03-01' existing = {
   name: aioInstanceName
-}
-
-resource customLocation 'Microsoft.ExtendedLocation/customLocations@2021-08-31-preview' existing = {
-  name: customLocationName
 }
 
 resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' existing = {
@@ -81,25 +74,15 @@ resource defaultBroker 'Microsoft.IoTOperations/instances/brokers@2026-03-01' ex
   name: 'default'
 }
 
-resource defaultBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2026-03-01' = {
+resource defaultBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/authentications@2026-03-01' existing = {
   parent: defaultBroker
   name: 'default'
-  extendedLocation: {
-    name: customLocation.id
-    type: 'CustomLocation'
-  }
-  properties: {
-    authenticationMethods: [
-      {
-        method: 'ServiceAccountToken'
-        serviceAccountTokenSettings: {
-          audiences: [
-            'aio-internal'
-          ]
-        }
-      }
-    ]
-  }
+}
+
+output defaultBrokerAuthenticationDetails object = {
+  id: defaultBrokerAuthentication.id
+  name: defaultBrokerAuthentication.name
+  authenticationMethods: defaultBrokerAuthentication.properties.authenticationMethods
 }
 
 ```
@@ -107,7 +90,7 @@ resource defaultBrokerAuthentication 'Microsoft.IoTOperations/instances/brokers/
 Deploy the Bicep file by using the Azure CLI:
 
 ```azurecli
-az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep
+az deployment group create --resource-group $RESOURCE_GROUP --template-file main.bicep --query properties.outputs.defaultBrokerAuthenticationDetails.value
 ```
 
 # [Kubernetes (debug only)](#tab/kubernetes)
@@ -136,7 +119,7 @@ spec:
           - aio-internal
 ```
 
-If you need to make changes, modify the `authenticationMethods` field in this resource while you retain the SAT authentication method with the `aio-internal` audience. Then, deploy it by using `kubectl apply`.
+To customize authentication, create a BrokerAuthentication resource with a unique name and associate it with your own BrokerListener. Don't modify the default BrokerAuthentication resource.
 
 ---
 
@@ -774,10 +757,7 @@ The matching for attributes always starts from the leaf client certificate and t
 
 You can apply authorization rules to clients by using X.509 certificates with these attributes. To learn more, see [Authorize clients that use X.509 authentication](./howto-configure-authorization.md#authorize-clients-that-use-x509-authentication).
 
-#### Optional: Azure Device Registry integration for X.509 authentication (preview)
-
-> [!IMPORTANT]
-> Azure Device Registry integration for X.509 authentication is currently in preview. This feature is subject to certain limitations and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+#### Optional: Azure Device Registry integration for X.509 authentication
 
 You can enable Azure Device Registry integration with X.509 authentication to enforce device-level certificate validation and revocation. When enabled, this feature requires X.509 clients to have matching devices in the device registry and allows you to disable clients by disabling the corresponding device.
 
@@ -842,7 +822,7 @@ x509Settings: {
 [!INCLUDE [kubernetes-debug-only-note](../includes/kubernetes-debug-only-note.md)]
 
 ```yaml
-apiVersion: mqttbroker.iotoperations.azure.com/v1beta1
+apiVersion: mqttbroker.iotoperations.azure.com/v1
 kind: BrokerAuthentication
 metadata:
   name: aio-broker-authn
@@ -854,9 +834,6 @@ spec:
       trustedClientCaCert: <TRUSTED_CA_CONFIGMAP>
       additionalValidation: AzureDeviceRegistry
 ```
-
-> [!NOTE]
-> Note the API version `v1beta1` is required when using the `additionalValidation` field.
 
 ---
 

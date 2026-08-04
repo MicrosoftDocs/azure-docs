@@ -16,6 +16,8 @@ zone_pivot_groups: azure-durable-approach
 
 ::: zone pivot="durable-functions"
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 You implement Durable Functions orchestrations in code, so use your language's built-in error handling features. Error handling and compensation don't require new concepts, but a few orchestration behaviors are worth knowing about.
 
 [!INCLUDE [functions-nodejs-durable-model-description](../../../includes/functions-nodejs-durable-model-description.md)]

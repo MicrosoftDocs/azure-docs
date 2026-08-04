@@ -14,6 +14,9 @@ ms.date: 02/13/2025
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
+> [!TIP]
+> For the equivalent activity in Data Factory in Microsoft Fabric, see [Lookup activity](/fabric/data-factory/lookup-activity).
+
 Lookup activity can retrieve a dataset from any of the data sources supported by data factory and Synapse pipelines. You can use it to dynamically determine which objects to operate on in a subsequent activity, instead of hard coding the object name. Some object examples are files and tables.
 
 Lookup activity reads and returns the content of a configuration file or table. It also returns the result of executing a query or stored procedure. The output can be a singleton value or an array of attributes, which can be consumed in a subsequent copy, transformation, or control flow activities like ForEach activity.

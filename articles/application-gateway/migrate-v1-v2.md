@@ -6,7 +6,7 @@ author: mbender-ms
 ms.service: azure-application-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 04/30/2026
+ms.date: 08/04/2026
 ms.author: mbender
 #customer intent: As a DevOps engineer, I want to migrate my Azure Application Gateway and Web Application Firewall deployments from V1 to V2 so that I can take advantage of the improved features and performance while ensuring minimal downtime during the transition.
 ---
@@ -167,6 +167,8 @@ Private Application Gateway deployments must have subnet delegation configured t
 
 - If you have a network security group (NSG) or user-defined routes (UDRs) associated with the V2 gateway subnet, make sure they adhere to the [NSG requirements](../application-gateway/configuration-infrastructure.md#network-security-groups) and [UDR requirements](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) for a successful migration.
 
+- [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) aren't currently supported in an Application Gateway subnet.
+
 - If you have FIPS mode enabled for your V1 gateway, it isn't migrated to your new V2 gateway.
 
 - Web Application Firewall V2 is configured to use Core Rule Set (CRS) 3.0 by default. Because CRS 3.0 is on the path to deprecation, upgrade to the latest rule set after migration: Default Rule Set (DRS) 2.2. For more information, see [Web Application Firewall DRS and CRS rule groups and rules](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md).
@@ -320,7 +322,7 @@ The legacy script takes the following parameters:
 
 - If you have an NSG or UDRs associated with the V2 gateway subnet, make sure they adhere to the [NSG requirements](../application-gateway/configuration-infrastructure.md#network-security-groups) and [UDR requirements](../application-gateway/configuration-infrastructure.md#supported-user-defined-routes) for a successful migration.
 
-- [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
+- [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) aren't currently supported in an Application Gateway subnet.
 
 - To migrate a TLS/SSL configuration, you must specify all the TLS/SSL certificates used in your V1 gateway.
 

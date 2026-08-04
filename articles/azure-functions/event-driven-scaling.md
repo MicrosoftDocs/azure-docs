@@ -1,7 +1,7 @@
 ---
 title: Event-driven Scaling in Azure Functions
 description: Explains the scaling behaviors of Consumption plan and Premium plan function apps.
-ms.date: 12/22/2025
+ms.date: 07/26/2026
 ms.topic: concept-article
 ms.service: azure-functions
 ms.custom:
@@ -91,6 +91,10 @@ $resource | Set-AzResource -Force
 ```
 
 ---
+
+## Scale-out rate
+
+In the [Flex Consumption plan](flex-consumption-plan.md), the platform also manages the *rate* at which it adds instances (the scale curve), separately from the [maximum instance count](#limit-scale-out). For how the scale curve works, throttling behavior, and best practices for high-rate scaling, see [Scale-out rate](flex-consumption-plan.md#scale-out-rate).
 
 ## Scale-in behaviors
 

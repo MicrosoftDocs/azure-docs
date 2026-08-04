@@ -14,7 +14,7 @@ ai-usage: ai-generated
 
 # Create or edit a policy with an external root CA (preview)
 
-This article explains how to create or edit a policy within your [Azure Device Registry](iot-hub-device-registry-overview.md) namespace to manage an issuing CA that is signed by an __external root CA__.
+This article explains how to create or edit a policy within your [Azure Device Registry](../iot-hub/iot-hub-device-registry-overview.md) namespace to manage an issuing CA that an __external root CA__ signs.
 
 Use this workflow if your organization maintains a private Public Key Infrastructure (PKI) and requires all IoT devices to chain up to a common trusted root.  When a device requests a certificate via Device Registry, the platform returns a full __certificate chain__ consisting of:
 
@@ -22,14 +22,14 @@ Use this workflow if your organization maintains a private Public Key Infrastruc
 
 - __The Microsoft issuing CA (ICA):__ The CA managed by Device Registry that signs the device request.
 
-- __The external root CA:__ Your organization’s trusted root, which has signed the Microsoft ICA.
+- __The external root CA:__ Your organization's trusted root, which signs the Microsoft ICA.
 
 Any service that trusts your corporate root CA automatically trusts the certificates issued to your IoT devices by Azure.
 
 > [!TIP]
 > If you do not possess an external root CA but would like to test this flow, see the additional instructions below to get started with a self-signed root CA and private key using OpenSSL.
 
-[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
+[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
 
 In Device Registry certificate management, a credential is the namespace-level root CA resource, and a policy is the issuing CA policy that signs device certificates.
 
@@ -38,7 +38,7 @@ In Device Registry certificate management, a credential is the namespace-level r
 Before you begin, make sure you have the required setup and permissions so you can create, activate, and edit an external CA policy without deployment delays.
 
 - An active Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?cid=msft_learn).
-- An existing Device Registry namespace. For setup steps, see [Deploy Azure IoT Hub with ADR integration](iot-hub-device-registry-setup.md).
+- An existing Device Registry namespace. For setup steps, see [Deploy Azure IoT Hub with ADR integration](../iot-hub/iot-hub-device-registry-setup.md).
 - A configured credential in the Device Registry namespace. For setup steps, see [Configure a credential in Azure Device Registry](how-to-configure-credential.md).
 - Permissions to manage policies in the Device Registry namespace, such as the [Azure Device Registry Credentials Contributor](../role-based-access-control/built-in-roles/internet-of-things.md#azure-device-registry-credentials-contributor) role.
 - CA signing authority: Access to an external PKI (or a managed CA) to perform a one-time signing operation. You will need to sign a Microsoft-generated CSR using your root CA's private key to create the Intermediate CA (ICA) certificate.
@@ -96,7 +96,7 @@ Create a policy that uses your external CA, and then activate it after you uploa
    
 1. Sign the CSR by using your external CA and prepare the signed chain file. The signed certificate's subject must exactly match the subject of the original CSR.
 
-    If you do not possess an external root CA, you can use this resource to create one, see [Create a self-signed root CA and private key using OpenSSL and PowerShell](reference-self-sign-script.md).
+    If you don't have an external root CA, you can use this resource to create one: [Create a self-signed root CA and private key using OpenSSL and PowerShell](../iot-hub/reference-self-sign-script.md).
 1. In the policy details, upload the signed certificate chain.
 
 1. Activate the policy.
@@ -217,7 +217,7 @@ az iot adr ns credential sync \
 
 ## Related content
 
-- [Deploy Azure IoT Hub with ADR integration](iot-hub-device-registry-setup.md)
+- [Deploy Azure IoT Hub with ADR integration](../iot-hub/iot-hub-device-registry-setup.md)
 - [Configure a credential in Azure Device Registry](how-to-configure-credential.md)
 - [Revoke certificates and delete policies in Azure Device Registry](how-to-revoke-certificate-delete-policy.md)
-- [Key concepts for certificate management (preview)](iot-hub-certificate-management-concepts.md)
+- [Key concepts for certificate management (preview)](iot-certificate-management-concepts.md)

@@ -13,6 +13,8 @@ ms.custom: fasttrack-edit
 
 # Zero-downtime deployment for Durable Functions
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 The [reliable execution model](../common/durable-task-orchestrations.md) of Durable Functions requires that orchestrations be deterministic, which creates a challenge when you deploy updates. When a deployment contains [breaking changes](durable-functions-versioning.md) — such as modified activity function signatures or altered orchestrator logic — in-flight orchestration instances fail. This situation is especially a problem for long-running orchestrations, which might represent hours or days of work.
 
 > [!NOTE]

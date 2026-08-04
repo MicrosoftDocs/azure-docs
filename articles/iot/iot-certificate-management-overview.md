@@ -7,7 +7,7 @@ ms.author: sethm
 ms.service: azure-iot-hub
 services: iot-hub
 ms.topic: overview
-ms.date: 04/15/2026
+ms.date: 08/03/2026
 ai-usage: ai-assisted
 #Customer intent: As a developer new to IoT, I want to understand what certificate management is and how it can help me manage my IoT device certificates.
 ---
@@ -16,9 +16,9 @@ ai-usage: ai-assisted
 
 __Certificate management__ is an optional feature of __Azure Device Registry (ADR)__ that simplifies the issuance and lifecycle management of X.509 certificates for IoT devices. This feature configures a unique, cloud Public Key Infrastructure (PKI) for each ADR namespace, eliminating the need for on-prem servers, complex connectors, or dedicated hardware. By automating certificate issuance and renewal, ADR ensures that provisioned devices maintain a secure, seamless connection when authenticating with __Azure IoT Hub__.
 
-To use certificate management, you must use IoT Hub, [Azure Device Registry (ADR)](iot-hub-device-registry-setup.md), and [Device Provisioning Service (DPS)](../iot-dps/index.yml). Certificate management is currently in public preview.
+To use certificate management, you must use [IoT Hub](../iot-hub/iot-hub-what-is-new.md), [Azure Device Registry (ADR)](../iot-hub/iot-hub-device-registry-setup.md), and [Device Provisioning Service (DPS)](../iot-dps/index.yml). Certificate management is currently in public preview.
 
-[!INCLUDE [iot-hub-public-preview-banner](includes/public-preview-banner.md)]
+[!INCLUDE [iot-hub-public-preview-banner](../iot-hub/includes/public-preview-banner.md)]
 
 ## Overview of features
 
@@ -34,7 +34,7 @@ The following features are supported with certificate management for IoT Hub dev
 | HSM keys (signing and encryption) | Keys are provisioned by using [Azure Key Vault Managed Hardware Security Module (Azure Managed HSM)](/azure/key-vault/managed-hsm/overview). CAs created within your ADR namespace automatically use HSM signing and encryption keys. No Azure subscription is required for Azure HSM. |
 |Device certificate issuance and renewal | Device certificates, also known as leaf certificates, are signed by the issuing CA and delivered to the device via device APIs. Leaf certificates can also be renewed by the issuing CA. |
 | Device certificate revocation | Revoke individual device certificates to block device connections until a new certificate is issued to the device. Revoked certificates are added to the parent CA's Certificate Revocation List (CRL). |
-| Policy revocation |Revoke a policy to remove the associated CA certificate from IoT Hub and add the CA to the parent CA’s Certificate Revocation List (CRL). This will block all devices from connecting to IoT Hub with a certificate issued by that CA. Revocation is not supported for policies that are signed by an external CA.|
+| Policy revocation |Revoke a policy to remove the associated CA certificate from IoT Hub and add the CA to the parent CA's Certificate Revocation List (CRL). This action blocks all devices from connecting to IoT Hub with a certificate issued by that CA. Revocation isn't supported for policies that are signed by an external CA.|
 |Certificate Revocation List (CRL) distribution points|Azure hosts the CRL distribution point (CDP) for each CA. The CDP URL is embedded on each certificate. The CRL is updated with every certificate revocation.|
 |Authority Information Access (AIA) end points|Azure hosts the AIA endpoint for each Issuing CA. The AIA URL is embedded on each certificate. The AIA endpoint can be used by relying parties to retrieve parent certificates.|
 | Sync CA certificates with IoT Hubs | Sync the CA certificate managed by your policy to the IoT Hubs linked to your namespace. This allows IoT Hub to trust device certificates that have been signed by one of your issuing CAs.|
@@ -89,12 +89,12 @@ For the latest information about limits and quotas for certificate management wi
 
 ## Related content
 
-- [Deploy Azure IoT Hub with ADR integration and certificate management](iot-hub-device-registry-setup.md)
-- [FAQ: What is new in Azure IoT Hub?](iot-hub-faq.md)
+- [Deploy Azure IoT Hub with ADR integration and certificate management](../iot-hub/iot-hub-device-registry-setup.md)
+- [FAQ: What is new in Azure IoT Hub?](../iot-hub/iot-hub-faq.md)
 - [Certificate issuance in Azure IoT Hub certificate management](concept-certificate-issuance.md)
 - [Certificate renewal in Azure IoT Hub certificate management](concept-certificate-renewal.md)
 - [Certificate revocation and policy management concepts (preview)](concepts-certificate-policy-management.md)
 - [Revoke certificates and delete policies (preview)](how-to-revoke-certificate-delete-policy.md)
-- [Disable or enable a device (preview)](how-to-disable-enable-device.md)
-- [Key concepts for certificate management](iot-hub-certificate-management-concepts.md)
-- [Integration with Azure Device Registry](iot-hub-device-registry-overview.md)
+- [Disable or enable a device (preview)](../iot-hub/how-to-disable-enable-device.md)
+- [Key concepts for certificate management](iot-certificate-management-concepts.md)
+- [Integration with Azure Device Registry](../iot-hub/iot-hub-device-registry-overview.md)

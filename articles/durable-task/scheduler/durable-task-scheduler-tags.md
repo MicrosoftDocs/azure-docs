@@ -12,6 +12,8 @@ ms.date: 07/24/2026
 
 # Add Tags to Orchestrations and Activities in Durable Task Scheduler
 
+[!INCLUDE [functions-in-process-model-retirement-note](../includes/functions-in-process-model-retirement-note.md)]
+
 Tags are key-value pairs that you can attach to orchestrations, activities, and sub-orchestrations to add custom metadata. Use tags to categorize and correlate work as it runs. You can also use orchestration tags to query orchestration instances.
 
 You can add tags to:

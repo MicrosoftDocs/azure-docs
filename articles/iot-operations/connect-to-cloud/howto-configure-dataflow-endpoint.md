@@ -28,7 +28,7 @@ Use the following table to choose the endpoint type to configure:
 | [Local storage](howto-configure-local-storage-endpoint.md) | For sending data to a locally available persistent volume, optionally configurable with Azure Container Storage enabled by Azure Arc. | No | Yes | Not supported |
 
 > [!IMPORTANT]
-> **Data flow graphs limitation**: [Data flow graphs (WASM)](howto-dataflow-graph-wasm.md) currently only support MQTT, Kafka, and OpenTelemetry endpoints. OpenTelemetry endpoints can only be used as destinations in data flow graphs. Other endpoint types are not supported for data flow graphs. For more information, see [Known issues](../troubleshoot/known-issues.md#data-flow-graphs-only-support-specific-endpoint-types).
+> **Data flow graphs limitation**: [Data flow graphs (WASM)](howto-dataflow-graph-wasm.md) currently only support MQTT, Kafka, and OpenTelemetry endpoints. OpenTelemetry endpoints can only be used as destinations in data flow graphs. Other endpoint types aren't supported for data flow graphs.
 
 > [!IMPORTANT]
 > Storage endpoints require a [schema for serialization](./concept-schema-registry.md). To use data flow with Microsoft Fabric OneLake, Azure Data Lake Storage, Azure Data Explorer, or Local Storage, you must [specify a schema reference](./howto-configure-dataflow-destination.md#serialize-the-output-with-a-schema).
