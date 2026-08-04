@@ -5,7 +5,7 @@ services: load-balancer
 author: mbender-ms
 ms.service: azure-load-balancer
 ms.topic: concept-article
-ms.date: 07/17/2026
+ms.date: 08/04/2026
 ms.author: mbender
 ms.reviewer: mbender
 ms.custom: sfi-image-nochange
@@ -32,7 +32,7 @@ The nature of the IP address determines the **type** of load balancer created. P
 | **SKUs supported** | Standard | Standard |
 
 > [!IMPORTANT]
-> On September 30, 2025, Basic Load Balancer was retired. If you're currently using Basic Load Balancer, upgrade to Standard Load Balancer as soon as possible. For upgrade guidance, see [Upgrading from Basic Load Balancer - Guidance](load-balancer-basic-upgrade-guidance.md).
+> On September 30, 2025, Basic Load Balancer was retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you're currently using Basic Load Balancer, upgrade to Standard Load Balancer as soon as possible. For upgrade guidance, see [Upgrading from Basic Load Balancer - Guidance](load-balancer-basic-upgrade-guidance.md).
 
 :::image type="content" source="media/load-balancer-overview/load-balancer.png" alt-text="Screenshot of load balancer architecture diagram showing traffic distribution between frontend and backend components.":::
 
@@ -56,11 +56,11 @@ You can define the unhealthy threshold for your health probes. When a probe fail
 - Idle timeout occurs
 - The VM shuts down
 
-Existing UDP flows move to another healthy instance in the backend pool.
+If a single instance is unhealthy, existing UDP flows move to another healthy instance in the backend pool. If all instances are unhealthy, all existing UDP flows terminate.
 
 Load balancer provides different health probe types for endpoints: TCP, HTTP, and HTTPS. [Learn more about Load Balancer Health probes](load-balancer-custom-probe-overview.md).
 
-Basic Load Balancer doesn't support HTTPS probes. When a single instance's probe is down, established TCP connections to that instance continue. When all instances' probes are down, Basic Load Balancer terminates all existing TCP flows to the backend pool.
+Basic Load Balancer (retired) doesn't support HTTPS probes. When a single instance's probe is down, established TCP connections to that instance continue. When all instances' probes are down, Basic Load Balancer terminates all existing TCP flows to the backend pool.
 
 ## Load Balancer rules
 
@@ -74,7 +74,7 @@ For example, use a load balancer rule for port 80 to route traffic from your fro
 
 ## High Availability Ports
 
-A load balancer rule configured with **'protocol - all and port - 0'** is known as a High Availability (HA) port rule. This rule enables a single rule to load-balance all TCP and UDP flows that arrive on all ports of an internal Standard Load Balancer. 
+A load balancer rule configured with **'protocol - all and port - 0'** is known as a High Availability (HA) port rule. This rule enables a single rule to load-balance all TCP and UDP flows that arrive on all ports of an internal Standard Load Balancer. ICMP traffic is also supported when HA ports are enabled. 
 
 The load-balancing decision is made per flow. This action is based on the following five-tuple connection: 
 
@@ -88,7 +88,7 @@ The HA ports load-balancing rules help you with critical scenarios, such as high
 
 HA Ports are commonly used for Network Virtual Appliances (NVAs) such as firewalls, VPNs, or SD-WAN devices, where defining individual load-balancing rules per port is not practical. Traffic is distributed per connection flow (5-tuple), and health probes are used to ensure traffic is sent only to healthy instances.
 
-Please note that HA Ports are not supported on Basic or Public Load Balancers and are not intended for typical web or application workloads that require port-specific rules.
+HA Ports are not supported on Basic Load Balancer (retired) or public load balancers, and are not intended for typical web or application workloads that require port-specific rules.
 
 :::image type="content" source="media/load-balancer-components/harules.png" alt-text="Screenshot of Azure Load Balancer HA ports configuration diagram showing frontend ports directing to backend instances.":::
 
@@ -110,7 +110,7 @@ An outbound rule configures outbound Network Address Translation (NAT) for all v
 
 Learn more about [outbound connections and rules](load-balancer-outbound-connections.md).
 
-Basic load balancer doesn't support outbound rules.
+Basic Load Balancer (retired) doesn't support outbound rules.
 
 :::image type="content" source="./media/load-balancer-components/outbound-rules.png" alt-text="Screenshot of outbound rule configuration diagram showing NAT translation for backend pool instances." border="false":::
 
