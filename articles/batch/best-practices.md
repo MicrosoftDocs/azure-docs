@@ -45,6 +45,12 @@ derived or aligned with. An image without a specified `batchSupportEndOfLife` da
 determined yet by the Batch service. Absence of a date doesn't indicate that the respective image will be supported
 indefinitely. An EOL date may be added or updated in the future at any time.
 
+- **Image verification status:** An image's `verificationType` reflects current Batch validation test coverage and can change
+over time. An image that is `verified` today may be reported as `unverified` later, for example when it's removed from the
+Batch validation test suite or as it reaches its Batch support end of life (EOL) date. A `verified` designation doesn't
+indicate that the image remains verified indefinitely. Verification status may be updated at any time, so periodically
+refresh your view of the `verificationType` values pertinent to your pools.
+
 - **VM SKUs with impending end-of-life (EOL) dates:** As with VM images, VM SKUs or families may also reach Batch support
 end of life (EOL). These dates can be discovered via the
 [`ListSupportedVirtualMachineSkus` API](/rest/api/batchmanagement/location/list-supported-virtual-machine-skus),
