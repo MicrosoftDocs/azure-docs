@@ -308,7 +308,7 @@ If you delete an App Service certificate, the delete operation is irreversible a
 
 ## Monitor activity for your App Service certificate
 
-Control-plane operations on your App Service certificate are recorded automatically in the [Azure activity log](/azure/azure-monitor/platform/activity-log), including the operation name and status, the affected resource, the identity that initiated it, and the date and time. To retain these logs longer, analyze them, or set up notifications, [export the activity log](/azure/azure-monitor/platform/activity-log#export-activity-log) to a Log Analytics workspace, storage account, or event hub, or create [activity log alerts](/azure/azure-monitor/alerts/alerts-types#activity-log-alerts).
+The [Azure activity log](/azure/azure-monitor/platform/activity-log) automatically records control-plane operations on your App Service certificate. The log includes the operation name and status, the affected resource, the identity that initiated the operation, and the date and time. To retain these logs longer, analyze them, or set up notifications, [export the activity log](/azure/azure-monitor/platform/activity-log#export-activity-log) to a Log Analytics workspace, storage account, or event hub. You can also create [activity log alerts](/azure/azure-monitor/alerts/alerts-types#activity-log-alerts).
 
 ## Frequently asked questions
 
