@@ -272,3 +272,5 @@ items:
     items:
     - name: REST API
       href: /rest/api/discovery/
+    - name: Python SDKs
+      href: reference-python-sdks.md

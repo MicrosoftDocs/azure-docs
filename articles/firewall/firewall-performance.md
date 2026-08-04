@@ -36,6 +36,9 @@ Before you deploy Azure Firewall, test and evaluate the performance to ensure it
 
 The following performance results demonstrate the maximum Azure Firewall throughput in various use cases. You measure all use cases while Threat intelligence mode is set to alert or deny. The Azure Firewall Premium performance boost feature is enabled by default on all Azure Firewall premium deployments. This feature includes enabling Accelerated Networking on the underlying firewall virtual machines.
 
+> [!NOTE]
+> The performance figures shown in this article apply to a maximum autoscale instance count of 20. When prescaling is enabled, Azure Firewall can scale to a maximum of 50 instances. Performance values for a 50-instance deployment differ from those shown here.
+
 
 | Firewall type and use case | TCP/UDP bandwidth (Gbps) | HTTP/S bandwidth (Gbps) |
 |---------|---------|---------|
@@ -44,7 +47,7 @@ The following performance results demonstrate the maximum Azure Firewall through
 | Premium SKU with both TLS disabled and IDPS disabled | 100 | 100 |
 | Premium SKU with TLS inspection enabled and IDPS disabled | - | 100 |
 | Premium SKU with TLS enabled and IDPS enabled in Alert only mode | 100 | 100 |
-| Premium SKU with TLS enabled and IDPS enabled in Deny mode | 22 | 22 |
+| Premium SKU with TLS enabled and IDPS enabled in Deny mode | up to 22 | up to 22 |
 
 ### Throughput for single connections
 
