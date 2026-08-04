@@ -20,7 +20,7 @@ This page documents Azure's new capability offering built-in CIS Benchmarks to y
 
 The content of the benchmarks we support is in parity with what has been published at the CIS website and you can find the benchmark contents under the following [link](https://www.cisecurity.org/cis-benchmarks). 
 
-The azure-osconfig engine has satisfied the requirements of [CIS Certification and is awarded CIS Benchmark Assessment Certified](https://www.cisecurity.org/partner/microsoft) for the benchmarks listed below.
+kompli engine has satisfied the requirements of [CIS Certification and is awarded CIS Benchmark Assessment Certified](https://www.cisecurity.org/partner/microsoft) for the benchmarks listed below.
 
 ## Using CIS Benchmarks in Azure
 
@@ -34,7 +34,7 @@ To get started, navigate to Azure Policy in the Azure portal and you will find a
 
 The built-in Policy name associated with this capability is: ***[Preview]: Official CIS Security Benchmarks for Linux Workloads***
 
-All of the supported Benchmarks are powered by **[azure-osconfig's](https://github.com/Azure/azure-osconfig/)** new compliance engine.
+All of the supported Benchmarks are powered by **[kompli](https://github.com/microsoft/kompli)** Microsoft's new open-source and Linux native compliance engine.
 
 ## Supported Benchmarks and Versions
 
@@ -85,7 +85,7 @@ The existing parameters we have enabled and some deviations if there are any com
 
 Please use one of the following ways to let us know the rule, CIS Benchmark version, distribution and/or version for which you want parameters enabled for customization and couple of words about your use case.
 
-- [Create a GitHub issue under the azure-osconfig repository](https://github.com/Azure/azure-osconfig/issues)
+- [Create a GitHub issue under the kompli repository](https://github.com/microsoft/kompli/issues)
 - [Open an Azure support case](https://azure.microsoft.com/support/create-ticket)
 
 ### Examples
@@ -149,5 +149,5 @@ Follow this same method to apply changes to file permissions, groups, owners, et
 
 For questions or support regarding CIS Benchmarks for Linux in Azure Machine Configuration, please refer to this documentation or contact Azure support.
 
-For questions, suggestions or any feedback on the rules, evaluations, distro coverage, feature requests - you can also use the Azure Support - or open a [GitHub issue under azure-osconfig repository](https://github.com/Azure/azure-osconfig/issues).
+For questions, suggestions or any feedback on the rules, evaluations, distro coverage, feature requests - you can also use the Azure Support - or open a [GitHub issue under kompli repository](https://github.com/microsoft/kompli/issues).
 
